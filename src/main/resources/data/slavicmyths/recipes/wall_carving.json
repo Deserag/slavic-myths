@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W",
+    "F"
+  ],
+  "key": {
+    "W": {
+      "item": "slavicmyths:carved_oak_block"
+    },
+    "F": {
+      "item": "slavicmyths:idol_fragment"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:wall_carving",
+    "count": 1
+  }
+}

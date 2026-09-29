@@ -1,37 +1,71 @@
 {
   "textures": {
     "stone": "slavicmyths:block/altar",
+    "rim": "slavicmyths:block/altar_rim",
+    "top": "slavicmyths:block/altar_top",
     "particle": "slavicmyths:block/altar"
   },
   "elements": [
     {
       "from": [
-        3,
+        2,
         0,
-        3
+        2
       ],
       "to": [
-        13,
-        9,
-        13
+        14,
+        3,
+        14
       ],
       "faces": {
-        "up": {
-          "texture": "#stone"
-        },
-        "down": {
-          "texture": "#stone"
-        },
         "north": {
           "texture": "#stone"
         },
         "south": {
           "texture": "#stone"
         },
+        "east": {
+          "texture": "#stone"
+        },
         "west": {
           "texture": "#stone"
         },
+        "up": {
+          "texture": "#rim"
+        },
+        "down": {
+          "texture": "#stone"
+        }
+      }
+    },
+    {
+      "from": [
+        4,
+        3,
+        4
+      ],
+      "to": [
+        12,
+        10,
+        12
+      ],
+      "faces": {
+        "north": {
+          "texture": "#stone"
+        },
+        "south": {
+          "texture": "#stone"
+        },
         "east": {
+          "texture": "#stone"
+        },
+        "west": {
+          "texture": "#stone"
+        },
+        "up": {
+          "texture": "#stone"
+        },
+        "down": {
           "texture": "#stone"
         }
       }
@@ -39,7 +73,7 @@
     {
       "from": [
         1,
-        9,
+        10,
         1
       ],
       "to": [
@@ -48,23 +82,23 @@
         15
       ],
       "faces": {
-        "up": {
-          "texture": "#stone"
-        },
-        "down": {
-          "texture": "#stone"
-        },
         "north": {
-          "texture": "#stone"
+          "texture": "#rim"
         },
         "south": {
-          "texture": "#stone"
-        },
-        "west": {
-          "texture": "#stone"
+          "texture": "#rim"
         },
         "east": {
-          "texture": "#stone"
+          "texture": "#rim"
+        },
+        "west": {
+          "texture": "#rim"
+        },
+        "up": {
+          "texture": "#top"
+        },
+        "down": {
+          "texture": "#rim"
         }
       }
     }

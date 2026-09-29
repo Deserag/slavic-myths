@@ -17,24 +17,31 @@ import org.slavicmyths.registry.ModTiles;
 /** Non-ticking, shared altar. Ingredients are committed as each step is accepted. */
 public final class AltarTileEntity extends TileEntity {
     private int step;
+    private int rite;
     public AltarTileEntity() { super(ModTiles.ALTAR.get()); }
     public int getStep() { return step; }
     public void offer(PlayerEntity player, Hand hand) {
         if (!(level instanceof ServerWorld)) return;
         Knowledge.award(player, "altar");
         ItemStack held = player.getItemInHand(hand);
-        if (held.getItem() != FirstRitual.ingredient(step)) {
-            player.displayClientMessage(new TranslationTextComponent("ritual.slavicmyths.next", new ItemStack(FirstRitual.ingredient(step)).getHoverName()), true);
+        if (step == 0) {
+            rite = Rituals.FIRST;
+            for (int candidate = 1; candidate < Rituals.COUNT; candidate++) {
+                if (held.getItem() == Rituals.ingredient(candidate, 0)) { rite = candidate; break; }
+            }
+        }
+        if (held.getItem() != Rituals.ingredient(rite, step)) {
+            player.displayClientMessage(new TranslationTextComponent("ritual.slavicmyths.next", new ItemStack(Rituals.ingredient(rite, step)).getHoverName()), true);
             return;
         }
         if (!player.abilities.instabuild) held.shrink(1);
         step++;
-        boolean complete = step == FirstRitual.STEPS;
+        boolean complete = step == Rituals.length(rite);
         if (complete) {
             step = 0;
-            ItemStack result = FirstRitual.result();
+            ItemStack result = Rituals.result(rite);
             if (!player.inventory.add(result)) player.drop(result, false);
-            Knowledge.award(player, "first_ritual");
+            if (rite == Rituals.FIRST) Knowledge.award(player, "first_ritual");
         }
         setChanged();
         level.playSound(null, worldPosition, complete ? SoundEvents.ENCHANTMENT_TABLE_USE : SoundEvents.EXPERIENCE_ORB_PICKUP,
@@ -42,11 +49,13 @@ public final class AltarTileEntity extends TileEntity {
         ((ServerWorld) level).sendParticles(complete ? ParticleTypes.ENCHANT : ParticleTypes.HAPPY_VILLAGER,
                 worldPosition.getX() + 0.5, worldPosition.getY() + 1, worldPosition.getZ() + 0.5,
                 complete ? 20 : 5, 0.3, 0.2, 0.3, 0.02);
-        player.displayClientMessage(complete ? new TranslationTextComponent("ritual.slavicmyths.complete") :
-                new TranslationTextComponent("ritual.slavicmyths.accepted", new ItemStack(FirstRitual.ingredient(step)).getHoverName()), true);
+        player.displayClientMessage(complete ? new TranslationTextComponent("ritual.slavicmyths.complete_item", Rituals.result(rite).getHoverName()) :
+                new TranslationTextComponent("ritual.slavicmyths.accepted", new ItemStack(Rituals.ingredient(rite, step)).getHoverName()), true);
     }
-    @Override public CompoundNBT save(CompoundNBT tag) { super.save(tag); tag.putInt("RitualStep", step); return tag; }
+    @Override public CompoundNBT save(CompoundNBT tag) { super.save(tag); tag.putInt("RitualStep", step); tag.putInt("RitualKind", rite); return tag; }
     @Override public void load(BlockState state, CompoundNBT tag) {
-        super.load(state, tag); step = Math.max(0, Math.min(FirstRitual.STEPS - 1, tag.getInt("RitualStep")));
+        super.load(state, tag);
+        rite = Math.max(0, Math.min(Rituals.COUNT - 1, tag.getInt("RitualKind")));
+        step = Math.max(0, Math.min(Rituals.length(rite) - 1, tag.getInt("RitualStep")));
     }
 }

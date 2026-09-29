@@ -1,0 +1,30 @@
+{
+  "parent": "slavicmyths:first_ritual",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:thunder_axe"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.thunder_axe.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.thunder_axe.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "slavicmyths:thunder_axe"
+          }
+        ]
+      }
+    }
+  }
+}

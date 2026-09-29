@@ -1,0 +1,106 @@
+{
+  "textures": {
+    "holder": "slavicmyths:block/ritual_candle",
+    "wax": "slavicmyths:block/candle_wax",
+    "flame": "slavicmyths:block/candle_flame",
+    "particle": "slavicmyths:block/ritual_candle"
+  },
+  "elements": [
+    {
+      "from": [
+        5,
+        0,
+        5
+      ],
+      "to": [
+        11,
+        2,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#holder"
+        },
+        "south": {
+          "texture": "#holder"
+        },
+        "east": {
+          "texture": "#holder"
+        },
+        "west": {
+          "texture": "#holder"
+        },
+        "up": {
+          "texture": "#holder"
+        },
+        "down": {
+          "texture": "#holder"
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        2,
+        6
+      ],
+      "to": [
+        10,
+        11,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wax"
+        },
+        "south": {
+          "texture": "#wax"
+        },
+        "east": {
+          "texture": "#wax"
+        },
+        "west": {
+          "texture": "#wax"
+        },
+        "up": {
+          "texture": "#wax"
+        },
+        "down": {
+          "texture": "#wax"
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        11,
+        7
+      ],
+      "to": [
+        9,
+        14,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#flame"
+        },
+        "south": {
+          "texture": "#flame"
+        },
+        "east": {
+          "texture": "#flame"
+        },
+        "west": {
+          "texture": "#flame"
+        },
+        "up": {
+          "texture": "#flame"
+        },
+        "down": {
+          "texture": "#flame"
+        }
+      }
+    }
+  ]
+}

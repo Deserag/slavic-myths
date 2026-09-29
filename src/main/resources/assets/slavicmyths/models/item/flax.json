@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "slavicmyths:block/flax"
+    "layer0": "slavicmyths:item/flax"
   }
 }

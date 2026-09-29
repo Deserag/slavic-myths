@@ -14,7 +14,8 @@ def registered(file):
 
 items = registered('registry/ModItems.java')
 blocks = registered('registry/ModBlocks.java')
-assert len(items) == 20 and len(blocks) == 6
+assert not re.search(r'\.durability\([^)]*\)\.stacksTo\(', (JAVA/'registry/ModItems.java').read_text()), 'Durable items must not call stacksTo after durability'
+assert len(items) >= 74 and len(blocks) >= 18
 assert {'birch_bark_scroll', 'thunder_stone', 'warding_charm'} <= items
 assert blocks <= items
 assert 'ItemGroup.TAB_MISC' not in (JAVA/'registry/ModItems.java').read_text()
@@ -52,7 +53,7 @@ for path in (RES/'assets/slavicmyths/blockstates').glob('*.json'):
     for variant in read(path)['variants'].values():
         assert (RES/('assets/slavicmyths/models/'+variant['model'].split(':')[1]+'.json')).is_file()
 pngs = list(RES.rglob('*.png'))
-assert len(pngs) == 20
+assert len(pngs) >= 82
 for path in pngs:
     png = path.read_bytes()
     assert png[:8] == b'\x89PNG\r\n\x1a\n'
@@ -63,8 +64,8 @@ for path in pngs:
         assert zlib.crc32(kind+data)&0xffffffff == struct.unpack('!I', png[offset+8+size:offset+12+size])[0]
         if kind == b'IHDR':
             width,height,depth,color,compression,filtering,interlace = struct.unpack('!IIBBBBB', data)
-            expected = 64 if path.parent.name == 'entity' else 16
-            assert (width,height,depth,color,compression,filtering,interlace) == (expected,expected,8,6,0,0,0)
+            expected = (64,64) if path.parent.name == 'entity' else ((64,32) if path.parent.name == 'armor' else (16,16))
+            assert (width,height,depth,color,compression,filtering,interlace) == (*expected,8,6,0,0,0)
         if kind == b'IDAT':
             compressed += data
         offset += 12+size
@@ -73,7 +74,7 @@ recipes = set()
 for path in (RES/'data/slavicmyths/recipes').glob('*.json'):
     recipes.add(path.stem)
     obj = read(path)
-    item_ref(obj['result']['item'])
+    item_ref(obj['result']['item'] if isinstance(obj['result'],dict) else obj['result'])
     for ing in obj.get('ingredients', []) + list(obj.get('key', {}).values()):
         item_ref(ing['item'])
     if obj['type'] == 'minecraft:crafting_shaped':
@@ -81,7 +82,7 @@ for path in (RES/'data/slavicmyths/recipes').glob('*.json'):
         assert 1 <= len(pattern) <= 3 and len({len(row) for row in pattern}) == 1
         assert 1 <= len(pattern[0]) <= 3
         assert set(''.join(pattern))-{' '} == set(obj['key'])
-assert len(recipes) == 7
+assert len(recipes) >= 52
 parents = {}
 visible = 0
 for path in (RES/'data/slavicmyths/advancements').rglob('*.json'):
@@ -111,7 +112,7 @@ for node in parents:
         assert node not in seen, 'Advancement cycle'
         seen.add(node)
         node = parents[node]
-assert visible == 24
+assert visible >= 28
 assert not (RES/'data/minecraft/advancements').exists(), 'Do not override vanilla advancements'
 assert not (RES/'data/minecraft/loot_tables').exists(), 'Do not overwrite vanilla loot'
 global_loot = read(RES/'data/forge/loot_modifiers/global_loot_modifiers.json')

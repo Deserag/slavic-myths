@@ -20,6 +20,11 @@ public final class ClientSetup {
         event.enqueueWork(() -> {
             RenderTypeLookup.setRenderLayer(ModBlocks.FLAX.get(), RenderType.cutout());
             RenderTypeLookup.setRenderLayer(ModBlocks.WORMWOOD.get(), RenderType.cutout());
+            RenderTypeLookup.setRenderLayer(ModBlocks.ST_JOHNS_WORT.get(), RenderType.cutout());
+            RenderTypeLookup.setRenderLayer(ModBlocks.NETTLE.get(), RenderType.cutout());
+            RenderTypeLookup.setRenderLayer(ModBlocks.FIREWEED.get(), RenderType.cutout());
+            RenderTypeLookup.setRenderLayer(ModBlocks.JUNIPER_BERRIES.get(), RenderType.cutout());
+            RenderTypeLookup.setRenderLayer(ModBlocks.RITUAL_CANDLE.get(), RenderType.cutout());
         });
     }
 

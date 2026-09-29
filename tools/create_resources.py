@@ -28,4 +28,10 @@ from generate_spirits import generate as generate_spirits
 generate_spirits(root)
 from generate_milestone import generate as generate_milestone
 generate_milestone(root)
-print('Created 0.4.0 resources, including spirits, shrine, rituals and lore.')
+from generate_041 import generate as generate_041
+generate_041(root)
+from generate_045 import generate as generate_045
+generate_045(root)
+from generate_046 import generate as generate_046
+generate_046(root)
+print('Created 0.4.6 resources.')

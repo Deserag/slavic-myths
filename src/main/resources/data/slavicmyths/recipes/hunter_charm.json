@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "LSL",
+    " B "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "L": {
+      "item": "slavicmyths:linen_thread"
+    },
+    "S": {
+      "item": "slavicmyths:silver_nugget"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:hunter_charm",
+    "count": 1
+  }
+}

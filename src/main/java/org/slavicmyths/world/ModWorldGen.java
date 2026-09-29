@@ -25,6 +25,8 @@ public final class ModWorldGen {
     private static ConfiguredFeature<?, ?> flax;
     private static ConfiguredFeature<?, ?> wormwood;
     private static ConfiguredFeature<?, ?> perunite;
+    private static ConfiguredFeature<?, ?> silver;
+    private static ConfiguredFeature<?, ?> stJohnsWort, nettle, fireweed, juniper;
     private static ConfiguredFeature<?, ?> shrine;
 
     public static void registerFeatures() {
@@ -36,6 +38,13 @@ public final class ModWorldGen {
         perunite = register("ore_perunite", Feature.ORE.configured(new OreFeatureConfig(
                 OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.PERUNITE_ORE.get().defaultBlockState(), 3))
                 .range(15).squared().chance(2));
+        silver = register("ore_silver", Feature.ORE.configured(new OreFeatureConfig(
+                OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.SILVER_ORE.get().defaultBlockState(), 5))
+                .range(48).squared().count(2));
+        stJohnsWort = register("patch_st_johns_wort", patch(ModBlocks.ST_JOHNS_WORT.get(), 12, 6));
+        nettle = register("patch_nettle", patch(ModBlocks.NETTLE.get(), 12, 5));
+        fireweed = register("patch_fireweed", patch(ModBlocks.FIREWEED.get(), 12, 5));
+        juniper = register("patch_juniper", patch(ModBlocks.JUNIPER_BERRIES.get(), 8, 8));
     }
 
     private static ConfiguredFeature<?, ?> patch(Block block, int tries, int rarity) {
@@ -59,6 +68,7 @@ public final class ModWorldGen {
             return;
         }
         event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).add(() -> perunite);
+        event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).add(() -> silver);
         if (event.getCategory() == Biome.Category.PLAINS || event.getCategory() == Biome.Category.FOREST) {
             event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> flax);
         }
@@ -66,6 +76,10 @@ public final class ModWorldGen {
                 || event.getCategory() == Biome.Category.TAIGA) {
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> shrine);
             event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> wormwood);
+            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> stJohnsWort);
+            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> nettle);
+            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> fireweed);
+            event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> juniper);
         }
     }
 

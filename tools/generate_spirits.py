@@ -106,7 +106,9 @@ def generate(root):
                 samples+=0.08*np.sin(2*np.pi*430*t)*np.exp(-np.maximum(0,t-when)*65)*(t>=when)
         samples=np.clip(samples,-0.8,0.8).astype('float32')
         path=res/f'assets/slavicmyths/sounds/{name}.ogg';path.parent.mkdir(parents=True,exist_ok=True)
-        sf.write(path,samples,rate,format='OGG',subtype='VORBIS')
+        # Vorbis writes a fresh stream serial on each encode. Preserve an existing
+        # validated recording so regeneration does not churn bytes or user audio edits.
+        if not path.exists(): sf.write(path,samples,rate,format='OGG',subtype='VORBIS')
         decoded,sr=sf.read(path)
         assert sr==rate and len(decoded)>0 and np.isfinite(decoded).all()
 

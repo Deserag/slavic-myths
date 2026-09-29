@@ -20,10 +20,32 @@ public final class ModBlocks {
             () -> new BushBlock(plantProperties()));
     public static final RegistryObject<Block> WORMWOOD = BLOCKS.register("wormwood",
             () -> new BushBlock(plantProperties()));
+    public static final RegistryObject<Block> ST_JOHNS_WORT = BLOCKS.register("st_johns_wort", () -> new BushBlock(plantProperties()));
+    public static final RegistryObject<Block> NETTLE = BLOCKS.register("nettle", () -> new BushBlock(plantProperties()));
+    public static final RegistryObject<Block> FIREWEED = BLOCKS.register("fireweed", () -> new BushBlock(plantProperties()));
+    public static final RegistryObject<Block> JUNIPER_BERRIES = BLOCKS.register("juniper_berries", () -> new BushBlock(plantProperties()));
     public static final RegistryObject<Block> PERUNITE_ORE = BLOCKS.register("perunite_ore",
             () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.0F, 3.0F)
                     .sound(SoundType.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(2)
                     .requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SILVER_ORE = BLOCKS.register("silver_ore",
+            () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.0F).sound(SoundType.STONE)
+                    .harvestTool(ToolType.PICKAXE).harvestLevel(2).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CARVED_OAK_PILLAR = BLOCKS.register("carved_oak_pillar",
+            () -> new Block(AbstractBlock.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD).harvestTool(ToolType.AXE)));
+    public static final RegistryObject<Block> CARVED_BIRCH_PLANKS = BLOCKS.register("carved_birch_planks",
+            () -> new Block(AbstractBlock.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD).harvestTool(ToolType.AXE)));
+    public static final RegistryObject<Block> CARVED_OAK_BLOCK = BLOCKS.register("carved_oak_block",
+            () -> new Block(AbstractBlock.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD).harvestTool(ToolType.AXE)));
+    public static final RegistryObject<Block> STRAW_BLOCK = BLOCKS.register("straw_block",
+            () -> new Block(AbstractBlock.Properties.of(Material.GRASS).strength(0.5F).sound(SoundType.GRASS)));
+    public static final RegistryObject<Block> AMBER_BLOCK = BLOCKS.register("amber_block",
+            () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(1.5F).sound(SoundType.GLASS)));
+    public static final RegistryObject<Block> RITUAL_CANDLE = BLOCKS.register("ritual_candle",
+            () -> new Block(AbstractBlock.Properties.of(Material.DECORATION).noOcclusion().noCollission().strength(0.2F)
+                    .sound(SoundType.WOOL).lightLevel(s -> 10)));
+    public static final RegistryObject<Block> WALL_CARVING = BLOCKS.register("wall_carving",
+            () -> new Block(AbstractBlock.Properties.of(Material.WOOD).strength(1.0F).sound(SoundType.WOOD).harvestTool(ToolType.AXE)));
 
     private static AbstractBlock.Properties plantProperties() {
         return AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS);
