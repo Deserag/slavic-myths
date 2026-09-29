@@ -32,5 +32,6 @@ public final class SlavicMyths {
     private void setup(FMLCommonSetupEvent event) {
         event.enqueueWork(ModWorldGen::registerFeatures);
         event.enqueueWork(SpiritSpawns::registerPlacements);
+        event.enqueueWork(org.slavicmyths.world.LandEncounters::placements);
     }
 }

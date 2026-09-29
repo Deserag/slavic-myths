@@ -65,6 +65,12 @@ for path in pngs:
         if kind == b'IHDR':
             width,height,depth,color,compression,filtering,interlace = struct.unpack('!IIBBBBB', data)
             expected = (64,64) if path.parent.name == 'entity' else ((64,32) if path.parent.name == 'armor' else (16,16))
+            if path.parent.name == 'entity' and path.stem not in ('domovoy','leshy'):
+                expected = (256,256)
+            if path.parent.name == 'item':
+                model_path = RES/f'assets/slavicmyths/models/item/{path.stem}.json'
+                if model_path.exists() and read(model_path).get('elements'):
+                    expected = (32,32)  # Native material atlas for physical weapon models.
             assert (width,height,depth,color,compression,filtering,interlace) == (*expected,8,6,0,0,0)
         if kind == b'IDAT':
             compressed += data
@@ -142,14 +148,14 @@ print(f'PASS: {len(items)} item registrations, {len(blocks)} block registrations
 print('Structural checks do not replace Minecraft gameplay tests.')
 
 entities = registered('registry/ModEntities.java')
-assert entities == {'domovoy','leshy'}
-for entity in entities:
-    assert (RES/f'assets/slavicmyths/textures/entity/{entity}.png').is_file()
+assert {'domovoy','leshy','kikimora','poludnitsa','polevik','bannik','igosha','ovinnik','hot_stone'} <= entities
+for entity in entities - {'hot_stone'}:
+    assert list((RES/'assets/slavicmyths/textures/entity').glob(entity+'*.png'))
     assert (RES/f'data/slavicmyths/loot_tables/entities/{entity}.json').is_file()
     renderer = (JAVA/f'client/{entity.capitalize()}Renderer.java').read_text()
-    assert f'textures/entity/{entity}.png' in renderer
+    assert 'textures/entity/' in renderer and entity in renderer
     model = (JAVA/f'client/{entity.capitalize()}Model.java').read_text()
-    assert 'texWidth = 64; texHeight = 64' in model
+    assert 'texWidth = 64; texHeight = 64' in model or 'texWidth=256;texHeight=256' in model
 for path in (RES/'data/slavicmyths/loot_tables/entities').glob('*.json'):
     assert read(path)['type'] == 'minecraft:entity'
 import sys
@@ -157,7 +163,7 @@ sys.path.insert(0,str(ROOT/'.tools/audio-libs'))
 import soundfile as sf
 import numpy as np
 sounds = read(RES/'assets/slavicmyths/sounds.json')
-assert len(sounds) == 7
+assert len(sounds) >= 37
 registered_sounds = set(re.findall(r'sound\("([a-z_]+)"', (JAVA/'registry/ModSounds.java').read_text()))
 assert set(sounds) == registered_sounds
 for name,event in sounds.items():
@@ -169,4 +175,4 @@ for name,event in sounds.items():
         data,rate = sf.read(path)
         assert info.format == 'OGG' and info.subtype == 'VORBIS' and info.channels == 1
         assert rate == 22050 and len(data)>0 and np.isfinite(data).all() and np.max(np.abs(data)) < 1.0
-print('PASS: both entities, model/renderer resources, seven decoded mono Vorbis sounds, subtitles, no vanilla advancement overrides or bundled JEI/test code.')
+print('PASS: entity/model/renderer resources, decoded mono Vorbis sounds, subtitles, no vanilla advancement overrides or bundled JEI/test code.')

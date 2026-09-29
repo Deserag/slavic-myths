@@ -52,11 +52,13 @@ public final class ModBlocks {
     }
 
     public static final RegistryObject<Block> HEARTH = BLOCKS.register("hearth", () -> new org.slavicmyths.block.HearthBlock(
-            AbstractBlock.Properties.of(Material.STONE).strength(2.5F).sound(SoundType.STONE).lightLevel(s -> 7)));
+            AbstractBlock.Properties.of(Material.STONE).strength(2.5F).sound(SoundType.STONE).lightLevel(s -> 7).noOcclusion()));
     public static final RegistryObject<Block> ANCIENT_IDOL = BLOCKS.register("ancient_idol", () -> new org.slavicmyths.block.IdolBlock(
-            AbstractBlock.Properties.of(Material.WOOD).strength(3.0F).sound(SoundType.WOOD).harvestTool(ToolType.AXE)));
+            AbstractBlock.Properties.of(Material.WOOD).strength(3.0F).sound(SoundType.WOOD).harvestTool(ToolType.AXE).noOcclusion()));
     public static final RegistryObject<Block> ALTAR = BLOCKS.register("altar", () -> new org.slavicmyths.block.AltarBlock(
             AbstractBlock.Properties.of(Material.STONE).strength(3.0F).sound(SoundType.STONE).harvestTool(ToolType.PICKAXE).noOcclusion()));
 
+    public static final RegistryObject<Block> BATH_STOVE = BLOCKS.register("bath_stove", () -> new org.slavicmyths.block.BathStoveBlock(AbstractBlock.Properties.of(Material.STONE).strength(3).sound(SoundType.STONE).noOcclusion().lightLevel(s -> 4)));
+    public static final RegistryObject<Block> WOODEN_TUB = BLOCKS.register("wooden_tub", () -> new Block(AbstractBlock.Properties.of(Material.WOOD).strength(2).sound(SoundType.WOOD).noOcclusion()));
     private ModBlocks() { }
 }

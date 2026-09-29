@@ -17,7 +17,21 @@ public final class ClientSetup {
     public static void setup(FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.DOMOVOY.get(), DomovoyRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.LESHY.get(), LeshyRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.KIKIMORA.get(), KikimoraRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.POLUDNITSA.get(), PoludnitsaRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.POLEVIK.get(), PolevikRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.BANNIK.get(), BannikRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.IGOSHA.get(), IgoshaRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.OVINNIK.get(), OvinnikRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.HOT_STONE.get(), manager -> new net.minecraft.client.renderer.entity.SpriteRenderer<>(manager, net.minecraft.client.Minecraft.getInstance().getItemRenderer()));
         event.enqueueWork(() -> {
+            for (net.minecraft.item.Item shield : new net.minecraft.item.Item[] {
+                    org.slavicmyths.registry.ModItems.RETAINER_SHIELD.get(),
+                    org.slavicmyths.registry.ModItems.PERUNITE_SHIELD.get() }) {
+                net.minecraft.item.ItemModelsProperties.register(shield, new net.minecraft.util.ResourceLocation("blocking"),
+                        (stack, world, entity) -> entity != null && entity.isUsingItem()
+                                && entity.getUseItem() == stack ? 1.0F : 0.0F);
+            }
             RenderTypeLookup.setRenderLayer(ModBlocks.FLAX.get(), RenderType.cutout());
             RenderTypeLookup.setRenderLayer(ModBlocks.WORMWOOD.get(), RenderType.cutout());
             RenderTypeLookup.setRenderLayer(ModBlocks.ST_JOHNS_WORT.get(), RenderType.cutout());

@@ -225,4 +225,7 @@ def generate(root):
         if layer==2: a.line(3,19,12,19,'S'); a.line(5,21,5,29,'A'); a.line(10,21,10,29,'A')
         (res/f'textures/models/armor/perunite_layer_{layer}.png').write_bytes(encode(a.rows()))
 
+    from polish_046 import finish
+    finish(res)
+
 if __name__=='__main__': generate(Path(__file__).resolve().parents[1])

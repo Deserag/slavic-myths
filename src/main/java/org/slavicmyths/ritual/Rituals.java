@@ -7,10 +7,23 @@ import org.slavicmyths.registry.ModItems;
 /** Three ordered rites. The first rite keeps its original sequence and output. */
 public final class Rituals {
     public static final int FIRST = 0, AXE = 1, CHARM = 2, STORM_STAFF = 3, AMBER_CHARM = 4, CHARCOAL = 5;
-    public static final int COUNT = 6;
-    public static int length(int rite) { return rite == AXE || rite == STORM_STAFF ? 4 : 3; }
+    public static final int THUNDER_SPEAR = 6, PERUNITE_MACE = 7;
+    public static final int EMBER_AXE = 8;
+    public static final int COUNT = 9;
+    public static int length(int rite) { return rite == AXE || rite == STORM_STAFF || rite == THUNDER_SPEAR || rite == PERUNITE_MACE ? 4 : 3; }
     public static Item ingredient(int rite, int step) {
         if (rite == FIRST) return FirstRitual.ingredient(step);
+        if (rite == EMBER_AXE) {
+            switch(step) { case 0: return ModItems.EMBER_HEART.get(); case 1: return ModItems.PERUNITE_AXE.get(); default: return ModItems.ANCIENT_SIGN.get(); }
+        }
+        if (rite == THUNDER_SPEAR || rite == PERUNITE_MACE) {
+            switch (step) {
+                case 0: return rite == THUNDER_SPEAR ? ModItems.SILVER_SPEAR.get() : ModItems.MACE.get();
+                case 1: return ModItems.PERUNITE.get();
+                case 2: return ModItems.THUNDER_STONE.get();
+                default: return ModItems.ANCIENT_SIGN.get();
+            }
+        }
         if (rite == AXE) {
             switch (step) {
                 case 0: return ModItems.PERUNITE_AXE.get();
@@ -49,6 +62,9 @@ public final class Rituals {
     }
     public static ItemStack result(int rite) {
         switch (rite) {
+            case EMBER_AXE: return new ItemStack(ModItems.THUNDER_AXE.get());
+            case THUNDER_SPEAR: return new ItemStack(ModItems.THUNDER_SPEAR.get());
+            case PERUNITE_MACE: return new ItemStack(ModItems.PERUNITE_MACE.get());
             case AXE: return new ItemStack(ModItems.THUNDER_AXE.get());
             case CHARM: return new ItemStack(ModItems.PERUN_CHARM.get());
             case STORM_STAFF: return new ItemStack(ModItems.STORM_STAFF.get());

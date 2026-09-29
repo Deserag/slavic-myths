@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " N ",
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "slavicmyths:silver_nugget"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:silver_fitting",
+    "count": 1
+  }
+}

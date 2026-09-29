@@ -28,8 +28,11 @@ public final class ModWorldGen {
     private static ConfiguredFeature<?, ?> silver;
     private static ConfiguredFeature<?, ?> stJohnsWort, nettle, fireweed, juniper;
     private static ConfiguredFeature<?, ?> shrine;
+    private static ConfiguredFeature<?, ?> bathhouse, oldBarn;
 
     public static void registerFeatures() {
+        bathhouse = register("bathhouse", org.slavicmyths.registry.ModFeatures.BATHHOUSE.get().configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(160));
+        oldBarn = register("old_barn", org.slavicmyths.registry.ModFeatures.OLD_BARN.get().configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(220));
         shrine = register("ancient_shrine", org.slavicmyths.registry.ModFeatures.SHRINE.get()
                 .configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(96));
         flax = register("patch_flax", patch(ModBlocks.FLAX.get(), 24, 3));
@@ -60,6 +63,12 @@ public final class ModWorldGen {
 
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void biomeLoading(BiomeLoadingEvent event) {
+        if(event.getName()!=null && event.getName().getNamespace().equals("minecraft")) {
+            if(event.getCategory()==Biome.Category.PLAINS || event.getCategory()==Biome.Category.TAIGA)
+                event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> bathhouse);
+            if(event.getCategory()==Biome.Category.PLAINS || event.getCategory()==Biome.Category.SAVANNA)
+                event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> oldBarn);
+        }
         ResourceLocation id = event.getName();
         // Deliberately limit v0.2 generation to vanilla Overworld biomes.
         if (id == null || !"minecraft".equals(id.getNamespace())

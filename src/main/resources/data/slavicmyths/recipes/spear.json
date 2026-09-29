@@ -1,13 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " F",
-    " S",
-    "S "
+    "  I",
+    " W ",
+    "S  "
   ],
   "key": {
-    "F": {
-      "item": "minecraft:flint"
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "W": {
+      "item": "slavicmyths:weapon_wrap"
     },
     "S": {
       "item": "minecraft:stick"

@@ -1,4 +1,5 @@
 {
+  "parent": "minecraft:block/block",
   "textures": {
     "stone": "slavicmyths:block/altar",
     "rim": "slavicmyths:block/altar_rim",
@@ -14,10 +15,16 @@
       ],
       "to": [
         14,
-        3,
+        2,
         14
       ],
       "faces": {
+        "up": {
+          "texture": "#stone"
+        },
+        "down": {
+          "texture": "#stone"
+        },
         "north": {
           "texture": "#stone"
         },
@@ -29,12 +36,38 @@
         },
         "west": {
           "texture": "#stone"
-        },
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        2,
+        3
+      ],
+      "to": [
+        13,
+        3,
+        13
+      ],
+      "faces": {
         "up": {
           "texture": "#rim"
         },
         "down": {
-          "texture": "#stone"
+          "texture": "#rim"
+        },
+        "north": {
+          "texture": "#rim"
+        },
+        "south": {
+          "texture": "#rim"
+        },
+        "east": {
+          "texture": "#rim"
+        },
+        "west": {
+          "texture": "#rim"
         }
       }
     },
@@ -46,10 +79,16 @@
       ],
       "to": [
         12,
-        10,
+        9,
         12
       ],
       "faces": {
+        "up": {
+          "texture": "#stone"
+        },
+        "down": {
+          "texture": "#stone"
+        },
         "north": {
           "texture": "#stone"
         },
@@ -61,12 +100,38 @@
         },
         "west": {
           "texture": "#stone"
-        },
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        9,
+        2
+      ],
+      "to": [
+        14,
+        10,
+        14
+      ],
+      "faces": {
         "up": {
-          "texture": "#stone"
+          "texture": "#rim"
         },
         "down": {
-          "texture": "#stone"
+          "texture": "#rim"
+        },
+        "north": {
+          "texture": "#rim"
+        },
+        "south": {
+          "texture": "#rim"
+        },
+        "east": {
+          "texture": "#rim"
+        },
+        "west": {
+          "texture": "#rim"
         }
       }
     },
@@ -82,6 +147,12 @@
         15
       ],
       "faces": {
+        "up": {
+          "texture": "#top"
+        },
+        "down": {
+          "texture": "#rim"
+        },
         "north": {
           "texture": "#rim"
         },
@@ -93,12 +164,70 @@
         },
         "west": {
           "texture": "#rim"
-        },
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        3,
+        3
+      ],
+      "to": [
+        5,
+        9,
+        5
+      ],
+      "faces": {
         "up": {
-          "texture": "#top"
+          "texture": "#stone"
         },
         "down": {
-          "texture": "#rim"
+          "texture": "#stone"
+        },
+        "north": {
+          "texture": "#stone"
+        },
+        "south": {
+          "texture": "#stone"
+        },
+        "east": {
+          "texture": "#stone"
+        },
+        "west": {
+          "texture": "#stone"
+        }
+      }
+    },
+    {
+      "from": [
+        11,
+        3,
+        11
+      ],
+      "to": [
+        13,
+        9,
+        13
+      ],
+      "faces": {
+        "up": {
+          "texture": "#stone"
+        },
+        "down": {
+          "texture": "#stone"
+        },
+        "north": {
+          "texture": "#stone"
+        },
+        "south": {
+          "texture": "#stone"
+        },
+        "east": {
+          "texture": "#stone"
+        },
+        "west": {
+          "texture": "#stone"
         }
       }
     }

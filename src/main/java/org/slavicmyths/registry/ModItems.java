@@ -101,8 +101,32 @@ public final class ModItems {
     public static final RegistryObject<Item> FOREST_CHARM = ITEMS.register("forest_charm", () -> new org.slavicmyths.item.SimpleCharmItem("forest_charm", properties()));
     public static final RegistryObject<Item> HUNTER_CHARM = ITEMS.register("hunter_charm", () -> new org.slavicmyths.item.SimpleCharmItem("hunter_charm", properties()));
     public static final RegistryObject<Item> TRAVELER_CHARM = ITEMS.register("traveler_charm", () -> new org.slavicmyths.item.SimpleCharmItem("traveler_charm", properties()));
-    public static final RegistryObject<Item> RETAINER_SHIELD = ITEMS.register("retainer_shield", () -> new ShieldItem(properties().durability(280)));
-    public static final RegistryObject<Item> PERUNITE_SHIELD = ITEMS.register("perunite_shield", () -> new ShieldItem(properties().durability(420).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RETAINER_SHIELD = ITEMS.register("retainer_shield", () -> new org.slavicmyths.item.MythShieldItem(properties().durability(280)));
+    public static final RegistryObject<Item> PERUNITE_SHIELD = ITEMS.register("perunite_shield", () -> new org.slavicmyths.item.MythShieldItem(properties().durability(420).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> THUNDER_SPEAR = ITEMS.register("thunder_spear", () -> new org.slavicmyths.item.HeavyWeaponItem(ModGear.PERUNITE, 4, -2.9F, 0.18, properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> MACE = ITEMS.register("mace", () -> new org.slavicmyths.item.HeavyWeaponItem(ItemTier.IRON, 5, -3.2F, 0.35, properties()));
+    public static final RegistryObject<Item> PERUNITE_MACE = ITEMS.register("perunite_mace", () -> new org.slavicmyths.item.HeavyWeaponItem(ModGear.PERUNITE, 6, -3.4F, 0.4, properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> BERDYSH = ITEMS.register("berdysh", () -> new org.slavicmyths.item.HeavyWeaponItem(ItemTier.IRON, 6, -3.3F, 0, properties()));
+    public static final RegistryObject<Item> WEAPON_WRAP = ITEMS.register("weapon_wrap", () -> new Item(properties()));
+    public static final RegistryObject<Item> SILVER_FITTING = ITEMS.register("silver_fitting", () -> new Item(properties()));
+
+    public static final RegistryObject<Item> KIKIMORA_LOCK = ITEMS.register("kikimora_lock", () -> new Item(properties()));
+    public static final RegistryObject<Item> NOON_EAR = ITEMS.register("noon_ear", () -> new Item(properties()));
+    public static final RegistryObject<Item> FIELD_BUNDLE = ITEMS.register("field_bundle", () -> new Item(properties()));
+    public static final RegistryObject<Item> BATH_BROOM = ITEMS.register("bath_broom", () -> new Item(properties()));
+    public static final RegistryObject<Item> BATH_STONE = ITEMS.register("bath_stone", () -> new Item(properties()));
+    public static final RegistryObject<Item> OLD_BUTTON = ITEMS.register("old_button", () -> new Item(properties()));
+    public static final RegistryObject<Item> OVINNIK_CLAW = ITEMS.register("ovinnik_claw", () -> new Item(properties()));
+    public static final RegistryObject<Item> EMBER_HEART = ITEMS.register("ember_heart", () -> new Item(properties()));
+    public static final RegistryObject<Item> NOON_SICKLE = ITEMS.register("noon_sickle", () -> new SwordItem(ModGear.SILVER, 3, -2.5F, properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> KIKIMORA_SPAWN_EGG = ITEMS.register("kikimora_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.KIKIMORA, 0x494137, 0xbca981, properties()));
+    public static final RegistryObject<Item> POLUDNITSA_SPAWN_EGG = ITEMS.register("poludnitsa_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.POLUDNITSA, 0x494137, 0xbca981, properties()));
+    public static final RegistryObject<Item> POLEVIK_SPAWN_EGG = ITEMS.register("polevik_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.POLEVIK, 0x494137, 0xbca981, properties()));
+    public static final RegistryObject<Item> BANNIK_SPAWN_EGG = ITEMS.register("bannik_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.BANNIK, 0x494137, 0xbca981, properties()));
+    public static final RegistryObject<Item> IGOSHA_SPAWN_EGG = ITEMS.register("igosha_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.IGOSHA, 0x494137, 0xbca981, properties()));
+    public static final RegistryObject<Item> OVINNIK_SPAWN_EGG = ITEMS.register("ovinnik_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.OVINNIK, 0x494137, 0xbca981, properties()));
+    public static final RegistryObject<Item> BATH_STOVE = ITEMS.register("bath_stove", () -> new BlockItem(ModBlocks.BATH_STOVE.get(), properties()));
+    public static final RegistryObject<Item> WOODEN_TUB = ITEMS.register("wooden_tub", () -> new BlockItem(ModBlocks.WOODEN_TUB.get(), properties()));
 
     private ModItems() { }
 }

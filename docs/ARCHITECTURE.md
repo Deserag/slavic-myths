@@ -167,3 +167,7 @@ AI: ограниченная частота поиска и область; worl
 Аудит производительности: PASS по статическому анализу. Нет polling игроков,
 мира, блоков, тяжёлых тиковых обработчиков, сетевых пакетов и сохранённых данных игрока.
 Число попыток генерации ограничено. MSPT и масштабная статистика не измерялись.
+
+0.4.7: MythShieldItem overrides Forge isShield; blocking property/models are client-only. Weapon JSON and pixel material sources: tools/generate_047.py. ThunderSpearCombat augments accepted server melee hits with a 120-tick item cooldown; no terrain effects.
+
+0.5.0: six separate entity/model classes; LandSpiritEntity shares bounded encounter/persistence helpers. Models are generated from explicit native cuboid masters in generate_050_models.py. Synced visual states, persistent cooldowns/offering UUIDs; homesteads occupy one chunk, guards store home positions. Hot stones use Forge spawn packets. Sound sources are original synthetic PCM encoded as Vorbis.

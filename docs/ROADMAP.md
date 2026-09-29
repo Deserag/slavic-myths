@@ -39,3 +39,7 @@
   боссы, измерения и end-game progression.
 
 Не реализовывать весь roadmap одним проходом.
+
+0.4.7: weapon proportions, shields, thunder spear, mace variants and berdysh implemented; build/install verified. Manual in-game weapon/shield verification pending; optional silver berdysh and sharpening stone deferred.
+
+0.5.0 content implemented and packaged: Kikimora, Poludnitsa, Polevik, Bannik, Igosha, Ovinnik, bathhouse and barn. Manual gameplay/balance validation pending; advancements unspecified because the supplied task ends at section 121.

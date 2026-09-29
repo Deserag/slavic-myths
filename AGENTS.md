@@ -1,5 +1,9 @@
 # Правила следующих итераций
 
+Weapon classes MUST have visibly different silhouettes and proportions. Sword, dagger, spear, axe, mace, staff and shield cannot be represented primarily by recoloring one generic template.
+
+Before introducing a new weapon, define its silhouette, relative dimensions, materials and distinguishing visual features.
+
 Сначала прочитайте docs/PROJECT_STATUS.md, docs/ROADMAP.md, docs/ARCHITECTURE.md,
 затем фактический код и ресурсы. Если есть Git — проверьте git status.
 Не считайте запланированное реализованным. Сохраняйте изменения пользователя.

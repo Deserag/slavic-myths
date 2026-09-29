@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:field_bundle"
+    },
+    {
+      "item": "slavicmyths:silver_fitting"
+    },
+    {
+      "item": "slavicmyths:ritual_charcoal"
+    }
+  ],
+  "result": {
+    "item": "slavicmyths:ancient_sign",
+    "count": 1
+  }
+}

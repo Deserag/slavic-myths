@@ -1,16 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " I",
-    " S",
-    "S "
+    " IF",
+    " S ",
+    " W "
   ],
   "key": {
     "I": {
       "item": "slavicmyths:silver_ingot"
     },
+    "F": {
+      "item": "slavicmyths:silver_fitting"
+    },
     "S": {
-      "item": "minecraft:stick"
+      "item": "slavicmyths:spear"
+    },
+    "W": {
+      "item": "slavicmyths:weapon_wrap"
     }
   },
   "result": {

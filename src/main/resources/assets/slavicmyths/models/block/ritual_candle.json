@@ -1,9 +1,10 @@
 {
+  "parent": "minecraft:block/block",
   "textures": {
-    "holder": "slavicmyths:block/ritual_candle",
+    "holder": "slavicmyths:block/candle_holder",
     "wax": "slavicmyths:block/candle_wax",
     "flame": "slavicmyths:block/candle_flame",
-    "particle": "slavicmyths:block/ritual_candle"
+    "particle": "slavicmyths:block/candle_holder"
   },
   "elements": [
     {
@@ -14,10 +15,16 @@
       ],
       "to": [
         11,
-        2,
+        1,
         11
       ],
       "faces": {
+        "up": {
+          "texture": "#holder"
+        },
+        "down": {
+          "texture": "#holder"
+        },
         "north": {
           "texture": "#holder"
         },
@@ -28,12 +35,6 @@
           "texture": "#holder"
         },
         "west": {
-          "texture": "#holder"
-        },
-        "up": {
-          "texture": "#holder"
-        },
-        "down": {
           "texture": "#holder"
         }
       }
@@ -41,15 +42,53 @@
     {
       "from": [
         6,
-        2,
+        1,
         6
       ],
       "to": [
         10,
-        11,
+        2,
         10
       ],
       "faces": {
+        "up": {
+          "texture": "#holder"
+        },
+        "down": {
+          "texture": "#holder"
+        },
+        "north": {
+          "texture": "#holder"
+        },
+        "south": {
+          "texture": "#holder"
+        },
+        "east": {
+          "texture": "#holder"
+        },
+        "west": {
+          "texture": "#holder"
+        }
+      }
+    },
+    {
+      "from": [
+        6.5,
+        2,
+        6.5
+      ],
+      "to": [
+        9.5,
+        10,
+        9.5
+      ],
+      "faces": {
+        "up": {
+          "texture": "#wax"
+        },
+        "down": {
+          "texture": "#wax"
+        },
         "north": {
           "texture": "#wax"
         },
@@ -60,45 +99,73 @@
           "texture": "#wax"
         },
         "west": {
-          "texture": "#wax"
-        },
-        "up": {
-          "texture": "#wax"
-        },
-        "down": {
           "texture": "#wax"
         }
       }
     },
     {
       "from": [
-        7,
-        11,
-        7
+        5,
+        9,
+        8
       ],
       "to": [
-        9,
-        14,
-        9
+        11,
+        15,
+        8
       ],
       "faces": {
         "north": {
-          "texture": "#flame"
+          "texture": "#flame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "tintindex": -1
         },
         "south": {
-          "texture": "#flame"
-        },
+          "texture": "#flame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "tintindex": -1
+        }
+      }
+    },
+    {
+      "from": [
+        8,
+        9,
+        5
+      ],
+      "to": [
+        8,
+        15,
+        11
+      ],
+      "faces": {
         "east": {
-          "texture": "#flame"
+          "texture": "#flame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
         },
         "west": {
-          "texture": "#flame"
-        },
-        "up": {
-          "texture": "#flame"
-        },
-        "down": {
-          "texture": "#flame"
+          "texture": "#flame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
         }
       }
     }

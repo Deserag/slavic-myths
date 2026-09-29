@@ -61,5 +61,302 @@
         "volume": 0.8
       }
     ]
+  },
+  "kikimora_ambient": {
+    "subtitle": "subtitles.slavicmyths.kikimora_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/kikimora_ambient",
+        "volume": 0.65
+      }
+    ]
+  },
+  "kikimora_hurt": {
+    "subtitle": "subtitles.slavicmyths.kikimora_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/kikimora_hurt",
+        "volume": 0.65
+      }
+    ]
+  },
+  "kikimora_death": {
+    "subtitle": "subtitles.slavicmyths.kikimora_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/kikimora_death",
+        "volume": 0.65
+      }
+    ]
+  },
+  "kikimora_angry": {
+    "subtitle": "subtitles.slavicmyths.kikimora_angry",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/kikimora_angry",
+        "volume": 0.65
+      }
+    ]
+  },
+  "kikimora_power": {
+    "subtitle": "subtitles.slavicmyths.kikimora_power",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/kikimora_power",
+        "volume": 0.65
+      }
+    ]
+  },
+  "poludnitsa_ambient": {
+    "subtitle": "subtitles.slavicmyths.poludnitsa_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/poludnitsa_ambient",
+        "volume": 0.6
+      }
+    ]
+  },
+  "poludnitsa_hurt": {
+    "subtitle": "subtitles.slavicmyths.poludnitsa_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/poludnitsa_hurt",
+        "volume": 0.6
+      }
+    ]
+  },
+  "poludnitsa_death": {
+    "subtitle": "subtitles.slavicmyths.poludnitsa_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/poludnitsa_death",
+        "volume": 0.6
+      }
+    ]
+  },
+  "poludnitsa_angry": {
+    "subtitle": "subtitles.slavicmyths.poludnitsa_angry",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/poludnitsa_angry",
+        "volume": 0.65
+      }
+    ]
+  },
+  "poludnitsa_power": {
+    "subtitle": "subtitles.slavicmyths.poludnitsa_power",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/poludnitsa_power",
+        "volume": 0.65
+      }
+    ]
+  },
+  "polevik_ambient": {
+    "subtitle": "subtitles.slavicmyths.polevik_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/polevik_ambient",
+        "volume": 0.65
+      }
+    ]
+  },
+  "polevik_hurt": {
+    "subtitle": "subtitles.slavicmyths.polevik_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/polevik_hurt",
+        "volume": 0.65
+      }
+    ]
+  },
+  "polevik_death": {
+    "subtitle": "subtitles.slavicmyths.polevik_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/polevik_death",
+        "volume": 0.65
+      }
+    ]
+  },
+  "polevik_angry": {
+    "subtitle": "subtitles.slavicmyths.polevik_angry",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/polevik_angry",
+        "volume": 0.65
+      }
+    ]
+  },
+  "polevik_power": {
+    "subtitle": "subtitles.slavicmyths.polevik_power",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/polevik_power",
+        "volume": 0.65
+      }
+    ]
+  },
+  "bannik_ambient": {
+    "subtitle": "subtitles.slavicmyths.bannik_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/bannik_ambient",
+        "volume": 0.65
+      }
+    ]
+  },
+  "bannik_hurt": {
+    "subtitle": "subtitles.slavicmyths.bannik_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/bannik_hurt",
+        "volume": 0.65
+      }
+    ]
+  },
+  "bannik_death": {
+    "subtitle": "subtitles.slavicmyths.bannik_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/bannik_death",
+        "volume": 0.65
+      }
+    ]
+  },
+  "bannik_angry": {
+    "subtitle": "subtitles.slavicmyths.bannik_angry",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/bannik_angry",
+        "volume": 0.65
+      }
+    ]
+  },
+  "bannik_power": {
+    "subtitle": "subtitles.slavicmyths.bannik_power",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/bannik_power",
+        "volume": 0.65
+      }
+    ]
+  },
+  "igosha_ambient": {
+    "subtitle": "subtitles.slavicmyths.igosha_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/igosha_ambient",
+        "volume": 0.65
+      }
+    ]
+  },
+  "igosha_hurt": {
+    "subtitle": "subtitles.slavicmyths.igosha_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/igosha_hurt",
+        "volume": 0.65
+      }
+    ]
+  },
+  "igosha_death": {
+    "subtitle": "subtitles.slavicmyths.igosha_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/igosha_death",
+        "volume": 0.65
+      }
+    ]
+  },
+  "igosha_angry": {
+    "subtitle": "subtitles.slavicmyths.igosha_angry",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/igosha_angry",
+        "volume": 0.65
+      }
+    ]
+  },
+  "igosha_power": {
+    "subtitle": "subtitles.slavicmyths.igosha_power",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/igosha_power",
+        "volume": 0.65
+      }
+    ]
+  },
+  "ovinnik_ambient": {
+    "subtitle": "subtitles.slavicmyths.ovinnik_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/ovinnik_ambient",
+        "volume": 0.65
+      }
+    ]
+  },
+  "ovinnik_hurt": {
+    "subtitle": "subtitles.slavicmyths.ovinnik_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/ovinnik_hurt",
+        "volume": 0.65
+      }
+    ]
+  },
+  "ovinnik_death": {
+    "subtitle": "subtitles.slavicmyths.ovinnik_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/ovinnik_death",
+        "volume": 0.65
+      }
+    ]
+  },
+  "ovinnik_angry": {
+    "subtitle": "subtitles.slavicmyths.ovinnik_angry",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/ovinnik_angry",
+        "volume": 0.65
+      }
+    ]
+  },
+  "ovinnik_power": {
+    "subtitle": "subtitles.slavicmyths.ovinnik_power",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/ovinnik_power",
+        "volume": 0.65
+      }
+    ]
+  },
+  "poludnitsa_notice": {
+    "subtitle": "subtitles.slavicmyths.poludnitsa_notice",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/poludnitsa_notice",
+        "volume": 0.6
+      }
+    ]
+  },
+  "poludnitsa_transform": {
+    "subtitle": "subtitles.slavicmyths.poludnitsa_transform",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/poludnitsa_transform",
+        "volume": 0.6
+      }
+    ]
+  },
+  "poludnitsa_attack": {
+    "subtitle": "subtitles.slavicmyths.poludnitsa_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/poludnitsa_attack",
+        "volume": 0.6
+      }
+    ]
   }
 }

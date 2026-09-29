@@ -11,4 +11,6 @@ public final class ModFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, "slavicmyths");
     public static final RegistryObject<Feature<NoFeatureConfig>> SHRINE = FEATURES.register("ancient_shrine", ShrineFeature::new);
     private ModFeatures() { }
+    public static final RegistryObject<Feature<NoFeatureConfig>> BATHHOUSE = FEATURES.register("bathhouse", () -> new org.slavicmyths.world.HomesteadFeature(false));
+    public static final RegistryObject<Feature<NoFeatureConfig>> OLD_BARN = FEATURES.register("old_barn", () -> new org.slavicmyths.world.HomesteadFeature(true));
 }

@@ -1,8 +1,9 @@
 {
+  "parent": "minecraft:block/block",
   "textures": {
     "wood": "slavicmyths:block/ancient_idol",
-    "carving": "slavicmyths:block/idol_front",
-    "top": "slavicmyths:block/hearth_top",
+    "face": "slavicmyths:block/idol_front",
+    "end": "slavicmyths:block/hearth_top",
     "particle": "slavicmyths:block/ancient_idol"
   },
   "elements": [
@@ -18,6 +19,12 @@
         13
       ],
       "faces": {
+        "up": {
+          "texture": "#end"
+        },
+        "down": {
+          "texture": "#wood"
+        },
         "north": {
           "texture": "#wood"
         },
@@ -28,12 +35,6 @@
           "texture": "#wood"
         },
         "west": {
-          "texture": "#wood"
-        },
-        "up": {
-          "texture": "#wood"
-        },
-        "down": {
           "texture": "#wood"
         }
       }
@@ -46,12 +47,18 @@
       ],
       "to": [
         11,
-        12,
+        11,
         11
       ],
       "faces": {
+        "up": {
+          "texture": "#wood"
+        },
+        "down": {
+          "texture": "#wood"
+        },
         "north": {
-          "texture": "#carving"
+          "texture": "#wood"
         },
         "south": {
           "texture": "#wood"
@@ -61,19 +68,13 @@
         },
         "west": {
           "texture": "#wood"
-        },
-        "up": {
-          "texture": "#wood"
-        },
-        "down": {
-          "texture": "#wood"
         }
       }
     },
     {
       "from": [
         4,
-        12,
+        10,
         4
       ],
       "to": [
@@ -82,8 +83,14 @@
         12
       ],
       "faces": {
+        "up": {
+          "texture": "#end"
+        },
+        "down": {
+          "texture": "#wood"
+        },
         "north": {
-          "texture": "#carving"
+          "texture": "#face"
         },
         "south": {
           "texture": "#wood"
@@ -93,12 +100,102 @@
         },
         "west": {
           "texture": "#wood"
-        },
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        7,
+        5
+      ],
+      "to": [
+        5,
+        10,
+        10
+      ],
+      "faces": {
         "up": {
-          "texture": "#top"
+          "texture": "#wood"
         },
         "down": {
           "texture": "#wood"
+        },
+        "north": {
+          "texture": "#wood"
+        },
+        "south": {
+          "texture": "#wood"
+        },
+        "east": {
+          "texture": "#wood"
+        },
+        "west": {
+          "texture": "#wood"
+        }
+      }
+    },
+    {
+      "from": [
+        11,
+        7,
+        5
+      ],
+      "to": [
+        13,
+        10,
+        10
+      ],
+      "faces": {
+        "up": {
+          "texture": "#wood"
+        },
+        "down": {
+          "texture": "#wood"
+        },
+        "north": {
+          "texture": "#wood"
+        },
+        "south": {
+          "texture": "#wood"
+        },
+        "east": {
+          "texture": "#wood"
+        },
+        "west": {
+          "texture": "#wood"
+        }
+      }
+    },
+    {
+      "from": [
+        4,
+        15,
+        4
+      ],
+      "to": [
+        12,
+        16,
+        12
+      ],
+      "faces": {
+        "up": {
+          "texture": "#end"
+        },
+        "down": {
+          "texture": "#end"
+        },
+        "north": {
+          "texture": "#end"
+        },
+        "south": {
+          "texture": "#end"
+        },
+        "east": {
+          "texture": "#end"
+        },
+        "west": {
+          "texture": "#end"
         }
       }
     }
