@@ -1,0 +1,30 @@
+{
+  "parent": "slavicmyths:first_ritual",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:ancient_sign"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.ancient_sign.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.ancient_sign.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "slavicmyths:ancient_sign"
+          }
+        ]
+      }
+    }
+  }
+}

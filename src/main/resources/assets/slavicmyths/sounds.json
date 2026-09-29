@@ -1,0 +1,65 @@
+{
+  "domovoy_ambient": {
+    "subtitle": "subtitles.slavicmyths.domovoy_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:domovoy_ambient",
+        "volume": 0.8
+      }
+    ]
+  },
+  "domovoy_hurt": {
+    "subtitle": "subtitles.slavicmyths.domovoy_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:domovoy_hurt",
+        "volume": 0.8
+      }
+    ]
+  },
+  "domovoy_death": {
+    "subtitle": "subtitles.slavicmyths.domovoy_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:domovoy_death",
+        "volume": 0.8
+      }
+    ]
+  },
+  "leshy_ambient": {
+    "subtitle": "subtitles.slavicmyths.leshy_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:leshy_ambient",
+        "volume": 0.8
+      }
+    ]
+  },
+  "leshy_hurt": {
+    "subtitle": "subtitles.slavicmyths.leshy_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:leshy_hurt",
+        "volume": 0.8
+      }
+    ]
+  },
+  "leshy_death": {
+    "subtitle": "subtitles.slavicmyths.leshy_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:leshy_death",
+        "volume": 0.8
+      }
+    ]
+  },
+  "leshy_angry": {
+    "subtitle": "subtitles.slavicmyths.leshy_angry",
+    "sounds": [
+      {
+        "name": "slavicmyths:leshy_angry",
+        "volume": 0.8
+      }
+    ]
+  }
+}

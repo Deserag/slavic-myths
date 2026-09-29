@@ -1,0 +1,28 @@
+{
+  "saved_chunks": 780,
+  "counts": {
+    "minecraft:diamond_ore": 2531,
+    "slavicmyths:perunite_ore": 97,
+    "slavicmyths:wormwood": 133,
+    "slavicmyths:flax": 247
+  },
+  "y_ranges": {
+    "minecraft:diamond_ore": [
+      1,
+      15
+    ],
+    "slavicmyths:perunite_ore": [
+      1,
+      13
+    ],
+    "slavicmyths:wormwood": [
+      63,
+      91
+    ],
+    "slavicmyths:flax": [
+      63,
+      91
+    ]
+  },
+  "note": "Read-only sample of saved development world. Player edits may be present; not a statistical rarity guarantee."
+}

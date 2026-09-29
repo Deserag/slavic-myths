@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:shrine",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:altar"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.altar.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.altar.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

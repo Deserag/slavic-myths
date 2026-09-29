@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BCB",
+    "CFC",
+    "BCB"
+  ],
+  "key": {
+    "B": {
+      "item": "slavicmyths:birch_bark"
+    },
+    "C": {
+      "item": "minecraft:cobblestone"
+    },
+    "F": {
+      "item": "minecraft:campfire"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:hearth"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "type": "slavicmyths:fern_flower",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:blocks/fern"
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "item": "minecraft:shears"
+        }
+      }
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "enchantments": [
+            {
+              "enchantment": "minecraft:silk_touch",
+              "levels": {
+                "min": 1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.002
+    },
+    {
+      "condition": "minecraft:survives_explosion"
+    }
+  ]
+}

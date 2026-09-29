@@ -1,0 +1,7 @@
+modLoader="javafml"
+loaderVersion="[36,37)"
+license="All Rights Reserved"
+[[mods]]
+modId="slavicmyths_smoke"
+version="1.0"
+displayName="Slavic Myths local verification"

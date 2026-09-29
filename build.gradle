@@ -1,0 +1,62 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+    }
+    dependencies { classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.77' }
+}
+apply plugin: 'net.minecraftforge.gradle'
+
+version = '0.4.0'
+group = 'org.slavicmyths'
+archivesBaseName = 'slavicmyths'
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+
+minecraft {
+    mappings channel: 'official', version: '1.16.5'
+    runs {
+        client {
+            workingDirectory project.file('run')
+            mods { slavicmyths { source sourceSets.main } }
+        }
+        server {
+            workingDirectory project.file('run-server')
+            args '--nogui'
+            mods { slavicmyths { source sourceSets.main } }
+        }
+    }
+}
+repositories {
+    maven { url = 'https://maven.minecraftforge.net' }
+    mavenCentral()
+    maven { url = 'https://maven.blamejared.com' }
+}
+dependencies { minecraft 'net.minecraftforge:forge:1.16.5-36.2.42' }
+dependencies { compileOnly fg.deobf('mezz.jei:jei-1.16.5:7.8.0.1013') }
+// Optional development companion, never shaded or nested in the production mod.
+if (!project.hasProperty('withoutJei')) {
+    dependencies { runtimeOnly fg.deobf('mezz.jei:jei-1.16.5:7.8.0.1013') }
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('META-INF/mods.toml') { expand version: project.version }
+}
+jar {
+    manifest { attributes 'Implementation-Version': project.version }
+    finalizedBy 'reobfJar'
+}
+
+// Opt-in diagnostic mod. Its code and resources never enter sourceSets.main or the JAR.
+if (project.hasProperty('smokeTest')) {
+    sourceSets {
+        smoke {
+            java.srcDir 'tools/smoke/java'
+            resources.srcDir 'tools/smoke/resources'
+            compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
+            runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.main.output
+        }
+    }
+    minecraft.runs.client.mods { slavicmyths_smoke { source sourceSets.smoke } }
+    tasks.matching { it.name == 'runClient' }.configureEach { dependsOn 'smokeClasses' }
+}

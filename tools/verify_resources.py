@@ -1,0 +1,171 @@
+"""Structural integration checks against registrations and the production artifact."""
+from pathlib import Path
+import json, re, struct, zipfile, zlib
+ROOT = Path(__file__).resolve().parents[1]
+RES = ROOT/'src/main/resources'
+JAVA = ROOT/'src/main/java/org/slavicmyths'
+VERSION = re.search(r"version = '([^']+)'", (ROOT/'build.gradle').read_text()).group(1)
+
+def read(path):
+    return json.loads(path.read_text(encoding='utf-8'))
+
+def registered(file):
+    return set(re.findall(r'\.register\(\s*"([a-z_]+)"', (JAVA/file).read_text()))
+
+items = registered('registry/ModItems.java')
+blocks = registered('registry/ModBlocks.java')
+assert len(items) == 20 and len(blocks) == 6
+assert {'birch_bark_scroll', 'thunder_stone', 'warding_charm'} <= items
+assert blocks <= items
+assert 'ItemGroup.TAB_MISC' not in (JAVA/'registry/ModItems.java').read_text()
+
+def ref(value, folder, suffix='.json'):
+    ns, name = value.split(':', 1)
+    if ns == 'slavicmyths':
+        assert (RES/folder/ns/name).with_suffix(suffix).is_file(), value
+
+def item_ref(value):
+    if value.startswith('slavicmyths:'):
+        assert value.split(':')[1] in items, value
+
+for path in RES.rglob('*.json'):
+    read(path)
+assert read(RES/'pack.mcmeta')['pack']['pack_format'] == 6
+for item in items:
+    assert (RES/f'assets/slavicmyths/models/item/{item}.json').is_file()
+    for lang in ('ru_ru', 'en_us'):
+        data = read(RES/f'assets/slavicmyths/lang/{lang}.json')
+        assert ('block' if item in blocks else 'item')+'.slavicmyths.'+item in data
+        assert 'itemGroup.slavicmyths' in data
+for block in blocks:
+    assert (RES/f'assets/slavicmyths/blockstates/{block}.json').is_file()
+    assert (RES/f'data/slavicmyths/loot_tables/blocks/{block}.json').is_file()
+for path in (RES/'assets/slavicmyths/models').rglob('*.json'):
+    obj = read(path)
+    parent = obj.get('parent', '')
+    if parent.startswith('slavicmyths:'):
+        assert (RES/('assets/slavicmyths/models/'+parent.split(':')[1]+'.json')).is_file()
+    for texture in obj.get('textures', {}).values():
+        if texture.startswith('slavicmyths:'):
+            assert (RES/('assets/slavicmyths/textures/'+texture.split(':')[1]+'.png')).is_file()
+for path in (RES/'assets/slavicmyths/blockstates').glob('*.json'):
+    for variant in read(path)['variants'].values():
+        assert (RES/('assets/slavicmyths/models/'+variant['model'].split(':')[1]+'.json')).is_file()
+pngs = list(RES.rglob('*.png'))
+assert len(pngs) == 20
+for path in pngs:
+    png = path.read_bytes()
+    assert png[:8] == b'\x89PNG\r\n\x1a\n'
+    offset, compressed = 8, b''
+    while offset < len(png):
+        size = struct.unpack('!I', png[offset:offset+4])[0]
+        kind, data = png[offset+4:offset+8], png[offset+8:offset+8+size]
+        assert zlib.crc32(kind+data)&0xffffffff == struct.unpack('!I', png[offset+8+size:offset+12+size])[0]
+        if kind == b'IHDR':
+            width,height,depth,color,compression,filtering,interlace = struct.unpack('!IIBBBBB', data)
+            expected = 64 if path.parent.name == 'entity' else 16
+            assert (width,height,depth,color,compression,filtering,interlace) == (expected,expected,8,6,0,0,0)
+        if kind == b'IDAT':
+            compressed += data
+        offset += 12+size
+    assert len(zlib.decompress(compressed)) == height*(1+width*4)
+recipes = set()
+for path in (RES/'data/slavicmyths/recipes').glob('*.json'):
+    recipes.add(path.stem)
+    obj = read(path)
+    item_ref(obj['result']['item'])
+    for ing in obj.get('ingredients', []) + list(obj.get('key', {}).values()):
+        item_ref(ing['item'])
+    if obj['type'] == 'minecraft:crafting_shaped':
+        pattern = obj['pattern']
+        assert 1 <= len(pattern) <= 3 and len({len(row) for row in pattern}) == 1
+        assert 1 <= len(pattern[0]) <= 3
+        assert set(''.join(pattern))-{' '} == set(obj['key'])
+assert len(recipes) == 7
+parents = {}
+visible = 0
+for path in (RES/'data/slavicmyths/advancements').rglob('*.json'):
+    obj = read(path)
+    name = path.relative_to(RES/'data/slavicmyths/advancements').with_suffix('').as_posix()
+    parent = obj.get('parent', '')
+    if parent.startswith('slavicmyths:'):
+        parents[name] = parent.split(':')[1]
+        assert (RES/f'data/slavicmyths/advancements/{parents[name]}.json').is_file()
+    if 'display' in obj:
+        visible += 1
+        item_ref(obj['display']['icon']['item'])
+        for lang in ('ru_ru','en_us'):
+            data = read(RES/f'assets/slavicmyths/lang/{lang}.json')
+            for field in ('title','description'):
+                assert obj['display'][field]['translate'] in data
+    for criteria in obj['criteria'].values():
+        for pred in criteria.get('conditions', {}).get('items', []):
+            item_ref(pred['item'])
+    for row in obj.get('requirements', []):
+        assert set(row) <= set(obj['criteria'])
+    for recipe in obj.get('rewards', {}).get('recipes', []):
+        assert recipe.split(':')[1] in recipes
+for node in parents:
+    seen = set()
+    while node in parents:
+        assert node not in seen, 'Advancement cycle'
+        seen.add(node)
+        node = parents[node]
+assert visible == 24
+assert not (RES/'data/minecraft/advancements').exists(), 'Do not override vanilla advancements'
+assert not (RES/'data/minecraft/loot_tables').exists(), 'Do not overwrite vanilla loot'
+global_loot = read(RES/'data/forge/loot_modifiers/global_loot_modifiers.json')
+assert global_loot['replace'] is False
+for entry in global_loot['entries']:
+    obj = read(RES/('data/slavicmyths/loot_modifiers/'+entry.split(':')[1]+'.json'))
+    assert obj['type'].split(':')[1] in registered('registry/ModLoot.java')
+jar = ROOT/f'build/libs/slavicmyths-{VERSION}.jar'
+with zipfile.ZipFile(jar) as archive:
+    assert archive.testzip() is None
+    assert not any('smoke' in n or n.startswith('mezz/') or n.endswith('.jar') for n in archive.namelist()), 'Bundled test/third-party content'
+    for path in RES.rglob('*'):
+        if path.is_file():
+            name = path.relative_to(RES).as_posix()
+            packaged = archive.read(name)
+            if name != 'META-INF/mods.toml':
+                assert packaged == path.read_bytes(), f'Stale resource {name}'
+    metadata = archive.read('META-INF/mods.toml').decode('utf-8')
+    assert '${' not in metadata and f'version="{VERSION}"' in metadata
+    classes = [n for n in archive.namelist() if n.endswith('.class')]
+    assert classes
+    for name in classes:
+        assert struct.unpack('!H', archive.read(name)[6:8])[0] == 52
+    # Official development method names must be remapped in the distributed mod.
+    assert b'func_78016_d' in archive.read('org/slavicmyths/registry/ModItemGroup$1.class')
+print(f'PASS: {len(items)} item registrations, {len(blocks)} block registrations, {len(pngs)} PNGs, {len(recipes)} recipes, {visible} advancements, JSON references, JAR contents, Java 8 and reobfuscation.')
+print('Structural checks do not replace Minecraft gameplay tests.')
+
+entities = registered('registry/ModEntities.java')
+assert entities == {'domovoy','leshy'}
+for entity in entities:
+    assert (RES/f'assets/slavicmyths/textures/entity/{entity}.png').is_file()
+    assert (RES/f'data/slavicmyths/loot_tables/entities/{entity}.json').is_file()
+    renderer = (JAVA/f'client/{entity.capitalize()}Renderer.java').read_text()
+    assert f'textures/entity/{entity}.png' in renderer
+    model = (JAVA/f'client/{entity.capitalize()}Model.java').read_text()
+    assert 'texWidth = 64; texHeight = 64' in model
+for path in (RES/'data/slavicmyths/loot_tables/entities').glob('*.json'):
+    assert read(path)['type'] == 'minecraft:entity'
+import sys
+sys.path.insert(0,str(ROOT/'.tools/audio-libs'))
+import soundfile as sf
+import numpy as np
+sounds = read(RES/'assets/slavicmyths/sounds.json')
+assert len(sounds) == 7
+registered_sounds = set(re.findall(r'sound\("([a-z_]+)"', (JAVA/'registry/ModSounds.java').read_text()))
+assert set(sounds) == registered_sounds
+for name,event in sounds.items():
+    for lang in ('ru_ru','en_us'):
+        assert event['subtitle'] in read(RES/f'assets/slavicmyths/lang/{lang}.json')
+    for entry in event['sounds']:
+        path = RES/('assets/slavicmyths/sounds/'+entry['name'].split(':')[1]+'.ogg')
+        info = sf.info(path)
+        data,rate = sf.read(path)
+        assert info.format == 'OGG' and info.subtype == 'VORBIS' and info.channels == 1
+        assert rate == 22050 and len(data)>0 and np.isfinite(data).all() and np.max(np.abs(data)) < 1.0
+print('PASS: both entities, model/renderer resources, seven decoded mono Vorbis sounds, subtitles, no vanilla advancement overrides or bundled JEI/test code.')

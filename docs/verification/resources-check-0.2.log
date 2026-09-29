@@ -1,0 +1,2 @@
+PASS: 10 item registrations, 3 block registrations, 10 PNGs, 5 recipes, 10 advancements, JSON references, JAR contents, Java 8 and reobfuscation.
+Structural checks do not replace Minecraft gameplay tests.

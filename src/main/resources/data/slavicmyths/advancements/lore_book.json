@@ -1,0 +1,30 @@
+{
+  "parent": "slavicmyths:birch_bark_scroll",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:lore_book"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.lore_book.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.lore_book.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "slavicmyths:lore_book"
+          }
+        ]
+      }
+    }
+  }
+}

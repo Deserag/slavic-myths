@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "slavicmyths:flax"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.flax.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.flax.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "slavicmyths:flax"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "slavicmyths:root"
+}

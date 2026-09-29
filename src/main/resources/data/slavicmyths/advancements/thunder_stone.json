@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "slavicmyths:thunder_stone"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.thunder_stone.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.thunder_stone.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "slavicmyths:thunder_stone"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "slavicmyths:perunite"
+}

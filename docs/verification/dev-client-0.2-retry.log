@@ -1,0 +1,63 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.3.3/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+WARNING: This project is configured to use the official obfuscation mappings provided by Mojang. These mapping fall under their associated license, you should be fully aware of this license. For the latest license text, refer below, or the reference copy here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md, You can hide this warning by running the `hideOfficialWarningUntilChanged` task
+WARNING: (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :downloadMcpConfig
+> Task :extractSrg UP-TO-DATE
+> Task :createSrgToMcp UP-TO-DATE
+> Task :downloadMCMeta UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :extractNatives UP-TO-DATE
+> Task :makeSrcDirs
+> Task :prepareRuns
+> Task :prepareRunClient
+
+> Task :runClient
+2026-09-28 14:02:06,242 main WARN Advanced terminal features are not available in this environment
+[14:02:06] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20210115.111550, --fml.mcVersion, 1.16.5, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 36.2.42, --assetIndex, 1.16, --assetsDir, C:\Users\user\.gradle\caches\forge_gradle\assets, --version, MOD_DEV, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[14:02:06] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 8.1.3+8.1.3+main-8.1.x.c94d18ec starting: java version 1.8.0_504 by Temurin
+[14:02:06] [main/INFO] [ne.mi.fm.lo.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
+[14:02:06] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.4 Source=file:/C:/Users/user/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.4/4ec7d77d9ab32596ca0b78bb123956734767e3a/mixin-0.8.4.jar Service=ModLauncher Env=CLIENT
+[14:02:07] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\user\.gradle\caches\forge_gradle\assets, --assetIndex, 1.16, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[14:02:11] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[14:02:11] [Render thread/INFO] [minecraft/Minecraft]: Setting user: Dev
+[14:02:11] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.2.2 build 10
+[14:02:12] [modloading-worker-18/INFO] [ne.mi.co.ForgeMod/FORGEMOD]: Forge mod loading, version 36.2.42, for MC 1.16.5 with MCP 20210115.111550
+[14:02:12] [modloading-worker-18/INFO] [ne.mi.co.MinecraftForge/FORGE]: MinecraftForge v36.2.42 Initialized
+[14:02:13] [Render thread/INFO] [mojang/NarratorWindows]: Narrator library for x64 successfully loaded
+[14:02:13] [Render thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, Mod Resources
+[14:02:13] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[14:02:14] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Found status: AHEAD Current: 36.2.42 Target: null
+[14:02:18] [Render thread/INFO] [minecraft/SoundSystem]: OpenAL initialized.
+[14:02:18] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[14:02:18] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[14:02:18] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[14:02:18] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[14:02:18] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[14:02:18] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[14:02:18] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[14:02:18] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[14:02:18] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[14:02:18] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[14:02:18] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[14:02:18] [Realms Notification Availability checker #1/INFO] [mojang/RealmsClient]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: DONT_CRASH
+[14:05:12] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not receive a message from the daemon.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org

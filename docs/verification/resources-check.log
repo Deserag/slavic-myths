@@ -1,0 +1,2 @@
+PASS: JSON references, translations, 3 PNG CRC/16x16/RGBA, packaged resources, metadata and Java 8 bytecode.
+Not an in-game test; Minecraft resource loading and gameplay remain unverified.

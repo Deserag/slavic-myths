@@ -1,0 +1,281 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.3.3/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+WARNING: This project is configured to use the official obfuscation mappings provided by Mojang. These mapping fall under their associated license, you should be fully aware of this license. For the latest license text, refer below, or the reference copy here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md, You can hide this warning by running the `hideOfficialWarningUntilChanged` task
+WARNING: (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :downloadMcpConfig
+> Task :extractSrg UP-TO-DATE
+> Task :createSrgToMcp UP-TO-DATE
+> Task :downloadMCMeta UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :extractNatives UP-TO-DATE
+> Task :makeSrcDirs
+> Task :prepareRuns
+> Task :compileSmokeJava
+> Task :processSmokeResources UP-TO-DATE
+> Task :smokeClasses
+> Task :prepareRunClient
+
+> Task :runClient
+2026-09-28 19:06:05,649 main WARN Advanced terminal features are not available in this environment
+[19:06:05] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20210115.111550, --fml.mcVersion, 1.16.5, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 36.2.42, --assetIndex, 1.16, --assetsDir, C:\Users\pavel\.gradle\caches\forge_gradle\assets, --version, MOD_DEV, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[19:06:05] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 8.1.3+8.1.3+main-8.1.x.c94d18ec starting: java version 1.8.0_504 by Temurin
+[19:06:06] [main/INFO] [ne.mi.fm.lo.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
+[19:06:06] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.4 Source=file:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.4/4ec7d77d9ab32596ca0b78bb123956734767e3a/mixin-0.8.4.jar Service=ModLauncher Env=CLIENT
+[19:06:07] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\pavel\.gradle\caches\forge_gradle\assets, --assetIndex, 1.16, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[19:06:12] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[19:06:13] [Render thread/INFO] [minecraft/Minecraft]: Setting user: Dev
+[19:06:13] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.2.2 build 10
+[19:06:14] [modloading-worker-11/INFO] [ne.mi.co.ForgeMod/FORGEMOD]: Forge mod loading, version 36.2.42, for MC 1.16.5 with MCP 20210115.111550
+[19:06:14] [modloading-worker-11/INFO] [ne.mi.co.MinecraftForge/FORGE]: MinecraftForge v36.2.42 Initialized
+[19:06:14] [modloading-worker-2/INFO] [or.sl.sm.SmokeProbe/]: SMOKE: probe registered
+[19:06:15] [Render thread/INFO] [mojang/NarratorWindows]: Narrator library for x64 successfully loaded
+[19:06:15] [Render thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, Mod Resources
+[19:06:15] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[19:06:16] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Found status: AHEAD Current: 36.2.42 Target: null
+[19:06:22] [Render thread/INFO] [minecraft/SoundSystem]: OpenAL initialized.
+[19:06:22] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[19:06:23] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 256x128x0 jei:textures/atlas/gui.png-atlas
+[19:06:23] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[19:06:23] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[19:06:23] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[19:06:23] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[19:06:23] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[19:06:23] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[19:06:23] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[19:06:23] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[19:06:23] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[19:06:23] [Render thread/INFO] [minecraft/AtlasTexture]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[19:06:23] [Render thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: main menu reached, JEI=true
+[19:06:23] [Realms Notification Availability checker #1/INFO] [mojang/RealmsClient]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: DONT_CRASH
+[19:06:23] [Render thread/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[19:06:23] [Render thread/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[19:06:23] [Render thread/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[19:06:23] [Render thread/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[19:06:23] [Render thread/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[19:06:23] [Render thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, forge-1.16.5-36.2.42_mapped_official_1.16.5.jar, main, smoke, jei-1.16.5-7.8.0.1013_mapped_official_1.16.5.jar
+[19:06:24] [Render thread/INFO] [minecraft/RecipeManager]: Loaded 7 recipes
+[19:06:25] [Render thread/INFO] [minecraft/AdvancementList]: Loaded 958 advancements
+[19:06:25] [Render thread/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[19:06:25] [Render thread/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[19:06:25] [Render thread/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[19:06:25] [Render thread/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[19:06:25] [Render thread/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[19:06:25] [Render thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, forge-1.16.5-36.2.42_mapped_official_1.16.5.jar, main, smoke, jei-1.16.5-7.8.0.1013_mapped_official_1.16.5.jar
+[19:06:26] [Render thread/INFO] [minecraft/RecipeManager]: Loaded 7 recipes
+[19:06:26] [Render thread/INFO] [minecraft/AdvancementList]: Loaded 958 advancements
+[19:06:27] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[19:06:27] [Server thread/INFO] [minecraft/IntegratedServer]: Starting integrated minecraft server version 1.16.5
+[19:06:27] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[19:06:27] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[19:06:28] [Render thread/INFO] [minecraft/LoggingChunkStatusListener]: ���������� ������� �����������: 0%
+[19:06:28] [Render thread/INFO] [minecraft/LoggingChunkStatusListener]: ���������� ������� �����������: 0%
+[19:06:28] [Render thread/INFO] [minecraft/LoggingChunkStatusListener]: Time elapsed: 701 ms
+[19:06:28] [Server thread/INFO] [minecraft/IntegratedServer]: Changing view distance to 11, from 10
+[19:06:29] [Netty Local Client IO #0/INFO] [ne.mi.fm.ne.NetworkHooks/]: Connected to a modded server.
+[19:06:29] [Server thread/INFO] [ne.mi.co.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.advancements.PlayerAdvancements@54628257
+[19:06:29] [Server thread/INFO] [minecraft/PlayerList]: Dev[local:E:11b30b1d] logged in with entity id 85 at (40.0, 68.25097374389709, 18.0)
+[19:06:29] [Server thread/INFO] [minecraft/MinecraftServer]: Dev ������������� � ����
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: vanilla advancement story/root
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: vanilla advancement adventure/root
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: vanilla advancement husbandry/root
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: vanilla advancement nether/root
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: vanilla advancement end/root
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: recipe birch_bark
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: recipe birch_bark_scroll
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: recipe linen_thread
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: recipe warding_charm
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: recipe thunder_stone
+[19:06:29] [Server thread/INFO] [minecraft/MinecraftServer]: �� ������� ���������� ���������� �������
+[19:06:29] [Server thread/INFO] [minecraft/MinecraftServer]: ������� ��������� 3 ������
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: entity factories
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: spawn both spirits
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: registered attributes
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: actual interaction advancement meet_domovoy
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: actual interaction advancement meet_leshy
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: neutral initial targets
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: altar persisted across real client restart
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: offering adds reputation
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: milk returns bucket
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: spam blocked without consumption
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: seven further offerings consumed exactly once
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: entity NBT preserves trust, home and persistence
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: attack reduces reputation
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: repeat attack causes larger penalty
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: hostile spirit refuses without consuming gift
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: creative offering keeps item
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: home blessing
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: blessing cooldown
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: wrong ritual ingredient unchanged
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: ritual consumes one ingredient at step 0
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: altar NBT roundtrip
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: ritual consumes one ingredient at step 1
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: ritual consumes one ingredient at step 2
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: ritual grants unique output and resets
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: ritual knowledge persists as advancement
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: block loot altar
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: block loot hearth
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: block loot ancient_idol
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: shrine loot parses
+[19:06:29] [Server thread/INFO] [minecraft/MinecraftServer]: ������� ��������� 81 ������
+[19:06:29] [Server thread/INFO] [minecraft/MinecraftServer]: ������� ��������� 38 ������
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: shrine feature placement on valid ground
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PERF: single shrine placement 3.5163 ms (controlled footprint, not a world benchmark)
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: shrine central idol
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: generated altar tile
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: generated loot chest
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: shrine refuses occupied footprint
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: Leshy forest attack applies slowness
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: Leshy escape cooldown saved
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: Leshy escape cannot repeat during cooldown
+[19:06:29] [Server thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: scene ready; production mod has no test hooks
+[19:06:29] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[19:06:29] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[����� ���]'/minecraft:overworld
+[19:06:29] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Starting JEI...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering item subtypes: jei:minecraft ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering item subtypes: jei:minecraft took 2.572 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering item subtypes: slavicmyths:rituals ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering item subtypes: slavicmyths:rituals took 6.100 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering item subtypes: jei:debug ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering item subtypes: jei:debug took 5.300 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering item subtypes: jei:internal ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering item subtypes: jei:internal took 4.100 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering fluid subtypes: jei:minecraft ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering fluid subtypes: jei:minecraft took 14.90 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering fluid subtypes: slavicmyths:rituals ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering fluid subtypes: slavicmyths:rituals took 3.600 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering fluid subtypes: jei:debug ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering fluid subtypes: jei:debug took 1.012 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering fluid subtypes: jei:internal ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering fluid subtypes: jei:internal took 4.100 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering ingredients: jei:minecraft ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering ingredients: jei:minecraft took 26.49 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering ingredients: slavicmyths:rituals ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering ingredients: slavicmyths:rituals took 4.500 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering ingredients: jei:debug ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering ingredients: jei:debug took 27.70 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering ingredients: jei:internal ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering ingredients: jei:internal took 2.600 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering categories: jei:minecraft ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering categories: jei:minecraft took 22.37 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering categories: slavicmyths:rituals ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering categories: slavicmyths:rituals took 1.657 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering categories: jei:debug ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering categories: jei:debug took 6.800 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering categories: jei:internal ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering categories: jei:internal took 2.113 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering vanilla category extensions: jei:minecraft ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering vanilla category extensions: jei:minecraft took 3.920 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering vanilla category extensions: slavicmyths:rituals ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering vanilla category extensions: slavicmyths:rituals took 4.300 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering vanilla category extensions: jei:debug ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering vanilla category extensions: jei:debug took 3.000 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering vanilla category extensions: jei:internal ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering vanilla category extensions: jei:internal took 2.700 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes: jei:minecraft ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes: jei:minecraft took 75.53 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes: slavicmyths:rituals ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes: slavicmyths:rituals took 61.20 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes: jei:debug ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes: jei:debug took 19.60 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes: jei:internal ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes: jei:internal took 3.800 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes transfer handlers: jei:minecraft ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes transfer handlers: jei:minecraft took 5.931 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes transfer handlers: slavicmyths:rituals ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes transfer handlers: slavicmyths:rituals took 8.200 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes transfer handlers: jei:debug ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes transfer handlers: jei:debug took 4.400 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes transfer handlers: jei:internal ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipes transfer handlers: jei:internal took 3.900 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipe catalysts: jei:minecraft ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipe catalysts: jei:minecraft took 242.2 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipe catalysts: slavicmyths:rituals ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipe catalysts: slavicmyths:rituals took 41.70 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipe catalysts: jei:debug ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipe catalysts: jei:debug took 7.600 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipe catalysts: jei:internal ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering recipe catalysts: jei:internal took 4.400 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering gui handlers: jei:minecraft ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering gui handlers: jei:minecraft took 11.77 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering gui handlers: slavicmyths:rituals ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering gui handlers: slavicmyths:rituals took 6.500 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering gui handlers: jei:debug ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering gui handlers: jei:debug took 6.500 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering gui handlers: jei:internal ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering gui handlers: jei:internal took 8.676 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering advanced plugins: jei:minecraft ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering advanced plugins: jei:minecraft took 21.50 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering advanced plugins: slavicmyths:rituals ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering advanced plugins: slavicmyths:rituals took 4.400 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering advanced plugins: jei:debug ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering advanced plugins: jei:debug took 3.700 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering advanced plugins: jei:internal ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Registering advanced plugins: jei:internal took 3.700 ?s
+[19:06:30] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Building ingredient list...
+[19:06:30] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Building ingredient list took 4.071 ms
+[19:06:30] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Building ingredient filter...
+[19:06:30] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[����� ���]'/minecraft:the_nether
+[19:06:30] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[����� ���]'/minecraft:the_end
+[19:06:30] [Server thread/WARN] [minecraft/TrackedEntity]: Fetching packet for removed entity LeshyEntity['�����'/84, l='ServerLevel[����� ���]', x=2.08, y=151.00, z=0.08]
+[19:06:30] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Building ingredient filter took 146.0 ms
+[19:06:30] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Building bookmarks...
+[19:06:30] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Building bookmarks took 1.496 ms
+[19:06:30] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Building recipe registry...
+[19:06:30] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Building recipe registry took 38.42 ms
+[19:06:30] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Building runtime...
+[19:06:30] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Building runtime took 56.93 ms
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Sending Runtime: jei:minecraft ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Sending Runtime: jei:minecraft took 14.30 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Sending Runtime: slavicmyths:rituals ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Sending Runtime: slavicmyths:rituals took 2.700 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Sending Runtime: jei:debug ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Sending Runtime: jei:debug took 8.300 ?s
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Sending Runtime: jei:internal ...
+[19:06:30] [Render thread/INFO] [me.je.lo.PluginCaller/]: Sending Runtime: jei:internal took 10.10 ?s
+[19:06:30] [Render thread/INFO] [me.je.ut.LoggedTimer/]: Starting JEI took 515.9 ms
+[19:06:30] [Render thread/INFO] [minecraft/NewChatGui]: [CHAT] [Server: ������� ��������� 3 ������]
+[19:06:30] [Render thread/INFO] [minecraft/NewChatGui]: [CHAT] [Server: ������� ��������� 81 ������]
+[19:06:30] [Render thread/INFO] [minecraft/NewChatGui]: [CHAT] [Server: ������� ��������� 38 ������]
+[19:06:30] [Render thread/INFO] [minecraft/AdvancementList]: Loaded 30 advancements
+[19:06:32] [Render thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE: initial screen null
+[19:06:34] [Render thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: captured in-game frame D:\slavic-myths\run\..\docs\verification\spirits-0.4-ingame.png
+[19:06:37] [Render thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: captured in-game frame D:\slavic-myths\run\..\docs\verification\book-0.4.png
+[19:06:37] [Render thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: server book packet opens client GUI
+[19:06:40] [Render thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: captured in-game frame D:\slavic-myths\run\..\docs\verification\shrine-0.4.png
+[19:06:40] [Render thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: optional JEI ritual category registered
+[19:06:42] [Render thread/INFO] [or.sl.sm.SmokeProbe/]: SMOKE PASS: captured in-game frame D:\slavic-myths\run\..\docs\verification\jei-0.4.png
+[19:06:43] [Server thread/INFO] [minecraft/ServerPlayNetHandler]: Dev lost connection: ����������
+[19:06:43] [Server thread/INFO] [minecraft/MinecraftServer]: Dev ������� ����
+[19:06:43] [Server thread/INFO] [minecraft/ServerPlayNetHandler]: Stopping singleplayer server as player logged out
+[19:06:43] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[19:06:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[19:06:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[19:06:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[����� ���]'/minecraft:overworld
+[19:06:43] [Server thread/INFO] [minecraft/ChunkManager]: ThreadedAnvilChunkStorage (SlavicMyths-Smoke-040): All chunks are saved
+[19:06:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[����� ���]'/minecraft:the_nether
+[19:06:43] [Server thread/INFO] [minecraft/ChunkManager]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[19:06:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[����� ���]'/minecraft:the_end
+[19:06:43] [Server thread/INFO] [minecraft/ChunkManager]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[19:06:43] [Server thread/INFO] [minecraft/ChunkManager]: ThreadedAnvilChunkStorage (SlavicMyths-Smoke-040): All chunks are saved
+[19:06:43] [Server thread/INFO] [minecraft/ChunkManager]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[19:06:43] [Server thread/INFO] [minecraft/ChunkManager]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[19:06:43] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not receive a message from the daemon.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org

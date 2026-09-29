@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "slavicmyths:perunite"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.perunite.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.perunite.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "slavicmyths:perunite"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "slavicmyths:root"
+}

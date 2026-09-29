@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "slavicmyths:birch_bark_scroll"
+    },
+    {
+      "item": "slavicmyths:linen_thread"
+    }
+  ],
+  "result": {
+    "item": "slavicmyths:lore_book"
+  }
+}

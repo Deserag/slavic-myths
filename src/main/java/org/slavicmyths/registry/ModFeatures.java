@@ -1,0 +1,14 @@
+package org.slavicmyths.registry;
+
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.slavicmyths.world.ShrineFeature;
+
+public final class ModFeatures {
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, "slavicmyths");
+    public static final RegistryObject<Feature<NoFeatureConfig>> SHRINE = FEATURES.register("ancient_shrine", ShrineFeature::new);
+    private ModFeatures() { }
+}
