@@ -60,5 +60,7 @@ public final class ModBlocks {
 
     public static final RegistryObject<Block> BATH_STOVE = BLOCKS.register("bath_stove", () -> new org.slavicmyths.block.BathStoveBlock(AbstractBlock.Properties.of(Material.STONE).strength(3).sound(SoundType.STONE).noOcclusion().lightLevel(s -> 4)));
     public static final RegistryObject<Block> WOODEN_TUB = BLOCKS.register("wooden_tub", () -> new Block(AbstractBlock.Properties.of(Material.WOOD).strength(2).sound(SoundType.WOOD).noOcclusion()));
+    public static final RegistryObject<Block> PATH_STONE = BLOCKS.register("path_stone", () -> new org.slavicmyths.rpg.RpgBlock(AbstractBlock.Properties.of(Material.STONE).strength(3.5F).sound(SoundType.STONE).noOcclusion(),false));
+    public static final RegistryObject<Block> RUNIC_ANVIL = BLOCKS.register("runic_anvil", () -> new org.slavicmyths.rpg.RpgBlock(AbstractBlock.Properties.of(Material.METAL).strength(4F).sound(SoundType.ANVIL).noOcclusion(),true));
     private ModBlocks() { }
 }

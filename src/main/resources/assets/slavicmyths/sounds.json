@@ -67,7 +67,7 @@
     "sounds": [
       {
         "name": "slavicmyths:land/kikimora_ambient",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -76,7 +76,7 @@
     "sounds": [
       {
         "name": "slavicmyths:land/kikimora_hurt",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -85,7 +85,7 @@
     "sounds": [
       {
         "name": "slavicmyths:land/kikimora_death",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -157,7 +157,7 @@
     "sounds": [
       {
         "name": "slavicmyths:land/polevik_ambient",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -166,7 +166,7 @@
     "sounds": [
       {
         "name": "slavicmyths:land/polevik_hurt",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -175,7 +175,7 @@
     "sounds": [
       {
         "name": "slavicmyths:land/polevik_death",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -184,7 +184,7 @@
     "sounds": [
       {
         "name": "slavicmyths:land/polevik_angry",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -202,7 +202,7 @@
     "sounds": [
       {
         "name": "slavicmyths:land/bannik_ambient",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -211,7 +211,7 @@
     "sounds": [
       {
         "name": "slavicmyths:land/bannik_hurt",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -220,7 +220,7 @@
     "sounds": [
       {
         "name": "slavicmyths:land/bannik_death",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -229,7 +229,7 @@
     "sounds": [
       {
         "name": "slavicmyths:land/bannik_angry",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -355,6 +355,78 @@
     "sounds": [
       {
         "name": "slavicmyths:land/poludnitsa_attack",
+        "volume": 0.6
+      }
+    ]
+  },
+  "polevik_step": {
+    "subtitle": "subtitles.slavicmyths.polevik_step",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/polevik_step",
+        "volume": 0.6
+      }
+    ]
+  },
+  "bannik_step": {
+    "subtitle": "subtitles.slavicmyths.bannik_step",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/bannik_step",
+        "volume": 0.6
+      }
+    ]
+  },
+  "bannik_attack": {
+    "subtitle": "subtitles.slavicmyths.bannik_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/bannik_attack",
+        "volume": 0.6
+      }
+    ]
+  },
+  "bannik_steam": {
+    "subtitle": "subtitles.slavicmyths.bannik_steam",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/bannik_steam",
+        "volume": 0.6
+      }
+    ]
+  },
+  "kikimora_notice": {
+    "subtitle": "subtitles.slavicmyths.kikimora_notice",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/kikimora_notice",
+        "volume": 0.6
+      }
+    ]
+  },
+  "kikimora_laugh": {
+    "subtitle": "subtitles.slavicmyths.kikimora_laugh",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/kikimora_laugh",
+        "volume": 0.6
+      }
+    ]
+  },
+  "kikimora_attack": {
+    "subtitle": "subtitles.slavicmyths.kikimora_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/kikimora_attack",
+        "volume": 0.6
+      }
+    ]
+  },
+  "kikimora_step": {
+    "subtitle": "subtitles.slavicmyths.kikimora_step",
+    "sounds": [
+      {
+        "name": "slavicmyths:land/kikimora_step",
         "volume": 0.6
       }
     ]

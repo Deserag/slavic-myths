@@ -128,5 +128,15 @@ public final class ModItems {
     public static final RegistryObject<Item> BATH_STOVE = ITEMS.register("bath_stove", () -> new BlockItem(ModBlocks.BATH_STOVE.get(), properties()));
     public static final RegistryObject<Item> WOODEN_TUB = ITEMS.register("wooden_tub", () -> new BlockItem(ModBlocks.WOODEN_TUB.get(), properties()));
 
+    public static final RegistryObject<Item> PATH_STONE=ITEMS.register("path_stone",()->new BlockItem(ModBlocks.PATH_STONE.get(),properties()));
+    public static final RegistryObject<Item> RUNIC_ANVIL=ITEMS.register("runic_anvil",()->new BlockItem(ModBlocks.RUNIC_ANVIL.get(),properties()));
+    public static final RegistryObject<Item> RUNE_THUNDER=ITEMS.register("rune_thunder",()->new Item(properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RUNE_HEAT=ITEMS.register("rune_heat",()->new Item(properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RUNE_FOREST=ITEMS.register("rune_forest",()->new Item(properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RUNE_MIDDAY=ITEMS.register("rune_midday",()->new Item(properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RUNE_SHADOW=ITEMS.register("rune_shadow",()->new Item(properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RUNE_PROTECTION=ITEMS.register("rune_protection",()->new Item(properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RUNE_LIFE=ITEMS.register("rune_life",()->new Item(properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RUNE_WIND=ITEMS.register("rune_wind",()->new Item(properties().rarity(Rarity.UNCOMMON)));
     private ModItems() { }
 }

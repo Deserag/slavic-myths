@@ -29,18 +29,18 @@ public final class StormStaffItem extends Item {
             Vector3d start = player.getEyePosition(1.0F); Vector3d look = player.getLookAngle();
             AxisAlignedBB area = player.getBoundingBox().expandTowards(look.scale(7)).inflate(1.0);
             List<LivingEntity> targets = world.getEntitiesOfClass(LivingEntity.class, area,
-                    e -> e != player && world.clip(new RayTraceContext(start, e.getEyePosition(1.0F),
+                    e -> org.slavicmyths.rpg.Abilities.canHit(player,e) && world.clip(new RayTraceContext(start, e.getEyePosition(1.0F),
                             RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, player)).getType() == RayTraceResult.Type.MISS &&
                             e.position().subtract(start).normalize().dot(look) > 0.93);
             targets.stream().min(Comparator.comparingDouble(e -> e.distanceToSqr(player))).ifPresent(
-                    e -> e.hurt(DamageSource.MAGIC, 3.0F));
+                    e -> {e.hurt(DamageSource.indirectMagic(player,player),3.0F*(org.slavicmyths.rpg.PathData.has(player,"staff_power")?1.12F:1)*(org.slavicmyths.rpg.Runes.has(stack,"thunder")?1.15F:1));org.slavicmyths.rpg.RuneEffects.staff(player,stack,e);});
             ServerWorld server = (ServerWorld) world;
             for (int i = 1; i <= 7; i++) {
                 Vector3d point = start.add(look.scale(i));
                 server.sendParticles(ParticleTypes.ENCHANT, point.x, point.y, point.z, 3, 0.12, 0.12, 0.12, 0.01);
             }
             world.playSound(null, player.blockPosition(), SoundEvents.TRIDENT_THUNDER, SoundCategory.PLAYERS, 0.25F, 1.7F);
-            player.getCooldowns().addCooldown(this, 80);
+            player.getCooldowns().addCooldown(this, ((org.slavicmyths.rpg.Runes.has(stack,"midday") && org.slavicmyths.rpg.RuneEffects.day(player)) || (org.slavicmyths.rpg.Runes.has(stack,"shadow") && org.slavicmyths.rpg.RuneEffects.dark(player)))?72:80);
             if (!player.abilities.instabuild) stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(hand));
         }
         return ActionResult.sidedSuccess(stack, world.isClientSide);

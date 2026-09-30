@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "CAC",
+    "CCC"
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:ancient_sign"
+    },
+    "C": {
+      "item": "minecraft:cobblestone"
+    },
+    "A": {
+      "item": "slavicmyths:amber"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:path_stone"
+  }
+}

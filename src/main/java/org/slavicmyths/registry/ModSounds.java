@@ -49,6 +49,14 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> POLUDNITSA_NOTICE = sound("poludnitsa_notice");
     public static final RegistryObject<SoundEvent> POLUDNITSA_TRANSFORM = sound("poludnitsa_transform");
     public static final RegistryObject<SoundEvent> POLUDNITSA_ATTACK = sound("poludnitsa_attack");
+    public static final RegistryObject<SoundEvent> POLEVIK_STEP = sound("polevik_step");
+    public static final RegistryObject<SoundEvent> BANNIK_STEP = sound("bannik_step");
+    public static final RegistryObject<SoundEvent> BANNIK_ATTACK = sound("bannik_attack");
+    public static final RegistryObject<SoundEvent> BANNIK_STEAM = sound("bannik_steam");
+    public static final RegistryObject<SoundEvent> KIKIMORA_NOTICE = sound("kikimora_notice");
+    public static final RegistryObject<SoundEvent> KIKIMORA_LAUGH = sound("kikimora_laugh");
+    public static final RegistryObject<SoundEvent> KIKIMORA_ATTACK = sound("kikimora_attack");
+    public static final RegistryObject<SoundEvent> KIKIMORA_STEP = sound("kikimora_step");
     private static RegistryObject<SoundEvent> sound(String id) {
         return SOUNDS.register(id, () -> new SoundEvent(new ResourceLocation(SlavicMyths.MOD_ID, id)));
     }

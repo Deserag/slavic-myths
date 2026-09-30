@@ -1,0 +1,5 @@
+allprojects {
+    tasks.register('rpgTestClasspath') {
+        doLast { file('work/v060/classpath.txt').text = sourceSets.main.compileClasspath.asPath }
+    }
+}

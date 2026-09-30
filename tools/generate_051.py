@@ -36,6 +36,10 @@ def emit(name,m,animation,variants=1):
    if u+tw>=256:u=0;v+=rowh+2;rowh=0
    assert v+th<256
    pal=[rgba(c) for c in PAL[box['mat']]]
+   # Fractional cuboid dimensions interpolate UVs between integer texels.
+   # Fill the allocation first so those edges never sample transparent gaps.
+   for py in range(v,v+th):
+    for px in range(u,u+tw):rows[py][px]=pal[1]
    # Paint all six box faces independently: shaded edges, central cloth folds, quiet pixel clusters.
    faces=[(u+d,v,w,d),(u+d+w,v,w,d),(u,v+d,d,h),(u+d,v+d,w,h),(u+d+w,v+d,d,h),(u+2*d+w,v+d,w,h)]
    for fi,(xx,yy,fw,fh) in enumerate(faces):
@@ -179,7 +183,7 @@ def poludnitsa():
   for i,(x,h) in enumerate([(-3.8,5),(-2,6),(0,4.5),(2,5.5)]):
    hem=m.part(prefix+'Hem'+str(i),dress,(x,10, -2.5 if i%2 else 1.2),(0,0,(i-1.5)*.025));m.box(hem,(0,0,0),(1.8,h if reveal else 2.2,1.4),'linen','hem')
   for side,sign in [('Left',1),('Right',-1)]:
-   arm=m.limb(prefix+side+'Arm',body,(sign*(2.8 if reveal else 3.4),1,0),(1.4 if reveal else 1.8,8 if reveal else 4.8,1.7),'linen',(0,0,sign*.04))
+   arm=m.limb(prefix+side+'Arm',body,(sign*(3.2 if reveal else 3.4),1,0),(1.4 if reveal else 1.8,8 if reveal else 4.8,1.7),'linen',(0,0,-sign*.12 if reveal else -sign*.04))
    fore=m.limb(prefix+side+'Fore',arm,(0,8 if reveal else 4.8,0),(1.1 if reveal else 1.6,9 if reveal else 4,1.3),'skin' if reveal else 'linen',(-.12,0,0))
    hand=m.limb(prefix+side+'Hand',fore,(0,9 if reveal else 4,0),(1.5,2,1.3),'skin')
    if reveal:
@@ -192,7 +196,7 @@ def poludnitsa():
  nBody.zRot=MathHelper.sin(age*.022F)*.012F;nLeftArm.xRot=MathHelper.cos(walk*.5F)*amount*.1F;nRightArm.xRot=-nLeftArm.xRot;
  nLeftLeg.xRot=MathHelper.cos(walk*.5F)*amount*.25F;nRightLeg.xRot=-nLeftLeg.xRot;nDress.zRot=MathHelper.sin(walk*.4F)*amount*.015F;
  rBody.xRot=.18F+MathHelper.sin(age*.03F)*.015F;rHead.xRot-=.12F;rLeftFore.xRot=-.2F;rRightFore.xRot=-.25F;
- rRightArm.xRot=-MathHelper.sin(attackTime*3.14159F)*1.6F;rLeftArm.zRot=.12F;rRightArm.zRot=-.12F;
+ rRightArm.xRot=-MathHelper.sin(attackTime*3.14159F)*1.6F;rLeftArm.zRot=-.12F;rRightArm.zRot=.12F;
  nLeftHair.zRot+=MathHelper.sin(age*.035F)*.02F;rLeftHair.zRot+=MathHelper.sin(age*.06F)*.06F;
  if(t>0 && t<1){nHead.zRot=rHead.zRot=MathHelper.sin(t*3.14159F)*.32F;}'''
  emit('Poludnitsa',m,anim,2)
@@ -201,4 +205,124 @@ def poludnitsa():
 ''';p.write_text(s)
  audio('poludnitsa',['ambient','notice','transform','attack','hurt','death'])
 
-if __name__=='__main__':globals()[sys.argv[1]]()
+
+def polevik():
+ m=Mesh();root=m.part('root');body=m.part('body',root,(0,0,0),(.07,0,-.06))
+ m.box(body,(-1.6,0,-1.2),(3.2,11,2.4),'soil')
+ for i,(x,y,h,ang) in enumerate([(-2.1,-.4,11,.12),(-.9,1,10,-.04),(.7,-1,12,-.09),(1.9,1.2,9,-.2)]):
+  stem=m.part('torsoStem'+str(i),body,(x,y,-1.5),(.02,0,ang));m.box(stem,(-.45,0,-.35),(.9,h,.7),'stalk')
+ m.box(body,(-.7,3,-1.7),(1,4,.7),'olive');m.box(body,(1,6,-1.5),(.6,3,.6),'olive')
+ head=m.part('head',body,(0,-1,-.4),(.07,0,.03));m.box(head,(-2,-6,-1.9),(4,6,4),'bark','face');m.box(head,(-1.4,-.5,-2),(2.8,1,3),'soil')
+ nose=m.part('nose',head,(0,-2.8,-1.9),(.25,0,0));m.box(nose,(-.45,0,-1.4),(.9,2,1.5),'bark')
+ for i,(x,z,h,ang) in enumerate([(-1.7,0,2.8,.4),(-2,1,1.8,.6),(.8,1.5,3.4,-.18),(1.8,.5,2,-.55),(1.5,-1,1.3,-.35)]):
+  hair=m.part('grainHair'+str(i),head,(x,-5.4,z),(.1*(i-2),0,ang));m.box(hair,(-.2,-h,-.2),(.4,h,.4),'bark');m.box(hair,(-.5,-h,-.4),(1,1.6,.8),'stalk')
+ beard=m.part('beard',head,(0,-.4,-2),(.14,0,0))
+ for i,(x,h,a) in enumerate([(-1.6,5,.14),(-.6,8,.03),(.4,7,-.08),(1.4,4.5,-.25)]):
+  b=m.part('beardStrand'+str(i),beard,(x,0,0),(0,0,a));m.box(b,(-.5,0,-.45),(1,h,.9),'stalk');m.box(b,(-.3,h-.8,-.4),(.6,1.4,.8),'bark')
+ for side,sign in [('Left',1),('Right',-1)]:
+  arm=m.limb(side+'Arm',body,(sign*3,-1 if sign==1 else 1,0),(1.2,7 if sign==1 else 8,1.4),'soil',(0,0,sign*.11))
+  m.box(arm,(-.7,.3,-.8),(.6,6,1),'stalk')
+  fore=m.limb(side+'Fore',arm,(0,7 if sign==1 else 8,0),(1,7 if sign==1 else 8,1.2),'bark',(-.13,0,.05*sign))
+  for i,h in enumerate((2,2.7,1.5)):m.limb(side+'RootFinger'+str(i),fore,(-.65+i*.6,6.5 if sign==1 else 7.5,0),(.4,h,.5),'soil',(.15,0,(i-1)*.2))
+  leg=m.limb(side+'Leg',root,(sign*1.6,10,0),(1.2,7,1.4),'bark',(0,0,sign*.04))
+  shin=m.limb(side+'Shin',leg,(0,7,0),(1,6,1.2),'stalk')
+  for i in range(3):m.limb(side+'Toe'+str(i),shin,((i-1)*.7,5.5,-.3),(.6,1,2.5),'soil',(0,(i-1)*.35,0))
+  m.box(leg,(-.85,0,-.65),(.45,7,1.3),'stalk')
+ for i in range(3):
+  ear=m.part('shoulderGrain'+str(i),'LeftArm',(0,i*.8,0),(0,0,-.5-i*.12));m.box(ear,(-.2,-3,-.2),(.4,3,.4),'stalk');m.box(ear,(-.5,-3,-.4),(1,1.4,.8),'wheat')
+ for i in range(2):m.limb('danglingRoot'+str(i),'RightArm',(-.7+i,3,.5),(.4,4+i,.5),'soil',(0,0,.15))
+ anim='''head.yRot=yaw*.0174533F;head.xRot+=pitch*.0174533F;body.zRot=-.06F+MathHelper.sin(age*.025F)*.035F;
+ LeftLeg.xRot=MathHelper.cos(walk*.42F)*amount*.45F;RightLeg.xRot=-LeftLeg.xRot;LeftArm.xRot=RightLeg.xRot*.15F;RightArm.xRot=LeftLeg.xRot*.12F-MathHelper.sin(attackTime*3.14159F)*1.5F;
+ beard.xRot=.14F+MathHelper.sin(age*.035F+.6F)*.035F;grainHair0.zRot+=MathHelper.sin(age*.03F)*.04F;grainHair2.xRot+=MathHelper.sin(age*.026F+1)*.035F;
+ if(e.state()==1){body.y=8;LeftLeg.xRot=RightLeg.xRot=-.95F;LeftShin.xRot=RightShin.xRot=.7F;}if(e.state()==2){LeftFore.xRot=RightFore.xRot=-.7F;}'''
+ emit('Polevik',m,anim)
+ p=J/'client/PolevikRenderer.java';p.write_text(p.read_text().replace('new PolevikModel(),.4F','new PolevikModel(),.27F'))
+ audio('polevik',['ambient','angry','step','hurt','death'])
+ p=J/'entity/PolevikEntity.java';s=p.read_text()
+ if 'getAmbientSoundInterval' not in s:
+  i=s.rfind('}');s=s[:i]+'''    @Override public int getAmbientSoundInterval(){return 650;}
+    @Override protected void playStepSound(net.minecraft.util.math.BlockPos pos,net.minecraft.block.BlockState block){if(!level.isClientSide)voice("step",.12F);}
+'''+s[i:]
+ p.write_text(s)
+
+def bannik():
+ m=Mesh();root=m.part('root');body=m.part('body',root,(0,8,0),(.21,0,.02));m.box(body,(-6,0,-3),(12,9,6),'mud');m.box(body,(-5.5,-1,0),(11,5,4),'mud')
+ m.box(body,(-5.4,8,-3),(10.8,4,6),'cloth','hem')
+ head=m.part('head',body,(0,0,-3),(-.08,0,0));m.box(head,(-3.7,-6,-2.8),(7.4,6,5.6),'mud','face')
+ m.box(head,(-3.7,-4.3,-3.2),(3.2,1,1),'mud');m.box(head,(.4,-4.5,-3.2),(3.3,1,1),'mud')
+ nose=m.part('nose',head,(0,-2.5,-2.8),(.15,0,0));m.box(nose,(-1.2,-.3,-1.3),(2.4,1.8,1.4),'mud')
+ for i,(x,z,h) in enumerate([(-3.8,0,4.5),(3.3,1,6),(-2,2,5)]):
+  hair=m.part('hair'+str(i),head,(x,-3,z),(.1,0,(i-1)*.06));m.box(hair,(-.5,0,-.4),(1,h,.8),'hair')
+ beard=m.part('beard',head,(0,-.4,-3.1),(.2,0,0));m.box(beard,(-3,0,-.5),(6,2,1.5),'hair')
+ for i,(x,h,ang) in enumerate([(-2.2,4,.16),(-.8,6,.04),(.7,4.8,-.06),(2,3.5,-.22)]):
+  b=m.part('beardLock'+str(i),beard,(x,1.5,0),(0,0,ang));m.box(b,(-.7,0,-.6),(1.4,h,1.2),'hair')
+ for side,sign in [('Left',1),('Right',-1)]:
+  arm=m.limb(side+'Arm',body,(sign*7,-.4 if sign==1 else .5,0),(4,5,4),'mud',(-.1,0,sign*.08))
+  fore=m.limb(side+'Fore',arm,(0,5,0),(3.5,4,3.5),'mud',(-.28,0,0))
+  hand=m.limb(side+'Hand',fore,(0,4,-.3),(4.5,3,4),'mud')
+  for i,h in enumerate((1.8,2.5,2.8,2.1)):m.limb(side+'Finger'+str(i),hand,(-1.8+i*1.15,2.6,-.9),(.8,h,1),'mud',(.2+(i%2)*.12,0,(i-1.5)*.025))
+  m.limb(side+'Leg',root,(sign*3,17,0),(3.7,7,4),'mud')
+ for i,(x,y,z) in enumerate([(4,1,3.7),(-4,8,2.9),(3,9,-3.2)]):
+  leaf=m.part('whiskLeaf'+str(i),body,(x,y,z),(.2,0,.4));m.box(leaf,(-.6,0,-.15),(1.2,2,.3),'olive')
+ anim='''head.yRot=yaw*.0174533F;head.xRot+=pitch*.0174533F;body.xRot=.21F+MathHelper.sin(age*.065F)*.012F;
+ LeftArm.zRot+=MathHelper.sin(age*.065F)*.01F;RightArm.zRot-=MathHelper.sin(age*.065F)*.01F;
+ LeftLeg.xRot=MathHelper.cos(walk*.4F)*amount*.42F;RightLeg.xRot=-LeftLeg.xRot;LeftArm.xRot+=RightLeg.xRot*.22F;RightArm.xRot+=LeftLeg.xRot*.22F;
+ float hit=MathHelper.sin(attackTime*3.14159F);RightArm.xRot-=hit*1.1F;RightArm.zRot-=hit*.7F;RightFore.xRot-=hit*.5F;beard.xRot+=MathHelper.sin(age*.04F)*.025F;
+ if(e.state()==4){body.xRot=.31F;head.xRot=-.2F;LeftArm.zRot=.45F;RightArm.zRot=-.45F;LeftFore.xRot=RightFore.xRot=-.5F;}'''
+ emit('Bannik',m,anim)
+ p=J/'client/BannikRenderer.java';p.write_text(p.read_text().replace('new BannikModel(),.4F','new BannikModel(),.55F'))
+ audio('bannik',['ambient','step','angry','attack','hurt','death','steam'])
+ p=J/'entity/BannikEntity.java';s=p.read_text().replace('voice("power",.7F);nextPower','voice("steam",.6F);nextPower')
+ if 'getAmbientSoundInterval' not in s:
+  i=s.rfind('}');s=s[:i]+'''    @Override public int getAmbientSoundInterval(){return 560;}
+    @Override protected void playStepSound(net.minecraft.util.math.BlockPos pos,net.minecraft.block.BlockState block){if(!level.isClientSide)voice("step",.2F);}
+    @Override public boolean doHurtTarget(net.minecraft.entity.Entity target){boolean hit=super.doHurtTarget(target);if(hit && !level.isClientSide)voice("attack",.45F);return hit;}
+'''+s[i:]
+ p.write_text(s)
+
+def kikimora():
+ m=Mesh();root=m.part('root');body=m.part('body',root,(0,-3,0),(.22,0,-.025));m.box(body,(-2.1,0,-1.7),(4.2,8,3.4),'cloth');m.box(body,(-1.8,-.7,.7),(3.6,3,2),'cloth')
+ for i,(x,h) in enumerate([(-2.3,3.5),(-.8,2.3),(.7,4)]):m.box(body,(x,7,-1.8),(1.5,h,3.6),'cloth','hem')
+ head=m.part('head',body,(0,-1.5,-2),(.11,0,0));m.box(head,(-1.9,-6.5,-1.8),(3.8,6.5,3.6),'skin','face');m.box(head,(-1,-.3,-2.1),(2,1.2,2.9),'skin')
+ nose=m.part('nose',head,(0,-3.5,-1.8),(.3,0,0));m.box(nose,(-.4,0,-1.8),(.8,2.4,2),'skin');m.box(nose,(-.3,1.8,-2.1),(.6,1,1),'skin')
+ for i,(x,z,h,a) in enumerate([(-2,-1,6,.08),(1.7,-1.3,8,-.08),(-1.5,1.5,9,.1),(.8,1.7,10,-.09)]):
+  hair=m.part('hair'+str(i),head,(x,-5.3,z),(.05,0,a));m.box(hair,(-.35,0,-.3),(.7,h,.6),'hair')
+ bonnet=m.part('bonnet',head,(0,-6.4,0),(.03,0,.04));m.box(bonnet,(-2.3,-.8,-2.1),(4.6,1.5,4.2),'cloth');m.box(bonnet,(-2.4,.5,.8),(4.8,2,1.5),'cloth')
+ cap=m.part('cap',head,(0,-6.5,0),(.02,0,-.04));m.box(cap,(-2.1,-.4,-2),(4.2,1.2,4),'cloth')
+ m.box(bonnet,(-2.5,.4,-.3),(.8,2,1),'cloth');m.box(bonnet,(1.8,.4,-.3),(.8,2.5,1),'cloth')
+ for side,sign in [('Left',1),('Right',-1)]:
+  arm=m.limb(side+'Arm',body,(sign*2.9,.8,0),(1.1,7,1.2),'cloth',(0,0,sign*.065))
+  fore=m.limb(side+'Fore',arm,(0,7,0),(.85,7,1),'skin',(-.35,0,0));hand=m.limb(side+'Hand',fore,(0,7,0),(2,2.7,1.5),'skin')
+  for i,h in enumerate((2.5,3.4,2.8)):m.limb(side+'Finger'+str(i),hand,(-.8+i*.8,2.2,-.3),(.45,h,.5),'skin',(.12+i*.07,0,(i-1)*.1))
+  thigh=m.limb(side+'Leg',root,(sign*1.4,6,0),(1.3,7,1.5),'skin',(-.12,0,sign*.025))
+  shin=m.limb(side+'Shin',thigh,(0,7,-.5),(.8,9,1),'bird',(.17,0,0));m.box(shin,(-.6,8,-.3),(1.2,1.3,1.4),'bird')
+  foot=m.part(side+'Foot',shin,(0,9,0),(-.05,0,0))
+  for i in range(3):
+   toe=m.part(side+'Toe'+str(i),foot,((i-1)*.65,0,0),(0,(i-1)*.23,0));m.box(toe,(-.2,0,-3.1),(.4,.65,3.6),'bird')
+  m.box(foot,(-.2,0,.4),(.4,.6,1.5),'bird')
+ anim='''head.yRot=yaw*.0174533F;head.xRot+=pitch*.0174533F;bonnet.visible=e.variant()<4;cap.visible=!bonnet.visible;
+ float run=e.state()==4?1:0;body.xRot=.22F+run*.14F;float step=MathHelper.cos(walk*(1.05F+run*.35F))*amount*.42F;
+ LeftLeg.xRot=-.12F+step;RightLeg.xRot=-.12F-step;LeftShin.xRot=.17F+Math.max(0,-step)*.5F;RightShin.xRot=.17F+Math.max(0,step)*.5F;
+ LeftArm.xRot=run*.12F-step*.12F;RightArm.xRot=run*.12F+step*.12F-MathHelper.sin(attackTime*3.14159F)*1.6F;RightFore.xRot-=MathHelper.sin(attackTime*3.14159F)*.45F;
+ if(((int)age+e.getId()*17)%230<7)head.zRot=.09F*MathHelper.sin(age*1.7F);
+ LeftHand.zRot=MathHelper.sin(age*.018F)*.025F;if(e.state()==1){LeftLeg.xRot=RightLeg.xRot=-.12F;}'''
+ emit('Kikimora',m,anim,4)
+ p=J/'client/KikimoraRenderer.java';p.write_text(p.read_text().replace('new KikimoraModel(),.4F','new KikimoraModel(),.31F'))
+ audio('kikimora',['ambient','notice','laugh','attack','hurt','death','step'])
+ p=J/'entity/KikimoraEntity.java';s=p.read_text()
+ if 'nextNoticeSound' not in s:
+  s=s.replace('private int attention;','private long nextNoticeSound;private int attention;')
+  s=s.replace('{state(1);getNavigation().stop();}','{if(state()!=1 && level.getGameTime()>nextNoticeSound){voice("notice",.25F);nextNoticeSound=level.getGameTime()+500;}state(1);getNavigation().stop();}')
+ if 'getAmbientSoundInterval' not in s:
+  i=s.rfind('}');s=s[:i]+'''    @Override public int getAmbientSoundInterval(){return 650;}
+    @Override public void playAmbientSound(){if(!level.isClientSide){if(tickCount%3==0)voice("laugh",.22F);else voice("ambient",.25F);}}
+    @Override protected void playStepSound(net.minecraft.util.math.BlockPos pos,net.minecraft.block.BlockState block){if(!level.isClientSide && tickCount%2==0)voice("step",.1F);}
+    @Override public boolean doHurtTarget(net.minecraft.entity.Entity target){boolean hit=super.doHurtTarget(target);if(hit && !level.isClientSide)voice("attack",.4F);return hit;}
+'''+s[i:]
+ p.write_text(s)
+
+def generate():
+ poludnitsa();polevik();bannik();kikimora()
+
+if __name__=='__main__':
+ globals()[sys.argv[1] if len(sys.argv)>1 else 'generate']()

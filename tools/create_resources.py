@@ -40,4 +40,9 @@ from generate_050_models import build_models
 from generate_050 import items as items_050, blocks as blocks_050, resources as resources_050, sounds as sounds_050
 build_models()
 items_050(); blocks_050(); resources_050(); sounds_050()
-print('Created 0.4.6 resources.')
+from generate_051 import generate as generate_051
+generate_051()
+print('Created 0.5.1 resources.')
+
+# RPG resources remain the final layer.
+import generate_060

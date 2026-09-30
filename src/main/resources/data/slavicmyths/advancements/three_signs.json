@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:rune_protection"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.three_signs.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.three_signs.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

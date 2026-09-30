@@ -33,7 +33,8 @@ public final class JeiRituals implements IModPlugin {
             new ResourceLocation("slavicmyths", "perun_charm"), new ResourceLocation("slavicmyths", "storm_staff"),
             new ResourceLocation("slavicmyths", "amber_charm"), new ResourceLocation("slavicmyths", "ritual_charcoal"),
             new ResourceLocation("slavicmyths", "thunder_spear"), new ResourceLocation("slavicmyths", "perunite_mace"),
-            new ResourceLocation("slavicmyths", "ember_axe")), ID); }
+            new ResourceLocation("slavicmyths", "ember_axe")), ID);
+        java.util.List<ResourceLocation> runes=new java.util.ArrayList<>();for(String id:org.slavicmyths.rpg.Runes.IDS)runes.add(new ResourceLocation("slavicmyths","rune_"+id));registration.addRecipes(runes,ID); }
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(ModItems.ALTAR.get()), ID);
     }
@@ -64,6 +65,7 @@ public final class JeiRituals implements IModPlugin {
             Minecraft.getInstance().font.draw(pose, "1       2       3       4   >", 4, 4, 0x404040);
         }
         private int kind(ResourceLocation recipe) {
+            for(int i=0;i<8;i++)if(recipe.getPath().equals("rune_"+org.slavicmyths.rpg.Runes.IDS[i]))return 9+i;
             if ("ember_axe".equals(recipe.getPath())) return Rituals.EMBER_AXE;
             if ("thunder_spear".equals(recipe.getPath())) return Rituals.THUNDER_SPEAR;
             if ("perunite_mace".equals(recipe.getPath())) return Rituals.PERUNITE_MACE;

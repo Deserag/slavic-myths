@@ -1,0 +1,38 @@
+package org.slavicmyths.rpg;
+import java.util.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.item.*;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.potion.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.server.ServerWorld;
+public final class Abilities {
+ public static boolean active(int i){return i==3||i==4||i==5||i==15||i==20||i==23;}
+ public static boolean canAffect(PlayerEntity p,LivingEntity e){return e!=p&&e.isAlive()&&!e.isAlliedTo(p)&&!e.isInvulnerable()&&(!(e instanceof PlayerEntity)||p.canHarmPlayer((PlayerEntity)e));}
+ public static boolean canHit(PlayerEntity p,LivingEntity e){return canAffect(p,e)&&p.canSee(e);}
+ public static LivingEntity target(PlayerEntity p,double reach){Vector3d eye=p.getEyePosition(1),look=p.getLookAngle();return p.level.getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().expandTowards(look.scale(reach)).inflate(.7),e->canHit(p,e)&&e.distanceToSqr(p)<=reach*reach&&e.getEyePosition(1).subtract(eye).normalize().dot(look)>.92).stream().min(Comparator.comparingDouble(p::distanceToSqr)).orElse(null);}
+ public static void particles(PlayerEntity p,LivingEntity e){if(p.level instanceof ServerWorld)((ServerWorld)p.level).sendParticles(ParticleTypes.ENCHANT,e.getX(),e.getY()+.9,e.getZ(),12,.3,.5,.3,.03);}
+ public static void activate(ServerPlayerEntity p){
+  int i=PathData.data(p).getInt("Active")-1;
+  if(i<0||i>=24||!active(i)||!PathData.has(p,PathData.SKILLS[i])){PathData.message(p,"select_ability");return;}
+  String skill=PathData.SKILLS[i];ItemStack main=p.getMainHandItem();String type=Runes.category(main);
+  if(i==3&&!(p.getOffhandItem().getItem() instanceof ShieldItem)&&!(main.getItem() instanceof ShieldItem)||i==5&&!Runes.heavy(main)||(i==20||i==23)&&!type.equals("staff")){PathData.message(p,"ability_equipment");return;}
+  long now=p.level.getGameTime(),until=PathData.data(p).getLong("CD_ability_"+skill);
+  if(until>now){PathData.message(p,"cooldown",new TranslationTextComponent("skill.slavicmyths."+skill),(until-now+19)/20);return;}
+  LivingEntity target=(i==3||i==20||i==23)?target(p,i==3?3:8):null;
+  if((i==3||i==20||i==23)&&target==null){PathData.message(p,"no_target");return;}
+  int cooldown=i==3||i==15?200:i==20?100:i==23?500:700;
+  if((i==20||i==23)&&((Runes.has(main,"midday")&&RuneEffects.day(p))||(Runes.has(main,"shadow")&&RuneEffects.dark(p))))cooldown=(int)(cooldown*.9);
+  PathData.ready(p,"ability_"+skill,cooldown);
+  if(i==3){target.hurt(new net.minecraft.util.EntityDamageSource("slavic_path",p),2);target.knockback(.8F,p.getX()-target.getX(),p.getZ()-target.getZ());}
+  if(i==4){p.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE,100,0));p.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN,100,0));PathData.data(p).putLong("Stance",now+100);}
+  if(i==5)PathData.data(p).putLong("Sweep",now+100);
+  if(i==15){Vector3d look=p.getLookAngle();Vector3d motion=new Vector3d(look.x,0,look.z).normalize().scale(.75);p.setDeltaMovement(motion.x,Math.max(.08,p.getDeltaMovement().y),motion.z);p.hurtMarked=true;}
+  if(i==20||i==23){float damage=(i==23?5:3)*(PathData.has(p,"staff_power")?1.12F:1)*(Runes.has(main,"thunder")?1.15F:1);target.hurt(DamageSource.indirectMagic(p,p),damage);particles(p,target);RuneEffects.staff(p,main,target);}
+  PathData.message(p,"activated",new TranslationTextComponent("skill.slavicmyths."+skill));
+ }
+ private Abilities(){}
+}

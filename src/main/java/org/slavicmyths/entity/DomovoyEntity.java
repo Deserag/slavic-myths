@@ -68,7 +68,7 @@ public final class DomovoyEntity extends CreatureEntity {
         } else if (food && now < r.nextGift) message = "wait";
         else if (food) {
             r.nextGift = now + 1200;
-            r.reputation = Math.min(100, r.reputation + 10);
+            r.reputation = Math.min(100, r.reputation + (org.slavicmyths.rpg.PathData.has(player,"offering")?12:10));
             if (!player.abilities.instabuild) {
                 stack.shrink(1);
                 net.minecraft.item.Item container = item == net.minecraft.item.Items.MILK_BUCKET ? net.minecraft.item.Items.BUCKET

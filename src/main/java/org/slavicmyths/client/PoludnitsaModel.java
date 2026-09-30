@@ -175,7 +175,7 @@ public final class PoludnitsaModel extends EntityModel<PoludnitsaEntity>{
  rHem3=new ModelRenderer(this);rHem3.setPos(2.0F,10.0F,-2.5F);
  rDress.addChild(rHem3);
  rHem3.texOffs(56,44).addBox(0.0F,0.0F,0.0F,1.8F,5.5F,1.4F);
- rLeftArm=new ModelRenderer(this);rLeftArm.setPos(2.8F,1.0F,0.0F);
+ rLeftArm=new ModelRenderer(this);rLeftArm.setPos(3.2F,1.0F,0.0F);
  rBody.addChild(rLeftArm);
  rLeftArm.texOffs(66,44).addBox(-0.7F,0.0F,-0.85F,1.4F,8.0F,1.7F);
  rLeftFore=new ModelRenderer(this);rLeftFore.setPos(0.0F,8.0F,0.0F);
@@ -196,7 +196,7 @@ public final class PoludnitsaModel extends EntityModel<PoludnitsaEntity>{
  rLeftLeg=new ModelRenderer(this);rLeftLeg.setPos(1.4F,17.0F,0.0F);
  rRoot.addChild(rLeftLeg);
  rLeftLeg.texOffs(114,44).addBox(-0.9F,0.0F,-1.0F,1.8F,7.0F,2.0F);
- rRightArm=new ModelRenderer(this);rRightArm.setPos(-2.8F,1.0F,0.0F);
+ rRightArm=new ModelRenderer(this);rRightArm.setPos(-3.2F,1.0F,0.0F);
  rBody.addChild(rRightArm);
  rRightArm.texOffs(124,44).addBox(-0.7F,0.0F,-0.85F,1.4F,8.0F,1.7F);
  rRightFore=new ModelRenderer(this);rRightFore.setPos(0.0F,8.0F,0.0F);
@@ -245,11 +245,11 @@ public final class PoludnitsaModel extends EntityModel<PoludnitsaEntity>{
  nHem1.setPos(-2.0F,10.0F,-2.5F);nHem1.xRot=0.0F;nHem1.yRot=0.0F;nHem1.zRot=-0.0125F;
  nHem2.setPos(0.0F,10.0F,1.2F);nHem2.xRot=0.0F;nHem2.yRot=0.0F;nHem2.zRot=0.0125F;
  nHem3.setPos(2.0F,10.0F,-2.5F);nHem3.xRot=0.0F;nHem3.yRot=0.0F;nHem3.zRot=0.037500000000000006F;
- nLeftArm.setPos(3.4F,1.0F,0.0F);nLeftArm.xRot=0.0F;nLeftArm.yRot=0.0F;nLeftArm.zRot=0.04F;
+ nLeftArm.setPos(3.4F,1.0F,0.0F);nLeftArm.xRot=0.0F;nLeftArm.yRot=0.0F;nLeftArm.zRot=-0.04F;
  nLeftFore.setPos(0.0F,4.8F,0.0F);nLeftFore.xRot=-0.12F;nLeftFore.yRot=0.0F;nLeftFore.zRot=0.0F;
  nLeftHand.setPos(0.0F,4.0F,0.0F);nLeftHand.xRot=0.0F;nLeftHand.yRot=0.0F;nLeftHand.zRot=0.0F;
  nLeftLeg.setPos(1.4F,17.0F,0.0F);nLeftLeg.xRot=0.0F;nLeftLeg.yRot=0.0F;nLeftLeg.zRot=0.0F;
- nRightArm.setPos(-3.4F,1.0F,0.0F);nRightArm.xRot=0.0F;nRightArm.yRot=0.0F;nRightArm.zRot=-0.04F;
+ nRightArm.setPos(-3.4F,1.0F,0.0F);nRightArm.xRot=0.0F;nRightArm.yRot=0.0F;nRightArm.zRot=0.04F;
  nRightFore.setPos(0.0F,4.8F,0.0F);nRightFore.xRot=-0.12F;nRightFore.yRot=0.0F;nRightFore.zRot=0.0F;
  nRightHand.setPos(0.0F,4.0F,0.0F);nRightHand.xRot=0.0F;nRightHand.yRot=0.0F;nRightHand.zRot=0.0F;
  nRightLeg.setPos(-1.4F,17.0F,0.0F);nRightLeg.xRot=0.0F;nRightLeg.yRot=0.0F;nRightLeg.zRot=0.0F;
@@ -273,14 +273,14 @@ public final class PoludnitsaModel extends EntityModel<PoludnitsaEntity>{
  rHem1.setPos(-2.0F,10.0F,-2.5F);rHem1.xRot=0.0F;rHem1.yRot=0.0F;rHem1.zRot=-0.0125F;
  rHem2.setPos(0.0F,10.0F,1.2F);rHem2.xRot=0.0F;rHem2.yRot=0.0F;rHem2.zRot=0.0125F;
  rHem3.setPos(2.0F,10.0F,-2.5F);rHem3.xRot=0.0F;rHem3.yRot=0.0F;rHem3.zRot=0.037500000000000006F;
- rLeftArm.setPos(2.8F,1.0F,0.0F);rLeftArm.xRot=0.0F;rLeftArm.yRot=0.0F;rLeftArm.zRot=0.04F;
+ rLeftArm.setPos(3.2F,1.0F,0.0F);rLeftArm.xRot=0.0F;rLeftArm.yRot=0.0F;rLeftArm.zRot=-0.12F;
  rLeftFore.setPos(0.0F,8.0F,0.0F);rLeftFore.xRot=-0.12F;rLeftFore.yRot=0.0F;rLeftFore.zRot=0.0F;
  rLeftHand.setPos(0.0F,9.0F,0.0F);rLeftHand.xRot=0.0F;rLeftHand.yRot=0.0F;rLeftHand.zRot=0.0F;
  rLeftFinger0.setPos(-0.6F,1.7F,-0.2F);rLeftFinger0.xRot=0.1F;rLeftFinger0.yRot=0.0F;rLeftFinger0.zRot=-0.06F;
  rLeftFinger1.setPos(0.0F,1.7F,-0.2F);rLeftFinger1.xRot=0.13F;rLeftFinger1.yRot=0.0F;rLeftFinger1.zRot=0.0F;
  rLeftFinger2.setPos(0.6F,1.7F,-0.2F);rLeftFinger2.xRot=0.16F;rLeftFinger2.yRot=0.0F;rLeftFinger2.zRot=0.06F;
  rLeftLeg.setPos(1.4F,17.0F,0.0F);rLeftLeg.xRot=0.0F;rLeftLeg.yRot=0.0F;rLeftLeg.zRot=0.0F;
- rRightArm.setPos(-2.8F,1.0F,0.0F);rRightArm.xRot=0.0F;rRightArm.yRot=0.0F;rRightArm.zRot=-0.04F;
+ rRightArm.setPos(-3.2F,1.0F,0.0F);rRightArm.xRot=0.0F;rRightArm.yRot=0.0F;rRightArm.zRot=0.12F;
  rRightFore.setPos(0.0F,8.0F,0.0F);rRightFore.xRot=-0.12F;rRightFore.yRot=0.0F;rRightFore.zRot=0.0F;
  rRightHand.setPos(0.0F,9.0F,0.0F);rRightHand.xRot=0.0F;rRightHand.yRot=0.0F;rRightHand.zRot=0.0F;
  rRightFinger0.setPos(-0.6F,1.7F,-0.2F);rRightFinger0.xRot=0.1F;rRightFinger0.yRot=0.0F;rRightFinger0.zRot=-0.06F;
@@ -293,7 +293,7 @@ public final class PoludnitsaModel extends EntityModel<PoludnitsaEntity>{
  nBody.zRot=MathHelper.sin(age*.022F)*.012F;nLeftArm.xRot=MathHelper.cos(walk*.5F)*amount*.1F;nRightArm.xRot=-nLeftArm.xRot;
  nLeftLeg.xRot=MathHelper.cos(walk*.5F)*amount*.25F;nRightLeg.xRot=-nLeftLeg.xRot;nDress.zRot=MathHelper.sin(walk*.4F)*amount*.015F;
  rBody.xRot=.18F+MathHelper.sin(age*.03F)*.015F;rHead.xRot-=.12F;rLeftFore.xRot=-.2F;rRightFore.xRot=-.25F;
- rRightArm.xRot=-MathHelper.sin(attackTime*3.14159F)*1.6F;rLeftArm.zRot=.12F;rRightArm.zRot=-.12F;
+ rRightArm.xRot=-MathHelper.sin(attackTime*3.14159F)*1.6F;rLeftArm.zRot=-.12F;rRightArm.zRot=.12F;
  nLeftHair.zRot+=MathHelper.sin(age*.035F)*.02F;rLeftHair.zRot+=MathHelper.sin(age*.06F)*.06F;
  if(t>0 && t<1){nHead.zRot=rHead.zRot=MathHelper.sin(t*3.14159F)*.32F;}
  }

@@ -19,18 +19,18 @@ public final class StormProtection {
         if (!(event.getEntityLiving() instanceof PlayerEntity)) return;
         PlayerEntity player = (PlayerEntity) event.getEntityLiving();
         if (player.getOffhandItem().getItem() == ModItems.AMBER_CHARM.get() && event.getSource().isFire()) {
-            event.setAmount(event.getAmount() * 0.85F);
+            event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.8F:0.85F));
         }
         if (player.getOffhandItem().getItem() == ModItems.TRAVELER_CHARM.get() && event.getSource() == DamageSource.FALL) {
-            event.setAmount(event.getAmount() * 0.85F);
+            event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.8F:0.85F));
         }
         if (player.getOffhandItem().getItem() == ModItems.FOREST_CHARM.get()
                 && event.getSource().getEntity() != null && event.getSource().getEntity().getType().is(FOREST_SPIRITS)) {
-            event.setAmount(event.getAmount() * 0.85F);
+            event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.8F:0.85F));
         }
         if (event.getSource() != DamageSource.LIGHTNING_BOLT) return;
         if (player.getOffhandItem().getItem() == ModItems.PERUN_CHARM.get()) {
-            event.setAmount(event.getAmount() * 0.7F);
+            event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.65F:0.7F));
         }
         if (player.getItemBySlot(EquipmentSlotType.HEAD).getItem() == ModItems.PERUNITE_HELMET.get()
                 && player.getItemBySlot(EquipmentSlotType.CHEST).getItem() == ModItems.PERUNITE_CHESTPLATE.get()

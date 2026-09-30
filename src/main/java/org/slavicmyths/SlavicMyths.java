@@ -18,6 +18,7 @@ public final class SlavicMyths {
 
     public SlavicMyths() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        org.slavicmyths.rpg.Runes.init();
         ModBlocks.BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
         ModLoot.SERIALIZERS.register(bus);
@@ -26,6 +27,8 @@ public final class SlavicMyths {
         org.slavicmyths.registry.ModTiles.TILES.register(bus);
         org.slavicmyths.registry.ModFeatures.FEATURES.register(bus);
         org.slavicmyths.network.LoreNetwork.register();
+        org.slavicmyths.rpg.RpgNetwork.register();
+        org.slavicmyths.rpg.RpgMenu.MENUS.register(bus);
         bus.addListener(this::setup);
     }
 

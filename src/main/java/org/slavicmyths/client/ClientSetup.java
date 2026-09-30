@@ -25,6 +25,7 @@ public final class ClientSetup {
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.OVINNIK.get(), OvinnikRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.HOT_STONE.get(), manager -> new net.minecraft.client.renderer.entity.SpriteRenderer<>(manager, net.minecraft.client.Minecraft.getInstance().getItemRenderer()));
         event.enqueueWork(() -> {
+            RpgClient.setup();
             for (net.minecraft.item.Item shield : new net.minecraft.item.Item[] {
                     org.slavicmyths.registry.ModItems.RETAINER_SHIELD.get(),
                     org.slavicmyths.registry.ModItems.PERUNITE_SHIELD.get() }) {
