@@ -66,5 +66,10 @@ public final class ModBlocks {
     public static final RegistryObject<Block> BLUEBERRY_BUSH=BLOCKS.register("blueberry_bush",()->new org.slavicmyths.block.FolkBerryBush(false));
     public static final RegistryObject<Block> KITCHEN_TABLE=BLOCKS.register("kitchen_table",org.slavicmyths.block.KitchenTableBlock::new);
     public static final RegistryObject<Block> SKATERT=BLOCKS.register("skatert",org.slavicmyths.artifact.SkatertBlock::new);
+    public static final RegistryObject<Block> FISHING_NET=BLOCKS.register("fishing_net",org.slavicmyths.water.FishingNetBlock::new);
+    public static final RegistryObject<Block> REED=BLOCKS.register("reed",org.slavicmyths.water.ReedBlock::new);
+    public static final RegistryObject<Block> WATER_GRASS=BLOCKS.register("water_grass",()->new net.minecraft.block.SeaGrassBlock(AbstractBlock.Properties.of(Material.WATER_PLANT).noCollission().instabreak().sound(SoundType.WET_GRASS)));
+    public static final RegistryObject<Block> WHITE_LILY=BLOCKS.register("white_lily",()->new net.minecraft.block.LilyPadBlock(AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.LILY_PAD)));
+    public static final RegistryObject<Block> POOL_STONE=BLOCKS.register("pool_stone",org.slavicmyths.depth.PoolStoneBlock::new);
     private ModBlocks() { }
 }

@@ -187,5 +187,21 @@ public final class ModItems {
     public static final RegistryObject<Item> SKATERT=ITEMS.register("skatert",()->new org.slavicmyths.artifact.SkatertItem(properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> BADNYAK=ITEMS.register("badnyak",()->new org.slavicmyths.artifact.BadnyakItem(properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> VELES_STAFF=ITEMS.register("veles_staff",()->new org.slavicmyths.artifact.VelesStaffItem(properties().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> RAW_PIKE=food("raw_pike",3,.2F),COOKED_PIKE=food("cooked_pike",7,.7F),RAW_CARP=food("raw_carp",3,.2F),COOKED_CARP=food("cooked_carp",6,.65F),SMOKED_CARP=food("smoked_carp",8,.8F),RAW_CRAYFISH=food("raw_crayfish",2,.1F),COOKED_CRAYFISH=food("cooked_crayfish",5,.6F),UKHA=stew("ukha",10,.8F);
+    public static final RegistryObject<Item> OLD_HOOK=ITEMS.register("old_hook",()->new Item(properties()));
+    public static final RegistryObject<Item> PEARL_FRAGMENT=ITEMS.register("pearl_fragment",()->new Item(properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> PIKE_SPAWN_EGG=egg("pike_spawn_egg",ModEntities.PIKE,0x53623b,0xbaad78),CARP_SPAWN_EGG=egg("carp_spawn_egg",ModEntities.CARP,0x9b753a,0xd0ae64),CRAYFISH_SPAWN_EGG=egg("crayfish_spawn_egg",ModEntities.CRAYFISH,0x414333,0x777750);
+    public static final RegistryObject<Item> FISHING_NET=ITEMS.register("fishing_net",()->new BlockItem(ModBlocks.FISHING_NET.get(),properties().durability(32)));
+    public static final RegistryObject<Item> REED=ITEMS.register("reed",()->new BlockItem(ModBlocks.REED.get(),properties()));
+    public static final RegistryObject<Item> WATER_GRASS=ITEMS.register("water_grass",()->new BlockItem(ModBlocks.WATER_GRASS.get(),properties()));
+    public static final RegistryObject<Item> WHITE_LILY=ITEMS.register("white_lily",()->new net.minecraft.item.LilyPadItem(ModBlocks.WHITE_LILY.get(),properties()));
+    public static final RegistryObject<Item> VODYANOY_SPAWN_EGG=egg("vodyanoy_spawn_egg",ModEntities.VODYANOY,0x59695d,0x8f9364),RUSALKA_SPAWN_EGG=egg("rusalka_spawn_egg",ModEntities.RUSALKA,0xc3d1c7,0x3e5749);
+    public static final RegistryObject<Item> POOL_PEARL=ITEMS.register("pool_pearl",()->new Item(properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> ANCIENT_WATER_SIGN=ITEMS.register("ancient_water_sign",()->new org.slavicmyths.depth.WaterSignItem(properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> POOL_SPEAR=ITEMS.register("pool_spear",()->new org.slavicmyths.depth.PoolSpear(properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> DEPTH_AMULET=ITEMS.register("depth_amulet",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.RARE),"necklace"));
+    public static final RegistryObject<Item> VODYANOY_NET=ITEMS.register("vodyanoy_net",()->new org.slavicmyths.depth.VodyanoyNetItem(properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> POOL_STONE=ITEMS.register("pool_stone",()->new BlockItem(ModBlocks.POOL_STONE.get(),properties()));
+    public static final RegistryObject<Item> ELDER_VODYANOY_SPAWN_EGG=egg("elder_vodyanoy_spawn_egg",ModEntities.ELDER_VODYANOY,0x3f5149,0x889273);
     private ModItems() { }
 }

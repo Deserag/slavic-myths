@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "slavicmyths:raw_carp"
+  },
+  "result": "slavicmyths:cooked_carp",
+  "experience": 0.35,
+  "cookingtime": 200
+}

@@ -41,6 +41,7 @@ public final class SlavicMyths {
         event.enqueueWork(ModWorldGen::registerFeatures);
         event.enqueueWork(SpiritSpawns::registerPlacements);
         event.enqueueWork(org.slavicmyths.world.WildlifeSpawns::placements);
+        event.enqueueWork(org.slavicmyths.water.WaterSpawns::placements);
         event.enqueueWork(org.slavicmyths.world.LandEncounters::placements);
     }
 }

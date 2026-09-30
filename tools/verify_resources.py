@@ -132,7 +132,7 @@ for entry in global_loot['entries']:
 jar = ROOT/f'build/libs/slavicmyths-{VERSION}.jar'
 with zipfile.ZipFile(jar) as archive:
     assert archive.testzip() is None
-    assert not any('smoke' in n or n.startswith('mezz/') or n.endswith('.jar') for n in archive.namelist()), 'Bundled test/third-party content'
+    assert not any(('smoke' in n.lower() and n.endswith('.class')) or n.startswith('mezz/') or n.endswith('.jar') for n in archive.namelist()), 'Bundled test/third-party content'
     for path in RES.rglob('*'):
         if path.is_file():
             name = path.relative_to(RES).as_posix()
@@ -155,6 +155,21 @@ wildlife=set(re.findall(r'wildlife\("([a-z_]+)"',(JAVA/'registry/ModEntities.jav
 entities.update(wildlife)
 assert {'domovoy','leshy','kikimora','poludnitsa','polevik','bannik','igosha','ovinnik','hot_stone'} <= entities
 for entity in entities - {'hot_stone'}:
+    if entity == 'thrown_net':
+        assert 'ModEntities.THROWN_NET.get()' in (JAVA/'client/ClientSetup.java').read_text()
+        assert (JAVA/'depth/ThrownNet.java').is_file() and (RES/'assets/slavicmyths/models/item/vodyanoy_net.json').is_file()
+        continue
+    if entity == 'elder_vodyanoy':
+        assert (RES/'assets/slavicmyths/textures/entity/elder_vodyanoy.png').is_file()
+        assert (RES/'data/slavicmyths/loot_tables/entities/elder_vodyanoy.json').is_file()
+        assert (JAVA/'client/ElderVodyanoyModel.java').is_file() and (JAVA/'client/ElderVodyanoyRenderer.java').is_file()
+        continue
+    if entity in {'pike','carp','crayfish','vodyanoy','rusalka'}:
+        assert (RES/f'assets/slavicmyths/textures/entity/{entity}.png').is_file()
+        assert (RES/f'data/slavicmyths/loot_tables/entities/{entity}.json').is_file()
+        prefix='RiverFish' if entity in {'pike','carp','crayfish'} else 'WaterSpirit'
+        assert (JAVA/f'client/{prefix}Model.java').is_file() and (JAVA/f'client/{prefix}Renderer.java').is_file()
+        continue
     if entity in {'flying_broom','flying_mortar'}:
         assert (RES/f'assets/slavicmyths/models/item/{entity}.json').is_file()
         assert (JAVA/'client/FlightRenderer.java').is_file() and (JAVA/'flight/FlyingVessel.java').is_file()

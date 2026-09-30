@@ -775,5 +775,149 @@
         "stream": false
       }
     ]
+  },
+  "vodyanoy_ambient": {
+    "subtitle": "subtitles.slavicmyths.vodyanoy_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:water/vodyanoy_ambient"
+      }
+    ]
+  },
+  "vodyanoy_angry": {
+    "subtitle": "subtitles.slavicmyths.vodyanoy_angry",
+    "sounds": [
+      {
+        "name": "slavicmyths:water/vodyanoy_angry"
+      }
+    ]
+  },
+  "vodyanoy_hurt": {
+    "subtitle": "subtitles.slavicmyths.vodyanoy_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:water/vodyanoy_hurt"
+      }
+    ]
+  },
+  "vodyanoy_death": {
+    "subtitle": "subtitles.slavicmyths.vodyanoy_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:water/vodyanoy_death"
+      }
+    ]
+  },
+  "rusalka_ambient": {
+    "subtitle": "subtitles.slavicmyths.rusalka_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:water/rusalka_ambient"
+      }
+    ]
+  },
+  "rusalka_angry": {
+    "subtitle": "subtitles.slavicmyths.rusalka_angry",
+    "sounds": [
+      {
+        "name": "slavicmyths:water/rusalka_angry"
+      }
+    ]
+  },
+  "rusalka_hurt": {
+    "subtitle": "subtitles.slavicmyths.rusalka_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:water/rusalka_hurt"
+      }
+    ]
+  },
+  "rusalka_death": {
+    "subtitle": "subtitles.slavicmyths.rusalka_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:water/rusalka_death"
+      }
+    ]
+  },
+  "rusalka_song": {
+    "subtitle": "subtitles.slavicmyths.rusalka_song",
+    "sounds": [
+      {
+        "name": "slavicmyths:water/rusalka_song"
+      }
+    ]
+  },
+  "elder_idle": {
+    "subtitle": "subtitles.slavicmyths.elder_idle",
+    "sounds": [
+      {
+        "name": "slavicmyths:depth/elder_idle"
+      }
+    ]
+  },
+  "elder_hurt": {
+    "subtitle": "subtitles.slavicmyths.elder_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:depth/elder_hurt"
+      }
+    ]
+  },
+  "elder_attack": {
+    "subtitle": "subtitles.slavicmyths.elder_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:depth/elder_attack"
+      }
+    ]
+  },
+  "elder_heavy": {
+    "subtitle": "subtitles.slavicmyths.elder_heavy",
+    "sounds": [
+      {
+        "name": "slavicmyths:depth/elder_heavy"
+      }
+    ]
+  },
+  "elder_dash": {
+    "subtitle": "subtitles.slavicmyths.elder_dash",
+    "sounds": [
+      {
+        "name": "slavicmyths:depth/elder_dash"
+      }
+    ]
+  },
+  "elder_wave": {
+    "subtitle": "subtitles.slavicmyths.elder_wave",
+    "sounds": [
+      {
+        "name": "slavicmyths:depth/elder_wave"
+      }
+    ]
+  },
+  "elder_pull": {
+    "subtitle": "subtitles.slavicmyths.elder_pull",
+    "sounds": [
+      {
+        "name": "slavicmyths:depth/elder_pull"
+      }
+    ]
+  },
+  "elder_phase": {
+    "subtitle": "subtitles.slavicmyths.elder_phase",
+    "sounds": [
+      {
+        "name": "slavicmyths:depth/elder_phase"
+      }
+    ]
+  },
+  "elder_death": {
+    "subtitle": "subtitles.slavicmyths.elder_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:depth/elder_death"
+      }
+    ]
   }
 }

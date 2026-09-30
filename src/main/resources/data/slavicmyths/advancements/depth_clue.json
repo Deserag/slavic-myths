@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:meet_vodyanoy",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:ancient_water_sign"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.depth_clue.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.depth_clue.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

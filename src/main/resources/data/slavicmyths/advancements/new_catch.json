@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:raw_pike"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.new_catch.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.new_catch.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

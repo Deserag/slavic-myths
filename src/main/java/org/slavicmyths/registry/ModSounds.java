@@ -65,5 +65,7 @@ public final class ModSounds {
         return SOUNDS.register(id, () -> new SoundEvent(new ResourceLocation(SlavicMyths.MOD_ID, id)));
     }
     public static final RegistryObject<SoundEvent> GUSLI_LOOP = sound("gusli_loop");
+    public static final RegistryObject<SoundEvent> VODYANOY_AMBIENT=sound("vodyanoy_ambient"),VODYANOY_ANGRY=sound("vodyanoy_angry"),VODYANOY_HURT=sound("vodyanoy_hurt"),VODYANOY_DEATH=sound("vodyanoy_death"),RUSALKA_AMBIENT=sound("rusalka_ambient"),RUSALKA_ANGRY=sound("rusalka_angry"),RUSALKA_HURT=sound("rusalka_hurt"),RUSALKA_DEATH=sound("rusalka_death"),RUSALKA_SONG=sound("rusalka_song");
+    public static final RegistryObject<SoundEvent> ELDER_IDLE=sound("elder_idle"),ELDER_HURT=sound("elder_hurt"),ELDER_ATTACK=sound("elder_attack"),ELDER_HEAVY=sound("elder_heavy"),ELDER_DASH=sound("elder_dash"),ELDER_WAVE=sound("elder_wave"),ELDER_PULL=sound("elder_pull"),ELDER_PHASE=sound("elder_phase"),ELDER_DEATH=sound("elder_death");
     private ModSounds() { }
 }

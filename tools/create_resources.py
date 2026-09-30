@@ -55,3 +55,7 @@ from finalize_065 import all_resources as finalize_065
 finalize_065()
 from artifact_065 import generate as artifact_065
 artifact_065()
+from water_070 import generate as water_070
+water_070()
+from depth_072 import generate as depth_072
+depth_072()

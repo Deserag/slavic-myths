@@ -29,8 +29,12 @@ public final class ModWorldGen {
     private static ConfiguredFeature<?, ?> stJohnsWort, nettle, fireweed, juniper;
     private static ConfiguredFeature<?, ?> shrine, pathShrine, berryPatch;
     private static ConfiguredFeature<?, ?> bathhouse, oldBarn;
+    private static ConfiguredFeature<?, ?> waterPatch;
+    private static ConfiguredFeature<?, ?> deepPool;
 
     public static void registerFeatures() {
+        deepPool=register("deep_pool",org.slavicmyths.registry.ModFeatures.DEEP_POOL.get().configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(240));
+        waterPatch=register("water_patch",org.slavicmyths.registry.ModFeatures.WATER_PATCH.get().configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(3));
         berryPatch=register("berry_patch",org.slavicmyths.registry.ModFeatures.BERRY_PATCH.get().configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(6));
         pathShrine=register("path_shrine",org.slavicmyths.registry.ModFeatures.PATH_SHRINE.get().configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(80));
         bathhouse = register("bathhouse", org.slavicmyths.registry.ModFeatures.BATHHOUSE.get().configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(160));
@@ -65,6 +69,8 @@ public final class ModWorldGen {
 
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void biomeLoading(BiomeLoadingEvent event) {
+        if(event.getName()!=null&&event.getName().getNamespace().equals("minecraft")&&(event.getCategory()==Biome.Category.RIVER||event.getCategory()==Biome.Category.SWAMP))event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(()->deepPool);
+        if(event.getName()!=null&&event.getName().getNamespace().equals("minecraft")&&(event.getCategory()==Biome.Category.RIVER||event.getCategory()==Biome.Category.SWAMP||event.getCategory()==Biome.Category.FOREST))event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(()->waterPatch);
         if(event.getName()!=null && event.getName().getNamespace().equals("minecraft")) {
             if(event.getCategory()==Biome.Category.PLAINS || event.getCategory()==Biome.Category.TAIGA)
                 event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> bathhouse);

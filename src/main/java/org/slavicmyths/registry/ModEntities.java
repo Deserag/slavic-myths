@@ -41,6 +41,12 @@ public final class ModEntities {
 
     @SubscribeEvent
     public static void attributes(EntityAttributeCreationEvent event) {
+        event.put(ELDER_VODYANOY.get(),org.slavicmyths.depth.ElderVodyanoy.attributes().build());
+        event.put(VODYANOY.get(),org.slavicmyths.water.VodyanoyEntity.attributes().build());
+        event.put(RUSALKA.get(),org.slavicmyths.water.RusalkaEntity.attributes().build());
+        event.put(PIKE.get(),org.slavicmyths.water.RiverFish.createAttributes().add(net.minecraft.entity.ai.attributes.Attributes.MAX_HEALTH,8).add(net.minecraft.entity.ai.attributes.Attributes.MOVEMENT_SPEED,.7).build());
+        event.put(CARP.get(),org.slavicmyths.water.RiverFish.createAttributes().add(net.minecraft.entity.ai.attributes.Attributes.MAX_HEALTH,6).add(net.minecraft.entity.ai.attributes.Attributes.MOVEMENT_SPEED,.5).build());
+        event.put(CRAYFISH.get(),org.slavicmyths.water.RiverFish.createAttributes().add(net.minecraft.entity.ai.attributes.Attributes.MAX_HEALTH,4).add(net.minecraft.entity.ai.attributes.Attributes.MOVEMENT_SPEED,.25).build());
         event.put(DOMOVOY.get(), DomovoyEntity.attributes().build());
         event.put(LESHY.get(), LeshyEntity.attributes().build());
         event.put(KIKIMORA.get(), org.slavicmyths.entity.KikimoraEntity.attributes().build());
@@ -57,6 +63,13 @@ public final class ModEntities {
         event.put(DOE.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.DOE).build());
 
     }
+    public static final RegistryObject<EntityType<org.slavicmyths.water.RiverFish>> PIKE=ENTITIES.register("pike",()->EntityType.Builder.<org.slavicmyths.water.RiverFish>of((t,w)->new org.slavicmyths.water.RiverFish(t,w,0),EntityClassification.WATER_AMBIENT).sized(.85F,.35F).clientTrackingRange(8).build("slavicmyths:pike"));
+    public static final RegistryObject<EntityType<org.slavicmyths.water.RiverFish>> CARP=ENTITIES.register("carp",()->EntityType.Builder.<org.slavicmyths.water.RiverFish>of((t,w)->new org.slavicmyths.water.RiverFish(t,w,1),EntityClassification.WATER_AMBIENT).sized(.65F,.5F).clientTrackingRange(8).build("slavicmyths:carp"));
+    public static final RegistryObject<EntityType<org.slavicmyths.water.RiverFish>> CRAYFISH=ENTITIES.register("crayfish",()->EntityType.Builder.<org.slavicmyths.water.RiverFish>of((t,w)->new org.slavicmyths.water.RiverFish(t,w,2),EntityClassification.WATER_AMBIENT).sized(.45F,.2F).clientTrackingRange(8).build("slavicmyths:crayfish"));
+    public static final RegistryObject<EntityType<org.slavicmyths.water.VodyanoyEntity>> VODYANOY=ENTITIES.register("vodyanoy",()->EntityType.Builder.of(org.slavicmyths.water.VodyanoyEntity::new,EntityClassification.MONSTER).sized(.9F,1.7F).clientTrackingRange(10).build("slavicmyths:vodyanoy"));
+    public static final RegistryObject<EntityType<org.slavicmyths.water.RusalkaEntity>> RUSALKA=ENTITIES.register("rusalka",()->EntityType.Builder.of(org.slavicmyths.water.RusalkaEntity::new,EntityClassification.MONSTER).sized(.55F,1.85F).clientTrackingRange(10).build("slavicmyths:rusalka"));
+    public static final RegistryObject<EntityType<org.slavicmyths.depth.ThrownNet>> THROWN_NET=ENTITIES.register("thrown_net",()->EntityType.Builder.<org.slavicmyths.depth.ThrownNet>of(org.slavicmyths.depth.ThrownNet::new,EntityClassification.MISC).sized(.3F,.3F).clientTrackingRange(4).updateInterval(5).build("slavicmyths:thrown_net"));
+    public static final RegistryObject<EntityType<org.slavicmyths.depth.ElderVodyanoy>> ELDER_VODYANOY=ENTITIES.register("elder_vodyanoy",()->EntityType.Builder.of(org.slavicmyths.depth.ElderVodyanoy::new,EntityClassification.MONSTER).sized(1.4F,2.35F).clientTrackingRange(10).build("slavicmyths:elder_vodyanoy"));
     private ModEntities() { }
     public static final RegistryObject<EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_BROOM=ENTITIES.register("flying_broom",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,false),EntityClassification.MISC).sized(1F,.45F).clientTrackingRange(10).updateInterval(3).build("slavicmyths:flying_broom"));
     public static final RegistryObject<EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_MORTAR=ENTITIES.register("flying_mortar",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,true),EntityClassification.MISC).sized(.95F,1.2F).clientTrackingRange(10).updateInterval(3).build("slavicmyths:flying_mortar"));

@@ -51,6 +51,7 @@ public final class FolkAccessoryItem extends Item implements ICurioItem {
    if(!entity.level.isClientSide&&fade==20)player.addEffect(new EffectInstance(Effects.INVISIBILITY,5,0,false,false));
   }
   if(entity.level.isClientSide)return;
+  if(this==org.slavicmyths.registry.ModItems.DEPTH_AMULET.get()&&player.isInWater()&&player.tickCount%4==0&&player.getAirSupply()>0)player.setAirSupply(Math.min(player.getMaxAirSupply(),player.getAirSupply()+1));
   if(this==org.slavicmyths.registry.ModItems.RESIN_RING.get()&&player.tickCount%100==0&&player.getFoodData().getFoodLevel()>=18&&player.getHealth()<player.getMaxHealth()){
    player.heal(1);player.causeFoodExhaustion(2);
   }

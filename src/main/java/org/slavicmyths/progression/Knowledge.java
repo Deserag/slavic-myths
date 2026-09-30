@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 
 /** Vanilla advancements are the persisted, per-player discovery IDs. No duplicate player store. */
 public final class Knowledge {
-    public static final String[] ENTRIES = {"meet_domovoy", "meet_leshy", "shrine", "altar", "first_ritual"};
+    public static final String[] ENTRIES = {"meet_domovoy", "meet_leshy", "shrine", "altar", "first_ritual", "new_catch", "net_catch", "meet_vodyanoy", "meet_rusalka", "depth_clue", "find_deep_pool", "defeat_depth_master", "depth_gift", "depth_gift"};
     public static void award(PlayerEntity player, String id) {
         if (!(player instanceof ServerPlayerEntity)) return;
         ServerPlayerEntity server = (ServerPlayerEntity) player;

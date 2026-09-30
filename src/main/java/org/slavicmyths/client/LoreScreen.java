@@ -12,7 +12,7 @@ public final class LoreScreen extends Screen {
     private final int mask;
     private int article, page;
     private static final String[] IDS = {"intro", "domovoy", "leshy", "shrine", "altar", "ritual", "paths",
-            "silver", "amber", "thunder_axe", "storm_staff", "charms", "herbs", "ritual_tools", "runes", "reforging"};
+            "silver", "amber", "thunder_axe", "storm_staff", "charms", "herbs", "ritual_tools", "runes", "reforging", "water_fish", "fishing_net", "vodyanoy", "rusalka", "elder_vodyanoy", "deep_pool", "pool_pearl", "pool_spear", "depth_amulet"};
     public LoreScreen(int mask) { super(new TranslationTextComponent("item.slavicmyths.lore_book")); this.mask = mask; }
     public static void open(int mask) { Minecraft.getInstance().setScreen(new LoreScreen(mask)); }
     @Override protected void init() {
@@ -29,7 +29,7 @@ public final class LoreScreen extends Screen {
         addButton(new Button(left, 170, 112, 18, new TranslationTextComponent("book.slavicmyths.craft"),
                 b -> { article = 7; page = 0; }));
         addButton(new Button(left, 190, 112, 18, new TranslationTextComponent("book.slavicmyths.next_topic"),
-                b -> { article = article < 7 || article >= IDS.length - 1 ? 7 : article + 1; page = 0; }));
+                b -> { do { article = article < 7 || article >= IDS.length - 1 ? 7 : article + 1; } while(article>=16&&(mask&(1<<(article-11)))==0); page = 0; }));
         addButton(new Button(left + 124, height - 30, 75, 20, new TranslationTextComponent("book.slavicmyths.previous"), b -> page = Math.max(0, page - 1)));
         addButton(new Button(left + 205, height - 30, 75, 20, new TranslationTextComponent("book.slavicmyths.next"), b -> page++));
     }

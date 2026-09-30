@@ -208,6 +208,25 @@ AI: ограниченная частота поиска и область; worl
 0.5.0: six separate entity/model classes; LandSpiritEntity shares bounded encounter/persistence helpers. Models are generated from explicit native cuboid masters in generate_050_models.py. Synced visual states, persistent cooldowns/offering UUIDs; homesteads occupy one chunk, guards store home positions. Hot stones use Forge spawn packets. Sound sources are original synthetic PCM encoded as Vorbis.
 # Финализация 0.6.5
 
+0.7.2: depth/ElderVodyanoy использует общую водную навигацию, но отдельные модель,
+анимации и собственное расписание атак без vanilla instant melee. Стандартный ServerBossInfo.
+PoolStoneTile хранит state/intro/UUID, вызывает spawn один раз; PoolIndex (WorldSavedData)
+хранит известные/побеждённые омуты. Знак обращается к индексу только при использовании,
+не ищет/генерирует чанки. DeepPoolFeature ограничен одним чанком. При фазе III сохраняется
+слой до 121 блока, источники воды добавляются только над низкими выступами; при победе
+вода в сохранённом слое восстанавливается. Амулет использует прежний Curios necklace.
+Новые ресурсы — depth_072.py, последний слой общего генератора.
+
+0.7.0: пакет water добавляет RiverFish поверх AbstractFishEntity, WaterSpirit поверх
+существующего LandSpiritEntity, обработчик ItemFishedEvent без замены vanilla loot tables.
+FishingNetTile сохраняет четыре улова, износ и владельца; только scheduled ticks раз в
+6000–8400 тиков, ограниченная проверка соседства 7×3×7 без загрузки чанков.
+VodyanoyEntity хранит до 64 локальных отношений; уведомления о вылове приходят по событиям.
+RusalkaEntity проверяет слушателей раз в 20 тиков. RusalkaSong считает очарование на сервере,
+корректирует скорость существующим velocity sync и не принимает Charm state от клиента.
+WaterFeature размещает растения/малые POI в пределах чанка. Ресурсы — water_070.py;
+JeiKitchen изолирован как optional JEI plugin. Книга расширяет существующую битовую маску знаний.
+
 Дополнение артефактов: ArtifactEvents добавляет при появлении моба лёгкие Goal для музыки
 и временного защитника. Поиск музыкой — раз в 10 тиков только во время использования,
 радиус 12 и до 64 обрабатываемых существ. WildlifeEntity точечно пропускает собственный

@@ -1,5 +1,75 @@
 # Текущий статус проекта
 
+## 0.7.2 — Хозяева глубин
+
+Основной контент реализован; общий STATUS: PARTIAL из-за отсутствующего в этой копии
+проекта контента 0.7.1. Болотник/трясины/материалы 0.7.1 не регистрируются заново.
+
+- [x] Progression clues — отношения с Водяным, редкая речная/болотная рыбалка, направление знакомого миру Омута
+- [x] Elder Vodyanoy model
+- [x] Elder Vodyanoy textures
+- [x] Elder Vodyanoy animations
+- [x] Elder Vodyanoy sounds
+- [x] Encounter arena
+- [x] Encounter activation
+- [x] Boss bar
+- [x] Phase I
+- [x] Phase II
+- [x] Phase III
+- [x] Arena water mechanic
+- [x] Defeated-state persistence
+- [x] Pearl of the Pool
+- [x] Pool Spear
+- [x] Water thrust
+- [x] Depth Amulet
+- [x] Vodyanoy Net
+- [x] Loot
+- [x] Book of Tales
+- [x] Advancements
+- [x] Recipes/JEI
+- [x] Resource verification
+- [x] Production JAR
+- [x] PolyMC
+- [ ] Интеграция с отсутствующим контентом 0.7.1
+
+Технически проверены clean build, JSON, PNG/OGG, Java 8, production/reobf JAR и модели
+новых предметов. Игровых запусков: 0. Persistence/бой/волны/вода/навигация требуют ручного
+теста в Minecraft, в том числе multiplayer и перезаход во время боя/после победы.
+Подробности следующего шага: CONTINUE_0.7.2.md. 0.7.3 не начата.
+Slavic-Myths-Testing обновлён до 0.7.2: один JAR, SHA-256 совпадает с production,
+Curios/JEI не изменены; предыдущая сборка сохранена вне mods.
+
+## 0.7.0 — Тихие воды
+
+- [x] Fishing overhaul
+- [x] Fishing nets
+- [x] Pike
+- [x] Carp
+- [x] Crayfish
+- [x] Water food
+- [x] Aquatic plants
+- [x] Water resources
+- [x] Vodyanoy
+- [x] Rusalka
+- [x] Rusalka song
+- [x] Water POI
+- [x] Sounds
+- [x] Book of Tales
+- [x] Advancements
+- [x] Recipes/JEI
+- [x] Production build
+- [x] PolyMC
+
+Реализация 0.7.0 завершена; `--offline clean build` и resource verifier — PASS:
+172 предмета, 30 блоков, 163 PNG, 103 рецепта, 52 достижения; JSON/OGG, Java 8 и reobf JAR.
+Игровых запусков: 0. Ручная проверка: рыбные силуэты/движения, сети и сохранение улова,
+Водяной/подношения/вылов, песня и сопротивление, кухня/JEI, растения и новые POI.
+Вокал Русалки — собственная бессловесная формантная запись; звучание оценивает пользователь.
+Новая крупная болотная арка и 0.7.1 не начаты.
+PolyMC Slavic-Myths-Testing: установлен единственный slavicmyths-0.7.0.jar,
+SHA-256 совпадает с production; Curios/JEI не изменены, предыдущая сборка в mod-backups.
+
+
 ## Artifact content drop — 0.6.5
 
 - [x] Гусли-самогуды: удержание, музыка, постепенное успокоение, grace/cooldown, модель/поза.

@@ -15,6 +15,13 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 public final class ClientSetup {
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.ELDER_VODYANOY.get(),ElderVodyanoyRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.THROWN_NET.get(),m->new net.minecraft.client.renderer.entity.SpriteRenderer<>(m,net.minecraft.client.Minecraft.getInstance().getItemRenderer()));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.VODYANOY.get(),m->new WaterSpiritRenderer(m,false));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.RUSALKA.get(),m->new WaterSpiritRenderer(m,true));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.PIKE.get(),m->new RiverFishRenderer(m,0));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.CARP.get(),m->new RiverFishRenderer(m,1));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.CRAYFISH.get(),m->new RiverFishRenderer(m,2));
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.FLYING_BROOM.get(),FlightRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.FLYING_MORTAR.get(),FlightRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.DOMOVOY.get(), DomovoyRenderer::new);
@@ -35,6 +42,9 @@ public final class ClientSetup {
         event.enqueueWork(() -> {
             RpgClient.setup();
             FlightClient.setup();
+            RenderTypeLookup.setRenderLayer(ModBlocks.REED.get(),RenderType.cutout());
+            RenderTypeLookup.setRenderLayer(ModBlocks.WATER_GRASS.get(),RenderType.cutout());
+            RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_LILY.get(),RenderType.cutout());
             net.minecraft.client.Minecraft.getInstance().getBlockColors().register((state,world,pos,tint)->state.getBlock()==ModBlocks.RASPBERRY_BUSH.get()?0x668d41:0x355b43,ModBlocks.RASPBERRY_BUSH.get(),ModBlocks.BLUEBERRY_BUSH.get());
             net.minecraft.client.gui.ScreenManager.register(org.slavicmyths.kitchen.KitchenMenu.TYPE.get(),KitchenScreen::new);
             RenderTypeLookup.setRenderLayer(ModBlocks.RASPBERRY_BUSH.get(),RenderType.cutout());
