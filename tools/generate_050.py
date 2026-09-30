@@ -84,7 +84,15 @@ def resources():
   p=A/f'lang/{lang}.json';o=json.loads(p.read_text(encoding='utf-8'));o.update({k:v[i] for k,v in labels.items()});js(p,o)
 
 def sounds():
- s=json.loads((A/'sounds.json').read_text());tmp=ROOT/'work/audio050';tmp.mkdir(parents=True,exist_ok=True);ff=shutil.which('ffmpeg');assert ff
+ s=json.loads((A/'sounds.json').read_text());tmp=ROOT/'work/audio050';tmp.mkdir(parents=True,exist_ok=True);ff=shutil.which('ffmpeg')
+ if not ff:
+  expected=[A/f'sounds/land/{id}_{kind}.ogg' for id in NAMES for kind in ('ambient','hurt','death','angry','power')]
+  if all(p.exists() for p in expected):
+   for id in NAMES:
+    for kind in ('ambient','hurt','death','angry','power'):
+     name=id+'_'+kind;s[name]={'subtitle':'subtitles.slavicmyths.'+name,'sounds':[{'name':'slavicmyths:land/'+name,'volume':.65}]}
+   js(A/'sounds.json',s);return
+  raise RuntimeError('ffmpeg is required because generated 0.5.0 OGG files are missing')
  for idx,id in enumerate(NAMES):
   for kind in ('ambient','hurt','death','angry','power'):
    name=id+'_'+kind;dur={'ambient':1.7,'hurt':.45,'death':2.2,'angry':.8,'power':1.2}[kind];rate=22050;n=int(rate*dur);rng=random.Random(name);noise=0;samples=[]

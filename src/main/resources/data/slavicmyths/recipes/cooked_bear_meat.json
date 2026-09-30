@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "slavicmyths:raw_bear_meat"
+  },
+  "result": "slavicmyths:cooked_bear_meat",
+  "experience": 0.35,
+  "cookingtime": 200
+}

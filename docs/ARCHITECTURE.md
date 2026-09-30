@@ -1,5 +1,15 @@
 # Архитектура
 
+## 0.6.5 — wildlife
+
+Шесть registry ID используют один серверный `WildlifeEntity` с фиксированным видом,
+синхронизированным locomotion state и разными goal-наборами/attributes. Клиентские
+`WildlifeModel` и renderer строят отдельные пропорции медведя, медвежонка, волка,
+кабана, оленя и оленихи; gait, run, swim и attack pose зависят от состояния.
+`WildlifeSpawns` использует стандартные placement/biome spawn lists без поиска мира
+в тике. `generate_065.py` — последний ресурсный слой: текстуры, loot, food, recipes,
+advancements, звуковые event-ссылки и локализация.
+
 ## 0.6.0 — RPG
 
 `PathData` использует `PlayerPersisted/SlavicPaths`; Main/Secondary по умолчанию

@@ -46,3 +46,8 @@ print('Created 0.5.1 resources.')
 
 # RPG resources remain the final layer.
 import generate_060
+from generate_065 import *
+from wildlife_overhaul import generate as wildlife_overhaul
+wildlife_overhaul()
+from folk_equipment import generate as folk_equipment
+folk_equipment()

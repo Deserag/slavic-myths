@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:pancakes"
+    },
+    {
+      "item": "slavicmyths:blueberry"
+    }
+  ],
+  "result": {
+    "item": "slavicmyths:blueberry_pancakes",
+    "count": 1
+  }
+}

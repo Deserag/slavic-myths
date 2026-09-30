@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:hunter_belt"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.boar_charge_block.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.boar_charge_block.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

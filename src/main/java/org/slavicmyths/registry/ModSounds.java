@@ -57,6 +57,10 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> KIKIMORA_LAUGH = sound("kikimora_laugh");
     public static final RegistryObject<SoundEvent> KIKIMORA_ATTACK = sound("kikimora_attack");
     public static final RegistryObject<SoundEvent> KIKIMORA_STEP = sound("kikimora_step");
+    static {
+        for(String animal:new String[]{"bear","cub","wolf","boar","stag","doe"})
+            for(String event:new String[]{"ambient","hurt","death","alert","roar","attack","impact"}) sound(animal+"_"+event);
+    }
     private static RegistryObject<SoundEvent> sound(String id) {
         return SOUNDS.register(id, () -> new SoundEvent(new ResourceLocation(SlavicMyths.MOD_ID, id)));
     }

@@ -138,5 +138,44 @@ public final class ModItems {
     public static final RegistryObject<Item> RUNE_PROTECTION=ITEMS.register("rune_protection",()->new Item(properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> RUNE_LIFE=ITEMS.register("rune_life",()->new Item(properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> RUNE_WIND=ITEMS.register("rune_wind",()->new Item(properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> RAW_BEAR_MEAT=food("raw_bear_meat",4,.25F);
+    public static final RegistryObject<Item> COOKED_BEAR_MEAT=food("cooked_bear_meat",9,.8F);
+    public static final RegistryObject<Item> RAW_VENISON=food("raw_venison",3,.25F);
+    public static final RegistryObject<Item> COOKED_VENISON=food("cooked_venison",8,.75F);
+    public static final RegistryObject<Item> RAW_BOAR_MEAT=food("raw_boar_meat",3,.3F);
+    public static final RegistryObject<Item> COOKED_BOAR_MEAT=food("cooked_boar_meat",8,.8F);
+    public static final RegistryObject<Item> LARGE_ANIMAL_BONE=ITEMS.register("large_animal_bone",()->new Item(properties()));
+    public static final RegistryObject<Item> BONE_ARROW=ITEMS.register("bone_arrow",()->new ArrowItem(properties()));
+    public static final RegistryObject<Item> FLOUR=ITEMS.register("flour",()->new Item(properties()));
+    public static final RegistryObject<Item> RASPBERRY=food("raspberry",2,.15F);
+    public static final RegistryObject<Item> BLUEBERRY=food("blueberry",2,.15F);
+    public static final RegistryObject<Item> PANCAKES=food("pancakes",5,.5F);
+    public static final RegistryObject<Item> RASPBERRY_PANCAKES=food("raspberry_pancakes",7,.65F);
+    public static final RegistryObject<Item> BLUEBERRY_PANCAKES=food("blueberry_pancakes",7,.65F);
+    public static final RegistryObject<Item> MEAT_PANCAKES=food("meat_pancakes",9,.8F);
+    public static final RegistryObject<Item> KARAVAI=food("karavai",10,.9F);
+    public static final RegistryObject<Item> BERRY_PIE=food("berry_pie",8,.7F);
+    public static final RegistryObject<Item> BAKED_APPLE=food("baked_apple",6,.55F);
+    public static final RegistryObject<Item> MUSHROOM_STEW=stew("mushroom_stew",7,.6F);
+    public static final RegistryObject<Item> BEEF_STEW=stew("beef_stew",10,.9F);
+    public static final RegistryObject<Item> PORK_STEW=stew("pork_stew",10,.9F);
+    public static final RegistryObject<Item> VENISON_STEW=stew("venison_stew",10,.9F);
+    public static final RegistryObject<Item> BEAR_STEW=stew("bear_stew",11,1F);
+    public static final RegistryObject<Item> BROWN_BEAR_SPAWN_EGG=egg("brown_bear_spawn_egg",ModEntities.BROWN_BEAR,0x4b3427,0xb28a62);
+    public static final RegistryObject<Item> BEAR_CUB_SPAWN_EGG=egg("bear_cub_spawn_egg",ModEntities.BEAR_CUB,0x6b4a35,0xcda578);
+    public static final RegistryObject<Item> FOREST_WOLF_SPAWN_EGG=egg("forest_wolf_spawn_egg",ModEntities.FOREST_WOLF,0x292b2e,0xb2a98f);
+    public static final RegistryObject<Item> BOAR_SPAWN_EGG=egg("boar_spawn_egg",ModEntities.BOAR,0x493a32,0xd5c09c);
+    public static final RegistryObject<Item> STAG_SPAWN_EGG=egg("stag_spawn_egg",ModEntities.STAG,0x76533b,0xd1ad7b);
+    public static final RegistryObject<Item> DOE_SPAWN_EGG=egg("doe_spawn_egg",ModEntities.DOE,0x9a7653,0xe0c29c);
+    private static RegistryObject<Item> food(String id,int nutrition,float saturation){return ITEMS.register(id,()->new Item(properties().food(new Food.Builder().nutrition(nutrition).saturationMod(saturation).build())));}
+    private static RegistryObject<Item> stew(String id,int nutrition,float saturation){return ITEMS.register(id,()->new SoupItem(properties().stacksTo(1).food(new Food.Builder().nutrition(nutrition).saturationMod(saturation).build())));}
+    private static RegistryObject<Item> egg(String id,RegistryObject<? extends net.minecraft.entity.EntityType<?>> type,int primary,int secondary){return ITEMS.register(id,()->new net.minecraftforge.common.ForgeSpawnEggItem(type,primary,secondary,properties()));}
+    public static final RegistryObject<Item> INVISIBILITY_CAP=ITEMS.register("invisibility_cap",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.RARE),"head"));
+    public static final RegistryObject<Item> RETRIBUTION_CHARM=ITEMS.register("retribution_charm",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.RARE),"charm"));
+    public static final RegistryObject<Item> PERUN_RING=ITEMS.register("perun_ring",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.RARE),"ring"));
+    public static final RegistryObject<Item> VELES_AMULET=ITEMS.register("veles_amulet",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.UNCOMMON),"necklace"));
+    public static final RegistryObject<Item> HUNTER_BELT=ITEMS.register("hunter_belt",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.UNCOMMON),"belt"));
+    public static final RegistryObject<Item> RESIN_RING=ITEMS.register("resin_ring",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.UNCOMMON),"ring"));
+    public static final RegistryObject<Item> SEVEN_LEAGUE_BOOTS=ITEMS.register("seven_league_boots",()->new org.slavicmyths.item.SevenLeagueBoots(properties().rarity(Rarity.RARE)));
     private ModItems() { }
 }

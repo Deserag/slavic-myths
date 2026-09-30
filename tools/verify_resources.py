@@ -10,7 +10,10 @@ def read(path):
     return json.loads(path.read_text(encoding='utf-8'))
 
 def registered(file):
-    return set(re.findall(r'\.register\(\s*"([a-z_]+)"', (JAVA/file).read_text()))
+    source=(JAVA/file).read_text()
+    found=set(re.findall(r'\.register\(\s*"([a-z_]+)"',source))
+    if file == 'registry/ModItems.java': found.update(re.findall(r'\b(?:food|stew|egg)\(\s*"([a-z_]+)"',source))
+    return found
 
 items = registered('registry/ModItems.java')
 blocks = registered('registry/ModBlocks.java')
@@ -148,9 +151,16 @@ print(f'PASS: {len(items)} item registrations, {len(blocks)} block registrations
 print('Structural checks do not replace Minecraft gameplay tests.')
 
 entities = registered('registry/ModEntities.java')
+wildlife=set(re.findall(r'wildlife\("([a-z_]+)"',(JAVA/'registry/ModEntities.java').read_text()))
+entities.update(wildlife)
 assert {'domovoy','leshy','kikimora','poludnitsa','polevik','bannik','igosha','ovinnik','hot_stone'} <= entities
 for entity in entities - {'hot_stone'}:
     assert list((RES/'assets/slavicmyths/textures/entity').glob(entity+'*.png'))
+    if entity in wildlife:
+        loot={'brown_bear':'bear','bear_cub':'cub','forest_wolf':'wolf'}.get(entity,entity)
+        assert (RES/f'data/slavicmyths/loot_tables/entities/{loot}.json').is_file()
+        assert (JAVA/'client/WildlifeRenderer.java').is_file() and (JAVA/'client/WildlifeModel.java').is_file()
+        continue
     assert (RES/f'data/slavicmyths/loot_tables/entities/{entity}.json').is_file()
     renderer = (JAVA/f'client/{entity.capitalize()}Renderer.java').read_text()
     assert 'textures/entity/' in renderer and entity in renderer
@@ -165,11 +175,13 @@ import numpy as np
 sounds = read(RES/'assets/slavicmyths/sounds.json')
 assert len(sounds) >= 37
 registered_sounds = set(re.findall(r'sound\("([a-z_]+)"', (JAVA/'registry/ModSounds.java').read_text()))
+registered_sounds.update(a+'_'+e for a in ('bear','cub','wolf','boar','stag','doe') for e in ('ambient','hurt','death','alert','roar','attack','impact'))
 assert set(sounds) == registered_sounds
 for name,event in sounds.items():
     for lang in ('ru_ru','en_us'):
         assert event['subtitle'] in read(RES/f'assets/slavicmyths/lang/{lang}.json')
     for entry in event['sounds']:
+        if entry.get('type') == 'event' or entry['name'].startswith('minecraft:'): continue
         path = RES/('assets/slavicmyths/sounds/'+entry['name'].split(':')[1]+'.ogg')
         info = sf.info(path)
         data,rate = sf.read(path)

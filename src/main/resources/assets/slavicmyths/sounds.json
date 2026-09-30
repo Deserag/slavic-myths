@@ -430,5 +430,341 @@
         "volume": 0.6
       }
     ]
+  },
+  "bear_ambient": {
+    "subtitle": "subtitles.slavicmyths.bear_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/bear_ambient"
+      }
+    ]
+  },
+  "bear_hurt": {
+    "subtitle": "subtitles.slavicmyths.bear_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/bear_hurt"
+      }
+    ]
+  },
+  "bear_death": {
+    "subtitle": "subtitles.slavicmyths.bear_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/bear_death"
+      }
+    ]
+  },
+  "cub_ambient": {
+    "subtitle": "subtitles.slavicmyths.cub_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/cub_ambient"
+      }
+    ]
+  },
+  "cub_hurt": {
+    "subtitle": "subtitles.slavicmyths.cub_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/cub_hurt"
+      }
+    ]
+  },
+  "cub_death": {
+    "subtitle": "subtitles.slavicmyths.cub_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/cub_death"
+      }
+    ]
+  },
+  "wolf_ambient": {
+    "subtitle": "subtitles.slavicmyths.wolf_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/wolf_ambient"
+      }
+    ]
+  },
+  "wolf_hurt": {
+    "subtitle": "subtitles.slavicmyths.wolf_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/wolf_hurt"
+      }
+    ]
+  },
+  "wolf_death": {
+    "subtitle": "subtitles.slavicmyths.wolf_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/wolf_death"
+      }
+    ]
+  },
+  "boar_ambient": {
+    "subtitle": "subtitles.slavicmyths.boar_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/boar_ambient"
+      }
+    ]
+  },
+  "boar_hurt": {
+    "subtitle": "subtitles.slavicmyths.boar_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/boar_hurt"
+      }
+    ]
+  },
+  "boar_death": {
+    "subtitle": "subtitles.slavicmyths.boar_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/boar_death"
+      }
+    ]
+  },
+  "stag_ambient": {
+    "subtitle": "subtitles.slavicmyths.stag_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/stag_ambient"
+      }
+    ]
+  },
+  "stag_hurt": {
+    "subtitle": "subtitles.slavicmyths.stag_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/stag_hurt"
+      }
+    ]
+  },
+  "stag_death": {
+    "subtitle": "subtitles.slavicmyths.stag_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/stag_death"
+      }
+    ]
+  },
+  "doe_ambient": {
+    "subtitle": "subtitles.slavicmyths.doe_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/doe_ambient"
+      }
+    ]
+  },
+  "doe_hurt": {
+    "subtitle": "subtitles.slavicmyths.doe_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/doe_hurt"
+      }
+    ]
+  },
+  "doe_death": {
+    "subtitle": "subtitles.slavicmyths.doe_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/doe_death"
+      }
+    ]
+  },
+  "bear_alert": {
+    "subtitle": "subtitles.slavicmyths.bear_alert",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/bear_alert"
+      }
+    ]
+  },
+  "bear_roar": {
+    "subtitle": "subtitles.slavicmyths.bear_roar",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/bear_roar"
+      }
+    ]
+  },
+  "bear_attack": {
+    "subtitle": "subtitles.slavicmyths.bear_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/bear_attack"
+      }
+    ]
+  },
+  "bear_impact": {
+    "subtitle": "subtitles.slavicmyths.bear_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/bear_impact"
+      }
+    ]
+  },
+  "cub_alert": {
+    "subtitle": "subtitles.slavicmyths.cub_alert",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/cub_alert"
+      }
+    ]
+  },
+  "cub_roar": {
+    "subtitle": "subtitles.slavicmyths.cub_roar",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/cub_roar"
+      }
+    ]
+  },
+  "cub_attack": {
+    "subtitle": "subtitles.slavicmyths.cub_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/cub_attack"
+      }
+    ]
+  },
+  "cub_impact": {
+    "subtitle": "subtitles.slavicmyths.cub_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/cub_impact"
+      }
+    ]
+  },
+  "wolf_alert": {
+    "subtitle": "subtitles.slavicmyths.wolf_alert",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/wolf_alert"
+      }
+    ]
+  },
+  "wolf_roar": {
+    "subtitle": "subtitles.slavicmyths.wolf_roar",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/wolf_roar"
+      }
+    ]
+  },
+  "wolf_attack": {
+    "subtitle": "subtitles.slavicmyths.wolf_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/wolf_attack"
+      }
+    ]
+  },
+  "wolf_impact": {
+    "subtitle": "subtitles.slavicmyths.wolf_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/wolf_impact"
+      }
+    ]
+  },
+  "boar_alert": {
+    "subtitle": "subtitles.slavicmyths.boar_alert",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/boar_alert"
+      }
+    ]
+  },
+  "boar_roar": {
+    "subtitle": "subtitles.slavicmyths.boar_roar",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/boar_roar"
+      }
+    ]
+  },
+  "boar_attack": {
+    "subtitle": "subtitles.slavicmyths.boar_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/boar_attack"
+      }
+    ]
+  },
+  "boar_impact": {
+    "subtitle": "subtitles.slavicmyths.boar_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/boar_impact"
+      }
+    ]
+  },
+  "stag_alert": {
+    "subtitle": "subtitles.slavicmyths.stag_alert",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/stag_alert"
+      }
+    ]
+  },
+  "stag_roar": {
+    "subtitle": "subtitles.slavicmyths.stag_roar",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/stag_roar"
+      }
+    ]
+  },
+  "stag_attack": {
+    "subtitle": "subtitles.slavicmyths.stag_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/stag_attack"
+      }
+    ]
+  },
+  "stag_impact": {
+    "subtitle": "subtitles.slavicmyths.stag_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/stag_impact"
+      }
+    ]
+  },
+  "doe_alert": {
+    "subtitle": "subtitles.slavicmyths.doe_alert",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/doe_alert"
+      }
+    ]
+  },
+  "doe_roar": {
+    "subtitle": "subtitles.slavicmyths.doe_roar",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/doe_roar"
+      }
+    ]
+  },
+  "doe_attack": {
+    "subtitle": "subtitles.slavicmyths.doe_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/doe_attack"
+      }
+    ]
+  },
+  "doe_impact": {
+    "subtitle": "subtitles.slavicmyths.doe_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:wildlife/doe_impact"
+      }
+    ]
   }
 }

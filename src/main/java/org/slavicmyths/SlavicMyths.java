@@ -30,11 +30,13 @@ public final class SlavicMyths {
         org.slavicmyths.rpg.RpgNetwork.register();
         org.slavicmyths.rpg.RpgMenu.MENUS.register(bus);
         bus.addListener(this::setup);
+        bus.addListener(org.slavicmyths.item.FolkAccessoryItem::slots);
     }
 
     private void setup(FMLCommonSetupEvent event) {
         event.enqueueWork(ModWorldGen::registerFeatures);
         event.enqueueWork(SpiritSpawns::registerPlacements);
+        event.enqueueWork(org.slavicmyths.world.WildlifeSpawns::placements);
         event.enqueueWork(org.slavicmyths.world.LandEncounters::placements);
     }
 }

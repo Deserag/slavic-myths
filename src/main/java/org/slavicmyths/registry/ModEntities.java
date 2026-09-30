@@ -29,6 +29,15 @@ public final class ModEntities {
     public static final RegistryObject<EntityType<org.slavicmyths.entity.IgoshaEntity>> IGOSHA = ENTITIES.register("igosha", () -> EntityType.Builder.of(org.slavicmyths.entity.IgoshaEntity::new, EntityClassification.MONSTER).sized(0.5F,0.75F).clientTrackingRange(10).build("slavicmyths:igosha"));
     public static final RegistryObject<EntityType<org.slavicmyths.entity.OvinnikEntity>> OVINNIK = ENTITIES.register("ovinnik", () -> EntityType.Builder.of(org.slavicmyths.entity.OvinnikEntity::new, EntityClassification.MONSTER).sized(1.5F,1.6F).clientTrackingRange(10).build("slavicmyths:ovinnik"));
     public static final RegistryObject<EntityType<org.slavicmyths.entity.HotStoneEntity>> HOT_STONE = ENTITIES.register("hot_stone", () -> EntityType.Builder.<org.slavicmyths.entity.HotStoneEntity>of(org.slavicmyths.entity.HotStoneEntity::new, EntityClassification.MISC).sized(.25F,.25F).clientTrackingRange(4).updateInterval(10).build("slavicmyths:hot_stone"));
+    public static final RegistryObject<EntityType<org.slavicmyths.entity.WildlifeEntity>> BROWN_BEAR = wildlife("brown_bear", org.slavicmyths.entity.WildlifeEntity.Kind.BEAR, 1.35F, 1.65F);
+    public static final RegistryObject<EntityType<org.slavicmyths.entity.WildlifeEntity>> BEAR_CUB = wildlife("bear_cub", org.slavicmyths.entity.WildlifeEntity.Kind.CUB, .72F, .78F);
+    public static final RegistryObject<EntityType<org.slavicmyths.entity.WildlifeEntity>> FOREST_WOLF = wildlife("forest_wolf", org.slavicmyths.entity.WildlifeEntity.Kind.WOLF, .82F, 1.05F);
+    public static final RegistryObject<EntityType<org.slavicmyths.entity.WildlifeEntity>> BOAR = wildlife("boar", org.slavicmyths.entity.WildlifeEntity.Kind.BOAR, 1.05F, 1.0F);
+    public static final RegistryObject<EntityType<org.slavicmyths.entity.WildlifeEntity>> STAG = wildlife("stag", org.slavicmyths.entity.WildlifeEntity.Kind.STAG, 1.0F, 2.1F);
+    public static final RegistryObject<EntityType<org.slavicmyths.entity.WildlifeEntity>> DOE = wildlife("doe", org.slavicmyths.entity.WildlifeEntity.Kind.DOE, .9F, 1.8F);
+    private static RegistryObject<EntityType<org.slavicmyths.entity.WildlifeEntity>> wildlife(String id, org.slavicmyths.entity.WildlifeEntity.Kind kind, float width, float height) {
+        return ENTITIES.register(id, () -> EntityType.Builder.<org.slavicmyths.entity.WildlifeEntity>of((type,world) -> new org.slavicmyths.entity.WildlifeEntity(type,world,kind), EntityClassification.CREATURE).sized(width,height).clientTrackingRange(10).build("slavicmyths:"+id));
+    }
 
     @SubscribeEvent
     public static void attributes(EntityAttributeCreationEvent event) {
@@ -40,6 +49,12 @@ public final class ModEntities {
         event.put(BANNIK.get(), org.slavicmyths.entity.BannikEntity.attributes().build());
         event.put(IGOSHA.get(), org.slavicmyths.entity.IgoshaEntity.attributes().build());
         event.put(OVINNIK.get(), org.slavicmyths.entity.OvinnikEntity.attributes().build());
+        event.put(BROWN_BEAR.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.BEAR).build());
+        event.put(BEAR_CUB.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.CUB).build());
+        event.put(FOREST_WOLF.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.WOLF).build());
+        event.put(BOAR.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.BOAR).build());
+        event.put(STAG.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.STAG).build());
+        event.put(DOE.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.DOE).build());
 
     }
     private ModEntities() { }

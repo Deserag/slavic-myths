@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "slavicmyths:raw_boar_meat"
+  },
+  "result": "slavicmyths:cooked_boar_meat",
+  "experience": 0.35,
+  "cookingtime": 200
+}

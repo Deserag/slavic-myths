@@ -121,6 +121,13 @@ public final class {name}Model extends EntityModel<{name}Entity>{{
  return m
 
 def audio(name,kinds):
+ if not shutil.which('ffmpeg'):
+  expected=[A/f'sounds/land/{name}_{kind}.ogg' for kind in kinds]
+  if all(p.exists() for p in expected):
+   sounds=json.loads((A/'sounds.json').read_text())
+   for kind in kinds:sounds[name+'_'+kind]={'subtitle':'subtitles.slavicmyths.'+name+'_'+kind,'sounds':[{'name':'slavicmyths:land/'+name+'_'+kind,'volume':.6}]}
+   js(A/'sounds.json',sounds);return
+  raise RuntimeError('ffmpeg is required because generated 0.5.1 OGG files are missing')
  sounds=json.loads((A/'sounds.json').read_text());tmp=R/'work/audio051';tmp.mkdir(parents=True,exist_ok=True)
  for kind in kinds:
   dur={'ambient':2.4,'notice':.55,'transform':1.0,'attack':.38,'hurt':.55,'death':1.5,'step':.22,'steam':1.2,'angry':.65,'laugh':.5}.get(kind,.7)

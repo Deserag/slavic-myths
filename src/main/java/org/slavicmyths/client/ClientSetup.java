@@ -24,8 +24,15 @@ public final class ClientSetup {
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.IGOSHA.get(), IgoshaRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.OVINNIK.get(), OvinnikRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.HOT_STONE.get(), manager -> new net.minecraft.client.renderer.entity.SpriteRenderer<>(manager, net.minecraft.client.Minecraft.getInstance().getItemRenderer()));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.BROWN_BEAR.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.BEAR,"brown_bear",.8F));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.BEAR_CUB.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.CUB,"bear_cub",.4F));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.FOREST_WOLF.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.WOLF,"forest_wolf",.5F));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.BOAR.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.BOAR,"boar",.6F));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.STAG.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.STAG,"stag",.6F));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.DOE.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.DOE,"doe",.5F));
         event.enqueueWork(() -> {
             RpgClient.setup();
+            FolkEquipmentLayer.setup();
             for (net.minecraft.item.Item shield : new net.minecraft.item.Item[] {
                     org.slavicmyths.registry.ModItems.RETAINER_SHIELD.get(),
                     org.slavicmyths.registry.ModItems.PERUNITE_SHIELD.get() }) {
