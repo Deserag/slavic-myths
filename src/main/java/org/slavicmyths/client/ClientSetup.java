@@ -15,6 +15,8 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 public final class ClientSetup {
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.FLYING_BROOM.get(),FlightRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.FLYING_MORTAR.get(),FlightRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.DOMOVOY.get(), DomovoyRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.LESHY.get(), LeshyRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.KIKIMORA.get(), KikimoraRenderer::new);
@@ -32,6 +34,11 @@ public final class ClientSetup {
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.DOE.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.DOE,"doe",.5F));
         event.enqueueWork(() -> {
             RpgClient.setup();
+            FlightClient.setup();
+            net.minecraft.client.Minecraft.getInstance().getBlockColors().register((state,world,pos,tint)->state.getBlock()==ModBlocks.RASPBERRY_BUSH.get()?0x668d41:0x355b43,ModBlocks.RASPBERRY_BUSH.get(),ModBlocks.BLUEBERRY_BUSH.get());
+            net.minecraft.client.gui.ScreenManager.register(org.slavicmyths.kitchen.KitchenMenu.TYPE.get(),KitchenScreen::new);
+            RenderTypeLookup.setRenderLayer(ModBlocks.RASPBERRY_BUSH.get(),RenderType.cutout());
+            RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBERRY_BUSH.get(),RenderType.cutout());
             FolkEquipmentLayer.setup();
             for (net.minecraft.item.Item shield : new net.minecraft.item.Item[] {
                     org.slavicmyths.registry.ModItems.RETAINER_SHIELD.get(),

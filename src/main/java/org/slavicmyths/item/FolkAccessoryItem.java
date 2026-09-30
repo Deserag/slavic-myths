@@ -43,8 +43,10 @@ public final class FolkAccessoryItem extends Item implements ICurioItem {
   if(this==org.slavicmyths.registry.ModItems.INVISIBILITY_CAP.get()){
    net.minecraft.nbt.CompoundNBT data=player.getPersistentData();
    int fade=data.getInt("SlavicCapFade");
-   if(player.hurtTime>0||player.swinging||player.isSprinting()||player.isUsingItem())data.putLong("SlavicCapBroken",player.level.getGameTime()+100);
+    if(player.hurtTime>0||player.swinging||player.isSprinting()||player.isUsingItem())data.putLong("SlavicCapBroken",Math.max(data.getLong("SlavicCapBroken"),player.level.getGameTime()+100));
    if(player.level.getGameTime()<data.getLong("SlavicCapBroken"))fade=0;else fade=Math.min(20,fade+1);
+   long now=player.level.getGameTime();
+   if(fade==20){long until=data.getLong("SlavicCapUntil");if(until==0)data.putLong("SlavicCapUntil",now+160);else if(now>=until){data.putLong("SlavicCapBroken",now+600);data.remove("SlavicCapUntil");fade=0;}}
    data.putInt("SlavicCapFade",fade);
    if(!entity.level.isClientSide&&fade==20)player.addEffect(new EffectInstance(Effects.INVISIBILITY,5,0,false,false));
   }

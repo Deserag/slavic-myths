@@ -62,5 +62,9 @@ public final class ModBlocks {
     public static final RegistryObject<Block> WOODEN_TUB = BLOCKS.register("wooden_tub", () -> new Block(AbstractBlock.Properties.of(Material.WOOD).strength(2).sound(SoundType.WOOD).noOcclusion()));
     public static final RegistryObject<Block> PATH_STONE = BLOCKS.register("path_stone", () -> new org.slavicmyths.rpg.RpgBlock(AbstractBlock.Properties.of(Material.STONE).strength(3.5F).sound(SoundType.STONE).noOcclusion(),false));
     public static final RegistryObject<Block> RUNIC_ANVIL = BLOCKS.register("runic_anvil", () -> new org.slavicmyths.rpg.RpgBlock(AbstractBlock.Properties.of(Material.METAL).strength(4F).sound(SoundType.ANVIL).noOcclusion(),true));
+    public static final RegistryObject<Block> RASPBERRY_BUSH=BLOCKS.register("raspberry_bush",()->new org.slavicmyths.block.FolkBerryBush(true));
+    public static final RegistryObject<Block> BLUEBERRY_BUSH=BLOCKS.register("blueberry_bush",()->new org.slavicmyths.block.FolkBerryBush(false));
+    public static final RegistryObject<Block> KITCHEN_TABLE=BLOCKS.register("kitchen_table",org.slavicmyths.block.KitchenTableBlock::new);
+    public static final RegistryObject<Block> SKATERT=BLOCKS.register("skatert",org.slavicmyths.artifact.SkatertBlock::new);
     private ModBlocks() { }
 }

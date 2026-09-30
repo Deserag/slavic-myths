@@ -28,6 +28,10 @@ public final class SlavicMyths {
         org.slavicmyths.registry.ModFeatures.FEATURES.register(bus);
         org.slavicmyths.network.LoreNetwork.register();
         org.slavicmyths.rpg.RpgNetwork.register();
+        org.slavicmyths.flight.CargoMenu.register();
+        org.slavicmyths.flight.FlightNetwork.register();
+        org.slavicmyths.flight.Tailwind.ENCHANTMENTS.register(bus);
+        org.slavicmyths.kitchen.KitchenMenu.register();
         org.slavicmyths.rpg.RpgMenu.MENUS.register(bus);
         bus.addListener(this::setup);
         bus.addListener(org.slavicmyths.item.FolkAccessoryItem::slots);

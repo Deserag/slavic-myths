@@ -64,5 +64,6 @@ public final class ModSounds {
     private static RegistryObject<SoundEvent> sound(String id) {
         return SOUNDS.register(id, () -> new SoundEvent(new ResourceLocation(SlavicMyths.MOD_ID, id)));
     }
+    public static final RegistryObject<SoundEvent> GUSLI_LOOP = sound("gusli_loop");
     private ModSounds() { }
 }

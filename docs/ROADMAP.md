@@ -59,3 +59,14 @@
 0.4.7: weapon proportions, shields, thunder spear, mace variants and berdysh implemented; build/install verified. Manual in-game weapon/shield verification pending; optional silver berdysh and sharpening stone deferred.
 
 0.5.0 content implemented and packaged: Kikimora, Poludnitsa, Polevik, Bannik, Igosha, Ovinnik, bathhouse and barn. Manual gameplay/balance validation pending; advancements unspecified because the supplied task ends at section 121.
+# Итог финализации 0.6.5
+
+Artifact content drop: пять основных артефактов реализованы, ожидают ручной проверки.
+Дорогой рецепт Оберега сохранён; survival-интеграция четырёх новых артефактов отложена.
+Необязательные резной сундук, столб и утварь не добавлены.
+
+Реализованы ягодные кусты, кухня, ограничение шапки в существующей системе аксессуаров,
+Метла, Ступа, Пест, полёт, груз и «Попутный ветер». Получение транспорта через сказочный
+survival-контент отложено согласно заданию; сейчас Creative/команды.
+Следующий шаг — ручная проверка пользователем и точечные исправления по её результатам.
+0.7.0 «Воды и болота» в этом проходе не начинается.

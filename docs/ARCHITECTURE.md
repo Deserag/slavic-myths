@@ -206,3 +206,25 @@ AI: ограниченная частота поиска и область; worl
 0.4.7: MythShieldItem overrides Forge isShield; blocking property/models are client-only. Weapon JSON and pixel material sources: tools/generate_047.py. ThunderSpearCombat augments accepted server melee hits with a 120-tick item cooldown; no terrain effects.
 
 0.5.0: six separate entity/model classes; LandSpiritEntity shares bounded encounter/persistence helpers. Models are generated from explicit native cuboid masters in generate_050_models.py. Synced visual states, persistent cooldowns/offering UUIDs; homesteads occupy one chunk, guards store home positions. Hot stones use Forge spawn packets. Sound sources are original synthetic PCM encoded as Vorbis.
+# Финализация 0.6.5
+
+Дополнение артефактов: ArtifactEvents добавляет при появлении моба лёгкие Goal для музыки
+и временного защитника. Поиск музыкой — раз в 10 тиков только во время использования,
+радиус 12 и до 64 обрабатываемых существ. WildlifeEntity точечно пропускает собственный
+encounter-контроллер для этих состояний. Владелец/срок призыва хранятся в Forge persistent NBT,
+готовность Посоха — в PlayerPersisted. SkatertTile не тикает: используются scheduled block ticks,
+порции синхронизируются blockstate, возврат предмета централизован в onRemove без обычного loot.
+GusliClient запускает заранее записанный OGG и прекращает его при отпускании/удалении игрока.
+Ресурсы дополнения генерирует tools/artifact_065.py последним слоем общего генератора.
+
+FolkBerryBush использует random ticks, AGE и HALF; BerryPatchFeature создаёт небольшие
+группы только при генерации чанка. FolkBerryItem сохраняет прежние ID ягод.
+KitchenMenu выполняет рецепты KitchenRecipes на сервере; стол не имеет ticking block entity,
+при закрытии меню ингредиенты возвращаются игроку.
+FlyingVessel считает физику и сохраняет владельца, транспорт и 9 грузовых слотов в NBT.
+FlightNetwork передаёт только ограниченные управляющие значения, без клиентской позиции;
+ванильный controlling passenger отключён, чтобы CMoveVehiclePacket не управлял движением.
+CargoMenu использует обычную серверную синхронизацию слотов, блокирует вложение транспорта
+и подбор при открытом грузе. FlightClient/FlightRenderer отвечают за интерполяцию и позы.
+Tailwind ограничен FlightItem. Новые ресурсы воспроизводит tools/finalize_065.py,
+вызываемый последним из общего генератора. Curios остаётся единственной системой аксессуаров.

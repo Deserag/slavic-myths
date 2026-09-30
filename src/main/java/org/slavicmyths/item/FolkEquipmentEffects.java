@@ -51,9 +51,21 @@ public final class FolkEquipmentEffects {
  @SubscribeEvent public static void death(LivingDeathEvent event){
   LivingEntity e=event.getEntityLiving();if(e.level.isClientSide||event.getSource()==DamageSource.OUT_OF_WORLD)return;
   ItemStack charm=FolkAccessoryItem.equipped(e,ModItems.RETRIBUTION_CHARM.get());if(charm.isEmpty())return;
-  charm.shrink(1);event.setCanceled(true);e.setHealth(4);e.addEffect(new EffectInstance(Effects.REGENERATION,100,1));e.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE,60,1));
-  ((ServerWorld)e.level).sendParticles(ParticleTypes.TOTEM_OF_UNDYING,e.getX(),e.getY()+1,e.getZ(),25,.5,.5,.5,.1);
-  Entity enemy=event.getSource().getEntity();if(enemy instanceof LivingEntity&&enemy.isAlive()&&e.distanceToSqr(enemy)<36)((LivingEntity)enemy).hurt(DamageSource.thorns(e),6);
+  if(!(e instanceof PlayerEntity)||event.isCanceled())return;
+  charm.shrink(1);event.setCanceled(true);e.setHealth(1);e.invulnerableTime=40;e.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE,60,1));
+  ServerWorld world=(ServerWorld)e.level;
+  net.minecraft.particles.RedstoneParticleData red=new net.minecraft.particles.RedstoneParticleData(.35F,.025F,.035F,1);
+  world.sendParticles(red,e.getX(),e.getY()+1,e.getZ(),14,.3,.4,.3,0);
+  world.playSound(null,e.blockPosition(),net.minecraft.util.SoundEvents.SHIELD_BREAK,net.minecraft.util.SoundCategory.PLAYERS,.8F,.65F);
+  Entity enemy=event.getSource().getEntity();
+  if(!"slavic_retribution".equals(event.getSource().getMsgId())&&enemy instanceof LivingEntity&&enemy!=e&&enemy.isAlive()&&!e.isAlliedTo(enemy)){
+   LivingEntity target=(LivingEntity)enemy;
+   // Ordinary attributed damage: armor, resistance and boss-specific hurt rules remain in force.
+   target.hurt(new net.minecraft.util.EntityDamageSource("slavic_retribution",e),50);
+   net.minecraft.util.math.vector.Vector3d delta=target.position().subtract(e.position());
+   for(int i=1;i<=6;i++){double f=i/7.0;world.sendParticles(red,e.getX()+delta.x*f,e.getY()+1+delta.y*f,e.getZ()+delta.z*f,1,.025,.025,.025,0);}
+  }
+  org.slavicmyths.progression.Knowledge.award((PlayerEntity)e,"not_today");
  }
  private FolkEquipmentEffects(){}
 }

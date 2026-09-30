@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:flying_broom"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.first_flight.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.first_flight.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

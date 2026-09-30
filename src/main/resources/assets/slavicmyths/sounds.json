@@ -766,5 +766,14 @@
         "name": "slavicmyths:wildlife/doe_impact"
       }
     ]
+  },
+  "gusli_loop": {
+    "subtitle": "subtitles.slavicmyths.gusli_loop",
+    "sounds": [
+      {
+        "name": "slavicmyths:gusli_loop",
+        "stream": false
+      }
+    ]
   }
 }

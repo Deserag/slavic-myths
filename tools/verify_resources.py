@@ -20,7 +20,7 @@ blocks = registered('registry/ModBlocks.java')
 assert not re.search(r'\.durability\([^)]*\)\.stacksTo\(', (JAVA/'registry/ModItems.java').read_text()), 'Durable items must not call stacksTo after durability'
 assert len(items) >= 74 and len(blocks) >= 18
 assert {'birch_bark_scroll', 'thunder_stone', 'warding_charm'} <= items
-assert blocks <= items
+assert blocks - {"raspberry_bush", "blueberry_bush"} <= items
 assert 'ItemGroup.TAB_MISC' not in (JAVA/'registry/ModItems.java').read_text()
 
 def ref(value, folder, suffix='.json'):
@@ -155,6 +155,10 @@ wildlife=set(re.findall(r'wildlife\("([a-z_]+)"',(JAVA/'registry/ModEntities.jav
 entities.update(wildlife)
 assert {'domovoy','leshy','kikimora','poludnitsa','polevik','bannik','igosha','ovinnik','hot_stone'} <= entities
 for entity in entities - {'hot_stone'}:
+    if entity in {'flying_broom','flying_mortar'}:
+        assert (RES/f'assets/slavicmyths/models/item/{entity}.json').is_file()
+        assert (JAVA/'client/FlightRenderer.java').is_file() and (JAVA/'flight/FlyingVessel.java').is_file()
+        continue
     assert list((RES/'assets/slavicmyths/textures/entity').glob(entity+'*.png'))
     if entity in wildlife:
         loot={'brown_bear':'bear','bear_cub':'cub','forest_wolf':'wolf'}.get(entity,entity)

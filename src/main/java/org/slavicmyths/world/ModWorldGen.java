@@ -27,10 +27,11 @@ public final class ModWorldGen {
     private static ConfiguredFeature<?, ?> perunite;
     private static ConfiguredFeature<?, ?> silver;
     private static ConfiguredFeature<?, ?> stJohnsWort, nettle, fireweed, juniper;
-    private static ConfiguredFeature<?, ?> shrine, pathShrine;
+    private static ConfiguredFeature<?, ?> shrine, pathShrine, berryPatch;
     private static ConfiguredFeature<?, ?> bathhouse, oldBarn;
 
     public static void registerFeatures() {
+        berryPatch=register("berry_patch",org.slavicmyths.registry.ModFeatures.BERRY_PATCH.get().configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(6));
         pathShrine=register("path_shrine",org.slavicmyths.registry.ModFeatures.PATH_SHRINE.get().configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(80));
         bathhouse = register("bathhouse", org.slavicmyths.registry.ModFeatures.BATHHOUSE.get().configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(160));
         oldBarn = register("old_barn", org.slavicmyths.registry.ModFeatures.OLD_BARN.get().configured(net.minecraft.world.gen.feature.NoFeatureConfig.INSTANCE).chance(220));
@@ -71,6 +72,7 @@ public final class ModWorldGen {
                 event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> oldBarn);
         }
         if(event.getName()!=null && event.getName().getNamespace().equals("minecraft") && (event.getCategory()==Biome.Category.PLAINS || event.getCategory()==Biome.Category.FOREST))event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(()->pathShrine);
+        if(event.getName()!=null&&event.getName().getNamespace().equals("minecraft")&&(event.getCategory()==Biome.Category.FOREST||event.getCategory()==Biome.Category.TAIGA))event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(()->berryPatch);
         ResourceLocation id = event.getName();
         // Deliberately limit v0.2 generation to vanilla Overworld biomes.
         if (id == null || !"minecraft".equals(id.getNamespace())

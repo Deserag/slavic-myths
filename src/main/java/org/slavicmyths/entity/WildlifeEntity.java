@@ -103,6 +103,7 @@ public final class WildlifeEntity extends CreatureEntity {
    visualStand+=((motion()==STAND?1:0)-visualStand)*.1F;
    return;
   }
+  if(org.slavicmyths.artifact.ArtifactEvents.calm(this)||org.slavicmyths.artifact.ArtifactEvents.summoned(this)){actionTicks=fleeTicks=alertTicks=0;Vector3d motion=getDeltaMovement();state(motion.x*motion.x+motion.z*motion.z>.001?WALK:IDLE);return;}
   if(recovery>0)recovery--;if(leapCooldown>0)leapCooldown--;
   if(getTarget()!=null&&(!valid(getTarget())||level.getGameTime()>angerUntil||distanceToSqr(getTarget())>900))setTarget(null);
   if((tickCount+getId())%20==0&&actionTicks==0)inspect();
@@ -131,6 +132,7 @@ public final class WildlifeEntity extends CreatureEntity {
   @Override public boolean canUse(){return actionTicks>0||getTarget()!=null||fleeTicks>0;}
   @Override public boolean canContinueToUse(){return canUse();}
   @Override public void tick(){
+   if(org.slavicmyths.artifact.ArtifactEvents.calm(WildlifeEntity.this)||org.slavicmyths.artifact.ArtifactEvents.summoned(WildlifeEntity.this))return;
    LivingEntity target=getTarget();
    if(fleeTicks>0&&valid(danger)){
     if(alertTicks>0){alertTicks--;state(ALERT);getNavigation().stop();getLookControl().setLookAt(danger,20,20);return;}

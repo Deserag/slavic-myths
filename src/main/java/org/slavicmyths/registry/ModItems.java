@@ -147,8 +147,8 @@ public final class ModItems {
     public static final RegistryObject<Item> LARGE_ANIMAL_BONE=ITEMS.register("large_animal_bone",()->new Item(properties()));
     public static final RegistryObject<Item> BONE_ARROW=ITEMS.register("bone_arrow",()->new ArrowItem(properties()));
     public static final RegistryObject<Item> FLOUR=ITEMS.register("flour",()->new Item(properties()));
-    public static final RegistryObject<Item> RASPBERRY=food("raspberry",2,.15F);
-    public static final RegistryObject<Item> BLUEBERRY=food("blueberry",2,.15F);
+    public static final RegistryObject<Item> RASPBERRY=ITEMS.register("raspberry",()->new org.slavicmyths.item.FolkBerryItem(properties().food(new Food.Builder().nutrition(2).saturationMod(.15F).build()),true));
+    public static final RegistryObject<Item> BLUEBERRY=ITEMS.register("blueberry",()->new org.slavicmyths.item.FolkBerryItem(properties().food(new Food.Builder().nutrition(2).saturationMod(.15F).build()),false));
     public static final RegistryObject<Item> PANCAKES=food("pancakes",5,.5F);
     public static final RegistryObject<Item> RASPBERRY_PANCAKES=food("raspberry_pancakes",7,.65F);
     public static final RegistryObject<Item> BLUEBERRY_PANCAKES=food("blueberry_pancakes",7,.65F);
@@ -177,5 +177,15 @@ public final class ModItems {
     public static final RegistryObject<Item> HUNTER_BELT=ITEMS.register("hunter_belt",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.UNCOMMON),"belt"));
     public static final RegistryObject<Item> RESIN_RING=ITEMS.register("resin_ring",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.UNCOMMON),"ring"));
     public static final RegistryObject<Item> SEVEN_LEAGUE_BOOTS=ITEMS.register("seven_league_boots",()->new org.slavicmyths.item.SevenLeagueBoots(properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> KITCHEN_TABLE=ITEMS.register("kitchen_table",()->new BlockItem(ModBlocks.KITCHEN_TABLE.get(),properties()));
+    public static final RegistryObject<Item> ROLLING_PIN=ITEMS.register("rolling_pin",()->new Item(properties().durability(128)));
+    public static final RegistryObject<Item> METAL_POT=ITEMS.register("metal_pot",()->new Item(properties().durability(256)));
+    public static final RegistryObject<Item> FLYING_BROOM=ITEMS.register("flying_broom",()->new org.slavicmyths.flight.FlightItem(properties().rarity(Rarity.RARE),false));
+    public static final RegistryObject<Item> FLYING_MORTAR=ITEMS.register("flying_mortar",()->new org.slavicmyths.flight.FlightItem(properties().rarity(Rarity.RARE),true));
+    public static final RegistryObject<Item> PESTLE=ITEMS.register("pestle",()->new Item(properties().stacksTo(1)));
+    public static final RegistryObject<Item> GUSLI=ITEMS.register("gusli",()->new org.slavicmyths.artifact.GusliItem(properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> SKATERT=ITEMS.register("skatert",()->new org.slavicmyths.artifact.SkatertItem(properties().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> BADNYAK=ITEMS.register("badnyak",()->new org.slavicmyths.artifact.BadnyakItem(properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> VELES_STAFF=ITEMS.register("veles_staff",()->new org.slavicmyths.artifact.VelesStaffItem(properties().rarity(Rarity.EPIC)));
     private ModItems() { }
 }

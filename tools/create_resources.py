@@ -51,3 +51,7 @@ from wildlife_overhaul import generate as wildlife_overhaul
 wildlife_overhaul()
 from folk_equipment import generate as folk_equipment
 folk_equipment()
+from finalize_065 import all_resources as finalize_065
+finalize_065()
+from artifact_065 import generate as artifact_065
+artifact_065()

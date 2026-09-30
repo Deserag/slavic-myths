@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0,half=lower": {
+      "model": "slavicmyths:block/raspberry_bush_0_lower"
+    },
+    "age=0,half=upper": {
+      "model": "slavicmyths:block/raspberry_bush_0_upper"
+    },
+    "age=1,half=lower": {
+      "model": "slavicmyths:block/raspberry_bush_1_lower"
+    },
+    "age=1,half=upper": {
+      "model": "slavicmyths:block/raspberry_bush_1_upper"
+    },
+    "age=2,half=lower": {
+      "model": "slavicmyths:block/raspberry_bush_2_lower"
+    },
+    "age=2,half=upper": {
+      "model": "slavicmyths:block/raspberry_bush_2_upper"
+    },
+    "age=3,half=lower": {
+      "model": "slavicmyths:block/raspberry_bush_3_lower"
+    },
+    "age=3,half=upper": {
+      "model": "slavicmyths:block/raspberry_bush_3_upper"
+    }
+  }
+}
