@@ -15,6 +15,10 @@ public final class LoreNetwork {
     private static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation("slavicmyths", "lore"), () -> "1", "1"::equals, "1"::equals);
     public static void register() {
+        CHANNEL.registerMessage(1,CombatTarget.class,(m,b)->b.writeVarInt(m.id),b->new CombatTarget(b.readVarInt()),(m,ctx)->{
+            ctx.get().enqueueWork(()->DistExecutor.unsafeRunWhenOn(Dist.CLIENT,()->()->org.slavicmyths.client.CombatHud.target(m.id)));
+            ctx.get().setPacketHandled(true);
+        },Optional.of(NetworkDirection.PLAY_TO_CLIENT));
         CHANNEL.registerMessage(0, Open.class, (m, b) -> b.writeVarInt(m.mask), b -> new Open(b.readVarInt()),
                 (m, ctx) -> {
                     ctx.get().enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
@@ -25,6 +29,8 @@ public final class LoreNetwork {
     public static void open(ServerPlayerEntity player, int mask) {
         CHANNEL.send(PacketDistributor.PLAYER.with(() -> player), new Open(mask));
     }
+    public static void combat(ServerPlayerEntity player,int id){CHANNEL.send(PacketDistributor.PLAYER.with(()->player),new CombatTarget(id));}
+    private static final class CombatTarget {private final int id;private CombatTarget(int id){this.id=id;}}
     private static final class Open {
         private final int mask;
         private Open(int mask) { this.mask = mask; }

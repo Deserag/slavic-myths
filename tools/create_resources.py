@@ -59,3 +59,15 @@ from water_070 import generate as water_070
 water_070()
 from depth_072 import generate as depth_072
 depth_072()
+from swamp_073 import generate as swamp_073
+swamp_073()
+from bandits_080 import generate as bandits_080
+bandits_080()
+
+from woodlands_0801 import generate as woodlands_0801
+woodlands_0801()
+
+from furniture_081 import generate as furniture_081
+furniture_081()
+from stronghold_081 import generate as stronghold_081
+stronghold_081()

@@ -1,0 +1,92 @@
+{
+  "sleeping": {
+    "size": [
+      7,
+      8,
+      7
+    ],
+    "blocks": 176,
+    "containers": 1
+  },
+  "storage_tent": {
+    "size": [
+      7,
+      8,
+      7
+    ],
+    "blocks": 176,
+    "containers": 1
+  },
+  "senior": {
+    "size": [
+      9,
+      8,
+      9
+    ],
+    "blocks": 332,
+    "containers": 1
+  },
+  "leader": {
+    "size": [
+      9,
+      8,
+      9
+    ],
+    "blocks": 332,
+    "containers": 1
+  },
+  "warehouse": {
+    "size": [
+      9,
+      9,
+      7
+    ],
+    "blocks": 259,
+    "containers": 3
+  },
+  "watch": {
+    "size": [
+      7,
+      9,
+      7
+    ],
+    "blocks": 152,
+    "containers": 0
+  },
+  "canopy": {
+    "size": [
+      7,
+      6,
+      6
+    ],
+    "blocks": 122,
+    "containers": 1
+  },
+  "yard_small": {
+    "size": [
+      25,
+      5,
+      25
+    ],
+    "blocks": 53,
+    "containers": 0
+  },
+  "yard_medium": {
+    "size": [
+      43,
+      6,
+      38
+    ],
+    "blocks": 191,
+    "containers": 0
+  },
+  "cart": {
+    "size": [
+      12,
+      5,
+      12
+    ],
+    "blocks": 35,
+    "containers": 1
+  }
+}

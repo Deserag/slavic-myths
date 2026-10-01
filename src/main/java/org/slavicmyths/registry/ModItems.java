@@ -104,8 +104,8 @@ public final class ModItems {
     public static final RegistryObject<Item> RETAINER_SHIELD = ITEMS.register("retainer_shield", () -> new org.slavicmyths.item.MythShieldItem(properties().durability(280)));
     public static final RegistryObject<Item> PERUNITE_SHIELD = ITEMS.register("perunite_shield", () -> new org.slavicmyths.item.MythShieldItem(properties().durability(420).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> THUNDER_SPEAR = ITEMS.register("thunder_spear", () -> new org.slavicmyths.item.HeavyWeaponItem(ModGear.PERUNITE, 4, -2.9F, 0.18, properties().rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> MACE = ITEMS.register("mace", () -> new org.slavicmyths.item.HeavyWeaponItem(ItemTier.IRON, 5, -3.2F, 0.35, properties()));
-    public static final RegistryObject<Item> PERUNITE_MACE = ITEMS.register("perunite_mace", () -> new org.slavicmyths.item.HeavyWeaponItem(ModGear.PERUNITE, 6, -3.4F, 0.4, properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> MACE = ITEMS.register("mace", () -> new org.slavicmyths.combat.MaceItem(ItemTier.IRON, 8, .9F, .35F, .45F, properties()));
+    public static final RegistryObject<Item> PERUNITE_MACE = ITEMS.register("perunite_mace", () -> new org.slavicmyths.combat.MaceItem(ModGear.PERUNITE, 9.5F, .6F, .4F, .4F, properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> BERDYSH = ITEMS.register("berdysh", () -> new org.slavicmyths.item.HeavyWeaponItem(ItemTier.IRON, 6, -3.3F, 0, properties()));
     public static final RegistryObject<Item> WEAPON_WRAP = ITEMS.register("weapon_wrap", () -> new Item(properties()));
     public static final RegistryObject<Item> SILVER_FITTING = ITEMS.register("silver_fitting", () -> new Item(properties()));
@@ -203,5 +203,18 @@ public final class ModItems {
     public static final RegistryObject<Item> VODYANOY_NET=ITEMS.register("vodyanoy_net",()->new org.slavicmyths.depth.VodyanoyNetItem(properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> POOL_STONE=ITEMS.register("pool_stone",()->new BlockItem(ModBlocks.POOL_STONE.get(),properties()));
     public static final RegistryObject<Item> ELDER_VODYANOY_SPAWN_EGG=egg("elder_vodyanoy_spawn_egg",ModEntities.ELDER_VODYANOY,0x3f5149,0x889273);
+    public static final RegistryObject<Item> ARMORER_TABLE=ITEMS.register("armorer_table",()->new BlockItem(ModBlocks.ARMORER_TABLE.get(),properties()));
+    public static final RegistryObject<Item> IRON_RINGS=ITEMS.register("iron_rings",()->new Item(properties()));
+    public static final RegistryObject<Item> WOODEN_MACE=ITEMS.register("wooden_mace",()->new org.slavicmyths.combat.MaceItem(ItemTier.WOOD,5,1.05F,.2F,.3F,properties()));
+    public static final RegistryObject<Item> STONE_MACE=ITEMS.register("stone_mace",()->new org.slavicmyths.combat.MaceItem(ItemTier.STONE,7,.85F,.3F,.4F,properties()));
+    public static final RegistryObject<Item> SILVER_MACE=ITEMS.register("silver_mace",()->new org.slavicmyths.combat.MaceItem(ModGear.SILVER,7,1F,.3F,.4F,properties()));
+    public static final RegistryObject<Item> FLAIL=ITEMS.register("flail",()->new org.slavicmyths.combat.FlailItem(properties()));
+    public static final RegistryObject<Item> GAMBESON=ITEMS.register("gambeson",()->new ArmorItem(org.slavicmyths.combat.CombatEquipment.GAMBESON,EquipmentSlotType.CHEST,properties()));
+    public static final RegistryObject<Item> PLATE_CUIRASS=ITEMS.register("plate_cuirass",()->new org.slavicmyths.combat.CombatEquipment.PlateArmor(properties()));
+    public static final RegistryObject<Item> BANDIT_FIGHTER_EGG=egg("bandit_fighter_spawn_egg",ModEntities.BANDIT_FIGHTER,0x574434,0xb39978);
+    public static final RegistryObject<Item> BANDIT_ARCHER_EGG=egg("bandit_archer_spawn_egg",ModEntities.BANDIT_ARCHER,0x485343,0xb39978);
+    public static final RegistryObject<Item> BANDIT_HEAVY_EGG=egg("bandit_heavy_spawn_egg",ModEntities.BANDIT_HEAVY,0x474a49,0xb39978);
+    public static final RegistryObject<Item> BANDIT_SENIOR_EGG=egg("bandit_senior_spawn_egg",ModEntities.BANDIT_SENIOR,0x66503b,0xb39978);
+    public static final RegistryObject<Item> ATAMAN_EGG=egg("ataman_spawn_egg",ModEntities.ATAMAN,0x653d36,0xa5a199);
     private ModItems() { }
 }

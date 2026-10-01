@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PP",
+    "PP",
+    "SS"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:linden_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:linden_bedside_cabinet"
+  }
+}

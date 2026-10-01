@@ -23,7 +23,7 @@ public final class SilverCombat {
         if (!event.getEntityLiving().getType().is(VULNERABLE)) return;
         net.minecraft.item.Item held = attacker.getMainHandItem().getItem();
         if (held == ModItems.SILVER_SWORD.get() || held == ModItems.SILVER_DAGGER.get()
-                || held == ModItems.SILVER_SPEAR.get() || held == ModItems.RITUAL_KNIFE.get()) {
+                || held == ModItems.SILVER_SPEAR.get() || held == ModItems.SILVER_MACE.get() || held == ModItems.RITUAL_KNIFE.get()) {
             event.setAmount(event.getAmount() + 1.5F);
         }
     }

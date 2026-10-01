@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "berries=false": {
+      "model": "slavicmyths:block/rowan_leaves"
+    },
+    "berries=true": {
+      "model": "slavicmyths:block/rowan_leaves_berries"
+    }
+  }
+}

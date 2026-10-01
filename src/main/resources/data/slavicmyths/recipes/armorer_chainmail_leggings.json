@@ -1,0 +1,18 @@
+{
+  "type": "slavicmyths:armorer_shaped",
+  "pattern": [
+    "RRRR",
+    "R  R",
+    "R  R",
+    "R  R"
+  ],
+  "key": {
+    "R": {
+      "item": "slavicmyths:iron_rings"
+    }
+  },
+  "result": {
+    "item": "minecraft:chainmail_leggings",
+    "count": 1
+  }
+}

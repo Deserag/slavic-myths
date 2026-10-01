@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:linden_pressure_plate",
+    "slavicmyths:rowan_pressure_plate",
+    "slavicmyths:willow_pressure_plate",
+    "slavicmyths:pine_pressure_plate"
+  ]
+}

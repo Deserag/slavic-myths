@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:find_large_camp",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:mace"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.clear_large_camp.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.clear_large_camp.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "clear": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

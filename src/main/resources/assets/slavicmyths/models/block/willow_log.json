@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "slavicmyths:block/willow_log_top",
+    "side": "slavicmyths:block/willow_log"
+  }
+}

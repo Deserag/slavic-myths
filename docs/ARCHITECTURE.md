@@ -1,5 +1,173 @@
 # Архитектура
 
+## 0.8.1 — III уровень и мебель
+
+`furniture/Furniture` добавляет 21 блок/22 предмета в существующие registries/tab.
+FurnitureBlock — facing и составные collision shapes; обычная мебель без TileEntity.
+WardrobeBlock — lower/upper, два блока и drop только lower. Shelf требует опору.
+SeatEntity — transient MISC, noSave/noSummon, без визуального renderer; удаляется
+после высадки или потери блока. Используется для игрока, не сохраняет сидящих NPC.
+RackTile — один ItemStack, серверный обмен, NBT/update packet и сброс предмета при
+разрушении; FurnitureClient отображает оружие стандартным ItemRenderer без tick.
+Шкаф/тумба/ящик декоративные, собственного inventory не имеют.
+
+`LargeCampStructure`/`LargeCampPiece` — отдельные стандартные StructureStart и
+TemplateStructurePiece, регистрация через CampStructures. Сетка 192/64 чанка,
+случайное смещение регионов, salt 813797 (3072 блока размер региона, не гарантия
+реальных интервалов). Vanilla plains/forest/taiga; hill выбирается в приподнятом биоме.
+Проверяются сухой грунт, высота 61–135, локальные перепады ≤3 у зданий/дворов,
+≤8/12 у sparse perimeter; общий перепад ≤9/14. Отказ до размещения при нарушении.
+Проверка соседних vanilla крупных структур/болотных кандидатов без загрузки чанков.
+Малый/средний лагеря уступают large; их roster/Атаман не меняются.
+
+23 NBT в structures/stronghold; forest/plains/hill меняют ломаный периметр и смещения
+построек, варианты казармы/кузницы/склада выбираются отдельно. Sparse perimeter
+следует высоте каждой колонки; здания имеют локальную основу и входные ступени.
+Дворы допускают только малый перепад и локальные грунтовые опоры; общего квадрата
+платформы 80×80 нет. Тайник — 35%, под домом или складом, привязан к высоте родителя.
+Шаблоны и loot воспроизводятся tools/stronghold_081.py; мебель — furniture_081.py.
+
+StrongholdRecords — отдельный WorldSavedData без глобального tick handler:
+UUID→spawned/dead long masks, CLEARED, пять bell positions/state/deadlines.
+26 защитников, slots 0/1 — Атаманы, вспомогательные horse/prisoner slots ≥40.
+Повторные спавны блокируются маской и deterministic entity UUID; успех addFreshEntity
+проверяется перед фиксацией. Зачистка: два Атамана и ≥18 погибших защитников;
+достижение получает игрок последнего нужного убийства. CLEARED сохраняется,
+тревога и поздние marker spawns отключены; ownership/boss-state сейчас не добавлялись.
+
+StrongholdGoal работает только для campTotal=26. Проверка раз в 20 тиков на загруженном
+NPC, без поиска всей структуры: короткое наблюдение (50 тиков), путь к известному
+колоколу, локальный ALERT. Проверенные неразрушенные соседние сигналы передают
+тревогу по одному ребру за 100 тиков. Незагруженные чанки не подгружаются; нет передачи
+player UUID/координат дальним NPC, они ищут цель обычным локальным goal.
+После 1200 тиков без нового звонка тревога затихает. При уничтожении сигнала передача
+через него прекращается; уже поднятая локальная тревога не отменяется мгновенно.
+Patrol/guard/training/smith используют home/duty; кузнец имеет видимый фартук.
+NPC открывают деревянные двери стандартным OpenDoorGoal; атаки остаются 0.8.0.
+
+Книга: bit 26 для black_feather. Только lore, без entity/boss bar/свиста Соловья.
+Проверки 0.8.1: data/NBT/roster/headroom/ladder support, без игрового запуска.
+
+## 0.8.0.1 — древесина и леса
+
+`wood/Woodlands` регистрирует четыре упорядоченных семейства через существующие
+ModBlocks/ModItems, в существующей Creative Tab. Каждый набор: log/wood/stripped
+log/stripped wood, planks/leaves/sapling, stairs/slab/fence/gate/door/trapdoor,
+pressure plate/button, standing/wall sign. 69 блоков и 66 предметов всего.
+`TimberLog.getToolModifiedState` использует Forge 36.2.42 API и сохраняет AXIS.
+Горение задаётся Forge block overrides; `WoodlandFuel` — карта Item→burnTime,
+читаемая только событием печи, включая gates/signs. Vanilla tags дополнены без replace.
+
+`TreeShape` — чистая геометрия без доступа к миру: отдельные linden/rowan/willow/pine
+алгоритмы. Ветви face-connected, нерегулярные листовые массы; bounded BFS вычисляет
+vanilla distance≤6 и исключает неподдержанные листья. `WoodlandFeature.grow` сначала
+проверяет ВСЕ клетки и грунт, затем размещает: воздух, собственный саженец и обычная
+мягкая растительность разрешены; чужие деревья, постройки, жидкости и грунт не заменяются.
+`WoodlandGrower` переопределяет Tree.growTree: общий путь с worldgen, без vanilla oak/spruce
+генератора. Natural feature использует ground heightmap; у ивы максимум 9×9×3 проверок
+воды. Варианты выбираются Random, история каждого дерева не сохраняется.
+
+Worldgen — standard configured features + BiomeLoadingEvent, только vanilla Overworld.
+Шанс попытки на чанк: forest/dark forest липа 1/4, рябина 1/8, сосна 1/24,
+ива 1/12; taiga сосна 1/2 и рябина 1/12; plains липа 1/24 и рябина 1/12;
+swamp ива 1/2 и рябина 1/12; river ива 1/4 и рябина 1/24.
+Отбраковка занятых крон и неподходящего грунта снижает реальную частоту; она не измерена.
+Vanilla features не удаляются, forest manager/chunk polling отсутствуют.
+
+`RowanLeaves` сохраняет berries boolean вместе с vanilla leaf state: серверный ПКМ
+сначала снимает berries, затем выдаёт 1–2 ягоды. Random tick восстанавливает урожай
+с шансом 1/12 при distance<7 и свете≥9. Leaf loot не сохраняет ягодное состояние:
+обычная добыча даёт саженцы/палки, ножницы/Silk Touch — обычные листья, без двойной награды.
+`HangingLeaves`: cross model, без collision/TileEntity/анимации; цепочки 1–3 блока,
+поддержка верхним блоком ивы/подвесом, scheduled tick на потерю опоры и random tick страховка.
+
+Таблички: отдельный TileEntityType с восемью допустимыми блоками, SignTileEntity
+переопределяет getType для сохранения собственного ID; стандартный клиентский renderer,
+четыре WoodType/atlas textures 64×32. Client-only setup изолирован в WoodlandClient.
+Книга: новый knowledge bit 25, открываемый woodlands advancement.
+
+`tools/woodlands_0801.py` — последний слой create_resources.py; собственные рисунки,
+vanilla 1.16.5 blockstate/model/loot/recipe schemas из установленного client-extra.jar
+(не импортирует vanilla текстуры). `verify_woodlands_0801.py` проверяет ресурсы и запускает
+только pure Java TreeShapeCheck (1024 формы), вне production JAR. Игровых запусков 0.
+
+## 0.8.0 — бой, оружейник, лагеря
+
+`armorer/`: custom IRecipe serializers shaped/shapeless, сетка 4×4, серверный
+результат и расход/остатки ингредиентов; закрытие возвращает входные предметы.
+Shift-click результата требует места под полный выход. JEI изолирован в compat.
+`combat/`: MaceItem имеет собственные атрибуты без sword sweep; бронебойность
+обрабатывается LivingHurt. Кистень: основная рука, заряд 18 тиков, дальность 4 блока,
+перезарядка 40 тиков, серверная проверка луча. Пластинчатый нагрудник: скорость −5%.
+`bandit/BanditEntity`: стандартные goals и ограниченные cooldown, melee windup/
+recovery, лук с дистанцией 8–14 блоков, щит, тяжёлая атака и команда Атамана.
+Команда ищет союзников локально только по событию, не глобально каждый тик.
+Steve-like BipedModel, HeldItemLayer, 20 собственных текстур; семь original OGG.
+
+CampStructures: стандартные StructureStart/TemplateStructurePiece, vanilla
+plains/forest/taiga, авторские 10 NBT. Малый лагерь 25×25, средний 43×38.
+Сетки spacing/separation: 48/16 и 64/24 чанка (768/1024 блока между регионами).
+Это параметры кандидатов, не измеренные расстояния между фактическими лагерями:
+биом, рельеф и резерв соседних структур могут отбраковать кандидата.
+Высоты отдельных частей проверяются до размещения, глобального выравнивания нет.
+CampRecords WorldSavedData хранит UUID и битовые маски состава/смертей; маркеры
+задают ровно 5/9 жителей, у среднего ровно один Атаман. Нет периодического respawn.
+Поиск команд ограничен семью кольцами, подтверждает STRUCTURE_STARTS; способен
+генерировать эту стадию чанка как vanilla locate, не запускается фоновым polling.
+HUD читает crosshair либо ID из S2C принятого урона, timeout 100 тиков; world scan нет.
+Клиентские экран/рендерер/HUD отделены от common/server.
+
+Ресурсы последовательно генерируются tools/create_resources.py; финальный слой
+0.8.0 — tools/bandits_080.py. Собственные OGG имеют стабильные serial/CRC.
+Существующие registry ID, включая mace/perunite_mace, сохранены.
+Проверки структуры данных не подтверждают игровую синхронизацию/сохранение/баланс.
+
+## 0.7.3 — структуры топей
+
+`swamp/SwampStructures` регистрирует семь Structure<NoFeatureConfig> через Forge
+DeferredRegister, configured structures и один тип TemplateStructurePiece. Явная
+стадия SURFACE_STRUCTURES; только vanilla swamp, underwater_ruins также river.
+При загрузке Overworld копируется structureConfig с сохранением чужих параметров;
+добавляются только отсутствующие настройки мода. Единственный mapped reflection
+доступ к `DimensionStructuresSettings.field_236193_d_` нужен из-за immutable codec maps.
+API проверен по локальному Forge 36.2.42 mapped JAR; client/common разделение сохранено.
+
+Spacing/separation в чанках: изба 24/12, поселение 52/26, гать 18/9,
+святилище 48/24, стан 30/15, руины 22/11, малые POI 10/5. Это параметры кандидатов,
+а не измеренные частоты: biome/terrain/collision rejection дополнительно сокращают их.
+Перед стартом bounded noise-only проверка соседних кандидатов крупных vanilla и
+приоритетных custom structures. Порядок приоритетов исключает взаимное наложение
+наших разных типов независимо от очередности генерации. Это консервативный резерв,
+а не глобальный анализ фактических построек; совместимость с произвольными чужими
+структурами/изменёнными datapack сетками не гарантируется.
+
+`SwampStructure.Start` формирует конечный список частей, загружает авторские NBT и
+проверяет footprint через base-height queries без загрузки чанков. Все части валидируются
+до принятия старта. Нет выравнивания всего поселения; отдельные основания и пути имеют
+свои высоты. Подводные руины ограничены глубиной, стан требует сушу у навеса и воду у
+конца причала. `SwampPiece` сохраняет имя/позицию/seed/EncounterProcessed, размещает
+template с vanilla chunk bounding box, добавляет максимум восемь блоков опоры вниз.
+Пути — sparse-шаблон, локальная высота каждой колонки, деревянный настил вместо грунта
+над водой. Отсутствующие в шаблоне блоки не заменяются воздухом.
+
+Loot markers выставляют vanilla barrel с lazy loot table и стабильным seed.
+Encounter marker имеет одну сохранённую попытку на часть: Кикимора 10%, водные духи
+12,5%, peaceful и коллизии исключены. Нет спавнеров, повторных попыток или тик-менеджера.
+Старые DeepPoolFeature/малые постройки WaterFeature пропускают чанки, уже содержащие
+references новых структур, без загрузки соседних чанков. Растительность сохраняется.
+
+`SwampCommands` — permission 2, сервер, только явный вызов. Swamp ищет noise biomes
+в радиусе до 8192, пропускает 1280 вокруг игрока уже в болоте и проверяет промежуточный
+неболотный участок. Для безопасной посадки загружается только ближайшая область цели.
+Structure search ограничен 12 кольцами сетки, проверяет настоящие STRUCTURE_STARTS;
+возвращает координаты без размещения шаблона командой. Next пропускает ближайший старт.
+
+Discovery использует vanilla location trigger/feature predicate; новый PlayerTickEvent
+не добавлен. Новые knowledge bits 14–19 продолжают прежний int S2C без смены старых битов.
+Источник ресурсов — последний слой `tools/swamp_073.py` в `create_resources.py`.
+`verify_swamp_073.py` отдельно декодирует NBT, проверяет границы, маркеры, loot references,
+варианты, повторяемость и упакованные ресурсы. Это не визуальный или игровой тест.
+
 ## 0.6.5 — wildlife
 
 Шесть registry ID используют один серверный `WildlifeEntity` с фиксированным видом,

@@ -1,0 +1,209 @@
+{
+  "hut_0": {
+    "size": [
+      13,
+      11,
+      14
+    ],
+    "blocks": 607,
+    "containers": 1
+  },
+  "hut_1": {
+    "size": [
+      13,
+      11,
+      14
+    ],
+    "blocks": 615,
+    "containers": 2
+  },
+  "hut_2": {
+    "size": [
+      13,
+      11,
+      14
+    ],
+    "blocks": 608,
+    "containers": 0
+  },
+  "settlement_small": {
+    "size": [
+      11,
+      11,
+      13
+    ],
+    "blocks": 385,
+    "containers": 0
+  },
+  "settlement_main": {
+    "size": [
+      14,
+      11,
+      15
+    ],
+    "blocks": 758,
+    "containers": 2
+  },
+  "settlement_flooded": {
+    "size": [
+      12,
+      11,
+      14
+    ],
+    "blocks": 556,
+    "containers": 2
+  },
+  "settlement_barn": {
+    "size": [
+      8,
+      7,
+      8
+    ],
+    "blocks": 162,
+    "containers": 1
+  },
+  "settlement_well": {
+    "size": [
+      9,
+      8,
+      9
+    ],
+    "blocks": 116,
+    "containers": 0
+  },
+  "settlement_paths_0": {
+    "size": [
+      45,
+      3,
+      49
+    ],
+    "blocks": 93,
+    "containers": 0
+  },
+  "settlement_paths_1": {
+    "size": [
+      45,
+      3,
+      49
+    ],
+    "blocks": 123,
+    "containers": 0
+  },
+  "causeway_0": {
+    "size": [
+      4,
+      4,
+      25
+    ],
+    "blocks": 89,
+    "containers": 0
+  },
+  "causeway_1": {
+    "size": [
+      13,
+      4,
+      31
+    ],
+    "blocks": 145,
+    "containers": 0
+  },
+  "shrine_0": {
+    "size": [
+      19,
+      10,
+      19
+    ],
+    "blocks": 253,
+    "containers": 1
+  },
+  "shrine_1": {
+    "size": [
+      19,
+      10,
+      19
+    ],
+    "blocks": 248,
+    "containers": 1
+  },
+  "camp_0": {
+    "size": [
+      23,
+      8,
+      18
+    ],
+    "blocks": 209,
+    "containers": 1
+  },
+  "camp_1": {
+    "size": [
+      23,
+      8,
+      18
+    ],
+    "blocks": 209,
+    "containers": 1
+  },
+  "ruin_0": {
+    "size": [
+      17,
+      7,
+      17
+    ],
+    "blocks": 330,
+    "containers": 1
+  },
+  "ruin_1": {
+    "size": [
+      17,
+      7,
+      17
+    ],
+    "blocks": 450,
+    "containers": 2
+  },
+  "ruin_2": {
+    "size": [
+      17,
+      7,
+      17
+    ],
+    "blocks": 70,
+    "containers": 1
+  },
+  "poi_0": {
+    "size": [
+      12,
+      5,
+      12
+    ],
+    "blocks": 9,
+    "containers": 1
+  },
+  "poi_1": {
+    "size": [
+      12,
+      5,
+      12
+    ],
+    "blocks": 35,
+    "containers": 1
+  },
+  "poi_2": {
+    "size": [
+      12,
+      5,
+      12
+    ],
+    "blocks": 32,
+    "containers": 0
+  },
+  "poi_3": {
+    "size": [
+      12,
+      5,
+      12
+    ],
+    "blocks": 4,
+    "containers": 0
+  }
+}

@@ -1,0 +1,4 @@
+PASS: 179 item registrations, 31 block registrations, 164 PNGs, 106 recipes, 65 advancements, JSON references, JAR contents, Java 8 and reobfuscation.
+Structural checks do not replace Minecraft gameplay tests.
+PASS: entity/model/renderer resources, decoded mono Vorbis sounds, subtitles, no vanilla advancement overrides or bundled JEI/test code.
+PASS: 23 independently decoded NBT templates, bounds, deterministic generation, 7 loot tables, 6 discovery links, Java 8 classes and packaged templates.

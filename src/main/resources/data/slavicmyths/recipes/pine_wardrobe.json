@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PLP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:pine_planks"
+    },
+    "L": {
+      "item": "slavicmyths:pine_log"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:pine_wardrobe"
+  }
+}

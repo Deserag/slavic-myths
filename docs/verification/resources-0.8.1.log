@@ -1,0 +1,5 @@
+PASS: 280 item registrations, 122 block registrations, 245 PNGs, 187 recipes, 75 advancements, JSON references, JAR contents, Java 8 and reobfuscation.
+Structural checks do not replace Minecraft gameplay tests.
+PASS: entity/model/renderer resources, decoded mono Vorbis sounds, subtitles, no vanilla advancement overrides or bundled JEI/test code.
+PASS: 23 settlement templates; 8 building combinations preserve 26 defenders, exactly two Atamans, five alarm zones and unique auxiliary spawns. Marker floor/headroom, furniture states/models/recipes/loot, optional cache pools, reference integrity and generator reproducibility passed.
+Static checks only. Minecraft launches: 0; terrain/navigation/alarm timing/seating/rack sync/rejoin remain manual tests.

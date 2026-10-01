@@ -1,0 +1,4 @@
+PASS: 192 item registrations, 32 block registrations, 186 PNGs, 118 recipes, 70 advancements, JSON references, JAR contents, Java 8 and reobfuscation.
+Structural checks do not replace Minecraft gameplay tests.
+PASS: entity/model/renderer resources, decoded mono Vorbis sounds, subtitles, no vanilla advancement overrides or bundled JEI/test code.
+PASS: 12 data-driven 4x4 recipes, vanilla chainmail outputs, 10 camp NBTs, exact 5/9-member rosters, one Ataman, marker headroom, loot references, five distinct weapon meshes, reproducible resources including OGG, optional JEI isolation and production resource equality.

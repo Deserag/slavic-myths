@@ -12,7 +12,7 @@ public final class LoreScreen extends Screen {
     private final int mask;
     private int article, page;
     private static final String[] IDS = {"intro", "domovoy", "leshy", "shrine", "altar", "ritual", "paths",
-            "silver", "amber", "thunder_axe", "storm_staff", "charms", "herbs", "ritual_tools", "runes", "reforging", "water_fish", "fishing_net", "vodyanoy", "rusalka", "elder_vodyanoy", "deep_pool", "pool_pearl", "pool_spear", "depth_amulet"};
+            "silver", "amber", "thunder_axe", "storm_staff", "charms", "herbs", "ritual_tools", "runes", "reforging", "water_fish", "fishing_net", "vodyanoy", "rusalka", "elder_vodyanoy", "deep_pool", "pool_pearl", "pool_spear", "depth_amulet", "swamp_hut", "abandoned_settlement", "bog_causeway", "flooded_shrine", "fishing_camp", "underwater_ruins", "bandit_gangs", "bandit_small", "bandit_medium", "ataman", "arms_craft", "woodlands", "forest_whistle"};
     public LoreScreen(int mask) { super(new TranslationTextComponent("item.slavicmyths.lore_book")); this.mask = mask; }
     public static void open(int mask) { Minecraft.getInstance().setScreen(new LoreScreen(mask)); }
     @Override protected void init() {

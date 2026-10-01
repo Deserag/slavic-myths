@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "slavicmyths:willow_logs"
+    }
+  ],
+  "result": {
+    "item": "slavicmyths:willow_planks",
+    "count": 4
+  }
+}

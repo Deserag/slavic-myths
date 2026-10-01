@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:linden_stairs",
+    "slavicmyths:rowan_stairs",
+    "slavicmyths:willow_stairs",
+    "slavicmyths:pine_stairs"
+  ]
+}

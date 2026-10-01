@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slavicmyths:block/rowan_slab"
+    },
+    "type=double": {
+      "model": "slavicmyths:block/rowan_planks"
+    },
+    "type=top": {
+      "model": "slavicmyths:block/rowan_slab_top"
+    }
+  }
+}

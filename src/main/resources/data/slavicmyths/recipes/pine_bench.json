@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "S S"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:pine_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:pine_bench"
+  }
+}

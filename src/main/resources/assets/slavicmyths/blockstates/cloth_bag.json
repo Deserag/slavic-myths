@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "slavicmyths:block/cloth_bag",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "slavicmyths:block/cloth_bag",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "slavicmyths:block/cloth_bag",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "slavicmyths:block/cloth_bag",
+      "y": 270
+    }
+  }
+}

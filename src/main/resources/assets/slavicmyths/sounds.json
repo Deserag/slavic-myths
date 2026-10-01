@@ -919,5 +919,61 @@
         "name": "slavicmyths:depth/elder_death"
       }
     ]
+  },
+  "bandit_idle": {
+    "subtitle": "subtitles.slavicmyths.bandit_idle",
+    "sounds": [
+      {
+        "name": "slavicmyths:bandit/idle"
+      }
+    ]
+  },
+  "bandit_alert": {
+    "subtitle": "subtitles.slavicmyths.bandit_alert",
+    "sounds": [
+      {
+        "name": "slavicmyths:bandit/alert"
+      }
+    ]
+  },
+  "bandit_attack": {
+    "subtitle": "subtitles.slavicmyths.bandit_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:bandit/attack"
+      }
+    ]
+  },
+  "bandit_hurt": {
+    "subtitle": "subtitles.slavicmyths.bandit_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:bandit/hurt"
+      }
+    ]
+  },
+  "bandit_death": {
+    "subtitle": "subtitles.slavicmyths.bandit_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:bandit/death"
+      }
+    ]
+  },
+  "bandit_command": {
+    "subtitle": "subtitles.slavicmyths.bandit_command",
+    "sounds": [
+      {
+        "name": "slavicmyths:bandit/command"
+      }
+    ]
+  },
+  "bandit_heavy": {
+    "subtitle": "subtitles.slavicmyths.bandit_heavy",
+    "sounds": [
+      {
+        "name": "slavicmyths:bandit/heavy"
+      }
+    ]
   }
 }

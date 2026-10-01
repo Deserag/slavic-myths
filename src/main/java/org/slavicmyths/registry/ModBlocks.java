@@ -71,5 +71,6 @@ public final class ModBlocks {
     public static final RegistryObject<Block> WATER_GRASS=BLOCKS.register("water_grass",()->new net.minecraft.block.SeaGrassBlock(AbstractBlock.Properties.of(Material.WATER_PLANT).noCollission().instabreak().sound(SoundType.WET_GRASS)));
     public static final RegistryObject<Block> WHITE_LILY=BLOCKS.register("white_lily",()->new net.minecraft.block.LilyPadBlock(AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.LILY_PAD)));
     public static final RegistryObject<Block> POOL_STONE=BLOCKS.register("pool_stone",org.slavicmyths.depth.PoolStoneBlock::new);
+    public static final RegistryObject<Block> ARMORER_TABLE=BLOCKS.register("armorer_table",org.slavicmyths.armorer.ArmorerBlock::new);
     private ModBlocks() { }
 }

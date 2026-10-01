@@ -1,0 +1,68 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:linden_log"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.woodlands.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.woodlands.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "linden": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "slavicmyths:linden_logs"
+          }
+        ]
+      }
+    },
+    "rowan": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "slavicmyths:rowan_logs"
+          }
+        ]
+      }
+    },
+    "willow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "slavicmyths:willow_logs"
+          }
+        ]
+      }
+    },
+    "pine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "slavicmyths:pine_logs"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "linden",
+      "rowan",
+      "willow",
+      "pine"
+    ]
+  ]
+}

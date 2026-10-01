@@ -17,10 +17,16 @@ def registered(file):
 
 items = registered('registry/ModItems.java')
 blocks = registered('registry/ModBlocks.java')
+wood_manifest=ROOT/'docs/verification/woodlands-0.8.0.1.json'
+if wood_manifest.exists():
+    wood=read(wood_manifest); items.update(wood['items']); blocks.update(wood['blocks'])
+furniture_manifest=ROOT/'docs/verification/furniture-0.8.1.json'
+if furniture_manifest.exists():
+    furniture=read(furniture_manifest); items.update(furniture['items']); blocks.update(furniture['blocks'])
 assert not re.search(r'\.durability\([^)]*\)\.stacksTo\(', (JAVA/'registry/ModItems.java').read_text()), 'Durable items must not call stacksTo after durability'
 assert len(items) >= 74 and len(blocks) >= 18
 assert {'birch_bark_scroll', 'thunder_stone', 'warding_charm'} <= items
-assert blocks - {"raspberry_bush", "blueberry_bush"} <= items
+assert blocks - {"raspberry_bush", "blueberry_bush"} - {b for b in blocks if b.endswith("_wall_sign")} <= items
 assert 'ItemGroup.TAB_MISC' not in (JAVA/'registry/ModItems.java').read_text()
 
 def ref(value, folder, suffix='.json'):
@@ -53,8 +59,12 @@ for path in (RES/'assets/slavicmyths/models').rglob('*.json'):
         if texture.startswith('slavicmyths:'):
             assert (RES/('assets/slavicmyths/textures/'+texture.split(':')[1]+'.png')).is_file()
 for path in (RES/'assets/slavicmyths/blockstates').glob('*.json'):
-    for variant in read(path)['variants'].values():
-        assert (RES/('assets/slavicmyths/models/'+variant['model'].split(':')[1]+'.json')).is_file()
+    obj=read(path)
+    variants=list(obj.get('variants',{}).values())+[p['apply'] for p in obj.get('multipart',[])]
+    for variant in variants:
+        for v in (variant if isinstance(variant,list) else [variant]):
+            if v['model'].startswith('slavicmyths:'):
+                assert (RES/('assets/slavicmyths/models/'+v['model'].split(':')[1]+'.json')).is_file()
 pngs = list(RES.rglob('*.png'))
 assert len(pngs) >= 82
 for path in pngs:
@@ -68,7 +78,8 @@ for path in pngs:
         if kind == b'IHDR':
             width,height,depth,color,compression,filtering,interlace = struct.unpack('!IIBBBBB', data)
             expected = (64,64) if path.parent.name == 'entity' else ((64,32) if path.parent.name == 'armor' else (16,16))
-            if path.parent.name == 'entity' and path.stem not in ('domovoy','leshy'):
+            if path.parent.name == 'signs': expected=(64,32)
+            if path.parent.name == 'entity' and path.stem not in ('domovoy','leshy') and not path.stem.startswith('bandit_'):
                 expected = (256,256)
             if path.parent.name == 'item':
                 model_path = RES/f'assets/slavicmyths/models/item/{path.stem}.json'
@@ -85,7 +96,7 @@ for path in (RES/'data/slavicmyths/recipes').glob('*.json'):
     obj = read(path)
     item_ref(obj['result']['item'] if isinstance(obj['result'],dict) else obj['result'])
     for ing in obj.get('ingredients', []) + list(obj.get('key', {}).values()):
-        item_ref(ing['item'])
+        if 'item' in ing: item_ref(ing['item'])
     if obj['type'] == 'minecraft:crafting_shaped':
         pattern = obj['pattern']
         assert 1 <= len(pattern) <= 3 and len({len(row) for row in pattern}) == 1
@@ -110,7 +121,7 @@ for path in (RES/'data/slavicmyths/advancements').rglob('*.json'):
                 assert obj['display'][field]['translate'] in data
     for criteria in obj['criteria'].values():
         for pred in criteria.get('conditions', {}).get('items', []):
-            item_ref(pred['item'])
+            if 'item' in pred: item_ref(pred['item'])
     for row in obj.get('requirements', []):
         assert set(row) <= set(obj['criteria'])
     for recipe in obj.get('rewards', {}).get('recipes', []):
@@ -155,6 +166,13 @@ wildlife=set(re.findall(r'wildlife\("([a-z_]+)"',(JAVA/'registry/ModEntities.jav
 entities.update(wildlife)
 assert {'domovoy','leshy','kikimora','poludnitsa','polevik','bannik','igosha','ovinnik','hot_stone'} <= entities
 for entity in entities - {'hot_stone'}:
+    if entity in {'bandit_fighter','bandit_archer','bandit_heavy','bandit_senior','ataman'}:
+        role=['bandit_fighter','bandit_archer','bandit_heavy','bandit_senior','ataman'].index(entity)
+        assert all((RES/f'assets/slavicmyths/textures/entity/bandit_{role}_{face}.png').is_file() for face in range(4))
+        assert (RES/f'data/slavicmyths/loot_tables/entities/{entity}.json').is_file()
+        assert (JAVA/'client/BanditModel.java').is_file() and (JAVA/'client/BanditRenderer.java').is_file()
+        assert 'ModEntities.'+entity.upper()+'.get()' in (JAVA/'client/ClientSetup.java').read_text()
+        continue
     if entity == 'thrown_net':
         assert 'ModEntities.THROWN_NET.get()' in (JAVA/'client/ClientSetup.java').read_text()
         assert (JAVA/'depth/ThrownNet.java').is_file() and (RES/'assets/slavicmyths/models/item/vodyanoy_net.json').is_file()

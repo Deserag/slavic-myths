@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "slavicmyths:rowan_logs"
+    }
+  ],
+  "result": {
+    "item": "slavicmyths:rowan_planks",
+    "count": 4
+  }
+}

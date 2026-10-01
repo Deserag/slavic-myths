@@ -1,0 +1,9 @@
+PASS: 258 item registrations, 101 block registrations, 241 PNGs, 166 recipes, 72 advancements, JSON references, JAR contents, Java 8 and reobfuscation.
+Structural checks do not replace Minecraft gameplay tests.
+PASS: entity/model/renderer resources, decoded mono Vorbis sounds, subtitles, no vanilla advancement overrides or bundled JEI/test code.
+PASS linden: 256 seeds, 3 variants, connected wood/supported leaves; height=8..13, width=9..11, hanging=0
+PASS rowan: 256 seeds, 3 variants, connected wood/supported leaves; height=6..8, width=5..7, hanging=0
+PASS willow: 256 seeds, 3 variants, connected wood/supported leaves; height=7..8, width=10..13, hanging=6472
+PASS pine: 256 seeds, 3 variants, connected wood/supported leaves; height=13..22, width=9..12, hanging=0
+PASS: 69 woodland blocks, 66 items; complete wood recipes/tags, state variants, leaf/shears/Fortune loot, berry-state separation, four alpha silhouettes, sign textures, advancement requirements, deterministic resources and production JAR equality.
+Minecraft launches: 0. Geometry checks are not gameplay, visual QA, worldgen frequency measurements, or a real save/rejoin test.

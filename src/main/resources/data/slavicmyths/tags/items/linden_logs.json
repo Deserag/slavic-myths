@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:linden_log",
+    "slavicmyths:linden_wood",
+    "slavicmyths:linden_stripped_log",
+    "slavicmyths:linden_stripped_wood"
+  ]
+}

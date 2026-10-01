@@ -1,0 +1,8 @@
+POLYMC: UPDATED
+JAR: C:\Users\user\Documents\slavic-myths\build\libs\slavicmyths-0.8.0.1.jar
+INSTALLED: C:\Users\user\AppData\Roaming\PolyMC\instances\Slavic-Myths-0.2.0\.minecraft\mods\slavicmyths-0.8.0.1.jar
+SHA256: 03B772D6E5BFD36292D660402AE1198CC9B371FF6F69013793FCEEF0C9FEF3F3
+BACKUP: C:\Users\user\AppData\Roaming\PolyMC\instances\Slavic-Myths-0.2.0\mod-backups\0.8.0.1-2026-10-01
+Slavic Myths JAR count: 1
+Minecraft launches: 0
+Worlds and other mods untouched.

@@ -1,0 +1,209 @@
+{
+  "barracks_porch": {
+    "size": [
+      13,
+      12,
+      11
+    ],
+    "blocks": 955,
+    "containers": 1
+  },
+  "barracks_side": {
+    "size": [
+      13,
+      12,
+      11
+    ],
+    "blocks": 955,
+    "containers": 1
+  },
+  "forge_open": {
+    "size": [
+      11,
+      12,
+      9
+    ],
+    "blocks": 618,
+    "containers": 1
+  },
+  "forge_closed": {
+    "size": [
+      11,
+      12,
+      9
+    ],
+    "blocks": 654,
+    "containers": 1
+  },
+  "warehouse_long": {
+    "size": [
+      13,
+      12,
+      9
+    ],
+    "blocks": 769,
+    "containers": 2
+  },
+  "warehouse_square": {
+    "size": [
+      11,
+      12,
+      11
+    ],
+    "blocks": 809,
+    "containers": 2
+  },
+  "kitchen": {
+    "size": [
+      11,
+      12,
+      11
+    ],
+    "blocks": 809,
+    "containers": 1
+  },
+  "ataman_house": {
+    "size": [
+      15,
+      12,
+      11
+    ],
+    "blocks": 1101,
+    "containers": 1
+  },
+  "commander": {
+    "size": [
+      11,
+      12,
+      9
+    ],
+    "blocks": 651,
+    "containers": 1
+  },
+  "stable": {
+    "size": [
+      13,
+      12,
+      11
+    ],
+    "blocks": 911,
+    "containers": 0
+  },
+  "prison": {
+    "size": [
+      9,
+      12,
+      11
+    ],
+    "blocks": 663,
+    "containers": 0
+  },
+  "utility": {
+    "size": [
+      11,
+      12,
+      9
+    ],
+    "blocks": 615,
+    "containers": 1
+  },
+  "tower_roof": {
+    "size": [
+      7,
+      10,
+      7
+    ],
+    "blocks": 202,
+    "containers": 1
+  },
+  "tower_open": {
+    "size": [
+      7,
+      11,
+      7
+    ],
+    "blocks": 178,
+    "containers": 1
+  },
+  "tower_tall": {
+    "size": [
+      7,
+      13,
+      7
+    ],
+    "blocks": 220,
+    "containers": 1
+  },
+  "gate": {
+    "size": [
+      12,
+      10,
+      8
+    ],
+    "blocks": 524,
+    "containers": 0
+  },
+  "central_yard": {
+    "size": [
+      19,
+      6,
+      12
+    ],
+    "blocks": 1140,
+    "containers": 0
+  },
+  "nightingale_yard": {
+    "size": [
+      33,
+      27,
+      31
+    ],
+    "blocks": 24432,
+    "containers": 2
+  },
+  "perimeter_forest": {
+    "size": [
+      82,
+      9,
+      80
+    ],
+    "blocks": 1290,
+    "containers": 0
+  },
+  "perimeter_plains": {
+    "size": [
+      82,
+      9,
+      80
+    ],
+    "blocks": 1312,
+    "containers": 0
+  },
+  "perimeter_hill": {
+    "size": [
+      82,
+      9,
+      80
+    ],
+    "blocks": 1228,
+    "containers": 0
+  },
+  "cache_0": {
+    "size": [
+      7,
+      7,
+      7
+    ],
+    "blocks": 295,
+    "containers": 1
+  },
+  "cache_1": {
+    "size": [
+      7,
+      7,
+      7
+    ],
+    "blocks": 295,
+    "containers": 1
+  }
+}

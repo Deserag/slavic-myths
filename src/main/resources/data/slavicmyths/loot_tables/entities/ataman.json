@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bread",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:ancient_coin",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:iron_rings",
+          "weight": 3
+        }
+      ]
+    }
+  ]
+}

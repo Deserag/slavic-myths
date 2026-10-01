@@ -9,6 +9,13 @@ import org.slavicmyths.SlavicMyths;
 
 public final class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, SlavicMyths.MOD_ID);
+    public static final RegistryObject<SoundEvent> BANDIT_IDLE=sound("bandit_idle");
+    public static final RegistryObject<SoundEvent> BANDIT_ALERT=sound("bandit_alert");
+    public static final RegistryObject<SoundEvent> BANDIT_ATTACK=sound("bandit_attack");
+    public static final RegistryObject<SoundEvent> BANDIT_HURT=sound("bandit_hurt");
+    public static final RegistryObject<SoundEvent> BANDIT_DEATH=sound("bandit_death");
+    public static final RegistryObject<SoundEvent> BANDIT_COMMAND=sound("bandit_command");
+    public static final RegistryObject<SoundEvent> BANDIT_HEAVY=sound("bandit_heavy");
     public static final RegistryObject<SoundEvent> DOMOVOY_AMBIENT = sound("domovoy_ambient");
     public static final RegistryObject<SoundEvent> DOMOVOY_HURT = sound("domovoy_hurt");
     public static final RegistryObject<SoundEvent> DOMOVOY_DEATH = sound("domovoy_death");

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "slavicmyths:linden_logs"
+    }
+  ],
+  "result": {
+    "item": "slavicmyths:linden_planks",
+    "count": 4
+  }
+}

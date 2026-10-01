@@ -1,19 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "slavicmyths:armorer_shaped",
   "pattern": [
-    "INI",
-    " W ",
-    " S "
+    " I  ",
+    "IRI ",
+    " LS ",
+    "  S "
   ],
   "key": {
     "I": {
       "item": "minecraft:iron_ingot"
     },
-    "N": {
-      "item": "minecraft:iron_nugget"
+    "R": {
+      "item": "slavicmyths:iron_rings"
     },
-    "W": {
-      "item": "slavicmyths:weapon_wrap"
+    "L": {
+      "item": "minecraft:leather"
     },
     "S": {
       "item": "minecraft:stick"

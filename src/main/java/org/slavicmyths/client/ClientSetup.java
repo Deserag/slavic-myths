@@ -16,6 +16,12 @@ public final class ClientSetup {
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.ELDER_VODYANOY.get(),ElderVodyanoyRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.BANDIT_FIGHTER.get(),m->new BanditRenderer(m,0));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.BANDIT_ARCHER.get(),m->new BanditRenderer(m,1));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.BANDIT_HEAVY.get(),m->new BanditRenderer(m,2));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.BANDIT_SENIOR.get(),m->new BanditRenderer(m,3));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.ATAMAN.get(),m->new BanditRenderer(m,4));
+
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.THROWN_NET.get(),m->new net.minecraft.client.renderer.entity.SpriteRenderer<>(m,net.minecraft.client.Minecraft.getInstance().getItemRenderer()));
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.VODYANOY.get(),m->new WaterSpiritRenderer(m,false));
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.RUSALKA.get(),m->new WaterSpiritRenderer(m,true));
@@ -40,6 +46,7 @@ public final class ClientSetup {
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.STAG.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.STAG,"stag",.6F));
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.DOE.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.DOE,"doe",.5F));
         event.enqueueWork(() -> {
+            net.minecraft.client.gui.ScreenManager.register(org.slavicmyths.armorer.ArmorerMenu.TYPE.get(),ArmorerScreen::new);
             RpgClient.setup();
             FlightClient.setup();
             RenderTypeLookup.setRenderLayer(ModBlocks.REED.get(),RenderType.cutout());

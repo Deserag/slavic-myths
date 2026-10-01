@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#slavicmyths:linden_logs",
+    "#slavicmyths:rowan_logs",
+    "#slavicmyths:willow_logs",
+    "#slavicmyths:pine_logs"
+  ]
+}

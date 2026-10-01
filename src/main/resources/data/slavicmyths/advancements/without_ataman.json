@@ -1,0 +1,28 @@
+{
+  "parent": "slavicmyths:bad_people",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ],
+  "display": {
+    "icon": {
+      "item": "slavicmyths:mace"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.without_ataman.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.without_ataman.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  }
+}

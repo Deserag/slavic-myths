@@ -17,7 +17,7 @@ public final class WaterFeature extends Feature<NoFeatureConfig>{
    if(w.getFluidState(floor).is(FluidTags.WATER)&&ModBlocks.WATER_GRASS.get().defaultBlockState().canSurvive(w,floor)){w.setBlock(floor,ModBlocks.WATER_GRASS.get().defaultBlockState(),2);placed=true;}
    if(w.isEmptyBlock(surface)&&ModBlocks.REED.get().defaultBlockState().canSurvive(w,surface)){w.setBlock(surface,ModBlocks.REED.get().defaultBlockState(),2);placed=true;}
   }
-  if(r.nextInt(120)!=0)return placed;
+  if(r.nextInt(120)!=0||org.slavicmyths.swamp.SwampStructures.occupied(w,origin))return placed;
   BlockPos top=new BlockPos(x,w.getHeight(Heightmap.Type.WORLD_SURFACE_WG,x,z),z);if(!w.getFluidState(top.below()).is(FluidTags.WATER))return placed;int kind=r.nextInt(3);
   BlockPos base=kind==2?new BlockPos(x,w.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,x,z),z):top;
   if(kind==1){BlockPos shore=null;for(int i=-4;i<=4;i++){BlockPos p=top.offset(i,0,0);if(w.isEmptyBlock(p)&&w.getBlockState(p.below()).getMaterial().isSolid()){shore=p;break;}}if(shore==null)return placed;base=shore;w.setBlock(base,Blocks.CAMPFIRE.defaultBlockState().setValue(CampfireBlock.LIT,false),2);w.setBlock(base.offset(1,0,0),Blocks.SPRUCE_STAIRS.defaultBlockState(),2);}

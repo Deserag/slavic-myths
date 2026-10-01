@@ -17,10 +17,17 @@ public final class SlavicMyths {
     public static final String MOD_ID = "slavicmyths";
 
     public SlavicMyths() {
+        net.minecraftforge.fml.ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.combat.CombatHudConfig.SPEC);
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         org.slavicmyths.rpg.Runes.init();
+        org.slavicmyths.wood.Woodlands.init();
+        org.slavicmyths.furniture.Furniture.init();
         ModBlocks.BLOCKS.register(bus);
+        org.slavicmyths.bandit.CampStructures.register();
+        org.slavicmyths.swamp.SwampStructures.STRUCTURES.register(bus);
         ModItems.ITEMS.register(bus);
+        org.slavicmyths.armorer.ArmorerRecipe.SERIALIZERS.register(bus);
+        org.slavicmyths.armorer.ArmorerMenu.register();
         ModLoot.SERIALIZERS.register(bus);
         ModEntities.ENTITIES.register(bus);
         ModSounds.SOUNDS.register(bus);
@@ -38,7 +45,10 @@ public final class SlavicMyths {
     }
 
     private void setup(FMLCommonSetupEvent event) {
+        event.enqueueWork(org.slavicmyths.swamp.SwampStructures::setup);
+        event.enqueueWork(org.slavicmyths.bandit.CampStructures::setup);
         event.enqueueWork(ModWorldGen::registerFeatures);
+        event.enqueueWork(org.slavicmyths.wood.Woodlands::setup);
         event.enqueueWork(SpiritSpawns::registerPlacements);
         event.enqueueWork(org.slavicmyths.world.WildlifeSpawns::placements);
         event.enqueueWork(org.slavicmyths.water.WaterSpawns::placements);

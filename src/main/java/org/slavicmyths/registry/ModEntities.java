@@ -41,6 +41,11 @@ public final class ModEntities {
 
     @SubscribeEvent
     public static void attributes(EntityAttributeCreationEvent event) {
+        event.put(BANDIT_FIGHTER.get(),org.slavicmyths.bandit.BanditEntity.attributes(0).build());
+        event.put(BANDIT_ARCHER.get(),org.slavicmyths.bandit.BanditEntity.attributes(1).build());
+        event.put(BANDIT_HEAVY.get(),org.slavicmyths.bandit.BanditEntity.attributes(2).build());
+        event.put(BANDIT_SENIOR.get(),org.slavicmyths.bandit.BanditEntity.attributes(3).build());
+        event.put(ATAMAN.get(),org.slavicmyths.bandit.BanditEntity.attributes(4).build());
         event.put(ELDER_VODYANOY.get(),org.slavicmyths.depth.ElderVodyanoy.attributes().build());
         event.put(VODYANOY.get(),org.slavicmyths.water.VodyanoyEntity.attributes().build());
         event.put(RUSALKA.get(),org.slavicmyths.water.RusalkaEntity.attributes().build());
@@ -70,6 +75,11 @@ public final class ModEntities {
     public static final RegistryObject<EntityType<org.slavicmyths.water.RusalkaEntity>> RUSALKA=ENTITIES.register("rusalka",()->EntityType.Builder.of(org.slavicmyths.water.RusalkaEntity::new,EntityClassification.MONSTER).sized(.55F,1.85F).clientTrackingRange(10).build("slavicmyths:rusalka"));
     public static final RegistryObject<EntityType<org.slavicmyths.depth.ThrownNet>> THROWN_NET=ENTITIES.register("thrown_net",()->EntityType.Builder.<org.slavicmyths.depth.ThrownNet>of(org.slavicmyths.depth.ThrownNet::new,EntityClassification.MISC).sized(.3F,.3F).clientTrackingRange(4).updateInterval(5).build("slavicmyths:thrown_net"));
     public static final RegistryObject<EntityType<org.slavicmyths.depth.ElderVodyanoy>> ELDER_VODYANOY=ENTITIES.register("elder_vodyanoy",()->EntityType.Builder.of(org.slavicmyths.depth.ElderVodyanoy::new,EntityClassification.MONSTER).sized(1.4F,2.35F).clientTrackingRange(10).build("slavicmyths:elder_vodyanoy"));
+    public static final RegistryObject<EntityType<org.slavicmyths.bandit.BanditEntity>> BANDIT_FIGHTER=ENTITIES.register("bandit_fighter",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,0),EntityClassification.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build("slavicmyths:bandit_fighter"));
+    public static final RegistryObject<EntityType<org.slavicmyths.bandit.BanditEntity>> BANDIT_ARCHER=ENTITIES.register("bandit_archer",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,1),EntityClassification.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build("slavicmyths:bandit_archer"));
+    public static final RegistryObject<EntityType<org.slavicmyths.bandit.BanditEntity>> BANDIT_HEAVY=ENTITIES.register("bandit_heavy",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,2),EntityClassification.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build("slavicmyths:bandit_heavy"));
+    public static final RegistryObject<EntityType<org.slavicmyths.bandit.BanditEntity>> BANDIT_SENIOR=ENTITIES.register("bandit_senior",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,3),EntityClassification.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build("slavicmyths:bandit_senior"));
+    public static final RegistryObject<EntityType<org.slavicmyths.bandit.BanditEntity>> ATAMAN=ENTITIES.register("ataman",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,4),EntityClassification.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build("slavicmyths:ataman"));
     private ModEntities() { }
     public static final RegistryObject<EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_BROOM=ENTITIES.register("flying_broom",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,false),EntityClassification.MISC).sized(1F,.45F).clientTrackingRange(10).updateInterval(3).build("slavicmyths:flying_broom"));
     public static final RegistryObject<EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_MORTAR=ENTITIES.register("flying_mortar",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,true),EntityClassification.MISC).sized(.95F,1.2F).clientTrackingRange(10).updateInterval(3).build("slavicmyths:flying_mortar"));

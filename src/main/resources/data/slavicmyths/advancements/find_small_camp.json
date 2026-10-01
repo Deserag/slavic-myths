@@ -1,0 +1,19 @@
+{
+  "parent": "slavicmyths:bad_people",
+  "criteria": {
+    "small": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "slavicmyths:bandit_camp_small",
+          "dimension": "minecraft:overworld"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "small"
+    ]
+  ]
+}

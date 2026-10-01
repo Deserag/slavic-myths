@@ -1,0 +1,4 @@
+SHA256: 68A26F196C8146280E6322A5F5862D0720DAD0058B5216C2879F18EDE9C9627E
+POLYMC: C:\Users\user\AppData\Roaming\PolyMC\instances\Slavic-Myths-0.2.0\.minecraft\mods\slavicmyths-0.7.3.jar
+MATCH: true
+MINECRAFT RUNS: 0

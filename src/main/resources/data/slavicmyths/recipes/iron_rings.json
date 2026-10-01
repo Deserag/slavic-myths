@@ -1,0 +1,12 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "result": {
+    "item": "slavicmyths:iron_rings",
+    "count": 2
+  }
+}
