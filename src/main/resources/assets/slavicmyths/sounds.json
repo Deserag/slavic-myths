@@ -975,5 +975,131 @@
         "name": "slavicmyths:bandit/heavy"
       }
     ]
+  },
+  "nightingale_idle": {
+    "subtitle": "subtitles.slavicmyths.nightingale_idle",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/idle"
+      }
+    ]
+  },
+  "nightingale_notice": {
+    "subtitle": "subtitles.slavicmyths.nightingale_notice",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/notice"
+      }
+    ]
+  },
+  "nightingale_hurt": {
+    "subtitle": "subtitles.slavicmyths.nightingale_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/hurt_0"
+      },
+      {
+        "name": "slavicmyths:nightingale/hurt_1"
+      },
+      {
+        "name": "slavicmyths:nightingale/hurt_2"
+      }
+    ]
+  },
+  "nightingale_breath": {
+    "subtitle": "subtitles.slavicmyths.nightingale_breath",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/breath"
+      }
+    ]
+  },
+  "nightingale_inhale": {
+    "subtitle": "subtitles.slavicmyths.nightingale_inhale",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/inhale"
+      }
+    ]
+  },
+  "nightingale_deep_inhale": {
+    "subtitle": "subtitles.slavicmyths.nightingale_deep_inhale",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/deep_inhale"
+      }
+    ]
+  },
+  "nightingale_whistle": {
+    "subtitle": "subtitles.slavicmyths.nightingale_whistle",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/whistle"
+      }
+    ]
+  },
+  "nightingale_destructive": {
+    "subtitle": "subtitles.slavicmyths.nightingale_destructive",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/destructive"
+      }
+    ]
+  },
+  "nightingale_wave": {
+    "subtitle": "subtitles.slavicmyths.nightingale_wave",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/wave"
+      }
+    ]
+  },
+  "nightingale_melee": {
+    "subtitle": "subtitles.slavicmyths.nightingale_melee",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/melee"
+      }
+    ]
+  },
+  "nightingale_voice": {
+    "subtitle": "subtitles.slavicmyths.nightingale_voice",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/voice"
+      }
+    ]
+  },
+  "nightingale_death": {
+    "subtitle": "subtitles.slavicmyths.nightingale_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/death"
+      }
+    ]
+  },
+  "nightingale_horn": {
+    "subtitle": "subtitles.slavicmyths.nightingale_horn",
+    "sounds": [
+      {
+        "name": "slavicmyths:nightingale/horn"
+      }
+    ]
+  },
+  "coffin_open": {
+    "subtitle": "subtitles.slavicmyths.coffin_open",
+    "sounds": [
+      {
+        "name": "slavicmyths:burial/coffin_open"
+      }
+    ]
+  },
+  "coffin_close": {
+    "subtitle": "subtitles.slavicmyths.coffin_close",
+    "sounds": [
+      {
+        "name": "slavicmyths:burial/coffin_close"
+      }
+    ]
   }
 }

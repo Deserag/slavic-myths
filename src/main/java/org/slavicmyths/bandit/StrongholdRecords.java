@@ -11,12 +11,15 @@ import org.slavicmyths.furniture.Furniture;
 public final class StrongholdRecords extends WorldSavedData {
  public static final int TOTAL=26;
  public static final class Record {
-  public long spawned,dead,spreadAt,calmAt;public boolean cleared;public final BlockPos[]bells=new BlockPos[5];public final int[]states=new int[5];
+  public long spawned,dead,spreadAt,calmAt;public boolean cleared,nightingaleSpawned,nightingaleDead;public final BlockPos[]bells=new BlockPos[5];public final int[]states=new int[5];
  }
  private final Map<UUID,Record> camps=new HashMap<>();
  public StrongholdRecords(){super("slavicmyths_strongholds");}
  public static synchronized StrongholdRecords get(ServerWorld w){return w.getDataStorage().computeIfAbsent(StrongholdRecords::new,"slavicmyths_strongholds");}
  public synchronized Record record(UUID id){return camps.computeIfAbsent(id,k->new Record());}
+ public synchronized boolean nightingaleProcessed(UUID id){Record r=record(id);return r.nightingaleSpawned||r.nightingaleDead;}
+ public synchronized void nightingaleSpawned(UUID id){record(id).nightingaleSpawned=true;setDirty();}
+ public synchronized void nightingaleDied(UUID id){record(id).nightingaleDead=true;setDirty();}
  public synchronized void bell(UUID id,int zone,BlockPos p){record(id).bells[zone]=p;setDirty();}
  public synchronized boolean processed(UUID id,int slot){Record r=record(id);return r.cleared||((r.spawned|r.dead)&(1L<<slot))!=0;}
  public synchronized void spawned(UUID id,int slot){record(id).spawned|=1L<<slot;setDirty();}
@@ -34,6 +37,6 @@ public final class StrongholdRecords extends WorldSavedData {
    if(!active)r.spreadAt=0;setDirty();
   }return r.states[zone];
  }
- @Override public synchronized void load(CompoundNBT n){camps.clear();for(INBT raw:n.getList("Camps",10)){CompoundNBT t=(CompoundNBT)raw;if(!t.hasUUID("Id"))continue;Record r=record(t.getUUID("Id"));r.spawned=t.getLong("Spawned");r.dead=t.getLong("Dead");r.cleared=t.getBoolean("Cleared");r.spreadAt=t.getLong("Spread");r.calmAt=t.getLong("Calm");for(int i=0;i<5;i++){if(t.contains("Bell"+i))r.bells[i]=BlockPos.of(t.getLong("Bell"+i));r.states[i]=Math.max(0,Math.min(2,t.getInt("Zone"+i)));}}}
- @Override public synchronized CompoundNBT save(CompoundNBT n){ListNBT list=new ListNBT();camps.forEach((id,r)->{CompoundNBT t=new CompoundNBT();t.putUUID("Id",id);t.putLong("Spawned",r.spawned);t.putLong("Dead",r.dead);t.putBoolean("Cleared",r.cleared);t.putLong("Spread",r.spreadAt);t.putLong("Calm",r.calmAt);for(int i=0;i<5;i++){if(r.bells[i]!=null)t.putLong("Bell"+i,r.bells[i].asLong());t.putInt("Zone"+i,r.states[i]);}list.add(t);});n.put("Camps",list);return n;}
+ @Override public synchronized void load(CompoundNBT n){camps.clear();for(INBT raw:n.getList("Camps",10)){CompoundNBT t=(CompoundNBT)raw;if(!t.hasUUID("Id"))continue;Record r=record(t.getUUID("Id"));r.spawned=t.getLong("Spawned");r.dead=t.getLong("Dead");r.cleared=t.getBoolean("Cleared");r.nightingaleSpawned=t.getBoolean("NightingaleSpawned");r.nightingaleDead=t.getBoolean("NightingaleDead");r.spreadAt=t.getLong("Spread");r.calmAt=t.getLong("Calm");for(int i=0;i<5;i++){if(t.contains("Bell"+i))r.bells[i]=BlockPos.of(t.getLong("Bell"+i));r.states[i]=Math.max(0,Math.min(2,t.getInt("Zone"+i)));}}}
+ @Override public synchronized CompoundNBT save(CompoundNBT n){ListNBT list=new ListNBT();camps.forEach((id,r)->{CompoundNBT t=new CompoundNBT();t.putUUID("Id",id);t.putLong("Spawned",r.spawned);t.putLong("Dead",r.dead);t.putBoolean("Cleared",r.cleared);t.putBoolean("NightingaleSpawned",r.nightingaleSpawned);t.putBoolean("NightingaleDead",r.nightingaleDead);t.putLong("Spread",r.spreadAt);t.putLong("Calm",r.calmAt);for(int i=0;i<5;i++){if(r.bells[i]!=null)t.putLong("Bell"+i,r.bells[i].asLong());t.putInt("Zone"+i,r.states[i]);}list.add(t);});n.put("Camps",list);return n;}
 }

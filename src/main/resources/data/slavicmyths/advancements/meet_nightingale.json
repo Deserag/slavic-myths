@@ -1,0 +1,7 @@
+{
+  "criteria": {
+    "encounter": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

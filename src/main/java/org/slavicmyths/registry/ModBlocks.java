@@ -72,5 +72,6 @@ public final class ModBlocks {
     public static final RegistryObject<Block> WHITE_LILY=BLOCKS.register("white_lily",()->new net.minecraft.block.LilyPadBlock(AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.LILY_PAD)));
     public static final RegistryObject<Block> POOL_STONE=BLOCKS.register("pool_stone",org.slavicmyths.depth.PoolStoneBlock::new);
     public static final RegistryObject<Block> ARMORER_TABLE=BLOCKS.register("armorer_table",org.slavicmyths.armorer.ArmorerBlock::new);
+    public static final net.minecraftforge.fml.RegistryObject<net.minecraft.block.Block> BURIAL_COFFIN=BLOCKS.register("burial_log_coffin",org.slavicmyths.kurgan.BurialCoffinBlock::new);
     private ModBlocks() { }
 }

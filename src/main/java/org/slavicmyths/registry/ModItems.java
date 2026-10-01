@@ -216,5 +216,26 @@ public final class ModItems {
     public static final RegistryObject<Item> BANDIT_HEAVY_EGG=egg("bandit_heavy_spawn_egg",ModEntities.BANDIT_HEAVY,0x474a49,0xb39978);
     public static final RegistryObject<Item> BANDIT_SENIOR_EGG=egg("bandit_senior_spawn_egg",ModEntities.BANDIT_SENIOR,0x66503b,0xb39978);
     public static final RegistryObject<Item> ATAMAN_EGG=egg("ataman_spawn_egg",ModEntities.ATAMAN,0x653d36,0xa5a199);
+    public static final RegistryObject<Item> NIGHTINGALE_MARK=ITEMS.register("nightingale_mark",()->new Item(properties().stacksTo(1).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> NIGHTINGALE_LOCK=ITEMS.register("nightingale_lock",()->new Item(properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> NIGHTINGALE_DAGGER=ITEMS.register("nightingale_dagger",()->new org.slavicmyths.bandit.NightingaleDagger(properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> NIGHTINGALE_WHISTLE=ITEMS.register("nightingale_whistle",()->new org.slavicmyths.bandit.NightingaleWhistle(properties().stacksTo(1).rarity(Rarity.RARE),false));
+    public static final RegistryObject<Item> BANDIT_HORN=ITEMS.register("bandit_horn",()->new org.slavicmyths.bandit.NightingaleWhistle(properties().stacksTo(1),true));
+    public static final RegistryObject<Item> BURIAL_LOG_COFFIN=ITEMS.register("burial_log_coffin",()->new BlockItem(ModBlocks.BURIAL_COFFIN.get(),properties()));
+    public static final RegistryObject<Item> ANCIENT_CAROLINGIAN_SWORD=ITEMS.register("ancient_carolingian_sword",()->new org.slavicmyths.kurgan.BurialWeapon(false,true,properties()));
+    public static final RegistryObject<Item> RESTORED_CAROLINGIAN_SWORD=ITEMS.register("restored_carolingian_sword",()->new org.slavicmyths.kurgan.BurialWeapon(false,false,properties()));
+    public static final RegistryObject<Item> ANCIENT_SPEAR=ITEMS.register("ancient_spear",()->new org.slavicmyths.kurgan.BurialWeapon(true,true,properties()));
+    public static final RegistryObject<Item> RESTORED_SPEAR=ITEMS.register("restored_spear",()->new org.slavicmyths.kurgan.BurialWeapon(true,false,properties()));
+    public static final RegistryObject<Item> ANCIENT_CHEKAN=ITEMS.register("ancient_chekan",()->new org.slavicmyths.combat.MaceItem(ItemTier.STONE,5,1.2F,.22F,.12F,properties().durability(90)));
+    public static final RegistryObject<Item> CHEKAN=ITEMS.register("chekan",()->new org.slavicmyths.combat.MaceItem(ItemTier.IRON,6,1.3F,.3F,.15F,properties().durability(400)));
+    public static final RegistryObject<Item> LUNULA=ITEMS.register("lunula",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.UNCOMMON),"necklace"));
+    public static final RegistryObject<Item> GRIVNA=ITEMS.register("grivna",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.UNCOMMON),"necklace"));
+    public static final RegistryObject<Item> GRAVE_WARD=ITEMS.register("grave_ward",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.UNCOMMON),"charm"));
+    public static final RegistryObject<Item> ANCIENT_FIBULA=ITEMS.register("ancient_fibula",()->new Item(properties()));
+    public static final RegistryObject<Item> ANCIENT_COMB=ITEMS.register("ancient_comb",()->new Item(properties()));
+    public static final RegistryObject<Item> ANCIENT_BEADS=ITEMS.register("ancient_beads",()->new Item(properties()));
+    public static final RegistryObject<Item> OLD_BUCKLE=ITEMS.register("old_buckle",()->new Item(properties()));
+    public static final RegistryObject<Item> POTTERY_FRAGMENT=ITEMS.register("pottery_fragment",()->new Item(properties()));
+    public static final RegistryObject<Item> OLD_ARROWHEAD=ITEMS.register("old_arrowhead",()->new Item(properties()));
     private ModItems() { }
 }

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " SB",
+    "SAS",
+    " L "
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:silver_ingot"
+    },
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "A": {
+      "item": "slavicmyths:amber"
+    },
+    "L": {
+      "item": "slavicmyths:nightingale_lock"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:nightingale_whistle"
+  }
+}

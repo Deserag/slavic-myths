@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_rh",
+  "textures": {
+    "top": "slavicmyths:block/darkened_door_top",
+    "bottom": "slavicmyths:block/darkened_door_bottom"
+  }
+}

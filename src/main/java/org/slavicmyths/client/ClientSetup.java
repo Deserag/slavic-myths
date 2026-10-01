@@ -15,6 +15,7 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 public final class ClientSetup {
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.NIGHTINGALE.get(),NightingaleRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.ELDER_VODYANOY.get(),ElderVodyanoyRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.BANDIT_FIGHTER.get(),m->new BanditRenderer(m,0));
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.BANDIT_ARCHER.get(),m->new BanditRenderer(m,1));
@@ -46,6 +47,9 @@ public final class ClientSetup {
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.STAG.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.STAG,"stag",.6F));
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.DOE.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.DOE,"doe",.5F));
         event.enqueueWork(() -> {
+            net.minecraftforge.fml.client.registry.ClientRegistry.bindTileEntityRenderer(org.slavicmyths.registry.ModTiles.BURIAL_COFFIN.get(),BurialCoffinRenderer::new);
+            net.minecraft.client.gui.ScreenManager.register(org.slavicmyths.kurgan.BurialCoffinMenu.TYPE.get(),BurialCoffinScreen::new);
+            for(String kind:new String[]{"door","trapdoor"})RenderTypeLookup.setRenderLayer(org.slavicmyths.kurgan.DarkenedWood.get(kind),RenderType.cutout());
             net.minecraft.client.gui.ScreenManager.register(org.slavicmyths.armorer.ArmorerMenu.TYPE.get(),ArmorerScreen::new);
             RpgClient.setup();
             FlightClient.setup();

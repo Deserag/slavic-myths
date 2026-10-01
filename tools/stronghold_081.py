@@ -126,6 +126,12 @@ def yards():
  for x in range(22,28):block(b,x,1,23,'pine_log',axis='x')
  for x in [5,7,9]:block(b,x,1,15,'pine_log',axis='y');b.put(x,2,15,'target')
  b.put(7,2,15,'air');furn(b,25,1,15,'wooden_crate');furn(b,26,1,16,'cloth_bag');marker(b,20,8,11,'loot:feather');marker(b,26,1,18,'loot:feather');spawn(b,7,1,19,'senior',25,4,1)
+ # 0.8.2 occupies the existing platform; its southern edge stays open for descent.
+ marker(b,18,8,18,'nightingale')
+ marker(b,20,8,11,'loot:nightingale')
+ furn(b,12,8,11,'chair');furn(b,13,8,11,'table');furn(b,12,8,13,'cloth_bag')
+ marker(b,20,8,13,'rack:sword')
+ for x in range(12,21):block(b,x,8,10,'pine_fence',north='false',south='false',east='true',west='true',waterlogged='false')
  for tx,tz in [(3,27),(29,3)]:
   b.box((tx,1,tz),(tx,4,tz),'slavicmyths:rowan_log',axis='y')
   for dx,dz in [(-1,0),(0,-1),(0,0),(1,0),(0,1),(-1,1)]:

@@ -74,5 +74,19 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> GUSLI_LOOP = sound("gusli_loop");
     public static final RegistryObject<SoundEvent> VODYANOY_AMBIENT=sound("vodyanoy_ambient"),VODYANOY_ANGRY=sound("vodyanoy_angry"),VODYANOY_HURT=sound("vodyanoy_hurt"),VODYANOY_DEATH=sound("vodyanoy_death"),RUSALKA_AMBIENT=sound("rusalka_ambient"),RUSALKA_ANGRY=sound("rusalka_angry"),RUSALKA_HURT=sound("rusalka_hurt"),RUSALKA_DEATH=sound("rusalka_death"),RUSALKA_SONG=sound("rusalka_song");
     public static final RegistryObject<SoundEvent> ELDER_IDLE=sound("elder_idle"),ELDER_HURT=sound("elder_hurt"),ELDER_ATTACK=sound("elder_attack"),ELDER_HEAVY=sound("elder_heavy"),ELDER_DASH=sound("elder_dash"),ELDER_WAVE=sound("elder_wave"),ELDER_PULL=sound("elder_pull"),ELDER_PHASE=sound("elder_phase"),ELDER_DEATH=sound("elder_death");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_IDLE=sound("nightingale_idle");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_NOTICE=sound("nightingale_notice");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_HURT=sound("nightingale_hurt");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_BREATH=sound("nightingale_breath");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_INHALE=sound("nightingale_inhale");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_DEEP_INHALE=sound("nightingale_deep_inhale");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_WHISTLE=sound("nightingale_whistle");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_DESTRUCTIVE=sound("nightingale_destructive");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_WAVE=sound("nightingale_wave");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_MELEE=sound("nightingale_melee");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_VOICE=sound("nightingale_voice");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_DEATH=sound("nightingale_death");
+    public static final RegistryObject<SoundEvent> NIGHTINGALE_HORN=sound("nightingale_horn");
+    public static final RegistryObject<SoundEvent> COFFIN_OPEN=sound("coffin_open"),COFFIN_CLOSE=sound("coffin_close");
     private ModSounds() { }
 }

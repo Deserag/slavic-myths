@@ -71,3 +71,9 @@ from furniture_081 import generate as furniture_081
 furniture_081()
 from stronghold_081 import generate as stronghold_081
 stronghold_081()
+
+from nightingale_082 import generate as nightingale_082
+nightingale_082()
+
+from burial_084 import generate as burial_084
+burial_084()

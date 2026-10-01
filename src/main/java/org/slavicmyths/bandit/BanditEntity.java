@@ -44,7 +44,7 @@ public final class BanditEntity extends MonsterEntity {
         goalSelector.addGoal(6,new LookAtGoal(this,PlayerEntity.class,8));goalSelector.addGoal(7,new LookRandomlyGoal(this));
         targetSelector.addGoal(1,new HurtByTargetGoal(this).setAlertOthers());targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,PlayerEntity.class,true));
     }
-    @Override public boolean isAlliedTo(Entity other){return other instanceof BanditEntity||super.isAlliedTo(other);}
+    @Override public boolean isAlliedTo(Entity other){return other instanceof BanditEntity||other instanceof NightingaleEntity||super.isAlliedTo(other);}
     @Override public ILivingEntityData finalizeSpawn(IServerWorld world,DifficultyInstance difficulty,SpawnReason reason,ILivingEntityData data,CompoundNBT tag){
         ILivingEntityData result=super.finalizeSpawn(world,difficulty,reason,data,tag);entityData.set(FACE,random.nextInt(4));
         Item[] arms={Items.IRON_SWORD,Items.IRON_AXE,ModItems.WOODEN_MACE.get(),ModItems.STONE_MACE.get(),ModItems.MACE.get()};

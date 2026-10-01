@@ -1,3 +1,122 @@
+# 0.8.4 — материальная основа курганов
+
+kurgan/BurialCoffinBlock: две клетки, FACING/PART, tile только FOOT; HEAD направлен
+по FACING. Placement проверяет вторую клетку; предмет не переносит Natural/NBT.
+Пять слотов LockableLootTileEntity, стандартный vanilla loot filling, отдельный Container.
+Любая половина удаляет пару; loot блока только FOOT, contents выгружаются из FOOT.
+Creative HEAD убирает FOOT без block loot. Поршни блокированы, свойства facing
+сверяются при удалении пары. Player-placed tile очищает принадлежность кургану.
+BurialCoffinTile: inventory/Natural UUID/remains/opened в NBT; packet передаёт только
+remains/opening. Viewers — UUID-set; menu close и проверка текущего меню раз в секунду
+закрывают крышку. Client-only renderer, плавная крышка, четыре статических вида останков.
+
+BurialRecords: только Set<barrow UUID> opened, запись по событию первого открытия
+естественной колоды. Никаких ticks, проклятий, mobs, глобального поиска или истории
+домашних колод. UUID один на structure piece. Полное состояние dungeon отложено.
+
+BurialWeapon использует SwordItem/существующую логику толчка копья. Найденное оружие
+слабее восстановленного. Чекан использует MaceItem и существующий CombatEquipment
+armor pressure (.22/.30), без bypassArmor. Restoration — armorer_shapeless с древним
+оружием, железом, кожей, палкой; отдельного стола нет. Аксессуары — FolkAccessoryItem,
+Curios necklace/charm. Лунница: -5% creature damage ночью; гривна -4% armor-sensitive;
+grave_ward: -9% только от LivingEntity с CreatureAttribute.UNDEAD (включая его стрелы).
+Существующий warding_charm — ритуальный материал, не anti-undead accessory.
+
+DarkenedWood: девять блоков в существующих registries/tab, не новая порода дерева.
+Axe strip сохраняет AXIS; vanilla state/model schemas, wood tags/recipes, flammability.
+SmokeAging: event-discovered jobs в WorldSavedData; до 512 на dimension. Placement,
+interaction и loaded-chunk tile list обнаруживают только вертикальную колонку костра.
+Chunk-load позиции обрабатываются на следующем серверном периоде, не вызывая рекурсивной
+загрузки чанка из callback. Раз в 20 тиков обходится только ограниченная очередь jobs;
+до пяти клеток на колонку, hasChunkAt, без глобального scanner. 1200–4800 тиков
+фактической обработки; пауза при погасшем/перекрытом дыме и при chunk unload.
+Break target/fire удаляет job; target identity проверяется. AXIS сохраняется.
+Лимит 512 — защитное ограничение: последующие новые задания не принимаются до
+освобождения места. /setblock не является основным способом регистрации процесса;
+для таких случаев взаимодействовать с костром или перезагрузить его чанк.
+
+KurganStructures: три стандартных Structure/StructurePiece в существующем
+SwampStructures DeferredRegister. Общая сетка 64/24 чанка, salt 841973; один
+псевдослучайный выбор 60/30/10 на candidate. Дополнительное исключение соседних
+Great candidate regions делает Great реже номинальных 10%. Биомы vanilla plains и
+birch_forest. Наличие biome и terrain не гарантирует попадание каждого grid candidate.
+KurganStructure проверяет сухие ground heights с шагом 2, перепад ≤4/6, height 63–140,
+близкие кандидаты крупных структур; без загрузки чанков при preflight.
+KurganShape: радиусы 14/24/40, высоты 10/18/30, плавный профиль (1-r²)²; основание
+сопрягается с локальным terrain, не выравнивает прямоугольник. Piece пишет только свой
+chunk clip; обе клетки колоды геометрически помещаются в один чанк. Есть короткая
+входная ниша, а не dungeon. Деревья используют TreeShape pine/linden с фиксированным
+seed, чтобы порядок чанков не менял геометрию. BurialPlaced сериализуется.
+
+KurganCommands используют существующий namespace/стандартные structure starts;
+permission 2, bounded ring search (до 10 regions), biome/type prefilter. Next исключает
+радиус 192 от игрока и последний возвращённый экземпляр. Teleport ищет безопасную
+поверхность около входа, исключает листья/брёвна/жидкости/опасный грунт.
+
+Ресурсы: tools/burial_084.py, последний слой create_resources.py. Своё pixel-grain
+состаривание, native cuboid silhouettes, две собственные mono OGG. Vanilla скопированы
+только JSON-схемы древесины, не перекрашенные изображения. verify_burial_084.py
+проверяет воспроизводимость, таблицы, recipes, модели/локализацию. Manifest добавляет
+динамические darkened registrations в общий verifier. Его запрет smoke test classes
+уточнён до реального package org/slavicmyths/smoke; production SmokeAging разрешён.
+Java8 KurganShapeTest проверяет форму, границы и 100000 выборов кандидата.
+Это не проверка живого worldgen, GUI/сохранений, звука или MSPT.
+
+# 0.8.2 — Соловей-разбойник
+
+NightingaleEntity — отдельный CreatureEntity, 250 HP, bbox 1.1 × 2.35.
+Серверная state machine: NOTICE → melee/retreat → inhale/release/recovery;
+короткий, тяжёлый удар, толчок, обычный/разрушительный свист и anti-contact radial.
+Синхронизируются action, время начала, drawn и сила hurt; модель интерполирует позы.
+HP-пороги 150/75 меняют паузы и частоту комбинаций. На свисте направление фиксировано.
+С помоста босс физически идёт к открытому южному краю, спускается под гравитацией;
+нет телепортации. При потере цели возвращается к home, здоровье не восстанавливает.
+
+WindAttack: только на выпуске, до 64 living targets. WindGeometry — чистая Java
+геометрия конуса и точный voxel traversal трёх лучей к корпусу (до 128 шагов каждый).
+Полные collision blocks защищают; листва/забор/неполная мебель не считаются стеной.
+Только загруженные чанки; незагруженный блок считается укрытием. Эффект ослабевает
+с расстоянием и прикрытием. Terrain — 9 дорожек по максимум 20 клеток, максимум
+24 разрушения из whistle_fragile, исключение tile entities и Forge mobGriefing.
+Частицы — 9 cloud, до 6 dust и 2 leaf за один шаг, 12 шагов обычной волны.
+Это статические ограничения работы, не измеренный MSPT.
+
+StrongholdRecords получил два независимых persisted флага на UUID лагеря:
+NightingaleSpawned/NightingaleDead. CLEARED обычных защитников не блокирует босса.
+LargeCampPiece обрабатывает ровно один marker nightingale и deterministic entity UUID;
+ставит spawned только после успешного addFreshEntity. Старая структура обновляется
+только при генерации ещё не созданного чанка: нет ретрогенерации загруженных дворов.
+Существующий шаблон двора дополнен мебелью, сундуком и маркером; остальные части
+лагеря и штатный roster сохранены. tp_nightingale использует существующий поиск
+structure starts, выбирает arrival из конкретного LargeCampPiece, затем safe-ground.
+
+После успешного super.die (включая Forge cancellation) фиксируется победа и удаляется
+boss bar. Обычный death loot отложен до 55-го тика падения; затем вызывается vanilla
+super.dropAllDeathLoot с Forge loot hooks/XP и сущность удаляется. CollapseTicks и
+lootReleased сохраняются в NBT. Camp dead записывается сразу при смертельном ударе.
+Участники — живые survival игроки в радиусе боя и атакующие; при смерти присутствующим
+в том же мире не дальше 64 блоков выдаётся победа. Книга использует bit 27 существующей
+маски (28 entries из 32). Свист атакует область, полосы/лут управляются сервером.
+
+NightingaleWhistle: hold 24 тика, 9 блоков, cooldown 600 тиков, малый damage,
+отталкивание, тушение огня; terrain destruction выключен. Кинжал: 7 damage,
+2 атаки/сек, 700 durability; hold ≥18, release, 3.5 блока, cooldown 140, износ 2.
+Player artifacts пропускают боссов (max health ≥100 либо !canChangeDimensions).
+Bandit horn использует ту же простую use-механику только для звука, без урона.
+
+NightingaleModel/Renderer — самостоятельная геометрия и UV 256²; BreathingChest
+масштабируется на вдохе, руки сегментированы, волосы/борода объёмные. Ножны остаются
+на поясе, рукоять скрывается после извлечения. Death renderer отключает vanilla flip.
+Ресурсы: nightingale_082.py — модели/UV/локализация/loot/recipe/13 audio events,
+15 mono OGG (hurt ×3). Звуки собственного синтеза; пространственные, не UI.
+Генератор нормализует Ogg serial/CRC для байтовой воспроизводимости. В общем pipeline
+он выполняется после stronghold_081.py. Последний владеет изменённым шаблоном двора.
+
+Тесты: tools/tests/WindGeometryTest.java (JDK8, без Minecraft),
+verify_nightingale_082.py (воспроизводимость/двор/лут/tag/models/audio wiring),
+verify_stronghold_081.py (roster/шаблоны/мебель), verify_resources.py (production JAR).
+Minecraft/manual QA не выполнялся.
+
 # Архитектура
 
 ## 0.8.1 — III уровень и мебель

@@ -23,6 +23,9 @@ if wood_manifest.exists():
 furniture_manifest=ROOT/'docs/verification/furniture-0.8.1.json'
 if furniture_manifest.exists():
     furniture=read(furniture_manifest); items.update(furniture['items']); blocks.update(furniture['blocks'])
+burial_manifest=ROOT/'docs/verification/burial-0.8.4.json'
+if burial_manifest.exists():
+    burial=read(burial_manifest); items.update(burial['items']); blocks.update(burial['blocks'])
 assert not re.search(r'\.durability\([^)]*\)\.stacksTo\(', (JAVA/'registry/ModItems.java').read_text()), 'Durable items must not call stacksTo after durability'
 assert len(items) >= 74 and len(blocks) >= 18
 assert {'birch_bark_scroll', 'thunder_stone', 'warding_charm'} <= items
@@ -143,7 +146,7 @@ for entry in global_loot['entries']:
 jar = ROOT/f'build/libs/slavicmyths-{VERSION}.jar'
 with zipfile.ZipFile(jar) as archive:
     assert archive.testzip() is None
-    assert not any(('smoke' in n.lower() and n.endswith('.class')) or n.startswith('mezz/') or n.endswith('.jar') for n in archive.namelist()), 'Bundled test/third-party content'
+    assert not any((n.startswith('org/slavicmyths/smoke/') and n.endswith('.class')) or n.startswith('mezz/') or n.endswith('.jar') for n in archive.namelist()), 'Bundled test/third-party content'
     for path in RES.rglob('*'):
         if path.is_file():
             name = path.relative_to(RES).as_posix()

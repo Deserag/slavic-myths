@@ -13,5 +13,6 @@ public final class ModTiles {
     public static final RegistryObject<TileEntityType<org.slavicmyths.artifact.SkatertTile>> SKATERT = TILES.register("skatert",()->TileEntityType.Builder.of(org.slavicmyths.artifact.SkatertTile::new,ModBlocks.SKATERT.get()).build(null));
     public static final RegistryObject<TileEntityType<org.slavicmyths.water.FishingNetTile>> FISHING_NET=TILES.register("fishing_net",()->TileEntityType.Builder.of(org.slavicmyths.water.FishingNetTile::new,ModBlocks.FISHING_NET.get()).build(null));
     public static final RegistryObject<TileEntityType<org.slavicmyths.depth.PoolStoneTile>> POOL_STONE=TILES.register("pool_stone",()->TileEntityType.Builder.of(org.slavicmyths.depth.PoolStoneTile::new,ModBlocks.POOL_STONE.get()).build(null));
+    public static final RegistryObject<TileEntityType<org.slavicmyths.kurgan.BurialCoffinTile>> BURIAL_COFFIN=TILES.register("burial_coffin",()->TileEntityType.Builder.of(org.slavicmyths.kurgan.BurialCoffinTile::new,ModBlocks.BURIAL_COFFIN.get()).build(null));
     private ModTiles() { }
 }

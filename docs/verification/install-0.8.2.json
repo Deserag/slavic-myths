@@ -1,0 +1,13 @@
+{
+  "version": "0.8.2",
+  "artifact": "D:\\slavic-myths\\build\\libs\\slavicmyths-0.8.2.jar",
+  "installed": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Testing\\.minecraft\\mods\\slavicmyths-0.8.2.jar",
+  "sha256": "111B44A2C60FCE55B9705003F035B4D2E6E3364547FF116D6CF419E936FDA323",
+  "slavicJarCount": 1,
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Testing\\mod-backups\\0.8.2-20261001-181017",
+  "otherModsUnchanged": [
+    "jei-1.16.5-7.8.0.1013.jar",
+    "curios-forge-1.16.5-4.1.0.0.jar"
+  ],
+  "minecraftLaunches": 0
+}

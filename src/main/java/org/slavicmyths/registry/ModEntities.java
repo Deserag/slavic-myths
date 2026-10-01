@@ -39,8 +39,11 @@ public final class ModEntities {
         return ENTITIES.register(id, () -> EntityType.Builder.<org.slavicmyths.entity.WildlifeEntity>of((type,world) -> new org.slavicmyths.entity.WildlifeEntity(type,world,kind), EntityClassification.CREATURE).sized(width,height).clientTrackingRange(10).build("slavicmyths:"+id));
     }
 
+    public static final RegistryObject<EntityType<org.slavicmyths.bandit.NightingaleEntity>> NIGHTINGALE = ENTITIES.register("nightingale", () -> EntityType.Builder.of(org.slavicmyths.bandit.NightingaleEntity::new, EntityClassification.MONSTER).sized(1.1F,2.35F).clientTrackingRange(12).build("slavicmyths:nightingale"));
+
     @SubscribeEvent
     public static void attributes(EntityAttributeCreationEvent event) {
+        event.put(NIGHTINGALE.get(),org.slavicmyths.bandit.NightingaleEntity.attributes().build());
         event.put(BANDIT_FIGHTER.get(),org.slavicmyths.bandit.BanditEntity.attributes(0).build());
         event.put(BANDIT_ARCHER.get(),org.slavicmyths.bandit.BanditEntity.attributes(1).build());
         event.put(BANDIT_HEAVY.get(),org.slavicmyths.bandit.BanditEntity.attributes(2).build());

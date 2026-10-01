@@ -20,6 +20,7 @@ public final class LargeCampPiece extends TemplateStructurePiece {
  private String name;private UUID camp;private long processed;
  LargeCampPiece(TemplateManager tm,String n,BlockPos p,UUID id){super(CampStructures.LARGE_PIECE,0);name=n;templatePosition=p;camp=id;load(tm);}
  public LargeCampPiece(TemplateManager tm,CompoundNBT n){super(CampStructures.LARGE_PIECE,n);name=n.getString("Template");camp=n.getUUID("Camp");processed=n.getLong("Processed");load(tm);}
+ public BlockPos nightingaleArrival(){return name.equals("nightingale_yard")?templatePosition.offset(18,1,25):null;}
  private void load(TemplateManager tm){setup(tm.getOrCreate(new ResourceLocation("slavicmyths","stronghold/"+name)),templatePosition,new PlacementSettings().setIgnoreEntities(true).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK));boundingBox.y0-=10;boundingBox.z0-=3;}
  @Override protected void addAdditionalSaveData(CompoundNBT n){super.addAdditionalSaveData(n);n.putString("Template",name);n.putUUID("Camp",camp);n.putLong("Processed",processed);}
  @Override public boolean postProcess(ISeedReader w,StructureManager sm,ChunkGenerator g,Random r,MutableBoundingBox clip,ChunkPos chunk,BlockPos pivot){
@@ -44,6 +45,7 @@ public final class LargeCampPiece extends TemplateStructurePiece {
  }
  @Override protected void handleDataMarker(String marker,BlockPos pos,IServerWorld w,Random r,MutableBoundingBox clip){
   if(!clip.isInside(pos))return;String[]parts=marker.split(":");StrongholdRecords records=StrongholdRecords.get(w.getLevel());
+  if(parts[0].equals("nightingale")){w.setBlock(pos,Blocks.AIR.defaultBlockState(),2);if(!records.nightingaleProcessed(camp)){NightingaleEntity boss=ModEntities.NIGHTINGALE.get().create(w.getLevel());boss.camp=camp;boss.home=pos;boss.moveTo(pos.getX()+.5,pos.getY(),pos.getZ()+.5,180,0);boss.setUUID(UUID.nameUUIDFromBytes((camp+":nightingale").getBytes(StandardCharsets.UTF_8)));if(w.addFreshEntity(boss))records.nightingaleSpawned(camp);}return;}
   if(parts[0].equals("bell")){w.setBlock(pos,Furniture.get("signal_bell").defaultBlockState(),2);records.bell(camp,Integer.parseInt(parts[1]),pos);return;}
   if(parts[0].equals("loot")){w.setBlock(pos,Blocks.BARREL.defaultBlockState(),2);net.minecraft.tileentity.TileEntity tile=w.getBlockEntity(pos);if(tile instanceof net.minecraft.tileentity.LockableLootTileEntity)((net.minecraft.tileentity.LockableLootTileEntity)tile).setLootTable(new ResourceLocation("slavicmyths","chests/stronghold_"+parts[1]),camp.getLeastSignificantBits()^pos.asLong());return;}
   if(parts[0].equals("rack")){w.setBlock(pos,Furniture.get("pine_weapon_rack").defaultBlockState(),2);if(w.getBlockEntity(pos)instanceof RackTile){RackTile rack=(RackTile)w.getBlockEntity(pos);rack.weapon=new ItemStack(parts[1].equals("bow")?Items.BOW:Items.IRON_SWORD);rack.setChanged();}return;}

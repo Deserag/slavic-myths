@@ -22,6 +22,9 @@ public final class SlavicMyths {
         org.slavicmyths.rpg.Runes.init();
         org.slavicmyths.wood.Woodlands.init();
         org.slavicmyths.furniture.Furniture.init();
+        org.slavicmyths.kurgan.DarkenedWood.init();
+        org.slavicmyths.kurgan.BurialCoffinMenu.register();
+        org.slavicmyths.kurgan.KurganStructures.register();
         ModBlocks.BLOCKS.register(bus);
         org.slavicmyths.bandit.CampStructures.register();
         org.slavicmyths.swamp.SwampStructures.STRUCTURES.register(bus);
@@ -47,6 +50,7 @@ public final class SlavicMyths {
     private void setup(FMLCommonSetupEvent event) {
         event.enqueueWork(org.slavicmyths.swamp.SwampStructures::setup);
         event.enqueueWork(org.slavicmyths.bandit.CampStructures::setup);
+        event.enqueueWork(org.slavicmyths.kurgan.KurganStructures::setup);
         event.enqueueWork(ModWorldGen::registerFeatures);
         event.enqueueWork(org.slavicmyths.wood.Woodlands::setup);
         event.enqueueWork(SpiritSpawns::registerPlacements);

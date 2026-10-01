@@ -7,7 +7,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '0.8.1'
+version = '0.8.4'
 group = 'org.slavicmyths'
 archivesBaseName = 'slavicmyths'
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence",
+  "pattern": [
+    "W#W",
+    "W#W"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "slavicmyths:darkened_planks"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:darkened_fence",
+    "count": 3
+  }
+}

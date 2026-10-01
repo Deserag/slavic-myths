@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "slavicmyths:retribution_charm"
+    "slavicmyths:retribution_charm",
+    "slavicmyths:grave_ward"
   ]
 }

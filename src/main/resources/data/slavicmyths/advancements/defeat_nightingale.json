@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:find_large_camp",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:nightingale_mark"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.defeat_nightingale.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.defeat_nightingale.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "victory": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "blocks": [
+    "darkened_log",
+    "darkened_stripped_log",
+    "darkened_planks",
+    "darkened_stairs",
+    "darkened_slab",
+    "darkened_fence",
+    "darkened_fence_gate",
+    "darkened_door",
+    "darkened_trapdoor"
+  ],
+  "items": [
+    "darkened_log",
+    "darkened_stripped_log",
+    "darkened_planks",
+    "darkened_stairs",
+    "darkened_slab",
+    "darkened_fence",
+    "darkened_fence_gate",
+    "darkened_door",
+    "darkened_trapdoor"
+  ]
+}

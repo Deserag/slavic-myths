@@ -1,6 +1,6 @@
 """Targeted static validation of 0.8.1 templates and furniture; no game bootstrap."""
 from pathlib import Path
-import json,hashlib,zipfile,itertools
+import json,hashlib,zipfile,itertools,re
 from verify_swamp_073 import read_nbt
 from furniture_081 import generate as furniture
 from stronghold_081 import generate as stronghold
@@ -21,7 +21,7 @@ def main():
     x,y,z=pos;dx,dz={'north':(0,1),'south':(0,-1),'west':(1,0),'east':(-1,0)}[state['Properties']['facing']];support=cells.get((x+dx,y,z+dz),({'Name':'minecraft:air'},{}))[0]['Name'];assert support not in ['minecraft:air','minecraft:ladder'],(path.stem,pos,'unsupported ladder')
    text=nbt.get('metadata','')
    if not text:continue
-   assert text.split(':')[0]in ['spawn','loot','rack','bell']
+   assert text.split(':')[0]in ['spawn','loot','rack','bell','nightingale']
    if text.startswith('loot:'):assert(D/f'loot_tables/chests/stronghold_{text.split(":")[1]}.json').exists()
    if text.startswith('spawn:'):
     x,y,z=pos;floor=cells.get((x,y-1,z),({'Name':'minecraft:air'},{}))[0]['Name'];head=cells.get((x,y+1,z),({'Name':'minecraft:air'},{}))[0]['Name']
@@ -59,8 +59,9 @@ def main():
  for f in (ROOT/'src/main/java/org/slavicmyths/furniture').glob('*.java'):
   if f.stem!='FurnitureClient':assert 'net.minecraft.client'not in f.read_text()
  source=(ROOT/'src/main/java/org/slavicmyths/furniture/Furniture.java').read_text();assert '.noSave().noSummon()'in source
- assert not any('nightingale'in p.name.lower()for p in (ROOT/'src/main/java').rglob('*Entity.java'))
- jar=ROOT/'build/libs/slavicmyths-0.8.1.jar'
+ assert sum(m=='nightingale'for m in markers['nightingale_yard'])==1
+ version=re.search(r"version = '([^']+)'",(ROOT/'build.gradle').read_text()).group(1)
+ jar=ROOT/f'build/libs/slavicmyths-{version}.jar'
  if jar.exists():
   with zipfile.ZipFile(jar)as z:
    for p in RES.rglob('*'):

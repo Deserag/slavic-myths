@@ -1,0 +1,130 @@
+# CHECKLIST 0.8.4
+
+Формат: [ ] TODO; [~] IN_PROGRESS; [x] DONE; [!] BLOCKED.
+DONE ниже означает реализацию и техническую проверку, а не подтверждение в игре.
+Minecraft manual QA — TODO. Выполняет пользователь; запусков 0.
+
+## Все требования задания
+
+- [x] DONE 0. СНАЧАЛА CHECKLIST
+- [x] DONE 1. ЭКОНОМИЯ ТОКЕНОВ
+- [x] DONE 2. НЕ СОЗДАВАТЬ ДУБЛИКАТЫ
+- [x] DONE 3. ПОГРЕБАЛЬНАЯ КОЛОДА
+- [x] DONE 4. ДИЗАЙН КОЛОДЫ
+- [x] DONE 5. ОТКРЫТИЕ КОЛОДЫ
+- [x] DONE 6. ХРАНИЛИЩЕ КОЛОДЫ
+- [x] DONE 7. КРАФТ КОЛОДЫ
+- [x] DONE 8. ОСТАНКИ В КУРГАННЫХ КОЛОДАХ
+- [x] DONE 9. ЛУТ КОЛОДЫ
+- [x] DONE 10. ПАМЯТЬ ОБ ОТКРЫТИИ
+- [x] DONE 11. ДРЕВНИЙ КАРОЛИНГСКИЙ МЕЧ
+- [x] DONE 12. ВНЕШНИЙ ВИД ДРЕВНЕГО МЕЧА
+- [x] DONE 13. ВОССТАНОВЛЕННЫЙ КАРОЛИНГСКИЙ МЕЧ
+- [x] DONE 14. ДРЕВНИЙ ЧЕКАН
+- [x] DONE 15. ОБЫЧНЫЙ / ВОССТАНОВЛЕННЫЙ ЧЕКАН
+- [x] DONE 16. ДРЕВНЕЕ КОПЬЁ
+- [x] DONE 17. ЛУННИЦА
+- [x] DONE 18. ГРИВНА
+- [x] DONE 19. ОБЕРЕГ ПРОТИВ НЕЖИТИ
+- [x] DONE 20. ФИБУЛА
+- [x] DONE 21. ДРЕВНИЙ ГРЕБЕНЬ
+- [x] DONE 22. БУСИНЫ
+- [x] DONE 23. СТАРАЯ ПРЯЖКА
+- [x] DONE 24. ФРАГМЕНТ КЕРАМИКИ
+- [x] DONE 25. СТАРЫЙ НАКОНЕЧНИК СТРЕЛЫ
+- [x] DONE 26. ДРЕВНЯЯ МОНЕТА
+- [x] DONE 27. ПОТЕМНЕВШАЯ ДРЕВЕСИНА
+- [x] DONE 28. ПОЛУЧЕНИЕ ЧЕРЕЗ КОСТЁР
+- [x] DONE 29. ВИЗУАЛЬНАЯ ОБРАТНАЯ СВЯЗЬ ДРЕВЕСИНЫ
+- [x] DONE 30. СЕМЕЙСТВО ПОТЕМНЕВШЕЙ ДРЕВЕСИНЫ
+- [x] DONE 31. ТРИ ПРОТОТИПА КУРГАНОВ
+- [x] DONE 32. ОБЩАЯ ФОРМА
+- [x] DONE 33. ВПИСЫВАНИЕ В РЕЛЬЕФ
+- [x] DONE 34. SMALL KURGAN
+- [x] DONE 35. WARRIOR KURGAN
+- [x] DONE 36. GREAT KURGAN
+- [x] DONE 37. ДОРОЖКИ НА КУРГАНАХ
+- [x] DONE 38. ПОГРЕБАЛЬНЫЕ МЕТКИ
+- [x] DONE 39. ДЕРЕВЬЯ
+- [x] DONE 40. ПОВЕРХНОСТНЫЕ ДЕТАЛИ
+- [x] DONE 41. WORLDGEN
+- [x] DONE 42. SPACING
+- [x] DONE 43. БИОМЫ
+- [x] DONE 44. КОМАНДЫ ПОИСКА
+- [x] DONE 45. DEV TELEPORT
+- [x] DONE 46. JEI / TOOLTIPS
+- [x] DONE 47. LOOT
+- [x] DONE 48. НИКАКОГО BOSS LOOT
+- [x] DONE 49. НИКАКИХ ОБРЯДОВ
+- [x] DONE 50. НЕ ДОБАВЛЯТЬ ПРАХ ПРЕДКА
+- [x] DONE 51. НЕ РАЗВИВАТЬ ПОБОЧНЫЕ СИСТЕМЫ
+- [x] DONE 52. КНИГА СКАЗАНИЙ
+- [x] DONE 53. БУДУЩЕЕ СОСТОЯНИЕ КУРГАНА
+- [x] DONE 54. РЕСУРСЫ
+- [x] DONE 55. ТЕКСТУРНЫЙ СТИЛЬ
+- [x] DONE 56. RU + EN
+- [x] DONE 57. РУЧНОЙ QA ДЕЛАЕТ ПОЛЬЗОВАТЕЛЬ
+- [x] DONE 58. MANUAL QA FILE
+- [x] DONE 59. ЕСЛИ КОНЧАЮТСЯ ТОКЕНЫ
+- [x] DONE 60. CONTINUE_0.8.4.md
+- [x] DONE 61. POLYMC
+- [x] DONE 62. DEFINITION OF DONE 0.8.4
+- [x] DONE 63. НЕ ПЕРЕХОДИТЬ В 0.8.5
+- [x] DONE 64. НАЧИНАЙ
+
+## Конкретные результаты
+
+- [x] DONE TODO
+- [x] DONE checklist;
+- [x] DONE Burial Log Coffin;
+- [x] DONE 5-slot inventory;
+- [x] DONE opening/closing;
+- [x] DONE natural burial variants;
+- [x] DONE empty remains;
+- [x] DONE skeleton remains;
+- [x] DONE clothed remains;
+- [x] DONE warrior remains;
+- [x] DONE natural burial opened marker;
+- [x] DONE ancient Carolingian sword;
+- [x] DONE restored Carolingian sword;
+- [x] DONE ancient chekan;
+- [x] DONE usable/restored chekan;
+- [x] DONE chekan recipe;
+- [x] DONE ancient spear;
+- [x] DONE restored spear;
+- [x] DONE lunula;
+- [x] DONE neck ring/grivna;
+- [x] DONE anti-undead charm;
+- [x] DONE fibula;
+- [x] DONE ancient comb;
+- [x] DONE beads;
+- [x] DONE old buckle;
+- [x] DONE pottery fragment;
+- [x] DONE old arrowhead;
+- [x] DONE existing ancient coin integration;
+- [x] DONE darkened wood;
+- [x] DONE smoke-aging mechanic;
+- [x] DONE required wood variants;
+- [x] DONE Small Kurgan shell;
+- [x] DONE Warrior Kurgan shell;
+- [x] DONE Great Kurgan shell;
+- [x] DONE old paths;
+- [x] DONE burial markers;
+- [x] DONE vegetation;
+- [x] DONE worldgen;
+- [x] DONE rarity/spacing;
+- [x] DONE locate small;
+- [x] DONE locate warrior;
+- [x] DONE locate great;
+- [x] DONE locate next;
+- [x] DONE dev teleport;
+- [x] DONE loot tables;
+- [x] DONE tooltips;
+- [x] DONE RU;
+- [x] DONE EN;
+- [x] DONE manual test document;
+- [x] DONE resource verification;
+- [x] DONE clean build;
+- [x] DONE production/reobf JAR;
+- [x] DONE README;
+- [x] DONE PolyMC.

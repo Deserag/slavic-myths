@@ -23,7 +23,7 @@ public final class CampCommands {
             locate.then(Commands.literal(size).executes(c->run(c.getSource(),size,false,false)).then(Commands.literal("next").executes(c->run(c.getSource(),size,true,false))));
             tp.then(Commands.literal(size).executes(c->run(c.getSource(),size,false,true)).then(Commands.literal("next").executes(c->run(c.getSource(),size,true,true))));
         }
-        e.getDispatcher().register(Commands.literal("slavicmyths").requires(s->s.hasPermission(2)).then(Commands.literal("locate").then(locate)).then(Commands.literal("dev").then(tp)));
+        e.getDispatcher().register(Commands.literal("slavicmyths").requires(s->s.hasPermission(2)).then(Commands.literal("locate").then(locate)).then(Commands.literal("dev").then(tp).then(Commands.literal("tp_nightingale").executes(c->run(c.getSource(),"nightingale",false,true))).then(Commands.literal("spawn_nightingale").executes(c->{ServerPlayerEntity p=c.getSource().getPlayerOrException();NightingaleEntity boss=org.slavicmyths.registry.ModEntities.NIGHTINGALE.get().create(p.getLevel());BlockPos at=p.blockPosition().relative(p.getDirection(),4);boss.home=at;boss.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,180,0);return p.getLevel().addFreshEntity(boss)?1:0;}))));
     }
     private static int run(CommandSource source,String size,boolean next,boolean teleport)throws CommandSyntaxException {
         ServerWorld w=source.getLevel();if(!w.dimension().equals(World.OVERWORLD)){source.sendFailure(new TranslationTextComponent("swamp.command.overworld"));return 0;}
@@ -37,7 +37,7 @@ public final class CampCommands {
                     long key=p.toLong()^((long)type.getRegistryName().hashCode()<<32);if(!visited.add(key))continue;
                     if(!w.getChunkSource().getGenerator().getBiomeSource().getNoiseBiome((p.x<<2)+2,16,(p.z<<2)+2).getGenerationSettings().isValidStart(type))continue;
                     StructureStart<?> start=w.getChunk(p.x,p.z,ChunkStatus.STRUCTURE_STARTS).getStartForFeature(type);
-                    if(start!=null&&start.isValid()){BlockPos pos=start.getLocatePos();if(horizontal(origin,pos)>=96*96)found.add(pos);}
+                    if(start!=null&&start.isValid()){BlockPos pos=start.getLocatePos();if(size.equals("nightingale")){for(StructurePiece piece:start.getPieces())if(piece instanceof LargeCampPiece){BlockPos yard=((LargeCampPiece)piece).nightingaleArrival();if(yard!=null){pos=yard;break;}}}if(horizontal(origin,pos)>=96*96)found.add(pos);}
                 }
             }
             if(r>=2&&found.size()>=(next?2:1))break;
