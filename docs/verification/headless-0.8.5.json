@@ -1,0 +1,17 @@
+{
+  "version": "0.8.5",
+  "clean_build": "PASS",
+  "final_build": "PASS",
+  "plan_and_nbt_cases": 1200,
+  "last_plan_test_ms": 5891,
+  "resource_check": "PASS",
+  "item_registrations": 327,
+  "block_registrations": 149,
+  "pngs": 289,
+  "recipes": 200,
+  "advancements": 76,
+  "java8_reobf": "PASS",
+  "minecraft_launches": 0,
+  "runtime_manual_qa": "TODO",
+  "user_weapon_edits": "preserved; four 256px atlases accepted explicitly"
+}

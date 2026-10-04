@@ -15,6 +15,13 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 public final class ClientSetup {
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.UPYR.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.UPYR));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.NAV.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.NAV));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.DRUZHINNIK.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.DRUZHINNIK));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.VOEVODA.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.VOEVODA));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.VOLKHV.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.VOLKHV));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.PRINCE.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.PRINCE));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.KURGAN_BOLT.get(),m->new net.minecraft.client.renderer.entity.SpriteRenderer<>(m,net.minecraft.client.Minecraft.getInstance().getItemRenderer()));
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.NIGHTINGALE.get(),NightingaleRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.ELDER_VODYANOY.get(),ElderVodyanoyRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.BANDIT_FIGHTER.get(),m->new BanditRenderer(m,0));
@@ -39,6 +46,11 @@ public final class ClientSetup {
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.BANNIK.get(), BannikRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.IGOSHA.get(), IgoshaRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.OVINNIK.get(), OvinnikRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.FIRE_SERPENT.get(),m->new ElementRenderer<org.slavicmyths.hunt.ElementHuntMob>(m,true));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.PODVEY.get(),m->new ElementRenderer<org.slavicmyths.hunt.ElementHuntMob>(m,false));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.SERPENT_PROJECTION.get(),m->new ElementRenderer<org.slavicmyths.hunt.SerpentProjection>(m,true));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.VOLKOLAK.get(), m->new HuntRenderer<org.slavicmyths.entity.VolkolakEntity>(m,false));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.EMBER_CLUMP.get(),m->new net.minecraft.client.renderer.entity.SpriteRenderer<>(m,net.minecraft.client.Minecraft.getInstance().getItemRenderer()));
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.HOT_STONE.get(), manager -> new net.minecraft.client.renderer.entity.SpriteRenderer<>(manager, net.minecraft.client.Minecraft.getInstance().getItemRenderer()));
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.BROWN_BEAR.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.BEAR,"brown_bear",.8F));
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.BEAR_CUB.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.CUB,"bear_cub",.4F));
@@ -47,6 +59,7 @@ public final class ClientSetup {
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.STAG.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.STAG,"stag",.6F));
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.DOE.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.DOE,"doe",.5F));
         event.enqueueWork(() -> {
+            net.minecraft.client.gui.ScreenManager.register(org.slavicmyths.hunt.PouchMenu.TYPE.get(),PouchScreen::new);
             net.minecraftforge.fml.client.registry.ClientRegistry.bindTileEntityRenderer(org.slavicmyths.registry.ModTiles.BURIAL_COFFIN.get(),BurialCoffinRenderer::new);
             net.minecraft.client.gui.ScreenManager.register(org.slavicmyths.kurgan.BurialCoffinMenu.TYPE.get(),BurialCoffinScreen::new);
             for(String kind:new String[]{"door","trapdoor"})RenderTypeLookup.setRenderLayer(org.slavicmyths.kurgan.DarkenedWood.get(kind),RenderType.cutout());

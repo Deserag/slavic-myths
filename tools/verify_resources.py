@@ -26,6 +26,12 @@ if furniture_manifest.exists():
 burial_manifest=ROOT/'docs/verification/burial-0.8.4.json'
 if burial_manifest.exists():
     burial=read(burial_manifest); items.update(burial['items']); blocks.update(burial['blocks'])
+kurgan_manifest=ROOT/'docs/verification/kurgan-0.8.5.json'
+if kurgan_manifest.exists():
+    kurgan=read(kurgan_manifest); items.update(kurgan['items']); blocks.update(kurgan['blocks'])
+creatures=read(ROOT/'docs/verification/kurgan-creatures-0.8.6.json')
+hunt=read(ROOT/'docs/verification/hunt-0.9.0.json')
+hunt2=read(ROOT/'docs/verification/hunt-0.9.1.json')
 assert not re.search(r'\.durability\([^)]*\)\.stacksTo\(', (JAVA/'registry/ModItems.java').read_text()), 'Durable items must not call stacksTo after durability'
 assert len(items) >= 74 and len(blocks) >= 18
 assert {'birch_bark_scroll', 'thunder_stone', 'warding_charm'} <= items
@@ -81,14 +87,21 @@ for path in pngs:
         if kind == b'IHDR':
             width,height,depth,color,compression,filtering,interlace = struct.unpack('!IIBBBBB', data)
             expected = (64,64) if path.parent.name == 'entity' else ((64,32) if path.parent.name == 'armor' else (16,16))
+            if path.stem in set(kurgan['blocks']) | {'kurgan_ceramic','kurgan_iron','kurgan_flame','kurgan_seal','kurgan_curse'}: expected=(64,64)
             if path.parent.name == 'signs': expected=(64,32)
             if path.parent.name == 'entity' and path.stem not in ('domovoy','leshy') and not path.stem.startswith('bandit_'):
                 expected = (256,256)
             if path.parent.name == 'item':
+                if path.stem in hunt['items']: expected=(256,256) if path.stem in hunt['items'][:4] else (512,512)
+                if path.stem in creatures['items']: expected=(32,32)
                 model_path = RES/f'assets/slavicmyths/models/item/{path.stem}.json'
-                if model_path.exists() and read(model_path).get('elements'):
+                if path.stem not in hunt['items'] and model_path.exists() and read(model_path).get('elements'):
                     expected = (32,32)  # Native material atlas for physical weapon models.
-            assert (width,height,depth,color,compression,filtering,interlace) == (*expected,8,6,0,0,0)
+            if path.parent.name == 'item' and path.stem in hunt2['items']: expected=(256,256) if path.stem in hunt2['small_items'] else (512,512)
+            if path.parent.name == 'entity' and path.stem in hunt2['entities']: expected=(512,512)
+            # Existing user-authored 256px weapon atlases are preserved by 0.8.5.
+            if path.parent.name == "item" and path.stem in {"battle_axe","carved_staff","club","retainer_shield"}: expected=(256,256)
+            assert (width,height,depth,color,compression,filtering,interlace) == (*expected,8,6,0,0,0), str(path)
         if kind == b'IDAT':
             compressed += data
         offset += 12+size
@@ -169,6 +182,34 @@ wildlife=set(re.findall(r'wildlife\("([a-z_]+)"',(JAVA/'registry/ModEntities.jav
 entities.update(wildlife)
 assert {'domovoy','leshy','kikimora','poludnitsa','polevik','bannik','igosha','ovinnik','hot_stone'} <= entities
 for entity in entities - {'hot_stone'}:
+    if entity=='serpent_projection':
+        assert 'ModEntities.SERPENT_PROJECTION.get()' in (JAVA/'client/ClientSetup.java').read_text()
+        continue
+    if entity in hunt2['entities']:
+        assert (RES/f'assets/slavicmyths/textures/entity/{entity}.png').is_file()
+        assert (RES/f'data/slavicmyths/loot_tables/entities/{entity}.json').is_file()
+        assert (JAVA/'client/ElementModel.java').is_file() and (JAVA/'client/ElementRenderer.java').is_file()
+        assert 'ModEntities.'+entity.upper()+'.get()' in (JAVA/'client/ClientSetup.java').read_text()
+        continue
+    if entity=='ember_clump':
+        assert 'ModEntities.EMBER_CLUMP.get()' in (JAVA/'client/ClientSetup.java').read_text()
+        continue
+    if entity in hunt['entities']:
+        assert (RES/f'assets/slavicmyths/textures/entity/{entity}.png').is_file()
+        assert (RES/f'data/slavicmyths/loot_tables/entities/{entity}.json').is_file()
+        assert (JAVA/'client/HuntModel.java').is_file() and (JAVA/'client/HuntRenderer.java').is_file()
+        continue
+    if entity == 'kurgan_bolt':
+        assert 'ModEntities.KURGAN_BOLT.get()' in (JAVA/'client/ClientSetup.java').read_text()
+        assert (JAVA/'kurgan/KurganBolt.java').is_file()
+        continue
+    if entity in creatures['creatures']:
+        assert (RES/f'assets/slavicmyths/textures/entity/{entity}.png').is_file()
+        assert (RES/f'data/slavicmyths/loot_tables/entities/{entity}.json').is_file()
+        assert (JAVA/'client/KurganCreatureModel.java').is_file() and (JAVA/'client/KurganCreatureRenderer.java').is_file()
+        assert (RES/f'assets/slavicmyths/models/item/{entity}_spawn_egg.json').is_file()
+        for lang in ('ru_ru','en_us'): assert 'entity.slavicmyths.'+entity in read(RES/f'assets/slavicmyths/lang/{lang}.json')
+        continue
     if entity in {'bandit_fighter','bandit_archer','bandit_heavy','bandit_senior','ataman'}:
         role=['bandit_fighter','bandit_archer','bandit_heavy','bandit_senior','ataman'].index(entity)
         assert all((RES/f'assets/slavicmyths/textures/entity/bandit_{role}_{face}.png').is_file() for face in range(4))

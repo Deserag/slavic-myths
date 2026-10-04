@@ -1,0 +1,96 @@
+{
+  "version": "0.8.6",
+  "creatures": {
+    "upyr": [
+      "Упырь",
+      "Upyr",
+      40
+    ],
+    "nav": [
+      "Навь",
+      "Nav",
+      32
+    ],
+    "kurgan_druzhinnik": [
+      "Курганный дружинник",
+      "Kurgan Druzhinnik",
+      60
+    ],
+    "kurgan_voevoda": [
+      "Курганный воевода",
+      "Kurgan Voevoda",
+      150
+    ],
+    "buried_volkhv": [
+      "Погребённый волхв",
+      "Buried Volkhv",
+      150
+    ],
+    "unresting_prince": [
+      "Неупокоенный князь",
+      "Unresting Prince",
+      350
+    ]
+  },
+  "items": [
+    "upyr_fang",
+    "grave_cloth_scrap",
+    "nav_essence",
+    "torn_burial_ribbon",
+    "shield_boss_fragment",
+    "druzhinnik_blade_fragment",
+    "voevoda_insignia",
+    "volkhv_amulet",
+    "princely_seal"
+  ],
+  "sounds_vanilla_fallback": {
+    "upyr_ambient": "entity.husk.ambient",
+    "upyr_hurt": "entity.husk.hurt",
+    "upyr_death": "entity.husk.death",
+    "upyr_attack": "entity.player.attack.sweep",
+    "upyr_leap": "entity.husk.ambient",
+    "upyr_bite": "entity.husk.hurt",
+    "upyr_step": "block.stone.step",
+    "nav_ambient": "entity.phantom.ambient",
+    "nav_hurt": "entity.phantom.hurt",
+    "nav_death": "entity.phantom.death",
+    "nav_attack": "entity.player.attack.sweep",
+    "nav_shift": "entity.illusioner.mirror_move",
+    "nav_spectral_appear": "entity.illusioner.mirror_move",
+    "nav_step": "entity.phantom.flap",
+    "kurgan_druzhinnik_ambient": "entity.wither_skeleton.ambient",
+    "kurgan_druzhinnik_hurt": "entity.wither_skeleton.hurt",
+    "kurgan_druzhinnik_death": "entity.wither_skeleton.death",
+    "kurgan_druzhinnik_sword_attack": "entity.player.attack.sweep",
+    "kurgan_druzhinnik_shield_block": "item.shield.block",
+    "kurgan_druzhinnik_shield_bash": "entity.player.attack.knockback",
+    "kurgan_druzhinnik_step": "block.stone.step",
+    "kurgan_voevoda_ambient": "entity.wither_skeleton.ambient",
+    "kurgan_voevoda_hurt": "entity.wither_skeleton.hurt",
+    "kurgan_voevoda_death": "entity.wither_skeleton.death",
+    "kurgan_voevoda_axe_attack": "entity.player.attack.sweep",
+    "kurgan_voevoda_shield_charge": "entity.player.attack.knockback",
+    "kurgan_voevoda_shield_impact": "item.shield.block",
+    "kurgan_voevoda_phase_shift": "entity.ravager.roar",
+    "kurgan_voevoda_step": "block.stone.step",
+    "buried_volkhv_ambient": "entity.evoker.ambient",
+    "buried_volkhv_hurt": "entity.evoker.hurt",
+    "buried_volkhv_death": "entity.evoker.death",
+    "buried_volkhv_cast_basic": "entity.evoker.cast_spell",
+    "buried_volkhv_cast_clones": "entity.illusioner.mirror_move",
+    "buried_volkhv_cast_ground_seal": "entity.evoker.cast_spell",
+    "buried_volkhv_summon": "entity.evoker.prepare_summon",
+    "buried_volkhv_step": "block.stone.step",
+    "unresting_prince_ambient": "entity.wither_skeleton.ambient",
+    "unresting_prince_hurt": "entity.wither_skeleton.hurt",
+    "unresting_prince_death": "entity.wither_skeleton.death",
+    "unresting_prince_combo": "entity.player.attack.sweep",
+    "unresting_prince_summon": "entity.evoker.prepare_summon",
+    "unresting_prince_phase_shift": "entity.ravager.roar",
+    "unresting_prince_heavy_strike": "entity.player.attack.sweep",
+    "unresting_prince_grab": "entity.ravager.roar",
+    "unresting_prince_shield_block": "item.shield.block",
+    "unresting_prince_step": "block.stone.step"
+  },
+  "minecraft_launches": 0
+}

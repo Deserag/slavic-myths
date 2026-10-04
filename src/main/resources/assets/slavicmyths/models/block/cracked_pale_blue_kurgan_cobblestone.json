@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "slavicmyths:block/cracked_pale_blue_kurgan_cobblestone"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "blocks": [
+    "pale_blue_kurgan_stone",
+    "pale_blue_kurgan_cobblestone",
+    "cracked_pale_blue_kurgan_cobblestone",
+    "mossy_pale_blue_kurgan_cobblestone",
+    "bog_green_kurgan_stone",
+    "bog_green_kurgan_cobblestone",
+    "cracked_bog_green_kurgan_cobblestone",
+    "mossy_bog_green_kurgan_cobblestone",
+    "sealed_kurgan_masonry",
+    "burial_stone_slab",
+    "kurgan_column_fragment",
+    "kurgan_ritual_bowl",
+    "kurgan_pottery",
+    "kurgan_stone_altar",
+    "kurgan_wall_torch_holder",
+    "kurgan_hanging_brazier",
+    "kurgan_rubble"
+  ],
+  "items": [
+    "pale_blue_kurgan_stone",
+    "pale_blue_kurgan_cobblestone",
+    "cracked_pale_blue_kurgan_cobblestone",
+    "mossy_pale_blue_kurgan_cobblestone",
+    "bog_green_kurgan_stone",
+    "bog_green_kurgan_cobblestone",
+    "cracked_bog_green_kurgan_cobblestone",
+    "mossy_bog_green_kurgan_cobblestone",
+    "sealed_kurgan_masonry",
+    "burial_stone_slab",
+    "kurgan_column_fragment",
+    "kurgan_ritual_bowl",
+    "kurgan_pottery",
+    "kurgan_stone_altar",
+    "kurgan_wall_torch_holder",
+    "kurgan_hanging_brazier",
+    "kurgan_rubble"
+  ],
+  "source_texture_size": 64,
+  "reference_package": "Slavic_Myths_0.8.5_Kurgan_Codex_Package.zip"
+}

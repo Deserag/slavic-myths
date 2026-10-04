@@ -1,0 +1,33 @@
+{
+  "version": "0.9.1",
+  "resource_reproducibility": "PASS",
+  "exact_recipes_loot_tags_advancements": "PASS",
+  "native_art_dimensions": "PASS",
+  "existing_art_hashes": {
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\models\\item\\battle_axe.json": "53b263f400e0394e8738a1bb298a746a14c3eafea288fc0473de33ecce0f74e8",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\models\\item\\carved_staff.json": "65c725edc708e6642326c6c970897cf6e53386e2f4ca707f337ea3a99f145615",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\models\\item\\club.json": "1cf7f6a70eb4831032764a8d53ceeed50ca9441da9a4350bad36532f08dccfdb",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\models\\item\\retainer_shield.json": "c3b565b5b9fd0bf635ddcb1b5f9e9234f8af19bb61d08a57d3294cba8e7af6eb",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\models\\item\\ohotnichiy_rog.json": "1f73b389cafc9265b4f368f2745071655f9e9aafff6ffd3e5e15d19686da9c40",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\item\\battle_axe.png": "1d62bd15bbf3decad6530b134c9bf843756ff6bc302fd2ee4c5f7eb7dd33c10f",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\item\\carved_staff.png": "ebcde0a6cc4d4d759de8275baf505d4c6c05857a215c2423c066d2cbe7e34d96",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\item\\club.png": "811662c7c74f015b34d4fba640463f20c13921cc9a640a91934b452d696660a1",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\item\\retainer_shield.png": "5632bae462798b6f3e07a51fc1ca038ba023178f93485a0e69b5309e8175a1e8",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ohotnichiy_rog.png": "59ae183484f1f7dcc16a19a1f4ecb678b6ab2b35ba6f4cc91a0bb4ddf9c40939",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\entity\\ovinnik.png": "0ac3e62317e79a3261a2659c034a07d2a25dbd868d66aec306979cea9cc92b33",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\entity\\volkolak.png": "3e032743f42d4f5b31dbccde6138175c0ffbfcb4119211149fe352625ba3d69c",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\entity\\hunt_accessories.png": "3e032743f42d4f5b31dbccde6138175c0ffbfcb4119211149fe352625ba3d69c"
+  },
+  "minecraft_launches": 0,
+  "runtime_qa": "TODO",
+  "clean_build": "PASS",
+  "java_version": "8",
+  "forge": "36.2.42",
+  "verifyHunt": "PASS: four targets, legacy horn/encounter migration, owner UUID/ACTIVE/cooldown/NBT, rain/telegraphs/pull/fall/push and Hunt I contracts",
+  "verifyKurgan": "PASS: 1200 seeded plans, 900 encounter rosters",
+  "production_resources": "PASS: 363 item registrations, 149 blocks, 327 PNGs, 209 recipes, 84 advancements, all JSON references and packaged resources",
+  "java8_reobf": "PASS",
+  "git_diff_check": "PASS",
+  "production_test_classes": "ABSENT",
+  "installation": "PASS: one JAR; built/installed SHA256 matches; old 0.9.0 backed up; Curios/JEI hashes unchanged"
+}

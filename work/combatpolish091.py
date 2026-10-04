@@ -1,0 +1,12 @@
+from pathlib import Path
+p=Path('src/main/java/org/slavicmyths/hunt/ElementHuntMob.java');s=p.read_text(encoding='utf8')
+s=s.replace('private final Set<UUID> deflected=new HashSet<>();','private final Set<UUID> deflected=new HashSet<>(),dashHits=new HashSet<>();')
+s=s.replace('private Vector3d aim=Vector3d.ZERO,destination,seen;','private Vector3d aim=Vector3d.ZERO,destination,seen,dashAlign;')
+s=s.replace('if(p.hurt(new EntityDamageSource("fire_serpent",this).setIsFire(),fireDamage(d)))p.setSecondsOnFire(ElementRules.ignite(burn,wetRain())/20);','if(p.hurt(new EntityDamageSource("fire_serpent",this).setIsFire(),fireDamage(d))){int duration=net.minecraft.enchantment.ProtectionEnchantment.getFireAfterDampener(p,ElementRules.ignite(burn,wetRain()));p.setRemainingFireTicks(Math.max(p.getRemainingFireTicks(),duration));}')
+s=s.replace('destination=t.position();hit=false;travelled=0;aligned=false;','destination=t.position();hit=false;dashHits.clear();travelled=0;aligned=false;')
+s=s.replace('aim=destination.subtract(position()).normalize();}if(s==State.BROKEN_PATH_CHARGE)','aim=destination.subtract(position()).normalize();dashAlign=position().subtract(aim.scale(2.5)).add(0,.3,0);}if(s==State.BROKEN_PATH_CHARGE)')
+s=s.replace('LivingEntity t=getTarget();if(t!=null&&!valid(t))','LivingEntity t=getTarget();if(t==null&&owner!=null&&tickCount%20==0){PlayerEntity ownerPlayer=level.getPlayerByUUID(owner);if(ownerPlayer!=null&&valid(ownerPlayer)&&distanceTo(ownerPlayer)<80){setTarget(ownerPlayer);t=ownerPlayer;}}if(t!=null&&!valid(t))')
+s=s.replace('else if(t!=null&&--memory<=0)','else if(t!=null&&!serpent()&&--memory<=0)')
+s=s.replace('if(s==State.ALIGN_DASH){setDeltaMovement(Vector3d.ZERO);particles(ParticleTypes.FLAME,ticks%4==0?2:0);','if(s==State.ALIGN_DASH){if(!aligned){fly(dashAlign,.34);if(position().distanceToSqr(dashAlign)<.5||ticks>=30){aligned=true;aim=destination.subtract(position()).normalize();entityData.set(SINCE,(int)level.getGameTime());ticks=0;}return;}setDeltaMovement(Vector3d.ZERO);if(ticks%4==0)particles(ParticleTypes.FLAME,2);')
+s=s.replace('if(!hit)for(PlayerEntity p:players(2.2))if(getBoundingBox().inflate(.4).intersects(p.getBoundingBox())){fireHit(p,8,60,.7F);hit=true;}','for(PlayerEntity p:players(2.2))if(!dashHits.contains(p.getUUID())&&getBoundingBox().inflate(.4).intersects(p.getBoundingBox())){fireHit(p,8,60,.7F);dashHits.add(p.getUUID());}')
+p.write_text(s,encoding='utf8')

@@ -77,3 +77,14 @@ nightingale_082()
 
 from burial_084 import generate as burial_084
 burial_084()
+
+from kurgan_085 import generate as kurgan_085
+kurgan_085()
+from kurgan_086 import generate as kurgan_086
+kurgan_086()
+from hunt_090 import generate as hunt_090
+hunt_090()
+
+# Hunt II extends Hunt I after its resource layer.
+from hunt_091 import generate as hunt_091_generate
+hunt_091_generate()

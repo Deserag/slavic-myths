@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:iskra_ovinnika"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.extinguish_the_barn.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.extinguish_the_barn.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

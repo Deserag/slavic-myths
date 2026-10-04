@@ -291,8 +291,9 @@
     "subtitle": "subtitles.slavicmyths.ovinnik_ambient",
     "sounds": [
       {
-        "name": "slavicmyths:land/ovinnik_ambient",
-        "volume": 0.65
+        "name": "minecraft:entity.blaze.ambient",
+        "type": "event",
+        "pitch": 0.7
       }
     ]
   },
@@ -300,8 +301,9 @@
     "subtitle": "subtitles.slavicmyths.ovinnik_hurt",
     "sounds": [
       {
-        "name": "slavicmyths:land/ovinnik_hurt",
-        "volume": 0.65
+        "name": "minecraft:entity.blaze.hurt",
+        "type": "event",
+        "pitch": 0.7
       }
     ]
   },
@@ -309,8 +311,9 @@
     "subtitle": "subtitles.slavicmyths.ovinnik_death",
     "sounds": [
       {
-        "name": "slavicmyths:land/ovinnik_death",
-        "volume": 0.65
+        "name": "minecraft:entity.blaze.death",
+        "type": "event",
+        "pitch": 0.7
       }
     ]
   },
@@ -318,8 +321,9 @@
     "subtitle": "subtitles.slavicmyths.ovinnik_angry",
     "sounds": [
       {
-        "name": "slavicmyths:land/ovinnik_angry",
-        "volume": 0.65
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "pitch": 0.7
       }
     ]
   },
@@ -327,8 +331,9 @@
     "subtitle": "subtitles.slavicmyths.ovinnik_power",
     "sounds": [
       {
-        "name": "slavicmyths:land/ovinnik_power",
-        "volume": 0.65
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "pitch": 0.7
       }
     ]
   },
@@ -1099,6 +1104,533 @@
     "sounds": [
       {
         "name": "slavicmyths:burial/coffin_close"
+      }
+    ]
+  },
+  "upyr_ambient": {
+    "subtitle": "subtitles.slavicmyths.upyr_ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.husk.ambient",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.55
+      }
+    ]
+  },
+  "upyr_hurt": {
+    "subtitle": "subtitles.slavicmyths.upyr_hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.husk.hurt",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "upyr_death": {
+    "subtitle": "subtitles.slavicmyths.upyr_death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.husk.death",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "upyr_attack": {
+    "subtitle": "subtitles.slavicmyths.upyr_attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "upyr_leap": {
+    "subtitle": "subtitles.slavicmyths.upyr_leap",
+    "sounds": [
+      {
+        "name": "minecraft:entity.husk.ambient",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "upyr_bite": {
+    "subtitle": "subtitles.slavicmyths.upyr_bite",
+    "sounds": [
+      {
+        "name": "minecraft:entity.husk.hurt",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "upyr_step": {
+    "subtitle": "subtitles.slavicmyths.upyr_step",
+    "sounds": [
+      {
+        "name": "minecraft:block.stone.step",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.55
+      }
+    ]
+  },
+  "nav_ambient": {
+    "subtitle": "subtitles.slavicmyths.nav_ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.phantom.ambient",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.55
+      }
+    ]
+  },
+  "nav_hurt": {
+    "subtitle": "subtitles.slavicmyths.nav_hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.phantom.hurt",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.85
+      }
+    ]
+  },
+  "nav_death": {
+    "subtitle": "subtitles.slavicmyths.nav_death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.phantom.death",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.85
+      }
+    ]
+  },
+  "nav_attack": {
+    "subtitle": "subtitles.slavicmyths.nav_attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.85
+      }
+    ]
+  },
+  "nav_shift": {
+    "subtitle": "subtitles.slavicmyths.nav_shift",
+    "sounds": [
+      {
+        "name": "minecraft:entity.illusioner.mirror_move",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.85
+      }
+    ]
+  },
+  "nav_spectral_appear": {
+    "subtitle": "subtitles.slavicmyths.nav_spectral_appear",
+    "sounds": [
+      {
+        "name": "minecraft:entity.illusioner.mirror_move",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.85
+      }
+    ]
+  },
+  "nav_step": {
+    "subtitle": "subtitles.slavicmyths.nav_step",
+    "sounds": [
+      {
+        "name": "minecraft:entity.phantom.flap",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.55
+      }
+    ]
+  },
+  "kurgan_druzhinnik_ambient": {
+    "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wither_skeleton.ambient",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.55
+      }
+    ]
+  },
+  "kurgan_druzhinnik_hurt": {
+    "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wither_skeleton.hurt",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "kurgan_druzhinnik_death": {
+    "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wither_skeleton.death",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "kurgan_druzhinnik_sword_attack": {
+    "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_sword_attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "kurgan_druzhinnik_shield_block": {
+    "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_shield_block",
+    "sounds": [
+      {
+        "name": "minecraft:item.shield.block",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "kurgan_druzhinnik_shield_bash": {
+    "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_shield_bash",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.knockback",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "kurgan_druzhinnik_step": {
+    "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_step",
+    "sounds": [
+      {
+        "name": "minecraft:block.stone.step",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.55
+      }
+    ]
+  },
+  "kurgan_voevoda_ambient": {
+    "subtitle": "subtitles.slavicmyths.kurgan_voevoda_ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wither_skeleton.ambient",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.55
+      }
+    ]
+  },
+  "kurgan_voevoda_hurt": {
+    "subtitle": "subtitles.slavicmyths.kurgan_voevoda_hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wither_skeleton.hurt",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "kurgan_voevoda_death": {
+    "subtitle": "subtitles.slavicmyths.kurgan_voevoda_death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wither_skeleton.death",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "kurgan_voevoda_axe_attack": {
+    "subtitle": "subtitles.slavicmyths.kurgan_voevoda_axe_attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "kurgan_voevoda_shield_charge": {
+    "subtitle": "subtitles.slavicmyths.kurgan_voevoda_shield_charge",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.knockback",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "kurgan_voevoda_shield_impact": {
+    "subtitle": "subtitles.slavicmyths.kurgan_voevoda_shield_impact",
+    "sounds": [
+      {
+        "name": "minecraft:item.shield.block",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "kurgan_voevoda_phase_shift": {
+    "subtitle": "subtitles.slavicmyths.kurgan_voevoda_phase_shift",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "kurgan_voevoda_step": {
+    "subtitle": "subtitles.slavicmyths.kurgan_voevoda_step",
+    "sounds": [
+      {
+        "name": "minecraft:block.stone.step",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.55
+      }
+    ]
+  },
+  "buried_volkhv_ambient": {
+    "subtitle": "subtitles.slavicmyths.buried_volkhv_ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.ambient",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.55
+      }
+    ]
+  },
+  "buried_volkhv_hurt": {
+    "subtitle": "subtitles.slavicmyths.buried_volkhv_hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.hurt",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "buried_volkhv_death": {
+    "subtitle": "subtitles.slavicmyths.buried_volkhv_death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.death",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "buried_volkhv_cast_basic": {
+    "subtitle": "subtitles.slavicmyths.buried_volkhv_cast_basic",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.cast_spell",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "buried_volkhv_cast_clones": {
+    "subtitle": "subtitles.slavicmyths.buried_volkhv_cast_clones",
+    "sounds": [
+      {
+        "name": "minecraft:entity.illusioner.mirror_move",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "buried_volkhv_cast_ground_seal": {
+    "subtitle": "subtitles.slavicmyths.buried_volkhv_cast_ground_seal",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.cast_spell",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "buried_volkhv_summon": {
+    "subtitle": "subtitles.slavicmyths.buried_volkhv_summon",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_summon",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "buried_volkhv_step": {
+    "subtitle": "subtitles.slavicmyths.buried_volkhv_step",
+    "sounds": [
+      {
+        "name": "minecraft:block.stone.step",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.55
+      }
+    ]
+  },
+  "unresting_prince_ambient": {
+    "subtitle": "subtitles.slavicmyths.unresting_prince_ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wither_skeleton.ambient",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.55
+      }
+    ]
+  },
+  "unresting_prince_hurt": {
+    "subtitle": "subtitles.slavicmyths.unresting_prince_hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wither_skeleton.hurt",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "unresting_prince_death": {
+    "subtitle": "subtitles.slavicmyths.unresting_prince_death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wither_skeleton.death",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "unresting_prince_combo": {
+    "subtitle": "subtitles.slavicmyths.unresting_prince_combo",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "unresting_prince_summon": {
+    "subtitle": "subtitles.slavicmyths.unresting_prince_summon",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_summon",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "unresting_prince_phase_shift": {
+    "subtitle": "subtitles.slavicmyths.unresting_prince_phase_shift",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "unresting_prince_heavy_strike": {
+    "subtitle": "subtitles.slavicmyths.unresting_prince_heavy_strike",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "unresting_prince_grab": {
+    "subtitle": "subtitles.slavicmyths.unresting_prince_grab",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "unresting_prince_shield_block": {
+    "subtitle": "subtitles.slavicmyths.unresting_prince_shield_block",
+    "sounds": [
+      {
+        "name": "minecraft:item.shield.block",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.85
+      }
+    ]
+  },
+  "unresting_prince_step": {
+    "subtitle": "subtitles.slavicmyths.unresting_prince_step",
+    "sounds": [
+      {
+        "name": "minecraft:block.stone.step",
+        "type": "event",
+        "pitch": 0.72,
+        "volume": 0.55
+      }
+    ]
+  },
+  "hunt_horn": {
+    "subtitle": "subtitles.slavicmyths.hunt_horn",
+    "sounds": [
+      {
+        "name": "minecraft:event.raid.horn",
+        "type": "event",
+        "volume": 100
       }
     ]
   }

@@ -11,6 +11,8 @@ import org.slavicmyths.registry.ModItems;
 
 @Mod.EventBusSubscriber(modid = SlavicMyths.MOD_ID)
 public final class SilverCombat {
+    public static final net.minecraftforge.common.Tags.IOptionalNamedTag<net.minecraft.item.Item> SILVER=net.minecraft.tags.ItemTags.createOptional(new ResourceLocation(SlavicMyths.MOD_ID,"silver_weapons"));
+    public static boolean silverStrike(net.minecraft.util.DamageSource source){return source.getEntity() instanceof net.minecraft.entity.LivingEntity&&source.getDirectEntity()==source.getEntity()&&((net.minecraft.entity.LivingEntity)source.getEntity()).getMainHandItem().getItem().is(SILVER);}
     private static final net.minecraftforge.common.Tags.IOptionalNamedTag<net.minecraft.entity.EntityType<?>> VULNERABLE =
             EntityTypeTags.createOptional(new ResourceLocation(SlavicMyths.MOD_ID, "silver_vulnerable"));
     @SubscribeEvent public static void onHurt(LivingHurtEvent event) {
@@ -21,9 +23,7 @@ public final class SilverCombat {
             event.setAmount(event.getAmount() + 0.5F);
         }
         if (!event.getEntityLiving().getType().is(VULNERABLE)) return;
-        net.minecraft.item.Item held = attacker.getMainHandItem().getItem();
-        if (held == ModItems.SILVER_SWORD.get() || held == ModItems.SILVER_DAGGER.get()
-                || held == ModItems.SILVER_SPEAR.get() || held == ModItems.SILVER_MACE.get() || held == ModItems.RITUAL_KNIFE.get()) {
+        if (silverStrike(event.getSource())) {
             event.setAmount(event.getAmount() + 1.5F);
         }
     }

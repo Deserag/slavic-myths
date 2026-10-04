@@ -7,7 +7,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '0.8.4'
+version = '0.9.1'
 group = 'org.slavicmyths'
 archivesBaseName = 'slavicmyths'
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
@@ -48,6 +48,25 @@ processResources {
 jar {
     manifest { attributes 'Implementation-Version': project.version }
     finalizedBy 'reobfJar'
+}
+
+// Pure JVM geometry/NBT checks. Does not boot a Minecraft client or server.
+sourceSets {
+    kurganCheck {
+        java.srcDir 'tools/kurgan-tests'
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+tasks.register('verifyKurgan', JavaExec) {
+    dependsOn 'kurganCheckClasses'
+    classpath = sourceSets.kurganCheck.runtimeClasspath
+    mainClass = 'org.slavicmyths.verify.KurganHeadless'
+}
+tasks.register('verifyHunt', JavaExec) {
+    dependsOn 'kurganCheckClasses'
+    classpath = sourceSets.kurganCheck.runtimeClasspath
+    mainClass = 'org.slavicmyths.verify.HuntHeadless'
 }
 
 // Opt-in diagnostic mod. Its code and resources never enter sourceSets.main or the JAR.

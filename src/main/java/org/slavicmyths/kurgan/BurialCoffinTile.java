@@ -26,7 +26,7 @@ public final class BurialCoffinTile extends LockableLootTileEntity implements IT
  @Override protected void setItems(NonNullList<ItemStack> value){items=value;}
  @Override protected ITextComponent getDefaultName(){return new TranslationTextComponent("block.slavicmyths.burial_log_coffin");}
  @Override protected Container createMenu(int id,PlayerInventory inv){return new BurialCoffinMenu(id,inv,this);}
- @Override public void startOpen(PlayerEntity p){if(level.isClientSide||p.isSpectator())return;viewers.add(p.getUUID());if(barrow!=null&&!opened){opened=true;BurialRecords.get((ServerWorld)level).opened(barrow);setChanged();}change(true);}
+ @Override public void startOpen(PlayerEntity p){if(level.isClientSide||p.isSpectator())return;viewers.add(p.getUUID());if(barrow!=null)KurganDisturbance.burial(p,barrow,worldPosition);if(barrow!=null&&!opened){opened=true;BurialRecords.get((ServerWorld)level).opened(barrow);setChanged();}change(true);}
  @Override public void stopOpen(PlayerEntity p){if(level.isClientSide)return;viewers.remove(p.getUUID());if(viewers.isEmpty())change(false);}
  private void change(boolean open){if(opening==open)return;opening=open;level.playSound(null,worldPosition,open?ModSounds.COFFIN_OPEN.get():ModSounds.COFFIN_CLOSE.get(),SoundCategory.BLOCKS,.65F,.85F);sync();}
  private void sync(){if(level!=null&&!level.isClientSide)level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);}

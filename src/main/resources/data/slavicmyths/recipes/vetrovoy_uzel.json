@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TUT",
+    "LBL",
+    " S "
+  ],
+  "key": {
+    "T": {
+      "item": "slavicmyths:vihrevaya_nit"
+    },
+    "U": {
+      "item": "slavicmyths:uzel_podveya"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:vetrovoy_uzel"
+  }
+}

@@ -68,6 +68,53 @@ public final class ModSounds {
         for(String animal:new String[]{"bear","cub","wolf","boar","stag","doe"})
             for(String event:new String[]{"ambient","hurt","death","alert","roar","attack","impact"}) sound(animal+"_"+event);
     }
+    public static final RegistryObject<SoundEvent> UPYR_AMBIENT=sound("upyr_ambient");
+    public static final RegistryObject<SoundEvent> UPYR_HURT=sound("upyr_hurt");
+    public static final RegistryObject<SoundEvent> UPYR_DEATH=sound("upyr_death");
+    public static final RegistryObject<SoundEvent> UPYR_ATTACK=sound("upyr_attack");
+    public static final RegistryObject<SoundEvent> UPYR_LEAP=sound("upyr_leap");
+    public static final RegistryObject<SoundEvent> UPYR_BITE=sound("upyr_bite");
+    public static final RegistryObject<SoundEvent> UPYR_STEP=sound("upyr_step");
+    public static final RegistryObject<SoundEvent> NAV_AMBIENT=sound("nav_ambient");
+    public static final RegistryObject<SoundEvent> NAV_HURT=sound("nav_hurt");
+    public static final RegistryObject<SoundEvent> NAV_DEATH=sound("nav_death");
+    public static final RegistryObject<SoundEvent> NAV_ATTACK=sound("nav_attack");
+    public static final RegistryObject<SoundEvent> NAV_SHIFT=sound("nav_shift");
+    public static final RegistryObject<SoundEvent> NAV_SPECTRAL_APPEAR=sound("nav_spectral_appear");
+    public static final RegistryObject<SoundEvent> NAV_STEP=sound("nav_step");
+    public static final RegistryObject<SoundEvent> KURGAN_DRUZHINNIK_AMBIENT=sound("kurgan_druzhinnik_ambient");
+    public static final RegistryObject<SoundEvent> KURGAN_DRUZHINNIK_HURT=sound("kurgan_druzhinnik_hurt");
+    public static final RegistryObject<SoundEvent> KURGAN_DRUZHINNIK_DEATH=sound("kurgan_druzhinnik_death");
+    public static final RegistryObject<SoundEvent> KURGAN_DRUZHINNIK_SWORD_ATTACK=sound("kurgan_druzhinnik_sword_attack");
+    public static final RegistryObject<SoundEvent> KURGAN_DRUZHINNIK_SHIELD_BLOCK=sound("kurgan_druzhinnik_shield_block");
+    public static final RegistryObject<SoundEvent> KURGAN_DRUZHINNIK_SHIELD_BASH=sound("kurgan_druzhinnik_shield_bash");
+    public static final RegistryObject<SoundEvent> KURGAN_DRUZHINNIK_STEP=sound("kurgan_druzhinnik_step");
+    public static final RegistryObject<SoundEvent> KURGAN_VOEVODA_AMBIENT=sound("kurgan_voevoda_ambient");
+    public static final RegistryObject<SoundEvent> KURGAN_VOEVODA_HURT=sound("kurgan_voevoda_hurt");
+    public static final RegistryObject<SoundEvent> KURGAN_VOEVODA_DEATH=sound("kurgan_voevoda_death");
+    public static final RegistryObject<SoundEvent> KURGAN_VOEVODA_AXE_ATTACK=sound("kurgan_voevoda_axe_attack");
+    public static final RegistryObject<SoundEvent> KURGAN_VOEVODA_SHIELD_CHARGE=sound("kurgan_voevoda_shield_charge");
+    public static final RegistryObject<SoundEvent> KURGAN_VOEVODA_SHIELD_IMPACT=sound("kurgan_voevoda_shield_impact");
+    public static final RegistryObject<SoundEvent> KURGAN_VOEVODA_PHASE_SHIFT=sound("kurgan_voevoda_phase_shift");
+    public static final RegistryObject<SoundEvent> KURGAN_VOEVODA_STEP=sound("kurgan_voevoda_step");
+    public static final RegistryObject<SoundEvent> BURIED_VOLKHV_AMBIENT=sound("buried_volkhv_ambient");
+    public static final RegistryObject<SoundEvent> BURIED_VOLKHV_HURT=sound("buried_volkhv_hurt");
+    public static final RegistryObject<SoundEvent> BURIED_VOLKHV_DEATH=sound("buried_volkhv_death");
+    public static final RegistryObject<SoundEvent> BURIED_VOLKHV_CAST_BASIC=sound("buried_volkhv_cast_basic");
+    public static final RegistryObject<SoundEvent> BURIED_VOLKHV_CAST_CLONES=sound("buried_volkhv_cast_clones");
+    public static final RegistryObject<SoundEvent> BURIED_VOLKHV_CAST_GROUND_SEAL=sound("buried_volkhv_cast_ground_seal");
+    public static final RegistryObject<SoundEvent> BURIED_VOLKHV_SUMMON=sound("buried_volkhv_summon");
+    public static final RegistryObject<SoundEvent> BURIED_VOLKHV_STEP=sound("buried_volkhv_step");
+    public static final RegistryObject<SoundEvent> UNRESTING_PRINCE_AMBIENT=sound("unresting_prince_ambient");
+    public static final RegistryObject<SoundEvent> UNRESTING_PRINCE_HURT=sound("unresting_prince_hurt");
+    public static final RegistryObject<SoundEvent> UNRESTING_PRINCE_DEATH=sound("unresting_prince_death");
+    public static final RegistryObject<SoundEvent> UNRESTING_PRINCE_COMBO=sound("unresting_prince_combo");
+    public static final RegistryObject<SoundEvent> UNRESTING_PRINCE_SUMMON=sound("unresting_prince_summon");
+    public static final RegistryObject<SoundEvent> UNRESTING_PRINCE_PHASE_SHIFT=sound("unresting_prince_phase_shift");
+    public static final RegistryObject<SoundEvent> UNRESTING_PRINCE_HEAVY_STRIKE=sound("unresting_prince_heavy_strike");
+    public static final RegistryObject<SoundEvent> UNRESTING_PRINCE_GRAB=sound("unresting_prince_grab");
+    public static final RegistryObject<SoundEvent> UNRESTING_PRINCE_SHIELD_BLOCK=sound("unresting_prince_shield_block");
+    public static final RegistryObject<SoundEvent> UNRESTING_PRINCE_STEP=sound("unresting_prince_step");
     private static RegistryObject<SoundEvent> sound(String id) {
         return SOUNDS.register(id, () -> new SoundEvent(new ResourceLocation(SlavicMyths.MOD_ID, id)));
     }
@@ -88,5 +135,6 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> NIGHTINGALE_DEATH=sound("nightingale_death");
     public static final RegistryObject<SoundEvent> NIGHTINGALE_HORN=sound("nightingale_horn");
     public static final RegistryObject<SoundEvent> COFFIN_OPEN=sound("coffin_open"),COFFIN_CLOSE=sound("coffin_close");
+    public static final RegistryObject<SoundEvent> HUNT_HORN=sound("hunt_horn");
     private ModSounds() { }
 }

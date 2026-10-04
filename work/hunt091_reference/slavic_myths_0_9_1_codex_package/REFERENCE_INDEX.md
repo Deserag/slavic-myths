@@ -1,0 +1,34 @@
+# REFERENCE INDEX — Slavic Myths 0.9.1
+
+## Full boards
+- REF_00_MINIBOSSES_FULL.png
+- REF_01_ITEMS_FULL.png
+
+## Fire Serpent
+- REF_MOB_FIRE_SERPENT_FULL.png
+- REF_MOB_FIRE_SERPENT_HERO.png
+- REF_MOB_FIRE_SERPENT_FRONT.png
+- REF_MOB_FIRE_SERPENT_SIDE.png
+- REF_MOB_FIRE_SERPENT_BACK.png
+- REF_MOB_FIRE_SERPENT_DETAILS.png
+
+## Podvey
+- REF_MOB_PODVEY_FULL.png
+- REF_MOB_PODVEY_HERO.png
+- REF_MOB_PODVEY_FRONT.png
+- REF_MOB_PODVEY_SIDE.png
+- REF_MOB_PODVEY_BACK.png
+- REF_MOB_PODVEY_DETAILS.png
+
+## Items
+- REF_ITEM_01_PYLAYUSCHAYA_CHESHUYA.png
+- REF_ITEM_02_OGNENNOE_PERO.png
+- REF_ITEM_03_OBEREG_PADAYUSCHEY_ZVEZDY.png
+- REF_ITEM_04_UZEL_PODVEYA.png
+- REF_ITEM_05_VIHREVAYA_NIT.png
+- REF_ITEM_06_VETROVOY_UZEL.png
+- REF_ITEM_07_SOSUD_OGNENNOGO_DYHANIYA.png
+- REF_ITEM_08_SOSUD_PODVEYA.png
+
+Text specification has priority over small text inside generated concept images.
+Images constrain silhouette, material distribution and overall style.

@@ -37,7 +37,8 @@ public final class HomesteadFeature extends Feature<NoFeatureConfig> {
         if(!barn){set(w,p.offset(1,0,2),ModBlocks.WOODEN_TUB.get());for(int dy=1;dy<=wall+3;dy++)set(w,p.offset(-2,dy,1),Blocks.COBBLESTONE_WALL);}
         set(w,p.offset(2,0,1),Blocks.CHEST);TileEntity te=w.getBlockEntity(p.offset(2,0,1));
         if(te instanceof ChestTileEntity)((ChestTileEntity)te).setLootTable(new ResourceLocation("slavicmyths","chests/"+(barn?"old_barn":"bathhouse")),r.nextLong());
-        LandSpiritEntity spirit=barn?ModEntities.OVINNIK.get().create(w.getLevel()):ModEntities.BANNIK.get().create(w.getLevel());
+        // Barns provide the hunting environment; 0.9.0 Ovinnik uses rare night placement, not guaranteed worldgen.
+        LandSpiritEntity spirit=barn?null:ModEntities.BANNIK.get().create(w.getLevel());
         if(spirit!=null){spirit.moveTo(x+.5,p.getY(),z+.5,180,0);spirit.home=p;spirit.setPersistenceRequired();spirit.finalizeSpawn(w,w.getCurrentDifficultyAt(p),SpawnReason.STRUCTURE,null,null);w.addFreshEntity(spirit);}
         return true;
     }

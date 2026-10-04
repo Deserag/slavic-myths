@@ -1,0 +1,23 @@
+{
+  "version": "0.9.0",
+  "source": "D:\\slavic-myths\\build\\libs\\slavicmyths-0.9.0.jar",
+  "destination": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Testing\\.minecraft\\mods\\slavicmyths-0.9.0.jar",
+  "sha256": "9E5B7B68A59B20AD0503774597FC4E06E61AFE6BA5F912ED3B6A2D66833357C1",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Testing\\mod-backups\\0.9.0-20261004-221744",
+  "previous": [
+    "slavicmyths-0.8.6.jar"
+  ],
+  "slavicJarCount": 1,
+  "preservedThirdParty": [
+    {
+      "Path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Testing\\.minecraft\\mods\\curios-forge-1.16.5-4.1.0.0.jar",
+      "Hash": "3F24653C9611A799A9C39F86C63E47F549B6E95E9A95EB921BE0B71D26EA1D91"
+    },
+    {
+      "Path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Testing\\.minecraft\\mods\\jei-1.16.5-7.8.0.1013.jar",
+      "Hash": "E8D5F6B5E6F0350B0ED6D0803AE92B2E2C53651A41F969D7BA8456608276FF76"
+    }
+  ],
+  "minecraftLaunches": 0,
+  "installedAt": "2026-10-04T22:17:45.1902555+03:00"
+}

@@ -1,3 +1,97 @@
+# 0.9.1 — расширение существующей охоты
+
+HuntTarget задаёт стабильные строковые IDs четырёх целей; HuntRecords по-прежнему
+хранит по одной встрече owner→UUID/anchor/status/ready. Новое Kind дополняет
+старое Ovinnik; чтение boolean 0.9.0 мигрирует, ACTIVE при выгрузке сохраняется.
+HuntMob остаётся владельцем lifecycle/баров/Home/guardian/NBT, старые два AI
+не заменяются. ElementHuntMob добавляет два собственных move sets на тех же
+lifecycle hooks, synced MOVE/SINCE и абсолютные сохранённые cooldown.
+
+Змей: проверка loaded collision перед физическим move, bounded orbit/высота,
+телеграфы/восстановления, локальные временные traces. Сервер не ставит огонь и
+не разрушает блоки. SerpentProjection — технические 1-HP визуальные копии,
+TTL70/absolute expiry, parent UUID, ноль damage/XP/loot/encounter, не hunt target.
+Максимум два при cast, повтор только после expiry. EmberClump переиспользован
+для редкого fallback; параметр урона определяется владельцем.
+
+Подвей использует существующую наземную навигацию. VORTEX_ACTIVE выполняет
+локальный pull с тремя силовыми ступенями, velocity cap .45 и center-hit CD30;
+снаряды проверяются раз в 2 тика только в этом состоянии. Набор UUID исключает
+повторное отклонение одной стрелы; только обычные arrows/snowballs/eggs,
+жемчуг и специальные типы не затрагиваются, LOS обязателен. После60 active
+и на выходе guard отсутствует. Во всех игроковых атаках учитываются LOS и
+creative/spectator. Рывок физический и ограничен7, без телепорта.
+
+HuntSpawns расширяет существующие placements/BiomeLoading, не добавляет
+player/world tick spawning. Horn ищет≤40 loaded candidate positions, безопасный
+объём, border, exclusion кургана; один owner/6000tick gate общий для всех целей.
+HuntTags используется детектором и утилитой; PouchMenu меняется только данными
+hunt_trophies и сохраняет9слотов/slot-swap ограничения.
+
+StarCharmEffects — серверное PlayerTickEND, equipped Curios necklace lookup,
+fallDistance/downward/flight guards, Slow Falling100, fallDistance=0; player
+absolute Overworld clock ready1200 в persistent data, Clone сохраняет ready.
+WindKnotItem — только ПКМ, MobEntity local radius4/LOS/hostility, CD500;
+без урона/PvP/снарядов, maxhealth/target helper снижает elite/boss толчок.
+BottledElements использует native inventory_changed AND двух предметов.
+
+Client-only ElementModel/ElementRenderer/HuntAccessoryRenderer: свои512atlases,
+блоковая геометрия, synced state animations, emissive только eyes/mouth/seams.
+Новые зависимости отсутствуют. tools/hunt_091.py — scoped native art/data;
+Hunt I tag writer additive, полный pipeline запускает II после I.
+verifyHunt проверяет pure timing/math/NBT migration/cycle; verify_hunt_091.py —
+exact recipes/loot/tags/resources/protected art/reproducibility. Эти проверки
+не проверяют реальный бой/GUI/перезаход/сеть/MSPT: Minecraft запусков0.
+
+---
+
+# 0.8.5 — лабиринты и состояние экземпляра
+
+KurganPlan — чистый Java-план с ограничением 12 попыток. Три диапазона этажей и
+помещений, сетка с разными расстояниями между осями, случайное связное дерево,
+ветви/тупики/петли, отдельная нижняя гробница. Корневой южный порт зарезервирован
+под вход/лестницу: обычный коридор не может затереть ступени. План проверяет пары
+room/room, room/connector, connector/connector, высоты и связность. Модульные роли
+включают длины, повороты, развилки, тупики, лестницы и shortcuts. Основной путь
+маркируется; у Великого заканчивается у намеренно запечатанного входа.
+
+KurganPlanNbt сохраняет фактический план Version=1, комнаты/соединения/палитры,
+флаги critical, позиции, границы печати и ниш. При загрузке нет повторного RNG.
+KurganDungeonPiece — новый тип kurgan_dungeon; старый kurgan_shell не изменён.
+Placement ограничен текущим чанком; оболочка, комнаты, проходы, затем декор.
+Две клетки новой колоды лежат в одном чанке при любом debug-anchor.
+Новая оболочка использует только vanilla; естественные Structure ID kurgan_small,
+kurgan_warrior, kurgan_great и их сетка 64/24, salt остаются прежними.
+
+BurialRecords расширен, прежний Opened сохранён. Instances хранят UUID, origin,
+полный план, disturbance, fired sources, thresholds, sealOpened; dimension задаёт
+WorldSavedData-хранилище. Индекс chunk -> instance обновляется при register/load.
+Worker worldgen только ставит запись экземпляра в server executor; SavedData
+меняется на серверном потоке. Обработчик placement синхронизирован на piece.
+
+Источники `loot:roomId` и `zone:roomId` учитываются по одному разу. Домашние колоды
+не имеют natural UUID. Никакого HUD/сканирования мира для disturbance нет.
+BurialRecords в Overworld отдельно хранит player UUID -> source Great UUID set.
+KurganCurse: один Effect, amplifier 0 = -10%, 1 = -15%, MULTIPLY_TOTAL к movement
+и attack. Временная длительность 36000 ticks. Persistent state восстанавливается
+на login/respawn и раз в 20 тиков игрока (один lookup, не обход сущностей/чанков).
+clear удаляет данные и эффект; bossDefeated(player, sourceUUID) очищает конкретный
+источник, сохраняя другие. KurganDungeonPiece.openSeal(world,id) открывает известный
+проход только при загруженных чанках и записывает sealOpened; сейчас не вызывается
+survival-механиками. Пустых классов будущего босса нет.
+
+Generate — OP2, четыре ограниченные кандидатуры в 192 блоках, предварительная
+проверка всего footprint, worldborder, terrain, tile entities и искусственных блоков.
+Только затем размещение. Это dev-инструмент тестового мира, без автотелепорта.
+Custom locate включает сохранённые debug-экземпляры; vanilla — естественные starts.
+
+Ресурсы: tools/kurgan_085.py, 64px собственная кладка/декор/иконка, прежние loot
+находки 0.8.4. verifyKurgan — отдельный JVM sourceSet tools/kurgan-tests, в JAR
+не входит и не загружает Minecraft-клиент/сервер. Headless checks не подтверждают
+игровую производительность, визуал, сетевую синхронизацию или фактический respawn.
+
+---
+
 # 0.8.4 — материальная основа курганов
 
 kurgan/BurialCoffinBlock: две клетки, FACING/PART, tile только FOOT; HEAD направлен
@@ -534,3 +628,66 @@ CargoMenu использует обычную серверную синхрон�
 и подбор при открытом грузе. FlightClient/FlightRenderer отвечают за интерполяцию и позы.
 Tailwind ограничен FlightItem. Новые ресурсы воспроизводит tools/finalize_065.py,
 вызываемый последним из общего генератора. Curios остаётся единственной системой аксессуаров.
+
+
+## 0.8.6: finite kurgan encounters
+
+KurganFighter хранит фиксированные профили/тайминги; KurganRoster — чистую
+детерминированную политику населения. KurganCreature использует единственный
+боевой Goal: серверный release, sync action/start/phase/guard/decoy позиции,
+ограниченные cooldown, память 120 тиков, navigation cadence 8 тиков. KurganBolt
+— физический ProjectileItemEntity, нормальный урон 6, срок жизни 50 тиков.
+KurganCreatureModel/Renderer полностью клиентские; геометрия и pose ветвятся
+по фиксированному виду, два ложных силуэта не создают дополнительные entities.
+
+KurganEncounters подписан на PlayerTick раз в секунду, использует существующий
+chunk index BurialRecords. До первого спавна проверяет позиции всей группы;
+не загружает чанки. KurganEncounterState (triggered/cleared/live UUID) вложен
+в NBT экземпляра; отсутствие entity среди загруженных никогда не считается
+смертью. Повторный спавн запрещён флагом triggered. Ограниченный summon и
+боевые фазы сохраняются в entity NBT. BossDefeated предотвращает повторную
+проклятую причину. KurganCurse.sourceDefeated удаляет один UUID кургана из
+Overworld player/source map; отсутствующий source очищает устаревший сильный
+эффект при следующем login/tick, включая офлайн победу. Старый NBT без
+Encounters/BossDefeated загружается с пустым состоянием.
+
+tools/kurgan_086.py воспроизводит только ресурсы 0.8.6, не затрагивая старое
+оружие. Manifest содержит все fallback sources. verifyKurgan — чистая JVM
+геометрия/NBT/roster проверка, не игровой AI тест и не измерение MSPT.
+
+
+## 0.9.0 Hunt I
+
+HuntMob наследует LandSpiritEntity для существующего Home/guardian/save API,
+но отключает старое расписание usesSpiritSchedule и использует один Fight Goal.
+OvinnikEntity сохраняет registry/class ID; VolkolakEntity — второй фиксированный
+профиль. Synced action/start/rage управляют native HuntModel. Овинник применяет
+physical EmberClump и ограниченный 40-tick trail без блоков/terrain grief.
+Combo follow-ups учитывают vanilla hurt window только для собственного удара.
+Старые saved attributes Овинника переводятся на 175/10/10/2/.55/32 без autoheal.
+
+HuntRecords — минимальный WorldSavedData с последней охотой каждого owner:
+target UUID, anchor, kind, status, HornReady. Отсутствие loaded entity не
+завершает запись. Смерть = CLEARED, admin/Peaceful = FAILED. Summoned owner
+сохраняется в entity NBT, смена измерения блокируется. После admin clear
+выгруженный участник удаляется при следующей загрузке без награды.
+
+HuntItems/HuntSpawns используют только use/placement scans с ограниченными
+радиусами и количеством кандидатов. Проверяется только loaded пространство;
+нет forced chunks и player tick scans на 128 блоков. Cooldown рога в records,
+ванильный item cooldown не блокирует смену цели/локализованную причину отказа.
+
+PouchMenu использует существующий RpgMenu.MENUS, 9-slot Inventory на точном
+held ItemStack identity. Запись NBT немедленная; pouch slot/swap защищены,
+tag применяется к ручной вставке/shift move. Vanilla ItemStack copy выполняет
+глубокую копию nested NBT. PouchScreen переиспользует стиль CargoScreen.
+HuntEffects проверяет Curios; stable transient UUID пояса и огненный множитель
+без inventory-passive эффектов/дубликатов. SilverCombat использует один item
+tag/helper, Volkolak получает ×1.25 в LivingDamageEvent после брони.
+HuntAccessoryRenderer использует существующий Curios body API; все вызовы
+client методов в OnlyIn/client коде. Custom category JEI не нужна для JSON
+crafting. tools/hunt_090.py — воспроизводимая отдельная прослойка native art.
+
+verifyHunt не запускает Minecraft: owner/UUID/state/cooldown NBT, модификаторы
+по времени, сроки способностей и глубокая копия nested pouch NBT. Это не
+runtime proof отсутствия duplication/AI bugs; ручной QA выделен отдельно.

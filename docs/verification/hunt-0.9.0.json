@@ -1,0 +1,37 @@
+{
+  "version": "0.9.0",
+  "items": [
+    "ovinnaya_zola",
+    "iskra_ovinnika",
+    "klyk_volkolaka",
+    "nochnoy_kogot",
+    "zolny_obereg",
+    "volchiy_poyas",
+    "obereg_ohotnika",
+    "ohotnichiy_rog",
+    "meshochek_trofeev",
+    "pustoy_ritualny_sosud"
+  ],
+  "ingredient_resolution": 256,
+  "equipment_resolution": 512,
+  "entities": [
+    "ovinnik",
+    "volkolak"
+  ],
+  "recipes": [
+    "ohotnichiy_rog",
+    "zolny_obereg",
+    "volchiy_poyas",
+    "obereg_ohotnika",
+    "meshochek_trofeev"
+  ],
+  "fallbacks": {
+    "ovinnik_ambient": "entity.blaze.ambient",
+    "ovinnik_hurt": "entity.blaze.hurt",
+    "ovinnik_death": "entity.blaze.death",
+    "ovinnik_angry": "entity.ravager.roar",
+    "ovinnik_power": "entity.ravager.roar",
+    "hunt_horn": "event.raid.horn"
+  },
+  "minecraft_launches": 0
+}

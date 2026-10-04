@@ -1,0 +1,27 @@
+{
+  "version": "0.9.0",
+  "resource_reproducibility": "PASS",
+  "exact_loot_recipes_tags": "PASS",
+  "ingredients_256": "PASS",
+  "gear_512": "PASS",
+  "protected_weapon_hashes": {
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\models\\item\\battle_axe.json": "53b263f400e0394e8738a1bb298a746a14c3eafea288fc0473de33ecce0f74e8",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\models\\item\\carved_staff.json": "65c725edc708e6642326c6c970897cf6e53386e2f4ca707f337ea3a99f145615",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\models\\item\\club.json": "1cf7f6a70eb4831032764a8d53ceeed50ca9441da9a4350bad36532f08dccfdb",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\models\\item\\retainer_shield.json": "c3b565b5b9fd0bf635ddcb1b5f9e9234f8af19bb61d08a57d3294cba8e7af6eb",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\item\\battle_axe.png": "1d62bd15bbf3decad6530b134c9bf843756ff6bc302fd2ee4c5f7eb7dd33c10f",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\item\\carved_staff.png": "ebcde0a6cc4d4d759de8275baf505d4c6c05857a215c2423c066d2cbe7e34d96",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\item\\club.png": "811662c7c74f015b34d4fba640463f20c13921cc9a640a91934b452d696660a1",
+    "D:\\slavic-myths\\src\\main\\resources\\assets\\slavicmyths\\textures\\item\\retainer_shield.png": "5632bae462798b6f3e07a51fc1ca038ba023178f93485a0e69b5309e8175a1e8"
+  },
+  "minecraft_launches": 0,
+  "runtime_qa": "TODO",
+  "clean_build": "PASS",
+  "java": "8",
+  "forge": "36.2.42",
+  "verifyHunt": "PASS",
+  "verifyKurgan": "PASS (1200 plans, 900 rosters)",
+  "production_resources_and_java8": "PASS",
+  "reobfuscation": "PASS",
+  "diff_whitespace_check": "PASS"
+}

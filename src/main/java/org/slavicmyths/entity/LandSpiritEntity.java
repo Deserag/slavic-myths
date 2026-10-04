@@ -70,13 +70,14 @@ public abstract class LandSpiritEntity extends CreatureEntity {
         return hit;
     }
     @Override public void aiStep() {
-        super.aiStep();if(level.isClientSide)return;
+        super.aiStep();if(level.isClientSide||!usesSpiritSchedule())return;
         if(getTarget()!=null && (!getTarget().isAlive() || level.getGameTime()>angryUntil || distanceToSqr(getTarget())>32*32)) {setTarget(null);state(0);}
         if(home!=null && distanceToSqr(home.getX()+.5,home.getY(),home.getZ()+.5)>24*24) {setTarget(null);state(0);getNavigation().moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,.9);return;}
         abilityTick();
         if((tickCount+getId())%20==0)think();
     }
     protected abstract void think();
+    protected boolean usesSpiritSchedule(){return true;}
     protected boolean meleeReady() { return windup==0; }
     protected void abilityTick() { }
     @Override public void addAdditionalSaveData(CompoundNBT n) {

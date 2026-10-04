@@ -23,6 +23,8 @@ public final class SlavicMyths {
         org.slavicmyths.wood.Woodlands.init();
         org.slavicmyths.furniture.Furniture.init();
         org.slavicmyths.kurgan.DarkenedWood.init();
+        org.slavicmyths.kurgan.KurganBlocks.init();
+        org.slavicmyths.kurgan.KurganCurse.EFFECTS.register(bus);
         org.slavicmyths.kurgan.BurialCoffinMenu.register();
         org.slavicmyths.kurgan.KurganStructures.register();
         ModBlocks.BLOCKS.register(bus);
@@ -38,6 +40,7 @@ public final class SlavicMyths {
         org.slavicmyths.registry.ModFeatures.FEATURES.register(bus);
         org.slavicmyths.network.LoreNetwork.register();
         org.slavicmyths.rpg.RpgNetwork.register();
+        org.slavicmyths.hunt.PouchMenu.register();
         org.slavicmyths.flight.CargoMenu.register();
         org.slavicmyths.flight.FlightNetwork.register();
         org.slavicmyths.flight.Tailwind.ENCHANTMENTS.register(bus);
@@ -53,6 +56,7 @@ public final class SlavicMyths {
         event.enqueueWork(org.slavicmyths.kurgan.KurganStructures::setup);
         event.enqueueWork(ModWorldGen::registerFeatures);
         event.enqueueWork(org.slavicmyths.wood.Woodlands::setup);
+        event.enqueueWork(org.slavicmyths.hunt.HuntSpawns::placements);
         event.enqueueWork(SpiritSpawns::registerPlacements);
         event.enqueueWork(org.slavicmyths.world.WildlifeSpawns::placements);
         event.enqueueWork(org.slavicmyths.water.WaterSpawns::placements);

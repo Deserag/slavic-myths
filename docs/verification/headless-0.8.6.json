@@ -1,0 +1,18 @@
+{
+  "version": "0.8.6",
+  "resource_reproducibility": "PASS",
+  "preserved_user_weapon_art": "PASS",
+  "vanilla_fallback_events_checked": 47,
+  "headless_rosters": 900,
+  "headless_plans": 1200,
+  "minecraft_launches": 0,
+  "runtime_qa": "TODO",
+  "clean_build": "PASS",
+  "java": "8",
+  "forge": "36.2.42",
+  "resource_and_production_jar_checks": "PASS",
+  "jar_reobfuscation": "PASS",
+  "source_specific_offline_curse_cleanup": "PASS",
+  "encounter_nbt_and_085_migration": "PASS",
+  "diff_whitespace_check": "PASS"
+}

@@ -1,0 +1,66 @@
+# Reference index — Slavic Myths 0.8.6 Kurgan Creatures
+
+Этот набор специально подготовлен так, чтобы Codex мог смотреть не только на общие листы, но и на отдельные cropped-референсы по каждой модели.
+
+## Общая сводка
+- BESTIARY_FULL.png — общий лист всех шести существ
+
+## Upyr
+- UPYR_FULL.png
+- UPYR_HERO_HERO.png
+- UPYR_FRONT_FRONT.png
+- UPYR_SIDE_SIDE.png
+- UPYR_BACK_BACK.png
+- UPYR_DETAIL_1_HEAD.png
+- UPYR_DETAIL_2_CLAWS.png
+- UPYR_DETAIL_3_BURIAL_SHIRT.png
+
+## Nav
+- NAV_FULL.png
+- NAV_HERO_HERO.png
+- NAV_FRONT_FRONT.png
+- NAV_SIDE_SIDE.png
+- NAV_BACK_BACK.png
+- NAV_DETAIL_1_HEAD.png
+- NAV_DETAIL_2_BURIAL_RIBBONS.png
+- NAV_DETAIL_3_PARTIAL_TRANSPARENCY.png
+
+## Kurgan Druzhinnik
+- DRUZHINNIK_FULL.png
+- DRUZHINNIK_HERO_HERO.png
+- DRUZHINNIK_FRONT_FRONT.png
+- DRUZHINNIK_SIDE_SIDE.png
+- DRUZHINNIK_BACK_BACK.png
+- DRUZHINNIK_DETAIL_1_HELMET_AND_FACE.png
+- DRUZHINNIK_DETAIL_2_SWORD.png
+- DRUZHINNIK_DETAIL_3_SHIELD.png
+
+## Kurgan Voevoda
+- VOEVODA_FULL.png
+- VOEVODA_HERO_HERO.png
+- VOEVODA_FRONT_FRONT.png
+- VOEVODA_SIDE_SIDE.png
+- VOEVODA_BACK_BACK.png
+- VOEVODA_DETAIL_1_HEAD_AND_CLOAK.png
+- VOEVODA_DETAIL_2_AXE.png
+- VOEVODA_DETAIL_3_SHIELD.png
+
+## Buried Volkhv
+- VOLKHV_FULL.png
+- VOLKHV_HERO_HERO.png
+- VOLKHV_FRONT_FRONT.png
+- VOLKHV_SIDE_SIDE.png
+- VOLKHV_BACK_BACK.png
+- VOLKHV_DETAIL_1_HEAD.png
+- VOLKHV_DETAIL_2_STAFF.png
+- VOLKHV_DETAIL_3_AMULETS.png
+
+## Unresting Prince
+- PRINCE_FULL.png
+- PRINCE_HERO_HERO.png
+- PRINCE_FRONT_FRONT.png
+- PRINCE_SIDE_SIDE.png
+- PRINCE_BACK_BACK.png
+- PRINCE_DETAIL_1_CROWN_AND_FACE.png
+- PRINCE_DETAIL_2_SWORD.png
+- PRINCE_DETAIL_3_SHIELD.png

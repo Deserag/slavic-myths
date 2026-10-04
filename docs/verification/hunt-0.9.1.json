@@ -1,0 +1,29 @@
+{
+  "version": "0.9.1",
+  "items": [
+    "pylayuschaya_cheshuya",
+    "ognennoe_pero",
+    "obereg_padayuschey_zvezdy",
+    "uzel_podveya",
+    "vihrevaya_nit",
+    "vetrovoy_uzel",
+    "sosud_ognennogo_dyhaniya",
+    "sosud_podveya"
+  ],
+  "small_items": [
+    "pylayuschaya_cheshuya",
+    "uzel_podveya",
+    "vihrevaya_nit"
+  ],
+  "entities": [
+    "fire_serpent",
+    "podvey"
+  ],
+  "recipes": [
+    "obereg_padayuschey_zvezdy",
+    "vetrovoy_uzel",
+    "sosud_ognennogo_dyhaniya",
+    "sosud_podveya"
+  ],
+  "minecraft_launches": 0
+}

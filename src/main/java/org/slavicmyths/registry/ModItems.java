@@ -124,7 +124,7 @@ public final class ModItems {
     public static final RegistryObject<Item> POLEVIK_SPAWN_EGG = ITEMS.register("polevik_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.POLEVIK, 0x494137, 0xbca981, properties()));
     public static final RegistryObject<Item> BANNIK_SPAWN_EGG = ITEMS.register("bannik_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.BANNIK, 0x494137, 0xbca981, properties()));
     public static final RegistryObject<Item> IGOSHA_SPAWN_EGG = ITEMS.register("igosha_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.IGOSHA, 0x494137, 0xbca981, properties()));
-    public static final RegistryObject<Item> OVINNIK_SPAWN_EGG = ITEMS.register("ovinnik_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.OVINNIK, 0x494137, 0xbca981, properties()));
+    public static final RegistryObject<Item> OVINNIK_SPAWN_EGG = ITEMS.register("ovinnik_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.OVINNIK, 0x2C2722, 0xE34A18, properties()));
     public static final RegistryObject<Item> BATH_STOVE = ITEMS.register("bath_stove", () -> new BlockItem(ModBlocks.BATH_STOVE.get(), properties()));
     public static final RegistryObject<Item> WOODEN_TUB = ITEMS.register("wooden_tub", () -> new BlockItem(ModBlocks.WOODEN_TUB.get(), properties()));
 
@@ -237,5 +237,41 @@ public final class ModItems {
     public static final RegistryObject<Item> OLD_BUCKLE=ITEMS.register("old_buckle",()->new Item(properties()));
     public static final RegistryObject<Item> POTTERY_FRAGMENT=ITEMS.register("pottery_fragment",()->new Item(properties()));
     public static final RegistryObject<Item> OLD_ARROWHEAD=ITEMS.register("old_arrowhead",()->new Item(properties()));
+    public static final RegistryObject<Item> UPYR_SPAWN_EGG=egg("upyr_spawn_egg",ModEntities.UPYR,0xE4D8CE,0x8D1717);
+    public static final RegistryObject<Item> NAV_SPAWN_EGG=egg("nav_spawn_egg",ModEntities.NAV,0xCDE7FF,0x5FA7FF);
+    public static final RegistryObject<Item> DRUZHINNIK_SPAWN_EGG=egg("kurgan_druzhinnik_spawn_egg",ModEntities.DRUZHINNIK,0x7B7A80,0xB22E2E);
+    public static final RegistryObject<Item> VOEVODA_SPAWN_EGG=egg("kurgan_voevoda_spawn_egg",ModEntities.VOEVODA,0x8A2327,0xD6A451);
+    public static final RegistryObject<Item> VOLKHV_SPAWN_EGG=egg("buried_volkhv_spawn_egg",ModEntities.VOLKHV,0x2F2D38,0xB39A63);
+    public static final RegistryObject<Item> PRINCE_SPAWN_EGG=egg("unresting_prince_spawn_egg",ModEntities.PRINCE,0x9F1E28,0xD9B14E);
+    public static final RegistryObject<Item> UPYR_FANG=ITEMS.register("upyr_fang",()->new Item(properties()));
+    public static final RegistryObject<Item> GRAVE_CLOTH_SCRAP=ITEMS.register("grave_cloth_scrap",()->new Item(properties()));
+    public static final RegistryObject<Item> NAV_ESSENCE=ITEMS.register("nav_essence",()->new Item(properties()));
+    public static final RegistryObject<Item> TORN_BURIAL_RIBBON=ITEMS.register("torn_burial_ribbon",()->new Item(properties()));
+    public static final RegistryObject<Item> SHIELD_BOSS_FRAGMENT=ITEMS.register("shield_boss_fragment",()->new Item(properties()));
+    public static final RegistryObject<Item> DRUZHINNIK_BLADE_FRAGMENT=ITEMS.register("druzhinnik_blade_fragment",()->new Item(properties()));
+    public static final RegistryObject<Item> VOEVODA_INSIGNIA=ITEMS.register("voevoda_insignia",()->new Item(properties()));
+    public static final RegistryObject<Item> VOLKHV_AMULET=ITEMS.register("volkhv_amulet",()->new Item(properties()));
+    public static final RegistryObject<Item> PRINCELY_SEAL=ITEMS.register("princely_seal",()->new Item(properties()));
+    public static final RegistryObject<Item> OVINNAYA_ZOLA=ITEMS.register("ovinnaya_zola",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(64),org.slavicmyths.hunt.HuntItems.Role.ASH));
+    public static final RegistryObject<Item> ISKRA_OVINNIKA=ITEMS.register("iskra_ovinnika",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(16).rarity(Rarity.UNCOMMON),org.slavicmyths.hunt.HuntItems.Role.SPARK));
+    public static final RegistryObject<Item> KLYK_VOLKOLAKA=ITEMS.register("klyk_volkolaka",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(32),org.slavicmyths.hunt.HuntItems.Role.FANG));
+    public static final RegistryObject<Item> NOCHNOY_KOGOT=ITEMS.register("nochnoy_kogot",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(16).rarity(Rarity.UNCOMMON),org.slavicmyths.hunt.HuntItems.Role.CLAW));
+    public static final RegistryObject<Item> OBEREG_OHOTNIKA=ITEMS.register("obereg_ohotnika",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(1).rarity(Rarity.RARE),org.slavicmyths.hunt.HuntItems.Role.DETECTOR));
+    public static final RegistryObject<Item> OHOTNICHIY_ROG=ITEMS.register("ohotnichiy_rog",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(1),org.slavicmyths.hunt.HuntItems.Role.HORN));
+    public static final RegistryObject<Item> MESHOCHEK_TROFEEV=ITEMS.register("meshochek_trofeev",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(1),org.slavicmyths.hunt.HuntItems.Role.POUCH));
+    public static final RegistryObject<Item> PUSTOY_RITUALNY_SOSUD=ITEMS.register("pustoy_ritualny_sosud",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(16).rarity(Rarity.UNCOMMON),org.slavicmyths.hunt.HuntItems.Role.VESSEL));
+    public static final RegistryObject<Item> ZOLNY_OBEREG=ITEMS.register("zolny_obereg",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.RARE),"necklace"));
+    public static final RegistryObject<Item> VOLCHIY_POYAS=ITEMS.register("volchiy_poyas",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.RARE),"belt"));
+    public static final RegistryObject<Item> PYLAYUSCHAYA_CHESHUYA=ITEMS.register("pylayuschaya_cheshuya",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(32),org.slavicmyths.hunt.HuntItems.Role.ASH));
+    public static final RegistryObject<Item> OGNENNOE_PERO=ITEMS.register("ognennoe_pero",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(16).rarity(Rarity.UNCOMMON),org.slavicmyths.hunt.HuntItems.Role.SPARK));
+    public static final RegistryObject<Item> OBEREG_PADAYUSCHEY_ZVEZDY=ITEMS.register("obereg_padayuschey_zvezdy",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.RARE),"necklace"));
+    public static final RegistryObject<Item> UZEL_PODVEYA=ITEMS.register("uzel_podveya",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(16).rarity(Rarity.UNCOMMON),org.slavicmyths.hunt.HuntItems.Role.FANG));
+    public static final RegistryObject<Item> VIHREVAYA_NIT=ITEMS.register("vihrevaya_nit",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(32),org.slavicmyths.hunt.HuntItems.Role.CLAW));
+    public static final RegistryObject<Item> VETROVOY_UZEL=ITEMS.register("vetrovoy_uzel",()->new org.slavicmyths.hunt.WindKnotItem(properties().stacksTo(1).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> SOSUD_OGNENNOGO_DYHANIYA=ITEMS.register("sosud_ognennogo_dyhaniya",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(8).rarity(Rarity.RARE),org.slavicmyths.hunt.HuntItems.Role.VESSEL));
+    public static final RegistryObject<Item> SOSUD_PODVEYA=ITEMS.register("sosud_podveya",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(8).rarity(Rarity.RARE),org.slavicmyths.hunt.HuntItems.Role.VESSEL));
+    public static final RegistryObject<Item> FIRE_SERPENT_SPAWN_EGG=egg("fire_serpent_spawn_egg",ModEntities.FIRE_SERPENT,0x29191A,0xF04B16);
+    public static final RegistryObject<Item> PODVEY_SPAWN_EGG=egg("podvey_spawn_egg",ModEntities.PODVEY,0x56626F,0xC5E4F1);
+    public static final RegistryObject<Item> VOLKOLAK_SPAWN_EGG=egg("volkolak_spawn_egg",ModEntities.VOLKOLAK,0x3D3A38,0x9A1F27);
     private ModItems() { }
 }
