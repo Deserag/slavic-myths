@@ -57,11 +57,12 @@ public final class FolkAccessoryItem extends Item implements ICurioItem {
   }
  }
  @Override public void onUnequip(String identifier,int index,LivingEntity entity,ItemStack stack){
+  if(this==org.slavicmyths.registry.ModItems.POYAS_TUGARINA.get()&&!entity.level.isClientSide)org.slavicmyths.hunt.BossEffects.clearBelt(entity);
   if(this==org.slavicmyths.registry.ModItems.VOLCHIY_POYAS.get()&&!entity.level.isClientSide)org.slavicmyths.hunt.HuntEffects.removeBelt(entity);
   if(this==org.slavicmyths.registry.ModItems.INVISIBILITY_CAP.get())entity.getPersistentData().remove("SlavicCapFade");
  }
  @net.minecraftforge.api.distmarker.OnlyIn(net.minecraftforge.api.distmarker.Dist.CLIENT)
- @Override public boolean canRender(String identifier,int index,LivingEntity entity,ItemStack stack){return this==org.slavicmyths.registry.ModItems.OBEREG_PADAYUSCHEY_ZVEZDY.get()||this==org.slavicmyths.registry.ModItems.ZOLNY_OBEREG.get()||this==org.slavicmyths.registry.ModItems.VOLCHIY_POYAS.get();}
+ @Override public boolean canRender(String identifier,int index,LivingEntity entity,ItemStack stack){return this==org.slavicmyths.registry.ModItems.POYAS_TUGARINA.get()||this==org.slavicmyths.registry.ModItems.ODNOGLAZYY_OBEREG.get()||this==org.slavicmyths.registry.ModItems.OBEREG_PADAYUSCHEY_ZVEZDY.get()||this==org.slavicmyths.registry.ModItems.ZOLNY_OBEREG.get()||this==org.slavicmyths.registry.ModItems.VOLCHIY_POYAS.get();}
  @net.minecraftforge.api.distmarker.OnlyIn(net.minecraftforge.api.distmarker.Dist.CLIENT)
- @Override public void render(String identifier,int index,com.mojang.blaze3d.matrix.MatrixStack pose,net.minecraft.client.renderer.IRenderTypeBuffer buffer,int light,LivingEntity entity,float limbSwing,float limbAmount,float partial,float age,float yaw,float pitch,ItemStack stack){org.slavicmyths.client.HuntAccessoryRenderer.render(stack,entity,pose,buffer,light);}
+ @Override public void render(String identifier,int index,com.mojang.blaze3d.matrix.MatrixStack pose,net.minecraft.client.renderer.IRenderTypeBuffer buffer,int light,LivingEntity entity,float limbSwing,float limbAmount,float partial,float age,float yaw,float pitch,ItemStack stack){if(this==org.slavicmyths.registry.ModItems.POYAS_TUGARINA.get()||this==org.slavicmyths.registry.ModItems.ODNOGLAZYY_OBEREG.get())org.slavicmyths.client.BossAccessoryRenderer.render(stack,entity,pose,buffer,light);else org.slavicmyths.client.HuntAccessoryRenderer.render(stack,entity,pose,buffer,light);}
 }

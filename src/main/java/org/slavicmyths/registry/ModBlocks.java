@@ -74,4 +74,8 @@ public final class ModBlocks {
     public static final RegistryObject<Block> ARMORER_TABLE=BLOCKS.register("armorer_table",org.slavicmyths.armorer.ArmorerBlock::new);
     public static final net.minecraftforge.fml.RegistryObject<net.minecraft.block.Block> BURIAL_COFFIN=BLOCKS.register("burial_log_coffin",org.slavicmyths.kurgan.BurialCoffinBlock::new);
     private ModBlocks() { }
+ public static final RegistryObject<Block> YAGA_CAULDRON=BLOCKS.register("yaga_cauldron",org.slavicmyths.yaga.YagaCauldronBlock::new);
+ public static final RegistryObject<Block> YAGA_DRIED_HERBS=BLOCKS.register("yaga_dried_herbs",()->new Block(AbstractBlock.Properties.of(Material.PLANT).strength(-1,3600000).noCollission().noOcclusion().noDrops()));
+ public static final RegistryObject<Block> YAGA_BONE_CHARM=BLOCKS.register("yaga_bone_charm",()->new Block(AbstractBlock.Properties.of(Material.DECORATION).strength(-1,3600000).noCollission().noOcclusion().noDrops()));
+ public static final RegistryObject<Block> YAGA_CHICKEN_LEG=BLOCKS.register("yaga_chicken_leg",org.slavicmyths.yaga.YagaLegBlock::new);
 }

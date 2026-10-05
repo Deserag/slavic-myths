@@ -137,4 +137,14 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> COFFIN_OPEN=sound("coffin_open"),COFFIN_CLOSE=sound("coffin_close");
     public static final RegistryObject<SoundEvent> HUNT_HORN=sound("hunt_horn");
     private ModSounds() { }
+ public static final RegistryObject<SoundEvent> YAGA_AMBIENT=sound("yaga_ambient");
+ public static final RegistryObject<SoundEvent> YAGA_TALK=sound("yaga_talk");
+ public static final RegistryObject<SoundEvent> YAGA_WARN=sound("yaga_warn");
+ public static final RegistryObject<SoundEvent> YAGA_STIR=sound("yaga_stir");
+ public static final RegistryObject<SoundEvent> YAGA_OPEN=sound("yaga_open");
+ public static final RegistryObject<SoundEvent> YAGA_CLOSE=sound("yaga_close");
+ public static final RegistryObject<SoundEvent> YAGA_HURT=sound("yaga_hurt");
+ public static final RegistryObject<SoundEvent> YAGA_STEP=sound("yaga_step");
+ public static final RegistryObject<SoundEvent> YAGA_HUT_CREAK=sound("yaga_hut_creak");
+ public static final RegistryObject<SoundEvent> YAGA_HUT_STEP=sound("yaga_hut_step");
 }

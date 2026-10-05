@@ -273,5 +273,26 @@ public final class ModItems {
     public static final RegistryObject<Item> FIRE_SERPENT_SPAWN_EGG=egg("fire_serpent_spawn_egg",ModEntities.FIRE_SERPENT,0x29191A,0xF04B16);
     public static final RegistryObject<Item> PODVEY_SPAWN_EGG=egg("podvey_spawn_egg",ModEntities.PODVEY,0x56626F,0xC5E4F1);
     public static final RegistryObject<Item> VOLKOLAK_SPAWN_EGG=egg("volkolak_spawn_egg",ModEntities.VOLKOLAK,0x3D3A38,0x9A1F27);
+    public static final RegistryObject<Item> OKO_LIKHA=ITEMS.register("oko_likha",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(1).rarity(Rarity.EPIC),org.slavicmyths.hunt.HuntItems.Role.FANG));
+    public static final RegistryObject<Item> NIT_DURNOY_DOLI=ITEMS.register("nit_durnoy_doli",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(32).rarity(Rarity.RARE),org.slavicmyths.hunt.HuntItems.Role.FANG));
+    public static final RegistryObject<Item> KOST_LIKHA=ITEMS.register("kost_likha",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(16).rarity(Rarity.UNCOMMON),org.slavicmyths.hunt.HuntItems.Role.FANG));
+    public static final RegistryObject<Item> US_TUGARINA=ITEMS.register("us_tugarina",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(1).rarity(Rarity.EPIC),org.slavicmyths.hunt.HuntItems.Role.FANG));
+    public static final RegistryObject<Item> TUGARINOVA_KOZHA=ITEMS.register("tugarinova_kozha",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(32).rarity(Rarity.UNCOMMON),org.slavicmyths.hunt.HuntItems.Role.FANG));
+    public static final RegistryObject<Item> ZMEINAYA_PRYAZHKA=ITEMS.register("zmeinaya_pryazhka",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(8).rarity(Rarity.RARE),org.slavicmyths.hunt.HuntItems.Role.FANG));
+    public static final RegistryObject<Item> NABOYKA_TUGARINA=ITEMS.register("naboyka_tugarina",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(8).rarity(Rarity.UNCOMMON),org.slavicmyths.hunt.HuntItems.Role.FANG));
+    public static final RegistryObject<Item> UZEL_DURNOY_DOLI=ITEMS.register("uzel_durnoy_doli",()->new org.slavicmyths.hunt.BossRitualItem(properties().stacksTo(1).rarity(Rarity.EPIC),org.slavicmyths.hunt.BossKind.LIKHO));
+    public static final RegistryObject<Item> STEPNOY_SHTANDART=ITEMS.register("stepnoy_shtandart",()->new org.slavicmyths.hunt.BossRitualItem(properties().stacksTo(1).rarity(Rarity.EPIC),org.slavicmyths.hunt.BossKind.TUGARIN));
+    public static final RegistryObject<Item> ODNOGLAZYY_OBEREG=ITEMS.register("odnoglazyy_obereg",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.EPIC),"necklace"));
+    public static final RegistryObject<Item> POYAS_TUGARINA=ITEMS.register("poyas_tugarina",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.EPIC),"belt"));
+    public static final RegistryObject<Item> LIKHO_ONE_EYED_SPAWN_EGG=egg("likho_one_eyed_spawn_egg",ModEntities.LIKHO_ONE_EYED,0x1E1B1D,0xC7A77A);
+    public static final RegistryObject<Item> TUGARIN_ZMEY_SPAWN_EGG=egg("tugarin_zmey_spawn_egg",ModEntities.TUGARIN_ZMEY,0x8F3D2F,0xC99B45);
     private ModItems() { }
+ public static final RegistryObject<Item> PUTEVODNY_KLUBOK=ITEMS.register("putevodny_klubok",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(1).rarity(Rarity.RARE),org.slavicmyths.yaga.YagaUtilityItem.Kind.THREAD));
+ public static final RegistryObject<Item> SVYAZKA_TRAV_YAGI=ITEMS.register("svyazka_trav_yagi",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(32),org.slavicmyths.yaga.YagaUtilityItem.Kind.HERBS));
+ public static final RegistryObject<Item> OTVAR_OCHISHCHENIYA=ITEMS.register("otvar_ochishcheniya",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(16),org.slavicmyths.yaga.YagaUtilityItem.Kind.CLEANSE));
+ public static final RegistryObject<Item> LETUCHAYA_MAZ=ITEMS.register("letuchaya_maz",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(16),org.slavicmyths.yaga.YagaUtilityItem.Kind.SALVE));
+ public static final RegistryObject<Item> OTVAR_LESNOY_ZORKOSTI=ITEMS.register("otvar_lesnoy_zorkosti",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(16),org.slavicmyths.yaga.YagaUtilityItem.Kind.SIGHT));
+ public static final RegistryObject<Item> YAGIN_NASTOY_STOYKOSTI=ITEMS.register("yagin_nastoy_stoykosti",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(16),org.slavicmyths.yaga.YagaUtilityItem.Kind.RESIST));
+ public static final RegistryObject<Item> OTVAR_BODROSTI=ITEMS.register("otvar_bodrosti",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(16),org.slavicmyths.yaga.YagaUtilityItem.Kind.VIGOR));
+ public static final RegistryObject<Item> LESNOY_NASTOY_VOSSTANOVLENIYA=ITEMS.register("lesnoy_nastoy_vosstanovleniya",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(16),org.slavicmyths.yaga.YagaUtilityItem.Kind.RESTORE));
 }

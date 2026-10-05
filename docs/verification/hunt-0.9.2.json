@@ -1,0 +1,33 @@
+{
+  "version": "0.9.2",
+  "items": [
+    "uzel_durnoy_doli",
+    "oko_likha",
+    "nit_durnoy_doli",
+    "kost_likha",
+    "odnoglazyy_obereg",
+    "stepnoy_shtandart",
+    "us_tugarina",
+    "tugarinova_kozha",
+    "zmeinaya_pryazhka",
+    "naboyka_tugarina",
+    "poyas_tugarina"
+  ],
+  "small_items": [
+    "kost_likha",
+    "naboyka_tugarina",
+    "nit_durnoy_doli",
+    "tugarinova_kozha"
+  ],
+  "entities": [
+    "likho_one_eyed",
+    "tugarin_zmey"
+  ],
+  "recipes": [
+    "uzel_durnoy_doli",
+    "stepnoy_shtandart",
+    "odnoglazyy_obereg",
+    "poyas_tugarina"
+  ],
+  "minecraft_launches": 0
+}

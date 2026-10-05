@@ -1,0 +1,32 @@
+{
+  "parent": "slavicmyths:hunt_begins",
+  "display": {
+    "icon": {
+      "item": "slavicmyths:odnoglazyy_obereg"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.ill_fate_broken.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.ill_fate_broken.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:odnoglazyy_obereg"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

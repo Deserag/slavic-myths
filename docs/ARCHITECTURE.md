@@ -1,3 +1,64 @@
+# 0.9.3 — избушка и сервисы Яги
+
+YagaData — WorldSavedData `slavicmyths_yaga` в Overworld: anchor/placed/NPC UUID,
+исключённые кандидаты, игроки по UUID (intro/stage/active/contract/cooldown/warnings).
+Активный UUID резервируется и при выгрузке чанка. Три стадии завершаются только
+по совпадению принятого поручения; повторная сдача не повышает стадию.
+
+YagaHutPlan — чистый детерминированный blueprint и максимум 64 лесных кандидата.
+YagaHut использует noise biome source без чтения незагруженных чанков; затем только
+локальное PlayerTickEvent раз в 80 тиков до размещения. `hasChunksAt` предшествует
+рельефу/блокам; height scan ≤48. Проверка полного plan до записи, snapshot+rollback,
+после размещения восстанавливаются neighbor shapes (дверь, ограда, стекло, лестницы),
+дневные грибы получают podzol. Нет force-load/глобального world-tick обхода. YagaLegBlock даёт 7 форм конечностей;
+геометрия/чешуйки native, BlockItem не регистрируется.
+
+BabaYaga — CreatureEntity, не Witch/boss; простые home/look goals, 40 HP, отказ вместо
+смерти, жесты synchronized data. Canonical UUID проверяется на сервере.
+YagaMenu зарегистрирован до регистрации RpgMenu.MENUS; NetworkHooks открывает меню,
+все действия идут стандартным vanilla clickMenuButton, без новой сети.
+Server checks: world, NPC, alive, distance≤8, intro/refusal, stage/active, полные inputs,
+capacity/тип output. Персональная Inventory(5), возврат всего на removed.
+
+YagaServices — единый конечный каталог MAIN/CONTRACTS/EXCHANGES/BREWS,
+используемый сервером, экраном и изолированным необязательным JeiYaga.
+YagaScreen/BabaYagaModel/Renderer загружаются только ClientSetup (Dist.CLIENT).
+Статус лишь на Talk; 2 независимых modal popups, без постоянных справок;
+награда Stranger скрывается; dynamic controls обновляются по смене menu state.
+
+YagaUtilityItem: whitelist ordinary effect removal, никакого blanket clearEffects;
+FlightRecovery — 60-tick repack delay у существующих flight items, с мазью 30,
+6000-tick buff, без изменения cargo/motion/registry IDs. До этой итерации такого
+таймера в FlyingVessel не было; README фиксирует фактическое расширение.
+10 новых ModSounds завершаются vanilla event fallbacks с собственными субтитрами.
+
+Scoped assets: tools/yaga_093.py. tools/yaga_review_093.py читает production Java
+geometry и headless экспорт настоящего hut plan. Общий генератор подключает scoped
+слой в конце; прежняя пользовательская weapon art в этой итерации не перезаписана.
+Headless tests и ресурсные проверки не подтверждают игровой runtime.
+
+
+---
+
+# 0.9.2 — сохранённые региональные встречи
+
+HuntRecords остаётся прежним WorldSavedData slavicmyths_hunts и сохраняет Hunts;
+BossAnchors/BossRegions добавлены отдельными полями. BossKind не расширяет HuntTarget.
+BossRules: seed, кандидаты, фазы и cooldown; BossAnchors: ChunkEvent.Load и локальная
+40-tick активация, без force-load. ACTIVE UUID сохраняется независимо от наличия сущности
+в текущей памяти; finishBoss принимает только matching UUID и реальную смерть.
+WorldBoss использует базовый HuntMob для spirit/save инфраструктуры, но заменяет goals,
+атрибуты, собственный owner/encounter, bar и scheduler. Его owner не попадает в old horn lifecycle.
+BossRitualItem использует vanilla 60-tick held use, повторную проверку и расход после addFreshEntity.
+BossEffects: общая регистрация POTIONS, PotionApplicable с ограниченным recursion guard,
+Curios-only Napор и transient UUID-модификатор. BossStone — физический ограниченный projectile.
+DashFacing используется старыми и новыми наземными/воздушными атаками.
+WorldBossGeometry генерируется из того же manifest, что и offline геометрические ракурсы;
+WorldBossModel/Renderer/BossAccessoryRenderer загружаются только клиентской регистрацией.
+Обычный крафт обеспечивает JEI без отдельной категории или ложных рецептов добычи.
+
+---
+
 # 0.9.1 — расширение существующей охоты
 
 HuntTarget задаёт стабильные строковые IDs четырёх целей; HuntRecords по-прежнему

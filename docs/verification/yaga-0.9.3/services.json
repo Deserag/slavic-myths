@@ -1,0 +1,337 @@
+[
+  {
+    "id": "not_empty_handed",
+    "stage": 0,
+    "output": "svyazka_trav_yagi",
+    "amount": 2,
+    "inputs": [
+      {
+        "item": "ovinnaya_zola",
+        "count": 2
+      },
+      {
+        "item": "klyk_volkolaka",
+        "count": 1
+      },
+      {
+        "item": "pylayuschaya_cheshuya",
+        "count": 1
+      },
+      {
+        "item": "uzel_podveya",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "heat_and_wind",
+    "stage": 1,
+    "output": "putevodny_klubok",
+    "amount": 1,
+    "inputs": [
+      {
+        "item": "sosud_ognennogo_dyhaniya",
+        "count": 1
+      },
+      {
+        "item": "sosud_podveya",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "prove_strength",
+    "stage": 2,
+    "output": "yagin_nastoy_stoykosti",
+    "amount": 2,
+    "inputs": []
+  },
+  {
+    "id": "contract_ovinnik",
+    "stage": 1,
+    "output": "svyazka_trav_yagi",
+    "amount": 2,
+    "inputs": [
+      {
+        "item": "ovinnaya_zola",
+        "count": 3
+      }
+    ]
+  },
+  {
+    "id": "contract_volkolak",
+    "stage": 1,
+    "output": "svyazka_trav_yagi",
+    "amount": 2,
+    "inputs": [
+      {
+        "item": "klyk_volkolaka",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": "contract_serpent",
+    "stage": 1,
+    "output": "svyazka_trav_yagi",
+    "amount": 3,
+    "inputs": [
+      {
+        "item": "pylayuschaya_cheshuya",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": "contract_podvey",
+    "stage": 1,
+    "output": "svyazka_trav_yagi",
+    "amount": 3,
+    "inputs": [
+      {
+        "item": "vihrevaya_nit",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": "contract_likho",
+    "stage": 3,
+    "output": "otvar_ochishcheniya",
+    "amount": 2,
+    "inputs": [
+      {
+        "item": "nit_durnoy_doli",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": "contract_tugarin",
+    "stage": 3,
+    "output": "yagin_nastoy_stoykosti",
+    "amount": 2,
+    "inputs": [
+      {
+        "item": "tugarinova_kozha",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": "herbs",
+    "stage": 1,
+    "output": "svyazka_trav_yagi",
+    "amount": 2,
+    "inputs": [
+      {
+        "item": "ovinnaya_zola",
+        "count": 4
+      }
+    ]
+  },
+  {
+    "id": "linen",
+    "stage": 1,
+    "output": "flax",
+    "amount": 4,
+    "inputs": [
+      {
+        "item": "klyk_volkolaka",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": "cleansing",
+    "stage": 2,
+    "output": "otvar_ochishcheniya",
+    "amount": 1,
+    "inputs": [
+      {
+        "item": "nit_durnoy_doli",
+        "count": 3
+      }
+    ]
+  },
+  {
+    "id": "salve",
+    "stage": 2,
+    "output": "letuchaya_maz",
+    "amount": 1,
+    "inputs": [
+      {
+        "item": "ognennoe_pero",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "steadfast",
+    "stage": 3,
+    "output": "yagin_nastoy_stoykosti",
+    "amount": 1,
+    "inputs": [
+      {
+        "item": "tugarinova_kozha",
+        "count": 3
+      }
+    ]
+  },
+  {
+    "id": "restoring",
+    "stage": 3,
+    "output": "lesnoy_nastoy_vosstanovleniya",
+    "amount": 2,
+    "inputs": [
+      {
+        "item": "kost_likha",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "otvar_ochishcheniya",
+    "stage": 2,
+    "output": "otvar_ochishcheniya",
+    "amount": 1,
+    "inputs": [
+      {
+        "item": "svyazka_trav_yagi",
+        "count": 1
+      },
+      {
+        "item": "wormwood",
+        "count": 2
+      },
+      {
+        "item": "st_johns_wort",
+        "count": 2
+      },
+      {
+        "item": "minecraft:glass_bottle",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "letuchaya_maz",
+    "stage": 2,
+    "output": "letuchaya_maz",
+    "amount": 1,
+    "inputs": [
+      {
+        "item": "uzel_podveya",
+        "count": 1
+      },
+      {
+        "item": "minecraft:honey_bottle",
+        "count": 1
+      },
+      {
+        "item": "flax",
+        "count": 2
+      },
+      {
+        "item": "minecraft:bowl",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "otvar_lesnoy_zorkosti",
+    "stage": 2,
+    "output": "otvar_lesnoy_zorkosti",
+    "amount": 1,
+    "inputs": [
+      {
+        "item": "fireweed",
+        "count": 2
+      },
+      {
+        "item": "juniper_berries",
+        "count": 2
+      },
+      {
+        "item": "minecraft:brown_mushroom",
+        "count": 1
+      },
+      {
+        "item": "minecraft:glass_bottle",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "yagin_nastoy_stoykosti",
+    "stage": 3,
+    "output": "yagin_nastoy_stoykosti",
+    "amount": 1,
+    "inputs": [
+      {
+        "item": "nettle",
+        "count": 2
+      },
+      {
+        "item": "ovinnaya_zola",
+        "count": 1
+      },
+      {
+        "item": "minecraft:iron_nugget",
+        "count": 2
+      },
+      {
+        "item": "minecraft:glass_bottle",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "otvar_bodrosti",
+    "stage": 2,
+    "output": "otvar_bodrosti",
+    "amount": 1,
+    "inputs": [
+      {
+        "item": "juniper_berries",
+        "count": 2
+      },
+      {
+        "item": "minecraft:honey_bottle",
+        "count": 1
+      },
+      {
+        "item": "nettle",
+        "count": 2
+      },
+      {
+        "item": "minecraft:glass_bottle",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "lesnoy_nastoy_vosstanovleniya",
+    "stage": 3,
+    "output": "lesnoy_nastoy_vosstanovleniya",
+    "amount": 1,
+    "inputs": [
+      {
+        "item": "st_johns_wort",
+        "count": 2
+      },
+      {
+        "item": "minecraft:glistering_melon_slice",
+        "count": 1
+      },
+      {
+        "item": "fireweed",
+        "count": 2
+      },
+      {
+        "item": "minecraft:glass_bottle",
+        "count": 1
+      }
+    ]
+  }
+]

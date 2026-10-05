@@ -1,0 +1,22 @@
+{
+  "version": "0.9.2",
+  "source": "D:\\slavic-myths\\build\\libs\\slavicmyths-0.9.2.jar",
+  "installed": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Testing\\.minecraft\\mods\\slavicmyths-0.9.2.jar",
+  "sha256": "8B19F56BAE257832160F7B55B2A5DB409A34B32ADF31FB53965B446339BC3944",
+  "size": 3301266,
+  "archived": [
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Testing\\.minecraft\\mod-backups\\0.9.2-20261005-082946\\slavicmyths-0.9.1.jar"
+  ],
+  "slavic_myths_jar_count": 1,
+  "dependencies": {
+    "jei-1.16.5-7.8.0.1013.jar": "E8D5F6B5E6F0350B0ED6D0803AE92B2E2C53651A41F969D7BA8456608276FF76",
+    "curios-forge-1.16.5-4.1.0.0.jar": "3F24653C9611A799A9C39F86C63E47F549B6E95E9A95EB921BE0B71D26EA1D91"
+  },
+  "clean_build": "PASS",
+  "verifyHunt": "PASS",
+  "verifyKurgan": "PASS",
+  "verify_resources": "PASS",
+  "minecraft_launches": 0,
+  "runtime_qa": "TODO",
+  "created_utc": "2026-10-05T05:29:47.1472148Z"
+}

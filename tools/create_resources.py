@@ -88,3 +88,11 @@ hunt_090()
 # Hunt II extends Hunt I after its resource layer.
 from hunt_091 import generate as hunt_091_generate
 hunt_091_generate()
+
+from hunt_092 import generate as hunt_092_generate
+hunt_092_generate()
+from world_boss_models_092 import generate as world_boss_models_092_generate
+world_boss_models_092_generate()
+
+# Scoped 0.9.3 assets run after historical layers.
+import yaga_093

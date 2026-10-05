@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:sosud_podveya"
+    },
+    {
+      "item": "slavicmyths:nochnoy_kogot"
+    },
+    {
+      "item": "slavicmyths:vihrevaya_nit"
+    },
+    {
+      "item": "slavicmyths:uzel_podveya"
+    },
+    {
+      "item": "minecraft:string"
+    }
+  ],
+  "result": {
+    "item": "slavicmyths:uzel_durnoy_doli"
+  }
+}

@@ -1,0 +1,7 @@
+from pathlib import Path
+r=Path('src/main/java/org/slavicmyths')
+p=r/'SlavicMyths.java';s=p.read_text().replace('org.slavicmyths.rpg.org.slavicmyths.yaga.YagaMenu.register();','org.slavicmyths.yaga.YagaMenu.register();').replace('        RpgMenu.MENUS.register(bus);','        org.slavicmyths.rpg.RpgMenu.MENUS.register(bus);');p.write_text(s,'utf-8')
+p=r/'yaga/BabaYaga.java';s=p.read_text().replace('p.knockback(1.6,','p.knockback(1.6F,');p.write_text(s,'utf-8')
+p=r/'yaga/YagaHut.java';s=p.read_text().replace('before.getBlock() instanceof DirtBlock','before.getBlock()==Blocks.DIRT || before.getBlock()==Blocks.COARSE_DIRT || before.getBlock()==Blocks.PODZOL');p.write_text(s,'utf-8')
+p=r/'yaga/YagaUtilityItem.java';s=p.read_text().replace('net.minecraft.item.ItemUtils.startUsingInstantly(w,player,hand)','start(w,player,hand)');s=s.replace(' @Override public ItemStack finishUsingItem',' private static ActionResult<ItemStack> start(World w,PlayerEntity p,Hand h){p.startUsingItem(h);return ActionResult.consume(p.getItemInHand(h));}\n @Override public ItemStack finishUsingItem');p.write_text(s,'utf-8')
+p=r/'client/YagaScreen.java';s=p.read_text().replace('font.draw(m,tr("favor."+(menu.stage()','if(menu.tab()==0)font.draw(m,tr("favor."+(menu.stage()');s=s.replace('icon(e.output(),208,81);','icon(e.output(),208,81);for(int i=0;i<4;i++)if(menu.input.getItem(i).isEmpty())icon(e.inputs[i].stack(),126+i*28,108);');p.write_text(s,'utf-8')

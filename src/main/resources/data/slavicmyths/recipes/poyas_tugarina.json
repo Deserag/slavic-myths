@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LHL",
+    "SBS",
+    " L "
+  ],
+  "key": {
+    "L": {
+      "item": "slavicmyths:tugarinova_kozha"
+    },
+    "H": {
+      "item": "slavicmyths:us_tugarina"
+    },
+    "S": {
+      "item": "minecraft:leather"
+    },
+    "B": {
+      "item": "slavicmyths:zmeinaya_pryazhka"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:poyas_tugarina"
+  }
+}

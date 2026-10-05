@@ -1,0 +1,5 @@
+from pathlib import Path
+r=Path('src/main/java/org/slavicmyths')
+p=r/'yaga/YagaHutPlan.java';s=p.read_text().replace('b(x,5,-2,"spruce_slab")','b(x,5,-2,"spruce_slab[type=top]")').replace('b(-4,5,0,"slavicmyths:ritual_candle")','b(2,6,-2,"slavicmyths:ritual_candle")');p.write_text(s,'utf-8')
+p=r/'client/YagaScreen.java';s=p.read_text().replace('if(menu.tab()==0)text(m,tr("favor."+(menu.stage()>=3?"trusted":menu.stage()>=1?"guest":"stranger")),112,25,166,2,0xffefd5a0);','if(menu.tab()==0){font.draw(m,tr("favor.label"),112,20,0xffefd5a0);font.draw(m,tr("favor."+(menu.stage()>=3?"trusted":menu.stage()>=1?"guest":"stranger")),112,30,0xffefd5a0);}');p.write_text(s,'utf-8')
+p=Path('tools/yaga_093.py');s=p.read_text().replace("'favor.stranger':('Благосклонность: Чужак','Favor: Stranger'),'favor.guest':('Благосклонность: Гость','Favor: Guest'),'favor.trusted':('Благосклонность: Доверенный','Favor: Trusted'),", "'favor.label':('Благосклонность','Favor'),'favor.stranger':('Чужак','Stranger'),'favor.guest':('Гость','Guest'),'favor.trusted':('Доверенный','Trusted'),");p.write_text(s,'utf-8')

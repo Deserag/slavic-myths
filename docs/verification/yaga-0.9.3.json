@@ -1,0 +1,102 @@
+{
+  "version": "0.9.3",
+  "items": [
+    "putevodny_klubok",
+    "svyazka_trav_yagi",
+    "otvar_ochishcheniya",
+    "letuchaya_maz",
+    "otvar_lesnoy_zorkosti",
+    "yagin_nastoy_stoykosti",
+    "otvar_bodrosti",
+    "lesnoy_nastoy_vosstanovleniya"
+  ],
+  "world_only_blocks": [
+    "yaga_cauldron",
+    "yaga_dried_herbs",
+    "yaga_bone_charm",
+    "yaga_chicken_leg"
+  ],
+  "entities": [
+    "baba_yaga"
+  ],
+  "advancements": [
+    "find_the_hut",
+    "not_empty_handed",
+    "guest_of_yaga",
+    "trusted_by_yaga",
+    "follow_the_thread",
+    "cauldron_service"
+  ],
+  "png_sizes": {
+    "textures/item/putevodny_klubok.png": [
+      512,
+      512
+    ],
+    "textures/item/svyazka_trav_yagi.png": [
+      256,
+      256
+    ],
+    "textures/item/otvar_ochishcheniya.png": [
+      256,
+      256
+    ],
+    "textures/item/letuchaya_maz.png": [
+      256,
+      256
+    ],
+    "textures/item/otvar_lesnoy_zorkosti.png": [
+      256,
+      256
+    ],
+    "textures/item/yagin_nastoy_stoykosti.png": [
+      256,
+      256
+    ],
+    "textures/item/otvar_bodrosti.png": [
+      256,
+      256
+    ],
+    "textures/item/lesnoy_nastoy_vosstanovleniya.png": [
+      256,
+      256
+    ],
+    "textures/entity/baba_yaga.png": [
+      512,
+      512
+    ],
+    "textures/gui/yaga.png": [
+      512,
+      256
+    ],
+    "textures/block/yaga_iron.png": [
+      64,
+      64
+    ],
+    "textures/block/yaga_liquid.png": [
+      64,
+      64
+    ],
+    "textures/block/yaga_herbs.png": [
+      64,
+      64
+    ],
+    "textures/block/yaga_bone.png": [
+      64,
+      64
+    ],
+    "textures/block/yaga_binding.png": [
+      64,
+      64
+    ],
+    "textures/block/yaga_scales.png": [
+      64,
+      64
+    ],
+    "textures/block/yaga_claw.png": [
+      64,
+      64
+    ]
+  },
+  "minecraft_launches": 0,
+  "runtime_verified": false
+}

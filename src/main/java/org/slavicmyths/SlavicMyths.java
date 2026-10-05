@@ -24,6 +24,7 @@ public final class SlavicMyths {
         org.slavicmyths.furniture.Furniture.init();
         org.slavicmyths.kurgan.DarkenedWood.init();
         org.slavicmyths.kurgan.KurganBlocks.init();
+        org.slavicmyths.hunt.BossEffects.init();
         org.slavicmyths.kurgan.KurganCurse.EFFECTS.register(bus);
         org.slavicmyths.kurgan.BurialCoffinMenu.register();
         org.slavicmyths.kurgan.KurganStructures.register();
@@ -45,6 +46,7 @@ public final class SlavicMyths {
         org.slavicmyths.flight.FlightNetwork.register();
         org.slavicmyths.flight.Tailwind.ENCHANTMENTS.register(bus);
         org.slavicmyths.kitchen.KitchenMenu.register();
+        org.slavicmyths.yaga.YagaMenu.register();
         org.slavicmyths.rpg.RpgMenu.MENUS.register(bus);
         bus.addListener(this::setup);
         bus.addListener(org.slavicmyths.item.FolkAccessoryItem::slots);

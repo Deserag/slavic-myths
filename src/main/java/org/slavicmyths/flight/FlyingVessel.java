@@ -45,7 +45,7 @@ public final class FlyingVessel extends Entity {
   if(!isVehicle()){if(owner==null)owner=p.getUUID();if(p.startRiding(this)){wantedYaw=p.yRot;p.displayClientMessage(new TranslationTextComponent("flight.slavicmyths.controls"),true);}}return ActionResultType.CONSUME;
  }
  @Override public boolean hurt(DamageSource src,float amount){if(level.isClientSide||!isAlive()||isVehicle()||viewers>0||!(src.getEntity() instanceof PlayerEntity))return false;PlayerEntity p=(PlayerEntity)src.getEntity();if(!owns(p)||!p.isCrouching()||p.distanceToSqr(this)>16)return false;
-  ItemStack result=vessel.isEmpty()?new ItemStack(mortar?ModItems.FLYING_MORTAR.get():ModItems.FLYING_BROOM.get()):vessel.copy();if(mortar)result.getOrCreateTag().put("FlightCargo",saveCargo());cargo.clearContent();remove();if(!p.inventory.add(result))p.drop(result,false);return true;
+  ItemStack result=vessel.isEmpty()?new ItemStack(mortar?ModItems.FLYING_MORTAR.get():ModItems.FLYING_BROOM.get()):vessel.copy();if(mortar)result.getOrCreateTag().put("FlightCargo",saveCargo());cargo.clearContent();org.slavicmyths.yaga.FlightRecovery.repack(p);remove();if(!p.inventory.add(result))p.drop(result,false);return true;
  }
  @Override public boolean isPickable(){return isAlive();}
  @Override public boolean isPushable(){return false;}

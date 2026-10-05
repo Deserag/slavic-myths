@@ -61,6 +61,7 @@ public final class ModEntities {
         event.put(VOEVODA.get(),org.slavicmyths.kurgan.KurganCreature.attributes(org.slavicmyths.kurgan.KurganFighter.Kind.VOEVODA).build());
         event.put(VOLKHV.get(),org.slavicmyths.kurgan.KurganCreature.attributes(org.slavicmyths.kurgan.KurganFighter.Kind.VOLKHV).build());
         event.put(PRINCE.get(),org.slavicmyths.kurgan.KurganCreature.attributes(org.slavicmyths.kurgan.KurganFighter.Kind.PRINCE).build());
+        event.put(BABA_YAGA.get(),org.slavicmyths.yaga.BabaYaga.attributes().build());
         event.put(DOMOVOY.get(), DomovoyEntity.attributes().build());
         event.put(LESHY.get(), LeshyEntity.attributes().build());
         event.put(KIKIMORA.get(), org.slavicmyths.entity.KikimoraEntity.attributes().build());
@@ -69,6 +70,8 @@ public final class ModEntities {
         event.put(BANNIK.get(), org.slavicmyths.entity.BannikEntity.attributes().build());
         event.put(IGOSHA.get(), org.slavicmyths.entity.IgoshaEntity.attributes().build());
         event.put(FIRE_SERPENT.get(),org.slavicmyths.hunt.ElementHuntMob.attributes(true).build());
+        event.put(LIKHO_ONE_EYED.get(),org.slavicmyths.hunt.WorldBoss.attributes(org.slavicmyths.hunt.BossKind.LIKHO).build());
+        event.put(TUGARIN_ZMEY.get(),org.slavicmyths.hunt.WorldBoss.attributes(org.slavicmyths.hunt.BossKind.TUGARIN).build());
         event.put(PODVEY.get(),org.slavicmyths.hunt.ElementHuntMob.attributes(false).build());
         event.put(SERPENT_PROJECTION.get(),org.slavicmyths.hunt.SerpentProjection.attributes().build());
         event.put(VOLKOLAK.get(),org.slavicmyths.entity.VolkolakEntity.attributes().build());
@@ -105,7 +108,11 @@ public final class ModEntities {
     public static final RegistryObject<EntityType<org.slavicmyths.hunt.SerpentProjection>> SERPENT_PROJECTION=ENTITIES.register("serpent_projection",()->EntityType.Builder.of(org.slavicmyths.hunt.SerpentProjection::new,EntityClassification.MISC).sized(1.25F,1.55F).clientTrackingRange(12).updateInterval(2).fireImmune().build("slavicmyths:serpent_projection"));
     public static final RegistryObject<EntityType<org.slavicmyths.entity.VolkolakEntity>> VOLKOLAK=ENTITIES.register("volkolak",()->EntityType.Builder.of(org.slavicmyths.entity.VolkolakEntity::new,EntityClassification.MONSTER).sized(1.05F,2.25F).clientTrackingRange(12).build("slavicmyths:volkolak"));
     public static final RegistryObject<EntityType<org.slavicmyths.hunt.EmberClump>> EMBER_CLUMP=ENTITIES.register("ember_clump",()->EntityType.Builder.of(org.slavicmyths.hunt.EmberClump::new,EntityClassification.MISC).sized(.3F,.3F).clientTrackingRange(8).updateInterval(2).build("slavicmyths:ember_clump"));
+    public static final RegistryObject<EntityType<org.slavicmyths.hunt.WorldBoss>> LIKHO_ONE_EYED=ENTITIES.register("likho_one_eyed",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,EntityClassification.MONSTER).sized(.95F,3.25F).clientTrackingRange(12).build("slavicmyths:likho_one_eyed"));
+    public static final RegistryObject<EntityType<org.slavicmyths.hunt.WorldBoss>> TUGARIN_ZMEY=ENTITIES.register("tugarin_zmey",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,EntityClassification.MONSTER).sized(1.5F,2.9F).clientTrackingRange(12).build("slavicmyths:tugarin_zmey"));
+    public static final RegistryObject<EntityType<org.slavicmyths.hunt.BossStone>> TUGARIN_STONE=ENTITIES.register("tugarin_stone",()->EntityType.Builder.of(org.slavicmyths.hunt.BossStone::new,EntityClassification.MISC).sized(.4F,.4F).clientTrackingRange(8).updateInterval(2).build("slavicmyths:tugarin_stone"));
     private ModEntities() { }
     public static final RegistryObject<EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_BROOM=ENTITIES.register("flying_broom",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,false),EntityClassification.MISC).sized(1F,.45F).clientTrackingRange(10).updateInterval(3).build("slavicmyths:flying_broom"));
     public static final RegistryObject<EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_MORTAR=ENTITIES.register("flying_mortar",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,true),EntityClassification.MISC).sized(.95F,1.2F).clientTrackingRange(10).updateInterval(3).build("slavicmyths:flying_mortar"));
+ public static final RegistryObject<EntityType<org.slavicmyths.yaga.BabaYaga>> BABA_YAGA=ENTITIES.register("baba_yaga",()->EntityType.Builder.of(org.slavicmyths.yaga.BabaYaga::new,EntityClassification.CREATURE).sized(.6F,1.75F).clientTrackingRange(8).build("slavicmyths:baba_yaga"));
 }

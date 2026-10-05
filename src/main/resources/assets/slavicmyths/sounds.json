@@ -1633,5 +1633,95 @@
         "volume": 100
       }
     ]
+  },
+  "yaga_ambient": {
+    "subtitle": "subtitles.slavicmyths.yaga_ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.ambient",
+        "type": "event"
+      }
+    ]
+  },
+  "yaga_talk": {
+    "subtitle": "subtitles.slavicmyths.yaga_talk",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.ambient",
+        "type": "event"
+      }
+    ]
+  },
+  "yaga_warn": {
+    "subtitle": "subtitles.slavicmyths.yaga_warn",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.celebrate",
+        "type": "event"
+      }
+    ]
+  },
+  "yaga_stir": {
+    "subtitle": "subtitles.slavicmyths.yaga_stir",
+    "sounds": [
+      {
+        "name": "minecraft:block.brewing_stand.brew",
+        "type": "event"
+      }
+    ]
+  },
+  "yaga_open": {
+    "subtitle": "subtitles.slavicmyths.yaga_open",
+    "sounds": [
+      {
+        "name": "minecraft:block.chest.open",
+        "type": "event"
+      }
+    ]
+  },
+  "yaga_close": {
+    "subtitle": "subtitles.slavicmyths.yaga_close",
+    "sounds": [
+      {
+        "name": "minecraft:block.chest.close",
+        "type": "event"
+      }
+    ]
+  },
+  "yaga_hurt": {
+    "subtitle": "subtitles.slavicmyths.yaga_hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.hurt",
+        "type": "event"
+      }
+    ]
+  },
+  "yaga_step": {
+    "subtitle": "subtitles.slavicmyths.yaga_step",
+    "sounds": [
+      {
+        "name": "minecraft:block.bone_block.step",
+        "type": "event"
+      }
+    ]
+  },
+  "yaga_hut_creak": {
+    "subtitle": "subtitles.slavicmyths.yaga_hut_creak",
+    "sounds": [
+      {
+        "name": "minecraft:block.wooden_door.open",
+        "type": "event"
+      }
+    ]
+  },
+  "yaga_hut_step": {
+    "subtitle": "subtitles.slavicmyths.yaga_hut_step",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.step",
+        "type": "event"
+      }
+    ]
   }
 }

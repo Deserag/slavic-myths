@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('src/main/java/org/slavicmyths/yaga/YagaData.java');s=p.read_text('utf8').replace('contract=(contract+1)%4','contract=YagaServices.nextContract(stage,contract)').replace('Math.floorMod(n.getInt("Contract"),4)', 'Math.floorMod(n.getInt("Contract"),YagaServices.POOL.length)');s=s.replace('public long blockedUntil,contractReady,warningUntil;', 'public long blockedUntil,contractReady,warningUntil;');p.write_text(s,'utf8')

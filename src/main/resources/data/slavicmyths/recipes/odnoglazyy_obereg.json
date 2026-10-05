@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BTB",
+    "IEI",
+    " K "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "T": {
+      "item": "slavicmyths:nit_durnoy_doli"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "E": {
+      "item": "slavicmyths:oko_likha"
+    },
+    "K": {
+      "item": "slavicmyths:kost_likha"
+    }
+  },
+  "result": {
+    "item": "slavicmyths:odnoglazyy_obereg"
+  }
+}

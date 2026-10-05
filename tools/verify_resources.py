@@ -15,6 +15,7 @@ def registered(file):
     if file == 'registry/ModItems.java': found.update(re.findall(r'\b(?:food|stew|egg)\(\s*"([a-z_]+)"',source))
     return found
 
+yaga=read(ROOT/'docs/verification/yaga-0.9.3.json')
 items = registered('registry/ModItems.java')
 blocks = registered('registry/ModBlocks.java')
 wood_manifest=ROOT/'docs/verification/woodlands-0.8.0.1.json'
@@ -35,7 +36,7 @@ hunt2=read(ROOT/'docs/verification/hunt-0.9.1.json')
 assert not re.search(r'\.durability\([^)]*\)\.stacksTo\(', (JAVA/'registry/ModItems.java').read_text()), 'Durable items must not call stacksTo after durability'
 assert len(items) >= 74 and len(blocks) >= 18
 assert {'birch_bark_scroll', 'thunder_stone', 'warding_charm'} <= items
-assert blocks - {"raspberry_bush", "blueberry_bush"} - {b for b in blocks if b.endswith("_wall_sign")} <= items
+assert blocks - set(yaga["world_only_blocks"]) - {"raspberry_bush", "blueberry_bush"} - {b for b in blocks if b.endswith("_wall_sign")} <= items
 assert 'ItemGroup.TAB_MISC' not in (JAVA/'registry/ModItems.java').read_text()
 
 def ref(value, folder, suffix='.json'):
@@ -99,8 +100,14 @@ for path in pngs:
                     expected = (32,32)  # Native material atlas for physical weapon models.
             if path.parent.name == 'item' and path.stem in hunt2['items']: expected=(256,256) if path.stem in hunt2['small_items'] else (512,512)
             if path.parent.name == 'entity' and path.stem in hunt2['entities']: expected=(512,512)
+            hunt3=read(ROOT/'docs/verification/hunt-0.9.2.json')
+            if path.parent.name == 'item' and path.stem in hunt3['items']: expected=(256,256) if path.stem in hunt3['small_items'] else (512,512)
+            if path.parent.name == 'entity' and path.stem in hunt3['entities']: expected=(512,512)
+            if path.parent.name == 'mob_effect' and path.stem=='durnaya_dolya': expected=(64,64)
             # Existing user-authored 256px weapon atlases are preserved by 0.8.5.
             if path.parent.name == "item" and path.stem in {"battle_axe","carved_staff","club","retainer_shield"}: expected=(256,256)
+            relative=path.relative_to(RES/'assets/slavicmyths').as_posix() if path.is_relative_to(RES/'assets/slavicmyths') else ''
+            if relative in yaga['png_sizes']: expected=tuple(yaga['png_sizes'][relative])
             assert (width,height,depth,color,compression,filtering,interlace) == (*expected,8,6,0,0,0), str(path)
         if kind == b'IDAT':
             compressed += data
@@ -182,6 +189,12 @@ wildlife=set(re.findall(r'wildlife\("([a-z_]+)"',(JAVA/'registry/ModEntities.jav
 entities.update(wildlife)
 assert {'domovoy','leshy','kikimora','poludnitsa','polevik','bannik','igosha','ovinnik','hot_stone'} <= entities
 for entity in entities - {'hot_stone'}:
+    if entity=='baba_yaga':
+        assert (RES/'assets/slavicmyths/textures/entity/baba_yaga.png').is_file()
+        assert (RES/'data/slavicmyths/loot_tables/entities/baba_yaga.json').is_file()
+        assert (JAVA/'client/BabaYagaModel.java').is_file()
+        assert 'ModEntities.BABA_YAGA.get()' in (JAVA/'client/ClientSetup.java').read_text()
+        continue
     if entity=='serpent_projection':
         assert 'ModEntities.SERPENT_PROJECTION.get()' in (JAVA/'client/ClientSetup.java').read_text()
         continue
@@ -215,6 +228,16 @@ for entity in entities - {'hot_stone'}:
         assert all((RES/f'assets/slavicmyths/textures/entity/bandit_{role}_{face}.png').is_file() for face in range(4))
         assert (RES/f'data/slavicmyths/loot_tables/entities/{entity}.json').is_file()
         assert (JAVA/'client/BanditModel.java').is_file() and (JAVA/'client/BanditRenderer.java').is_file()
+        assert 'ModEntities.'+entity.upper()+'.get()' in (JAVA/'client/ClientSetup.java').read_text()
+        continue
+    if entity == 'tugarin_stone':
+        assert 'ModEntities.TUGARIN_STONE.get()' in (JAVA/'client/ClientSetup.java').read_text()
+        assert (JAVA/'hunt/BossStone.java').is_file()
+        continue
+    if entity in {'likho_one_eyed','tugarin_zmey'}:
+        assert (RES/f'assets/slavicmyths/textures/entity/{entity}.png').is_file()
+        assert (RES/f'data/slavicmyths/loot_tables/entities/{entity}.json').is_file()
+        assert (JAVA/'client/WorldBossModel.java').is_file() and (JAVA/'client/WorldBossRenderer.java').is_file()
         assert 'ModEntities.'+entity.upper()+'.get()' in (JAVA/'client/ClientSetup.java').read_text()
         continue
     if entity == 'thrown_net':

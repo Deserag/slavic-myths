@@ -7,7 +7,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '0.9.1'
+version = '0.9.3'
 group = 'org.slavicmyths'
 archivesBaseName = 'slavicmyths'
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
@@ -81,4 +81,11 @@ if (project.hasProperty('smokeTest') || project.hasProperty('wildlifeSmoke')) {
     }
     minecraft.runs.client.mods { slavicmyths_smoke { source sourceSets.smoke } }
     tasks.matching { it.name == 'runClient' }.configureEach { dependsOn 'smokeClasses' }
+}
+
+tasks.register('verifyYaga', JavaExec) {
+    dependsOn 'kurganCheckClasses'
+    classpath = sourceSets.kurganCheck.runtimeClasspath
+    mainClass = 'org.slavicmyths.verify.YagaHeadless'
+    args file('docs/verification/yaga-0.9.3/hut-plan.json').absolutePath
 }
