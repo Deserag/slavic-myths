@@ -1,41 +1,41 @@
 package org.slavicmyths.item;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.DamageSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.tags.EntityTypeTags;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
 import org.slavicmyths.SlavicMyths;
 import org.slavicmyths.registry.ModItems;
 
-@Mod.EventBusSubscriber(modid = SlavicMyths.MOD_ID)
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID)
 public final class StormProtection {
-    private static final net.minecraftforge.common.Tags.IOptionalNamedTag<net.minecraft.entity.EntityType<?>> FOREST_SPIRITS =
-            EntityTypeTags.createOptional(new ResourceLocation(SlavicMyths.MOD_ID, "forest_spirits"));
-    @SubscribeEvent public static void onHurt(LivingHurtEvent event) {
-        if (!(event.getEntityLiving() instanceof PlayerEntity)) return;
-        PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-        if (player.getOffhandItem().getItem() == ModItems.AMBER_CHARM.get() && event.getSource().isFire()) {
+    private static final net.minecraft.tags.TagKey<net.minecraft.world.entity.EntityType<?>> FOREST_SPIRITS =
+            net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE,ResourceLocation.fromNamespaceAndPath(SlavicMyths.MOD_ID, "forest_spirits"));
+    @SubscribeEvent public static void onHurt(LivingIncomingDamageEvent event) {
+        if (!(event.getEntity() instanceof Player)) return;
+        Player player = (Player) event.getEntity();
+        if (player.getOffhandItem().getItem() == ModItems.AMBER_CHARM.get() && event.getSource().is(net.minecraft.tags.DamageTypeTags.IS_FIRE)) {
             event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.8F:0.85F));
         }
-        if (player.getOffhandItem().getItem() == ModItems.TRAVELER_CHARM.get() && event.getSource() == DamageSource.FALL) {
+        if (player.getOffhandItem().getItem() == ModItems.TRAVELER_CHARM.get() && event.getSource().is(net.minecraft.world.damagesource.DamageTypes.FALL)) {
             event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.8F:0.85F));
         }
         if (player.getOffhandItem().getItem() == ModItems.FOREST_CHARM.get()
                 && event.getSource().getEntity() != null && event.getSource().getEntity().getType().is(FOREST_SPIRITS)) {
             event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.8F:0.85F));
         }
-        if (event.getSource() != DamageSource.LIGHTNING_BOLT) return;
+        if (!event.getSource().is(net.minecraft.world.damagesource.DamageTypes.LIGHTNING_BOLT)) return;
         if (player.getOffhandItem().getItem() == ModItems.PERUN_CHARM.get()) {
             event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.65F:0.7F));
         }
-        if (player.getItemBySlot(EquipmentSlotType.HEAD).getItem() == ModItems.PERUNITE_HELMET.get()
-                && player.getItemBySlot(EquipmentSlotType.CHEST).getItem() == ModItems.PERUNITE_CHESTPLATE.get()
-                && player.getItemBySlot(EquipmentSlotType.LEGS).getItem() == ModItems.PERUNITE_LEGGINGS.get()
-                && player.getItemBySlot(EquipmentSlotType.FEET).getItem() == ModItems.PERUNITE_BOOTS.get()) {
+        if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.PERUNITE_HELMET.get()
+                && player.getItemBySlot(EquipmentSlot.CHEST).getItem() == ModItems.PERUNITE_CHESTPLATE.get()
+                && player.getItemBySlot(EquipmentSlot.LEGS).getItem() == ModItems.PERUNITE_LEGGINGS.get()
+                && player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PERUNITE_BOOTS.get()) {
             event.setAmount(event.getAmount() * 0.75F);
         }
     }

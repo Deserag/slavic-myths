@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:feature_plains_forest_taiga",
+  "features": [
+    "slavicmyths:ancient_shrine"
+  ],
+  "step": "surface_structures"
+}

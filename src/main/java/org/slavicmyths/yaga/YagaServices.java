@@ -1,15 +1,15 @@
 package org.slavicmyths.yaga;
 import java.util.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.*;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Container;
+import net.minecraft.world.item.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
+import net.minecraft.core.registries.BuiltInRegistries;
 /** Finite, shared catalogue: the server, menu and JEI all read these same entries. */
 public final class YagaServices {
- public static final class Need{public final String id;public final int count;public Need(String id,int n){this.id=id.contains(":")?id:"slavicmyths:"+id;count=n;}public Item item(){Item i=ForgeRegistries.ITEMS.getValue(new ResourceLocation(id));if(i==null||i==Items.AIR)throw new IllegalStateException("Missing Yaga ingredient "+id);return i;}public ItemStack stack(){return new ItemStack(item(),count);}}
- public static final class Entry{public final String id,result;public final int amount,stage;public final Need[] inputs;Entry(String id,int stage,String result,int amount,Need...needs){this.id=id;this.stage=stage;this.result=result;this.amount=amount;inputs=needs;}public ItemStack output(){return result.isEmpty()?ItemStack.EMPTY:new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("slavicmyths",result)),amount);}}
+ public static final class Need{public final String id;public final int count;public Need(String id,int n){this.id=id.contains(":")?id:"slavicmyths:"+id;count=n;}public Item item(){Item i=BuiltInRegistries.ITEM.get(ResourceLocation.parse(id));if(i==null||i==Items.AIR)throw new IllegalStateException("Missing Yaga ingredient "+id);return i;}public ItemStack stack(){return new ItemStack(item(),count);}}
+ public static final class Entry{public final String id,result;public final int amount,stage;public final Need[] inputs;Entry(String id,int stage,String result,int amount,Need...needs){this.id=id;this.stage=stage;this.result=result;this.amount=amount;inputs=needs;}public ItemStack output(){return result.isEmpty()?ItemStack.EMPTY:new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("slavicmyths",result)),amount);}}
  private static Need n(String id,int count){return new Need(id,count);}
  public static final Entry[] MAIN={
   new Entry("not_empty_handed",0,"svyazka_trav_yagi",2,n("ovinnaya_zola",2),n("klyk_volkolaka",1),n("pylayuschaya_cheshuya",1),n("uzel_podveya",1)),
@@ -32,11 +32,11 @@ public final class YagaServices {
   new Entry("lesnoy_nastoy_vosstanovleniya",3,"lesnoy_nastoy_vosstanovleniya",1,n("st_johns_wort",2),n("minecraft:glistering_melon_slice",1),n("fireweed",2),n("minecraft:glass_bottle",1))};
  public static final int[] POOL={0,1,2,3,0,1,2,3,4,0,1,2,3,5};
  public static int nextContract(int stage,int current){int next=current;do{next=(next+1)%POOL.length;}while(stage<3&&POOL[next]>=4);return next;}
- public static boolean has(IInventory inv,Need[] needs){Map<Item,Integer> total=new HashMap<>();for(Need n:needs)total.merge(n.item(),n.count,Integer::sum);for(Map.Entry<Item,Integer> e:total.entrySet()){int count=0;for(int i=0;i<inv.getContainerSize();i++)if(inv.getItem(i).getItem()==e.getKey())count+=inv.getItem(i).getCount();if(count<e.getValue())return false;}return true;}
- public static void consume(IInventory inv,Need[] needs){if(!has(inv,needs))throw new IllegalStateException("Unvalidated Yaga transaction");for(Need n:needs){int remaining=n.count;for(int i=0;i<inv.getContainerSize()&&remaining>0;i++){ItemStack s=inv.getItem(i);if(s.getItem()!=n.item())continue;int take=Math.min(remaining,s.getCount());s.shrink(take);remaining-=take;}}inv.setChanged();}
- public static boolean killed(ServerPlayerEntity p,String id){net.minecraft.advancements.Advancement a=p.server.getAdvancements().getAdvancement(new ResourceLocation("slavicmyths",id));return a!=null&&p.getAdvancements().getOrStartProgress(a).isDone();}
- public static void give(ServerPlayerEntity p,ItemStack reward){if(!reward.isEmpty()&&!p.inventory.add(reward))p.drop(reward,false);}
- public static void award(ServerPlayerEntity p,String id){org.slavicmyths.item.FolkAccessoryItem.award(p,id);}
- public static boolean fail(ServerPlayerEntity p,String key){p.displayClientMessage(new TranslationTextComponent("yaga.fail."+key),true);return false;}
+ public static boolean has(Container inv,Need[] needs){Map<Item,Integer> total=new HashMap<>();for(Need n:needs)total.merge(n.item(),n.count,Integer::sum);for(Map.Entry<Item,Integer> e:total.entrySet()){int count=0;for(int i=0;i<inv.getContainerSize();i++)if(inv.getItem(i).getItem()==e.getKey())count+=inv.getItem(i).getCount();if(count<e.getValue())return false;}return true;}
+ public static void consume(Container inv,Need[] needs){if(!has(inv,needs))throw new IllegalStateException("Unvalidated Yaga transaction");for(Need n:needs){int remaining=n.count;for(int i=0;i<inv.getContainerSize()&&remaining>0;i++){ItemStack s=inv.getItem(i);if(s.getItem()!=n.item())continue;int take=Math.min(remaining,s.getCount());s.shrink(take);remaining-=take;}}inv.setChanged();}
+ public static boolean killed(ServerPlayer p,String id){net.minecraft.advancements.AdvancementHolder a=p.server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath("slavicmyths",id));return a!=null&&p.getAdvancements().getOrStartProgress(a).isDone();}
+ public static void give(ServerPlayer p,ItemStack reward){if(!reward.isEmpty()&&!p.getInventory().add(reward))p.drop(reward,false);}
+ public static void award(ServerPlayer p,String id){org.slavicmyths.item.FolkAccessoryItem.award(p,id);}
+ public static boolean fail(ServerPlayer p,String key){p.displayClientMessage(Component.translatable("yaga.fail."+key),true);return false;}
  private YagaServices(){}
 }

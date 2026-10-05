@@ -1,22 +1,22 @@
 package org.slavicmyths.item;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.level.Level;
 import org.slavicmyths.progression.Knowledge;
 import org.slavicmyths.network.LoreNetwork;
 
 public final class LoreBookItem extends Item {
     public LoreBookItem(Properties properties) { super(properties); }
-    @Override public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        if (player instanceof ServerPlayerEntity) {
+    @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+        if (player instanceof ServerPlayer) {
             Knowledge.award(player, "lore_book");
-            LoreNetwork.open((ServerPlayerEntity) player, Knowledge.mask((ServerPlayerEntity) player));
+            LoreNetwork.open((ServerPlayer) player, Knowledge.mask((ServerPlayer) player));
         }
-        return ActionResult.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
+        return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
     }
 }

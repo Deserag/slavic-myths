@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "slavicmyths:block/bog_green_kurgan_cobblestone",
+    "top": "slavicmyths:block/bog_green_kurgan_cobblestone",
+    "side": "slavicmyths:block/bog_green_kurgan_cobblestone"
+  }
+}

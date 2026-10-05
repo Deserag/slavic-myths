@@ -1,0 +1,922 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:3: error: package net.minecraft.block.material does not exist
+import net.minecraft.block.material.Material;
+                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:5: error: package net.minecraft.inventory.container does not exist
+import net.minecraft.inventory.container.SimpleNamedContainerProvider;
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:8: error: package net.minecraft.util.text does not exist
+import net.minecraft.util.text.TranslationTextComponent;
+                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:9: error: cannot find symbol
+import net.minecraft.world.World;
+                          ^
+  symbol:   class World
+  location: package net.minecraft.world
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:10: error: package net.minecraftforge.fml.network does not exist
+import net.minecraftforge.fml.network.NetworkHooks;
+                                     ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:11: error: cannot find symbol
+public final class ArmorerBlock extends Block {
+                                        ^
+  symbol: class Block
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                          ^
+  symbol:   class BlockState
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                       ^
+  symbol:   class World
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                               ^
+  symbol:   class BlockPos
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                            ^
+  symbol:   class PlayerEntity
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                                           ^
+  symbol:   class Hand
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                                                     ^
+  symbol:   class BlockRayTraceResult
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                     ^
+  symbol:   class ActionResultType
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:2: error: package net.minecraft.block does not exist
+import net.minecraft.block.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:4: error: package net.minecraft.entity.player does not exist
+import net.minecraft.entity.player.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:7: error: package net.minecraft.util.math does not exist
+import net.minecraft.util.math.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:4: error: package net.minecraft.entity.ai.goal does not exist
+import net.minecraft.entity.ai.goal.Goal;
+                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:6: error: package net.minecraft.entity.passive does not exist
+import net.minecraft.entity.passive.TameableEntity;
+                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:7: error: cannot find symbol
+import net.minecraft.nbt.CompoundNBT;
+                        ^
+  symbol:   class CompoundNBT
+  location: package net.minecraft.nbt
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:8: error: package net.minecraft.particles does not exist
+import net.minecraft.particles.ParticleTypes;
+                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:9: error: package net.minecraft.world.server does not exist
+import net.minecraft.world.server.ServerWorld;
+                                 ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:10: error: package net.minecraftforge.event.entity does not exist
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+                                      ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:12: error: package net.minecraftforge.eventbus.api does not exist
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+                                      ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:13: error: package net.minecraftforge.fml.common does not exist
+import net.minecraftforge.fml.common.Mod;
+                                    ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:16: error: package Mod does not exist
+@Mod.EventBusSubscriber(modid="slavicmyths")
+    ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:18: error: cannot find symbol
+ public static long now(net.minecraft.world.World w){return w.getServer().overworld().getGameTime();}
+                                           ^
+  symbol:   class World
+  location: package net.minecraft.world
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:19: error: cannot find symbol
+ public static boolean summoned(LivingEntity e){return e.getPersistentData().hasUUID("SlavicGuardianOwner");}
+                                ^
+  symbol:   class LivingEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:20: error: cannot find symbol
+ public static boolean calm(LivingEntity e){return !e.level.isClientSide&&e.getPersistentData().getLong("SlavicMusicUntil")>now(e.level);}
+                            ^
+  symbol:   class LivingEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:21: error: cannot find symbol
+ public static boolean eligible(MobEntity e){return e.canChangeDimensions()&&!summoned(e)&&e.getMaxHealth()<100&&!e.getTags().contains("slavic_music_immune")&&(!e.getType().getRegistryName().getNamespace().equals("slavicmyths")||e instanceof WildlifeEntity);}
+                                ^
+  symbol:   class MobEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:22: error: cannot find symbol
+ public static void music(PlayerEntity p){
+                          ^
+  symbol:   class PlayerEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:33: error: cannot find symbol
+ @SubscribeEvent public static void join(EntityJoinWorldEvent event){if(!event.getWorld().isClientSide&&event.getEntity() instanceof MobEntity){MobEntity m=(MobEntity)event.getEntity();m.goalSelector.addGoal(-10,new CalmGoal(m));if(m instanceof WildlifeEntity)m.goalSelector.addGoal(-9,new GuardianGoal((WildlifeEntity)m));}}
+                                         ^
+  symbol:   class EntityJoinWorldEvent
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:34: error: cannot find symbol
+ @SubscribeEvent public static void target(LivingSetAttackTargetEvent event){if(event.getTarget()!=null&&event.getEntityLiving() instanceof MobEntity&&calm(event.getEntityLiving()))((MobEntity)event.getEntityLiving()).setTarget(null);}
+                                           ^
+  symbol:   class LivingSetAttackTargetEvent
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:35: error: cannot find symbol
+ @SubscribeEvent public static void attack(LivingAttackEvent event){Entity attacker=event.getSource().getEntity();if(attacker instanceof LivingEntity&&(calm((LivingEntity)attacker)||(summoned((LivingEntity)attacker)&&!enemy((LivingEntity)attacker,event.getEntityLiving()))))event.setCanceled(true);}
+                                           ^
+  symbol:   class LivingAttackEvent
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:36: error: package LivingEvent does not exist
+ @SubscribeEvent public static void embers(LivingEvent.LivingUpdateEvent event){LivingEntity e=event.getEntityLiving();if(e.level.isClientSide||e.tickCount%20!=0||!e.getPersistentData().contains("SlavicEmbersUntil"))return;if(now(e.level)<e.getPersistentData().getLong("SlavicEmbersUntil"))((ServerWorld)e.level).sendParticles(ParticleTypes.FLAME,e.getX(),e.getY()+.6,e.getZ(),1,.2,.3,.2,0);else e.getPersistentData().remove("SlavicEmbersUntil");}
+                                                      ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:37: error: cannot find symbol
+ @SubscribeEvent public static void drops(LivingDropsEvent event){if(summoned(event.getEntityLiving()))event.setCanceled(true);}
+                                          ^
+  symbol:   class LivingDropsEvent
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:38: error: cannot find symbol
+ @SubscribeEvent public static void xp(LivingExperienceDropEvent event){if(summoned(event.getEntityLiving()))event.setDroppedExperience(0);}
+                                       ^
+  symbol:   class LivingExperienceDropEvent
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:39: error: cannot find symbol
+ public static PlayerEntity owner(LivingEntity e){return summoned(e)?e.level.getPlayerByUUID(e.getPersistentData().getUUID("SlavicGuardianOwner")):null;}
+                                  ^
+  symbol:   class LivingEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:39: error: cannot find symbol
+ public static PlayerEntity owner(LivingEntity e){return summoned(e)?e.level.getPlayerByUUID(e.getPersistentData().getUUID("SlavicGuardianOwner")):null;}
+               ^
+  symbol:   class PlayerEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:40: error: cannot find symbol
+ public static boolean enemy(LivingEntity guardian,LivingEntity target){PlayerEntity p=owner(guardian);if(p==null||target==null||!target.isAlive()||target==p||p.isAlliedTo(target)||target.isAlliedTo(p))return false;if(target instanceof PlayerEntity&&!p.canHarmPlayer((PlayerEntity)target))return false;if(target instanceof TameableEntity&&p.getUUID().equals(((TameableEntity)target).getOwnerUUID()))return false;return !summoned(target)||!target.getPersistentData().getUUID("SlavicGuardianOwner").equals(p.getUUID());}
+                             ^
+  symbol:   class LivingEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:40: error: cannot find symbol
+ public static boolean enemy(LivingEntity guardian,LivingEntity target){PlayerEntity p=owner(guardian);if(p==null||target==null||!target.isAlive()||target==p||p.isAlliedTo(target)||target.isAlliedTo(p))return false;if(target instanceof PlayerEntity&&!p.canHarmPlayer((PlayerEntity)target))return false;if(target instanceof TameableEntity&&p.getUUID().equals(((TameableEntity)target).getOwnerUUID()))return false;return !summoned(target)||!target.getPersistentData().getUUID("SlavicGuardianOwner").equals(p.getUUID());}
+                                                   ^
+  symbol:   class LivingEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:3: error: package net.minecraft.entity does not exist
+import net.minecraft.entity.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:5: error: package net.minecraft.entity.player does not exist
+import net.minecraft.entity.player.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:11: error: package net.minecraftforge.event.entity.living does not exist
+import net.minecraftforge.event.entity.living.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:41: error: cannot find symbol
+ private static final class CalmGoal extends Goal {
+                                             ^
+  symbol:   class Goal
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:42: error: cannot find symbol
+  final MobEntity mob;CalmGoal(MobEntity m){mob=m;setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK,Flag.JUMP));}
+        ^
+  symbol:   class MobEntity
+  location: class CalmGoal
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:42: error: cannot find symbol
+  final MobEntity mob;CalmGoal(MobEntity m){mob=m;setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK,Flag.JUMP));}
+                               ^
+  symbol:   class MobEntity
+  location: class CalmGoal
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:48: error: cannot find symbol
+ private static final class GuardianGoal extends Goal {
+                                                 ^
+  symbol:   class Goal
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:6: error: package net.minecraft.entity.player does not exist
+import net.minecraft.entity.player.PlayerEntity;
+                                  ^
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:9: error: package net.minecraft.util.math.vector does not exist
+import net.minecraft.util.math.vector.Vector3d;
+                                     ^
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:10: error: cannot find symbol
+import net.minecraft.world.World;
+                          ^
+  symbol:   class World
+  location: package net.minecraft.world
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:11: error: package net.minecraft.world.server does not exist
+import net.minecraft.world.server.ServerWorld;
+                                 ^
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:13: error: package net.minecraftforge.registries does not exist
+import net.minecraftforge.registries.ForgeRegistries;
+                                    ^
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:15: error: cannot find symbol
+public final class WildlifeEntity extends CreatureEntity {
+                                          ^
+  symbol: class CreatureEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:18: error: cannot find symbol
+ private static final DataParameter<Integer> STATE=EntityDataManager.defineId(WildlifeEntity.class,DataSerializers.INT);
+                      ^
+  symbol:   class DataParameter
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:19: error: cannot find symbol
+ private static final DataParameter<Integer> CLOCK=EntityDataManager.defineId(WildlifeEntity.class,DataSerializers.INT);
+                      ^
+  symbol:   class DataParameter
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:20: error: cannot find symbol
+ private static final DataParameter<Integer> STYLE=EntityDataManager.defineId(WildlifeEntity.class,DataSerializers.INT);
+                      ^
+  symbol:   class DataParameter
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:23: error: cannot find symbol
+ private Vector3d chargeDirection=Vector3d.ZERO;
+         ^
+  symbol:   class Vector3d
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:24: error: cannot find symbol
+ private LivingEntity danger;
+         ^
+  symbol:   class LivingEntity
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:27: error: cannot find symbol
+ public WildlifeEntity(EntityType<? extends WildlifeEntity> type,World world,Kind kind){
+                       ^
+  symbol:   class EntityType
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:27: error: cannot find symbol
+ public WildlifeEntity(EntityType<? extends WildlifeEntity> type,World world,Kind kind){
+                                                                 ^
+  symbol:   class World
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:31: error: cannot find symbol
+ @Override public ILivingEntityData finalizeSpawn(net.minecraft.world.IServerWorld world,net.minecraft.world.DifficultyInstance difficulty,SpawnReason reason,ILivingEntityData data,net.minecraft.nbt.CompoundNBT nbt){
+                                                                     ^
+  symbol:   class IServerWorld
+  location: package net.minecraft.world
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:31: error: cannot find symbol
+ @Override public ILivingEntityData finalizeSpawn(net.minecraft.world.IServerWorld world,net.minecraft.world.DifficultyInstance difficulty,SpawnReason reason,ILivingEntityData data,net.minecraft.nbt.CompoundNBT nbt){
+                                                                                                                                           ^
+  symbol:   class SpawnReason
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:31: error: cannot find symbol
+ @Override public ILivingEntityData finalizeSpawn(net.minecraft.world.IServerWorld world,net.minecraft.world.DifficultyInstance difficulty,SpawnReason reason,ILivingEntityData data,net.minecraft.nbt.CompoundNBT nbt){
+                                                                                                                                                              ^
+  symbol:   class ILivingEntityData
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:31: error: cannot find symbol
+ @Override public ILivingEntityData finalizeSpawn(net.minecraft.world.IServerWorld world,net.minecraft.world.DifficultyInstance difficulty,SpawnReason reason,ILivingEntityData data,net.minecraft.nbt.CompoundNBT nbt){
+                                                                                                                                                                                                      ^
+  symbol:   class CompoundNBT
+  location: package net.minecraft.nbt
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:31: error: cannot find symbol
+ @Override public ILivingEntityData finalizeSpawn(net.minecraft.world.IServerWorld world,net.minecraft.world.DifficultyInstance difficulty,SpawnReason reason,ILivingEntityData data,net.minecraft.nbt.CompoundNBT nbt){
+                  ^
+  symbol:   class ILivingEntityData
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:51: error: package AttributeModifierMap does not exist
+ public static AttributeModifierMap.MutableAttribute attributes(Kind k){
+                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:58: error: cannot find symbol
+ private boolean valid(LivingEntity e){return e!=null&&e.isAlive()&&(!(e instanceof PlayerEntity)||!((PlayerEntity)e).isCreative()&&!e.isSpectator());}
+                       ^
+  symbol:   class LivingEntity
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:59: error: cannot find symbol
+ @Override public boolean hurt(DamageSource source,float amount){
+                               ^
+  symbol:   class DamageSource
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:118: error: cannot find symbol
+ private void strike(LivingEntity target,float multiplier,float knock){
+                     ^
+  symbol:   class LivingEntity
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:183: error: cannot find symbol
+ private SoundEvent sound(String suffix){return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("slavicmyths",kind.name().toLowerCase(java.util.Locale.ROOT)+"_"+suffix));}
+         ^
+  symbol:   class SoundEvent
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:185: error: cannot find symbol
+ @Override protected SoundEvent getAmbientSound(){return sound("ambient");}
+                     ^
+  symbol:   class SoundEvent
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:186: error: cannot find symbol
+ @Override protected SoundEvent getHurtSound(DamageSource source){return sound("hurt");}
+                                             ^
+  symbol:   class DamageSource
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:186: error: cannot find symbol
+ @Override protected SoundEvent getHurtSound(DamageSource source){return sound("hurt");}
+                     ^
+  symbol:   class SoundEvent
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:187: error: cannot find symbol
+ @Override protected SoundEvent getDeathSound(){return sound("death");}
+                     ^
+  symbol:   class SoundEvent
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:190: error: package net.minecraft.util.math does not exist
+ @Override protected void playStepSound(net.minecraft.util.math.BlockPos pos,net.minecraft.block.BlockState block){if(!isInWater())voice("impact",kind==Kind.BEAR?.12F:.055F);}
+                                                               ^
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:190: error: package net.minecraft.block does not exist
+ @Override protected void playStepSound(net.minecraft.util.math.BlockPos pos,net.minecraft.block.BlockState block){if(!isInWater())voice("impact",kind==Kind.BEAR?.12F:.055F);}
+                                                                                                ^
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:191: error: cannot find symbol
+ @Override protected ResourceLocation getDefaultLootTable(){return new ResourceLocation("slavicmyths","entities/"+kind.name().toLowerCase(java.util.Locale.ROOT));}
+                     ^
+  symbol:   class ResourceLocation
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:193: error: cannot find symbol
+ @Override public boolean canBeLeashed(PlayerEntity player){return false;}
+                                       ^
+  symbol:   class PlayerEntity
+  location: class WildlifeEntity
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:3: error: package net.minecraft.entity does not exist
+import net.minecraft.entity.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:4: error: package net.minecraft.entity.ai.attributes does not exist
+import net.minecraft.entity.ai.attributes.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:5: error: package net.minecraft.entity.ai.goal does not exist
+import net.minecraft.entity.ai.goal.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:7: error: package net.minecraft.network.datasync does not exist
+import net.minecraft.network.datasync.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:12: error: package net.minecraft.particles does not exist
+import net.minecraft.particles.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:3: error: package net.minecraft.entity does not exist
+import net.minecraft.entity.LivingEntity;
+                           ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:4: error: package net.minecraft.entity.player does not exist
+import net.minecraft.entity.player.PlayerEntity;
+                                  ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:6: error: cannot find symbol
+import net.minecraft.world.World;
+                          ^
+  symbol:   class World
+  location: package net.minecraft.world
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:7: error: package net.minecraft.world.server does not exist
+import net.minecraft.world.server.ServerWorld;
+                                 ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:9: error: package net.minecraft.particles does not exist
+import net.minecraft.particles.ParticleTypes;
+                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:10: error: cannot find symbol
+public final class BadnyakItem extends Item {
+                                       ^
+  symbol: class Item
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:11: error: cannot find symbol
+ public BadnyakItem(Properties p){super(p.stacksTo(16));}
+                    ^
+  symbol:   class Properties
+  location: class BadnyakItem
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:12: error: cannot find symbol
+ public int getUseDuration(ItemStack s){return 60;}public UseAction getUseAnimation(ItemStack s){return UseAction.BOW;}
+                           ^
+  symbol:   class ItemStack
+  location: class BadnyakItem
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:12: error: cannot find symbol
+ public int getUseDuration(ItemStack s){return 60;}public UseAction getUseAnimation(ItemStack s){return UseAction.BOW;}
+                                                                                    ^
+  symbol:   class ItemStack
+  location: class BadnyakItem
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:12: error: cannot find symbol
+ public int getUseDuration(ItemStack s){return 60;}public UseAction getUseAnimation(ItemStack s){return UseAction.BOW;}
+                                                          ^
+  symbol:   class UseAction
+  location: class BadnyakItem
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:13: error: cannot find symbol
+ public ActionResult<ItemStack> use(World w,PlayerEntity p,Hand h){p.startUsingItem(h);return ActionResult.consume(p.getItemInHand(h));}
+                                    ^
+  symbol:   class World
+  location: class BadnyakItem
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:13: error: cannot find symbol
+ public ActionResult<ItemStack> use(World w,PlayerEntity p,Hand h){p.startUsingItem(h);return ActionResult.consume(p.getItemInHand(h));}
+                                            ^
+  symbol:   class PlayerEntity
+  location: class BadnyakItem
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:13: error: cannot find symbol
+ public ActionResult<ItemStack> use(World w,PlayerEntity p,Hand h){p.startUsingItem(h);return ActionResult.consume(p.getItemInHand(h));}
+                                                           ^
+  symbol:   class Hand
+  location: class BadnyakItem
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:13: error: cannot find symbol
+ public ActionResult<ItemStack> use(World w,PlayerEntity p,Hand h){p.startUsingItem(h);return ActionResult.consume(p.getItemInHand(h));}
+        ^
+  symbol:   class ActionResult
+  location: class BadnyakItem
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:13: error: cannot find symbol
+ public ActionResult<ItemStack> use(World w,PlayerEntity p,Hand h){p.startUsingItem(h);return ActionResult.consume(p.getItemInHand(h));}
+                     ^
+  symbol:   class ItemStack
+  location: class BadnyakItem
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:14: error: cannot find symbol
+ public void onUseTick(World w,LivingEntity e,ItemStack s,int left){if(w.isClientSide||left%10!=0)return;ServerWorld server=(ServerWorld)w;net.minecraft.util.math.vector.Vector3d point=e.position().add(e.getLookAngle().scale(.6)).add(0,1,0);server.sendParticles(left>35?ParticleTypes.FLAME:ParticleTypes.SMOKE,point.x,point.y,point.z,2,.05,.06,.05,.005);if(left==50)w.playSound(null,e.blockPosition(),SoundEvents.FIRE_AMBIENT,SoundCategory.PLAYERS,.4F,1);}
+                       ^
+  symbol:   class World
+  location: class BadnyakItem
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:14: error: cannot find symbol
+ public void onUseTick(World w,LivingEntity e,ItemStack s,int left){if(w.isClientSide||left%10!=0)return;ServerWorld server=(ServerWorld)w;net.minecraft.util.math.vector.Vector3d point=e.position().add(e.getLookAngle().scale(.6)).add(0,1,0);server.sendParticles(left>35?ParticleTypes.FLAME:ParticleTypes.SMOKE,point.x,point.y,point.z,2,.05,.06,.05,.005);if(left==50)w.playSound(null,e.blockPosition(),SoundEvents.FIRE_AMBIENT,SoundCategory.PLAYERS,.4F,1);}
+                               ^
+  symbol:   class LivingEntity
+  location: class BadnyakItem
+D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                                               ^
+D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiArmorer.java:32: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+        public IDrawable getBackground(){return background;}public IDrawable getIcon(){return icon;}
+                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiKitchen.java:27: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+  public RecipeType<Integer> getRecipeType(){return RECIPE_TYPE;}public Component getTitle(){return ModItems.KITCHEN_TABLE.get().getDescription();}public IDrawable getBackground(){return bg;}public IDrawable getIcon(){return icon;}
+                                                                                                                                                                    ^
+D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiRituals.java:52: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+        @Override public IDrawable getBackground() { return background; }
+                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiYaga.java:27: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+  public RecipeType<Integer> getRecipeType(){return RECIPE_TYPE;}public Component getTitle(){return Component.translatable("yaga.cauldron");}public IDrawable getBackground(){return bg;}public IDrawable getIcon(){return icon;}
+                                                                                                                                                              ^
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+6 warnings
+
+> Task :compileJava FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  Note: D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java uses or overrides a deprecated API.
+  Note: Recompile with -Xlint:deprecation for details.
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:9: error: cannot find symbol
+  import net.minecraft.world.World;
+                            ^
+    symbol:   class World
+    location: package net.minecraft.world
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                            ^
+    symbol:   class BlockState
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                         ^
+    symbol:   class World
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                 ^
+    symbol:   class BlockPos
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                              ^
+    symbol:   class PlayerEntity
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                                             ^
+    symbol:   class Hand
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                                                       ^
+    symbol:   class BlockRayTraceResult
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                       ^
+    symbol:   class ActionResultType
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:7: error: cannot find symbol
+  import net.minecraft.nbt.CompoundNBT;
+                          ^
+    symbol:   class CompoundNBT
+    location: package net.minecraft.nbt
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:18: error: cannot find symbol
+   public static long now(net.minecraft.world.World w){return w.getServer().overworld().getGameTime();}
+                                             ^
+    symbol:   class World
+    location: package net.minecraft.world
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:19: error: cannot find symbol
+   public static boolean summoned(LivingEntity e){return e.getPersistentData().hasUUID("SlavicGuardianOwner");}
+                                  ^
+    symbol:   class LivingEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:20: error: cannot find symbol
+   public static boolean calm(LivingEntity e){return !e.level.isClientSide&&e.getPersistentData().getLong("SlavicMusicUntil")>now(e.level);}
+                              ^
+    symbol:   class LivingEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:21: error: cannot find symbol
+   public static boolean eligible(MobEntity e){return e.canChangeDimensions()&&!summoned(e)&&e.getMaxHealth()<100&&!e.getTags().contains("slavic_music_immune")&&(!e.getType().getRegistryName().getNamespace().equals("slavicmyths")||e instanceof WildlifeEntity);}
+                                  ^
+    symbol:   class MobEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:22: error: cannot find symbol
+   public static void music(PlayerEntity p){
+                            ^
+    symbol:   class PlayerEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:33: error: cannot find symbol
+   @SubscribeEvent public static void join(EntityJoinWorldEvent event){if(!event.getWorld().isClientSide&&event.getEntity() instanceof MobEntity){MobEntity m=(MobEntity)event.getEntity();m.goalSelector.addGoal(-10,new CalmGoal(m));if(m instanceof WildlifeEntity)m.goalSelector.addGoal(-9,new GuardianGoal((WildlifeEntity)m));}}
+                                           ^
+    symbol:   class EntityJoinWorldEvent
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:34: error: cannot find symbol
+   @SubscribeEvent public static void target(LivingSetAttackTargetEvent event){if(event.getTarget()!=null&&event.getEntityLiving() instanceof MobEntity&&calm(event.getEntityLiving()))((MobEntity)event.getEntityLiving()).setTarget(null);}
+                                             ^
+    symbol:   class LivingSetAttackTargetEvent
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:35: error: cannot find symbol
+   @SubscribeEvent public static void attack(LivingAttackEvent event){Entity attacker=event.getSource().getEntity();if(attacker instanceof LivingEntity&&(calm((LivingEntity)attacker)||(summoned((LivingEntity)attacker)&&!enemy((LivingEntity)attacker,event.getEntityLiving()))))event.setCanceled(true);}
+                                             ^
+    symbol:   class LivingAttackEvent
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:37: error: cannot find symbol
+   @SubscribeEvent public static void drops(LivingDropsEvent event){if(summoned(event.getEntityLiving()))event.setCanceled(true);}
+                                            ^
+    symbol:   class LivingDropsEvent
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:38: error: cannot find symbol
+   @SubscribeEvent public static void xp(LivingExperienceDropEvent event){if(summoned(event.getEntityLiving()))event.setDroppedExperience(0);}
+                                         ^
+    symbol:   class LivingExperienceDropEvent
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:39: error: cannot find symbol
+   public static PlayerEntity owner(LivingEntity e){return summoned(e)?e.level.getPlayerByUUID(e.getPersistentData().getUUID("SlavicGuardianOwner")):null;}
+                                    ^
+    symbol:   class LivingEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:39: error: cannot find symbol
+   public static PlayerEntity owner(LivingEntity e){return summoned(e)?e.level.getPlayerByUUID(e.getPersistentData().getUUID("SlavicGuardianOwner")):null;}
+                 ^
+    symbol:   class PlayerEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:40: error: cannot find symbol
+   public static boolean enemy(LivingEntity guardian,LivingEntity target){PlayerEntity p=owner(guardian);if(p==null||target==null||!target.isAlive()||target==p||p.isAlliedTo(target)||target.isAlliedTo(p))return false;if(target instanceof PlayerEntity&&!p.canHarmPlayer((PlayerEntity)target))return false;if(target instanceof TameableEntity&&p.getUUID().equals(((TameableEntity)target).getOwnerUUID()))return false;return !summoned(target)||!target.getPersistentData().getUUID("SlavicGuardianOwner").equals(p.getUUID());}
+                               ^
+    symbol:   class LivingEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:40: error: cannot find symbol
+   public static boolean enemy(LivingEntity guardian,LivingEntity target){PlayerEntity p=owner(guardian);if(p==null||target==null||!target.isAlive()||target==p||p.isAlliedTo(target)||target.isAlliedTo(p))return false;if(target instanceof PlayerEntity&&!p.canHarmPlayer((PlayerEntity)target))return false;if(target instanceof TameableEntity&&p.getUUID().equals(((TameableEntity)target).getOwnerUUID()))return false;return !summoned(target)||!target.getPersistentData().getUUID("SlavicGuardianOwner").equals(p.getUUID());}
+                                                     ^
+    symbol:   class LivingEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:41: error: cannot find symbol
+   private static final class CalmGoal extends Goal {
+                                               ^
+    symbol:   class Goal
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:42: error: cannot find symbol
+    final MobEntity mob;CalmGoal(MobEntity m){mob=m;setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK,Flag.JUMP));}
+          ^
+    symbol:   class MobEntity
+    location: class CalmGoal
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:42: error: cannot find symbol
+    final MobEntity mob;CalmGoal(MobEntity m){mob=m;setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK,Flag.JUMP));}
+                                 ^
+    symbol:   class MobEntity
+    location: class CalmGoal
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:48: error: cannot find symbol
+   private static final class GuardianGoal extends Goal {
+                                                   ^
+    symbol:   class Goal
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:10: error: cannot find symbol
+  import net.minecraft.world.World;
+                            ^
+    symbol:   class World
+    location: package net.minecraft.world
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:18: error: cannot find symbol
+   private static final DataParameter<Integer> STATE=EntityDataManager.defineId(WildlifeEntity.class,DataSerializers.INT);
+                        ^
+    symbol:   class DataParameter
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:19: error: cannot find symbol
+   private static final DataParameter<Integer> CLOCK=EntityDataManager.defineId(WildlifeEntity.class,DataSerializers.INT);
+                        ^
+    symbol:   class DataParameter
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:20: error: cannot find symbol
+   private static final DataParameter<Integer> STYLE=EntityDataManager.defineId(WildlifeEntity.class,DataSerializers.INT);
+                        ^
+    symbol:   class DataParameter
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:23: error: cannot find symbol
+   private Vector3d chargeDirection=Vector3d.ZERO;
+           ^
+    symbol:   class Vector3d
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:24: error: cannot find symbol
+   private LivingEntity danger;
+           ^
+    symbol:   class LivingEntity
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:27: error: cannot find symbol
+   public WildlifeEntity(EntityType<? extends WildlifeEntity> type,World world,Kind kind){
+                         ^
+    symbol:   class EntityType
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:27: error: cannot find symbol
+   public WildlifeEntity(EntityType<? extends WildlifeEntity> type,World world,Kind kind){
+                                                                   ^
+    symbol:   class World
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:31: error: cannot find symbol
+   @Override public ILivingEntityData finalizeSpawn(net.minecraft.world.IServerWorld world,net.minecraft.world.DifficultyInstance difficulty,SpawnReason reason,ILivingEntityData data,net.minecraft.nbt.CompoundNBT nbt){
+                                                                       ^
+    symbol:   class IServerWorld
+    location: package net.minecraft.world
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:31: error: cannot find symbol
+   @Override public ILivingEntityData finalizeSpawn(net.minecraft.world.IServerWorld world,net.minecraft.world.DifficultyInstance difficulty,SpawnReason reason,ILivingEntityData data,net.minecraft.nbt.CompoundNBT nbt){
+                                                                                                                                             ^
+    symbol:   class SpawnReason
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:31: error: cannot find symbol
+   @Override public ILivingEntityData finalizeSpawn(net.minecraft.world.IServerWorld world,net.minecraft.world.DifficultyInstance difficulty,SpawnReason reason,ILivingEntityData data,net.minecraft.nbt.CompoundNBT nbt){
+                                                                                                                                                                ^
+    symbol:   class ILivingEntityData
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:31: error: cannot find symbol
+   @Override public ILivingEntityData finalizeSpawn(net.minecraft.world.IServerWorld world,net.minecraft.world.DifficultyInstance difficulty,SpawnReason reason,ILivingEntityData data,net.minecraft.nbt.CompoundNBT nbt){
+                                                                                                                                                                                                        ^
+    symbol:   class CompoundNBT
+    location: package net.minecraft.nbt
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:31: error: cannot find symbol
+   @Override public ILivingEntityData finalizeSpawn(net.minecraft.world.IServerWorld world,net.minecraft.world.DifficultyInstance difficulty,SpawnReason reason,ILivingEntityData data,net.minecraft.nbt.CompoundNBT nbt){
+                    ^
+    symbol:   class ILivingEntityData
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:58: error: cannot find symbol
+   private boolean valid(LivingEntity e){return e!=null&&e.isAlive()&&(!(e instanceof PlayerEntity)||!((PlayerEntity)e).isCreative()&&!e.isSpectator());}
+                         ^
+    symbol:   class LivingEntity
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:59: error: cannot find symbol
+   @Override public boolean hurt(DamageSource source,float amount){
+                                 ^
+    symbol:   class DamageSource
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:118: error: cannot find symbol
+   private void strike(LivingEntity target,float multiplier,float knock){
+                       ^
+    symbol:   class LivingEntity
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:183: error: cannot find symbol
+   private SoundEvent sound(String suffix){return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("slavicmyths",kind.name().toLowerCase(java.util.Locale.ROOT)+"_"+suffix));}
+           ^
+    symbol:   class SoundEvent
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:185: error: cannot find symbol
+   @Override protected SoundEvent getAmbientSound(){return sound("ambient");}
+                       ^
+    symbol:   class SoundEvent
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:186: error: cannot find symbol
+   @Override protected SoundEvent getHurtSound(DamageSource source){return sound("hurt");}
+                                               ^
+    symbol:   class DamageSource
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:186: error: cannot find symbol
+   @Override protected SoundEvent getHurtSound(DamageSource source){return sound("hurt");}
+                       ^
+    symbol:   class SoundEvent
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:187: error: cannot find symbol
+   @Override protected SoundEvent getDeathSound(){return sound("death");}
+                       ^
+    symbol:   class SoundEvent
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:191: error: cannot find symbol
+   @Override protected ResourceLocation getDefaultLootTable(){return new ResourceLocation("slavicmyths","entities/"+kind.name().toLowerCase(java.util.Locale.ROOT));}
+                       ^
+    symbol:   class ResourceLocation
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:193: error: cannot find symbol
+   @Override public boolean canBeLeashed(PlayerEntity player){return false;}
+                                         ^
+    symbol:   class PlayerEntity
+    location: class WildlifeEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:6: error: cannot find symbol
+  import net.minecraft.world.World;
+                            ^
+    symbol:   class World
+    location: package net.minecraft.world
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:11: error: cannot find symbol
+   public BadnyakItem(Properties p){super(p.stacksTo(16));}
+                      ^
+    symbol:   class Properties
+    location: class BadnyakItem
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:12: error: cannot find symbol
+   public int getUseDuration(ItemStack s){return 60;}public UseAction getUseAnimation(ItemStack s){return UseAction.BOW;}
+                             ^
+    symbol:   class ItemStack
+    location: class BadnyakItem
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:12: error: cannot find symbol
+   public int getUseDuration(ItemStack s){return 60;}public UseAction getUseAnimation(ItemStack s){return UseAction.BOW;}
+                                                                                      ^
+    symbol:   class ItemStack
+    location: class BadnyakItem
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:12: error: cannot find symbol
+   public int getUseDuration(ItemStack s){return 60;}public UseAction getUseAnimation(ItemStack s){return UseAction.BOW;}
+                                                            ^
+    symbol:   class UseAction
+    location: class BadnyakItem
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:13: error: cannot find symbol
+   public ActionResult<ItemStack> use(World w,PlayerEntity p,Hand h){p.startUsingItem(h);return ActionResult.consume(p.getItemInHand(h));}
+                                      ^
+    symbol:   class World
+    location: class BadnyakItem
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:13: error: cannot find symbol
+   public ActionResult<ItemStack> use(World w,PlayerEntity p,Hand h){p.startUsingItem(h);return ActionResult.consume(p.getItemInHand(h));}
+                                              ^
+    symbol:   class PlayerEntity
+    location: class BadnyakItem
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:13: error: cannot find symbol
+   public ActionResult<ItemStack> use(World w,PlayerEntity p,Hand h){p.startUsingItem(h);return ActionResult.consume(p.getItemInHand(h));}
+                                                             ^
+    symbol:   class Hand
+    location: class BadnyakItem
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:13: error: cannot find symbol
+   public ActionResult<ItemStack> use(World w,PlayerEntity p,Hand h){p.startUsingItem(h);return ActionResult.consume(p.getItemInHand(h));}
+          ^
+    symbol:   class ActionResult
+    location: class BadnyakItem
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:13: error: cannot find symbol
+   public ActionResult<ItemStack> use(World w,PlayerEntity p,Hand h){p.startUsingItem(h);return ActionResult.consume(p.getItemInHand(h));}
+                       ^
+    symbol:   class ItemStack
+    location: class BadnyakItem
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:14: error: cannot find symbol
+   public void onUseTick(World w,LivingEntity e,ItemStack s,int left){if(w.isClientSide||left%10!=0)return;ServerWorld server=(ServerWorld)w;net.minecraft.util.math.vector.Vector3d point=e.position().add(e.getLookAngle().scale(.6)).add(0,1,0);server.sendParticles(left>35?ParticleTypes.FLAME:ParticleTypes.SMOKE,point.x,point.y,point.z,2,.05,.06,.05,.005);if(left==50)w.playSound(null,e.blockPosition(),SoundEvents.FIRE_AMBIENT,SoundCategory.PLAYERS,.4F,1);}
+                         ^
+    symbol:   class World
+    location: class BadnyakItem
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:14: error: cannot find symbol
+   public void onUseTick(World w,LivingEntity e,ItemStack s,int left){if(w.isClientSide||left%10!=0)return;ServerWorld server=(ServerWorld)w;net.minecraft.util.math.vector.Vector3d point=e.position().add(e.getLookAngle().scale(.6)).add(0,1,0);server.sendParticles(left>35?ParticleTypes.FLAME:ParticleTypes.SMOKE,point.x,point.y,point.z,2,.05,.06,.05,.005);if(left==50)w.playSound(null,e.blockPosition(),SoundEvents.FIRE_AMBIENT,SoundCategory.PLAYERS,.4F,1);}
+                                 ^
+    symbol:   class LivingEntity
+    location: class BadnyakItem
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+  @EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                           ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+  @EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                                                 ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiArmorer.java:32: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+          public IDrawable getBackground(){return background;}public IDrawable getIcon(){return icon;}
+                           ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiKitchen.java:27: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+    public RecipeType<Integer> getRecipeType(){return RECIPE_TYPE;}public Component getTitle(){return ModItems.KITCHEN_TABLE.get().getDescription();}public IDrawable getBackground(){return bg;}public IDrawable getIcon(){return icon;}
+                                                                                                                                                                      ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiRituals.java:52: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+          @Override public IDrawable getBackground() { return background; }
+                                     ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiYaga.java:27: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+    public RecipeType<Integer> getRecipeType(){return RECIPE_TYPE;}public Component getTitle(){return Component.translatable("yaga.cauldron");}public IDrawable getBackground(){return bg;}public IDrawable getIcon(){return icon;}
+                                                                                                                                                                ^
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:11: error: cannot find symbol
+  public final class ArmorerBlock extends Block {
+                                          ^
+    symbol: class Block
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:15: error: cannot find symbol
+  public final class WildlifeEntity extends CreatureEntity {
+                                            ^
+    symbol: class CreatureEntity
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:10: error: cannot find symbol
+  public final class BadnyakItem extends Item {
+                                         ^
+    symbol: class Item
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:3: error: package net.minecraft.block.material does not exist
+  import net.minecraft.block.material.Material;
+                                     ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:5: error: package net.minecraft.inventory.container does not exist
+  import net.minecraft.inventory.container.SimpleNamedContainerProvider;
+                                          ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:8: error: package net.minecraft.util.text does not exist
+  import net.minecraft.util.text.TranslationTextComponent;
+                                ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:10: error: package net.minecraftforge.fml.network does not exist
+  import net.minecraftforge.fml.network.NetworkHooks;
+                                       ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:2: error: package net.minecraft.block does not exist
+  import net.minecraft.block.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:4: error: package net.minecraft.entity.player does not exist
+  import net.minecraft.entity.player.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:7: error: package net.minecraft.util.math does not exist
+  import net.minecraft.util.math.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:4: error: package net.minecraft.entity.ai.goal does not exist
+  import net.minecraft.entity.ai.goal.Goal;
+                                     ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:6: error: package net.minecraft.entity.passive does not exist
+  import net.minecraft.entity.passive.TameableEntity;
+                                     ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:8: error: package net.minecraft.particles does not exist
+  import net.minecraft.particles.ParticleTypes;
+                                ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:9: error: package net.minecraft.world.server does not exist
+  import net.minecraft.world.server.ServerWorld;
+                                   ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:10: error: package net.minecraftforge.event.entity does not exist
+  import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+                                        ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:12: error: package net.minecraftforge.eventbus.api does not exist
+  import net.minecraftforge.eventbus.api.SubscribeEvent;
+                                        ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:13: error: package net.minecraftforge.fml.common does not exist
+  import net.minecraftforge.fml.common.Mod;
+                                      ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:16: error: package Mod does not exist
+  @Mod.EventBusSubscriber(modid="slavicmyths")
+      ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:36: error: package LivingEvent does not exist
+   @SubscribeEvent public static void embers(LivingEvent.LivingUpdateEvent event){LivingEntity e=event.getEntityLiving();if(e.level.isClientSide||e.tickCount%20!=0||!e.getPersistentData().contains("SlavicEmbersUntil"))return;if(now(e.level)<e.getPersistentData().getLong("SlavicEmbersUntil"))((ServerWorld)e.level).sendParticles(ParticleTypes.FLAME,e.getX(),e.getY()+.6,e.getZ(),1,.2,.3,.2,0);else e.getPersistentData().remove("SlavicEmbersUntil");}
+                                                        ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:3: error: package net.minecraft.entity does not exist
+  import net.minecraft.entity.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:5: error: package net.minecraft.entity.player does not exist
+  import net.minecraft.entity.player.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:11: error: package net.minecraftforge.event.entity.living does not exist
+  import net.minecraftforge.event.entity.living.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:6: error: package net.minecraft.entity.player does not exist
+  import net.minecraft.entity.player.PlayerEntity;
+                                    ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:9: error: package net.minecraft.util.math.vector does not exist
+  import net.minecraft.util.math.vector.Vector3d;
+                                       ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:11: error: package net.minecraft.world.server does not exist
+  import net.minecraft.world.server.ServerWorld;
+                                   ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:13: error: package net.minecraftforge.registries does not exist
+  import net.minecraftforge.registries.ForgeRegistries;
+                                      ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:51: error: package AttributeModifierMap does not exist
+   public static AttributeModifierMap.MutableAttribute attributes(Kind k){
+                                     ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:190: error: package net.minecraft.util.math does not exist
+   @Override protected void playStepSound(net.minecraft.util.math.BlockPos pos,net.minecraft.block.BlockState block){if(!isInWater())voice("impact",kind==Kind.BEAR?.12F:.055F);}
+                                                                 ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:190: error: package net.minecraft.block does not exist
+   @Override protected void playStepSound(net.minecraft.util.math.BlockPos pos,net.minecraft.block.BlockState block){if(!isInWater())voice("impact",kind==Kind.BEAR?.12F:.055F);}
+                                                                                                  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:3: error: package net.minecraft.entity does not exist
+  import net.minecraft.entity.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:4: error: package net.minecraft.entity.ai.attributes does not exist
+  import net.minecraft.entity.ai.attributes.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:5: error: package net.minecraft.entity.ai.goal does not exist
+  import net.minecraft.entity.ai.goal.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:7: error: package net.minecraft.network.datasync does not exist
+  import net.minecraft.network.datasync.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\entity\WildlifeEntity.java:12: error: package net.minecraft.particles does not exist
+  import net.minecraft.particles.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:3: error: package net.minecraft.entity does not exist
+  import net.minecraft.entity.LivingEntity;
+                             ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:4: error: package net.minecraft.entity.player does not exist
+  import net.minecraft.entity.player.PlayerEntity;
+                                    ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:7: error: package net.minecraft.world.server does not exist
+  import net.minecraft.world.server.ServerWorld;
+                                   ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\BadnyakItem.java:9: error: package net.minecraft.particles does not exist
+  import net.minecraft.particles.ParticleTypes;
+                                ^
+  100 errors
+  6 warnings
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 13s
+2 actionable tasks: 1 executed, 1 up-to-date

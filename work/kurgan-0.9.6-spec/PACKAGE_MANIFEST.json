@@ -1,0 +1,24 @@
+{
+  "version": "0.9.6",
+  "package": "Kurgan Rework V2 ULTRA",
+  "docs": [
+    "00_MASTER_PROMPT_0.9.6_KURGAN_REWORK_V2_ULTRA.md",
+    "01_ROOMS_AND_HALLS_ULTRA.md",
+    "02_LABYRINTH_GENERATION_ULTRA.md",
+    "03_BLOCKS_MATERIALS_TEXTURES_AND_CRAFTS_ULTRA.md",
+    "04_ENTRANCE_SURFACE_AND_ATMOSPHERE_ULTRA.md",
+    "05_LOOT_CONTAINERS_AND_REWARD_PLACEMENT_ULTRA.md",
+    "06_KURGAN_ITEMS_AND_PROPS_ART_REWORK_ULTRA.md",
+    "07_GENERATION_PALETTES_PER_ROOM.md",
+    "08_TESTING_AND_ACCEPTANCE_ULTRA.md",
+    "REFERENCE_INDEX.md",
+    "HOW_TO_GIVE_TO_CODEX.md"
+  ],
+  "references": [
+    "ref_01_blocks_and_decor.png",
+    "ref_02_dungeon_cutaway.png",
+    "ref_03_rooms_and_halls.png",
+    "ref_04_corridors_and_labyrinth.png"
+  ],
+  "target": "Minecraft 1.21.1 / NeoForge / Java 21"
+}

@@ -1,11 +1,10 @@
 package org.slavicmyths.item;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShieldItem;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ShieldItem;
 
-/** Forge 1.16.5 defaults isShield to Items.SHIELD, even for ShieldItem subclasses. */
+/** ShieldItem supplies NeoForge DEFAULT_SHIELD_ACTIONS, including SHIELD_BLOCK. */
 public final class MythShieldItem extends ShieldItem {
     public MythShieldItem(Properties properties) { super(properties); }
-    @Override public boolean isShield(ItemStack stack, LivingEntity entity) { return true; }
 }

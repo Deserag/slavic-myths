@@ -1,0 +1,395 @@
+{
+  "net.minecraftforge.fml.common.Mod": [
+    "src/main/java/org/slavicmyths/SlavicMyths.java",
+    "src/main/java/org/slavicmyths/artifact/ArtifactEvents.java",
+    "src/main/java/org/slavicmyths/bandit/CampCommands.java",
+    "src/main/java/org/slavicmyths/bandit/CampEvents.java",
+    "src/main/java/org/slavicmyths/client/ClientSetup.java",
+    "src/main/java/org/slavicmyths/client/CombatHud.java",
+    "src/main/java/org/slavicmyths/client/FlightClient.java",
+    "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java",
+    "src/main/java/org/slavicmyths/client/GusliClient.java",
+    "src/main/java/org/slavicmyths/client/RpgClient.java",
+    "src/main/java/org/slavicmyths/client/RusalkaSound.java",
+    "src/main/java/org/slavicmyths/client/WeaponTooltips.java",
+    "src/main/java/org/slavicmyths/combat/CombatEquipment.java",
+    "src/main/java/org/slavicmyths/combat/CombatHudEvents.java",
+    "src/main/java/org/slavicmyths/depth/DepthProgress.java",
+    "src/main/java/org/slavicmyths/furniture/FurnitureClient.java",
+    "src/main/java/org/slavicmyths/hunt/BossAnchors.java",
+    "src/main/java/org/slavicmyths/hunt/BossCommands.java",
+    "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+    "src/main/java/org/slavicmyths/hunt/HuntCommands.java",
+    "src/main/java/org/slavicmyths/hunt/HuntEffects.java",
+    "src/main/java/org/slavicmyths/hunt/HuntSpawns.java",
+    "src/main/java/org/slavicmyths/hunt/StarCharmEffects.java",
+    "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java",
+    "src/main/java/org/slavicmyths/item/SilverCombat.java",
+    "src/main/java/org/slavicmyths/item/StormProtection.java",
+    "src/main/java/org/slavicmyths/item/ThunderSpearCombat.java",
+    "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganCommands.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganCurse.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganDisturbance.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganEncounters.java",
+    "src/main/java/org/slavicmyths/kurgan/SmokeAging.java",
+    "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+    "src/main/java/org/slavicmyths/swamp/SwampCommands.java",
+    "src/main/java/org/slavicmyths/swamp/SwampStructures.java",
+    "src/main/java/org/slavicmyths/water/RusalkaSong.java",
+    "src/main/java/org/slavicmyths/water/WaterFishing.java",
+    "src/main/java/org/slavicmyths/water/WaterSpawns.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandClient.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandCommands.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandFuel.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java",
+    "src/main/java/org/slavicmyths/world/LandEncounters.java",
+    "src/main/java/org/slavicmyths/world/ModWorldGen.java",
+    "src/main/java/org/slavicmyths/world/SpiritSpawns.java",
+    "src/main/java/org/slavicmyths/world/WildlifeSpawns.java",
+    "src/main/java/org/slavicmyths/yaga/YagaCommands.java",
+    "src/main/java/org/slavicmyths/yaga/YagaHut.java"
+  ],
+  "net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext": [
+    "src/main/java/org/slavicmyths/SlavicMyths.java"
+  ],
+  "net.minecraftforge.eventbus.api.IEventBus": [
+    "src/main/java/org/slavicmyths/SlavicMyths.java"
+  ],
+  "net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent": [
+    "src/main/java/org/slavicmyths/SlavicMyths.java"
+  ],
+  "net.minecraftforge.fml.network.NetworkHooks": [
+    "src/main/java/org/slavicmyths/armorer/ArmorerBlock.java",
+    "src/main/java/org/slavicmyths/block/KitchenTableBlock.java",
+    "src/main/java/org/slavicmyths/flight/FlyingVessel.java",
+    "src/main/java/org/slavicmyths/furniture/SeatEntity.java",
+    "src/main/java/org/slavicmyths/kurgan/BurialCoffinBlock.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganBolt.java",
+    "src/main/java/org/slavicmyths/rpg/RpgBlock.java"
+  ],
+  "net.minecraftforge.common.extensions.IForgeContainerType": [
+    "src/main/java/org/slavicmyths/armorer/ArmorerMenu.java",
+    "src/main/java/org/slavicmyths/flight/CargoMenu.java",
+    "src/main/java/org/slavicmyths/hunt/PouchMenu.java",
+    "src/main/java/org/slavicmyths/kitchen/KitchenMenu.java",
+    "src/main/java/org/slavicmyths/kurgan/BurialCoffinMenu.java",
+    "src/main/java/org/slavicmyths/rpg/RpgMenu.java",
+    "src/main/java/org/slavicmyths/yaga/YagaMenu.java"
+  ],
+  "net.minecraftforge.fml.RegistryObject": [
+    "src/main/java/org/slavicmyths/armorer/ArmorerMenu.java",
+    "src/main/java/org/slavicmyths/armorer/ArmorerRecipe.java",
+    "src/main/java/org/slavicmyths/bandit/CampStructures.java",
+    "src/main/java/org/slavicmyths/flight/CargoMenu.java",
+    "src/main/java/org/slavicmyths/flight/Tailwind.java",
+    "src/main/java/org/slavicmyths/furniture/Furniture.java",
+    "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+    "src/main/java/org/slavicmyths/hunt/PouchMenu.java",
+    "src/main/java/org/slavicmyths/kitchen/KitchenMenu.java",
+    "src/main/java/org/slavicmyths/kurgan/BurialCoffinMenu.java",
+    "src/main/java/org/slavicmyths/kurgan/DarkenedWood.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganBlocks.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganCurse.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganStructures.java",
+    "src/main/java/org/slavicmyths/registry/ModBlocks.java",
+    "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "src/main/java/org/slavicmyths/registry/ModFeatures.java",
+    "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "src/main/java/org/slavicmyths/registry/ModSounds.java",
+    "src/main/java/org/slavicmyths/registry/ModTiles.java",
+    "src/main/java/org/slavicmyths/rpg/RpgMenu.java",
+    "src/main/java/org/slavicmyths/swamp/SwampStructures.java",
+    "src/main/java/org/slavicmyths/wood/Woodlands.java",
+    "src/main/java/org/slavicmyths/yaga/YagaMenu.java"
+  ],
+  "net.minecraftforge.registries.*": [
+    "src/main/java/org/slavicmyths/armorer/ArmorerRecipe.java",
+    "src/main/java/org/slavicmyths/flight/Tailwind.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganCurse.java",
+    "src/main/java/org/slavicmyths/rpg/RpgMenu.java",
+    "src/main/java/org/slavicmyths/swamp/SwampStructures.java"
+  ],
+  "net.minecraftforge.event.entity.EntityJoinWorldEvent": [
+    "src/main/java/org/slavicmyths/artifact/ArtifactEvents.java",
+    "src/main/java/org/slavicmyths/rpg/RpgEvents.java"
+  ],
+  "net.minecraftforge.event.entity.living.*": [
+    "src/main/java/org/slavicmyths/artifact/ArtifactEvents.java",
+    "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+    "src/main/java/org/slavicmyths/hunt/HuntEffects.java",
+    "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java",
+    "src/main/java/org/slavicmyths/rpg/RpgEvents.java"
+  ],
+  "net.minecraftforge.eventbus.api.SubscribeEvent": [
+    "src/main/java/org/slavicmyths/artifact/ArtifactEvents.java",
+    "src/main/java/org/slavicmyths/bandit/CampCommands.java",
+    "src/main/java/org/slavicmyths/bandit/CampStructures.java",
+    "src/main/java/org/slavicmyths/client/ClientSetup.java",
+    "src/main/java/org/slavicmyths/client/CombatHud.java",
+    "src/main/java/org/slavicmyths/client/FlightClient.java",
+    "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java",
+    "src/main/java/org/slavicmyths/client/GusliClient.java",
+    "src/main/java/org/slavicmyths/client/RpgClient.java",
+    "src/main/java/org/slavicmyths/client/RusalkaSound.java",
+    "src/main/java/org/slavicmyths/client/WeaponTooltips.java",
+    "src/main/java/org/slavicmyths/combat/CombatEquipment.java",
+    "src/main/java/org/slavicmyths/combat/CombatHudEvents.java",
+    "src/main/java/org/slavicmyths/depth/DepthProgress.java",
+    "src/main/java/org/slavicmyths/furniture/FurnitureClient.java",
+    "src/main/java/org/slavicmyths/hunt/BossAnchors.java",
+    "src/main/java/org/slavicmyths/hunt/BossCommands.java",
+    "src/main/java/org/slavicmyths/hunt/HuntCommands.java",
+    "src/main/java/org/slavicmyths/hunt/HuntSpawns.java",
+    "src/main/java/org/slavicmyths/hunt/StarCharmEffects.java",
+    "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java",
+    "src/main/java/org/slavicmyths/item/SilverCombat.java",
+    "src/main/java/org/slavicmyths/item/StormProtection.java",
+    "src/main/java/org/slavicmyths/item/ThunderSpearCombat.java",
+    "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganCommands.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganCurse.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganDisturbance.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganEncounters.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganStructures.java",
+    "src/main/java/org/slavicmyths/kurgan/SmokeAging.java",
+    "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "src/main/java/org/slavicmyths/swamp/SwampCommands.java",
+    "src/main/java/org/slavicmyths/swamp/SwampStructures.java",
+    "src/main/java/org/slavicmyths/water/RusalkaSong.java",
+    "src/main/java/org/slavicmyths/water/WaterFishing.java",
+    "src/main/java/org/slavicmyths/water/WaterSpawns.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandClient.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandCommands.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandFuel.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java",
+    "src/main/java/org/slavicmyths/world/LandEncounters.java",
+    "src/main/java/org/slavicmyths/world/ModWorldGen.java",
+    "src/main/java/org/slavicmyths/world/SpiritSpawns.java",
+    "src/main/java/org/slavicmyths/world/WildlifeSpawns.java",
+    "src/main/java/org/slavicmyths/yaga/YagaCommands.java",
+    "src/main/java/org/slavicmyths/yaga/YagaHut.java"
+  ],
+  "net.minecraftforge.event.RegisterCommandsEvent": [
+    "src/main/java/org/slavicmyths/bandit/CampCommands.java",
+    "src/main/java/org/slavicmyths/hunt/BossCommands.java",
+    "src/main/java/org/slavicmyths/hunt/HuntCommands.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganCommands.java",
+    "src/main/java/org/slavicmyths/swamp/SwampCommands.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandCommands.java",
+    "src/main/java/org/slavicmyths/yaga/YagaCommands.java"
+  ],
+  "net.minecraftforge.event.entity.player.PlayerInteractEvent": [
+    "src/main/java/org/slavicmyths/bandit/CampEvents.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganDisturbance.java",
+    "src/main/java/org/slavicmyths/kurgan/SmokeAging.java",
+    "src/main/java/org/slavicmyths/world/LandEncounters.java"
+  ],
+  "net.minecraftforge.eventbus.api.*": [
+    "src/main/java/org/slavicmyths/bandit/CampEvents.java",
+    "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+    "src/main/java/org/slavicmyths/hunt/HuntEffects.java",
+    "src/main/java/org/slavicmyths/rpg/RpgEvents.java"
+  ],
+  "net.minecraftforge.event.world.*": [
+    "src/main/java/org/slavicmyths/bandit/CampStructures.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganStructures.java",
+    "src/main/java/org/slavicmyths/kurgan/SmokeAging.java",
+    "src/main/java/org/slavicmyths/swamp/SwampStructures.java",
+    "src/main/java/org/slavicmyths/world/LandEncounters.java"
+  ],
+  "net.minecraftforge.fml.common.*": [
+    "src/main/java/org/slavicmyths/bandit/CampStructures.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganStructures.java"
+  ],
+  "net.minecraftforge.api.distmarker.Dist": [
+    "src/main/java/org/slavicmyths/client/ClientSetup.java",
+    "src/main/java/org/slavicmyths/client/CombatHud.java",
+    "src/main/java/org/slavicmyths/client/FlightClient.java",
+    "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java",
+    "src/main/java/org/slavicmyths/client/GusliClient.java",
+    "src/main/java/org/slavicmyths/client/RpgClient.java",
+    "src/main/java/org/slavicmyths/client/RusalkaSound.java",
+    "src/main/java/org/slavicmyths/client/WeaponTooltips.java",
+    "src/main/java/org/slavicmyths/furniture/FurnitureClient.java",
+    "src/main/java/org/slavicmyths/network/LoreNetwork.java",
+    "src/main/java/org/slavicmyths/rpg/RpgNetwork.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandClient.java"
+  ],
+  "net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent": [
+    "src/main/java/org/slavicmyths/client/ClientSetup.java",
+    "src/main/java/org/slavicmyths/furniture/FurnitureClient.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandClient.java"
+  ],
+  "net.minecraftforge.fml.client.registry.RenderingRegistry": [
+    "src/main/java/org/slavicmyths/client/ClientSetup.java"
+  ],
+  "net.minecraftforge.client.event.RenderGameOverlayEvent": [
+    "src/main/java/org/slavicmyths/client/CombatHud.java"
+  ],
+  "net.minecraftforge.client.event.*": [
+    "src/main/java/org/slavicmyths/client/FlightClient.java",
+    "src/main/java/org/slavicmyths/client/GusliClient.java"
+  ],
+  "net.minecraftforge.event.TickEvent": [
+    "src/main/java/org/slavicmyths/client/FlightClient.java",
+    "src/main/java/org/slavicmyths/hunt/BossAnchors.java",
+    "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+    "src/main/java/org/slavicmyths/hunt/HuntEffects.java",
+    "src/main/java/org/slavicmyths/hunt/StarCharmEffects.java",
+    "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganCurse.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganEncounters.java",
+    "src/main/java/org/slavicmyths/kurgan/SmokeAging.java",
+    "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+    "src/main/java/org/slavicmyths/water/RusalkaSong.java",
+    "src/main/java/org/slavicmyths/yaga/YagaHut.java"
+  ],
+  "net.minecraftforge.fml.client.registry.ClientRegistry": [
+    "src/main/java/org/slavicmyths/client/FlightClient.java",
+    "src/main/java/org/slavicmyths/client/RpgClient.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandClient.java"
+  ],
+  "net.minecraftforge.client.event.RenderPlayerEvent": [
+    "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java"
+  ],
+  "net.minecraftforge.event.entity.living.LivingEvent": [
+    "src/main/java/org/slavicmyths/client/GusliClient.java",
+    "src/main/java/org/slavicmyths/client/RusalkaSound.java"
+  ],
+  "net.minecraftforge.client.event.InputEvent": [
+    "src/main/java/org/slavicmyths/client/RpgClient.java"
+  ],
+  "net.minecraftforge.client.event.InputUpdateEvent": [
+    "src/main/java/org/slavicmyths/client/RpgClient.java"
+  ],
+  "net.minecraftforge.event.entity.player.ItemTooltipEvent": [
+    "src/main/java/org/slavicmyths/client/RpgClient.java",
+    "src/main/java/org/slavicmyths/client/WeaponTooltips.java",
+    "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java"
+  ],
+  "net.minecraftforge.event.entity.living.LivingHurtEvent": [
+    "src/main/java/org/slavicmyths/combat/CombatEquipment.java",
+    "src/main/java/org/slavicmyths/item/SilverCombat.java",
+    "src/main/java/org/slavicmyths/item/StormProtection.java",
+    "src/main/java/org/slavicmyths/item/ThunderSpearCombat.java",
+    "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java",
+    "src/main/java/org/slavicmyths/rpg/RuneEffects.java"
+  ],
+  "net.minecraftforge.common.ForgeConfigSpec": [
+    "src/main/java/org/slavicmyths/combat/CombatHudConfig.java"
+  ],
+  "net.minecraftforge.event.entity.living.LivingDamageEvent": [
+    "src/main/java/org/slavicmyths/combat/CombatHudEvents.java"
+  ],
+  "net.minecraftforge.event.entity.player.PlayerEvent": [
+    "src/main/java/org/slavicmyths/depth/DepthProgress.java",
+    "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+    "src/main/java/org/slavicmyths/hunt/StarCharmEffects.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganCurse.java"
+  ],
+  "net.minecraftforge.registries.ForgeRegistries": [
+    "src/main/java/org/slavicmyths/entity/LandSpiritEntity.java",
+    "src/main/java/org/slavicmyths/entity/WildlifeEntity.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganCreature.java",
+    "src/main/java/org/slavicmyths/registry/ModBlocks.java",
+    "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "src/main/java/org/slavicmyths/registry/ModFeatures.java",
+    "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "src/main/java/org/slavicmyths/registry/ModLoot.java",
+    "src/main/java/org/slavicmyths/registry/ModSounds.java",
+    "src/main/java/org/slavicmyths/registry/ModTiles.java",
+    "src/main/java/org/slavicmyths/yaga/YagaServices.java"
+  ],
+  "net.minecraftforge.fml.network.*": [
+    "src/main/java/org/slavicmyths/flight/FlightNetwork.java",
+    "src/main/java/org/slavicmyths/rpg/RpgNetwork.java"
+  ],
+  "net.minecraftforge.fml.network.simple.SimpleChannel": [
+    "src/main/java/org/slavicmyths/flight/FlightNetwork.java",
+    "src/main/java/org/slavicmyths/network/LoreNetwork.java",
+    "src/main/java/org/slavicmyths/rpg/RpgNetwork.java"
+  ],
+  "net.minecraftforge.fml.client.registry.*": [
+    "src/main/java/org/slavicmyths/furniture/FurnitureClient.java"
+  ],
+  "net.minecraftforge.event.world.ChunkEvent": [
+    "src/main/java/org/slavicmyths/hunt/BossAnchors.java"
+  ],
+  "net.minecraftforge.event.world.BiomeLoadingEvent": [
+    "src/main/java/org/slavicmyths/hunt/HuntSpawns.java",
+    "src/main/java/org/slavicmyths/water/WaterSpawns.java",
+    "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java",
+    "src/main/java/org/slavicmyths/world/ModWorldGen.java",
+    "src/main/java/org/slavicmyths/world/SpiritSpawns.java",
+    "src/main/java/org/slavicmyths/world/WildlifeSpawns.java"
+  ],
+  "net.minecraftforge.fml.InterModComms": [
+    "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java"
+  ],
+  "net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent": [
+    "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java"
+  ],
+  "net.minecraftforge.event.world.BlockEvent": [
+    "src/main/java/org/slavicmyths/kurgan/KurganDisturbance.java"
+  ],
+  "net.minecraftforge.event.entity.living.LivingHealEvent": [
+    "src/main/java/org/slavicmyths/kurgan/KurganEncounters.java"
+  ],
+  "net.minecraftforge.common.loot.GlobalLootModifierSerializer": [
+    "src/main/java/org/slavicmyths/loot/FernFlowerModifier.java",
+    "src/main/java/org/slavicmyths/registry/ModLoot.java"
+  ],
+  "net.minecraftforge.common.loot.LootModifier": [
+    "src/main/java/org/slavicmyths/loot/FernFlowerModifier.java"
+  ],
+  "net.minecraftforge.fml.DistExecutor": [
+    "src/main/java/org/slavicmyths/network/LoreNetwork.java",
+    "src/main/java/org/slavicmyths/rpg/RpgNetwork.java"
+  ],
+  "net.minecraftforge.fml.network.NetworkDirection": [
+    "src/main/java/org/slavicmyths/network/LoreNetwork.java"
+  ],
+  "net.minecraftforge.fml.network.NetworkRegistry": [
+    "src/main/java/org/slavicmyths/network/LoreNetwork.java"
+  ],
+  "net.minecraftforge.fml.network.PacketDistributor": [
+    "src/main/java/org/slavicmyths/network/LoreNetwork.java"
+  ],
+  "net.minecraftforge.common.ToolType": [
+    "src/main/java/org/slavicmyths/registry/ModBlocks.java",
+    "src/main/java/org/slavicmyths/wood/TimberLog.java"
+  ],
+  "net.minecraftforge.registries.DeferredRegister": [
+    "src/main/java/org/slavicmyths/registry/ModBlocks.java",
+    "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "src/main/java/org/slavicmyths/registry/ModFeatures.java",
+    "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "src/main/java/org/slavicmyths/registry/ModLoot.java",
+    "src/main/java/org/slavicmyths/registry/ModSounds.java",
+    "src/main/java/org/slavicmyths/registry/ModTiles.java"
+  ],
+  "net.minecraftforge.event.entity.EntityAttributeCreationEvent": [
+    "src/main/java/org/slavicmyths/registry/ModEntities.java"
+  ],
+  "net.minecraftforge.event.entity.player.*": [
+    "src/main/java/org/slavicmyths/rpg/RpgEvents.java"
+  ],
+  "net.minecraftforge.fml.common.ObfuscationReflectionHelper": [
+    "src/main/java/org/slavicmyths/swamp/SwampStructures.java"
+  ],
+  "net.minecraftforge.event.entity.player.ItemFishedEvent": [
+    "src/main/java/org/slavicmyths/water/WaterFishing.java"
+  ],
+  "net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent": [
+    "src/main/java/org/slavicmyths/wood/WoodlandFuel.java"
+  ],
+  "net.minecraftforge.fml.*": [
+    "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+  ],
+  "net.minecraftforge.eventbus.api.EventPriority": [
+    "src/main/java/org/slavicmyths/world/ModWorldGen.java",
+    "src/main/java/org/slavicmyths/world/SpiritSpawns.java"
+  ]
+}

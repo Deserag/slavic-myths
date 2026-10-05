@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "FFF",
+    "SSS"
+  ],
+  "key": {
+    "B": {
+      "item": "slavicmyths:blueberry"
+    },
+    "F": {
+      "item": "slavicmyths:flour"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:berry_pie"
+  }
+}

@@ -1,0 +1,116 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:39: error: reference to Module is ambiguous
+    private static void edge(KurganPlan p,Room a,Room b,Module module,boolean secret,int style){
+                                                        ^
+  both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:40: error: reference to Module is ambiguous
+        int width=secret?2:module==Module.STAIR?3:style==3?5:3+(Math.floorMod(a.id+b.id+(int)p.seed,2));
+                                   ^
+  both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:59: error: reference to Module is ambiguous
+            for(int i=0;i<n;i++)edge(p,bands[f][i],bands[f][(i+1)%n],i==n-1?Module.LOOP:Module.NORMAL,false,random.nextInt(4));
+                                                                            ^
+  both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:59: error: reference to Module is ambiguous
+            for(int i=0;i<n;i++)edge(p,bands[f][i],bands[f][(i+1)%n],i==n-1?Module.LOOP:Module.NORMAL,false,random.nextInt(4));
+                                                                                        ^
+  both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:64: error: reference to Module is ambiguous
+            edge(p,a,leaf,Module.ROOM_CONNECTOR,secret,secret?4:random.nextInt(3));
+                          ^
+  both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:65: error: reference to Module is ambiguous
+            Room cache=add(p,f,14,b.x,b.y,b.z+24,null,NodeType.DEAD_END,false);edge(p,b,cache,Module.DEAD_END,false,random.nextInt(3));
+                                                                                              ^
+  both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:67: error: reference to Module is ambiguous
+        edge(p,vest,bands[0][0],Module.STAIR,false,0);
+                                ^
+  both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:69: error: reference to Module is ambiguous
+            edge(p,bands[f][7],bands[f+1][0],Module.STAIR,false,0);
+                                             ^
+  both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:70: error: reference to Module is ambiguous
+            edge(p,bands[f][3],bands[f+1][4],Module.STAIR,false,f%2==0?3:1);
+                                             ^
+  both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:77: error: reference to Module is ambiguous
+            edge(p,approach,deep,Module.ROOM_CONNECTOR,false,3);p.finalRoom=deep.id;
+                                 ^
+  both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:85: error: reference to Module is ambiguous
+        Link entry=new Link(-1,vest.id,3,Module.NORMAL,0);entry.style=0;
+                                         ^
+  both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+11 errors
+
+> Task :compileJava FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:39: error: reference to Module is ambiguous
+      private static void edge(KurganPlan p,Room a,Room b,Module module,boolean secret,int style){
+                                                          ^
+    both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+  D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:40: error: reference to Module is ambiguous
+          int width=secret?2:module==Module.STAIR?3:style==3?5:3+(Math.floorMod(a.id+b.id+(int)p.seed,2));
+                                     ^
+    both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+  D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:59: error: reference to Module is ambiguous
+              for(int i=0;i<n;i++)edge(p,bands[f][i],bands[f][(i+1)%n],i==n-1?Module.LOOP:Module.NORMAL,false,random.nextInt(4));
+                                                                              ^
+    both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+  D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:59: error: reference to Module is ambiguous
+              for(int i=0;i<n;i++)edge(p,bands[f][i],bands[f][(i+1)%n],i==n-1?Module.LOOP:Module.NORMAL,false,random.nextInt(4));
+                                                                                          ^
+    both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+  D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:64: error: reference to Module is ambiguous
+              edge(p,a,leaf,Module.ROOM_CONNECTOR,secret,secret?4:random.nextInt(3));
+                            ^
+    both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+  D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:65: error: reference to Module is ambiguous
+              Room cache=add(p,f,14,b.x,b.y,b.z+24,null,NodeType.DEAD_END,false);edge(p,b,cache,Module.DEAD_END,false,random.nextInt(3));
+                                                                                                ^
+    both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+  D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:67: error: reference to Module is ambiguous
+          edge(p,vest,bands[0][0],Module.STAIR,false,0);
+                                  ^
+    both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+  D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:69: error: reference to Module is ambiguous
+              edge(p,bands[f][7],bands[f+1][0],Module.STAIR,false,0);
+                                               ^
+    both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+  D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:70: error: reference to Module is ambiguous
+              edge(p,bands[f][3],bands[f+1][4],Module.STAIR,false,f%2==0?3:1);
+                                               ^
+    both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+  D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:77: error: reference to Module is ambiguous
+              edge(p,approach,deep,Module.ROOM_CONNECTOR,false,3);p.finalRoom=deep.id;
+                                   ^
+    both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+  D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganLayout.java:85: error: reference to Module is ambiguous
+          Link entry=new Link(-1,vest.id,3,Module.NORMAL,0);entry.style=0;
+                                           ^
+    both enum org.slavicmyths.kurgan.KurganPlan.Module in KurganPlan and class java.lang.Module in java.lang match
+  Note: Recompile with -Xlint:deprecation for details.
+  Note: Some input files use or override a deprecated API.
+  11 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 11s
+2 actionable tasks: 1 executed, 1 up-to-date

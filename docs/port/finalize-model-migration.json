@@ -1,0 +1,22 @@
+{
+  "scope": "Geometry construction/render signature only; entity callbacks/renderers still require full compilation and MANUAL visual QA",
+  "files": [
+    "src\\main\\java\\org\\slavicmyths\\client\\BabaYagaModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\BannikModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\DomovoyModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\ElderVodyanoyModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\ElementModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\HuntModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\IgoshaModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\KikimoraModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\KurganCreatureModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\LeshyModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\NightingaleModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\PolevikModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\PoludnitsaModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\RiverFishModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\WaterSpiritModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\WildlifeModel.java",
+    "src\\main\\java\\org\\slavicmyths\\client\\WorldBossModel.java"
+  ]
+}

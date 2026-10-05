@@ -1,0 +1,32 @@
+{
+  "port_complete": false,
+  "target": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.255",
+    "java": 21,
+    "version": "0.9.4+mc1.21.1"
+  },
+  "checks": {
+    "gradle_help": "PASS",
+    "target_dependencies": "PASS",
+    "processResources": "PASS",
+    "verifyKurgan": "PASS (selected actual production modules)",
+    "verifyHunt": "PASS (selected actual production modules)",
+    "verifyPortData": "PASS",
+    "withoutJei_headless": "PASS (not full mod boot)",
+    "resources_only": "PASS (not runtime codecs)",
+    "clean_build": "FAIL: remaining legacy custom implementations",
+    "final_verifier": "FAIL: 117 incomplete-source/artifact/acceptance checks",
+    "verifyPortComponents": "PASS: immutable values/actual JSON and packet codecs only",
+    "verifyPortRecipes": "BLOCKED: NeoForge loader bootstrap unavailable in plain JVM",
+    "static_data": "PASS: 213 recipes, 227 loot, 154 advancements, 67 tags; 1831 references"
+  },
+  "minecraft_client_launches": 0,
+  "minecraft_server_launches": 0,
+  "production_094_jar": null,
+  "polymc_1165_unchanged": true,
+  "legacy_jar_sha256": "4E6CCD1F3294FB146AA3376840ABA0CB3A60790BAB302323ED20652320849E71",
+  "next_gate": "Complete concrete custom items/blocks and EntityBlock/ticker/container integration; then real mod registry/data/component/Curios/JEI loading",
+  "time": "2026-10-05T12:25:43.536563+03:00",
+  "stage2_complete": false
+}

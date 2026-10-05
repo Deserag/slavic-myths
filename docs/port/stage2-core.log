@@ -1,0 +1,37 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compilePortCoreJava
+Note: D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\PortRecipesHeadless.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processPortCoreResources NO-SOURCE
+> Task :portCoreClasses
+
+> Task :verifyHunt
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: World Bosses regional coverage and negative coordinates; deterministic anchors and 35% policy; bounded side/back alignment; phase boundaries; active UUID persistence and seven-day death cooldown.
+PASS: Hunt I+II four targets/legacy migration/rain/fall/push contracts; HuntRecords owner/UUID/cooldown/NBT, unloaded ACTIVE preservation, CLEARED lifecycle, bonus schedules, bounded timings and independent nested pouch NBT. Minecraft launches: 0; GUI/AI runtime not tested.
+
+> Task :verifyKurgan
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: 1200 seeded plans, physical bounds/connectors, 10 module categories, loops, chunk-safe coffins, closed tomb shells, plan/instance/curse NBT, encounter lifecycle, 900 tier/disturbance rosters and six fixed combat profiles; 8095 ms. Minecraft launches: 0.
+
+> Task :verifyPortData
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: exact old hut blueprint, 64 bounded seeded candidates at negative/positive coordinates, rune NBT isolation, pool SavedData roundtrip. Target 1.21.1 API; no Minecraft launch. ItemStack components, full mod boot and world placement remain unverified.
+
+> Task :verifyPortCore
+
+> Task :verifyPortComponents
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: immutable rune values, JSON/packet codec, invalid data rejection and every horn target ID
+
+> Task :processResources
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 26s
+7 actionable tasks: 6 executed, 1 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

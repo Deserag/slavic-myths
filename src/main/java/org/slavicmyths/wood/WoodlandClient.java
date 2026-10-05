@@ -1,19 +1,19 @@
 package org.slavicmyths.wood;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.tileentity.SignTileEntityRenderer;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
-@Mod.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)
+import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
 public final class WoodlandClient {
  @SubscribeEvent public static void setup(FMLClientSetupEvent e){e.enqueueWork(()->{
-  ClientRegistry.bindTileEntityRenderer(Woodlands.SIGN_TILE.get(),SignTileEntityRenderer::new);
   for(Woodlands.Set s:Woodlands.SETS.values()){
-   Atlases.addWoodType(s.type);
-   for(String k:new String[]{"leaves","sapling","door","trapdoor"})RenderTypeLookup.setRenderLayer(s.get(k),RenderType.cutoutMipped());
+   Sheets.addWoodType(s.type);
+   for(String k:new String[]{"leaves","sapling","door","trapdoor"})ItemBlockRenderTypes.setRenderLayer(s.get(k),RenderType.cutoutMipped());
   }
-  RenderTypeLookup.setRenderLayer(Woodlands.HANGING.get(),RenderType.cutoutMipped());
+  ItemBlockRenderTypes.setRenderLayer(Woodlands.HANGING.get(),RenderType.cutoutMipped());
  });}
+ @SubscribeEvent public static void renderers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers e){e.registerBlockEntityRenderer(Woodlands.SIGN_TILE.get(),SignRenderer::new);}
 }

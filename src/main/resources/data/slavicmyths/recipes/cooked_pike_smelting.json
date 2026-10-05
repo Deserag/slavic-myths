@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "slavicmyths:raw_pike"
-  },
-  "result": "slavicmyths:cooked_pike",
-  "experience": 0.35,
-  "cookingtime": 200
-}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slavicmyths:mossy_pale_blue_kurgan_cobblestone"
+  },
+  "result": {
+    "id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab",
+    "count": 2
+  }
+}

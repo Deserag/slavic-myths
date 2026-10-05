@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:spawn_forest_taiga",
+  "features": [
+    "slavicmyths:berry_patch"
+  ],
+  "step": "vegetal_decoration"
+}

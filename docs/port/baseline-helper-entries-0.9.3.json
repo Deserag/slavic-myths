@@ -1,0 +1,301 @@
+{
+  "source_archive": ".tools/port-backups/slavicmyths-0.9.3-pre-port.zip",
+  "source_file": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+  "reason": "Original inventory scanner omitted helper-registered wildlife and loop-registered trees/configured features; immutable baseline remains unchanged",
+  "entries": [
+    {
+      "kind": "entity_type",
+      "old_id": "slavicmyths:brown_bear",
+      "target_id": "slavicmyths:brown_bear",
+      "source_file": "src/main/java/org/slavicmyths/registry/ModEntities.java"
+    },
+    {
+      "kind": "entity_type",
+      "old_id": "slavicmyths:bear_cub",
+      "target_id": "slavicmyths:bear_cub",
+      "source_file": "src/main/java/org/slavicmyths/registry/ModEntities.java"
+    },
+    {
+      "kind": "entity_type",
+      "old_id": "slavicmyths:forest_wolf",
+      "target_id": "slavicmyths:forest_wolf",
+      "source_file": "src/main/java/org/slavicmyths/registry/ModEntities.java"
+    },
+    {
+      "kind": "entity_type",
+      "old_id": "slavicmyths:boar",
+      "target_id": "slavicmyths:boar",
+      "source_file": "src/main/java/org/slavicmyths/registry/ModEntities.java"
+    },
+    {
+      "kind": "entity_type",
+      "old_id": "slavicmyths:stag",
+      "target_id": "slavicmyths:stag",
+      "source_file": "src/main/java/org/slavicmyths/registry/ModEntities.java"
+    },
+    {
+      "kind": "entity_type",
+      "old_id": "slavicmyths:doe",
+      "target_id": "slavicmyths:doe",
+      "source_file": "src/main/java/org/slavicmyths/registry/ModEntities.java"
+    },
+    {
+      "kind": "feature",
+      "old_id": "slavicmyths:linden_tree",
+      "target_id": "slavicmyths:linden_tree",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:linden_2",
+      "target_id": "slavicmyths:linden_2",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:linden_4",
+      "target_id": "slavicmyths:linden_4",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:linden_6",
+      "target_id": "slavicmyths:linden_6",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:linden_8",
+      "target_id": "slavicmyths:linden_8",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:linden_12",
+      "target_id": "slavicmyths:linden_12",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:linden_24",
+      "target_id": "slavicmyths:linden_24",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "feature",
+      "old_id": "slavicmyths:rowan_tree",
+      "target_id": "slavicmyths:rowan_tree",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:rowan_2",
+      "target_id": "slavicmyths:rowan_2",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:rowan_4",
+      "target_id": "slavicmyths:rowan_4",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:rowan_6",
+      "target_id": "slavicmyths:rowan_6",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:rowan_8",
+      "target_id": "slavicmyths:rowan_8",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:rowan_12",
+      "target_id": "slavicmyths:rowan_12",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:rowan_24",
+      "target_id": "slavicmyths:rowan_24",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "feature",
+      "old_id": "slavicmyths:willow_tree",
+      "target_id": "slavicmyths:willow_tree",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:willow_2",
+      "target_id": "slavicmyths:willow_2",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:willow_4",
+      "target_id": "slavicmyths:willow_4",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:willow_6",
+      "target_id": "slavicmyths:willow_6",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:willow_8",
+      "target_id": "slavicmyths:willow_8",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:willow_12",
+      "target_id": "slavicmyths:willow_12",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:willow_24",
+      "target_id": "slavicmyths:willow_24",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "feature",
+      "old_id": "slavicmyths:pine_tree",
+      "target_id": "slavicmyths:pine_tree",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:pine_2",
+      "target_id": "slavicmyths:pine_2",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:pine_4",
+      "target_id": "slavicmyths:pine_4",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:pine_6",
+      "target_id": "slavicmyths:pine_6",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:pine_8",
+      "target_id": "slavicmyths:pine_8",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:pine_12",
+      "target_id": "slavicmyths:pine_12",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:pine_24",
+      "target_id": "slavicmyths:pine_24",
+      "source_file": "src/main/java/org/slavicmyths/wood/WoodlandWorldgen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:deep_pool",
+      "target_id": "slavicmyths:deep_pool",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:water_patch",
+      "target_id": "slavicmyths:water_patch",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:berry_patch",
+      "target_id": "slavicmyths:berry_patch",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:path_shrine",
+      "target_id": "slavicmyths:path_shrine",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:bathhouse",
+      "target_id": "slavicmyths:bathhouse",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:old_barn",
+      "target_id": "slavicmyths:old_barn",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:ancient_shrine",
+      "target_id": "slavicmyths:ancient_shrine",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:patch_flax",
+      "target_id": "slavicmyths:patch_flax",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:patch_wormwood",
+      "target_id": "slavicmyths:patch_wormwood",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:ore_perunite",
+      "target_id": "slavicmyths:ore_perunite",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:ore_silver",
+      "target_id": "slavicmyths:ore_silver",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:patch_st_johns_wort",
+      "target_id": "slavicmyths:patch_st_johns_wort",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:patch_nettle",
+      "target_id": "slavicmyths:patch_nettle",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:patch_fireweed",
+      "target_id": "slavicmyths:patch_fireweed",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    },
+    {
+      "kind": "configured_feature",
+      "old_id": "slavicmyths:patch_juniper",
+      "target_id": "slavicmyths:patch_juniper",
+      "source_file": "src/main/java/org/slavicmyths/world/ModWorldGen.java"
+    }
+  ]
+}

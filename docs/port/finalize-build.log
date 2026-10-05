@@ -1,0 +1,1096 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :clean
+
+> Task :createMinecraftArtifacts
+Loaded 145 artifacts from D:\slavic-myths\build\tmp\createMinecraftArtifacts\nfrt_artifact_manifest.properties
+*** Started working on downloadJson
+ DONE  Completed downloadJson in 0.02s
+*** Started working on downloadClientMappings
+*** Started working on downloadServer
+*** Started working on downloadClient
+ DONE  Completed downloadServer in 0.03s
+ DONE  Completed downloadClientMappings in 0.03s
+ DONE  Completed downloadClient in 0.03s
+*** Started working on mergeMappings
+ REUSE Used cache of mergeMappings in 0.00s
+*** Started working on stripClient
+ REUSE Used cache of stripClient in 0.00s
+*** Started working on extractServer
+ REUSE Used cache of extractServer in 0.00s
+*** Started working on stripServer
+ REUSE Used cache of stripServer in 0.00s
+*** Started working on merge
+ REUSE Used cache of merge in 0.00s
+*** Started working on rename
+ REUSE Used cache of rename in 0.00s
+*** Started working on decompile
+ REUSE Used cache of decompile in 0.00s
+*** Started working on inject
+ REUSE Used cache of inject in 0.00s
+*** Started working on patch
+ REUSE Used cache of patch in 0.00s
+*** Started working on applyNeoforgePatches
+ REUSE Used cache of applyNeoforgePatches in 0.00s
+*** Started working on transformSources
+ REUSE Used cache of transformSources in 0.00s
+*** Started working on recompile
+ REUSE Used cache of recompile in 0.00s
+*** Started working on sourcesWithNeoForge
+ REUSE Used cache of sourcesWithNeoForge in 0.00s
+*** Started working on compiledWithNeoForge
+ REUSE Used cache of compiledWithNeoForge in 0.00s
+*** Started working on sourcesAndCompiledWithNeoForge
+ REUSE Used cache of sourcesAndCompiledWithNeoForge in 0.00s
+Total runtime: 1.18s
+
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                          ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                                               ^
+D:\slavic-myths\src\main\java\org\slavicmyths\furniture\FurnitureClient.java:16: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\furniture\FurnitureClient.java:16: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                                                                  ^
+D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                ^
+D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\wood\WoodlandClient.java:9: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\wood\WoodlandClient.java:9: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                                                                  ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\world\WildlifeSpawns.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+10 warnings
+
+> Task :processResources
+> Task :classes
+> Task :jarJar NO-SOURCE
+> Task :jar
+> Task :assemble
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+
+> Task :compilePortCoreJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processPortCoreResources NO-SOURCE
+> Task :portCoreClasses
+
+> Task :verifyHunt
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: World Bosses regional coverage and negative coordinates; deterministic anchors and 35% policy; bounded side/back alignment; phase boundaries; active UUID persistence and seven-day death cooldown.
+PASS: Hunt I+II four targets/legacy migration/rain/fall/push contracts; HuntRecords owner/UUID/cooldown/NBT, unloaded ACTIVE preservation, CLEARED lifecycle, bonus schedules, bounded timings and independent nested pouch NBT. Minecraft launches: 0; GUI/AI runtime not tested.
+
+> Task :verifyKurgan
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: 1200 seeded plans, physical bounds/connectors, 10 module categories, loops, chunk-safe coffins, closed tomb shells, plan/instance/curse NBT, encounter lifecycle, 900 tier/disturbance rosters and six fixed combat profiles; 8093 ms. Minecraft launches: 0.
+
+> Task :verifyPortData
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: exact old hut blueprint, 64 bounded seeded candidates at negative/positive coordinates, rune NBT isolation, pool SavedData roundtrip. Target 1.21.1 API; no Minecraft launch. ItemStack components, full mod boot and world placement remain unverified.
+
+> Task :verifyPortCore
+
+> Task :verifyPortComponents
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: immutable rune values, JSON/packet codec, invalid data rejection and every horn target ID
+
+> Task :verifyPortPayloads
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: payload codecs, copied RPG NBT, finite controls and truncation. No mod/network/game bootstrap.
+
+> Task :verifyPortGeometry
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: real ModelPart CPU vertices, fractional boxes, hierarchy/pivots, UV atlas, opacity and visibility. In-game visuals remain MANUAL.
+
+> Task :compileKurganCheckJava FAILED
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:3: error: cannot find symbol
+import net.minecraft.nbt.CompoundNBT;
+                        ^
+  symbol:   class CompoundNBT
+  location: package net.minecraft.nbt
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:4: error: package net.minecraft.util.math does not exist
+import net.minecraft.util.math.BlockPos;
+                              ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:5: error: package net.minecraft.block.material does not exist
+import net.minecraft.block.material.Material;
+                                   ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:6: error: package net.minecraft.command.arguments does not exist
+import net.minecraft.command.arguments.BlockStateParser;
+                                      ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:7: error: package net.minecraft.state does not exist
+import net.minecraft.state.Property;
+                          ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:8: error: cannot find symbol
+import net.minecraft.util.Direction;
+                         ^
+  symbol:   class Direction
+  location: package net.minecraft.util
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:9: error: package net.minecraft.util.math does not exist
+import net.minecraft.util.math.BlockPos;
+                              ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:10: error: cannot find symbol
+import net.minecraft.world.IWorld;
+                          ^
+  symbol:   class IWorld
+  location: package net.minecraft.world
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:15: error: cannot find symbol
+ private static final Map<String,Block> custom=new HashMap<>();
+                                 ^
+  symbol:   class Block
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:16: error: cannot find symbol
+ @SuppressWarnings({"rawtypes","unchecked"}) private static BlockState state(String id){try{if(id.startsWith("minecraft:"))return new BlockStateParser(new com.mojang.brigadier.StringReader(id),false).parse(false).getState();String base=id.split("\\[")[0];Block b=custom.get(base);if(b==null)throw new IllegalStateException(id);BlockState s=b.defaultBlockState();if(id.contains("["))for(String pair:id.substring(id.indexOf('[')+1,id.length()-1).split(",")){String[] kv=pair.split("=");Property property=b.getStateDefinition().getProperty(kv[0]);s=s.setValue(property,(Comparable)property.getValue(kv[1]).get());}return s;}catch(Exception e){throw new IllegalStateException(id,e);}}
+                                                            ^
+  symbol:   class BlockState
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:45: error: cannot find symbol
+ private static net.minecraft.tags.ITagCollection<Block> vanillaTags(String archive)throws java.io.IOException{Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions=new HashMap<>();try(java.util.zip.ZipFile zip=new java.util.zip.ZipFile(archive)){java.util.Enumeration<? extends java.util.zip.ZipEntry> entries=zip.entries();while(entries.hasMoreElements()){java.util.zip.ZipEntry e=entries.nextElement();String name=e.getName();if(name.startsWith("data/minecraft/tags/blocks/")&&name.endsWith(".json")){try(java.io.Reader reader=new java.io.InputStreamReader(zip.getInputStream(e),java.nio.charset.StandardCharsets.UTF_8)){definitions.put(new net.minecraft.util.ResourceLocation("minecraft",name.substring(27,name.length()-5)),new com.google.gson.JsonParser().parse(reader).getAsJsonObject().getAsJsonArray("values"));}}}}
+                                  ^
+  symbol:   class ITagCollection
+  location: package net.minecraft.tags
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:45: error: cannot find symbol
+ private static net.minecraft.tags.ITagCollection<Block> vanillaTags(String archive)throws java.io.IOException{Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions=new HashMap<>();try(java.util.zip.ZipFile zip=new java.util.zip.ZipFile(archive)){java.util.Enumeration<? extends java.util.zip.ZipEntry> entries=zip.entries();while(entries.hasMoreElements()){java.util.zip.ZipEntry e=entries.nextElement();String name=e.getName();if(name.startsWith("data/minecraft/tags/blocks/")&&name.endsWith(".json")){try(java.io.Reader reader=new java.io.InputStreamReader(zip.getInputStream(e),java.nio.charset.StandardCharsets.UTF_8)){definitions.put(new net.minecraft.util.ResourceLocation("minecraft",name.substring(27,name.length()-5)),new com.google.gson.JsonParser().parse(reader).getAsJsonObject().getAsJsonArray("values"));}}}}
+                                                  ^
+  symbol:   class Block
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                            ^
+  symbol:   class ResourceLocation
+  location: package net.minecraft.util
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                       ^
+  symbol:   class ResourceLocation
+  location: package net.minecraft.util
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                      ^
+  symbol:   class ResourceLocation
+  location: package net.minecraft.util
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                          ^
+  symbol:   class ITag
+  location: package net.minecraft.tags
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                ^
+  symbol:   class Block
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                   ^
+  symbol:   class ResourceLocation
+  location: package net.minecraft.util
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                  ^
+  symbol:   class ITag
+  location: package net.minecraft.tags
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                        ^
+  symbol:   class Block
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:18: error: cannot find symbol
+  final Map<BlockPos,BlockState> blocks=new HashMap<>();final IWorld world;final int surface;boolean loaded=true,slope,legacyNeighbours;int reads,writes,failWrite=-1;
+            ^
+  symbol:   class BlockPos
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:18: error: cannot find symbol
+  final Map<BlockPos,BlockState> blocks=new HashMap<>();final IWorld world;final int surface;boolean loaded=true,slope,legacyNeighbours;int reads,writes,failWrite=-1;
+                     ^
+  symbol:   class BlockState
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:18: error: cannot find symbol
+  final Map<BlockPos,BlockState> blocks=new HashMap<>();final IWorld world;final int surface;boolean loaded=true,slope,legacyNeighbours;int reads,writes,failWrite=-1;
+                                                              ^
+  symbol:   class IWorld
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: cannot find symbol
+  BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+                 ^
+  symbol:   class BlockPos
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: cannot find symbol
+  BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+  ^
+  symbol:   class BlockState
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:4: error: package net.minecraft.block does not exist
+import net.minecraft.block.*;
+^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:9: error: cannot find symbol
+ public static void main(String[] args){YagaData d=new YagaData();UUID player=UUID.randomUUID(),npc=UUID.randomUUID();d.anchor=new BlockPos(-1200,80,750);d.npc=npc;d.placed=true;d.examined.add(99L);YagaData.Progress p=d.progress(player);
+                                                                                                                                   ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:12: error: cannot find symbol
+  CompoundNBT saved=d.save(new CompoundNBT());YagaData copy=new YagaData();copy.load(saved);YagaData.Progress restored=copy.progress(player);check(copy.anchor.equals(d.anchor)&&copy.npc.equals(npc)&&copy.placed&&copy.examined.contains(99L),"home/UUID persistence");check(restored.favor()==YagaData.Favor.TRUSTED&&restored.active.equals(p.active)&&restored.blockedUntil==p.blockedUntil&&restored.contractReady==p.contractReady,"progress/death/logout persistence");check(copy.progress(UUID.randomUUID()).favor()==YagaData.Favor.STRANGER,"cross-player progress leak");
+  ^
+  symbol:   class CompoundNBT
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:12: error: cannot find symbol
+  CompoundNBT saved=d.save(new CompoundNBT());YagaData copy=new YagaData();copy.load(saved);YagaData.Progress restored=copy.progress(player);check(copy.anchor.equals(d.anchor)&&copy.npc.equals(npc)&&copy.placed&&copy.examined.contains(99L),"home/UUID persistence");check(restored.favor()==YagaData.Favor.TRUSTED&&restored.active.equals(p.active)&&restored.blockedUntil==p.blockedUntil&&restored.contractReady==p.contractReady,"progress/death/logout persistence");check(copy.progress(UUID.randomUUID()).favor()==YagaData.Favor.STRANGER,"cross-player progress leak");
+                               ^
+  symbol:   class CompoundNBT
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+  CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+  ^
+  symbol:   class CompoundNBT
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+  CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                            ^
+  symbol:   class CompoundNBT
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: package BlockPos does not exist
+  CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                                                                             ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+  CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                                                                                                                                                  ^
+  symbol:   class ListNBT
+  location: package net.minecraft.nbt
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+  CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                                                                                                                                                                                      ^
+  symbol:   class ListNBT
+  location: package net.minecraft.nbt
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+  CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                                                                                                                                                                                                 ^
+  symbol:   class CompoundNBT
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+  CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                                                                                                                                                                                                                     ^
+  symbol:   class CompoundNBT
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:16: error: cannot find symbol
+  for(int x=-5;x<=5;x++)for(int z=-6;z<=6;z++)check(plan.blocks.containsKey(new BlockPos(x,3,z)),"floor hole");for(int x:new int[]{-3,3}){for(int dx=-1;dx<=1;dx++)check(plan.blocks.get(new BlockPos(x+dx,0,-3)).contains("part=4"),"missing front claw");check(plan.blocks.get(new BlockPos(x,0,2)).contains("part=4"),"missing rear claw");check(plan.blocks.get(new BlockPos(x,2,0)).contains("part=1"),"straight pillar leg");}
+                                                                                ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:16: error: cannot find symbol
+  for(int x=-5;x<=5;x++)for(int z=-6;z<=6;z++)check(plan.blocks.containsKey(new BlockPos(x,3,z)),"floor hole");for(int x:new int[]{-3,3}){for(int dx=-1;dx<=1;dx++)check(plan.blocks.get(new BlockPos(x+dx,0,-3)).contains("part=4"),"missing front claw");check(plan.blocks.get(new BlockPos(x,0,2)).contains("part=4"),"missing rear claw");check(plan.blocks.get(new BlockPos(x,2,0)).contains("part=1"),"straight pillar leg");}
+                                                                                                                                                                                             ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:16: error: cannot find symbol
+  for(int x=-5;x<=5;x++)for(int z=-6;z<=6;z++)check(plan.blocks.containsKey(new BlockPos(x,3,z)),"floor hole");for(int x:new int[]{-3,3}){for(int dx=-1;dx<=1;dx++)check(plan.blocks.get(new BlockPos(x+dx,0,-3)).contains("part=4"),"missing front claw");check(plan.blocks.get(new BlockPos(x,0,2)).contains("part=4"),"missing rear claw");check(plan.blocks.get(new BlockPos(x,2,0)).contains("part=1"),"straight pillar leg");}
+                                                                                                                                                                                                                                                                                     ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:16: error: cannot find symbol
+  for(int x=-5;x<=5;x++)for(int z=-6;z<=6;z++)check(plan.blocks.containsKey(new BlockPos(x,3,z)),"floor hole");for(int x:new int[]{-3,3}){for(int dx=-1;dx<=1;dx++)check(plan.blocks.get(new BlockPos(x+dx,0,-3)).contains("part=4"),"missing front claw");check(plan.blocks.get(new BlockPos(x,0,2)).contains("part=4"),"missing rear claw");check(plan.blocks.get(new BlockPos(x,2,0)).contains("part=1"),"straight pillar leg");}
+                                                                                                                                                                                                                                                                                                                                                                        ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:17: error: cannot find symbol
+  check(plan.blocks.get(new BlockPos(0,4,-6)).contains("half=lower")&&plan.blocks.get(new BlockPos(0,5,-6)).contains("half=upper"),"incomplete entrance");for(int z=-5;z<=1;z++)for(int y=4;y<=5;y++)check(plan.blocks.get(new BlockPos(0,y,z)).equals("minecraft:air"),"entry route obstructed");
+                            ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:17: error: cannot find symbol
+  check(plan.blocks.get(new BlockPos(0,4,-6)).contains("half=lower")&&plan.blocks.get(new BlockPos(0,5,-6)).contains("half=upper"),"incomplete entrance");for(int z=-5;z<=1;z++)for(int y=4;y<=5;y++)check(plan.blocks.get(new BlockPos(0,y,z)).equals("minecraft:air"),"entry route obstructed");
+                                                                                          ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:17: error: cannot find symbol
+  check(plan.blocks.get(new BlockPos(0,4,-6)).contains("half=lower")&&plan.blocks.get(new BlockPos(0,5,-6)).contains("half=upper"),"incomplete entrance");for(int z=-5;z<=1;z++)for(int y=4;y<=5;y++)check(plan.blocks.get(new BlockPos(0,y,z)).equals("minecraft:air"),"entry route obstructed");
+                                                                                                                                                                                                                               ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:18: error: cannot find symbol
+  for(BlockPos pos:plan.blocks.keySet())check(Math.abs(pos.getX())<=9&&pos.getZ()>=-16&&pos.getZ()<=9&&pos.getY()>=-1&&pos.getY()<=13,"blueprint outside loading/rollback box");
+      ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:19: error: cannot find symbol
+  for(long seed:new long[]{0,-1,Long.MIN_VALUE,42,2026}){BlockPos spawn=new BlockPos(-1500,70,1900);List<BlockPos> sites=YagaHutPlan.candidates(seed,spawn);check(sites.size()==64&&sites.equals(YagaHutPlan.candidates(seed,spawn)),"unstable/unbounded candidates");for(BlockPos site:sites){double dx=site.getX()-spawn.getX(),dz=site.getZ()-spawn.getZ(),radius=Math.sqrt(dx*dx+dz*dz);check(radius>=800&&radius<=2500,"hut outside requested spawn radius");}}
+                                                         ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:19: error: cannot find symbol
+  for(long seed:new long[]{0,-1,Long.MIN_VALUE,42,2026}){BlockPos spawn=new BlockPos(-1500,70,1900);List<BlockPos> sites=YagaHutPlan.candidates(seed,spawn);check(sites.size()==64&&sites.equals(YagaHutPlan.candidates(seed,spawn)),"unstable/unbounded candidates");for(BlockPos site:sites){double dx=site.getX()-spawn.getX(),dz=site.getZ()-spawn.getZ(),radius=Math.sqrt(dx*dx+dz*dz);check(radius>=800&&radius<=2500,"hut outside requested spawn radius");}}
+                                                                            ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:19: error: cannot find symbol
+  for(long seed:new long[]{0,-1,Long.MIN_VALUE,42,2026}){BlockPos spawn=new BlockPos(-1500,70,1900);List<BlockPos> sites=YagaHutPlan.candidates(seed,spawn);check(sites.size()==64&&sites.equals(YagaHutPlan.candidates(seed,spawn)),"unstable/unbounded candidates");for(BlockPos site:sites){double dx=site.getX()-spawn.getX(),dz=site.getZ()-spawn.getZ(),radius=Math.sqrt(dx*dx+dz*dz);check(radius>=800&&radius<=2500,"hut outside requested spawn radius");}}
+                                                                                                         ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:19: error: cannot find symbol
+  for(long seed:new long[]{0,-1,Long.MIN_VALUE,42,2026}){BlockPos spawn=new BlockPos(-1500,70,1900);List<BlockPos> sites=YagaHutPlan.candidates(seed,spawn);check(sites.size()==64&&sites.equals(YagaHutPlan.candidates(seed,spawn)),"unstable/unbounded candidates");for(BlockPos site:sites){double dx=site.getX()-spawn.getX(),dz=site.getZ()-spawn.getZ(),radius=Math.sqrt(dx*dx+dz*dz);check(radius>=800&&radius<=2500,"hut outside requested spawn radius");}}
+                                                                                                                                                                                                                                                                          ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:20: error: cannot find symbol
+  if(args.length==1){try{java.nio.file.Path path=java.nio.file.Paths.get(args[0]);java.nio.file.Files.createDirectories(path.getParent());StringBuilder json=new StringBuilder("[\n");boolean first=true;for(Map.Entry<BlockPos,String> e:plan.blocks.entrySet()){if(!first)json.append(",\n");first=false;BlockPos b=e.getKey();json.append("{\"x\":").append(b.getX()).append(",\"y\":").append(b.getY()).append(",\"z\":").append(b.getZ()).append(",\"block\":\"").append(e.getValue()).append("\"}");}json.append("\n]\n");java.nio.file.Files.write(path,json.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8));}catch(java.io.IOException ex){throw new IllegalStateException(ex);}}
+                                                                                                                                                                                                                       ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:20: error: cannot find symbol
+  if(args.length==1){try{java.nio.file.Path path=java.nio.file.Paths.get(args[0]);java.nio.file.Files.createDirectories(path.getParent());StringBuilder json=new StringBuilder("[\n");boolean first=true;for(Map.Entry<BlockPos,String> e:plan.blocks.entrySet()){if(!first)json.append(",\n");first=false;BlockPos b=e.getKey();json.append("{\"x\":").append(b.getX()).append(",\"y\":").append(b.getY()).append(",\"z\":").append(b.getZ()).append(",\"block\":\"").append(e.getValue()).append("\"}");}json.append("\n]\n");java.nio.file.Files.write(path,json.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8));}catch(java.io.IOException ex){throw new IllegalStateException(ex);}}
+                                                                                                                                                                                                                                                                                                           ^
+  symbol:   class BlockPos
+  location: class YagaHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:16: error: cannot find symbol
+ @SuppressWarnings({"rawtypes","unchecked"}) private static BlockState state(String id){try{if(id.startsWith("minecraft:"))return new BlockStateParser(new com.mojang.brigadier.StringReader(id),false).parse(false).getState();String base=id.split("\\[")[0];Block b=custom.get(base);if(b==null)throw new IllegalStateException(id);BlockState s=b.defaultBlockState();if(id.contains("["))for(String pair:id.substring(id.indexOf('[')+1,id.length()-1).split(",")){String[] kv=pair.split("=");Property property=b.getStateDefinition().getProperty(kv[0]);s=s.setValue(property,(Comparable)property.getValue(kv[1]).get());}return s;}catch(Exception e){throw new IllegalStateException(id,e);}}
+                                                                                                                                      ^
+  symbol:   class BlockStateParser
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:16: error: cannot find symbol
+ @SuppressWarnings({"rawtypes","unchecked"}) private static BlockState state(String id){try{if(id.startsWith("minecraft:"))return new BlockStateParser(new com.mojang.brigadier.StringReader(id),false).parse(false).getState();String base=id.split("\\[")[0];Block b=custom.get(base);if(b==null)throw new IllegalStateException(id);BlockState s=b.defaultBlockState();if(id.contains("["))for(String pair:id.substring(id.indexOf('[')+1,id.length()-1).split(",")){String[] kv=pair.split("=");Property property=b.getStateDefinition().getProperty(kv[0]);s=s.setValue(property,(Comparable)property.getValue(kv[1]).get());}return s;}catch(Exception e){throw new IllegalStateException(id,e);}}
+                                                                                                                                                                                                                                                               ^
+  symbol:   class Block
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:16: error: cannot find symbol
+ @SuppressWarnings({"rawtypes","unchecked"}) private static BlockState state(String id){try{if(id.startsWith("minecraft:"))return new BlockStateParser(new com.mojang.brigadier.StringReader(id),false).parse(false).getState();String base=id.split("\\[")[0];Block b=custom.get(base);if(b==null)throw new IllegalStateException(id);BlockState s=b.defaultBlockState();if(id.contains("["))for(String pair:id.substring(id.indexOf('[')+1,id.length()-1).split(",")){String[] kv=pair.split("=");Property property=b.getStateDefinition().getProperty(kv[0]);s=s.setValue(property,(Comparable)property.getValue(kv[1]).get());}return s;}catch(Exception e){throw new IllegalStateException(id,e);}}
+                                                                                                                                                                                                                                                                                                                                       ^
+  symbol:   class BlockState
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:16: error: cannot find symbol
+ @SuppressWarnings({"rawtypes","unchecked"}) private static BlockState state(String id){try{if(id.startsWith("minecraft:"))return new BlockStateParser(new com.mojang.brigadier.StringReader(id),false).parse(false).getState();String base=id.split("\\[")[0];Block b=custom.get(base);if(b==null)throw new IllegalStateException(id);BlockState s=b.defaultBlockState();if(id.contains("["))for(String pair:id.substring(id.indexOf('[')+1,id.length()-1).split(",")){String[] kv=pair.split("=");Property property=b.getStateDefinition().getProperty(kv[0]);s=s.setValue(property,(Comparable)property.getValue(kv[1]).get());}return s;}catch(Exception e){throw new IllegalStateException(id,e);}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ^
+  symbol:   class Property
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:19: error: cannot find symbol
+  WorldFixture(int surface){this.surface=surface;world=(IWorld)Proxy.newProxyInstance(IWorld.class.getClassLoader(),new Class<?>[]{IWorld.class},this);}
+                                                        ^
+  symbol:   class IWorld
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:19: error: cannot find symbol
+  WorldFixture(int surface){this.surface=surface;world=(IWorld)Proxy.newProxyInstance(IWorld.class.getClassLoader(),new Class<?>[]{IWorld.class},this);}
+                                                                                                                                   ^
+  symbol:   class IWorld
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:19: error: cannot find symbol
+  WorldFixture(int surface){this.surface=surface;world=(IWorld)Proxy.newProxyInstance(IWorld.class.getClassLoader(),new Class<?>[]{IWorld.class},this);}
+                                                                                      ^
+  symbol:   class IWorld
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: package Blocks does not exist
+  BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+                                                                                                                                           ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: package Blocks does not exist
+  BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+                                                                                                                                                                                        ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: package Blocks does not exist
+  BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+                                                                                                                                                                                                                                           ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: package Blocks does not exist
+  BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+                                                                                                                                                                                                                                                                              ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:23: error: cannot find symbol
+   case "getBlockState":reads++;return get((BlockPos)a[0]);
+                                            ^
+  symbol:   class BlockPos
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:24: error: cannot find symbol
+   case "getFluidState":return get((BlockPos)a[0]).getFluidState();
+                                    ^
+  symbol:   class BlockPos
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:25: error: cannot find symbol
+   case "getBlockEntity":return get((BlockPos)a[0]).getBlock()==Blocks.CHEST?new net.minecraft.tileentity.ChestTileEntity():null;
+                                     ^
+  symbol:   class BlockPos
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:25: error: cannot find symbol
+   case "getBlockEntity":return get((BlockPos)a[0]).getBlock()==Blocks.CHEST?new net.minecraft.tileentity.ChestTileEntity():null;
+                                                                ^
+  symbol:   variable Blocks
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:25: error: package net.minecraft.tileentity does not exist
+   case "getBlockEntity":return get((BlockPos)a[0]).getBlock()==Blocks.CHEST?new net.minecraft.tileentity.ChestTileEntity():null;
+                                                                                                         ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:26: error: cannot find symbol
+   case "getHeight":if(a==null||a.length==0)return 256;int x=(Integer)a[1],z=(Integer)a[2],top=surface(x);for(Map.Entry<BlockPos,BlockState> e:blocks.entrySet())if(e.getKey().getX()==x&&e.getKey().getZ()==z&&!e.getValue().isAir())top=Math.max(top,e.getKey().getY());return top+1;
+                                                                                                                        ^
+  symbol:   class BlockPos
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:26: error: cannot find symbol
+   case "getHeight":if(a==null||a.length==0)return 256;int x=(Integer)a[1],z=(Integer)a[2],top=surface(x);for(Map.Entry<BlockPos,BlockState> e:blocks.entrySet())if(e.getKey().getX()==x&&e.getKey().getZ()==z&&!e.getValue().isAir())top=Math.max(top,e.getKey().getY());return top+1;
+                                                                                                                                 ^
+  symbol:   class BlockState
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:29: error: cannot find symbol
+   case "setBlock":writes++;if(writes==failWrite)return false;BlockPos pos=((BlockPos)a[0]).immutable();BlockState s=(BlockState)a[1];int flags=(Integer)a[2];check(legacyNeighbours||flags==YagaPlacement.BUILD_FLAGS,"placement allowed neighbour destruction before supports");blocks.put(pos,s);
+                                                              ^
+  symbol:   class BlockPos
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:29: error: cannot find symbol
+   case "setBlock":writes++;if(writes==failWrite)return false;BlockPos pos=((BlockPos)a[0]).immutable();BlockState s=(BlockState)a[1];int flags=(Integer)a[2];check(legacyNeighbours||flags==YagaPlacement.BUILD_FLAGS,"placement allowed neighbour destruction before supports");blocks.put(pos,s);
+                                                                             ^
+  symbol:   class BlockPos
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:29: error: cannot find symbol
+   case "setBlock":writes++;if(writes==failWrite)return false;BlockPos pos=((BlockPos)a[0]).immutable();BlockState s=(BlockState)a[1];int flags=(Integer)a[2];check(legacyNeighbours||flags==YagaPlacement.BUILD_FLAGS,"placement allowed neighbour destruction before supports");blocks.put(pos,s);
+                                                                                                        ^
+  symbol:   class BlockState
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:29: error: cannot find symbol
+   case "setBlock":writes++;if(writes==failWrite)return false;BlockPos pos=((BlockPos)a[0]).immutable();BlockState s=(BlockState)a[1];int flags=(Integer)a[2];check(legacyNeighbours||flags==YagaPlacement.BUILD_FLAGS,"placement allowed neighbour destruction before supports");blocks.put(pos,s);
+                                                                                                                      ^
+  symbol:   class BlockState
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:30: error: cannot find symbol
+    if(legacyNeighbours&&(flags&16)==0)for(Direction direction:Direction.values()){BlockPos p=pos.relative(direction);BlockState old=get(p),next=Block.updateFromNeighbourShapes(old,world,p);if(!old.equals(next))blocks.put(p,next);}return true;
+                                                               ^
+  symbol:   variable Direction
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:30: error: cannot find symbol
+    if(legacyNeighbours&&(flags&16)==0)for(Direction direction:Direction.values()){BlockPos p=pos.relative(direction);BlockState old=get(p),next=Block.updateFromNeighbourShapes(old,world,p);if(!old.equals(next))blocks.put(p,next);}return true;
+                                           ^
+  symbol:   class Direction
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:30: error: cannot find symbol
+    if(legacyNeighbours&&(flags&16)==0)for(Direction direction:Direction.values()){BlockPos p=pos.relative(direction);BlockState old=get(p),next=Block.updateFromNeighbourShapes(old,world,p);if(!old.equals(next))blocks.put(p,next);}return true;
+                                                                                   ^
+  symbol:   class BlockPos
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:30: error: cannot find symbol
+    if(legacyNeighbours&&(flags&16)==0)for(Direction direction:Direction.values()){BlockPos p=pos.relative(direction);BlockState old=get(p),next=Block.updateFromNeighbourShapes(old,world,p);if(!old.equals(next))blocks.put(p,next);}return true;
+                                                                                                                      ^
+  symbol:   class BlockState
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:30: error: cannot find symbol
+    if(legacyNeighbours&&(flags&16)==0)for(Direction direction:Direction.values()){BlockPos p=pos.relative(direction);BlockState old=get(p),next=Block.updateFromNeighbourShapes(old,world,p);if(!old.equals(next))blocks.put(p,next);}return true;
+                                                                                                                                                 ^
+  symbol:   variable Block
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:33: error: cannot find symbol
+   case "isEmptyBlock":return get((BlockPos)a[0]).isAir();
+                                   ^
+  symbol:   class BlockPos
+  location: class WorldFixture
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:36: error: cannot find symbol
+   case "getBlockTicks":case "getLiquidTicks":return net.minecraft.world.EmptyTickList.empty();
+                                                                        ^
+  symbol:   class EmptyTickList
+  location: package net.minecraft.world
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:43: error: cannot find symbol
+ private static YagaPlacement.Site prepare(WorldFixture f,YagaHutPlan plan){return YagaPlacement.prepare(f.world,BlockPos.ZERO,plan,YagaPlacementHeadless::state);}
+                                                                                                                 ^
+  symbol:   variable BlockPos
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:44: error: cannot find symbol
+ private static void original(WorldFixture f,YagaPlacement.Site site){for(Map.Entry<BlockPos,BlockState> e:site.old.entrySet())check(f.get(e.getKey()).equals(e.getValue()),"partial house after rollback at "+e.getKey());}
+                                                                                    ^
+  symbol:   class BlockPos
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:44: error: cannot find symbol
+ private static void original(WorldFixture f,YagaPlacement.Site site){for(Map.Entry<BlockPos,BlockState> e:site.old.entrySet())check(f.get(e.getKey()).equals(e.getValue()),"partial house after rollback at "+e.getKey());}
+                                                                                             ^
+  symbol:   class BlockState
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:45: error: cannot find symbol
+ private static net.minecraft.tags.ITagCollection<Block> vanillaTags(String archive)throws java.io.IOException{Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions=new HashMap<>();try(java.util.zip.ZipFile zip=new java.util.zip.ZipFile(archive)){java.util.Enumeration<? extends java.util.zip.ZipEntry> entries=zip.entries();while(entries.hasMoreElements()){java.util.zip.ZipEntry e=entries.nextElement();String name=e.getName();if(name.startsWith("data/minecraft/tags/blocks/")&&name.endsWith(".json")){try(java.io.Reader reader=new java.io.InputStreamReader(zip.getInputStream(e),java.nio.charset.StandardCharsets.UTF_8)){definitions.put(new net.minecraft.util.ResourceLocation("minecraft",name.substring(27,name.length()-5)),new com.google.gson.JsonParser().parse(reader).getAsJsonObject().getAsJsonArray("values"));}}}}
+                                                                                                                                     ^
+  symbol:   class ResourceLocation
+  location: package net.minecraft.util
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:45: error: cannot find symbol
+ private static net.minecraft.tags.ITagCollection<Block> vanillaTags(String archive)throws java.io.IOException{Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions=new HashMap<>();try(java.util.zip.ZipFile zip=new java.util.zip.ZipFile(archive)){java.util.Enumeration<? extends java.util.zip.ZipEntry> entries=zip.entries();while(entries.hasMoreElements()){java.util.zip.ZipEntry e=entries.nextElement();String name=e.getName();if(name.startsWith("data/minecraft/tags/blocks/")&&name.endsWith(".json")){try(java.io.Reader reader=new java.io.InputStreamReader(zip.getInputStream(e),java.nio.charset.StandardCharsets.UTF_8)){definitions.put(new net.minecraft.util.ResourceLocation("minecraft",name.substring(27,name.length()-5)),new com.google.gson.JsonParser().parse(reader).getAsJsonObject().getAsJsonArray("values"));}}}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+  symbol:   class ResourceLocation
+  location: package net.minecraft.util
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:46: error: cannot find symbol
+  check(definitions.size()>50,"Vanilla tag resource archive missing");Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags=new HashMap<>();for(net.minecraft.util.ResourceLocation id:definitions.keySet())resolveTag(id,definitions,tags,new HashSet<>());return net.minecraft.tags.ITagCollection.of(tags);
+                                                                                            ^
+  symbol:   class ResourceLocation
+  location: package net.minecraft.util
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:46: error: cannot find symbol
+  check(definitions.size()>50,"Vanilla tag resource archive missing");Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags=new HashMap<>();for(net.minecraft.util.ResourceLocation id:definitions.keySet())resolveTag(id,definitions,tags,new HashSet<>());return net.minecraft.tags.ITagCollection.of(tags);
+                                                                                                                                ^
+  symbol:   class ITag
+  location: package net.minecraft.tags
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:46: error: cannot find symbol
+  check(definitions.size()>50,"Vanilla tag resource archive missing");Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags=new HashMap<>();for(net.minecraft.util.ResourceLocation id:definitions.keySet())resolveTag(id,definitions,tags,new HashSet<>());return net.minecraft.tags.ITagCollection.of(tags);
+                                                                                                                                      ^
+  symbol:   class Block
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:46: error: cannot find symbol
+  check(definitions.size()>50,"Vanilla tag resource archive missing");Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags=new HashMap<>();for(net.minecraft.util.ResourceLocation id:definitions.keySet())resolveTag(id,definitions,tags,new HashSet<>());return net.minecraft.tags.ITagCollection.of(tags);
+                                                                                                                                                                                         ^
+  symbol:   class ResourceLocation
+  location: package net.minecraft.util
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:46: error: cannot find symbol
+  check(definitions.size()>50,"Vanilla tag resource archive missing");Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags=new HashMap<>();for(net.minecraft.util.ResourceLocation id:definitions.keySet())resolveTag(id,definitions,tags,new HashSet<>());return net.minecraft.tags.ITagCollection.of(tags);
+                                                                                                                                                                                                                                                                                                            ^
+  symbol:   class ITagCollection
+  location: package net.minecraft.tags
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                    ^
+  symbol:   class Block
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^
+  symbol:   class ResourceLocation
+  location: package net.minecraft.util
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ^
+  symbol:   class ResourceLocation
+  location: package net.minecraft.util
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: package net.minecraft.util.registry.Registry does not exist
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^
+  symbol:   class ITag
+  location: package net.minecraft.tags
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ^
+  symbol:   class Block
+  location: class YagaPlacementHeadless
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+ private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ^
+  symbol:   class Tag
+  location: package net.minecraft.tags
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:49: error: package net.minecraft.util.registry does not exist
+ public static void main(String[] args)throws Exception{net.minecraft.util.registry.Bootstrap.bootStrap();
+                                                                                   ^
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:50: error: cannot find symbol
+  net.minecraft.tags.ITagCollectionSupplier supplier=net.minecraft.tags.ITagCollectionSupplier.of(vanillaTags(args[0]),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty());supplier.bindToGlobal();
+                    ^
+  symbol:   class ITagCollectionSupplier
+  location: package net.minecraft.tags
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:50: error: cannot find symbol
+  net.minecraft.tags.ITagCollectionSupplier supplier=net.minecraft.tags.ITagCollectionSupplier.of(vanillaTags(args[0]),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty());supplier.bindToGlobal();
+                                                                       ^
+  symbol:   class ITagCollectionSupplier
+  location: package net.minecraft.tags
+D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:50: error: cannot find symbol
+  net.minecraft.tags.ITagCollectionSupplier supplier=net.minecraft.tags.ITagCollectionSupplier.of(vanillaTags(args[0]),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty());supplier.bindToGlobal();
+                                                                                                                                         ^
+  symbol:   class ITagCollection
+  location: package net.minecraft.tags
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+100 errors
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileKurganCheckJava'.
+> Compilation failed; see the compiler output below.
+  Note: Recompile with -Xlint:deprecation for details.
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:3: error: cannot find symbol
+  import net.minecraft.nbt.CompoundNBT;
+                          ^
+    symbol:   class CompoundNBT
+    location: package net.minecraft.nbt
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:8: error: cannot find symbol
+  import net.minecraft.util.Direction;
+                           ^
+    symbol:   class Direction
+    location: package net.minecraft.util
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:10: error: cannot find symbol
+  import net.minecraft.world.IWorld;
+                            ^
+    symbol:   class IWorld
+    location: package net.minecraft.world
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:15: error: cannot find symbol
+   private static final Map<String,Block> custom=new HashMap<>();
+                                   ^
+    symbol:   class Block
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:16: error: cannot find symbol
+   @SuppressWarnings({"rawtypes","unchecked"}) private static BlockState state(String id){try{if(id.startsWith("minecraft:"))return new BlockStateParser(new com.mojang.brigadier.StringReader(id),false).parse(false).getState();String base=id.split("\\[")[0];Block b=custom.get(base);if(b==null)throw new IllegalStateException(id);BlockState s=b.defaultBlockState();if(id.contains("["))for(String pair:id.substring(id.indexOf('[')+1,id.length()-1).split(",")){String[] kv=pair.split("=");Property property=b.getStateDefinition().getProperty(kv[0]);s=s.setValue(property,(Comparable)property.getValue(kv[1]).get());}return s;}catch(Exception e){throw new IllegalStateException(id,e);}}
+                                                              ^
+    symbol:   class BlockState
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:45: error: cannot find symbol
+   private static net.minecraft.tags.ITagCollection<Block> vanillaTags(String archive)throws java.io.IOException{Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions=new HashMap<>();try(java.util.zip.ZipFile zip=new java.util.zip.ZipFile(archive)){java.util.Enumeration<? extends java.util.zip.ZipEntry> entries=zip.entries();while(entries.hasMoreElements()){java.util.zip.ZipEntry e=entries.nextElement();String name=e.getName();if(name.startsWith("data/minecraft/tags/blocks/")&&name.endsWith(".json")){try(java.io.Reader reader=new java.io.InputStreamReader(zip.getInputStream(e),java.nio.charset.StandardCharsets.UTF_8)){definitions.put(new net.minecraft.util.ResourceLocation("minecraft",name.substring(27,name.length()-5)),new com.google.gson.JsonParser().parse(reader).getAsJsonObject().getAsJsonArray("values"));}}}}
+                                    ^
+    symbol:   class ITagCollection
+    location: package net.minecraft.tags
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:45: error: cannot find symbol
+   private static net.minecraft.tags.ITagCollection<Block> vanillaTags(String archive)throws java.io.IOException{Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions=new HashMap<>();try(java.util.zip.ZipFile zip=new java.util.zip.ZipFile(archive)){java.util.Enumeration<? extends java.util.zip.ZipEntry> entries=zip.entries();while(entries.hasMoreElements()){java.util.zip.ZipEntry e=entries.nextElement();String name=e.getName();if(name.startsWith("data/minecraft/tags/blocks/")&&name.endsWith(".json")){try(java.io.Reader reader=new java.io.InputStreamReader(zip.getInputStream(e),java.nio.charset.StandardCharsets.UTF_8)){definitions.put(new net.minecraft.util.ResourceLocation("minecraft",name.substring(27,name.length()-5)),new com.google.gson.JsonParser().parse(reader).getAsJsonObject().getAsJsonArray("values"));}}}}
+                                                    ^
+    symbol:   class Block
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                              ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.util
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                         ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.util
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                        ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.util
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                            ^
+    symbol:   class ITag
+    location: package net.minecraft.tags
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                  ^
+    symbol:   class Block
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                     ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.util
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                    ^
+    symbol:   class ITag
+    location: package net.minecraft.tags
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                          ^
+    symbol:   class Block
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:18: error: cannot find symbol
+    final Map<BlockPos,BlockState> blocks=new HashMap<>();final IWorld world;final int surface;boolean loaded=true,slope,legacyNeighbours;int reads,writes,failWrite=-1;
+              ^
+    symbol:   class BlockPos
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:18: error: cannot find symbol
+    final Map<BlockPos,BlockState> blocks=new HashMap<>();final IWorld world;final int surface;boolean loaded=true,slope,legacyNeighbours;int reads,writes,failWrite=-1;
+                       ^
+    symbol:   class BlockState
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:18: error: cannot find symbol
+    final Map<BlockPos,BlockState> blocks=new HashMap<>();final IWorld world;final int surface;boolean loaded=true,slope,legacyNeighbours;int reads,writes,failWrite=-1;
+                                                                ^
+    symbol:   class IWorld
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: cannot find symbol
+    BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+                   ^
+    symbol:   class BlockPos
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: cannot find symbol
+    BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+    ^
+    symbol:   class BlockState
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:9: error: cannot find symbol
+   public static void main(String[] args){YagaData d=new YagaData();UUID player=UUID.randomUUID(),npc=UUID.randomUUID();d.anchor=new BlockPos(-1200,80,750);d.npc=npc;d.placed=true;d.examined.add(99L);YagaData.Progress p=d.progress(player);
+                                                                                                                                     ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:12: error: cannot find symbol
+    CompoundNBT saved=d.save(new CompoundNBT());YagaData copy=new YagaData();copy.load(saved);YagaData.Progress restored=copy.progress(player);check(copy.anchor.equals(d.anchor)&&copy.npc.equals(npc)&&copy.placed&&copy.examined.contains(99L),"home/UUID persistence");check(restored.favor()==YagaData.Favor.TRUSTED&&restored.active.equals(p.active)&&restored.blockedUntil==p.blockedUntil&&restored.contractReady==p.contractReady,"progress/death/logout persistence");check(copy.progress(UUID.randomUUID()).favor()==YagaData.Favor.STRANGER,"cross-player progress leak");
+    ^
+    symbol:   class CompoundNBT
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:12: error: cannot find symbol
+    CompoundNBT saved=d.save(new CompoundNBT());YagaData copy=new YagaData();copy.load(saved);YagaData.Progress restored=copy.progress(player);check(copy.anchor.equals(d.anchor)&&copy.npc.equals(npc)&&copy.placed&&copy.examined.contains(99L),"home/UUID persistence");check(restored.favor()==YagaData.Favor.TRUSTED&&restored.active.equals(p.active)&&restored.blockedUntil==p.blockedUntil&&restored.contractReady==p.contractReady,"progress/death/logout persistence");check(copy.progress(UUID.randomUUID()).favor()==YagaData.Favor.STRANGER,"cross-player progress leak");
+                                 ^
+    symbol:   class CompoundNBT
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+    CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+    ^
+    symbol:   class CompoundNBT
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+    CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                              ^
+    symbol:   class CompoundNBT
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+    CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                                                                                                                                                    ^
+    symbol:   class ListNBT
+    location: package net.minecraft.nbt
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+    CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                                                                                                                                                                                        ^
+    symbol:   class ListNBT
+    location: package net.minecraft.nbt
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+    CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                                                                                                                                                                                                   ^
+    symbol:   class CompoundNBT
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: cannot find symbol
+    CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                                                                                                                                                                                                                       ^
+    symbol:   class CompoundNBT
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:16: error: cannot find symbol
+    for(int x=-5;x<=5;x++)for(int z=-6;z<=6;z++)check(plan.blocks.containsKey(new BlockPos(x,3,z)),"floor hole");for(int x:new int[]{-3,3}){for(int dx=-1;dx<=1;dx++)check(plan.blocks.get(new BlockPos(x+dx,0,-3)).contains("part=4"),"missing front claw");check(plan.blocks.get(new BlockPos(x,0,2)).contains("part=4"),"missing rear claw");check(plan.blocks.get(new BlockPos(x,2,0)).contains("part=1"),"straight pillar leg");}
+                                                                                  ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:16: error: cannot find symbol
+    for(int x=-5;x<=5;x++)for(int z=-6;z<=6;z++)check(plan.blocks.containsKey(new BlockPos(x,3,z)),"floor hole");for(int x:new int[]{-3,3}){for(int dx=-1;dx<=1;dx++)check(plan.blocks.get(new BlockPos(x+dx,0,-3)).contains("part=4"),"missing front claw");check(plan.blocks.get(new BlockPos(x,0,2)).contains("part=4"),"missing rear claw");check(plan.blocks.get(new BlockPos(x,2,0)).contains("part=1"),"straight pillar leg");}
+                                                                                                                                                                                               ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:16: error: cannot find symbol
+    for(int x=-5;x<=5;x++)for(int z=-6;z<=6;z++)check(plan.blocks.containsKey(new BlockPos(x,3,z)),"floor hole");for(int x:new int[]{-3,3}){for(int dx=-1;dx<=1;dx++)check(plan.blocks.get(new BlockPos(x+dx,0,-3)).contains("part=4"),"missing front claw");check(plan.blocks.get(new BlockPos(x,0,2)).contains("part=4"),"missing rear claw");check(plan.blocks.get(new BlockPos(x,2,0)).contains("part=1"),"straight pillar leg");}
+                                                                                                                                                                                                                                                                                       ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:16: error: cannot find symbol
+    for(int x=-5;x<=5;x++)for(int z=-6;z<=6;z++)check(plan.blocks.containsKey(new BlockPos(x,3,z)),"floor hole");for(int x:new int[]{-3,3}){for(int dx=-1;dx<=1;dx++)check(plan.blocks.get(new BlockPos(x+dx,0,-3)).contains("part=4"),"missing front claw");check(plan.blocks.get(new BlockPos(x,0,2)).contains("part=4"),"missing rear claw");check(plan.blocks.get(new BlockPos(x,2,0)).contains("part=1"),"straight pillar leg");}
+                                                                                                                                                                                                                                                                                                                                                                          ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:17: error: cannot find symbol
+    check(plan.blocks.get(new BlockPos(0,4,-6)).contains("half=lower")&&plan.blocks.get(new BlockPos(0,5,-6)).contains("half=upper"),"incomplete entrance");for(int z=-5;z<=1;z++)for(int y=4;y<=5;y++)check(plan.blocks.get(new BlockPos(0,y,z)).equals("minecraft:air"),"entry route obstructed");
+                              ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:17: error: cannot find symbol
+    check(plan.blocks.get(new BlockPos(0,4,-6)).contains("half=lower")&&plan.blocks.get(new BlockPos(0,5,-6)).contains("half=upper"),"incomplete entrance");for(int z=-5;z<=1;z++)for(int y=4;y<=5;y++)check(plan.blocks.get(new BlockPos(0,y,z)).equals("minecraft:air"),"entry route obstructed");
+                                                                                            ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:17: error: cannot find symbol
+    check(plan.blocks.get(new BlockPos(0,4,-6)).contains("half=lower")&&plan.blocks.get(new BlockPos(0,5,-6)).contains("half=upper"),"incomplete entrance");for(int z=-5;z<=1;z++)for(int y=4;y<=5;y++)check(plan.blocks.get(new BlockPos(0,y,z)).equals("minecraft:air"),"entry route obstructed");
+                                                                                                                                                                                                                                 ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:18: error: cannot find symbol
+    for(BlockPos pos:plan.blocks.keySet())check(Math.abs(pos.getX())<=9&&pos.getZ()>=-16&&pos.getZ()<=9&&pos.getY()>=-1&&pos.getY()<=13,"blueprint outside loading/rollback box");
+        ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:19: error: cannot find symbol
+    for(long seed:new long[]{0,-1,Long.MIN_VALUE,42,2026}){BlockPos spawn=new BlockPos(-1500,70,1900);List<BlockPos> sites=YagaHutPlan.candidates(seed,spawn);check(sites.size()==64&&sites.equals(YagaHutPlan.candidates(seed,spawn)),"unstable/unbounded candidates");for(BlockPos site:sites){double dx=site.getX()-spawn.getX(),dz=site.getZ()-spawn.getZ(),radius=Math.sqrt(dx*dx+dz*dz);check(radius>=800&&radius<=2500,"hut outside requested spawn radius");}}
+                                                           ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:19: error: cannot find symbol
+    for(long seed:new long[]{0,-1,Long.MIN_VALUE,42,2026}){BlockPos spawn=new BlockPos(-1500,70,1900);List<BlockPos> sites=YagaHutPlan.candidates(seed,spawn);check(sites.size()==64&&sites.equals(YagaHutPlan.candidates(seed,spawn)),"unstable/unbounded candidates");for(BlockPos site:sites){double dx=site.getX()-spawn.getX(),dz=site.getZ()-spawn.getZ(),radius=Math.sqrt(dx*dx+dz*dz);check(radius>=800&&radius<=2500,"hut outside requested spawn radius");}}
+                                                                              ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:19: error: cannot find symbol
+    for(long seed:new long[]{0,-1,Long.MIN_VALUE,42,2026}){BlockPos spawn=new BlockPos(-1500,70,1900);List<BlockPos> sites=YagaHutPlan.candidates(seed,spawn);check(sites.size()==64&&sites.equals(YagaHutPlan.candidates(seed,spawn)),"unstable/unbounded candidates");for(BlockPos site:sites){double dx=site.getX()-spawn.getX(),dz=site.getZ()-spawn.getZ(),radius=Math.sqrt(dx*dx+dz*dz);check(radius>=800&&radius<=2500,"hut outside requested spawn radius");}}
+                                                                                                           ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:19: error: cannot find symbol
+    for(long seed:new long[]{0,-1,Long.MIN_VALUE,42,2026}){BlockPos spawn=new BlockPos(-1500,70,1900);List<BlockPos> sites=YagaHutPlan.candidates(seed,spawn);check(sites.size()==64&&sites.equals(YagaHutPlan.candidates(seed,spawn)),"unstable/unbounded candidates");for(BlockPos site:sites){double dx=site.getX()-spawn.getX(),dz=site.getZ()-spawn.getZ(),radius=Math.sqrt(dx*dx+dz*dz);check(radius>=800&&radius<=2500,"hut outside requested spawn radius");}}
+                                                                                                                                                                                                                                                                            ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:20: error: cannot find symbol
+    if(args.length==1){try{java.nio.file.Path path=java.nio.file.Paths.get(args[0]);java.nio.file.Files.createDirectories(path.getParent());StringBuilder json=new StringBuilder("[\n");boolean first=true;for(Map.Entry<BlockPos,String> e:plan.blocks.entrySet()){if(!first)json.append(",\n");first=false;BlockPos b=e.getKey();json.append("{\"x\":").append(b.getX()).append(",\"y\":").append(b.getY()).append(",\"z\":").append(b.getZ()).append(",\"block\":\"").append(e.getValue()).append("\"}");}json.append("\n]\n");java.nio.file.Files.write(path,json.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8));}catch(java.io.IOException ex){throw new IllegalStateException(ex);}}
+                                                                                                                                                                                                                         ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:20: error: cannot find symbol
+    if(args.length==1){try{java.nio.file.Path path=java.nio.file.Paths.get(args[0]);java.nio.file.Files.createDirectories(path.getParent());StringBuilder json=new StringBuilder("[\n");boolean first=true;for(Map.Entry<BlockPos,String> e:plan.blocks.entrySet()){if(!first)json.append(",\n");first=false;BlockPos b=e.getKey();json.append("{\"x\":").append(b.getX()).append(",\"y\":").append(b.getY()).append(",\"z\":").append(b.getZ()).append(",\"block\":\"").append(e.getValue()).append("\"}");}json.append("\n]\n");java.nio.file.Files.write(path,json.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8));}catch(java.io.IOException ex){throw new IllegalStateException(ex);}}
+                                                                                                                                                                                                                                                                                                             ^
+    symbol:   class BlockPos
+    location: class YagaHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:16: error: cannot find symbol
+   @SuppressWarnings({"rawtypes","unchecked"}) private static BlockState state(String id){try{if(id.startsWith("minecraft:"))return new BlockStateParser(new com.mojang.brigadier.StringReader(id),false).parse(false).getState();String base=id.split("\\[")[0];Block b=custom.get(base);if(b==null)throw new IllegalStateException(id);BlockState s=b.defaultBlockState();if(id.contains("["))for(String pair:id.substring(id.indexOf('[')+1,id.length()-1).split(",")){String[] kv=pair.split("=");Property property=b.getStateDefinition().getProperty(kv[0]);s=s.setValue(property,(Comparable)property.getValue(kv[1]).get());}return s;}catch(Exception e){throw new IllegalStateException(id,e);}}
+                                                                                                                                        ^
+    symbol:   class BlockStateParser
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:16: error: cannot find symbol
+   @SuppressWarnings({"rawtypes","unchecked"}) private static BlockState state(String id){try{if(id.startsWith("minecraft:"))return new BlockStateParser(new com.mojang.brigadier.StringReader(id),false).parse(false).getState();String base=id.split("\\[")[0];Block b=custom.get(base);if(b==null)throw new IllegalStateException(id);BlockState s=b.defaultBlockState();if(id.contains("["))for(String pair:id.substring(id.indexOf('[')+1,id.length()-1).split(",")){String[] kv=pair.split("=");Property property=b.getStateDefinition().getProperty(kv[0]);s=s.setValue(property,(Comparable)property.getValue(kv[1]).get());}return s;}catch(Exception e){throw new IllegalStateException(id,e);}}
+                                                                                                                                                                                                                                                                 ^
+    symbol:   class Block
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:16: error: cannot find symbol
+   @SuppressWarnings({"rawtypes","unchecked"}) private static BlockState state(String id){try{if(id.startsWith("minecraft:"))return new BlockStateParser(new com.mojang.brigadier.StringReader(id),false).parse(false).getState();String base=id.split("\\[")[0];Block b=custom.get(base);if(b==null)throw new IllegalStateException(id);BlockState s=b.defaultBlockState();if(id.contains("["))for(String pair:id.substring(id.indexOf('[')+1,id.length()-1).split(",")){String[] kv=pair.split("=");Property property=b.getStateDefinition().getProperty(kv[0]);s=s.setValue(property,(Comparable)property.getValue(kv[1]).get());}return s;}catch(Exception e){throw new IllegalStateException(id,e);}}
+                                                                                                                                                                                                                                                                                                                                         ^
+    symbol:   class BlockState
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:16: error: cannot find symbol
+   @SuppressWarnings({"rawtypes","unchecked"}) private static BlockState state(String id){try{if(id.startsWith("minecraft:"))return new BlockStateParser(new com.mojang.brigadier.StringReader(id),false).parse(false).getState();String base=id.split("\\[")[0];Block b=custom.get(base);if(b==null)throw new IllegalStateException(id);BlockState s=b.defaultBlockState();if(id.contains("["))for(String pair:id.substring(id.indexOf('[')+1,id.length()-1).split(",")){String[] kv=pair.split("=");Property property=b.getStateDefinition().getProperty(kv[0]);s=s.setValue(property,(Comparable)property.getValue(kv[1]).get());}return s;}catch(Exception e){throw new IllegalStateException(id,e);}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^
+    symbol:   class Property
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:19: error: cannot find symbol
+    WorldFixture(int surface){this.surface=surface;world=(IWorld)Proxy.newProxyInstance(IWorld.class.getClassLoader(),new Class<?>[]{IWorld.class},this);}
+                                                          ^
+    symbol:   class IWorld
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:19: error: cannot find symbol
+    WorldFixture(int surface){this.surface=surface;world=(IWorld)Proxy.newProxyInstance(IWorld.class.getClassLoader(),new Class<?>[]{IWorld.class},this);}
+                                                                                                                                     ^
+    symbol:   class IWorld
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:19: error: cannot find symbol
+    WorldFixture(int surface){this.surface=surface;world=(IWorld)Proxy.newProxyInstance(IWorld.class.getClassLoader(),new Class<?>[]{IWorld.class},this);}
+                                                                                        ^
+    symbol:   class IWorld
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:23: error: cannot find symbol
+     case "getBlockState":reads++;return get((BlockPos)a[0]);
+                                              ^
+    symbol:   class BlockPos
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:24: error: cannot find symbol
+     case "getFluidState":return get((BlockPos)a[0]).getFluidState();
+                                      ^
+    symbol:   class BlockPos
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:25: error: cannot find symbol
+     case "getBlockEntity":return get((BlockPos)a[0]).getBlock()==Blocks.CHEST?new net.minecraft.tileentity.ChestTileEntity():null;
+                                       ^
+    symbol:   class BlockPos
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:25: error: cannot find symbol
+     case "getBlockEntity":return get((BlockPos)a[0]).getBlock()==Blocks.CHEST?new net.minecraft.tileentity.ChestTileEntity():null;
+                                                                  ^
+    symbol:   variable Blocks
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:26: error: cannot find symbol
+     case "getHeight":if(a==null||a.length==0)return 256;int x=(Integer)a[1],z=(Integer)a[2],top=surface(x);for(Map.Entry<BlockPos,BlockState> e:blocks.entrySet())if(e.getKey().getX()==x&&e.getKey().getZ()==z&&!e.getValue().isAir())top=Math.max(top,e.getKey().getY());return top+1;
+                                                                                                                          ^
+    symbol:   class BlockPos
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:26: error: cannot find symbol
+     case "getHeight":if(a==null||a.length==0)return 256;int x=(Integer)a[1],z=(Integer)a[2],top=surface(x);for(Map.Entry<BlockPos,BlockState> e:blocks.entrySet())if(e.getKey().getX()==x&&e.getKey().getZ()==z&&!e.getValue().isAir())top=Math.max(top,e.getKey().getY());return top+1;
+                                                                                                                                   ^
+    symbol:   class BlockState
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:29: error: cannot find symbol
+     case "setBlock":writes++;if(writes==failWrite)return false;BlockPos pos=((BlockPos)a[0]).immutable();BlockState s=(BlockState)a[1];int flags=(Integer)a[2];check(legacyNeighbours||flags==YagaPlacement.BUILD_FLAGS,"placement allowed neighbour destruction before supports");blocks.put(pos,s);
+                                                                ^
+    symbol:   class BlockPos
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:29: error: cannot find symbol
+     case "setBlock":writes++;if(writes==failWrite)return false;BlockPos pos=((BlockPos)a[0]).immutable();BlockState s=(BlockState)a[1];int flags=(Integer)a[2];check(legacyNeighbours||flags==YagaPlacement.BUILD_FLAGS,"placement allowed neighbour destruction before supports");blocks.put(pos,s);
+                                                                               ^
+    symbol:   class BlockPos
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:29: error: cannot find symbol
+     case "setBlock":writes++;if(writes==failWrite)return false;BlockPos pos=((BlockPos)a[0]).immutable();BlockState s=(BlockState)a[1];int flags=(Integer)a[2];check(legacyNeighbours||flags==YagaPlacement.BUILD_FLAGS,"placement allowed neighbour destruction before supports");blocks.put(pos,s);
+                                                                                                          ^
+    symbol:   class BlockState
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:29: error: cannot find symbol
+     case "setBlock":writes++;if(writes==failWrite)return false;BlockPos pos=((BlockPos)a[0]).immutable();BlockState s=(BlockState)a[1];int flags=(Integer)a[2];check(legacyNeighbours||flags==YagaPlacement.BUILD_FLAGS,"placement allowed neighbour destruction before supports");blocks.put(pos,s);
+                                                                                                                        ^
+    symbol:   class BlockState
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:30: error: cannot find symbol
+      if(legacyNeighbours&&(flags&16)==0)for(Direction direction:Direction.values()){BlockPos p=pos.relative(direction);BlockState old=get(p),next=Block.updateFromNeighbourShapes(old,world,p);if(!old.equals(next))blocks.put(p,next);}return true;
+                                                                 ^
+    symbol:   variable Direction
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:30: error: cannot find symbol
+      if(legacyNeighbours&&(flags&16)==0)for(Direction direction:Direction.values()){BlockPos p=pos.relative(direction);BlockState old=get(p),next=Block.updateFromNeighbourShapes(old,world,p);if(!old.equals(next))blocks.put(p,next);}return true;
+                                             ^
+    symbol:   class Direction
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:30: error: cannot find symbol
+      if(legacyNeighbours&&(flags&16)==0)for(Direction direction:Direction.values()){BlockPos p=pos.relative(direction);BlockState old=get(p),next=Block.updateFromNeighbourShapes(old,world,p);if(!old.equals(next))blocks.put(p,next);}return true;
+                                                                                     ^
+    symbol:   class BlockPos
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:30: error: cannot find symbol
+      if(legacyNeighbours&&(flags&16)==0)for(Direction direction:Direction.values()){BlockPos p=pos.relative(direction);BlockState old=get(p),next=Block.updateFromNeighbourShapes(old,world,p);if(!old.equals(next))blocks.put(p,next);}return true;
+                                                                                                                        ^
+    symbol:   class BlockState
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:30: error: cannot find symbol
+      if(legacyNeighbours&&(flags&16)==0)for(Direction direction:Direction.values()){BlockPos p=pos.relative(direction);BlockState old=get(p),next=Block.updateFromNeighbourShapes(old,world,p);if(!old.equals(next))blocks.put(p,next);}return true;
+                                                                                                                                                   ^
+    symbol:   variable Block
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:33: error: cannot find symbol
+     case "isEmptyBlock":return get((BlockPos)a[0]).isAir();
+                                     ^
+    symbol:   class BlockPos
+    location: class WorldFixture
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:36: error: cannot find symbol
+     case "getBlockTicks":case "getLiquidTicks":return net.minecraft.world.EmptyTickList.empty();
+                                                                          ^
+    symbol:   class EmptyTickList
+    location: package net.minecraft.world
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:43: error: cannot find symbol
+   private static YagaPlacement.Site prepare(WorldFixture f,YagaHutPlan plan){return YagaPlacement.prepare(f.world,BlockPos.ZERO,plan,YagaPlacementHeadless::state);}
+                                                                                                                   ^
+    symbol:   variable BlockPos
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:44: error: cannot find symbol
+   private static void original(WorldFixture f,YagaPlacement.Site site){for(Map.Entry<BlockPos,BlockState> e:site.old.entrySet())check(f.get(e.getKey()).equals(e.getValue()),"partial house after rollback at "+e.getKey());}
+                                                                                      ^
+    symbol:   class BlockPos
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:44: error: cannot find symbol
+   private static void original(WorldFixture f,YagaPlacement.Site site){for(Map.Entry<BlockPos,BlockState> e:site.old.entrySet())check(f.get(e.getKey()).equals(e.getValue()),"partial house after rollback at "+e.getKey());}
+                                                                                               ^
+    symbol:   class BlockState
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:45: error: cannot find symbol
+   private static net.minecraft.tags.ITagCollection<Block> vanillaTags(String archive)throws java.io.IOException{Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions=new HashMap<>();try(java.util.zip.ZipFile zip=new java.util.zip.ZipFile(archive)){java.util.Enumeration<? extends java.util.zip.ZipEntry> entries=zip.entries();while(entries.hasMoreElements()){java.util.zip.ZipEntry e=entries.nextElement();String name=e.getName();if(name.startsWith("data/minecraft/tags/blocks/")&&name.endsWith(".json")){try(java.io.Reader reader=new java.io.InputStreamReader(zip.getInputStream(e),java.nio.charset.StandardCharsets.UTF_8)){definitions.put(new net.minecraft.util.ResourceLocation("minecraft",name.substring(27,name.length()-5)),new com.google.gson.JsonParser().parse(reader).getAsJsonObject().getAsJsonArray("values"));}}}}
+                                                                                                                                       ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.util
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:45: error: cannot find symbol
+   private static net.minecraft.tags.ITagCollection<Block> vanillaTags(String archive)throws java.io.IOException{Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions=new HashMap<>();try(java.util.zip.ZipFile zip=new java.util.zip.ZipFile(archive)){java.util.Enumeration<? extends java.util.zip.ZipEntry> entries=zip.entries();while(entries.hasMoreElements()){java.util.zip.ZipEntry e=entries.nextElement();String name=e.getName();if(name.startsWith("data/minecraft/tags/blocks/")&&name.endsWith(".json")){try(java.io.Reader reader=new java.io.InputStreamReader(zip.getInputStream(e),java.nio.charset.StandardCharsets.UTF_8)){definitions.put(new net.minecraft.util.ResourceLocation("minecraft",name.substring(27,name.length()-5)),new com.google.gson.JsonParser().parse(reader).getAsJsonObject().getAsJsonArray("values"));}}}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.util
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:46: error: cannot find symbol
+    check(definitions.size()>50,"Vanilla tag resource archive missing");Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags=new HashMap<>();for(net.minecraft.util.ResourceLocation id:definitions.keySet())resolveTag(id,definitions,tags,new HashSet<>());return net.minecraft.tags.ITagCollection.of(tags);
+                                                                                              ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.util
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:46: error: cannot find symbol
+    check(definitions.size()>50,"Vanilla tag resource archive missing");Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags=new HashMap<>();for(net.minecraft.util.ResourceLocation id:definitions.keySet())resolveTag(id,definitions,tags,new HashSet<>());return net.minecraft.tags.ITagCollection.of(tags);
+                                                                                                                                  ^
+    symbol:   class ITag
+    location: package net.minecraft.tags
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:46: error: cannot find symbol
+    check(definitions.size()>50,"Vanilla tag resource archive missing");Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags=new HashMap<>();for(net.minecraft.util.ResourceLocation id:definitions.keySet())resolveTag(id,definitions,tags,new HashSet<>());return net.minecraft.tags.ITagCollection.of(tags);
+                                                                                                                                        ^
+    symbol:   class Block
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:46: error: cannot find symbol
+    check(definitions.size()>50,"Vanilla tag resource archive missing");Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags=new HashMap<>();for(net.minecraft.util.ResourceLocation id:definitions.keySet())resolveTag(id,definitions,tags,new HashSet<>());return net.minecraft.tags.ITagCollection.of(tags);
+                                                                                                                                                                                           ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.util
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:46: error: cannot find symbol
+    check(definitions.size()>50,"Vanilla tag resource archive missing");Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags=new HashMap<>();for(net.minecraft.util.ResourceLocation id:definitions.keySet())resolveTag(id,definitions,tags,new HashSet<>());return net.minecraft.tags.ITagCollection.of(tags);
+                                                                                                                                                                                                                                                                                                              ^
+    symbol:   class ITagCollection
+    location: package net.minecraft.tags
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                      ^
+    symbol:   class Block
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.util
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.util
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^
+    symbol:   class ITag
+    location: package net.minecraft.tags
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^
+    symbol:   class Block
+    location: class YagaPlacementHeadless
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: cannot find symbol
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^
+    symbol:   class Tag
+    location: package net.minecraft.tags
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:50: error: cannot find symbol
+    net.minecraft.tags.ITagCollectionSupplier supplier=net.minecraft.tags.ITagCollectionSupplier.of(vanillaTags(args[0]),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty());supplier.bindToGlobal();
+                      ^
+    symbol:   class ITagCollectionSupplier
+    location: package net.minecraft.tags
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:50: error: cannot find symbol
+    net.minecraft.tags.ITagCollectionSupplier supplier=net.minecraft.tags.ITagCollectionSupplier.of(vanillaTags(args[0]),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty());supplier.bindToGlobal();
+                                                                         ^
+    symbol:   class ITagCollectionSupplier
+    location: package net.minecraft.tags
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:50: error: cannot find symbol
+    net.minecraft.tags.ITagCollectionSupplier supplier=net.minecraft.tags.ITagCollectionSupplier.of(vanillaTags(args[0]),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty(),net.minecraft.tags.ITagCollection.empty());supplier.bindToGlobal();
+                                                                                                                                           ^
+    symbol:   class ITagCollection
+    location: package net.minecraft.tags
+  Note: Some input files use or override a deprecated API.
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:4: error: package net.minecraft.util.math does not exist
+  import net.minecraft.util.math.BlockPos;
+                                ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:5: error: package net.minecraft.block.material does not exist
+  import net.minecraft.block.material.Material;
+                                     ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:6: error: package net.minecraft.command.arguments does not exist
+  import net.minecraft.command.arguments.BlockStateParser;
+                                        ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:7: error: package net.minecraft.state does not exist
+  import net.minecraft.state.Property;
+                            ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:9: error: package net.minecraft.util.math does not exist
+  import net.minecraft.util.math.BlockPos;
+                                ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:4: error: package net.minecraft.block does not exist
+  import net.minecraft.block.*;
+  ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaHeadless.java:14: error: package BlockPos does not exist
+    CompoundNBT malformed=new CompoundNBT();malformed.putLong("Anchor",BlockPos.ZERO.asLong());malformed.putBoolean("Placed",true);net.minecraft.nbt.ListNBT plist=new net.minecraft.nbt.ListNBT();CompoundNBT bad=new CompoundNBT();bad.putUUID("Player",player);bad.putInt("Stage",1);bad.putInt("Contract",8);bad.putString("Active","contract:8");plist.add(bad);malformed.put("Players",plist);YagaData repaired=new YagaData();repaired.load(malformed);check(YagaServices.POOL[repaired.progress(player).contract]<4&&repaired.progress(player).active.isEmpty(),"old/malformed rare contract strands guest");
+                                                                               ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: package Blocks does not exist
+    BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+                                                                                                                                             ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: package Blocks does not exist
+    BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+                                                                                                                                                                                          ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: package Blocks does not exist
+    BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+                                                                                                                                                                                                                                             ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:21: error: package Blocks does not exist
+    BlockState get(BlockPos p){if(blocks.containsKey(p))return blocks.get(p);int top=surface(p.getX());return p.getY()<0||p.getY()>top?Blocks.AIR.defaultBlockState():p.getY()==top?Blocks.GRASS_BLOCK.defaultBlockState():p.getY()==0?Blocks.BEDROCK.defaultBlockState():Blocks.DIRT.defaultBlockState();}
+                                                                                                                                                                                                                                                                                ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:25: error: package net.minecraft.tileentity does not exist
+     case "getBlockEntity":return get((BlockPos)a[0]).getBlock()==Blocks.CHEST?new net.minecraft.tileentity.ChestTileEntity():null;
+                                                                                                           ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:48: error: package net.minecraft.util.registry.Registry does not exist
+   private static net.minecraft.tags.ITag<Block> resolveTag(net.minecraft.util.ResourceLocation id,Map<net.minecraft.util.ResourceLocation,com.google.gson.JsonArray> definitions,Map<net.minecraft.util.ResourceLocation,net.minecraft.tags.ITag<Block>> tags,Set<net.minecraft.util.ResourceLocation> path){if(tags.containsKey(id))return tags.get(id);check(path.add(id),"Vanilla tag cycle");Set<Block> values=new HashSet<>();com.google.gson.JsonArray list=definitions.get(id);if(list!=null)for(com.google.gson.JsonElement element:list){String name=element.isJsonPrimitive()?element.getAsString():element.getAsJsonObject().get("id").getAsString();if(name.startsWith("#"))values.addAll(resolveTag(new net.minecraft.util.ResourceLocation(name.substring(1)),definitions,tags,path).getValues());else values.add(net.minecraft.util.registry.Registry.BLOCK.get(new net.minecraft.util.ResourceLocation(name)));}path.remove(id);net.minecraft.tags.ITag<Block> tag=net.minecraft.tags.Tag.create(values);tags.put(id,tag);return tag;}
+13 actionable tasks: 13 executed
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ^
+  D:\slavic-myths\tools\kurgan-tests\org\slavicmyths\verify\YagaPlacementHeadless.java:49: error: package net.minecraft.util.registry does not exist
+   public static void main(String[] args)throws Exception{net.minecraft.util.registry.Bootstrap.bootStrap();
+                                                                                     ^
+  100 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 37s

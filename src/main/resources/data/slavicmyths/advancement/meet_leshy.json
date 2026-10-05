@@ -1,0 +1,28 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:leshy_spawn_egg"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.meet_leshy.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.meet_leshy.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "encounter": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "entity": {
+          "type": "slavicmyths:leshy"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slavicmyths:bog_green_kurgan_stone"
+  },
+  "result": {
+    "id": "slavicmyths:bog_green_kurgan_stone_wall",
+    "count": 1
+  }
+}

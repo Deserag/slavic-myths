@@ -1,6 +1,6 @@
 package org.slavicmyths.yaga;
 import java.util.*;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
 /** Pure, bounded hut blueprint. Positions are relative to ground level. */
 public final class YagaHutPlan {
  public final LinkedHashMap<BlockPos,String> blocks=new LinkedHashMap<>();
@@ -42,5 +42,5 @@ public final class YagaHutPlan {
   for(int x:new int[]{-7,7})for(int z:new int[]{-7,-3,1,7})b(x,0,z,z<0?"slavicmyths:wormwood":"brown_mushroom");
  }
  /** Candidate positions never load chunks. The seeded order is stable across restarts. */
- public static List<BlockPos> candidates(long seed,BlockPos spawn){Random random=new Random(seed^0x596167614875744cL);List<BlockPos> out=new ArrayList<>();for(int i=0;i<64;i++){double a=random.nextDouble()*Math.PI*2,r=820+random.nextDouble()*1650;out.add(new BlockPos(spawn.getX()+Math.round(Math.cos(a)*r),0,spawn.getZ()+Math.round(Math.sin(a)*r)));}return out;}
+ public static List<BlockPos> candidates(long seed,BlockPos spawn){Random random=new Random(seed^0x596167614875744cL);List<BlockPos> out=new ArrayList<>();for(int i=0;i<64;i++){double a=random.nextDouble()*Math.PI*2,r=820+random.nextDouble()*1650;out.add(new BlockPos(spawn.getX()+(int)Math.round(Math.cos(a)*r),0,spawn.getZ()+(int)Math.round(Math.sin(a)*r)));}return out;}
 }

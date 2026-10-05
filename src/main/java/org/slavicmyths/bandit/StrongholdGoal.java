@@ -1,10 +1,14 @@
 package org.slavicmyths.bandit;
 import java.util.*;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.*;
+import net.minecraft.sounds.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Direction;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 public final class StrongholdGoal extends Goal {
  private final BanditEntity mob;private int time,nextCheck;
  public StrongholdGoal(BanditEntity b){mob=b;setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
@@ -12,7 +16,7 @@ public final class StrongholdGoal extends Goal {
  @Override public void start(){time=0;}
  @Override public void stop(){mob.ambientAction(0);mob.getNavigation().stop();}
  @Override public void tick(){
-  if(++time%20!=0)return;ServerWorld w=(ServerWorld)mob.level;StrongholdRecords records=StrongholdRecords.get(w);int state=records.state(w,mob.camp,mob.zone);StrongholdRecords.Record record=records.record(mob.camp);
+  if(++time%20!=0)return;ServerLevel w=(ServerLevel)mob.level();StrongholdRecords records=StrongholdRecords.get(w);int state=records.state(w,mob.camp,mob.zone);StrongholdRecords.Record record=records.record(mob.camp);
   LivingEntity suspect=mob.suspect;
   if(suspect!=null){
    if(!suspect.isAlive()||mob.distanceToSqr(suspect)>1600){mob.suspect=null;records.calm(mob.camp,mob.zone);return;}
@@ -30,7 +34,7 @@ public final class StrongholdGoal extends Goal {
   if(mob.home==null)return;
   if(mob.duty()==2||mob.duty()==3){
    if(time%100==0)mob.getNavigation().moveTo(mob.home.getX()+.5,mob.home.getY(),mob.home.getZ()+.5,.65);
-   if(mob.blockPosition().distSqr(mob.home)<9&&time%80==0){mob.ambientAction(1);mob.swing(Hand.MAIN_HAND,true);mob.playSound(mob.duty()==3?SoundEvents.ANVIL_USE:SoundEvents.WOOD_HIT,.35F,1);}
+   if(mob.blockPosition().distSqr(mob.home)<9&&time%80==0){mob.ambientAction(1);mob.swing(InteractionHand.MAIN_HAND,true);mob.playSound(mob.duty()==3?SoundEvents.ANVIL_USE:SoundEvents.WOOD_HIT,.35F,1);}
    else if(time%80==20)mob.ambientAction(0);
   }else if(mob.duty()==1){if(time%120==0){BlockPos p=mob.home.offset((time/120%2==0?1:-1)*5,0,(time/240%2==0?1:-1)*3);mob.getNavigation().moveTo(p.getX()+.5,p.getY(),p.getZ()+.5,.65);}}
   else if(time%100==0&&mob.blockPosition().distSqr(mob.home)>9)mob.getNavigation().moveTo(mob.home.getX()+.5,mob.home.getY(),mob.home.getZ()+.5,.65);

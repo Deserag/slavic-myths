@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "shapes": 1024,
+  "checks": [
+    "ordered log coordinates/axes",
+    "leaf coordinates/distances",
+    "hanging coordinates",
+    "variant",
+    "post-generation RNG state"
+  ],
+  "hashes": {
+    "legacy": "045fcd1d872e274174b104c6350c550017e92d4c4c8ad363210aa18e64257a15",
+    "current": "045fcd1d872e274174b104c6350c550017e92d4c4c8ad363210aa18e64257a15"
+  },
+  "runtime_worldgen_verified": false
+}

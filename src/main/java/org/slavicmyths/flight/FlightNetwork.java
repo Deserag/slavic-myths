@@ -1,12 +1,23 @@
 package org.slavicmyths.flight;
-import java.util.Optional;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.network.*;
-import net.minecraftforge.fml.network.simple.SimpleChannel;
+import net.minecraft.server.level.ServerPlayer;
+import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import org.slavicmyths.network.MythPayloads;
 public final class FlightNetwork {
- private static final SimpleChannel NET=NetworkRegistry.newSimpleChannel(new ResourceLocation("slavicmyths","flight"),()->"1","1"::equals,"1"::equals);
- public static void register(){NET.registerMessage(0,Input.class,(m,b)->{b.writeFloat(m.f);b.writeFloat(m.s);b.writeFloat(m.u);b.writeFloat(m.yaw);b.writeBoolean(m.brake);b.writeBoolean(m.cargo);},b->new Input(b.readFloat(),b.readFloat(),b.readFloat(),b.readFloat(),b.readBoolean(),b.readBoolean()),(m,c)->{ServerPlayerEntity p=c.get().getSender();c.get().enqueueWork(()->{if(p!=null&&p.getVehicle() instanceof FlyingVessel){FlyingVessel v=(FlyingVessel)p.getVehicle();if(v.pilot()!=p)return;long now=p.level.getGameTime();if(p.getPersistentData().getLong("SlavicFlightPacket")>now)return;p.getPersistentData().putLong("SlavicFlightPacket",now+2);v.input(p,m.f,m.s,m.u,m.yaw,m.brake);if(m.cargo)v.openCargo(p);}});c.get().setPacketHandled(true);},Optional.of(NetworkDirection.PLAY_TO_SERVER));}
- public static void send(float f,float s,float up,float yaw,boolean brake,boolean cargo){NET.sendToServer(new Input(f,s,up,yaw,brake,cargo));}
- private static final class Input{final float f,s,u,yaw;final boolean brake,cargo;Input(float f,float s,float u,float y,boolean b,boolean c){this.f=f;this.s=s;this.u=u;yaw=y;brake=b;cargo=c;}}
+ public static void register(RegisterPayloadHandlersEvent event) {
+  event.registrar("0.9.4").playToServer(MythPayloads.FlightInput.TYPE,MythPayloads.FlightInput.CODEC,(payload,context)->{
+   if(!payload.finite() || !(context.player() instanceof ServerPlayer player)
+    || !(player.getVehicle() instanceof FlyingVessel vessel) || vessel.pilot()!=player
+    || !vessel.owns(player) || !player.isAlive()) return;
+   long now=player.level().getGameTime();
+   if(player.getPersistentData().getLong("SlavicFlightPacket")>now)return;
+   player.getPersistentData().putLong("SlavicFlightPacket",now+2);
+   vessel.input(player,payload.forward(),payload.strafe(),payload.lift(),payload.yaw(),payload.brake());
+   if(payload.cargo())vessel.openCargo(player);
+  });
+ }
+ public static void send(float f,float s,float up,float yaw,boolean brake,boolean cargo) {
+  PacketDistributor.sendToServer(new MythPayloads.FlightInput(f,s,up,yaw,brake,cargo));
+ }
+ private FlightNetwork() { }
 }

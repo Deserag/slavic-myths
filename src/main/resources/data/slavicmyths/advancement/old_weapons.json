@@ -1,0 +1,32 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:spear"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.old_weapons.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.old_weapons.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:spear"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:old_button"
+    },
+    {
+      "item": "slavicmyths:linen_cloth"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:traveler_charm"
+  }
+}

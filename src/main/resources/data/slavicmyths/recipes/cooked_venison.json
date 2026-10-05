@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "slavicmyths:raw_venison"
-  },
-  "result": "slavicmyths:cooked_venison",
-  "experience": 0.35,
-  "cookingtime": 200
-}

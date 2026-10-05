@@ -1,28 +1,28 @@
 package org.slavicmyths.item;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.IItemTier;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.server.level.ServerLevel;
 
 /** Small server-side effect, never a LightningBoltEntity. */
 public final class ThunderAxeItem extends AxeItem {
-    public ThunderAxeItem(IItemTier tier, Properties properties) { super(tier, 5.0F, -3.1F, properties); }
+    public ThunderAxeItem(Tier tier, Properties properties) { super(tier, properties.attributes(AxeItem.createAttributes(tier, 5.0F, -3.1F))); }
     @Override public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (attacker instanceof PlayerEntity && attacker.level instanceof ServerWorld) {
-            PlayerEntity player = (PlayerEntity) attacker;
+        if (attacker instanceof Player && attacker.level() instanceof ServerLevel) {
+            Player player = (Player) attacker;
             if (!player.getCooldowns().isOnCooldown(this) && player.getRandom().nextFloat() < 0.2F) {
-                target.hurt(DamageSource.MAGIC, 1.0F);
-                ((ServerWorld) attacker.level).sendParticles(ParticleTypes.ENCHANT,
+                target.hurt(target.damageSources().magic(), 1.0F);
+                ((ServerLevel) attacker.level()).sendParticles(ParticleTypes.ENCHANT,
                         target.getX(), target.getY() + target.getBbHeight() * 0.5, target.getZ(), 8, 0.25, 0.3, 0.25, 0.02);
-                attacker.level.playSound(null, target.blockPosition(), SoundEvents.TRIDENT_THUNDER,
-                        SoundCategory.PLAYERS, 0.25F, 1.4F);
+                attacker.level().playSound(null, target.blockPosition(), SoundEvents.TRIDENT_THUNDER.value(),
+                        SoundSource.PLAYERS, 0.25F, 1.4F);
                 player.getCooldowns().addCooldown(this, 60);
             }
         }

@@ -1,0 +1,22 @@
+from pathlib import Path
+p=Path('src/main/java/org/slavicmyths/yaga/YagaHut.java');s=p.read_text();a=s.index(' private static int ground(');s=s[:a]+''' public static boolean place(ServerWorld w,BlockPos candidate){return tryPlace(w,candidate).ok;}
+ public static YagaPlacement.Result tryPlace(ServerWorld w,BlockPos candidate){YagaData d=YagaData.get(w);if(d.placed)return YagaPlacement.Result.fail("exists",d.anchor);
+  try{YagaPlacement.Site site=YagaPlacement.prepare(w,candidate,PLAN,YagaHut::state);if(site.failure!=null)return site.failure;
+   BabaYaga npc=ModEntities.BABA_YAGA.get().create(w);if(npc==null)return YagaPlacement.Result.fail("npc",site.anchor);npc.home=site.anchor.offset(YagaHutPlan.HOME);npc.moveTo(npc.home.getX()+.5,npc.home.getY(),npc.home.getZ()+.5,180,0);
+   YagaPlacement.Result result=YagaPlacement.commit(w,site,()->w.addFreshEntity(npc),npc::remove);
+   if(result.ok){d.anchor=site.anchor;d.npc=npc.getUUID();d.placed=true;d.setDirty();}else if(result.error!=null)org.apache.logging.log4j.LogManager.getLogger().warn("Yaga hut placement failed: "+result.reason+" at "+result.pos,result.error);return result;
+  }catch(RuntimeException error){org.apache.logging.log4j.LogManager.getLogger().warn("Yaga hut preflight failed",error);return new YagaPlacement.Result(false,"internal",candidate,error);}
+ }
+ private YagaHut(){}
+}
+''';p.write_text(s,'utf-8')
+p=Path('src/main/java/org/slavicmyths/yaga/YagaPlacement.java');p.write_text(p.read_text('utf-8-sig'),'utf-8')
+p=Path('src/main/java/org/slavicmyths/yaga/YagaCommands.java');s=p.read_text();a=s.index('  .then(Commands.literal("generate")');b=s.index('\n  .then(Commands.literal("status")',a);s=s[:a]+'''  .then(Commands.literal("generate").executes(c->generate(c.getSource())))'''+s[b:];i=s.rfind('}');s=s[:i]+''' private static int generate(CommandSource source)throws com.mojang.brigadier.exceptions.CommandSyntaxException{ServerPlayerEntity p=source.getPlayerOrException();if(p.level.dimension()!=World.OVERWORLD){source.sendFailure(new TranslationTextComponent("yaga.fail.dimension"));return 0;}
+  ServerWorld w=(ServerWorld)p.level;YagaData d=YagaData.get(w);if(d.placed){source.sendFailure(new TranslationTextComponent("yaga.fail.exists"));source.sendSuccess(new TranslationTextComponent("yaga.located",d.anchor.toShortString(),true),false);return 0;}
+  YagaPlacement.Result useful=null;for(int distance:new int[]{20,12})for(int[] dir:new int[][]{{0,1},{1,0},{0,-1},{-1,0}}){YagaPlacement.Result r=YagaHut.tryPlace(w,p.blockPosition().offset(dir[0]*distance,0,dir[1]*distance));if(r.ok){source.sendSuccess(new TranslationTextComponent("yaga.located",r.pos.toShortString(),true),false);return 1;}if(useful==null||!r.reason.equals("chunks"))useful=r;}
+  source.sendFailure(new TranslationTextComponent("yaga.generation.failed",new TranslationTextComponent("yaga.generation.reason."+useful.reason),useful.pos.toShortString()));return 0;
+ }
+'''+s[i:];p.write_text(s,'utf-8')
+# Egg creation is vanilla; only explicitly egg-spawned NPCs may serve away from the canonical hut.
+p=Path('src/main/java/org/slavicmyths/yaga/BabaYaga.java');s=p.read_text().replace(' public BlockPos home;',' public BlockPos home;private boolean eggSummoned;');s=s.replace('return level.dimension()==World.OVERWORLD&&d.placed&&getUUID().equals(d.npc);','return level.dimension()==World.OVERWORLD&&(eggSummoned||d.placed&&getUUID().equals(d.npc));');s=s.replace(' @Override public void addAdditionalSaveData',' @Override public ILivingEntityData finalizeSpawn(IServerWorld w,DifficultyInstance diff,SpawnReason reason,ILivingEntityData data,CompoundNBT n){ILivingEntityData result=super.finalizeSpawn(w,diff,reason,data,n);if(reason==SpawnReason.SPAWN_EGG){eggSummoned=true;home=blockPosition();}return result;}\n @Override public void addAdditionalSaveData');s=s.replace('super.addAdditionalSaveData(n);if(home','super.addAdditionalSaveData(n);n.putBoolean("YagaEggSummoned",eggSummoned);if(home').replace('super.readAdditionalSaveData(n);home','super.readAdditionalSaveData(n);eggSummoned=n.getBoolean("YagaEggSummoned");home');p.write_text(s,'utf-8')
+p=Path('src/main/java/org/slavicmyths/registry/ModItems.java');s=p.read_text();i=s.rfind('}');s=s[:i]+' public static final RegistryObject<Item> BABA_YAGA_SPAWN_EGG=ITEMS.register("baba_yaga_spawn_egg",()->new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.BABA_YAGA,0x493B33,0x8D493B,properties()));\n'+s[i:];p.write_text(s,'utf-8')

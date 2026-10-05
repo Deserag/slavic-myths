@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FFF",
+    "FMF",
+    "FFF"
+  ],
+  "key": {
+    "F": {
+      "item": "slavicmyths:flour"
+    },
+    "M": {
+      "item": "minecraft:milk_bucket"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:karavai"
+  }
+}

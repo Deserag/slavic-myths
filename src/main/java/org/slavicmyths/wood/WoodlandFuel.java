@@ -1,10 +1,10 @@
 package org.slavicmyths.wood;
 import java.util.*;
-import net.minecraft.item.Item;
-import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-@Mod.EventBusSubscriber(modid="slavicmyths")
+import net.minecraft.world.item.Item;
+import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class WoodlandFuel {
  private static final Map<Item,Integer> TIMES=new HashMap<>();
  public static void setup(){for(Woodlands.Set s:Woodlands.SETS.values())for(String k:s.blocks.keySet()){

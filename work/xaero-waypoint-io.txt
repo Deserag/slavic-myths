@@ -1,0 +1,421 @@
+Compiled from "WaypointIO.java"
+public class xaero.hud.minimap.waypoint.io.WaypointIO {
+  public xaero.hud.minimap.waypoint.io.WaypointIO(xaero.common.HudMod);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: new           #7                  // class xaero/hud/minimap/waypoint/io/WaypointOldIO
+       8: dup
+       9: aload_1
+      10: invokevirtual #9                  // Method xaero/common/HudMod.getWaypointsFile:()Ljava/nio/file/Path;
+      13: invokespecial #15                 // Method xaero/hud/minimap/waypoint/io/WaypointOldIO."<init>":(Ljava/nio/file/Path;)V
+      16: putfield      #18                 // Field oldIO:Lxaero/hud/minimap/waypoint/io/WaypointOldIO;
+      19: return
+
+  public xaero.hud.minimap.waypoint.io.WaypointOldIO getOldIO();
+    Code:
+       0: aload_0
+       1: getfield      #18                 // Field oldIO:Lxaero/hud/minimap/waypoint/io/WaypointOldIO;
+       4: areturn
+
+  public boolean checkLine(java.lang.String[], xaero.hud.minimap.world.MinimapWorld);
+    Code:
+       0: aload_1
+       1: iconst_0
+       2: aaload
+       3: ldc           #24                 // String sets
+       5: invokevirtual #26                 // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+       8: ifeq          61
+      11: aload_2
+      12: aload_1
+      13: iconst_1
+      14: aaload
+      15: invokevirtual #32                 // Method xaero/hud/minimap/world/MinimapWorld.setCurrentWaypointSetId:(Ljava/lang/String;)V
+      18: iconst_1
+      19: istore_3
+      20: iload_3
+      21: aload_1
+      22: arraylength
+      23: if_icmpge     59
+      26: aload_2
+      27: aload_1
+      28: iload_3
+      29: aaload
+      30: invokevirtual #38                 // Method xaero/hud/minimap/world/MinimapWorld.getWaypointSet:(Ljava/lang/String;)Lxaero/hud/minimap/waypoint/set/WaypointSet;
+      33: ifnonnull     53
+      36: aload_2
+      37: invokestatic  #42                 // Method xaero/hud/minimap/waypoint/set/WaypointSet$Builder.begin:()Lxaero/hud/minimap/waypoint/set/WaypointSet$Builder;
+      40: aload_1
+      41: iload_3
+      42: aaload
+      43: invokevirtual #48                 // Method xaero/hud/minimap/waypoint/set/WaypointSet$Builder.setName:(Ljava/lang/String;)Lxaero/hud/minimap/waypoint/set/WaypointSet$Builder;
+      46: invokevirtual #52                 // Method xaero/hud/minimap/waypoint/set/WaypointSet$Builder.build:()Lxaero/hud/minimap/waypoint/set/WaypointSet;
+      49: invokevirtual #56                 // Method xaero/hud/minimap/world/MinimapWorld.addWaypointSet:(Lxaero/hud/minimap/waypoint/set/WaypointSet;)Lxaero/hud/minimap/waypoint/set/WaypointSet;
+      52: pop
+      53: iinc          3, 1
+      56: goto          20
+      59: iconst_1
+      60: ireturn
+      61: aload_1
+      62: iconst_0
+      63: aaload
+      64: ldc           #60                 // String waypoint
+      66: invokevirtual #26                 // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      69: ifeq          385
+      72: aload_1
+      73: bipush        9
+      75: aaload
+      76: astore_3
+      77: aload_2
+      78: aload_3
+      79: invokevirtual #38                 // Method xaero/hud/minimap/world/MinimapWorld.getWaypointSet:(Ljava/lang/String;)Lxaero/hud/minimap/waypoint/set/WaypointSet;
+      82: astore        4
+      84: aload         4
+      86: ifnonnull     107
+      89: aload_2
+      90: invokestatic  #42                 // Method xaero/hud/minimap/waypoint/set/WaypointSet$Builder.begin:()Lxaero/hud/minimap/waypoint/set/WaypointSet$Builder;
+      93: aload_3
+      94: invokevirtual #48                 // Method xaero/hud/minimap/waypoint/set/WaypointSet$Builder.setName:(Ljava/lang/String;)Lxaero/hud/minimap/waypoint/set/WaypointSet$Builder;
+      97: invokevirtual #52                 // Method xaero/hud/minimap/waypoint/set/WaypointSet$Builder.build:()Lxaero/hud/minimap/waypoint/set/WaypointSet;
+     100: dup
+     101: astore        4
+     103: invokevirtual #56                 // Method xaero/hud/minimap/world/MinimapWorld.addWaypointSet:(Lxaero/hud/minimap/waypoint/set/WaypointSet;)Lxaero/hud/minimap/waypoint/set/WaypointSet;
+     106: pop
+     107: aload_1
+     108: iconst_4
+     109: aaload
+     110: ldc           #62                 // String ~
+     112: invokevirtual #64                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     115: ifne          122
+     118: iconst_1
+     119: goto          123
+     122: iconst_0
+     123: istore        5
+     125: iconst_0
+     126: istore        6
+     128: iload         5
+     130: ifeq          141
+     133: aload_1
+     134: iconst_4
+     135: aaload
+     136: invokestatic  #68                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+     139: istore        6
+     141: new           #74                 // class xaero/common/minimap/waypoints/Waypoint
+     144: dup
+     145: aload_1
+     146: iconst_3
+     147: aaload
+     148: invokestatic  #68                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+     151: iload         6
+     153: aload_1
+     154: iconst_5
+     155: aaload
+     156: invokestatic  #68                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+     159: aload_1
+     160: iconst_1
+     161: aaload
+     162: ldc           #76                 // String §§
+     164: invokestatic  #78                 // Method xaero/common/minimap/waypoints/Waypoint.getStringFromStringSafe:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+     167: aload_1
+     168: iconst_2
+     169: aaload
+     170: ldc           #76                 // String §§
+     172: invokestatic  #78                 // Method xaero/common/minimap/waypoints/Waypoint.getStringFromStringSafe:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+     175: aload_1
+     176: bipush        6
+     178: aaload
+     179: invokestatic  #68                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+     182: invokestatic  #82                 // Method xaero/hud/minimap/waypoint/WaypointColor.fromIndex:(I)Lxaero/hud/minimap/waypoint/WaypointColor;
+     185: getstatic     #88                 // Field xaero/hud/minimap/waypoint/WaypointPurpose.NORMAL:Lxaero/hud/minimap/waypoint/WaypointPurpose;
+     188: iconst_0
+     189: iload         5
+     191: invokespecial #94                 // Method xaero/common/minimap/waypoints/Waypoint."<init>":(IIILjava/lang/String;Ljava/lang/String;Lxaero/hud/minimap/waypoint/WaypointColor;Lxaero/hud/minimap/waypoint/WaypointPurpose;ZZ)V
+     194: astore        7
+     196: aload         7
+     198: aload_1
+     199: bipush        7
+     201: aaload
+     202: ldc           #97                 // String true
+     204: invokevirtual #64                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     207: invokevirtual #99                 // Method xaero/common/minimap/waypoints/Waypoint.setDisabled:(Z)V
+     210: aload         7
+     212: aload_1
+     213: bipush        8
+     215: aaload
+     216: invokestatic  #68                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+     219: invokevirtual #103                // Method xaero/common/minimap/waypoints/Waypoint.setType:(I)V
+     222: aload_1
+     223: arraylength
+     224: bipush        10
+     226: if_icmple     243
+     229: aload         7
+     231: aload_1
+     232: bipush        10
+     234: aaload
+     235: ldc           #97                 // String true
+     237: invokevirtual #64                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     240: invokevirtual #107                // Method xaero/common/minimap/waypoints/Waypoint.setRotation:(Z)V
+     243: aload_1
+     244: arraylength
+     245: bipush        11
+     247: if_icmple     262
+     250: aload         7
+     252: aload_1
+     253: bipush        11
+     255: aaload
+     256: invokestatic  #68                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+     259: invokevirtual #110                // Method xaero/common/minimap/waypoints/Waypoint.setYaw:(I)V
+     262: aload_1
+     263: arraylength
+     264: bipush        12
+     266: if_icmple     347
+     269: aload_1
+     270: bipush        12
+     272: aaload
+     273: astore        8
+     275: getstatic     #113                // Field xaero/common/minimap/waypoints/WaypointVisibilityType.LOCAL:Lxaero/common/minimap/waypoints/WaypointVisibilityType;
+     278: astore        9
+     280: aload         8
+     282: ldc           #97                 // String true
+     284: invokevirtual #64                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     287: ifeq          298
+     290: getstatic     #119                // Field xaero/common/minimap/waypoints/WaypointVisibilityType.GLOBAL:Lxaero/common/minimap/waypoints/WaypointVisibilityType;
+     293: astore        9
+     295: goto          340
+     298: aload         8
+     300: ldc           #122                // String false
+     302: invokevirtual #64                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     305: ifne          340
+     308: aload         8
+     310: invokestatic  #124                // Method xaero/common/minimap/waypoints/WaypointVisibilityType.valueOf:(Ljava/lang/String;)Lxaero/common/minimap/waypoints/WaypointVisibilityType;
+     313: astore        9
+     315: goto          340
+     318: astore        10
+     320: aload         8
+     322: invokestatic  #68                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+     325: istore        11
+     327: invokestatic  #130                // Method xaero/common/minimap/waypoints/WaypointVisibilityType.values:()[Lxaero/common/minimap/waypoints/WaypointVisibilityType;
+     330: iload         11
+     332: aaload
+     333: astore        9
+     335: goto          340
+     338: astore        11
+     340: aload         7
+     342: aload         9
+     344: invokevirtual #136                // Method xaero/common/minimap/waypoints/Waypoint.setVisibility:(Lxaero/common/minimap/waypoints/WaypointVisibilityType;)V
+     347: aload_1
+     348: arraylength
+     349: bipush        13
+     351: if_icmple     376
+     354: aload_1
+     355: bipush        13
+     357: aaload
+     358: astore        8
+     360: aload         8
+     362: ldc           #97                 // String true
+     364: invokevirtual #64                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     367: ifeq          376
+     370: aload         7
+     372: iconst_1
+     373: invokevirtual #140                // Method xaero/common/minimap/waypoints/Waypoint.setOneoffDestination:(Z)V
+     376: aload         4
+     378: aload         7
+     380: invokevirtual #143                // Method xaero/hud/minimap/waypoint/set/WaypointSet.add:(Lxaero/common/minimap/waypoints/Waypoint;)V
+     383: iconst_1
+     384: ireturn
+     385: iconst_0
+     386: ireturn
+    Exception table:
+       from    to  target type
+         308   315   318   Class java/lang/IllegalArgumentException
+         320   335   338   Class java/lang/Exception
+
+  public void saveWaypoints(xaero.hud.minimap.world.MinimapWorld, java.io.OutputStreamWriter) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: invokevirtual #149                // Method xaero/hud/minimap/world/MinimapWorld.getSetCount:()I
+       4: iconst_1
+       5: if_icmple     89
+       8: aload_2
+       9: aload_1
+      10: invokevirtual #153                // Method xaero/hud/minimap/world/MinimapWorld.getCurrentWaypointSetId:()Ljava/lang/String;
+      13: invokedynamic #157,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      18: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+      21: aload_1
+      22: invokevirtual #166                // Method xaero/hud/minimap/world/MinimapWorld.getIterableWaypointSets:()Ljava/lang/Iterable;
+      25: invokeinterface #170,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+      30: astore_3
+      31: aload_3
+      32: invokeinterface #176,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      37: ifeq          83
+      40: aload_3
+      41: invokeinterface #182,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      46: checkcast     #144                // class xaero/hud/minimap/waypoint/set/WaypointSet
+      49: astore        4
+      51: aload         4
+      53: invokevirtual #186                // Method xaero/hud/minimap/waypoint/set/WaypointSet.getName:()Ljava/lang/String;
+      56: aload_1
+      57: invokevirtual #153                // Method xaero/hud/minimap/world/MinimapWorld.getCurrentWaypointSetId:()Ljava/lang/String;
+      60: invokevirtual #64                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      63: ifne          80
+      66: aload_2
+      67: aload         4
+      69: invokevirtual #186                // Method xaero/hud/minimap/waypoint/set/WaypointSet.getName:()Ljava/lang/String;
+      72: invokedynamic #189,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      77: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+      80: goto          31
+      83: aload_2
+      84: ldc           #190                // String \n
+      86: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+      89: aload_2
+      90: ldc           #192                // String #\n
+      92: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+      95: aload_2
+      96: ldc           #194                // String #waypoint:name:initials:x:y:z:color:disabled:type:set:rotate_on_tp:tp_yaw:visibility_type:destination\n
+      98: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     101: aload_2
+     102: ldc           #192                // String #\n
+     104: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     107: aload_1
+     108: invokevirtual #166                // Method xaero/hud/minimap/world/MinimapWorld.getIterableWaypointSets:()Ljava/lang/Iterable;
+     111: invokeinterface #170,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+     116: astore_3
+     117: aload_3
+     118: invokeinterface #176,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     123: ifeq          439
+     126: aload_3
+     127: invokeinterface #182,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     132: checkcast     #144                // class xaero/hud/minimap/waypoint/set/WaypointSet
+     135: astore        4
+     137: aload         4
+     139: invokevirtual #196                // Method xaero/hud/minimap/waypoint/set/WaypointSet.getWaypoints:()Ljava/lang/Iterable;
+     142: invokeinterface #170,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+     147: astore        5
+     149: aload         5
+     151: invokeinterface #176,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     156: ifeq          436
+     159: aload         5
+     161: invokeinterface #182,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     166: checkcast     #74                 // class xaero/common/minimap/waypoints/Waypoint
+     169: astore        6
+     171: aload         6
+     173: invokevirtual #199                // Method xaero/common/minimap/waypoints/Waypoint.isTemporary:()Z
+     176: ifeq          182
+     179: goto          149
+     182: aload_2
+     183: ldc           #202                // String waypoint:
+     185: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     188: aload_2
+     189: aload         6
+     191: ldc           #76                 // String §§
+     193: invokevirtual #204                // Method xaero/common/minimap/waypoints/Waypoint.getNameSafe:(Ljava/lang/String;)Ljava/lang/String;
+     196: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     199: aload_2
+     200: ldc           #207                // String :
+     202: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     205: aload_2
+     206: aload         6
+     208: ldc           #76                 // String §§
+     210: invokevirtual #209                // Method xaero/common/minimap/waypoints/Waypoint.getInitialsSafe:(Ljava/lang/String;)Ljava/lang/String;
+     213: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     216: aload_2
+     217: ldc           #207                // String :
+     219: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     222: aload_2
+     223: aload         6
+     225: invokevirtual #212                // Method xaero/common/minimap/waypoints/Waypoint.getX:()I
+     228: invokestatic  #215                // Method java/lang/String.valueOf:(I)Ljava/lang/String;
+     231: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     234: aload_2
+     235: ldc           #207                // String :
+     237: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     240: aload_2
+     241: aload         6
+     243: invokevirtual #218                // Method xaero/common/minimap/waypoints/Waypoint.isYIncluded:()Z
+     246: ifeq          260
+     249: aload         6
+     251: invokevirtual #221                // Method xaero/common/minimap/waypoints/Waypoint.getY:()I
+     254: invokestatic  #215                // Method java/lang/String.valueOf:(I)Ljava/lang/String;
+     257: goto          262
+     260: ldc           #62                 // String ~
+     262: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     265: aload_2
+     266: ldc           #207                // String :
+     268: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     271: aload_2
+     272: aload         6
+     274: invokevirtual #224                // Method xaero/common/minimap/waypoints/Waypoint.getZ:()I
+     277: invokestatic  #215                // Method java/lang/String.valueOf:(I)Ljava/lang/String;
+     280: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     283: aload_2
+     284: ldc           #207                // String :
+     286: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     289: aload_2
+     290: aload         6
+     292: invokevirtual #227                // Method xaero/common/minimap/waypoints/Waypoint.getWaypointColor:()Lxaero/hud/minimap/waypoint/WaypointColor;
+     295: invokevirtual #231                // Method xaero/hud/minimap/waypoint/WaypointColor.ordinal:()I
+     298: invokestatic  #215                // Method java/lang/String.valueOf:(I)Ljava/lang/String;
+     301: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     304: aload_2
+     305: ldc           #207                // String :
+     307: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     310: aload_2
+     311: aload         6
+     313: invokevirtual #234                // Method xaero/common/minimap/waypoints/Waypoint.isDisabled:()Z
+     316: invokestatic  #237                // Method java/lang/String.valueOf:(Z)Ljava/lang/String;
+     319: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     322: aload_2
+     323: ldc           #207                // String :
+     325: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     328: aload_2
+     329: aload         6
+     331: invokevirtual #240                // Method xaero/common/minimap/waypoints/Waypoint.getWaypointType:()I
+     334: invokestatic  #215                // Method java/lang/String.valueOf:(I)Ljava/lang/String;
+     337: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     340: aload_2
+     341: ldc           #207                // String :
+     343: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     346: aload_2
+     347: aload         4
+     349: invokevirtual #186                // Method xaero/hud/minimap/waypoint/set/WaypointSet.getName:()Ljava/lang/String;
+     352: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     355: aload_2
+     356: ldc           #207                // String :
+     358: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     361: aload_2
+     362: aload         6
+     364: invokevirtual #243                // Method xaero/common/minimap/waypoints/Waypoint.isRotation:()Z
+     367: invokestatic  #237                // Method java/lang/String.valueOf:(Z)Ljava/lang/String;
+     370: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     373: aload_2
+     374: ldc           #207                // String :
+     376: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     379: aload_2
+     380: aload         6
+     382: invokevirtual #246                // Method xaero/common/minimap/waypoints/Waypoint.getYaw:()I
+     385: invokestatic  #215                // Method java/lang/String.valueOf:(I)Ljava/lang/String;
+     388: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     391: aload_2
+     392: ldc           #207                // String :
+     394: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     397: aload_2
+     398: aload         6
+     400: invokevirtual #249                // Method xaero/common/minimap/waypoints/Waypoint.getVisibilityType:()I
+     403: invokestatic  #215                // Method java/lang/String.valueOf:(I)Ljava/lang/String;
+     406: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     409: aload_2
+     410: ldc           #207                // String :
+     412: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     415: aload_2
+     416: aload         6
+     418: invokevirtual #252                // Method xaero/common/minimap/waypoints/Waypoint.isDestination:()Z
+     421: invokestatic  #237                // Method java/lang/String.valueOf:(Z)Ljava/lang/String;
+     424: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     427: aload_2
+     428: ldc           #190                // String \n
+     430: invokevirtual #161                // Method java/io/OutputStreamWriter.write:(Ljava/lang/String;)V
+     433: goto          149
+     436: goto          117
+     439: return
+}

@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:runic_anvil"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.reforged.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.reforged.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,13 +1,13 @@
 package org.slavicmyths.artifact;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.item.ItemStack;
-import net.minecraft.block.BlockState;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
 import org.slavicmyths.registry.*;
-public final class SkatertTile extends TileEntity {
+public final class SkatertTile extends BlockEntity {
  public ItemStack cloth=new ItemStack(ModItems.SKATERT.get());public long expires;
- public SkatertTile(){super(ModTiles.SKATERT.get());}
- public CompoundNBT save(CompoundNBT n){super.save(n);n.put("Cloth",cloth.save(new CompoundNBT()));n.putLong("Expires",expires);return n;}
- public void load(BlockState s,CompoundNBT n){super.load(s,n);cloth=ItemStack.of(n.getCompound("Cloth"));expires=n.getLong("Expires");}
- public void onLoad(){super.onLoad();if(level!=null&&!level.isClientSide)level.getBlockTicks().scheduleTick(worldPosition,ModBlocks.SKATERT.get(),(int)Math.max(1,Math.min(2400,expires-ArtifactEvents.now(level))));}
+ public SkatertTile(net.minecraft.core.BlockPos pos,BlockState state){super(ModTiles.SKATERT.get(),pos,state);}
+ protected void saveAdditional(CompoundTag n,net.minecraft.core.HolderLookup.Provider registries){super.saveAdditional(n,registries);n.put("Cloth",cloth.saveOptional(registries));n.putLong("Expires",expires);}
+ protected void loadAdditional(CompoundTag n,net.minecraft.core.HolderLookup.Provider registries){super.loadAdditional(n,registries);cloth=ItemStack.parseOptional(registries,n.getCompound("Cloth"));expires=n.getLong("Expires");}
+ public void onLoad(){super.onLoad();if(level!=null&&!level.isClientSide)level.scheduleTick(worldPosition,ModBlocks.SKATERT.get(),(int)Math.max(1,Math.min(2400,expires-ArtifactEvents.now(level))));}
 }

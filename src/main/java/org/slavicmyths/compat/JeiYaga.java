@@ -2,27 +2,32 @@ package org.slavicmyths.compat;
 import java.util.*;
 import mezz.jei.api.*;
 import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.recipe.*;
+import net.minecraft.network.chat.Component;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.ingredients.IIngredients;
+
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.registration.*;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.resources.ResourceLocation;
 import org.slavicmyths.yaga.YagaServices;
 import org.slavicmyths.registry.ModItems;
 @JeiPlugin
 public final class JeiYaga implements IModPlugin {
- private static final ResourceLocation ID=new ResourceLocation("slavicmyths","yaga_cauldron");
+ private static final ResourceLocation ID=ResourceLocation.fromNamespaceAndPath("slavicmyths","yaga_cauldron");
+ private static final RecipeType<Integer> RECIPE_TYPE=new RecipeType<>(ID,Integer.class);
  public ResourceLocation getPluginUid(){return ID;}
  public void registerCategories(IRecipeCategoryRegistration r){r.addRecipeCategories(new Category(r.getJeiHelpers().getGuiHelper()));}
- public void registerRecipes(IRecipeRegistration r){List<Integer> recipes=new ArrayList<>();for(int i=0;i<YagaServices.BREWS.length;i++)recipes.add(i);r.addRecipes(recipes,ID);}
- public void registerRecipeCatalysts(IRecipeCatalystRegistration r){r.addRecipeCatalyst(new ItemStack(ModItems.SVYAZKA_TRAV_YAGI.get()),ID);}
+ public void registerRecipes(IRecipeRegistration r){List<Integer> recipes=new ArrayList<>();for(int i=0;i<YagaServices.BREWS.length;i++)recipes.add(i);r.addRecipes(RECIPE_TYPE,recipes);}
+ public void registerRecipeCatalysts(IRecipeCatalystRegistration r){r.addRecipeCatalyst(new ItemStack(ModItems.SVYAZKA_TRAV_YAGI.get()),RECIPE_TYPE);}
  private static final class Category implements IRecipeCategory<Integer>{
-  private final IDrawable bg,icon;Category(IGuiHelper h){bg=h.createBlankDrawable(152,44);icon=h.createDrawableIngredient(new ItemStack(ModItems.SVYAZKA_TRAV_YAGI.get()));}
-  public ResourceLocation getUid(){return ID;}public Class<? extends Integer> getRecipeClass(){return Integer.class;}public String getTitle(){return new net.minecraft.util.text.TranslationTextComponent("yaga.cauldron").getString();}public IDrawable getBackground(){return bg;}public IDrawable getIcon(){return icon;}
-  public void setIngredients(Integer id,IIngredients ing){List<ItemStack> in=new ArrayList<>();for(YagaServices.Need n:YagaServices.BREWS[id].inputs)in.add(n.stack());ing.setInputs(VanillaTypes.ITEM,in);ing.setOutput(VanillaTypes.ITEM,YagaServices.BREWS[id].output());}
-  public void setRecipe(IRecipeLayout l,Integer id,IIngredients ing){for(int j=0;j<4;j++)l.getItemStacks().init(j,true,j*26,12);l.getItemStacks().init(4,false,132,12);l.getItemStacks().set(ing);}
+  private final IDrawable icon;Category(IGuiHelper h){icon=h.createDrawableIngredient(VanillaTypes.ITEM_STACK,new ItemStack(ModItems.SVYAZKA_TRAV_YAGI.get()));}
+  public RecipeType<Integer> getRecipeType(){return RECIPE_TYPE;}public Component getTitle(){return Component.translatable("yaga.cauldron");}public int getWidth(){return 152;}public int getHeight(){return 44;}public IDrawable getIcon(){return icon;}
+  public void setRecipe(IRecipeLayoutBuilder layout,Integer id,IFocusGroup focus){
+   int j=0;for(YagaServices.Need need:YagaServices.BREWS[id].inputs)layout.addSlot(RecipeIngredientRole.INPUT,j++*26,12).addItemStack(need.stack());
+   layout.addSlot(RecipeIngredientRole.OUTPUT,132,12).addItemStack(YagaServices.BREWS[id].output());
+  }
  }
 }

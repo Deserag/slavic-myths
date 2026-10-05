@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:woodland_swamp",
+  "features": [
+    "slavicmyths:willow_2",
+    "slavicmyths:rowan_12"
+  ],
+  "step": "vegetal_decoration"
+}

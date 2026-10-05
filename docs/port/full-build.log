@@ -1,0 +1,1047 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :clean
+
+> Task :createMinecraftArtifacts
+Loaded 145 artifacts from D:\slavic-myths\build\tmp\createMinecraftArtifacts\nfrt_artifact_manifest.properties
+*** Started working on downloadJson
+ DONE  Completed downloadJson in 0.03s
+*** Started working on downloadServer
+*** Started working on downloadClient
+*** Started working on downloadClientMappings
+ DONE  Completed downloadClient in 0.02s
+ DONE  Completed downloadClientMappings in 0.02s
+ DONE  Completed downloadServer in 0.02s
+*** Started working on mergeMappings
+ REUSE Used cache of mergeMappings in 0.00s
+*** Started working on stripClient
+ REUSE Used cache of stripClient in 0.00s
+*** Started working on extractServer
+ REUSE Used cache of extractServer in 0.00s
+*** Started working on stripServer
+ REUSE Used cache of stripServer in 0.00s
+*** Started working on merge
+ REUSE Used cache of merge in 0.00s
+*** Started working on rename
+ REUSE Used cache of rename in 0.00s
+*** Started working on decompile
+ REUSE Used cache of decompile in 0.00s
+*** Started working on inject
+ REUSE Used cache of inject in 0.00s
+*** Started working on patch
+ REUSE Used cache of patch in 0.00s
+*** Started working on applyNeoforgePatches
+ REUSE Used cache of applyNeoforgePatches in 0.00s
+*** Started working on transformSources
+ REUSE Used cache of transformSources in 0.00s
+*** Started working on recompile
+ REUSE Used cache of recompile in 0.01s
+*** Started working on sourcesWithNeoForge
+ REUSE Used cache of sourcesWithNeoForge in 0.00s
+*** Started working on compiledWithNeoForge
+ REUSE Used cache of compiledWithNeoForge in 0.00s
+*** Started working on sourcesAndCompiledWithNeoForge
+ REUSE Used cache of sourcesAndCompiledWithNeoForge in 0.00s
+Total runtime: 1.18s
+
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:3: error: package net.minecraft.block.material does not exist
+import net.minecraft.block.material.Material;
+                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:5: error: package net.minecraft.inventory.container does not exist
+import net.minecraft.inventory.container.SimpleNamedContainerProvider;
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:8: error: package net.minecraft.util.text does not exist
+import net.minecraft.util.text.TranslationTextComponent;
+                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:9: error: cannot find symbol
+import net.minecraft.world.World;
+                          ^
+  symbol:   class World
+  location: package net.minecraft.world
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:10: error: package net.minecraftforge.fml.network does not exist
+import net.minecraftforge.fml.network.NetworkHooks;
+                                     ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:11: error: cannot find symbol
+public final class ArmorerBlock extends Block {
+                                        ^
+  symbol: class Block
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                          ^
+  symbol:   class BlockState
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                       ^
+  symbol:   class World
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                               ^
+  symbol:   class BlockPos
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                            ^
+  symbol:   class PlayerEntity
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                                           ^
+  symbol:   class Hand
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                                                     ^
+  symbol:   class BlockRayTraceResult
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+    @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                     ^
+  symbol:   class ActionResultType
+  location: class ArmorerBlock
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:2: error: package net.minecraft.block does not exist
+import net.minecraft.block.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:4: error: package net.minecraft.entity.player does not exist
+import net.minecraft.entity.player.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:7: error: package net.minecraft.util.math does not exist
+import net.minecraft.util.math.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:7: error: cannot find symbol
+import net.minecraft.util.NonNullList;
+                         ^
+  symbol:   class NonNullList
+  location: package net.minecraft.util
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:8: error: package net.minecraft.util.math does not exist
+import net.minecraft.util.math.BlockPos;
+                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:9: error: package net.minecraftforge.common.extensions does not exist
+import net.minecraftforge.common.extensions.IForgeContainerType;
+                                           ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:10: error: package net.minecraftforge.fml does not exist
+import net.minecraftforge.fml.RegistryObject;
+                             ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:14: error: cannot find symbol
+public final class ArmorerMenu extends Container {
+                                       ^
+  symbol: class Container
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:15: error: cannot find symbol
+    public static final RegistryObject<ContainerType<ArmorerMenu>> TYPE=RpgMenu.MENUS.register("armorer",()->IForgeContainerType.create((id,inv,b)->new ArmorerMenu(id,inv,b.readBlockPos())));
+                        ^
+  symbol:   class RegistryObject
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:15: error: cannot find symbol
+    public static final RegistryObject<ContainerType<ArmorerMenu>> TYPE=RpgMenu.MENUS.register("armorer",()->IForgeContainerType.create((id,inv,b)->new ArmorerMenu(id,inv,b.readBlockPos())));
+                                       ^
+  symbol:   class ContainerType
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:17: error: cannot find symbol
+    public final CraftingInventory input=new CraftingInventory(this,4,4);
+                 ^
+  symbol:   class CraftingInventory
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:18: error: cannot find symbol
+    private final CraftResultInventory result=new CraftResultInventory();private final PlayerEntity owner;public final BlockPos pos;private boolean consuming;
+                  ^
+  symbol:   class CraftResultInventory
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:18: error: cannot find symbol
+    private final CraftResultInventory result=new CraftResultInventory();private final PlayerEntity owner;public final BlockPos pos;private boolean consuming;
+                                                                                       ^
+  symbol:   class PlayerEntity
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:18: error: cannot find symbol
+    private final CraftResultInventory result=new CraftResultInventory();private final PlayerEntity owner;public final BlockPos pos;private boolean consuming;
+                                                                                                                       ^
+  symbol:   class BlockPos
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:19: error: cannot find symbol
+    public ArmorerMenu(int id,PlayerInventory inventory,BlockPos pos) {
+                              ^
+  symbol:   class PlayerInventory
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:19: error: cannot find symbol
+    public ArmorerMenu(int id,PlayerInventory inventory,BlockPos pos) {
+                                                        ^
+  symbol:   class BlockPos
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:5: error: package net.minecraft.inventory does not exist
+import net.minecraft.inventory.CraftingInventory;
+                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:8: error: cannot find symbol
+import net.minecraft.network.PacketBuffer;
+                            ^
+  symbol:   class PacketBuffer
+  location: package net.minecraft.network
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:10: error: cannot find symbol
+import net.minecraft.world.World;
+                          ^
+  symbol:   class World
+  location: package net.minecraft.world
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:12: error: package net.minecraftforge.fml does not exist
+import net.minecraftforge.fml.RegistryObject;
+                             ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:14: error: cannot find symbol
+public final class ArmorerRecipe implements IRecipe<CraftingInventory> {
+                                            ^
+  symbol: class IRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:14: error: cannot find symbol
+public final class ArmorerRecipe implements IRecipe<CraftingInventory> {
+                                                    ^
+  symbol: class CraftingInventory
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:31: error: cannot find symbol
+    @Override public void slotsChanged(IInventory inventory) {
+                                       ^
+  symbol:   class IInventory
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:34: error: cannot find symbol
+    private void craft(ItemStack crafted) {
+                       ^
+  symbol:   class ItemStack
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:45: error: cannot find symbol
+    @Override public boolean stillValid(PlayerEntity p){return p.isAlive()&&p.distanceToSqr(pos.getX()+.5,pos.getY()+.5,pos.getZ()+.5)<=64&&p.level.getBlockState(pos).is(ModBlocks.ARMORER_TABLE.get());}
+                                        ^
+  symbol:   class PlayerEntity
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:46: error: cannot find symbol
+    @Override public boolean canTakeItemForPickAll(ItemStack s,Slot slot){return slot.container!=result&&super.canTakeItemForPickAll(s,slot);}
+                                                   ^
+  symbol:   class ItemStack
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:46: error: cannot find symbol
+    @Override public boolean canTakeItemForPickAll(ItemStack s,Slot slot){return slot.container!=result&&super.canTakeItemForPickAll(s,slot);}
+                                                               ^
+  symbol:   class Slot
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:47: error: cannot find symbol
+    @Override public ItemStack quickMoveStack(PlayerEntity p,int index) {
+                                              ^
+  symbol:   class PlayerEntity
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:47: error: cannot find symbol
+    @Override public ItemStack quickMoveStack(PlayerEntity p,int index) {
+                     ^
+  symbol:   class ItemStack
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:58: error: cannot find symbol
+    @Override public void removed(PlayerEntity p){super.removed(p);if(!p.level.isClientSide){consuming=true;clearContainer(p,p.level,input);result.clearContent();}}
+                                  ^
+  symbol:   class PlayerEntity
+  location: class ArmorerMenu
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:15: error: cannot find symbol
+    public static final IRecipeType<ArmorerRecipe> TYPE=IRecipeType.register("slavicmyths:armorer");
+                        ^
+  symbol:   class IRecipeType
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:16: error: cannot find symbol
+    public static final DeferredRegister<IRecipeSerializer<?>> SERIALIZERS=DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS,"slavicmyths");
+                        ^
+  symbol:   class DeferredRegister
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:16: error: cannot find symbol
+    public static final DeferredRegister<IRecipeSerializer<?>> SERIALIZERS=DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS,"slavicmyths");
+                                         ^
+  symbol:   class IRecipeSerializer
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:17: error: cannot find symbol
+    public static final RegistryObject<Serializer> SHAPED=SERIALIZERS.register("armorer_shaped",()->new Serializer(false));
+                        ^
+  symbol:   class RegistryObject
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:41: error: package net.minecraftforge.registries does not exist
+    public static final class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ArmorerRecipe> {
+                                                                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:41: error: cannot find symbol
+    public static final class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ArmorerRecipe> {
+                                                                                                                                   ^
+  symbol:   class IRecipeSerializer
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:41: error: cannot find symbol
+    public static final class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ArmorerRecipe> {
+                                                                                                  ^
+  symbol:   class IRecipeSerializer
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:18: error: cannot find symbol
+    public static final RegistryObject<Serializer> SHAPELESS=SERIALIZERS.register("armorer_shapeless",()->new Serializer(true));
+                        ^
+  symbol:   class RegistryObject
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:19: error: cannot find symbol
+    private final ResourceLocation id;public final int width,height;public final boolean shapeless;
+                  ^
+  symbol:   class ResourceLocation
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:20: error: cannot find symbol
+    private final NonNullList<Ingredient> ingredients;private final ItemStack output;
+                  ^
+  symbol:   class NonNullList
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:20: error: cannot find symbol
+    private final NonNullList<Ingredient> ingredients;private final ItemStack output;
+                              ^
+  symbol:   class Ingredient
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:20: error: cannot find symbol
+    private final NonNullList<Ingredient> ingredients;private final ItemStack output;
+                                                                    ^
+  symbol:   class ItemStack
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:21: error: cannot find symbol
+    public ArmorerRecipe(ResourceLocation id,int width,int height,boolean shapeless,NonNullList<Ingredient> ingredients,ItemStack output){this.id=id;this.width=width;this.height=height;this.shapeless=shapeless;this.ingredients=ingredients;this.output=output;}
+                         ^
+  symbol:   class ResourceLocation
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:21: error: cannot find symbol
+    public ArmorerRecipe(ResourceLocation id,int width,int height,boolean shapeless,NonNullList<Ingredient> ingredients,ItemStack output){this.id=id;this.width=width;this.height=height;this.shapeless=shapeless;this.ingredients=ingredients;this.output=output;}
+                                                                                    ^
+  symbol:   class NonNullList
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:21: error: cannot find symbol
+    public ArmorerRecipe(ResourceLocation id,int width,int height,boolean shapeless,NonNullList<Ingredient> ingredients,ItemStack output){this.id=id;this.width=width;this.height=height;this.shapeless=shapeless;this.ingredients=ingredients;this.output=output;}
+                                                                                                ^
+  symbol:   class Ingredient
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:21: error: cannot find symbol
+    public ArmorerRecipe(ResourceLocation id,int width,int height,boolean shapeless,NonNullList<Ingredient> ingredients,ItemStack output){this.id=id;this.width=width;this.height=height;this.shapeless=shapeless;this.ingredients=ingredients;this.output=output;}
+                                                                                                                        ^
+  symbol:   class ItemStack
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:22: error: cannot find symbol
+    public boolean matches(CraftingInventory inv,World world) {
+                           ^
+  symbol:   class CraftingInventory
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:22: error: cannot find symbol
+    public boolean matches(CraftingInventory inv,World world) {
+                                                 ^
+  symbol:   class World
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:26: error: cannot find symbol
+    private boolean match(CraftingInventory inv,int ox,int oy,boolean mirror) {
+                          ^
+  symbol:   class CraftingInventory
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:33: error: cannot find symbol
+    public ItemStack assemble(CraftingInventory inv){return output.copy();}
+                              ^
+  symbol:   class CraftingInventory
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:33: error: cannot find symbol
+    public ItemStack assemble(CraftingInventory inv){return output.copy();}
+           ^
+  symbol:   class ItemStack
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:34: error: cannot find symbol
+    public ItemStack getResultItem(){return output;}
+           ^
+  symbol:   class ItemStack
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:35: error: cannot find symbol
+    public NonNullList<Ingredient> getIngredients(){return ingredients;}
+           ^
+  symbol:   class NonNullList
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:35: error: cannot find symbol
+    public NonNullList<Ingredient> getIngredients(){return ingredients;}
+                       ^
+  symbol:   class Ingredient
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:36: error: cannot find symbol
+    public ResourceLocation getId(){return id;}
+           ^
+  symbol:   class ResourceLocation
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:37: error: cannot find symbol
+    public IRecipeSerializer<?> getSerializer(){return shapeless?SHAPELESS.get():SHAPED.get();}
+           ^
+  symbol:   class IRecipeSerializer
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:38: error: cannot find symbol
+    public IRecipeType<?> getType(){return TYPE;}
+           ^
+  symbol:   class IRecipeType
+  location: class ArmorerRecipe
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:43: error: cannot find symbol
+        public ArmorerRecipe fromJson(ResourceLocation id,JsonObject json) {
+                                      ^
+  symbol:   class ResourceLocation
+  location: class Serializer
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:62: error: cannot find symbol
+        public ArmorerRecipe fromNetwork(ResourceLocation id,PacketBuffer b){int w=b.readVarInt(),h=b.readVarInt(),n=b.readVarInt();if(w<1||w>4||h<1||h>4||n<1||n>16)throw new IllegalArgumentException("Invalid armorer dimensions");NonNullList<Ingredient> list=NonNullList.create();for(int i=0;i<n;i++)list.add(Ingredient.fromNetwork(b));return new ArmorerRecipe(id,w,h,shapeless,list,b.readItem());}
+                                         ^
+  symbol:   class ResourceLocation
+  location: class Serializer
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:62: error: cannot find symbol
+        public ArmorerRecipe fromNetwork(ResourceLocation id,PacketBuffer b){int w=b.readVarInt(),h=b.readVarInt(),n=b.readVarInt();if(w<1||w>4||h<1||h>4||n<1||n>16)throw new IllegalArgumentException("Invalid armorer dimensions");NonNullList<Ingredient> list=NonNullList.create();for(int i=0;i<n;i++)list.add(Ingredient.fromNetwork(b));return new ArmorerRecipe(id,w,h,shapeless,list,b.readItem());}
+                                                             ^
+  symbol:   class PacketBuffer
+  location: class Serializer
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:63: error: cannot find symbol
+        public void toNetwork(PacketBuffer b,ArmorerRecipe r){b.writeVarInt(r.width);b.writeVarInt(r.height);b.writeVarInt(r.ingredients.size());for(Ingredient i:r.ingredients)i.toNetwork(b);b.writeItem(r.output);}
+                              ^
+  symbol:   class PacketBuffer
+  location: class Serializer
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:3: error: package net.minecraft.entity.player does not exist
+import net.minecraft.entity.player.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:4: error: package net.minecraft.inventory does not exist
+import net.minecraft.inventory.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:5: error: package net.minecraft.inventory.container does not exist
+import net.minecraft.inventory.container.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:6: error: package net.minecraft.item does not exist
+import net.minecraft.item.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:6: error: package net.minecraft.item does not exist
+import net.minecraft.item.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:7: error: package net.minecraft.item.crafting does not exist
+import net.minecraft.item.crafting.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:11: error: package net.minecraftforge.registries does not exist
+import net.minecraftforge.registries.*;
+^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:4: error: package net.minecraft.entity.ai.goal does not exist
+import net.minecraft.entity.ai.goal.Goal;
+                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:6: error: package net.minecraft.entity.passive does not exist
+import net.minecraft.entity.passive.TameableEntity;
+                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:7: error: cannot find symbol
+import net.minecraft.nbt.CompoundNBT;
+                        ^
+  symbol:   class CompoundNBT
+  location: package net.minecraft.nbt
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:8: error: package net.minecraft.particles does not exist
+import net.minecraft.particles.ParticleTypes;
+                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:9: error: package net.minecraft.world.server does not exist
+import net.minecraft.world.server.ServerWorld;
+                                 ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:10: error: package net.minecraftforge.event.entity does not exist
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+                                      ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:12: error: package net.minecraftforge.eventbus.api does not exist
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+                                      ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:13: error: package net.minecraftforge.fml.common does not exist
+import net.minecraftforge.fml.common.Mod;
+                                    ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:16: error: package Mod does not exist
+@Mod.EventBusSubscriber(modid="slavicmyths")
+    ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:18: error: cannot find symbol
+ public static long now(net.minecraft.world.World w){return w.getServer().overworld().getGameTime();}
+                                           ^
+  symbol:   class World
+  location: package net.minecraft.world
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:19: error: cannot find symbol
+ public static boolean summoned(LivingEntity e){return e.getPersistentData().hasUUID("SlavicGuardianOwner");}
+                                ^
+  symbol:   class LivingEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:20: error: cannot find symbol
+ public static boolean calm(LivingEntity e){return !e.level.isClientSide&&e.getPersistentData().getLong("SlavicMusicUntil")>now(e.level);}
+                            ^
+  symbol:   class LivingEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:21: error: cannot find symbol
+ public static boolean eligible(MobEntity e){return e.canChangeDimensions()&&!summoned(e)&&e.getMaxHealth()<100&&!e.getTags().contains("slavic_music_immune")&&(!e.getType().getRegistryName().getNamespace().equals("slavicmyths")||e instanceof WildlifeEntity);}
+                                ^
+  symbol:   class MobEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:22: error: cannot find symbol
+ public static void music(PlayerEntity p){
+                          ^
+  symbol:   class PlayerEntity
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:33: error: cannot find symbol
+ @SubscribeEvent public static void join(EntityJoinWorldEvent event){if(!event.getWorld().isClientSide&&event.getEntity() instanceof MobEntity){MobEntity m=(MobEntity)event.getEntity();m.goalSelector.addGoal(-10,new CalmGoal(m));if(m instanceof WildlifeEntity)m.goalSelector.addGoal(-9,new GuardianGoal((WildlifeEntity)m));}}
+                                         ^
+  symbol:   class EntityJoinWorldEvent
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:34: error: cannot find symbol
+ @SubscribeEvent public static void target(LivingSetAttackTargetEvent event){if(event.getTarget()!=null&&event.getEntityLiving() instanceof MobEntity&&calm(event.getEntityLiving()))((MobEntity)event.getEntityLiving()).setTarget(null);}
+                                           ^
+  symbol:   class LivingSetAttackTargetEvent
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:35: error: cannot find symbol
+ @SubscribeEvent public static void attack(LivingAttackEvent event){Entity attacker=event.getSource().getEntity();if(attacker instanceof LivingEntity&&(calm((LivingEntity)attacker)||(summoned((LivingEntity)attacker)&&!enemy((LivingEntity)attacker,event.getEntityLiving()))))event.setCanceled(true);}
+                                           ^
+  symbol:   class LivingAttackEvent
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:36: error: package LivingEvent does not exist
+ @SubscribeEvent public static void embers(LivingEvent.LivingUpdateEvent event){LivingEntity e=event.getEntityLiving();if(e.level.isClientSide||e.tickCount%20!=0||!e.getPersistentData().contains("SlavicEmbersUntil"))return;if(now(e.level)<e.getPersistentData().getLong("SlavicEmbersUntil"))((ServerWorld)e.level).sendParticles(ParticleTypes.FLAME,e.getX(),e.getY()+.6,e.getZ(),1,.2,.3,.2,0);else e.getPersistentData().remove("SlavicEmbersUntil");}
+                                                      ^
+D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:37: error: cannot find symbol
+ @SubscribeEvent public static void drops(LivingDropsEvent event){if(summoned(event.getEntityLiving()))event.setCanceled(true);}
+                                          ^
+  symbol:   class LivingDropsEvent
+  location: class ArtifactEvents
+D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiArmorer.java:26: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+        public String getTitle(){return ModItems.ARMORER_TABLE.get().getDescription().getString();}public IDrawable getBackground(){return background;}public IDrawable getIcon(){return icon;}
+                                                                                                                    ^
+D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiKitchen.java:24: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+  public ResourceLocation getUid(){return ID;}public Class<? extends Integer> getRecipeClass(){return Integer.class;}public String getTitle(){return ModItems.KITCHEN_TABLE.get().getDescription().getString();}public IDrawable getBackground(){return bg;}public IDrawable getIcon(){return icon;}
+                                                                                                                                                                                                                                 ^
+D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiRituals.java:50: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+        @Override public IDrawable getBackground() { return background; }
+                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiYaga.java:24: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+  public ResourceLocation getUid(){return ID;}public Class<? extends Integer> getRecipeClass(){return Integer.class;}public String getTitle(){return new net.minecraft.util.text.TranslationTextComponent("yaga.cauldron").getString();}public IDrawable getBackground(){return bg;}public IDrawable getIcon(){return icon;}
+                                                                                                                                                                                                                                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+  for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+  for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                                               ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+  for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                                                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+  for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                                                                                           ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+  for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                                                                                                               ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+  for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                                                                                                                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+  for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+      ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:21: warning: [removal] SlotTypeMessage in top.theillusivec4.curios.api has been deprecated and marked for removal
+   InterModComms.sendTo("curios",SlotTypeMessage.REGISTER_TYPE,()->slot.getMessageBuilder().size(slot==SlotTypePreset.RING?2:1).build());
+                                 ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:21: warning: [removal] getMessageBuilder() in SlotTypePreset has been deprecated and marked for removal
+   InterModComms.sendTo("curios",SlotTypeMessage.REGISTER_TYPE,()->slot.getMessageBuilder().size(slot==SlotTypePreset.RING?2:1).build());
+                                                                       ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:21: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+   InterModComms.sendTo("curios",SlotTypeMessage.REGISTER_TYPE,()->slot.getMessageBuilder().size(slot==SlotTypePreset.RING?2:1).build());
+                                                                                                       ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:21: warning: [removal] size(int) in Builder has been deprecated and marked for removal
+   InterModComms.sendTo("curios",SlotTypeMessage.REGISTER_TYPE,()->slot.getMessageBuilder().size(slot==SlotTypePreset.RING?2:1).build());
+                                                                                           ^
+D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:21: warning: [removal] build() in Builder has been deprecated and marked for removal
+   InterModComms.sendTo("curios",SlotTypeMessage.REGISTER_TYPE,()->slot.getMessageBuilder().size(slot==SlotTypePreset.RING?2:1).build());
+                                                                                                                               ^
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+16 warnings
+
+> Task :compileJava FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  Note: D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java uses or overrides a deprecated API.
+  Note: Recompile with -Xlint:deprecation for details.
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:9: error: cannot find symbol
+  import net.minecraft.world.World;
+                            ^
+    symbol:   class World
+    location: package net.minecraft.world
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                            ^
+    symbol:   class BlockState
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                         ^
+    symbol:   class World
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                 ^
+    symbol:   class BlockPos
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                              ^
+    symbol:   class PlayerEntity
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                                             ^
+    symbol:   class Hand
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                                                                                                       ^
+    symbol:   class BlockRayTraceResult
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:13: error: cannot find symbol
+      @Override public ActionResultType use(BlockState s,World w,BlockPos pos,PlayerEntity p,Hand hand,BlockRayTraceResult hit){if(!w.isClientSide)NetworkHooks.openGui((ServerPlayerEntity)p,new SimpleNamedContainerProvider((id,inv,player)->new ArmorerMenu(id,inv,pos),new TranslationTextComponent("block.slavicmyths.armorer_table")),pos);return ActionResultType.sidedSuccess(w.isClientSide);}
+                       ^
+    symbol:   class ActionResultType
+    location: class ArmorerBlock
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:7: error: cannot find symbol
+  import net.minecraft.util.NonNullList;
+                           ^
+    symbol:   class NonNullList
+    location: package net.minecraft.util
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:15: error: cannot find symbol
+      public static final RegistryObject<ContainerType<ArmorerMenu>> TYPE=RpgMenu.MENUS.register("armorer",()->IForgeContainerType.create((id,inv,b)->new ArmorerMenu(id,inv,b.readBlockPos())));
+                          ^
+    symbol:   class RegistryObject
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:15: error: cannot find symbol
+      public static final RegistryObject<ContainerType<ArmorerMenu>> TYPE=RpgMenu.MENUS.register("armorer",()->IForgeContainerType.create((id,inv,b)->new ArmorerMenu(id,inv,b.readBlockPos())));
+                                         ^
+    symbol:   class ContainerType
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:17: error: cannot find symbol
+      public final CraftingInventory input=new CraftingInventory(this,4,4);
+                   ^
+    symbol:   class CraftingInventory
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:18: error: cannot find symbol
+      private final CraftResultInventory result=new CraftResultInventory();private final PlayerEntity owner;public final BlockPos pos;private boolean consuming;
+                    ^
+    symbol:   class CraftResultInventory
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:18: error: cannot find symbol
+      private final CraftResultInventory result=new CraftResultInventory();private final PlayerEntity owner;public final BlockPos pos;private boolean consuming;
+                                                                                         ^
+    symbol:   class PlayerEntity
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:18: error: cannot find symbol
+      private final CraftResultInventory result=new CraftResultInventory();private final PlayerEntity owner;public final BlockPos pos;private boolean consuming;
+                                                                                                                         ^
+    symbol:   class BlockPos
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:19: error: cannot find symbol
+      public ArmorerMenu(int id,PlayerInventory inventory,BlockPos pos) {
+                                ^
+    symbol:   class PlayerInventory
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:19: error: cannot find symbol
+      public ArmorerMenu(int id,PlayerInventory inventory,BlockPos pos) {
+                                                          ^
+    symbol:   class BlockPos
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:8: error: cannot find symbol
+  import net.minecraft.network.PacketBuffer;
+                              ^
+    symbol:   class PacketBuffer
+    location: package net.minecraft.network
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:10: error: cannot find symbol
+  import net.minecraft.world.World;
+                            ^
+    symbol:   class World
+    location: package net.minecraft.world
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:31: error: cannot find symbol
+      @Override public void slotsChanged(IInventory inventory) {
+                                         ^
+    symbol:   class IInventory
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:34: error: cannot find symbol
+      private void craft(ItemStack crafted) {
+                         ^
+    symbol:   class ItemStack
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:45: error: cannot find symbol
+      @Override public boolean stillValid(PlayerEntity p){return p.isAlive()&&p.distanceToSqr(pos.getX()+.5,pos.getY()+.5,pos.getZ()+.5)<=64&&p.level.getBlockState(pos).is(ModBlocks.ARMORER_TABLE.get());}
+                                          ^
+    symbol:   class PlayerEntity
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:46: error: cannot find symbol
+      @Override public boolean canTakeItemForPickAll(ItemStack s,Slot slot){return slot.container!=result&&super.canTakeItemForPickAll(s,slot);}
+                                                     ^
+    symbol:   class ItemStack
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:46: error: cannot find symbol
+      @Override public boolean canTakeItemForPickAll(ItemStack s,Slot slot){return slot.container!=result&&super.canTakeItemForPickAll(s,slot);}
+                                                                 ^
+    symbol:   class Slot
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:47: error: cannot find symbol
+      @Override public ItemStack quickMoveStack(PlayerEntity p,int index) {
+                                                ^
+    symbol:   class PlayerEntity
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:47: error: cannot find symbol
+      @Override public ItemStack quickMoveStack(PlayerEntity p,int index) {
+                       ^
+    symbol:   class ItemStack
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:58: error: cannot find symbol
+      @Override public void removed(PlayerEntity p){super.removed(p);if(!p.level.isClientSide){consuming=true;clearContainer(p,p.level,input);result.clearContent();}}
+                                    ^
+    symbol:   class PlayerEntity
+    location: class ArmorerMenu
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:15: error: cannot find symbol
+      public static final IRecipeType<ArmorerRecipe> TYPE=IRecipeType.register("slavicmyths:armorer");
+                          ^
+    symbol:   class IRecipeType
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:16: error: cannot find symbol
+      public static final DeferredRegister<IRecipeSerializer<?>> SERIALIZERS=DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS,"slavicmyths");
+                          ^
+    symbol:   class DeferredRegister
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:16: error: cannot find symbol
+      public static final DeferredRegister<IRecipeSerializer<?>> SERIALIZERS=DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS,"slavicmyths");
+                                           ^
+    symbol:   class IRecipeSerializer
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:17: error: cannot find symbol
+      public static final RegistryObject<Serializer> SHAPED=SERIALIZERS.register("armorer_shaped",()->new Serializer(false));
+                          ^
+    symbol:   class RegistryObject
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:41: error: cannot find symbol
+      public static final class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ArmorerRecipe> {
+                                                                                                                                     ^
+    symbol:   class IRecipeSerializer
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:41: error: cannot find symbol
+      public static final class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ArmorerRecipe> {
+                                                                                                    ^
+    symbol:   class IRecipeSerializer
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:18: error: cannot find symbol
+      public static final RegistryObject<Serializer> SHAPELESS=SERIALIZERS.register("armorer_shapeless",()->new Serializer(true));
+                          ^
+    symbol:   class RegistryObject
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:19: error: cannot find symbol
+      private final ResourceLocation id;public final int width,height;public final boolean shapeless;
+                    ^
+    symbol:   class ResourceLocation
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:20: error: cannot find symbol
+      private final NonNullList<Ingredient> ingredients;private final ItemStack output;
+                    ^
+    symbol:   class NonNullList
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:20: error: cannot find symbol
+      private final NonNullList<Ingredient> ingredients;private final ItemStack output;
+                                ^
+    symbol:   class Ingredient
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:20: error: cannot find symbol
+      private final NonNullList<Ingredient> ingredients;private final ItemStack output;
+                                                                      ^
+    symbol:   class ItemStack
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:21: error: cannot find symbol
+      public ArmorerRecipe(ResourceLocation id,int width,int height,boolean shapeless,NonNullList<Ingredient> ingredients,ItemStack output){this.id=id;this.width=width;this.height=height;this.shapeless=shapeless;this.ingredients=ingredients;this.output=output;}
+                           ^
+    symbol:   class ResourceLocation
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:21: error: cannot find symbol
+      public ArmorerRecipe(ResourceLocation id,int width,int height,boolean shapeless,NonNullList<Ingredient> ingredients,ItemStack output){this.id=id;this.width=width;this.height=height;this.shapeless=shapeless;this.ingredients=ingredients;this.output=output;}
+                                                                                      ^
+    symbol:   class NonNullList
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:21: error: cannot find symbol
+      public ArmorerRecipe(ResourceLocation id,int width,int height,boolean shapeless,NonNullList<Ingredient> ingredients,ItemStack output){this.id=id;this.width=width;this.height=height;this.shapeless=shapeless;this.ingredients=ingredients;this.output=output;}
+                                                                                                  ^
+    symbol:   class Ingredient
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:21: error: cannot find symbol
+      public ArmorerRecipe(ResourceLocation id,int width,int height,boolean shapeless,NonNullList<Ingredient> ingredients,ItemStack output){this.id=id;this.width=width;this.height=height;this.shapeless=shapeless;this.ingredients=ingredients;this.output=output;}
+                                                                                                                          ^
+    symbol:   class ItemStack
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:22: error: cannot find symbol
+      public boolean matches(CraftingInventory inv,World world) {
+                             ^
+    symbol:   class CraftingInventory
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:22: error: cannot find symbol
+      public boolean matches(CraftingInventory inv,World world) {
+                                                   ^
+    symbol:   class World
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:26: error: cannot find symbol
+      private boolean match(CraftingInventory inv,int ox,int oy,boolean mirror) {
+                            ^
+    symbol:   class CraftingInventory
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:33: error: cannot find symbol
+      public ItemStack assemble(CraftingInventory inv){return output.copy();}
+                                ^
+    symbol:   class CraftingInventory
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:33: error: cannot find symbol
+      public ItemStack assemble(CraftingInventory inv){return output.copy();}
+             ^
+    symbol:   class ItemStack
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:34: error: cannot find symbol
+      public ItemStack getResultItem(){return output;}
+             ^
+    symbol:   class ItemStack
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:35: error: cannot find symbol
+      public NonNullList<Ingredient> getIngredients(){return ingredients;}
+             ^
+    symbol:   class NonNullList
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:35: error: cannot find symbol
+      public NonNullList<Ingredient> getIngredients(){return ingredients;}
+                         ^
+    symbol:   class Ingredient
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:36: error: cannot find symbol
+      public ResourceLocation getId(){return id;}
+             ^
+    symbol:   class ResourceLocation
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:37: error: cannot find symbol
+      public IRecipeSerializer<?> getSerializer(){return shapeless?SHAPELESS.get():SHAPED.get();}
+             ^
+    symbol:   class IRecipeSerializer
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:38: error: cannot find symbol
+      public IRecipeType<?> getType(){return TYPE;}
+             ^
+    symbol:   class IRecipeType
+    location: class ArmorerRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:43: error: cannot find symbol
+          public ArmorerRecipe fromJson(ResourceLocation id,JsonObject json) {
+                                        ^
+    symbol:   class ResourceLocation
+    location: class Serializer
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:62: error: cannot find symbol
+          public ArmorerRecipe fromNetwork(ResourceLocation id,PacketBuffer b){int w=b.readVarInt(),h=b.readVarInt(),n=b.readVarInt();if(w<1||w>4||h<1||h>4||n<1||n>16)throw new IllegalArgumentException("Invalid armorer dimensions");NonNullList<Ingredient> list=NonNullList.create();for(int i=0;i<n;i++)list.add(Ingredient.fromNetwork(b));return new ArmorerRecipe(id,w,h,shapeless,list,b.readItem());}
+                                           ^
+    symbol:   class ResourceLocation
+    location: class Serializer
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:62: error: cannot find symbol
+          public ArmorerRecipe fromNetwork(ResourceLocation id,PacketBuffer b){int w=b.readVarInt(),h=b.readVarInt(),n=b.readVarInt();if(w<1||w>4||h<1||h>4||n<1||n>16)throw new IllegalArgumentException("Invalid armorer dimensions");NonNullList<Ingredient> list=NonNullList.create();for(int i=0;i<n;i++)list.add(Ingredient.fromNetwork(b));return new ArmorerRecipe(id,w,h,shapeless,list,b.readItem());}
+                                                               ^
+    symbol:   class PacketBuffer
+    location: class Serializer
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:63: error: cannot find symbol
+          public void toNetwork(PacketBuffer b,ArmorerRecipe r){b.writeVarInt(r.width);b.writeVarInt(r.height);b.writeVarInt(r.ingredients.size());for(Ingredient i:r.ingredients)i.toNetwork(b);b.writeItem(r.output);}
+                                ^
+    symbol:   class PacketBuffer
+    location: class Serializer
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:7: error: cannot find symbol
+  import net.minecraft.nbt.CompoundNBT;
+                          ^
+    symbol:   class CompoundNBT
+    location: package net.minecraft.nbt
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:18: error: cannot find symbol
+   public static long now(net.minecraft.world.World w){return w.getServer().overworld().getGameTime();}
+                                             ^
+    symbol:   class World
+    location: package net.minecraft.world
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:19: error: cannot find symbol
+   public static boolean summoned(LivingEntity e){return e.getPersistentData().hasUUID("SlavicGuardianOwner");}
+                                  ^
+    symbol:   class LivingEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:20: error: cannot find symbol
+   public static boolean calm(LivingEntity e){return !e.level.isClientSide&&e.getPersistentData().getLong("SlavicMusicUntil")>now(e.level);}
+                              ^
+    symbol:   class LivingEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:21: error: cannot find symbol
+   public static boolean eligible(MobEntity e){return e.canChangeDimensions()&&!summoned(e)&&e.getMaxHealth()<100&&!e.getTags().contains("slavic_music_immune")&&(!e.getType().getRegistryName().getNamespace().equals("slavicmyths")||e instanceof WildlifeEntity);}
+                                  ^
+    symbol:   class MobEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:22: error: cannot find symbol
+   public static void music(PlayerEntity p){
+                            ^
+    symbol:   class PlayerEntity
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:33: error: cannot find symbol
+   @SubscribeEvent public static void join(EntityJoinWorldEvent event){if(!event.getWorld().isClientSide&&event.getEntity() instanceof MobEntity){MobEntity m=(MobEntity)event.getEntity();m.goalSelector.addGoal(-10,new CalmGoal(m));if(m instanceof WildlifeEntity)m.goalSelector.addGoal(-9,new GuardianGoal((WildlifeEntity)m));}}
+                                           ^
+    symbol:   class EntityJoinWorldEvent
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:34: error: cannot find symbol
+   @SubscribeEvent public static void target(LivingSetAttackTargetEvent event){if(event.getTarget()!=null&&event.getEntityLiving() instanceof MobEntity&&calm(event.getEntityLiving()))((MobEntity)event.getEntityLiving()).setTarget(null);}
+                                             ^
+    symbol:   class LivingSetAttackTargetEvent
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:35: error: cannot find symbol
+   @SubscribeEvent public static void attack(LivingAttackEvent event){Entity attacker=event.getSource().getEntity();if(attacker instanceof LivingEntity&&(calm((LivingEntity)attacker)||(summoned((LivingEntity)attacker)&&!enemy((LivingEntity)attacker,event.getEntityLiving()))))event.setCanceled(true);}
+                                             ^
+    symbol:   class LivingAttackEvent
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:37: error: cannot find symbol
+   @SubscribeEvent public static void drops(LivingDropsEvent event){if(summoned(event.getEntityLiving()))event.setCanceled(true);}
+                                            ^
+    symbol:   class LivingDropsEvent
+    location: class ArtifactEvents
+  D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiArmorer.java:26: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+          public String getTitle(){return ModItems.ARMORER_TABLE.get().getDescription().getString();}public IDrawable getBackground(){return background;}public IDrawable getIcon(){return icon;}
+                                                                                                                      ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiKitchen.java:24: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+    public ResourceLocation getUid(){return ID;}public Class<? extends Integer> getRecipeClass(){return Integer.class;}public String getTitle(){return ModItems.KITCHEN_TABLE.get().getDescription().getString();}public IDrawable getBackground(){return bg;}public IDrawable getIcon(){return icon;}
+                                                                                                                                                                                                                                   ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiRituals.java:50: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+          @Override public IDrawable getBackground() { return background; }
+                                     ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\compat\JeiYaga.java:24: warning: [removal] getBackground() in IRecipeCategory has been deprecated and marked for removal
+    public ResourceLocation getUid(){return ID;}public Class<? extends Integer> getRecipeClass(){return Integer.class;}public String getTitle(){return new net.minecraft.util.text.TranslationTextComponent("yaga.cauldron").getString();}public IDrawable getBackground(){return bg;}public IDrawable getIcon(){return icon;}
+                                                                                                                                                                                                                                                           ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+    for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                                ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+    for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                                                 ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+    for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                                                                     ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+    for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                                                                                             ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+    for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                                                                                                                 ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+    for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+                                                                                                                                     ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:20: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+    for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
+        ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:21: warning: [removal] SlotTypeMessage in top.theillusivec4.curios.api has been deprecated and marked for removal
+     InterModComms.sendTo("curios",SlotTypeMessage.REGISTER_TYPE,()->slot.getMessageBuilder().size(slot==SlotTypePreset.RING?2:1).build());
+                                   ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:21: warning: [removal] getMessageBuilder() in SlotTypePreset has been deprecated and marked for removal
+     InterModComms.sendTo("curios",SlotTypeMessage.REGISTER_TYPE,()->slot.getMessageBuilder().size(slot==SlotTypePreset.RING?2:1).build());
+                                                                         ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:21: warning: [removal] SlotTypePreset in top.theillusivec4.curios.api has been deprecated and marked for removal
+     InterModComms.sendTo("curios",SlotTypeMessage.REGISTER_TYPE,()->slot.getMessageBuilder().size(slot==SlotTypePreset.RING?2:1).build());
+                                                                                                         ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:21: warning: [removal] size(int) in Builder has been deprecated and marked for removal
+     InterModComms.sendTo("curios",SlotTypeMessage.REGISTER_TYPE,()->slot.getMessageBuilder().size(slot==SlotTypePreset.RING?2:1).build());
+                                                                                             ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\item\FolkAccessoryItem.java:21: warning: [removal] build() in Builder has been deprecated and marked for removal
+     InterModComms.sendTo("curios",SlotTypeMessage.REGISTER_TYPE,()->slot.getMessageBuilder().size(slot==SlotTypePreset.RING?2:1).build());
+                                                                                                                                 ^
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:11: error: cannot find symbol
+  public final class ArmorerBlock extends Block {
+                                          ^
+    symbol: class Block
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:14: error: cannot find symbol
+  public final class ArmorerMenu extends Container {
+                                         ^
+    symbol: class Container
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:14: error: cannot find symbol
+  public final class ArmorerRecipe implements IRecipe<CraftingInventory> {
+                                              ^
+    symbol: class IRecipe
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:14: error: cannot find symbol
+  public final class ArmorerRecipe implements IRecipe<CraftingInventory> {
+                                                      ^
+    symbol: class CraftingInventory
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:3: error: package net.minecraft.block.material does not exist
+  import net.minecraft.block.material.Material;
+                                     ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:5: error: package net.minecraft.inventory.container does not exist
+  import net.minecraft.inventory.container.SimpleNamedContainerProvider;
+                                          ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:8: error: package net.minecraft.util.text does not exist
+  import net.minecraft.util.text.TranslationTextComponent;
+                                ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:10: error: package net.minecraftforge.fml.network does not exist
+  import net.minecraftforge.fml.network.NetworkHooks;
+                                       ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:2: error: package net.minecraft.block does not exist
+  import net.minecraft.block.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:4: error: package net.minecraft.entity.player does not exist
+  import net.minecraft.entity.player.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerBlock.java:7: error: package net.minecraft.util.math does not exist
+  import net.minecraft.util.math.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:8: error: package net.minecraft.util.math does not exist
+  import net.minecraft.util.math.BlockPos;
+                                ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:9: error: package net.minecraftforge.common.extensions does not exist
+  import net.minecraftforge.common.extensions.IForgeContainerType;
+                                             ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:10: error: package net.minecraftforge.fml does not exist
+  import net.minecraftforge.fml.RegistryObject;
+                               ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:5: error: package net.minecraft.inventory does not exist
+  import net.minecraft.inventory.CraftingInventory;
+                                ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:12: error: package net.minecraftforge.fml does not exist
+  import net.minecraftforge.fml.RegistryObject;
+                               ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:41: error: package net.minecraftforge.registries does not exist
+      public static final class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ArmorerRecipe> {
+                                                                                ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:3: error: package net.minecraft.entity.player does not exist
+  import net.minecraft.entity.player.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:4: error: package net.minecraft.inventory does not exist
+  import net.minecraft.inventory.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:5: error: package net.minecraft.inventory.container does not exist
+  import net.minecraft.inventory.container.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerMenu.java:6: error: package net.minecraft.item does not exist
+  import net.minecraft.item.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:6: error: package net.minecraft.item does not exist
+  import net.minecraft.item.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:7: error: package net.minecraft.item.crafting does not exist
+  import net.minecraft.item.crafting.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\armorer\ArmorerRecipe.java:11: error: package net.minecraftforge.registries does not exist
+  import net.minecraftforge.registries.*;
+  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:4: error: package net.minecraft.entity.ai.goal does not exist
+  import net.minecraft.entity.ai.goal.Goal;
+                                     ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:6: error: package net.minecraft.entity.passive does not exist
+  import net.minecraft.entity.passive.TameableEntity;
+                                     ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:8: error: package net.minecraft.particles does not exist
+  import net.minecraft.particles.ParticleTypes;
+                                ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:9: error: package net.minecraft.world.server does not exist
+  import net.minecraft.world.server.ServerWorld;
+                                   ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:10: error: package net.minecraftforge.event.entity does not exist
+  import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+                                        ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:12: error: package net.minecraftforge.eventbus.api does not exist
+  import net.minecraftforge.eventbus.api.SubscribeEvent;
+                                        ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:13: error: package net.minecraftforge.fml.common does not exist
+  import net.minecraftforge.fml.common.Mod;
+                                      ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:16: error: package Mod does not exist
+  @Mod.EventBusSubscriber(modid="slavicmyths")
+      ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\artifact\ArtifactEvents.java:36: error: package LivingEvent does not exist
+   @SubscribeEvent public static void embers(LivingEvent.LivingUpdateEvent event){LivingEntity e=event.getEntityLiving();if(e.level.isClientSide||e.tickCount%20!=0||!e.getPersistentData().contains("SlavicEmbersUntil"))return;if(now(e.level)<e.getPersistentData().getLong("SlavicEmbersUntil"))((ServerWorld)e.level).sendParticles(ParticleTypes.FLAME,e.getX(),e.getY()+.6,e.getZ(),1,.2,.3,.2,0);else e.getPersistentData().remove("SlavicEmbersUntil");}
+                                                        ^
+  100 errors
+  16 warnings
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 15s
+3 actionable tasks: 3 executed

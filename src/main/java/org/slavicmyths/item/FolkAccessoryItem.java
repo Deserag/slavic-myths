@@ -1,68 +1,64 @@
 package org.slavicmyths.item;
+import net.minecraft.server.level.ServerPlayer;
 
 import java.util.List;
-import net.minecraft.item.*;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.potion.*;
-import net.minecraft.util.text.*;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.InterModComms;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraft.world.item.*;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.effect.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+
+
 import top.theillusivec4.curios.api.*;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 public final class FolkAccessoryItem extends Item implements ICurioItem {
  public final String slot;
  public FolkAccessoryItem(Properties properties,String slot){super(properties.stacksTo(1));this.slot=slot;}
- public static void slots(InterModEnqueueEvent event){
-  for(SlotTypePreset slot:new SlotTypePreset[]{SlotTypePreset.HEAD,SlotTypePreset.NECKLACE,SlotTypePreset.RING,SlotTypePreset.BELT,SlotTypePreset.CHARM})
-   InterModComms.sendTo("curios",SlotTypeMessage.REGISTER_TYPE,()->slot.getMessageBuilder().size(slot==SlotTypePreset.RING?2:1).build());
- }
- public static ItemStack equipped(LivingEntity entity,Item item){return CuriosApi.getCuriosHelper().findEquippedCurio(item,entity).map(t->t.getRight()).orElse(ItemStack.EMPTY);}
+ public static ItemStack equipped(LivingEntity entity,Item item){return CuriosApi.getCuriosInventory(entity).flatMap(handler -> handler.findFirstCurio(item)).map(SlotResult::stack).orElse(ItemStack.EMPTY);}
  public static void award(LivingEntity entity,String id){
-  if(entity instanceof net.minecraft.entity.player.ServerPlayerEntity){
-   net.minecraft.entity.player.ServerPlayerEntity p=(net.minecraft.entity.player.ServerPlayerEntity)entity;
-   net.minecraft.advancements.Advancement a=p.server.getAdvancements().getAdvancement(new net.minecraft.util.ResourceLocation("slavicmyths",id));
+  if(entity instanceof net.minecraft.server.level.ServerPlayer){
+   net.minecraft.server.level.ServerPlayer p=(net.minecraft.server.level.ServerPlayer)entity;
+   net.minecraft.advancements.AdvancementHolder a=p.server.getAdvancements().get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",id));
    if(a!=null)p.getAdvancements().award(a,"event");
   }
  }
- @Override public void onEquip(String identifier,int index,LivingEntity entity,ItemStack stack){
-  if(entity.level.isClientSide)return;award(entity,"first_accessory");
+ @Override public void onEquip(SlotContext context,ItemStack previous,ItemStack stack){
+  LivingEntity entity=context.entity();
+  if(entity.level().isClientSide)return;award(entity,"first_accessory");
   if(stack.getRarity()==Rarity.RARE)award(entity,"rare_accessory");
  }
- @Override public boolean canEquip(String identifier,LivingEntity wearer,ItemStack stack){return slot.equals(identifier);}
- @Override public void appendHoverText(ItemStack stack,World world,List<ITextComponent> lines,ITooltipFlag flag){
-  lines.add(new TranslationTextComponent(getDescriptionId()+".effect").withStyle(TextFormatting.GRAY));
+ @Override public boolean canEquip(SlotContext context,ItemStack stack){return slot.equals(context.identifier());}
+ @Override public void appendHoverText(ItemStack stack,Item.TooltipContext context,List<Component> lines,TooltipFlag flag){
+  lines.add(Component.translatable(getDescriptionId()+".effect").withStyle(net.minecraft.ChatFormatting.GRAY));
  }
- @Override public void curioTick(String identifier,int index,LivingEntity entity,ItemStack stack){
-  if(!(entity instanceof PlayerEntity)||equipped(entity,this)!=stack)return;
-  PlayerEntity player=(PlayerEntity)entity;
-  if(!entity.level.isClientSide&&slot.equals("ring")&&player.tickCount%20==0&&FolkEquipmentEffects.wears(player,org.slavicmyths.registry.ModItems.PERUN_RING.get())&&FolkEquipmentEffects.wears(player,org.slavicmyths.registry.ModItems.RESIN_RING.get()))award(player,"two_rings");
+ @Override public void curioTick(SlotContext context,ItemStack stack){
+  LivingEntity entity=context.entity();
+  if(!(entity instanceof Player)||equipped(entity,this)!=stack)return;
+  Player player=(Player)entity;
+  if(!entity.level().isClientSide&&slot.equals("ring")&&player.tickCount%20==0&&FolkEquipmentEffects.wears(player,org.slavicmyths.registry.ModItems.PERUN_RING.get())&&FolkEquipmentEffects.wears(player,org.slavicmyths.registry.ModItems.RESIN_RING.get()))award(player,"two_rings");
   if(this==org.slavicmyths.registry.ModItems.INVISIBILITY_CAP.get()){
-   net.minecraft.nbt.CompoundNBT data=player.getPersistentData();
+   net.minecraft.nbt.CompoundTag data=player.getPersistentData();
    int fade=data.getInt("SlavicCapFade");
-    if(player.hurtTime>0||player.swinging||player.isSprinting()||player.isUsingItem())data.putLong("SlavicCapBroken",Math.max(data.getLong("SlavicCapBroken"),player.level.getGameTime()+100));
-   if(player.level.getGameTime()<data.getLong("SlavicCapBroken"))fade=0;else fade=Math.min(20,fade+1);
-   long now=player.level.getGameTime();
+    if(player.hurtTime>0||player.swinging||player.isSprinting()||player.isUsingItem())data.putLong("SlavicCapBroken",Math.max(data.getLong("SlavicCapBroken"),player.level().getGameTime()+100));
+   if(player.level().getGameTime()<data.getLong("SlavicCapBroken"))fade=0;else fade=Math.min(20,fade+1);
+   long now=player.level().getGameTime();
    if(fade==20){long until=data.getLong("SlavicCapUntil");if(until==0)data.putLong("SlavicCapUntil",now+160);else if(now>=until){data.putLong("SlavicCapBroken",now+600);data.remove("SlavicCapUntil");fade=0;}}
    data.putInt("SlavicCapFade",fade);
-   if(!entity.level.isClientSide&&fade==20)player.addEffect(new EffectInstance(Effects.INVISIBILITY,5,0,false,false));
+   if(!entity.level().isClientSide&&fade==20)player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY,5,0,false,false));
   }
-  if(entity.level.isClientSide)return;
+  if(entity.level().isClientSide)return;
   if(this==org.slavicmyths.registry.ModItems.DEPTH_AMULET.get()&&player.isInWater()&&player.tickCount%4==0&&player.getAirSupply()>0)player.setAirSupply(Math.min(player.getMaxAirSupply(),player.getAirSupply()+1));
   if(this==org.slavicmyths.registry.ModItems.RESIN_RING.get()&&player.tickCount%100==0&&player.getFoodData().getFoodLevel()>=18&&player.getHealth()<player.getMaxHealth()){
    player.heal(1);player.causeFoodExhaustion(2);
   }
  }
- @Override public void onUnequip(String identifier,int index,LivingEntity entity,ItemStack stack){
-  if(this==org.slavicmyths.registry.ModItems.POYAS_TUGARINA.get()&&!entity.level.isClientSide)org.slavicmyths.hunt.BossEffects.clearBelt(entity);
-  if(this==org.slavicmyths.registry.ModItems.VOLCHIY_POYAS.get()&&!entity.level.isClientSide)org.slavicmyths.hunt.HuntEffects.removeBelt(entity);
+ @Override public void onUnequip(SlotContext context,ItemStack next,ItemStack stack){
+  LivingEntity entity=context.entity();
+  if(this==org.slavicmyths.registry.ModItems.POYAS_TUGARINA.get()&&!entity.level().isClientSide)org.slavicmyths.hunt.BossEffects.clearBelt(entity);
+  if(this==org.slavicmyths.registry.ModItems.VOLCHIY_POYAS.get()&&!entity.level().isClientSide)org.slavicmyths.hunt.HuntEffects.removeBelt(entity);
   if(this==org.slavicmyths.registry.ModItems.INVISIBILITY_CAP.get())entity.getPersistentData().remove("SlavicCapFade");
  }
- @net.minecraftforge.api.distmarker.OnlyIn(net.minecraftforge.api.distmarker.Dist.CLIENT)
- @Override public boolean canRender(String identifier,int index,LivingEntity entity,ItemStack stack){return this==org.slavicmyths.registry.ModItems.POYAS_TUGARINA.get()||this==org.slavicmyths.registry.ModItems.ODNOGLAZYY_OBEREG.get()||this==org.slavicmyths.registry.ModItems.OBEREG_PADAYUSCHEY_ZVEZDY.get()||this==org.slavicmyths.registry.ModItems.ZOLNY_OBEREG.get()||this==org.slavicmyths.registry.ModItems.VOLCHIY_POYAS.get();}
- @net.minecraftforge.api.distmarker.OnlyIn(net.minecraftforge.api.distmarker.Dist.CLIENT)
- @Override public void render(String identifier,int index,com.mojang.blaze3d.matrix.MatrixStack pose,net.minecraft.client.renderer.IRenderTypeBuffer buffer,int light,LivingEntity entity,float limbSwing,float limbAmount,float partial,float age,float yaw,float pitch,ItemStack stack){if(this==org.slavicmyths.registry.ModItems.POYAS_TUGARINA.get()||this==org.slavicmyths.registry.ModItems.ODNOGLAZYY_OBEREG.get())org.slavicmyths.client.BossAccessoryRenderer.render(stack,entity,pose,buffer,light);else org.slavicmyths.client.HuntAccessoryRenderer.render(stack,entity,pose,buffer,light);}
 }

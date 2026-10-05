@@ -1,0 +1,34 @@
+{
+  "status": "FILES_AND_CHECKSUMS_REPAIRED",
+  "cause": "PolyMC component SHA-1 differs from official Maven for installer and universal; launcher rejected downloads, leaving installer absent.",
+  "instance_patch": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/patches/net.neoforged.neoforge.json",
+  "minecraft_launched_by_agent": false,
+  "artifacts": [
+    {
+      "filename": "neoforge-21.1.255-installer.jar",
+      "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-installer.jar",
+      "checksum_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-installer.jar.sha1",
+      "old_metadata_sha1": [
+        "3b81767c7195717375ad2437efacbe05d2f8bd38"
+      ],
+      "official_sha1": "ed2e3ac3f186dd5be4227ba6013b24f0bf7d6a19",
+      "size": 6972010,
+      "installed_path": "C:/Users/pavel/AppData/Roaming/PolyMC/libraries/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-installer.jar",
+      "sha256": "11d67a99db0ded3648b97b1eac06c5db0305899e05f657d360bec9d6741e522f"
+    },
+    {
+      "filename": "neoforge-21.1.255-universal.jar",
+      "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-universal.jar",
+      "checksum_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-universal.jar.sha1",
+      "old_metadata_sha1": [
+        "544bac92a87d56a1a8112f0034dac66d44dd2078"
+      ],
+      "official_sha1": "bbb3e994db22011236427e8ee1dee8a08f64145d",
+      "size": 3552847,
+      "installed_path": "C:/Users/pavel/AppData/Roaming/PolyMC/libraries/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-universal.jar",
+      "sha256": "3359a6afd6fec466f693ff0f8fdc134acef6371f626512df7b5420e786f412c5"
+    }
+  ],
+  "launcher_cache_unchanged": true,
+  "legacy_instances_unchanged": true
+}

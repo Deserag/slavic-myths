@@ -1,0 +1,41 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compilePortCoreJava
+> Task :processPortCoreResources NO-SOURCE
+> Task :portCoreClasses
+
+> Task :verifyPortDamage FAILED
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+Exception in thread "main" java.lang.ExceptionInInitializerError
+	at net.minecraft.sounds.SoundEvents.register(SoundEvents.java:1638)
+	at net.minecraft.sounds.SoundEvents.register(SoundEvents.java:1626)
+	at net.minecraft.sounds.SoundEvents.register(SoundEvents.java:1622)
+	at net.minecraft.sounds.SoundEvents.<clinit>(SoundEvents.java:11)
+	at net.minecraft.world.damagesource.DamageEffects.<clinit>(DamageEffects.java:11)
+	at net.minecraft.world.damagesource.DamageType.lambda$static$0(DamageType.java:18)
+	at com.mojang.serialization.codecs.RecordCodecBuilder.create(RecordCodecBuilder.java:72)
+	at net.minecraft.world.damagesource.DamageType.<clinit>(DamageType.java:14)
+	at org.slavicmyths.verify.PortDamageHeadless.main(PortDamageHeadless.java:16)
+Caused by: java.lang.IllegalArgumentException: Not bootstrapped (called from registry ResourceKey[minecraft:root / minecraft:game_event])
+	at net.minecraft.server.Bootstrap.createBootstrapException(Bootstrap.java:107)
+	at net.minecraft.server.Bootstrap.checkBootstrapCalled(Bootstrap.java:100)
+	at net.minecraft.core.registries.BuiltInRegistries.internalRegister(BuiltInRegistries.java:317)
+	at net.minecraft.core.registries.BuiltInRegistries.registerDefaulted(BuiltInRegistries.java:305)
+	at net.minecraft.core.registries.BuiltInRegistries.<clinit>(BuiltInRegistries.java:136)
+	... 9 more
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':verifyPortDamage'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 10s
+3 actionable tasks: 2 executed, 1 up-to-date

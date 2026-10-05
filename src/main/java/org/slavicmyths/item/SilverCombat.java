@@ -1,28 +1,28 @@
 package org.slavicmyths.item;
 
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.tags.EntityTypeTags;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
 import org.slavicmyths.SlavicMyths;
 import org.slavicmyths.registry.ModItems;
 
-@Mod.EventBusSubscriber(modid = SlavicMyths.MOD_ID)
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID)
 public final class SilverCombat {
-    public static final net.minecraftforge.common.Tags.IOptionalNamedTag<net.minecraft.item.Item> SILVER=net.minecraft.tags.ItemTags.createOptional(new ResourceLocation(SlavicMyths.MOD_ID,"silver_weapons"));
-    public static boolean silverStrike(net.minecraft.util.DamageSource source){return source.getEntity() instanceof net.minecraft.entity.LivingEntity&&source.getDirectEntity()==source.getEntity()&&((net.minecraft.entity.LivingEntity)source.getEntity()).getMainHandItem().getItem().is(SILVER);}
-    private static final net.minecraftforge.common.Tags.IOptionalNamedTag<net.minecraft.entity.EntityType<?>> VULNERABLE =
-            EntityTypeTags.createOptional(new ResourceLocation(SlavicMyths.MOD_ID, "silver_vulnerable"));
-    @SubscribeEvent public static void onHurt(LivingHurtEvent event) {
-        if (event.getEntityLiving().level.isClientSide || !(event.getSource().getEntity() instanceof PlayerEntity)) return;
-        PlayerEntity attacker = (PlayerEntity) event.getSource().getEntity();
+    public static final net.minecraft.tags.TagKey<net.minecraft.world.item.Item> SILVER=net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM,ResourceLocation.fromNamespaceAndPath(SlavicMyths.MOD_ID,"silver_weapons"));
+    public static boolean silverStrike(net.minecraft.world.damagesource.DamageSource source){return source.getEntity() instanceof net.minecraft.world.entity.LivingEntity&&source.getDirectEntity()==source.getEntity()&&((net.minecraft.world.entity.LivingEntity)source.getEntity()).getMainHandItem().is(SILVER);}
+    private static final net.minecraft.tags.TagKey<net.minecraft.world.entity.EntityType<?>> VULNERABLE =
+            net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE,ResourceLocation.fromNamespaceAndPath(SlavicMyths.MOD_ID, "silver_vulnerable"));
+    @SubscribeEvent public static void onHurt(LivingIncomingDamageEvent event) {
+        if (event.getEntity().level().isClientSide || !(event.getSource().getEntity() instanceof Player)) return;
+        Player attacker = (Player) event.getSource().getEntity();
         if (attacker.getOffhandItem().getItem() == ModItems.HUNTER_CHARM.get()
-                && event.getEntityLiving() instanceof net.minecraft.entity.passive.AnimalEntity) {
+                && event.getEntity() instanceof net.minecraft.world.entity.animal.Animal) {
             event.setAmount(event.getAmount() + 0.5F);
         }
-        if (!event.getEntityLiving().getType().is(VULNERABLE)) return;
+        if (!event.getEntity().getType().is(VULNERABLE)) return;
         if (silverStrike(event.getSource())) {
             event.setAmount(event.getAmount() + 1.5F);
         }

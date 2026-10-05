@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:ovinnik_claw"
+    },
+    {
+      "item": "slavicmyths:silver_dagger"
+    },
+    {
+      "item": "slavicmyths:weapon_wrap"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:ritual_knife"
+  }
+}

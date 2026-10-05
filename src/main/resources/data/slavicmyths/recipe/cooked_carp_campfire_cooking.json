@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "slavicmyths:raw_carp"
+  },
+  "result": {
+    "id": "slavicmyths:cooked_carp"
+  },
+  "experience": 0.35,
+  "cookingtime": 600
+}

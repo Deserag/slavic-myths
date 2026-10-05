@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:old_barn",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 220
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

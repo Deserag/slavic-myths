@@ -2,16 +2,15 @@ package org.slavicmyths.item;
 
 import java.util.List;
 import javax.annotation.Nullable;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.Level;
 
 public final class AncientSignItem extends Item {
     public AncientSignItem(Properties properties) { super(properties); }
-    @Override public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> lines, ITooltipFlag flag) {
-        lines.add(new TranslationTextComponent("tooltip.slavicmyths.ancient_sign"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext world, List<Component> lines, TooltipFlag flag) {
+        lines.add(Component.translatable("tooltip.slavicmyths.ancient_sign"));
     }
 }

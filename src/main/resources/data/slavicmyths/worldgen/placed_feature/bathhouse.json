@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:bathhouse",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 160
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

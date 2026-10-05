@@ -1,28 +1,37 @@
 package org.slavicmyths.wood;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import java.util.*;
-import net.minecraft.block.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.tags.*;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.*;
-import net.minecraft.world.gen.feature.*;
-public final class WoodlandFeature extends Feature<NoFeatureConfig> {
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.*;
+public final class WoodlandFeature extends Feature<WoodlandFeature.Config> {
+ public record Config(boolean sapling) implements net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration {
+  public static final com.mojang.serialization.Codec<Config> CODEC=com.mojang.serialization.Codec.BOOL.optionalFieldOf("sapling",false).xmap(Config::new,Config::sapling).codec();
+ }
  public final String species;
- public WoodlandFeature(String s){super(NoFeatureConfig.CODEC);species=s;}
- @Override public boolean place(ISeedReader w,ChunkGenerator gen,Random r,BlockPos origin,NoFeatureConfig cfg){
+ public WoodlandFeature(String s){super(Config.CODEC);species=s;}
+ @Override public boolean place(FeaturePlaceContext<Config> context){WorldGenLevel w=context.level();ChunkGenerator gen=context.chunkGenerator();RandomSource r=context.random();BlockPos origin=context.origin();Config cfg=context.config();if(cfg.sapling())return grow(w,r,origin);
   int x=(origin.getX()&~15)+5+r.nextInt(6),z=(origin.getZ()&~15)+5+r.nextInt(6);
-  BlockPos p=new BlockPos(x,w.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,x,z),z);
+  BlockPos p=new BlockPos(x,w.getHeight(Heightmap.Types.OCEAN_FLOOR_WG,x,z),z);
   if(species.equals("willow")&&!nearWater(w,p))return false;
   return grow(w,r,p);
  }
- private boolean nearWater(ISeedReader w,BlockPos p){for(int x=-4;x<=4;x++)for(int z=-4;z<=4;z++)for(int y=-2;y<=0;y++)if(w.getFluidState(p.offset(x,y,z)).is(FluidTags.WATER))return true;return false;}
- private boolean replaceable(BlockState s,Woodlands.Set set){return s.isAir()||s.is(set.get("sapling"))||s.is(Blocks.GRASS)||s.is(Blocks.TALL_GRASS)||s.is(Blocks.FERN)||s.is(Blocks.LARGE_FERN)||s.is(Blocks.SNOW);}
+ private boolean nearWater(WorldGenLevel w,BlockPos p){for(int x=-4;x<=4;x++)for(int z=-4;z<=4;z++)for(int y=-2;y<=0;y++)if(w.getFluidState(p.offset(x,y,z)).is(FluidTags.WATER))return true;return false;}
+ private boolean replaceable(BlockState s,Woodlands.Set set){return s.isAir()||s.is(set.get("sapling"))||s.is(Blocks.SHORT_GRASS)||s.is(Blocks.TALL_GRASS)||s.is(Blocks.FERN)||s.is(Blocks.LARGE_FERN)||s.is(Blocks.SNOW);}
  private BlockPos pos(BlockPos p,TreeShape.Cell c){return p.offset(c.x,c.y,c.z);}
- public boolean grow(ISeedReader w,Random r,BlockPos p){
+ public boolean grow(WorldGenLevel w,RandomSource r,BlockPos p){
   Woodlands.Set set=Woodlands.SETS.get(species);BlockState soil=w.getBlockState(p.below());
   if(!(soil.is(Blocks.DIRT)||soil.is(Blocks.COARSE_DIRT)||soil.is(Blocks.PODZOL)||soil.is(Blocks.MYCELIUM)||soil.is(Blocks.GRASS_BLOCK)||soil.is(Blocks.FARMLAND)))return false;
-  TreeShape shape=new TreeShape(species,r);
+  TreeShape shape=new TreeShape(species,r::nextInt,r::nextDouble,r::nextBoolean);
   Set<TreeShape.Cell> cells=new HashSet<>(shape.logs.keySet());cells.addAll(shape.leaves.keySet());cells.addAll(shape.hanging);
   // All-or-nothing preflight: never replace builds, other trees, fluids, or terrain.
   for(TreeShape.Cell c:cells){BlockPos q=pos(p,c);if(q.getY()<1||q.getY()>254||!replaceable(w.getBlockState(q),set))return false;}

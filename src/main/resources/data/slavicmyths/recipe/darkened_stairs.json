@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "slavicmyths:darkened_planks"
+    }
+  },
+  "result": {
+    "count": 4,
+    "id": "slavicmyths:darkened_stairs"
+  }
+}

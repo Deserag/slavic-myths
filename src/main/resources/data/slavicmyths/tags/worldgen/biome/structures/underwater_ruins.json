@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#slavicmyths:worldgen/core_swamp",
+    "#slavicmyths:worldgen/core_river"
+  ]
+}

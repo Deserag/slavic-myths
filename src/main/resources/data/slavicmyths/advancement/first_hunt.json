@@ -1,0 +1,32 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:raw_venison"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.first_hunt.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.first_hunt.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:raw_venison"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

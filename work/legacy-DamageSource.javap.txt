@@ -1,0 +1,616 @@
+Compiled from "DamageSource.java"
+public class net.minecraft.util.DamageSource {
+  public static final net.minecraft.util.DamageSource IN_FIRE;
+
+  public static final net.minecraft.util.DamageSource LIGHTNING_BOLT;
+
+  public static final net.minecraft.util.DamageSource ON_FIRE;
+
+  public static final net.minecraft.util.DamageSource LAVA;
+
+  public static final net.minecraft.util.DamageSource HOT_FLOOR;
+
+  public static final net.minecraft.util.DamageSource IN_WALL;
+
+  public static final net.minecraft.util.DamageSource CRAMMING;
+
+  public static final net.minecraft.util.DamageSource DROWN;
+
+  public static final net.minecraft.util.DamageSource STARVE;
+
+  public static final net.minecraft.util.DamageSource CACTUS;
+
+  public static final net.minecraft.util.DamageSource FALL;
+
+  public static final net.minecraft.util.DamageSource FLY_INTO_WALL;
+
+  public static final net.minecraft.util.DamageSource OUT_OF_WORLD;
+
+  public static final net.minecraft.util.DamageSource GENERIC;
+
+  public static final net.minecraft.util.DamageSource MAGIC;
+
+  public static final net.minecraft.util.DamageSource WITHER;
+
+  public static final net.minecraft.util.DamageSource ANVIL;
+
+  public static final net.minecraft.util.DamageSource FALLING_BLOCK;
+
+  public static final net.minecraft.util.DamageSource DRAGON_BREATH;
+
+  public static final net.minecraft.util.DamageSource DRY_OUT;
+
+  public static final net.minecraft.util.DamageSource SWEET_BERRY_BUSH;
+
+  private boolean bypassArmor;
+
+  private boolean bypassInvul;
+
+  private boolean bypassMagic;
+
+  private float exhaustion;
+
+  private boolean isFireSource;
+
+  private boolean isProjectile;
+
+  private boolean scalesWithDifficulty;
+
+  private boolean isMagic;
+
+  private boolean isExplosion;
+
+  public final java.lang.String msgId;
+
+  public static net.minecraft.util.DamageSource sting(net.minecraft.entity.LivingEntity);
+    Code:
+       0: new           #44                 // class net/minecraft/util/EntityDamageSource
+       3: dup
+       4: ldc           #45                 // String sting
+       6: aload_0
+       7: invokespecial #49                 // Method net/minecraft/util/EntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;)V
+      10: areturn
+
+  public static net.minecraft.util.DamageSource mobAttack(net.minecraft.entity.LivingEntity);
+    Code:
+       0: new           #44                 // class net/minecraft/util/EntityDamageSource
+       3: dup
+       4: ldc           #54                 // String mob
+       6: aload_0
+       7: invokespecial #49                 // Method net/minecraft/util/EntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;)V
+      10: areturn
+
+  public static net.minecraft.util.DamageSource indirectMobAttack(net.minecraft.entity.Entity, net.minecraft.entity.LivingEntity);
+    Code:
+       0: new           #59                 // class net/minecraft/util/IndirectEntityDamageSource
+       3: dup
+       4: ldc           #54                 // String mob
+       6: aload_0
+       7: aload_1
+       8: invokespecial #62                 // Method net/minecraft/util/IndirectEntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/Entity;)V
+      11: areturn
+
+  public static net.minecraft.util.DamageSource playerAttack(net.minecraft.entity.player.PlayerEntity);
+    Code:
+       0: new           #44                 // class net/minecraft/util/EntityDamageSource
+       3: dup
+       4: ldc           #69                 // String player
+       6: aload_0
+       7: invokespecial #49                 // Method net/minecraft/util/EntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;)V
+      10: areturn
+
+  public static net.minecraft.util.DamageSource arrow(net.minecraft.entity.projectile.AbstractArrowEntity, net.minecraft.entity.Entity);
+    Code:
+       0: new           #59                 // class net/minecraft/util/IndirectEntityDamageSource
+       3: dup
+       4: ldc           #75                 // String arrow
+       6: aload_0
+       7: aload_1
+       8: invokespecial #62                 // Method net/minecraft/util/IndirectEntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/Entity;)V
+      11: invokevirtual #79                 // Method net/minecraft/util/IndirectEntityDamageSource.setProjectile:()Lnet/minecraft/util/DamageSource;
+      14: areturn
+
+  public static net.minecraft.util.DamageSource trident(net.minecraft.entity.Entity, net.minecraft.entity.Entity);
+    Code:
+       0: new           #59                 // class net/minecraft/util/IndirectEntityDamageSource
+       3: dup
+       4: ldc           #85                 // String trident
+       6: aload_0
+       7: aload_1
+       8: invokespecial #62                 // Method net/minecraft/util/IndirectEntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/Entity;)V
+      11: invokevirtual #79                 // Method net/minecraft/util/IndirectEntityDamageSource.setProjectile:()Lnet/minecraft/util/DamageSource;
+      14: areturn
+
+  public static net.minecraft.util.DamageSource fireworks(net.minecraft.entity.projectile.FireworkRocketEntity, net.minecraft.entity.Entity);
+    Code:
+       0: new           #59                 // class net/minecraft/util/IndirectEntityDamageSource
+       3: dup
+       4: ldc           #90                 // String fireworks
+       6: aload_0
+       7: aload_1
+       8: invokespecial #62                 // Method net/minecraft/util/IndirectEntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/Entity;)V
+      11: invokevirtual #93                 // Method net/minecraft/util/IndirectEntityDamageSource.setExplosion:()Lnet/minecraft/util/DamageSource;
+      14: areturn
+
+  public static net.minecraft.util.DamageSource fireball(net.minecraft.entity.projectile.AbstractFireballEntity, net.minecraft.entity.Entity);
+    Code:
+       0: aload_1
+       1: ifnonnull     22
+       4: new           #59                 // class net/minecraft/util/IndirectEntityDamageSource
+       7: dup
+       8: ldc           #100                // String onFire
+      10: aload_0
+      11: aload_0
+      12: invokespecial #62                 // Method net/minecraft/util/IndirectEntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/Entity;)V
+      15: invokevirtual #103                // Method net/minecraft/util/IndirectEntityDamageSource.setIsFire:()Lnet/minecraft/util/DamageSource;
+      18: invokevirtual #104                // Method setProjectile:()Lnet/minecraft/util/DamageSource;
+      21: areturn
+      22: new           #59                 // class net/minecraft/util/IndirectEntityDamageSource
+      25: dup
+      26: ldc           #105                // String fireball
+      28: aload_0
+      29: aload_1
+      30: invokespecial #62                 // Method net/minecraft/util/IndirectEntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/Entity;)V
+      33: invokevirtual #103                // Method net/minecraft/util/IndirectEntityDamageSource.setIsFire:()Lnet/minecraft/util/DamageSource;
+      36: invokevirtual #104                // Method setProjectile:()Lnet/minecraft/util/DamageSource;
+      39: areturn
+
+  public static net.minecraft.util.DamageSource witherSkull(net.minecraft.entity.projectile.WitherSkullEntity, net.minecraft.entity.Entity);
+    Code:
+       0: new           #59                 // class net/minecraft/util/IndirectEntityDamageSource
+       3: dup
+       4: ldc           #111                // String witherSkull
+       6: aload_0
+       7: aload_1
+       8: invokespecial #62                 // Method net/minecraft/util/IndirectEntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/Entity;)V
+      11: invokevirtual #79                 // Method net/minecraft/util/IndirectEntityDamageSource.setProjectile:()Lnet/minecraft/util/DamageSource;
+      14: areturn
+
+  public static net.minecraft.util.DamageSource thrown(net.minecraft.entity.Entity, net.minecraft.entity.Entity);
+    Code:
+       0: new           #59                 // class net/minecraft/util/IndirectEntityDamageSource
+       3: dup
+       4: ldc           #116                // String thrown
+       6: aload_0
+       7: aload_1
+       8: invokespecial #62                 // Method net/minecraft/util/IndirectEntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/Entity;)V
+      11: invokevirtual #79                 // Method net/minecraft/util/IndirectEntityDamageSource.setProjectile:()Lnet/minecraft/util/DamageSource;
+      14: areturn
+
+  public static net.minecraft.util.DamageSource indirectMagic(net.minecraft.entity.Entity, net.minecraft.entity.Entity);
+    Code:
+       0: new           #59                 // class net/minecraft/util/IndirectEntityDamageSource
+       3: dup
+       4: ldc           #120                // String indirectMagic
+       6: aload_0
+       7: aload_1
+       8: invokespecial #62                 // Method net/minecraft/util/IndirectEntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/Entity;)V
+      11: invokevirtual #122                // Method net/minecraft/util/IndirectEntityDamageSource.bypassArmor:()Lnet/minecraft/util/DamageSource;
+      14: invokevirtual #125                // Method setMagic:()Lnet/minecraft/util/DamageSource;
+      17: areturn
+
+  public static net.minecraft.util.DamageSource thorns(net.minecraft.entity.Entity);
+    Code:
+       0: new           #44                 // class net/minecraft/util/EntityDamageSource
+       3: dup
+       4: ldc           #130                // String thorns
+       6: aload_0
+       7: invokespecial #49                 // Method net/minecraft/util/EntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;)V
+      10: invokevirtual #134                // Method net/minecraft/util/EntityDamageSource.setThorns:()Lnet/minecraft/util/EntityDamageSource;
+      13: invokevirtual #135                // Method net/minecraft/util/EntityDamageSource.setMagic:()Lnet/minecraft/util/DamageSource;
+      16: areturn
+
+  public static net.minecraft.util.DamageSource explosion(net.minecraft.world.Explosion);
+    Code:
+       0: aload_0
+       1: ifnull        11
+       4: aload_0
+       5: invokevirtual #144                // Method net/minecraft/world/Explosion.getSourceMob:()Lnet/minecraft/entity/LivingEntity;
+       8: goto          12
+      11: aconst_null
+      12: invokestatic  #148                // Method explosion:(Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/util/DamageSource;
+      15: areturn
+
+  public static net.minecraft.util.DamageSource explosion(net.minecraft.entity.LivingEntity);
+    Code:
+       0: aload_0
+       1: ifnull        21
+       4: new           #44                 // class net/minecraft/util/EntityDamageSource
+       7: dup
+       8: ldc           #152                // String explosion.player
+      10: aload_0
+      11: invokespecial #49                 // Method net/minecraft/util/EntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;)V
+      14: invokevirtual #155                // Method net/minecraft/util/EntityDamageSource.setScalesWithDifficulty:()Lnet/minecraft/util/DamageSource;
+      17: invokevirtual #156                // Method setExplosion:()Lnet/minecraft/util/DamageSource;
+      20: areturn
+      21: new           #2                  // class net/minecraft/util/DamageSource
+      24: dup
+      25: ldc           #157                // String explosion
+      27: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+      30: invokevirtual #161                // Method setScalesWithDifficulty:()Lnet/minecraft/util/DamageSource;
+      33: invokevirtual #156                // Method setExplosion:()Lnet/minecraft/util/DamageSource;
+      36: areturn
+
+  public static net.minecraft.util.DamageSource badRespawnPointExplosion();
+    Code:
+       0: new           #165                // class net/minecraft/util/BedExplosionDamageSource
+       3: dup
+       4: invokespecial #168                // Method net/minecraft/util/BedExplosionDamageSource."<init>":()V
+       7: areturn
+
+  public java.lang.String toString();
+    Code:
+       0: new           #172                // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #173                // Method java/lang/StringBuilder."<init>":()V
+       7: ldc           #175                // String DamageSource (
+       9: invokevirtual #179                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      12: aload_0
+      13: getfield      #181                // Field msgId:Ljava/lang/String;
+      16: invokevirtual #179                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      19: ldc           #183                // String )
+      21: invokevirtual #179                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      24: invokevirtual #185                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      27: areturn
+
+  public boolean isProjectile();
+    Code:
+       0: aload_0
+       1: getfield      #189                // Field isProjectile:Z
+       4: ireturn
+
+  public net.minecraft.util.DamageSource setProjectile();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #189                // Field isProjectile:Z
+       5: aload_0
+       6: areturn
+
+  public boolean isExplosion();
+    Code:
+       0: aload_0
+       1: getfield      #191                // Field isExplosion:Z
+       4: ireturn
+
+  public net.minecraft.util.DamageSource setExplosion();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #191                // Field isExplosion:Z
+       5: aload_0
+       6: areturn
+
+  public boolean isBypassArmor();
+    Code:
+       0: aload_0
+       1: getfield      #194                // Field bypassArmor:Z
+       4: ireturn
+
+  public float getFoodExhaustion();
+    Code:
+       0: aload_0
+       1: getfield      #198                // Field exhaustion:F
+       4: freturn
+
+  public boolean isBypassInvul();
+    Code:
+       0: aload_0
+       1: getfield      #201                // Field bypassInvul:Z
+       4: ireturn
+
+  public boolean isBypassMagic();
+    Code:
+       0: aload_0
+       1: getfield      #204                // Field bypassMagic:Z
+       4: ireturn
+
+  public net.minecraft.util.DamageSource(java.lang.String);
+    Code:
+       0: aload_0
+       1: invokespecial #205                // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: ldc           #206                // float 0.1f
+       7: putfield      #198                // Field exhaustion:F
+      10: aload_0
+      11: aload_1
+      12: putfield      #181                // Field msgId:Ljava/lang/String;
+      15: return
+
+  public net.minecraft.entity.Entity getDirectEntity();
+    Code:
+       0: aload_0
+       1: invokevirtual #212                // Method getEntity:()Lnet/minecraft/entity/Entity;
+       4: areturn
+
+  public net.minecraft.entity.Entity getEntity();
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public net.minecraft.util.DamageSource bypassArmor();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #194                // Field bypassArmor:Z
+       5: aload_0
+       6: fconst_0
+       7: putfield      #198                // Field exhaustion:F
+      10: aload_0
+      11: areturn
+
+  public net.minecraft.util.DamageSource bypassInvul();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #201                // Field bypassInvul:Z
+       5: aload_0
+       6: areturn
+
+  public net.minecraft.util.DamageSource bypassMagic();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #204                // Field bypassMagic:Z
+       5: aload_0
+       6: fconst_0
+       7: putfield      #198                // Field exhaustion:F
+      10: aload_0
+      11: areturn
+
+  public net.minecraft.util.DamageSource setIsFire();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #214                // Field isFireSource:Z
+       5: aload_0
+       6: areturn
+
+  public net.minecraft.util.text.ITextComponent getLocalizedDeathMessage(net.minecraft.entity.LivingEntity);
+    Code:
+       0: aload_1
+       1: invokevirtual #219                // Method net/minecraft/entity/LivingEntity.getKillCredit:()Lnet/minecraft/entity/LivingEntity;
+       4: astore_2
+       5: new           #172                // class java/lang/StringBuilder
+       8: dup
+       9: invokespecial #173                // Method java/lang/StringBuilder."<init>":()V
+      12: ldc           #221                // String death.attack.
+      14: invokevirtual #179                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      17: aload_0
+      18: getfield      #181                // Field msgId:Ljava/lang/String;
+      21: invokevirtual #179                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      24: invokevirtual #185                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      27: astore_3
+      28: new           #172                // class java/lang/StringBuilder
+      31: dup
+      32: invokespecial #173                // Method java/lang/StringBuilder."<init>":()V
+      35: aload_3
+      36: invokevirtual #179                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      39: ldc           #223                // String .player
+      41: invokevirtual #179                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      44: invokevirtual #185                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      47: astore        4
+      49: aload_2
+      50: ifnull        81
+      53: new           #225                // class net/minecraft/util/text/TranslationTextComponent
+      56: dup
+      57: aload         4
+      59: iconst_2
+      60: anewarray     #4                  // class java/lang/Object
+      63: dup
+      64: iconst_0
+      65: aload_1
+      66: invokevirtual #229                // Method net/minecraft/entity/LivingEntity.getDisplayName:()Lnet/minecraft/util/text/ITextComponent;
+      69: aastore
+      70: dup
+      71: iconst_1
+      72: aload_2
+      73: invokevirtual #229                // Method net/minecraft/entity/LivingEntity.getDisplayName:()Lnet/minecraft/util/text/ITextComponent;
+      76: aastore
+      77: invokespecial #232                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;[Ljava/lang/Object;)V
+      80: areturn
+      81: new           #225                // class net/minecraft/util/text/TranslationTextComponent
+      84: dup
+      85: aload_3
+      86: iconst_1
+      87: anewarray     #4                  // class java/lang/Object
+      90: dup
+      91: iconst_0
+      92: aload_1
+      93: invokevirtual #229                // Method net/minecraft/entity/LivingEntity.getDisplayName:()Lnet/minecraft/util/text/ITextComponent;
+      96: aastore
+      97: invokespecial #232                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;[Ljava/lang/Object;)V
+     100: areturn
+
+  public boolean isFire();
+    Code:
+       0: aload_0
+       1: getfield      #214                // Field isFireSource:Z
+       4: ireturn
+
+  public java.lang.String getMsgId();
+    Code:
+       0: aload_0
+       1: getfield      #181                // Field msgId:Ljava/lang/String;
+       4: areturn
+
+  public net.minecraft.util.DamageSource setScalesWithDifficulty();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #242                // Field scalesWithDifficulty:Z
+       5: aload_0
+       6: areturn
+
+  public boolean scalesWithDifficulty();
+    Code:
+       0: aload_0
+       1: getfield      #242                // Field scalesWithDifficulty:Z
+       4: ireturn
+
+  public boolean isMagic();
+    Code:
+       0: aload_0
+       1: getfield      #244                // Field isMagic:Z
+       4: ireturn
+
+  public net.minecraft.util.DamageSource setMagic();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #244                // Field isMagic:Z
+       5: aload_0
+       6: areturn
+
+  public boolean isCreativePlayer();
+    Code:
+       0: aload_0
+       1: invokevirtual #212                // Method getEntity:()Lnet/minecraft/entity/Entity;
+       4: astore_1
+       5: aload_1
+       6: instanceof    #247                // class net/minecraft/entity/player/PlayerEntity
+       9: ifeq          29
+      12: aload_1
+      13: checkcast     #247                // class net/minecraft/entity/player/PlayerEntity
+      16: getfield      #251                // Field net/minecraft/entity/player/PlayerEntity.abilities:Lnet/minecraft/entity/player/PlayerAbilities;
+      19: getfield      #256                // Field net/minecraft/entity/player/PlayerAbilities.instabuild:Z
+      22: ifeq          29
+      25: iconst_1
+      26: goto          30
+      29: iconst_0
+      30: ireturn
+
+  public net.minecraft.util.math.vector.Vector3d getSourcePosition();
+    Code:
+       0: aconst_null
+       1: areturn
+
+  static {};
+    Code:
+       0: new           #2                  // class net/minecraft/util/DamageSource
+       3: dup
+       4: ldc_w         #262                // String inFire
+       7: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+      10: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+      13: invokevirtual #264                // Method setIsFire:()Lnet/minecraft/util/DamageSource;
+      16: putstatic     #266                // Field IN_FIRE:Lnet/minecraft/util/DamageSource;
+      19: new           #2                  // class net/minecraft/util/DamageSource
+      22: dup
+      23: ldc_w         #268                // String lightningBolt
+      26: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+      29: putstatic     #270                // Field LIGHTNING_BOLT:Lnet/minecraft/util/DamageSource;
+      32: new           #2                  // class net/minecraft/util/DamageSource
+      35: dup
+      36: ldc           #100                // String onFire
+      38: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+      41: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+      44: invokevirtual #264                // Method setIsFire:()Lnet/minecraft/util/DamageSource;
+      47: putstatic     #272                // Field ON_FIRE:Lnet/minecraft/util/DamageSource;
+      50: new           #2                  // class net/minecraft/util/DamageSource
+      53: dup
+      54: ldc_w         #274                // String lava
+      57: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+      60: invokevirtual #264                // Method setIsFire:()Lnet/minecraft/util/DamageSource;
+      63: putstatic     #276                // Field LAVA:Lnet/minecraft/util/DamageSource;
+      66: new           #2                  // class net/minecraft/util/DamageSource
+      69: dup
+      70: ldc_w         #278                // String hotFloor
+      73: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+      76: invokevirtual #264                // Method setIsFire:()Lnet/minecraft/util/DamageSource;
+      79: putstatic     #280                // Field HOT_FLOOR:Lnet/minecraft/util/DamageSource;
+      82: new           #2                  // class net/minecraft/util/DamageSource
+      85: dup
+      86: ldc_w         #282                // String inWall
+      89: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+      92: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+      95: putstatic     #284                // Field IN_WALL:Lnet/minecraft/util/DamageSource;
+      98: new           #2                  // class net/minecraft/util/DamageSource
+     101: dup
+     102: ldc_w         #286                // String cramming
+     105: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     108: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+     111: putstatic     #288                // Field CRAMMING:Lnet/minecraft/util/DamageSource;
+     114: new           #2                  // class net/minecraft/util/DamageSource
+     117: dup
+     118: ldc_w         #290                // String drown
+     121: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     124: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+     127: putstatic     #292                // Field DROWN:Lnet/minecraft/util/DamageSource;
+     130: new           #2                  // class net/minecraft/util/DamageSource
+     133: dup
+     134: ldc_w         #294                // String starve
+     137: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     140: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+     143: invokevirtual #296                // Method bypassMagic:()Lnet/minecraft/util/DamageSource;
+     146: putstatic     #298                // Field STARVE:Lnet/minecraft/util/DamageSource;
+     149: new           #2                  // class net/minecraft/util/DamageSource
+     152: dup
+     153: ldc_w         #300                // String cactus
+     156: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     159: putstatic     #302                // Field CACTUS:Lnet/minecraft/util/DamageSource;
+     162: new           #2                  // class net/minecraft/util/DamageSource
+     165: dup
+     166: ldc_w         #304                // String fall
+     169: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     172: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+     175: putstatic     #306                // Field FALL:Lnet/minecraft/util/DamageSource;
+     178: new           #2                  // class net/minecraft/util/DamageSource
+     181: dup
+     182: ldc_w         #308                // String flyIntoWall
+     185: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     188: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+     191: putstatic     #310                // Field FLY_INTO_WALL:Lnet/minecraft/util/DamageSource;
+     194: new           #2                  // class net/minecraft/util/DamageSource
+     197: dup
+     198: ldc_w         #312                // String outOfWorld
+     201: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     204: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+     207: invokevirtual #314                // Method bypassInvul:()Lnet/minecraft/util/DamageSource;
+     210: putstatic     #316                // Field OUT_OF_WORLD:Lnet/minecraft/util/DamageSource;
+     213: new           #2                  // class net/minecraft/util/DamageSource
+     216: dup
+     217: ldc_w         #318                // String generic
+     220: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     223: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+     226: putstatic     #320                // Field GENERIC:Lnet/minecraft/util/DamageSource;
+     229: new           #2                  // class net/minecraft/util/DamageSource
+     232: dup
+     233: ldc_w         #322                // String magic
+     236: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     239: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+     242: invokevirtual #125                // Method setMagic:()Lnet/minecraft/util/DamageSource;
+     245: putstatic     #324                // Field MAGIC:Lnet/minecraft/util/DamageSource;
+     248: new           #2                  // class net/minecraft/util/DamageSource
+     251: dup
+     252: ldc_w         #326                // String wither
+     255: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     258: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+     261: putstatic     #328                // Field WITHER:Lnet/minecraft/util/DamageSource;
+     264: new           #2                  // class net/minecraft/util/DamageSource
+     267: dup
+     268: ldc_w         #330                // String anvil
+     271: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     274: putstatic     #332                // Field ANVIL:Lnet/minecraft/util/DamageSource;
+     277: new           #2                  // class net/minecraft/util/DamageSource
+     280: dup
+     281: ldc_w         #334                // String fallingBlock
+     284: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     287: putstatic     #336                // Field FALLING_BLOCK:Lnet/minecraft/util/DamageSource;
+     290: new           #2                  // class net/minecraft/util/DamageSource
+     293: dup
+     294: ldc_w         #338                // String dragonBreath
+     297: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     300: invokevirtual #263                // Method bypassArmor:()Lnet/minecraft/util/DamageSource;
+     303: putstatic     #340                // Field DRAGON_BREATH:Lnet/minecraft/util/DamageSource;
+     306: new           #2                  // class net/minecraft/util/DamageSource
+     309: dup
+     310: ldc_w         #342                // String dryout
+     313: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     316: putstatic     #344                // Field DRY_OUT:Lnet/minecraft/util/DamageSource;
+     319: new           #2                  // class net/minecraft/util/DamageSource
+     322: dup
+     323: ldc_w         #346                // String sweetBerryBush
+     326: invokespecial #160                // Method "<init>":(Ljava/lang/String;)V
+     329: putstatic     #348                // Field SWEET_BERRY_BUSH:Lnet/minecraft/util/DamageSource;
+     332: return
+}

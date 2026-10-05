@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SIS",
+    " F ",
+    "STS"
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:pylayuschaya_cheshuya"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "F": {
+      "item": "slavicmyths:ognennoe_pero"
+    },
+    "T": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:obereg_padayuschey_zvezdy"
+  }
+}

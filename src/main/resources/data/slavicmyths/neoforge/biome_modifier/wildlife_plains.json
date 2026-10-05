@@ -1,0 +1,24 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:spawn_plains",
+  "spawners": [
+    {
+      "type": "slavicmyths:stag",
+      "weight": 2,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "slavicmyths:doe",
+      "weight": 4,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "slavicmyths:boar",
+      "weight": 2,
+      "minCount": 1,
+      "maxCount": 2
+    }
+  ]
+}

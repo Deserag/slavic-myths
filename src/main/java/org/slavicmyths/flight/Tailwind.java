@@ -1,17 +1,16 @@
 package org.slavicmyths.flight;
-import net.minecraft.enchantment.*;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.registries.*;
-import net.minecraftforge.fml.RegistryObject;
-public final class Tailwind extends Enchantment {
- public static final DeferredRegister<Enchantment> ENCHANTMENTS=DeferredRegister.create(ForgeRegistries.ENCHANTMENTS,"slavicmyths");
- private static final EnchantmentType FLIGHT=EnchantmentType.create("slavic_flight",i->i instanceof FlightItem);
- public static final RegistryObject<Enchantment> TAILWIND=ENCHANTMENTS.register("tailwind",Tailwind::new);
- public Tailwind(){super(Rarity.RARE,FLIGHT,new EquipmentSlotType[]{EquipmentSlotType.MAINHAND});}
- @Override public int getMaxLevel(){return 3;}
- @Override public int getMinCost(int level){return 15+(level-1)*15;}
- @Override public int getMaxCost(int level){return getMinCost(level)+20;}
- @Override public boolean canEnchant(ItemStack s){return s.getItem() instanceof FlightItem;}
- @Override public boolean isTreasureOnly(){return true;}
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+/** Data-driven definition keeps the saved enchantment ID and original flight-level policy. */
+public final class Tailwind {
+ public static final ResourceKey<Enchantment> TAILWIND=ResourceKey.create(Registries.ENCHANTMENT,ResourceLocation.fromNamespaceAndPath("slavicmyths","tailwind"));
+ public static int level(HolderLookup.Provider registries,ItemStack stack) {
+  return EnchantmentHelper.getItemEnchantmentLevel(registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(TAILWIND),stack);
+ }
+ private Tailwind() { }
 }

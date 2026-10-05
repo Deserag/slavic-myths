@@ -1,15 +1,13 @@
 package org.slavicmyths.wood;
-import java.util.Random;
-import net.minecraft.block.*;
-import net.minecraft.block.trees.Tree;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.*;
-public final class WoodlandGrower extends Tree {
- private final String species;
- public WoodlandGrower(String s){species=s;}
- @Override protected ConfiguredFeature<BaseTreeFeatureConfig,?> getConfiguredFeature(Random r,boolean flowers){return null;}
- // The four custom geometries use NoFeatureConfig rather than vanilla trunk/foliage placers.
- @Override public boolean growTree(ServerWorld w,ChunkGenerator g,BlockPos p,BlockState sapling,Random r){return WoodlandWorldgen.TREES.get(species).get().grow(w,r,p);}
+import java.util.Optional;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.grower.TreeGrower;
+/** The target grower resolves the existing custom tree geometry through a sapling configuration. */
+public final class WoodlandGrower {
+ public static TreeGrower create(String species){return new TreeGrower("slavicmyths:"+species,
+  Optional.empty(),Optional.of(ResourceKey.create(Registries.CONFIGURED_FEATURE,
+   ResourceLocation.fromNamespaceAndPath("slavicmyths",species+"_sapling"))),Optional.empty());}
+ private WoodlandGrower(){}
 }

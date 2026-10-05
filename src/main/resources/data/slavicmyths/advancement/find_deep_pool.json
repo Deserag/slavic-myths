@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:depth_clue",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:pool_stone"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.find_deep_pool.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.find_deep_pool.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

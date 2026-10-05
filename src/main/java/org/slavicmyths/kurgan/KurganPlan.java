@@ -4,7 +4,10 @@ import java.util.*;
 
 /** Pure deterministic planning. Coordinates are relative to the mound's ground anchor. */
 public final class KurganPlan {
-    public static final int VERSION = 1, ATTEMPTS = 12;
+    public static final int VERSION = 2, ATTEMPTS = 12;
+    public int formatVersion=1;
+    public enum Archetype { VESTIBULE,CROSSROADS,BURIAL,WARRIOR,TREASURY,RITUAL,TRAP,FLOODED,OSSUARY,OFFERING,RELIQUARY,COLLAPSED,DESCENT,DEEP }
+    public enum NodeType { ENTRANCE,VESTIBULE,JUNCTION,ROOM,REWARD_ROOM,DANGER_ROOM,SECRET_ROOM,TRANSITION_UP,TRANSITION_DOWN,DEEP_OBJECTIVE,DEAD_END }
     public enum Role { SMALL_BURIAL, LARGE_BURIAL, OFFERING, ATMOSPHERIC, RUINED, TRANSITION, BLOCKED_SIDE, FINAL }
     public enum Module { SHORT, NORMAL, LONG, CORNER, T_JUNCTION, CROSSROADS, DEAD_END, ROOM_CONNECTOR, STAIR, LOOP }
     public static final class Box {
@@ -17,6 +20,7 @@ public final class KurganPlan {
     public static final class Room {
         public final int id,floor,cell,x,y,z,rx,rz,height,palette,disturbance;
         public final Role role; public final String loot; public boolean critical;
+        public Archetype archetype;public NodeType nodeType=NodeType.ROOM;public boolean mandatory=true,roomNode=true;
         public final List<Integer> connectors = new ArrayList<>();
         Room(int id,int f,int cell,int x,int y,int z,Role role,int palette,boolean hall){
             this.id=id;floor=f;this.cell=cell;this.x=x;this.y=y;this.z=z;this.role=role;this.palette=palette;
@@ -25,7 +29,11 @@ public final class KurganPlan {
             disturbance=hall?20:role==Role.LARGE_BURIAL||role==Role.FINAL?15:8;
             loot=role==Role.OFFERING?"offering":role==Role.FINAL?"important":role==Role.SMALL_BURIAL||role==Role.LARGE_BURIAL?"burial":"";
         }
-        public boolean hall(){return rx==14;}
+        public boolean hall(){return rx==14||archetype==Archetype.DEEP;}
+        Room(int id,int f,int cell,int x,int y,int z,Role role,int palette,int rx,int rz,int height,Archetype archetype,NodeType nodeType,boolean roomNode,String loot){
+            this.id=id;floor=f;this.cell=cell;this.x=x;this.y=y;this.z=z;this.role=role;this.palette=palette;this.rx=rx;this.rz=rz;this.height=height;
+            this.archetype=archetype;this.nodeType=nodeType;this.roomNode=roomNode;this.loot=loot;disturbance=role==Role.FINAL?20:roomNode?12:6;
+        }
         public Box box(){return new Box(x-rx,y,z-rz,x+rx,y+height+1,z+rz);}
     }
     public static final class Step {
@@ -33,16 +41,18 @@ public final class KurganPlan {
     }
     public static final class Link {
         public final int a,b,width,height,palette; public Module module; public final boolean stair;
+        public boolean secret;public int style,transitionStyle;
         public final List<Step> steps=new ArrayList<>();
         Link(int a,int b,int width,Module module,int palette){this.a=a;this.b=b;this.width=width;this.module=module;this.palette=palette;stair=module==Module.STAIR;height=width==5||stair?5:4;}
-        public Box slice(int i){Step s=steps.get(i);boolean alongX=steps.size()>1&&steps.get(0).x!=steps.get(steps.size()-1).x;int lo=-(width/2)-1,hi=lo+width+1;
+        public Box slice(int i){Step s=steps.get(i);Step next=steps.get(i<steps.size()-1?i+1:Math.max(0,i-1));boolean alongX=next.x!=s.x;int lo=-(width/2)-1,hi=lo+width+1;
             return alongX?new Box(s.x,s.y,s.z+lo,s.x,s.y+height+1,s.z+hi):new Box(s.x+lo,s.y,s.z,s.x+hi,s.y+height+1,s.z);}
     }
-    public final int tier,floors; public final long seed; public final List<Room> rooms=new ArrayList<>();
+    public final int tier;public int floors; public final long seed; public final List<Room> rooms=new ArrayList<>();
     public final List<Link> links=new ArrayList<>(); public final List<Box> niches=new ArrayList<>();
     public int finalRoom; public Box seal; public final int radius;
     KurganPlan(int tier,long seed){this.tier=tier;this.seed=seed;Random r=new Random(seed);floors=tier==0?1:tier==1?2+r.nextInt(2):4+r.nextInt(2);radius=new int[]{8,12,18}[tier];}
-    public static KurganPlan create(int tier,long seed){if(tier<0||tier>2)throw new IllegalArgumentException("tier");for(int attempt=0;attempt<ATTEMPTS;attempt++){
+    public static KurganPlan create(int tier,long seed){return KurganLayout.create(tier,seed);}
+    public static KurganPlan createLegacy(int tier,long seed){if(tier<0||tier>2)throw new IllegalArgumentException("tier");for(int attempt=0;attempt<ATTEMPTS;attempt++){
         KurganPlan p=new KurganPlan(tier,seed);p.build(new Random(seed+attempt*0x632BE59BD9B4E019L));if(p.validate().isEmpty())return p;
     }throw new IllegalArgumentException("No valid kurgan layout after "+ATTEMPTS+" attempts");}
     private void build(Random random){
@@ -92,12 +102,12 @@ public final class KurganPlan {
     private void stairs(Room a,Room b){Link l=new Link(a.id,b.id,3,Module.STAIR,1);for(int d=0;d<=16;d++){int z=a.z-a.rz-d;if(z<b.z+b.rz)break;int y=a.y-Math.min(10,d);l.steps.add(new Step(a.x,y,z));}a.connectors.add(links.size());b.connectors.add(links.size());links.add(l);}
     public Module junction(Room r){int degree=0;boolean eastWest=false,northSouth=false;for(int index:r.connectors){Link l=links.get(index);if(l.stair)continue;degree++;Step a=l.steps.get(0),b=l.steps.get(l.steps.size()-1);eastWest|=a.x!=b.x;northSouth|=a.z!=b.z;}
         return degree>=4?Module.CROSSROADS:degree==3?Module.T_JUNCTION:degree==1?Module.DEAD_END:eastWest&&northSouth?Module.CORNER:Module.NORMAL;}
-    public boolean roomAir(Room r,int x,int y,int z){Box b=r.box();if(!r.hall())return x>b.x0&&x<b.x1&&z>b.z0&&z<b.z1&&y>r.y&&y<r.y+r.height+1;
+    public boolean roomAir(Room r,int x,int y,int z){Box b=r.box();if(formatVersion>=2)return KurganLayout.roomAir(r,x,y,z);if(!r.hall())return x>b.x0&&x<b.x1&&z>b.z0&&z<b.z1&&y>r.y&&y<r.y+r.height+1;
         int dx=Math.abs(x-r.x),dz=Math.abs(z-r.z);int ceiling=r.y+(Math.max(dx,dz)<=7?13:Math.max(dx,dz)<=10?12:10);
         boolean air=dx<=11&&dz<=11&&dx+dz<=18&&y>r.y&&y<ceiling;
         for(Box niche:niches)if(niche.contains(x,y,z))air=true;return air;
     }
-    public List<String> validate(){List<String> errors=new ArrayList<>();int min=tier==0?3:tier==1?10:25,max=tier==0?6:tier==1?18:40;
+    public List<String> validate(){if(formatVersion>=2)return KurganLayout.validate(this);List<String> errors=new ArrayList<>();int min=tier==0?3:tier==1?10:25,max=tier==0?6:tier==1?18:40;
         if(rooms.size()<min||rooms.size()>max)errors.add("room count");
         if(tier==0){int branches=0;for(Room r:rooms)if(r.id!=finalRoom&&r.id!=0&&r.connectors.size()==1)branches++;if(branches>2)errors.add("too many small branches");}
         if(rooms.get(finalRoom).floor!=floors-1)errors.add("final floor");

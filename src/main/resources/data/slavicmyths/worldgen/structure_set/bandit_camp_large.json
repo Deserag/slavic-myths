@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "slavicmyths:bandit_camp_large",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 192,
+    "separation": 64,
+    "salt": 813797,
+    "spread_type": "linear"
+  }
+}

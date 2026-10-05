@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:path_stone"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.own_path.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.own_path.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,361 @@
+{
+  "schemaVersion": 1,
+  "modpack": "Slavic-Myths-1.21.1-Testing",
+  "minecraft": "1.21.1",
+  "loader": "neoforge",
+  "neoForge": "21.1.255",
+  "javaMajor": 21,
+  "javaPath": "C:/Program Files/Java/jdk-21.0.12/bin/javaw.exe",
+  "deploymentStatus": "INSTALLED_NOT_LAUNCHED",
+  "polyMCPath": "C:/Users/pavel/AppData/Roaming/PolyMC",
+  "installedInstancePath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing",
+  "slavicMyths": {
+    "version": "0.9.5",
+    "filename": "slavicmyths-0.9.5.jar",
+    "sha256": "66579a054a2ed14dfa3fdff809e43656c9a2621fa18a743177b32ff6d2581b4c",
+    "installedPath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.minecraft/mods/slavicmyths-0.9.5.jar",
+    "status": "INSTALLED_NOT_LAUNCHED"
+  },
+  "mods": [
+    {
+      "id": "curios",
+      "version": "9.5.1+1.21.1",
+      "filename": "curios-neoforge-9.5.1+1.21.1.jar",
+      "loader": "neoforge",
+      "minecraft": "1.21.1",
+      "curseforgeProjectId": 309927,
+      "curseforgeFileId": 6529130,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/curios/files/6529130",
+      "sha256": "a45df2125c26219974aba7507ffc9afe7b83acc941a386af3faacb1cc0056fde",
+      "installedPath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.minecraft/mods/curios-neoforge-9.5.1+1.21.1.jar",
+      "requiredForCore": true,
+      "requiredForTestingPack": true,
+      "selection": "required",
+      "status": "INSTALLED_NOT_LAUNCHED",
+      "downloadUrl": "https://mediafilez.forgecdn.net/files/6529/130/curios-neoforge-9.5.1%2B1.21.1.jar",
+      "stagedPath": "D:\\slavic-myths\\.tools\\test-pack-0.9.4\\curios-neoforge-9.5.1+1.21.1.jar",
+      "size": 410690,
+      "observedVersion": "9.5.1+1.21.1",
+      "declaredDependencies": [
+        {
+          "modId": "neoforge",
+          "type": "required",
+          "versionRange": "[21.1.60,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "minecraft",
+          "type": "required",
+          "versionRange": "[1.21, 1.22)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ],
+      "metadataVerified": true
+    },
+    {
+      "id": "jei",
+      "version": "19.51.0.418",
+      "filename": "jei-1.21.1-neoforge-19.51.0.418.jar",
+      "loader": "neoforge",
+      "minecraft": "1.21.1",
+      "curseforgeProjectId": 238222,
+      "curseforgeFileId": 8792638,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/jei/files/8792638",
+      "sha256": "8bc3936d869e4040a5649c58b7e8be1c78c82a245c0dc07bdd68ab49121a222c",
+      "installedPath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.minecraft/mods/jei-1.21.1-neoforge-19.51.0.418.jar",
+      "requiredForCore": false,
+      "requiredForTestingPack": true,
+      "selection": "recommended",
+      "status": "INSTALLED_NOT_LAUNCHED",
+      "downloadUrl": "https://mediafilez.forgecdn.net/files/8792/638/jei-1.21.1-neoforge-19.51.0.418.jar",
+      "stagedPath": "D:\\slavic-myths\\.tools\\test-pack-0.9.4\\jei-1.21.1-neoforge-19.51.0.418.jar",
+      "size": 1804792,
+      "observedVersion": "19.51.0.418",
+      "declaredDependencies": [
+        {
+          "modId": "neoforge",
+          "type": "required",
+          "versionRange": "[21.1.238,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "minecraft",
+          "type": "required",
+          "versionRange": "[1.21, 1.21.1)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ],
+      "metadataVerified": true,
+      "minecraftSupportNote": "[1.21,1.21.1) accepted on MC1.21.1 by FML4.0.45 VersionSupportMatrix mod.minecraft alias 1.21; checked actual installed loader bytecode. No pin exception needed."
+    },
+    {
+      "id": "jade",
+      "version": "15.10.6",
+      "filename": "Jade-1.21.1-NeoForge-15.10.6.jar",
+      "loader": "neoforge",
+      "minecraft": "1.21.1",
+      "curseforgeProjectId": 324717,
+      "curseforgeFileId": 8591319,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/jade/files/8591319",
+      "sha256": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810",
+      "installedPath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.minecraft/mods/Jade-1.21.1-NeoForge-15.10.6.jar",
+      "requiredForCore": false,
+      "requiredForTestingPack": true,
+      "selection": "recommended",
+      "status": "INSTALLED_NOT_LAUNCHED",
+      "stagedPath": "D:\\slavic-myths\\.tools\\test-pack-0.9.4\\Jade-1.21.1-NeoForge-15.10.6.jar",
+      "size": 726853,
+      "observedVersion": "15.10.6+neoforge",
+      "declaredDependencies": [
+        {
+          "modId": "neoforge",
+          "type": "required",
+          "versionRange": "[21.0.143, )",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ],
+      "metadataVerified": true,
+      "minecraftSupportNote": "No explicit Minecraft dependency; NeoForge >=21.0.143 declared. Full pack bootstrap still required."
+    },
+    {
+      "id": "xaerominimap",
+      "version": "26.5.0",
+      "filename": "xaerominimap-neoforge-1.21.1-26.5.0.jar",
+      "loader": "neoforge",
+      "minecraft": "1.21.1",
+      "curseforgeProjectId": 263420,
+      "curseforgeFileId": 8849842,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap/files/8849842",
+      "sha256": "667105d8fdca64b27b29d8e0b88e67e7342038d3fb4edc4129bf452b601c6d20",
+      "installedPath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.minecraft/mods/xaerominimap-neoforge-1.21.1-26.5.0.jar",
+      "requiredForCore": false,
+      "requiredForTestingPack": true,
+      "selection": "recommended",
+      "status": "INSTALLED_NOT_LAUNCHED",
+      "downloadUrl": "https://mediafilez.forgecdn.net/files/8849/842/xaerominimap-neoforge-1.21.1-26.5.0.jar",
+      "stagedPath": "D:\\slavic-myths\\.tools\\test-pack-0.9.4\\xaerominimap-neoforge-1.21.1-26.5.0.jar",
+      "size": 2185559,
+      "observedVersion": "26.5.0",
+      "declaredDependencies": [
+        {
+          "modId": "neoforge",
+          "type": "required",
+          "versionRange": "[21.0.110-beta,21.2.0)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "minecraft",
+          "type": "required",
+          "versionRange": "1.21.1",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "openpartiesandclaims",
+          "type": "optional",
+          "versionRange": "[0.31.6,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "xaeroworldmap",
+          "type": "optional",
+          "versionRange": "[1.44.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ],
+      "metadataVerified": true,
+      "embeddedLibraries": [
+        {
+          "identifier": {
+            "group": "xaero.lib",
+            "artifact": "xaerolib-neoforge-1.21.1"
+          },
+          "version": {
+            "range": "[1.7.0,1.8)",
+            "artifactVersion": "1.7.3"
+          },
+          "path": "META-INF/jarjar/xaerolib-neoforge-1.21.1-1.7.3.jar",
+          "isObfuscated": false,
+          "sha256": "010dc4c2ff154aa8ba04c779600658b77ac0003eee3a98ac9453f6e7acd28898"
+        }
+      ]
+    },
+    {
+      "id": "xaeroworldmap",
+      "version": "1.45.0",
+      "filename": "xaeroworldmap-neoforge-1.21.1-1.45.0.jar",
+      "loader": "neoforge",
+      "minecraft": "1.21.1",
+      "curseforgeProjectId": 317780,
+      "curseforgeFileId": 8698659,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/xaeros-world-map/files/8698659",
+      "sha256": "d60899112e84616ba52a993c1722fd891872acc4779bfac34d9b170001451c6f",
+      "installedPath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.minecraft/mods/xaeroworldmap-neoforge-1.21.1-1.45.0.jar",
+      "requiredForCore": false,
+      "requiredForTestingPack": true,
+      "selection": "recommended",
+      "status": "INSTALLED_NOT_LAUNCHED",
+      "downloadUrl": "https://mediafilez.forgecdn.net/files/8698/659/xaeroworldmap-neoforge-1.21.1-1.45.0.jar",
+      "stagedPath": "D:\\slavic-myths\\.tools\\test-pack-0.9.4\\xaeroworldmap-neoforge-1.21.1-1.45.0.jar",
+      "size": 1422531,
+      "observedVersion": "1.45.0",
+      "declaredDependencies": [
+        {
+          "modId": "neoforge",
+          "type": "required",
+          "versionRange": "[21.0.110-beta, 21.2.0)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "minecraft",
+          "type": "required",
+          "versionRange": "[1.21, 1.21.2)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "openpartiesandclaims",
+          "type": "optional",
+          "versionRange": "[0.30.3,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "xaerominimap",
+          "type": "optional",
+          "versionRange": "[26.4.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "xaerobetterpvp",
+          "type": "optional",
+          "versionRange": "[26.4.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "xaerolib",
+          "type": "required",
+          "versionRange": "[1.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ],
+      "metadataVerified": true,
+      "embeddedLibraries": [
+        {
+          "identifier": {
+            "group": "xaero.lib",
+            "artifact": "xaerolib-neoforge-1.21.1"
+          },
+          "version": {
+            "range": "[1.7.0,1.8)",
+            "artifactVersion": "1.7.1"
+          },
+          "path": "META-INF/jarjar/xaerolib-neoforge-1.21.1-1.7.1.jar",
+          "isObfuscated": false,
+          "sha256": "1838f3d36bdf87de9dd749255651313c6dbe517f57f9b01a041191cee7ed3620"
+        }
+      ]
+    },
+    {
+      "id": "fallingtree",
+      "version": "1.21.1.11",
+      "filename": "FallingTree-1.21.1-1.21.1.11.jar",
+      "loader": "neoforge",
+      "minecraft": "1.21.1",
+      "curseforgeProjectId": 349559,
+      "curseforgeFileId": 6835168,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/falling-tree/files/6835168",
+      "sha256": "70ee147602d2239e7a093e166fdf0c0abcef959d5d457c0f8f3669ef9b483dc4",
+      "installedPath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.minecraft/mods/FallingTree-1.21.1-1.21.1.11.jar",
+      "requiredForCore": false,
+      "requiredForTestingPack": true,
+      "selection": "recommended",
+      "status": "INSTALLED_NOT_LAUNCHED",
+      "downloadUrl": "https://mediafilez.forgecdn.net/files/6835/168/FallingTree-1.21.1-1.21.1.11.jar",
+      "stagedPath": "D:\\slavic-myths\\.tools\\test-pack-0.9.4\\FallingTree-1.21.1-1.21.1.11.jar",
+      "size": 496356,
+      "observedVersion": "1.21.1.11",
+      "declaredDependencies": [
+        {
+          "modId": "neoforge",
+          "type": "required",
+          "versionRange": "[21.1,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "minecraft",
+          "type": "required",
+          "versionRange": "[1.21.1]",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "cloth-config",
+          "type": "optional",
+          "versionRange": "[15.0.0,)",
+          "ordering": "NONE",
+          "side": "CLIENT"
+        }
+      ],
+      "metadataVerified": true
+    }
+  ],
+  "metadataScope": "Official exact binaries/declared dependencies/embedded libraries inspected; actual NeoForge headless loader with all six companions PASS. Client/PolyMC launch not tested.",
+  "legacyPreservationSha256": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Testing\\instance.cfg": "32903961e2dc7169dde00f71465d61b0c5ec759e32804f2c1ce2098a34bcbec0",
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Testing\\mmc-pack.json": "2bda6f0dcd9c7b9105b1f1822e9a01322fefb412fabfaab35cf55a2de1c57cf0",
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Testing\\.minecraft\\mods\\slavicmyths-0.9.3.jar": "4e6ccd1f3294fb146aa3376840aba0cb3a60790bab302323ed20652320849e71"
+  },
+  "clientLaunches": 0,
+  "launcherMetadataSource": "https://meta.polymc.org/v1/",
+  "firstLaunch": "Manual only; PolyMC resolves remaining game/loader libraries using official metadata.",
+  "launcherChecksumRepair": {
+    "status": "FILES_AND_CHECKSUMS_REPAIRED",
+    "cause": "PolyMC component SHA-1 differs from official Maven for installer and universal; launcher rejected downloads, leaving installer absent.",
+    "instance_patch": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/patches/net.neoforged.neoforge.json",
+    "minecraft_launched_by_agent": false,
+    "artifacts": [
+      {
+        "filename": "neoforge-21.1.255-installer.jar",
+        "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-installer.jar",
+        "checksum_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-installer.jar.sha1",
+        "old_metadata_sha1": [
+          "3b81767c7195717375ad2437efacbe05d2f8bd38"
+        ],
+        "official_sha1": "ed2e3ac3f186dd5be4227ba6013b24f0bf7d6a19",
+        "size": 6972010,
+        "installed_path": "C:/Users/pavel/AppData/Roaming/PolyMC/libraries/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-installer.jar",
+        "sha256": "11d67a99db0ded3648b97b1eac06c5db0305899e05f657d360bec9d6741e522f"
+      },
+      {
+        "filename": "neoforge-21.1.255-universal.jar",
+        "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-universal.jar",
+        "checksum_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-universal.jar.sha1",
+        "old_metadata_sha1": [
+          "544bac92a87d56a1a8112f0034dac66d44dd2078"
+        ],
+        "official_sha1": "bbb3e994db22011236427e8ee1dee8a08f64145d",
+        "size": 3552847,
+        "installed_path": "C:/Users/pavel/AppData/Roaming/PolyMC/libraries/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-universal.jar",
+        "sha256": "3359a6afd6fec466f693ff0f8fdc134acef6371f626512df7b5420e786f412c5"
+      }
+    ],
+    "launcher_cache_unchanged": true,
+    "legacy_instances_unchanged": true
+  },
+  "navigationAcceptance": "docs/verification/navigation-0.9.5/acceptance.json",
+  "previousArtifactBackup": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.slavicmyths-backups/0.9.4/slavicmyths-0.9.4.jar"
+}

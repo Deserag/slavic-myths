@@ -1,7 +1,11 @@
 """Structural integration checks against registrations and the production artifact."""
 from pathlib import Path
-import json, re, struct, zipfile, zlib
+import json, re, struct, zipfile, zlib, sys, subprocess
 ROOT = Path(__file__).resolve().parents[1]
+if 'net.neoforged.moddev' in (ROOT/'build.gradle').read_text():
+    # The historical verifier below is retained for pre-port source checkpoints.
+    # On the active target, default validation requires the real production JAR.
+    raise SystemExit(subprocess.call([sys.executable,str(ROOT/'tools/verify_port_1211.py'),*sys.argv[1:]]))
 RES = ROOT/'src/main/resources'
 JAVA = ROOT/'src/main/java/org/slavicmyths'
 VERSION = re.search(r"version = '([^']+)'", (ROOT/'build.gradle').read_text()).group(1)

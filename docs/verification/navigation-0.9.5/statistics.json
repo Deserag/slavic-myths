@@ -1,0 +1,19 @@
+{
+  "samples": 1000,
+  "radius": {
+    "min": 180,
+    "mean": 391.032,
+    "max": 699
+  },
+  "offset_fraction": {
+    "min": 0.30140274471224837,
+    "mean": 0.6716825690190789,
+    "max": 0.949817881779704
+  },
+  "inner25": 0,
+  "middle25to50": 110,
+  "outer50to85": 757,
+  "edge85to95": 133,
+  "outside": 0,
+  "scope": "Deterministic generator with accepting quality predicate; not real-world biome distribution"
+}

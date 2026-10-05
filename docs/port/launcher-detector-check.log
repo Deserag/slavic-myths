@@ -1,0 +1,3 @@
+PASS: real ForgeWrapper detector finds NeoForge installer and Minecraft JAR. No game launched.
+C:\Users\pavel\AppData\Roaming\PolyMC\libraries\net\neoforged\neoforge\21.1.255\neoforge-21.1.255-installer.jar
+C:\Users\pavel\AppData\Roaming\PolyMC\libraries\com\mojang\minecraft\1.21.1\minecraft-1.21.1-client.jar

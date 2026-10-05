@@ -1,12 +1,14 @@
 package org.slavicmyths.client;
 import java.util.*;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelPart;
 import org.slavicmyths.yaga.BabaYaga;
 public final class BabaYagaModel extends EntityModel<BabaYaga>{
- private final Map<String,ModelRenderer> p=new LinkedHashMap<>();private final Map<String,float[]> rest=new HashMap<>();
+ private int texWidth=64,texHeight=32;
+ private final FolkModelGeometry geometry=new FolkModelGeometry();
+ private final Map<String,ModelPart> p=new LinkedHashMap<>();private final Map<String,float[]> rest=new HashMap<>();
  public BabaYagaModel(){texWidth=512;texHeight=512;
 a("root","",0.0F,0.0F,0.0F,null,0,0.0F,0.0F,0.0F);
 a("body","root",0.0F,1.0F,0.0F,new float[]{-3.5F,0.0F,-2.0F,7.0F,11.0F,4.0F},3,0.16F,0.0F,0.0F);
@@ -88,7 +90,7 @@ a("boneFoot","leg-1",0.0F,9.6F,0.0F,new float[]{-0.7F,0.0F,-1.8F,1.4F,2.4F,2.5F}
 a("cane","hand1",0.8F,-0.5F,0.0F,new float[]{-0.25F,0.0F,-0.25F,0.5F,12.0F,0.5F},5,0.35F,0.0F,0.0F);
 a("caneHook","cane",0.0F,0.0F,0.0F,new float[]{-0.9F,-0.45F,-0.3F,1.4F,0.6F,0.6F},5,0.0F,0.0F,0.0F);
  }
- private void a(String n,String parent,float x,float y,float z,float[] b,int mat,float rx,float ry,float rz){ModelRenderer m=new ModelRenderer(this,mat%8*64,mat/8*64);m.setPos(x,y,z);m.xRot=rx;m.yRot=ry;m.zRot=rz;if(b!=null)m.addBox(b[0],b[1],b[2],b[3],b[4],b[5]);p.put(n,m);rest.put(n,new float[]{x,y,z,rx,ry,rz});if(!parent.isEmpty())p.get(parent).addChild(m);}
- @Override public void setupAnim(BabaYaga e,float walk,float amount,float age,float yaw,float pitch){for(String n:p.keySet()){ModelRenderer m=p.get(n);float[] r=rest.get(n);m.setPos(r[0],r[1],r[2]);m.xRot=r[3];m.yRot=r[4];m.zRot=r[5];}p.get("head").yRot=yaw*.017453F;p.get("head").xRot+=pitch*.017453F;p.get("body").xRot+=(float)Math.sin(age*.04)*.018F;float stride=(float)Math.cos(walk*.6)*amount*.35F;p.get("leg1").xRot+=stride;p.get("leg-1").xRot-=stride*.6F;p.get("arm-1").xRot-=stride*.4F;float t=e.gestureTime(age-e.tickCount),wave=(float)Math.sin(Math.min(1,t/36)*Math.PI);switch(e.gesture()){case 1:p.get("chin").y+=(float)Math.sin(t*.5)*.18F*wave;p.get("fore-1").xRot-=wave*.8F;p.get("head").xRot+=Math.sin(t*.3)*.08F;break;case 2:p.get("arm-1").zRot-=wave*.6F;break;case 3:p.get("arm-1").xRot-=wave*.8F;p.get("head").xRot-=wave*.12F;break;case 4:p.get("arm-1").xRot-=.65F*wave;p.get("fore-1").yRot+=(float)Math.sin(t*.25)*.45F*wave;break;default:break;}}
- @Override public void renderToBuffer(MatrixStack m,IVertexBuilder v,int l,int o,float r,float g,float b,float a){p.get("root").render(m,v,l,o,r,g,b,a);}
+ private void a(String n,String parent,float x,float y,float z,float[] b,int mat,float rx,float ry,float rz){ModelPart m=geometry.part(texWidth,texHeight,mat%8*64,mat/8*64);m.setPos(x,y,z);m.xRot=rx;m.yRot=ry;m.zRot=rz;if(b!=null)geometry.box(m,b[0],b[1],b[2],b[3],b[4],b[5]);p.put(n,m);rest.put(n,new float[]{x,y,z,rx,ry,rz});if(!parent.isEmpty())geometry.attach(p.get(parent),m);}
+ @Override public void setupAnim(BabaYaga e,float walk,float amount,float age,float yaw,float pitch){for(String n:p.keySet()){ModelPart m=p.get(n);float[] r=rest.get(n);m.setPos(r[0],r[1],r[2]);m.xRot=r[3];m.yRot=r[4];m.zRot=r[5];}p.get("head").yRot=yaw*.017453F;p.get("head").xRot+=pitch*.017453F;p.get("body").xRot+=(float)Math.sin(age*.04)*.018F;float stride=(float)Math.cos(walk*.6)*amount*.35F;p.get("leg1").xRot+=stride;p.get("leg-1").xRot-=stride*.6F;p.get("arm-1").xRot-=stride*.4F;float t=e.gestureTime(age-e.tickCount),wave=(float)Math.sin(Math.min(1,t/36)*Math.PI);switch(e.gesture()){case 1:p.get("chin").y+=(float)Math.sin(t*.5)*.18F*wave;p.get("fore-1").xRot-=wave*.8F;p.get("head").xRot+=Math.sin(t*.3)*.08F;break;case 2:p.get("arm-1").zRot-=wave*.6F;break;case 3:p.get("arm-1").xRot-=wave*.8F;p.get("head").xRot-=wave*.12F;break;case 4:p.get("arm-1").xRot-=.65F*wave;p.get("fore-1").yRot+=(float)Math.sin(t*.25)*.45F*wave;break;default:break;}}
+ @Override public void renderToBuffer(PoseStack m,VertexConsumer v,int l,int o,int color){p.get("root").render(m,v,l,o,color);}
 }

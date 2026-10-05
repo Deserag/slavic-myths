@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+[[mods]]
+modId="slavicmyths"
+version="${mod_version}"
+displayName="Slavic Myths"
+description='''A small foundation for a world gradually touched by Slavic mythology. Mythological connections are game interpretations.'''
+[[dependencies.slavicmyths]]
+modId="neoforge"
+type="required"
+versionRange="[${neo_version},21.2)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.slavicmyths]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.slavicmyths]]
+modId="curios"
+type="required"
+versionRange="[9.5.1,10)"
+ordering="AFTER"
+side="BOTH"
+[[dependencies.slavicmyths]]
+modId="jei"
+type="optional"
+versionRange="[19,20)"
+ordering="AFTER"
+side="CLIENT"

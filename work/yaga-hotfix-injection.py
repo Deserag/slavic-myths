@@ -1,0 +1,4 @@
+from pathlib import Path
+p=Path('tools/kurgan-tests/org/slavicmyths/verify/YagaPlacementHeadless.java');s=p.read_text().replace('if(!cancelled)f.failWrite=70;','if(!cancelled){int index=0;for(BlockState expected:site.desired.values()){index++;if(!expected.isAir()){f.failWrite=index;break;}}}').replace('"unexpected failure category"','"unexpected failure category: "+r.reason+" at "+r.pos')
+s=s.replace('new Block(AbstractBlock.Properties.of(Material.DECORATION))','new Block(AbstractBlock.Properties.of(Material.DECORATION).noCollission().noOcclusion())');p.write_text(s,'utf-8')
+p=Path('src/main/java/org/slavicmyths/yaga/YagaPlacement.java');s=p.read_text();a=s.index(' private static void write(');b=s.index('\n public static Result commit',a);s=s[:a]+''' private static void write(IWorld w,BlockPos p,BlockState state){w.setBlock(p,state,BUILD_FLAGS);if(!w.getBlockState(p).equals(state))throw new Refused("write",p);}'''+s[b:];p.write_text(s,'utf-8')

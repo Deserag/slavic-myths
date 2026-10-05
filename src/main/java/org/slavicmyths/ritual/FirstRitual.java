@@ -1,7 +1,7 @@
 package org.slavicmyths.ritual;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import org.slavicmyths.registry.ModItems;
 
 /** Ordered definition, independent from block interaction and persistence. */

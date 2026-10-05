@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:woodland_river",
+  "features": [
+    "slavicmyths:willow_4",
+    "slavicmyths:rowan_24"
+  ],
+  "step": "vegetal_decoration"
+}

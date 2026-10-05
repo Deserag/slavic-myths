@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " PI",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:pool_pearl"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:pool_spear"
+  }
+}

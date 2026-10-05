@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "slavicmyths:mossy_bog_green_kurgan_cobblestone"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab",
+    "count": 6
+  }
+}

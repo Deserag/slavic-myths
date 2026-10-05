@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slavicmyths:block/pale_blue_kurgan_stone_slab"
+    },
+    "type=top": {
+      "model": "slavicmyths:block/pale_blue_kurgan_stone_slab_top"
+    },
+    "type=double": {
+      "model": "slavicmyths:block/pale_blue_kurgan_stone"
+    }
+  }
+}

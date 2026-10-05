@@ -1,0 +1,38 @@
+{
+  "parent": "slavicmyths:bad_people",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:pine_log"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.find_large_camp.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.find_large_camp.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "visit": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": [
+                  "slavicmyths:bandit_camp_large"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

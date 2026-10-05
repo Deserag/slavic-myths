@@ -8,7 +8,8 @@
     "otvar_lesnoy_zorkosti",
     "yagin_nastoy_stoykosti",
     "otvar_bodrosti",
-    "lesnoy_nastoy_vosstanovleniya"
+    "lesnoy_nastoy_vosstanovleniya",
+    "baba_yaga_spawn_egg"
   ],
   "world_only_blocks": [
     "yaga_cauldron",
@@ -98,5 +99,6 @@
     ]
   },
   "minecraft_launches": 0,
-  "runtime_verified": false
+  "runtime_verified": false,
+  "placement_hotfix": true
 }

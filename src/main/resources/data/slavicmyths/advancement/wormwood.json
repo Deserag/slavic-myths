@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "id": "slavicmyths:wormwood"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.wormwood.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.wormwood.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:wormwood"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "slavicmyths:flax"
+}

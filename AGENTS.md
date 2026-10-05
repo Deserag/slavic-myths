@@ -7,7 +7,7 @@ Before introducing a new weapon, define its silhouette, relative dimensions, mat
 Сначала прочитайте docs/PROJECT_STATUS.md, docs/ROADMAP.md, docs/ARCHITECTURE.md,
 затем фактический код и ресурсы. Если есть Git — проверьте git status.
 Не считайте запланированное реализованным. Сохраняйте изменения пользователя.
-Цель: Minecraft 1.16.5 Forge, Java 8; сверяйте API с установленными зависимостями.
+Цель с 0.9.4: Minecraft 1.21.1 NeoForge, Java 21; сверяйте API с установленными зависимостями.
 Не реализуйте весь roadmap за раз. Не добавляйте пустые классы будущих систем.
 Не добавляйте обходы мира и игроков каждый тик без обоснования и измерений.
 Сохраняйте mod ID и registry ID: это идентификаторы сохранённых миров.
@@ -16,7 +16,9 @@ Before introducing a new weapon, define its silhouette, relative dimensions, mat
 
 ## Постоянные требования
 
-- Minecraft 1.16.5, Forge 36.2.42, Java 8, official mappings; mod ID `slavicmyths`.
+- Minecraft 1.21.1, NeoForge 21.1.255, Java 21, official mappings; mod ID `slavicmyths`.
+- Перенос 0.9.4 выполняется по docs/port/PORT_STATUS_0.9.4.md. Не менять gameplay,
+  баланс, art или registry IDs; исправления Яги из исходной 0.9.3 сохраняются.
 - Перед правкой проверяйте реальный код, ресурсы и отчёты. Не удаляйте пользовательские изменения.
 - Common/server не должны загружать клиентские экраны и рендереры. Сервер проверяет
   расход предметов, репутацию, знания и ритуалы. JEI необязателен, его классы изолированы.
@@ -33,8 +35,10 @@ Before introducing a new weapon, define its silhouette, relative dimensions, mat
 - Мифологические источники, фольклор, поздние реконструкции и игровая интерпретация различаются.
 - Не реализовывать будущие milestone, классы и измерения без задания; не создавать пустые каркасы.
 - После изменений обновить PROJECT_STATUS, ROADMAP и ARCHITECTURE; ручной список проверок — краткий.
-- Выполнить `gradlew.bat clean build`, проверку ресурсов и production/reobf JAR в `build/libs`.
-  JDK 8 находится в `.tools/jdk8/jdk8u504-b01`; задавайте JAVA_HOME только для команды.
+- Выполнить `gradlew.bat clean build`, проверку ресурсов и production NeoForge JAR в `build/libs`.
+  JDK 21 находится в `C:/Program Files/Java/jdk-21.0.12`; задавайте JAVA_HOME только для команды.
+- Клиент автоматически не запускать. Старый PolyMC 1.16.5 не перезаписывать портом;
+  новая тестовая сборка 1.21.1 устанавливается только после успешных gates.
 - Если запуск разрешён, проверить dev client и runtime logs, исправить проблемы и повторить
   запуск после runtime-изменений. Тестовый код из `tools/smoke` никогда не входит в production JAR.
 - Не выдавать компиляцию за игровой тест, меню за проверку механик, NBT roundtrip за

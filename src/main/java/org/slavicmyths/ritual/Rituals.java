@@ -1,7 +1,7 @@
 package org.slavicmyths.ritual;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import org.slavicmyths.registry.ModItems;
 
 /** Three ordered rites. The first rite keeps its original sequence and output. */
@@ -20,8 +20,8 @@ public final class Rituals {
                 {ModItems.NOON_EAR.get(),ModItems.SILVER_INGOT.get(),ModItems.ANCIENT_SIGN.get()},
                 {ModItems.KIKIMORA_LOCK.get(),ModItems.SILVER_INGOT.get(),ModItems.ANCIENT_SIGN.get()},
                 {ModItems.SILVER_INGOT.get(),ModItems.WARDING_CHARM.get(),ModItems.ANCIENT_SIGN.get()},
-                {ModItems.FERN_FLOWER.get(),net.minecraft.item.Items.HONEY_BOTTLE,ModItems.ANCIENT_SIGN.get()},
-                {net.minecraft.item.Items.FEATHER,ModItems.FIREWEED.get(),ModItems.ANCIENT_SIGN.get()}};
+                {ModItems.FERN_FLOWER.get(),net.minecraft.world.item.Items.HONEY_BOTTLE,ModItems.ANCIENT_SIGN.get()},
+                {net.minecraft.world.item.Items.FEATHER,ModItems.FIREWEED.get(),ModItems.ANCIENT_SIGN.get()}};
             return ingredients[rite-9][Math.max(0,Math.min(2,step))];
         }
         if (rite == FIRST) return FirstRitual.ingredient(step);
@@ -67,13 +67,13 @@ public final class Rituals {
             }
         }
         switch (step) {
-            case 0: return net.minecraft.item.Items.CHARCOAL;
+            case 0: return net.minecraft.world.item.Items.CHARCOAL;
             case 1: return ModItems.GROUND_WORMWOOD.get();
             default: return ModItems.SILVER_NUGGET.get();
         }
     }
     public static ItemStack result(int rite) {
-        if(rite>=9 && rite<COUNT)return new ItemStack(net.minecraftforge.registries.ForgeRegistries.ITEMS.getValue(new net.minecraft.util.ResourceLocation("slavicmyths","rune_"+org.slavicmyths.rpg.Runes.IDS[rite-9])));
+        if(rite>=9 && rite<COUNT)return new ItemStack(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","rune_"+org.slavicmyths.rpg.Runes.IDS[rite-9])));
         switch (rite) {
             case EMBER_AXE: return new ItemStack(ModItems.THUNDER_AXE.get());
             case THUNDER_SPEAR: return new ItemStack(ModItems.THUNDER_SPEAR.get());

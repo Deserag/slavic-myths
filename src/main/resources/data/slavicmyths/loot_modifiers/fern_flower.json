@@ -2,7 +2,7 @@
   "type": "slavicmyths:fern_flower",
   "conditions": [
     {
-      "condition": "forge:loot_table_id",
+      "condition": "neoforge:loot_table_id",
       "loot_table_id": "minecraft:blocks/fern"
     },
     {
@@ -10,7 +10,9 @@
       "term": {
         "condition": "minecraft:match_tool",
         "predicate": {
-          "item": "minecraft:shears"
+          "items": [
+            "minecraft:shears"
+          ]
         }
       }
     },
@@ -19,14 +21,16 @@
       "term": {
         "condition": "minecraft:match_tool",
         "predicate": {
-          "enchantments": [
-            {
-              "enchantment": "minecraft:silk_touch",
-              "levels": {
-                "min": 1
+          "predicates": {
+            "minecraft:enchantments": [
+              {
+                "levels": {
+                  "min": 1
+                },
+                "enchantments": "minecraft:silk_touch"
               }
-            }
-          ]
+            ]
+          }
         }
       }
     },

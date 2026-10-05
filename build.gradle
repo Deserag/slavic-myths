@@ -1,91 +1,187 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies { classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.77' }
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
 }
-apply plugin: 'net.minecraftforge.gradle'
-
-version = '0.9.3'
-group = 'org.slavicmyths'
-archivesBaseName = 'slavicmyths'
-java.toolchain.languageVersion = JavaLanguageVersion.of(8)
-
-minecraft {
-    mappings channel: 'official', version: '1.16.5'
-    runs {
-        client {
-            workingDirectory project.file('run')
-            mods { slavicmyths { source sourceSets.main } }
-        }
-        server {
-            workingDirectory project.file('run-server')
-            args '--nogui'
-            mods { slavicmyths { source sourceSets.main } }
-        }
-    }
-}
+version = mod_version
+group = mod_group_id
+base { archivesName = 'slavicmyths' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 repositories {
-    flatDir { dirs '.tools' }
     maven { url = 'https://maven.theillusivec4.top/' }
-    maven { url = 'https://maven.minecraftforge.net' }
-    mavenCentral()
     maven { url = 'https://maven.blamejared.com' }
+    mavenCentral()
 }
-dependencies { minecraft 'net.minecraftforge:forge:1.16.5-36.2.42' }
-dependencies { implementation fg.deobf('top.theillusivec4.curios:curios-forge:1.16.5-4.1.0.0') }
-dependencies { compileOnly fg.deobf('mezz.jei:jei-1.16.5:7.8.0.1013') }
-// Optional development companion, never shaded or nested in the production mod.
-if (!project.hasProperty('withoutJei')) {
-    dependencies { runtimeOnly fg.deobf('mezz.jei:jei-1.16.5:7.8.0.1013') }
+neoForge {
+    version = project.neo_version
+    runs {
+        client { client(); gameDirectory = file('run') }
+        server { server(); programArgument '--nogui'; gameDirectory = file('run-server') }
+    }
+    mods { slavicmyths { sourceSet sourceSets.main } }
+}
+dependencies {
+    // Optional, client-only adapter compiled against the exact pinned API; never bundled/runtime-required.
+    compileOnly files('.tools/test-pack-0.9.4/xaerominimap-neoforge-1.21.1-26.5.0.jar')
+    implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    if (!project.hasProperty('withoutJei')) {
+        runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    }
 }
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
 processResources {
-    inputs.property 'version', project.version
-    filesMatching('META-INF/mods.toml') { expand version: project.version }
+    inputs.properties([mod_version: mod_version, neo_version: neo_version])
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand mod_version: mod_version, neo_version: neo_version
+    }
 }
-jar {
-    manifest { attributes 'Implementation-Version': project.version }
-    finalizedBy 'reobfJar'
-}
-
-// Pure JVM geometry/NBT checks. Does not boot a Minecraft client or server.
+jar { manifest { attributes 'Implementation-Version': project.version } }
+// Verification remains outside production. API migration is tracked in PORT_STATUS.
 sourceSets {
     kurganCheck {
         java.srcDir 'tools/kurgan-tests'
+        resources.srcDir 'tools/kurgan-test-resources'
         compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
         runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
     }
 }
-tasks.register('verifyKurgan', JavaExec) {
+tasks.register('verifyNavigation', JavaExec) {
     dependsOn 'kurganCheckClasses'
     classpath = sourceSets.kurganCheck.runtimeClasspath
-    mainClass = 'org.slavicmyths.verify.KurganHeadless'
+    mainClass = 'org.slavicmyths.verify.NavigationHeadless'
 }
-tasks.register('verifyHunt', JavaExec) {
-    dependsOn 'kurganCheckClasses'
-    classpath = sourceSets.kurganCheck.runtimeClasspath
-    mainClass = 'org.slavicmyths.verify.HuntHeadless'
+// Registry-dependent checks require a real loader. Selecting an alias enables
+// the isolated GameTest run; invoking several aliases still runs the server once.
+def loaderCheckAliases = ['verifyYaga', 'verifyYagaPlacement', 'verifyPortRecipes', 'verifyPortDamage']
+loaderCheckAliases.each { name ->
+    tasks.register(name) {
+        description = 'Run registry-dependent checks on the isolated headless GameTest server.'
+        dependsOn 'runRuntimeChecks'
+    }
 }
 
-// Opt-in diagnostic mod. Its code and resources never enter sourceSets.main or the JAR.
-if (project.hasProperty('smokeTest') || project.hasProperty('wildlifeSmoke')) {
-    sourceSets {
-        smoke {
-            java.srcDir project.hasProperty('wildlifeSmoke') ? 'tools/wildlife-smoke/java' : 'tools/smoke/java'
-            resources.srcDir 'tools/smoke/resources'
-            compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
-            runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.main.output
+// Intermediate API checks compile these actual independent production modules
+// without excluding any sources from the real mod. No replacement/stub classes.
+sourceSets {
+    portCore {
+        java.srcDirs = ['src/main/java', 'tools/kurgan-tests']
+        java.include 'org/slavicmyths/kurgan/KurganPlan.java',
+                'org/slavicmyths/kurgan/KurganLayout.java',
+                'org/slavicmyths/kurgan/KurganPlanNbt.java',
+                'org/slavicmyths/kurgan/KurganInstance.java',
+                'org/slavicmyths/kurgan/KurganEncounterState.java',
+                'org/slavicmyths/kurgan/KurganFighter.java',
+                'org/slavicmyths/kurgan/KurganRoster.java',
+                'org/slavicmyths/kurgan/BurialRecords.java',
+                'org/slavicmyths/hunt/HuntRecords.java',
+                'org/slavicmyths/hunt/HuntTarget.java',
+                'org/slavicmyths/hunt/BossKind.java',
+                'org/slavicmyths/hunt/BossRules.java',
+                'org/slavicmyths/hunt/HuntRules.java',
+                'org/slavicmyths/hunt/ElementRules.java',
+                'org/slavicmyths/hunt/DashFacing.java',
+                'org/slavicmyths/rpg/RpgNbt.java',
+                'org/slavicmyths/armorer/ArmorerRecipe.java',
+                'org/slavicmyths/armorer/ArmorerInput.java',
+                'org/slavicmyths/item/ItemState.java',
+                'org/slavicmyths/registry/ModEffects.java',
+                'org/slavicmyths/registry/ModSounds.java',
+                'org/slavicmyths/kurgan/KurganCurse.java',
+                'org/slavicmyths/yaga/YagaHutPlan.java',
+                'org/slavicmyths/depth/PoolIndex.java',
+                'org/slavicmyths/verify/KurganHeadless.java',
+                'org/slavicmyths/verify/KurganReworkHeadless.java',
+                'org/slavicmyths/verify/HuntHeadless.java',
+                'org/slavicmyths/verify/PortDataHeadless.java',
+                'org/slavicmyths/verify/PortRecipesHeadless.java',
+                'org/slavicmyths/verify/PortComponentsHeadless.java',
+                'org/slavicmyths/network/MythPayloads.java',
+                'org/slavicmyths/network/ClientPayloadEvents.java',
+                'org/slavicmyths/network/LoreNetwork.java',
+                'org/slavicmyths/item/ClubItem.java',
+                'org/slavicmyths/item/HeavyWeaponItem.java',
+                'org/slavicmyths/item/SpearItem.java',
+                'org/slavicmyths/item/MythShieldItem.java',
+                'org/slavicmyths/item/AncientCoinItem.java',
+                'org/slavicmyths/item/AncientSignItem.java',
+                'org/slavicmyths/item/AmberCharmItem.java',
+                'org/slavicmyths/item/PerunCharmItem.java',
+                'org/slavicmyths/item/BerryMorsItem.java',
+                'org/slavicmyths/item/SevenLeagueBoots.java',
+                'org/slavicmyths/item/ThunderAxeItem.java',
+                'org/slavicmyths/combat/MaceItem.java',
+                'org/slavicmyths/combat/FlailItem.java',
+                'org/slavicmyths/verify/PortPayloadsHeadless.java',
+                'org/slavicmyths/client/FolkModelGeometry.java',
+                'org/slavicmyths/water/ReedBlock.java',
+                'org/slavicmyths/yaga/YagaLegBlock.java',
+                'org/slavicmyths/verify/PortGeometryHeadless.java',
+                'org/slavicmyths/flight/Tailwind.java',
+                'org/slavicmyths/combat/MythDamageSources.java',
+                'org/slavicmyths/verify/PortDamageHeadless.java'
+        compileClasspath += sourceSets.main.compileClasspath
+        runtimeClasspath += configurations.runtimeClasspath
+    }
+}
+['Kurgan', 'Hunt'].each { system ->
+    tasks.register("verify${system}", JavaExec) {
+        dependsOn 'portCoreClasses'
+        classpath = sourceSets.portCore.runtimeClasspath
+        mainClass = "org.slavicmyths.verify.${system}Headless"
+    }
+}
+tasks.register('verifyPortData', JavaExec) {
+    dependsOn 'portCoreClasses'
+    classpath = sourceSets.portCore.runtimeClasspath
+    mainClass = 'org.slavicmyths.verify.PortDataHeadless'
+    args file('docs/verification/yaga-0.9.3/hut-plan.json').absolutePath
+}
+tasks.register('verifyPortCore') { dependsOn 'verifyKurgan', 'verifyHunt', 'verifyPortData' }
+tasks.register('verifyKurganRework', JavaExec) {
+    dependsOn 'portCoreClasses'
+    classpath = sourceSets.portCore.runtimeClasspath
+    mainClass = 'org.slavicmyths.verify.KurganReworkHeadless'
+}
+
+tasks.register('verifyPortComponents', JavaExec) {
+    dependsOn 'portCoreClasses'
+    classpath = sourceSets.portCore.runtimeClasspath
+    mainClass = 'org.slavicmyths.verify.PortComponentsHeadless'
+}
+
+tasks.register('verifyPortPayloads', JavaExec) {
+    dependsOn 'portCoreClasses'
+    classpath = sourceSets.portCore.runtimeClasspath
+    mainClass = 'org.slavicmyths.verify.PortPayloadsHeadless'
+}
+
+tasks.register('verifyPortGeometry', JavaExec) {
+    dependsOn 'portCoreClasses'
+    classpath = sourceSets.portCore.runtimeClasspath
+    mainClass = 'org.slavicmyths.verify.PortGeometryHeadless'
+}
+
+// Loader-backed headless checks share the actual mod in this opt-in run only.
+// They never enter the production JAR or the ordinary client/server configurations.
+if (project.hasProperty('portRuntimeCheck') || gradle.startParameter.taskNames.any {
+    loaderCheckAliases.contains(it.tokenize(':').last())
+}) {
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.kurganCheck)
+    neoForge.runs {
+        runtimeChecks {
+            type = 'gameTestServer'
+            gameDirectory = file('run-port-checks')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths'
+            systemProperty 'slavicmyths.portRoot', project.projectDir.absolutePath
         }
     }
-    minecraft.runs.client.mods { slavicmyths_smoke { source sourceSets.smoke } }
-    tasks.matching { it.name == 'runClient' }.configureEach { dependsOn 'smokeClasses' }
 }
 
-tasks.register('verifyYaga', JavaExec) {
-    dependsOn 'kurganCheckClasses'
-    classpath = sourceSets.kurganCheck.runtimeClasspath
-    mainClass = 'org.slavicmyths.verify.YagaHeadless'
-    args file('docs/verification/yaga-0.9.3/hut-plan.json').absolutePath
+if (project.hasProperty('portRuntimeCompanions')) {
+    dependencies {
+        runtimeOnly fileTree('.tools/test-pack-0.9.4') {
+            include '*.jar'
+            exclude 'curios-*.jar', 'jei-*.jar'
+        }
+    }
 }

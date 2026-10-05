@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:feature_overworld",
+  "features": [
+    "slavicmyths:ore_perunite",
+    "slavicmyths:ore_silver"
+  ],
+  "step": "underground_ores"
+}

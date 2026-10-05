@@ -1,68 +1,63 @@
 package org.slavicmyths.compat;
 
 import java.util.Arrays;
-import com.mojang.blaze3d.matrix.MatrixStack;
+import net.minecraft.client.gui.GuiGraphics;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.recipe.*;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.ingredients.IIngredients;
+
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import net.minecraft.client.Minecraft;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
 import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.ritual.Rituals;
 
 /** Discovered only by JEI. No common or client setup class references this optional plugin. */
 @JeiPlugin
 public final class JeiRituals implements IModPlugin {
-    private static final ResourceLocation ID = new ResourceLocation("slavicmyths", "rituals");
+    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath("slavicmyths", "rituals");
+    private static final RecipeType<ResourceLocation> RECIPE_TYPE=new RecipeType<>(ID,ResourceLocation.class);
     @Override public ResourceLocation getPluginUid() { return ID; }
     @Override public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new Category(registration.getJeiHelpers().getGuiHelper()));
     }
-    @Override public void registerRecipes(IRecipeRegistration registration) { registration.addRecipes(Arrays.asList(
-            new ResourceLocation("slavicmyths", "first_ritual"), new ResourceLocation("slavicmyths", "thunder_axe"),
-            new ResourceLocation("slavicmyths", "perun_charm"), new ResourceLocation("slavicmyths", "storm_staff"),
-            new ResourceLocation("slavicmyths", "amber_charm"), new ResourceLocation("slavicmyths", "ritual_charcoal"),
-            new ResourceLocation("slavicmyths", "thunder_spear"), new ResourceLocation("slavicmyths", "perunite_mace"),
-            new ResourceLocation("slavicmyths", "ember_axe")), ID);
-        java.util.List<ResourceLocation> runes=new java.util.ArrayList<>();for(String id:org.slavicmyths.rpg.Runes.IDS)runes.add(new ResourceLocation("slavicmyths","rune_"+id));registration.addRecipes(runes,ID); }
+    @Override public void registerRecipes(IRecipeRegistration registration) { registration.addRecipes(RECIPE_TYPE,Arrays.asList(
+            ResourceLocation.fromNamespaceAndPath("slavicmyths", "first_ritual"), ResourceLocation.fromNamespaceAndPath("slavicmyths", "thunder_axe"),
+            ResourceLocation.fromNamespaceAndPath("slavicmyths", "perun_charm"), ResourceLocation.fromNamespaceAndPath("slavicmyths", "storm_staff"),
+            ResourceLocation.fromNamespaceAndPath("slavicmyths", "amber_charm"), ResourceLocation.fromNamespaceAndPath("slavicmyths", "ritual_charcoal"),
+            ResourceLocation.fromNamespaceAndPath("slavicmyths", "thunder_spear"), ResourceLocation.fromNamespaceAndPath("slavicmyths", "perunite_mace"),
+            ResourceLocation.fromNamespaceAndPath("slavicmyths", "ember_axe")));
+        java.util.List<ResourceLocation> runes=new java.util.ArrayList<>();for(String id:org.slavicmyths.rpg.Runes.IDS)runes.add(ResourceLocation.fromNamespaceAndPath("slavicmyths","rune_"+id));registration.addRecipes(RECIPE_TYPE,runes); }
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(new ItemStack(ModItems.ALTAR.get()), ID);
+        registration.addRecipeCatalyst(new ItemStack(ModItems.ALTAR.get()));
     }
     private static final class Category implements IRecipeCategory<ResourceLocation> {
-        private final IDrawable background, icon;
+        private final IDrawable icon;
         Category(IGuiHelper helper) {
-            background = helper.createBlankDrawable(150, 48);
-            icon = helper.createDrawableIngredient(new ItemStack(ModItems.ALTAR.get()));
+
+            icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK,new ItemStack(ModItems.ALTAR.get()));
         }
-        @Override public ResourceLocation getUid() { return ID; }
-        @Override public Class<? extends ResourceLocation> getRecipeClass() { return ResourceLocation.class; }
-        @Override public String getTitle() { return new TranslationTextComponent("jei.slavicmyths.rituals").getString(); }
-        @Override public IDrawable getBackground() { return background; }
+        @Override public RecipeType<ResourceLocation> getRecipeType(){return RECIPE_TYPE;}
+        @Override public Component getTitle(){return Component.translatable("jei.slavicmyths.rituals");}
+        @Override public int getWidth(){return 150;}public int getHeight(){return 48;}
         @Override public IDrawable getIcon() { return icon; }
-        @Override public void setIngredients(ResourceLocation recipe, IIngredients ingredients) {
-            int rite = kind(recipe);
-            java.util.List<ItemStack> inputs = new java.util.ArrayList<>();
-            for (int i = 0; i < Rituals.length(rite); i++) inputs.add(new ItemStack(Rituals.ingredient(rite, i)));
-            ingredients.setInputs(VanillaTypes.ITEM, inputs);
-            ingredients.setOutput(VanillaTypes.ITEM, Rituals.result(rite));
+        @Override public void setRecipe(IRecipeLayoutBuilder layout,ResourceLocation recipe,IFocusGroup focus){
+            int rite=kind(recipe);
+            for(int i=0;i<Rituals.length(rite);i++)layout.addSlot(RecipeIngredientRole.INPUT,i*28,16).addItemStack(new ItemStack(Rituals.ingredient(rite,i)));
+            layout.addSlot(RecipeIngredientRole.OUTPUT,126,16).addItemStack(Rituals.result(rite));
         }
-        @Override public void setRecipe(IRecipeLayout layout, ResourceLocation recipe, IIngredients ingredients) {
-            for (int i = 0; i < Rituals.length(kind(recipe)); i++) layout.getItemStacks().init(i, true, i * 28, 16);
-            layout.getItemStacks().init(Rituals.length(kind(recipe)), false, 126, 16);
-            layout.getItemStacks().set(ingredients);
-        }
-        @Override public void draw(ResourceLocation recipe, MatrixStack pose, double x, double y) {
-            Minecraft.getInstance().font.draw(pose, "1       2       3       4   >", 4, 4, 0x404040);
+        @Override public void draw(ResourceLocation recipe,IRecipeSlotsView slots,GuiGraphics graphics,double x,double y){
+            graphics.drawString(Minecraft.getInstance().font,"1       2       3       4   >",4,4,0x404040,false);
         }
         private int kind(ResourceLocation recipe) {
             for(int i=0;i<8;i++)if(recipe.getPath().equals("rune_"+org.slavicmyths.rpg.Runes.IDS[i]))return 9+i;

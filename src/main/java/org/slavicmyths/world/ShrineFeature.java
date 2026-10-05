@@ -1,27 +1,28 @@
 package org.slavicmyths.world;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
-import java.util.Random;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.tileentity.ChestTileEntity;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import org.slavicmyths.registry.ModBlocks;
 
 /** A small physical ruin placed during chunk generation, entirely inside its source chunk. */
-public final class ShrineFeature extends Feature<NoFeatureConfig> {
-    public ShrineFeature() { super(NoFeatureConfig.CODEC); }
-    @Override public boolean place(ISeedReader world, ChunkGenerator generator, Random random, BlockPos origin, NoFeatureConfig config) {
-        if (!world.getLevel().dimension().equals(World.OVERWORLD)) return false;
+public final class ShrineFeature extends Feature<NoneFeatureConfiguration> {
+    public ShrineFeature() { super(NoneFeatureConfiguration.CODEC); }
+    @Override public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context){WorldGenLevel world=context.level();ChunkGenerator generator=context.chunkGenerator();RandomSource random=context.random();BlockPos origin=context.origin();NoneFeatureConfiguration config=context.config();
+        if (!world.getLevel().dimension().equals(Level.OVERWORLD)) return false;
         int x = (origin.getX() & ~15) + 8, z = (origin.getZ() & ~15) + 8;
-        int y = world.getHeight(Heightmap.Type.WORLD_SURFACE_WG, x, z);
+        int y = world.getHeight(Heightmap.Types.WORLD_SURFACE_WG, x, z);
         BlockPos center = new BlockPos(x, y, z);
         // Verify the whole footprint before writing: no water, steep slopes, trees or existing buildings.
         for (int dx = -5; dx <= 5; dx++) for (int dz = -5; dz <= 5; dz++) {
@@ -30,8 +31,7 @@ public final class ShrineFeature extends Feature<NoFeatureConfig> {
             if (block != Blocks.GRASS_BLOCK && block != Blocks.DIRT && block != Blocks.PODZOL && block != Blocks.COARSE_DIRT) return false;
             for (int dy = 0; dy < 4; dy++) {
                 BlockPos p = center.offset(dx, dy, dz);
-                if (!world.getFluidState(p).isEmpty() || (!world.isEmptyBlock(p) && world.getBlockState(p).getMaterial() != net.minecraft.block.material.Material.PLANT
-                        && world.getBlockState(p).getMaterial() != net.minecraft.block.material.Material.REPLACEABLE_PLANT)) return false;
+                if (!world.getFluidState(p).isEmpty() || (!world.isEmptyBlock(p) && !org.slavicmyths.worldgen.Vegetation.plant(world.getBlockState(p)))) return false;
             }
         }
         for (int dx = -5; dx <= 5; dx++) for (int dz = -5; dz <= 5; dz++) {
@@ -49,16 +49,16 @@ public final class ShrineFeature extends Feature<NoFeatureConfig> {
         set(world, center.offset(0, 0, 2), ModBlocks.ALTAR.get());
         set(world, center.offset(-2, 0, 0), Blocks.CAMPFIRE);
         set(world, center.offset(2, 0, -2), Blocks.CHEST);
-        TileEntity chest = world.getBlockEntity(center.offset(2, 0, -2));
-        if (chest instanceof ChestTileEntity) ((ChestTileEntity) chest).setLootTable(new ResourceLocation("slavicmyths", "chests/ancient_shrine"), random.nextLong());
+        BlockEntity chest = world.getBlockEntity(center.offset(2, 0, -2));
+        if (chest instanceof ChestBlockEntity) ((ChestBlockEntity) chest).setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath("slavicmyths", "chests/ancient_shrine")), random.nextLong());
         for (int dy = 0; dy < 3; dy++) set(world, center.offset(-3, dy, -2), Blocks.OAK_LOG);
         for (BlockPos leaf : new BlockPos[]{center.offset(-3, 3, -2), center.offset(-2, 2, -2), center.offset(-4, 2, -2)})
-            world.setBlock(leaf, Blocks.OAK_LEAVES.defaultBlockState().setValue(net.minecraft.block.LeavesBlock.PERSISTENT, true), 2);
+            world.setBlock(leaf, Blocks.OAK_LEAVES.defaultBlockState().setValue(net.minecraft.world.level.block.LeavesBlock.PERSISTENT, true), 2);
         set(world, center.offset(2, -1, 3), Blocks.DIRT);
         set(world, center.offset(-2, -1, 3), Blocks.DIRT);
         set(world, center.offset(2, 0, 3), ModBlocks.WORMWOOD.get());
         set(world, center.offset(-2, 0, 3), Blocks.FERN);
         return true;
     }
-    private static void set(ISeedReader world, BlockPos pos, Block block) { world.setBlock(pos, block.defaultBlockState(), 2); }
+    private static void set(WorldGenLevel world, BlockPos pos, Block block) { world.setBlock(pos, block.defaultBlockState(), 2); }
 }

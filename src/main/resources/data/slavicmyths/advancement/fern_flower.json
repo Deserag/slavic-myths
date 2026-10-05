@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "id": "slavicmyths:fern_flower"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.fern_flower.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.fern_flower.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:fern_flower"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "slavicmyths:root"
+}

@@ -1,24 +1,23 @@
 package org.slavicmyths;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.ModContainer;
 import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.registry.ModBlocks;
 import org.slavicmyths.registry.ModLoot;
 import org.slavicmyths.registry.ModEntities;
 import org.slavicmyths.registry.ModSounds;
 import org.slavicmyths.world.SpiritSpawns;
-import org.slavicmyths.world.ModWorldGen;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 @Mod(SlavicMyths.MOD_ID)
 public final class SlavicMyths {
     public static final String MOD_ID = "slavicmyths";
 
-    public SlavicMyths() {
-        net.minecraftforge.fml.ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.combat.CombatHudConfig.SPEC);
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+    public SlavicMyths(IEventBus bus, ModContainer container) {
+        org.slavicmyths.item.ItemState.COMPONENTS.register(bus);
         org.slavicmyths.rpg.Runes.init();
         org.slavicmyths.wood.Woodlands.init();
         org.slavicmyths.furniture.Furniture.init();
@@ -31,7 +30,11 @@ public final class SlavicMyths {
         ModBlocks.BLOCKS.register(bus);
         org.slavicmyths.bandit.CampStructures.register();
         org.slavicmyths.swamp.SwampStructures.STRUCTURES.register(bus);
+        org.slavicmyths.swamp.SwampStructures.PIECES.register(bus);
+        org.slavicmyths.item.ModGear.ARMOR_MATERIALS.register(bus);
+        org.slavicmyths.registry.ModItemGroup.TABS.register(bus);
         ModItems.ITEMS.register(bus);
+        org.slavicmyths.armorer.ArmorerRecipe.TYPES.register(bus);
         org.slavicmyths.armorer.ArmorerRecipe.SERIALIZERS.register(bus);
         org.slavicmyths.armorer.ArmorerMenu.register();
         ModLoot.SERIALIZERS.register(bus);
@@ -39,29 +42,24 @@ public final class SlavicMyths {
         ModSounds.SOUNDS.register(bus);
         org.slavicmyths.registry.ModTiles.TILES.register(bus);
         org.slavicmyths.registry.ModFeatures.FEATURES.register(bus);
-        org.slavicmyths.network.LoreNetwork.register();
-        org.slavicmyths.rpg.RpgNetwork.register();
+        bus.addListener(org.slavicmyths.network.LoreNetwork::register);
+        bus.addListener(org.slavicmyths.navigation.NavigationNetwork::register);
+        bus.addListener(org.slavicmyths.rpg.RpgNetwork::register);
         org.slavicmyths.hunt.PouchMenu.register();
         org.slavicmyths.flight.CargoMenu.register();
-        org.slavicmyths.flight.FlightNetwork.register();
-        org.slavicmyths.flight.Tailwind.ENCHANTMENTS.register(bus);
+        bus.addListener(org.slavicmyths.flight.FlightNetwork::register);
         org.slavicmyths.kitchen.KitchenMenu.register();
         org.slavicmyths.yaga.YagaMenu.register();
         org.slavicmyths.rpg.RpgMenu.MENUS.register(bus);
+        bus.addListener(org.slavicmyths.hunt.HuntSpawns::placements);
+        bus.addListener(org.slavicmyths.world.SpiritSpawns::registerPlacements);
+        bus.addListener(org.slavicmyths.world.WildlifeSpawns::placements);
+        bus.addListener(org.slavicmyths.water.WaterSpawns::placements);
+        bus.addListener(org.slavicmyths.world.LandEncounters::placements);
         bus.addListener(this::setup);
-        bus.addListener(org.slavicmyths.item.FolkAccessoryItem::slots);
     }
 
     private void setup(FMLCommonSetupEvent event) {
-        event.enqueueWork(org.slavicmyths.swamp.SwampStructures::setup);
-        event.enqueueWork(org.slavicmyths.bandit.CampStructures::setup);
-        event.enqueueWork(org.slavicmyths.kurgan.KurganStructures::setup);
-        event.enqueueWork(ModWorldGen::registerFeatures);
         event.enqueueWork(org.slavicmyths.wood.Woodlands::setup);
-        event.enqueueWork(org.slavicmyths.hunt.HuntSpawns::placements);
-        event.enqueueWork(SpiritSpawns::registerPlacements);
-        event.enqueueWork(org.slavicmyths.world.WildlifeSpawns::placements);
-        event.enqueueWork(org.slavicmyths.water.WaterSpawns::placements);
-        event.enqueueWork(org.slavicmyths.world.LandEncounters::placements);
     }
 }

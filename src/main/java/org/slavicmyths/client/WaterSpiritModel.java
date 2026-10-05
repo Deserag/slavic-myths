@@ -1,13 +1,15 @@
 package org.slavicmyths.client;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.util.Mth;
 import org.slavicmyths.water.WaterSpirit;
 public final class WaterSpiritModel extends EntityModel<WaterSpirit>{
- private final ModelRenderer body,head,left,right,legL,legR,hair,mouth;private final boolean rusalka;
- private ModelRenderer part(ModelRenderer parent,int u,int v,float x,float y,float z,float a,float b,float c){ModelRenderer m=new ModelRenderer(this,u,v);m.addBox(x,y,z,a,b,c);if(parent!=null)parent.addChild(m);return m;}
+ private int texWidth=64,texHeight=32;
+ private final FolkModelGeometry geometry=new FolkModelGeometry();
+ private final ModelPart body,head,left,right,legL,legR,hair,mouth;private final boolean rusalka;
+ private ModelPart part(ModelPart parent,int u,int v,float x,float y,float z,float a,float b,float c){ModelPart m=geometry.part(texWidth,texHeight,u,v);geometry.box(m,x,y,z,a,b,c);if(parent!=null)geometry.attach(parent,m);return m;}
  public WaterSpiritModel(boolean r){rusalka=r;texWidth=256;texHeight=256;
   body=part(null,0,32,r?-3.5F:-6,0,-3,r?7:12,r?11:12,6);body.setPos(0,r?1:3,0);
   head=part(body,0,0,r?-3.5F:-4.5F,-8,-4,r?7:9,8,r?7:8);head.setPos(0,0,r?0:-1.5F);
@@ -18,8 +20,8 @@ public final class WaterSpiritModel extends EntityModel<WaterSpirit>{
   left=part(body,0,0,0,0,-2,r?2.5F:3.5F,r?13:15,4);left.setPos(r?3.5F:6,0,0);right=part(body,0,0,r?-2.5F:-3.5F,0,-2,r?2.5F:3.5F,r?13:15,4);right.setPos(r?-3.5F:-6,0,0);
   legL=part(body,0,0,-1.8F,0,-2,3.6F,r?12:9,4);legL.setPos(r?1.8F:3,11,0);legR=part(body,0,0,-1.8F,0,-2,3.6F,r?12:9,4);legR.setPos(r?-1.8F:-3,11,0);
  }
- public void setupAnim(WaterSpirit e,float walk,float amount,float age,float yaw,float pitch){head.yRot=yaw*.01745F;head.xRot=pitch*.01745F;body.xRot=e.isInWater()?-.3F:rusalka?0:.2F;float wave=MathHelper.sin(age*.07F);hair.xRot=wave*.04F;legL.xRot=MathHelper.cos(walk*.5F)*amount*.6F;legR.xRot=-legL.xRot;left.xRot=-legL.xRot;right.xRot=legL.xRot;left.zRot=.08F;right.zRot=-.08F;mouth.yRot=0;mouth.xRot=0;mouth.y=0;
+ public void setupAnim(WaterSpirit e,float walk,float amount,float age,float yaw,float pitch){head.yRot=yaw*.01745F;head.xRot=pitch*.01745F;body.xRot=e.isInWater()?-.3F:rusalka?0:.2F;float wave=Mth.sin(age*.07F);hair.xRot=wave*.04F;legL.xRot=Mth.cos(walk*.5F)*amount*.6F;legR.xRot=-legL.xRot;left.xRot=-legL.xRot;right.xRot=legL.xRot;left.zRot=.08F;right.zRot=-.08F;mouth.yRot=0;mouth.xRot=0;mouth.y=0;
   if(rusalka&&(e.state()==2||e.state()==4)){left.xRot=-.35F;right.xRot=-.35F;left.zRot=.15F+wave*.05F;right.zRot=-left.zRot;mouth.y=.2F+wave*.1F;}else if(e.getTarget()!=null){left.xRot=right.xRot=-.8F+wave*.2F;}
  }
- public void renderToBuffer(MatrixStack m,IVertexBuilder v,int l,int o,float r,float g,float b,float a){body.render(m,v,l,o,r,g,b,a);}
+ public void renderToBuffer(PoseStack m,VertexConsumer v,int l,int o,int color){body.render(m,v,l,o,color);}
 }

@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:feature_fields",
+  "features": [
+    "slavicmyths:old_barn"
+  ],
+  "step": "surface_structures"
+}

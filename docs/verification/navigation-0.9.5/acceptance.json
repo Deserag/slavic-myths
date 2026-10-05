@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "version": "0.9.5",
+  "platform": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.255",
+    "java": 21
+  },
+  "gates": {
+    "A": "PASS",
+    "B": "PASS",
+    "C": "PASS",
+    "D": "PASS",
+    "E": "PASS",
+    "F": "PASS"
+  },
+  "jar_sha256": "66579a054a2ed14dfa3fdff809e43656c9a2621fa18a743177b32ff6d2581b4c",
+  "client_launches": 0,
+  "headless_server_boots": 8,
+  "headless_server_failed_runs": 0,
+  "final_tests_per_server": 7,
+  "manual_gameplay_verified": false,
+  "manual_qa": "docs/MANUAL_QA_0.9.5_NAVIGATION.md",
+  "evidence_sha256": {
+    "clean-build.log": "c606a12048003991352363a67ac4395368297f175ab0dc49715f38d7ae1b3865",
+    "runtime-core.log": "e002614d29186d1a6c8c304b512d0da8809344670d956be60490073a9af5a51a",
+    "runtime-companions.log": "65e0f8e9e982aac6a674e46498e68453c54bdc2d67d1f8f4a535a436bc59c051",
+    "statistics.json": "fa47da8d5b1b8b655dadc4b43d03c5e4f52cfc273e643cbf031e410e5c7cd2a7",
+    "static-data-audit.json": "5b41eef15c6e5189244b8c6b184d5ee312ab4aaebdd87336e03ca87e992e932f",
+    "resource-check.json": "2281dbde8d1c5cd6cbcdfc2be0d46ec96072b76817c52047d0d667440710bbae"
+  }
+}

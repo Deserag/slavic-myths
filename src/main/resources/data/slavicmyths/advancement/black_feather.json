@@ -1,0 +1,32 @@
+{
+  "parent": "slavicmyths:bad_people",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:mysterious_black_feather"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.black_feather.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.black_feather.description"
+    },
+    "frame": "task",
+    "hidden": true,
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "found": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:mysterious_black_feather"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

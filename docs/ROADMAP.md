@@ -1,15 +1,44 @@
+# Slavic Myths 0.9.5 — навигация и зоны поиска
+
+Minecraft 1.21.1 / NeoForge 21.1.255 / Java 21. Слой навигации реализован по последнему
+пакету V2. Предыдущий перенос 0.9.4 завершён; его отчёты сохранены как историческая база.
+
+Core/server: DONE по headless проверкам. Client screen/HUD/Xaero: COMPILES, ручная QA не выполнена.
+Build и финальные loader/data checks PASS. Minecraft-клиент не запускался.
+Production: `build/libs/slavicmyths-0.9.5.jar`. Точный hash: `packaging/test-pack-lock.json`.
+
+[Навигация, алгоритм и фактические ограничения](NAVIGATION_0.9.5.md),
+[ручные проверки](MANUAL_QA_0.9.5_NAVIGATION.md), [evidence](verification/navigation-0.9.5/acceptance.json).
+
+Следующий блок: ручной запуск тестового профиля и 28 navigation QA сценариев,
+затем только воспроизведённые ошибки. Новые боссы/loot/worldgen не входят в 0.9.5.
+Известный fallback: Xaero approximate center+radius, без polygon overlay. Контракт без
+известного реального encounter ждёт появления цели; новых encounters навигация не генерирует.
+
+## Исторические записи до 0.9.5
+
+# Slavic Myths 0.9.4 — текущий перенос
+
+Launcher fix: исправлены несовпадающие official PolyMC/Maven checksums NeoForge installer/universal локальным patch нового профиля. Реальный ForgeWrapper detector PASS; ручной повторный запуск ещё не проверен.
+
+Minecraft 1.21.1 / NeoForge 21.1.255 / Java 21. Все production sources компилируются; clean build, headless logic/resource/loader gates A–F PASS. Отдельный PolyMC Slavic-Myths-1.21.1-Testing установлен с семью проверенными JAR. Старый 1.16.5 профиль/миры сохранены. Клиент не запускался; игровая QA ещё не выполнена.
+
+Фактическое состояние и журналы: [PORT_STATUS_0.9.4.md](port/PORT_STATUS_0.9.4.md). Исторические записи ниже описывают предыдущие этапы и версии, а не подтверждение работоспособности текущего порта.
+
+Next concrete block: manual launch of the new profile and fresh-world QA (client/Curios/JEI/AI/structures/persistence), then fix reproduced port regressions. No 0.9.5 or gameplay redesign scope.
+
 # Актуальная ветка 0.9.x
 
 - 0.9.0: Овинник/Волколак, первые трофеи и hunting система реализованы; headless QA, игровой QA TODO.
 - 0.9.1: Огненный змей/Подвей, восемь наград, расширение существующей охоты реализованы; headless QA PASS, игровой QA TODO.
 - 0.9.2: Лихо Одноглазое / Тугарин Змей — код и headless проверки реализованы; игровой QA/визуальная сверка в Minecraft TODO.
-- 0.9.3: Яга, избушка, прогресс, GUI, предметы/обмен/котёл реализованы; headless проверки PASS, игровой QA TODO (MANUAL_QA_0.9.3.md).
-- 0.9.4: сведение контента, баланс/JEI/advancements — не начато.
+- 0.9.3: исправлен superflat/placement, добавлено яйцо Яги и production placement regression; Яга, избушка, прогресс, GUI, предметы/обмен/котёл реализованы; headless проверки PASS, игровой QA TODO (MANUAL_QA_0.9.3.md).
+- 0.9.4: перенос существующего контента на NeoForge 1.21.1 / Java 21 — в работе; см. port/PORT_STATUS_0.9.4.md. Дизайн/баланс не входят в scope.
 - 0.9.5+: content freeze, аудит/баги/визуал/баланс/performance/polish.
 - 1.0.0: стабильный релиз.
 
 Живая/мёртвая вода перенесены на поздний этап и в 0.9.0 не реализованы.
-Следующее действие: ручной QA 0.9.3 по MANUAL_QA_0.9.3.md; старые баги — отдельной согласованной итерацией.
+Следующее действие: завершить gates порта 0.9.4; дальнейшие переработки выполняются только на 1.21.1.
 Исторические планы ниже сохранены для контекста.
 
 ---
@@ -142,3 +171,7 @@ Artifact content drop: пять основных артефактов реали
 survival-контент отложено согласно заданию; сейчас Creative/команды.
 Следующий шаг — ручная проверка пользователем и точечные исправления по её результатам.
 0.7.0 «Воды и болота» в этом проходе не начинается.
+
+## 0.9.4 current next block
+
+Finish custom item/block APIs and concrete EntityBlock/ticker/menu transaction integration, then initialize real registries for codecs/inventory/Curios/JEI verification. Major entity/client/network/worldgen work follows. No 0.9.5 and no gameplay/worldgen/visual backlog fixes in this stage.

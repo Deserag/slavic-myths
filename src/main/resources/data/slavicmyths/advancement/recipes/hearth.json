@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bark": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:birch_bark"
+            ]
+          }
+        ]
+      }
+    },
+    "unlocked": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "slavicmyths:hearth"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bark",
+      "unlocked"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "slavicmyths:hearth"
+    ]
+  }
+}

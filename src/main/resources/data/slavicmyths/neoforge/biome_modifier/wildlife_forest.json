@@ -1,0 +1,36 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:spawn_forest_taiga",
+  "spawners": [
+    {
+      "type": "slavicmyths:brown_bear",
+      "weight": 2,
+      "minCount": 1,
+      "maxCount": 1
+    },
+    {
+      "type": "slavicmyths:forest_wolf",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 4
+    },
+    {
+      "type": "slavicmyths:boar",
+      "weight": 6,
+      "minCount": 1,
+      "maxCount": 3
+    },
+    {
+      "type": "slavicmyths:stag",
+      "weight": 3,
+      "minCount": 1,
+      "maxCount": 1
+    },
+    {
+      "type": "slavicmyths:doe",
+      "weight": 6,
+      "minCount": 2,
+      "maxCount": 3
+    }
+  ]
+}

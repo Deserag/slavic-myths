@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "slavicmyths:block/mossy_pale_blue_kurgan_cobblestone",
+    "top": "slavicmyths:block/mossy_pale_blue_kurgan_cobblestone",
+    "side": "slavicmyths:block/mossy_pale_blue_kurgan_cobblestone"
+  }
+}

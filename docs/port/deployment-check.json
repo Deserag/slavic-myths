@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "instance": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing",
+  "jar_count": 7,
+  "sha256_verified": true,
+  "legacy_unchanged": true,
+  "client_launches": 0,
+  "slavicmyths_sha256": "552a1cda30e0cab96bec6993523e444b34a42c7c947b10c0eeb2103ccf358a9e",
+  "manual_gameplay_verified": false,
+  "official_component_metadata_verified": true,
+  "official_neoforge_artifacts_checked": true
+}

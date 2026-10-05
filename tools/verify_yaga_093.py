@@ -43,9 +43,16 @@ assert 'ItemStack.EMPTY' in menu
 common='\n'.join(source('yaga/'+p.name) for p in (J/'yaga').glob('*.java'))
 # The tooltip flag in an Item override is the vanilla API exception; no client screens/renderers in common code.
 assert 'net.minecraft.client.gui' not in common and 'net.minecraft.client.renderer' not in common
-hut=source('yaga/YagaHut.java');assert hut.index('!loaded(w,candidate)')<hut.index('int min=255')
-assert all(n in hut for n in ['w.hasChunksAt','getNoiseBiome','old.entrySet()','w.addFreshEntity(npc)','d.placed=true'])
-assert all(n not in hut for n in ['setChunkForced','forceChunk','getAllEntities'])
+hut=source('yaga/YagaHut.java');placement=source('yaga/YagaPlacement.java')
+assert placement.index('!w.hasChunksAt')<placement.index('int min=')
+assert all(n in hut for n in ['getNoiseBiome','YagaPlacement.prepare','YagaPlacement.commit','w.addFreshEntity(npc)','d.placed=true'])
+assert '2|16' in placement and 'y>=0' in placement and 'site.old.entrySet()' in placement
+assert all(n not in hut+placement for n in ['setChunkForced','forceChunk','getAllEntities'])
+assert 'baba_yaga_spawn_egg' in items and 'SpawnReason.SPAWN_EGG' in source('yaga/BabaYaga.java')
+assert 'n.isEggSummoned()||progress().intro>=2' in menu
+assert '!eggSummoned&&progress.intro==0' in source('yaga/BabaYaga.java')
+assert 'YagaEggSummoned' in source('yaga/BabaYaga.java') and 'eggSummoned||d.placed' in source('yaga/BabaYaga.java')
+assert read(A/'models/item/baba_yaga_spawn_egg.json')['parent']=='minecraft:item/template_spawn_egg'
 utility=source('yaga/YagaUtilityItem.java');assert 'removeAllEffects' not in utility and 'KurganCurse.CURSE' not in utility
 assert all(n in utility for n in ['Effects.POISON','Effects.WITHER','Effects.CONFUSION','Math.round(delta.length()/10)*10','addCooldown(this,80)'])
 recovery=source('yaga/FlightRecovery.java');assert '?30:60' in recovery and 'now+6000' in recovery and 'Math.max(1' in recovery

@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "platform": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.255",
+    "java": 21
+  },
+  "gates": {
+    "A": "PASS",
+    "B": "PASS",
+    "C": "PASS",
+    "D": "PASS",
+    "E": "PASS",
+    "F": "PASS"
+  },
+  "jar_sha256": "552a1cda30e0cab96bec6993523e444b34a42c7c947b10c0eeb2103ccf358a9e",
+  "client_launches": 0,
+  "headless_server_boots_this_session": 6,
+  "headless_server_failed_runs": 1,
+  "note": "Six headless GameTest server boots: one initial test-fixture failure and five successful runs; one earlier loader failure before server bootstrap. No Minecraft client launch.",
+  "evidence_sha256": {
+    "finalize-clean-build.log": "00ac5a89c5e78e817bdcf2fc7d97d02764b6d759abf1755c7dfe3cdc81b8866e",
+    "finalize-runtime-nojei.log": "4bcb7881129ee1cc48fffe8a18179353117c595943c9b3ef904b6fe112dd644d",
+    "finalize-runtime-companions.log": "98da96c965850203638d3e997468be0f3abe84fa19e925ba7f8cd355ced402a6",
+    "finalize-runtime-aliases.log": "f03e4124484611083198119fff35c213d7c076c1021ebb2ab4876a6546e2620b"
+  },
+  "manual_gameplay_verified": false,
+  "manual_qa": "docs/MANUAL_QA_0.9.4_1.21.1.md"
+}

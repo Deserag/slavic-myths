@@ -1,10 +1,73 @@
+# Slavic Myths 0.9.5 — навигация и зоны поиска
+
+Minecraft 1.21.1 / NeoForge 21.1.255 / Java 21. Слой навигации реализован по последнему
+пакету V2. Предыдущий перенос 0.9.4 завершён; его отчёты сохранены как историческая база.
+
+Core/server: DONE по headless проверкам. Client screen/HUD/Xaero: COMPILES, ручная QA не выполнена.
+Build и финальные loader/data checks PASS. Minecraft-клиент не запускался.
+Production: `build/libs/slavicmyths-0.9.5.jar`. Точный hash: `packaging/test-pack-lock.json`.
+
+[Навигация, алгоритм и фактические ограничения](NAVIGATION_0.9.5.md),
+[ручные проверки](MANUAL_QA_0.9.5_NAVIGATION.md), [evidence](verification/navigation-0.9.5/acceptance.json).
+
+Восемь категорий, семь сохраняемых настроек, одна основная цель, клубок только к
+размещённой избушке, активированные stones и крупные найденные структуры, private SearchArea,
+quest lifecycle и optional Xaero group готовы к ручной QA. Статистика: 1000 зон,
+0 outside, 0% inner25, 75.7% outer50–85, 13.3% edge85–95.
+Тестовый профиль обновлён на 0.9.5 после gates; семь JAR проверены по hash.
+
+## Исторические записи до 0.9.5
+
+# Slavic Myths 0.9.4 — текущий перенос
+
+Launcher fix: исправлены несовпадающие official PolyMC/Maven checksums NeoForge installer/universal локальным patch нового профиля. Реальный ForgeWrapper detector PASS; ручной повторный запуск ещё не проверен.
+
+Minecraft 1.21.1 / NeoForge 21.1.255 / Java 21. Все production sources компилируются; clean build, headless logic/resource/loader gates A–F PASS. Отдельный PolyMC Slavic-Myths-1.21.1-Testing установлен с семью проверенными JAR. Старый 1.16.5 профиль/миры сохранены. Клиент не запускался; игровая QA ещё не выполнена.
+
+Фактическое состояние и журналы: [PORT_STATUS_0.9.4.md](port/PORT_STATUS_0.9.4.md). Исторические записи ниже описывают предыдущие этапы и версии, а не подтверждение работоспособности текущего порта.
+
+Current: 385 items, 153 blocks, 47 entity types (six helper registrations verified in the legacy archive); all public IDs retained. Six exact companion JARs acquired, SHA256 in packaging/test-pack-lock.json. No client launch/commit/push.
+
+# 0.9.4 — перенос на NeoForge 1.21.1 (В РАБОТЕ)
+
+Старое развитие 1.16.5 остановлено по новому пакету пользователя.
+Активный build: Java 21 / NeoForge 21.1.255 / ModDevGradle 2.0.148 / Gradle 9.2.1.
+Curios 9.5.1+1.21.1 и необязательный JEI 19.57.0.450 разрешаются из Maven.
+Есть полный source checkpoint с исправлениями Яги; старый PolyMC не изменён.
+Inventory: 385 предметов, 153 блока, 41 entity type; ID mapping не означает runtime PASS.
+Перенесены data paths и JSON schemas; 660 data-файлов и 547 бинарных assets проверены.
+Перенесены независимые Kurgan/Hunt NBT modules и три SavedData factories;
+основной мод ещё не компилируется из-за старых API в остальных системах.
+Полный план/блокеры/команды: port/PORT_STATUS_0.9.4.md.
+Production 0.9.4 JAR и runtime QA пока отсутствуют; Minecraft запусков 0.
+
+---
+
+# Исправление генерации Яги 0.9.3
+
+Устранён отказ superflat Y=3 из-за нижнего порога Y>4; production YagaPlacement
+читает поверхность до Y=0, атомарно размещает блоки с flags18, восстанавливает
+neighbor shapes только после полной постройки и проверяет опоры/откат.
+Добавлены точные причины отказа, восемь близких кандидатов generate, понятный
+planned locate без ложной высоты Y=0 и `baba_yaga_spawn_egg`.
+Яга из яйца обслуживает игрока без подмены хозяйки/anchor, сохраняет NBT происхождения,
+не выдаёт find_the_hut и не изменяет intro дома. Котёл остаётся сервисом избушки.
+
+verifyYagaPlacement проверяет реальный prepare/commit на vanilla BlockState/тегах:
+Y=3/4/63, Y=0 scan, полный дом, отсутствие раннего разрушения декора,
+граничные отказы и полный откат. Minecraft client/server запусков 0.
+Результаты final build/ресурсов и установка: verification/yaga-placement-hotfix/,
+verification/yaga-install-0.9.3.json. Версия/registry IDs прежнего контента сохраняются.
+
+---
+
 # 0.9.3 — Баба-яга: код и headless проверки
 
 Реализованы: уникальный сервисный NPC 40 HP / .23 speed, собственная 79-part модель,
 сохранённая избушка 11×13 с нативными суставчатыми лапами, окружением и интерьером,
 scripted intro, 4 вкладки, два закрываемых `?`, независимый прогресс игроков,
 3 последовательных задания, 14-позиционная очередь 6 контрактов, 6 обменов,
-6 рецептов котла, 8 предметов, 4 world-only блока, 10 semantic vanilla sound fallbacks,
+6 рецептов котла, 8 сервисных предметов + яйцо Яги, 4 world-only блока, 10 semantic vanilla sound fallbacks,
 RU/EN, JEI и 6 достижений. Уникальные трофеи Лихо/Тугарина не расходуются.
 Очищение не удаляет курганное проклятие. Метла/ступа сохраняют старые IDs.
 

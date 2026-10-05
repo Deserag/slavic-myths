@@ -1,36 +1,23 @@
 package org.slavicmyths.loot;
 
-import com.google.gson.JsonObject;
-import java.util.List;
-import net.minecraft.item.ItemStack;
-import net.minecraft.loot.LootContext;
-import net.minecraft.loot.conditions.ILootCondition;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
-import net.minecraftforge.common.loot.LootModifier;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
+import net.neoforged.neoforge.common.loot.LootModifier;
 import org.slavicmyths.registry.ModItems;
 
-/** Conditions live in JSON; original vanilla drops are preserved. */
+/** Conditions remain in JSON; the existing drops are preserved. */
 public final class FernFlowerModifier extends LootModifier {
-    public FernFlowerModifier(ILootCondition[] conditions) {
-        super(conditions);
+    public static final MapCodec<FernFlowerModifier> CODEC = RecordCodecBuilder.mapCodec(
+            instance -> codecStart(instance).apply(instance, FernFlowerModifier::new));
+    public FernFlowerModifier(LootItemCondition[] conditions) { super(conditions); }
+    @Override protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> loot, LootContext context) {
+        loot.add(new ItemStack(ModItems.FERN_FLOWER.get()));
+        return loot;
     }
-
-    @Override
-    protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
-        generatedLoot.add(new ItemStack(ModItems.FERN_FLOWER.get()));
-        return generatedLoot;
-    }
-
-    public static final class Serializer extends GlobalLootModifierSerializer<FernFlowerModifier> {
-        @Override
-        public FernFlowerModifier read(ResourceLocation name, JsonObject json, ILootCondition[] conditions) {
-            return new FernFlowerModifier(conditions);
-        }
-
-        @Override
-        public JsonObject write(FernFlowerModifier modifier) {
-            return makeConditions(modifier.conditions);
-        }
-    }
+    @Override public MapCodec<? extends IGlobalLootModifier> codec() { return CODEC; }
 }

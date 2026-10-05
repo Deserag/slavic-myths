@@ -1,5 +1,5 @@
 package org.slavicmyths.kitchen;
-import net.minecraft.item.*;
+import net.minecraft.world.item.*;
 import org.slavicmyths.registry.ModItems;
 public final class KitchenRecipes {
  public static final int COUNT=12;

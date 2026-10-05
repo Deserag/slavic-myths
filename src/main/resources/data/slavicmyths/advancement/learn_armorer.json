@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:root",
+  "criteria": {
+    "table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:armorer_table"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,3 +1,76 @@
+# Slavic Myths 0.9.5 — навигация и зоны поиска
+
+Minecraft 1.21.1 / NeoForge 21.1.255 / Java 21. Слой навигации реализован по последнему
+пакету V2. Предыдущий перенос 0.9.4 завершён; его отчёты сохранены как историческая база.
+
+Core/server: DONE по headless проверкам. Client screen/HUD/Xaero: COMPILES, ручная QA не выполнена.
+Build и финальные loader/data checks PASS. Minecraft-клиент не запускался.
+Production: `build/libs/slavicmyths-0.9.5.jar`. Точный hash: `packaging/test-pack-lock.json`.
+
+[Навигация, алгоритм и фактические ограничения](NAVIGATION_0.9.5.md),
+[ручные проверки](MANUAL_QA_0.9.5_NAVIGATION.md), [evidence](verification/navigation-0.9.5/acceptance.json).
+
+Core: navigation/SlavicMarker, NavigationState, SearchArea, NavigationRecords.
+Серверный SavedData хранит exact assignments отдельно от public player snapshot.
+Typed navigation_request проверяет ownership и права; navigation_snapshot содержит только
+одного игрока. Client UI и compat/xaero изолированы; Xaero compileOnly и optional.
+Реальный immutable home определяет стабильную revision зоны; discovery разрешает temporary
+exact point, lifecycle очищает его. Проверки polling индексируются собственными marker IDs,
+не обходят чужие quests; bounded loaded-chunk discovery не создаёт chunks.
+Путевой камень по-прежнему открывает RPG menu; новые travel-механики не добавлены.
+
+## Исторические записи до 0.9.5
+
+# Slavic Myths 0.9.4 — текущий перенос
+
+Launcher fix: исправлены несовпадающие official PolyMC/Maven checksums NeoForge installer/universal локальным patch нового профиля. Реальный ForgeWrapper detector PASS; ручной повторный запуск ещё не проверен.
+
+Minecraft 1.21.1 / NeoForge 21.1.255 / Java 21. Все production sources компилируются; clean build, headless logic/resource/loader gates A–F PASS. Отдельный PolyMC Slavic-Myths-1.21.1-Testing установлен с семью проверенными JAR. Старый 1.16.5 профиль/миры сохранены. Клиент не запускался; игровая QA ещё не выполнена.
+
+Фактическое состояние и журналы: [PORT_STATUS_0.9.4.md](port/PORT_STATUS_0.9.4.md). Исторические записи ниже описывают предыдущие этапы и версии, а не подтверждение работоспособности текущего порта.
+
+Current port: provider-aware SavedData (all seven); persistent ItemStack data components with legacy custom_data/DFU migration; four typed payloads with server validation and client-only handlers; target event registration and GuiGraphics; data-driven features/spawns/structure sets with codecs and bounded candidate exclusions. Test sources/resources attach only to the opt-in GameTest run and never enter production JAR. Generic HP overlay removed under the package instruction; unique boss/UI mechanics retained.
+
+# 0.9.4 — текущая архитектура переноса
+
+Единственный активный toolchain — NeoForge 1.21.1 / Java 21, без dual-loader.
+Entrypoint принимает IEventBus и ModContainer; конфигурация ModConfigSpec.
+ModSounds использует DeferredHolder/DeferredRegister и variable-range SoundEvent.
+BurialRecords, HuntRecords, PoolIndex используют SavedData.Factory, CompoundTag и
+сохранённые старые имена файлов/ключей; сериализация не меняет игровую логику.
+Некоторые runtime callers пока используют 1.16 API: полный port НЕ завершён.
+
+portCore — тестовая компиляция выбранных реальных независимых production-файлов
+на target dependencies; из main ничего не исключается, fake/stub API отсутствуют.
+verifyKurgan/verifyHunt используют эти же production-классы; полный mod boot
+и stateful ItemStack components этим не проверяются. Детали — port/PORT_STATUS_0.9.4.md.
+
+port_resources_1211.py выполняет явные schema conversions, переносит singular data
+folders; текстуры/звуки/structure NBT байт-в-байт сохраняются. Resource verifier
+сравнивает нормализованные baseline data и бинарные SHA256; decoder/runtime QA pending.
+Исторические генераторы assets ещё требуют адаптации: не запускать их как новый datagen.
+
+---
+
+# Исправление placement 0.9.3
+
+YagaPlacement содержит production preflight/commit на IWorld, а не копию алгоритма
+для тестов. Prepare проверяет loaded bounds до первого чтения, terrain Y>=0,
+контейнеры/защиту/жидкости, полный desired/old snapshot и опоры почвы.
+Commit использует flags=2|16; лишь затем вычисляет connected states всех блоков,
+отклоняет неподдерживаемые/потерянные блоки, применяет формы и вызывает spawn.
+Только успешный spawn позволяет YagaHut записать placed/anchor/canonical UUID.
+Отказ блока, опоры, спавна или исключение откатывают snapshot с теми же flags18.
+
+YagaPlacementHeadless использует vanilla bootstrap и локальные vanilla block tags,
+изолированный IWorld fixture и этот же prepare/commit. Никакого server/client main.
+NBT NPC теперь содержит YagaEggSummoned; SpawnReason.SPAWN_EGG включает сервисный
+доступ standalone NPC, но не меняет world home/UUID. YagaMenu допускает egg NPC
+без house intro; BabaYaga не выдаёт им hut advancement и не меняет house intro.
+Все прежние серверные проверки и общая личная прогрессия остаются.
+
+---
+
 # 0.9.3 — избушка и сервисы Яги
 
 YagaData — WorldSavedData `slavicmyths_yaga` в Overworld: anchor/placed/NPC UUID,
@@ -752,3 +825,7 @@ crafting. tools/hunt_090.py — воспроизводимая отдельна�
 verifyHunt не запускает Minecraft: owner/UUID/state/cooldown NBT, модификаторы
 по времени, сроки способностей и глубокая копия nested pouch NBT. Это не
 runtime proof отсутствия duplication/AI bugs; ручной QA выделен отдельно.
+
+## 0.9.4 stage-2 data boundaries
+
+ItemState owns persistent/synchronized immutable components; player/entity/world NBT stays separate. ArmorerInput keeps the full grid instead of vanilla trimming; RecipeHolder owns recipe identity. Curios uses data-driven slots and client-only renderer registration. Optional JEI has no common entrypoint reference. All old content retained; source migration is not runtime acceptance.

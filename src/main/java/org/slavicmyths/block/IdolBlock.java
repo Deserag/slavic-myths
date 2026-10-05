@@ -1,23 +1,24 @@
 package org.slavicmyths.block;
+import net.minecraft.network.chat.Component;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.level.Level;
 import org.slavicmyths.progression.Knowledge;
 
 public final class IdolBlock extends Block {
     public IdolBlock(Properties properties) { super(properties); }
-    @Override public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
+    @Override public InteractionResult useWithoutItem(BlockState state,Level world,BlockPos pos,Player player,BlockHitResult hit){return useItemOn(player.getItemInHand(InteractionHand.MAIN_HAND),state,world,pos,player,InteractionHand.MAIN_HAND,hit).result();}
+@Override public net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack interactionStack,BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit){
         if (!world.isClientSide) {
             Knowledge.award(player, "shrine");
-            player.displayClientMessage(new TranslationTextComponent("shrine.slavicmyths.discovered"), true);
+            player.displayClientMessage(Component.translatable("shrine.slavicmyths.discovered"), true);
         }
-        return ActionResultType.sidedSuccess(world.isClientSide);
+        return net.minecraft.world.ItemInteractionResult.sidedSuccess(world.isClientSide);
     }
 }

@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:hunt_begins",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:oko_likha"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.name_your_misfortune.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.name_your_misfortune.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
