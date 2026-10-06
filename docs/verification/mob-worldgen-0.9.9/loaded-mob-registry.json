@@ -142,25 +142,25 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:sunflower_plains",
-        "weight": 2,
-        "min": 1,
-        "max": 2
-      },
-      {
-        "biome": "minecraft:forest",
+        "biome": "minecraft:birch_forest",
         "weight": 6,
         "min": 1,
         "max": 3
       },
       {
-        "biome": "minecraft:dark_forest",
+        "biome": "minecraft:taiga",
         "weight": 6,
         "min": 1,
         "max": 3
       },
       {
-        "biome": "minecraft:old_growth_birch_forest",
+        "biome": "minecraft:snowy_taiga",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
         "weight": 6,
         "min": 1,
         "max": 3
@@ -178,16 +178,10 @@
         "max": 3
       },
       {
-        "biome": "minecraft:old_growth_spruce_taiga",
-        "weight": 6,
+        "biome": "minecraft:plains",
+        "weight": 2,
         "min": 1,
-        "max": 3
-      },
-      {
-        "biome": "minecraft:snowy_taiga",
-        "weight": 6,
-        "min": 1,
-        "max": 3
+        "max": 2
       },
       {
         "biome": "minecraft:grove",
@@ -196,19 +190,25 @@
         "max": 3
       },
       {
-        "biome": "minecraft:taiga",
+        "biome": "minecraft:old_growth_birch_forest",
         "weight": 6,
         "min": 1,
         "max": 3
       },
       {
-        "biome": "minecraft:plains",
+        "biome": "minecraft:sunflower_plains",
         "weight": 2,
         "min": 1,
         "max": 2
       },
       {
-        "biome": "minecraft:birch_forest",
+        "biome": "minecraft:dark_forest",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      },
+      {
+        "biome": "minecraft:forest",
         "weight": 6,
         "min": 1,
         "max": 3
@@ -254,19 +254,25 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:forest",
+        "biome": "minecraft:birch_forest",
         "weight": 2,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:dark_forest",
+        "biome": "minecraft:taiga",
         "weight": 2,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:old_growth_birch_forest",
+        "biome": "minecraft:snowy_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
         "weight": 2,
         "min": 1,
         "max": 1
@@ -284,31 +290,25 @@
         "max": 1
       },
       {
-        "biome": "minecraft:old_growth_spruce_taiga",
-        "weight": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:snowy_taiga",
-        "weight": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
         "biome": "minecraft:grove",
         "weight": 2,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:taiga",
+        "biome": "minecraft:old_growth_birch_forest",
         "weight": 2,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:birch_forest",
+        "biome": "minecraft:dark_forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:forest",
         "weight": 2,
         "min": 1,
         "max": 1
@@ -346,7 +346,13 @@
     "placement": "IN_WATER",
     "naturalSpawns": [
       {
-        "biome": "minecraft:frozen_river",
+        "biome": "minecraft:swamp",
+        "weight": 8,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:mangrove_swamp",
         "weight": 8,
         "min": 2,
         "max": 4
@@ -358,13 +364,7 @@
         "max": 4
       },
       {
-        "biome": "minecraft:swamp",
-        "weight": 8,
-        "min": 2,
-        "max": 4
-      },
-      {
-        "biome": "minecraft:mangrove_swamp",
+        "biome": "minecraft:frozen_river",
         "weight": 8,
         "min": 2,
         "max": 4
@@ -386,7 +386,13 @@
     "placement": "IN_WATER",
     "naturalSpawns": [
       {
-        "biome": "minecraft:frozen_river",
+        "biome": "minecraft:swamp",
+        "weight": 3,
+        "min": 1,
+        "max": 2
+      },
+      {
+        "biome": "minecraft:mangrove_swamp",
         "weight": 3,
         "min": 1,
         "max": 2
@@ -398,13 +404,7 @@
         "max": 2
       },
       {
-        "biome": "minecraft:swamp",
-        "weight": 3,
-        "min": 1,
-        "max": 2
-      },
-      {
-        "biome": "minecraft:mangrove_swamp",
+        "biome": "minecraft:frozen_river",
         "weight": 3,
         "min": 1,
         "max": 2
@@ -427,25 +427,25 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:sunflower_plains",
-        "weight": 4,
-        "min": 2,
-        "max": 5
-      },
-      {
-        "biome": "minecraft:forest",
+        "biome": "minecraft:birch_forest",
         "weight": 6,
         "min": 2,
         "max": 5
       },
       {
-        "biome": "minecraft:dark_forest",
+        "biome": "minecraft:taiga",
         "weight": 6,
         "min": 2,
         "max": 5
       },
       {
-        "biome": "minecraft:old_growth_birch_forest",
+        "biome": "minecraft:snowy_taiga",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
         "weight": 6,
         "min": 2,
         "max": 5
@@ -463,14 +463,8 @@
         "max": 5
       },
       {
-        "biome": "minecraft:old_growth_spruce_taiga",
-        "weight": 6,
-        "min": 2,
-        "max": 5
-      },
-      {
-        "biome": "minecraft:snowy_taiga",
-        "weight": 6,
+        "biome": "minecraft:plains",
+        "weight": 4,
         "min": 2,
         "max": 5
       },
@@ -481,19 +475,25 @@
         "max": 5
       },
       {
-        "biome": "minecraft:taiga",
+        "biome": "minecraft:old_growth_birch_forest",
         "weight": 6,
         "min": 2,
         "max": 5
       },
       {
-        "biome": "minecraft:plains",
+        "biome": "minecraft:sunflower_plains",
         "weight": 4,
         "min": 2,
         "max": 5
       },
       {
-        "biome": "minecraft:birch_forest",
+        "biome": "minecraft:dark_forest",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:forest",
         "weight": 6,
         "min": 2,
         "max": 5
@@ -516,37 +516,7 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:sunflower_plains",
-        "weight": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:windswept_savanna",
-        "weight": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:savanna",
-        "weight": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:old_growth_pine_taiga",
-        "weight": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:savanna_plateau",
-        "weight": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:old_growth_spruce_taiga",
+        "biome": "minecraft:taiga",
         "weight": 2,
         "min": 1,
         "max": 1
@@ -558,13 +528,43 @@
         "max": 1
       },
       {
-        "biome": "minecraft:taiga",
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
         "weight": 2,
         "min": 1,
         "max": 1
       },
       {
         "biome": "minecraft:plains",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_savanna",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna_plateau",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:sunflower_plains",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna",
         "weight": 2,
         "min": 1,
         "max": 1
@@ -611,13 +611,19 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:sunflower_plains",
+        "biome": "minecraft:birch_forest",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:forest",
+        "biome": "minecraft:stony_peaks",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_gravelly_hills",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -629,43 +635,37 @@
         "max": 1
       },
       {
+        "biome": "minecraft:flower_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:meadow",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
         "biome": "minecraft:windswept_savanna",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:jagged_peaks",
+        "biome": "minecraft:grove",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:dark_forest",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:savanna",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:old_growth_birch_forest",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:savanna_plateau",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:flower_forest",
+        "biome": "minecraft:cherry_grove",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -683,37 +683,19 @@
         "max": 1
       },
       {
-        "biome": "minecraft:windswept_hills",
+        "biome": "minecraft:savanna_plateau",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:grove",
+        "biome": "minecraft:old_growth_birch_forest",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:meadow",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:cherry_grove",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:plains",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:windswept_gravelly_hills",
+        "biome": "minecraft:snowy_slopes",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -725,19 +707,37 @@
         "max": 1
       },
       {
-        "biome": "minecraft:stony_peaks",
+        "biome": "minecraft:jagged_peaks",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:birch_forest",
+        "biome": "minecraft:windswept_hills",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:snowy_slopes",
+        "biome": "minecraft:sunflower_plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:forest",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -776,19 +776,25 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:forest",
+        "biome": "minecraft:birch_forest",
         "weight": 5,
         "min": 2,
         "max": 4
       },
       {
-        "biome": "minecraft:dark_forest",
+        "biome": "minecraft:taiga",
         "weight": 5,
         "min": 2,
         "max": 4
       },
       {
-        "biome": "minecraft:old_growth_birch_forest",
+        "biome": "minecraft:snowy_taiga",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
         "weight": 5,
         "min": 2,
         "max": 4
@@ -806,31 +812,25 @@
         "max": 4
       },
       {
-        "biome": "minecraft:old_growth_spruce_taiga",
-        "weight": 5,
-        "min": 2,
-        "max": 4
-      },
-      {
-        "biome": "minecraft:snowy_taiga",
-        "weight": 5,
-        "min": 2,
-        "max": 4
-      },
-      {
         "biome": "minecraft:grove",
         "weight": 5,
         "min": 2,
         "max": 4
       },
       {
-        "biome": "minecraft:taiga",
+        "biome": "minecraft:old_growth_birch_forest",
         "weight": 5,
         "min": 2,
         "max": 4
       },
       {
-        "biome": "minecraft:birch_forest",
+        "biome": "minecraft:dark_forest",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:forest",
         "weight": 5,
         "min": 2,
         "max": 4
@@ -869,19 +869,25 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:forest",
+        "biome": "minecraft:birch_forest",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:dark_forest",
+        "biome": "minecraft:taiga",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:old_growth_birch_forest",
+        "biome": "minecraft:snowy_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -899,31 +905,25 @@
         "max": 1
       },
       {
-        "biome": "minecraft:old_growth_spruce_taiga",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:snowy_taiga",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
         "biome": "minecraft:grove",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:taiga",
+        "biome": "minecraft:old_growth_birch_forest",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:birch_forest",
+        "biome": "minecraft:dark_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:forest",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -946,19 +946,25 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:forest",
+        "biome": "minecraft:birch_forest",
         "weight": 2,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:dark_forest",
+        "biome": "minecraft:taiga",
         "weight": 2,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:old_growth_birch_forest",
+        "biome": "minecraft:snowy_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
         "weight": 2,
         "min": 1,
         "max": 1
@@ -976,31 +982,25 @@
         "max": 1
       },
       {
-        "biome": "minecraft:old_growth_spruce_taiga",
-        "weight": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:snowy_taiga",
-        "weight": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
         "biome": "minecraft:grove",
         "weight": 2,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:taiga",
+        "biome": "minecraft:old_growth_birch_forest",
         "weight": 2,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:birch_forest",
+        "biome": "minecraft:dark_forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:forest",
         "weight": 2,
         "min": 1,
         "max": 1
@@ -1063,19 +1063,25 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:forest",
+        "biome": "minecraft:birch_forest",
         "weight": 3,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:dark_forest",
+        "biome": "minecraft:taiga",
         "weight": 3,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:old_growth_birch_forest",
+        "biome": "minecraft:snowy_taiga",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
         "weight": 3,
         "min": 1,
         "max": 1
@@ -1093,31 +1099,25 @@
         "max": 1
       },
       {
-        "biome": "minecraft:old_growth_spruce_taiga",
-        "weight": 3,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:snowy_taiga",
-        "weight": 3,
-        "min": 1,
-        "max": 1
-      },
-      {
         "biome": "minecraft:grove",
         "weight": 3,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:taiga",
+        "biome": "minecraft:old_growth_birch_forest",
         "weight": 3,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:birch_forest",
+        "biome": "minecraft:dark_forest",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:forest",
         "weight": 3,
         "min": 1,
         "max": 1
@@ -1186,19 +1186,73 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:sunflower_plains",
+        "biome": "minecraft:birch_forest",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:forest",
+        "biome": "minecraft:taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:plains",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
         "biome": "minecraft:windswept_savanna",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna_plateau",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:sunflower_plains",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -1216,61 +1270,7 @@
         "max": 1
       },
       {
-        "biome": "minecraft:old_growth_birch_forest",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:old_growth_pine_taiga",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:savanna_plateau",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:flower_forest",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:old_growth_spruce_taiga",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:snowy_taiga",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:grove",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:taiga",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:plains",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:birch_forest",
+        "biome": "minecraft:forest",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -1292,7 +1292,13 @@
     "placement": "IN_WATER",
     "naturalSpawns": [
       {
-        "biome": "minecraft:frozen_river",
+        "biome": "minecraft:swamp",
+        "weight": 4,
+        "min": 1,
+        "max": 2
+      },
+      {
+        "biome": "minecraft:mangrove_swamp",
         "weight": 4,
         "min": 1,
         "max": 2
@@ -1304,13 +1310,7 @@
         "max": 2
       },
       {
-        "biome": "minecraft:swamp",
-        "weight": 4,
-        "min": 1,
-        "max": 2
-      },
-      {
-        "biome": "minecraft:mangrove_swamp",
+        "biome": "minecraft:frozen_river",
         "weight": 4,
         "min": 1,
         "max": 2
@@ -1333,7 +1333,13 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:sunflower_plains",
+        "biome": "minecraft:stony_peaks",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_gravelly_hills",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -1345,25 +1351,31 @@
         "max": 1
       },
       {
+        "biome": "minecraft:meadow",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
         "biome": "minecraft:windswept_savanna",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:jagged_peaks",
+        "biome": "minecraft:grove",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:savanna",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:savanna_plateau",
+        "biome": "minecraft:cherry_grove",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -1381,37 +1393,13 @@
         "max": 1
       },
       {
-        "biome": "minecraft:windswept_hills",
+        "biome": "minecraft:savanna_plateau",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:grove",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:meadow",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:cherry_grove",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:plains",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:windswept_gravelly_hills",
+        "biome": "minecraft:snowy_slopes",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -1423,13 +1411,25 @@
         "max": 1
       },
       {
-        "biome": "minecraft:stony_peaks",
+        "biome": "minecraft:jagged_peaks",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:snowy_slopes",
+        "biome": "minecraft:windswept_hills",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:sunflower_plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -1452,7 +1452,7 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:sunflower_plains",
+        "biome": "minecraft:plains",
         "weight": 2,
         "min": 1,
         "max": 1
@@ -1464,19 +1464,19 @@
         "max": 1
       },
       {
-        "biome": "minecraft:savanna",
-        "weight": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
         "biome": "minecraft:savanna_plateau",
         "weight": 2,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:plains",
+        "biome": "minecraft:sunflower_plains",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna",
         "weight": 2,
         "min": 1,
         "max": 1
@@ -1499,7 +1499,7 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:sunflower_plains",
+        "biome": "minecraft:plains",
         "weight": 2,
         "min": 1,
         "max": 1
@@ -1511,19 +1511,19 @@
         "max": 1
       },
       {
-        "biome": "minecraft:savanna",
-        "weight": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
         "biome": "minecraft:savanna_plateau",
         "weight": 2,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:plains",
+        "biome": "minecraft:sunflower_plains",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna",
         "weight": 2,
         "min": 1,
         "max": 1
@@ -1546,7 +1546,13 @@
     "placement": "IN_WATER",
     "naturalSpawns": [
       {
-        "biome": "minecraft:frozen_river",
+        "biome": "minecraft:swamp",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:mangrove_swamp",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -1558,13 +1564,7 @@
         "max": 1
       },
       {
-        "biome": "minecraft:swamp",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:mangrove_swamp",
+        "biome": "minecraft:frozen_river",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -1600,25 +1600,25 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:sunflower_plains",
-        "weight": 2,
-        "min": 2,
-        "max": 5
-      },
-      {
-        "biome": "minecraft:forest",
+        "biome": "minecraft:birch_forest",
         "weight": 3,
         "min": 2,
         "max": 5
       },
       {
-        "biome": "minecraft:dark_forest",
+        "biome": "minecraft:taiga",
         "weight": 3,
         "min": 2,
         "max": 5
       },
       {
-        "biome": "minecraft:old_growth_birch_forest",
+        "biome": "minecraft:snowy_taiga",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
         "weight": 3,
         "min": 2,
         "max": 5
@@ -1636,14 +1636,8 @@
         "max": 5
       },
       {
-        "biome": "minecraft:old_growth_spruce_taiga",
-        "weight": 3,
-        "min": 2,
-        "max": 5
-      },
-      {
-        "biome": "minecraft:snowy_taiga",
-        "weight": 3,
+        "biome": "minecraft:plains",
+        "weight": 2,
         "min": 2,
         "max": 5
       },
@@ -1654,19 +1648,25 @@
         "max": 5
       },
       {
-        "biome": "minecraft:taiga",
+        "biome": "minecraft:old_growth_birch_forest",
         "weight": 3,
         "min": 2,
         "max": 5
       },
       {
-        "biome": "minecraft:plains",
+        "biome": "minecraft:sunflower_plains",
         "weight": 2,
         "min": 2,
         "max": 5
       },
       {
-        "biome": "minecraft:birch_forest",
+        "biome": "minecraft:dark_forest",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:forest",
         "weight": 3,
         "min": 2,
         "max": 5
@@ -1753,7 +1753,13 @@
     "placement": "IN_WATER",
     "naturalSpawns": [
       {
-        "biome": "minecraft:frozen_river",
+        "biome": "minecraft:swamp",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:mangrove_swamp",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -1765,13 +1771,7 @@
         "max": 1
       },
       {
-        "biome": "minecraft:swamp",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:mangrove_swamp",
+        "biome": "minecraft:frozen_river",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -1794,19 +1794,25 @@
     "placement": "ON_GROUND",
     "naturalSpawns": [
       {
-        "biome": "minecraft:forest",
+        "biome": "minecraft:birch_forest",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:dark_forest",
+        "biome": "minecraft:taiga",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:old_growth_birch_forest",
+        "biome": "minecraft:snowy_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
         "weight": 1,
         "min": 1,
         "max": 1
@@ -1824,31 +1830,25 @@
         "max": 1
       },
       {
-        "biome": "minecraft:old_growth_spruce_taiga",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "biome": "minecraft:snowy_taiga",
-        "weight": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
         "biome": "minecraft:grove",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:taiga",
+        "biome": "minecraft:old_growth_birch_forest",
         "weight": 1,
         "min": 1,
         "max": 1
       },
       {
-        "biome": "minecraft:birch_forest",
+        "biome": "minecraft:dark_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:forest",
         "weight": 1,
         "min": 1,
         "max": 1

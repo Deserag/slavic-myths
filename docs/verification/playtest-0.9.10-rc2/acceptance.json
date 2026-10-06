@@ -18,5 +18,8 @@
   "staticErrors": 0,
   "resourceReferences": 4042,
   "installedInPolyMC": true,
-  "installationReceipt": "docs/verification/playtest-0.9.10-rc2/polymc-installation.json"
+  "installationReceipt": "docs/verification/playtest-0.9.10-rc2/polymc-installation.json",
+  "githubPrerelease": "https://github.com/Deserag/slavic-myths/releases/tag/v0.9.10-rc2",
+  "publicArtifactDownloadsVerified": true,
+  "mainIsDefaultBranch": true
 }

@@ -1,0 +1,79 @@
+{
+  "version": "0.9.10-rc2",
+  "url": "https://github.com/Deserag/slavic-myths/releases/tag/v0.9.10-rc2",
+  "prerelease": true,
+  "defaultBranch": "main",
+  "assets": [
+    {
+      "name": "slavicmyths-0.9.10-rc2.jar",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc2/slavicmyths-0.9.10-rc2.jar",
+      "size": 6340754,
+      "sha256": "faa54bd5decf79dc029b1d722f1995b195aa313dd5cea900c16bd7a70ea5a499",
+      "publicDownloadVerified": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc2/SHA256SUMS.txt",
+      "size": 94,
+      "sha256": "e8414f15943824022b5ab3883b18021660f0408c3de8a5fa1cc7014280fc460e"
+    },
+    {
+      "name": "README_PLAYTEST.md",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc2/README_PLAYTEST.md",
+      "size": 1648,
+      "sha256": "d74439728673cd9d429f34a398339e185b273cdc3c5477ae7084a20f5ac7eef7"
+    },
+    {
+      "name": "CHANGELOG_0.9.10-RC2.md",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc2/CHANGELOG_0.9.10-RC2.md",
+      "size": 1293,
+      "sha256": "5b342046820e9af861e48dad79c0fdeea663b6d651ee1f7c68932c6e469a6391"
+    },
+    {
+      "name": "DEPENDENCIES.md",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc2/DEPENDENCIES.md",
+      "size": 1371,
+      "sha256": "8d3c01125d7939a343112633c75c0bed7525ef54cafe2262150c89b726189c56"
+    },
+    {
+      "name": "KNOWN_ISSUES.md",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc2/KNOWN_ISSUES.md",
+      "size": 1926,
+      "sha256": "6227378364e34bd872f2369cd6568cf0eb4099bad6c2a2dae08bdcd26d9fe397"
+    },
+    {
+      "name": "REMAINING_WORK.md",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc2/REMAINING_WORK.md",
+      "size": 2790,
+      "sha256": "1ee8567dce18483a91c607d0fdeb46008431f66d28f5fb6a3216d74aa808c843"
+    },
+    {
+      "name": "slavicmyths-0.9.10-rc2-player-pack.zip",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc2/slavicmyths-0.9.10-rc2-player-pack.zip",
+      "size": 5858393,
+      "sha256": "8f6a671ef0569c431e3cd5f8e74e528472e895d065046c225595bea0930acc3d",
+      "publicDownloadVerified": true
+    },
+    {
+      "name": "slavicmyths-0.9.10-rc2.mrpack",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc2/slavicmyths-0.9.10-rc2.mrpack",
+      "size": 5851298,
+      "sha256": "3b3499dcf719aaa08f8342b1bfb8196a3c3fd53b687773a39b4096f722050056",
+      "publicDownloadVerified": true
+    }
+  ],
+  "publicArtifactDownloadsVerified": true,
+  "distributionCommit": "adffa0e5cfe24f7d48f9bf9186aacb19cb711b8e",
+  "distributionFiles": [
+    "CHANGELOG_0.9.10-RC2.md",
+    "DEPENDENCIES.md",
+    "DOWNLOAD_MODS.ps1",
+    "KNOWN_ISSUES.md",
+    "MODS_LOCK.json",
+    "README.md",
+    "REMAINING_WORK.md",
+    "SHA256SUMS.txt",
+    "mods/slavicmyths-0.9.10-rc2.jar"
+  ],
+  "sourceTag": "v0.9.10-rc2"
+}
