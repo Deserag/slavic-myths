@@ -1,0 +1,22 @@
+{
+  "version": "0.9.10-rc2",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-0.9.10-rc2.jar",
+  "sha256": "faa54bd5decf79dc029b1d722f1995b195aa313dd5cea900c16bd7a70ea5a499",
+  "build": "PASS",
+  "resources": "PASS",
+  "missingAssetReferences": 0,
+  "hotfixAndWorkstationTests": "9/9 PASS",
+  "regressionTests": "27/27 PASS",
+  "serverLaunchesThisContinuation": 3,
+  "clientLaunches": 0,
+  "realMultiplayerAndReconnect": "MANUAL PENDING",
+  "visualAcceptance": "MANUAL PENDING",
+  "msptMeasured": false,
+  "sourceBranch": "main",
+  "distributionBranch": "release/0.9.10-distribution",
+  "staticReferences": 2685,
+  "staticErrors": 0,
+  "resourceReferences": 4042,
+  "installedInPolyMC": true,
+  "installationReceipt": "docs/verification/playtest-0.9.10-rc2/polymc-installation.json"
+}

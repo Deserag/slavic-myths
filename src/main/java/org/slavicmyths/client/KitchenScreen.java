@@ -15,14 +15,14 @@ public final class KitchenScreen extends AbstractContainerScreen<KitchenMenu>{
  @Override protected void init(){super.init();
   for(int i=0;i<KitchenRecipes.COUNT;i++){final int id=i;String name=KitchenRecipes.output(i).getDescription().getString();if(font.width(name)>66)name=font.plainSubstrByWidth(name,58)+"…";
    addRenderableWidget(Button.builder(Component.literal(name),b->selected=id).bounds(leftPos+7,topPos+30+i*14,72,13).build());}
-  cook=addRenderableWidget(Button.builder(tr("cook"),b->minecraft.gameMode.handleInventoryButtonClick(menu.containerId,selected)).bounds(leftPos+224,topPos+116,88,20).build());
+  cook=addRenderableWidget(Button.builder(tr("cook"),b->minecraft.gameMode.handleInventoryButtonClick(menu.containerId,selected)).bounds(leftPos+224,topPos+128,88,20).build());
  }
  @Override protected void renderBg(GuiGraphics g,float f,int x,int y){
   g.fill(leftPos,topPos,leftPos+imageWidth,topPos+imageHeight,0xff493322);
   g.fill(leftPos+4,topPos+4,leftPos+imageWidth-4,topPos+imageHeight-4,0xffeadcba);
   g.fill(leftPos+4,topPos+26,leftPos+82,topPos+201,0xffc4ab83);
   g.fill(leftPos+84,topPos+26,leftPos+218,topPos+138,0xffd8c59f);
-  g.fill(leftPos+220,topPos+26,leftPos+316,topPos+138,0xfff3e7cb);
+  g.fill(leftPos+220,topPos+26,leftPos+316,topPos+150,0xfff3e7cb);
   g.fill(leftPos+4,topPos+30+selected*14,leftPos+6,topPos+43+selected*14,0xff8b3e2f);
   for(var s:menu.slots){g.fill(leftPos+s.x-1,topPos+s.y-1,leftPos+s.x+17,topPos+s.y+17,0xff6d5740);g.fill(leftPos+s.x,topPos+s.y,leftPos+s.x+16,topPos+s.y+16,0xffbda886);}
  }
@@ -37,10 +37,18 @@ public final class KitchenScreen extends AbstractContainerScreen<KitchenMenu>{
   var resultLines=font.split(KitchenRecipes.output(selected).getDescription(),84);for(int i=0;i<Math.min(2,resultLines.size());i++)g.drawString(font,resultLines.get(i),226,79+i*9,0xff30261d,false);
   var food=KitchenRecipes.output(selected).components().get(net.minecraft.core.component.DataComponents.FOOD);
   if(food!=null){var info=font.split(tr("food",food.nutrition(),food.saturation()),84);for(int i=0;i<Math.min(2,info.size());i++)g.drawString(font,info.get(i),226,98+i*9,0xff30261d,false);}
+  g.drawString(font,tr(food==null||food.effects().isEmpty()?"effects_none":"effects_count",food==null?0:food.effects().size()),226,117,0xff30261d,false);
   g.drawString(font,Component.literal("×"+KitchenRecipes.amount(selected)),253,59,0xff30261d,false);
  }
  @Override public void render(GuiGraphics g,int x,int y,float f){cook.active=menu.unavailable(selected)==null;super.render(g,x,y,f);renderTooltip(g,x,y);
   if(x>=cook.getX()&&x<cook.getX()+cook.getWidth()&&y>=cook.getY()&&y<cook.getY()+20&&menu.unavailable(selected)!=null)g.renderTooltip(font,font.split(menu.unavailable(selected),Math.min(240,width-20)),x,y);
+  if(x>=leftPos+220&&x<leftPos+316&&y>=topPos+26&&y<topPos+126){
+   java.util.List<Component> details=new java.util.ArrayList<>();details.add(KitchenRecipes.output(selected).getDescription());
+   var food=KitchenRecipes.output(selected).components().get(net.minecraft.core.component.DataComponents.FOOD);
+   if(food!=null){details.add(tr("food",food.nutrition(),food.saturation()));if(food.effects().isEmpty())details.add(tr("effects_none"));
+    for(var possible:food.effects()){var effect=possible.effect();details.add(tr("effect_detail",effect.getEffect().value().getDisplayName(),effect.getAmplifier()+1,effect.getDuration()/20,Math.round(possible.probability()*100)));}}
+   java.util.List<net.minecraft.util.FormattedCharSequence> lines=new java.util.ArrayList<>();for(var detail:details)lines.addAll(font.split(detail,Math.min(250,width-20)));g.renderTooltip(font,lines,x,y);
+  }
   if(x>=leftPos+7&&x<leftPos+79&&y>=topPos+30&&y<topPos+198){int id=(y-topPos-30)/14;if(id<KitchenRecipes.COUNT)g.renderTooltip(font,KitchenRecipes.output(id).getDescription(),x,y);}
  }
 }

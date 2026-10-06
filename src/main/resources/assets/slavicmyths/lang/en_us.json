@@ -1396,5 +1396,8 @@
   "kitchen.slavicmyths.output_full": "Clear the output slot",
   "kitchen.slavicmyths.invalid": "Unavailable recipe",
   "kitchen.slavicmyths.food": "Food %s / sat. %s",
-  "rpg.slavicmyths.menu_unavailable": "Unable to open the menu. Please try again."
+  "rpg.slavicmyths.menu_unavailable": "Unable to open the menu. Please try again.",
+  "kitchen.slavicmyths.effects_none": "Effects: none",
+  "kitchen.slavicmyths.effects_count": "Effects: %s",
+  "kitchen.slavicmyths.effect_detail": "%s %s: %ss, chance %s%%"
 }

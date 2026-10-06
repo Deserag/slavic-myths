@@ -1,92 +1,11 @@
 {
   "status": "PASS",
-  "jsonFiles": 1948,
+  "jsonFiles": 1980,
   "pngFiles": 378,
-  "assetReferences": 3978,
+  "assetReferences": 4042,
   "soundEvents": 189,
-  "existingUnchangedAssetIssues": [
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/darkened_door_bottom.json",
-      "reference": "assets/minecraft/models/block/door_bottom.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/darkened_door_bottom_hinge.json",
-      "reference": "assets/minecraft/models/block/door_bottom_rh.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/darkened_door_top.json",
-      "reference": "assets/minecraft/models/block/door_top.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/darkened_door_top_hinge.json",
-      "reference": "assets/minecraft/models/block/door_top_rh.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/pine_door_bottom.json",
-      "reference": "assets/minecraft/models/block/door_bottom.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/pine_door_bottom_hinge.json",
-      "reference": "assets/minecraft/models/block/door_bottom_rh.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/pine_door_top.json",
-      "reference": "assets/minecraft/models/block/door_top.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/pine_door_top_hinge.json",
-      "reference": "assets/minecraft/models/block/door_top_rh.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/rowan_door_bottom.json",
-      "reference": "assets/minecraft/models/block/door_bottom.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/rowan_door_bottom_hinge.json",
-      "reference": "assets/minecraft/models/block/door_bottom_rh.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/rowan_door_top.json",
-      "reference": "assets/minecraft/models/block/door_top.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/rowan_door_top_hinge.json",
-      "reference": "assets/minecraft/models/block/door_top_rh.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/willow_door_bottom.json",
-      "reference": "assets/minecraft/models/block/door_bottom.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/willow_door_bottom_hinge.json",
-      "reference": "assets/minecraft/models/block/door_bottom_rh.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/willow_door_top.json",
-      "reference": "assets/minecraft/models/block/door_top.json",
-      "status": "pre-existing unchanged asset issue"
-    },
-    {
-      "source": "src/main/resources/assets/slavicmyths/models/block/willow_door_top_hinge.json",
-      "reference": "assets/minecraft/models/block/door_top_rh.json",
-      "status": "pre-existing unchanged asset issue"
-    }
-  ],
+  "existingUnchangedAssetIssues": [],
   "releaseAccepted": false,
   "clientLaunched": false,
-  "jarSha256": "9010726670d1a6b04ec41143ad4cbf6dfec0e72f6407d11b07d41e8e30817b76"
+  "jarSha256": "faa54bd5decf79dc029b1d722f1995b195aa313dd5cea900c16bd7a70ea5a499"
 }

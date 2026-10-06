@@ -1396,5 +1396,8 @@
   "kitchen.slavicmyths.output_full": "Освободите слот результата",
   "kitchen.slavicmyths.invalid": "Недоступный рецепт",
   "kitchen.slavicmyths.food": "Еда %s / насыщ. %s",
-  "rpg.slavicmyths.menu_unavailable": "Не удалось открыть меню. Попробуйте снова."
+  "rpg.slavicmyths.menu_unavailable": "Не удалось открыть меню. Попробуйте снова.",
+  "kitchen.slavicmyths.effects_none": "Эффекты: нет",
+  "kitchen.slavicmyths.effects_count": "Эффекты: %s",
+  "kitchen.slavicmyths.effect_detail": "%s %s: %s сек., шанс %s%%"
 }

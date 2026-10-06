@@ -10,10 +10,10 @@
   "polyMCPath": "C:/Users/pavel/AppData/Roaming/PolyMC",
   "installedInstancePath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing",
   "slavicMyths": {
-    "version": "0.9.5",
-    "filename": "slavicmyths-0.9.5.jar",
-    "sha256": "66579a054a2ed14dfa3fdff809e43656c9a2621fa18a743177b32ff6d2581b4c",
-    "installedPath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.minecraft/mods/slavicmyths-0.9.5.jar",
+    "version": "0.9.10-rc2",
+    "filename": "slavicmyths-0.9.10-rc2.jar",
+    "sha256": "faa54bd5decf79dc029b1d722f1995b195aa313dd5cea900c16bd7a70ea5a499",
+    "installedPath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.minecraft/mods/slavicmyths-0.9.10-rc2.jar",
     "status": "INSTALLED_NOT_LAUNCHED"
   },
   "mods": [
@@ -357,5 +357,8 @@
     "legacy_instances_unchanged": true
   },
   "navigationAcceptance": "docs/verification/navigation-0.9.5/acceptance.json",
-  "previousArtifactBackup": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.slavicmyths-backups/0.9.4/slavicmyths-0.9.4.jar"
+  "previousArtifactBackup": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.slavicmyths-backups/pre-0.9.10-rc2/slavicmyths-0.9.9-dev.jar",
+  "kurganAcceptance": "docs/verification/kurgan-0.9.6/acceptance.json",
+  "swampAcceptance": "docs/verification/swamp-0.9.7/acceptance.json",
+  "playtestAcceptance": "docs\\verification\\playtest-0.9.10-rc2\\acceptance.json"
 }

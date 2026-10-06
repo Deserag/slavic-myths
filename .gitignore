@@ -10,3 +10,4 @@ __pycache__/
 # Local playtest binaries are distributed as GitHub Release assets.
 release/*/*.jar
 release/*/*.zip
+release/*/*.mrpack

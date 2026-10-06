@@ -1,7 +1,3 @@
 {
-  "parent": "minecraft:block/door_top",
-  "textures": {
-    "top": "slavicmyths:block/rowan_door_top",
-    "bottom": "slavicmyths:block/rowan_door_bottom"
-  }
+  "parent": "slavicmyths:block/rowan_door_top_left"
 }
