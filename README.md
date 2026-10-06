@@ -1,4 +1,4 @@
-# Slavic Myths 0.9.10 RC1 — сборка для игроков
+# Slavic Myths 0.9.10 RC2 — сборка для игроков
 
 Здесь только файлы для установки: готовый мод, список зависимостей, загрузчик и документация. Исходников, Gradle, миров, логов и персональных настроек нет.
 
@@ -26,4 +26,4 @@ Curios обязателен; остальные моды опциональны.
 
 Это тестовая сборка. Реальная игровая/визуальная приёмка ещё не выполнена. См. REMAINING_WORK.md и KNOWN_ISSUES.md. Issues: https://github.com/Deserag/slavic-myths/issues
 
-Импортируемый launcher pack (.mrpack): https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc1/slavicmyths-0.9.10-rc1.mrpack — для Prism/других лаунчеров с поддержкой Modrinth packs. Launcher сам загружает закреплённые зависимости; это не запускает игру.
+Импортируемый launcher pack (.mrpack): https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc2/slavicmyths-0.9.10-rc2.mrpack — для Prism/других лаунчеров с поддержкой Modrinth packs. Launcher сам загружает закреплённые зависимости; это не запускает игру.
