@@ -143,6 +143,7 @@ public final class BannikModel extends EntityModel<BannikEntity>{
  LeftLeg.xRot=Mth.cos(walk*.4F)*amount*.42F;RightLeg.xRot=-LeftLeg.xRot;LeftArm.xRot+=RightLeg.xRot*.22F;RightArm.xRot+=LeftLeg.xRot*.22F;
  float hit=Mth.sin(attackTime*3.14159F);RightArm.xRot-=hit*1.1F;RightArm.zRot-=hit*.7F;RightFore.xRot-=hit*.5F;beard.xRot+=Mth.sin(age*.04F)*.025F;
  if(e.state()==4){body.xRot=.31F;head.xRot=-.2F;LeftArm.zRot=.45F;RightArm.zRot=-.45F;LeftFore.xRot=RightFore.xRot=-.5F;}
+ switch(e.attackPhase()){case TELEGRAPH->{RightArm.xRot=-1.5F;LeftArm.xRot=-.6F;}case ACTIVE->{RightArm.xRot=-.4F;body.xRot=.4F;}case RECOVERY->{RightArm.xRot=.2F;head.xRot+=.15F;}default->{}}
  }
  @Override public void renderToBuffer(PoseStack p,VertexConsumer b,int l,int o,int color){root.render(p,b,l,o,color);}
 }

@@ -51,7 +51,7 @@ public final class KurganHeadless {
             KurganInstance i=new KurganInstance(UUID.randomUUID(),BlockPos.ZERO,KurganPlan.createLegacy(tier,seed));i.disturbance=disturbance;int prince=0,voevoda=0,volkhv=0;
             for(KurganPlan.Room room:i.plan.rooms){List<KurganFighter.Kind> roster=KurganRoster.roster(i,room);check(roster.equals(KurganRoster.roster(i,room)),"room distribution rerolled");check(roster.size()<=3,"unbounded room roster");
                 for(KurganFighter.Kind k:roster){if(k==KurganFighter.Kind.PRINCE){prince++;check(room.hall(),"boss outside final hall");}if(k==KurganFighter.Kind.VOEVODA)voevoda++;if(k==KurganFighter.Kind.VOLKHV)volkhv++;if(tier==0)check(!k.boss(),"boss in small tomb");}
-            }check(prince==(tier==2&&disturbance>=75?1:0),"prince encounter count");check(voevoda<=1&&volkhv<=1,"repeated miniboss chamber");if(tier==2&&disturbance>=75)check(voevoda==1&&volkhv==1,"missing Great Kurgan miniboss room");
+            }check(prince==(tier==2?1:0),"prince encounter count");check(voevoda<=1&&volkhv<=1,"repeated miniboss chamber");if(tier==2)check(voevoda==1&&volkhv==1,"missing Great Kurgan miniboss room");
         }
         KurganEncounterState state=new KurganEncounterState();UUID a=UUID.randomUUID(),b=UUID.randomUUID();check(state.start(),"encounter cannot start");state.alive.add(a);state.alive.add(b);
         KurganInstance i=new KurganInstance(UUID.randomUUID(),BlockPos.ZERO,KurganPlan.createLegacy(2,74));i.encounters.put(2,state);i.bossDefeated=true;i.sealOpened=true;

@@ -32,6 +32,7 @@ public final class IgoshaModel extends EntityModel<IgoshaEntity> {
         leftLeg.y=23.0F;leftLeg.xRot=leftLeg.yRot=leftLeg.zRot=0;
         head.yRot=yaw*.0174533F;head.xRot=pitch*.0174533F;
         float hop=entity.onGround()?0:Mth.sin(age*.65F)*.08F;body.zRot=hop;head.zRot=-hop*.4F;rightArm.zRot=-.3F;leftArm.zRot=.4F;rightLeg.xRot=leftLeg.xRot=0;
+        switch(entity.attackPhase()){case TELEGRAPH->rightArm.xRot=-1.2F;case ACTIVE->rightArm.xRot=-.5F;case RECOVERY->body.xRot=.25F;default->{}}
     }
     @Override public void renderToBuffer(PoseStack p,VertexConsumer b,int l,int o,int color){
         head.render(p,b,l,o,color);

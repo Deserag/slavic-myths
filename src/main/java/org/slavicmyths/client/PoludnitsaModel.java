@@ -298,6 +298,7 @@ public final class PoludnitsaModel extends EntityModel<PoludnitsaEntity>{
  rRightArm.xRot=-Mth.sin(attackTime*3.14159F)*1.6F;rLeftArm.zRot=-.12F;rRightArm.zRot=.12F;
  nLeftHair.zRot+=Mth.sin(age*.035F)*.02F;rLeftHair.zRot+=Mth.sin(age*.06F)*.06F;
  if(t>0 && t<1){nHead.zRot=rHead.zRot=Mth.sin(t*3.14159F)*.32F;}
+ switch(e.attackPhase()){case TELEGRAPH->{rRightArm.xRot=-1.7F;rBody.yRot=-.25F;}case ACTIVE->{rRightArm.xRot=-.6F;rBody.yRot=.4F;}case RECOVERY->{rRightArm.xRot=.2F;rBody.xRot=.35F;}default->{}}
  }
  @Override public void renderToBuffer(PoseStack p,VertexConsumer b,int l,int o,int color){p.pushPose();p.translate(0,1.5,0);p.scale(presentationScale,presentationScale,presentationScale);p.translate(0,-1.5,0);nRoot.render(p,b,l,o,color);rRoot.render(p,b,l,o,color);p.popPose();}
 }

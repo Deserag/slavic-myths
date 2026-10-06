@@ -18,14 +18,8 @@ for family in ['pale_blue','bog_green']:
     pattern=['###'];count=6
    elif shape=='stairs':
     for suffix,parent in [('', 'stairs'),('_inner','inner_stairs'),('_outer','outer_stairs')]:put(A/'models/block'/f'{name}{suffix}.json',{'parent':'minecraft:block/'+parent,'textures':textures})
-    variants={}
-    for facing,angle in [('east',0),('south',90),('west',180),('north',270)]:
-     for half in ['bottom','top']:
-      for form in ['straight','inner_left','inner_right','outer_left','outer_right']:
-       rot=(angle+(270 if form.endswith('left') else 0)+(180 if half=='top' and form!='straight' else 0))%360
-       v={'model':model+('_inner' if form.startswith('inner') else '_outer' if form.startswith('outer') else ''),'y':rot,'uvlock':True}
-       if half=='top':v['x']=180
-       variants[f'facing={facing},half={half},shape={form}']=v
+    native=json.loads(Path('tools/templates/minecraft-1.21.1-stone-brick-stairs.json').read_text(encoding='utf-8'))
+    variants={key:{**value,'model':value['model'].replace('minecraft:block/stone_brick_stairs',model)} for key,value in native['variants'].items()}
     state={'variants':variants};pattern=['#  ','## ','###'];count=4
    else:
     walls.append(name)
@@ -53,6 +47,10 @@ recipe('carved_burial_stone',{'type':'minecraft:crafting_shaped','pattern':['#',
 recipe('carved_burial_stone_slab',{'type':'minecraft:crafting_shaped','pattern':['###'],'key':{'#':{'item':'slavicmyths:carved_burial_stone'}},'result':{'id':'slavicmyths:carved_burial_stone_slab','count':6}})
 for path,ids in [('tags/block/mineable/pickaxe',new),('tags/block/walls',walls)]:
  p=R/'data/minecraft'/f'{path}.json';v=json.loads(p.read_text(encoding='utf-8-sig')) if p.exists() else {'replace':False,'values':[]};v['values']=list(dict.fromkeys(v['values']+['slavicmyths:'+n for n in ids]));put(p,v)
+for shape in ['slab','stairs','wall']:
+ ids=[n for n in new if n.endswith('_'+shape)]
+ for registry in ['block','item']:
+  p=R/'data/minecraft/tags'/registry/(shape+'s.json');v=json.loads(p.read_text(encoding='utf-8-sig')) if p.exists() else {'replace':False,'values':[]};v['values']=list(dict.fromkeys(v['values']+['slavicmyths:'+n for n in ids]));put(p,v)
 for lang in ['en_us','ru_ru']:
  p=A/'lang'/f'{lang}.json';v=json.loads(p.read_text(encoding='utf-8-sig'))
  for name in new:
@@ -61,4 +59,7 @@ for lang in ['en_us','ru_ru']:
   title=title+(' '+{'slab':'Slab','stairs':'Stairs','wall':'Wall'}[shape] if lang=='en_us' and shape else ' — '+{'slab':'плита','stairs':'ступени','wall':'ограда'}[shape] if shape else '')
   v['block.slavicmyths.'+name]=title
  put(p,v)
+put(A/'models/block/pale_blue_kurgan_stone_variant.json',{'parent':'minecraft:block/cube_all','textures':{'all':'slavicmyths:block/pale_blue_kurgan_stone_variant'}})
+put(A/'blockstates/pale_blue_kurgan_stone.json',{'variants':{'':[{'model':'slavicmyths:block/pale_blue_kurgan_stone','weight':3},{'model':'slavicmyths:block/pale_blue_kurgan_stone_variant','weight':1}]}})
+put(Path('docs/kurgan/registry-additions-0.9.6.json'),{'entries':[{'kind':kind,'target_id':'slavicmyths:'+n} for n in new for kind in ['block','item']]})
 print('KURGAN_RESOURCES newBlocks='+str(len(new))+' recipes=explicit shapes, stonecutting, carved')

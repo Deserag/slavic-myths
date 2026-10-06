@@ -14,6 +14,7 @@ public final class ModFeatures {
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> BERRY_PATCH=FEATURES.register("berry_patch",org.slavicmyths.world.BerryPatchFeature::new);
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> WATER_PATCH=FEATURES.register("water_patch",org.slavicmyths.water.WaterFeature::new);
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> DEEP_POOL=FEATURES.register("deep_pool",org.slavicmyths.depth.DeepPoolFeature::new);
+    public static final DeferredHolder<Feature<?>,org.slavicmyths.swamp.SwampNatureFeature> SWAMP_NATURE=FEATURES.register("swamp_nature",org.slavicmyths.swamp.SwampNatureFeature::new);
     private ModFeatures() { }
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> BATHHOUSE = FEATURES.register("bathhouse", () -> new org.slavicmyths.world.HomesteadFeature(false));
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> OLD_BARN = FEATURES.register("old_barn", () -> new org.slavicmyths.world.HomesteadFeature(true));

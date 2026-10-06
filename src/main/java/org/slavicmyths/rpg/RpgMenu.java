@@ -15,12 +15,20 @@ public final class RpgMenu extends AbstractContainerMenu {
  public final BlockPos pos;public final boolean anvil;public final SimpleContainer input=new SimpleContainer(3);
  public RpgMenu(int id,Inventory inv,BlockPos pos,boolean anvil){
   super(TYPE.get(),id);this.pos=pos;this.anvil=anvil;
-  if(anvil){for(int i=0;i<3;i++){final int index=i;addSlot(new Slot(input,i,54+i*70,48){@Override public int getMaxStackSize(){return index==0?1:64;}});}
+  if(anvil){for(int i=0;i<3;i++){final int index=i;addSlot(new Slot(input,i,54+i*70,48){@Override public int getMaxStackSize(){return index==0?1:64;} @Override public boolean mayPlace(ItemStack s){return index!=0||Runes.max(s)>0;}});}
    for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inv,col+row*9+9,54+col*18,154+row*18));
    for(int col=0;col<9;col++)addSlot(new Slot(inv,col,54+col*18,212));}
  }
  @Override public boolean stillValid(Player p){return p.isAlive()&&p.distanceToSqr(pos.getX()+.5,pos.getY()+.5,pos.getZ()+.5)<=64&&p.level().getBlockState(pos).getBlock()==(anvil?ModBlocks.RUNIC_ANVIL.get():ModBlocks.PATH_STONE.get());}
- @Override public ItemStack quickMoveStack(Player p,int i){return ItemStack.EMPTY;}
+ @Override public ItemStack quickMoveStack(Player p,int i){
+  if(!anvil||i<0||i>=slots.size())return ItemStack.EMPTY;Slot slot=slots.get(i);if(!slot.hasItem())return ItemStack.EMPTY;
+  ItemStack stack=slot.getItem(),copy=stack.copy();
+  if(i<3){if(!moveItemStackTo(stack,3,slots.size(),true))return ItemStack.EMPTY;}
+  else if(Runes.max(stack)>0){if(!moveItemStackTo(stack,0,1,false))return ItemStack.EMPTY;}
+  else if(stack.is(org.slavicmyths.registry.ModItems.ANCIENT_SIGN.get())||stack.is(org.slavicmyths.registry.ModItems.OVINNIK_CLAW.get())){if(!moveItemStackTo(stack,2,3,false))return ItemStack.EMPTY;}
+  else if(!moveItemStackTo(stack,1,2,false))return ItemStack.EMPTY;
+  if(stack.isEmpty())slot.set(ItemStack.EMPTY);else slot.setChanged();slot.onTake(p,stack);return copy;
+ }
  @Override public void removed(Player p){super.removed(p);if(!p.level().isClientSide)clearContainer(p,input);}
  @Override public boolean clickMenuButton(Player p,int action){
   if(!(p instanceof ServerPlayer)||!stillValid(p))return false;

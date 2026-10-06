@@ -1,0 +1,20 @@
+{
+  "entries": [
+    {
+      "kind": "entity_type",
+      "target_id": "slavicmyths:bolotnik"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bolotnik_spawn_egg"
+    },
+    {
+      "kind": "feature",
+      "target_id": "slavicmyths:swamp_nature"
+    },
+    {
+      "kind": "structure",
+      "target_id": "slavicmyths:swamp_watchtower"
+    }
+  ]
+}

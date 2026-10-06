@@ -1,0 +1,181 @@
+{
+  "0": {
+    "samples": 50,
+    "metrics": {
+      "nodes": {
+        "min": 8,
+        "max": 8
+      },
+      "rooms": {
+        "min": 3,
+        "max": 3
+      },
+      "loops": {
+        "min": 1,
+        "max": 1
+      },
+      "deadEnds": {
+        "min": 2,
+        "max": 2
+      },
+      "secrets": {
+        "min": 0,
+        "max": 1
+      },
+      "transitions": {
+        "min": 0,
+        "max": 0
+      },
+      "shortestPath": {
+        "min": 5,
+        "max": 5
+      },
+      "choices": {
+        "min": 2,
+        "max": 2
+      },
+      "optionalPercent": {
+        "min": 25.0,
+        "max": 25.0
+      },
+      "containers": {
+        "min": 3,
+        "max": 3
+      }
+    },
+    "archetypeOccurrences": {
+      "VESTIBULE": 50,
+      "BURIAL": 50,
+      "RELIQUARY": 24,
+      "TRAP": 10,
+      "OSSUARY": 8,
+      "OFFERING": 8
+    },
+    "maxAttemptsUsed": 1,
+    "minimumSideBranchExpectedRollShare": 0.631578947368421,
+    "rewardMeasurement": "Expected table rolls, not measured economic value or actual gameplay drops"
+  },
+  "1": {
+    "samples": 50,
+    "metrics": {
+      "nodes": {
+        "min": 23,
+        "max": 23
+      },
+      "rooms": {
+        "min": 8,
+        "max": 8
+      },
+      "loops": {
+        "min": 3,
+        "max": 3
+      },
+      "deadEnds": {
+        "min": 4,
+        "max": 4
+      },
+      "secrets": {
+        "min": 2,
+        "max": 2
+      },
+      "transitions": {
+        "min": 2,
+        "max": 2
+      },
+      "shortestPath": {
+        "min": 10,
+        "max": 10
+      },
+      "choices": {
+        "min": 5,
+        "max": 5
+      },
+      "optionalPercent": {
+        "min": 39.130434782608695,
+        "max": 39.130434782608695
+      },
+      "containers": {
+        "min": 9,
+        "max": 9
+      }
+    },
+    "archetypeOccurrences": {
+      "VESTIBULE": 50,
+      "WARRIOR": 50,
+      "DESCENT": 150,
+      "TREASURY": 50,
+      "RELIQUARY": 100,
+      "OSSUARY": 19,
+      "BURIAL": 50,
+      "DEEP": 50,
+      "TRAP": 31
+    },
+    "maxAttemptsUsed": 1,
+    "minimumSideBranchExpectedRollShare": 0.6865671641791045,
+    "rewardMeasurement": "Expected table rolls, not measured economic value or actual gameplay drops"
+  },
+  "2": {
+    "samples": 50,
+    "metrics": {
+      "nodes": {
+        "min": 33,
+        "max": 43
+      },
+      "rooms": {
+        "min": 11,
+        "max": 14
+      },
+      "loops": {
+        "min": 5,
+        "max": 7
+      },
+      "deadEnds": {
+        "min": 6,
+        "max": 8
+      },
+      "secrets": {
+        "min": 3,
+        "max": 4
+      },
+      "transitions": {
+        "min": 4,
+        "max": 6
+      },
+      "shortestPath": {
+        "min": 12,
+        "max": 14
+      },
+      "choices": {
+        "min": 7,
+        "max": 9
+      },
+      "optionalPercent": {
+        "min": 44.18604651162791,
+        "max": 45.45454545454545
+      },
+      "containers": {
+        "min": 13,
+        "max": 17
+      }
+    },
+    "archetypeOccurrences": {
+      "VESTIBULE": 50,
+      "CROSSROADS": 50,
+      "DESCENT": 478,
+      "BURIAL": 50,
+      "RELIQUARY": 176,
+      "RITUAL": 50,
+      "TREASURY": 50,
+      "COLLAPSED": 48,
+      "TRAP": 15,
+      "DEEP": 50,
+      "OSSUARY": 17,
+      "WARRIOR": 25,
+      "FLOODED": 28,
+      "OFFERING": 19
+    },
+    "maxAttemptsUsed": 1,
+    "minimumSideBranchExpectedRollShare": 0.865546218487395,
+    "rewardMeasurement": "Expected table rolls, not measured economic value or actual gameplay drops"
+  }
+}

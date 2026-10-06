@@ -1,0 +1,150 @@
+{
+  "status": "PASS",
+  "preservedBaselineFiles": 2753,
+  "authorizedChangedFiles": [
+    "src/main/resources/data/slavicmyths/worldgen/structure_set/abandoned_settlement.json",
+    "src/main/resources/data/slavicmyths/worldgen/structure_set/bog_causeway.json",
+    "src/main/resources/data/slavicmyths/worldgen/structure_set/fishing_camp.json",
+    "src/main/resources/data/slavicmyths/worldgen/structure_set/flooded_shrine.json",
+    "src/main/resources/data/slavicmyths/worldgen/structure_set/swamp_hut.json",
+    "src/main/resources/data/slavicmyths/worldgen/structure_set/swamp_remnants.json",
+    "src/main/resources/data/slavicmyths/tags/worldgen/biome/structures/abandoned_settlement.json",
+    "src/main/resources/data/slavicmyths/tags/worldgen/biome/structures/bog_causeway.json",
+    "src/main/resources/data/slavicmyths/tags/worldgen/biome/structures/fishing_camp.json",
+    "src/main/resources/data/slavicmyths/tags/worldgen/biome/structures/flooded_shrine.json",
+    "src/main/resources/data/slavicmyths/tags/worldgen/biome/structures/swamp_hut.json",
+    "src/main/resources/data/slavicmyths/tags/worldgen/biome/structures/swamp_remnants.json",
+    "src/main/resources/data/slavicmyths/tags/worldgen/biome/structures/underwater_ruins.json",
+    "src/main/resources/data/slavicmyths/neoforge/biome_modifier/woodland_swamp.json",
+    "src/main/resources/assets/slavicmyths/blockstates/linden_door.json",
+    "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_bottom.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_bottom_hinge.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_top_hinge.json",
+    "src/main/java/org/slavicmyths/client/ClientSetup.java",
+    "src/main/java/org/slavicmyths/compat/JeiRituals.java",
+    "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "src/main/java/org/slavicmyths/registry/ModFeatures.java",
+    "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "src/main/java/org/slavicmyths/swamp/SwampCommands.java",
+    "src/main/java/org/slavicmyths/swamp/SwampPiece.java",
+    "src/main/java/org/slavicmyths/swamp/SwampStructure.java",
+    "src/main/java/org/slavicmyths/swamp/SwampStructures.java",
+    "src/main/java/org/slavicmyths/water/WaterSpawns.java",
+    "src/main/java/org/slavicmyths/water/WaterSpirit.java",
+    "src/main/java/org/slavicmyths/navigation/client/NavigationClient.java",
+    "src/main/java/org/slavicmyths/compat/xaero/XaeroNavigationBridge.java"
+  ],
+  "assetReferences": 3977,
+  "existingBaselineAssetIssues": [
+    {
+      "model": "assets/slavicmyths/models/block/darkened_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/darkened_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/darkened_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/darkened_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/pine_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/pine_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/pine_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/pine_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/rowan_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/rowan_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/rowan_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/rowan_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/willow_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/willow_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/willow_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/willow_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    }
+  ],
+  "nativeLindenDoorStates": 32,
+  "templates": {
+    "v097_fisher_0": "d2893cec6a1811fd34e477b148066f19bb46f2e6c0adf4386152b312d6141fa4",
+    "v097_abandoned_0": "ae1cea0101a5d4df77a0e78003158c8d94ccc92ce89e8ab8824a0bddc645c01c",
+    "v097_watchtower_0": "bc640e67ea548f59aa4eecea0b20e569c162e4d09e2ab5433d79ac1a6303659d",
+    "v097_shrine_0": "9d5351429feab821875b2c5c601677a9d70309c75557027f20a68b8d15e6a51d",
+    "v097_boardwalk_0": "1fee03bb403c2eb08d4600da42f5335b87740d605f54573d6ed5d8200cd74f48",
+    "v097_landing_0": "dadc1f3f2dcff2c5493acf76eea3b7ff416d4a498fe3249b81f70b7374297610",
+    "v097_cluster_0": "e89b492077d886855d798f3ca23fdf848e5863ab51f0c7809914e9677f795729",
+    "v097_fisher_1": "b471c5330bb7d7ffa8f8d1ccb2988af4132785f4d7c3e515ce96eda1a7ed6adc",
+    "v097_abandoned_1": "d860970d2da64e5d46bb8bb6b8d59d1438ad127f35b8914d07bf37753bcc68e2",
+    "v097_watchtower_1": "d634c6c2317d77c697f4e4ec68d2b804eb72173ad25aa7a1840aacd46404ed2d",
+    "v097_shrine_1": "91a313a0b8e809336978341232daaf34afaf64c24cc8d5f963767563d83fd8ae",
+    "v097_boardwalk_1": "70fd05184a8730455cdb63498d0ee0ff3ae246d6eac4764174297cb9dfca451a",
+    "v097_landing_1": "f282c76e1e2e78a6b062b85da8c1710ccd1c32c4d819ff7ce1f1b9b27ce33cab",
+    "v097_cluster_1": "d7c431422da1dc4118fe91f7ab0f5360512b1c2252b733c30e2812e4683ea1bf",
+    "v097_fisher_2": "2073ef0f26684d3841a9d6e869e3c253f5accf74350bc9ae169192504e3bcf64",
+    "v097_abandoned_2": "32a09c12063d45d0e407e2c19968d1793e14c706a86645d4d049cf95709ee047",
+    "v097_watchtower_2": "6fd1f4c86c5307848880ff31466d9a2e236fc3cd60bb80b29a70eac9c7937b2a",
+    "v097_shrine_2": "1538f807f324408e32288d15b2c7cd4f76f53bed03f0ce127ff6bc22d8117a1e",
+    "v097_boardwalk_2": "1e951c479664eceea5bc90e5bb5932a98b23376eee116d341103910ce3688a56",
+    "v097_landing_2": "804fb2d5500e07323d642d9a8fab44579b9cb031fc851a334d8cd256d2081c8e",
+    "v097_cluster_2": "77b0d92ca3c27decc7821ab4ab6476940a3063aa294190b136a174e616770810"
+  },
+  "clientLaunched": false,
+  "manualVisualQA": false,
+  "jarSha256": "afd6995331674de8035338839813f66d8221f3982360b93b3ee3a678582a7b6c"
+}

@@ -47,7 +47,7 @@ public final class KurganCreature extends Monster {
     private static final EntityDataAccessor<Optional<BlockPos>> DECOY1=SynchedEntityData.defineId(KurganCreature.class,EntityDataSerializers.OPTIONAL_BLOCK_POS),DECOY2=SynchedEntityData.defineId(KurganCreature.class,EntityDataSerializers.OPTIONAL_BLOCK_POS);
     public final Kind kind; public UUID kurgan;public int room=-1;public BlockPos home;
     private final EnumMap<Move,Integer> cooldowns=new EnumMap<>(Move.class);
-    private int actionTick,basicWait,blocks,memory,cloneTime;private boolean summoned,riposte,dashHit;
+    private int actionTick,basicWait,blocks,memory,cloneTime,alignWait;private boolean summoned,riposte,dashHit;
     private Vec3 aim=Vec3.ZERO;private BlockPos lastSeen,sealTarget;
     private final ServerBossEvent bar=new ServerBossEvent(Component.literal(""),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
     public KurganCreature(EntityType<? extends KurganCreature> type,Level world,Kind kind){super(type,world);this.kind=kind;xpReward=kind.boss()?50:8;bar.setName(getDisplayName());}
@@ -78,7 +78,7 @@ public final class KurganCreature extends Monster {
         }return super.hurt(source,damage);
     }
     private boolean ready(Move m){return cooldowns.getOrDefault(m,0)<=0;}
-    private void begin(Move move,LivingEntity target){entityData.set(ACTION,move.ordinal());entityData.set(START,(int)level().getGameTime());actionTick=0;dashHit=false;entityData.set(GUARD,false);navigation.stop();aim=target.position().subtract(position()).multiply(1,0,1).normalize();sealTarget=target.blockPosition();cooldowns.put(move,move.cooldown);
+    private void begin(Move move,LivingEntity target){entityData.set(ACTION,move.ordinal());entityData.set(START,(int)level().getGameTime());actionTick=0;alignWait=0;dashHit=false;entityData.set(GUARD,false);navigation.stop();aim=target.position().subtract(position()).multiply(1,0,1).normalize();sealTarget=target.blockPosition();cooldowns.put(move,move.cooldown);
         String cue=kind==Kind.UPYR?(move==Move.LEAP?"leap":move==Move.BITE?"bite":"attack"):
             kind==Kind.NAV?(move==Move.SHIFT?"shift":"attack"):
             kind==Kind.DRUZHINNIK?(move==Move.BASH?"shield_bash":"sword_attack"):
@@ -87,7 +87,7 @@ public final class KurganCreature extends Monster {
             move==Move.SUMMON?"summon":move==Move.GRAB?"grab":move==Move.HEAVY?"heavy_strike":"combo";cue(cue);
     }
     private Move choose(double distance,boolean sight){
-        if(kind==Kind.VOLKHV){if(!summoned&&getHealth()<=getMaxHealth()*.5)return Move.SUMMON;if(ready(Move.CLONES)&&distance<10)return Move.CLONES;if(ready(Move.SEAL)&&sight&&distance<14)return Move.SEAL;if(ready(Move.BOLT)&&sight&&distance<=20)return Move.BOLT;return Move.IDLE;}
+        if(kind==Kind.VOLKHV){if(!summoned&&sight&&getHealth()<=getMaxHealth()*.5)return Move.SUMMON;if(ready(Move.CLONES)&&sight&&distance<10)return Move.CLONES;if(ready(Move.SEAL)&&sight&&distance<14)return Move.SEAL;if(ready(Move.BOLT)&&sight&&distance<=20)return Move.BOLT;return Move.IDLE;}
         if(!sight)return Move.IDLE;
         if(kind==Kind.UPYR){if(distance>3&&distance<9&&ready(Move.LEAP))return Move.LEAP;if(distance<2.2&&ready(Move.BITE))return Move.BITE;return distance<2.3&&basicWait<=0?Move.CLAW:Move.IDLE;}
         if(kind==Kind.NAV){if(distance<7&&ready(Move.SHIFT))return Move.SHIFT;return distance<2.3&&basicWait<=0?Move.TOUCH:Move.IDLE;}
@@ -132,6 +132,7 @@ public final class KurganCreature extends Monster {
     private void areaSeal(){if(sealTarget==null)return;Vec3 center=new Vec3(sealTarget.getX()+.5,sealTarget.getY()+.2,sealTarget.getZ()+.5);for(Player p:level().getEntitiesOfClass(Player.class,new AABB(sealTarget).inflate(2.5,2,2.5)))if(p.isAlive()&&p.position().distanceTo(center)<3&&clearLine(center.add(0,.5,0),p.position().add(0,1,0))&&p.hurt(damageSources().mobAttack(this),8))p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,50,2));}
     private final class Fight extends Goal {
         Fight(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
+        @Override public boolean requiresUpdateEveryTick(){return true;}
         @Override public boolean canUse(){LivingEntity t=getTarget();return t!=null&&t.isAlive();}
         @Override public boolean canContinueToUse(){return canUse();}
         @Override public void stop(){navigation.stop();entityData.set(ACTION,0);entityData.set(GUARD,false);}
@@ -139,6 +140,11 @@ public final class KurganCreature extends Monster {
             int nextPhase=Math.max(phase(),KurganFighter.phase(kind,getHealth()/getMaxHealth()));if(nextPhase!=phase()){entityData.set(PHASE,nextPhase);entityData.set(PHASE_START,(int)level().getGameTime());getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(kind.speed+(kind==Kind.VOEVODA?.02:nextPhase*.025));cue("phase_shift");}
             boolean sight=getSensing().hasLineOfSight(target);if(sight){lastSeen=target.blockPosition();memory=120;}else if(--memory<=0){setTarget(null);return;}
             if(action()!=Move.IDLE){entityData.set(GUARD,false);actionTick++;Move move=action();if(move==Move.SEAL&&actionTick<move.windup&&actionTick%4==0)sealParticles();
+                if(actionTick<=move.windup){
+                    boolean facing=org.slavicmyths.hunt.DashFacing.turn(KurganCreature.this,aim,18);
+                    if(actionTick==move.windup&&!facing){if(++alignWait<=20){actionTick--;return;}entityData.set(ACTION,0);basicWait=Math.max(basicWait,12);return;}
+                    if(actionTick==move.windup)org.slavicmyths.hunt.DashFacing.lock(KurganCreature.this,aim);
+                }
                 if(actionTick==move.windup)release(target);
                 if((move==Move.LEAP||move==Move.BASH||move==Move.CHARGE||move==Move.RUSH||move==Move.RIPOSTE)&&actionTick>=move.windup&&actionTick<move.windup+6){dash();if(!dashHit&&distanceTo(target)<2.7&&getSensing().hasLineOfSight(target)){strike(target,(float)(move==Move.BASH||move==Move.CHARGE?kind.damage*.6:kind.damage),2.7,.45,true);dashHit=true;}}
                 int spacing=10-phase()*2;
@@ -152,6 +158,12 @@ public final class KurganCreature extends Monster {
             if(tickCount%8==0){Vec3 destination=lastSeen==null?target.position():new Vec3(lastSeen.getX()+.5,lastSeen.getY(),lastSeen.getZ()+.5);
                 if(kind==Kind.VOLKHV&&distance<5){Vec3 away=position().subtract(target.position()).multiply(1,0,1).normalize();BlockPos retreat=KurganEncounters.safePosition(KurganCreature.this,position().add(away.scale(3)),true);if(retreat!=null)destination=new Vec3(retreat.getX()+.5,retreat.getY(),retreat.getZ()+.5);}
                 else if(kind==Kind.NAV&&distance<6)destination=destination.add(Math.sin(tickCount*.12)*1.5,0,Math.cos(tickCount*.12)*1.5);
+                if(kind==Kind.DRUZHINNIK&&distance>3){
+                    Vec3 forward=target.position().subtract(position()).multiply(1,0,1).normalize();
+                    double offset=(Math.floorMod(getId(),3)-1)*.9;
+                    BlockPos spaced=KurganEncounters.safePosition(KurganCreature.this,destination.add(-forward.z*offset,0,forward.x*offset),false);
+                    if(spaced!=null)destination=new Vec3(spaced.getX()+.5,spaced.getY(),spaced.getZ()+.5);
+                }
                 if(allowed(destination))navigation.moveTo(destination.x,destination.y,destination.z,phase()>0?1.12:1.0);else if(home!=null)navigation.moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,1);
             }
         }

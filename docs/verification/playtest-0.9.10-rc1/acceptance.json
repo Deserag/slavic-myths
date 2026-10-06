@@ -1,0 +1,27 @@
+{
+  "version": "0.9.10-rc1",
+  "branch": "release/0.9.10-playtest",
+  "sha256": "9010726670d1a6b04ec41143ad4cbf6dfec0e72f6407d11b07d41e8e30817b76",
+  "build": "PASS",
+  "productionResources": "PASS",
+  "staticReferences": 2685,
+  "staticErrors": 0,
+  "shieldUVAndBlockingModels": "PASS static, existing atlas, no override cycle",
+  "testFixturesExcluded": true,
+  "pureJavaChecks": [
+    "verifyKurgan",
+    "verifyKurganRework",
+    "verifyPortData",
+    "verifyPortComponents",
+    "verifyPortPayloads",
+    "verifyPortGeometry"
+  ],
+  "hotfixGameTestsBeforeFinalPrompt": "5/5 PASS core and companions",
+  "regressionBeforeFinalPrompt": "26/27; masonry clearance fixed afterwards, runtime NOT rerun",
+  "hotfixHeadlessServerLaunches": 8,
+  "clientLaunches": 0,
+  "newMinecraftLaunchesAfterFinalPrompt": 0,
+  "manualAcceptance": "PENDING",
+  "existingResourceIssues": 16,
+  "msptMeasured": false
+}

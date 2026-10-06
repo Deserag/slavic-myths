@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "level": "compiled bytecode and exact pinned JEI interface",
+  "jeiVersion": "19.51.0.418",
+  "categoryAndCatalystShareRecipeType": true,
+  "catalystRecipeTypeCount": 1,
+  "realClientPluginRegistrationVerified": false,
+  "clientLaunched": false
+}

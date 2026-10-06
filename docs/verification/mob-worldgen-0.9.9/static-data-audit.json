@@ -1,0 +1,25 @@
+{
+  "scope": "static-schema-and-references",
+  "counts": {
+    "recipe": 273,
+    "loot_table": 267,
+    "advancement": 154,
+    "tags/item": 40,
+    "tags/block": 31,
+    "tags/entity_type": 7,
+    "tags/enchantment": 3,
+    "tags/damage_type": 2,
+    "enchantment": 1,
+    "damage_type": 9,
+    "tags/worldgen/biome": 39,
+    "neoforge/biome_modifier": 27,
+    "worldgen/configured_feature": 48,
+    "worldgen/placed_feature": 44,
+    "worldgen/structure": 14,
+    "worldgen/structure_set": 14
+  },
+  "references_checked": 2685,
+  "errors": [],
+  "target_codec_loading": "Separate loader evidence: finalize-runtime-nojei.log and finalize-runtime-companions.log",
+  "runtime_verified": false
+}

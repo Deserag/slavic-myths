@@ -12,7 +12,9 @@ public final class ModItemGroup {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB = TABS.register("slavicmyths", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.slavicmyths"))
             .icon(() -> new ItemStack(ModItems.BIRCH_BARK_SCROLL.get()))
-            .displayItems((parameters, output) -> ModItems.ITEMS.getEntries().forEach(entry -> output.accept(entry.get())))
+            .displayItems((parameters, output) -> ModItems.ITEMS.getEntries().stream()
+                    .filter(entry -> entry != ModItems.BEAR_CUB_SPAWN_EGG && entry != ModItems.DOE_SPAWN_EGG)
+                    .forEach(entry -> output.accept(entry.get())))
             .build());
     private ModItemGroup() { }
 }

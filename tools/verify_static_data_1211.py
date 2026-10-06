@@ -14,6 +14,12 @@ baseline=json.loads((ROOT/'docs/port/baseline-0.9.3.json').read_text(encoding='u
 known={kind:{row['target_id'] for row in baseline['entries'] if row['kind']==kind} for kind in ['item','block','entity_type','structure','feature']}
 helper=json.loads((ROOT/'docs/port/baseline-helper-entries-0.9.3.json').read_text(encoding='utf-8'))
 for entry in helper['entries']:known.setdefault(entry['kind'],set()).add(entry['target_id'])
+if '--kurgan-rework' in sys.argv or '--swamp-rework' in sys.argv or '--mob-worldgen-overhaul' in sys.argv:
+    for entry in json.loads((ROOT/'docs/kurgan/registry-additions-0.9.6.json').read_text(encoding='utf-8'))['entries']:
+        known.setdefault(entry['kind'],set()).add(entry['target_id'])
+if '--swamp-rework' in sys.argv or '--mob-worldgen-overhaul' in sys.argv:
+    for entry in json.loads((ROOT/'docs/swamp/registry-additions-0.9.7.json').read_text(encoding='utf-8'))['entries']:
+        known.setdefault(entry['kind'],set()).add(entry['target_id'])
 sources=ROOT/'build/moddev/artifacts/neoforge-21.1.255-sources.jar'
 vanilla=ROOT/'build/moddev/artifacts/neoforge-21.1.255-client-extra-aka-minecraft-resources.jar'
 with zipfile.ZipFile(sources) as z:
@@ -38,6 +44,10 @@ refs=0
 loot_graph={}
 def reference(kind,value,file):
     global refs
+    if isinstance(value,list):
+        require(bool(value),f'{file}: empty {kind} list')
+        for member in value:reference(kind,member,file)
+        return
     refs+=1
     if value.startswith('#'):
         require(resource('tags/'+kind,value[1:]),f'{file}: missing {kind} tag {value}')
@@ -95,7 +105,10 @@ for file,value in current.items():
     if kind=='recipe':
         type=value['type']
         stack(value.get('result'),file)
-        if type.endswith('_shaped'):
+        if type=='minecraft:stonecutting':
+            ingredient(value.get('ingredient'),file)
+            require(set(value).issubset({'type','group','ingredient','result'}),f'{file}: unexpected stonecutting fields')
+        elif type.endswith('_shaped'):
             maxsize=4 if type.startswith('slavicmyths:') else 3
             pattern=value.get('pattern',[]);key=value.get('key',{})
             require(0<len(pattern)<=maxsize and all(0<len(row)<=maxsize for row in pattern),f'{file}: invalid pattern dimensions')
@@ -175,7 +188,7 @@ def visit(id,path):
     for child in loot_graph.get(id,[]): visit(child,path+[id])
 for id in loot_graph: visit(id,[])
 report={'scope':'static-schema-and-references','counts':counts,'references_checked':refs,'errors':errors,'target_codec_loading':'Separate loader evidence: finalize-runtime-nojei.log and finalize-runtime-companions.log','runtime_verified':False}
-audit=ROOT/('docs/verification/navigation-0.9.5/static-data-audit.json' if '--navigation' in sys.argv else 'docs/port/stage2-data-audit.json')
+audit=ROOT/('docs/verification/mob-worldgen-0.9.9/static-data-audit.json' if '--mob-worldgen-overhaul' in sys.argv else 'docs/verification/swamp-0.9.7/static-data-audit.json' if '--swamp-rework' in sys.argv else 'docs/verification/kurgan-0.9.6/static-data-audit.json' if '--kurgan-rework' in sys.argv else 'docs/verification/navigation-0.9.5/static-data-audit.json' if '--navigation' in sys.argv else 'docs/port/stage2-data-audit.json')
 audit.parent.mkdir(parents=True,exist_ok=True)
 audit.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(counts));print(f'{refs} references checked; {len(errors)} errors. This static audit does not execute codecs; see separate loader logs.')

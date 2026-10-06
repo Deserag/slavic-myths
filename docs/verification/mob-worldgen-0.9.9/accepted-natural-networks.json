@@ -1,0 +1,350 @@
+[
+  {
+    "seed": 0,
+    "family": "kurgan",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 635,
+    "invalidBiomeCentersExcluded": 551,
+    "rejectedUnclassified": 33,
+    "acceptedById": {
+      "kurgan_small": 47,
+      "kurgan_warrior": 3,
+      "kurgan_great": 1
+    },
+    "SMALL": {
+      "max": 1362.4573387816588,
+      "mean": 445.27999690095197,
+      "median": 319.2185682248827,
+      "min": 58.105507484230785,
+      "p95": 1340.098876949011
+    },
+    "SMALLPass": false,
+    "MEDIUM": {
+      "max": 489.44866942305606,
+      "mean": 489.44866942305606,
+      "median": 489.44866942305606,
+      "min": 489.44866942305606,
+      "p95": 489.44866942305606
+    },
+    "MEDIUMPass": true,
+    "LARGE": {
+      "max": 1764.534216160174,
+      "mean": 1764.534216160174,
+      "median": 1764.534216160174,
+      "min": 1764.534216160174,
+      "p95": 1764.534216160174
+    },
+    "LARGEPass": true
+  },
+  {
+    "seed": 0,
+    "family": "bandit",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 635,
+    "invalidBiomeCentersExcluded": 435,
+    "rejectedUnclassified": 18,
+    "acceptedById": {
+      "bandit_camp_small": 159,
+      "bandit_camp_medium": 23,
+      "bandit_camp_large": 0
+    },
+    "SMALL": {
+      "max": 937.6054607349512,
+      "mean": 355.192647769049,
+      "median": 342.0409332229112,
+      "min": 83.18653737234169,
+      "p95": 512.9990253402048
+    },
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 618.1336829521588,
+      "mean": 219.33353050672068,
+      "median": 140.92250534766728,
+      "min": 61.28009464744649,
+      "p95": 618.1336829521588
+    },
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEPass": true
+  },
+  {
+    "seed": 0,
+    "family": "swamp",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 3263,
+    "invalidBiomeCentersExcluded": 3237,
+    "rejectedUnclassified": 1,
+    "acceptedById": {
+      "bog_causeway": 6,
+      "swamp_remnants": 7,
+      "fishing_camp": 6,
+      "swamp_hut": 4,
+      "swamp_watchtower": 1,
+      "flooded_shrine": 0,
+      "abandoned_settlement": 1
+    },
+    "SMALL": {
+      "max": 234.8297255459794,
+      "mean": 124.40008546774989,
+      "median": 108.55855711922891,
+      "min": 38.27531841800928,
+      "p95": 222.00225224082752
+    },
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 229.96086623597503,
+      "mean": 229.96086623597503,
+      "median": 229.96086623597503,
+      "min": 229.96086623597503,
+      "p95": 229.96086623597503
+    },
+    "MEDIUMPass": true,
+    "LARGE": {
+      "max": 204.78769494283586,
+      "mean": 204.78769494283586,
+      "median": 204.78769494283586,
+      "min": 204.78769494283586,
+      "p95": 204.78769494283586
+    },
+    "LARGEPass": true
+  },
+  {
+    "seed": 0,
+    "family": "water",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 529,
+    "invalidBiomeCentersExcluded": 523,
+    "rejectedUnclassified": 6,
+    "acceptedById": {
+      "underwater_ruins": 0
+    },
+    "SMALL": {},
+    "SMALLPass": true,
+    "MEDIUM": {},
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEPass": true
+  },
+  {
+    "seed": 17,
+    "family": "kurgan",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 635,
+    "invalidBiomeCentersExcluded": 534,
+    "rejectedUnclassified": 42,
+    "acceptedById": {
+      "kurgan_small": 57,
+      "kurgan_warrior": 2,
+      "kurgan_great": 0
+    },
+    "SMALL": {
+      "max": 1232.674024225383,
+      "mean": 460.8765578276095,
+      "median": 415.17375880467205,
+      "min": 117.21881248332112,
+      "p95": 1106.1190035434704
+    },
+    "SMALLPass": false,
+    "MEDIUM": {
+      "max": 210.15232570685484,
+      "mean": 210.15232570685484,
+      "median": 210.15232570685484,
+      "min": 210.15232570685484,
+      "p95": 210.15232570685484
+    },
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEPass": true
+  },
+  {
+    "seed": 17,
+    "family": "bandit",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 635,
+    "invalidBiomeCentersExcluded": 360,
+    "rejectedUnclassified": 34,
+    "acceptedById": {
+      "bandit_camp_small": 216,
+      "bandit_camp_medium": 25,
+      "bandit_camp_large": 0
+    },
+    "SMALL": {
+      "max": 558.2293435497636,
+      "mean": 344.32415049066697,
+      "median": 341.6460156360674,
+      "min": 113.13708498984761,
+      "p95": 466.47615158762403
+    },
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 329.8655028947404,
+      "mean": 205.8048685679101,
+      "median": 228.06413571624978,
+      "min": 48.12743500333256,
+      "p95": 329.8655028947404
+    },
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEPass": true
+  },
+  {
+    "seed": 17,
+    "family": "swamp",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 3263,
+    "invalidBiomeCentersExcluded": 3251,
+    "rejectedUnclassified": 0,
+    "acceptedById": {
+      "bog_causeway": 3,
+      "swamp_remnants": 3,
+      "fishing_camp": 4,
+      "swamp_hut": 2,
+      "swamp_watchtower": 0,
+      "flooded_shrine": 0,
+      "abandoned_settlement": 0
+    },
+    "SMALL": {
+      "max": 139.98928530426892,
+      "mean": 138.17271830699582,
+      "median": 138.17271830699582,
+      "min": 136.35615130972272,
+      "p95": 139.98928530426892
+    },
+    "SMALLPass": true,
+    "MEDIUM": {},
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEPass": true
+  },
+  {
+    "seed": 17,
+    "family": "water",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 529,
+    "invalidBiomeCentersExcluded": 526,
+    "rejectedUnclassified": 2,
+    "acceptedById": {
+      "underwater_ruins": 1
+    },
+    "SMALL": {},
+    "SMALLPass": false,
+    "MEDIUM": {},
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEPass": true
+  },
+  {
+    "seed": 731269,
+    "family": "kurgan",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 635,
+    "invalidBiomeCentersExcluded": 548,
+    "rejectedUnclassified": 35,
+    "acceptedById": {
+      "kurgan_small": 45,
+      "kurgan_warrior": 6,
+      "kurgan_great": 1
+    },
+    "SMALL": {
+      "max": 1066.8763986516901,
+      "mean": 555.4922676225216,
+      "median": 533.9672274587646,
+      "min": 210.52375162912142,
+      "p95": 1066.8763986516901
+    },
+    "SMALLPass": false,
+    "MEDIUM": {
+      "max": 808.9364931810161,
+      "mean": 672.3214013227232,
+      "median": 672.3214013227232,
+      "min": 535.7063094644303,
+      "p95": 808.9364931810161
+    },
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEPass": false
+  },
+  {
+    "seed": 731269,
+    "family": "bandit",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 635,
+    "invalidBiomeCentersExcluded": 386,
+    "rejectedUnclassified": 23,
+    "acceptedById": {
+      "bandit_camp_small": 202,
+      "bandit_camp_medium": 24,
+      "bandit_camp_large": 0
+    },
+    "SMALL": {
+      "max": 737.563556583431,
+      "mean": 352.3283679669061,
+      "median": 333.42165496560057,
+      "min": 22.627416997969522,
+      "p95": 626.764708642725
+    },
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 491.28428633531524,
+      "mean": 192.75109137660664,
+      "median": 174.43121853613246,
+      "min": 39.01602234979881,
+      "p95": 491.28428633531524
+    },
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEPass": true
+  },
+  {
+    "seed": 731269,
+    "family": "swamp",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 3263,
+    "invalidBiomeCentersExcluded": 3234,
+    "rejectedUnclassified": 2,
+    "acceptedById": {
+      "bog_causeway": 13,
+      "swamp_remnants": 6,
+      "fishing_camp": 4,
+      "swamp_hut": 3,
+      "swamp_watchtower": 0,
+      "flooded_shrine": 1,
+      "abandoned_settlement": 0
+    },
+    "SMALL": {
+      "max": 204.6191584383046,
+      "mean": 121.12575572508162,
+      "median": 138.19189556555045,
+      "min": 29.068883707497267,
+      "p95": 204.6191584383046
+    },
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 58.52349955359813,
+      "mean": 58.52349955359813,
+      "median": 58.52349955359813,
+      "min": 58.52349955359813,
+      "p95": 58.52349955359813
+    },
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEPass": true
+  },
+  {
+    "seed": 731269,
+    "family": "water",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 529,
+    "invalidBiomeCentersExcluded": 525,
+    "rejectedUnclassified": 4,
+    "acceptedById": {
+      "underwater_ruins": 0
+    },
+    "SMALL": {},
+    "SMALLPass": true,
+    "MEDIUM": {},
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEPass": true
+  }
+]

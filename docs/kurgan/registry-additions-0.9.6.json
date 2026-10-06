@@ -1,0 +1,212 @@
+{
+  "entries": [
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:carved_burial_stone"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:carved_burial_stone"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:carved_burial_stone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:carved_burial_stone_slab"
+    }
+  ]
+}

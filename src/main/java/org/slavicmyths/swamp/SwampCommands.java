@@ -36,7 +36,7 @@ public final class SwampCommands {
         event.getDispatcher().register(Commands.literal("slavicmyths")
             .then(Commands.literal("dev").requires(source->source.hasPermission(2)).then(Commands.literal("swamp").executes(c->swamp(c.getSource())))
             .then(Commands.literal("structure").then(Commands.argument("id",StringArgumentType.word())
-                .suggests((c,b)->SharedSuggestionProvider.suggest(Arrays.copyOf(SwampStructures.IDS,6),b))
+                .suggests((c,b)->SharedSuggestionProvider.suggest(SwampStructures.IDS,b))
                 .executes(c->structure(c.getSource(),StringArgumentType.getString(c,"id"),false))
                 .then(Commands.literal("next").executes(c->structure(c.getSource(),StringArgumentType.getString(c,"id"),true)))))));
     }

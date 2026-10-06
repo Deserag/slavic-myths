@@ -16,6 +16,8 @@ public final class MythDamageSources {
             ResourceKey.create(Registries.DAMAGE_TYPE,ResourceLocation.fromNamespaceAndPath("slavicmyths",name)));
     }
     public static DamageSource caused(String name,Entity cause){return new DamageSource(type(cause,name),cause);}
+    /** Periodic damage retains kill credit without masquerading as a new weapon hit. */
+    public static DamageSource periodic(String name,Entity cause){return new DamageSource(type(cause,name),null,cause);}
     public static DamageSource unattributed(String name,Entity context){return new DamageSource(type(context,name));}
     // The original shielded slam explicitly had no source position.
     public static DamageSource slam(Entity cause){return new DamageSource(type(cause,"ovinnik_slam"),cause){

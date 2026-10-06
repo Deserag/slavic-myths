@@ -41,6 +41,8 @@ public final class ModEntities {
 
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.bandit.NightingaleEntity>> NIGHTINGALE = ENTITIES.register("nightingale", () -> EntityType.Builder.of(org.slavicmyths.bandit.NightingaleEntity::new, MobCategory.MONSTER).sized(1.1F,2.35F).clientTrackingRange(12).build("slavicmyths:nightingale"));
 
+    public static final DeferredHolder<EntityType<?>,EntityType<org.slavicmyths.swamp.BolotnikEntity>> BOLOTNIK=ENTITIES.register("bolotnik",()->EntityType.Builder.of(org.slavicmyths.swamp.BolotnikEntity::new,MobCategory.MONSTER).sized(1.15F,2.0F).clientTrackingRange(10).build("slavicmyths:bolotnik"));
+
     @SubscribeEvent
     public static void attributes(EntityAttributeCreationEvent event) {
         event.put(NIGHTINGALE.get(),org.slavicmyths.bandit.NightingaleEntity.attributes().build());
@@ -64,6 +66,7 @@ public final class ModEntities {
         event.put(BABA_YAGA.get(),org.slavicmyths.yaga.BabaYaga.attributes().build());
         event.put(DOMOVOY.get(), DomovoyEntity.attributes().build());
         event.put(LESHY.get(), LeshyEntity.attributes().build());
+        event.put(BOLOTNIK.get(),org.slavicmyths.swamp.BolotnikEntity.attributes().build());
         event.put(KIKIMORA.get(), org.slavicmyths.entity.KikimoraEntity.attributes().build());
         event.put(POLUDNITSA.get(), org.slavicmyths.entity.PoludnitsaEntity.attributes().build());
         event.put(POLEVIK.get(), org.slavicmyths.entity.PolevikEntity.attributes().build());

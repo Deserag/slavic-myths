@@ -1,101 +1,73 @@
 package org.slavicmyths.entity;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.attributes.Attribute;
 
-import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.*;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.*;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import org.slavicmyths.registry.ModSounds;
 
-public final class LeshyEntity extends PathfinderMob {
-    private int nextAngrySound;
-    private long nextEscape;
-    @Override public boolean doHurtTarget(net.minecraft.world.entity.Entity target) {
-        boolean hit = super.doHurtTarget(target);
-        if (hit && !level().isClientSide && target instanceof LivingEntity && random.nextInt(4) == 0)
-            ((LivingEntity) target).addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 60, 0));
-        return hit;
-    }
-    @Override public boolean hurt(DamageSource damage, float amount) {
-        boolean hit = super.hurt(damage, amount);
-        if (hit && !level().isClientSide && isAlive() && getHealth() <= 12 && level().getGameTime() >= nextEscape) {
-            nextEscape = level().getGameTime() + 600;
-            // At most six local candidates; never load a chunk to teleport.
-            for (int i = 0; i < 6; i++) {
-                double x = getX() + random.nextInt(13) - 6, z = getZ() + random.nextInt(13) - 6;
-                net.minecraft.core.BlockPos pos = net.minecraft.core.BlockPos.containing(x, getY(), z);
-                if (!level().hasChunkAt(pos) || !level().getBlockState(pos.below()).isSolid()
-                        || !level().getFluidState(pos).isEmpty()) continue;
-                if (randomTeleport(x, getY(), z, true)) {
-                    ((net.minecraft.server.level.ServerLevel) level()).sendParticles(net.minecraft.core.particles.ParticleTypes.POOF,
-                            getX(), getY() + 1, getZ(), 12, 0.4, 0.5, 0.4, 0.02);
-                    getNavigation().stop(); break;
-                }
-            }
-        }
-        if (hit && damage.getEntity() instanceof Player) org.slavicmyths.progression.Knowledge.award((Player) damage.getEntity(), "meet_leshy");
-        return hit;
-    }
-    @Override public void addAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putLong("NextEscape", nextEscape);
-    }
-    @Override public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
-        super.readAdditionalSaveData(tag); nextEscape = tag.getLong("NextEscape");
-    }
-    public LeshyEntity(EntityType<? extends LeshyEntity> type, Level world) { super(type, world); }
-    public static AttributeSupplier.Builder attributes() {
-        return createMobAttributes().add(Attributes.MAX_HEALTH, 32).add(Attributes.MOVEMENT_SPEED, 0.25)
-                .add(Attributes.FOLLOW_RANGE, 16).add(Attributes.ATTACK_DAMAGE, 6)
-                .add(Attributes.KNOCKBACK_RESISTANCE, 0.25);
-    }
-    @Override protected void registerGoals() {
-        goalSelector.addGoal(0, new FloatGoal(this));
-        goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.05, false));
-        goalSelector.addGoal(2, new AvoidEntityGoal<Player>(this, Player.class, 5.0F, 0.8, 1.05,
-                candidate -> getTarget() == null));
-        goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 0.65));
-        goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 12.0F, 0.08F));
-        goalSelector.addGoal(5, new RandomLookAroundGoal(this));
-        targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        // Vanilla target goal checks periodically, only in a bounded follow range.
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal<Player>(this, Player.class, 20,
-                true, false, candidate -> !level().isDay() && distanceToSqr(candidate) < 9.0));
-    }
-    @Override public void setTarget(LivingEntity target) {
-        if (target != null && getTarget() == null && !level().isClientSide && tickCount >= nextAngrySound) {
-            playSound(ModSounds.LESHY_ANGRY.get(), 0.7F, 1.0F);
-            nextAngrySound = tickCount + 100;
-        }
-        super.setTarget(target);
-    }
-    @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {
-        org.slavicmyths.progression.Knowledge.award(player, "meet_leshy");
-        if (!player.getItemInHand(hand).isEmpty()) return super.mobInteract(player, hand);
-        return InteractionResult.sidedSuccess(level().isClientSide);
-    }
-    @Override public boolean removeWhenFarAway(double distance) { return true; }
-    @Override protected boolean shouldDespawnInPeaceful() { return true; }
-    @Override public int getMaxSpawnClusterSize() { return 1; }
-    @Override public int getAmbientSoundInterval() { return 400; }
-    @Override public void playAmbientSound() {
-        if (!level().isClientSide && level().getNearestPlayer(this, 24) != null)
-            playSound(ModSounds.LESHY_AMBIENT.get(), 1.1F, 0.85F + random.nextFloat() * 0.2F);
-    }
-    @Override protected float getSoundVolume() { return 0.6F; }
-    @Override protected SoundEvent getAmbientSound() { return ModSounds.LESHY_AMBIENT.get(); }
-    @Override protected SoundEvent getHurtSound(DamageSource damage) { return ModSounds.LESHY_HURT.get(); }
-    @Override protected SoundEvent getDeathSound() { return ModSounds.LESHY_DEATH.get(); }
+/** Forest master: neutral watch, warned snare, local vanish and recoverable strike. */
+public final class LeshyEntity extends LandSpiritEntity {
+ public enum Behavior { WATCH, WARN, VANISH, REPOSITION, ROOT_SNARE, WOODLAND_STRIKE, FALSE_PRESENCE, CHASE, DISENGAGE }
+ private final AttackTimeline attack=new AttackTimeline();
+ private Behavior behavior=Behavior.WATCH;
+ private int vanished;private long nextEscape;private boolean roots;
+ private final java.util.Map<java.util.UUID,Integer> disturbances=new java.util.LinkedHashMap<>();
+ public LeshyEntity(EntityType<? extends LeshyEntity> type,Level world){super(type,world);}
+ public Behavior behavior(){return behavior;}
+ public static AttributeSupplier.Builder attributes(){return createMobAttributes().add(Attributes.MAX_HEALTH,100).add(Attributes.ARMOR,8).add(Attributes.MOVEMENT_SPEED,.30).add(Attributes.FOLLOW_RANGE,36).add(Attributes.ATTACK_DAMAGE,8).add(Attributes.KNOCKBACK_RESISTANCE,.25);}
+ @Override protected boolean meleeReady(){return false;}
+ @Override protected AttackTimeline attackTimeline(){return attack;}
+ @Override public boolean hurt(DamageSource source,float amount){
+  if(vanished>0&&!source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY))return false;
+  boolean hit=super.hurt(source,amount);if(hit&&source.getEntity() instanceof Player player)org.slavicmyths.progression.Knowledge.award(player,"meet_leshy");return hit;
+ }
+ public void disturb(Player player){
+  if(!disturbances.containsKey(player.getUUID())&&disturbances.size()>=16)disturbances.remove(disturbances.keySet().iterator().next());
+  int count=disturbances.merge(player.getUUID(),1,Integer::sum);behavior=Behavior.WARN;voice("angry",.5F);if(count>=4)provoke(player);
+ }
+ @Override protected void think(){
+  if(home==null)home=blockPosition();
+  if(getTarget()!=null)return;
+  behavior=Behavior.WATCH;var player=nearby(24);if(player!=null)getLookControl().setLookAt(player,30,30);else wander();
+ }
+ @Override protected void abilityTick(){
+  if(vanished>0){getNavigation().stop();if(--vanished==0){setInvisible(false);behavior=Behavior.REPOSITION;}return;}
+  if(getTarget()==null){attack.cancel();setInvisible(false);return;}
+  if(attack.ready()){
+   if(level().getGameTime()>=nextEscape&&attackable(getTarget(),20)){
+    roots=true;attack.start(16,1,20,40);behavior=Behavior.ROOT_SNARE;voice("angry",.6F);particles(ParticleTypes.HAPPY_VILLAGER,10);nextEscape=level().getGameTime()+280;
+   }else if(attackable(getTarget(),3)){roots=false;attack.start(18,1,20,35);behavior=Behavior.WOODLAND_STRIKE;voice("angry",.55F);}
+   else{behavior=Behavior.CHASE;chase(1.05);return;}
+  }
+  if(attack.phase()==AttackTimeline.Phase.TELEGRAPH){faceTarget();getNavigation().stop();
+   if(roots&&level() instanceof net.minecraft.server.level.ServerLevel server&&tickCount%4==0)server.sendParticles(ParticleTypes.COMPOSTER,getTarget().getX(),getTarget().getY()+.1,getTarget().getZ(),4,.6,.05,.6,0);
+  }
+  if(attack.tick()){
+   if(roots&&attackable(getTarget(),20)){getTarget().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40));behavior=Behavior.FALSE_PRESENCE;
+    // Two brief positional sound/particle decoys, no helper entities to leak.
+    for(int i=0;i<2;i++){var p=getTarget().blockPosition().offset(i==0?-4:4,0,i==0?3:-3);if(level().hasChunkAt(p)){level().playSound(null,p,org.slavicmyths.registry.ModSounds.LESHY_AMBIENT.get(),net.minecraft.sounds.SoundSource.HOSTILE,.45F,.8F);if(level() instanceof net.minecraft.server.level.ServerLevel server)server.sendParticles(ParticleTypes.POOF,p.getX()+.5,p.getY()+1,p.getZ()+.5,8,.3,.6,.3,0);}}
+   }else if(!roots)strikeTarget(8,3,.5F);
+  }
+  if(roots&&attack.phase()==AttackTimeline.Phase.RECOVERY&&attack.elapsed()==0){
+   behavior=Behavior.VANISH;particles(ParticleTypes.POOF,12);setInvisible(true);vanished=16;
+   for(int i=0;i<8;i++){double angle=random.nextDouble()*Math.PI*2;int radius=8+random.nextInt(9);var p=blockPosition().offset((int)(Math.cos(angle)*radius),0,(int)(Math.sin(angle)*radius));
+    if(!level().hasChunkAt(p)||!level().getFluidState(p).isEmpty()||!level().getBlockState(p.below()).isSolid()||home!=null&&home.distSqr(p)>24*24)continue;
+    if(randomTeleport(p.getX()+.5,p.getY(),p.getZ()+.5,true))break;
+   }
+  }
+  if(attack.phase()==AttackTimeline.Phase.RECOVERY)getNavigation().stop();
+ }
+ @Override protected InteractionResult mobInteract(Player player,InteractionHand hand){org.slavicmyths.progression.Knowledge.award(player,"meet_leshy");return player.getItemInHand(hand).isEmpty()?InteractionResult.sidedSuccess(level().isClientSide):super.mobInteract(player,hand);}
+ @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);tag.putLong("NextEscape",nextEscape);}
+ @Override public void readAdditionalSaveData(CompoundTag tag){super.readAdditionalSaveData(tag);nextEscape=tag.getLong("NextEscape");attack.cancel();vanished=0;setInvisible(false);}
+ @Override protected int getBaseExperienceReward(){return 20;}
+ @Override public int getAmbientSoundInterval(){return 400;}
 }

@@ -84,6 +84,6 @@ public final class PortRuntimeGameTests {
         }
         var slots=top.theillusivec4.curios.api.CuriosApi.getEntitySlots(net.minecraft.world.entity.EntityType.PLAYER,test.getLevel());
         for(String slot:List.of("head","necklace","ring","belt","charm"))test.assertTrue(slots.containsKey(slot)&&slots.get(slot).getSize()==(slot.equals("ring")?2:1),"Curios slot drift "+slot);
-        test.assertTrue(entities==47,"Entity registration count "+entities);System.out.println("PORT_RUNTIME_REGISTRIES_PASS checked="+checked+" entities="+entities);test.succeed();
+        test.assertTrue(entities==48,"Entity registration count "+entities);System.out.println("PORT_RUNTIME_REGISTRIES_PASS checked="+checked+" entities="+entities);test.succeed();
     }
 }

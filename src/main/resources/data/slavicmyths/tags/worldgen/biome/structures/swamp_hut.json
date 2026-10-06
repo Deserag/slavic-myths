@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#slavicmyths:worldgen/core_swamp"
+    "minecraft:swamp"
   ]
 }

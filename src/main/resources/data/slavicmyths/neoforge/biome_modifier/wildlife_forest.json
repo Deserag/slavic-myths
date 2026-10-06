@@ -23,14 +23,14 @@
     {
       "type": "slavicmyths:stag",
       "weight": 3,
-      "minCount": 1,
-      "maxCount": 1
+      "minCount": 2,
+      "maxCount": 5
     },
     {
       "type": "slavicmyths:doe",
       "weight": 6,
       "minCount": 2,
-      "maxCount": 3
+      "maxCount": 5
     }
   ]
 }

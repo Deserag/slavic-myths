@@ -42,6 +42,10 @@ public final class LandEncounters {
     @SubscribeEvent public static void broken(BlockEvent.BreakEvent e){
         if(!(e.getLevel() instanceof Level) || e.getPlayer().isCreative())return;
         for(LandSpiritEntity spirit:guardians((Level)e.getLevel(),e.getPos()))spirit.provoke(e.getPlayer());
+        if(e.getState().getBlock() instanceof net.minecraft.world.level.block.CropBlock||e.getState().is(net.minecraft.world.level.block.Blocks.SHORT_GRASS)||e.getState().is(net.minecraft.world.level.block.Blocks.TALL_GRASS))
+            for(PolevikEntity spirit:((Level)e.getLevel()).getEntitiesOfClass(PolevikEntity.class,new AABB(e.getPos()).inflate(12)))spirit.disturb(e.getPlayer());
+        if(e.getState().is(net.minecraft.tags.BlockTags.LOGS)&&e.getLevel().getBiome(e.getPos()).is(net.minecraft.tags.BiomeTags.IS_FOREST))
+            for(LeshyEntity spirit:((Level)e.getLevel()).getEntitiesOfClass(LeshyEntity.class,new AABB(e.getPos()).inflate(16)))spirit.disturb(e.getPlayer());
     }
     private LandEncounters(){}
 }

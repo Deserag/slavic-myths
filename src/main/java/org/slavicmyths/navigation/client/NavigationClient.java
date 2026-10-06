@@ -44,7 +44,7 @@ public final class NavigationClient {
         // Only retry display/session binding; never regenerate areas or send packets here.
         if(++retry%20==0){initialize();publish();}
     }
-    @SubscribeEvent public static void loggedOut(ClientPlayerNetworkEvent.LoggingOut e){bridge.clear();bridge=MapIntegrationBridge.NONE;state=new NavigationState();initialized=false;mapGuidance=false;retry=0;}
+    @SubscribeEvent public static void loggedOut(ClientPlayerNetworkEvent.LoggingOut e){var previous=bridge;bridge=MapIntegrationBridge.NONE;state=new NavigationState();initialized=false;mapGuidance=false;retry=0;try{previous.clear();}catch(RuntimeException|LinkageError unavailable){com.mojang.logging.LogUtils.getLogger().debug("Optional map cleanup unavailable",unavailable);}}
     @SubscribeEvent public static void hud(RenderGuiEvent.Post event){
         var mc=Minecraft.getInstance();var p=mc.player;if(p==null||mc.options.hideGui||mc.screen!=null||!state.preferences.contains(NavigationState.Preference.FALLBACK_HUD))return;
         var marker=state.markers.get(state.tracked);if(marker==null||!state.visible(marker))return;

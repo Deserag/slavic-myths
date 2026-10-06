@@ -1,0 +1,7 @@
+# Дополнительные исправления runtime 0.9.7
+
+Xaero publish/clear обрабатывают отсутствующую сессию/WaypointsManager, смену мира/измерения и RuntimeException/LinkageError optional adapter. Clear сначала сбрасывает внутренний owned/session/world/set/publishedState, затем удаляет только точные собственные временные объекты, не очищая пользовательскую группу или файлы. Менеджер обновляется только у всё ещё текущей сессии и если не null. LoggingOut сначала сбрасывает весь NavigationClient, затем защищённо вызывает старый bridge.clear. Офлайн исполняется именно production adapter с lifecycle doubles: 10 случаев, включая null manager, уже закрытую/сменённую сессию, exception при update и сохранность user waypoint. Это не запуск настоящего клиента.
+
+JeiRituals catalyst теперь получает ровно один существующий RecipeType<ResourceLocation> slavicmyths:rituals, общий для Category.getRecipeType/registerRecipes/registerRecipeCatalysts. Проверены compiled bytecode и фактическая сигнатура IRecipeCatalystRegistration из pinned JEI 19.51.0.418. Это JEI category type, не новый Minecraft recipe serializer. Core не требует JEI, общие классы не ссылаются на plugin. Клиентский callback/category rendering ещё требуют manual QA.
+
+Linden door переносится на точную схему native oak door 1.21.1: 32 variants, восемь актуальных моделей; старые четыре aliases сохранены. Все новые references разрешаются по pinned assets. Другие 16 прежних door parent issues не скрываются как исправленные.
