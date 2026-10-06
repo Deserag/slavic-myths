@@ -1,0 +1,72 @@
+{
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.255",
+  "java": 21,
+  "slavicmyths": {
+    "filename": "slavicmyths-0.9.10-rc1.jar",
+    "sha256": "9010726670d1a6b04ec41143ad4cbf6dfec0e72f6407d11b07d41e8e30817b76"
+  },
+  "mods": [
+    {
+      "id": "curios",
+      "version": "9.5.1+1.21.1",
+      "filename": "curios-neoforge-9.5.1+1.21.1.jar",
+      "sha256": "a45df2125c26219974aba7507ffc9afe7b83acc941a386af3faacb1cc0056fde",
+      "size": 410690,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/curios/files/6529130",
+      "downloadUrl": "https://mediafilez.forgecdn.net/files/6529/130/curios-neoforge-9.5.1%2B1.21.1.jar",
+      "required": true
+    },
+    {
+      "id": "jei",
+      "version": "19.51.0.418",
+      "filename": "jei-1.21.1-neoforge-19.51.0.418.jar",
+      "sha256": "8bc3936d869e4040a5649c58b7e8be1c78c82a245c0dc07bdd68ab49121a222c",
+      "size": 1804792,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/jei/files/8792638",
+      "downloadUrl": "https://mediafilez.forgecdn.net/files/8792/638/jei-1.21.1-neoforge-19.51.0.418.jar",
+      "required": false
+    },
+    {
+      "id": "jade",
+      "version": "15.10.6",
+      "filename": "Jade-1.21.1-NeoForge-15.10.6.jar",
+      "sha256": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810",
+      "size": 726853,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/jade/files/8591319",
+      "downloadUrl": "https://mediafilez.forgecdn.net/files/8591/319/Jade-1.21.1-NeoForge-15.10.6.jar",
+      "required": false
+    },
+    {
+      "id": "xaerominimap",
+      "version": "26.5.0",
+      "filename": "xaerominimap-neoforge-1.21.1-26.5.0.jar",
+      "sha256": "667105d8fdca64b27b29d8e0b88e67e7342038d3fb4edc4129bf452b601c6d20",
+      "size": 2185559,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap/files/8849842",
+      "downloadUrl": "https://mediafilez.forgecdn.net/files/8849/842/xaerominimap-neoforge-1.21.1-26.5.0.jar",
+      "required": false
+    },
+    {
+      "id": "xaeroworldmap",
+      "version": "1.45.0",
+      "filename": "xaeroworldmap-neoforge-1.21.1-1.45.0.jar",
+      "sha256": "d60899112e84616ba52a993c1722fd891872acc4779bfac34d9b170001451c6f",
+      "size": 1422531,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/xaeros-world-map/files/8698659",
+      "downloadUrl": "https://mediafilez.forgecdn.net/files/8698/659/xaeroworldmap-neoforge-1.21.1-1.45.0.jar",
+      "required": false
+    },
+    {
+      "id": "fallingtree",
+      "version": "1.21.1.11",
+      "filename": "FallingTree-1.21.1-1.21.1.11.jar",
+      "sha256": "70ee147602d2239e7a093e166fdf0c0abcef959d5d457c0f8f3669ef9b483dc4",
+      "size": 496356,
+      "sourceUrl": "https://www.curseforge.com/minecraft/mc-mods/falling-tree/files/6835168",
+      "downloadUrl": "https://mediafilez.forgecdn.net/files/6835/168/FallingTree-1.21.1-1.21.1.11.jar",
+      "required": false
+    }
+  ],
+  "xaeroLib": "Embedded in Minimap and World Map; no separate JAR required."
+}
