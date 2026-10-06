@@ -18,7 +18,7 @@ public final class SilverCombat {
     @SubscribeEvent public static void onHurt(LivingIncomingDamageEvent event) {
         if (event.getEntity().level().isClientSide || !(event.getSource().getEntity() instanceof Player)) return;
         Player attacker = (Player) event.getSource().getEntity();
-        if (attacker.getOffhandItem().getItem() == ModItems.HUNTER_CHARM.get()
+        if (!event.getSource().getMsgId().equals("slavic_cut") && attacker.getOffhandItem().getItem() == ModItems.HUNTER_CHARM.get()
                 && event.getEntity() instanceof net.minecraft.world.entity.animal.Animal) {
             event.setAmount(event.getAmount() + 0.5F);
         }

@@ -9,19 +9,21 @@ import net.minecraft.world.level.saveddata.SavedData;
 import org.slavicmyths.furniture.Furniture;
 /** Loaded NPC goals request bounded zone transitions. No global tick manager or forced chunks. */
 public final class StrongholdRecords extends SavedData {
+ private static final Map<ServerLevel,StrongholdRecords> LOADED=new WeakHashMap<>();
+ public static synchronized void unload(ServerLevel world){LOADED.remove(world);}
  public static final int TOTAL=26;
  public static final class Record {
   public long spawned,dead,spreadAt,calmAt;public boolean cleared,nightingaleSpawned,nightingaleDead;public final BlockPos[]bells=new BlockPos[5];public final int[]states=new int[5];
  }
  private final Map<UUID,Record> camps=new HashMap<>();
  public StrongholdRecords(){super();}
- public static synchronized StrongholdRecords get(ServerLevel w){return w.getDataStorage().computeIfAbsent(new SavedData.Factory<>(StrongholdRecords::new,(tag,registries)->{StrongholdRecords data=new StrongholdRecords();data.load(tag);return data;}),"slavicmyths_strongholds");}
+ public static synchronized StrongholdRecords get(ServerLevel w){var cached=LOADED.get(w);if(cached!=null)return cached;if(!w.getServer().isSameThread())throw new IllegalStateException("StrongholdRecords must be initialized by server LevelEvent.Load before worldgen");var loaded=w.getDataStorage().computeIfAbsent(new SavedData.Factory<>(StrongholdRecords::new,(tag,registries)->{StrongholdRecords data=new StrongholdRecords();data.load(tag);return data;}),"slavicmyths_strongholds");LOADED.put(w,loaded);return loaded;}
  public synchronized Record record(UUID id){Record record=camps.get(id);if(record==null){record=new Record();camps.put(id,record);setDirty();}return record;}
- public synchronized boolean nightingaleProcessed(UUID id){Record r=record(id);return r.nightingaleSpawned||r.nightingaleDead;}
+ public synchronized boolean nightingaleProcessed(UUID id){Record r=camps.get(id);return r!=null&&(r.nightingaleSpawned||r.nightingaleDead);}
  public synchronized void nightingaleSpawned(UUID id){record(id).nightingaleSpawned=true;setDirty();}
  public synchronized void nightingaleDied(UUID id){record(id).nightingaleDead=true;setDirty();}
  public synchronized void bell(UUID id,int zone,BlockPos p){record(id).bells[zone]=p;setDirty();}
- public synchronized boolean processed(UUID id,int slot){Record r=record(id);return r.cleared||((r.spawned|r.dead)&(1L<<slot))!=0;}
+ public synchronized boolean processed(UUID id,int slot){Record r=camps.get(id);return r!=null&&(r.cleared||((r.spawned|r.dead)&(1L<<slot))!=0);}
  public synchronized void spawned(UUID id,int slot){record(id).spawned|=1L<<slot;setDirty();}
  public synchronized void killed(BanditEntity b,Entity killer){Record r=record(b.camp);r.dead|=1L<<b.campMember;
   if(!r.cleared&&(r.dead&3)==3&&Long.bitCount(r.dead&((1L<<TOTAL)-1))>=18){r.cleared=true;Arrays.fill(r.states,0);if(killer instanceof Player)org.slavicmyths.progression.Knowledge.award((Player)killer,"clear_large_camp");}setDirty();

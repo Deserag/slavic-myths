@@ -34,6 +34,7 @@ public final class LeshyModel extends EntityModel<LeshyEntity> {
         float threat = -Mth.sin(attackTime * (float)Math.PI) * 1.2F;
         rightArm.xRot = threat + leftLeg.xRot * 0.5F; leftArm.xRot = threat + rightLeg.xRot * 0.5F;
         leftArm.zRot = 0.05F + Mth.sin(age * 0.04F) * 0.025F; rightArm.zRot = -leftArm.zRot;
+        switch(entity.attackPhase()){case TELEGRAPH->{rightArm.xRot=-1.6F;leftArm.xRot=-1.2F;}case ACTIVE->{rightArm.xRot=-.4F;leftArm.xRot=-.5F;}case RECOVERY->{rightArm.xRot=.3F;leftArm.xRot=.3F;}default->{}}
     }
     @Override public void renderToBuffer(PoseStack pose, VertexConsumer buffer, int light, int overlay,int color) {
         head.render(pose,buffer,light,overlay,color); body.render(pose,buffer,light,overlay,color);

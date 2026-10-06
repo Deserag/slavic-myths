@@ -1,7 +1,14 @@
 {
   "variants": {
-    "": {
-      "model": "slavicmyths:block/pale_blue_kurgan_stone"
-    }
+    "": [
+      {
+        "model": "slavicmyths:block/pale_blue_kurgan_stone",
+        "weight": 3
+      },
+      {
+        "model": "slavicmyths:block/pale_blue_kurgan_stone_variant",
+        "weight": 1
+      }
+    ]
   }
 }

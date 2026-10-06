@@ -37,28 +37,19 @@ public final class CampCommands {
     }
     private static int run(CommandSourceStack source,String size,boolean next,boolean teleport)throws CommandSyntaxException {
         ServerLevel w=source.getLevel();if(!w.dimension().equals(Level.OVERWORLD)){source.sendFailure(Component.translatable("swamp.command.overworld"));return 0;}
-        BlockPos origin=BlockPos.containing(source.getPosition());List<BlockPos> found=new ArrayList<>();Set<Long> visited=new HashSet<>();
-        for(int r=0;r<=7;r++){
-            for(Structure type:new Structure[]{org.slavicmyths.swamp.SwampStructures.get(w,"bandit_camp_small"),org.slavicmyths.swamp.SwampStructures.get(w,"bandit_camp_medium"),org.slavicmyths.swamp.SwampStructures.get(w,"bandit_camp_large")}){
-                if(!size.equals("any")&&type!=(size.equals("small")?org.slavicmyths.swamp.SwampStructures.get(w,"bandit_camp_small"):size.equals("medium")?org.slavicmyths.swamp.SwampStructures.get(w,"bandit_camp_medium"):org.slavicmyths.swamp.SwampStructures.get(w,"bandit_camp_large")))continue;
-                RandomSpreadStructurePlacement cfg=StructureCandidates.placement(w,type);if(cfg==null)continue;
-                for(int dx=-r;dx<=r;dx++)for(int dz=-r;dz<=r;dz++){
-                    if(Math.max(Math.abs(dx),Math.abs(dz))!=r)continue;ChunkPos p=cfg.getPotentialStructureChunk(w.getSeed(),(origin.getX()>>4)+dx*cfg.spacing(),(origin.getZ()>>4)+dz*cfg.spacing());
-                    long key=p.toLong()^((long)w.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.STRUCTURE).getKey(type).hashCode()<<32);if(!visited.add(key))continue;
-                    if(!StructureCandidates.biome(w,type,p))continue;
-                    StructureStart start=w.getChunk(p.x,p.z,ChunkStatus.STRUCTURE_STARTS).getStartForStructure(type);
-                    if(start!=null&&start.isValid()){BlockPos pos=StructureCandidates.locate(start);if(size.equals("nightingale")){for(StructurePiece piece:start.getPieces())if(piece instanceof LargeCampPiece){BlockPos yard=((LargeCampPiece)piece).nightingaleArrival();if(yard!=null){pos=yard;break;}}}if(horizontal(origin,pos)>=96*96)found.add(pos);}
-                }
-            }
-            if(r>=2&&found.size()>=(next?2:1))break;
+        if(teleport)source.getPlayerOrException();BlockPos origin=BlockPos.containing(source.getPosition());
+        var known=org.slavicmyths.worldgen.ManualStructureRecords.get(w).entries().stream().filter(e->e.family().equals("bandit_camp")&&(size.equals("any")||e.tier()==(size.equals("small")?0:size.equals("medium")?1:2))).map(org.slavicmyths.worldgen.ManualStructureRecords.Entry::arrival).filter(p->horizontal(origin,p)>=96*96).sorted(Comparator.comparingDouble(p->horizontal(origin,p))).toList();
+        int knownIndex=next&&!size.equals("large")?1:0;if(!size.equals("nightingale")&&known.size()>knownIndex)return org.slavicmyths.worldgen.BoundedStructureSearch.deliver(source,known.get(knownIndex),teleport,p->report(source,size,teleport,p));
+        var types=new java.util.ArrayList<Structure>();for(String id:new String[]{"bandit_camp_small","bandit_camp_medium","bandit_camp_large"})if(size.equals("any")||id.equals("bandit_camp_"+(size.equals("nightingale")?"large":size)))types.add(org.slavicmyths.swamp.SwampStructures.get(w,id));
+        int[] seen={0};return org.slavicmyths.worldgen.BoundedStructureSearch.start(source,types,start->{if(size.equals("nightingale"))for(var piece:start.getPieces())if(piece instanceof LargeCampPiece large){var arrival=large.nightingaleArrival();if(arrival!=null)return arrival;}return StructureCandidates.locate(start);},p->horizontal(origin,p)>=96*96&&(!next||seen[0]++>0),p->report(source,size,teleport,p));
+    }
+    private static void report(CommandSourceStack source,String size,boolean teleport,BlockPos pos){
+        ServerLevel w=source.getLevel();
+        source.sendSuccess(()->Component.translatable("swamp.command.structure","bandit_camp "+size,pos.getX(),pos.getY(),pos.getZ()),false);
+        if(teleport){ServerPlayer player=source.getEntity() instanceof ServerPlayer p?p:null;if(player==null)return;BlockPos safe=null;
+            outer:for(int r=0;r<=24;r+=2)for(int x=-r;x<=r;x+=2)for(int z=-r;z<=r;z+=2){if(Math.max(Math.abs(x),Math.abs(z))!=r)continue;BlockPos base=pos.offset(x,0,z);if(w.getChunkSource().getChunkNow(base.getX()>>4,base.getZ()>>4)==null)continue;BlockPos q=w.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,pos.offset(x,0,z));net.minecraft.world.level.block.state.BlockState ground=w.getBlockState(q.below());if(w.getWorldBorder().isWithinBounds(q)&&ground.isFaceSturdy(w,q.below(),Direction.UP)&&!ground.is(net.minecraft.tags.BlockTags.LEAVES)&&!ground.is(net.minecraft.tags.BlockTags.LOGS)&&!ground.is(net.minecraft.world.level.block.Blocks.CAMPFIRE)&&!ground.is(net.minecraft.world.level.block.Blocks.MAGMA_BLOCK)&&w.isEmptyBlock(q)&&w.isEmptyBlock(q.above())&&w.getFluidState(q.below()).isEmpty()){safe=q;break outer;}}
+            if(safe==null){source.sendFailure(Component.translatable("bandit.command.no_safe"));return;}player.teleportTo(w,safe.getX()+.5,safe.getY(),safe.getZ()+.5,player.getYRot(),player.getXRot());
         }
-        found.sort(Comparator.comparingDouble(p->horizontal(origin,p)));int index=next&&!size.equals("large")?1:0;
-        if(found.size()<=index){source.sendFailure(Component.translatable("swamp.command.not_found"));return 0;}
-        BlockPos pos=found.get(index);source.sendSuccess(()->Component.translatable("swamp.command.structure","bandit_camp "+size,pos.getX(),pos.getY(),pos.getZ()),false);
-        if(teleport){ServerPlayer player=source.getPlayerOrException();BlockPos safe=null;
-            outer:for(int r=0;r<=24;r+=2)for(int x=-r;x<=r;x+=2)for(int z=-r;z<=r;z+=2){if(Math.max(Math.abs(x),Math.abs(z))!=r)continue;BlockPos q=w.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,pos.offset(x,0,z));net.minecraft.world.level.block.state.BlockState ground=w.getBlockState(q.below());if(w.getWorldBorder().isWithinBounds(q)&&ground.isFaceSturdy(w,q.below(),Direction.UP)&&!ground.is(net.minecraft.tags.BlockTags.LEAVES)&&!ground.is(net.minecraft.tags.BlockTags.LOGS)&&!ground.is(net.minecraft.world.level.block.Blocks.CAMPFIRE)&&!ground.is(net.minecraft.world.level.block.Blocks.MAGMA_BLOCK)&&w.isEmptyBlock(q)&&w.isEmptyBlock(q.above())&&w.getFluidState(q.below()).isEmpty()){safe=q;break outer;}}
-            if(safe==null){source.sendFailure(Component.translatable("bandit.command.no_safe"));return 0;}player.teleportTo(w,safe.getX()+.5,safe.getY(),safe.getZ()+.5,player.getYRot(),player.getXRot());
-        }return 1;
     }
     private static double horizontal(BlockPos a,BlockPos b){double x=(double)a.getX()-b.getX(),z=(double)a.getZ()-b.getZ();return x*x+z*z;}
 }

@@ -83,6 +83,7 @@ public final class ElementHuntMob extends HuntMob {
  private void projections(){if(copiesUntil>level().getGameTime())return;copiesUntil=level().getGameTime()+70;for(int i=0;i<2;i++){SerpentProjection e=ModEntities.SERPENT_PROJECTION.get().create(level());Vec3 offset=new Vec3(i==0?-2:2,0,1);if(e!=null&&level().hasChunkAt(BlockPos.containing(position().add(offset)))&&level().noCollision(e,getBoundingBox().move(offset))){e.parent=getUUID();e.until=copiesUntil;e.drift=new Vec3(i==0?-.08:.08,.025,.04);e.moveTo(getX()+offset.x,getY(),getZ()+1,getYRot(),0);level().addFreshEntity(e);}}particles(ParticleTypes.FLAME,10);}
  private final class Fight extends Goal {
   Fight(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
+        @Override public boolean requiresUpdateEveryTick(){return true;}
   @Override public boolean canUse(){return isAlive();}
   @Override public void tick(){ticks++;LivingEntity t=getTarget();if(t==null&&owner!=null&&tickCount%20==0){Player ownerPlayer=level().getPlayerByUUID(owner);if(ownerPlayer!=null&&valid(ownerPlayer)&&distanceTo(ownerPlayer)<80){setTarget(ownerPlayer);t=ownerPlayer;}}if(t!=null&&!valid(t)){setTarget(null);t=null;}if(t!=null&&getSensing().hasLineOfSight(t)){memory=220;seen=t.position();}else if(t!=null&&!serpent()&&--memory<=0){setTarget(null);t=null;}
    Vec3 anchor=home==null?position():new Vec3(home.getX()+.5,home.getY(),home.getZ()+.5);if(home!=null&&(position().distanceToSqr(anchor)>72*72||t!=null&&t.position().distanceToSqr(anchor)>80*80||blocked>80)){state(State.RETURN_TO_ANCHOR);blocked=0;}

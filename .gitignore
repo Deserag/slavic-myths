@@ -6,3 +6,7 @@ run-server/
 .idea/
 *.iml
 __pycache__/
+
+# Local playtest binaries are distributed as GitHub Release assets.
+release/*/*.jar
+release/*/*.zip

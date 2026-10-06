@@ -5,6 +5,11 @@ ROOT = Path(__file__).resolve().parents[1]
 if 'net.neoforged.moddev' in (ROOT/'build.gradle').read_text():
     # The historical verifier below is retained for pre-port source checkpoints.
     # On the active target, default validation requires the real production JAR.
+    active=(ROOT/'gradle.properties').read_text(encoding='utf-8')
+    if 'mod_version=0.9.7' in active and '--navigation' not in sys.argv:
+        raise SystemExit(subprocess.call([sys.executable,str(ROOT/'tools/verify_swamp_097.py'),*[a for a in sys.argv[1:] if a!='--swamp-rework']]))
+    if 'mod_version=0.9.6' in active and '--navigation' not in sys.argv:
+        raise SystemExit(subprocess.call([sys.executable,str(ROOT/'tools/verify_kurgan_096.py'),*[a for a in sys.argv[1:] if a!='--kurgan-rework']]))
     raise SystemExit(subprocess.call([sys.executable,str(ROOT/'tools/verify_port_1211.py'),*sys.argv[1:]]))
 RES = ROOT/'src/main/resources'
 JAVA = ROOT/'src/main/java/org/slavicmyths'

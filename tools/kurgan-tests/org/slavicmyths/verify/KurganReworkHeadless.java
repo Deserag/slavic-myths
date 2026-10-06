@@ -12,11 +12,16 @@ public final class KurganReworkHeadless {
     long seed=sample*7919L;var p=KurganPlan.create(tier,seed);var m=KurganLayout.metrics(p);
     check(p.formatVersion==2&&p.validate().isEmpty(),"Invalid v2 plan");var n=KurganPlanNbt.write(p);
     check(n.equals(KurganPlanNbt.write(KurganPlanNbt.read(n))),"V2 geometry rerolled on load");
-    check(n.equals(KurganPlanNbt.write(KurganPlan.create(tier,seed))),"Nondeterministic layout");maps.add(n.toString());
+    check(n.equals(KurganPlanNbt.write(KurganPlan.create(tier,seed))),"Nondeterministic layout");var fingerprint=n.copy();fingerprint.remove("Seed");maps.add(fingerprint.toString());
     for(var r:p.rooms)if(r.archetype!=null)types.add(r.archetype);
+    if(tier>0){var instance=new KurganInstance(java.util.UUID.randomUUID(),net.minecraft.core.BlockPos.ZERO,p);instance.disturbance=100;var roster=KurganRoster.roster(instance,p.rooms.get(p.finalRoom));check(!roster.isEmpty(),"Deep room lost its existing population policy");if(tier==2)check(roster.equals(List.of(KurganFighter.Kind.PRINCE)),"Great final population changed");}
     minNodes=Math.min(minNodes,m.nodes());maxNodes=Math.max(maxNodes,m.nodes());minLoops=Math.min(minLoops,m.loops());maxLoops=Math.max(maxLoops,m.loops());
     minRewards=Math.min(minRewards,m.containers());maxRewards=Math.max(maxRewards,m.containers());optional+=m.optionalPercent();
-    if(sample<3){Path dir=Path.of("build/reports/slavicmyths/kurgan");Files.createDirectories(dir);Files.writeString(dir.resolve(seed+"-"+tier+".txt"),m+"\n"+n);}
+    Path dir=Path.of("build/reports/slavicmyths/kurgan");Files.createDirectories(dir);
+    Map<String,Object> report=new LinkedHashMap<>();report.put("version",p.formatVersion);report.put("tier",tier);report.put("attemptsUsed",p.attemptsUsed);report.put("seed",seed);report.put("metrics",m);report.put("bounds",p.bounds().array());report.put("validationErrors",p.validate());
+    report.put("rooms",p.rooms.stream().map(r->{Map<String,Object> row=new LinkedHashMap<>();row.put("id",r.id);row.put("floor",r.floor);row.put("archetype",r.archetype);row.put("nodeType",r.nodeType);row.put("bounds",r.box().array());row.put("critical",r.critical);row.put("mandatory",r.mandatory);row.put("rewardPoints",KurganLayout.rewards(r));row.put("loot",r.loot);row.put("rewardCoordinates",java.util.stream.IntStream.range(0,KurganLayout.rewards(r)).mapToObj(i->{var s=KurganLayout.rewardPoint(r,i);return new int[]{s.x,s.y,s.z};}).toList());return row;}).toList());
+    report.put("links",p.links.stream().map(l->Map.of("a",l.a,"b",l.b,"width",l.width,"height",l.secret?3:l.height,"secret",l.secret,"style",l.style,"transitionStyle",l.transitionStyle,"steps",l.steps.stream().map(s->new int[]{s.x,s.y,s.z}).toList())).toList());
+    Files.writeString(dir.resolve(seed+"-"+tier+".json"),new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(report));
    }
    System.out.println("KURGAN_V2_TIER_PASS tier="+tier+" samples=50 nodes="+minNodes+".."+maxNodes+" loops="+minLoops+".."+maxLoops+" rewards="+minRewards+".."+maxRewards+" meanOptional="+optional/50);
   }

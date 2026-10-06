@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:stone"
+  },
+  "result": {
+    "id": "slavicmyths:pale_blue_kurgan_stone",
+    "count": 1
+  }
+}

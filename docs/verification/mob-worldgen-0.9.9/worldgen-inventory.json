@@ -1,0 +1,864 @@
+[
+  {
+    "kind": "structure",
+    "id": "slavicmyths:abandoned_settlement",
+    "type": "slavicmyths:abandoned_settlement",
+    "data": {
+      "type": "slavicmyths:abandoned_settlement",
+      "biomes": "#slavicmyths:structures/abandoned_settlement",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:bandit_camp_large",
+    "type": "slavicmyths:bandit_camp_large",
+    "data": {
+      "type": "slavicmyths:bandit_camp_large",
+      "biomes": "#slavicmyths:structures/bandit_camp_large",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:bandit_camp_medium",
+    "type": "slavicmyths:bandit_camp_medium",
+    "data": {
+      "type": "slavicmyths:bandit_camp_medium",
+      "biomes": "#slavicmyths:structures/bandit_camp_medium",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:bandit_camp_small",
+    "type": "slavicmyths:bandit_camp_small",
+    "data": {
+      "type": "slavicmyths:bandit_camp_small",
+      "biomes": "#slavicmyths:structures/bandit_camp_small",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:bog_causeway",
+    "type": "slavicmyths:bog_causeway",
+    "data": {
+      "type": "slavicmyths:bog_causeway",
+      "biomes": "#slavicmyths:structures/bog_causeway",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:fishing_camp",
+    "type": "slavicmyths:fishing_camp",
+    "data": {
+      "type": "slavicmyths:fishing_camp",
+      "biomes": "#slavicmyths:structures/fishing_camp",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:flooded_shrine",
+    "type": "slavicmyths:flooded_shrine",
+    "data": {
+      "type": "slavicmyths:flooded_shrine",
+      "biomes": "#slavicmyths:structures/flooded_shrine",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:kurgan_great",
+    "type": "slavicmyths:kurgan_great",
+    "data": {
+      "type": "slavicmyths:kurgan_great",
+      "biomes": "#slavicmyths:structures/kurgan_great",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:kurgan_small",
+    "type": "slavicmyths:kurgan_small",
+    "data": {
+      "type": "slavicmyths:kurgan_small",
+      "biomes": "#slavicmyths:structures/kurgan_small",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:kurgan_warrior",
+    "type": "slavicmyths:kurgan_warrior",
+    "data": {
+      "type": "slavicmyths:kurgan_warrior",
+      "biomes": "#slavicmyths:structures/kurgan_warrior",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:swamp_hut",
+    "type": "slavicmyths:swamp_hut",
+    "data": {
+      "type": "slavicmyths:swamp_hut",
+      "biomes": "#slavicmyths:structures/swamp_hut",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:swamp_remnants",
+    "type": "slavicmyths:swamp_remnants",
+    "data": {
+      "type": "slavicmyths:swamp_remnants",
+      "biomes": "#slavicmyths:structures/swamp_remnants",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:swamp_watchtower",
+    "type": "slavicmyths:swamp_watchtower",
+    "data": {
+      "type": "slavicmyths:swamp_watchtower",
+      "biomes": "#slavicmyths:structures/swamp_watchtower",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "structure",
+    "id": "slavicmyths:underwater_ruins",
+    "type": "slavicmyths:underwater_ruins",
+    "data": {
+      "type": "slavicmyths:underwater_ruins",
+      "biomes": "#slavicmyths:structures/underwater_ruins",
+      "step": "surface_structures",
+      "spawn_overrides": {},
+      "terrain_adaptation": "none"
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:ancient_shrine",
+    "type": "slavicmyths:ancient_shrine",
+    "data": {
+      "type": "slavicmyths:ancient_shrine",
+      "config": {}
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:bathhouse",
+    "type": "slavicmyths:bathhouse",
+    "data": {
+      "type": "slavicmyths:bathhouse",
+      "config": {}
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:berry_patch",
+    "type": "slavicmyths:berry_patch",
+    "data": {
+      "type": "slavicmyths:berry_patch",
+      "config": {}
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:deep_pool",
+    "type": "slavicmyths:deep_pool",
+    "data": {
+      "type": "slavicmyths:deep_pool",
+      "config": {}
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:linden_12",
+    "type": "slavicmyths:linden_tree",
+    "data": {
+      "type": "slavicmyths:linden_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:linden_2",
+    "type": "slavicmyths:linden_tree",
+    "data": {
+      "type": "slavicmyths:linden_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:linden_24",
+    "type": "slavicmyths:linden_tree",
+    "data": {
+      "type": "slavicmyths:linden_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:linden_4",
+    "type": "slavicmyths:linden_tree",
+    "data": {
+      "type": "slavicmyths:linden_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:linden_6",
+    "type": "slavicmyths:linden_tree",
+    "data": {
+      "type": "slavicmyths:linden_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:linden_8",
+    "type": "slavicmyths:linden_tree",
+    "data": {
+      "type": "slavicmyths:linden_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:linden_sapling",
+    "type": "slavicmyths:linden_tree",
+    "data": {
+      "type": "slavicmyths:linden_tree",
+      "config": {
+        "sapling": true
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:old_barn",
+    "type": "slavicmyths:old_barn",
+    "data": {
+      "type": "slavicmyths:old_barn",
+      "config": {}
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:ore_perunite",
+    "type": "minecraft:ore",
+    "data": {
+      "type": "minecraft:ore",
+      "config": {
+        "size": 3,
+        "discard_chance_on_air_exposure": 0.0,
+        "targets": [
+          {
+            "target": {
+              "predicate_type": "minecraft:tag_match",
+              "tag": "minecraft:stone_ore_replaceables"
+            },
+            "state": {
+              "Name": "slavicmyths:perunite_ore"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:ore_silver",
+    "type": "minecraft:ore",
+    "data": {
+      "type": "minecraft:ore",
+      "config": {
+        "size": 5,
+        "discard_chance_on_air_exposure": 0.0,
+        "targets": [
+          {
+            "target": {
+              "predicate_type": "minecraft:tag_match",
+              "tag": "minecraft:stone_ore_replaceables"
+            },
+            "state": {
+              "Name": "slavicmyths:silver_ore"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:patch_fireweed",
+    "type": "minecraft:random_patch",
+    "data": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "tries": 12,
+        "xz_spread": 7,
+        "y_spread": 3,
+        "feature": {
+          "feature": {
+            "type": "minecraft:simple_block",
+            "config": {
+              "to_place": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "slavicmyths:fireweed"
+                }
+              }
+            }
+          },
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:patch_flax",
+    "type": "minecraft:random_patch",
+    "data": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "tries": 24,
+        "xz_spread": 7,
+        "y_spread": 3,
+        "feature": {
+          "feature": {
+            "type": "minecraft:simple_block",
+            "config": {
+              "to_place": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "slavicmyths:flax"
+                }
+              }
+            }
+          },
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:patch_juniper",
+    "type": "minecraft:random_patch",
+    "data": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "tries": 8,
+        "xz_spread": 7,
+        "y_spread": 3,
+        "feature": {
+          "feature": {
+            "type": "minecraft:simple_block",
+            "config": {
+              "to_place": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "slavicmyths:juniper_berries"
+                }
+              }
+            }
+          },
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:patch_nettle",
+    "type": "minecraft:random_patch",
+    "data": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "tries": 12,
+        "xz_spread": 7,
+        "y_spread": 3,
+        "feature": {
+          "feature": {
+            "type": "minecraft:simple_block",
+            "config": {
+              "to_place": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "slavicmyths:nettle"
+                }
+              }
+            }
+          },
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:patch_st_johns_wort",
+    "type": "minecraft:random_patch",
+    "data": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "tries": 12,
+        "xz_spread": 7,
+        "y_spread": 3,
+        "feature": {
+          "feature": {
+            "type": "minecraft:simple_block",
+            "config": {
+              "to_place": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "slavicmyths:st_johns_wort"
+                }
+              }
+            }
+          },
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:patch_wormwood",
+    "type": "minecraft:random_patch",
+    "data": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "tries": 16,
+        "xz_spread": 7,
+        "y_spread": 3,
+        "feature": {
+          "feature": {
+            "type": "minecraft:simple_block",
+            "config": {
+              "to_place": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "slavicmyths:wormwood"
+                }
+              }
+            }
+          },
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:path_shrine",
+    "type": "slavicmyths:path_shrine",
+    "data": {
+      "type": "slavicmyths:path_shrine",
+      "config": {}
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:pine_12",
+    "type": "slavicmyths:pine_tree",
+    "data": {
+      "type": "slavicmyths:pine_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:pine_2",
+    "type": "slavicmyths:pine_tree",
+    "data": {
+      "type": "slavicmyths:pine_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:pine_24",
+    "type": "slavicmyths:pine_tree",
+    "data": {
+      "type": "slavicmyths:pine_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:pine_4",
+    "type": "slavicmyths:pine_tree",
+    "data": {
+      "type": "slavicmyths:pine_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:pine_6",
+    "type": "slavicmyths:pine_tree",
+    "data": {
+      "type": "slavicmyths:pine_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:pine_8",
+    "type": "slavicmyths:pine_tree",
+    "data": {
+      "type": "slavicmyths:pine_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:pine_sapling",
+    "type": "slavicmyths:pine_tree",
+    "data": {
+      "type": "slavicmyths:pine_tree",
+      "config": {
+        "sapling": true
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:rowan_12",
+    "type": "slavicmyths:rowan_tree",
+    "data": {
+      "type": "slavicmyths:rowan_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:rowan_2",
+    "type": "slavicmyths:rowan_tree",
+    "data": {
+      "type": "slavicmyths:rowan_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:rowan_24",
+    "type": "slavicmyths:rowan_tree",
+    "data": {
+      "type": "slavicmyths:rowan_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:rowan_4",
+    "type": "slavicmyths:rowan_tree",
+    "data": {
+      "type": "slavicmyths:rowan_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:rowan_6",
+    "type": "slavicmyths:rowan_tree",
+    "data": {
+      "type": "slavicmyths:rowan_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:rowan_8",
+    "type": "slavicmyths:rowan_tree",
+    "data": {
+      "type": "slavicmyths:rowan_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:rowan_sapling",
+    "type": "slavicmyths:rowan_tree",
+    "data": {
+      "type": "slavicmyths:rowan_tree",
+      "config": {
+        "sapling": true
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:swamp_dead",
+    "type": "slavicmyths:swamp_nature",
+    "data": {
+      "type": "slavicmyths:swamp_nature",
+      "config": {
+        "kind": "dead"
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:swamp_detail",
+    "type": "slavicmyths:swamp_nature",
+    "data": {
+      "type": "slavicmyths:swamp_nature",
+      "config": {
+        "kind": "detail"
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:swamp_oak",
+    "type": "slavicmyths:swamp_nature",
+    "data": {
+      "type": "slavicmyths:swamp_nature",
+      "config": {
+        "kind": "oak"
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:swamp_pine",
+    "type": "slavicmyths:swamp_nature",
+    "data": {
+      "type": "slavicmyths:swamp_nature",
+      "config": {
+        "kind": "pine"
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:swamp_willow",
+    "type": "slavicmyths:swamp_nature",
+    "data": {
+      "type": "slavicmyths:swamp_nature",
+      "config": {
+        "kind": "willow"
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:water_patch",
+    "type": "slavicmyths:water_patch",
+    "data": {
+      "type": "slavicmyths:water_patch",
+      "config": {}
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:willow_12",
+    "type": "slavicmyths:willow_tree",
+    "data": {
+      "type": "slavicmyths:willow_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:willow_2",
+    "type": "slavicmyths:willow_tree",
+    "data": {
+      "type": "slavicmyths:willow_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:willow_24",
+    "type": "slavicmyths:willow_tree",
+    "data": {
+      "type": "slavicmyths:willow_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:willow_4",
+    "type": "slavicmyths:willow_tree",
+    "data": {
+      "type": "slavicmyths:willow_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:willow_6",
+    "type": "slavicmyths:willow_tree",
+    "data": {
+      "type": "slavicmyths:willow_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:willow_8",
+    "type": "slavicmyths:willow_tree",
+    "data": {
+      "type": "slavicmyths:willow_tree",
+      "config": {
+        "sapling": false
+      }
+    }
+  },
+  {
+    "kind": "configured_feature",
+    "id": "slavicmyths:willow_sapling",
+    "type": "slavicmyths:willow_tree",
+    "data": {
+      "type": "slavicmyths:willow_tree",
+      "config": {
+        "sapling": true
+      }
+    }
+  }
+]

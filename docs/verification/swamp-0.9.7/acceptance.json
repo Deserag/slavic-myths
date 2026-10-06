@@ -1,0 +1,134 @@
+{
+  "version": "0.9.7",
+  "platform": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.255",
+    "java": 21
+  },
+  "jar_sha256": "afd6995331674de8035338839813f66d8221f3982360b93b3ee3a678582a7b6c",
+  "gates": {
+    "cleanBuild": "PASS",
+    "resourceValidation": "PASS",
+    "swampPlacementAndStarts": "PASS",
+    "swampFeaturesAndBiomeInjection": "PASS",
+    "coreWithoutJei": "PASS",
+    "sixCompanions": "PASS",
+    "xaeroLifecycleDoubles": "PASS",
+    "jeiRecipeTypeBytecodeContract": "PASS",
+    "nativeLindenDoorAssets": "PASS"
+  },
+  "client_launches": 0,
+  "headless_server_boots": 8,
+  "headless_server_failed_runs": 1,
+  "earlierSuccessfulRunWithFixtureHeightmapErrors": 1,
+  "final_required_tests_per_server": 14,
+  "swampTests": {
+    "placedStructureCases": 42,
+    "templates": 21,
+    "families": 7,
+    "meaningfulContainers": 96,
+    "supportedPosts": 720,
+    "treeShapes": 400,
+    "actualTreesPlaced": 7,
+    "actualAcceptedStructureTypes": 7,
+    "outsideBiomeDeepWaterThinFlatRejected": true,
+    "swampBiomeInjectedFeatures": 5
+  },
+  "xaeroLifecycleCases": 10,
+  "manual_gameplay_verified": false,
+  "manual_visual_qa_verified": false,
+  "realClientJeiAndXaeroVerified": false,
+  "existing_asset_issues": [
+    {
+      "model": "assets/slavicmyths/models/block/darkened_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/darkened_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/darkened_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/darkened_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/pine_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/pine_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/pine_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/pine_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/rowan_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/rowan_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/rowan_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/rowan_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/willow_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/willow_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/willow_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    },
+    {
+      "model": "assets/slavicmyths/models/block/willow_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "pre-existing non-linden door; unchanged"
+    }
+  ],
+  "manual_qa": "docs/MANUAL_QA_0.9.7_SWAMP.md",
+  "evidence_sha256": {
+    "clean-build.log": "b637e92468f2d4999ae9864073e55d41013b5dc1e7d4b7549aa3d736ae48b32d",
+    "runtime-core.log": "b71b5a516ad8bc6bf357fb5aada38a37039618846306fbedf279c662bcfbe59e",
+    "runtime-companions.log": "8e949acebcdff29a2e6be666a6ab586b4069eae01d192d657a2992e924010e1c",
+    "static-data-audit.json": "819be1ff608f7bd7b07cf0c1e25cc9206f6bfc8e5782ae148cc8f965e9a5e404",
+    "resource-check.json": "e3b948ac55e4461cce05f8a8fc975f3ef1779d2f9f6c335cce2a07e6ecb95cdd",
+    "xaero-lifecycle.json": "dafec87207f49d5deb27f3dec5b9e084c47c58b09745499d3279239d085b7e7c",
+    "jei-ritual-contract.json": "3e9d7475718ac6e808004aecdf6655a3704f934ba2cadd08b66e8ded1eedb189",
+    "jei-ritual-contract-bytecode.txt": "c07c5dcbc0b156c62fc5621ee9c5ff1a2c1b33554f764f458fe96327f16bb719"
+  }
+}

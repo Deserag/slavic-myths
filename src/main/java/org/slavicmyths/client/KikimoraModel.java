@@ -163,6 +163,7 @@ public final class KikimoraModel extends EntityModel<KikimoraEntity>{
  LeftArm.xRot=run*.12F-step*.12F;RightArm.xRot=run*.12F+step*.12F-Mth.sin(attackTime*3.14159F)*1.6F;RightFore.xRot-=Mth.sin(attackTime*3.14159F)*.45F;
  if(((int)age+e.getId()*17)%230<7)head.zRot=.09F*Mth.sin(age*1.7F);
  LeftHand.zRot=Mth.sin(age*.018F)*.025F;if(e.state()==1){LeftLeg.xRot=RightLeg.xRot=-.12F;}
+ switch(e.attackPhase()){case TELEGRAPH->{RightArm.xRot=-1.4F;LeftArm.xRot=-.6F;body.xRot=.4F;}case ACTIVE->{float claw=Mth.sin(e.attackVisualTime(age)*.6F);RightArm.xRot=-.9F-claw*.8F;LeftArm.xRot=-.9F+claw*.8F;}case RECOVERY->{body.xRot=.5F;RightArm.xRot=.3F;}default->{}}
  }
  @Override public void renderToBuffer(PoseStack p,VertexConsumer b,int l,int o,int color){root.render(p,b,l,o,color);}
 }

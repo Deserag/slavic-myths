@@ -103,6 +103,7 @@ public abstract class HuntMob extends LandSpiritEntity {
  }}
  private final class Fight extends Goal{
   Fight(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
+        @Override public boolean requiresUpdateEveryTick(){return true;}
   @Override public boolean canUse(){return getTarget()!=null&&getTarget().isAlive()||home!=null&&distanceToSqr(home.getX()+.5,home.getY(),home.getZ()+.5)>40*40;}
   @Override public void stop(){navigation.stop();entityData.set(ACTION,0);}
   @Override public void tick(){LivingEntity t=getTarget();if(t!=null&&(!t.isAlive()||t instanceof Player&&(((Player)t).isCreative()||t.isSpectator()))){setTarget(null);t=null;}

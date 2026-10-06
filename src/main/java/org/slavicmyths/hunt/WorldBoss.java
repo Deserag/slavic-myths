@@ -85,6 +85,7 @@ public final class WorldBoss extends HuntMob {
  private void dust(){((ServerLevel)level()).sendParticles(ParticleTypes.CLOUD,getX(),getY()+.15,getZ(),18,1,.1,1,.035);playSound(SoundEvents.IRON_GOLEM_STEP,.8F,.5F);}
  private final class Fight extends Goal{
   Fight(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
+        @Override public boolean requiresUpdateEveryTick(){return true;}
   public boolean canUse(){return isAlive();}public void stop(){releaseHeld(false);navigation.stop();entityData.set(MOVE,Move.IDLE.ordinal());}
   public void tick(){for(Move m:Move.values())cooldowns.computeIfPresent(m,(k,v)->Math.max(0,v-1));int next=BossRules.phase(kind(),getHealth()/getMaxHealth());if(next>phase()){entityData.set(PHASE,next);recover(18);entityData.set(MOVE,Move.TRANSITION.ordinal());playSound(SoundEvents.RAVAGER_ROAR,1,.55F);}
    getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(kind().speed*(kind()==BossKind.LIKHO?(phase()==3?1.12:phase()==2?1.07:1):(phase()>=2?1.06:1))*(move()==Move.CHASE?1.25:move()==Move.RECOVERY&&wait>=30?.7:1));

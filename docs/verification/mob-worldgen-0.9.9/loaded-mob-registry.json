@@ -1,0 +1,1858 @@
+[
+  {
+    "id": "slavicmyths:ataman",
+    "class": "org.slavicmyths.bandit.BanditEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/ataman",
+    "minecraft:generic.max_health": 150.0,
+    "minecraft:generic.attack_damage": 2.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.27,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:ataman_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:baba_yaga",
+    "class": "org.slavicmyths.yaga.BabaYaga",
+    "category": "creature",
+    "lootTable": "slavicmyths:entities/baba_yaga",
+    "minecraft:generic.max_health": 40.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.23,
+    "minecraft:generic.follow_range": 12.0,
+    "spawnEggs": [
+      "slavicmyths:baba_yaga_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:bandit_archer",
+    "class": "org.slavicmyths.bandit.BanditEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/bandit_archer",
+    "minecraft:generic.max_health": 36.0,
+    "minecraft:generic.attack_damage": 2.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.28,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:bandit_archer_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:bandit_fighter",
+    "class": "org.slavicmyths.bandit.BanditEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/bandit_fighter",
+    "minecraft:generic.max_health": 30.0,
+    "minecraft:generic.attack_damage": 2.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.28,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:bandit_fighter_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:bandit_heavy",
+    "class": "org.slavicmyths.bandit.BanditEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/bandit_heavy",
+    "minecraft:generic.max_health": 50.0,
+    "minecraft:generic.attack_damage": 2.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.23,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:bandit_heavy_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:bandit_senior",
+    "class": "org.slavicmyths.bandit.BanditEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/bandit_senior",
+    "minecraft:generic.max_health": 44.0,
+    "minecraft:generic.attack_damage": 2.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.28,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:bandit_senior_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:bannik",
+    "class": "org.slavicmyths.entity.BannikEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/bannik",
+    "minecraft:generic.max_health": 80.0,
+    "minecraft:generic.attack_damage": 7.0,
+    "minecraft:generic.armor": 5.0,
+    "minecraft:generic.movement_speed": 0.26,
+    "minecraft:generic.follow_range": 20.0,
+    "spawnEggs": [
+      "slavicmyths:bannik_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:bear_cub",
+    "class": "org.slavicmyths.entity.WildlifeEntity",
+    "category": "creature",
+    "lootTable": "slavicmyths:entities/cub",
+    "minecraft:generic.max_health": 12.0,
+    "minecraft:generic.attack_damage": 0.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.29,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:bear_cub_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:boar",
+    "class": "org.slavicmyths.entity.WildlifeEntity",
+    "category": "creature",
+    "lootTable": "slavicmyths:entities/boar",
+    "minecraft:generic.max_health": 36.0,
+    "minecraft:generic.attack_damage": 4.0,
+    "minecraft:generic.armor": 2.0,
+    "minecraft:generic.movement_speed": 0.28,
+    "minecraft:generic.follow_range": 20.0,
+    "spawnEggs": [
+      "slavicmyths:boar_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:sunflower_plains",
+        "weight": 2,
+        "min": 1,
+        "max": 2
+      },
+      {
+        "biome": "minecraft:forest",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      },
+      {
+        "biome": "minecraft:taiga",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      },
+      {
+        "biome": "minecraft:plains",
+        "weight": 2,
+        "min": 1,
+        "max": 2
+      },
+      {
+        "biome": "minecraft:birch_forest",
+        "weight": 6,
+        "min": 1,
+        "max": 3
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:bolotnik",
+    "class": "org.slavicmyths.swamp.BolotnikEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/bolotnik",
+    "minecraft:generic.max_health": 48.0,
+    "minecraft:generic.attack_damage": 7.0,
+    "minecraft:generic.armor": 4.0,
+    "minecraft:generic.movement_speed": 0.2,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:bolotnik_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:swamp",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:brown_bear",
+    "class": "org.slavicmyths.entity.WildlifeEntity",
+    "category": "creature",
+    "lootTable": "slavicmyths:entities/bear",
+    "minecraft:generic.max_health": 50.0,
+    "minecraft:generic.attack_damage": 7.0,
+    "minecraft:generic.armor": 3.0,
+    "minecraft:generic.movement_speed": 0.25,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:brown_bear_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:birch_forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:buried_volkhv",
+    "class": "org.slavicmyths.kurgan.KurganCreature",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/buried_volkhv",
+    "minecraft:generic.max_health": 150.0,
+    "minecraft:generic.attack_damage": 6.0,
+    "minecraft:generic.armor": 6.0,
+    "minecraft:generic.movement_speed": 0.24,
+    "minecraft:generic.follow_range": 36.0,
+    "spawnEggs": [
+      "slavicmyths:buried_volkhv_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:carp",
+    "class": "org.slavicmyths.water.RiverFish",
+    "category": "water_ambient",
+    "lootTable": "slavicmyths:entities/carp",
+    "minecraft:generic.max_health": 6.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.5,
+    "minecraft:generic.follow_range": 16.0,
+    "spawnEggs": [
+      "slavicmyths:carp_spawn_egg"
+    ],
+    "placement": "IN_WATER",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:frozen_river",
+        "weight": 8,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:river",
+        "weight": 8,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:swamp",
+        "weight": 8,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:mangrove_swamp",
+        "weight": 8,
+        "min": 2,
+        "max": 4
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:crayfish",
+    "class": "org.slavicmyths.water.RiverFish",
+    "category": "water_ambient",
+    "lootTable": "slavicmyths:entities/crayfish",
+    "minecraft:generic.max_health": 4.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.25,
+    "minecraft:generic.follow_range": 16.0,
+    "spawnEggs": [
+      "slavicmyths:crayfish_spawn_egg"
+    ],
+    "placement": "IN_WATER",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:frozen_river",
+        "weight": 3,
+        "min": 1,
+        "max": 2
+      },
+      {
+        "biome": "minecraft:river",
+        "weight": 3,
+        "min": 1,
+        "max": 2
+      },
+      {
+        "biome": "minecraft:swamp",
+        "weight": 3,
+        "min": 1,
+        "max": 2
+      },
+      {
+        "biome": "minecraft:mangrove_swamp",
+        "weight": 3,
+        "min": 1,
+        "max": 2
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:doe",
+    "class": "org.slavicmyths.entity.WildlifeEntity",
+    "category": "creature",
+    "lootTable": "slavicmyths:entities/doe",
+    "minecraft:generic.max_health": 22.0,
+    "minecraft:generic.attack_damage": 0.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.34,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:doe_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:sunflower_plains",
+        "weight": 4,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:forest",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:taiga",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:plains",
+        "weight": 4,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:birch_forest",
+        "weight": 6,
+        "min": 2,
+        "max": 5
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:domovoy",
+    "class": "org.slavicmyths.entity.DomovoyEntity",
+    "category": "creature",
+    "lootTable": "slavicmyths:entities/domovoy",
+    "minecraft:generic.max_health": 12.0,
+    "minecraft:generic.attack_damage": 2.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.25,
+    "minecraft:generic.follow_range": 12.0,
+    "spawnEggs": [
+      "slavicmyths:domovoy_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:sunflower_plains",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_savanna",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna_plateau",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:plains",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:elder_vodyanoy",
+    "class": "org.slavicmyths.depth.ElderVodyanoy",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/elder_vodyanoy",
+    "minecraft:generic.max_health": 150.0,
+    "minecraft:generic.attack_damage": 8.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.19,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:elder_vodyanoy_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:ember_clump",
+    "class": "org.slavicmyths.hunt.EmberClump",
+    "category": "misc",
+    "spawnEggs": [],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:fire_serpent",
+    "class": "org.slavicmyths.hunt.ElementHuntMob",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/fire_serpent",
+    "minecraft:generic.max_health": 155.0,
+    "minecraft:generic.attack_damage": 7.0,
+    "minecraft:generic.armor": 5.0,
+    "minecraft:generic.movement_speed": 0.24,
+    "minecraft:generic.follow_range": 40.0,
+    "spawnEggs": [
+      "slavicmyths:fire_serpent_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:sunflower_plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:ice_spikes",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_savanna",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:jagged_peaks",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna_plateau",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_hills",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:meadow",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:cherry_grove",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_gravelly_hills",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:frozen_peaks",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:stony_peaks",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:birch_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_slopes",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:flying_broom",
+    "class": "org.slavicmyths.flight.FlyingVessel",
+    "category": "misc",
+    "spawnEggs": [],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:flying_mortar",
+    "class": "org.slavicmyths.flight.FlyingVessel",
+    "category": "misc",
+    "spawnEggs": [],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:forest_wolf",
+    "class": "org.slavicmyths.entity.WildlifeEntity",
+    "category": "creature",
+    "lootTable": "slavicmyths:entities/wolf",
+    "minecraft:generic.max_health": 30.0,
+    "minecraft:generic.attack_damage": 5.0,
+    "minecraft:generic.armor": 1.0,
+    "minecraft:generic.movement_speed": 0.32,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:forest_wolf_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:forest",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:taiga",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      },
+      {
+        "biome": "minecraft:birch_forest",
+        "weight": 5,
+        "min": 2,
+        "max": 4
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:furniture_seat",
+    "class": "org.slavicmyths.furniture.SeatEntity",
+    "category": "misc",
+    "spawnEggs": [],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:hot_stone",
+    "class": "org.slavicmyths.entity.HotStoneEntity",
+    "category": "misc",
+    "spawnEggs": [],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:igosha",
+    "class": "org.slavicmyths.entity.IgoshaEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/igosha",
+    "minecraft:generic.max_health": 30.0,
+    "minecraft:generic.attack_damage": 4.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.32,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:igosha_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:birch_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:kikimora",
+    "class": "org.slavicmyths.entity.KikimoraEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/kikimora",
+    "minecraft:generic.max_health": 36.0,
+    "minecraft:generic.attack_damage": 5.0,
+    "minecraft:generic.armor": 2.0,
+    "minecraft:generic.movement_speed": 0.28,
+    "minecraft:generic.follow_range": 28.0,
+    "spawnEggs": [
+      "slavicmyths:kikimora_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:taiga",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:birch_forest",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:kurgan_bolt",
+    "class": "org.slavicmyths.kurgan.KurganBolt",
+    "category": "misc",
+    "spawnEggs": [],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:kurgan_druzhinnik",
+    "class": "org.slavicmyths.kurgan.KurganCreature",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/kurgan_druzhinnik",
+    "minecraft:generic.max_health": 60.0,
+    "minecraft:generic.attack_damage": 7.0,
+    "minecraft:generic.armor": 8.0,
+    "minecraft:generic.movement_speed": 0.25,
+    "minecraft:generic.follow_range": 26.0,
+    "spawnEggs": [
+      "slavicmyths:kurgan_druzhinnik_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:kurgan_voevoda",
+    "class": "org.slavicmyths.kurgan.KurganCreature",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/kurgan_voevoda",
+    "minecraft:generic.max_health": 150.0,
+    "minecraft:generic.attack_damage": 9.0,
+    "minecraft:generic.armor": 12.0,
+    "minecraft:generic.movement_speed": 0.27,
+    "minecraft:generic.follow_range": 34.0,
+    "spawnEggs": [
+      "slavicmyths:kurgan_voevoda_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:leshy",
+    "class": "org.slavicmyths.entity.LeshyEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/leshy",
+    "minecraft:generic.max_health": 100.0,
+    "minecraft:generic.attack_damage": 8.0,
+    "minecraft:generic.armor": 8.0,
+    "minecraft:generic.movement_speed": 0.3,
+    "minecraft:generic.follow_range": 36.0,
+    "spawnEggs": [
+      "slavicmyths:leshy_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:forest",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:taiga",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:birch_forest",
+        "weight": 3,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:likho_one_eyed",
+    "class": "org.slavicmyths.hunt.WorldBoss",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/likho_one_eyed",
+    "minecraft:generic.max_health": 320.0,
+    "minecraft:generic.attack_damage": 11.0,
+    "minecraft:generic.armor": 10.0,
+    "minecraft:generic.movement_speed": 0.275,
+    "minecraft:generic.follow_range": 44.0,
+    "spawnEggs": [
+      "slavicmyths:likho_one_eyed_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:nav",
+    "class": "org.slavicmyths.kurgan.KurganCreature",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/nav",
+    "minecraft:generic.max_health": 32.0,
+    "minecraft:generic.attack_damage": 5.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.3,
+    "minecraft:generic.follow_range": 30.0,
+    "spawnEggs": [
+      "slavicmyths:nav_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:nightingale",
+    "class": "org.slavicmyths.bandit.NightingaleEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/nightingale",
+    "minecraft:generic.max_health": 250.0,
+    "minecraft:generic.attack_damage": 8.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.265,
+    "minecraft:generic.follow_range": 32.0,
+    "spawnEggs": [],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:ovinnik",
+    "class": "org.slavicmyths.entity.OvinnikEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/ovinnik",
+    "minecraft:generic.max_health": 175.0,
+    "minecraft:generic.attack_damage": 10.0,
+    "minecraft:generic.armor": 10.0,
+    "minecraft:generic.movement_speed": 0.245,
+    "minecraft:generic.follow_range": 32.0,
+    "spawnEggs": [
+      "slavicmyths:ovinnik_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:sunflower_plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_savanna",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna_plateau",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:birch_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:pike",
+    "class": "org.slavicmyths.water.RiverFish",
+    "category": "water_ambient",
+    "lootTable": "slavicmyths:entities/pike",
+    "minecraft:generic.max_health": 8.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.7,
+    "minecraft:generic.follow_range": 16.0,
+    "spawnEggs": [
+      "slavicmyths:pike_spawn_egg"
+    ],
+    "placement": "IN_WATER",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:frozen_river",
+        "weight": 4,
+        "min": 1,
+        "max": 2
+      },
+      {
+        "biome": "minecraft:river",
+        "weight": 4,
+        "min": 1,
+        "max": 2
+      },
+      {
+        "biome": "minecraft:swamp",
+        "weight": 4,
+        "min": 1,
+        "max": 2
+      },
+      {
+        "biome": "minecraft:mangrove_swamp",
+        "weight": 4,
+        "min": 1,
+        "max": 2
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:podvey",
+    "class": "org.slavicmyths.hunt.ElementHuntMob",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/podvey",
+    "minecraft:generic.max_health": 160.0,
+    "minecraft:generic.attack_damage": 7.0,
+    "minecraft:generic.armor": 4.0,
+    "minecraft:generic.movement_speed": 0.29,
+    "minecraft:generic.follow_range": 38.0,
+    "spawnEggs": [
+      "slavicmyths:podvey_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:sunflower_plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:ice_spikes",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_savanna",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:jagged_peaks",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna_plateau",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_hills",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:meadow",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:cherry_grove",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:plains",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_gravelly_hills",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:frozen_peaks",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:stony_peaks",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_slopes",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:polevik",
+    "class": "org.slavicmyths.entity.PolevikEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/polevik",
+    "minecraft:generic.max_health": 44.0,
+    "minecraft:generic.attack_damage": 6.0,
+    "minecraft:generic.armor": 3.0,
+    "minecraft:generic.movement_speed": 0.3,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:polevik_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:sunflower_plains",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_savanna",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna_plateau",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:plains",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:poludnitsa",
+    "class": "org.slavicmyths.entity.PoludnitsaEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/poludnitsa",
+    "minecraft:generic.max_health": 60.0,
+    "minecraft:generic.attack_damage": 7.0,
+    "minecraft:generic.armor": 4.0,
+    "minecraft:generic.movement_speed": 0.28,
+    "minecraft:generic.follow_range": 32.0,
+    "spawnEggs": [
+      "slavicmyths:poludnitsa_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:sunflower_plains",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:windswept_savanna",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:savanna_plateau",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:plains",
+        "weight": 2,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:rusalka",
+    "class": "org.slavicmyths.water.RusalkaEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/rusalka",
+    "minecraft:generic.max_health": 28.0,
+    "minecraft:generic.attack_damage": 3.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.23,
+    "minecraft:generic.follow_range": 20.0,
+    "spawnEggs": [
+      "slavicmyths:rusalka_spawn_egg"
+    ],
+    "placement": "IN_WATER",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:frozen_river",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:river",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:swamp",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:mangrove_swamp",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:serpent_projection",
+    "class": "org.slavicmyths.hunt.SerpentProjection",
+    "category": "misc",
+    "lootTable": "minecraft:empty",
+    "minecraft:generic.max_health": 1.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.0,
+    "minecraft:generic.follow_range": 16.0,
+    "spawnEggs": [],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:stag",
+    "class": "org.slavicmyths.entity.WildlifeEntity",
+    "category": "creature",
+    "lootTable": "slavicmyths:entities/stag",
+    "minecraft:generic.max_health": 26.0,
+    "minecraft:generic.attack_damage": 4.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.34,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:stag_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:sunflower_plains",
+        "weight": 2,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:forest",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:taiga",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:plains",
+        "weight": 2,
+        "min": 2,
+        "max": 5
+      },
+      {
+        "biome": "minecraft:birch_forest",
+        "weight": 3,
+        "min": 2,
+        "max": 5
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:thrown_net",
+    "class": "org.slavicmyths.depth.ThrownNet",
+    "category": "misc",
+    "spawnEggs": [],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:tugarin_stone",
+    "class": "org.slavicmyths.hunt.BossStone",
+    "category": "misc",
+    "spawnEggs": [],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:tugarin_zmey",
+    "class": "org.slavicmyths.hunt.WorldBoss",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/tugarin_zmey",
+    "minecraft:generic.max_health": 350.0,
+    "minecraft:generic.attack_damage": 12.0,
+    "minecraft:generic.armor": 15.0,
+    "minecraft:generic.movement_speed": 0.285,
+    "minecraft:generic.follow_range": 48.0,
+    "spawnEggs": [
+      "slavicmyths:tugarin_zmey_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:unresting_prince",
+    "class": "org.slavicmyths.kurgan.KurganCreature",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/unresting_prince",
+    "minecraft:generic.max_health": 350.0,
+    "minecraft:generic.attack_damage": 11.0,
+    "minecraft:generic.armor": 16.0,
+    "minecraft:generic.movement_speed": 0.28,
+    "minecraft:generic.follow_range": 40.0,
+    "spawnEggs": [
+      "slavicmyths:unresting_prince_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:upyr",
+    "class": "org.slavicmyths.kurgan.KurganCreature",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/upyr",
+    "minecraft:generic.max_health": 40.0,
+    "minecraft:generic.attack_damage": 6.0,
+    "minecraft:generic.armor": 2.0,
+    "minecraft:generic.movement_speed": 0.31,
+    "minecraft:generic.follow_range": 28.0,
+    "spawnEggs": [
+      "slavicmyths:upyr_spawn_egg"
+    ],
+    "placement": "NO_RESTRICTIONS",
+    "naturalSpawns": []
+  },
+  {
+    "id": "slavicmyths:vodyanoy",
+    "class": "org.slavicmyths.water.VodyanoyEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/vodyanoy",
+    "minecraft:generic.max_health": 44.0,
+    "minecraft:generic.attack_damage": 5.0,
+    "minecraft:generic.armor": 0.0,
+    "minecraft:generic.movement_speed": 0.21,
+    "minecraft:generic.follow_range": 24.0,
+    "spawnEggs": [
+      "slavicmyths:vodyanoy_spawn_egg"
+    ],
+    "placement": "IN_WATER",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:frozen_river",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:river",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:swamp",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:mangrove_swamp",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:volkolak",
+    "class": "org.slavicmyths.entity.VolkolakEntity",
+    "category": "monster",
+    "lootTable": "slavicmyths:entities/volkolak",
+    "minecraft:generic.max_health": 165.0,
+    "minecraft:generic.attack_damage": 9.0,
+    "minecraft:generic.armor": 7.0,
+    "minecraft:generic.movement_speed": 0.335,
+    "minecraft:generic.follow_range": 36.0,
+    "spawnEggs": [
+      "slavicmyths:volkolak_spawn_egg"
+    ],
+    "placement": "ON_GROUND",
+    "naturalSpawns": [
+      {
+        "biome": "minecraft:forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:dark_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_birch_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_pine_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:flower_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:old_growth_spruce_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:snowy_taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:grove",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:taiga",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      },
+      {
+        "biome": "minecraft:birch_forest",
+        "weight": 1,
+        "min": 1,
+        "max": 1
+      }
+    ]
+  }
+]

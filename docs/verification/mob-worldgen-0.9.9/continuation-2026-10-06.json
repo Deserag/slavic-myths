@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-06",
+  "status": "COMPILES_WITH_HEADLESS_REGRESSIONS_PASSED",
+  "releaseAccepted": false,
+  "clientLaunched": false,
+  "polyMcUpdated": false,
+  "artifact": "build/libs/slavicmyths-0.9.9-dev.jar",
+  "artifactSha256": "e7d04af13477f8b52f1973bf59e0532e96e56e9b190e2f3d8b27bb763e90713e",
+  "cleanBuild": "PASS",
+  "companionRuntime": {
+    "status": "PASS",
+    "requiredTests": 27,
+    "log": "work/mob-worldgen-099-three-lane-companions.log",
+    "raisedApproach": {
+      "tiers": 3,
+      "lanes": 3,
+      "headroom": 4,
+      "maximumBlockStep": 1,
+      "constructionPreserved": true
+    },
+    "nativeCrossFamilyPairs": 1991475
+  },
+  "staticDataReferences": 2676,
+  "staticDataErrors": 0,
+  "resourceIntegrity": "PASS",
+  "unchangedPriorDoorIssues": 16,
+  "stablePolyMcSha256": "afd6995331674de8035338839813f66d8221f3982360b93b3ee3a678582a7b6c",
+  "naturalCoverageCurrentImplementation": "NOT_RUN",
+  "remainingBlockers": [
+    "Rejected-site compensation and eligible-region coverage validation",
+    "Architectural configured-feature and POI coverage migration",
+    "Full mob combat/audio/loot audit and remaining natural family behavior",
+    "Final natural coverage and release gates"
+  ]
+}

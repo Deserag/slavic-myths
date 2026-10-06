@@ -21,14 +21,20 @@ public final class XaeroNavigationBridge implements MapIntegrationBridge {
     private NavigationState publishedState;
     private final Map<UUID,Waypoint> owned=new HashMap<>();
     @Override public boolean publish(NavigationState state,ResourceLocation dimension){
+        try{return publishAvailable(state,dimension);}
+        catch(RuntimeException|LinkageError unavailable){clear();com.mojang.logging.LogUtils.getLogger().debug("Optional Xaero guidance unavailable",unavailable);return false;}
+    }
+    private boolean publishAvailable(NavigationState state,ResourceLocation dimension){
+        if(state==null||dimension==null){clear();return false;}
+
         var current=XaeroMinimapSession.getCurrentSession();if(current==null){clear();return false;}
-        var manager=current.getWaypointsManager();var next=manager.getCurrentWorld();
+        var manager=current.getWaypointsManager();if(manager==null){clear();return false;}var next=manager.getCurrentWorld();
         if(next==null||next.getDimId()==null||!next.getDimId().location().equals(dimension)){clear();return false;}
         if(session!=current||world!=next){clear();session=current;world=next;}
         if(!state.preferences.contains(NavigationState.Preference.XAERO)){clear();return false;}
         if(publishedState==state&&set!=null)return state.tracked!=null&&owned.containsKey(state.tracked)&&world.getCurrentSet()==set;
         if(!world.getSets().containsKey(GROUP))world.addSet(GROUP);
-        set=world.getSets().get(GROUP);Set<UUID> wanted=new HashSet<>();
+        set=world.getSets().get(GROUP);if(set==null){clear();return false;}Set<UUID> wanted=new HashSet<>();
         for(var marker:state.markers.values()){
             if(!marker.dimension().equals(dimension)||!state.visible(marker)||
                marker.area()!=null&&marker.area().state()==SearchArea.State.INSIDE_SEARCH_AREA)continue;
@@ -53,7 +59,18 @@ public final class XaeroNavigationBridge implements MapIntegrationBridge {
         case YAGA->WaypointColor.DARK_PURPLE;case WAYSTONE->WaypointColor.AQUA;case KURGAN->WaypointColor.GRAY;
         case BANDIT->WaypointColor.DARK_RED;case BOSS->WaypointColor.RED;case QUEST->WaypointColor.GOLD;
         case SPECIAL_LOCATION->WaypointColor.GREEN;case EVENT->WaypointColor.YELLOW;};}
-    @Override public void clear(){if(set!=null)for(var point:owned.values())set.remove(point);
-        if(session!=null)session.getWaypointsManager().updateWaypoints();
-        owned.clear();set=null;world=null;session=null;publishedState=null;}
+    @Override public void clear(){
+        var previousSession=session;var previousSet=set;var points=List.copyOf(owned.values());
+        // Reset our state before touching optional integration during session teardown.
+        owned.clear();set=null;world=null;session=null;publishedState=null;
+        try {
+            if(previousSet!=null)for(var point:points)previousSet.remove(point);
+            if(previousSession!=null&&XaeroMinimapSession.getCurrentSession()==previousSession){
+                var manager=previousSession.getWaypointsManager();
+                if(manager!=null)manager.updateWaypoints();
+            }
+        } catch(RuntimeException|LinkageError unavailable){
+            com.mojang.logging.LogUtils.getLogger().debug("Xaero session closed during navigation cleanup",unavailable);
+        }
+    }
 }

@@ -35,3 +35,35 @@ ID сохранены. Spawn eggs используют vanilla tinted egg model 
 | `slavicmyths:voevoda_insignia` | Знак воеводы / Voevoda Insignia | `src/main/resources/assets/slavicmyths/textures/item/voevoda_insignia.png` | (32, 32) | Археология, украшение или курганный трофей; старый спрайт низкого разрешения | Да: новый >=256px pixel-cluster sprite, отдельный узнаваемый объект; palette согласно 06 |
 | `slavicmyths:volkhv_amulet` | Амулет волхва / Volkhv Amulet | `src/main/resources/assets/slavicmyths/textures/item/volkhv_amulet.png` | (32, 32) | Археология, украшение или курганный трофей; старый спрайт низкого разрешения | Да: новый >=256px pixel-cluster sprite, отдельный узнаваемый объект; palette согласно 06 |
 | `slavicmyths:princely_seal` | Княжеская печать / Princely Seal | `src/main/resources/assets/slavicmyths/textures/item/princely_seal.png` | (32, 32) | Археология, украшение или курганный трофей; старый спрайт низкого разрешения | Да: новый >=256px pixel-cluster sprite, отдельный узнаваемый объект; palette согласно 06 |
+
+
+## После реализации
+
+Все 24 перечисленные ниже иконки заново созданы встроенным imagegen по индивидуальным описаниям и проверены офлайн. Runtime: 256×256 PNG с прозрачностью; источники большего размера, не апскейл прежних текстур. Полные сохранённые источники и provenance: `art/kurgan-0.9.6/items/`. Для 15 предметов исходные объёмные модели сохранены в `_held.json`; новая иконка применяется только в GUI через `neoforge:separate_transforms`. Шесть яиц призыва и существующая модель деревянного гроба сохранены. Просмотр в игровом GUI/руке ещё не выполнен.
+
+| ID (slavicmyths:) | Новая runtime-текстура | Размер |
+|---|---|---|
+| `ancient_carolingian_sword` | `assets/slavicmyths/textures/item/ancient_carolingian_sword.png` | 256×256 |
+| `restored_carolingian_sword` | `assets/slavicmyths/textures/item/restored_carolingian_sword.png` | 256×256 |
+| `ancient_spear` | `assets/slavicmyths/textures/item/ancient_spear.png` | 256×256 |
+| `restored_spear` | `assets/slavicmyths/textures/item/restored_spear.png` | 256×256 |
+| `ancient_chekan` | `assets/slavicmyths/textures/item/ancient_chekan.png` | 256×256 |
+| `chekan` | `assets/slavicmyths/textures/item/chekan.png` | 256×256 |
+| `lunula` | `assets/slavicmyths/textures/item/lunula.png` | 256×256 |
+| `grivna` | `assets/slavicmyths/textures/item/grivna.png` | 256×256 |
+| `grave_ward` | `assets/slavicmyths/textures/item/grave_ward.png` | 256×256 |
+| `ancient_fibula` | `assets/slavicmyths/textures/item/ancient_fibula.png` | 256×256 |
+| `ancient_comb` | `assets/slavicmyths/textures/item/ancient_comb.png` | 256×256 |
+| `ancient_beads` | `assets/slavicmyths/textures/item/ancient_beads.png` | 256×256 |
+| `old_buckle` | `assets/slavicmyths/textures/item/old_buckle.png` | 256×256 |
+| `pottery_fragment` | `assets/slavicmyths/textures/item/pottery_fragment.png` | 256×256 |
+| `old_arrowhead` | `assets/slavicmyths/textures/item/old_arrowhead.png` | 256×256 |
+| `upyr_fang` | `assets/slavicmyths/textures/item/upyr_fang.png` | 256×256 |
+| `grave_cloth_scrap` | `assets/slavicmyths/textures/item/grave_cloth_scrap.png` | 256×256 |
+| `nav_essence` | `assets/slavicmyths/textures/item/nav_essence.png` | 256×256 |
+| `torn_burial_ribbon` | `assets/slavicmyths/textures/item/torn_burial_ribbon.png` | 256×256 |
+| `shield_boss_fragment` | `assets/slavicmyths/textures/item/shield_boss_fragment.png` | 256×256 |
+| `druzhinnik_blade_fragment` | `assets/slavicmyths/textures/item/druzhinnik_blade_fragment.png` | 256×256 |
+| `voevoda_insignia` | `assets/slavicmyths/textures/item/voevoda_insignia.png` | 256×256 |
+| `volkhv_amulet` | `assets/slavicmyths/textures/item/volkhv_amulet.png` | 256×256 |
+| `princely_seal` | `assets/slavicmyths/textures/item/princely_seal.png` | 256×256 |

@@ -1,0 +1,72 @@
+{
+  "version": "0.9.9-dev",
+  "purpose": "Authorized structure-priority override testing",
+  "releaseAccepted": false,
+  "clientLaunched": false,
+  "profile": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installedJar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-0.9.9-dev.jar",
+  "installedSha256": "22d6d025e106d912ed3c867704078f560ce5ff3bcd67bbc3b31340b3cd7f61cb",
+  "previousJarBackup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\slavicmyths-backups\\20261006-111619\\slavicmyths-0.9.9-dev.jar",
+  "previousSha256": "e7d04af13477f8b52f1973bf59e0532e96e56e9b190e2f3d8b27bb763e90713e",
+  "otherModsUnchanged": true,
+  "otherModHashes": {
+    "curios-neoforge-9.5.1+1.21.1.jar": "a45df2125c26219974aba7507ffc9afe7b83acc941a386af3faacb1cc0056fde",
+    "FallingTree-1.21.1-1.21.1.11.jar": "70ee147602d2239e7a093e166fdf0c0abcef959d5d457c0f8f3669ef9b483dc4",
+    "Jade-1.21.1-NeoForge-15.10.6.jar": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810",
+    "jei-1.21.1-neoforge-19.51.0.418.jar": "8bc3936d869e4040a5649c58b7e8be1c78c82a245c0dc07bdd68ab49121a222c",
+    "xaerominimap-neoforge-1.21.1-26.5.0.jar": "667105d8fdca64b27b29d8e0b88e67e7342038d3fb4edc4129bf452b601c6d20",
+    "xaeroworldmap-neoforge-1.21.1-1.45.0.jar": "d60899112e84616ba52a993c1722fd891872acc4779bfac34d9b170001451c6f"
+  },
+  "worldsModified": false,
+  "checks": {
+    "thin": {
+      "path": "D:\\slavic-myths\\work\\structure-priority-thin-final.log",
+      "sha256": "0a3bee0a542e6acec76933a76fd0a51998f7c30ed26f47db2cab5a2164cd8a71",
+      "pass": true
+    },
+    "high": {
+      "path": "D:\\slavic-myths\\work\\structure-priority-high-final.log",
+      "sha256": "8eb51b45c8fd04fbaf13617520305efd62ea729e28021a55d9eb84a30eb023b3",
+      "pass": true
+    },
+    "sequential": {
+      "path": "D:\\slavic-myths\\work\\structure-priority-sequential-final.log",
+      "sha256": "4528bc690883ebd617d9962d82867ad63abeab6c243f5d40a14f63f2cbcff66a",
+      "pass": true
+    },
+    "water": {
+      "path": "D:\\slavic-myths\\work\\structure-priority-water-final.log",
+      "sha256": "8fd13adc8fe66b59b4a80cfced952bf5e87a4d9d95387b52b6552268c393db88",
+      "pass": true
+    },
+    "terrain": {
+      "path": "D:\\slavic-myths\\work\\structure-priority-terrain-final.log",
+      "sha256": "2ce57c001498cbe92c1ddf3b6dd2a174b6d6050b38053f21e89ab41575194e6e",
+      "pass": true
+    },
+    "companions": {
+      "path": "D:\\slavic-myths\\work\\structure-priority-companions-final.log",
+      "sha256": "6f7451938ff0d83de71ed024fb3daecb1f83c0ce78088da6dfc9caf83808996d",
+      "pass": true
+    },
+    "clean-build": {
+      "path": "D:\\slavic-myths\\work\\structure-priority-clean-build.log",
+      "sha256": "89959a8a49618c486d82070d0ec099bff6a81eb86e79261658f74bceba7e3ce1",
+      "pass": true
+    },
+    "jar-validation": {
+      "path": "D:\\slavic-myths\\work\\structure-priority-jar-validation.log",
+      "sha256": "73226129dbf6698fd3c0e42c98180d2a77d978cfc55b6c4957178d2a8d00518b",
+      "pass": true
+    },
+    "static-data-final": {
+      "path": "D:\\slavic-myths\\work\\structure-priority-static-data-final.log",
+      "sha256": "574f139edfbf66d628e52274c140448f20ca15c65b77ff254dc42558d56138bd",
+      "pass": true
+    }
+  },
+  "manualPlacement": "PASS: thin/high 10 each; sequential 6 from one source; accessible structures and preserved earlier entrances",
+  "naturalNoiseCoverage": "NOT ACCEPTED: full ordinary-world coverage and compensation remain unfinished",
+  "cancelSemantics": "Already changed terrain/partial structures remain; tickets and active job are released",
+  "timeSlice": "2 ms target, bounded operations; cold calls/GC may exceed target; no measured client MSPT guarantee"
+}

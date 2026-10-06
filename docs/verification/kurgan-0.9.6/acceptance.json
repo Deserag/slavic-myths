@@ -1,0 +1,133 @@
+{
+  "version": "0.9.6",
+  "platform": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.255",
+    "java": 21
+  },
+  "jar_sha256": "a0bcbc4de3ddc3192cde58784f589cacf1ec8b6f4e5cd762914f0a185ae692b7",
+  "gates": {
+    "cleanBuild": "PASS",
+    "layoutAndLegacyRegression": "PASS",
+    "registryDataLoaders": "PASS",
+    "placementInventoryTrap": "PASS",
+    "newAssetsAndReferences": "PASS"
+  },
+  "client_launches": 0,
+  "headless_server_boots": 8,
+  "headless_server_failed_runs": 2,
+  "final_tests_per_server": 10,
+  "manual_gameplay_verified": false,
+  "manual_visual_qa_verified": false,
+  "existing_asset_issues": [
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/darkened_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/darkened_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/darkened_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/darkened_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/linden_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/linden_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/linden_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/linden_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/pine_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/pine_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/pine_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/pine_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/rowan_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/rowan_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/rowan_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/rowan_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/willow_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/willow_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/willow_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/willow_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    }
+  ],
+  "manual_qa": "docs/MANUAL_QA_0.9.6_KURGAN.md",
+  "evidence_sha256": {
+    "clean-build.log": "20abaa9f308414a5b80352ce3689db18b7cdf15ac98b24f53d1c6eb59e44230a",
+    "runtime-core.log": "b740dd3c77a852a3bce3d242fe17aafaea5109e143675156ccab05c629dfe8ff",
+    "runtime-companions.log": "66e7a99b1a19b9ad81d7c894f1baca3b1e289055ad07e6d3018de57ddffe993a",
+    "statistics.json": "1ada960bd755b71d073aad51e369c59eabbbe9ce0b69327765fa6e1fc8fe44bf",
+    "static-data-audit.json": "00eec6e61686d8afb1823fd82424d3a3020937cb675e68526123e6ef2a420754",
+    "resource-check.json": "6a761512082aa1ee106451f92aa59bd0b11eb42adb431c03b707c4a3a3a50f96"
+  }
+}

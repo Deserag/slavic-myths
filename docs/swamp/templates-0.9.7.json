@@ -1,0 +1,239 @@
+{
+  "v097_fisher_0": {
+    "size": [
+      13,
+      12,
+      17
+    ],
+    "blocks": 411,
+    "lootPoints": 2,
+    "encounters": []
+  },
+  "v097_abandoned_0": {
+    "size": [
+      13,
+      12,
+      15
+    ],
+    "blocks": 371,
+    "lootPoints": 2,
+    "encounters": [
+      "encounter:bolotnik"
+    ]
+  },
+  "v097_watchtower_0": {
+    "size": [
+      9,
+      21,
+      9
+    ],
+    "blocks": 173,
+    "lootPoints": 2,
+    "encounters": [
+      "encounter:bolotnik"
+    ]
+  },
+  "v097_shrine_0": {
+    "size": [
+      13,
+      9,
+      13
+    ],
+    "blocks": 169,
+    "lootPoints": 2,
+    "encounters": [
+      "encounter:bolotnik"
+    ]
+  },
+  "v097_boardwalk_0": {
+    "size": [
+      7,
+      7,
+      19
+    ],
+    "blocks": 89,
+    "lootPoints": 1,
+    "encounters": []
+  },
+  "v097_landing_0": {
+    "size": [
+      11,
+      10,
+      13
+    ],
+    "blocks": 140,
+    "lootPoints": 2,
+    "encounters": []
+  },
+  "v097_cluster_0": {
+    "size": [
+      35,
+      22,
+      33
+    ],
+    "blocks": 825,
+    "lootPoints": 5,
+    "encounters": [
+      "encounter:bolotnik",
+      "encounter:bolotnik_elite"
+    ]
+  },
+  "v097_fisher_1": {
+    "size": [
+      13,
+      12,
+      17
+    ],
+    "blocks": 411,
+    "lootPoints": 2,
+    "encounters": []
+  },
+  "v097_abandoned_1": {
+    "size": [
+      13,
+      12,
+      15
+    ],
+    "blocks": 371,
+    "lootPoints": 2,
+    "encounters": [
+      "encounter:bolotnik"
+    ]
+  },
+  "v097_watchtower_1": {
+    "size": [
+      9,
+      21,
+      9
+    ],
+    "blocks": 185,
+    "lootPoints": 2,
+    "encounters": [
+      "encounter:bolotnik"
+    ]
+  },
+  "v097_shrine_1": {
+    "size": [
+      13,
+      9,
+      13
+    ],
+    "blocks": 169,
+    "lootPoints": 2,
+    "encounters": [
+      "encounter:bolotnik"
+    ]
+  },
+  "v097_boardwalk_1": {
+    "size": [
+      7,
+      7,
+      19
+    ],
+    "blocks": 89,
+    "lootPoints": 1,
+    "encounters": []
+  },
+  "v097_landing_1": {
+    "size": [
+      11,
+      10,
+      13
+    ],
+    "blocks": 140,
+    "lootPoints": 2,
+    "encounters": []
+  },
+  "v097_cluster_1": {
+    "size": [
+      35,
+      22,
+      33
+    ],
+    "blocks": 831,
+    "lootPoints": 5,
+    "encounters": [
+      "encounter:bolotnik",
+      "encounter:bolotnik_elite"
+    ]
+  },
+  "v097_fisher_2": {
+    "size": [
+      13,
+      12,
+      17
+    ],
+    "blocks": 411,
+    "lootPoints": 2,
+    "encounters": []
+  },
+  "v097_abandoned_2": {
+    "size": [
+      13,
+      12,
+      15
+    ],
+    "blocks": 371,
+    "lootPoints": 2,
+    "encounters": [
+      "encounter:bolotnik"
+    ]
+  },
+  "v097_watchtower_2": {
+    "size": [
+      9,
+      21,
+      9
+    ],
+    "blocks": 197,
+    "lootPoints": 2,
+    "encounters": [
+      "encounter:bolotnik"
+    ]
+  },
+  "v097_shrine_2": {
+    "size": [
+      13,
+      9,
+      13
+    ],
+    "blocks": 169,
+    "lootPoints": 2,
+    "encounters": [
+      "encounter:bolotnik"
+    ]
+  },
+  "v097_boardwalk_2": {
+    "size": [
+      7,
+      7,
+      19
+    ],
+    "blocks": 89,
+    "lootPoints": 1,
+    "encounters": []
+  },
+  "v097_landing_2": {
+    "size": [
+      11,
+      10,
+      13
+    ],
+    "blocks": 140,
+    "lootPoints": 2,
+    "encounters": []
+  },
+  "v097_cluster_2": {
+    "size": [
+      35,
+      22,
+      33
+    ],
+    "blocks": 837,
+    "lootPoints": 5,
+    "encounters": [
+      "encounter:bolotnik",
+      "encounter:bolotnik_elite"
+    ]
+  }
+}

@@ -170,8 +170,8 @@ if (project.hasProperty('portRuntimeCheck') || gradle.startParameter.taskNames.a
     neoForge.runs {
         runtimeChecks {
             type = 'gameTestServer'
-            gameDirectory = file('run-port-checks')
-            systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths'
+            gameDirectory = project.hasProperty('kurganHotfixCheck') ? file('run-kurgan-hotfix') : project.hasProperty('placementOverrideCheck') ? file(project.hasProperty('waterFlatPlacementCheck') ? 'run-placement-priority-water' : project.hasProperty('highFlatPlacementCheck') ? 'run-placement-priority-high' : 'run-placement-priority-thin') : file('run-port-checks')
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.hasProperty('kurganHotfixCheck') ? 'slavicmyths_hotfix' : project.hasProperty('placementOverrideCheck') ? (project.hasProperty('waterFlatPlacementCheck') ? 'slavicmyths_water_placement' : project.hasProperty('terrainPlacementCheck') ? 'slavicmyths_terrain_placement' : project.hasProperty('sequentialPlacementCheck') ? 'slavicmyths_sequential_placement' : 'slavicmyths_placement') : project.hasProperty('naturalCoverageCheck') ? 'slavicmyths_coverage' : 'slavicmyths'
             systemProperty 'slavicmyths.portRoot', project.projectDir.absolutePath
         }
     }
@@ -185,3 +185,14 @@ if (project.hasProperty('portRuntimeCompanions')) {
         }
     }
 }
+
+// Test-only high superflat preset, matching the reported save; never in production resources.
+if (project.hasProperty('highFlatPlacementCheck')) { sourceSets.kurganCheck.resources.srcDir 'tools/manual-high-test-resources' }
+
+if (project.hasProperty("waterFlatPlacementCheck")) {
+    sourceSets.kurganCheck.resources.srcDir "tools/manual-water-test-resources"
+}
+
+// The isolated legacy harness also sees registry classes referenced by new native effects.
+sourceSets.portCore.compileClasspath += sourceSets.main.output
+tasks.named('compilePortCoreJava') { dependsOn 'classes' }

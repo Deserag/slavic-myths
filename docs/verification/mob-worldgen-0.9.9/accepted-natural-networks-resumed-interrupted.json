@@ -1,0 +1,33 @@
+[
+  {
+    "seed": 0,
+    "family": "kurgan",
+    "scenario": "native overworld noise + biomes; starts only; no block placement",
+    "attempted": 835,
+    "invalidBiomeCentersExcluded": 742,
+    "rejectedUnclassified": 75,
+    "acceptedById": {
+      "kurgan_small": 16,
+      "kurgan_warrior": 2,
+      "kurgan_great": 0
+    },
+    "SMALL": {
+      "p95": 791.2592811461992,
+      "max": 791.2592811461992,
+      "mean": 470.27054977538756,
+      "median": 508.5209906250354,
+      "min": 239.63983391748542
+    },
+    "SMALLPass": true,
+    "MEDIUM": {
+      "p95": 1489.5160287825036,
+      "max": 1489.5160287825036,
+      "mean": 1042.8943087265775,
+      "median": 1042.8943087265775,
+      "min": 596.2725886706515
+    },
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEPass": true
+  }
+]

@@ -1,8 +1,73 @@
-# Slavic Myths 0.9.5 — Minecraft 1.21.1 / NeoForge
+# Slavic Myths 0.9.7 — Minecraft 1.21.1 / NeoForge
 
 Существующий контент перенесён на NeoForge **21.1.255**, Java **21**.
 Полный clean build и loader/datapack/headless checks проходят. Клиент автоматически не запускался;
 готовность к ручному тесту не означает, что игровые сценарии уже проверены.
+
+Текущий structure-priority JAR проверен и установлен в тестовый профиль PolyMC; предыдущий dev JAR сохранён вне mods. Подтверждены 10 сценариев на тонком и 10 на высоком superflat, шесть команд из одной точки и 27 общих headless-тестов. Полное естественное покрытие обычного мира пока не принято.
+
+## Ручная генерация 0.9.9-dev
+
+Используйте `/slavicmyths generate kurgan small|warrior|great` или `/slavicmyths generate bandit_camp small|fortified|large` (выберите одно значение после последнего пробела). Каждая команда создаёт задание; дождитесь сообщения с координатами входа перед следующей. `/slavicmyths generation status` показывает этап, `/slavicmyths generation cancel` останавливает работу. При отмене уже изменённые блоки остаются.
+
+На тонком superflat курган поднимается вместе с подземными этажами и получает грунтовый массив с подходом. Суша выравнивается; вода и защищённые постройки вызывают локальный перенос до 256 блоков. Ручная генерация работает и при отключённых естественных структурах мира. Ограничения и проверки: [structure priority override](docs/worldgen/STRUCTURE_PRIORITY_OVERRIDE_0.9.9.md).
+
+## Разработка 0.9.9
+
+Текущий промежуточный JAR: `build/libs/slavicmyths-0.9.9-dev.jar`. Это незавершённая 0.9.9: проверка покрытия обычного мира, компенсация отклонённых мест и часть аудита мобов ещё не завершены. По прямому запросу пользователя в тестовый профиль PolyMC установлен `0.9.9-dev` для проверки генерации; прежний JAR 0.9.7 сохранён вне `mods`. Это промежуточная установка, не принятие релиза. Статус и ограничения проверок: [аудит генерации](docs/worldgen/STRUCTURE_COVERAGE_AUDIT_0.9.9.md). Minecraft автоматически не запускается.
+
+## Болото и runtime hotfix 0.9.7
+
+Семь семейств мест, 21 вариант: рыбацкие избушки, вышки, святилища, заброшенные дома, настилы, стоянки и редкий кластер. Только vanilla swamp, без нового биома. Новые четыре силуэта деревьев/детали берегов, болотник и более сильные новые болотные водные духи, распределённые полезные награды. Существующие ID/старые templates и остальной контент сохранены. Новых руд/строительных блоков не добавлено.
+
+Исправлены Xaero cleanup после закрытия сессии, пустой JEI catalyst recipeTypes и linden_door models после порта. Пользовательские Xaero waypoint не удаляются. Клиент не запускался; реальный logout/JEI GUI требуют ручной проверки.
+
+[Постройки и частота](docs/swamp/SWAMP_0.9.7_STRUCTURES.md), [мобы](docs/swamp/SWAMP_0.9.7_MOBS.md), [деревья](docs/swamp/SWAMP_0.9.7_TREES_AND_NATURE.md), [материалы](docs/swamp/SWAMP_0.9.7_BLOCKS_AND_ORES.md), [loot](docs/swamp/SWAMP_0.9.7_LOOT.md), [hotfix и границы проверок](docs/swamp/SWAMP_0.9.7_RUNTIME_FIXES.md), [ручная QA](docs/MANUAL_QA_0.9.7_SWAMP.md).
+
+```text
+/locate biome minecraft:swamp
+/locate structure slavicmyths:fishing_camp
+/locate structure slavicmyths:swamp_watchtower
+/locate structure slavicmyths:flooded_shrine
+/locate structure slavicmyths:abandoned_settlement
+/give @s slavicmyths:bolotnik_spawn_egg
+```
+
+Полный список остальных structure IDs и locate/dev команд — в документации построек и QA. Проверки Java 21: `gradlew.bat clean build verifyKurganRework verifyPortCore verifyNavigation verifyPortComponents verifyPortPayloads verifyPortGeometry`; loader: `gradlew.bat -PportRuntimeCheck -PwithoutJei runRuntimeChecks` и `gradlew.bat -PportRuntimeCheck -PportRuntimeCompanions runRuntimeChecks`; ресурсы: `python tools/verify_static_data_1211.py --swamp-rework`, `python tools/verify_swamp_097.py`. Офлайн hotfix: `python tools/verify_xaero_lifecycle_097.py`, `python tools/verify_jei_ritual_contract_097.py`.
+
+Остаются 16 старых missing parents моделей других дверей, список в [resource report](docs/verification/swamp-0.9.7/resource-check.json). Новые модели/ссылки валидны.
+
+## Курганы 0.9.6
+
+Новый graph-first план v2: 14 типов помещений, боковые ветви/циклы/секреты, разнесённые лестницы, две палитры кладки и собственная архитектура комнат. Старые конкретные планы v1 сохраняются. Добавлены 26 строительных блоков, 60 рецептов, семь таблиц распределённых наград и 35 авторских текстур 256×256; прежние предметы и их характеристики сохранены.
+
+Команды OP 2 (пример для малого, доступны также `warrior` и `great`):
+
+```text
+/slavicmyths kurgan locate small
+/slavicmyths kurgan generate small 0
+/slavicmyths kurgan info
+/slavicmyths dev clear_kurgan_curse
+/locate structure slavicmyths:kurgan_small
+/locate structure slavicmyths:kurgan_warrior
+/locate structure slavicmyths:kurgan_great
+```
+
+Seed после generate необязателен; clear_kurgan_curse допускает аргумент player. Тонкий стандартный superflat не имеет нужной глубины: используйте обычный мир либо толстый каменный flat. Невалидная геометрия отвергается до размещения.
+
+Текущий production: `build/libs/slavicmyths-0.9.7.jar`. Clean build, 150 новых планов и обе финальные серии по 14 NeoForge GameTests проходят. Регрессии старого планировщика/населения и навигации проходят. Клиент не запускался; визуальная QA остаётся ручной. Аудит 0.9.6 выявил 20 прежних missing door parents; четыре липовых исправлены в 0.9.7, остальные 16 записаны в backlog. Новые ресурсы курганов валидны.
+
+[Алгоритм](docs/kurgan/KURGAN_LAYOUT_0.9.6.md), [комнаты](docs/kurgan/KURGAN_ROOMS_0.9.6.md), [все ID и рецепты](docs/kurgan/KURGAN_BLOCKS_0.9.6.md), [loot](docs/kurgan/KURGAN_LOOT_0.9.6.md), [аудит иконок](docs/kurgan/KURGAN_ITEM_ART_AUDIT_0.9.6.md), [ручная QA](docs/MANUAL_QA_0.9.6_KURGAN.md), [итоговые gates](docs/verification/kurgan-0.9.6/acceptance.json).
+
+Headless повторная проверка (Java 21):
+
+```text
+gradlew.bat clean build verifyKurganRework verifyPortCore verifyNavigation verifyPortComponents verifyPortPayloads verifyPortGeometry
+gradlew.bat -PportRuntimeCheck -PwithoutJei runRuntimeChecks
+gradlew.bat -PportRuntimeCheck -PportRuntimeCompanions runRuntimeChecks
+python tools/verify_static_data_1211.py --swamp-rework
+python tools/verify_swamp_097.py
+```
 
 ## Навигация 0.9.5
 
@@ -37,9 +102,10 @@
 
 ## Установка и готовая тестовая сборка
 
-Production JAR: `build/libs/slavicmyths-0.9.5.jar`.
-SHA-256: `66579a054a2ed14dfa3fdff809e43656c9a2621fa18a743177b32ff6d2581b4c`.
+Production JAR: `build/libs/slavicmyths-0.9.7.jar`.
+SHA-256: `afd6995331674de8035338839813f66d8221f3982360b93b3ee3a678582a7b6c`.
 
+Проверенный JAR 0.9.7 установлен, версия 0.9.6 сохранена в `.slavicmyths-backups/0.9.6/`; [receipt](docs/verification/swamp-0.9.7/installation-receipt.json).
 В установленном PolyMC уже создан отдельный профиль **Slavic-Myths-1.21.1-Testing**:
 `C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing`. Minecraft 1.21.1 / NeoForge 21.1.255 / Java 21.0.12, память 512–4096 MiB.
 Открыть PolyMC вручную, выбрать этот профиль и запускать на **новом тестовом мире**.

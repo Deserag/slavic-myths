@@ -1,0 +1,21 @@
+"""Record final 0.9.7 checks; client rendering/lifecycle remain explicitly manual."""
+from pathlib import Path
+import argparse,hashlib,json,re,shutil,subprocess,sys
+R=Path(__file__).resolve().parents[1];OUT=R/'docs/verification/swamp-0.9.7';OUT.mkdir(exist_ok=True)
+parser=argparse.ArgumentParser();parser.add_argument('--headless-boots',required=True,type=int);parser.add_argument('--failed-runs',required=True,type=int);args=parser.parse_args()
+def require(ok,message):
+ if not ok:raise AssertionError(message)
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+logs={'clean-build.log':'swamp-097-clean-build.log','runtime-core.log':'swamp-097-runtime-core-final.log','runtime-companions.log':'swamp-097-runtime-companions-final.log'}
+for dst,src in logs.items():
+ text=(R/'work'/src).read_text(encoding='utf-8');require('BUILD SUCCESSFUL' in text,'Failed gate '+src)
+ if dst.startswith('runtime'):
+  markers=['All 14 required tests passed','SWAMP_RUNTIME_STRUCTURES_PASS templates=42 meaningfulLoot=96 supportedPosts=720 inventoryRetries=42','SWAMP_RUNTIME_GEOMETRY_PASS shapes=400 bolotnikHP=48','SWAMP_RUNTIME_NATURE_PASS placed=7 outsideBiomeRejected=true pineWaterRejected=true swampHP=36,72','SWAMP_RUNTIME_WORLDGEN_PASS types=7','SWAMP_RUNTIME_BIOME_INJECTION_PASS features=5 bolotnikSpawn=true plainsUntouched=true','KURGAN_RUNTIME_PLACEMENT_PASS tiers=3 containers=29','KURGAN_RUNTIME_TRAP_PASS initialAmmo=8 afterShot=7','KURGAN_RUNTIME_REGISTRY_TOTALS items=412 blocks=179','PORT_RUNTIME_DATA_PASS recipes=273 loot=266 advancements=154','PORT_RUNTIME_REGISTRIES_PASS checked=794 entities=48','PORT_RUNTIME_COMPONENTS_PASS','PORT_RUNTIME_EXISTING_CHECKS_PASS','NAVIGATION_RUNTIME_MODEL_AND_WIRE_PASS','NAVIGATION_RUNTIME_SERVER_AUTHORITY_PASS','NAVIGATION_RUNTIME_LIFECYCLE_AND_HOMES_PASS']
+  require(not re.search(r'/ERROR\]|/FATAL\]|\[(?:ERROR|FATAL)\]',text),'Runtime errors in '+src)
+ else:markers=['KURGAN_V2_HEADLESS_PASS plans=150 archetypes=14','PASS: 1200 seeded plans','900 tier/disturbance rosters','NAVIGATION_HEADLESS_PASS','PASS: immutable rune values','PASS: payload codecs','PASS: real ModelPart']
+ for marker in markers:require(marker in text,'Missing marker '+marker+' in '+src)
+ shutil.copy2(R/'work'/src,OUT/dst)
+for script,flags in [('verify_static_data_1211.py',['--swamp-rework']),('verify_swamp_097.py',['--resources-only']),('verify_xaero_lifecycle_097.py',[]),('verify_jei_ritual_contract_097.py',[])]:subprocess.run([sys.executable,str(R/'tools'/script),*flags],cwd=R,check=True)
+resources=json.loads((OUT/'resource-check.json').read_text(encoding='utf-8'));jar=R/'build/libs/slavicmyths-0.9.7.jar';require(jar.is_file(),'Artifact missing');require((R/'docs/MANUAL_QA_0.9.7_SWAMP.md').is_file(),'Manual QA missing')
+record={'version':'0.9.7','platform':{'minecraft':'1.21.1','neoforge':'21.1.255','java':21},'jar_sha256':sha(jar),'gates':{'cleanBuild':'PASS','resourceValidation':'PASS','swampPlacementAndStarts':'PASS','swampFeaturesAndBiomeInjection':'PASS','coreWithoutJei':'PASS','sixCompanions':'PASS','xaeroLifecycleDoubles':'PASS','jeiRecipeTypeBytecodeContract':'PASS','nativeLindenDoorAssets':'PASS'},'client_launches':0,'headless_server_boots':args.headless_boots,'headless_server_failed_runs':args.failed_runs,'earlierSuccessfulRunWithFixtureHeightmapErrors':1,'final_required_tests_per_server':14,'swampTests':{'placedStructureCases':42,'templates':21,'families':7,'meaningfulContainers':96,'supportedPosts':720,'treeShapes':400,'actualTreesPlaced':7,'actualAcceptedStructureTypes':7,'outsideBiomeDeepWaterThinFlatRejected':True,'swampBiomeInjectedFeatures':5},'xaeroLifecycleCases':10,'manual_gameplay_verified':False,'manual_visual_qa_verified':False,'realClientJeiAndXaeroVerified':False,'existing_asset_issues':resources['existingBaselineAssetIssues'],'manual_qa':'docs/MANUAL_QA_0.9.7_SWAMP.md','evidence_sha256':{name:sha(OUT/name) for name in [*logs,'static-data-audit.json','resource-check.json','xaero-lifecycle.json','jei-ritual-contract.json','jei-ritual-contract-bytecode.txt']}}
+(OUT/'acceptance.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');subprocess.run([sys.executable,str(R/'tools/verify_swamp_097.py')],cwd=R,check=True);print('PASS: final 0.9.7 artifact gated; manual client checks remain pending')

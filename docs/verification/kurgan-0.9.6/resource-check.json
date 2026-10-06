@@ -1,0 +1,821 @@
+{
+  "status": "PASS",
+  "scope": "authored assets, model references, explicit burial changes, preserved non-burial content",
+  "changedExistingResources": [
+    "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+    "src/main/resources/assets/slavicmyths/blockstates/pale_blue_kurgan_stone.json",
+    "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "src/main/resources/assets/slavicmyths/textures/block/bog_green_kurgan_cobblestone.png",
+    "src/main/resources/assets/slavicmyths/textures/block/bog_green_kurgan_stone.png",
+    "src/main/resources/assets/slavicmyths/textures/block/cracked_bog_green_kurgan_cobblestone.png",
+    "src/main/resources/assets/slavicmyths/textures/block/cracked_pale_blue_kurgan_cobblestone.png",
+    "src/main/resources/assets/slavicmyths/textures/block/mossy_bog_green_kurgan_cobblestone.png",
+    "src/main/resources/assets/slavicmyths/textures/block/mossy_pale_blue_kurgan_cobblestone.png",
+    "src/main/resources/assets/slavicmyths/textures/block/pale_blue_kurgan_cobblestone.png",
+    "src/main/resources/assets/slavicmyths/textures/block/pale_blue_kurgan_stone.png",
+    "src/main/resources/assets/slavicmyths/textures/item/druzhinnik_blade_fragment.png",
+    "src/main/resources/assets/slavicmyths/textures/item/grave_cloth_scrap.png",
+    "src/main/resources/assets/slavicmyths/textures/item/nav_essence.png",
+    "src/main/resources/assets/slavicmyths/textures/item/princely_seal.png",
+    "src/main/resources/assets/slavicmyths/textures/item/shield_boss_fragment.png",
+    "src/main/resources/assets/slavicmyths/textures/item/torn_burial_ribbon.png",
+    "src/main/resources/assets/slavicmyths/textures/item/upyr_fang.png",
+    "src/main/resources/assets/slavicmyths/textures/item/voevoda_insignia.png",
+    "src/main/resources/assets/slavicmyths/textures/item/volkhv_amulet.png",
+    "src/main/resources/assets/slavicmyths/models/block/bog_green_kurgan_cobblestone.json",
+    "src/main/resources/assets/slavicmyths/models/block/cracked_bog_green_kurgan_cobblestone.json",
+    "src/main/resources/assets/slavicmyths/models/block/cracked_pale_blue_kurgan_cobblestone.json",
+    "src/main/resources/assets/slavicmyths/models/block/mossy_bog_green_kurgan_cobblestone.json",
+    "src/main/resources/assets/slavicmyths/models/block/mossy_pale_blue_kurgan_cobblestone.json",
+    "src/main/resources/assets/slavicmyths/models/block/pale_blue_kurgan_cobblestone.json",
+    "src/main/resources/assets/slavicmyths/models/item/ancient_beads.json",
+    "src/main/resources/assets/slavicmyths/models/item/ancient_carolingian_sword.json",
+    "src/main/resources/assets/slavicmyths/models/item/ancient_chekan.json",
+    "src/main/resources/assets/slavicmyths/models/item/ancient_comb.json",
+    "src/main/resources/assets/slavicmyths/models/item/ancient_fibula.json",
+    "src/main/resources/assets/slavicmyths/models/item/ancient_spear.json",
+    "src/main/resources/assets/slavicmyths/models/item/chekan.json",
+    "src/main/resources/assets/slavicmyths/models/item/grave_ward.json",
+    "src/main/resources/assets/slavicmyths/models/item/grivna.json",
+    "src/main/resources/assets/slavicmyths/models/item/lunula.json",
+    "src/main/resources/assets/slavicmyths/models/item/old_arrowhead.json",
+    "src/main/resources/assets/slavicmyths/models/item/old_buckle.json",
+    "src/main/resources/assets/slavicmyths/models/item/pottery_fragment.json",
+    "src/main/resources/assets/slavicmyths/models/item/restored_carolingian_sword.json",
+    "src/main/resources/assets/slavicmyths/models/item/restored_spear.json"
+  ],
+  "existingBaselineAssetIssues": [
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/darkened_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/darkened_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/darkened_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/darkened_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/linden_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/linden_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/linden_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/linden_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/pine_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/pine_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/pine_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/pine_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/rowan_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/rowan_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/rowan_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/rowan_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/willow_door_bottom.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/willow_door_bottom_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_bottom_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/willow_door_top.json",
+      "missingReference": "assets/minecraft/models/block/door_top.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    },
+    {
+      "model": "src/main/resources/assets/slavicmyths/models/block/willow_door_top_hinge.json",
+      "missingReference": "assets/minecraft/models/block/door_top_rh.json",
+      "scope": "unchanged 0.9.5 resource; outside burial rework"
+    }
+  ],
+  "preservedBaselineFiles": 2476,
+  "resourceReferencesChecked": 3960,
+  "assets": [
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/ancient_carolingian_sword.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1234,
+        1275
+      ],
+      "source": "art/kurgan-0.9.6/items/ancient_carolingian_sword-source.png",
+      "sha256": "4e62233eb7a5e1677b4b176d6c42cfe92f607ef7657d4a9ca1a1fca9d90b2c4e"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/restored_carolingian_sword.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/restored_carolingian_sword-source.png",
+      "sha256": "d97db7376c7d9d9f6fac712eff607acbe75a56d0129e2ab50937a25f78d0f9f3"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/ancient_spear.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/ancient_spear-source.png",
+      "sha256": "9a01e1b5cb1ab8d0489af1b7bff3d641960ef47031abd41033a875cacfb030ff"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/restored_spear.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/restored_spear-source.png",
+      "sha256": "2e051b566b4e321c658c62f52d10a83b974d163c643687a38a4967d8b4f7f607"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/ancient_chekan.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/ancient_chekan-source.png",
+      "sha256": "f3c79d9517a5273b00dae25e353725b0448053d345faef45c4b00c0cba87fe7d"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/chekan.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/chekan-source.png",
+      "sha256": "816dde3bb3cf504238e8eb0cafaa2dd708b94eaecae3bfee4d42d5c94d6c3a57"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/lunula.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/lunula-source.png",
+      "sha256": "499c307fab2ecf9bffd196e4e206e41c216080335d4d187bf51d1aea9572687a"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/grivna.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/grivna-source.png",
+      "sha256": "92fe438759825b0d7eb4cd9527ff96cafe3f7b2300579c95e45f674a79d88423"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/grave_ward.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/grave_ward-source.png",
+      "sha256": "86d25678bb46f8e080c4fccdb358fcbac4c4c7c00bbe1d9d6f6f7153523e008d"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/ancient_fibula.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/ancient_fibula-source.png",
+      "sha256": "f36d7d26bb20e441eb277d30abd9e72918bfa59d1ac202c458b74515830222fb"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/ancient_comb.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/ancient_comb-source.png",
+      "sha256": "d401ebe17f547a0787ea0c1e9b6286276136afd5ab215db8c989b52923c13935"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/ancient_beads.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/ancient_beads-source.png",
+      "sha256": "7d8af401f21f22f19f4ee201de3129b9d5298f09ee6261aa41551683256a7c76"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/old_buckle.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/old_buckle-source.png",
+      "sha256": "6f7b3c6b540919361474996713dd0f045827f54cc2dead5c04ba6855c30ccd3d"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/pottery_fragment.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/pottery_fragment-source.png",
+      "sha256": "fad4221f058a308ecf1f4903f71c5bef43c4db44ad10c97c940dd7a02d4ffdee"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/old_arrowhead.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/old_arrowhead-source.png",
+      "sha256": "731d6130b606e0f86082b4ee3a8ffc062fd7c319e818c09f6025186f8076e499"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/upyr_fang.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/upyr_fang-source.png",
+      "sha256": "1948de257e16e2c2418ddfd7f52794bbb1df89c4593132ec8f9f7101e2a39e2d"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/grave_cloth_scrap.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/grave_cloth_scrap-source.png",
+      "sha256": "b07ac811655f4e22479b5afda882ed59f7327e69b8acade4c7ad4c6ebaa80389"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/nav_essence.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/nav_essence-source.png",
+      "sha256": "9dcc1cd525e26cdbfe6d8c705b9232541bd39a5610ba43b1a82377e4fa94709a"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/torn_burial_ribbon.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/torn_burial_ribbon-source.png",
+      "sha256": "6fd6b92b72f2cdeea5a2819af15482b8db146b9d1b77f7ddd7f8f48a786ef9ca"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/shield_boss_fragment.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/shield_boss_fragment-source.png",
+      "sha256": "d070d09bcb36782d4c5bdd916b0ca9e24badf1563cc681d8e82f85d5c1fe0965"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/druzhinnik_blade_fragment.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/druzhinnik_blade_fragment-source.png",
+      "sha256": "0d3c147e545fa1dd86fb4e0af245636fb25cd1eb92096bda7e2c51f90f45d9da"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/voevoda_insignia.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/voevoda_insignia-source.png",
+      "sha256": "6cdc494f9fd9017baf4536b0233ffe1ca4b804c26f05c9a83bc09ed1e1fdc484"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/volkhv_amulet.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/volkhv_amulet-source.png",
+      "sha256": "f098a73d4cfd0609090d8680799f0c462803b7795e2a0b023a27d5c2c42774a3"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/princely_seal.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/items/princely_seal-source.png",
+      "sha256": "529c0e8e1382398c3011142352605390e1a5a61bfe987ce9d7b36f8570d77e1c"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/pale_blue_kurgan_stone.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/pale_blue_kurgan_stone-source.png",
+      "sha256": "15917b94fb4fd0ffddfdba94a285d9ac3093af3d7f7948f583fe5873644b3961"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/pale_blue_kurgan_cobblestone.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/pale_blue_kurgan_cobblestone-source.png",
+      "sha256": "875e6de8b7d5224c6105f1b8621674260f8a28752bde83e9d7ad5e93d7b6b2f3"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/carved_burial_stone.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/carved_burial_stone-source.png",
+      "sha256": "ff9d8dec03730c994f4761e21293b5f51bbd2d6f5dca0a5d570a13449bc61d20"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/cracked_pale_blue_kurgan_cobblestone.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/cracked_pale_blue_kurgan_cobblestone-source.png",
+      "sha256": "eb3fb01569eeb15ab9b074026da84a8e8164d5f54b6ea7f6e6531eababec0d5f"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/mossy_pale_blue_kurgan_cobblestone.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/mossy_pale_blue_kurgan_cobblestone-source.png",
+      "sha256": "922e101d322cbe03debf3c6baf41f8b69b0afbfbea610e4dc898aff810ee916b"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/bog_green_kurgan_stone.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/bog_green_kurgan_stone-source.png",
+      "sha256": "9403d64441b51cce429914cb525b764fae9ec0f8dd84003da251b79808124209"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/bog_green_kurgan_cobblestone.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/bog_green_kurgan_cobblestone-source.png",
+      "sha256": "11e125a46a4b9c2124a991bdaacef042b84f83f0a0ce3b09dc7a494be30304cc"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/cracked_bog_green_kurgan_cobblestone.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/cracked_bog_green_kurgan_cobblestone-source.png",
+      "sha256": "513e92259d75829e1551c25319fdd4cbf5dabbb90978e6e47adcc5420b4702cc"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/mossy_bog_green_kurgan_cobblestone.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/mossy_bog_green_kurgan_cobblestone-source.png",
+      "sha256": "7332271be5aee03c3042c0cf4b8a4a108d6130d56a540459c838dabdcb0b3d56"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/burial_stone_top.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/burial_stone_top-source.png",
+      "sha256": "a4c58193fe91795a9e12599f41c86230d432a91fd8c4b82b0268f2ff232400a5"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/pale_blue_kurgan_stone_variant.png",
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "source": "art/kurgan-0.9.6/pale_blue_kurgan_stone_variant-source.png",
+      "sha256": "6e4c39170550ca0b7041c3a267b48177e755b11d986e974765c2c7541e133774"
+    }
+  ],
+  "registryAdditions": [
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_stone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_stone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:carved_burial_stone"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:carved_burial_stone"
+    },
+    {
+      "kind": "block",
+      "target_id": "slavicmyths:carved_burial_stone_slab"
+    },
+    {
+      "kind": "item",
+      "target_id": "slavicmyths:carved_burial_stone_slab"
+    }
+  ],
+  "clientLaunches": 0,
+  "manualVisualQA": false
+}

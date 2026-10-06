@@ -98,3 +98,13 @@ Worldgen quality/frequency, старые AI/loot/art/HUD backlog и 0.9.5 не �
 Первый ручной запуск остановился до загрузки Minecraft: ForgeWrapper не обнаружил installer. PolyMC-0.log показывает Checksum mismatch для обоих NeoForge 21.1.255 JAR. Official PolyMC metadata содержит SHA-1, отличающиеся от actual official NeoForge Maven .sha1; файлы launcher отверг, оставив отсутствующий installer. Установлены проверенные official installer/universal, создан instance-local patches/net.neoforged.neoforge.json с исправленными SHA-1/size. Global metadata cache, моды, версия NeoForge и старые профили не изменены.
 
 Реальный ForgeWrapper detector теперь находит installer и Minecraft JAR (launcher-detector-check.log); это не запуск игры. Контрольные суммы и пути: launcher-repair-0.9.4.json и packaging/test-pack-lock.json. tools/verify_polymc_094.py теперь также проверяет эти launcher artifacts. Полностью закрыть и открыть PolyMC вручную, чтобы перечитать локальный patch, затем повторить запуск. Клиент автоматически не запускался. Первоначальная проверка profile metadata/mod hashes не обнаруживала отсутствие installer; эта область проверки расширена.
+
+
+## Дополнительный post-port backlog, обнаруженный в аудите 0.9.6
+
+NOT STARTED: 20 старых ссылок моделей дверей пяти семейств на отсутствующие vanilla parents 1.21.1. Это прежние ресурсы 0.9.5, оставленные без изменений в курганном этапе. Точный список: `docs/verification/kurgan-0.9.6/resource-check.json`, existingBaselineAssetIssues. Исторические gates переноса выше не переписаны.
+
+
+## Обновление дополнительного backlog в 0.9.7
+
+DONE по resource validation: linden_door — 32 native states / актуальные модели и старые aliases, четыре прежних missing parents исправлены. Остальные 16 (darkened/pine/rowan/willow) — NOT STARTED. Xaero/JEI runtime hotfix описан в docs/swamp/SWAMP_0.9.7_RUNTIME_FIXES.md; ручная проверка клиента не выполнена.

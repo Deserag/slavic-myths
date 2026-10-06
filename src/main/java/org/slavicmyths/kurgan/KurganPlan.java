@@ -5,7 +5,7 @@ import java.util.*;
 /** Pure deterministic planning. Coordinates are relative to the mound's ground anchor. */
 public final class KurganPlan {
     public static final int VERSION = 2, ATTEMPTS = 12;
-    public int formatVersion=1;
+    public int formatVersion=1,attemptsUsed=1;
     public enum Archetype { VESTIBULE,CROSSROADS,BURIAL,WARRIOR,TREASURY,RITUAL,TRAP,FLOODED,OSSUARY,OFFERING,RELIQUARY,COLLAPSED,DESCENT,DEEP }
     public enum NodeType { ENTRANCE,VESTIBULE,JUNCTION,ROOM,REWARD_ROOM,DANGER_ROOM,SECRET_ROOM,TRANSITION_UP,TRANSITION_DOWN,DEEP_OBJECTIVE,DEAD_END }
     public enum Role { SMALL_BURIAL, LARGE_BURIAL, OFFERING, ATMOSPHERIC, RUINED, TRANSITION, BLOCKED_SIDE, FINAL }
@@ -29,12 +29,12 @@ public final class KurganPlan {
             disturbance=hall?20:role==Role.LARGE_BURIAL||role==Role.FINAL?15:8;
             loot=role==Role.OFFERING?"offering":role==Role.FINAL?"important":role==Role.SMALL_BURIAL||role==Role.LARGE_BURIAL?"burial":"";
         }
-        public boolean hall(){return rx==14||archetype==Archetype.DEEP;}
+        public boolean hall(){return rx==14||archetype==Archetype.DEEP&&rx>=11;}
         Room(int id,int f,int cell,int x,int y,int z,Role role,int palette,int rx,int rz,int height,Archetype archetype,NodeType nodeType,boolean roomNode,String loot){
             this.id=id;floor=f;this.cell=cell;this.x=x;this.y=y;this.z=z;this.role=role;this.palette=palette;this.rx=rx;this.rz=rz;this.height=height;
             this.archetype=archetype;this.nodeType=nodeType;this.roomNode=roomNode;this.loot=loot;disturbance=role==Role.FINAL?20:roomNode?12:6;
         }
-        public Box box(){return new Box(x-rx,y,z-rz,x+rx,y+height+1,z+rz);}
+        public Box box(){int outer=archetype==Archetype.DEEP?1:0;return new Box(x-rx-outer,y-outer,z-rz-outer,x+rx+outer,y+height+1+outer,z+rz+outer);}
     }
     public static final class Step {
         public final int x,y,z; public Step(int x,int y,int z){this.x=x;this.y=y;this.z=z;}
@@ -126,5 +126,5 @@ public final class KurganPlan {
         if(tier==2&&(seal==null||niches.size()!=3||!rooms.get(finalRoom).hall()))errors.add("protected tomb");
         return errors;
     }
-    public Box bounds(){int x0=-radius-3,z0=-radius-3,y0=-1,x1=radius+3,z1=radius+3,y1=14;for(Room r:rooms){Box b=r.box();x0=Math.min(x0,b.x0);y0=Math.min(y0,b.y0);z0=Math.min(z0,b.z0);x1=Math.max(x1,b.x1);z1=Math.max(z1,b.z1);}for(Link l:links)for(int i=0;i<l.steps.size();i++){Box b=l.slice(i);x0=Math.min(x0,b.x0);z0=Math.min(z0,b.z0);x1=Math.max(x1,b.x1);z1=Math.max(z1,b.z1);}return new Box(x0,y0-1,z0,x1,y1,z1);}
+    public Box bounds(){int x0=-radius-3,z0=-radius-3,y0=-1,x1=radius+3,z1=radius+(formatVersion==2?17:3),y1=14;for(Room r:rooms){Box b=r.box();x0=Math.min(x0,b.x0);y0=Math.min(y0,b.y0);z0=Math.min(z0,b.z0);x1=Math.max(x1,b.x1);z1=Math.max(z1,b.z1);}for(Link l:links)for(int i=0;i<l.steps.size();i++){Box b=l.slice(i);x0=Math.min(x0,b.x0);z0=Math.min(z0,b.z0);x1=Math.max(x1,b.x1);z1=Math.max(z1,b.z1);}return new Box(x0,y0-1,z0,x1,y1,z1);}
 }

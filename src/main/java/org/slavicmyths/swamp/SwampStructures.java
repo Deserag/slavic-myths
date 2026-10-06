@@ -10,8 +10,9 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 public final class SwampStructures {
  public static final DeferredRegister<StructureType<?>> STRUCTURES=DeferredRegister.create(Registries.STRUCTURE_TYPE,"slavicmyths");
  public static final DeferredRegister<StructurePieceType> PIECES=DeferredRegister.create(Registries.STRUCTURE_PIECE,"slavicmyths");
- public static final String[] IDS={"swamp_hut","abandoned_settlement","bog_causeway","flooded_shrine","fishing_camp","underwater_ruins","swamp_remnants"};
+ public static final String[] IDS={"swamp_hut","abandoned_settlement","bog_causeway","flooded_shrine","fishing_camp","underwater_ruins","swamp_remnants","swamp_watchtower"};
  public static final Map<String,DeferredHolder<StructureType<?>,StructureType<SwampStructure>>> TYPES=new LinkedHashMap<>();
+ public static final DeferredHolder<StructurePieceType,StructurePieceType> LAND_FOUNDATION=PIECES.register("land_foundation",()->(context,tag)->new org.slavicmyths.worldgen.LandFoundationPiece(tag));
  public static final DeferredHolder<StructurePieceType,StructurePieceType> PIECE=PIECES.register("swamp_piece",()->(context,tag)->new SwampPiece(context.structureTemplateManager(),tag));
  static{for(String id:IDS)TYPES.put(id,STRUCTURES.register(id,()->()->SwampStructure.codec(id)));}
  public static Structure get(net.minecraft.server.level.ServerLevel world,String id){return world.registryAccess().registryOrThrow(Registries.STRUCTURE).get(ResourceLocation.fromNamespaceAndPath("slavicmyths",id));}

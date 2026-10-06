@@ -161,11 +161,11 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> PORK_STEW=stew("pork_stew",10,.9F);
     public static final DeferredHolder<Item, Item> VENISON_STEW=stew("venison_stew",10,.9F);
     public static final DeferredHolder<Item, Item> BEAR_STEW=stew("bear_stew",11,1F);
-    public static final DeferredHolder<Item, Item> BROWN_BEAR_SPAWN_EGG=egg("brown_bear_spawn_egg",ModEntities.BROWN_BEAR,0x4b3427,0xb28a62);
+    public static final DeferredHolder<Item, Item> BROWN_BEAR_SPAWN_EGG=ITEMS.register("brown_bear_spawn_egg",()->new org.slavicmyths.item.WildlifeFamilyEgg(true,0x4b3427,0xb28a62,properties()));
     public static final DeferredHolder<Item, Item> BEAR_CUB_SPAWN_EGG=egg("bear_cub_spawn_egg",ModEntities.BEAR_CUB,0x6b4a35,0xcda578);
     public static final DeferredHolder<Item, Item> FOREST_WOLF_SPAWN_EGG=egg("forest_wolf_spawn_egg",ModEntities.FOREST_WOLF,0x292b2e,0xb2a98f);
     public static final DeferredHolder<Item, Item> BOAR_SPAWN_EGG=egg("boar_spawn_egg",ModEntities.BOAR,0x493a32,0xd5c09c);
-    public static final DeferredHolder<Item, Item> STAG_SPAWN_EGG=egg("stag_spawn_egg",ModEntities.STAG,0x76533b,0xd1ad7b);
+    public static final DeferredHolder<Item, Item> STAG_SPAWN_EGG=ITEMS.register("stag_spawn_egg",()->new org.slavicmyths.item.WildlifeFamilyEgg(false,0x76533b,0xd1ad7b,properties()));
     public static final DeferredHolder<Item, Item> DOE_SPAWN_EGG=egg("doe_spawn_egg",ModEntities.DOE,0x9a7653,0xe0c29c);
     private static DeferredHolder<Item, Item> food(String id,int nutrition,float saturation){return ITEMS.register(id,()->new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(nutrition).saturationModifier(saturation).build())));}
     private static DeferredHolder<Item, Item> stew(String id,int nutrition,float saturation){return ITEMS.register(id,()->new Item(properties().stacksTo(1).food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(nutrition).saturationModifier(saturation).usingConvertsTo(Items.BOWL).build())));}
@@ -195,6 +195,7 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> REED=ITEMS.register("reed",()->new BlockItem(ModBlocks.REED.get(),properties()));
     public static final DeferredHolder<Item, Item> WATER_GRASS=ITEMS.register("water_grass",()->new BlockItem(ModBlocks.WATER_GRASS.get(),properties()));
     public static final DeferredHolder<Item, Item> WHITE_LILY=ITEMS.register("white_lily",()->new net.minecraft.world.item.PlaceOnWaterBlockItem(ModBlocks.WHITE_LILY.get(),properties()));
+    public static final DeferredHolder<Item,Item> BOLOTNIK_SPAWN_EGG=egg("bolotnik_spawn_egg",ModEntities.BOLOTNIK,0x343529,0x657144);
     public static final DeferredHolder<Item, Item> VODYANOY_SPAWN_EGG=egg("vodyanoy_spawn_egg",ModEntities.VODYANOY,0x59695d,0x8f9364),RUSALKA_SPAWN_EGG=egg("rusalka_spawn_egg",ModEntities.RUSALKA,0xc3d1c7,0x3e5749);
     public static final DeferredHolder<Item, Item> POOL_PEARL=ITEMS.register("pool_pearl",()->new Item(properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> ANCIENT_WATER_SIGN=ITEMS.register("ancient_water_sign",()->new org.slavicmyths.depth.WaterSignItem(properties().rarity(Rarity.UNCOMMON)));

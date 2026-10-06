@@ -6,6 +6,8 @@ import net.minecraft.core.BlockPos;
 
 public final class KurganInstance {
     public final UUID id; public final BlockPos origin;public final KurganPlan plan;
+    private Map<Integer,List<KurganFighter.Kind>> population;
+    public Map<Integer,List<KurganFighter.Kind>> population(){if(population==null)population=KurganRoster.assign(plan);return population;}
     public final Map<Integer,KurganEncounterState> encounters=new HashMap<>();public boolean bossDefeated;
     public int disturbance,thresholds;public boolean sealOpened;public final Set<String> fired=new HashSet<>();
     public KurganInstance(UUID id,BlockPos origin,KurganPlan plan){this.id=id;this.origin=origin.immutable();this.plan=plan;}

@@ -63,6 +63,7 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.ATAMAN.get(),m->new BanditRenderer(m,4));
 
         event.registerEntityRenderer(ModEntities.THROWN_NET.get(),m->new net.minecraft.client.renderer.entity.ThrownItemRenderer<>(m));
+        event.registerEntityRenderer(ModEntities.BOLOTNIK.get(),BolotnikRenderer::new);
         event.registerEntityRenderer(ModEntities.VODYANOY.get(),m->new WaterSpiritRenderer(m,false));
         event.registerEntityRenderer(ModEntities.RUSALKA.get(),m->new WaterSpiritRenderer(m,true));
         event.registerEntityRenderer(ModEntities.PIKE.get(),m->new RiverFishRenderer(m,0));
@@ -97,6 +98,7 @@ public final class ClientSetup {
         event.registerBlockEntityRenderer(org.slavicmyths.registry.ModTiles.BURIAL_COFFIN.get(),BurialCoffinRenderer::new);
     }
     @SubscribeEvent public static void screens(net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event){
+            event.register(org.slavicmyths.rpg.RpgMenu.TYPE.get(),RpgScreen::new);
             event.register(org.slavicmyths.yaga.YagaMenu.TYPE.get(),YagaScreen::new);
             event.register(org.slavicmyths.hunt.PouchMenu.TYPE.get(),PouchScreen::new);
             event.register(org.slavicmyths.kurgan.BurialCoffinMenu.TYPE.get(),BurialCoffinScreen::new);

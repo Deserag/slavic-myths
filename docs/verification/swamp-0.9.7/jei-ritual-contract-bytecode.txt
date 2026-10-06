@@ -1,0 +1,378 @@
+Compiled from "JeiRituals.java"
+public final class org.slavicmyths.compat.JeiRituals implements mezz.jei.api.IModPlugin {
+  private static final net.minecraft.resources.ResourceLocation ID;
+
+  private static final mezz.jei.api.recipe.RecipeType<net.minecraft.resources.ResourceLocation> RECIPE_TYPE;
+
+  public org.slavicmyths.compat.JeiRituals();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public net.minecraft.resources.ResourceLocation getPluginUid();
+    Code:
+       0: getstatic     #7                  // Field ID:Lnet/minecraft/resources/ResourceLocation;
+       3: areturn
+
+  public void registerCategories(mezz.jei.api.registration.IRecipeCategoryRegistration);
+    Code:
+       0: aload_1
+       1: iconst_1
+       2: anewarray     #13                 // class mezz/jei/api/recipe/category/IRecipeCategory
+       5: dup
+       6: iconst_0
+       7: new           #15                 // class org/slavicmyths/compat/JeiRituals$Category
+      10: dup
+      11: aload_1
+      12: invokeinterface #17,  1           // InterfaceMethod mezz/jei/api/registration/IRecipeCategoryRegistration.getJeiHelpers:()Lmezz/jei/api/helpers/IJeiHelpers;
+      17: invokeinterface #23,  1           // InterfaceMethod mezz/jei/api/helpers/IJeiHelpers.getGuiHelper:()Lmezz/jei/api/helpers/IGuiHelper;
+      22: invokespecial #29                 // Method org/slavicmyths/compat/JeiRituals$Category."<init>":(Lmezz/jei/api/helpers/IGuiHelper;)V
+      25: aastore
+      26: invokeinterface #32,  2           // InterfaceMethod mezz/jei/api/registration/IRecipeCategoryRegistration.addRecipeCategories:([Lmezz/jei/api/recipe/category/IRecipeCategory;)V
+      31: return
+
+  public void registerRecipes(mezz.jei.api.registration.IRecipeRegistration);
+    Code:
+       0: aload_1
+       1: getstatic     #36                 // Field RECIPE_TYPE:Lmezz/jei/api/recipe/RecipeType;
+       4: bipush        9
+       6: anewarray     #40                 // class net/minecraft/resources/ResourceLocation
+       9: dup
+      10: iconst_0
+      11: ldc           #42                 // String slavicmyths
+      13: ldc           #44                 // String first_ritual
+      15: invokestatic  #46                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      18: aastore
+      19: dup
+      20: iconst_1
+      21: ldc           #42                 // String slavicmyths
+      23: ldc           #50                 // String thunder_axe
+      25: invokestatic  #46                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      28: aastore
+      29: dup
+      30: iconst_2
+      31: ldc           #42                 // String slavicmyths
+      33: ldc           #52                 // String perun_charm
+      35: invokestatic  #46                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      38: aastore
+      39: dup
+      40: iconst_3
+      41: ldc           #42                 // String slavicmyths
+      43: ldc           #54                 // String storm_staff
+      45: invokestatic  #46                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      48: aastore
+      49: dup
+      50: iconst_4
+      51: ldc           #42                 // String slavicmyths
+      53: ldc           #56                 // String amber_charm
+      55: invokestatic  #46                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      58: aastore
+      59: dup
+      60: iconst_5
+      61: ldc           #42                 // String slavicmyths
+      63: ldc           #58                 // String ritual_charcoal
+      65: invokestatic  #46                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      68: aastore
+      69: dup
+      70: bipush        6
+      72: ldc           #42                 // String slavicmyths
+      74: ldc           #60                 // String thunder_spear
+      76: invokestatic  #46                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      79: aastore
+      80: dup
+      81: bipush        7
+      83: ldc           #42                 // String slavicmyths
+      85: ldc           #62                 // String perunite_mace
+      87: invokestatic  #46                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      90: aastore
+      91: dup
+      92: bipush        8
+      94: ldc           #42                 // String slavicmyths
+      96: ldc           #64                 // String ember_axe
+      98: invokestatic  #46                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+     101: aastore
+     102: invokestatic  #66                 // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+     105: invokeinterface #72,  3           // InterfaceMethod mezz/jei/api/registration/IRecipeRegistration.addRecipes:(Lmezz/jei/api/recipe/RecipeType;Ljava/util/List;)V
+     110: new           #78                 // class java/util/ArrayList
+     113: dup
+     114: invokespecial #80                 // Method java/util/ArrayList."<init>":()V
+     117: astore_2
+     118: getstatic     #81                 // Field org/slavicmyths/rpg/Runes.IDS:[Ljava/lang/String;
+     121: astore_3
+     122: aload_3
+     123: arraylength
+     124: istore        4
+     126: iconst_0
+     127: istore        5
+     129: iload         5
+     131: iload         4
+     133: if_icmpge     167
+     136: aload_3
+     137: iload         5
+     139: aaload
+     140: astore        6
+     142: aload_2
+     143: ldc           #42                 // String slavicmyths
+     145: aload         6
+     147: invokedynamic #87,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+     152: invokestatic  #46                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+     155: invokeinterface #91,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     160: pop
+     161: iinc          5, 1
+     164: goto          129
+     167: aload_1
+     168: getstatic     #36                 // Field RECIPE_TYPE:Lmezz/jei/api/recipe/RecipeType;
+     171: aload_2
+     172: invokeinterface #72,  3           // InterfaceMethod mezz/jei/api/registration/IRecipeRegistration.addRecipes:(Lmezz/jei/api/recipe/RecipeType;Ljava/util/List;)V
+     177: return
+
+  public void registerRecipeCatalysts(mezz.jei.api.registration.IRecipeCatalystRegistration);
+    Code:
+       0: aload_1
+       1: new           #97                 // class net/minecraft/world/item/ItemStack
+       4: dup
+       5: getstatic     #99                 // Field org/slavicmyths/registry/ModItems.ALTAR:Lnet/neoforged/neoforge/registries/DeferredHolder;
+       8: invokevirtual #105                // Method net/neoforged/neoforge/registries/DeferredHolder.get:()Ljava/lang/Object;
+      11: checkcast     #111                // class net/minecraft/world/level/ItemLike
+      14: invokespecial #113                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+      17: iconst_1
+      18: anewarray     #116                // class mezz/jei/api/recipe/RecipeType
+      21: dup
+      22: iconst_0
+      23: getstatic     #36                 // Field RECIPE_TYPE:Lmezz/jei/api/recipe/RecipeType;
+      26: aastore
+      27: invokeinterface #118,  3          // InterfaceMethod mezz/jei/api/registration/IRecipeCatalystRegistration.addRecipeCatalyst:(Lnet/minecraft/world/item/ItemStack;[Lmezz/jei/api/recipe/RecipeType;)V
+      32: return
+
+  static {};
+    Code:
+       0: ldc           #42                 // String slavicmyths
+       2: ldc           #124                // String rituals
+       4: invokestatic  #46                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       7: putstatic     #7                  // Field ID:Lnet/minecraft/resources/ResourceLocation;
+      10: new           #116                // class mezz/jei/api/recipe/RecipeType
+      13: dup
+      14: getstatic     #7                  // Field ID:Lnet/minecraft/resources/ResourceLocation;
+      17: ldc           #40                 // class net/minecraft/resources/ResourceLocation
+      19: invokespecial #126                // Method mezz/jei/api/recipe/RecipeType."<init>":(Lnet/minecraft/resources/ResourceLocation;Ljava/lang/Class;)V
+      22: putstatic     #36                 // Field RECIPE_TYPE:Lmezz/jei/api/recipe/RecipeType;
+      25: return
+}
+
+Compiled from "JeiRituals.java"
+final class org.slavicmyths.compat.JeiRituals$Category implements mezz.jei.api.recipe.category.IRecipeCategory<net.minecraft.resources.ResourceLocation> {
+  private final mezz.jei.api.gui.drawable.IDrawable icon;
+
+  org.slavicmyths.compat.JeiRituals$Category(mezz.jei.api.helpers.IGuiHelper);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: getstatic     #7                  // Field mezz/jei/api/constants/VanillaTypes.ITEM_STACK:Lmezz/jei/api/ingredients/IIngredientTypeWithSubtypes;
+       9: new           #13                 // class net/minecraft/world/item/ItemStack
+      12: dup
+      13: getstatic     #15                 // Field org/slavicmyths/registry/ModItems.ALTAR:Lnet/neoforged/neoforge/registries/DeferredHolder;
+      16: invokevirtual #21                 // Method net/neoforged/neoforge/registries/DeferredHolder.get:()Ljava/lang/Object;
+      19: checkcast     #27                 // class net/minecraft/world/level/ItemLike
+      22: invokespecial #29                 // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+      25: invokeinterface #32,  3           // InterfaceMethod mezz/jei/api/helpers/IGuiHelper.createDrawableIngredient:(Lmezz/jei/api/ingredients/IIngredientType;Ljava/lang/Object;)Lmezz/jei/api/gui/drawable/IDrawable;
+      30: putfield      #38                 // Field icon:Lmezz/jei/api/gui/drawable/IDrawable;
+      33: return
+
+  public mezz.jei.api.recipe.RecipeType<net.minecraft.resources.ResourceLocation> getRecipeType();
+    Code:
+       0: getstatic     #44                 // Field org/slavicmyths/compat/JeiRituals.RECIPE_TYPE:Lmezz/jei/api/recipe/RecipeType;
+       3: areturn
+
+  public net.minecraft.network.chat.Component getTitle();
+    Code:
+       0: ldc           #50                 // String jei.slavicmyths.rituals
+       2: invokestatic  #52                 // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+       5: areturn
+
+  public int getWidth();
+    Code:
+       0: sipush        150
+       3: ireturn
+
+  public int getHeight();
+    Code:
+       0: bipush        48
+       2: ireturn
+
+  public mezz.jei.api.gui.drawable.IDrawable getIcon();
+    Code:
+       0: aload_0
+       1: getfield      #38                 // Field icon:Lmezz/jei/api/gui/drawable/IDrawable;
+       4: areturn
+
+  public void setRecipe(mezz.jei.api.gui.builder.IRecipeLayoutBuilder, net.minecraft.resources.ResourceLocation, mezz.jei.api.recipe.IFocusGroup);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokevirtual #58                 // Method kind:(Lnet/minecraft/resources/ResourceLocation;)I
+       5: istore        4
+       7: iconst_0
+       8: istore        5
+      10: iload         5
+      12: iload         4
+      14: invokestatic  #62                 // Method org/slavicmyths/ritual/Rituals.length:(I)I
+      17: if_icmpge     62
+      20: aload_1
+      21: getstatic     #68                 // Field mezz/jei/api/recipe/RecipeIngredientRole.INPUT:Lmezz/jei/api/recipe/RecipeIngredientRole;
+      24: iload         5
+      26: bipush        28
+      28: imul
+      29: bipush        16
+      31: invokeinterface #74,  4           // InterfaceMethod mezz/jei/api/gui/builder/IRecipeLayoutBuilder.addSlot:(Lmezz/jei/api/recipe/RecipeIngredientRole;II)Lmezz/jei/api/gui/builder/IRecipeSlotBuilder;
+      36: new           #13                 // class net/minecraft/world/item/ItemStack
+      39: dup
+      40: iload         4
+      42: iload         5
+      44: invokestatic  #80                 // Method org/slavicmyths/ritual/Rituals.ingredient:(II)Lnet/minecraft/world/item/Item;
+      47: invokespecial #29                 // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+      50: invokeinterface #84,  2           // InterfaceMethod mezz/jei/api/gui/builder/IRecipeSlotBuilder.addItemStack:(Lnet/minecraft/world/item/ItemStack;)Lmezz/jei/api/gui/builder/IIngredientAcceptor;
+      55: pop
+      56: iinc          5, 1
+      59: goto          10
+      62: aload_1
+      63: getstatic     #90                 // Field mezz/jei/api/recipe/RecipeIngredientRole.OUTPUT:Lmezz/jei/api/recipe/RecipeIngredientRole;
+      66: bipush        126
+      68: bipush        16
+      70: invokeinterface #74,  4           // InterfaceMethod mezz/jei/api/gui/builder/IRecipeLayoutBuilder.addSlot:(Lmezz/jei/api/recipe/RecipeIngredientRole;II)Lmezz/jei/api/gui/builder/IRecipeSlotBuilder;
+      75: iload         4
+      77: invokestatic  #93                 // Method org/slavicmyths/ritual/Rituals.result:(I)Lnet/minecraft/world/item/ItemStack;
+      80: invokeinterface #84,  2           // InterfaceMethod mezz/jei/api/gui/builder/IRecipeSlotBuilder.addItemStack:(Lnet/minecraft/world/item/ItemStack;)Lmezz/jei/api/gui/builder/IIngredientAcceptor;
+      85: pop
+      86: return
+
+  public void draw(net.minecraft.resources.ResourceLocation, mezz.jei.api.gui.ingredient.IRecipeSlotsView, net.minecraft.client.gui.GuiGraphics, double, double);
+    Code:
+       0: aload_3
+       1: invokestatic  #97                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       4: getfield      #103                // Field net/minecraft/client/Minecraft.font:Lnet/minecraft/client/gui/Font;
+       7: ldc           #107                // String 1       2       3       4   >
+       9: iconst_4
+      10: iconst_4
+      11: ldc           #109                // int 4210752
+      13: iconst_0
+      14: invokevirtual #110                // Method net/minecraft/client/gui/GuiGraphics.drawString:(Lnet/minecraft/client/gui/Font;Ljava/lang/String;IIIZ)I
+      17: pop
+      18: return
+
+  private int kind(net.minecraft.resources.ResourceLocation);
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: iload_2
+       3: bipush        8
+       5: if_icmpge     39
+       8: aload_1
+       9: invokevirtual #116                // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+      12: getstatic     #122                // Field org/slavicmyths/rpg/Runes.IDS:[Ljava/lang/String;
+      15: iload_2
+      16: aaload
+      17: invokedynamic #128,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      22: invokevirtual #132                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      25: ifeq          33
+      28: bipush        9
+      30: iload_2
+      31: iadd
+      32: ireturn
+      33: iinc          2, 1
+      36: goto          2
+      39: ldc           #138                // String ember_axe
+      41: aload_1
+      42: invokevirtual #116                // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+      45: invokevirtual #132                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      48: ifeq          54
+      51: bipush        8
+      53: ireturn
+      54: ldc           #140                // String thunder_spear
+      56: aload_1
+      57: invokevirtual #116                // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+      60: invokevirtual #132                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      63: ifeq          69
+      66: bipush        6
+      68: ireturn
+      69: ldc           #142                // String perunite_mace
+      71: aload_1
+      72: invokevirtual #116                // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+      75: invokevirtual #132                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      78: ifeq          84
+      81: bipush        7
+      83: ireturn
+      84: ldc           #144                // String thunder_axe
+      86: aload_1
+      87: invokevirtual #116                // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+      90: invokevirtual #132                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      93: ifeq          100
+      96: iconst_1
+      97: goto          165
+     100: ldc           #146                // String perun_charm
+     102: aload_1
+     103: invokevirtual #116                // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+     106: invokevirtual #132                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     109: ifeq          116
+     112: iconst_2
+     113: goto          165
+     116: ldc           #148                // String storm_staff
+     118: aload_1
+     119: invokevirtual #116                // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+     122: invokevirtual #132                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     125: ifeq          132
+     128: iconst_3
+     129: goto          165
+     132: ldc           #150                // String amber_charm
+     134: aload_1
+     135: invokevirtual #116                // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+     138: invokevirtual #132                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     141: ifeq          148
+     144: iconst_4
+     145: goto          165
+     148: ldc           #152                // String ritual_charcoal
+     150: aload_1
+     151: invokevirtual #116                // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+     154: invokevirtual #132                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     157: ifeq          164
+     160: iconst_5
+     161: goto          165
+     164: iconst_0
+     165: ireturn
+
+  public void draw(java.lang.Object, mezz.jei.api.gui.ingredient.IRecipeSlotsView, net.minecraft.client.gui.GuiGraphics, double, double);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #117                // class net/minecraft/resources/ResourceLocation
+       5: aload_2
+       6: aload_3
+       7: dload         4
+       9: dload         6
+      11: invokevirtual #154                // Method draw:(Lnet/minecraft/resources/ResourceLocation;Lmezz/jei/api/gui/ingredient/IRecipeSlotsView;Lnet/minecraft/client/gui/GuiGraphics;DD)V
+      14: return
+
+  public void setRecipe(mezz.jei.api.gui.builder.IRecipeLayoutBuilder, java.lang.Object, mezz.jei.api.recipe.IFocusGroup);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: checkcast     #117                // class net/minecraft/resources/ResourceLocation
+       6: aload_3
+       7: invokevirtual #158                // Method setRecipe:(Lmezz/jei/api/gui/builder/IRecipeLayoutBuilder;Lnet/minecraft/resources/ResourceLocation;Lmezz/jei/api/recipe/IFocusGroup;)V
+      10: return
+}
+
+Compiled from "IRecipeCatalystRegistration.java"
+public interface mezz.jei.api.registration.IRecipeCatalystRegistration {
+  public abstract mezz.jei.api.runtime.IIngredientManager getIngredientManager();
+  public abstract mezz.jei.api.helpers.IJeiHelpers getJeiHelpers();
+  public abstract void addRecipeCatalysts(mezz.jei.api.recipe.RecipeType<?>, net.minecraft.world.level.ItemLike...);
+  public default void addRecipeCatalysts(mezz.jei.api.recipe.RecipeType<?>, net.minecraft.world.item.ItemStack...);
+  public abstract <T> void addRecipeCatalysts(mezz.jei.api.recipe.RecipeType<?>, mezz.jei.api.ingredients.IIngredientType<T>, java.util.List<T>);
+  public default void addRecipeCatalyst(net.minecraft.world.level.ItemLike, mezz.jei.api.recipe.RecipeType<?>...);
+  public default void addRecipeCatalyst(net.minecraft.world.item.ItemStack, mezz.jei.api.recipe.RecipeType<?>...);
+  public abstract <T> void addRecipeCatalyst(mezz.jei.api.ingredients.IIngredientType<T>, T, mezz.jei.api.recipe.RecipeType<?>...);
+}

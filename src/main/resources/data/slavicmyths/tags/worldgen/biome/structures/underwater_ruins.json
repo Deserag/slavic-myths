@@ -1,7 +1,11 @@
 {
   "replace": false,
   "values": [
-    "#slavicmyths:worldgen/core_swamp",
-    "#slavicmyths:worldgen/core_river"
+    "minecraft:swamp",
+    "minecraft:river",
+    "minecraft:frozen_river",
+    "minecraft:ocean",
+    "minecraft:cold_ocean",
+    "minecraft:lukewarm_ocean"
   ]
 }

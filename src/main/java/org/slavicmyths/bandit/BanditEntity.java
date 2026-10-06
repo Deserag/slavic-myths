@@ -48,7 +48,7 @@ public final class BanditEntity extends Monster {
     public void engage(LivingEntity target){directEngagement=true;setTarget(target);directEngagement=false;}
     private long commandUntil,shieldUntil;private int commandCooldown=100;
     public BanditEntity(EntityType<? extends BanditEntity> type,Level world,int role){super(type,world);this.role=role;if(getNavigation() instanceof net.minecraft.world.entity.ai.navigation.GroundPathNavigation)((net.minecraft.world.entity.ai.navigation.GroundPathNavigation)getNavigation()).setCanOpenDoors(true);xpReward=role==ATAMAN?18:5;}
-    public static AttributeSupplier.Builder attributes(int role){return createMonsterAttributes().add(Attributes.MAX_HEALTH,role==ATAMAN?56:role==HEAVY?30:role==SENIOR?25:20).add(Attributes.MOVEMENT_SPEED,role==HEAVY?.23:role==ATAMAN?.27:.28).add(Attributes.ATTACK_DAMAGE,2).add(Attributes.FOLLOW_RANGE,24).add(Attributes.KNOCKBACK_RESISTANCE,role==HEAVY?.35:role==ATAMAN?.3:0);}
+    public static AttributeSupplier.Builder attributes(int role){return createMonsterAttributes().add(Attributes.MAX_HEALTH,role==ATAMAN?150:role==HEAVY?50:role==SENIOR?44:role==ARCHER?36:30).add(Attributes.MOVEMENT_SPEED,role==HEAVY?.23:role==ATAMAN?.27:.28).add(Attributes.ATTACK_DAMAGE,2).add(Attributes.FOLLOW_RANGE,24).add(Attributes.KNOCKBACK_RESISTANCE,role==HEAVY?.35:role==ATAMAN?.3:0);}
     @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder){super.defineSynchedData(builder);builder.define(DUTY,0);builder.define(FACE,0);builder.define(ACTION,0);}
     public int face(){return entityData.get(FACE);}
     public int action(){return entityData.get(ACTION);}

@@ -39,7 +39,7 @@ public final class JeiRituals implements IModPlugin {
             ResourceLocation.fromNamespaceAndPath("slavicmyths", "ember_axe")));
         java.util.List<ResourceLocation> runes=new java.util.ArrayList<>();for(String id:org.slavicmyths.rpg.Runes.IDS)runes.add(ResourceLocation.fromNamespaceAndPath("slavicmyths","rune_"+id));registration.addRecipes(RECIPE_TYPE,runes); }
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(new ItemStack(ModItems.ALTAR.get()));
+        registration.addRecipeCatalyst(new ItemStack(ModItems.ALTAR.get()),RECIPE_TYPE);
     }
     private static final class Category implements IRecipeCategory<ResourceLocation> {
         private final IDrawable icon;

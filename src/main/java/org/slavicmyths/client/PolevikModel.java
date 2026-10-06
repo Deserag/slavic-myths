@@ -204,6 +204,7 @@ public final class PolevikModel extends EntityModel<PolevikEntity>{
  LeftLeg.xRot=Mth.cos(walk*.42F)*amount*.45F;RightLeg.xRot=-LeftLeg.xRot;LeftArm.xRot=RightLeg.xRot*.15F;RightArm.xRot=LeftLeg.xRot*.12F-Mth.sin(attackTime*3.14159F)*1.5F;
  beard.xRot=.14F+Mth.sin(age*.035F+.6F)*.035F;grainHair0.zRot+=Mth.sin(age*.03F)*.04F;grainHair2.xRot+=Mth.sin(age*.026F+1)*.035F;
  if(e.state()==1){body.y=8;LeftLeg.xRot=RightLeg.xRot=-.95F;LeftShin.xRot=RightShin.xRot=.7F;}if(e.state()==2){LeftFore.xRot=RightFore.xRot=-.7F;}
+ switch(e.attackPhase()){case TELEGRAPH->{body.xRot=.3F;RightArm.xRot=-1.2F;}case ACTIVE->{body.xRot=.5F;RightArm.xRot=-.4F;}case RECOVERY->{head.xRot+=.2F;RightArm.xRot=.3F;}default->{}}
  }
  @Override public void renderToBuffer(PoseStack p,VertexConsumer b,int l,int o,int color){root.render(p,b,l,o,color);}
 }

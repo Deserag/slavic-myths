@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "cases": 10,
+  "productionAdapterExecuted": true,
+  "usesSessionLifecycleTestDoubles": true,
+  "clientLaunched": false,
+  "output": "XAERO_LIFECYCLE_PASS cases=10 userWaypointPreserved=true internalStateClearedFirst=true"
+}

@@ -1,0 +1,560 @@
+[
+  {
+    "seed": 0,
+    "family": "kurgan",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 835,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 78,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {
+      "SPACING_CONFLICT": 1,
+      "UNIQUE_STRUCTURE_RULE": 77
+    },
+    "acceptedById": {
+      "kurgan_small": 727,
+      "kurgan_warrior": 25,
+      "kurgan_great": 5
+    },
+    "SMALL": {
+      "max": 339.50147275085567,
+      "mean": 254.70631384822698,
+      "median": 256.4103157051214,
+      "min": 145.40030949072977,
+      "p95": 315.6992239458311
+    },
+    "SMALLEligibleCandidates": 729,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 216.8155898453799,
+      "mean": 144.6534084892352,
+      "median": 138.85243966167826,
+      "min": 65.19202405202648,
+      "p95": 216.8155898453799
+    },
+    "MEDIUMEligibleCandidates": 81,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "MEASURED",
+    "MEDIUMPass": true,
+    "LARGE": {
+      "max": 91.54780172128658,
+      "mean": 73.87750383250439,
+      "median": 73.87750383250439,
+      "min": 56.2072059437222,
+      "p95": 91.54780172128658
+    },
+    "LARGEEligibleCandidates": 25,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "MEASURED",
+    "LARGEPass": true
+  },
+  {
+    "seed": 0,
+    "family": "bandit",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 835,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 0,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {},
+    "acceptedById": {
+      "bandit_camp_small": 729,
+      "bandit_camp_medium": 81,
+      "bandit_camp_large": 25
+    },
+    "SMALL": {
+      "max": 342.0409332229112,
+      "mean": 286.3834021105658,
+      "median": 288.44410203711914,
+      "min": 203.19448811422026,
+      "p95": 320.0
+    },
+    "SMALLEligibleCandidates": 729,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 220.3888608800363,
+      "mean": 131.2566159619117,
+      "median": 135.42106646814375,
+      "min": 57.36941693969009,
+      "p95": 205.82334658633846
+    },
+    "MEDIUMEligibleCandidates": 81,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "MEASURED",
+    "MEDIUMPass": true,
+    "LARGE": {
+      "max": 162.72138765386683,
+      "mean": 106.67721010918363,
+      "median": 88.70315665183512,
+      "min": 81.80006112467154,
+      "p95": 162.72138765386683
+    },
+    "LARGEEligibleCandidates": 25,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "MEASURED",
+    "LARGEPass": true
+  },
+  {
+    "seed": 0,
+    "family": "swamp",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 3663,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 0,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {},
+    "acceptedById": {
+      "bog_causeway": 1089,
+      "swamp_remnants": 729,
+      "fishing_camp": 729,
+      "swamp_hut": 729,
+      "swamp_watchtower": 169,
+      "flooded_shrine": 169,
+      "abandoned_settlement": 49
+    },
+    "SMALL": {
+      "max": 204.38444167793205,
+      "mean": 61.109122986799264,
+      "median": 42.20189569201838,
+      "min": 28.284271247461902,
+      "p95": 148.51935900750448
+    },
+    "SMALLEligibleCandidates": 3276,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 114.6298390472568,
+      "mean": 56.33840695548723,
+      "median": 48.84669896727925,
+      "min": 27.85677655436824,
+      "p95": 99.04544411531506
+    },
+    "MEDIUMEligibleCandidates": 338,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "MEASURED",
+    "MEDIUMPass": true,
+    "LARGE": {
+      "max": 111.8257573191436,
+      "mean": 57.72684772621601,
+      "median": 49.115544817106496,
+      "min": 41.43669871020132,
+      "p95": 111.8257573191436
+    },
+    "LARGEEligibleCandidates": 49,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "MEASURED",
+    "LARGEPass": true
+  },
+  {
+    "seed": 0,
+    "family": "water",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 729,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 0,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {},
+    "acceptedById": {
+      "underwater_ruins": 729
+    },
+    "SMALL": {
+      "max": 336.3807366660582,
+      "mean": 287.4278503094252,
+      "median": 288.44410203711914,
+      "min": 256.0,
+      "p95": 320.3997503120126
+    },
+    "SMALLEligibleCandidates": 729,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {},
+    "MEDIUMEligibleCandidates": 0,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "NOT_APPLICABLE",
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEEligibleCandidates": 0,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "NOT_APPLICABLE",
+    "LARGEPass": true
+  },
+  {
+    "seed": 17,
+    "family": "kurgan",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 835,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 74,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {
+      "UNIQUE_STRUCTURE_RULE": 74
+    },
+    "acceptedById": {
+      "kurgan_small": 728,
+      "kurgan_warrior": 30,
+      "kurgan_great": 3
+    },
+    "SMALL": {
+      "max": 346.23691311008423,
+      "mean": 258.38386848866304,
+      "median": 256.4995126701024,
+      "min": 154.94273135581417,
+      "p95": 320.0
+    },
+    "SMALLEligibleCandidates": 729,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 208.2792596491547,
+      "mean": 169.9697092652797,
+      "median": 169.27270896396737,
+      "min": 117.957619508025,
+      "p95": 208.2792596491547
+    },
+    "MEDIUMEligibleCandidates": 81,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "MEASURED",
+    "MEDIUMPass": true,
+    "LARGE": {
+      "max": 157.15597347857954,
+      "mean": 94.84910944484669,
+      "median": 116.21101496846157,
+      "min": 11.180339887498949,
+      "p95": 157.15597347857954
+    },
+    "LARGEEligibleCandidates": 25,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "MEASURED",
+    "LARGEPass": true
+  },
+  {
+    "seed": 17,
+    "family": "bandit",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 835,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 1,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {
+      "UNIQUE_STRUCTURE_RULE": 1
+    },
+    "acceptedById": {
+      "bandit_camp_small": 729,
+      "bandit_camp_medium": 81,
+      "bandit_camp_large": 24
+    },
+    "SMALL": {
+      "max": 337.5203697556638,
+      "mean": 285.5408053422188,
+      "median": 288.0,
+      "min": 240.0,
+      "p95": 320.3997503120126
+    },
+    "SMALLEligibleCandidates": 729,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 210.54987532648886,
+      "mean": 141.99165667664928,
+      "median": 147.0076528620194,
+      "min": 57.92451985126851,
+      "p95": 204.77121379725227
+    },
+    "MEDIUMEligibleCandidates": 81,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "MEASURED",
+    "MEDIUMPass": true,
+    "LARGE": {
+      "max": 132.21667822177352,
+      "mean": 99.32739301273139,
+      "median": 95.60661660459037,
+      "min": 80.01562347441904,
+      "p95": 132.21667822177352
+    },
+    "LARGEEligibleCandidates": 25,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "MEASURED",
+    "LARGEPass": true
+  },
+  {
+    "seed": 17,
+    "family": "swamp",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 3663,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 0,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {},
+    "acceptedById": {
+      "bog_causeway": 1089,
+      "swamp_remnants": 729,
+      "fishing_camp": 729,
+      "swamp_hut": 729,
+      "swamp_watchtower": 169,
+      "flooded_shrine": 169,
+      "abandoned_settlement": 49
+    },
+    "SMALL": {
+      "max": 200.8233054204616,
+      "mean": 60.31461335401685,
+      "median": 42.2965719651132,
+      "min": 28.160255680657446,
+      "p95": 150.02999700059985
+    },
+    "SMALLEligibleCandidates": 3276,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 124.65151423067431,
+      "mean": 55.901097605203596,
+      "median": 49.57822102496216,
+      "min": 26.68332812825267,
+      "p95": 99.24716620639605
+    },
+    "MEDIUMEligibleCandidates": 338,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "MEASURED",
+    "MEDIUMPass": true,
+    "LARGE": {
+      "max": 120.10412149464314,
+      "mean": 58.60692268861767,
+      "median": 51.64291457827281,
+      "min": 42.2965719651132,
+      "p95": 120.10412149464314
+    },
+    "LARGEEligibleCandidates": 49,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "MEASURED",
+    "LARGEPass": true
+  },
+  {
+    "seed": 17,
+    "family": "water",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 729,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 0,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {},
+    "acceptedById": {
+      "underwater_ruins": 729
+    },
+    "SMALL": {
+      "max": 336.3807366660582,
+      "mean": 284.69712026288335,
+      "median": 288.0,
+      "min": 256.0,
+      "p95": 320.0
+    },
+    "SMALLEligibleCandidates": 729,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {},
+    "MEDIUMEligibleCandidates": 0,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "NOT_APPLICABLE",
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEEligibleCandidates": 0,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "NOT_APPLICABLE",
+    "LARGEPass": true
+  },
+  {
+    "seed": 731269,
+    "family": "kurgan",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 835,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 64,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {
+      "SPACING_CONFLICT": 1,
+      "UNIQUE_STRUCTURE_RULE": 63
+    },
+    "acceptedById": {
+      "kurgan_small": 728,
+      "kurgan_warrior": 36,
+      "kurgan_great": 7
+    },
+    "SMALL": {
+      "max": 352.0,
+      "mean": 256.2191392493475,
+      "median": 259.9697097740427,
+      "min": 153.73353570382747,
+      "p95": 320.00039062476156
+    },
+    "SMALLEligibleCandidates": 729,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 191.5469916234656,
+      "mean": 130.64425372067237,
+      "median": 129.56562043999173,
+      "min": 72.11102550927978,
+      "p95": 191.5469916234656
+    },
+    "MEDIUMEligibleCandidates": 81,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "MEASURED",
+    "MEDIUMPass": true,
+    "LARGE": {
+      "max": 100.84765738479005,
+      "mean": 63.66203098726876,
+      "median": 63.66203098726875,
+      "min": 26.476404589747453,
+      "p95": 100.84765738479005
+    },
+    "LARGEEligibleCandidates": 25,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "MEASURED",
+    "LARGEPass": true
+  },
+  {
+    "seed": 731269,
+    "family": "bandit",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 835,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 1,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {
+      "UNIQUE_STRUCTURE_RULE": 1
+    },
+    "acceptedById": {
+      "bandit_camp_small": 729,
+      "bandit_camp_medium": 81,
+      "bandit_camp_large": 24
+    },
+    "SMALL": {
+      "max": 337.5203697556638,
+      "mean": 283.04016343404317,
+      "median": 288.0,
+      "min": 212.98356744124652,
+      "p95": 320.3997503120126
+    },
+    "SMALLEligibleCandidates": 729,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 219.661671668045,
+      "mean": 131.2630449578477,
+      "median": 125.89711301714797,
+      "min": 52.06006146750117,
+      "p95": 214.42772675192916
+    },
+    "MEDIUMEligibleCandidates": 81,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "MEASURED",
+    "MEDIUMPass": true,
+    "LARGE": {
+      "max": 118.84548792444751,
+      "mean": 93.99907619364342,
+      "median": 92.06655201537636,
+      "min": 85.86180757473022,
+      "p95": 118.84548792444751
+    },
+    "LARGEEligibleCandidates": 25,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "MEASURED",
+    "LARGEPass": true
+  },
+  {
+    "seed": 731269,
+    "family": "swamp",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 3663,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 0,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {},
+    "acceptedById": {
+      "bog_causeway": 1089,
+      "swamp_remnants": 729,
+      "fishing_camp": 729,
+      "swamp_hut": 729,
+      "swamp_watchtower": 169,
+      "flooded_shrine": 169,
+      "abandoned_settlement": 49
+    },
+    "SMALL": {
+      "max": 208.61447696648477,
+      "mean": 61.21110750461294,
+      "median": 43.139309220245984,
+      "min": 25.079872407968907,
+      "p95": 148.3138563991915
+    },
+    "SMALLEligibleCandidates": 3276,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {
+      "max": 120.83045973594572,
+      "mean": 53.73369167257139,
+      "median": 48.010415536631214,
+      "min": 26.68332812825267,
+      "p95": 93.04837451562494
+    },
+    "MEDIUMEligibleCandidates": 338,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "MEASURED",
+    "MEDIUMPass": true,
+    "LARGE": {
+      "max": 108.77959367454909,
+      "mean": 55.562073689125285,
+      "median": 49.150865031763516,
+      "min": 42.05948168962618,
+      "p95": 108.77959367454909
+    },
+    "LARGEEligibleCandidates": 49,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "MEASURED",
+    "LARGEPass": true
+  },
+  {
+    "seed": 731269,
+    "family": "water",
+    "scenario": "eligible deep flat; starts only; no block placement",
+    "attempted": 729,
+    "noEligibleLocalCandidates": 0,
+    "rejected": 0,
+    "rejectedUnclassified": 0,
+    "rejectionReasons": {},
+    "acceptedById": {
+      "underwater_ruins": 729
+    },
+    "SMALL": {
+      "max": 337.5203697556638,
+      "mean": 287.49855491076113,
+      "median": 288.44410203711914,
+      "min": 256.0,
+      "p95": 320.0
+    },
+    "SMALLEligibleCandidates": 729,
+    "SMALLUnmatchedStarts": 0,
+    "SMALLStatus": "MEASURED",
+    "SMALLPass": true,
+    "MEDIUM": {},
+    "MEDIUMEligibleCandidates": 0,
+    "MEDIUMUnmatchedStarts": 0,
+    "MEDIUMStatus": "NOT_APPLICABLE",
+    "MEDIUMPass": true,
+    "LARGE": {},
+    "LARGEEligibleCandidates": 0,
+    "LARGEUnmatchedStarts": 0,
+    "LARGEStatus": "NOT_APPLICABLE",
+    "LARGEPass": true
+  }
+]

@@ -1,6 +1,6 @@
 """Read-only verification of the installed exact pack, genuine components and old fallback."""
 from pathlib import Path
-import hashlib, json
+import hashlib, json, sys
 ROOT=Path(__file__).resolve().parents[1]
 pack=json.loads((ROOT/'packaging/test-pack-lock.json').read_text(encoding='utf-8'))
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -15,7 +15,11 @@ for mod in [own,*pack['mods']]:
     installed=Path(mod['installedPath'])
     require(installed.resolve().parent==mods.resolve(),'Installed path outside target mods')
     require(installed.name==mod['filename'] and sha(installed)==mod['sha256'],'Hash drift '+mod['filename'])
-require(sha(ROOT/'build/libs'/own['filename'])==own['sha256'],'Production/installed JAR differ')
+production=ROOT/'build/libs'/own['filename']
+if '--previous-artifact' in sys.argv:
+    require(own['version'] in ['0.9.5','0.9.6'],'Previous artifact mode only supports preserved 0.9.5/0.9.6')
+    production=ROOT/('.tools/port-backups/slavicmyths-'+own['version']+'-final.jar')
+require(sha(production)==own['sha256'],'Production/installed JAR differ')
 for name,digest in pack['legacyPreservationSha256'].items(): require(sha(Path(name))==digest,'Legacy fallback changed '+name)
 cfg=dict(line.split('=',1) for line in (instance/'instance.cfg').read_text(encoding='utf-8').splitlines() if '=' in line)
 require(cfg['InstanceType']=='OneSix' and cfg['OverrideJavaLocation']=='true','Invalid genuine instance schema')
@@ -49,7 +53,7 @@ report={'status':'PASS','instance':instance.as_posix(),'jar_count':7,'sha256_ver
         'manual_gameplay_verified':False,'official_component_metadata_verified':True,
         'official_neoforge_artifacts_checked':bool(repair)}
 import sys
-output=ROOT/('docs/verification/navigation-0.9.5/deployment-check.json' if '--navigation' in sys.argv else 'docs/port/deployment-check.json')
+output=ROOT/('docs/verification/swamp-0.9.7/deployment-check.json' if '--swamp-rework' in sys.argv else 'docs/verification/kurgan-0.9.6/deployment-check.json' if '--kurgan-rework' in sys.argv else 'docs/verification/navigation-0.9.5/deployment-check.json' if '--navigation' in sys.argv else 'docs/port/deployment-check.json')
 output.parent.mkdir(parents=True,exist_ok=True)
 output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
 print('PASS: 7 installed JAR hashes, official PolyMC components, Java 21 override and unchanged legacy fallback. Client not launched.')
