@@ -28,6 +28,19 @@
     "slavicmyths:flax_breaker",
     "slavicmyths:spinning_wheel",
     "slavicmyths:loom_table",
-    "slavicmyths:linen_bed"
+    "slavicmyths:linen_bed",
+    "slavicmyths:storage_sack",
+    "slavicmyths:basket",
+    "slavicmyths:large_basket",
+    "slavicmyths:produce_crate",
+    "slavicmyths:household_chest",
+    "slavicmyths:wooden_barrel",
+    "slavicmyths:wall_shelf",
+    "slavicmyths:storage_shelf",
+    "slavicmyths:drying_rack",
+    "slavicmyths:haystack",
+    "slavicmyths:rye_sheaf",
+    "slavicmyths:barley_sheaf",
+    "slavicmyths:oat_sheaf"
   ]
 }

@@ -1,0 +1,217 @@
+{
+  "textures": {
+    "wood": "slavicmyths:block/household_wood",
+    "weave": "slavicmyths:block/household_weave",
+    "cloth": "slavicmyths:block/household_cloth",
+    "ornament": "slavicmyths:block/household_ornament",
+    "metal": "slavicmyths:block/household_metal",
+    "hay": "slavicmyths:block/household_hay",
+    "particle": "slavicmyths:block/household_wood"
+  },
+  "elements": [
+    {
+      "from": [
+        3,
+        0,
+        3
+      ],
+      "to": [
+        13,
+        4.299999999999997,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            4.299999999999997
+          ]
+        },
+        "south": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            4.299999999999997
+          ]
+        },
+        "east": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            4.299999999999997
+          ]
+        },
+        "west": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            4.299999999999997
+          ]
+        },
+        "up": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        },
+        "down": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        4,
+        4.299999999999997,
+        4
+      ],
+      "to": [
+        12,
+        10.100000000000001,
+        12
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            8,
+            5.800000000000004
+          ]
+        },
+        "south": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            8,
+            5.800000000000004
+          ]
+        },
+        "east": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            8,
+            5.800000000000004
+          ]
+        },
+        "west": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            8,
+            5.800000000000004
+          ]
+        },
+        "up": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ]
+        },
+        "down": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        10.100000000000001,
+        6
+      ],
+      "to": [
+        10,
+        13,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            4,
+            2.8999999999999986
+          ]
+        },
+        "south": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            4,
+            2.8999999999999986
+          ]
+        },
+        "east": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            4,
+            2.8999999999999986
+          ]
+        },
+        "west": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            4,
+            2.8999999999999986
+          ]
+        },
+        "up": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "down": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        }
+      }
+    }
+  ]
+}

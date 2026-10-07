@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "#slavicmyths:berries",
+    "minecraft:apple",
+    "minecraft:egg",
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom",
+    "slavicmyths:turnip",
+    "slavicmyths:cabbage",
+    "slavicmyths:pea_pod",
+    "slavicmyths:goose_egg",
+    "slavicmyths:duck_egg"
+  ]
+}

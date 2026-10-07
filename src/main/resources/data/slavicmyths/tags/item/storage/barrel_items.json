@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "#slavicmyths:cereal_grains",
+    "#slavicmyths:berries",
+    "minecraft:apple",
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom",
+    "slavicmyths:wheat_flour",
+    "slavicmyths:rye_flour",
+    "slavicmyths:oat_groats",
+    "slavicmyths:barley_groats",
+    "slavicmyths:dried_berries",
+    "slavicmyths:dried_mushrooms"
+  ]
+}

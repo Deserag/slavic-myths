@@ -1,3 +1,13 @@
+## 1.1.6 — Хранение и хозяйственный быт (2026-10-07)
+
+- [x] Перед началом1.1.6 установлен проверенный1.1.5 в существующий PolyMC по команде пользователя, без запуска.
+- [x] Sack/baskets/crate, chest27, storage-only barrel9 и реальные ограничения/GUI/hoppers.
+- [x] Wall shelf3/standing shelf6, реальные ItemStacks видны, hit selection/max16/save/client sync.
+- [x] Drying2x2/4 independent slots/2400ticks/products, distinct sheaves/reversecraft, haystack1..4 exact hay return.
+- [x] Native assets/data/tags/ru/en/Creative/winter_stores, static/reproducibility validation PASS7575.
+- [x] Финальный clean build PASS29s после одного исправления собственной generic-map ошибки; production validation10881checks.
+- [ ] Ручная gameplay/visual/save-load приёмка; Minecraft launches0.1.1.6 в PolyMC не переносится; далее задача1.1.7.
+
 ## 1.1.5 — Кухня II (2026-10-07)
 
 - [x] Старые обычные столы без редизайна: PAIR максимум2, 4 food slots/блок, сохранение/синхронизация/подача/еда/3D.

@@ -28,7 +28,7 @@ public final class BeltData {
         ItemStack belt=p.getData(BELT).copy();p.setData(BELT,ItemStack.EMPTY);p.syncData(BELT);
         drops.add(new net.minecraft.world.entity.item.ItemEntity(p.level(),p.getX(),p.getY(),p.getZ(),belt));
     }
-    @SubscribeEvent public static void block(PlayerInteractEvent.RightClickBlock e){var block=e.getLevel().getBlockState(e.getPos()).getBlock();if(block instanceof org.slavicmyths.furniture.TableBlock||block instanceof org.slavicmyths.block.KitchenTableBlock)return; // Table sneak interactions own this click.
+    @SubscribeEvent public static void block(PlayerInteractEvent.RightClickBlock e){var block=e.getLevel().getBlockState(e.getPos()).getBlock();if(block instanceof org.slavicmyths.furniture.TableBlock||block instanceof org.slavicmyths.block.KitchenTableBlock||block instanceof org.slavicmyths.storage.StorageBlock)return; // Table sneak interactions own this click.
         if(unequip(e.getEntity(),e.getHand())){e.setCanceled(true);e.setCancellationResult(InteractionResult.SUCCESS);}}
     @SubscribeEvent public static void entity(PlayerInteractEvent.EntityInteract e){if(unequip(e.getEntity(),e.getHand())){e.setCanceled(true);e.setCancellationResult(InteractionResult.SUCCESS);}}
     public record Unequip(boolean offHand) implements CustomPacketPayload {

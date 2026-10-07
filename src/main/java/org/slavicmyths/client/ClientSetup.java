@@ -52,6 +52,7 @@ public final class ClientSetup {
 
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers event){
         org.slavicmyths.client.HusbandryRenderer.register(event);
+        event.registerBlockEntityRenderer(org.slavicmyths.storage.Household.TYPE.get(),StorageDisplay::new);
         event.registerBlockEntityRenderer(org.slavicmyths.kitchen.KitchenII.TABLE.get(),KitchenDisplay.Table::new);
         event.registerBlockEntityRenderer(org.slavicmyths.kitchen.KitchenII.TILE.get(),KitchenDisplay.Kitchen::new);
         event.registerEntityRenderer(org.slavicmyths.textile.Textiles.CARCASS.get(),CarcassRenderer::new);

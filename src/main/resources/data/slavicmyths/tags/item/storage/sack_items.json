@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:rye_grain",
+    "slavicmyths:barley_grain",
+    "slavicmyths:oat_grain",
+    "slavicmyths:rye_seeds",
+    "slavicmyths:barley_seeds",
+    "slavicmyths:oat_seeds",
+    "slavicmyths:flax_seeds",
+    "slavicmyths:turnip_seeds",
+    "slavicmyths:cabbage_seeds",
+    "slavicmyths:pea_seeds",
+    "slavicmyths:wheat_flour",
+    "slavicmyths:rye_flour",
+    "slavicmyths:oat_groats",
+    "slavicmyths:barley_groats",
+    "slavicmyths:pea_pod"
+  ]
+}

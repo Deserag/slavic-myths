@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "C C",
+    "CTC"
+  ],
+  "key": {
+    "C": {
+      "item": "slavicmyths:linen_cloth"
+    },
+    "T": {
+      "item": "slavicmyths:linen_thread"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:storage_sack",
+    "count": 1
+  }
+}
