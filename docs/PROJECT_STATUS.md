@@ -1,3 +1,11 @@
+## 1.1.7 — Исправление падения при регистрации экрана (2026-10-07)
+
+По присланному пользователем логу реальный запуск клиента завершился ошибкой `Duplicate attempt to register screen: slavicmyths:vat` в ClientSetup.screens: экран был зарегистрирован дважды подряд. Удалена только повторная строка; gameplay/resources/registry IDs и версия1.1.7 сохранены. Предыдущая compilation/resource validation не проверяла уникальность screen registrations и не обнаружила эту runtime-ошибку.
+
+Добавлен regression gate для уникальности menu registrations и проверки ровно одной ссылки VatMenu.TYPE в production ClientSetup bytecode (javap); проверка выявляет дубль в предыдущем committed source. Один gradlew.bat clean build PASS31s/12 deprecated warnings/test NO-SOURCE. python tools/verify_brewing.py --jar build/libs/slavicmyths-1.1.7.jar PASS9701 resource/production checks и49 pure-Java arithmetic assertions. Production SHA256 a3d5cca4fd7b41d58aa9111e1a7f0a4ab04f484fb87cd2db9cec243d4f0cd084. Автоматических Minecraft/PolyMC/client/server запусков для hotfix0; успешный client startup пока НЕ проверен.
+
+PolyMC hotfix installation: pending replacement after commit/push. Manual: повторить запуск профиля Slavic-Myths-1.21.1-Testing до главного меню, затем открыть экран бродильного чана.
+
 ## 1.1.7 — Пивоварение и брожение (2026-10-07)
 
 Реализовано поверх 1.1.6 без отката: хмель AGE0..5, LOWER/UPPER с двухблочной высотой стадий3..5, рост0.85 vanilla, bonemeal +1, 3x3 fertilizer +1, sickle mature loot/reset1/durability1. Mature loot2..4 hops/1..2 cuttings; grass fallback chance0.04 через существующий seed modifier (прежние seeds0.12 сохранены). Native16px winding/leaf/cone stages, отдельные силуэты солода/мешка/настоев/жмыха/мезги/порошка/тары.

@@ -118,7 +118,6 @@ public final class ClientSetup {
             event.register(org.slavicmyths.armorer.ArmorerMenu.TYPE.get(),ArmorerScreen::new);
             event.register(org.slavicmyths.kitchen.KitchenMenu.TYPE.get(),KitchenScreen::new);
             event.register(org.slavicmyths.brewing.VatMenu.TYPE.get(),VatScreen::new);
-            event.register(org.slavicmyths.brewing.VatMenu.TYPE.get(),VatScreen::new);
     }
     private ClientSetup() { }
     @SubscribeEvent public static void keys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e){RpgClient.keys(e);FlightClient.keys(e);}

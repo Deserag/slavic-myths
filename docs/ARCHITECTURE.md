@@ -1,3 +1,7 @@
+## 1.1.7 — Screen registration invariant (2026-10-07)
+
+ClientSetup.screens регистрирует VatMenu/VatScreen ровно один раз. tools/verify_brewing.py проверяет уникальность menu TYPE registrations в source и единственную ссылку VatMenu.TYPE в production ClientSetup bytecode через javap. Это проверка устранения конкретного startup duplicate, не runtime/game acceptance. Версия/registry IDs сохраняются; common/server code не изменён.
+
 ## 1.1.7 — Brewing (2026-10-07)
 
 `brewing.Brewing` дополняет существующие ModItems/ModBlocks/ModTiles/recipe/menu registers; собственный server-only persistent attachment drink_overload без copyOnDeath/sync/tick polling. `BeverageItem` содержит exact drink mapping/load/effects, native CustomData quality/beverage/container/servings и CustomModelData alternate bottle/pitcher models; drinking32ticks, same-amplifier vanilla effects, lazy elapsed/1200 decay; milk не изменяет attachment. `BrewRules` — pure arithmetic quality/duration/decay с49 actual source-Java assertions. `BrewEvents` получает pickup event для first_brew; server pour/overload тоже award appropriate advancement, vanilla namespace untouched.

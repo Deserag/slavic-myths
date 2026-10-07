@@ -53,6 +53,12 @@ for lang in ['ru_ru','en_us']:
 for file in (J/'brewing').glob('*.java'):check('net.minecraft.client'not in file.read_text(encoding='utf-8'),'common isolation '+file.name)
 for name in ['Fermentation.java','BrewTile.java']:
  check('KitchenTile.give(p,out);BeverageItem.obtained(p,out)' not in (J/'brewing'/name).read_text(encoding='utf-8'),'advancement snapshot before mutating inventory add')
+# Startup regression: each menu type may have only one screen registration.
+import re
+screens=(J/'client/ClientSetup.java').read_text(encoding='utf-8')
+menus=re.findall(r'event\.register\(([^,]+TYPE\.get\(\)),',screens)
+check(len(menus)==len(set(menus)),'duplicate client menu screen registration')
+check(menus.count('org.slavicmyths.brewing.VatMenu.TYPE.get()')==1,'vat screen registered exactly once')
 source=(J/'brewing/BrewRules.java').read_text(encoding='utf-8')
 test='''public static void main(String[] args){int[] ages={0,2399,2400,8399,8400,11999,12000,99999};String[] q={"young","young","ready","ready","aged","aged","spoiled","spoiled"};int checks=0;for(int i=0;i<ages.length;i++){if(!quality(ages[i]).equals(q[i]))throw new AssertionError("quality");checks++;}if(duration(45,"young")!=22||duration(8,"aged")!=10||duration(45,"aged")!=54||duration(90,"spoiled")!=0)throw new AssertionError("duration");checks+=4;for(int points=0;points<=5;points++)for(int elapsed:new int[]{0,1199,1200,2399,2400,6000}){if(decay(points,100,100+elapsed)!=Math.max(0,points-elapsed/1200))throw new AssertionError("decay");checks++;}if(decay(5,100,99)!=5)throw new AssertionError("clock rollback");checks++;System.out.println("BrewRules actual Java assertions: "+checks);}\n'''
 code=source[:source.rfind('}')]+test+'}\n';temp=ROOT/'work/brewing-unit/BrewRules.java';temp.parent.mkdir(parents=True,exist_ok=True);temp.write_text(code,encoding='utf-8');subprocess.run(['C:/Program Files/Java/jdk-21.0.12/bin/java.exe',str(temp)],check=True,cwd=ROOT);check(True,'actual Java boundary tests: 49 assertions')
@@ -65,6 +71,8 @@ check('mod_version=1.1.7'in(ROOT/'gradle.properties').read_text(),'version')
 report={'version':'1.1.7','resource_checks':checks,'json':len(jsons),'links':links,'pure_java_assertions':49,'minecraft_launches':0,'jei':'No new categories; optional integration unchanged'}
 if args.jar:
  z=zipfile.ZipFile(args.jar)
+ bytecode=subprocess.check_output(['C:/Program Files/Java/jdk-21.0.12/bin/javap.exe','-classpath',str(args.jar),'-c','org.slavicmyths.client.ClientSetup'],cwd=ROOT).decode('utf-8')
+ check(bytecode.count('Field org/slavicmyths/brewing/VatMenu.TYPE:')==1,'production bytecode: vat screen registration once')
  for file in new:
   if file.suffix in ['.json','.png','.ogg']:check(z.read(file.relative_to(R).as_posix())==file.read_bytes(),'production bytes '+file.name)
  for cls in ['Brewing','BrewTile','BrewBlock','HopsCrop','BeverageItem','BrewRules','VatRecipe','VatMenu','Fermentation']:check('org/slavicmyths/brewing/'+cls+'.class'in z.namelist(),'production class '+cls)

@@ -1,3 +1,9 @@
+## 1.1.7 — Startup screen hotfix (2026-10-07)
+
+- [x] Устранена двойная регистрация slavicmyths:vat из crash log пользователя.
+- [x] Regression source/production bytecode gate; clean build и9701 resource/production checks +49 Java assertions PASS.
+- [ ] Повторный запуск исправленного клиента и открытие чана пользователем; автоматически Minecraft не запускался.
+
 ## 1.1.7 — Пивоварение и брожение (2026-10-07)
 
 - [x] После завершения1.1.6 реализованы hops/tall stages/sickle/fertilizer/grass cuttings.
