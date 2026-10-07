@@ -8,10 +8,11 @@
       "item": "minecraft:stick"
     },
     "P": {
-      "item": "minecraft:birch_planks"
+      "tag": "minecraft:planks"
     }
   },
   "result": {
-    "id": "slavicmyths:rolling_pin"
+    "id": "slavicmyths:rolling_pin",
+    "count": 1
   }
 }

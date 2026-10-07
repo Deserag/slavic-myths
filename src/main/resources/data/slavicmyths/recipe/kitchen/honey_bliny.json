@@ -1,0 +1,33 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "ROLLING",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:bliny"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:honey_bottle"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:rolling_pin"
+  },
+  "time": 80,
+  "result": {
+    "id": "slavicmyths:honey_bliny",
+    "count": 1
+  },
+  "servings": 0,
+  "remainders": [
+    {
+      "id": "minecraft:glass_bottle",
+      "count": 1
+    }
+  ]
+}

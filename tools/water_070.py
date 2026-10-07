@@ -103,3 +103,7 @@ def sounds():
     p=A/f'lang/{lang}.json';d=json.loads(p.read_text(encoding='utf-8'));d[subtitle]=( ('Русалка' if who=='rusalka' else 'Водяной')+' — '+{'ambient':'голос','angry':'недовольство','hurt':'боль','death':'затихает','song':'поёт'}[kind]) if lang=='ru_ru' else who.title()+' '+kind;write(p,d)
  write(A/'sounds.json',events)
 if __name__=='__main__':generate()
+
+# Keep Kitchen II canonical resources/recipes after this legacy generation pass.
+import runpy
+runpy.run_path(str(__import__("pathlib").Path(__file__).with_name("kitchen_resources.py")), run_name="__main__")

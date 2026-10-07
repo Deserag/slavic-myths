@@ -1,0 +1,28 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "ROLLING",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:bliny"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "slavicmyths:berries"
+      },
+      "count": 2
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:rolling_pin"
+  },
+  "time": 80,
+  "result": {
+    "id": "slavicmyths:berry_bliny",
+    "count": 1
+  },
+  "servings": 0,
+  "remainders": []
+}

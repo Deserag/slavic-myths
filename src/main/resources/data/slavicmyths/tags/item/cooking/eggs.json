@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:egg",
+    "slavicmyths:goose_egg",
+    "slavicmyths:duck_egg"
+  ]
+}

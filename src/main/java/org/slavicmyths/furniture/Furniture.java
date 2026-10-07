@@ -18,7 +18,7 @@ public final class Furniture {
   SEAT=ModEntities.ENTITIES.register("furniture_seat",()->EntityType.Builder.<SeatEntity>of(SeatEntity::new,MobCategory.MISC).sized(.01F,.01F).clientTrackingRange(8).updateInterval(20).noSave().noSummon().build("slavicmyths:furniture_seat"));
   FEATHER=ModItems.ITEMS.register("mysterious_black_feather",()->new Item(new Item.Properties()));
  }
- private static void add(String id,String kind){DeferredHolder<Block, Block>b=ModBlocks.BLOCKS.register(id,()->kind.equals("wardrobe")?new WardrobeBlock():new FurnitureBlock(kind));BLOCKS.put(id,b);ModItems.ITEMS.register(id,()->new BlockItem(b.get(),new Item.Properties()));}
+ private static void add(String id,String kind){DeferredHolder<Block, Block>b=ModBlocks.BLOCKS.register(id,()->kind.equals("table")?new TableBlock():kind.equals("wardrobe")?new WardrobeBlock():new FurnitureBlock(kind));BLOCKS.put(id,b);ModItems.ITEMS.register(id,()->new BlockItem(b.get(),new Item.Properties()));}
  public static Block get(String id){return BLOCKS.get(id).get();}
  public static void init(){}
 }

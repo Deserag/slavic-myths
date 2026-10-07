@@ -1,48 +1,30 @@
 package org.slavicmyths.kitchen;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.player.*;
-import net.minecraft.world.Container;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
-import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import net.minecraft.server.level.ServerPlayer;
-import org.slavicmyths.registry.ModBlocks;
 import org.slavicmyths.rpg.RpgMenu;
+import org.slavicmyths.registry.ModBlocks;
 public final class KitchenMenu extends AbstractContainerMenu {
  public static final DeferredHolder<MenuType<?>,MenuType<KitchenMenu>> TYPE=RpgMenu.MENUS.register("kitchen",()->IMenuTypeExtension.create((id,inv,b)->new KitchenMenu(id,inv,b.readBlockPos())));
  public static void register(){}
- public final BlockPos pos;public final SimpleContainer input=new SimpleContainer(5);
- public KitchenMenu(int id,Inventory inv,BlockPos pos){super(TYPE.get(),id);this.pos=pos;
-  for(int i=0;i<3;i++)addSlot(new Slot(input,i,104,44+i*22));
-  addSlot(new Slot(input,3,181,112));
-  addSlot(new Slot(input,4,273,55){@Override public boolean mayPlace(ItemStack s){return false;}});
-  for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inv,9+row*9+col,79+col*18,154+row*18));
-  for(int col=0;col<9;col++)addSlot(new Slot(inv,col,79+col*18,212));
+ public final BlockPos pos;public final Container inventory;private final KitchenTile tile;public final ContainerData data;
+ public KitchenMenu(int id,Inventory inv,BlockPos p){this(id,inv,p,new SimpleContainer(9),null);}
+ public KitchenMenu(int id,Inventory inv,BlockPos p,Container c,KitchenTile tile){super(TYPE.get(),id);pos=p;inventory=c;this.tile=tile;
+  data=tile==null?new SimpleContainerData(4):new ContainerData(){public int get(int i){return switch(i){case 0->tile.progress;case 1->tile.total;case 2->tile.servings;default->tile.maxServings;};}public void set(int i,int v){}public int getCount(){return 4;}};addDataSlots(data);
+  addSlot(new Slot(c,0,20,24){public boolean mayPlace(ItemStack s){return s.is(KitchenII.item("rolling_pin"));}public boolean mayPickup(Player p){return tile==null||!tile.toolLocked(0);}});
+  addSlot(new Slot(c,1,218,24){public boolean mayPlace(ItemStack s){return s.is(KitchenII.item("metal_pot"));}public boolean mayPickup(Player p){return tile==null||!tile.toolLocked(1);}});
+  for(int i=0;i<4;i++)addSlot(new Slot(c,i+2,83+i%2*20,43+i/2*20));
+  for(int i=0;i<3;i++)addSlot(new Slot(c,i+6,181+(i==2?20:0),i==0?44:76){public boolean mayPlace(ItemStack s){return false;}});
+  for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inv,9+row*9+col,47+col*18,130+row*18));for(int col=0;col<9;col++)addSlot(new Slot(inv,col,47+col*18,188));
  }
- @Override public boolean stillValid(Player p){return p.isAlive()&&p.distanceToSqr(pos.getX()+.5,pos.getY()+.5,pos.getZ()+.5)<=64&&p.level().getBlockState(pos).getBlock()==ModBlocks.KITCHEN_TABLE.get();}
- @Override public ItemStack quickMoveStack(Player p,int index){Slot s=slots.get(index);if(!s.hasItem())return ItemStack.EMPTY;ItemStack stack=s.getItem(),copy=stack.copy();if(index<5){if(!moveItemStackTo(stack,5,slots.size(),true))return ItemStack.EMPTY;}else if(!moveItemStackTo(stack,0,4,false))return ItemStack.EMPTY;if(stack.isEmpty())s.set(ItemStack.EMPTY);else s.setChanged();s.onTake(p,stack);return copy;}
- @Override public void removed(Player p){super.removed(p);if(!p.level().isClientSide)clearContainer(p,input);}
- public net.minecraft.network.chat.Component unavailable(int i){
-  if(i<0||i>=KitchenRecipes.COUNT)return net.minecraft.network.chat.Component.translatable("kitchen.slavicmyths.invalid");
-  var ingredients=KitchenRecipes.ingredients(i);for(int n=0;n<3;n++)if(!input.getItem(n).is(ingredients[n])||input.getItem(n).getCount()<KitchenRecipes.count(i,n))return net.minecraft.network.chat.Component.translatable("kitchen.slavicmyths.missing",ingredients[n].getDescription(),KitchenRecipes.count(i,n));
-  if(!input.getItem(3).is(KitchenRecipes.tool(i)))return net.minecraft.network.chat.Component.translatable("kitchen.slavicmyths.requires",KitchenRecipes.tool(i).getDescription());
-  var out=input.getItem(4);var result=new ItemStack(KitchenRecipes.output(i),KitchenRecipes.amount(i));
-  if(!out.isEmpty()&&(!ItemStack.isSameItemSameComponents(out,result)||out.getCount()+result.getCount()>out.getMaxStackSize()))return net.minecraft.network.chat.Component.translatable("kitchen.slavicmyths.output_full");
-  return null;
- }
- @Override public boolean clickMenuButton(Player p,int i){if(p.level().isClientSide||!stillValid(p)||i<0||i>=KitchenRecipes.COUNT)return false;
-  if(unavailable(i)!=null)return false;
-  ItemStack tool=input.getItem(3),out=input.getItem(4),result=new ItemStack(KitchenRecipes.output(i),KitchenRecipes.amount(i));
-  if(tool.getItem()!=KitchenRecipes.tool(i)||!out.isEmpty()&&(!ItemStack.isSameItemSameComponents(out,result)||out.getCount()+result.getCount()>out.getMaxStackSize()))return false;
-  for(int n=0;n<3;n++){ItemStack used=input.getItem(n);ItemStack remainder=used.getCraftingRemainingItem();used.shrink(KitchenRecipes.count(i,n));if(!remainder.isEmpty()){if(used.isEmpty())input.setItem(n,remainder);else if(!p.getInventory().add(remainder))p.drop(remainder,false);}}
-  // The old low-level hurt() consumed internal tools even in creative mode.
-  int before=tool.getDamageValue();ItemStack previous=tool.copy();
-  tool.hurtAndBreak(1,(net.minecraft.server.level.ServerLevel)p.level(),(net.minecraft.world.entity.LivingEntity)null,broken->{});
-  if(p instanceof ServerPlayer sp&&(tool.isEmpty()||tool.getDamageValue()!=before)){
-   net.minecraft.advancements.CriteriaTriggers.ITEM_DURABILITY_CHANGED.trigger(sp,previous,tool.isEmpty()?previous.getMaxDamage():tool.getDamageValue());
-  }
-  if(out.isEmpty())input.setItem(4,result);else out.grow(result.getCount());input.setChanged();broadcastChanges();org.slavicmyths.progression.Knowledge.award(p,"kitchen_meal");return true;
- }
+
+ @Override public boolean stillValid(Player p){BlockState s=p.level().getBlockState(pos);return p.isAlive()&&p.distanceToSqr(pos.getCenter())<=64&&s.is(ModBlocks.KITCHEN_TABLE.get());}
+ @Override public ItemStack quickMoveStack(Player p,int i){Slot slot=slots.get(i);if(!slot.hasItem()||!slot.mayPickup(p))return ItemStack.EMPTY;ItemStack s=slot.getItem(),copy=s.copy();boolean ok;if(i<9)ok=moveItemStackTo(s,9,slots.size(),true);else if(s.is(KitchenII.item("rolling_pin")))ok=moveItemStackTo(s,0,1,false);else if(s.is(KitchenII.item("metal_pot")))ok=moveItemStackTo(s,1,2,false);else ok=moveItemStackTo(s,2,6,false);if(!ok)return ItemStack.EMPTY;if(s.isEmpty())slot.set(ItemStack.EMPTY);else slot.setChanged();slot.onTake(p,s);return copy;}
+ /** One serving button: bowl on cursor or in inventory; server owns the transaction. */
+ @Override public boolean clickMenuButton(Player p,int id){if(id!=0||tile==null||p.level().isClientSide||!stillValid(p))return false;if(getCarried().is(Items.BOWL))return tile.serve(p,getCarried());for(int i=0;i<p.getInventory().getContainerSize();i++){ItemStack s=p.getInventory().getItem(i);if(s.is(Items.BOWL)&&tile.serve(p,s)){p.getInventory().setChanged();return true;}}return false;}
 }

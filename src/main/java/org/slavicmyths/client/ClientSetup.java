@@ -52,6 +52,8 @@ public final class ClientSetup {
 
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers event){
         org.slavicmyths.client.HusbandryRenderer.register(event);
+        event.registerBlockEntityRenderer(org.slavicmyths.kitchen.KitchenII.TABLE.get(),KitchenDisplay.Table::new);
+        event.registerBlockEntityRenderer(org.slavicmyths.kitchen.KitchenII.TILE.get(),KitchenDisplay.Kitchen::new);
         event.registerEntityRenderer(org.slavicmyths.textile.Textiles.CARCASS.get(),CarcassRenderer::new);
         event.registerBlockEntityRenderer(org.slavicmyths.textile.Textiles.STATION.get(),SpinningWheelRenderer::new);
         event.registerEntityRenderer(ModEntities.UPYR.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.UPYR));

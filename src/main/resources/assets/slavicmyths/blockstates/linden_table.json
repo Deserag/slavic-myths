@@ -1,20 +1,68 @@
 {
   "variants": {
-    "facing=north": {
+    "facing=north,connection=none": {
       "model": "slavicmyths:block/linden_table",
       "y": 0
     },
-    "facing=east": {
+    "facing=north,connection=north": {
+      "model": "slavicmyths:block/linden_table_pair_north"
+    },
+    "facing=north,connection=south": {
+      "model": "slavicmyths:block/linden_table_pair_south"
+    },
+    "facing=north,connection=east": {
+      "model": "slavicmyths:block/linden_table_pair_east"
+    },
+    "facing=north,connection=west": {
+      "model": "slavicmyths:block/linden_table_pair_west"
+    },
+    "facing=east,connection=none": {
       "model": "slavicmyths:block/linden_table",
       "y": 90
     },
-    "facing=south": {
+    "facing=east,connection=north": {
+      "model": "slavicmyths:block/linden_table_pair_north"
+    },
+    "facing=east,connection=south": {
+      "model": "slavicmyths:block/linden_table_pair_south"
+    },
+    "facing=east,connection=east": {
+      "model": "slavicmyths:block/linden_table_pair_east"
+    },
+    "facing=east,connection=west": {
+      "model": "slavicmyths:block/linden_table_pair_west"
+    },
+    "facing=south,connection=none": {
       "model": "slavicmyths:block/linden_table",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,connection=north": {
+      "model": "slavicmyths:block/linden_table_pair_north"
+    },
+    "facing=south,connection=south": {
+      "model": "slavicmyths:block/linden_table_pair_south"
+    },
+    "facing=south,connection=east": {
+      "model": "slavicmyths:block/linden_table_pair_east"
+    },
+    "facing=south,connection=west": {
+      "model": "slavicmyths:block/linden_table_pair_west"
+    },
+    "facing=west,connection=none": {
       "model": "slavicmyths:block/linden_table",
       "y": 270
+    },
+    "facing=west,connection=north": {
+      "model": "slavicmyths:block/linden_table_pair_north"
+    },
+    "facing=west,connection=south": {
+      "model": "slavicmyths:block/linden_table_pair_south"
+    },
+    "facing=west,connection=east": {
+      "model": "slavicmyths:block/linden_table_pair_east"
+    },
+    "facing=west,connection=west": {
+      "model": "slavicmyths:block/linden_table_pair_west"
     }
   }
 }

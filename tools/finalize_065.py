@@ -88,3 +88,7 @@ def transport():
   p=A/f'lang/{lang}.json';d=json.loads(p.read_text(encoding='utf-8'));d.update({k:v[index] for k,v in names.items()});write(p,d)
 def all_resources():generate();transport()
 if __name__=='__main__':all_resources()
+
+# Keep Kitchen II canonical resources/recipes after this legacy generation pass.
+import runpy
+runpy.run_path(str(__import__("pathlib").Path(__file__).with_name("kitchen_resources.py")), run_name="__main__")

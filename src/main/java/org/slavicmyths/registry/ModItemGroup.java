@@ -44,6 +44,7 @@ public final class ModItemGroup {
         if(MAGIC.contains(id)||id.startsWith("rune_")||id.endsWith("_charm")||id.endsWith("_amulet")||id.startsWith("obereg_"))return 7;
         if(TOOLS.contains(id)||item instanceof TieredItem||item instanceof ShieldItem||item instanceof BowItem||item instanceof CrossbowItem||id.matches(".*_(sword|dagger|spear|axe|pickaxe|shovel|hoe|knife|mace|shield|arrow)$")||id.equals("mace")||id.equals("chekan"))return 4;
         if(PLANTS.contains(id)||id.endsWith("_seeds")||id.endsWith("_grain")||id.endsWith("_sapling")||Arrays.asList(Gardens.BERRIES).contains(id))return 2;
+        if(Set.of("wheat_flour","rye_flour","oat_groats","barley_groats","dough").contains(id))return 1;
         if(KITCHEN.contains(id)||item.components().has(net.minecraft.core.component.DataComponents.FOOD))return 3;
         if(MATERIAL.contains(id)||id.endsWith("_ore")||id.endsWith("_ingot")||id.endsWith("_nugget"))return 1;
         if(item instanceof BlockItem||item instanceof SignItem||item instanceof HangingSignItem)return 6;

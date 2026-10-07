@@ -1,3 +1,13 @@
+## 1.1.5 — Кухня II (2026-10-07)
+
+- [x] Старые обычные столы без редизайна: PAIR максимум2, 4 food slots/блок, сохранение/синхронизация/подача/еда/3D.
+- [x] Existing kitchen_table LEFT/RIGHT с одним master, точный menu, non-consumed rolling pin/pot, безопасные containers/servings/breaking.
+- [x] Flour/groats fallback (mill отсутствует), dough, 22 data-driven kitchen recipes, точные food values без effects.
+- [x] 16px native assets, dedicated table food models, ru/en/tags/Creative/generous_table; optional JEI category обновлена.
+- [x] Static resource/geometry checks PASS, 7205 checks.
+- [x] Финальный clean build PASS, production validation 10406 checks; всего 3 build команды (одна сверх лимита вследствие собственной UTF-8 ошибки служебного скрипта).
+- [ ] Ручная gameplay/visual/save-load приёмка: запусков Minecraft 0; PolyMC не изменён.
+
 ## 1.1.4 — Текстиль и переработка (2026-10-07)
 
 - [x] Нож и семь вариантов carcass, player kill filtering, точные enhanced/fallback drops, сохранение срока/огня, fat/hide/candle.

@@ -108,3 +108,7 @@ for aid,icon,title,desc in [('first_hunt','raw_venison','Лесная добыч
  ru=A/'lang/ru_ru.json';ro=json.loads(ru.read_text(encoding='utf-8'));ro.update({'advancements.slavicmyths.first_hunt.title':'Лесная добыча','advancements.slavicmyths.first_hunt.description':'Добудьте мясо лесного зверя.','advancements.slavicmyths.village_feast.title':'Деревенский пир','advancements.slavicmyths.village_feast.description':'Испеките каравай.'});js(ru,ro)
  ep=A/'lang/en_us.json';eo=json.loads(ep.read_text(encoding='utf-8'));eo.update({'advancements.slavicmyths.first_hunt.title':'Forest Quarry','advancements.slavicmyths.first_hunt.description':'Obtain meat from a forest animal.','advancements.slavicmyths.village_feast.title':'Village Feast','advancements.slavicmyths.village_feast.description':'Bake a karavai.'});js(ep,eo)
 print('Created 0.6.5 wildlife and cooking resources.')
+
+# Keep Kitchen II canonical resources/recipes after this legacy generation pass.
+import runpy
+runpy.run_path(str(__import__("pathlib").Path(__file__).with_name("kitchen_resources.py")), run_name="__main__")

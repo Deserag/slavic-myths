@@ -1,0 +1,215 @@
+{
+  "textures": {
+    "food": "slavicmyths:item/baked_turnip",
+    "wood": "minecraft:block/dark_oak_planks",
+    "crust": "slavicmyths:block/kitchen_dough",
+    "particle": "slavicmyths:item/baked_turnip"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        0,
+        4
+      ],
+      "to": [
+        12,
+        4,
+        12
+      ],
+      "faces": {
+        "north": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            8,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            8,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            8,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            8,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ]
+        },
+        "down": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        5,
+        4,
+        5
+      ],
+      "to": [
+        11,
+        6,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#food",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        6,
+        7
+      ],
+      "to": [
+        9,
+        7,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#food",
+          "uv": [
+            7,
+            1,
+            11,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#food",
+          "uv": [
+            7,
+            1,
+            11,
+            3
+          ]
+        },
+        "east": {
+          "texture": "#food",
+          "uv": [
+            7,
+            1,
+            11,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#food",
+          "uv": [
+            7,
+            1,
+            11,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#food",
+          "uv": [
+            7,
+            1,
+            11,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#food",
+          "uv": [
+            7,
+            1,
+            11,
+            3
+          ]
+        }
+      }
+    }
+  ],
+  "ambientocclusion": false
+}

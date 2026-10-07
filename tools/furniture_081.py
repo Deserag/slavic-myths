@@ -89,3 +89,7 @@ def generate():
  write(D/'advancements/black_feather.json',{'parent':'slavicmyths:bad_people','display':{'icon':{'item':'slavicmyths:mysterious_black_feather'},'title':{'translate':'advancement.slavicmyths.black_feather.title'},'description':{'translate':'advancement.slavicmyths.black_feather.description'},'frame':'task','hidden':True,'show_toast':True,'announce_to_chat':False},'criteria':{'found':{'trigger':'minecraft:inventory_changed','conditions':{'items':[{'item':'slavicmyths:mysterious_black_feather'}]}}}})
  write(ROOT/'docs/verification/furniture-0.8.1.json',{'blocks':[n for n,k,w in ids],'items':[n for n,k,w in ids]+['mysterious_black_feather']})
 if __name__=='__main__':generate()
+
+# Preserve Kitchen II connections/display after legacy furniture generation.
+import runpy
+runpy.run_path(str(__import__("pathlib").Path(__file__).with_name("kitchen_resources.py")), run_name="__main__")

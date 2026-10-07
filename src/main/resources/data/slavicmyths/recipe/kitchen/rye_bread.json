@@ -1,0 +1,33 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "ROLLING",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:rye_flour"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:rolling_pin"
+  },
+  "time": 120,
+  "result": {
+    "id": "slavicmyths:rye_bread",
+    "count": 1
+  },
+  "servings": 0,
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ]
+}

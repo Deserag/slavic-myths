@@ -3,7 +3,7 @@
   "pattern": [
     "I I",
     "I I",
-    "III"
+    " I "
   ],
   "key": {
     "I": {
@@ -11,6 +11,7 @@
     }
   },
   "result": {
-    "id": "slavicmyths:metal_pot"
+    "id": "slavicmyths:metal_pot",
+    "count": 1
   }
 }

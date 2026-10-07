@@ -1,0 +1,38 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "POT",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:barley_groats"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": [
+        {
+          "item": "minecraft:water_bucket"
+        },
+        {
+          "tag": "slavicmyths:cooking/milk"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:metal_pot"
+  },
+  "time": 160,
+  "result": {
+    "id": "slavicmyths:barley_porridge",
+    "count": 1
+  },
+  "servings": 3,
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ]
+}
