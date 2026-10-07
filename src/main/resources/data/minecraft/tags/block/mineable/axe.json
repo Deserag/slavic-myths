@@ -5,6 +5,23 @@
     "slavicmyths:carved_birch_planks",
     "slavicmyths:carved_oak_block",
     "slavicmyths:wall_carving",
-    "slavicmyths:ancient_idol"
+    "slavicmyths:ancient_idol",
+    "slavicmyths:apple_log",
+    "slavicmyths:stripped_apple_log",
+    "slavicmyths:apple_wood",
+    "slavicmyths:stripped_apple_wood",
+    "slavicmyths:apple_planks",
+    "slavicmyths:apple_stairs",
+    "slavicmyths:apple_slab",
+    "slavicmyths:apple_fence",
+    "slavicmyths:apple_fence_gate",
+    "slavicmyths:apple_door",
+    "slavicmyths:apple_trapdoor",
+    "slavicmyths:apple_pressure_plate",
+    "slavicmyths:apple_button",
+    "slavicmyths:apple_sign",
+    "slavicmyths:apple_wall_sign",
+    "slavicmyths:apple_hanging_sign",
+    "slavicmyths:apple_wall_hanging_sign"
   ]
 }

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:rye_seeds"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.new_seeds.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.new_seeds.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "seeds": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#slavicmyths:agricultural_seeds"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "seeds"
+    ]
+  ]
+}

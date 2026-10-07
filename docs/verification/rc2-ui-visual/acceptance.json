@@ -1,0 +1,20 @@
+{
+  "version": "0.9.10-rc2",
+  "correction": "RC2 UI Visual FINAL",
+  "branch": "main",
+  "base": "741acac",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-0.9.10-rc2.jar",
+  "sha256": "ca32e6ac1b8a67a24cd5efadb051fbc0079e525bdb5b9642b1b0552f228a571e",
+  "build": "PASS",
+  "resources": "PASS",
+  "modelValidation": "PASS",
+  "headlessTests": "10/10 PASS",
+  "cpuDataCodecGeometryGates": "6/6 PASS",
+  "serverLaunches": 2,
+  "clientLaunches": 0,
+  "guiScales234": "MANUAL PENDING",
+  "heldPoseAcceptance": "MANUAL PENDING",
+  "realReconnect": "MANUAL PENDING",
+  "publishedReleaseUnchanged": true,
+  "commitCreated": false
+}

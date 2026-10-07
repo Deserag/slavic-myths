@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "jsonFiles": 1980,
+  "pngFiles": 378,
+  "assetReferences": 4042,
+  "soundEvents": 189,
+  "existingUnchangedAssetIssues": [],
+  "releaseAccepted": false,
+  "clientLaunched": false,
+  "jarSha256": "ca32e6ac1b8a67a24cd5efadb051fbc0079e525bdb5b9642b1b0552f228a571e"
+}

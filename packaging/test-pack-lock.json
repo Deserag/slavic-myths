@@ -10,11 +10,12 @@
   "polyMCPath": "C:/Users/pavel/AppData/Roaming/PolyMC",
   "installedInstancePath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing",
   "slavicMyths": {
-    "version": "0.9.10-rc2",
-    "filename": "slavicmyths-0.9.10-rc2.jar",
-    "sha256": "faa54bd5decf79dc029b1d722f1995b195aa313dd5cea900c16bd7a70ea5a499",
-    "installedPath": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.minecraft/mods/slavicmyths-0.9.10-rc2.jar",
-    "status": "INSTALLED_NOT_LAUNCHED"
+    "version": "1.1.0",
+    "filename": "slavicmyths-1.1.0.jar",
+    "sha256": "17ffe1b89b7d5a3899167b9d192b55ab61d8c613aa6c0a149b4068cfa1ab2956",
+    "installedPath": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods/slavicmyths-1.1.0.jar",
+    "status": "INSTALLED_NOT_LAUNCHED",
+    "localCorrection": "1.1.0 Farming over current RC2 UI Visual FINAL"
   },
   "mods": [
     {
@@ -357,8 +358,8 @@
     "legacy_instances_unchanged": true
   },
   "navigationAcceptance": "docs/verification/navigation-0.9.5/acceptance.json",
-  "previousArtifactBackup": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.slavicmyths-backups/pre-0.9.10-rc2/slavicmyths-0.9.9-dev.jar",
+  "previousArtifactBackup": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.slavicmyths-backups/pre-rc2-ui-visual-faa54bd5decf/slavicmyths-0.9.10-rc2.jar",
   "kurganAcceptance": "docs/verification/kurgan-0.9.6/acceptance.json",
   "swampAcceptance": "docs/verification/swamp-0.9.7/acceptance.json",
-  "playtestAcceptance": "docs\\verification\\playtest-0.9.10-rc2\\acceptance.json"
+  "playtestAcceptance": "docs/verification/rc2-ui-visual/acceptance.json"
 }

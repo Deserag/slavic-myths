@@ -1,3 +1,34 @@
+## 1.1.2 — Сады и Creative tabs (2026-10-07)
+
+Реализовано поверх текущего RC2/1.1.0: пять многолетних ягодных кустов age/PHASE 0..4, отдельные sapling items, harvest без уничтожения, two-block raspberry с синхронизацией половин и защитой от двойного loot. Старые raspberry/blueberry registry IDs сохранены; berry items больше не используются для посадки. Удобрение поддерживает кусты, серп/лейка не расширены. Пять отдельных garden patch features, ограниченные biome modifiers и rarity 8/10/14/12/8; прежняя mixed berry injection отключена с сохранением feature ID.
+
+Яблоня: одна форма высотой 7/шириной 5, 9 logs и 74 leaf positions, 26 deterministic fruitable offsets. Плодоношение 0..3 и ручной vanilla apple harvest, без apple в break loot. Crown anchor random tick восстанавливает максимум один leaf, только внутри mask, без BlockEntity/global scan. Собственная wood family с sign/hanging sign, stripping, recipes/tags/textures. Девять стандартных CreativeModeTab, порядок 5 верхних/4 нижних, одна категория на предмет; старая вкладка ID сохраняется как Main/Lore, общего dump больше нет.
+
+PASS: `gradlew.bat clean build` (27 s), затем `gradlew.bat build` (11 s) после исправления обнаруженной ошибки классификации старых Yaga utility items. Это два build-прохода, хотя пакет просил один; повтор выполнен ради исправления собственной ошибки классификации, не ради общего аудита. `python tools/verify_gardens.py`: PASS, 2262 JSON, 4624 model/texture references, production version 1.1.2 и test harness отсутствует в JAR. Unit/game tests не выполнялись. Minecraft launches: 0. PolyMC не изменён по отдельному подтверждению пользователя; установленный там мод остаётся 1.1.0. Commit/push main разрешены пользователем для этой итерации; release branches/tags/releases не меняются.
+
+Manual: 9 tabs/rows/no duplicates; natural berries и повторный harvest; shears/raspberry halves; fertilizer +1/no-op; одинаковая apple shape; ripe hand harvest/no apples from broken leaves; bounded gradual canopy regrowth/anchor removal; wood recipes/signs/stripping; ru/en/food/advancement. GUI/gameplay acceptance не заявляется по компиляции.
+
+## RC2 UI / Visual correction — 2026-10-06
+
+## 1.1.0 Земледелие — реализовано локально, установлено в PolyMC (2026-10-07)
+
+- Поверх текущего RC2: 7 культур age 0..6, 7 семян, 7 продуктов, серп, полевая мотыга, лейка, органическое удобрение. Дикорастущий `flax` и все старые ID сохранены.
+- Общий `FarmingCrop` использует vanilla random ticks/свет/влажность и NeoForge growth hooks. Капуста: gate 0.80; лён: 0.90; остальные: 1.00. Bone meal: +1..2 стадии.
+- Data-driven возрастной дроп; Fortune только на зрелый продукт, случайный дополнительный бонус 0..min(level,3), семена не затрагивает. Дополнительная репа: 30%.
+- Серп: один зрелый crop, стандартный loot, возврат age 1, durability 250. Мотыга: поперечная линия из 3 блоков, sneak — 1, durability 350, расход по фактическим преобразованиям.
+- Лейка: persistent/network data component 0..8; sneak source-water refill без удаления источника; увлажнение vanilla farmland 3x3, один заряд, без изменения crop age. Удобрение: поддерживаемые crops 3x3, +1 age, расход только при росте.
+- Grass loot modifiers: short grass 12%, tall grass 18%, одно случайное семя из семи; vanilla drops сохранены, проверка целой пары tall grass исключает вторичный бросок.
+- 49 разных стадий растений + 18 item sprites, все 32x32 RGBA с бинарной прозрачностью; ru/en, теги, advancement `new_seeds`, 4 рецепта, порядок в существующей Creative Tab.
+- `gradlew.bat clean build`: PASS (43 s). Финальная перепаковка исправленных JSON `processResources jar`: PASS (19 s), compileJava UP-TO-DATE. Static acceptance: 4740 проверок, 2075 JSON, 4225 ссылок; 166 production JAR checks.
+- PolyMC testing: `slavicmyths-1.1.0.jar` установлен; предыдущий RC2 вынесен в backup; companion mods сохранены. Minecraft не запускался: 0 запусков. Ручная игровая/визуальная приёмка остаётся пользователю.
+- Git: текущая `main`; автоматический commit/push не выполнен по прямому правилу AGENTS.md. Вложенный пункт Git finish не отменяет это правило; изменения сохранены локально, релизные ветки/tags/releases не менялись.
+- Отчёт: `docs/verification/farming-1.1.0/REPORT.md`; манифест файлов, static checks, installation receipt и offline contact sheet рядом.
+
+
+Внесён пакет UI/Visual поверх текущего main/RC2: два входа наковальни и copy-only preview, три режима/автоматический расход доп. материалов, Creative XP=0, новый Path Stone/Kitchen UI, исправлен повторный blur книги, реальные оси щита, пересобраны Club/Battle Axe UV0..16, четыре разных древесных материала и двери/люки/signs. Registry ID, рецепты, баланс survival, курганный hotfix сохранены. Сброс пути и новые пары конфликтов рун не выдуманы. Разбойники/Соловей отложены.
+
+PASS: clean build; 10/10 loader GameTests с companions; шесть CPU/data/codec/geometry gates; production resources 0 missing refs. Реальных headless запусков в этом этапе: 2 (первый 8/10 с ограничением synthetic connection/DataSlot, финальный 10/10). Клиент: 0. GUI scales 2/3/4, игровые held poses и реальный reconnect — MANUAL PENDING. Результат не объявлен визуально принятым. Версия остаётся 0.9.10-rc2; опубликованный tag/prerelease не перезаписывается. Исправленный JAR установлен в существующий PolyMC 1.21.1 RC2 после gates; прежний сохранён вне mods, остальные моды/config/saves без изменений. SHA256 `ca32e6ac1b8a67a24cd5efadb051fbc0079e525bdb5b9642b1b0552f228a571e`. Commit/push не выполнялись по текущему AGENTS.md. Отчёт и список файлов: `docs/verification/rc2-ui-visual/REPORT.md` и `changed-files.txt`.
+
 ## 0.9.10 RC2 — server acceptance и установка (2026-10-06)
 
 Завершены оставшиеся серверные проверки: 9/9 workstation+hotfix GameTests и 27/27 регрессий, включая подход всех трёх курганов без повреждения кладки. Щит реально блокирует спереди, изнашивается, получает axe cooldown; repair/Unbreaking/Mending/NBT проходят. Камень пути: RMB/menu, offering/XP, навыки, navigation SavedData, range guard, NBT. Наковальня: forge/install/remove, расходы, validation, shift-click, close-return и components. Кухня: 12/12 рецептов, guards, consumption, tool wear, remainder, output shift-click и NBT.

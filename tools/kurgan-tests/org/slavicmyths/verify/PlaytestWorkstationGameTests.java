@@ -47,16 +47,32 @@ public final class PlaytestWorkstationGameTests {
  @GameTest(template="port_empty",timeoutTicks=200)
  public static void runicAnvilServer(GameTestHelper t){
   var p=player(t,"RCAnvil");open(t,p,ModBlocks.RUNIC_ANVIL.get());t.assertTrue(p.containerMenu instanceof RpgMenu&&((RpgMenu)p.containerMenu).anvil,"Anvil failed to open server menu");var m=(RpgMenu)p.containerMenu;
-  p.giveExperienceLevels(100);p.getInventory().setItem(0,new ItemStack(Items.IRON_SWORD));t.assertTrue(!m.quickMoveStack(p,30).isEmpty()&&m.input.getItem(0).is(Items.IRON_SWORD),"Weapon shift-click failed");
+  p.giveExperienceLevels(100);p.getInventory().setItem(0,new ItemStack(Items.IRON_SWORD));t.assertTrue(!m.quickMoveStack(p,29).isEmpty()&&m.input.getItem(0).is(Items.IRON_SWORD),"Weapon shift-click failed");
   m.input.setItem(1,new ItemStack(Items.IRON_INGOT,3));m.clickMenuButton(p,0);t.assertTrue(Runes.slots(m.input.getItem(0))==1&&m.input.getItem(1).isEmpty()&&p.experienceLevel==94,"Forge consumption failed");
   m.input.setItem(1,new ItemStack(ModItems.RUNE_THUNDER.get()));m.clickMenuButton(p,1);t.assertTrue(Runes.has(m.input.getItem(0),"thunder")&&p.experienceLevel==87&&m.input.getItem(1).isEmpty(),"Install failed");
   var restored=ItemStack.parseOptional(t.getLevel().registryAccess(),(CompoundTag)m.input.getItem(0).saveOptional(t.getLevel().registryAccess()));t.assertTrue(Runes.has(restored,"thunder"),"Rune component save failed");
   m.clickMenuButton(p,2);t.assertTrue(!Runes.has(m.input.getItem(0),"thunder")&&p.experienceLevel==85,"Remove failed");
   m.input.setItem(1,new ItemStack(Items.DIRT,3));m.clickMenuButton(p,0);t.assertTrue(p.experienceLevel==85&&m.input.getItem(1).getCount()==3&&Runes.slots(m.input.getItem(0))==1,"Invalid materials consumed");
   t.assertTrue(!m.slots.get(0).mayPlace(new ItemStack(Items.DIRT)),"Unsupported first-slot item accepted");t.assertTrue(!m.quickMoveStack(p,0).isEmpty()&&count(p,Items.IRON_SWORD)==1,"Output shift-click failed");
-  for(int i=3;i<m.slots.size();i++)if(m.slots.get(i).getItem().is(Items.IRON_SWORD)){m.quickMoveStack(p,i);break;}
+  for(int i=2;i<m.slots.size();i++)if(m.slots.get(i).getItem().is(Items.IRON_SWORD)){m.quickMoveStack(p,i);break;}
   t.assertTrue(count(p,Items.IRON_SWORD)==0&&!m.input.getItem(0).isEmpty(),"Weapon return shift-click failed");m.input.setItem(0,restored);p.closeContainer();t.assertTrue(count(p,Items.IRON_SWORD)==1&&count(p,Items.DIRT)==3,"Close lost/duplicated input sword="+count(p,Items.IRON_SWORD)+" dirt="+count(p,Items.DIRT));
   System.out.println("RC2_ANVIL_SERVER_PASS RMB=true forgeInstallRemove=true XP=true materials=true validation=true outputShiftClick=true closeReturn=true componentNBT=true");t.succeed();
+ }
+ @GameTest(template="port_empty",timeoutTicks=200)
+ public static void creativeAndInventoryCosts(GameTestHelper t){
+  var p=player(t,"VisualCreative");p.setGameMode(GameType.CREATIVE);open(t,p,ModBlocks.PATH_STONE.get());var path=(RpgMenu)p.containerMenu;
+  p.getInventory().setItem(0,new ItemStack(Items.IRON_SWORD));p.getInventory().setItem(1,new ItemStack(Items.SHIELD));path.clickMenuButton(p,0);path.clickMenuButton(p,10);
+  t.assertTrue(p.experienceLevel==0&&PathData.has(p,"drill"),"Creative path/skill requires XP");p.closeContainer();open(t,p,ModBlocks.RUNIC_ANVIL.get());var m=(RpgMenu)p.containerMenu;
+  t.assertTrue(m.input.getContainerSize()==2&&m.slots.size()==38,"Catalyst primary slot remains");m.input.setItem(0,new ItemStack(Items.IRON_SWORD));m.input.setItem(1,new ItemStack(Items.IRON_INGOT,3));
+  var preview=Runes.preview(m.input,0);t.assertTrue(Runes.slots(preview)==1&&Runes.slots(m.input.getItem(0))==0,"Preview mutated original");m.clickMenuButton(p,0);
+  m.input.setItem(1,new ItemStack(ModItems.SILVER_INGOT.get(),2));t.assertTrue(Runes.blocker(p,m.input,0)!=null,"Missing inventory extra accepted");m.clickMenuButton(p,0);t.assertTrue(Runes.slots(m.input.getItem(0))==1&&m.input.getItem(1).getCount()==2,"Missing extra consumed inputs");
+  p.getInventory().setItem(5,new ItemStack(ModItems.ANCIENT_SIGN.get()));m.clickMenuButton(p,0);t.assertTrue(Runes.slots(m.input.getItem(0))==2&&count(p,ModItems.ANCIENT_SIGN.get())==0,"Extra not consumed from inventory");
+  m.clickMenuButton(p,101);t.assertTrue(m.slots.get(1).mayPlace(new ItemStack(ModItems.RUNE_THUNDER.get()))&&!m.slots.get(1).mayPlace(new ItemStack(Items.DIRT)),"Rune mode validation failed");
+  m.input.setItem(1,new ItemStack(ModItems.RUNE_THUNDER.get(),2));preview=Runes.preview(m.input,1);t.assertTrue(!Runes.has(m.input.getItem(0),"thunder")&&Runes.has(preview,"thunder"),"Installation preview mutated input");m.clickMenuButton(p,1);
+  t.assertTrue(p.experienceLevel==0&&Runes.has(m.input.getItem(0),"thunder")&&m.input.getItem(1).getCount()==1,"Creative install XP or consumption wrong");m.clickMenuButton(p,1);t.assertTrue(m.input.getItem(1).getCount()==1,"Duplicate consumed rune");
+  m.clickMenuButton(p,102);t.assertTrue(!m.slots.get(1).isActive(),"Remove mode still exposes second input");m.clickMenuButton(p,2);t.assertTrue(p.experienceLevel==0&&!Runes.has(m.input.getItem(0),"thunder"),"Creative removal failed");
+  m.input.setItem(1,new ItemStack(Items.IRON_INGOT,2));p.closeContainer();t.assertTrue(count(p,Items.IRON_SWORD)==1&&count(p,Items.IRON_INGOT)==2,"Close lost or duplicated items");
+  System.out.println("RC2_VISUAL_CREATIVE_PASS XP0=true extraInventory=true inputs2=true previewCopy=true duplicateGuard=true modes=true close=true");t.succeed();
  }
  @GameTest(template="port_empty",timeoutTicks=200)
  public static void kitchenServer(GameTestHelper t){

@@ -23,7 +23,7 @@ public final class PathData {
  public static boolean has(Player p,String skill){return data(p).getCompound("Skills").getInt(skill)>0;}
  public static int points(CompoundTag d,String path){int count=0;for(int i=0;i<24;i++)if(PATHS[i/6].equals(path))count+=Math.max(0,d.getCompound("Skills").getInt(SKILLS[i]));return count;}
  public static void message(Player p,String key,Object... args){p.displayClientMessage(Component.translatable("rpg.slavicmyths."+key,args),true);}
- public static boolean pay(Player p,int cost){if(p.experienceLevel<cost){message(p,"need_xp",cost);return false;}p.giveExperienceLevels(-cost);return true;}
+ public static boolean pay(Player p,int cost){if(p.isCreative())return true;if(p.experienceLevel<cost){message(p,"need_xp",cost);return false;}p.giveExperienceLevels(-cost);return true;}
  private static boolean contains(Player p,Item item,int count){int n=0;for(int i=0;i<p.getInventory().getContainerSize();i++)if(p.getInventory().getItem(i).getItem()==item)n+=p.getInventory().getItem(i).getCount();return n>=count;}
  private static void consume(Player p,Item item,int count){for(int i=0;i<p.getInventory().getContainerSize()&&count>0;i++){ItemStack s=p.getInventory().getItem(i);if(s.getItem()==item){int n=Math.min(count,s.getCount());s.shrink(n);count-=n;}}p.getInventory().setChanged();}
  public static void choose(ServerPlayer p,int path){

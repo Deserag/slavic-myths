@@ -1,6 +1,8 @@
 {
   "replace": false,
   "entries": [
-    "slavicmyths:fern_flower"
+    "slavicmyths:fern_flower",
+    "slavicmyths:short_grass_farming_seeds",
+    "slavicmyths:tall_grass_farming_seeds"
   ]
 }

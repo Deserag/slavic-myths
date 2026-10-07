@@ -1,3 +1,32 @@
+## 1.1.2 gardens (2026-10-07)
+
+`garden.PerennialBush` — reusable BushBlock/BonemealableBlock, PHASE 0..4 сериализуется как прежний `age` ради сохранения старых berry states; raspberry upper/lower синхронизированы, lower authoritative, переходы randomTick 1/18. FolkBerryBush сохраняет прежний класс/ID и делегирует общему base. Loot data-driven: shears sapling, early/adult probabilities, ripe extra berry; upper loot требует surviving adult lower, поэтому уничтожение lower не дублирует drop. Fertilizer обрабатывает только lower berry state в 3x3; watering/sickle остаются farmland/crop-only.
+
+`AppleTreeShape` хранит immutable 9 log offsets, 74 leaf offsets и 26 deterministic fruitable offsets. AppleTreeFeature используется configured apple_tree/apple_sapling; стандартный WoodlandGrower reuse и предварительная проверка пространства без уничтожения соседних блоков. AppleLog CROWN_ANCHOR=false по умолчанию; generated top log true; chance 1/8 и максимум один missing air leaf с adjacent apple timber/leaves в mask. Player placement не создаёт anchor. AppleLeaves наследует vanilla distance/persistent/decay, добавляет fruitable/fruit_stage; chance 1/24, независимые leaves, ripe harvest 1 apple +25% второй, stage reset 0. Break loot целиком исключает apple и сохраняет vanilla-like sapling/stick/Silk/shears.
+
+`Gardens` использует существующие ModBlocks/ModItems/ModFeatures/ModTiles, отдельные типы sign/hanging sign с client-only renderer registration/Sheets wood material. Для точных apple IDs и custom log/leaves требуется отдельная регистрация семейства; старые Woodlands семьи не рефакторятся. Worldgen placement/biomes остаются data-driven, никаких global tick scans или BlockEntities для растений/anchor. `ModItemGroup` содержит 9 стандартных табов с ordering edges и детерминированным category priority; старый tab ID сохранён как lore-only. Farm preferred ordering: 1.1.0 crops/fertilizer, berries, bush saplings, apple sapling; tools отдельно; apple family в decor.
+
+`tools/gardens_resources.py` генерирует отдельные native pixels и использует установленные vanilla 1.21.1 geometry/data schemas; старые генераторы 1.1.0/RC2 сохранены. `tools/verify_gardens.py` проверяет resources/JAR без Minecraft; статическая маска/loot проверка не считается игровым regrowth/harvest тестом.
+
+## RC2 UI / Visual correction — 2026-10-06
+
+## 1.1.0 farming integration (2026-10-07)
+
+`org.slavicmyths.farming` содержит общий `FarmingCrop` (собственный AGE 0..6, lazy seed supplier, коэффициент growth gate, vanilla CropBlock randomTick/NeoForge hooks). Посадка проверяет vanilla farmland; no collision/no block entity/no global polling. Vanilla runtime/data registries дополнены через существующие ModBlocks/ModItems/ModLoot.
+
+Четыре item-use механики выполняют изменения только на сервере, проверяют mayInteract/mayUseItemAt и не загружают чужие chunks. SickleItem получает стандартный Block.getDrops с реальным инструментом, меняет age на 1, затем выдаёт loot и изнашивает инструмент. FieldHoeItem использует стандартную HOE_TILL ability/NeoForge modification hook и отдельные проверки каждой позиции в полосе; coarse/rooted dirt → farmland при свободном верхнем блоке. Это Item с точной durability 350: TieredItem иначе перезаписал бы её iron-tier значением 250.
+
+`ItemState.WATER_CHARGES` — Codec.intRange(0,8), persistent + network synchronized. WateringCanItem содержит default component 0, fills from source fluid without removal, modifies only FarmBlock.MOISTURE. FertilizerItem использует `sickle_harvestable` tag (7 mod/4 vanilla crops), increments each immature crop exactly once, does not call vanilla bonemeal and does not consume on no-op.
+
+`GrassSeedsModifier` добавляет один seed в existing loot; вероятность/table identity/валидная пара tall grass задаются JSON. `CappedFortune` — зарегистрированная loot function в Registries.LOOT_FUNCTION_TYPE, применяется один раз к mature produce, +0..min(Fortune,3); seeds unaffected. Дроп остальных возрастов полностью описан loot tables. Blockstates/model textures содержат ровно 7 стадий. ClientSetup помечает новые блоки cutout только в client-side классе.
+
+`tools/farming_resources.py` воспроизводит актуальные 1.1.0 ресурсы без изменения RC2 UI/wood/weapon assets; `tools/verify_farming.py` проверяет спецификацию данных, прозрачность/размеры/различимость, JSON/ссылки и production JAR без Minecraft. Исходная схема рецепта лейки содержит 6 I, но письменная стоимость 5 nuggets; разрешённый альтернативный нижний ряд ` I ` сохраняет стоимость 5 nuggets + bucket.
+
+
+Внесён пакет UI/Visual поверх текущего main/RC2: два входа наковальни и copy-only preview, три режима/автоматический расход доп. материалов, Creative XP=0, новый Path Stone/Kitchen UI, исправлен повторный blur книги, реальные оси щита, пересобраны Club/Battle Axe UV0..16, четыре разных древесных материала и двери/люки/signs. Registry ID, рецепты, баланс survival, курганный hotfix сохранены. Сброс пути и новые пары конфликтов рун не выдуманы. Разбойники/Соловей отложены.
+
+PASS: clean build; 10/10 loader GameTests с companions; шесть CPU/data/codec/geometry gates; production resources 0 missing refs. Реальных headless запусков в этом этапе: 2 (первый 8/10 с ограничением synthetic connection/DataSlot, финальный 10/10). Клиент: 0. GUI scales 2/3/4, игровые held poses и реальный reconnect — MANUAL PENDING. Результат не объявлен визуально принятым. Версия остаётся 0.9.10-rc2; опубликованный tag/prerelease не перезаписывается. Исправленный JAR установлен в существующий PolyMC 1.21.1 RC2 после gates; прежний сохранён вне mods, остальные моды/config/saves без изменений. SHA256 `ca32e6ac1b8a67a24cd5efadb051fbc0079e525bdb5b9642b1b0552f228a571e`. Commit/push не выполнялись по текущему AGENTS.md. Отчёт и список файлов: `docs/verification/rc2-ui-visual/REPORT.md` и `changed-files.txt`.
+
 ## 0.9.10 RC2 — server acceptance и установка (2026-10-06)
 
 Завершены оставшиеся серверные проверки: 9/9 workstation+hotfix GameTests и 27/27 регрессий, включая подход всех трёх курганов без повреждения кладки. Щит реально блокирует спереди, изнашивается, получает axe cooldown; repair/Unbreaking/Mending/NBT проходят. Камень пути: RMB/menu, offering/XP, навыки, navigation SavedData, range guard, NBT. Наковальня: forge/install/remove, расходы, validation, shift-click, close-return и components. Кухня: 12/12 рецептов, guards, consumption, tool wear, remainder, output shift-click и NBT.

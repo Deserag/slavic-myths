@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:rye_crop",
+    "slavicmyths:barley_crop",
+    "slavicmyths:oat_crop",
+    "slavicmyths:turnip_crop",
+    "slavicmyths:cabbage_crop",
+    "slavicmyths:pea_crop",
+    "slavicmyths:flax_crop",
+    "minecraft:wheat",
+    "minecraft:carrots",
+    "minecraft:potatoes",
+    "minecraft:beetroots"
+  ]
+}

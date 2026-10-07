@@ -19,6 +19,7 @@ public final class SlavicMyths {
     public SlavicMyths(IEventBus bus, ModContainer container) {
         org.slavicmyths.item.ItemState.COMPONENTS.register(bus);
         org.slavicmyths.rpg.Runes.init();
+        org.slavicmyths.garden.Gardens.init();
         org.slavicmyths.wood.Woodlands.init();
         org.slavicmyths.furniture.Furniture.init();
         org.slavicmyths.kurgan.DarkenedWood.init();
@@ -37,6 +38,7 @@ public final class SlavicMyths {
         org.slavicmyths.armorer.ArmorerRecipe.TYPES.register(bus);
         org.slavicmyths.armorer.ArmorerRecipe.SERIALIZERS.register(bus);
         org.slavicmyths.armorer.ArmorerMenu.register();
+        org.slavicmyths.farming.Farming.FUNCTIONS.register(bus);
         ModLoot.SERIALIZERS.register(bus);
         ModEntities.ENTITIES.register(bus);
         ModSounds.SOUNDS.register(bus);

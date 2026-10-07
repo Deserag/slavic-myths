@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I I",
+    "IBI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:watering_can",
+    "count": 1
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "slavicmyths:block/stripped_apple_log_top",
+    "side": "slavicmyths:block/stripped_apple_log"
+  }
+}

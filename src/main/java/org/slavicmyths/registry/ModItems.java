@@ -16,6 +16,25 @@ public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
 
+    public static final DeferredHolder<Item, Item> RYE_SEEDS = ITEMS.register("rye_seeds", () -> new ItemNameBlockItem(ModBlocks.RYE_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> BARLEY_SEEDS = ITEMS.register("barley_seeds", () -> new ItemNameBlockItem(ModBlocks.BARLEY_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> OAT_SEEDS = ITEMS.register("oat_seeds", () -> new ItemNameBlockItem(ModBlocks.OAT_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> TURNIP_SEEDS = ITEMS.register("turnip_seeds", () -> new ItemNameBlockItem(ModBlocks.TURNIP_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> CABBAGE_SEEDS = ITEMS.register("cabbage_seeds", () -> new ItemNameBlockItem(ModBlocks.CABBAGE_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> PEA_SEEDS = ITEMS.register("pea_seeds", () -> new ItemNameBlockItem(ModBlocks.PEA_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> FLAX_SEEDS = ITEMS.register("flax_seeds", () -> new ItemNameBlockItem(ModBlocks.FLAX_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> RYE_GRAIN = ITEMS.register("rye_grain", () -> new Item(properties()));
+    public static final DeferredHolder<Item, Item> BARLEY_GRAIN = ITEMS.register("barley_grain", () -> new Item(properties()));
+    public static final DeferredHolder<Item, Item> OAT_GRAIN = ITEMS.register("oat_grain", () -> new Item(properties()));
+    public static final DeferredHolder<Item, Item> TURNIP = ITEMS.register("turnip", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.4F).build())));
+    public static final DeferredHolder<Item, Item> CABBAGE = ITEMS.register("cabbage", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
+    public static final DeferredHolder<Item, Item> PEA_POD = ITEMS.register("pea_pod", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
+    public static final DeferredHolder<Item, Item> FLAX_STALK = ITEMS.register("flax_stalk", () -> new Item(properties()));
+    public static final DeferredHolder<Item, Item> SICKLE = ITEMS.register("sickle", () -> new org.slavicmyths.farming.SickleItem(properties()));
+    public static final DeferredHolder<Item, Item> FIELD_HOE = ITEMS.register("field_hoe", () -> new org.slavicmyths.farming.FieldHoeItem(properties()));
+    public static final DeferredHolder<Item, Item> WATERING_CAN = ITEMS.register("watering_can", () -> new org.slavicmyths.farming.WateringCanItem(properties()));
+    public static final DeferredHolder<Item, Item> ORGANIC_FERTILIZER = ITEMS.register("organic_fertilizer", () -> new org.slavicmyths.farming.FertilizerItem(properties()));
+
     public static final DeferredHolder<Item, Item> BIRCH_BARK_SCROLL = ITEMS.register(
             "birch_bark_scroll", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> THUNDER_STONE = ITEMS.register(
@@ -147,8 +166,8 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> LARGE_ANIMAL_BONE=ITEMS.register("large_animal_bone",()->new Item(properties()));
     public static final DeferredHolder<Item, Item> BONE_ARROW=ITEMS.register("bone_arrow",()->new ArrowItem(properties()));
     public static final DeferredHolder<Item, Item> FLOUR=ITEMS.register("flour",()->new Item(properties()));
-    public static final DeferredHolder<Item, Item> RASPBERRY=ITEMS.register("raspberry",()->new org.slavicmyths.item.FolkBerryItem(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.15F).build()),true));
-    public static final DeferredHolder<Item, Item> BLUEBERRY=ITEMS.register("blueberry",()->new org.slavicmyths.item.FolkBerryItem(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.15F).build()),false));
+    public static final DeferredHolder<Item, Item> RASPBERRY=ITEMS.register("raspberry",()->new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.20F).build())));
+    public static final DeferredHolder<Item, Item> BLUEBERRY=ITEMS.register("blueberry",()->new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.20F).build())));
     public static final DeferredHolder<Item, Item> PANCAKES=food("pancakes",5,.5F);
     public static final DeferredHolder<Item, Item> RASPBERRY_PANCAKES=food("raspberry_pancakes",7,.65F);
     public static final DeferredHolder<Item, Item> BLUEBERRY_PANCAKES=food("blueberry_pancakes",7,.65F);

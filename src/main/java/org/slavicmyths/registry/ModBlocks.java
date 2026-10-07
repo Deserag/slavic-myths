@@ -9,11 +9,20 @@ import net.minecraft.core.registries.Registries;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.SlavicMyths;
 
 public final class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(Registries.BLOCK, SlavicMyths.MOD_ID);
+
+    public static final DeferredHolder<Block, Block> RYE_CROP = BLOCKS.register("rye_crop", () -> new org.slavicmyths.farming.FarmingCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.RYE_SEEDS.get(), 1F));
+    public static final DeferredHolder<Block, Block> BARLEY_CROP = BLOCKS.register("barley_crop", () -> new org.slavicmyths.farming.FarmingCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.BARLEY_SEEDS.get(), 1F));
+    public static final DeferredHolder<Block, Block> OAT_CROP = BLOCKS.register("oat_crop", () -> new org.slavicmyths.farming.FarmingCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.OAT_SEEDS.get(), 1F));
+    public static final DeferredHolder<Block, Block> TURNIP_CROP = BLOCKS.register("turnip_crop", () -> new org.slavicmyths.farming.FarmingCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.TURNIP_SEEDS.get(), 1F));
+    public static final DeferredHolder<Block, Block> CABBAGE_CROP = BLOCKS.register("cabbage_crop", () -> new org.slavicmyths.farming.FarmingCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.CABBAGE_SEEDS.get(), .8F));
+    public static final DeferredHolder<Block, Block> PEA_CROP = BLOCKS.register("pea_crop", () -> new org.slavicmyths.farming.FarmingCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.PEA_SEEDS.get(), 1F));
+    public static final DeferredHolder<Block, Block> FLAX_CROP = BLOCKS.register("flax_crop", () -> new org.slavicmyths.farming.FarmingCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.FLAX_SEEDS.get(), .9F));
 
     // Wild plants: no growth state, random ticks, tile entities or scanning.
     public static final DeferredHolder<Block, Block> FLAX = BLOCKS.register("flax",

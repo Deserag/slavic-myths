@@ -3,22 +3,114 @@
   "pools": [
     {
       "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "items": "minecraft:shears"
+          }
+        }
+      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "slavicmyths:blueberry"
+          "name": "slavicmyths:blueberry_sapling"
         }
-      ],
+      ]
+    },
+    {
+      "rolls": 1,
       "conditions": [
         {
-          "condition": "minecraft:survives_explosion"
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": "minecraft:shears"
+            }
+          }
         },
         {
           "condition": "minecraft:block_state_property",
           "block": "slavicmyths:blueberry_bush",
           "properties": {
-            "half": "lower"
+            "age": "0"
           }
+        },
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.5
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:blueberry_sapling"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": "minecraft:shears"
+            }
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "slavicmyths:blueberry_bush",
+          "properties": {
+            "age": {
+              "min": "1",
+              "max": "4"
+            }
+          }
+        },
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.35
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:blueberry_sapling"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": "minecraft:shears"
+            }
+          }
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "slavicmyths:blueberry_bush",
+          "properties": {
+            "age": "4"
+          }
+        },
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.5
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:blueberry"
         }
       ]
     }

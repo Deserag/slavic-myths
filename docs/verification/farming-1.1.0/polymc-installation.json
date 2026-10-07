@@ -1,0 +1,35 @@
+{
+  "sha256": "17ffe1b89b7d5a3899167b9d192b55ab61d8c613aa6c0a149b4068cfa1ab2956",
+  "backup": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.slavicmyths-backups/pre-farming-1.1.0-17ffe1b89b7d",
+  "companionModsUnchanged": true,
+  "version": "1.1.0",
+  "gameLaunches": 0,
+  "jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods/slavicmyths-1.1.0.jar",
+  "status": "INSTALLED_NOT_LAUNCHED",
+  "companionMods": [
+    {
+      "sha256": "a45df2125c26219974aba7507ffc9afe7b83acc941a386af3faacb1cc0056fde",
+      "name": "curios-neoforge-9.5.1+1.21.1.jar"
+    },
+    {
+      "sha256": "70ee147602d2239e7a093e166fdf0c0abcef959d5d457c0f8f3669ef9b483dc4",
+      "name": "FallingTree-1.21.1-1.21.1.11.jar"
+    },
+    {
+      "sha256": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810",
+      "name": "Jade-1.21.1-NeoForge-15.10.6.jar"
+    },
+    {
+      "sha256": "8bc3936d869e4040a5649c58b7e8be1c78c82a245c0dc07bdd68ab49121a222c",
+      "name": "jei-1.21.1-neoforge-19.51.0.418.jar"
+    },
+    {
+      "sha256": "667105d8fdca64b27b29d8e0b88e67e7342038d3fb4edc4129bf452b601c6d20",
+      "name": "xaerominimap-neoforge-1.21.1-26.5.0.jar"
+    },
+    {
+      "sha256": "d60899112e84616ba52a993c1722fd891872acc4779bfac34d9b170001451c6f",
+      "name": "xaeroworldmap-neoforge-1.21.1-1.45.0.jar"
+    }
+  ]
+}

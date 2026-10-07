@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "club: bounded geometry, UV0..16, materials and transforms PASS",
+    "battle_axe: bounded geometry, UV0..16, materials and transforms PASS",
+    "retainer_shield: bounded geometry, UV0..16, materials and transforms PASS",
+    "retainer_shield_body: bounded geometry, UV0..16, materials and transforms PASS",
+    "retainer_shield_blocking: bounded geometry, UV0..16, materials and transforms PASS",
+    "club: all solids connected; 7 display contexts PASS",
+    "battle_axe: all solids connected; 7 display contexts PASS",
+    "shield: physical held Y axes reversed 180 degrees, two hand contexts, separate blocking and unchanged decorated GUI PASS; in-game acceptance pending",
+    "wood: 4 distinct greyscale bark structures, 32 door states each, 314 derived texture refs PASS",
+    "RU/EN RPG+kitchen translation parity and 8 numerical rune descriptions PASS"
+  ],
+  "client_launches": 0,
+  "manual_visual_acceptance": "PENDING",
+  "offline_preview": "wood-native-assets.png"
+}

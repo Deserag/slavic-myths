@@ -28,6 +28,7 @@ import org.slavicmyths.hunt.HuntTarget;
 /** Immutable, persistent and synchronized state owned by ItemStacks. */
 public final class ItemState {
     public static final DeferredRegister<DataComponentType<?>> COMPONENTS = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, "slavicmyths");
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> WATER_CHARGES = component("watering_can_water", Codec.intRange(0,8));
     public record RuneState(int slots, List<String> runes) {
         public RuneState {
             runes = List.copyOf(runes);

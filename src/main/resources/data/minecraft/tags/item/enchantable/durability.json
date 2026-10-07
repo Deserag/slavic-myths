@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "slavicmyths:retainer_shield",
-    "slavicmyths:perunite_shield"
+    "slavicmyths:perunite_shield",
+    "slavicmyths:sickle",
+    "slavicmyths:field_hoe"
   ]
 }

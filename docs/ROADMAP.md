@@ -1,3 +1,27 @@
+## 1.1.2 — локальная реализация завершена (2026-10-07)
+
+- [x] Пять ягод, отдельные saplings, reusable perennial phases, two-block raspberry, fertilizer integration, scoped natural patches.
+- [x] Fixed apple tree + fruit cycle + bounded anchor regrowth; wood family, обычные/подвесные таблички, ресурсы/теги/рецепты.
+- [x] Девять стандартных Creative tabs, распределение старых предметов и установленный порядок нового контента.
+- [x] Build/production resource validation, version 1.1.2. Git main commit/push разрешены пользователем; нет release/tag.
+- [ ] Ручная visual/game acceptance пользователем. Minecraft не запускался. PolyMC остаётся 1.1.0 до отдельной будущей команды.
+
+## RC2 UI / Visual correction — 2026-10-06
+
+## 1.1.0 Земледелие — локальная реализация завершена (2026-10-07)
+
+- [x] Семь farmland crops, семь стадий, разные силуэты; семена/продукты/4 хозяйственных инструмента.
+- [x] Возрастной loot, capped Fortune, grass seed injection, data component лейки, ru/en/recipes/tags/advancement/Creative Tab.
+- [x] Один clean compile/build, финальная упаковка JSON, статическая проверка и production JAR; установка в тестовый PolyMC.
+- [ ] Ручная игровая/визуальная приёмка пользователем. Minecraft не запускался.
+- [ ] Commit/push `main` — не выполнен автоматически в соответствии с AGENTS.md.
+- Мельница, мука, переработка льна, дополнительные GUI/культуры/механики в этой итерации не добавлены. Существующий RC2 сохранён.
+
+
+Внесён пакет UI/Visual поверх текущего main/RC2: два входа наковальни и copy-only preview, три режима/автоматический расход доп. материалов, Creative XP=0, новый Path Stone/Kitchen UI, исправлен повторный blur книги, реальные оси щита, пересобраны Club/Battle Axe UV0..16, четыре разных древесных материала и двери/люки/signs. Registry ID, рецепты, баланс survival, курганный hotfix сохранены. Сброс пути и новые пары конфликтов рун не выдуманы. Разбойники/Соловей отложены.
+
+PASS: clean build; 10/10 loader GameTests с companions; шесть CPU/data/codec/geometry gates; production resources 0 missing refs. Реальных headless запусков в этом этапе: 2 (первый 8/10 с ограничением synthetic connection/DataSlot, финальный 10/10). Клиент: 0. GUI scales 2/3/4, игровые held poses и реальный reconnect — MANUAL PENDING. Результат не объявлен визуально принятым. Версия остаётся 0.9.10-rc2; опубликованный tag/prerelease не перезаписывается. Исправленный JAR установлен в существующий PolyMC 1.21.1 RC2 после gates; прежний сохранён вне mods, остальные моды/config/saves без изменений. SHA256 `ca32e6ac1b8a67a24cd5efadb051fbc0079e525bdb5b9642b1b0552f228a571e`. Commit/push не выполнялись по текущему AGENTS.md. Отчёт и список файлов: `docs/verification/rc2-ui-visual/REPORT.md` и `changed-files.txt`.
+
 ## 0.9.10 RC2 — server acceptance и установка (2026-10-06)
 
 Завершены оставшиеся серверные проверки: 9/9 workstation+hotfix GameTests и 27/27 регрессий, включая подход всех трёх курганов без повреждения кладки. Щит реально блокирует спереди, изнашивается, получает axe cooldown; repair/Unbreaking/Mending/NBT проходят. Камень пути: RMB/menu, offering/XP, навыки, navigation SavedData, range guard, NBT. Наковальня: forge/install/remove, расходы, validation, shift-click, close-return и components. Кухня: 12/12 рецептов, guards, consumption, tool wear, remainder, output shift-click и NBT.

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:raspberry_sapling",
+    "slavicmyths:blueberry_sapling",
+    "slavicmyths:blackcurrant_sapling",
+    "slavicmyths:lingonberry_sapling",
+    "slavicmyths:cranberry_sapling"
+  ]
+}

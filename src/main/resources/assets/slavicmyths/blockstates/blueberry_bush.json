@@ -1,28 +1,34 @@
 {
   "variants": {
     "age=0,half=lower": {
-      "model": "slavicmyths:block/blueberry_bush_0_lower"
+      "model": "slavicmyths:block/blueberry_bush_lower_0"
     },
     "age=0,half=upper": {
-      "model": "slavicmyths:block/blueberry_bush_0_upper"
+      "model": "slavicmyths:block/blueberry_bush_lower_0"
     },
     "age=1,half=lower": {
-      "model": "slavicmyths:block/blueberry_bush_1_lower"
+      "model": "slavicmyths:block/blueberry_bush_lower_1"
     },
     "age=1,half=upper": {
-      "model": "slavicmyths:block/blueberry_bush_1_upper"
+      "model": "slavicmyths:block/blueberry_bush_lower_1"
     },
     "age=2,half=lower": {
-      "model": "slavicmyths:block/blueberry_bush_2_lower"
+      "model": "slavicmyths:block/blueberry_bush_lower_2"
     },
     "age=2,half=upper": {
-      "model": "slavicmyths:block/blueberry_bush_2_upper"
+      "model": "slavicmyths:block/blueberry_bush_lower_2"
     },
     "age=3,half=lower": {
-      "model": "slavicmyths:block/blueberry_bush_3_lower"
+      "model": "slavicmyths:block/blueberry_bush_lower_3"
     },
     "age=3,half=upper": {
-      "model": "slavicmyths:block/blueberry_bush_3_upper"
+      "model": "slavicmyths:block/blueberry_bush_lower_3"
+    },
+    "age=4,half=lower": {
+      "model": "slavicmyths:block/blueberry_bush_lower_4"
+    },
+    "age=4,half=upper": {
+      "model": "slavicmyths:block/blueberry_bush_lower_4"
     }
   }
 }

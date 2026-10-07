@@ -20,6 +20,9 @@ public final class ClientSetup {
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            net.minecraft.client.renderer.Sheets.addWoodType(org.slavicmyths.garden.Gardens.APPLE_TYPE);
+            for(String berry:org.slavicmyths.garden.Gardens.BERRIES)ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.garden.Gardens.block(berry+"_bush"),RenderType.cutout());
+            for(String name:new String[]{"apple_leaves","apple_sapling","apple_door","apple_trapdoor"})ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.garden.Gardens.block(name),RenderType.cutoutMipped());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.YAGA_DRIED_HERBS.get(),RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.YAGA_BONE_CHARM.get(),RenderType.cutout());
             for(String kind:new String[]{"door","trapdoor"})ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.kurgan.DarkenedWood.get(kind),RenderType.cutout());
@@ -36,6 +39,7 @@ public final class ClientSetup {
                         (stack, world, entity, seed) -> entity != null && entity.isUsingItem()
                                 && entity.getUseItem() == stack ? 1.0F : 0.0F);
             }
+            org.slavicmyths.farming.Farming.crops().forEach(crop -> ItemBlockRenderTypes.setRenderLayer(crop, RenderType.cutout()));
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLAX.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.WORMWOOD.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.ST_JOHNS_WORT.get(), RenderType.cutout());
@@ -96,6 +100,8 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.DOE.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.DOE,"doe",.5F));
         event.registerEntityRenderer(ModEntities.BABA_YAGA.get(),BabaYagaRenderer::new);
         event.registerBlockEntityRenderer(org.slavicmyths.registry.ModTiles.BURIAL_COFFIN.get(),BurialCoffinRenderer::new);
+        event.registerBlockEntityRenderer(org.slavicmyths.garden.Gardens.SIGN.get(),net.minecraft.client.renderer.blockentity.SignRenderer::new);
+        event.registerBlockEntityRenderer(org.slavicmyths.garden.Gardens.HANGING_SIGN.get(),net.minecraft.client.renderer.blockentity.HangingSignRenderer::new);
     }
     @SubscribeEvent public static void screens(net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event){
             event.register(org.slavicmyths.rpg.RpgMenu.TYPE.get(),RpgScreen::new);

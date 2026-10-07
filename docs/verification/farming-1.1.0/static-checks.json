@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checks": 4740,
+  "jsonFiles": 2075,
+  "references": 4225,
+  "cropStages": 49,
+  "itemSprites": 18,
+  "gameLaunches": 0,
+  "scope": "Static resource/data and production-JAR acceptance; not an in-game test",
+  "jar": "D:/slavic-myths/build/libs/slavicmyths-1.1.0.jar",
+  "sha256": "17ffe1b89b7d5a3899167b9d192b55ab61d8c613aa6c0a149b4068cfa1ab2956",
+  "productionChecks": 166
+}
