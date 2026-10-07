@@ -4,7 +4,7 @@
 
 Добавлен regression gate для уникальности menu registrations и проверки ровно одной ссылки VatMenu.TYPE в production ClientSetup bytecode (javap); проверка выявляет дубль в предыдущем committed source. Один gradlew.bat clean build PASS31s/12 deprecated warnings/test NO-SOURCE. python tools/verify_brewing.py --jar build/libs/slavicmyths-1.1.7.jar PASS9701 resource/production checks и49 pure-Java arithmetic assertions. Production SHA256 a3d5cca4fd7b41d58aa9111e1a7f0a4ab04f484fb87cd2db9cec243d4f0cd084. Автоматических Minecraft/PolyMC/client/server запусков для hotfix0; успешный client startup пока НЕ проверен.
 
-PolyMC hotfix installation: pending replacement after commit/push. Manual: повторить запуск профиля Slavic-Myths-1.21.1-Testing до главного меню, затем открыть экран бродильного чана.
+PolyMC hotfix installation: после commit b8b388c6/push исправленный1.1.7 установлен в существующий тестовый профиль, installed SHA256 совпал с production. Прежний JAR сохранён в .slavicmyths-backups/pre-screen-hotfix-20261007-134329;6 companion mod hashes и2 profile config hashes не изменились. Receipt: docs/verification/polymc-1.1.7-screen-hotfix.json. Manual: повторить запуск профиля Slavic-Myths-1.21.1-Testing до главного меню, затем открыть экран бродильного чана.
 
 ## 1.1.7 — Пивоварение и брожение (2026-10-07)
 

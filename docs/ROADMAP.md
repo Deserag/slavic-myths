@@ -2,6 +2,7 @@
 
 - [x] Устранена двойная регистрация slavicmyths:vat из crash log пользователя.
 - [x] Regression source/production bytecode gate; clean build и9701 resource/production checks +49 Java assertions PASS.
+- [x] Исправленный JAR установлен в PolyMC, SHA совпадает, остальные моды/настройки сохранены.
 - [ ] Повторный запуск исправленного клиента и открытие чана пользователем; автоматически Minecraft не запускался.
 
 ## 1.1.7 — Пивоварение и брожение (2026-10-07)
