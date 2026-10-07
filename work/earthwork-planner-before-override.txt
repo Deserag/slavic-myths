@@ -1,0 +1,47 @@
+    public static Site plan(ChunkGenerator generator,RandomState random,LevelHeightAccessor height,KurganPlan plan,BlockPos ground){
+        if(KurganStructure.terrainValid(generator,plan,ground,height,random))return new Site(ground,null);
+        var bounds=plan.bounds();
+        int raise=Math.max(0,height.getMinBuildHeight()+2-ground.getY()-bounds.y0);
+        if(raise==0)return lowered(generator,random,height,plan,ground);
+        // Thin-superflat earthworks have cheap, exact column data. Noise terrain requires
+        // a separate bounded terrace planner; do not perform a whole-footprint noise rebuild.
+        if(!(generator instanceof net.minecraft.world.level.levelgen.FlatLevelSource)){StructureCoverageService.note(Rejection.WORLD_BOUNDS,"requiredRaiseOnNoiseTerrain",raise);return null;}
+        BlockPos origin=ground.above(raise);
+        if(origin.getY()+bounds.y1>=height.getMaxBuildHeight()-6){StructureCoverageService.note(Rejection.WORLD_BOUNDS,"plannedRoofY",origin.getY()+bounds.y1);return null;}
+        // Cover every underground room, and grade the bank with a separate walkable entrance ramp.
+        int plateau=origin.getY()+3, margin=(raise+1)/2+8;
+        int x0=bounds.x0-margin,z0=bounds.z0-margin,width=bounds.x1-bounds.x0+1+2*margin;
+        java.util.List<KurganPlan.Box> protectedRoofs=new java.util.ArrayList<>();
+        for(var room:plan.rooms){var box=room.box();if(box.y1<0&&box.x0<=1&&box.x1>=-1)protectedRoofs.add(box);}
+        for(var link:plan.links)for(int i=0;i<link.steps.size();i++){var box=link.slice(i);if(box.y1<0&&box.x0<=1&&box.x1>=-1)protectedRoofs.add(box);}
+        int zEnd=Math.max(bounds.z1+margin,plan.radius+10+raise);
+        for(var box:protectedRoofs)if(box.z1>=plan.radius+1)zEnd=Math.max(zEnd,box.z1+Math.max(0,origin.getY()+box.y1+2-ground.getY())+3);
+        int depth=zEnd-z0+1;
+        if((long)width*depth>262144){StructureCoverageService.note(Rejection.TERRAFORM_BUDGET_EXCEEDED,"footprintColumns",(long)width*depth);return null;}
+        int[] floors=new int[width*depth],tops=new int[floors.length];long volume=0;
+        long budget=org.slavicmyths.worldgen.StructureCoverageService.profile(new String[]{"kurgan_small","kurgan_warrior","kurgan_great"}[plan.tier]).budget();
+        for(int x=0;x<width;x++)for(int z=0;z<depth;z++){
+            int dx=x0+x,dz=z0+z,index=x*depth+z;
+            int floor=org.slavicmyths.worldgen.StructureCoverageService.baseHeight(generator,origin.getX()+dx,origin.getZ()+dz,Heightmap.Types.OCEAN_FLOOR_WG,height,random)-1;
+            int surface=org.slavicmyths.worldgen.StructureCoverageService.baseHeight(generator,origin.getX()+dx,origin.getZ()+dz,Heightmap.Types.WORLD_SURFACE_WG,height,random)-1;
+            if(floor<=height.getMinBuildHeight()){StructureCoverageService.note(Rejection.WORLD_BOUNDS,"floor",floor);return null;}if(surface>floor){StructureCoverageService.note(Rejection.DEEP_WATER,"waterDepth",surface-floor);return null;}
+            int distance=Math.max(Math.max(bounds.x0-dx,dx-bounds.x1),Math.max(bounds.z0-dz,dz-bounds.z1));
+            int top=Math.max(floor,plateau-2*Math.max(0,distance));
+            floors[index]=floor;tops[index]=top;volume+=top-floor;
+        }
+        // Build a one-block-step envelope above projected underground roofs. A straight
+        // descending ramp can otherwise cut through a room or upper corridor ceiling.
+        int front=plan.radius+1;int[] ramp=new int[zEnd-front+1];
+        for(int z=front;z<=zEnd;z++){
+            int top=Math.max(ground.getY(),plateau-Math.max(0,z-plan.radius-7));
+            for(var box:protectedRoofs)if(z>=box.z0&&z<=box.z1)top=Math.max(top,origin.getY()+box.y1+2);
+            ramp[z-front]=top;
+        }
+        for(int z=ramp.length-2;z>=0;z--)ramp[z]=Math.max(ramp[z],ramp[z+1]-1);
+        for(int z=1;z<ramp.length;z++)ramp[z]=Math.max(ramp[z],ramp[z-1]-1);
+        for(int dx=-1;dx<=1;dx++)for(int z=front;z<=zEnd;z++){
+            int index=(dx-x0)*depth+z-z0,top=Math.max(floors[index],ramp[z-front]);volume+=top-tops[index];tops[index]=top;
+        }
+        if(volume>budget){StructureCoverageService.note(Rejection.TERRAFORM_BUDGET_EXCEEDED,"addedSoil",volume);return null;}
+        return new Site(origin,new KurganEarthwork(x0,z0,width,depth,floors,tops,volume));
+    }

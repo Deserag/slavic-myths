@@ -1,0 +1,14 @@
+# RC2 — оставшиеся задачи
+
+- Клиент не запускался по выбору пользователя. Проверить визуал щита first/third person и blocking pose; книгу/кухню на GUI scale 2/3/4, 16:9 и wide resolutions; скриншоты поверхности курганов, включая raised Superflat Great.
+- Проверить реальные бои/AI, полноценный multiplayer, действительный перезаход игрока и сохранение состояния на реальном сервере. Серверные тесты и NBT roundtrip не называются реальным перезаходом.
+- Длинные ингредиенты/названия в кухне ограничены двумя строками внутри панели; полный состав и свойства результата доступны в tooltip. Книга прокручивается колесом над списком/статьёй.
+- Полная естественная частота/покрытие обычного мира и measured MSPT не приняты этим RC.
+- Разбойники/лагеря и Соловей отложены по заданию; их новый overhaul не выполнялся.
+- Новая rune system 0.9.11 и полный Equipment & Art Overhaul не заявлены завершёнными.
+
+Камень пути по существующему дизайну не teleport network и не содержит block entity: состояние хранится на игроке/в SavedData. Выход рунической наковальни — первый слот. Серверные результаты этой версии записаны в docs/verification/playtest-0.9.10-rc2/acceptance.json исходной ветки main.
+
+## Завершено в RC2
+
+Серверная приёмка: 9/9 hotfix/workstation tests; общая регрессия 27/27, включая сохранность кладки и доступный подход всех трёх курганов. Щит: реальное блокирование/износ/axe cooldown/repair/enchant support. Камень пути: menu/offering/XP/skill/navigation/NBT/range guard. Наковальня: forge/install/remove, materials/XP, validation, shift-click, return on close, component NBT. Кухня: все 12 рецептов/guards/consumption/tool wear/container remainder/shift-click/NBT. 16 missing door parents исправлены, asset reference issues: 0. Клиент не запускался; реальный multiplayer/перезаход и UI-визуал остаются ручными.

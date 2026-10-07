@@ -1,0 +1,169 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileKurganCheckJava UP-TO-DATE
+> Task :processKurganCheckResources UP-TO-DATE
+> Task :kurganCheckClasses UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :writeRuntimeChecksLegacyClasspath UP-TO-DATE
+> Task :prepareRuntimeChecksRun
+
+> Task :runRuntimeChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[14:47:55] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[14:47:55] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[14:47:55] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[14:47:56] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[14:47:56] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[14:47:56] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 3 dependencies adding them to mods collection
+[14:47:56] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		FallingTree 1.21.1.11 (fallingtree)
+		Jade 15.10.6+neoforge (jade)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 0.9.10-rc2 (slavicmyths)
+		Xaero's Minimap 26.5.0 (xaerominimap)
+		Xaero's World Map 1.45.0 (xaeroworldmap)
+		XaeroLib 1.7.1 (xaerolib)
+[14:47:56] [main/INFO] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Loading coremod script-engine for [xaerominimap, xaeroworldmap]
+[14:47:57] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[14:47:57] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[14:47:57] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[14:47:57] [main/WARN] [mixin/]: Reference map 'xaerolib.refmap.json' for xaerolib.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:47:57] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:47:57] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:47:57] [main/WARN] [mixin/]: Reference map 'xaerominimap.refmap.json' for xaerohud.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:47:57] [main/WARN] [mixin/]: Reference map 'xaerominimap.refmap.json' for xaerominimap.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:47:57] [main/WARN] [mixin/]: Reference map 'xaeroworldmap.refmap.json' for xaeroworldmap.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:47:58] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[14:47:58] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[14:48:03] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:48:03] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:48:03] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:48:03] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:48:03] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:48:03] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[14:48:03] [modloading-worker-0/INFO] [xa.co.HudMod/]: Registering common data for channel xaerominimap:main!
+[14:48:03] [modloading-worker-0/INFO] [xa.co.HudMod/]: Loading primary common config for channel xaerominimap:main!
+[14:48:03] [modloading-worker-0/INFO] [xa.co.HudMod/]: Loading server config profiles for channel xaerominimap:main!
+[14:48:03] [modloading-worker-0/INFO] [xa.ma.WorldMap/]: Registering common data for channel xaeroworldmap:main!
+[14:48:03] [modloading-worker-0/INFO] [xa.ma.WorldMap/]: Loading primary common config for channel xaeroworldmap:main!
+[14:48:03] [modloading-worker-0/INFO] [xa.ma.WorldMap/]: Loading server config profiles for channel xaeroworldmap:main!
+[14:48:03] [modloading-worker-0/INFO] [xa.li.XaeroLib/]: Registering common data for channel xaerolib:main!
+[14:48:03] [modloading-worker-0/INFO] [xa.li.XaeroLib/]: Loading primary common config for channel xaerolib:main!
+[14:48:03] [modloading-worker-0/INFO] [xa.li.XaeroLib/]: Loading server config profiles for channel xaerolib:main!
+[14:48:04] [modloading-worker-0/INFO] [xa.li.XaeroLib/]: Loading XaeroLib common 1/2!
+[14:48:04] [modloading-worker-0/INFO] [xa.li.XaeroLib/]: Loading XaeroLib server 1/2!
+[14:48:04] [modloading-worker-0/INFO] [xa.ma.se.WorldMapServer/]: Loading Xaero's World Map - Stage 1/2 (Server)
+[14:48:04] [modloading-worker-0/INFO] [xa.mi.XaeroMinimap/]: Loading Xaero's Minimap - Stage 1/2 (Server)
+[14:48:04] [modloading-sync-worker/INFO] [xa.ma.se.WorldMapServer/]: Loading Xaero's World Map - Stage 2/2 (Server)
+[14:48:04] [modloading-sync-worker/INFO] [xa.li.XaeroLib/]: Loading XaeroLib common 2/2!
+[14:48:04] [modloading-sync-worker/INFO] [xa.li.XaeroLib/]: Loading XaeroLib server 2/2!
+[14:48:04] [modloading-sync-worker/INFO] [xa.mi.XaeroMinimap/]: Loading Xaero's Minimap - Stage 2/2 (Server)
+[14:48:04] [modloading-worker-0/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.vanilla.VanillaPlugin
+[14:48:04] [modloading-worker-0/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.vanilla.VanillaPlugin in 23.48 ms
+[14:48:04] [modloading-worker-0/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.universal.UniversalPlugin
+[14:48:04] [modloading-worker-0/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.universal.UniversalPlugin in 4.447 ms
+[14:48:04] [modloading-worker-0/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.debug.DebugPlugin
+[14:48:04] [modloading-worker-0/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.debug.DebugPlugin in 14.80 μs
+[14:48:04] [modloading-worker-0/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.core.CorePlugin
+[14:48:04] [modloading-worker-0/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.core.CorePlugin in 81.20 μs
+[14:48:04] [modloading-worker-0/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.access.AccessibilityPlugin
+[14:48:04] [modloading-worker-0/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.access.AccessibilityPlugin in 18.40 μs
+[14:48:04] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[14:48:04] [main/WARN] [ne.ne.ne.co.CommonHooks/WP]: The following mods have version differences that were not resolved:
+slavicmyths (version 0.9.9-dev -> 0.9.10-rc2)
+Things may not work well.
+[14:48:04] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[14:48:04] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[14:48:04] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths]
+[14:48:05] [main/INFO] [minecraft/RecipeManager]: Loaded 1564 recipes
+[14:48:06] [main/INFO] [minecraft/AdvancementTree]: Loaded 1554 advancements
+[14:48:06] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[14:48:06] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[14:48:06] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[14:48:06] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[14:48:07] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 112 ms
+[14:48:07] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[14:48:07] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[14:48:07] [Server thread/INFO] [minecraft/GameTestServer]: 27 tests are now running at position -4798366, -59, -4818280!
+[14:48:07] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (27 tests)...
+[14:48:07] [Server thread/INFO] [minecraft/GameTestServer]: [                           ]
+COMBAT_POLISH_CLOCK_PASS registeredFighters=12 exclusiveGoal=true everyServerTick=true
+CAMP_CHUNK_RETRY_PASS fixtures=3 containers=3 atamans=1 expandedBoundsRetained=true
+KURGAN_RAISED_APPROACH_PASS tiers=3 lanes=3 headroom=4 maxStep=1 protectedMasonryPreserved=true
+KURGAN_RUNTIME_REGISTRY_TOTALS items=412 blocks=179
+KURGAN_RUNTIME_VARIANTS_PASS shapes=25 lootTables=7
+SPIRIT_RUNTIME_ATTACK_WINDOWS_PASS mobs=6 telegraphActiveRecoveryCooldown=true reloadCancels=true animationUsesWorldClock=true atamanHP=150 soloveyHP=250
+SWAMP_RUNTIME_NATURE_PASS placed=7 outsideBiomeRejected=true pineWaterRejected=true swampHP=36,72
+KURGAN_RAISED_DUNGEON_RELOAD_PASS completeChunkPlacement=true containers=3 pieceNbtReload=true inventoryPreserved=true
+[14:48:11] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 3189ms or 63 ticks behind
+NAVIGATION_RUNTIME_LIFECYCLE_AND_HOMES_PASS
+KURGAN_RUNTIME_PLACEMENT_PASS tiers=3 containers=29 pathSteps=2619 inventoryRetries=3
+PASS: armorer 4x4/mirror/excess input, JSON/network codecs, malformed recipes, shapeless matching
+PASS: seven existing custom damage messages, exhaustion/scaling and actual target codec roundtrips. Registry loading remains unverified.
+PASS: Yaga progression, reward visibility, idempotent completion, finite contract cooldown, temporary punishment, independent player NBT, unloaded NPC UUID, malformed contract repair, bounded seeded hut placement, floor, entrance, service anchor and articulated 3+1 claw geometry. No Minecraft launch.
+PASS: real vanilla block-state placement on Y=3/4/63 flatland; Y=0 surface; complete doors/lantern/plants; no reads of unloaded chunks; slope/water/container/building rejection; write/spawn/support rollback. Executed against initialized target registries; no Minecraft client launched.
+PORT_RUNTIME_EXISTING_CHECKS_PASS
+UNDERWATER_NATIVE_BED_PLACEMENT_PASS depths=12,24,48 variants=3 accepted=21 negativeBedY=true
+PORT_RUNTIME_DATA_PASS recipes=273 loot=267 advancements=154
+TERRAIN_RAW_NOISE_PARITY_PASS comparisons=36 seeds=3 bothHeightmaps=true
+PORT_RUNTIME_COMPONENTS_PASS
+SWAMP_RUNTIME_GEOMETRY_PASS shapes=400 bolotnikHP=48
+NAVIGATION_HEADLESS_PASS Statistics[samples=1000, minRadius=180, meanRadius=391.032, maxRadius=699, minFraction=0.30140274471224837, meanFraction=0.6716825690190789, maxFraction=0.949817881779704, inner25=0, middle25to50=110, outer50to85=757, edge85to95=133, outside=0]
+NAVIGATION_RUNTIME_MODEL_AND_WIRE_PASS
+WILDLIFE_CREATIVE_EGGS_PASS oneBear=true oneDeer=true legacyIdsPreserved=true
+MOB_RUNTIME_REGISTRY_AUDIT_PASS entries=48
+WILDLIFE_RUNTIME_SPAWN_PASS woodlandFloors=25 waterElevations=9 biomeEntries=68
+SWAMP_RUNTIME_BIOME_INJECTION_PASS features=5 bolotnikSpawn=true plainsUntouched=true
+SWAMP_RUNTIME_THIN_SUPERFLAT_PASS accepted=7
+SWAMP_RUNTIME_WORLDGEN_PASS types=7 attempts=7 deepWaterOutsideBiomeRejected=true
+KURGAN_THIN_SUPERFLAT_NATIVE_START_PASS tiers=3
+KURGAN_THIN_SUPERFLAT_PLAN_PASS plans=30 tiers=3 largestFill=1685122 saved=true
+NAVIGATION_RUNTIME_SERVER_AUTHORITY_PASS
+PORT_RUNTIME_REGISTRIES_PASS checked=794 entities=48
+COVERAGE_ACCEPTED_FLAT_MEASURED family=kurgan seed=0 accepted=757 rejected=78
+COVERAGE_ACCEPTED_FLAT_MEASURED family=bandit seed=0 accepted=835 rejected=0
+COVERAGE_ACCEPTED_FLAT_MEASURED family=swamp seed=0 accepted=3663 rejected=0
+COVERAGE_ACCEPTED_FLAT_MEASURED family=water seed=0 accepted=729 rejected=0
+COVERAGE_ACCEPTED_FLAT_MEASURED family=kurgan seed=17 accepted=761 rejected=74
+COVERAGE_ACCEPTED_FLAT_MEASURED family=bandit seed=17 accepted=834 rejected=1
+COVERAGE_ACCEPTED_FLAT_MEASURED family=swamp seed=17 accepted=3663 rejected=0
+COVERAGE_ACCEPTED_FLAT_MEASURED family=water seed=17 accepted=729 rejected=0
+COVERAGE_ACCEPTED_FLAT_MEASURED family=kurgan seed=731269 accepted=771 rejected=64
+COVERAGE_ACCEPTED_FLAT_MEASURED family=bandit seed=731269 accepted=834 rejected=1
+COVERAGE_ACCEPTED_FLAT_MEASURED family=swamp seed=731269 accepted=3663 rejected=0
+COVERAGE_ACCEPTED_FLAT_MEASURED family=water seed=731269 accepted=729 rejected=0
+COVERAGE_CROSS_FAMILY_PLAN_PROTECTION_PASS pairs=1909783
+COVERAGE_MEASURE_TIME_MS 181938 cache=FootprintStats[plans=2048, boxes=2916, hits=174909, misses=37439]
+SWAMP_RUNTIME_STRUCTURES_PASS templates=42 meaningfulLoot=96 supportedPosts=720 inventoryRetries=42
+KURGAN_RUNTIME_TRAP_PASS initialAmmo=8 afterShot=7 retriesDoNotRefill=true
+[14:51:20] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++_+++++++++++++++++++]
+WILDLIFE_RUNTIME_FAMILY_PASS rolls=1000 bearFamilies=110 stag=446 doe=462 deerFamilies=92 motherHP=120 cubHP=12 rollback=true ownedDefense=true combatBarLifecycle=true animationUsesWorldClock=true
+[14:51:20] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++]
+[14:51:20] [Server thread/INFO] [minecraft/GameTestServer]: ========= 27 GAME TESTS COMPLETE IN 3.226 min ======================
+[14:51:20] [Server thread/INFO] [minecraft/GameTestServer]: All 27 required tests passed :)
+[14:51:20] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[14:51:20] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[14:51:20] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[14:51:20] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[14:51:21] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[14:51:27] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[14:51:27] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[14:51:27] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[14:51:27] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[14:51:27] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[14:51:27] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[14:51:27] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+BUILD SUCCESSFUL in 3m 40s
+9 actionable tasks: 2 executed, 7 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

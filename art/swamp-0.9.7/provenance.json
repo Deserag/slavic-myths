@@ -1,0 +1,11 @@
+{
+  "mode": "builtin imagegen",
+  "authorSource": "art/swamp-0.9.7/bolotnik-source.png",
+  "runtimeSize": [
+    256,
+    256
+  ],
+  "purpose": "Wet bark, roots and muted moss UV material for separate stocky Bolotnik geometry",
+  "originalSource": "C:\\Users\\pavel\\.codex\\generated_images\\01a0edaf-309b-7b13-a7db-1c5911645c83\\exec-3e521bde-be9c-473f-a6ba-8f01e4cd214f.png",
+  "prompt": "Create one seamless square Minecraft mob skin material texture, flat orthographic 2D pixel art, NOT a portrait, NOT a sprite of a creature. This is a UV material atlas for a stocky swamp bog creature made of wet bark roots and moss. Entire image filled with coherent dark desaturated brown bark and muted swamp olive moss patches, sparse gray-brown root grooves and dull amber flecks. Vanilla Minecraft pixel clusters, 64x64 conceptual texels, no perspective, no text, no border, no eyes, no creature silhouette. Opaque all the way to edges. Save usable PNG asset."
+}

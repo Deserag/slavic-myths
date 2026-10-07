@@ -1,0 +1,107 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :clean
+
+> Task :createMinecraftArtifacts
+Loaded 145 artifacts from D:\slavic-myths\build\tmp\createMinecraftArtifacts\nfrt_artifact_manifest.properties
+*** Started working on downloadJson
+ DONE  Completed downloadJson in 0.05s
+*** Started working on downloadClient
+*** Started working on downloadServer
+*** Started working on downloadClientMappings
+ DONE  Completed downloadServer in 0.06s
+ DONE  Completed downloadClientMappings in 0.06s
+ DONE  Completed downloadClient in 0.06s
+*** Started working on mergeMappings
+ REUSE Used cache of mergeMappings in 0.00s
+*** Started working on stripClient
+ REUSE Used cache of stripClient in 0.01s
+*** Started working on extractServer
+ REUSE Used cache of extractServer in 0.00s
+*** Started working on stripServer
+ REUSE Used cache of stripServer in 0.00s
+*** Started working on merge
+ REUSE Used cache of merge in 0.00s
+*** Started working on rename
+ REUSE Used cache of rename in 0.00s
+*** Started working on decompile
+ REUSE Used cache of decompile in 0.00s
+*** Started working on inject
+ REUSE Used cache of inject in 0.00s
+*** Started working on patch
+ REUSE Used cache of patch in 0.00s
+*** Started working on applyNeoforgePatches
+ REUSE Used cache of applyNeoforgePatches in 0.00s
+*** Started working on transformSources
+ REUSE Used cache of transformSources in 0.00s
+*** Started working on recompile
+ REUSE Used cache of recompile in 0.01s
+*** Started working on sourcesWithNeoForge
+ REUSE Used cache of sourcesWithNeoForge in 0.00s
+*** Started working on compiledWithNeoForge
+ REUSE Used cache of compiledWithNeoForge in 0.00s
+*** Started working on sourcesAndCompiledWithNeoForge
+ REUSE Used cache of sourcesAndCompiledWithNeoForge in 0.00s
+Total runtime: 2.25s
+
+
+> Task :compileJava FROM-CACHE
+> Task :processResources
+> Task :classes
+> Task :jarJar NO-SOURCE
+> Task :jar
+> Task :assemble
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+> Task :compilePortCoreJava FROM-CACHE
+> Task :processPortCoreResources NO-SOURCE
+> Task :portCoreClasses UP-TO-DATE
+
+> Task :verifyKurganRework
+KURGAN_V2_TIER_PASS tier=0 samples=50 nodes=8..8 loops=1..1 rewards=3..3 meanOptional=25.0
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+KURGAN_V2_TIER_PASS tier=1 samples=50 nodes=23..23 loops=3..3 rewards=9..9 meanOptional=39.13043478260873
+KURGAN_V2_TIER_PASS tier=2 samples=50 nodes=33..43 loops=5..7 rewards=13..17 meanOptional=44.79492600422833
+KURGAN_V2_HEADLESS_PASS plans=150 archetypes=14 legacyVersions=1,2 clientLaunches=0
+
+> Task :verifyHunt
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: World Bosses regional coverage and negative coordinates; deterministic anchors and 35% policy; bounded side/back alignment; phase boundaries; active UUID persistence and seven-day death cooldown.
+PASS: Hunt I+II four targets/legacy migration/rain/fall/push contracts; HuntRecords owner/UUID/cooldown/NBT, unloaded ACTIVE preservation, CLEARED lifecycle, bonus schedules, bounded timings and independent nested pouch NBT. Minecraft launches: 0; GUI/AI runtime not tested.
+
+> Task :verifyKurgan
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: 1200 seeded plans, physical bounds/connectors, 10 module categories, loops, chunk-safe coffins, closed tomb shells, plan/instance/curse NBT, encounter lifecycle, 900 tier/disturbance rosters and six fixed combat profiles; 17005 ms. Minecraft launches: 0.
+
+> Task :verifyPortData
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: exact old hut blueprint, 64 bounded seeded candidates at negative/positive coordinates, rune NBT isolation, pool SavedData roundtrip. Target 1.21.1 API; no Minecraft launch. ItemStack components, full mod boot and world placement remain unverified.
+
+> Task :verifyPortCore
+> Task :compileKurganCheckJava FROM-CACHE
+> Task :processKurganCheckResources
+> Task :kurganCheckClasses
+
+> Task :verifyNavigation
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+NAVIGATION_HEADLESS_PASS Statistics[samples=1000, minRadius=180, meanRadius=391.032, maxRadius=699, minFraction=0.30140274471224837, meanFraction=0.6716825690190789, maxFraction=0.949817881779704, inner25=0, middle25to50=110, outer50to85=757, edge85to95=133, outside=0]
+
+> Task :verifyPortComponents
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: immutable rune values, JSON/packet codec, invalid data rejection and every horn target ID
+
+> Task :verifyPortPayloads
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: payload codecs, copied RPG NBT, finite controls and truncation. No mod/network/game bootstrap.
+
+> Task :verifyPortGeometry
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS: real ModelPart CPU vertices, fractional boxes, hierarchy/pivots, UV atlas, opacity and visibility. In-game visuals remain MANUAL.
+
+BUILD SUCCESSFUL in 1m 16s
+16 actionable tasks: 13 executed, 3 from cache
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

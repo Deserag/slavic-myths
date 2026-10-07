@@ -1,0 +1,38 @@
+{
+  "name": "Kurgan Enemies + Surface Palette + Cut Semantics Hotfix",
+  "target": "Minecraft 1.21.1 / NeoForge / Java 21",
+  "documents": [
+    "00_MASTER_HOTFIX_KURGAN_ENEMIES_SURFACE_BLEED.md",
+    "01_KURGAN_ENCOUNTER_SPAWN_FINAL.md",
+    "02_KURGAN_SURFACE_PALETTE_FINAL.md",
+    "03_CUT_BLEED_SEMANTICS_FINAL.md",
+    "04_TESTING_AND_ACCEPTANCE.md",
+    "REFERENCE_INDEX.md",
+    "HOW_TO_GIVE_TO_CODEX.md"
+  ],
+  "references": [
+    "ref_01_kurgan_blocks_and_decor.png",
+    "ref_02_kurgan_dungeon_cutaway.png",
+    "ref_03_kurgan_rooms_and_halls.png",
+    "ref_04_kurgan_corridors.png",
+    "ref_05_kurgan_bestiary.png",
+    "ref_06_upyr.png",
+    "ref_07_nav.png",
+    "ref_08_kurgan_druzhinnik.png",
+    "ref_09_kurgan_voevoda.png",
+    "ref_10_buried_volkhv.png",
+    "ref_11_unresting_prince.png"
+  ],
+  "locked": {
+    "cut_duration_seconds": 5,
+    "cut_max_stacks": 5,
+    "voevoda_hp": 150,
+    "buried_volkhv_hp": 150,
+    "unresting_prince_hp": 350,
+    "small_kurgan_min_custom_hostiles": 2,
+    "warrior_voevoda_count": 1,
+    "great_voevoda_count": 1,
+    "great_volkhv_count": 1,
+    "great_prince_count": 1
+  }
+}

@@ -1,0 +1,937 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                          ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+> Task :processResources
+> Task :classes
+
+> Task :compileKurganCheckJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processKurganCheckResources
+> Task :kurganCheckClasses
+
+> Task :downloadAssets
+Loaded 145 artifacts from D:\slavic-myths\build\tmp\downloadAssets\nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: C:\Users\pavel\.gradle\caches\neoformruntime\assets
+  DL    https://piston-meta.mojang.com/v1/packages/9b16298b1dc0697878cec88bb2d96168f5239e4f/17.json
+
+> Task :writeRuntimeChecksLegacyClasspath
+> Task :prepareRuntimeChecksRun
+
+> Task :runRuntimeChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[14:44:27] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[14:44:27] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[14:44:27] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[14:44:27] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[14:44:27] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[14:44:28] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 3 dependencies adding them to mods collection
+[14:44:28] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		FallingTree 1.21.1.11 (fallingtree)
+		Jade 15.10.6+neoforge (jade)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 0.9.10-rc2 (slavicmyths)
+		Xaero's Minimap 26.5.0 (xaerominimap)
+		Xaero's World Map 1.45.0 (xaeroworldmap)
+		XaeroLib 1.7.1 (xaerolib)
+[14:44:28] [main/INFO] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Loading coremod script-engine for [xaerominimap, xaeroworldmap]
+[14:44:29] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[14:44:29] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[14:44:29] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[14:44:29] [main/WARN] [mixin/]: Reference map 'xaerolib.refmap.json' for xaerolib.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:44:29] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:44:29] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:44:29] [main/WARN] [mixin/]: Reference map 'xaerominimap.refmap.json' for xaerohud.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:44:29] [main/WARN] [mixin/]: Reference map 'xaerominimap.refmap.json' for xaerominimap.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:44:29] [main/WARN] [mixin/]: Reference map 'xaeroworldmap.refmap.json' for xaeroworldmap.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:44:30] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[14:44:30] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[14:44:35] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:44:35] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:44:35] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:44:35] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:44:35] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:44:35] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[14:44:35] [modloading-worker-0/INFO] [xa.li.XaeroLib/]: Registering common data for channel xaerolib:main!
+[14:44:35] [modloading-worker-0/INFO] [xa.li.XaeroLib/]: Loading primary common config for channel xaerolib:main!
+[14:44:35] [modloading-worker-0/INFO] [xa.li.XaeroLib/]: Loading server config profiles for channel xaerolib:main!
+[14:44:35] [modloading-worker-0/INFO] [xa.ma.WorldMap/]: Registering common data for channel xaeroworldmap:main!
+[14:44:35] [modloading-worker-0/INFO] [xa.ma.WorldMap/]: Loading primary common config for channel xaeroworldmap:main!
+[14:44:35] [modloading-worker-0/INFO] [xa.ma.WorldMap/]: Loading server config profiles for channel xaeroworldmap:main!
+[14:44:35] [modloading-worker-0/INFO] [xa.co.HudMod/]: Registering common data for channel xaerominimap:main!
+[14:44:35] [modloading-worker-0/INFO] [xa.co.HudMod/]: Loading primary common config for channel xaerominimap:main!
+[14:44:35] [modloading-worker-0/INFO] [xa.co.HudMod/]: Loading server config profiles for channel xaerominimap:main!
+[14:44:36] [modloading-worker-0/INFO] [xa.li.XaeroLib/]: Loading XaeroLib common 1/2!
+[14:44:36] [modloading-worker-0/INFO] [xa.mi.XaeroMinimap/]: Loading Xaero's Minimap - Stage 1/2 (Server)
+[14:44:36] [modloading-worker-0/INFO] [xa.ma.se.WorldMapServer/]: Loading Xaero's World Map - Stage 1/2 (Server)
+[14:44:36] [modloading-worker-0/INFO] [xa.li.XaeroLib/]: Loading XaeroLib server 1/2!
+[14:44:36] [modloading-sync-worker/INFO] [xa.ma.se.WorldMapServer/]: Loading Xaero's World Map - Stage 2/2 (Server)
+[14:44:36] [modloading-sync-worker/INFO] [xa.li.XaeroLib/]: Loading XaeroLib common 2/2!
+[14:44:36] [modloading-sync-worker/INFO] [xa.li.XaeroLib/]: Loading XaeroLib server 2/2!
+[14:44:36] [modloading-sync-worker/INFO] [xa.mi.XaeroMinimap/]: Loading Xaero's Minimap - Stage 2/2 (Server)
+[14:44:36] [modloading-worker-0/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.vanilla.VanillaPlugin
+[14:44:36] [modloading-worker-0/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.vanilla.VanillaPlugin in 21.14 ms
+[14:44:36] [modloading-worker-0/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.universal.UniversalPlugin
+[14:44:36] [modloading-worker-0/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.universal.UniversalPlugin in 4.748 ms
+[14:44:36] [modloading-worker-0/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.debug.DebugPlugin
+[14:44:36] [modloading-worker-0/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.debug.DebugPlugin in 16.00 μs
+[14:44:36] [modloading-worker-0/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.core.CorePlugin
+[14:44:36] [modloading-worker-0/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.core.CorePlugin in 94.60 μs
+[14:44:36] [modloading-worker-0/INFO] [sn.ja.Jade/]: Start loading plugin from snownee.jade.addon.access.AccessibilityPlugin
+[14:44:36] [modloading-worker-0/INFO] [sn.ja.Jade/]: Loaded plugin from snownee.jade.addon.access.AccessibilityPlugin in 17.10 μs
+[14:44:36] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[14:44:36] [main/WARN] [ne.ne.ne.co.CommonHooks/WP]: The following mods have version differences that were not resolved:
+slavicmyths (version 0.9.9-dev -> 0.9.10-rc2)
+Things may not work well.
+[14:44:36] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[14:44:36] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[14:44:37] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_hotfix]
+[14:44:38] [main/INFO] [minecraft/RecipeManager]: Loaded 1564 recipes
+[14:44:38] [main/INFO] [minecraft/AdvancementTree]: Loaded 1554 advancements
+[14:44:38] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[14:44:38] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[14:44:39] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[14:44:39] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[14:44:39] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 138 ms
+[14:44:39] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[14:44:39] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[14:44:39] [Server thread/INFO] [minecraft/GameTestServer]: 9 tests are now running at position -5074646, -59, -4285084!
+[14:44:40] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (9 tests)...
+[14:44:40] [Server thread/INFO] [minecraft/GameTestServer]: [         ]
+[14:44:40] [Server thread/ERROR] [minecraft/LogTestReporter]: runicanvilserver failed at -5074636, -60, -4285084! Close lost/duplicated input
+RC2_PATH_SERVER_PASS RMB=true menu=true offerings=true XP=true skill=true navigation=true NBT=true rangeGuard=true realReconnectNotTested=true
+RC2_SHIELD_SERVER_PASS RMB=true frontBlock=true rearDamage=true durability=true axeCooldown=true repair=true unbreakingMending=true itemNBT=true visualsManual=true
+HOTFIX_QUOTAS_PASS plans=300 surfaceMaterials=9 adjacentEqual=0.8104543654551403
+[14:44:52] [Server thread/INFO] [minecraft/MinecraftServer]: Подготавливается территория: kurgan / 0. Задание 648a991e-1dae-4265-9c53-84e3af08d7c6
+[14:44:52] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 11477ms or 229 ticks behind
+HOTFIX_CUT_PASS timeline=0,40,80,90,100,160 expires=260 cap=5 sharedPlayers=2 damage=true immunity=true pvp=true team=true nativeNbt=true
+HOTFIX_NATIVE_PLACEMENT_PASS tiers=3 postProcess=true metadata=true quotas=true naturalFrequencyNotMeasured=true
+[14:44:53] [Server thread/INFO] [minecraft/MinecraftServer]: RCKitchen has made the advancement [Village Feast]
+RC2_KITCHEN_SERVER_PASS recipes=12 RMB=true toolGuard=true outputGuard=true consumption=true wear=true remainder=true shiftClick=true itemNBT=true
+[14:44:53] [Server thread/INFO] [minecraft/GameTestServer]: [_X++++_++]
+[14:44:53] [Server thread/INFO] [minecraft/GameTestServer]: [_X++++_++]
+[14:44:54] [Server thread/INFO] [minecraft/GameTestServer]: [_X++++_++]
+[14:44:54] [Server thread/INFO] [minecraft/GameTestServer]: [_X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [_X++++_++]
+HOTFIX_ACTUAL_CHUNK_LIFECYCLE_PASS activeUnloadReload=true sameOriginalUUIDs=true missingSlotRecovery=1 staleUUIDRejected=true clearedUnloadReload=true
+[14:44:55] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 23%, изменено блоков: 0
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 76%, изменено блоков: 0
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 47%, изменено блоков: 0
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:55] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 79%, изменено блоков: 0
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/MinecraftServer]: Чанки загружены. Подготовка окончательного положения на Y=-49
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 24%, изменено блоков: 0
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/MinecraftServer]: Проверка конечного места: 69%, изменено блоков: 0
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:56] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 72%, изменено блоков: 95453
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/MinecraftServer]: Территория подготовлена. Размещается структура...
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 34%, изменено блоков: 116409
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 74%, изменено блоков: 116409
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:57] [Server thread/INFO] [minecraft/MinecraftServer]: Структура создана: 571904, -48, 31874
+HOTFIX_ACTUAL_SURFACE_PASS tier=0 exposed=1595 palette={minecraft:coarse_dirt=310, minecraft:cobblestone=19, minecraft:dirt=186, minecraft:grass_block=890, minecraft:gravel=74, minecraft:moss_block=6, minecraft:mossy_cobblestone=5, minecraft:rooted_dirt=94, minecraft:stone=11}
+[14:44:58] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:58] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:58] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+HOTFIX_ACTUAL_POPULATION tier=0 mobs=[UPYR, UPYR, UPYR]
+[14:44:58] [Server thread/INFO] [minecraft/MinecraftServer]: Подготавливается территория: kurgan / 1. Задание 9e450cd5-e54e-493d-a097-b40fb5f315f2
+[14:44:58] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:58] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:58] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:58] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 8%, изменено блоков: 0
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 30%, изменено блоков: 0
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 51%, изменено блоков: 0
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 71%, изменено блоков: 0
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:44:59] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 92%, изменено блоков: 0
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 18%, изменено блоков: 0
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 35%, изменено блоков: 0
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 49%, изменено блоков: 0
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:00] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 59%, изменено блоков: 0
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 68%, изменено блоков: 0
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 76%, изменено блоков: 0
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 84%, изменено блоков: 0
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:01] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 91%, изменено блоков: 0
+[14:45:01] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/MinecraftServer]: Чанки загружены. Подготовка окончательного положения на Y=-32
+[14:45:02] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 0%, изменено блоков: 0
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 29%, изменено блоков: 0
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 59%, изменено блоков: 0
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:02] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 88%, изменено блоков: 0
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/MinecraftServer]: Проверка конечного места: 43%, изменено блоков: 0
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 10%, изменено блоков: 19717
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:03] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:04] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:04] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:04] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 32%, изменено блоков: 238656
+[14:45:04] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:04] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:04] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:04] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:04] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:04] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 51%, изменено блоков: 447458
+[14:45:04] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:04] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:04] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:04] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 70%, изменено блоков: 657929
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/MinecraftServer]: Территория подготовлена. Размещается структура...
+[14:45:05] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 0%, изменено блоков: 859571
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 8%, изменено блоков: 859571
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:05] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 16%, изменено блоков: 859571
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 24%, изменено блоков: 859571
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 32%, изменено блоков: 859571
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:06] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 40%, изменено блоков: 859571
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 48%, изменено блоков: 859571
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:07] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 55%, изменено блоков: 859571
+[14:45:07] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 63%, изменено блоков: 859571
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 71%, изменено блоков: 859571
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:08] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 79%, изменено блоков: 859571
+[14:45:08] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 87%, изменено блоков: 859571
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 95%, изменено блоков: 859571
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:09] [Server thread/INFO] [minecraft/MinecraftServer]: Структура создана: 576000, -31, 31874
+HOTFIX_ACTUAL_SURFACE_PASS tier=1 exposed=2324 palette={minecraft:coarse_dirt=347, minecraft:cobblestone=132, minecraft:dirt=172, minecraft:grass_block=1271, minecraft:gravel=99, minecraft:mossy_cobblestone=90, minecraft:rooted_dirt=84, minecraft:stone=129}
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+HOTFIX_ACTUAL_POPULATION tier=1 mobs=[VOEVODA, DRUZHINNIK, UPYR, NAV, UPYR, NAV, UPYR, DRUZHINNIK, UPYR, DRUZHINNIK]
+[14:45:10] [Server thread/INFO] [minecraft/MinecraftServer]: Подготавливается территория: kurgan / 2. Задание d155c10f-5b63-4d1c-83c2-8c668a8867d4
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:10] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 0%, изменено блоков: 0
+[14:45:10] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 18%, изменено блоков: 0
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 40%, изменено блоков: 0
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 60%, изменено блоков: 0
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 81%, изменено блоков: 0
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:11] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 3%, изменено блоков: 0
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 16%, изменено блоков: 0
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 23%, изменено блоков: 0
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 31%, изменено блоков: 0
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:12] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 38%, изменено блоков: 0
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 43%, изменено блоков: 0
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 48%, изменено блоков: 0
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 53%, изменено блоков: 0
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 58%, изменено блоков: 0
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 63%, изменено блоков: 0
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 68%, изменено блоков: 0
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 73%, изменено блоков: 0
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 78%, изменено блоков: 0
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:14] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 83%, изменено блоков: 0
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 88%, изменено блоков: 0
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 92%, изменено блоков: 0
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 97%, изменено блоков: 0
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/MinecraftServer]: Чанки загружены. Подготовка окончательного положения на Y=0
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:15] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 9%, изменено блоков: 0
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 26%, изменено блоков: 0
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 43%, изменено блоков: 0
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:16] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 60%, изменено блоков: 0
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 77%, изменено блоков: 0
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 94%, изменено блоков: 0
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:17] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/MinecraftServer]: Проверка конечного места: 26%, изменено блоков: 0
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/MinecraftServer]: Проверка конечного места: 46%, изменено блоков: 0
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/MinecraftServer]: Проверка конечного места: 66%, изменено блоков: 0
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:18] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/MinecraftServer]: Проверка конечного места: 96%, изменено блоков: 0
+[14:45:19] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 18%, изменено блоков: 206496
+[14:45:19] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:19] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 25%, изменено блоков: 425448
+[14:45:20] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:20] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:20] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:20] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:20] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:20] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 32%, изменено блоков: 648202
+[14:45:20] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:20] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:20] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:20] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:20] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:20] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 38%, изменено блоков: 867179
+[14:45:20] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:21] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:21] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:21] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:21] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:21] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 44%, изменено блоков: 1090332
+[14:45:21] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:21] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:21] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:21] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:21] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:21] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 51%, изменено блоков: 1310307
+[14:45:21] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:21] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:22] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:22] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:22] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:22] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 57%, изменено блоков: 1530761
+[14:45:22] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:22] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:22] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:22] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:22] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:22] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 63%, изменено блоков: 1746503
+[14:45:22] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:22] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:23] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:23] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:23] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:23] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 69%, изменено блоков: 1963201
+[14:45:23] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:23] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:23] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:23] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:23] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:23] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 75%, изменено блоков: 2184552
+[14:45:23] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:23] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:23] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 84%, изменено блоков: 2404995
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/MinecraftServer]: Территория подготовлена. Размещается структура...
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 0%, изменено блоков: 2546911
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 3%, изменено блоков: 2546911
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:24] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 6%, изменено блоков: 2546911
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 9%, изменено блоков: 2546911
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 12%, изменено блоков: 2546911
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:25] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 15%, изменено блоков: 2546911
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 18%, изменено блоков: 2546911
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 21%, изменено блоков: 2546911
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:26] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 24%, изменено блоков: 2546911
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 27%, изменено блоков: 2546911
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 30%, изменено блоков: 2546911
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:27] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 32%, изменено блоков: 2546911
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 35%, изменено блоков: 2546911
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 38%, изменено блоков: 2546911
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:28] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 41%, изменено блоков: 2546911
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 44%, изменено блоков: 2546911
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 47%, изменено блоков: 2546911
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:29] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 50%, изменено блоков: 2546911
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 53%, изменено блоков: 2546911
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 56%, изменено блоков: 2546911
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:30] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 59%, изменено блоков: 2546911
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 62%, изменено блоков: 2546911
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 65%, изменено блоков: 2546911
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:31] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 68%, изменено блоков: 2546911
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 70%, изменено блоков: 2546911
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 73%, изменено блоков: 2546911
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:32] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 76%, изменено блоков: 2546911
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 79%, изменено блоков: 2546911
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 82%, изменено блоков: 2546911
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:33] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 85%, изменено блоков: 2546911
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 88%, изменено блоков: 2546911
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 91%, изменено блоков: 2546911
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:34] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:35] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 94%, изменено блоков: 2546911
+[14:45:35] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:35] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:35] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:35] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:35] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:35] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 97%, изменено блоков: 2546911
+[14:45:35] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:35] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:35] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:35] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:35] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:35] [Server thread/INFO] [minecraft/MinecraftServer]: Структура создана: 580096, 1, 31874
+HOTFIX_ACTUAL_SURFACE_PASS tier=2 exposed=3668 palette={minecraft:coarse_dirt=254, minecraft:cobblestone=129, minecraft:dirt=342, minecraft:grass_block=2289, minecraft:gravel=261, minecraft:moss_block=6, minecraft:mossy_cobblestone=55, minecraft:rooted_dirt=203, minecraft:stone=129}
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]: [+X++++_++]
+HOTFIX_ACTUAL_POPULATION tier=2 mobs=[UPYR, NAV, VOEVODA, DRUZHINNIK, NAV, VOLKHV, UPYR, NAV, DRUZHINNIK, DRUZHINNIK, DRUZHINNIK, UPYR, UPYR, DRUZHINNIK, UPYR, UPYR, PRINCE]
+HOTFIX_COMMAND_ENCOUNTERS_PASS commands=3 tiers=3 naturalSpawning=false allRoomsSpawned=true clearedRevisit=true
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]: [+X+++++++]
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]: ========= 9 GAME TESTS COMPLETE IN 56.84 s ======================
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]:    - runicanvilserver
+[14:45:36] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[14:45:36] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[14:45:36] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[14:45:36] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[14:45:36] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[14:45:37] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[14:45:37] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[14:45:37] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[14:45:37] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[14:45:37] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[14:45:37] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[14:45:38] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runRuntimeChecks FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runRuntimeChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m 35s
+9 actionable tasks: 8 executed, 1 up-to-date

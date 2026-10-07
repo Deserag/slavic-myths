@@ -1,0 +1,10 @@
+{
+  "version": "1.1.4",
+  "checks": 8665,
+  "json": 2309,
+  "model_texture_links": 4952,
+  "minecraft_launches": 0,
+  "mode": "static/UV/resources/production",
+  "jar": "build\\libs\\slavicmyths-1.1.4.jar",
+  "sha256": "a8bd0e05f4c3e0139cb97e7071b5b1afbce2c9e57ba166043ae47ae0d2e54bab"
+}

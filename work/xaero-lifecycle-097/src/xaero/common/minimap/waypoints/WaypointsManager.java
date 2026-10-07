@@ -1,0 +1,1 @@
+package xaero.common.minimap.waypoints;public class WaypointsManager{public int updates;public boolean throwOnUpdate;public WaypointWorld world=new WaypointWorld();public WaypointWorld getCurrentWorld(){return world;}public void updateWaypoints(){updates++;if(throwOnUpdate)throw new NullPointerException("Closed session");}}

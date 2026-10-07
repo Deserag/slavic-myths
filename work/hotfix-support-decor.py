@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('src/main/java/org/slavicmyths/worldgen/ManualStructureJobs.java');s=p.read_text();s=s.replace('if(voxelY>clearTop[column]){column++;voxelY=Integer.MIN_VALUE;continue;}var pos=', 'if(voxelY>clearTop[column]){if(kurgan!=null)KurganSurface.decorate(world,anchor,new BlockPos(x,top[column],z),kurgan.seed,kurgan.radius,bounds);column++;voxelY=Integer.MIN_VALUE;continue;}var pos=');p.write_text(s)

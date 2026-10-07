@@ -1,0 +1,1 @@
+package xaero.common.minimap.waypoints;public enum WaypointVisibilityType{GLOBAL}

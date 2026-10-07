@@ -1,0 +1,1 @@
+package xaero.common;import xaero.common.minimap.waypoints.*;public class XaeroMinimapSession{public static XaeroMinimapSession current;public WaypointsManager manager;public static XaeroMinimapSession getCurrentSession(){return current;}public WaypointsManager getWaypointsManager(){return manager;}}

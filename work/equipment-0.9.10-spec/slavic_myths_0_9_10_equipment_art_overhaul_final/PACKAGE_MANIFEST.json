@@ -1,0 +1,32 @@
+{
+  "version": "0.9.10",
+  "name": "Equipment & Art Overhaul FINAL",
+  "target": "Minecraft 1.21.1 / NeoForge / Java 21",
+  "documents": [
+    "00_MASTER_PROMPT_0.9.10_EQUIPMENT_ART_OVERHAUL_FINAL.md",
+    "01_VISUAL_ART_AND_MODEL_STANDARD_FINAL.md",
+    "02_WEAPONS_INTRINSIC_ABILITIES_FINAL.md",
+    "03_ARMOR_SETS_AND_SET_BONUSES_FINAL.md",
+    "04_BOSS_MATERIALS_UPGRADE_CHAINS_AND_RECIPES_FINAL.md",
+    "05_STATS_BALANCE_ENCHANT_COMPAT_FINAL.md",
+    "06_OLD_EQUIPMENT_FULL_AUDIT_AND_REDRAW_RULES.md",
+    "07_TESTING_AND_ACCEPTANCE_FINAL.md",
+    "08_CODEX_NO_FANTASY_RULES.md",
+    "HOW_TO_GIVE_TO_CODEX.md"
+  ],
+  "references": [
+    "references/ref_01_equipment_armor_concepts.png"
+  ],
+  "locked_mechanics": {
+    "bleed_duration_seconds": 5,
+    "bleed_max_stacks": 5,
+    "fire_strike_cooldown_seconds": 12,
+    "thunder_discharge_cooldown_seconds": 8,
+    "knyaz_counter_window_seconds": 3,
+    "solovey_bow_proc_every_successful_hits": 5,
+    "harpoon_cooldown_seconds": 10,
+    "knyaz_last_stand_cooldown_seconds": 45,
+    "solovey_leap_cooldown_seconds": 12,
+    "depth_pulse_cooldown_seconds": 20
+  }
+}

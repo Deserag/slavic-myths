@@ -1,0 +1,1 @@
+package org.slavicmyths.navigation;public record SearchArea(int radius){public enum State{INSIDE_SEARCH_AREA,OUTSIDE}public State state(){return State.OUTSIDE;}}

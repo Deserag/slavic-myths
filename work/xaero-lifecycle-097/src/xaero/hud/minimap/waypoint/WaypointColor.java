@@ -1,0 +1,1 @@
+package xaero.hud.minimap.waypoint;public enum WaypointColor{DARK_PURPLE,AQUA,GRAY,DARK_RED,RED,GOLD,GREEN,YELLOW}

@@ -1,0 +1,23 @@
+{
+  "version": "0.9.7",
+  "package": "Swamp Rework Ultra",
+  "target": "Minecraft 1.21.1 / NeoForge / Java 21",
+  "docs": [
+    "00_MASTER_PROMPT_0.9.7_SWAMP_REWORK_ULTRA.md",
+    "01_SWAMP_STRUCTURES_AND_PURPOSES_ULTRA.md",
+    "02_SWAMP_MOBS_ROLES_AND_REBALANCE_ULTRA.md",
+    "03_SWAMP_TREES_NATURE_AND_FEATURES_ULTRA.md",
+    "04_SWAMP_BLOCKS_ORES_AND_MATERIALS_ULTRA.md",
+    "05_LOOT_REWARDS_AND_INTERACTION_LOOPS_ULTRA.md",
+    "06_WORLDGEN_WATER_AND_SPAWN_INTEGRATION_ULTRA.md",
+    "07_TESTING_AND_ACCEPTANCE_ULTRA.md",
+    "HOW_TO_GIVE_TO_CODEX.md",
+    "REFERENCE_INDEX.md"
+  ],
+  "references": [
+    "ref_01_swamp_structures_sheet.png",
+    "ref_02_swamp_rework_overview.png",
+    "ref_03_swamp_trees_sheet.png",
+    "ref_04_swamp_structures_alt_sheet.png"
+  ]
+}

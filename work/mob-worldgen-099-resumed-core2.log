@@ -1,0 +1,150 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                          ^
+D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                ^
+D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\world\WildlifeSpawns.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+4 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :compileKurganCheckJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processKurganCheckResources
+> Task :kurganCheckClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeRuntimeChecksLegacyClasspath UP-TO-DATE
+> Task :prepareRuntimeChecksRun UP-TO-DATE
+
+> Task :runRuntimeChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[00:13:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[00:13:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[00:13:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[00:13:57] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[00:13:57] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[00:13:57] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[00:13:57] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 0.9.7 (slavicmyths)
+[00:13:58] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[00:13:58] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[00:13:58] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[00:13:58] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[00:13:59] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[00:13:59] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[00:14:04] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[00:14:04] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[00:14:04] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[00:14:04] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[00:14:04] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[00:14:04] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[00:14:05] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[00:14:05] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[00:14:05] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[00:14:05] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths]
+[00:14:06] [main/INFO] [minecraft/RecipeManager]: Loaded 1564 recipes
+[00:14:06] [main/INFO] [minecraft/AdvancementTree]: Loaded 1554 advancements
+[00:14:06] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[00:14:06] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[00:14:07] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[00:14:07] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[00:14:07] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 111 ms
+[00:14:07] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[00:14:07] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[00:14:07] [Server thread/INFO] [minecraft/GameTestServer]: 24 tests are now running at position 10422796, -59, 14146180!
+[00:14:07] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (24 tests)...
+[00:14:07] [Server thread/INFO] [minecraft/GameTestServer]: [                        ]
+COMBAT_POLISH_CLOCK_PASS registeredFighters=12 exclusiveGoal=true everyServerTick=true
+CAMP_CHUNK_RETRY_PASS fixtures=3 containers=3 atamans=1 expandedBoundsRetained=true
+PORT_RUNTIME_COMPONENTS_PASS
+KURGAN_RAISED_APPROACH_PASS headroom=4 maxStep=1
+KURGAN_RUNTIME_REGISTRY_TOTALS items=412 blocks=179
+KURGAN_RUNTIME_VARIANTS_PASS shapes=25 lootTables=7
+SWAMP_RUNTIME_GEOMETRY_PASS shapes=400 bolotnikHP=48
+NAVIGATION_HEADLESS_PASS Statistics[samples=1000, minRadius=180, meanRadius=391.032, maxRadius=699, minFraction=0.30140274471224837, meanFraction=0.6716825690190789, maxFraction=0.949817881779704, inner25=0, middle25to50=110, outer50to85=757, edge85to95=133, outside=0]
+NAVIGATION_RUNTIME_MODEL_AND_WIRE_PASS
+SWAMP_RUNTIME_NATURE_PASS placed=7 outsideBiomeRejected=true pineWaterRejected=true swampHP=36,72
+WILDLIFE_CREATIVE_EGGS_PASS oneBear=true oneDeer=true legacyIdsPreserved=true
+MOB_RUNTIME_REGISTRY_AUDIT_PASS entries=48
+WILDLIFE_RUNTIME_SPAWN_PASS woodlandFloors=25 waterElevations=9 biomeEntries=68
+SWAMP_RUNTIME_BIOME_INJECTION_PASS features=5 bolotnikSpawn=true plainsUntouched=true
+SWAMP_RUNTIME_THIN_SUPERFLAT_PASS accepted=7
+SWAMP_RUNTIME_WORLDGEN_PASS types=7 attempts=7 deepWaterOutsideBiomeRejected=true
+KURGAN_THIN_SUPERFLAT_NATIVE_START_PASS tiers=3
+KURGAN_THIN_SUPERFLAT_PLAN_PASS plans=30 tiers=3 largestFill=1679872 saved=true
+NAVIGATION_RUNTIME_SERVER_AUTHORITY_PASS
+PORT_RUNTIME_DATA_PASS recipes=273 loot=267 advancements=154
+[00:14:10] [Server thread/ERROR] [minecraft/LogTestReporter]: acceptedflatnetworks failed at 10422816, -60, 14146202! No actual accepted starts kurgan_great seed=0
+NAVIGATION_RUNTIME_LIFECYCLE_AND_HOMES_PASS
+SWAMP_RUNTIME_STRUCTURES_PASS templates=42 meaningfulLoot=96 supportedPosts=720 inventoryRetries=42
+KURGAN_RUNTIME_PLACEMENT_PASS tiers=3 containers=29 pathSteps=2619 inventoryRetries=3
+[00:14:14] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 5027ms or 100 ticks behind
+SPIRIT_RUNTIME_ATTACK_WINDOWS_PASS mobs=6 telegraphActiveRecoveryCooldown=true reloadCancels=true atamanHP=150 soloveyHP=250
+PORT_RUNTIME_REGISTRIES_PASS checked=794 entities=48
+PASS: armorer 4x4/mirror/excess input, JSON/network codecs, malformed recipes, shapeless matching
+PASS: seven existing custom damage messages, exhaustion/scaling and actual target codec roundtrips. Registry loading remains unverified.
+PASS: Yaga progression, reward visibility, idempotent completion, finite contract cooldown, temporary punishment, independent player NBT, unloaded NPC UUID, malformed contract repair, bounded seeded hut placement, floor, entrance, service anchor and articulated 3+1 claw geometry. No Minecraft launch.
+PASS: real vanilla block-state placement on Y=3/4/63 flatland; Y=0 surface; complete doors/lantern/plants; no reads of unloaded chunks; slope/water/container/building rejection; write/spawn/support rollback. Executed against initialized target registries; no Minecraft client launched.
+PORT_RUNTIME_EXISTING_CHECKS_PASS
+[00:14:16] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++_+X++_++]
+KURGAN_RUNTIME_TRAP_PASS initialAmmo=8 afterShot=7 retriesDoNotRefill=true
+WILDLIFE_RUNTIME_FAMILY_PASS rolls=1000 bearFamilies=110 stag=446 doe=462 deerFamilies=92 motherHP=120 cubHP=12 rollback=true
+[00:14:17] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++X+++++]
+[00:14:17] [Server thread/INFO] [minecraft/GameTestServer]: ========= 24 GAME TESTS COMPLETE IN 9.854 s ======================
+[00:14:17] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[00:14:17] [Server thread/INFO] [minecraft/GameTestServer]:    - acceptedflatnetworks
+[00:14:17] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[00:14:17] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[00:14:17] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[00:14:17] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[00:14:18] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[00:14:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[00:14:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[00:14:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[00:14:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[00:14:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[00:14:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[00:14:25] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runRuntimeChecks FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runRuntimeChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 41s
+9 actionable tasks: 4 executed, 5 up-to-date

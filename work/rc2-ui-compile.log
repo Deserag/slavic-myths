@@ -1,0 +1,48 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                          ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\KitchenScreen.java:37: error: variable h is already defined in method renderBg(GuiGraphics,float,int,int)
+  if(KitchenRecipes.COUNT>rows()){int h=imageHeight-61,thumb=Math.max(12,h*rows()/KitchenRecipes.COUNT),dy=(h-thumb)*offset/(KitchenRecipes.COUNT-rows());g.fill(leftPos+recipeW-3,topPos+45,leftPos+recipeW-1,topPos+45+h,0xffad9776);g.fill(leftPos+recipeW-3,topPos+45+dy,leftPos+recipeW-1,topPos+45+dy+thumb,FolkUi.RED);}
+                                      ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error
+2 warnings
+
+> Task :compileJava FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  Note: Recompile with -Xlint:deprecation for details.
+  Note: Some input files use or override a deprecated API.
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+  @net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                           ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+  @net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                            ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\KitchenScreen.java:37: error: variable h is already defined in method renderBg(GuiGraphics,float,int,int)
+    if(KitchenRecipes.COUNT>rows()){int h=imageHeight-61,thumb=Math.max(12,h*rows()/KitchenRecipes.COUNT),dy=(h-thumb)*offset/(KitchenRecipes.COUNT-rows());g.fill(leftPos+recipeW-3,topPos+45,leftPos+recipeW-1,topPos+45+h,0xffad9776);g.fill(leftPos+recipeW-3,topPos+45+dy,leftPos+recipeW-1,topPos+45+dy+thumb,FolkUi.RED);}
+                                        ^
+  1 error
+  2 warnings
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 12s
+2 actionable tasks: 1 executed, 1 up-to-date

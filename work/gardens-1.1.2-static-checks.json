@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checks": 4973,
+  "jsonFiles": 2262,
+  "modelTextureReferences": 4624,
+  "canopyLeafPositions": 74,
+  "fruitablePositions": 26,
+  "gameLaunches": 0,
+  "jar": "build/libs/slavicmyths-1.1.2.jar",
+  "sha256": "50565dc611fae9dfc540e1db087363c8bfddf73a4741f7061262b632e7407453",
+  "scope": "Static resource/production verification only. Gameplay and GUI rows require manual acceptance."
+}

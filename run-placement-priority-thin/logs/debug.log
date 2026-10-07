@@ -1,0 +1,1635 @@
+[06окт.2026 11:13:19.065] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[06окт.2026 11:13:19.069] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[06окт.2026 11:13:19.071] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[06окт.2026 11:13:19.189] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[06окт.2026 11:13:19.233] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[06окт.2026 11:13:19.587] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[06окт.2026 11:13:19.589] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 0.9.9-dev (slavicmyths)
+[06окт.2026 11:13:20.437] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[06окт.2026 11:13:20.444] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[06окт.2026 11:13:20.518] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[06окт.2026 11:13:20.519] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[06окт.2026 11:13:21.375] [main/WARN] [oshi.driver.windows.perfmon.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[06окт.2026 11:13:21.675] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[06окт.2026 11:13:28.232] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06окт.2026 11:13:28.235] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06окт.2026 11:13:28.240] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[06окт.2026 11:13:28.243] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[06окт.2026 11:13:28.245] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06окт.2026 11:13:28.321] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[06окт.2026 11:13:29.463] [main/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[06окт.2026 11:13:29.547] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[06окт.2026 11:13:29.548] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[06окт.2026 11:13:29.555] [main/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_sequential_placement]
+[06окт.2026 11:13:30.787] [main/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1564 recipes
+[06окт.2026 11:13:30.982] [main/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1554 advancements
+[06окт.2026 11:13:30.991] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[06окт.2026 11:13:30.994] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[06окт.2026 11:13:31.855] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[06окт.2026 11:13:31.910] [worldgen/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 2%
+[06окт.2026 11:13:31.969] [Server thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 115 ms
+[06окт.2026 11:13:31.982] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: Started game test server
+[06окт.2026 11:13:32.003] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[06окт.2026 11:13:32.064] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: 1 tests are now running at position 14562322, -59, -4923240!
+[06окт.2026 11:13:32.341] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestRunner/]: Running test batch 'defaultBatch:0' (1 tests)...
+[06окт.2026 11:13:32.426] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [ ]
+[06окт.2026 11:13:32.535] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготавливается территория: kurgan / 0. Задание ecdc24f7-c39a-464b-89d0-15fefd2afe74
+[06окт.2026 11:13:32.584] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:32.691] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:32.793] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:32.873] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:32.958] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:33.020] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 54%, изменено блоков: 0
+[06окт.2026 11:13:33.039] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:33.174] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:33.277] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:33.476] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:33.550] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:33.598] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 25%, изменено блоков: 0
+[06окт.2026 11:13:33.613] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:33.686] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:33.758] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:33.827] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:33.891] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:33.951] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 60%, изменено блоков: 0
+[06окт.2026 11:13:33.974] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.056] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.126] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.187] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.267] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.325] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 93%, изменено блоков: 0
+[06окт.2026 11:13:34.346] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.404] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Чанки загружены. Подготовка окончательного положения на Y=-49
+[06окт.2026 11:13:34.422] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.511] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.600] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.694] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.757] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Планирование грунта: 74%, изменено блоков: 0
+[06окт.2026 11:13:34.777] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.859] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:34.981] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:35.102] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:35.217] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:35.300] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 30%, изменено блоков: 25212
+[06окт.2026 11:13:35.331] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:35.454] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:35.571] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:35.666] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Территория подготовлена. Размещается структура...
+[06окт.2026 11:13:35.695] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:35.788] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:35.855] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 14%, изменено блоков: 114624
+[06окт.2026 11:13:35.875] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:35.956] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:36.039] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:36.158] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:36.262] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:36.347] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 54%, изменено блоков: 114624
+[06окт.2026 11:13:36.367] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:36.462] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:36.556] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:36.661] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:36.749] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:36.814] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 94%, изменено блоков: 114624
+[06окт.2026 11:13:36.838] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:36.882] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Структура создана: 14570514, -48, -4915174
+[06окт.2026 11:13:37.242] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготавливается территория: kurgan / 1. Задание df804fd5-d8e6-4362-8371-3c1d6e937ddf
+[06окт.2026 11:13:37.297] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:37.380] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:37.460] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:37.544] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:37.610] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:37.654] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 21%, изменено блоков: 0
+[06окт.2026 11:13:37.677] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:37.749] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:37.818] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:37.881] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:37.946] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:37.984] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 42%, изменено блоков: 0
+[06окт.2026 11:13:38.006] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:38.094] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:38.293] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:38.361] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:38.437] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:38.484] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 63%, изменено блоков: 0
+[06окт.2026 11:13:38.532] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:38.610] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:38.676] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:38.749] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:38.816] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:38.860] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 85%, изменено блоков: 0
+[06окт.2026 11:13:38.883] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:38.952] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:39.038] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:39.113] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:39.124] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 1 / 16
+[06окт.2026 11:13:39.362] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:39.416] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 6%, изменено блоков: 0
+[06окт.2026 11:13:39.438] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:39.500] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:39.645] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:39.749] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:39.849] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:39.889] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 27%, изменено блоков: 0
+[06окт.2026 11:13:39.914] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:39.982] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.048] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.114] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.179] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.218] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 51%, изменено блоков: 0
+[06окт.2026 11:13:40.241] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.301] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.362] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.427] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.485] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.530] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 72%, изменено блоков: 0
+[06окт.2026 11:13:40.550] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.613] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.676] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.738] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.803] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.842] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 95%, изменено блоков: 0
+[06окт.2026 11:13:40.862] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:40.916] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 2 / 16
+[06окт.2026 11:13:41.105] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:41.280] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:41.347] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:41.421] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:41.471] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 16%, изменено блоков: 0
+[06окт.2026 11:13:41.494] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:41.566] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:41.641] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:41.705] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:41.770] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:41.811] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 38%, изменено блоков: 0
+[06окт.2026 11:13:41.834] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:41.895] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:41.962] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.027] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.090] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.130] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 62%, изменено блоков: 0
+[06окт.2026 11:13:42.153] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.218] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.286] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.351] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.414] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.458] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 86%, изменено блоков: 0
+[06окт.2026 11:13:42.480] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.543] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.611] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.646] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 3 / 16
+[06окт.2026 11:13:42.816] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.880] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:42.919] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 8%, изменено блоков: 0
+[06окт.2026 11:13:42.940] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.003] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.061] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.122] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.182] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.224] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 28%, изменено блоков: 0
+[06окт.2026 11:13:43.246] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.380] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.450] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.514] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.579] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.616] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 51%, изменено блоков: 0
+[06окт.2026 11:13:43.637] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.700] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.766] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.824] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.887] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:43.928] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 73%, изменено блоков: 0
+[06окт.2026 11:13:43.950] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.011] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.084] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.142] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.201] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.241] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 96%, изменено блоков: 0
+[06окт.2026 11:13:44.262] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.295] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 4 / 16
+[06окт.2026 11:13:44.461] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.601] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.673] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.735] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.778] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 17%, изменено блоков: 0
+[06окт.2026 11:13:44.799] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.861] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.921] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:44.987] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.051] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.093] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 40%, изменено блоков: 0
+[06окт.2026 11:13:45.115] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.177] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.249] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.330] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.394] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.435] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 63%, изменено блоков: 0
+[06окт.2026 11:13:45.457] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.522] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.583] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.651] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.712] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.751] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 87%, изменено блоков: 0
+[06окт.2026 11:13:45.772] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.836] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.899] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:45.911] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 5 / 16
+[06окт.2026 11:13:46.085] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.148] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.186] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 10%, изменено блоков: 0
+[06окт.2026 11:13:46.208] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.340] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.405] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.476] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.540] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.583] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 32%, изменено блоков: 0
+[06окт.2026 11:13:46.605] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.667] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.726] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.793] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.854] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.893] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 55%, изменено блоков: 0
+[06окт.2026 11:13:46.914] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:46.973] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.030] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.093] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.152] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.190] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 77%, изменено блоков: 0
+[06окт.2026 11:13:47.214] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.271] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.334] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.401] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.459] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.496] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 98%, изменено блоков: 0
+[06окт.2026 11:13:47.519] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.596] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.662] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.735] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.809] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.853] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 27%, изменено блоков: 0
+[06окт.2026 11:13:47.876] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:47.939] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.006] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.075] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.142] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.184] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 44%, изменено блоков: 0
+[06окт.2026 11:13:48.204] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.266] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.328] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.397] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.456] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.498] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 58%, изменено блоков: 0
+[06окт.2026 11:13:48.518] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.577] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.638] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.707] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.766] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.805] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 69%, изменено блоков: 0
+[06окт.2026 11:13:48.827] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.885] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:48.949] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.016] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.075] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.114] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 79%, изменено блоков: 0
+[06окт.2026 11:13:49.137] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.200] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.262] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.326] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.383] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.422] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 88%, изменено блоков: 0
+[06окт.2026 11:13:49.443] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.500] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.566] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.625] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.684] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.723] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 96%, изменено блоков: 0
+[06окт.2026 11:13:49.744] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.804] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.828] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Чанки загружены. Подготовка окончательного положения на Y=-32
+[06окт.2026 11:13:49.881] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:49.964] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.046] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.103] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Планирование грунта: 18%, изменено блоков: 0
+[06окт.2026 11:13:50.131] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.210] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.300] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.383] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.469] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.520] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Планирование грунта: 48%, изменено блоков: 0
+[06окт.2026 11:13:50.547] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.623] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.709] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.790] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.864] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:50.910] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Планирование грунта: 77%, изменено блоков: 0
+[06окт.2026 11:13:50.938] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.022] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.095] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.180] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.272] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.332] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверка конечного места: 23%, изменено блоков: 0
+[06окт.2026 11:13:51.360] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.443] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.528] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.620] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.705] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.759] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверка конечного места: 76%, изменено блоков: 0
+[06окт.2026 11:13:51.787] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.872] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:51.985] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:52.090] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:52.198] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:52.264] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 27%, изменено блоков: 172282
+[06окт.2026 11:13:52.310] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:52.418] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:52.528] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:52.635] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:52.749] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:52.815] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 48%, изменено блоков: 409751
+[06окт.2026 11:13:52.855] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:52.963] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:53.083] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:53.193] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:53.300] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:53.380] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 69%, изменено блоков: 642661
+[06окт.2026 11:13:53.419] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:53.524] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:53.627] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:53.743] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:53.847] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:53.855] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Территория подготовлена. Размещается структура...
+[06окт.2026 11:13:53.891] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 0%, изменено блоков: 856258
+[06окт.2026 11:13:53.914] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:53.984] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.047] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.115] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.197] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.254] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 9%, изменено блоков: 856258
+[06окт.2026 11:13:54.284] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.374] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.453] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.532] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.614] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.677] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 17%, изменено блоков: 856258
+[06окт.2026 11:13:54.710] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.800] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.885] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:54.973] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.062] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.120] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 26%, изменено блоков: 856258
+[06окт.2026 11:13:55.147] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.241] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.323] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.406] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.490] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.546] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 35%, изменено блоков: 856258
+[06окт.2026 11:13:55.578] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.665] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.746] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.833] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.912] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:55.965] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 43%, изменено блоков: 856258
+[06окт.2026 11:13:55.997] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:56.093] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:56.193] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:56.297] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:56.392] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:56.455] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 52%, изменено блоков: 856258
+[06окт.2026 11:13:56.489] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:56.579] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:56.669] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:56.759] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:56.848] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:56.908] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 60%, изменено блоков: 856258
+[06окт.2026 11:13:56.943] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:57.028] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:57.140] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:57.240] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:57.340] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:57.396] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 69%, изменено блоков: 856258
+[06окт.2026 11:13:57.430] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:57.519] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:57.606] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:57.694] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:57.778] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:57.832] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 77%, изменено блоков: 856258
+[06окт.2026 11:13:57.864] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:57.944] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.024] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.108] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.201] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.259] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 86%, изменено блоков: 856258
+[06окт.2026 11:13:58.292] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.375] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.458] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.546] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.631] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.685] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 94%, изменено блоков: 856258
+[06окт.2026 11:13:58.713] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.795] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.876] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:58.929] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Структура создана: 14570642, -31, -4915174
+[06окт.2026 11:13:59.146] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготавливается территория: kurgan / 2. Задание 2605cce0-e6f2-474a-9f9a-6d7756619e1b
+[06окт.2026 11:13:59.162] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.224] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.294] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.357] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.419] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.466] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 21%, изменено блоков: 0
+[06окт.2026 11:13:59.478] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.538] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.600] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.661] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.719] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.764] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 42%, изменено блоков: 0
+[06окт.2026 11:13:59.776] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.834] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.896] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:13:59.953] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.011] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.061] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 62%, изменено блоков: 0
+[06окт.2026 11:14:00.074] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.134] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.202] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.262] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.322] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.369] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 83%, изменено блоков: 0
+[06окт.2026 11:14:00.381] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.439] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.498] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.556] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.595] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 1 / 16
+[06окт.2026 11:14:00.627] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.675] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 3%, изменено блоков: 0
+[06окт.2026 11:14:00.689] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.748] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.811] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.871] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.930] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:00.976] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 25%, изменено блоков: 0
+[06окт.2026 11:14:00.989] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.047] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.105] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.165] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.225] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.270] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 46%, изменено блоков: 0
+[06окт.2026 11:14:01.282] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.342] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.403] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.462] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.520] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.566] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 66%, изменено блоков: 0
+[06окт.2026 11:14:01.578] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.636] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.695] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.755] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.812] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.858] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 87%, изменено блоков: 0
+[06окт.2026 11:14:01.871] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.928] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:01.985] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.035] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 2 / 16
+[06окт.2026 11:14:02.056] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.118] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.168] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 7%, изменено блоков: 0
+[06окт.2026 11:14:02.180] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.238] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.298] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.357] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.415] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.462] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 28%, изменено блоков: 0
+[06окт.2026 11:14:02.474] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.533] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.593] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.654] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.719] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.764] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 50%, изменено блоков: 0
+[06окт.2026 11:14:02.840] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.904] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:02.973] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.044] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.109] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.159] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 73%, изменено блоков: 0
+[06окт.2026 11:14:03.170] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.234] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.298] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.368] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.434] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.503] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 98%, изменено блоков: 0
+[06окт.2026 11:14:03.516] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.522] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 3 / 16
+[06окт.2026 11:14:03.700] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.760] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.825] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.900] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:03.963] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 18%, изменено блоков: 0
+[06окт.2026 11:14:03.979] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.064] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.146] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.224] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.298] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.359] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 40%, изменено блоков: 0
+[06окт.2026 11:14:04.375] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.445] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.511] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.574] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.646] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.701] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 61%, изменено блоков: 0
+[06окт.2026 11:14:04.716] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.791] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.863] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:04.939] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.005] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.059] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 81%, изменено блоков: 0
+[06окт.2026 11:14:05.074] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.136] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.202] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.262] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.323] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.337] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 4 / 16
+[06окт.2026 11:14:05.392] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 2%, изменено блоков: 0
+[06окт.2026 11:14:05.405] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.463] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.527] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.589] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.651] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.697] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 22%, изменено блоков: 0
+[06окт.2026 11:14:05.709] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.768] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.828] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.888] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.947] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:05.994] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 43%, изменено блоков: 0
+[06окт.2026 11:14:06.006] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.064] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.196] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.265] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.327] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.392] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 66%, изменено блоков: 0
+[06окт.2026 11:14:06.409] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.501] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.573] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.647] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.723] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.781] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 90%, изменено блоков: 0
+[06окт.2026 11:14:06.794] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.871] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:06.925] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 5 / 16
+[06окт.2026 11:14:07.048] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.119] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.183] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.235] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 12%, изменено блоков: 0
+[06окт.2026 11:14:07.247] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.307] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.369] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.431] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.491] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.542] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 32%, изменено блоков: 0
+[06окт.2026 11:14:07.555] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.616] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.679] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.738] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.800] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.848] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 53%, изменено блоков: 0
+[06окт.2026 11:14:07.860] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.921] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:07.980] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.040] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.104] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.151] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 75%, изменено блоков: 0
+[06окт.2026 11:14:08.162] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.223] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.280] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.339] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.399] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.446] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 95%, изменено блоков: 0
+[06окт.2026 11:14:08.458] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.507] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 6 / 16
+[06окт.2026 11:14:08.594] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.659] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.729] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.789] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.840] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 16%, изменено блоков: 0
+[06окт.2026 11:14:08.852] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.911] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:08.972] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.038] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.105] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.153] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 38%, изменено блоков: 0
+[06окт.2026 11:14:09.168] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.228] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.292] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.364] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.426] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.474] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 62%, изменено блоков: 0
+[06окт.2026 11:14:09.486] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.545] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.611] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.681] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.743] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.791] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 86%, изменено блоков: 0
+[06окт.2026 11:14:09.805] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.869] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.933] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:09.965] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 7 / 16
+[06окт.2026 11:14:10.132] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.195] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.248] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 8%, изменено блоков: 0
+[06окт.2026 11:14:10.261] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.325] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.384] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.444] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.507] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.556] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 30%, изменено блоков: 0
+[06окт.2026 11:14:10.567] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.700] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.767] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.831] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.902] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:10.951] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 52%, изменено блоков: 0
+[06окт.2026 11:14:10.965] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.024] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.090] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.156] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.229] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.278] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 76%, изменено блоков: 0
+[06окт.2026 11:14:11.294] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.354] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.417] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.484] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.556] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.605] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 98%, изменено блоков: 0
+[06окт.2026 11:14:11.617] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.629] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 8 / 16
+[06окт.2026 11:14:11.789] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:11.935] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.001] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.060] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.117] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 20%, изменено блоков: 0
+[06окт.2026 11:14:12.130] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.193] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.251] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.315] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.376] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.432] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 42%, изменено блоков: 0
+[06окт.2026 11:14:12.446] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.508] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.572] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.631] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.697] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.751] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 65%, изменено блоков: 0
+[06окт.2026 11:14:12.763] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.827] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.888] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:12.949] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.016] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 88%, изменено блоков: 0
+[06окт.2026 11:14:13.080] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.140] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.201] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.212] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 9 / 16
+[06окт.2026 11:14:13.374] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.433] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.481] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 10%, изменено блоков: 0
+[06окт.2026 11:14:13.493] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.558] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.619] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.676] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.733] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.780] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 31%, изменено блоков: 0
+[06окт.2026 11:14:13.792] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.853] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.912] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:13.970] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.029] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.077] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 52%, изменено блоков: 0
+[06окт.2026 11:14:14.090] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.154] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.215] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.272] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.331] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.378] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 72%, изменено блоков: 0
+[06окт.2026 11:14:14.390] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.508] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.579] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.648] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.715] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.773] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 95%, изменено блоков: 0
+[06окт.2026 11:14:14.785] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:14.854] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 10 / 16
+[06окт.2026 11:14:14.990] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.132] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.199] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.260] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.309] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 16%, изменено блоков: 0
+[06окт.2026 11:14:15.322] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.377] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.445] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.505] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.568] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.617] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 38%, изменено блоков: 0
+[06окт.2026 11:14:15.630] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.692] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.762] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.831] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.889] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:15.942] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 62%, изменено блоков: 0
+[06окт.2026 11:14:15.954] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.015] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.085] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.148] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.208] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.256] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 86%, изменено блоков: 0
+[06окт.2026 11:14:16.269] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.329] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.397] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.440] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 11 / 16
+[06окт.2026 11:14:16.590] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.656] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.704] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 8%, изменено блоков: 0
+[06окт.2026 11:14:16.716] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.775] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.912] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:16.984] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.048] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.099] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 31%, изменено блоков: 0
+[06окт.2026 11:14:17.112] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.170] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.234] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.297] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.360] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.410] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 53%, изменено блоков: 0
+[06окт.2026 11:14:17.421] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.483] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.551] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.622] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.690] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.742] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 77%, изменено блоков: 0
+[06окт.2026 11:14:17.756] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.816] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.873] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:17.944] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.004] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.051] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 98%, изменено блоков: 0
+[06окт.2026 11:14:18.058] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 12 / 16
+[06окт.2026 11:14:18.179] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.318] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.383] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.449] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.529] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.577] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 21%, изменено блоков: 0
+[06окт.2026 11:14:18.592] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.652] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.715] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.779] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.853] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.901] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 43%, изменено блоков: 0
+[06окт.2026 11:14:18.913] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:18.976] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.037] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.104] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.173] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.221] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 67%, изменено блоков: 0
+[06окт.2026 11:14:19.236] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.299] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.364] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.432] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.503] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.554] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 90%, изменено блоков: 0
+[06окт.2026 11:14:19.573] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.651] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.702] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 13 / 16
+[06окт.2026 11:14:19.845] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.910] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:19.971] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.021] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 12%, изменено блоков: 0
+[06окт.2026 11:14:20.033] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.170] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.230] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.298] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.363] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.418] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 35%, изменено блоков: 0
+[06окт.2026 11:14:20.429] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.492] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.558] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.622] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.686] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.741] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 57%, изменено блоков: 0
+[06окт.2026 11:14:20.754] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.813] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.879] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.940] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:20.997] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:21.061] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 78%, изменено блоков: 0
+[06окт.2026 11:14:21.075] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:21.137] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:21.202] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:21.261] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:21.320] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:21.372] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Выбор площадки, изменено блоков: 0
+[06окт.2026 11:14:21.373] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 14 / 16
+[06окт.2026 11:14:21.604] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:21.671] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:21.744] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:21.809] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:21.873] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:21.931] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 20%, изменено блоков: 0
+[06окт.2026 11:14:21.944] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.010] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.071] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.142] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.202] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.257] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 43%, изменено блоков: 0
+[06окт.2026 11:14:22.268] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.333] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.397] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.461] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.523] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.580] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 67%, изменено блоков: 0
+[06окт.2026 11:14:22.593] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.656] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.720] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.781] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.849] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.910] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 91%, изменено блоков: 0
+[06окт.2026 11:14:22.925] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:22.993] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.066] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.146] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.209] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.270] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 12%, изменено блоков: 0
+[06окт.2026 11:14:23.288] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.354] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.421] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.487] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.548] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.604] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 23%, изменено блоков: 0
+[06окт.2026 11:14:23.621] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.685] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.749] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.820] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.883] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:23.935] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 32%, изменено блоков: 0
+[06окт.2026 11:14:23.956] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.026] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.086] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.146] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.210] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.272] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 38%, изменено блоков: 0
+[06окт.2026 11:14:24.286] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.357] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.415] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.480] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.541] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.602] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 44%, изменено блоков: 0
+[06окт.2026 11:14:24.614] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.675] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.734] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.802] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.861] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.916] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 50%, изменено блоков: 0
+[06окт.2026 11:14:24.929] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:24.995] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.057] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.117] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.179] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.234] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 55%, изменено блоков: 0
+[06окт.2026 11:14:25.246] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.307] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.375] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.437] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.500] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.556] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 60%, изменено блоков: 0
+[06окт.2026 11:14:25.568] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.633] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.696] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.756] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.828] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.879] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 66%, изменено блоков: 0
+[06окт.2026 11:14:25.894] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:25.956] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.025] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.086] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.158] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.211] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 71%, изменено блоков: 0
+[06окт.2026 11:14:26.224] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.286] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.347] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.414] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.481] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.534] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 77%, изменено блоков: 0
+[06окт.2026 11:14:26.548] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.612] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.680] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.746] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.835] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.908] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 82%, изменено блоков: 0
+[06окт.2026 11:14:26.926] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:26.988] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.053] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.124] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.189] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.244] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 88%, изменено блоков: 0
+[06окт.2026 11:14:27.258] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.320] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.383] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.453] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.518] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.573] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 93%, изменено блоков: 0
+[06окт.2026 11:14:27.584] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.648] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.717] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.789] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.852] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.902] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 98%, изменено блоков: 0
+[06окт.2026 11:14:27.916] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:27.964] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Чанки загружены. Подготовка окончательного положения на Y=0
+[06окт.2026 11:14:27.979] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:28.067] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:28.158] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:28.260] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:28.330] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Планирование грунта: 13%, изменено блоков: 0
+[06окт.2026 11:14:28.346] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:28.434] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:28.520] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:28.609] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:28.706] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:28.765] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Планирование грунта: 30%, изменено блоков: 0
+[06окт.2026 11:14:28.782] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:28.866] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:28.953] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.043] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.133] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.198] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Планирование грунта: 47%, изменено блоков: 0
+[06окт.2026 11:14:29.217] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.306] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.387] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.467] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.546] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.622] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Планирование грунта: 64%, изменено блоков: 0
+[06окт.2026 11:14:29.639] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.721] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.805] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.885] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:29.967] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.043] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Планирование грунта: 81%, изменено блоков: 0
+[06окт.2026 11:14:30.060] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.139] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.219] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.294] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.379] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.442] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Планирование грунта: 98%, изменено блоков: 0
+[06окт.2026 11:14:30.455] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.547] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.631] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.725] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.811] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.877] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверка конечного места: 31%, изменено блоков: 0
+[06окт.2026 11:14:30.893] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:30.987] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.074] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.159] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.242] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.309] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверка конечного места: 51%, изменено блоков: 0
+[06окт.2026 11:14:31.326] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.412] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.489] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.574] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.660] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.732] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверка конечного места: 70%, изменено блоков: 0
+[06окт.2026 11:14:31.749] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.833] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.916] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:31.996] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:32.084] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:32.168] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 10%, изменено блоков: 53090
+[06окт.2026 11:14:32.191] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:32.305] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:32.412] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:32.522] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:32.645] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:32.732] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 21%, изменено блоков: 292156
+[06окт.2026 11:14:32.756] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:32.868] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:32.987] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:33.095] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:33.207] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:33.302] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 28%, изменено блоков: 529726
+[06окт.2026 11:14:33.327] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:33.438] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:33.554] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:33.680] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:33.820] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:33.912] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 35%, изменено блоков: 760344
+[06окт.2026 11:14:33.936] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:34.058] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:34.172] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:34.284] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:34.408] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:34.493] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 42%, изменено блоков: 999517
+[06окт.2026 11:14:34.518] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:34.630] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:34.755] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:34.865] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:34.977] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:35.070] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 49%, изменено блоков: 1235605
+[06окт.2026 11:14:35.095] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:35.208] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:35.318] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:35.441] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:35.560] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:35.657] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 55%, изменено блоков: 1464381
+[06окт.2026 11:14:35.684] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:35.822] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:35.944] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:36.065] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:36.192] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:36.280] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 61%, изменено блоков: 1679393
+[06окт.2026 11:14:36.307] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:36.425] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:36.572] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:36.700] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:36.818] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:36.915] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 67%, изменено блоков: 1891101
+[06окт.2026 11:14:36.953] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:37.080] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:37.200] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:37.315] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:37.444] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:37.533] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 73%, изменено блоков: 2111349
+[06окт.2026 11:14:37.562] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:37.677] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:37.792] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:37.921] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:38.035] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:38.127] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготовка грунта: 81%, изменено блоков: 2338089
+[06окт.2026 11:14:38.151] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:38.277] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:38.387] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:38.505] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:38.614] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:38.630] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Территория подготовлена. Размещается структура...
+[06окт.2026 11:14:38.701] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 0%, изменено блоков: 2542386
+[06окт.2026 11:14:38.717] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:38.798] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:38.876] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:38.955] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.048] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.110] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 3%, изменено блоков: 2542386
+[06окт.2026 11:14:39.125] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.193] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.265] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.342] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.429] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.485] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 6%, изменено блоков: 2542386
+[06окт.2026 11:14:39.499] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.573] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.663] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.753] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.854] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:39.924] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 9%, изменено блоков: 2542386
+[06окт.2026 11:14:39.942] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:40.037] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:40.130] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:40.215] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:40.303] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:40.379] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 12%, изменено блоков: 2542386
+[06окт.2026 11:14:40.395] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:40.482] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:40.575] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:40.663] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:40.757] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:40.831] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 15%, изменено блоков: 2542386
+[06окт.2026 11:14:40.855] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:40.947] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:41.036] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:41.136] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:41.225] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:41.300] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 18%, изменено блоков: 2542386
+[06окт.2026 11:14:41.318] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:41.417] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:41.509] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:41.603] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:41.686] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:41.759] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 22%, изменено блоков: 2542386
+[06окт.2026 11:14:41.776] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:41.870] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:41.962] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:42.046] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:42.130] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:42.198] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 25%, изменено блоков: 2542386
+[06окт.2026 11:14:42.216] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:42.312] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:42.404] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:42.503] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:42.599] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:42.669] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 28%, изменено блоков: 2542386
+[06окт.2026 11:14:42.690] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:42.782] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:42.871] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:42.966] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:43.057] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:43.127] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 31%, изменено блоков: 2542386
+[06окт.2026 11:14:43.148] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:43.235] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:43.336] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:43.428] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:43.523] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:43.595] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 34%, изменено блоков: 2542386
+[06окт.2026 11:14:43.615] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:43.701] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:43.788] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:43.887] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:43.992] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:44.084] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 37%, изменено блоков: 2542386
+[06окт.2026 11:14:44.104] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:44.199] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:44.289] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:44.376] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:44.454] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:44.538] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 40%, изменено блоков: 2542386
+[06окт.2026 11:14:44.558] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:44.649] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:44.748] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:44.840] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:44.935] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:45.003] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 43%, изменено блоков: 2542386
+[06окт.2026 11:14:45.021] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:45.132] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:45.219] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:45.312] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:45.408] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:45.479] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 46%, изменено блоков: 2542386
+[06окт.2026 11:14:45.496] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:45.597] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:45.692] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:45.787] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:45.876] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:45.949] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 49%, изменено блоков: 2542386
+[06окт.2026 11:14:45.966] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:46.059] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:46.158] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:46.253] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:46.341] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:46.416] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 53%, изменено блоков: 2542386
+[06окт.2026 11:14:46.433] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:46.525] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:46.608] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:46.726] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:46.834] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:46.923] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 56%, изменено блоков: 2542386
+[06окт.2026 11:14:46.942] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:47.034] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:47.124] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:47.217] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:47.311] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:47.385] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 59%, изменено блоков: 2542386
+[06окт.2026 11:14:47.403] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:47.502] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:47.596] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:47.689] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:47.782] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:47.860] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 62%, изменено блоков: 2542386
+[06окт.2026 11:14:47.883] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:47.971] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:48.071] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:48.168] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:48.264] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:48.335] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 65%, изменено блоков: 2542386
+[06окт.2026 11:14:48.353] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:48.446] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:48.533] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:48.624] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:48.723] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:48.804] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 68%, изменено блоков: 2542386
+[06окт.2026 11:14:48.823] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:48.919] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:49.013] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:49.106] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:49.203] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:49.272] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 71%, изменено блоков: 2542386
+[06окт.2026 11:14:49.291] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:49.385] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:49.472] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:49.564] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:49.659] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:49.734] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 74%, изменено блоков: 2542386
+[06окт.2026 11:14:49.750] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:49.841] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:49.936] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:50.035] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:50.129] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:50.209] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 77%, изменено блоков: 2542386
+[06окт.2026 11:14:50.229] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:50.331] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:50.421] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:50.515] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:50.608] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:50.687] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 80%, изменено блоков: 2542386
+[06окт.2026 11:14:50.702] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:50.795] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:50.886] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:50.980] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:51.075] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:51.151] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 83%, изменено блоков: 2542386
+[06окт.2026 11:14:51.169] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:51.266] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:51.351] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:51.443] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:51.531] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:51.602] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 87%, изменено блоков: 2542386
+[06окт.2026 11:14:51.620] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:51.714] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:51.806] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:51.901] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:51.994] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:52.067] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 90%, изменено блоков: 2542386
+[06окт.2026 11:14:52.087] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:52.178] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:52.268] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:52.359] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:52.451] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:52.530] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 93%, изменено блоков: 2542386
+[06окт.2026 11:14:52.548] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:52.637] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:52.737] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:52.833] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:52.925] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:53.003] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 96%, изменено блоков: 2542386
+[06окт.2026 11:14:53.021] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:53.111] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:53.202] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:53.291] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:53.384] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:53.462] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 99%, изменено блоков: 2542386
+[06окт.2026 11:14:53.486] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:53.560] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Структура создана: 14570258, 1, -4915174
+[06окт.2026 11:14:53.814] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготавливается территория: bandit_camp / 0. Задание 40c1bf33-26a5-4f1a-a0fe-dc422af16adc
+[06окт.2026 11:14:53.831] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:53.911] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:53.956] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 1 / 16
+[06окт.2026 11:14:54.002] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:54.085] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:54.119] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 2 / 16
+[06окт.2026 11:14:54.179] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:54.266] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 66%, изменено блоков: 0
+[06окт.2026 11:14:54.277] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:54.304] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 3 / 16
+[06окт.2026 11:14:54.365] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:54.444] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:54.460] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 4 / 16
+[06окт.2026 11:14:54.532] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:54.645] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:54.661] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 5 / 16
+[06окт.2026 11:14:54.731] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 33%, изменено блоков: 0
+[06окт.2026 11:14:54.744] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:54.813] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 6 / 16
+[06окт.2026 11:14:54.813] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:54.883] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:54.972] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 7 / 16
+[06окт.2026 11:14:54.986] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:55.046] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:55.101] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 6%, изменено блоков: 0
+[06окт.2026 11:14:55.113] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:55.178] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:55.240] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:55.315] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:55.326] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Чанки загружены. Подготовка окончательного положения на Y=-61
+[06окт.2026 11:14:55.428] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:55.497] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Территория подготовлена. Размещается структура...
+[06окт.2026 11:14:55.583] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 33%, изменено блоков: 0
+[06окт.2026 11:14:55.602] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:55.633] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Структура создана: 14570524, -60, -4915058
+[06окт.2026 11:14:55.690] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготавливается территория: bandit_camp / 1. Задание 9af22402-9644-458e-8da0-f54fc6afcb5a
+[06окт.2026 11:14:55.743] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:55.823] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:55.901] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:55.977] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.046] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.051] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 1 / 16
+[06окт.2026 11:14:56.081] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 6%, изменено блоков: 0
+[06окт.2026 11:14:56.121] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.188] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.250] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.319] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.377] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 2 / 16
+[06окт.2026 11:14:56.385] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.412] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 6%, изменено блоков: 0
+[06окт.2026 11:14:56.450] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.514] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.577] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.642] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.707] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 3 / 16
+[06окт.2026 11:14:56.728] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.764] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 6%, изменено блоков: 0
+[06окт.2026 11:14:56.817] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.897] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:56.965] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.026] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.074] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 4 / 16
+[06окт.2026 11:14:57.095] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.120] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 12%, изменено блоков: 0
+[06окт.2026 11:14:57.161] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.226] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.288] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.352] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.393] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 5 / 16
+[06окт.2026 11:14:57.421] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.447] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 12%, изменено блоков: 0
+[06окт.2026 11:14:57.487] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.551] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.614] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.679] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.716] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 6 / 16
+[06окт.2026 11:14:57.750] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.777] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 12%, изменено блоков: 0
+[06окт.2026 11:14:57.815] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.874] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:57.941] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.026] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.064] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 7 / 16
+[06окт.2026 11:14:58.120] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.153] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 18%, изменено блоков: 0
+[06окт.2026 11:14:58.196] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.262] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.328] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.388] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.415] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 8 / 16
+[06окт.2026 11:14:58.462] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.489] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 18%, изменено блоков: 0
+[06окт.2026 11:14:58.531] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.593] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.659] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.725] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.738] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 9 / 16
+[06окт.2026 11:14:58.802] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.832] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 25%, изменено блоков: 0
+[06окт.2026 11:14:58.874] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:58.939] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.001] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.064] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.069] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 10 / 16
+[06окт.2026 11:14:59.136] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.162] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 25%, изменено блоков: 0
+[06окт.2026 11:14:59.198] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.274] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.357] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.428] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 11 / 16
+[06окт.2026 11:14:59.441] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.509] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.534] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 25%, изменено блоков: 0
+[06окт.2026 11:14:59.571] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.633] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.694] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.759] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.823] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.851] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 56%, изменено блоков: 0
+[06окт.2026 11:14:59.897] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.969] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:14:59.993] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Чанки загружены. Подготовка окончательного положения на Y=-61
+[06окт.2026 11:15:00.049] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:00.129] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:00.224] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:00.238] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Территория подготовлена. Размещается структура...
+[06окт.2026 11:15:00.266] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 16%, изменено блоков: 0
+[06окт.2026 11:15:00.321] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:00.361] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Структура создана: 14570524, -60, -4914994
+[06окт.2026 11:15:00.407] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Подготавливается территория: bandit_camp / 2. Задание 1045b274-b7af-46f7-9e22-0470a7eee8ac
+[06окт.2026 11:15:00.449] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:00.530] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:00.606] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:00.723] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:00.825] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:00.871] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 50%, изменено блоков: 0
+[06окт.2026 11:15:00.902] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:00.964] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.027] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.094] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.153] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.187] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 94%, изменено блоков: 0
+[06окт.2026 11:15:01.218] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 1 / 16
+[06окт.2026 11:15:01.219] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.291] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.352] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.413] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.477] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.510] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 41%, изменено блоков: 0
+[06окт.2026 11:15:01.539] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.599] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.660] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.725] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.792] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.823] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 86%, изменено блоков: 0
+[06окт.2026 11:15:01.851] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:01.927] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 2 / 16
+[06окт.2026 11:15:01.942] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.027] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.109] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.169] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.203] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 33%, изменено блоков: 0
+[06окт.2026 11:15:02.231] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.294] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.356] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.422] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.484] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.518] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 77%, изменено блоков: 0
+[06окт.2026 11:15:02.545] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.607] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.661] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 3 / 16
+[06окт.2026 11:15:02.683] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.751] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.814] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.846] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 25%, изменено блоков: 0
+[06окт.2026 11:15:02.875] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.934] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:02.995] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.056] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.117] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.156] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 69%, изменено блоков: 0
+[06окт.2026 11:15:03.197] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.280] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.358] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.407] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 4 / 16
+[06окт.2026 11:15:03.433] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.497] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.532] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 16%, изменено блоков: 0
+[06окт.2026 11:15:03.559] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.621] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.682] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.743] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.802] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.837] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 61%, изменено блоков: 0
+[06окт.2026 11:15:03.864] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.924] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:03.985] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.049] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.086] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 5 / 16
+[06окт.2026 11:15:04.118] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.154] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 8%, изменено блоков: 0
+[06окт.2026 11:15:04.181] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.243] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.304] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.361] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.438] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.485] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 52%, изменено блоков: 0
+[06окт.2026 11:15:04.520] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.602] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.676] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.745] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.818] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.857] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 6 / 16
+[06окт.2026 11:15:04.865] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 0%, изменено блоков: 0
+[06окт.2026 11:15:04.903] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:04.968] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.039] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.111] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.186] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.236] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 44%, изменено блоков: 0
+[06окт.2026 11:15:05.272] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.333] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.398] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.459] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.522] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.556] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 91%, изменено блоков: 0
+[06окт.2026 11:15:05.583] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.614] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 7 / 16
+[06окт.2026 11:15:05.656] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.719] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.785] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.872] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:05.921] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 36%, изменено блоков: 0
+[06окт.2026 11:15:05.962] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.033] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.098] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.165] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.227] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.264] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 83%, изменено блоков: 0
+[06окт.2026 11:15:06.290] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.351] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.374] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 8 / 16
+[06окт.2026 11:15:06.424] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.485] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.545] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.579] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 27%, изменено блоков: 0
+[06окт.2026 11:15:06.607] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.672] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.734] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.805] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.869] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.902] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 75%, изменено блоков: 0
+[06окт.2026 11:15:06.930] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:06.990] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.051] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 9 / 16
+[06окт.2026 11:15:07.149] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.235] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.281] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 19%, изменено блоков: 0
+[06окт.2026 11:15:07.313] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.374] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.437] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.500] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.565] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.600] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 66%, изменено блоков: 0
+[06окт.2026 11:15:07.627] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.689] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.751] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.814] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.824] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 10 / 16
+[06окт.2026 11:15:07.883] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:07.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 11%, изменено блоков: 0
+[06окт.2026 11:15:07.945] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.023] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.096] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.158] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.220] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.253] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 58%, изменено блоков: 0
+[06окт.2026 11:15:08.281] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.341] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.414] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.498] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.577] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 11 / 16
+[06окт.2026 11:15:08.577] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.627] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 2%, изменено блоков: 0
+[06окт.2026 11:15:08.656] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.720] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.786] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.850] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.915] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:08.948] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 50%, изменено блоков: 0
+[06окт.2026 11:15:08.974] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.038] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.101] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.165] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.225] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.257] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 97%, изменено блоков: 0
+[06окт.2026 11:15:09.280] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Проверяется другая площадка: 12 / 16
+[06окт.2026 11:15:09.298] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.358] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.419] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.479] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.539] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.572] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 41%, изменено блоков: 0
+[06окт.2026 11:15:09.601] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.660] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.742] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.824] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.899] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:09.933] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 88%, изменено блоков: 0
+[06окт.2026 11:15:09.960] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.023] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.088] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.154] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.221] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.257] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 40%, изменено блоков: 0
+[06окт.2026 11:15:10.286] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.352] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.479] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.548] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.624] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.663] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Загрузка территории: 92%, изменено блоков: 0
+[06окт.2026 11:15:10.694] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.746] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Чанки загружены. Подготовка окончательного положения на Y=-57
+[06окт.2026 11:15:10.770] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.854] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:10.933] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:11.010] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:11.055] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Планирование грунта: 81%, изменено блоков: 0
+[06окт.2026 11:15:11.108] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:11.247] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:11.368] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:11.477] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:11.497] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Территория подготовлена. Размещается структура...
+[06окт.2026 11:15:11.575] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:11.630] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 12%, изменено блоков: 39277
+[06окт.2026 11:15:11.671] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:11.785] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:11.888] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:12.026] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:12.132] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:12.201] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Размещение структуры: 60%, изменено блоков: 39277
+[06окт.2026 11:15:12.266] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:12.387] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:12.574] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:12.658] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [_]
+[06окт.2026 11:15:12.725] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Структура создана: 14570553, -56, -4915418
+[06окт.2026 11:15:12.928] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [+]
+[06окт.2026 11:15:12.930] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: ========= 1 GAME TESTS COMPLETE IN 1.681 min ======================
+[06окт.2026 11:15:12.930] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: All 1 required tests passed :)
+[06окт.2026 11:15:12.930] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: ====================================================
+[06окт.2026 11:15:12.947] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[06окт.2026 11:15:12.947] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[06окт.2026 11:15:12.947] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[06окт.2026 11:15:13.148] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[06окт.2026 11:15:13.699] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[06окт.2026 11:15:13.705] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[06окт.2026 11:15:13.718] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[06окт.2026 11:15:13.718] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[06окт.2026 11:15:13.718] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[06окт.2026 11:15:13.718] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[06окт.2026 11:15:13.788] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: Game test server shutting down

@@ -1,0 +1,28 @@
+{
+  "branch": "release/0.9.10-distribution",
+  "commit": "bca714d78c6939a866fa88abd0518277dcfba65f",
+  "files": 9,
+  "dependencyDownloadsVerified": 6,
+  "clientLaunches": 0,
+  "assets": [
+    {
+      "name": "slavicmyths-0.9.10-rc1-player-pack.zip",
+      "size": 5855781,
+      "sha256": "6b22b3a1f0e1c5aa8d4b1bcbe642aece0299bbf14767c03d57d68cbbe52c38b1",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc1/slavicmyths-0.9.10-rc1-player-pack.zip"
+    },
+    {
+      "name": "slavicmyths-0.9.10-rc1.mrpack",
+      "size": 5847361,
+      "sha256": "3c00948729f4c566af40604d344fe582734df55bb7ab07a2cdc43ad851e9523c",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc1/slavicmyths-0.9.10-rc1.mrpack"
+    },
+    {
+      "name": "REMAINING_WORK.md",
+      "size": 4619,
+      "sha256": "37fb16b71f4c8ae17a0aad0ab15894ef9fc9d9fa5740a0377005a4a41be04006",
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc1/REMAINING_WORK.md"
+    }
+  ],
+  "publicDownloadsVerified": true
+}

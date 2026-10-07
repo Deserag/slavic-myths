@@ -1,0 +1,8 @@
+from pathlib import Path
+p=Path('tools/verify_resources.py');s=p.read_text(encoding='utf-8-sig');old="raise SystemExit(subprocess.call([sys.executable,str(ROOT/'tools/verify_port_1211.py'),*sys.argv[1:]]))";new="""active=(ROOT/'gradle.properties').read_text(encoding='utf-8')
+    if 'mod_version=0.9.6' in active and '--navigation' not in sys.argv:
+        raise SystemExit(subprocess.call([sys.executable,str(ROOT/'tools/verify_kurgan_096.py'),*[a for a in sys.argv[1:] if a!='--kurgan-rework']]))
+    """+old;assert old in s;s=s.replace(old,new);p.write_text(s,encoding='utf-8')
+p=Path('tools/verify_polymc_094.py');s=p.read_text(encoding='utf-8-sig');s=s.replace("output=ROOT/('docs/verification/navigation", "output=ROOT/('docs/verification/kurgan-0.9.6/deployment-check.json' if '--kurgan-rework' in sys.argv else 'docs/verification/navigation");p.write_text(s,encoding='utf-8')
+p=Path('tools/update_polymc_096.py');s=Path('tools/update_polymc_095.py').read_text(encoding='utf-8').replace('navigation gates','kurgan gates').replace('navigation-0.9.5','kurgan-0.9.6').replace("slavicmyths-0.9.5.jar","slavicmyths-0.9.6.jar").replace("str(ROOT/'tools/verify_port_1211.py'),'--navigation'", "str(ROOT/'tools/verify_kurgan_096.py')").replace("'version':'0.9.5'", "'version':'0.9.6'").replace("['navigationAcceptance']", "['kurganAcceptance']").replace('name=Slavic Myths 0.9.5','name=Slavic Myths 0.9.6').replace("'--navigation'", "'--kurgan-rework'").replace('0.9.5 installed','0.9.6 installed').replace('0.9.4 backed up','previous artifact backed up')
+needle="own=pack['slavicMyths'];old=";s=s.replace(needle,"subprocess.run([sys.executable,str(ROOT/'tools/verify_polymc_094.py'),'--kurgan-rework'],cwd=ROOT,check=True)\n"+needle);p.write_text(s,encoding='utf-8')

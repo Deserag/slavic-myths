@@ -1,0 +1,25 @@
+{
+  "version": "0.9.9",
+  "name": "Mob Overhaul + Global Worldgen Coverage Fix FINAL",
+  "target": "Minecraft 1.21.1 / NeoForge / Java 21",
+  "documents": [
+    "00_MASTER_PROMPT_0.9.9_MOB_WORLDGEN_OVERHAUL_FINAL.md",
+    "01_GLOBAL_WORLDGEN_COVERAGE_CONTRACT_FINAL.md",
+    "02_FULL_REWORK_MOBS_FINAL.md",
+    "03_EXISTING_MOBS_POLISH_MATRIX_FINAL.md",
+    "04_WILDLIFE_NATURAL_SPAWN_AND_FAMILY_LOGIC_FINAL.md",
+    "05_AI_AUDIO_ANIMATION_COMMON_STANDARD_FINAL.md",
+    "06_MOB_LOOT_REWARDS_AND_SOUND_FINAL.md",
+    "07_MOB_AND_WORLDGEN_TEST_MATRIX_FINAL.md",
+    "08_CODEX_NO_FANTASY_EXECUTION_RULES.md",
+    "HOW_TO_GIVE_TO_CODEX.md"
+  ],
+  "hard_values": {
+    "small_structure_network_max": 1000,
+    "medium_to_small_max": 2000,
+    "large_to_network_max": 4000,
+    "mother_bear_hp": 120,
+    "ataman_hp": 150,
+    "solovey_hp": 250
+  }
+}

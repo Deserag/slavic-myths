@@ -1,0 +1,227 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\kurgan\KurganEncounters.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileKurganCheckJava
+> Task :processKurganCheckResources UP-TO-DATE
+> Task :kurganCheckClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeRuntimeChecksLegacyClasspath UP-TO-DATE
+> Task :prepareRuntimeChecksRun UP-TO-DATE
+
+> Task :runRuntimeChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[13:38:40] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[13:38:40] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[13:38:40] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[13:38:40] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[13:38:40] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[13:38:41] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[13:38:41] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 0.9.7 (slavicmyths)
+[13:38:42] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[13:38:42] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[13:38:42] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[13:38:42] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[13:38:43] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[13:38:43] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[13:38:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:38:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:38:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[13:38:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[13:38:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:38:49] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[13:38:50] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[13:38:50] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[13:38:50] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[13:38:50] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_hotfix]
+[13:38:52] [main/INFO] [minecraft/RecipeManager]: Loaded 1564 recipes
+[13:38:52] [main/INFO] [minecraft/AdvancementTree]: Loaded 1554 advancements
+[13:38:52] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[13:38:52] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[13:38:54] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[13:38:54] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[13:38:54] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 165 ms
+[13:38:54] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[13:38:54] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[13:38:54] [Server thread/INFO] [minecraft/GameTestServer]: 3 tests are now running at position 102533, -59, -2852248!
+[13:38:54] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (3 tests)...
+[13:38:54] [Server thread/INFO] [minecraft/GameTestServer]: [   ]
+HOTFIX_QUOTAS_PASS plans=300 surfaceMaterials=9 adjacentEqual=0.8104543654551403
+[13:38:55] [Server thread/INFO] [minecraft/MinecraftServer]: Подготавливается территория: kurgan / 0. Задание 07f3ceca-f4cb-4539-8471-d404dd71b522
+[13:38:55] [Server thread/ERROR] [minecraft/LogTestReporter]: cuttimelineandrules failed at 102553, -60, -2852248! Cannot invoke "net.minecraft.world.effect.MobEffectInstance.getDuration()" because the return value of "net.neoforged.neoforge.common.util.FakePlayer.getEffect(net.minecraft.core.Holder)" is null
+[13:38:55] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:56] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:56] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:56] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:56] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:56] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 53%, изменено блоков: 0
+[13:38:56] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:56] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:56] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:56] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:56] [Server thread/INFO] [minecraft/MinecraftServer]: Проверяется другая площадка: 1 / 16
+[13:38:56] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:56] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 0%, изменено блоков: 0
+[13:38:56] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:57] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:57] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:57] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:57] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:57] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 40%, изменено блоков: 0
+[13:38:57] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:57] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:57] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:57] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:57] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:57] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 96%, изменено блоков: 0
+[13:38:57] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:57] [Server thread/INFO] [minecraft/MinecraftServer]: Проверяется другая площадка: 2 / 16
+[13:38:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:58] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 50%, изменено блоков: 0
+[13:38:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:58] [Server thread/INFO] [minecraft/MinecraftServer]: Проверяется другая площадка: 3 / 16
+[13:38:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:59] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 10%, изменено блоков: 0
+[13:38:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:59] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 70%, изменено блоков: 0
+[13:38:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:38:59] [Server thread/INFO] [minecraft/MinecraftServer]: Проверяется другая площадка: 4 / 16
+[13:38:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:00] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:00] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 26%, изменено блоков: 0
+[13:39:00] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:00] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:00] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:00] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:00] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:00] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 86%, изменено блоков: 0
+[13:39:00] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:00] [Server thread/INFO] [minecraft/MinecraftServer]: Проверяется другая площадка: 5 / 16
+[13:39:00] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:00] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:00] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:00] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 40%, изменено блоков: 0
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 96%, изменено блоков: 0
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 65%, изменено блоков: 0
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/MinecraftServer]: Загрузка территории: 92%, изменено блоков: 0
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:01] [Server thread/INFO] [minecraft/MinecraftServer]: Чанки загружены. Подготовка окончательного положения на Y=-49
+[13:39:01] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:02] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:02] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:02] [Server thread/INFO] [minecraft/MinecraftServer]: Планирование грунта: 70%, изменено блоков: 0
+[13:39:02] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:02] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:02] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:02] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:02] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:02] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 21%, изменено блоков: 12061
+[13:39:02] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:02] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:02] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:02] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:03] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:03] [Server thread/INFO] [minecraft/MinecraftServer]: Подготовка грунта: 55%, изменено блоков: 67273
+[13:39:03] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:03] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:03] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:03] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:03] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:03] [Server thread/INFO] [minecraft/MinecraftServer]: Территория подготовлена. Размещается структура...
+[13:39:03] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 3%, изменено блоков: 116303
+[13:39:03] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:03] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:03] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:03] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:04] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 43%, изменено блоков: 116303
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:04] [Server thread/INFO] [minecraft/MinecraftServer]: Размещение структуры: 82%, изменено блоков: 116303
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: [+_X]
+[13:39:04] [Server thread/INFO] [minecraft/MinecraftServer]: Структура создана: 32128, -48, 31874
+[13:39:04] [Server thread/ERROR] [minecraft/LogTestReporter]: commandsandencounters failed at 102543, -60, -2852248! Invalid mob placement tier=0 room=2 kind=null pos=null
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: [+XX]
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: ========= 3 GAME TESTS COMPLETE IN 10.61 s ======================
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: 2 required tests failed :(
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]:    - commandsandencounters
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]:    - cuttimelineandrules
+[13:39:04] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[13:39:04] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[13:39:04] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[13:39:04] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[13:39:05] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[13:39:05] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[13:39:05] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[13:39:05] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[13:39:05] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[13:39:05] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[13:39:05] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[13:39:05] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runRuntimeChecks FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runRuntimeChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 2
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 44s
+9 actionable tasks: 3 executed, 6 up-to-date

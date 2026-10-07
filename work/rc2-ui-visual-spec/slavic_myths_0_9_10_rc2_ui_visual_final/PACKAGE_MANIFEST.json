@@ -1,0 +1,43 @@
+{
+  "name": "Slavic Myths 0.9.10 RC2 UI Visual Fix FINAL",
+  "target": "Minecraft 1.21.1 / NeoForge / Java 21",
+  "mod_id": "slavicmyths",
+  "documents": [
+    "00_MASTER_PROMPT_0.9.10_RC2_UI_VISUAL_FIX_FINAL.md",
+    "01_RUNE_ANVIL_UI_FINAL.md",
+    "02_PATH_STONE_UI_FINAL.md",
+    "03_KITCHEN_TABLE_UI_FINAL.md",
+    "04_BOOK_UI_READABILITY_FINAL.md",
+    "05_SHIELD_CLUB_BATTLEAXE_MODEL_FIX_FINAL.md",
+    "06_WOOD_FAMILIES_VISUAL_REWORK_FINAL.md",
+    "07_INTERACTION_RULES_CREATIVE_AND_TOOLTIPS.md",
+    "08_TESTING_ACCEPTANCE_RC2_FINAL.md",
+    "09_RELEASE_BRANCH_AND_ARTIFACT_RULES.md",
+    "REFERENCE_INDEX.md",
+    "HOW_TO_GIVE_TO_CODEX.md"
+  ],
+  "references": [
+    "references/target/ref_target_01_rune_anvil_final.png",
+    "references/target/ref_target_02_path_stone_final.png",
+    "references/target/ref_target_03_kitchen_table_final.png",
+    "references/target/ref_target_04_wood_shield_club_battleaxe.png",
+    "references/current_problems/ref_problem_01_path_stone_current.png",
+    "references/current_problems/ref_problem_02_wood_blocks_current.png",
+    "references/current_problems/ref_problem_03_rune_anvil_current.png",
+    "references/current_problems/ref_problem_04_kitchen_current.png",
+    "references/current_problems/ref_problem_05_druzhinnik_shield_third_person.png",
+    "references/current_problems/ref_problem_06_druzhinnik_shield_first_person.png",
+    "references/current_problems/ref_problem_07_broken_club_battleaxe.png"
+  ],
+  "locked_decisions": {
+    "rune_anvil_catalyst_primary_slot": false,
+    "rune_application_inputs": [
+      "item",
+      "rune"
+    ],
+    "rune_application_result_preview": true,
+    "creative_xp_required": false,
+    "shield_front_faces_outward": true,
+    "bandit_solovey_overhaul_in_scope": false
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "url": "https://github.com/Deserag/slavic-myths/releases/tag/v0.9.10-rc1",
+  "id": 404621812,
+  "tag": "v0.9.10-rc1",
+  "prerelease": true,
+  "assets": [
+    {
+      "name": "slavicmyths-0.9.10-rc1.jar",
+      "size": 6330602,
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc1/slavicmyths-0.9.10-rc1.jar"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 94,
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc1/SHA256SUMS.txt"
+    },
+    {
+      "name": "README_PLAYTEST.md",
+      "size": 1648,
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc1/README_PLAYTEST.md"
+    },
+    {
+      "name": "CHANGELOG_0.9.10-RC1.md",
+      "size": 1894,
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc1/CHANGELOG_0.9.10-RC1.md"
+    },
+    {
+      "name": "DEPENDENCIES.md",
+      "size": 1371,
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc1/DEPENDENCIES.md"
+    },
+    {
+      "name": "KNOWN_ISSUES.md",
+      "size": 3028,
+      "url": "https://github.com/Deserag/slavic-myths/releases/download/v0.9.10-rc1/KNOWN_ISSUES.md"
+    }
+  ],
+  "publicDownloadVerified": true,
+  "downloadSha256": "9010726670d1a6b04ec41143ad4cbf6dfec0e72f6407d11b07d41e8e30817b76",
+  "commit": "9dcd584"
+}
