@@ -61,9 +61,25 @@ public final class TreeShape {
   int span=variant==1?4:3;
   for(int i=0;i<5;i++){double a=i*Math.PI*2/5+.2;int x=(int)Math.round(Math.cos(a)*span)+(variant==2?1:0),z=(int)Math.round(Math.sin(a)*span);int y=h-1+nextInt.applyAsInt(2);branch(2+nextInt.applyAsInt(2),x,y,z);crown(x,y,z,2,1.3,2,false);}
  }
- private void pine(){int h=variant==1?17+nextInt.applyAsInt(5):12+nextInt.applyAsInt(5);trunk(h);
-  // Sparse unequal horizontal boughs, open lower half; never a stacked spruce cone.
-  for(int i=0;i<6;i++){int y=h/2+i*(h-h/2-2)/6;double a=i*2.4+nextDouble.getAsDouble()*.5;int span=(i<4?3:2)+(variant==2&&i%2==0?1:0);int x=(int)Math.round(Math.cos(a)*span),z=(int)Math.round(Math.sin(a)*span);branch(y,x,y+(i%2),z);crown(x,y+1,z,2,1.1,1.8,true);}
-  crown(0,h-1,0,1.7,1.4,1.7,true);
+ private void pine(){int h=9+nextInt.applyAsInt(4);trunk(h);
+  for(int i=0;i<5&&2+i*2<h;i++){int y=2+i*2,r=Math.max(1,3-i/2);tier(y,r,1);}
+  leaves.put(new Cell(0,h-1,0),7);
+ }
+ private void tier(int y,int radius,int width){
+  for(int x=-radius;x<width+radius;x++)for(int z=-radius;z<width+radius;z++){
+   int dx=x<0?-x:x>=width?x-width+1:0,dz=z<0?-z:z>=width?z-width+1:0;
+   if(dx+dz<=radius+1){leaves.put(new Cell(x,y,z),7);}
+  }
+ }
+ /** Giant geometry is selected only by the 2x2 sapling grower, never ordinary worldgen. */
+ public static TreeShape giantPine(java.util.function.IntUnaryOperator r){
+  TreeShape s=new TreeShape("pine",r,()->.5,()->false);s.logs.clear();s.leaves.clear();
+  int h=16+r.applyAsInt(5);for(int y=0;y<h;y++)for(int x=0;x<2;x++)for(int z=0;z<2;z++)s.logs.put(new Cell(x,y,z),1);
+  int tiers=6+(h-16)/2;for(int i=0;i<tiers;i++)s.tier(5+i*2,Math.max(0,3-i/2),2);
+  for(int y=h-2;y<h;y++)s.tier(y,0,2);
+  s.leaves.keySet().removeAll(s.logs.keySet());
+  // Every giant leaf is at most six Manhattan steps from the 2x2 trunk.
+  s.leaves.replaceAll((c,d)->Math.min(6,Math.max(0,c.x<0?-c.x:c.x>1?c.x-1:0)+Math.max(0,c.z<0?-c.z:c.z>1?c.z-1:0)+Math.max(0,c.y-h+1)));
+  return s;
  }
 }

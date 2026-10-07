@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "PNP",
+    "PIP",
     "P P",
-    "PPP"
+    "PIP"
   ],
   "key": {
     "P": {
       "tag": "minecraft:planks"
     },
-    "N": {
-      "item": "minecraft:iron_nugget"
+    "I": {
+      "item": "minecraft:iron_ingot"
     }
   },
   "result": {

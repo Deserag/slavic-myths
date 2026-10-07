@@ -40,7 +40,7 @@ for k in expected:
 check(read(D/'recipe/vat/veles_dark_wort.json')['retain_catalyst']is True,'staff not consumed')
 check(read(D/'recipe/vat/thunder_beer_wort.json')['catalyst']['item']=='slavicmyths:thunder_crystal_powder','fifth reagent uses catalyst slot')
 check(read(D/'recipe/vat/witch_berry_wort.json')['catalyst']['item']=='slavicmyths:rune_forest','witch low-tier rune')
-check(read(D/'recipe/dark_bottle.json')['pattern']==[' G ','GSG'],'user chose THREE glass + stick')
+check(read(D/'recipe/dark_bottle.json')['pattern']==[' G ','GSG',' G '],'1.1.8 definitive FOUR glass + stick')
 check(read(D/'recipe/vat/cider_must.json')['remainders']==[{'id':'slavicmyths:dark_bottle','count':4}],'cider returns four bottles')
 check(read(D/'recipe/vat/berry_mors.json')['result']['components']['minecraft:custom_data']['Servings']==4,'mors four servings')
 check(read(D/'recipe/malt_sack_unpack.json')['result']['count']==9,'malt reversible nine')
@@ -67,8 +67,8 @@ new=set(p for p in R.rglob('*')if p.is_file())
 for file in list((A/'textures/item').glob('*.png'))+list((A/'textures/block').glob('hops_*.png')):
  if file.stem not in ['hops','hops_cutting','malt_sack','malted_barley','fruit_pomace','berry_mash','honey_infusion','forest_herbal_infusion','thunder_crystal_powder','wooden_mug','dark_bottle','ceramic_pitcher','spoiled_brew']and not any(x in file.stem for x in ['beer','pitcher','juice','mead','cider','kvass','mors','wort','must','hops_']):continue
  im=Image.open(file);check(im.size==(16,16),'native16 '+file.name);check(set(im.getchannel('A').getdata())<={0,255},'no AA '+file.name)
-check('mod_version=1.1.7'in(ROOT/'gradle.properties').read_text(),'version')
-report={'version':'1.1.7','resource_checks':checks,'json':len(jsons),'links':links,'pure_java_assertions':49,'minecraft_launches':0,'jei':'No new categories; optional integration unchanged'}
+check('mod_version=1.1.8'in(ROOT/'gradle.properties').read_text(),'version')
+report={'version':'1.1.8','resource_checks':checks,'json':len(jsons),'links':links,'pure_java_assertions':49,'minecraft_launches':0,'jei':'No new categories; optional integration unchanged'}
 if args.jar:
  z=zipfile.ZipFile(args.jar)
  bytecode=subprocess.check_output(['C:/Program Files/Java/jdk-21.0.12/bin/javap.exe','-classpath',str(args.jar),'-c','org.slavicmyths.client.ClientSetup'],cwd=ROOT).decode('utf-8')
@@ -76,5 +76,5 @@ if args.jar:
  for file in new:
   if file.suffix in ['.json','.png','.ogg']:check(z.read(file.relative_to(R).as_posix())==file.read_bytes(),'production bytes '+file.name)
  for cls in ['Brewing','BrewTile','BrewBlock','HopsCrop','BeverageItem','BrewRules','VatRecipe','VatMenu','Fermentation']:check('org/slavicmyths/brewing/'+cls+'.class'in z.namelist(),'production class '+cls)
- check(b'version="1.1.7"'in z.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version');check(not any('/smoke/'in n or'GameTest'in n or'/verify/'in n for n in z.namelist()),'no test code');report.update(resource_checks=checks,sha256=hashlib.sha256(args.jar.read_bytes()).hexdigest())
+ check(b'version="1.1.8"'in z.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version');check(not any('/smoke/'in n or'GameTest'in n or'/verify/'in n for n in z.namelist()),'no test code');report.update(resource_checks=checks,sha256=hashlib.sha256(args.jar.read_bytes()).hexdigest())
 (ROOT/'work/brewing-checks.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

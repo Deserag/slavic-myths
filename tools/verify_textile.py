@@ -1,4 +1,4 @@
-"""Static 1.1.4 assets/data/production checks. Never starts Minecraft."""
+"""Static 1.1.8 assets/data/production checks. Never starts Minecraft."""
 from pathlib import Path
 from PIL import Image
 import argparse,json,zipfile,hashlib,re
@@ -69,15 +69,15 @@ for p in source.glob('*.java'):check('net.minecraft.client' not in p.read_text(e
 t=(source/'Textiles.java').read_text();check(t.count('ENTITIES.register(')==1,'one carcass entity');check('Attributes.BLOCK_BREAK_SPEED' in t and ',.05,' in t and ',.10,' in t,'exact attributes');check('ArmorMaterial' not in t,'no armor material for clothes')
 check('extends Item implements Equipable' in (source/'ClothingItem.java').read_text(),'clothes not armor/damageable')
 check('sync(ItemStack.OPTIONAL_STREAM_CODEC)' in (source/'BeltData.java').read_text(),'native attachment wire codec')
-check('mod_version=1.1.4' in (ROOT/'gradle.properties').read_text(),'version source')
+check('mod_version=1.1.8' in (ROOT/'gradle.properties').read_text(),'version source')
 if args.jar:
     jar=zipfile.ZipFile(args.jar)
     for p in R.rglob('*'):
         if p.is_file() and p.suffix in ['.json','.png','.ogg']:check(jar.read(p.relative_to(R).as_posix())==p.read_bytes(),'production '+str(p))
     for name in ['linen_thread','linen_cloth']:check(f'data/slavicmyths/recipe/{name}.json' not in jar.namelist(),'no stale recipe in production '+name)
     for name in ['Carcass','BeltData','TextileStation','TextileEvents','ClothingItem','LinenBed']:check(f'org/slavicmyths/textile/{name}.class' in jar.namelist(),'production class '+name)
-    check(b'version="1.1.4"' in jar.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version')
+    check(b'version="1.1.8"' in jar.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version')
     check(not any('/smoke/' in p or '/verify/' in p or 'GameTest' in p for p in jar.namelist()),'no test harness')
-report={'version':'1.1.4','checks':checks,'json':jsonCount,'model_texture_links':refs,'minecraft_launches':0,'mode':'static/UV/resources'+('/production' if args.jar else '')}
+report={'version':'1.1.8','checks':checks,'json':jsonCount,'model_texture_links':refs,'minecraft_launches':0,'mode':'static/UV/resources'+('/production' if args.jar else '')}
 if args.jar:report['jar']=str(args.jar);report['sha256']=hashlib.sha256(args.jar.read_bytes()).hexdigest()
 (ROOT/'work/textile-static-checks.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

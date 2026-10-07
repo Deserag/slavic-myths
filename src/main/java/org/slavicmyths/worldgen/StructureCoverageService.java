@@ -21,7 +21,7 @@ public final class StructureCoverageService {
   add(p,"kurgan_great","kurgan",Tier.LARGE,128,8,841975,0,12,0,12000000);
   add(p,"bandit_camp_small","bandit",Tier.SMALL,20,4,803701,0,6,8,4096);
   add(p,"bandit_camp_medium","bandit",Tier.MEDIUM,64,8,803729,0,8,8,8192);
-  add(p,"bandit_camp_large","bandit",Tier.LARGE,128,8,813797,0,10,10,16384);
+  add(p,"bandit_camp_large","bandit",Tier.LARGE,320,81,813797,0,10,10,16384);
   add(p,"bog_causeway","swamp",Tier.SMALL,16,4,731269,7,4,8,2048);
   add(p,"swamp_remnants","swamp",Tier.SMALL,20,4,733745,7,4,8,2048);
   add(p,"fishing_camp","swamp",Tier.SMALL,20,4,732507,7,4,8,4096);

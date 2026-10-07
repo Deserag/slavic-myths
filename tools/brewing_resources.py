@@ -109,8 +109,8 @@ def ingredient(k):return {'tag':k[1:]}if k.startswith('#')else{'item':k if ':'in
 def shaped(k,pattern,key,count=1):js(D/f'recipe/{k}.json',{'type':'minecraft:crafting_shaped','pattern':pattern,'key':{a:ingredient(b)for a,b in key.items()},'result':{'id':'slavicmyths:'+k,'count':count}})
 def shapeless(k,ins,out,count):js(D/f'recipe/{k}.json',{'type':'minecraft:crafting_shapeless','ingredients':[ingredient(i)for i in ins],'result':{'id':'slavicmyths:'+out,'count':count}})
 shaped('malt_sack',['MMM']*3,{'M':'malted_barley'});shapeless('malt_sack_unpack',['malt_sack'],'malted_barley',9)
-shaped('wooden_mug',['P P','P P',' PP'],{'P':'#minecraft:planks'},2);shaped('dark_bottle',[' G ','GSG'],{'G':'minecraft:glass','S':'minecraft:stick'},2);shaped('ceramic_pitcher',[' B ','B B','BBB'],{'B':'minecraft:brick'})
-shaped('fruit_press',['PIP','SBS','PPP'],{'P':'#minecraft:planks','I':'minecraft:iron_ingot','S':'minecraft:stick','B':'wooden_barrel'});shaped('fermentation_vat',['PNP','P P','PPP'],{'P':'#minecraft:planks','N':'minecraft:iron_nugget'});shaped('small_keg',[' N ','PBP','S S'],{'N':'minecraft:iron_nugget','P':'#minecraft:planks','B':'wooden_barrel','S':'minecraft:stick'})
+shaped('wooden_mug',['P P','P P',' PP'],{'P':'#minecraft:planks'},2);shaped('dark_bottle',[' G ','GSG',' G '],{'G':'minecraft:glass','S':'minecraft:stick'},2);shaped('ceramic_pitcher',[' B ','B B','BBB'],{'B':'minecraft:brick'})
+shaped('fruit_press',['SIS','P P','PPP'],{'P':'#minecraft:planks','I':'minecraft:iron_ingot','S':'minecraft:stick'});shaped('fermentation_vat',['PIP','P P','PIP'],{'P':'#minecraft:planks','I':'minecraft:iron_ingot'});shaped('small_keg',['PNP','P P','PSP'],{'N':'minecraft:iron_nugget','P':'#minecraft:planks','S':'minecraft:stick'})
 shapeless('thunder_crystal_powder',['thunder_stone'],'thunder_crystal_powder',4)
 def vat(k,mode,inputs,time,result=None,count=1,returns=None,catalyst=None,retain=False,components=None):
  r={'type':'slavicmyths:vat','mode':mode,'ingredients':[{'ingredient':ingredient(i),'count':n}for i,n in inputs],'time':time,'result':{'id':'slavicmyths:'+(result or k),'count':count},'remainders':[{'id':i if ':'in i else 'slavicmyths:'+i,'count':n}for i,n in (returns or[])]}
@@ -137,3 +137,7 @@ for index,lang in enumerate(['ru_ru','en_us']):
  for k,t in texts.items():v['brewing.slavicmyths.'+k]=t[index]
  js(p,v)
 print('Brewing resources generated: native sprites, models, 15 vat recipes, tags, bilingual text.')
+
+# Preserve the latest integration assets and definitive recipes.
+from integration_polish_resources import main as polish_118
+polish_118()

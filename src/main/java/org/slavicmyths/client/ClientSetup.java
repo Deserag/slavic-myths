@@ -119,6 +119,7 @@ public final class ClientSetup {
             event.register(org.slavicmyths.kitchen.KitchenMenu.TYPE.get(),KitchenScreen::new);
             event.register(org.slavicmyths.brewing.VatMenu.TYPE.get(),VatScreen::new);
     }
+    @SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new PeruniteArmor(),org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get(),org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get(),org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get(),org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get());}
     private ClientSetup() { }
     @SubscribeEvent public static void keys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e){RpgClient.keys(e);FlightClient.keys(e);}
     @SubscribeEvent public static void layers(net.neoforged.neoforge.client.event.EntityRenderersEvent.AddLayers e){FolkEquipmentLayer.layers(e);TextileClient.layers(e);FlightClient.renderers(e.getContext());GusliClient.renderers(e.getContext());}

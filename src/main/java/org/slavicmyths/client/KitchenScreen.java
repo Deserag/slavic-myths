@@ -3,20 +3,24 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.item.ItemStack;
 import org.slavicmyths.kitchen.*;
-public final class KitchenScreen extends AbstractContainerScreen<KitchenMenu>{
+/** Grouped slots share coordinates with KitchenMenu; process and serving remain server-owned. */
+public final class KitchenScreen extends AbstractContainerScreen<KitchenMenu> {
  private Button serve;
- public KitchenScreen(KitchenMenu m,Inventory inv,Component title){super(m,inv,title);imageWidth=256;imageHeight=212;inventoryLabelX=47;inventoryLabelY=119;}
- protected void init(){super.init();serve=addRenderableWidget(Button.builder(Component.translatable("kitchen.slavicmyths.serve"),b->minecraft.gameMode.handleInventoryButtonClick(menu.containerId,0)).bounds(leftPos+158,topPos+101,86,18).build());}
- protected void renderBg(GuiGraphics g,float f,int x,int y){g.blit(KitchenII.id("textures/gui/kitchen_ii.png"),leftPos,topPos,0,0,256,212,256,256);g.drawCenteredString(font,title,leftPos+128,topPos+6,0xfff0dec0);
-  g.drawString(font,Component.translatable("item.slavicmyths.rolling_pin"),leftPos+9,topPos+14,0xff34291f,false);g.drawString(font,Component.translatable("item.slavicmyths.metal_pot"),leftPos+150,topPos+14,0xff34291f,false);
-  int total=menu.data.get(1);if(total>0)g.fill(leftPos+132,topPos+52,leftPos+132+Math.min(35,35*menu.data.get(0)/total),topPos+58,0xff947947);
-  int n=menu.data.get(2);serve.active=n>0;g.drawString(font,Component.translatable("kitchen.slavicmyths.servings",n,menu.data.get(3)),leftPos+154,topPos+91,0xff34291f,false);
-  if(minecraft.level.getBlockEntity(menu.pos)instanceof KitchenTile t&&!t.dish.isEmpty())g.renderItem(t.dish,leftPos+220,topPos+51);
+ public KitchenScreen(KitchenMenu m,Inventory inv,Component title){super(m,inv,title);imageWidth=278;imageHeight=234;inventoryLabelX=58;inventoryLabelY=137;}
+ private Component tr(String key,Object...args){return Component.translatable("screen.slavicmyths."+key,args);}
+ protected void init(){super.init();serve=addRenderableWidget(Button.builder(Component.translatable("kitchen.slavicmyths.serve"),b->minecraft.gameMode.handleInventoryButtonClick(menu.containerId,0)).bounds(leftPos+174,topPos+111,96,18).build());}
+ private void label(GuiGraphics g,String key,int x,int y){g.drawString(font,tr(key),leftPos+x,topPos+y,0xff34291f,false);}
+ protected void renderBg(GuiGraphics g,float f,int x,int y){
+  g.fill(leftPos,topPos,leftPos+imageWidth,topPos+imageHeight,0xffc6af89);g.fill(leftPos+4,topPos+4,leftPos+274,topPos+22,0xff604633);
+  g.drawCenteredString(font,tr("kitchen_table"),leftPos+139,topPos+8,0xfff0dec0);
+  label(g,"tools",12,27);label(g,"ingredients",96,27);label(g,"cooking",145,87);label(g,"result",204,27);label(g,"container_returns",172,64);
+  for(var slot:menu.slots){int sx=leftPos+slot.x,sy=topPos+slot.y;g.fill(sx-1,sy-1,sx+17,sy+17,0xff665640);g.fill(sx,sy,sx+16,sy+16,0xffaa9776);}
+  int total=menu.data.get(1);g.fill(leftPos+150,topPos+44,leftPos+188,topPos+50,0xff79674d);if(total>0)g.fill(leftPos+150,topPos+44,leftPos+150+Math.min(38,38*menu.data.get(0)/total),topPos+50,0xffae773e);
+  int n=menu.data.get(2);serve.active=n>0;label(g,"pot",12,102);g.drawString(font,tr("servings",n,menu.data.get(3)),leftPos+58,topPos+102,0xff34291f,false);
+  if(minecraft.level.getBlockEntity(menu.pos) instanceof KitchenTile t&&!t.dish.isEmpty())g.renderItem(t.dish,leftPos+20,topPos+114);
  }
- protected void renderLabels(GuiGraphics g,int x,int y){g.drawString(font,playerInventoryTitle,inventoryLabelX,inventoryLabelY,0xff34291f,false);}
+ protected void renderLabels(GuiGraphics g,int x,int y){label(g,"inventory",inventoryLabelX,inventoryLabelY);}
  public void render(GuiGraphics g,int x,int y,float f){super.render(g,x,y,f);renderTooltip(g,x,y);}
 }

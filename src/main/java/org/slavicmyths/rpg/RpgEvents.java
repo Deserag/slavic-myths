@@ -47,10 +47,10 @@ public final class RpgEvents {
   double damage=arrow.getBaseDamage(),speed=1;
   if(arrow.isCritArrow()&&PathData.has(p,"aim"))damage*=1.1;
   if(arrow.isCritArrow()&&PathData.has(p,"precision")&&PathData.ready(p,"precision",400))damage*=1.2;
-  if(Runes.has(bow,"midday")&&arrow.isCritArrow()&&RuneEffects.day(p))damage*=1.08;
-  if(Runes.has(bow,"shadow")&&RuneEffects.dark(p))damage*=1.06;
-  if(Runes.has(bow,"forest")&&RuneEffects.forest(p))speed+=.04;
-  if(Runes.has(bow,"wind"))speed+=.08;arrow.setBaseDamage(damage);arrow.setDeltaMovement(arrow.getDeltaMovement().scale(speed));
+  if(Runes.has(bow,"midday")&&arrow.isCritArrow()&&RuneEffects.day(p))damage*=RuneDefinition.n("midday","bow_multiplier");
+  if(Runes.has(bow,"shadow")&&RuneEffects.dark(p))damage*=RuneDefinition.n("shadow","bow_multiplier");
+  if(Runes.has(bow,"forest")&&RuneEffects.forest(p))speed+=RuneDefinition.n("forest","arrow_speed");
+  if(Runes.has(bow,"wind"))speed+=RuneDefinition.n("wind","arrow_speed");arrow.setBaseDamage(damage);arrow.setDeltaMovement(arrow.getDeltaMovement().scale(speed));
  }
  @SubscribeEvent public static void hurt(LivingIncomingDamageEvent e){
   if(e.getEntity().level().isClientSide||e.getAmount()<=0)return;
@@ -73,7 +73,7 @@ public final class RpgEvents {
   }
   RuneEffects.hit(p,target,item,e,arrow,first);
  }
- @SubscribeEvent public static void death(LivingDeathEvent e){if(e.getEntity().level().isClientSide||!(e.getSource().getEntity() instanceof Player))return;Player p=(Player)e.getSource().getEntity();if(e.getSource().getDirectEntity()==p&&Runes.has(p.getMainHandItem(),"life")&&PathData.ready(p,"rune_life",900))p.heal(2);}
+ @SubscribeEvent public static void death(LivingDeathEvent e){if(e.getEntity().level().isClientSide||!(e.getSource().getEntity() instanceof Player))return;Player p=(Player)e.getSource().getEntity();if(e.getSource().getDirectEntity()==p&&Runes.has(p.getMainHandItem(),"life")&&PathData.ready(p,"rune_life",RuneDefinition.i("life","kill_cooldown")))p.heal(RuneDefinition.i("life","kill_healing"));}
  @SubscribeEvent public static void food(LivingEntityUseItemEvent.Finish e){if(!(e.getEntity() instanceof Player)||e.getEntity().level().isClientSide)return;Player p=(Player)e.getEntity();Item item=e.getItem().getItem();if(item!=ModItems.BERRY_MORS.get()&&item!=ModItems.FOREST_MIX.get())return;if(PathData.has(p,"herbs"))p.addEffect(new MobEffectInstance(MobEffects.REGENERATION,60,0));if(item==ModItems.BERRY_MORS.get()&&PathData.has(p,"healing_brew")&&PathData.ready(p,"brew",200))p.heal(2);}
  @SubscribeEvent public static void sense(PlayerInteractEvent.EntityInteract e){Player p=e.getEntity();Entity entity=e.getTarget();if(p.level().isClientSide||!PathData.has(p,"spirit_sense")||!(entity instanceof LandSpiritEntity||entity instanceof DomovoyEntity||entity instanceof LeshyEntity)||!PathData.ready(p,"sense",40))return;
   if(entity instanceof DomovoyEntity){int rep=((DomovoyEntity)entity).reputation(p);PathData.message(p,rep<0?"favor_low":rep>=40?"favor_high":"favor_medium");}else PathData.message(p,entity instanceof Mob&&((Mob)entity).getTarget()!=null?"hostile":entity instanceof LandSpiritEntity&&((LandSpiritEntity)entity).state()==1?"wary":"calm");}

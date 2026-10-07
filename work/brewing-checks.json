@@ -1,0 +1,10 @@
+{
+  "version": "1.1.8",
+  "resource_checks": 9709,
+  "json": 2692,
+  "links": 5894,
+  "pure_java_assertions": 49,
+  "minecraft_launches": 0,
+  "jei": "No new categories; optional integration unchanged",
+  "sha256": "b108d74baf242c71136a63670bb9da90db40d7c029b025475e4e9091d107c4fe"
+}

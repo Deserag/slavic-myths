@@ -32,9 +32,9 @@ for id in [c+'_seeds' for c in crops]+produce+tools:
     check(read(model)['textures']['layer0']=='slavicmyths:item/'+id,id+' correct item texture')
     for lang in ['ru_ru','en_us']:check('item.slavicmyths.'+id in read(a/f'lang/{lang}.json'),id+' '+lang)
 for png in textures:
-    im=Image.open(png);check(im.size==(32,32) and im.mode=='RGBA',png.stem+' native RGBA32');check(set(im.getchannel('A').getdata())=={0,255},png.stem+' binary alpha/no blur')
+    im=Image.open(png);check(im.size==((16,16) if png.stem=='sickle' else (32,32)) and im.mode=='RGBA',png.stem+' native RGBA32');check(set(im.getchannel('A').getdata())=={0,255},png.stem+' binary alpha/no blur')
 check(len({hashlib.sha256(p.read_bytes()).hexdigest() for p in textures})==67,'all 67 images distinct')
-tag=read(d/'tags/block/sickle_harvestable.json');check(len(tag['values'])==11,'seven mod + four vanilla harvestables')
+tag=read(d/'tags/block/sickle_harvestable.json');check(len(tag['values'])==12,'eight mod including hops + four vanilla harvestables')
 for tag in ['durability','mining_loot']:
     values=read(r/f'data/minecraft/tags/item/enchantable/{tag}.json')['values'];check(all('slavicmyths:'+t in values for t in tools[:2]),tag+' enchants both tools')
 for grass,chance in [('short_grass',.12),('tall_grass',.18)]:

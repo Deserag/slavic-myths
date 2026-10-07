@@ -25,8 +25,8 @@ public class StorageTile extends BlockEntity implements Container,MenuProvider {
  public ItemStack removeItem(int i,int n){ItemStack s=ContainerHelper.removeItem(items,i,n);if(!s.isEmpty())setChanged();return s;}public ItemStack removeItemNoUpdate(int i){return ContainerHelper.takeItem(items,i);}
  public void setItem(int i,ItemStack s){items.set(i,s);s.limitSize(getMaxStackSize(s));setChanged();}public void clearContent(){items.clear();setChanged();}
  public boolean accepted(ItemStack s){return !s.isEmpty()&&(kind.tag.isEmpty()||s.is(KitchenII.tag("storage/"+kind.tag)));}
- public boolean canPlaceItem(int i,ItemStack s){if(fermentation.active()||kind!=Kind.CHEST&&kind!=Kind.BARREL)return false;return accepted(s)&&(kind!=Kind.BARREL||items.stream().filter(v->!v.isEmpty()).allMatch(v->v.is(s.getItem())));}
- public boolean canTakeItem(Container c,int i,ItemStack s){return !fermentation.active()&&(kind==Kind.CHEST||kind==Kind.BARREL);}
+ public boolean canPlaceItem(int i,ItemStack s){if(fermentation.active()||kind!=Kind.CHEST&&kind!=Kind.BARREL&&kind!=Kind.CRATE)return false;return accepted(s)&&(kind!=Kind.BARREL||items.stream().filter(v->!v.isEmpty()).allMatch(v->v.is(s.getItem())));}
+ public boolean canTakeItem(Container c,int i,ItemStack s){return !fermentation.active()&&(kind==Kind.CHEST||kind==Kind.BARREL||kind==Kind.CRATE);}
  public boolean stillValid(Player p){return !isRemoved()&&p.isAlive()&&p.level().getBlockEntity(worldPosition)==this&&p.distanceToSqr(worldPosition.getCenter())<=64;}
  public Component getDisplayName(){return Component.translatable("block.slavicmyths."+kind.id);}
  public AbstractContainerMenu createMenu(int id,Inventory inv,Player p){return kind==Kind.CHEST?ChestMenu.threeRows(id,inv,this):new BarrelMenu(id,inv,this);}

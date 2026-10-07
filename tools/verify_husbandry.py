@@ -1,4 +1,4 @@
-"""1.1.3 static resource/UV/production checks. Does not launch/bootstrap Minecraft."""
+"""1.1.8 static resource/UV/production checks. Does not launch/bootstrap Minecraft."""
 from pathlib import Path
 import argparse,json,zipfile,hashlib,re,math
 from PIL import Image
@@ -92,7 +92,7 @@ for p in D.rglob('*.json'):read(p);jsonCount+=1
 common=ROOT/'src/main/java/org/slavicmyths/husbandry'
 for p in common.glob('*.java'):check('net.minecraft.client' not in p.read_text(),'server isolation '+p.name)
 source=(common/'Husbandry.java').read_text();check(source.count('=animal(')==3,'exactly three new entity types');check(source.count('item("goose_spawn_egg"')+source.count('item("duck_spawn_egg"')+source.count('item("domestic_goat_spawn_egg"')==3,'exactly three adult spawn eggs')
-check('mod_version=1.1.3' in (ROOT/'gradle.properties').read_text(),'single version source')
+check('mod_version=1.1.8' in (ROOT/'gradle.properties').read_text(),'single version source')
 if args.jar:
     jar=zipfile.ZipFile(args.jar)
     # All current mod resources must be the exact production resources, including preserved gardens/crops.
@@ -100,8 +100,8 @@ if args.jar:
         if p.is_file() and p.suffix in ('.json','.png','.ogg'):
             key=p.relative_to(R).as_posix();check(jar.read(key)==p.read_bytes(),'packaged '+key)
     for name in animals:check('org/slavicmyths/husbandry/YardAnimal.class' in jar.namelist(),'production animal '+name)
-    check(b'version="1.1.3"' in jar.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version')
+    check(b'version="1.1.8"' in jar.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version')
     check(not any('/verify/' in name or '/smoke/' in name or 'GameTest' in name for name in jar.namelist()),'no test harness in production')
-report={'version':'1.1.3','checks':checks,'json':jsonCount,'model_texture_links':refs,'audio_fallback_events':audioCount,'minecraft_launches':0,'kind':'static resources/UV'+('/production JAR' if args.jar else ''),'jar':str(args.jar) if args.jar else None}
+report={'version':'1.1.8','checks':checks,'json':jsonCount,'model_texture_links':refs,'audio_fallback_events':audioCount,'minecraft_launches':0,'kind':'static resources/UV'+('/production JAR' if args.jar else ''),'jar':str(args.jar) if args.jar else None}
 if args.jar:report['sha256']=hashlib.sha256(args.jar.read_bytes()).hexdigest()
 write=ROOT/'work/husbandry-static-checks.json';write.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

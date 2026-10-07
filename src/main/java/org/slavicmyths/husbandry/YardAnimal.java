@@ -19,10 +19,12 @@ public final class YardAnimal extends Animal {
     private static final EntityDataAccessor<Integer> DEFENCE=SynchedEntityData.defineId(YardAnimal.class,EntityDataSerializers.INT);
     public final int kind;
     private int eggTimer;
+    private int ambientCooldown;
+    private long lastAmbient=Long.MIN_VALUE/2;
     public int eatingTicks;
     private final GooseDefence defence;
     public YardAnimal(EntityType<? extends YardAnimal> type,Level level,int kind){
-        super(type,level);this.kind=kind;eggTimer=newEggTimer();
+        super(type,level);this.kind=kind;eggTimer=newEggTimer();ambientCooldown=newAmbientCooldown();
         getNavigation().setCanFloat(true);
         goalSelector.addGoal(3,new TemptGoal(this,1.1,Ingredient.of(Husbandry.feed(new String[]{"goose","duck","domestic_goat"}[kind])),false));
         if(kind<2)goalSelector.addGoal(4,new NestGoal(this));
@@ -50,6 +52,11 @@ public final class YardAnimal extends Animal {
     }
     @Override public void aiStep(){
         super.aiStep();if(eatingTicks>0)eatingTicks--;
+        if(!level().isClientSide&&--ambientCooldown<=0){
+            ambientCooldown=newAmbientCooldown();
+            boolean quiet=kind==0&&level().getEntitiesOfClass(YardAnimal.class,getBoundingBox().inflate(10),a->a!=this&&a.kind==0&&distanceToSqr(a)<=100&&level().getGameTime()-a.lastAmbient<160).size()>0;
+            if(!quiet&&(kind!=0||defenceState()==0)){lastAmbient=level().getGameTime();playSound(ambientEvent(),kind==0?.72F:kind==1?.67F:.72F,1+(random.nextFloat()-.5F)*.16F);}
+        }
         if(!level().isClientSide&&kind<2&&!isBaby()&&eggTimer>0)eggTimer--;
         if(!level().isClientSide&&kind==0&&!isBaby()&&tickCount%20==0&&defenceState()==0){
             for(YardAnimal baby:level().getEntitiesOfClass(YardAnimal.class,getBoundingBox().inflate(6),a->a.kind==0&&a.isBaby()&&distanceToSqr(a)<=36)){
@@ -79,7 +86,9 @@ public final class YardAnimal extends Animal {
     }
     @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);if(kind<2)n.putInt("EggTimer",eggTimer);}
     @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);if(kind<2&&n.contains("EggTimer"))eggTimer=Math.max(0,Math.min(18000,n.getInt("EggTimer")));setDefence(0);}
-    @Override protected SoundEvent getAmbientSound(){return (kind==0?Husbandry.GOOSE_AMBIENT:kind==1?Husbandry.DUCK_AMBIENT:Husbandry.GOAT_AMBIENT).get();}
+    private int newAmbientCooldown(){return kind==0?1200+random.nextInt(1201):kind==1?600+random.nextInt(601):800+random.nextInt(801);}
+    private SoundEvent ambientEvent(){return (kind==0?Husbandry.GOOSE_AMBIENT:kind==1?Husbandry.DUCK_AMBIENT:Husbandry.GOAT_AMBIENT).get();}
+    @Override protected SoundEvent getAmbientSound(){return null;}
     @Override protected SoundEvent getHurtSound(DamageSource d){return (kind==0?Husbandry.GOOSE_HURT:kind==1?Husbandry.DUCK_HURT:Husbandry.GOAT_HURT).get();}
     @Override protected SoundEvent getDeathSound(){return (kind==0?Husbandry.GOOSE_DEATH:kind==1?Husbandry.DUCK_DEATH:Husbandry.GOAT_DEATH).get();}
 }

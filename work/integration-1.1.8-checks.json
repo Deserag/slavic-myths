@@ -1,0 +1,12 @@
+{
+  "version": "1.1.8",
+  "checks": 2528,
+  "acquisition_checked": 165,
+  "acquisition_missing": [],
+  "missing_ru_keys": 0,
+  "missing_en_keys": 0,
+  "mojibake_remaining": 0,
+  "tree_java_assertions": 300,
+  "minecraft_launches": 0,
+  "sha256": "b108d74baf242c71136a63670bb9da90db40d7c029b025475e4e9091d107c4fe"
+}

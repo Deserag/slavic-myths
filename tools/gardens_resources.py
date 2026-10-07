@@ -194,7 +194,7 @@ for k,id in enumerate(B):
 # Old feature ID stays registered/configured; its former biome injection is replaced by five scoped patches.
 js(D/'neoforge/biome_modifier/core_berry_patch.json',{'type':'neoforge:none'})
 for id in ['apple_tree','apple_sapling']:js(D/f'worldgen/configured_feature/{id}.json',{'type':'slavicmyths:apple_tree','config':{}})
-js(D/'worldgen/placed_feature/apple_tree.json',{'feature':'slavicmyths:apple_tree','placement':[{'type':'minecraft:rarity_filter','chance':18},{'type':'minecraft:in_square'},{'type':'minecraft:heightmap','heightmap':'MOTION_BLOCKING_NO_LEAVES'},{'type':'minecraft:biome'}]})
+js(D/'worldgen/placed_feature/apple_tree.json',{'feature':'slavicmyths:apple_tree','placement':[{'type':'minecraft:rarity_filter','chance':6},{'type':'minecraft:in_square'},{'type':'minecraft:heightmap','heightmap':'MOTION_BLOCKING_NO_LEAVES'},{'type':'minecraft:biome'}]})
 js(D/'neoforge/biome_modifier/apple_tree.json',{'type':'neoforge:add_features','biomes':['minecraft:'+b for b in ['plains','sunflower_plains','forest','birch_forest','meadow']],'features':['slavicmyths:apple_tree'],'step':'vegetal_decoration'})
 js(D/'advancement/garden_harvest.json',{'parent':'minecraft:husbandry/root','display':{'icon':{'id':'slavicmyths:raspberry'},'title':{'translate':'advancement.slavicmyths.garden_harvest.title'},'description':{'translate':'advancement.slavicmyths.garden_harvest.description'},'frame':'task','show_toast':True,'announce_to_chat':True,'hidden':False},'criteria':{'berry':{'trigger':'minecraft:inventory_changed','conditions':{'items':[{'items':'#slavicmyths:berries'}]}}},'requirements':[['berry']]})
 ruB=['Малина','Черника','Чёрная смородина','Брусника','Клюква'];ruS=['малины','черники','чёрной смородины','брусники','клюквы'];enB=['Raspberry','Blueberry','Blackcurrant','Lingonberry','Cranberry']
@@ -208,3 +208,7 @@ for lang in ['ru_ru','en_us']:
     for id,name in zip(tabIds,ruTabs if ru else enTabs):obj['itemGroup.slavicmyths.'+id]=name
     obj['advancement.slavicmyths.garden_harvest.title']='Лесной урожай' if ru else 'Forest Harvest';obj['advancement.slavicmyths.garden_harvest.description']='Собери одну из новых ягод' if ru else 'Harvest one of the new berries';js(p,obj)
 print('1.1.2 garden sprites, vanilla-compatible apple family and scoped data generated.')
+
+# Preserve the latest integration assets and definitive recipes.
+from integration_polish_resources import main as polish_118
+polish_118()

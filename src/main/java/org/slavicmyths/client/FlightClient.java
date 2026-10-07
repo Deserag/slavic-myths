@@ -17,7 +17,7 @@ import org.slavicmyths.flight.*;
 import org.slavicmyths.registry.ModItems;
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class FlightClient {
- private static final KeyMapping DOWN=new KeyMapping("key.slavicmyths.flight_down",88,"key.categories.slavicmyths"),BRAKE=new KeyMapping("key.slavicmyths.flight_brake",82,"key.categories.slavicmyths"),CARGO=new KeyMapping("key.slavicmyths.flight_cargo",66,"key.categories.slavicmyths");
+ private static final KeyMapping DOWN=new KeyMapping("key.slavicmyths.flight_down",67,"key.categories.slavicmyths"),BRAKE=new KeyMapping("key.slavicmyths.flight_brake",82,"key.categories.slavicmyths"),CARGO=new KeyMapping("key.slavicmyths.flight_cargo",66,"key.categories.slavicmyths");
  private static int tick;private static boolean cargo;private static boolean rendering;private static PlayerRenderer normal,slim;
  public static void keys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e){e.register(DOWN);e.register(BRAKE);e.register(CARGO);}
  public static void renderers(EntityRendererProvider.Context context){normal=new RiderRenderer(context,false);slim=new RiderRenderer(context,true);}
@@ -34,7 +34,7 @@ public final class FlightClient {
   else if(!v.mortar)m.mulPose(com.mojang.math.Axis.ZP.rotationDegrees(v.roll()*.25F));
  }
  private static final class RiderRenderer extends PlayerRenderer {
-  RiderRenderer(EntityRendererProvider.Context m,boolean slim){super(m,slim);model=new RiderModel(m.bakeLayer(slim?net.minecraft.client.model.geom.ModelLayers.PLAYER_SLIM:net.minecraft.client.model.geom.ModelLayers.PLAYER),slim);addLayer(new FolkEquipmentLayer(this));}
+  RiderRenderer(EntityRendererProvider.Context m,boolean slim){super(m,slim);model=new RiderModel(m.bakeLayer(slim?net.minecraft.client.model.geom.ModelLayers.PLAYER_SLIM:net.minecraft.client.model.geom.ModelLayers.PLAYER),slim);layers.removeIf(layer->layer instanceof net.minecraft.client.renderer.entity.layers.CustomHeadLayer);addLayer(new ClothingHeadLayer(this,m));addLayer(new TextileClothingLayer(this,slim));addLayer(new FolkEquipmentLayer(this));}
   @Override protected void setupRotations(AbstractClientPlayer p,PoseStack m,float age,float yaw,float partial,float scale){super.setupRotations(p,m,age,yaw,partial,scale);if(p.getVehicle() instanceof FlyingVessel){FlyingVessel v=(FlyingVessel)p.getVehicle();m.mulPose(com.mojang.math.Axis.ZP.rotationDegrees(v.roll()*.55F));m.mulPose(com.mojang.math.Axis.XP.rotationDegrees(v.pitch()*.6F));}}
  }
  private static final class RiderModel extends PlayerModel<AbstractClientPlayer>{

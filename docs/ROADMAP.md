@@ -1,3 +1,13 @@
+## 1.1.8 Integration Polish — build / production / PolyMC gates PASS
+
+Implemented grouped Kitchen II screen and continuous supported shelf, single headscarf render path, rebuilt carved/storm staff and open-crescent sickle, native 16px berries/bushes, raised Perunite equipment meshes, common numeric rune definitions/tooltips and incompatibility, crate nine-slot GUI, C descent and smooth -0.32 descent for both vessels, rare individual animal ambient calls. Ambient source events: goose/duck use minecraft:entity.chicken.ambient at existing 0.75/1.10 sound pitch; domestic goat uses minecraft:entity.sheep.ambient at 0.9. Defensive hiss uses minecraft:entity.cat.hiss only from GooseDefence.
+
+Apple uses one taller fixed crown with the old Y=4 saved-world anchor; pine is 9–12 blocks with separated tiers; four pine saplings select a validated 2x2 giant of 16–20 blocks, never natural giant spawning. Sapling preflight now respects world height and loaded chunks. Existing berries/hops bonemeal increments remain intact.
+
+Five definitive recipes repaired. Shared kurgan candidates use 41:4:1 weights, approximating old relative density (1/20² : 1/64² : 1/128²); legacy warrior/great sets are preserved with frequency 0. Common placement 20/15 → 50/30; retained legacy placements 64/55 → 160/110 and 128/119 → 320/238. Large bandit camp 128/119 → 320/238, salt retained. Apple rarity 18 → 6. These are configured values, not measured world frequencies.
+
+165 acquisition IDs reviewed, missing routes 0; RU/EN missing keys 0 and remaining mojibake 0. See LOCALIZATION_AUDIT_1.1.8, OBTAINABILITY_AUDIT_1.1.8 and FUNCTIONAL_AUDIT_1.1.8. `gradlew.bat clean build`: first attempt failed on Component.withStyle; permitted retry PASS in 33s, 12 deprecation warnings; Gradle test task NO-SOURCE. Actual pure Java assertions: 300 TreeShape + 49 BrewRules. Production/resource gates PASS (2692 JSON, 5894 asset links); duplicate Vat screen bytecode regression PASS; tests excluded from JAR. Source rune numerical equivalence PASS. Versioned JAR: build/libs/slavicmyths-1.1.8.jar, 7192357 bytes, SHA256 b108d74baf242c71136a63670bb9da90db40d7c029b025475e4e9091d107c4fe. Installed only this mod into Slavic-Myths-1.21.1-Testing; backed up/replaced 1.1.7; six companion files and two instance configurations have identical hashes. Receipt: docs/verification/polymc-1.1.8-installation.json. Branch main, no release branch/tag. Automated Minecraft/PolyMC/server launches: 0; visual, gameplay, rejoin and natural frequency acceptance remain manual.
+
 ## 1.1.7 — Startup screen hotfix (2026-10-07)
 
 - [x] Устранена двойная регистрация slavicmyths:vat из crash log пользователя.

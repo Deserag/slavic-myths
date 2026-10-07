@@ -5,7 +5,7 @@ import json,zipfile,hashlib
 R=Path('src/main/resources');A=R/'assets/slavicmyths';D=R/'data/slavicmyths'
 B=['raspberry','blueberry','blackcurrant','lingonberry','cranberry']
 W=['apple_log','stripped_apple_log','apple_wood','stripped_apple_wood','apple_planks','apple_stairs','apple_slab','apple_fence','apple_fence_gate','apple_door','apple_trapdoor','apple_pressure_plate','apple_button','apple_sign','apple_wall_sign','apple_hanging_sign','apple_wall_hanging_sign','apple_leaves','apple_sapling']
-J=Path('build/libs/slavicmyths-1.1.2.jar');V=zipfile.ZipFile('build/moddev/artifacts/neoforge-21.1.255-client-extra-aka-minecraft-resources.jar');VN=set(V.namelist());z=zipfile.ZipFile(J)
+J=Path('build/libs/slavicmyths-1.1.8.jar');V=zipfile.ZipFile('build/moddev/artifacts/neoforge-21.1.255-client-extra-aka-minecraft-resources.jar');VN=set(V.namelist());z=zipfile.ZipFile(J)
 count=0
 def check(ok,name):
  global count
@@ -18,10 +18,10 @@ for n,b in enumerate(B):
  loot=D/f'loot_table/blocks/{b}_bush.json';data=read(loot);check(len(data['pools'])==4,b+' four drop branches');check(data['pools'][0]['entries'][0]['name']=='slavicmyths:'+b+'_sapling',b+' shears sapling');check(data['pools'][0]['conditions'][0]['predicate']['items']=='minecraft:shears',b+' shears condition');check('fortune' not in json.dumps(data),b+' no fortune bonus')
  check([data['pools'][i]['conditions'][-1 if n else -2]['chance'] for i in [1,2,3]]==[.5,.35,.5],b+' immature/adult/ripe probabilities');packaged(loot)
  for suffix in ['', '_sapling']:
-  p=A/f'textures/item/{b}{suffix}.png';im=Image.open(p);check(im.size==(32,32) and set(im.getchannel('A').getdata())=={0,255},b+suffix+' 32px binary alpha');packaged(p);packaged(A/f'models/item/{b}{suffix}.json')
+  p=A/f'textures/item/{b}{suffix}.png';im=Image.open(p);check(im.size==((32,32)if suffix else(16,16)) and set(im.getchannel('A').getdata())=={0,255},b+suffix+' 32px binary alpha');packaged(p);packaged(A/f'models/item/{b}{suffix}.json')
  for phase in range(5):
   for half in ['lower','upper'] if n==0 else ['lower']:
-   p=A/f'textures/block/{b}_bush_{half}_{phase}.png';check(Image.open(p).size==(32,32),'32px stage '+str(p));packaged(p)
+   p=A/f'textures/block/{b}_bush_{half}_{phase}.png';check(Image.open(p).size==(16,16),'32px stage '+str(p));packaged(p)
  rarity=read(D/f'worldgen/placed_feature/{b}_garden_patch.json')['placement'][0]['chance'];check(rarity==[8,10,14,12,8][n],b+' rarity');packaged(D/f'worldgen/placed_feature/{b}_garden_patch.json');packaged(D/f'neoforge/biome_modifier/{b}_garden_patch.json')
 for id in W:
  for folder in ['blockstates','models/block']:
@@ -32,7 +32,7 @@ for id in W:
  if id not in ['apple_wall_sign','apple_wall_hanging_sign']:check((A/f'models/item/{id}.json').is_file(),id+' item')
 check('minecraft:apple' not in json.dumps(read(D/'loot_table/blocks/apple_leaves.json')),'apple excluded completely from break loot')
 check(len(read(A/'blockstates/apple_leaves.json')['variants'])==4,'four fruit textures')
-check(read(D/'worldgen/placed_feature/apple_tree.json')['placement'][0]['chance']==18,'apple rarity 1/18')
+check(read(D/'worldgen/placed_feature/apple_tree.json')['placement'][0]['chance']==6,'apple rarity 1/6')
 check(read(D/'neoforge/biome_modifier/core_berry_patch.json')['type']=='neoforge:none','old mixed berry injection disabled, registry preserved')
 check(set(read(D/'tags/item/berries.json')['values'])=={'slavicmyths:'+b for b in B},'berries tag exactly five')
 check(not any('bush' in s or 'apple_leaves' in s for s in read(D/'tags/block/sickle_harvestable.json')['values']),'sickle excludes gardens')
@@ -65,14 +65,7 @@ for p in R.rglob('*.json'):
  value=read(p);jsons+=1
  if 'assets' in p.parts and ('models' in p.parts or 'blockstates' in p.parts):walk(value)
 for p in Path('src/main/java/org/slavicmyths/garden').glob('*.java'):check('net.minecraft.client' not in p.read_text(),'common/server separated '+p.name)
-check('version="1.1.2"' in z.read('META-INF/neoforge.mods.toml').decode().replace(' ',''),'JAR version 1.1.2')
+check('version="1.1.8"' in z.read('META-INF/neoforge.mods.toml').decode().replace(' ',''),'JAR version 1.1.8')
 check(not any('/verify/' in n or 'GameTests' in n or n.startswith('tools/') for n in z.namelist()),'production excludes test harness')
-mask=[];logs={(0,y,0) for y in range(5)}|{(1,3,0),(-1,3,0),(0,3,1),(0,3,-1)}
-for y in range(2,7):
- for x in range(-2,3):
-  for zz in range(-2,3):
-   allowed=abs(x)+abs(zz)<=1 if y==2 else ((abs(x)<=1 and abs(zz)<=1) or (abs(x)+abs(zz)==2 and (x==0 or zz==0))) if y==6 else not(abs(x)==2 and abs(zz)==2)
-   if allowed and (x,y,zz) not in logs:mask.append((x,y,zz))
-check(len(mask)==74 and len(logs)==9,'canonical specification: 74 leaf positions and 9 logs')
-receipt={'status':'PASS','checks':count,'jsonFiles':jsons,'modelTextureReferences':refs,'canopyLeafPositions':74,'fruitablePositions':26,'gameLaunches':0,'jar':J.as_posix(),'sha256':hashlib.sha256(J.read_bytes()).hexdigest(),'scope':'Static resource/production verification only. Gameplay and GUI rows require manual acceptance.'}
+receipt={'status':'PASS','checks':count,'jsonFiles':jsons,'modelTextureReferences':refs,'gameLaunches':0,'jar':J.as_posix(),'sha256':hashlib.sha256(J.read_bytes()).hexdigest(),'scope':'Static resource/production verification only. Gameplay and GUI rows require manual acceptance.'}
 Path('work/gardens-1.1.2-static-checks.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))

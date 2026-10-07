@@ -13,12 +13,12 @@ public final class AppleTreeShape {
     public static final List<BlockPos> CANOPY;
     public static final Set<BlockPos> FRUITABLE;
     static {
-        var logs=new LinkedHashMap<BlockPos,Direction.Axis>();for(int y=0;y<=4;y++)logs.put(new BlockPos(0,y,0),Direction.Axis.Y);
+        var logs=new LinkedHashMap<BlockPos,Direction.Axis>();for(int y=0;y<=5;y++)logs.put(new BlockPos(0,y,0),Direction.Axis.Y);
         logs.put(new BlockPos(1,3,0),Direction.Axis.X);logs.put(new BlockPos(-1,3,0),Direction.Axis.X);
         logs.put(new BlockPos(0,3,1),Direction.Axis.Z);logs.put(new BlockPos(0,3,-1),Direction.Axis.Z);LOGS=Collections.unmodifiableMap(logs);
         var mask=new ArrayList<BlockPos>();
-        for(int y=2;y<=6;y++)for(int x=-2;x<=2;x++)for(int z=-2;z<=2;z++) {
-            boolean allowed=y==2?Math.abs(x)+Math.abs(z)<=1:y==6?(Math.abs(x)<=1&&Math.abs(z)<=1)||(Math.abs(x)+Math.abs(z)==2&&(x==0||z==0)):!(Math.abs(x)==2&&Math.abs(z)==2);
+        for(int y=2;y<=7;y++)for(int x=-2;x<=2;x++)for(int z=-2;z<=2;z++) {
+            boolean allowed=y==2?Math.abs(x)+Math.abs(z)<=1:y>=6?(y==7?Math.abs(x)+Math.abs(z)<=1:Math.abs(x)<=1&&Math.abs(z)<=1):!(Math.abs(x)==2&&Math.abs(z)==2);
             var p=new BlockPos(x,y,z);if(allowed&&!logs.containsKey(p))mask.add(p);
         }
         CANOPY=List.copyOf(mask);

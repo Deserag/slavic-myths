@@ -2,18 +2,22 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "PPP",
-    "L L",
-    "LPL"
+    "PCP",
+    "S S"
   ],
   "key": {
     "P": {
-      "item": "minecraft:oak_planks"
+      "tag": "minecraft:planks"
     },
-    "L": {
-      "item": "minecraft:oak_log"
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "S": {
+      "item": "minecraft:stick"
     }
   },
   "result": {
-    "id": "slavicmyths:kitchen_table"
+    "id": "slavicmyths:kitchen_table",
+    "count": 1
   }
 }

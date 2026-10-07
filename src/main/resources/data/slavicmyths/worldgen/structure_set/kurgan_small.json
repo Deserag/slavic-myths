@@ -2,13 +2,21 @@
   "structures": [
     {
       "structure": "slavicmyths:kurgan_small",
+      "weight": 41
+    },
+    {
+      "structure": "slavicmyths:kurgan_warrior",
+      "weight": 4
+    },
+    {
+      "structure": "slavicmyths:kurgan_great",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 20,
-    "separation": 15,
+    "spacing": 50,
+    "separation": 30,
     "salt": 841973,
     "spread_type": "linear"
   }

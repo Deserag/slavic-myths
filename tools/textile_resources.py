@@ -198,3 +198,7 @@ def lang():
         for key,values in {'entity.slavicmyths.carcass':('Туша','Carcass'),'effect.slavicmyths.well_rested':('Хороший отдых','Well Rested'),'message.slavicmyths.requires_flax':('Нужно 4 стебля льна','Requires 4 flax stalks'),'message.slavicmyths.belt_equipped':('Пояс надет','Belt equipped'),'message.slavicmyths.belt_occupied':('Слот пояса занят','Belt slot is occupied'),'advancement.slavicmyths.linen_craft.title':('От стебля до полотна','From Stalk to Cloth'),'advancement.slavicmyths.linen_craft.description':('Изготовь льняное полотно','Craft a piece of linen cloth'),'advancements.slavicmyths.linen_thread.description':('Сплетите льняную нить из двух волокон на прялке.','Spin two flax fibers into linen thread using a spinning wheel.')}.items():v[key]=values[n]
         js(p,v)
 if __name__=='__main__':icons();textures();blocks();recipes_tags();lang();print('1.1.4 textile assets/data generated')
+
+# Preserve the latest integration assets and definitive recipes.
+from integration_polish_resources import main as polish_118
+polish_118()

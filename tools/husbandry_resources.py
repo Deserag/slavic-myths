@@ -258,3 +258,7 @@ def lang_audio():
 if __name__=='__main__':
     model_assets();item_assets();block_assets();data_assets();lang_audio()
     print('1.1.3 husbandry resources and six UV-mapped animal meshes generated')
+
+# Preserve the latest integration assets and definitive recipes.
+from integration_polish_resources import main as polish_118
+polish_118()

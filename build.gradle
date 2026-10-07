@@ -13,6 +13,7 @@ repositories {
 }
 neoForge {
     version = project.neo_version
+    accessTransformers = files("src/main/resources/META-INF/accesstransformer.cfg")
     runs {
         client { client(); gameDirectory = file('run') }
         server { server(); programArgument '--nogui'; gameDirectory = file('run-server') }

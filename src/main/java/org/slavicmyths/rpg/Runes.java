@@ -37,7 +37,7 @@ public final class Runes {
   ItemStack weapon=inv.getItem(0),material=inv.getItem(1);int sockets=slots(weapon);var installed=list(weapon);
   if(weapon.getCount()!=1||max(weapon)==0)return text("unsupported");
   if(action==0){if(sockets>=max(weapon))return text("capacity");if(!material.is(forgeMaterial(weapon))||material.getCount()<forgeCount(weapon))return text("missing_material",forgeMaterial(weapon).getDescription(),forgeCount(weapon));if(extra(weapon)!=null&&inventoryCount(p,extra(weapon))<1)return text("missing_material",extra(weapon).getDescription(),1);}
-  else if(action==1){String id=rune(material);if(id.isEmpty())return text("need_rune");if(installed.contains(id))return text("duplicate_rune");if(installed.size()>=sockets)return text("socket_full");}
+  else if(action==1){String id=rune(material);if(id.isEmpty())return text("need_rune");if(!RuneDefinition.ALL.get(id).categories().contains(category(weapon)))return text("incompatible_rune").copy().withStyle(net.minecraft.ChatFormatting.GRAY);if(installed.contains(id))return text("duplicate_rune");if(installed.size()>=sockets)return text("socket_full");}
   else if(action<2||action>4||action-2>=installed.size())return text("no_rune");
   int xp=operationCost(p,weapon,action);if(!p.isCreative()&&p.experienceLevel<xp)return text("need_xp",xp);return null;
  }

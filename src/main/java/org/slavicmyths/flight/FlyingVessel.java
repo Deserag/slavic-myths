@@ -82,7 +82,7 @@ public final class FlyingVessel extends Entity {
   Vec3 v=getDeltaMovement();double drag=brake?(mortar?.86:.68):(mortar?.975:.94);if(tailwind()==3&&!brake)drag=Math.min(.987,drag+.008);
   double rad=Math.toRadians(getYRot()),fx=-Math.sin(rad),fz=Math.cos(rad),norm=Math.max(1,Math.sqrt(forward*forward+strafe*strafe));
   double vx=v.x*drag+(fx*forward+fz*strafe)*accel/norm,vz=v.z*drag+(fz*forward-fx*strafe)*accel/norm;double len=Math.sqrt(vx*vx+vz*vz);if(len>max){vx*=max/len;vz*=max/len;}
-  double desired=active?lift*(mortar?.17:.32):(isInWater()?.025:Math.max(-.5,v.y-.04));double vy=active?v.y+(desired-v.y)*(mortar?.3:.18):desired;
+  double desired=active?(lift<0?lift*.32:lift*(mortar?.17:.32)):(isInWater()?.025:Math.max(-.5,v.y-.04));double vy=active?v.y+(desired-v.y)*(mortar?.3:.18):desired;
   if(getY()>level().getMaxBuildHeight()-3&&vy>0)vy=0;if(getY()<2&&vy<0)vy=0;
   Vec3 motion=new Vec3(vx,vy,vz);if(!level().hasChunkAt(BlockPos.containing(getX()+vx,getY(),getZ()+vz)))motion=Vec3.ZERO;
   boolean takeoff=onGround()&&vy>.03;setDeltaMovement(motion);move(MoverType.SELF,motion);if(horizontalCollision)setDeltaMovement(getDeltaMovement().multiply(.2,1,.2));if(verticalCollision)setDeltaMovement(getDeltaMovement().multiply(1,0,1));hasImpulse=true;fallDistance=0;

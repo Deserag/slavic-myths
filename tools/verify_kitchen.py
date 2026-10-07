@@ -79,16 +79,16 @@ for folder in ['models/table_food','models/block','models/item']:
    for face in e['faces'].values():
     if 'uv' in face:check(all(0<=v<=16 for v in face['uv']),'UV legal '+p.name)
 for p in (J/'kitchen').glob('*.java'):check('net.minecraft.client' not in p.read_text(),'common client isolation')
-check('mod_version=1.1.5' in (ROOT/'gradle.properties').read_text(),'version')
+check('mod_version=1.1.8' in (ROOT/'gradle.properties').read_text(),'version')
 belt=(J/'textile/BeltData.java').read_text(encoding='utf-8')
 check('instanceof org.slavicmyths.furniture.TableBlock' in belt and 'instanceof org.slavicmyths.block.KitchenTableBlock' in belt,'table sneak has priority over belt')
-report={'version':'1.1.5','checks':checks,'json':len(jsons),'model_texture_links':links,'minecraft_launches':0,'mode':'static/resources/geometry'}
+report={'version':'1.1.8','checks':checks,'json':len(jsons),'model_texture_links':links,'minecraft_launches':0,'mode':'static/resources/geometry'}
 if args.jar:
  jar=zipfile.ZipFile(args.jar)
  for p in R.rglob('*'):
   if p.is_file() and p.suffix in ['.json','.png','.ogg']:check(jar.read(p.relative_to(R).as_posix())==p.read_bytes(),'production resource '+str(p))
  for name in ['KitchenTile','TableTile','KitchenRecipe','KitchenMenu']:check('org/slavicmyths/kitchen/'+name+'.class' in jar.namelist(),'production class '+name)
- check(b'version="1.1.5"' in jar.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version');check(not any('/smoke/' in s or '/verify/' in s or 'GameTest' in s for s in jar.namelist()),'no test harness')
+ check(b'version="1.1.8"' in jar.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version');check(not any('/smoke/' in s or '/verify/' in s or 'GameTest' in s for s in jar.namelist()),'no test harness')
  for name in ['karavai','berry_pie']:check('data/slavicmyths/recipe/'+name+'.json' not in jar.namelist(),'no stale crafting')
  report.update(checks=checks,mode='static/resources/geometry/production',sha256=hashlib.sha256(args.jar.read_bytes()).hexdigest())
 (ROOT/'work/kitchen-static-checks.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

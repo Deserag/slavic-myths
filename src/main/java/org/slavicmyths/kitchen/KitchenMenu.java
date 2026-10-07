@@ -16,11 +16,11 @@ public final class KitchenMenu extends AbstractContainerMenu {
  public KitchenMenu(int id,Inventory inv,BlockPos p){this(id,inv,p,new SimpleContainer(9),null);}
  public KitchenMenu(int id,Inventory inv,BlockPos p,Container c,KitchenTile tile){super(TYPE.get(),id);pos=p;inventory=c;this.tile=tile;
   data=tile==null?new SimpleContainerData(4):new ContainerData(){public int get(int i){return switch(i){case 0->tile.progress;case 1->tile.total;case 2->tile.servings;default->tile.maxServings;};}public void set(int i,int v){}public int getCount(){return 4;}};addDataSlots(data);
-  addSlot(new Slot(c,0,20,24){public boolean mayPlace(ItemStack s){return s.is(KitchenII.item("rolling_pin"));}public boolean mayPickup(Player p){return tile==null||!tile.toolLocked(0);}});
-  addSlot(new Slot(c,1,218,24){public boolean mayPlace(ItemStack s){return s.is(KitchenII.item("metal_pot"));}public boolean mayPickup(Player p){return tile==null||!tile.toolLocked(1);}});
-  for(int i=0;i<4;i++)addSlot(new Slot(c,i+2,83+i%2*20,43+i/2*20));
-  for(int i=0;i<3;i++)addSlot(new Slot(c,i+6,181+(i==2?20:0),i==0?44:76){public boolean mayPlace(ItemStack s){return false;}});
-  for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inv,9+row*9+col,47+col*18,130+row*18));for(int col=0;col<9;col++)addSlot(new Slot(inv,col,47+col*18,188));
+  addSlot(new Slot(c,0,18,40){public boolean mayPlace(ItemStack s){return s.is(KitchenII.item("rolling_pin"));}public boolean mayPickup(Player p){return tile==null||!tile.toolLocked(0);}});
+  addSlot(new Slot(c,1,40,40){public boolean mayPlace(ItemStack s){return s.is(KitchenII.item("metal_pot"));}public boolean mayPickup(Player p){return tile==null||!tile.toolLocked(1);}});
+  for(int i=0;i<4;i++)addSlot(new Slot(c,i+2,104+i%2*20,40+i/2*20));
+  for(int i=0;i<3;i++)addSlot(new Slot(c,i+6,206+(i==2?20:0),i==0?40:78){public boolean mayPlace(ItemStack s){return false;}});
+  for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inv,9+row*9+col,58+col*18,151+row*18));for(int col=0;col<9;col++)addSlot(new Slot(inv,col,58+col*18,209));
  }
 
  @Override public boolean stillValid(Player p){BlockState s=p.level().getBlockState(pos);return p.isAlive()&&p.distanceToSqr(pos.getCenter())<=64&&s.is(ModBlocks.KITCHEN_TABLE.get());}

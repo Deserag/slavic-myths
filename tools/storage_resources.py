@@ -154,3 +154,7 @@ print('Household resources: 13 blocks, 2 products, 3 drying recipes, actual inve
 # Preserve the current brewing assets/tags after this earlier resource pass.
 import runpy as _brewing_runpy
 _brewing_runpy.run_path(str(Path(__file__).resolve().with_name("brewing_resources.py")))
+
+# Preserve the latest integration assets and definitive recipes.
+from integration_polish_resources import main as polish_118
+polish_118()

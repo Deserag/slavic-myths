@@ -1,0 +1,662 @@
+{
+  "animal_fat": {
+    "category": "MOB_LOOT",
+    "source": "Carcass.butcher; player kill drops"
+  },
+  "apple_bliny": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/apple_bliny.json"
+  },
+  "apple_button": {
+    "category": "CRAFT",
+    "source": "recipe/apple_button.json"
+  },
+  "apple_cider_bottle": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "apple_door": {
+    "category": "CRAFT",
+    "source": "recipe/apple_door.json"
+  },
+  "apple_fence": {
+    "category": "CRAFT",
+    "source": "recipe/apple_fence.json"
+  },
+  "apple_fence_gate": {
+    "category": "CRAFT",
+    "source": "recipe/apple_fence_gate.json"
+  },
+  "apple_hanging_sign": {
+    "category": "CRAFT",
+    "source": "recipe/apple_hanging_sign.json"
+  },
+  "apple_juice_bottle": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "apple_leaves": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "apple_log": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "apple_pie": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/apple_pie.json"
+  },
+  "apple_planks": {
+    "category": "CRAFT",
+    "source": "recipe/apple_planks.json"
+  },
+  "apple_pressure_plate": {
+    "category": "CRAFT",
+    "source": "recipe/apple_pressure_plate.json"
+  },
+  "apple_sapling": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "apple_sign": {
+    "category": "CRAFT",
+    "source": "recipe/apple_sign.json"
+  },
+  "apple_slab": {
+    "category": "CRAFT",
+    "source": "recipe/apple_slab.json"
+  },
+  "apple_stairs": {
+    "category": "CRAFT",
+    "source": "recipe/apple_stairs.json"
+  },
+  "apple_trapdoor": {
+    "category": "CRAFT",
+    "source": "recipe/apple_trapdoor.json"
+  },
+  "apple_wood": {
+    "category": "CRAFT",
+    "source": "recipe/apple_wood.json"
+  },
+  "baked_turnip": {
+    "category": "PROCESS",
+    "source": "recipe/baked_turnip_smelting.json, recipe/baked_turnip_smoking.json"
+  },
+  "barley_grain": {
+    "category": "CRAFT",
+    "source": "recipe/barley_sheaf_unpack.json"
+  },
+  "barley_groats": {
+    "category": "CRAFT",
+    "source": "recipe/barley_groats.json"
+  },
+  "barley_porridge": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/barley_porridge.json"
+  },
+  "barley_seeds": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "barley_sheaf": {
+    "category": "CRAFT",
+    "source": "recipe/barley_sheaf.json"
+  },
+  "basket": {
+    "category": "CRAFT",
+    "source": "recipe/basket.json"
+  },
+  "bast_shoes": {
+    "category": "CRAFT",
+    "source": "recipe/bast_shoes.json"
+  },
+  "berry_bliny": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/berry_bliny.json"
+  },
+  "berry_mash": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "berry_mors_mug": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "berry_mors_pitcher": {
+    "category": "PROCESS",
+    "source": "recipe/vat/berry_mors.json"
+  },
+  "berry_pie": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/berry_pie.json"
+  },
+  "berry_porridge": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/berry_porridge.json"
+  },
+  "blackcurrant": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "blackcurrant_sapling": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "bliny": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/bliny.json"
+  },
+  "blueberry": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "blueberry_sapling": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "butchering_knife": {
+    "category": "CRAFT",
+    "source": "recipe/butchering_knife.json"
+  },
+  "cabbage": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "cabbage_pie": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/cabbage_pie.json"
+  },
+  "cabbage_seeds": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "ceramic_pitcher": {
+    "category": "CRAFT",
+    "source": "recipe/ceramic_pitcher.json"
+  },
+  "cider_must": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "cooked_duck": {
+    "category": "PROCESS",
+    "source": "recipe/cooked_duck_from_smelting.json, recipe/cooked_duck_from_smoking.json"
+  },
+  "cooked_goat": {
+    "category": "PROCESS",
+    "source": "recipe/cooked_goat_from_smelting.json, recipe/cooked_goat_from_smoking.json"
+  },
+  "cooked_goose": {
+    "category": "PROCESS",
+    "source": "recipe/cooked_goose_from_smelting.json, recipe/cooked_goose_from_smoking.json"
+  },
+  "cranberry": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "cranberry_sapling": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "dark_beer_mug": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "dark_beer_wort": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "dark_bottle": {
+    "category": "CRAFT",
+    "source": "recipe/dark_bottle.json"
+  },
+  "domestic_goat_spawn_egg": {
+    "category": "CREATIVE_ONLY",
+    "source": "Husbandry.init / existing Creative Tab"
+  },
+  "dough": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/dough.json"
+  },
+  "dried_berries": {
+    "category": "PROCESS",
+    "source": "recipe/drying/berries.json"
+  },
+  "dried_mushrooms": {
+    "category": "PROCESS",
+    "source": "recipe/drying/brown_mushroom.json, recipe/drying/red_mushroom.json"
+  },
+  "drying_rack": {
+    "category": "CRAFT",
+    "source": "recipe/drying_rack.json"
+  },
+  "duck_egg": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "duck_spawn_egg": {
+    "category": "CREATIVE_ONLY",
+    "source": "Husbandry.init / existing Creative Tab"
+  },
+  "feeder": {
+    "category": "CRAFT",
+    "source": "recipe/feeder.json"
+  },
+  "fermentation_vat": {
+    "category": "CRAFT",
+    "source": "recipe/fermentation_vat.json"
+  },
+  "field_hoe": {
+    "category": "CRAFT",
+    "source": "recipe/field_hoe.json"
+  },
+  "filled_pitcher": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "flax_breaker": {
+    "category": "CRAFT",
+    "source": "recipe/flax_breaker.json"
+  },
+  "flax_fiber": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "flax_seeds": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "flax_stalk": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "folk_vest": {
+    "category": "CRAFT",
+    "source": "recipe/folk_vest.json"
+  },
+  "forest_beer_mug": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "forest_beer_wort": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "forest_herbal_infusion": {
+    "category": "PROCESS",
+    "source": "recipe/vat/forest_herbal_infusion.json"
+  },
+  "fruit_pomace": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "fruit_press": {
+    "category": "CRAFT",
+    "source": "recipe/fruit_press.json"
+  },
+  "goat_hide": {
+    "category": "MOB_LOOT",
+    "source": "Carcass.butcher; player kill drops"
+  },
+  "goat_milk_bucket": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "goose_egg": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "goose_spawn_egg": {
+    "category": "CREATIVE_ONLY",
+    "source": "Husbandry.init / existing Creative Tab"
+  },
+  "haystack": {
+    "category": "CRAFT",
+    "source": "recipe/haystack.json"
+  },
+  "honey_beer_mug": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "honey_beer_wort": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "honey_bliny": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/honey_bliny.json"
+  },
+  "honey_infusion": {
+    "category": "PROCESS",
+    "source": "recipe/vat/honey_infusion.json"
+  },
+  "hopped_beer_mug": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "hopped_beer_wort": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "hops": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "hops_cutting": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "household_chest": {
+    "category": "CRAFT",
+    "source": "recipe/household_chest.json"
+  },
+  "karavai": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/karavai.json"
+  },
+  "kitchen_table": {
+    "category": "CRAFT",
+    "source": "recipe/kitchen_table.json"
+  },
+  "kvass_mug": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "kvass_wort": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "large_basket": {
+    "category": "CRAFT",
+    "source": "recipe/large_basket.json"
+  },
+  "light_beer_mug": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "light_beer_wort": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "linen_apron": {
+    "category": "CRAFT",
+    "source": "recipe/linen_apron.json"
+  },
+  "linen_bed": {
+    "category": "CRAFT",
+    "source": "recipe/linen_bed.json"
+  },
+  "linen_cloth": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "linen_headscarf": {
+    "category": "CRAFT",
+    "source": "recipe/linen_headscarf.json"
+  },
+  "linen_ports": {
+    "category": "CRAFT",
+    "source": "recipe/linen_ports.json"
+  },
+  "linen_shirt": {
+    "category": "CRAFT",
+    "source": "recipe/linen_shirt.json"
+  },
+  "linen_thread": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "lingonberry": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "lingonberry_sapling": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "loom_table": {
+    "category": "CRAFT",
+    "source": "recipe/loom_table.json"
+  },
+  "malt_sack": {
+    "category": "CRAFT",
+    "source": "recipe/malt_sack.json"
+  },
+  "malted_barley": {
+    "category": "CRAFT",
+    "source": "recipe/malt_sack_unpack.json, recipe/vat/malted_barley.json"
+  },
+  "mead_bottle": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "mead_must": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "meat_bliny": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/meat_bliny.json"
+  },
+  "meat_pie": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/meat_pie.json"
+  },
+  "meat_stew": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/meat_stew.json"
+  },
+  "metal_pot": {
+    "category": "CRAFT",
+    "source": "recipe/metal_pot.json"
+  },
+  "mushroom_stew_slavic": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/mushroom_stew_slavic.json"
+  },
+  "oat_grain": {
+    "category": "CRAFT",
+    "source": "recipe/oat_sheaf_unpack.json"
+  },
+  "oat_groats": {
+    "category": "CRAFT",
+    "source": "recipe/oat_groats.json"
+  },
+  "oat_porridge": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/oat_porridge.json"
+  },
+  "oat_seeds": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "oat_sheaf": {
+    "category": "CRAFT",
+    "source": "recipe/oat_sheaf.json"
+  },
+  "organic_fertilizer": {
+    "category": "CRAFT",
+    "source": "recipe/organic_fertilizer.json"
+  },
+  "pea_pod": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "pea_seeds": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "pea_soup": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/pea_soup.json"
+  },
+  "produce_crate": {
+    "category": "CRAFT",
+    "source": "recipe/produce_crate.json"
+  },
+  "raspberry": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "raspberry_sapling": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "raw_duck": {
+    "category": "MOB_LOOT",
+    "source": "Carcass.butcher; player kill drops"
+  },
+  "raw_goat": {
+    "category": "MOB_LOOT",
+    "source": "Carcass.butcher; player kill drops"
+  },
+  "raw_goose": {
+    "category": "MOB_LOOT",
+    "source": "Carcass.butcher; player kill drops"
+  },
+  "rolling_pin": {
+    "category": "CRAFT",
+    "source": "recipe/rolling_pin.json"
+  },
+  "rye_bread": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/rye_bread.json"
+  },
+  "rye_flour": {
+    "category": "CRAFT",
+    "source": "recipe/rye_flour.json"
+  },
+  "rye_grain": {
+    "category": "CRAFT",
+    "source": "recipe/rye_sheaf_unpack.json"
+  },
+  "rye_seeds": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "rye_sheaf": {
+    "category": "CRAFT",
+    "source": "recipe/rye_sheaf.json"
+  },
+  "sarafan": {
+    "category": "CRAFT",
+    "source": "recipe/sarafan.json"
+  },
+  "sickle": {
+    "category": "CRAFT",
+    "source": "recipe/sickle.json"
+  },
+  "small_keg": {
+    "category": "CRAFT",
+    "source": "recipe/small_keg.json"
+  },
+  "spinning_wheel": {
+    "category": "CRAFT",
+    "source": "recipe/spinning_wheel.json"
+  },
+  "spoiled_brew": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "stewed_cabbage": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/stewed_cabbage.json"
+  },
+  "stewed_turnip": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/stewed_turnip.json"
+  },
+  "storage_sack": {
+    "category": "CRAFT",
+    "source": "recipe/storage_sack.json"
+  },
+  "storage_shelf": {
+    "category": "CRAFT",
+    "source": "recipe/storage_shelf.json"
+  },
+  "straw_nest": {
+    "category": "CRAFT",
+    "source": "recipe/straw_nest.json"
+  },
+  "stripped_apple_log": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "stripped_apple_wood": {
+    "category": "CRAFT",
+    "source": "recipe/stripped_apple_wood.json"
+  },
+  "tallow_candle": {
+    "category": "CRAFT",
+    "source": "recipe/tallow_candle.json"
+  },
+  "thunder_beer_mug": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "thunder_beer_wort": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "thunder_crystal_powder": {
+    "category": "CRAFT",
+    "source": "recipe/thunder_crystal_powder.json"
+  },
+  "turnip": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "turnip_seeds": {
+    "category": "HARVEST_WORLDGEN",
+    "source": "crop/leaf/bush loot; AppleLog stripping; Gardens/Hops worldgen"
+  },
+  "ukha": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/ukha.json"
+  },
+  "vegetable_stew": {
+    "category": "PROCESS",
+    "source": "recipe/kitchen/vegetable_stew.json"
+  },
+  "veles_dark_beer_mug": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "veles_dark_wort": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "wall_shelf": {
+    "category": "CRAFT",
+    "source": "recipe/wall_shelf.json"
+  },
+  "watering_can": {
+    "category": "CRAFT",
+    "source": "recipe/watering_can.json"
+  },
+  "wheat_flour": {
+    "category": "CRAFT",
+    "source": "recipe/wheat_flour.json"
+  },
+  "witch_berry_beer_mug": {
+    "category": "PROCESS",
+    "source": "TextileStation / YardAnimal / NestGoal / BrewTile / Fermentation"
+  },
+  "witch_berry_wort": {
+    "category": "TECHNICAL_HIDDEN",
+    "source": "VatRecipe/BrewTile/Fermentation; Brewing.category=-1"
+  },
+  "wooden_barrel": {
+    "category": "CRAFT",
+    "source": "recipe/wooden_barrel.json"
+  },
+  "wooden_mug": {
+    "category": "CRAFT",
+    "source": "recipe/wooden_mug.json"
+  },
+  "woven_belt": {
+    "category": "CRAFT",
+    "source": "recipe/woven_belt.json"
+  }
+}

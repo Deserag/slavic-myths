@@ -1,9 +1,9 @@
 {
-  "version": "1.1.5",
-  "checks": 10406,
-  "json": 2474,
-  "model_texture_links": 5202,
+  "version": "1.1.8",
+  "checks": 11456,
+  "json": 2692,
+  "model_texture_links": 5894,
   "minecraft_launches": 0,
   "mode": "static/resources/geometry/production",
-  "sha256": "c4bda9ee816a35f00ae02d703f1610dcd7426ba3d26f08dabd12ebabde4dd48d"
+  "sha256": "b108d74baf242c71136a63670bb9da90db40d7c029b025475e4e9091d107c4fe"
 }

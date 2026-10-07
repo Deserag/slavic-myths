@@ -31,7 +31,7 @@ adv=read(D/'advancement/winter_stores.json');check('rewards' not in adv and not 
 for p in (J/'storage').glob('*.java'):check('net.minecraft.client' not in p.read_text(encoding='utf-8'),'common isolated')
 tile=(J/'storage/StorageTile.java').read_text(encoding='utf-8');check('kind==Kind.BARREL||items.stream()' not in tile,'barrel predicate remains explicit');check('allMatch(v->v.is(s.getItem()))' in tile,'barrel single type');check('time[i]==0' in tile and 'before!=t.stage(i)' in tile,'stage-based dry sync');check('ContainerHelper.saveAllItems(n,items,p)' in tile,'stable inventory format');check('Slot s=new Slot(tile' in tile and 'tile.canPlaceItem' in tile,'GUI validates barrel');check('hayCount=0' in tile and 'Items.HAY_BLOCK,count' in tile,'hay break exact count')
 renderer=(J/'client/StorageDisplay.java').read_text(encoding='utf-8');check('t.items.get(i)' in renderer and 'for(int i=0;i<t.items.size();i++)' in renderer,'all actual shelf stacks');check('KitchenDisplay.draw' in renderer,'reuse real food meshes');check('new ItemEntity' not in renderer and 'renderStatic' in renderer,'no item entities')
-block=(J/'storage/StorageBlock.java').read_text(encoding='utf-8');check('kind==Kind.DRY&&part(s)==0' in block,'only dry master ticker');check('part(old)==part' in block,'cleanup exact partners');check('DoubleBlockHalf.LOWER' in block and 'DoubleBlockHalf.UPPER' in block,'vertical halves')
+block=(J/'storage/StorageBlock.java').read_text(encoding='utf-8');check('(kind==Kind.DRY||kind==Kind.BARREL&&s.getValue(BREWING))&&part(s)==0' in block,'dry master / active brewing barrel ticker');check('part(old)==part' in block,'cleanup exact partners');check('DoubleBlockHalf.LOWER' in block and 'DoubleBlockHalf.UPPER' in block,'vertical halves')
 check('org.slavicmyths.storage.StorageBlock' in (J/'textile/BeltData.java').read_text(encoding='utf-8'),'sneak storage interaction has priority')
 # Native links across all resources, plus new authored cuboids/UV.
 vanilla=zipfile.ZipFile(ROOT/'build/moddev/artifacts/neoforge-21.1.255-client-extra-aka-minecraft-resources.jar');vn=set(vanilla.namelist())
@@ -61,12 +61,12 @@ for folder in ['models/block','models/item']:
    if 'rotation' in e:check(e['rotation']['angle'] in [-45,-22.5,0,22.5,45],'native rotation')
 # A repeat of the generator must reproduce all resources byte for byte.
 before={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in R.rglob('*') if p.is_file()};subprocess.run(['python','tools/storage_resources.py'],cwd=ROOT,check=True,stdout=subprocess.DEVNULL);after={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in R.rglob('*') if p.is_file()};check(before==after,'reproducible generator')
-check('mod_version=1.1.6' in (ROOT/'gradle.properties').read_text(),'version')
-report={'version':'1.1.6','checks':checks,'json':len(jsons),'model_texture_links':links,'minecraft_launches':0,'mode':'static/resources/geometry'}
+check('mod_version=1.1.8' in (ROOT/'gradle.properties').read_text(),'version')
+report={'version':'1.1.8','checks':checks,'json':len(jsons),'model_texture_links':links,'minecraft_launches':0,'mode':'static/resources/geometry'}
 if args.jar:
  z=zipfile.ZipFile(args.jar)
  for p in R.rglob('*'):
   if p.is_file() and p.suffix in ['.json','.png','.ogg']:check(z.read(p.relative_to(R).as_posix())==p.read_bytes(),'production resource')
  for c in ['Household','StorageBlock','StorageTile','SheafBlock','DryingRecipe']:check('org/slavicmyths/storage/'+c+'.class' in z.namelist(),'production class')
- check(b'version="1.1.6"' in z.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version');check(not any('/smoke/' in p or '/verify/' in p or 'GameTest' in p for p in z.namelist()),'no test harness');report.update(checks=checks,mode='static/resources/geometry/production',sha256=hashlib.sha256(args.jar.read_bytes()).hexdigest())
+ check(b'version="1.1.8"' in z.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version');check(not any('/smoke/' in p or '/verify/' in p or 'GameTest' in p for p in z.namelist()),'no test harness');report.update(checks=checks,mode='static/resources/geometry/production',sha256=hashlib.sha256(args.jar.read_bytes()).hexdigest())
 (ROOT/'work/household-static-checks.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

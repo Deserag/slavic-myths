@@ -26,13 +26,13 @@ public final class Abilities {
   LivingEntity target=(i==3||i==20||i==23)?target(p,i==3?3:8):null;
   if((i==3||i==20||i==23)&&target==null){PathData.message(p,"no_target");return;}
   int cooldown=i==3||i==15?200:i==20?100:i==23?500:700;
-  if((i==20||i==23)&&((Runes.has(main,"midday")&&RuneEffects.day(p))||(Runes.has(main,"shadow")&&RuneEffects.dark(p))))cooldown=(int)(cooldown*.9);
+  if((i==20||i==23)&&((Runes.has(main,"midday")&&RuneEffects.day(p))||(Runes.has(main,"shadow")&&RuneEffects.dark(p))))cooldown=(int)(cooldown*RuneDefinition.n(Runes.has(main,"midday")&&RuneEffects.day(p)?"midday":"shadow","staff_cooldown"));
   PathData.ready(p,"ability_"+skill,cooldown);
   if(i==3){target.hurt(org.slavicmyths.combat.MythDamageSources.caused("slavic_path",p),2);target.knockback(.8F,p.getX()-target.getX(),p.getZ()-target.getZ());}
   if(i==4){p.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,100,0));p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,100,0));PathData.data(p).putLong("Stance",now+100);}
   if(i==5)PathData.data(p).putLong("Sweep",now+100);
   if(i==15){Vec3 look=p.getLookAngle();Vec3 motion=new Vec3(look.x,0,look.z).normalize().scale(.75);p.setDeltaMovement(motion.x,Math.max(.08,p.getDeltaMovement().y),motion.z);p.hurtMarked=true;}
-  if(i==20||i==23){float damage=(i==23?5:3)*(PathData.has(p,"staff_power")?1.12F:1)*(Runes.has(main,"thunder")?1.15F:1);target.hurt(p.damageSources().indirectMagic(p,p),damage);particles(p,target);RuneEffects.staff(p,main,target);}
+  if(i==20||i==23){float damage=(i==23?5:3)*(PathData.has(p,"staff_power")?1.12F:1)*(Runes.has(main,"thunder")?RuneDefinition.f("thunder","staff_bonus"):1);target.hurt(p.damageSources().indirectMagic(p,p),damage);particles(p,target);RuneEffects.staff(p,main,target);}
   PathData.message(p,"activated",Component.translatable("skill.slavicmyths."+skill));
  }
  private Abilities(){}
