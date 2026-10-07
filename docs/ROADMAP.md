@@ -7,6 +7,7 @@
 - [x] Eight beers +kvass/mead/cider/mors/juice, container/pitcher/keg transfers, effects and persistent lazy overload/death reset.
 - [x] Tags/ru/en/tabs/two advancements; static resource gates and49 actual pure-Java arithmetic assertions PASS.
 - [x] Final clean build PASS29s и production9698checks/49Java assertions; дополнительные пересборки после отдельного разрешения пользователя.
+- [x] После commit/push установлен1.1.7 в существующий PolyMC profile; SHA/6 companion mods/config hashes проверены; предыдущий JAR сохранён вне mods.
 - [ ] Ручная игровая/визуальная/save-rejoin приёмка пользователя в обновлённом PolyMC; автоматических игровых запусков0.
 - JEI additional categories skipped; existing optional integration retained. Не начинать будущие напитки/дистилляцию/milestones.
 
