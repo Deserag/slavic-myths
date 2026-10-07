@@ -51,6 +51,7 @@ public final class ClientSetup {
     }
 
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers event){
+        org.slavicmyths.client.HusbandryRenderer.register(event);
         event.registerEntityRenderer(ModEntities.UPYR.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.UPYR));
         event.registerEntityRenderer(ModEntities.NAV.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.NAV));
         event.registerEntityRenderer(ModEntities.DRUZHINNIK.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.DRUZHINNIK));

@@ -1723,5 +1723,105 @@
         "type": "event"
       }
     ]
+  },
+  "entity.goose.ambient": {
+    "subtitle": "subtitles.slavicmyths.entity.goose.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.chicken.ambient",
+        "type": "event",
+        "pitch": 0.75
+      }
+    ]
+  },
+  "entity.goose.hiss": {
+    "subtitle": "subtitles.slavicmyths.entity.goose.hiss",
+    "sounds": [
+      {
+        "name": "minecraft:entity.cat.hiss",
+        "type": "event",
+        "pitch": 0.75
+      }
+    ]
+  },
+  "entity.goose.hurt": {
+    "subtitle": "subtitles.slavicmyths.entity.goose.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.chicken.hurt",
+        "type": "event",
+        "pitch": 0.75
+      }
+    ]
+  },
+  "entity.goose.death": {
+    "subtitle": "subtitles.slavicmyths.entity.goose.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.chicken.death",
+        "type": "event",
+        "pitch": 0.75
+      }
+    ]
+  },
+  "entity.duck.ambient": {
+    "subtitle": "subtitles.slavicmyths.entity.duck.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.chicken.ambient",
+        "type": "event",
+        "pitch": 1.1
+      }
+    ]
+  },
+  "entity.duck.hurt": {
+    "subtitle": "subtitles.slavicmyths.entity.duck.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.chicken.hurt",
+        "type": "event",
+        "pitch": 1.1
+      }
+    ]
+  },
+  "entity.duck.death": {
+    "subtitle": "subtitles.slavicmyths.entity.duck.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.chicken.death",
+        "type": "event",
+        "pitch": 1.1
+      }
+    ]
+  },
+  "entity.domestic_goat.ambient": {
+    "subtitle": "subtitles.slavicmyths.entity.domestic_goat.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.sheep.ambient",
+        "type": "event",
+        "pitch": 0.9
+      }
+    ]
+  },
+  "entity.domestic_goat.hurt": {
+    "subtitle": "subtitles.slavicmyths.entity.domestic_goat.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.sheep.hurt",
+        "type": "event",
+        "pitch": 0.9
+      }
+    ]
+  },
+  "entity.domestic_goat.death": {
+    "subtitle": "subtitles.slavicmyths.entity.domestic_goat.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.sheep.death",
+        "type": "event",
+        "pitch": 0.9
+      }
+    ]
   }
 }

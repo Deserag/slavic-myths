@@ -1,3 +1,12 @@
+## 1.1.3 — Животноводство (2026-10-07)
+
+- [x] Три отдельных вида и baby appearance, только три новых spawn eggs, breeding/плавание/ограниченная защита гуся.
+- [x] Корма новых и vanilla животных, feeder без auto breeding, mixed-egg nest и таймер яйцекладки/fallback.
+- [x] Козье молоко, мясо/loot/cooking, biome spawns, отдельные models/textures, Creative tabs/ru/en/advancement.
+- [x] Разрешённые vanilla audio fallback для 10 новых событий; custom OGG пока отсутствуют.
+- [x] Финальный clean build / production JAR validation (один разрешённый повтор после собственной compile ошибки; 8063 static checks).
+- [ ] Ручная visual/gameplay/save-load приёмка пользователем; Minecraft launches 0. PolyMC до отдельной команды не изменяется.
+
 ## 1.1.2 — локальная реализация завершена (2026-10-07)
 
 - [x] Пять ягод, отдельные saplings, reusable perennial phases, two-block raspberry, fertilizer integration, scoped natural patches.

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:rye_seeds",
+    "slavicmyths:barley_seeds",
+    "slavicmyths:oat_seeds",
+    "slavicmyths:flax_seeds"
+  ]
+}
