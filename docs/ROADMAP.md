@@ -1,3 +1,12 @@
+## 1.1.4 — Текстиль и переработка (2026-10-07)
+
+- [x] Нож и семь вариантов carcass, player kill filtering, точные enhanced/fallback drops, сохранение срока/огня, fat/hide/candle.
+- [x] Три станка без GUI и полная льняная цепочка; старые IDs сохранены, crafting bypass удалён.
+- [x] Семь отдельных силуэтов одежды, внутренний BELT attachment и синхронизация, льняная кровать/точный well_rested.
+- [x] Native assets, data/ru/en/Creative и linen_craft; статический валидатор ресурсов.
+- [x] Финальный clean build PASS (один повтор после собственной renderer type ошибки), 8665 static/resource/production checks.
+- [ ] Ручная visual/gameplay/save-load приёмка; Minecraft launches 0, PolyMC не изменяется.
+
 ## 1.1.3 — Животноводство (2026-10-07)
 
 - [x] Три отдельных вида и baby appearance, только три новых spawn eggs, breeding/плавание/ограниченная защита гуся.

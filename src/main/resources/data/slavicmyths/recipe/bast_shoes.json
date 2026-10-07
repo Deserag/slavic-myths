@@ -1,16 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "pattern": [
-    "TT",
-    "TT"
+    "F F",
+    "FTF"
   ],
   "key": {
+    "F": {
+      "item": "slavicmyths:flax_fiber"
+    },
     "T": {
       "item": "slavicmyths:linen_thread"
     }
   },
   "result": {
-    "count": 1,
-    "id": "slavicmyths:linen_cloth"
+    "id": "slavicmyths:bast_shoes",
+    "count": 1
   }
 }

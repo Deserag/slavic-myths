@@ -102,7 +102,7 @@ def generate(root):
     shaped('ritual_knife',[' F',' I','S '],{'F':'slavicmyths:idol_fragment','I':silver,'S':stick})
     js('data/slavicmyths/recipes/silver_ingot_from_ore.json',{'type':'minecraft:smelting','ingredient':{'item':'slavicmyths:silver_ore'},'result':'slavicmyths:silver_ingot','experience':0.7,'cookingtime':200})
     shaped('silver_ingot',['NNN','NNN','NNN'],{'N':'slavicmyths:silver_nugget'}); shapeless('silver_nugget',[silver],9)
-    shaped('linen_cloth',['TT','TT'],{'T':'slavicmyths:linen_thread'})
+    # 1.1.4: cloth is produced only by loom_table; no crafting bypass.
     shaped('herb_pouch',['CWJ','NCN'],{'C':'slavicmyths:linen_cloth','W':'slavicmyths:ground_st_johns_wort','N':'slavicmyths:nettle','J':'slavicmyths:juniper_blend'})
     shapeless('ground_wormwood',['slavicmyths:wormwood','minecraft:flint']); shapeless('ground_st_johns_wort',['slavicmyths:st_johns_wort','minecraft:flint']); shapeless('juniper_blend',['slavicmyths:juniper_berries','slavicmyths:ground_wormwood'])
     shapeless('honey_bread',['minecraft:bread','minecraft:honey_bottle']); shapeless('honey_baked_apple',['minecraft:apple','minecraft:honey_bottle'])

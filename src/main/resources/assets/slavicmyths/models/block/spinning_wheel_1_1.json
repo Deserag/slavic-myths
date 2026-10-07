@@ -1,0 +1,205 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "wood": "slavicmyths:block/textile_wood",
+    "fiber": "slavicmyths:block/textile_fiber",
+    "thread": "slavicmyths:block/textile_thread",
+    "cloth": "slavicmyths:block/textile_cloth",
+    "cover": "slavicmyths:block/linen_cover",
+    "particle": "slavicmyths:block/textile_wood"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        2
+      ],
+      "to": [
+        15,
+        2,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wood"
+        },
+        "south": {
+          "texture": "#wood"
+        },
+        "east": {
+          "texture": "#wood"
+        },
+        "west": {
+          "texture": "#wood"
+        },
+        "up": {
+          "texture": "#wood"
+        },
+        "down": {
+          "texture": "#wood"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        2,
+        7
+      ],
+      "to": [
+        4,
+        15,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wood"
+        },
+        "south": {
+          "texture": "#wood"
+        },
+        "east": {
+          "texture": "#wood"
+        },
+        "west": {
+          "texture": "#wood"
+        },
+        "up": {
+          "texture": "#wood"
+        },
+        "down": {
+          "texture": "#wood"
+        }
+      }
+    },
+    {
+      "from": [
+        12,
+        2,
+        7
+      ],
+      "to": [
+        14,
+        22,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wood"
+        },
+        "south": {
+          "texture": "#wood"
+        },
+        "east": {
+          "texture": "#wood"
+        },
+        "west": {
+          "texture": "#wood"
+        },
+        "up": {
+          "texture": "#wood"
+        },
+        "down": {
+          "texture": "#wood"
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        13,
+        6
+      ],
+      "to": [
+        14,
+        15,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wood"
+        },
+        "south": {
+          "texture": "#wood"
+        },
+        "east": {
+          "texture": "#wood"
+        },
+        "west": {
+          "texture": "#wood"
+        },
+        "up": {
+          "texture": "#wood"
+        },
+        "down": {
+          "texture": "#wood"
+        }
+      }
+    },
+    {
+      "from": [
+        12,
+        18,
+        5
+      ],
+      "to": [
+        14,
+        20,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wood"
+        },
+        "south": {
+          "texture": "#wood"
+        },
+        "east": {
+          "texture": "#wood"
+        },
+        "west": {
+          "texture": "#wood"
+        },
+        "up": {
+          "texture": "#wood"
+        },
+        "down": {
+          "texture": "#wood"
+        }
+      }
+    },
+    {
+      "from": [
+        11,
+        19,
+        6
+      ],
+      "to": [
+        15,
+        22,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#fiber"
+        },
+        "south": {
+          "texture": "#fiber"
+        },
+        "east": {
+          "texture": "#fiber"
+        },
+        "west": {
+          "texture": "#fiber"
+        },
+        "up": {
+          "texture": "#fiber"
+        },
+        "down": {
+          "texture": "#fiber"
+        }
+      }
+    }
+  ]
+}

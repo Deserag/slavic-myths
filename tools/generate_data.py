@@ -27,7 +27,7 @@ def generate(root):
         'birch_bark': ('root', 'birch_bark', 'slavicmyths:birch_bark', ('Белая память дерева', 'Memory of Birch'), ('Изготовьте 4 бересты из берёзового бревна в сетке крафта.', 'Craft a birch log into 4 birch bark.')),
         'birch_bark_scroll': ('birch_bark', 'birch_bark_scroll', 'slavicmyths:birch_bark_scroll', ('Слова на бересте', 'Words on Bark'), ('Соедините 2 бересты и нить, чтобы получить свиток.', 'Combine 2 birch bark and string to make a scroll.')),
         'flax': ('root', 'flax', 'slavicmyths:flax', ('Синие цветы полей', 'Blue Fields'), ('Соберите лён на равнинах или в лесах. Его можно пересадить.', 'Gather flax in plains or forests. It can be replanted.')),
-        'linen_thread': ('flax', 'linen_thread', 'slavicmyths:linen_thread', ('Первая нить', 'First Thread'), ('Соедините 2 растения льна в сетке крафта, чтобы получить льняную нить.', 'Craft 2 flax plants into linen thread.')),
+        'linen_thread': ('flax', 'linen_thread', 'slavicmyths:linen_thread', ('Первая нить', 'First Thread'), ('Сплетите льняную нить из двух волокон на прялке.', 'Spin two flax fibers into linen thread using a spinning wheel.')),
         'wormwood': ('flax', 'wormwood', 'slavicmyths:wormwood', ('Горькая трава', 'Bitter Herb'), ('Соберите полынь на равнинах, в лесу или тайге для будущего оберега.', 'Gather wormwood in plains, forests or taiga for a charm.')),
         'warding_charm': ('linen_thread', 'warding_charm', 'slavicmyths:warding_charm', ('Первый оберег', 'First Charm'), ('Соедините льняную нить, полынь и золотой самородок. Защитных эффектов пока нет.', 'Combine linen thread, wormwood and a gold nugget. No protection effects yet.')),
         'perunite': ('root', 'perunite', 'slavicmyths:perunite', ('Искра в глубине', 'Spark Below'), ('Найдите редкую перунитовую руду ниже Y=16. Нужна железная кирка или лучше.', 'Find rare perunite ore below Y=16. Use an iron pickaxe or better.')),
@@ -63,7 +63,6 @@ def generate(root):
     recipes = {
         'birch_bark': (shapeless('minecraft:birch_log'), 4, 'minecraft:birch_log'),
         'birch_bark_scroll': (shapeless('slavicmyths:birch_bark', 'slavicmyths:birch_bark', 'minecraft:string'), 1, 'slavicmyths:birch_bark'),
-        'linen_thread': (shapeless('slavicmyths:flax', 'slavicmyths:flax'), 1, 'slavicmyths:flax'),
         'warding_charm': (shapeless('slavicmyths:linen_thread', 'slavicmyths:wormwood', 'minecraft:gold_nugget'), 1, 'slavicmyths:linen_thread'),
         'thunder_stone': ({'type': 'minecraft:crafting_shaped', 'pattern': [' L ', 'RPR', ' F '], 'key': {'L': {'item': 'minecraft:lapis_lazuli'}, 'R': {'item': 'minecraft:redstone'}, 'P': {'item': 'slavicmyths:perunite'}, 'F': {'item': 'minecraft:flint'}}}, 1, 'slavicmyths:perunite'),
     }

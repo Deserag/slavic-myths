@@ -21,6 +21,7 @@ public final class SlavicMyths {
         org.slavicmyths.rpg.Runes.init();
         org.slavicmyths.garden.Gardens.init();
         org.slavicmyths.husbandry.Husbandry.init(bus);
+        org.slavicmyths.textile.Textiles.init(bus);
         org.slavicmyths.wood.Woodlands.init();
         org.slavicmyths.furniture.Furniture.init();
         org.slavicmyths.kurgan.DarkenedWood.init();

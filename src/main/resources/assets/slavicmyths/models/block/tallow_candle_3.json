@@ -1,0 +1,202 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "wax": "slavicmyths:block/tallow_wax",
+    "wick": "slavicmyths:block/tallow_wick",
+    "particle": "slavicmyths:block/tallow_wax"
+  },
+  "elements": [
+    {
+      "from": [
+        6.5,
+        0,
+        8.5
+      ],
+      "to": [
+        9.5,
+        4,
+        11.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wax"
+        },
+        "south": {
+          "texture": "#wax"
+        },
+        "east": {
+          "texture": "#wax"
+        },
+        "west": {
+          "texture": "#wax"
+        },
+        "up": {
+          "texture": "#wax"
+        },
+        "down": {
+          "texture": "#wax"
+        }
+      }
+    },
+    {
+      "from": [
+        7.75,
+        4,
+        9.75
+      ],
+      "to": [
+        8.25,
+        5,
+        10.25
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wick"
+        },
+        "south": {
+          "texture": "#wick"
+        },
+        "east": {
+          "texture": "#wick"
+        },
+        "west": {
+          "texture": "#wick"
+        },
+        "up": {
+          "texture": "#wick"
+        },
+        "down": {
+          "texture": "#wick"
+        }
+      }
+    },
+    {
+      "from": [
+        4.5,
+        0,
+        6.5
+      ],
+      "to": [
+        7.5,
+        6,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wax"
+        },
+        "south": {
+          "texture": "#wax"
+        },
+        "east": {
+          "texture": "#wax"
+        },
+        "west": {
+          "texture": "#wax"
+        },
+        "up": {
+          "texture": "#wax"
+        },
+        "down": {
+          "texture": "#wax"
+        }
+      }
+    },
+    {
+      "from": [
+        5.75,
+        6,
+        7.75
+      ],
+      "to": [
+        6.25,
+        7,
+        8.25
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wick"
+        },
+        "south": {
+          "texture": "#wick"
+        },
+        "east": {
+          "texture": "#wick"
+        },
+        "west": {
+          "texture": "#wick"
+        },
+        "up": {
+          "texture": "#wick"
+        },
+        "down": {
+          "texture": "#wick"
+        }
+      }
+    },
+    {
+      "from": [
+        7.5,
+        0,
+        5.5
+      ],
+      "to": [
+        10.5,
+        7,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wax"
+        },
+        "south": {
+          "texture": "#wax"
+        },
+        "east": {
+          "texture": "#wax"
+        },
+        "west": {
+          "texture": "#wax"
+        },
+        "up": {
+          "texture": "#wax"
+        },
+        "down": {
+          "texture": "#wax"
+        }
+      }
+    },
+    {
+      "from": [
+        8.75,
+        7,
+        6.75
+      ],
+      "to": [
+        9.25,
+        8,
+        7.25
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wick"
+        },
+        "south": {
+          "texture": "#wick"
+        },
+        "east": {
+          "texture": "#wick"
+        },
+        "west": {
+          "texture": "#wick"
+        },
+        "up": {
+          "texture": "#wick"
+        },
+        "down": {
+          "texture": "#wick"
+        }
+      }
+    }
+  ]
+}

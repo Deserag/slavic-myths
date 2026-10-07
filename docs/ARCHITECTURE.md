@@ -1,3 +1,13 @@
+## 1.1.4 — Textile processing (2026-10-07)
+
+`textile.Textiles` дополняет существующие deferred registers. `TextileEvents` заменяет только стандартные animal drops после успешного создания одной `Carcass`; XP не затрагивается. Entity variant синхронизируется, размеры масштабируются по виду; local life/fire сохраняются в NBT, processed guard исключает повторную выдачу. Нет AI, глобальных обходов или force loading.
+
+`StationBlock` имеет три конкретных state definitions; общий `TextileStation` хранит ограниченные counts/progress, материал фиксирован типом станка. Мялка не тикает; прялка/ткацкий стол работают локальным серверным ticker, меняют visual state только при изменении значения. Ввод/выдача/разрушение выполняются на сервере. `LinenBed` наследует vanilla BedBlock gameplay, использует authored MODEL без BedBlockEntity; completed-deep-sleep PlayerWakeUpEvent flags дают ровно два атрибута well_rested, без player polling.
+
+`ClothingItem` реализует Equipable без ArmorItem/ArmorMaterial/durability. Client-only `TextileClothingLayer` строит отдельные HumanoidModel meshes, копирует позу игрока, поддерживает standard/slim; invisible/spectator скрыты. `BeltData` — NeoForge persistent ItemStack attachment с native stream synchronization/copyOnDeath; перед death drop attachment очищается, keepInventory сохраняет. Empty-air снятие использует небольшой client-to-server payload, сервер повторно проверяет состояние игрока/руки. GUI/keybind/обязательная Curios зависимость отсутствуют. `CarcassRenderer` имеет одну low bundle geometry/семь atlas variants; `SpinningWheelRenderer` рисует вращающийся rotor только у прялки.
+
+`tools/textile_resources.py` воспроизводит native pixels/models/data, старые crafting генераторы больше не восстанавливают bypass. `tools/verify_textile.py` проверяет JSON/links/геометрию/UV dimensions/recipes/tags/translations и byte-identical production resources. Это статические проверки, не gameplay/save-load/runtime тесты. Реальных Minecraft запусков 0.
+
 ## 1.1.3 — Animal husbandry (2026-10-07)
 
 `husbandry/Husbandry` использует существующие deferred registers. Только три EntityType<YardAnimal>; kind определяется фабрикой, baby age сохраняет vanilla, canMate и YardParentGoal фильтруют именно EntityType. Entity-local egg timer сохраняется в NBT; feeder cooldown — absolute game time в стандартных NeoForge persistent entity data, без world manager. GooseDefence — временный local goal и synced visual state, 20-tick warning/80-tick chase, 20-tick bite cooldown; после load пассивен. DuckWaterGoal ограничен radius 8 и cadence 200..399 ticks, использует стандартный navigation/FloatGoal и land roam.

@@ -52,6 +52,8 @@ public final class ClientSetup {
 
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers event){
         org.slavicmyths.client.HusbandryRenderer.register(event);
+        event.registerEntityRenderer(org.slavicmyths.textile.Textiles.CARCASS.get(),CarcassRenderer::new);
+        event.registerBlockEntityRenderer(org.slavicmyths.textile.Textiles.STATION.get(),SpinningWheelRenderer::new);
         event.registerEntityRenderer(ModEntities.UPYR.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.UPYR));
         event.registerEntityRenderer(ModEntities.NAV.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.NAV));
         event.registerEntityRenderer(ModEntities.DRUZHINNIK.get(),m->new KurganCreatureRenderer(m,org.slavicmyths.kurgan.KurganFighter.Kind.DRUZHINNIK));
@@ -114,5 +116,5 @@ public final class ClientSetup {
     }
     private ClientSetup() { }
     @SubscribeEvent public static void keys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e){RpgClient.keys(e);FlightClient.keys(e);}
-    @SubscribeEvent public static void layers(net.neoforged.neoforge.client.event.EntityRenderersEvent.AddLayers e){FolkEquipmentLayer.layers(e);FlightClient.renderers(e.getContext());GusliClient.renderers(e.getContext());}
+    @SubscribeEvent public static void layers(net.neoforged.neoforge.client.event.EntityRenderersEvent.AddLayers e){FolkEquipmentLayer.layers(e);TextileClient.layers(e);FlightClient.renderers(e.getContext());GusliClient.renderers(e.getContext());}
 }
