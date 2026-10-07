@@ -15,6 +15,7 @@ public final class FertilizerItem extends Item {
         var level = context.getLevel(); var player = context.getPlayer(); var center = context.getClickedPos();
         if (player == null) return InteractionResult.PASS;
         var clicked=level.getBlockState(center);
+        if(clicked.getBlock() instanceof org.slavicmyths.brewing.HopsCrop && clicked.getValue(org.slavicmyths.brewing.HopsCrop.HALF)==net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER)center=center.below();
         if(clicked.getBlock() instanceof org.slavicmyths.garden.PerennialBush && clicked.getValue(org.slavicmyths.garden.PerennialBush.HALF)==net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER)center=center.below();
         if(!level.getBlockState(center).is(Farming.HARVESTABLE) && !(level.getBlockState(center).getBlock() instanceof org.slavicmyths.garden.PerennialBush))return InteractionResult.PASS;
         int count = 0;
@@ -32,7 +33,7 @@ public final class FertilizerItem extends Item {
             }
             if (!state.is(Farming.HARVESTABLE) || !(state.getBlock() instanceof CropBlock crop) || crop.isMaxAge(state)) continue;
             if (level instanceof ServerLevel server) {
-                if (!server.setBlock(pos,crop.getStateForAge(crop.getAge(state)+1),2)) continue;
+                if(crop instanceof org.slavicmyths.brewing.HopsCrop hops){if(!hops.growTo(server,pos,crop.getAge(state)+1))continue;}else if (!server.setBlock(pos,crop.getStateForAge(crop.getAge(state)+1),2)) continue;
                 server.sendParticles(ParticleTypes.HAPPY_VILLAGER,pos.getX()+.5,pos.getY()+.5,pos.getZ()+.5,3,.2,.2,.2,.01);
             }
             count++;

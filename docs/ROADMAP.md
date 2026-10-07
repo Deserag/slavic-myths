@@ -1,3 +1,15 @@
+## 1.1.7 — Пивоварение и брожение (2026-10-07)
+
+- [x] После завершения1.1.6 реализованы hops/tall stages/sickle/fertilizer/grass cuttings.
+- [x] Malt/infusions/press3 actions/ingredients/containers/native assets.
+- [x] Data-driven vat15recipes,9slots/labels/progress/mode, existing magical integrations.
+- [x] Existing barrel compatible storage +8servings loaded-tick fermentation/quality/spoilage, active-only ticker.
+- [x] Eight beers +kvass/mead/cider/mors/juice, container/pitcher/keg transfers, effects and persistent lazy overload/death reset.
+- [x] Tags/ru/en/tabs/two advancements; static resource gates and49 actual pure-Java arithmetic assertions PASS.
+- [x] Final clean build PASS29s и production9698checks/49Java assertions; дополнительные пересборки после отдельного разрешения пользователя.
+- [ ] Ручная игровая/визуальная/save-rejoin приёмка пользователя в обновлённом PolyMC; автоматических игровых запусков0.
+- JEI additional categories skipped; existing optional integration retained. Не начинать будущие напитки/дистилляцию/milestones.
+
 ## 1.1.6 — Хранение и хозяйственный быт (2026-10-07)
 
 - [x] Перед началом1.1.6 установлен проверенный1.1.5 в существующий PolyMC по команде пользователя, без запуска.

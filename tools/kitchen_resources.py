@@ -159,3 +159,7 @@ for name in ['karavai','berry_pie']:
  for folder in ['recipe','advancement/recipes']:
   old=D/f'{folder}/{name}.json'
   if old.exists():old.unlink()
+
+# Preserve the current brewing assets/tags after this earlier resource pass.
+import runpy as _brewing_runpy
+_brewing_runpy.run_path(str(Path(__file__).resolve().with_name("brewing_resources.py")))

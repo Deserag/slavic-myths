@@ -228,3 +228,7 @@ for i,id in enumerate(TOOLS):
     im=Image.open(A/f'textures/item/{id}.png');sheet.paste(im,(80+i*100,330),im);draw.text((70+i*100,365),id,fill='#25251e')
 p=Path('docs/verification/farming-1.1.0');p.mkdir(parents=True,exist_ok=True);sheet.save(p/'farming-assets.png')
 print('Generated 49 crop stages, 18 item sprites and all farming data; existing content preserved.')
+
+# Preserve the current brewing assets/tags after this earlier resource pass.
+import runpy as _brewing_runpy
+_brewing_runpy.run_path(str(Path(__file__).resolve().with_name("brewing_resources.py")))

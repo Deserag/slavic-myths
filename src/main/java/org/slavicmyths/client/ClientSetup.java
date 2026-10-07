@@ -53,6 +53,7 @@ public final class ClientSetup {
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers event){
         org.slavicmyths.client.HusbandryRenderer.register(event);
         event.registerBlockEntityRenderer(org.slavicmyths.storage.Household.TYPE.get(),StorageDisplay::new);
+        event.registerBlockEntityRenderer(org.slavicmyths.brewing.Brewing.TYPE.get(),BrewDisplay::new);
         event.registerBlockEntityRenderer(org.slavicmyths.kitchen.KitchenII.TABLE.get(),KitchenDisplay.Table::new);
         event.registerBlockEntityRenderer(org.slavicmyths.kitchen.KitchenII.TILE.get(),KitchenDisplay.Kitchen::new);
         event.registerEntityRenderer(org.slavicmyths.textile.Textiles.CARCASS.get(),CarcassRenderer::new);
@@ -116,6 +117,8 @@ public final class ClientSetup {
             event.register(org.slavicmyths.kurgan.BurialCoffinMenu.TYPE.get(),BurialCoffinScreen::new);
             event.register(org.slavicmyths.armorer.ArmorerMenu.TYPE.get(),ArmorerScreen::new);
             event.register(org.slavicmyths.kitchen.KitchenMenu.TYPE.get(),KitchenScreen::new);
+            event.register(org.slavicmyths.brewing.VatMenu.TYPE.get(),VatScreen::new);
+            event.register(org.slavicmyths.brewing.VatMenu.TYPE.get(),VatScreen::new);
     }
     private ClientSetup() { }
     @SubscribeEvent public static void keys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e){RpgClient.keys(e);FlightClient.keys(e);}

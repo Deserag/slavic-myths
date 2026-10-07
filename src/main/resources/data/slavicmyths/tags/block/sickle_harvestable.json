@@ -1,16 +1,17 @@
 {
   "replace": false,
   "values": [
-    "slavicmyths:rye_crop",
-    "slavicmyths:barley_crop",
-    "slavicmyths:oat_crop",
-    "slavicmyths:turnip_crop",
-    "slavicmyths:cabbage_crop",
-    "slavicmyths:pea_crop",
-    "slavicmyths:flax_crop",
-    "minecraft:wheat",
+    "minecraft:beetroots",
     "minecraft:carrots",
     "minecraft:potatoes",
-    "minecraft:beetroots"
+    "minecraft:wheat",
+    "slavicmyths:barley_crop",
+    "slavicmyths:cabbage_crop",
+    "slavicmyths:flax_crop",
+    "slavicmyths:hops_crop",
+    "slavicmyths:oat_crop",
+    "slavicmyths:pea_crop",
+    "slavicmyths:rye_crop",
+    "slavicmyths:turnip_crop"
   ]
 }

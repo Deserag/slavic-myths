@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slavicmyths:item/thunder_beer_mug"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "slavicmyths:item/thunder_beer_bottled"
+    }
+  ]
+}

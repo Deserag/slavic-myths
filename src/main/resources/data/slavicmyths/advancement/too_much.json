@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "slavicmyths:dark_beer_mug"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.too_much"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.too_much.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "brewed": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

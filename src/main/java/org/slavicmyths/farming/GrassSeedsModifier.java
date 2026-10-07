@@ -14,6 +14,7 @@ public final class GrassSeedsModifier extends LootModifier {
     public static final MapCodec<GrassSeedsModifier> CODEC = RecordCodecBuilder.mapCodec(i -> codecStart(i).apply(i, GrassSeedsModifier::new));
     public GrassSeedsModifier(LootItemCondition[] conditions) { super(conditions); }
     @Override protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> loot, LootContext context) {
+        if(context.getRandom().nextInt(3)==0)loot.add(new ItemStack(org.slavicmyths.brewing.Brewing.item("hops_cutting")));
         var seeds = Farming.seeds(); loot.add(new ItemStack(seeds.get(context.getRandom().nextInt(seeds.size())))); return loot;
     }
     @Override public MapCodec<? extends IGlobalLootModifier> codec() { return CODEC; }

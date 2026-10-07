@@ -1,0 +1,35 @@
+{
+  "type": "slavicmyths:vat",
+  "mode": "WORT",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:malted_barley"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:hops"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "time": 1200,
+  "result": {
+    "id": "slavicmyths:hopped_beer_wort",
+    "count": 1
+  },
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ]
+}

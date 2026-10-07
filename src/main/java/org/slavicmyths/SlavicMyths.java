@@ -24,6 +24,7 @@ public final class SlavicMyths {
         org.slavicmyths.textile.Textiles.init(bus);
         org.slavicmyths.kitchen.KitchenII.init(bus);
         org.slavicmyths.storage.Household.init();
+        org.slavicmyths.brewing.Brewing.init(bus);
         org.slavicmyths.kitchen.KitchenRecipe.SERIALIZER.getId();
         org.slavicmyths.wood.Woodlands.init();
         org.slavicmyths.furniture.Furniture.init();

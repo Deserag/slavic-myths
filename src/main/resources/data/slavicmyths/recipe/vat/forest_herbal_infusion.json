@@ -1,0 +1,41 @@
+{
+  "type": "slavicmyths:vat",
+  "mode": "INFUSION",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:brown_mushroom"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:red_mushroom"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "slavicmyths:berries"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "time": 1000,
+  "result": {
+    "id": "slavicmyths:forest_herbal_infusion",
+    "count": 2
+  },
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ]
+}

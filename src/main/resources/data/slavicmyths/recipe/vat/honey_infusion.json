@@ -1,0 +1,33 @@
+{
+  "type": "slavicmyths:vat",
+  "mode": "INFUSION",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:honey_bottle"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "time": 800,
+  "result": {
+    "id": "slavicmyths:honey_infusion",
+    "count": 2
+  },
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    },
+    {
+      "id": "minecraft:glass_bottle",
+      "count": 2
+    }
+  ]
+}

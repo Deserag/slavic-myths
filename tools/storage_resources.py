@@ -150,3 +150,7 @@ for lang,index in [('ru_ru',0),('en_us',1)]:
  for name,v in names.items():data['item.slavicmyths.'+name]=v[index];data['block.slavicmyths.'+name]=v[index]
  data['advancement.slavicmyths.winter_stores.title']=['Запасы на зиму','Winter Stores'][index];data['advancement.slavicmyths.winter_stores.description']=['Высуши ягоды для долгого хранения','Dry berries for long-term storage'][index];js(path,data)
 print('Household resources: 13 blocks, 2 products, 3 drying recipes, actual inventory display only.')
+
+# Preserve the current brewing assets/tags after this earlier resource pass.
+import runpy as _brewing_runpy
+_brewing_runpy.run_path(str(Path(__file__).resolve().with_name("brewing_resources.py")))

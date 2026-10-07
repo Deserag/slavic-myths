@@ -1,0 +1,23 @@
+{
+  "type": "slavicmyths:vat",
+  "mode": "MUST",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:apple_juice_bottle"
+      },
+      "count": 4
+    }
+  ],
+  "time": 600,
+  "result": {
+    "id": "slavicmyths:cider_must",
+    "count": 1
+  },
+  "remainders": [
+    {
+      "id": "slavicmyths:dark_bottle",
+      "count": 4
+    }
+  ]
+}

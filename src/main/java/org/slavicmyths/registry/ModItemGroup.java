@@ -39,6 +39,7 @@ public final class ModItemGroup {
     public static int category(Item item){
         if(item==ModItems.BEAR_CUB_SPAWN_EGG.get()||item==ModItems.DOE_SPAWN_EGG.get())return -1;
         String id=BuiltInRegistries.ITEM.getKey(item).getPath();
+        if(org.slavicmyths.brewing.Brewing.ITEMS.containsKey(id))return org.slavicmyths.brewing.Brewing.category(id);
         if(item instanceof SpawnEggItem||id.endsWith("_spawn_egg"))return 8;
         if(item instanceof org.slavicmyths.textile.ClothingItem||id.equals("woven_belt")||item instanceof ArmorItem||WEAR.contains(id)||id.endsWith("_helmet")||id.endsWith("_chestplate")||id.endsWith("_leggings")||id.endsWith("_boots"))return 5;
         if(MAGIC.contains(id)||id.startsWith("rune_")||id.endsWith("_charm")||id.endsWith("_amulet")||id.startsWith("obereg_"))return 7;

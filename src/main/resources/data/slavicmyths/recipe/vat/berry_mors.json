@@ -1,0 +1,47 @@
+{
+  "type": "slavicmyths:vat",
+  "mode": "INFUSION",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:berry_mash"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:honey_bottle"
+      },
+      "count": 1
+    }
+  ],
+  "time": 600,
+  "result": {
+    "id": "slavicmyths:berry_mors_pitcher",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "Beverage": "berry_mors",
+        "Quality": "ready",
+        "Container": "ceramic_pitcher",
+        "Servings": 4
+      }
+    }
+  },
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    },
+    {
+      "id": "minecraft:glass_bottle",
+      "count": 1
+    }
+  ]
+}

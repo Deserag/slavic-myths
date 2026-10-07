@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "slavicmyths:light_beer_mug"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.first_brew"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.first_brew.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "brewed": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

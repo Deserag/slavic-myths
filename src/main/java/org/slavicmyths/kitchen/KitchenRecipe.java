@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slavicmyths.armorer.ArmorerRecipe;
 public record KitchenRecipe(String mode,List<Part> parts,Ingredient tool,int time,ItemStack result,int servings,List<ItemStack> remainders) implements Recipe<KitchenInput> {
- public record Part(Ingredient ingredient,int count){public Part{if(count<1||count>64||ingredient.isEmpty())throw new IllegalArgumentException("Invalid counted ingredient");}static final Codec<Part> CODEC=RecordCodecBuilder.create(i->i.group(Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(Part::ingredient),Codec.intRange(1,64).fieldOf("count").forGetter(Part::count)).apply(i,Part::new));}
+ public record Part(Ingredient ingredient,int count){public Part{if(count<1||count>64||ingredient.isEmpty())throw new IllegalArgumentException("Invalid counted ingredient");}public static final Codec<Part> CODEC=RecordCodecBuilder.create(i->i.group(Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(Part::ingredient),Codec.intRange(1,64).fieldOf("count").forGetter(Part::count)).apply(i,Part::new));}
  public static final DeferredHolder<RecipeType<?>,RecipeType<KitchenRecipe>> TYPE=ArmorerRecipe.TYPES.register("kitchen",()->new RecipeType<>(){public String toString(){return "slavicmyths:kitchen";}});
  public static final DeferredHolder<RecipeSerializer<?>,Serializer> SERIALIZER=ArmorerRecipe.SERIALIZERS.register("kitchen",Serializer::new);
  public KitchenRecipe {
@@ -21,7 +21,8 @@ public record KitchenRecipe(String mode,List<Part> parts,Ingredient tool,int tim
  }
  public boolean pot(){return mode.equals("POT");}
  /** Allocate counted demands across all four slots, including overlapping tags. Extra unrelated stacks reject. */
- public int[] allocation(KitchenInput input){
+ public int[] allocation(KitchenInput input){return allocation(parts,input);}
+ public static int[] allocation(List<Part> parts,KitchenInput input){
   int[] left=new int[input.size()],used=new int[input.size()];List<Ingredient> demands=new ArrayList<>();
   for(Part p:parts)for(int n=0;n<p.count;n++)demands.add(p.ingredient);
   for(int j=0;j<input.size();j++){ItemStack s=input.getItem(j);left[j]=s.getCount();if(!s.isEmpty()&&parts.stream().noneMatch(p->p.ingredient.test(s)))return null;}
