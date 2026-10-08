@@ -24,6 +24,15 @@
           "weight": 3
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:ataman_sign"
+        }
+      ]
     }
   ]
 }

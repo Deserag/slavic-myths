@@ -1,0 +1,3 @@
+Village 1.2.4: 102 showcase templates, 334 vanilla replacements
+Gorodishche 1.2.5: 240 authored templates, three climates, four urban material families
+{"version": "1.3.1", "static_checks": 318585, "showcase_per_palette": 34, "catalog_templates": 102, "total_nbt": 389, "mapped_elements": 334, "client_launches": 0, "jar": "build\\libs\\slavicmyths-1.3.1.jar"}

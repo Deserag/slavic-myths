@@ -30,9 +30,12 @@ public final class ItemState {
     public static final DeferredRegister<DataComponentType<?>> COMPONENTS = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, "slavicmyths");
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> WATER_CHARGES = component("watering_can_water", Codec.intRange(0,8));
     public record RuneState(int slots, List<String> runes) {
+        public static final Codec<List<String>> LEGACY_SPECIALS_CODEC=Codec.STRING.sizeLimitedListOf(2).validate(ids->ids.stream().allMatch(id->id.equals("heat")||id.equals("wind"))&&ids.stream().distinct().count()==ids.size()?DataResult.success(List.copyOf(ids)):DataResult.error(()->"Invalid legacy rune provenance"));
+        public static List<String> provenance(List<String> installed,List<String> stored){return stored==null?installed.stream().filter(id->id.equals("heat")||id.equals("wind")).distinct().toList():List.copyOf(stored);}
+        public static List<String> retainedProvenance(List<String> installed,List<String> prior){return prior.stream().filter(installed::contains).toList();}
         public RuneState {
             runes = List.copyOf(runes);
-            if (slots < 0 || slots > 3 || runes.size() > slots || new HashSet<>(runes).size() != runes.size())
+            if (slots < 0 || slots > 3 || runes.size() > slots || runes.stream().filter(id->!org.slavicmyths.rpg.RuneBalance.modern(id)).distinct().count()!=runes.stream().filter(id->!org.slavicmyths.rpg.RuneBalance.modern(id)).count())
                 throw new IllegalArgumentException("Invalid sockets");
         }
         private record Stored(int slots,List<String> runes) { }
@@ -46,6 +49,9 @@ public final class ItemState {
     }
     public static final Codec<HuntTarget> TARGET_CODEC = HuntTarget.CODEC;
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<RuneState>> RUNES = component("runes", RuneState.CODEC);
+    public static final Codec<List<String>> LEGACY_RUNE_SPECIALS_CODEC=RuneState.LEGACY_SPECIALS_CODEC;
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<List<String>>> LEGACY_RUNE_SPECIALS=component("legacy_rune_specials",LEGACY_RUNE_SPECIALS_CODEC);
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<org.slavicmyths.rpg.RuneBase>> RUNE_BASE = component("rune_base", org.slavicmyths.rpg.RuneBase.CODEC);
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<HuntTarget>> HUNT_TARGET = component("hunt_target", TARGET_CODEC);
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Long>> CLOTH_READY = component("cloth_ready", Codec.LONG);
     private static final Codec<ItemContainerContents> NINE_SLOTS = ItemContainerContents.CODEC.validate(contents ->
@@ -85,15 +91,17 @@ public final class ItemState {
         CompoundTag old = legacy(stack).getCompound("SlavicRunes");
         int slots = Math.clamp(old.getInt("Slots"),0,3);
         List<String> ids = new ArrayList<>(); ListTag list = old.getList("Runes",Tag.TAG_STRING);
-        for (int i=0;i<list.size() && ids.size()<slots;i++) if (List.of("thunder","heat","forest","midday","shadow","protection","life","wind").contains(list.getString(i)) && !ids.contains(list.getString(i))) ids.add(list.getString(i));
+        for (int i=0;i<list.size() && ids.size()<slots;i++) if (java.util.Arrays.asList(org.slavicmyths.rpg.Runes.IDS).contains(list.getString(i)) && (org.slavicmyths.rpg.RuneBalance.modern(list.getString(i)) || !ids.contains(list.getString(i)))) ids.add(list.getString(i));
         return new RuneState(slots,ids);
     }
     public static void runes(ItemStack stack, int slots, List<String> ids) {
+        stack.set(LEGACY_RUNE_SPECIALS.get(),RuneState.retainedProvenance(ids,legacyRuneSpecials(stack)));
         stack.set(RUNES.get(),new RuneState(slots,ids));
         CompoundTag root=legacy(stack), old=root.getCompound("SlavicRunes"); old.remove("Slots");old.remove("Runes");
         if (old.isEmpty()) root.remove("SlavicRunes"); else root.put("SlavicRunes",old);
         if (root.isEmpty()) stack.remove(DataComponents.CUSTOM_DATA); else stack.set(DataComponents.CUSTOM_DATA,CustomData.of(root));
     }
+    public static List<String> legacyRuneSpecials(ItemStack stack){return RuneState.provenance(runes(stack).runes(),stack.get(LEGACY_RUNE_SPECIALS.get()));}
     /** Read existing shield/bow snapshots in entity/player NBT, including pre-port nested stacks. */
     public static ItemStack snapshot(HolderLookup.Provider registries,CompoundTag input){
         CompoundTag item=input.copy();

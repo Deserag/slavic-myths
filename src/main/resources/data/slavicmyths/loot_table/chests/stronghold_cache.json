@@ -86,10 +86,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
+              "count": 1
             }
           ]
         }
@@ -97,7 +94,7 @@
       "conditions": [
         {
           "condition": "minecraft:random_chance",
-          "chance": 0.23
+          "chance": 0.004
         }
       ]
     },

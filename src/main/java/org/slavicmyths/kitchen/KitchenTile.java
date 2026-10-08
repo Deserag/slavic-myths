@@ -44,6 +44,7 @@ public final class KitchenTile extends BlockEntity implements MenuProvider {
   if(!t.busy()){if(t.dirty)t.start();return;}
   t.progress++;t.setChanged();
   if(t.progress>=t.total){
+   if(!t.activePot&&!t.resultFits(t.pending))return; // Keep the saved pending result until actual capacity exists.
    t.updating=true;if(t.activePot){t.dish=t.pending.copyWithCount(1);t.maxServings=t.pendingServings;t.servings=t.maxServings;}else{ItemStack out=t.inventory.getItem(6);if(out.isEmpty())t.inventory.setItem(6,t.pending.copy());else out.grow(t.pending.getCount());}
    t.pending=ItemStack.EMPTY;t.total=0;t.progress=0;t.activeId="";t.updating=false;t.dirty=true;t.sync();w.playSound(null,p,SoundEvents.UI_LOOM_TAKE_RESULT,SoundSource.BLOCKS,.5F,1F);
   }else if(t.progress/10!=t.lastVisualProgress/10){t.lastVisualProgress=t.progress;t.sync();}

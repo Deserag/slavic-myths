@@ -1,0 +1,10 @@
+{
+  "version": "1.2.4",
+  "static_checks": 317916,
+  "showcase_per_palette": 34,
+  "catalog_templates": 102,
+  "total_nbt": 389,
+  "mapped_elements": 334,
+  "client_launches": 0,
+  "jar": "build\\libs\\slavicmyths-1.2.4.jar"
+}

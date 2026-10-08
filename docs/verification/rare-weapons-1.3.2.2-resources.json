@@ -1,0 +1,29 @@
+{
+  "version": "1.3.2.2",
+  "checks": 15935,
+  "preserved_old_resources": 4618,
+  "additive_changed_resources": [
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json",
+    "data/minecraft/tags/item/enchantable/durability.json",
+    "data/minecraft/tags/item/enchantable/sharp_weapon.json",
+    "data/minecraft/tags/item/enchantable/weapon.json",
+    "data/slavicmyths/loot_table/entities/ataman.json",
+    "data/slavicmyths/tags/item/rune_capacity_3.json",
+    "data/slavicmyths/tags/item/rune_heavy.json",
+    "data/slavicmyths/tags/item/rune_spear.json",
+    "data/slavicmyths/tags/item/rune_staff.json"
+  ],
+  "new_item_ids": [
+    "slavicmyths:tugarin_sword",
+    "slavicmyths:likho_staff",
+    "slavicmyths:ataman_flail",
+    "slavicmyths:victor_spear",
+    "slavicmyths:ataman_sign"
+  ],
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.3.2.2.jar",
+  "bytes": 9569171,
+  "sha256": "e5b3a975087c43497d4677c210d2f629926b3bd476ca92f83395d765cad5b279",
+  "client_launches": 0,
+  "performance_measured": false
+}

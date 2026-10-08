@@ -1,0 +1,2807 @@
+{
+  "build": "1.2.4",
+  "structures": [
+    {
+      "kind": "seni",
+      "size": [
+        9,
+        14,
+        13
+      ],
+      "surface": 1,
+      "entrance": [
+        4,
+        1,
+        0
+      ],
+      "spawn": [
+        4,
+        3,
+        5
+      ],
+      "beds": 2,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/residential/seni_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "seni",
+      "size": [
+        9,
+        14,
+        14
+      ],
+      "surface": 1,
+      "entrance": [
+        4,
+        1,
+        0
+      ],
+      "spawn": [
+        4,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/residential/seni_02",
+      "palette": "temperate",
+      "variant": 2
+    },
+    {
+      "kind": "seni",
+      "size": [
+        9,
+        14,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        4,
+        1,
+        0
+      ],
+      "spawn": [
+        4,
+        3,
+        5
+      ],
+      "beds": 2,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/residential/seni_03",
+      "palette": "temperate",
+      "variant": 3
+    },
+    {
+      "kind": "zemlyanka",
+      "size": [
+        11,
+        14,
+        15
+      ],
+      "surface": 3,
+      "entrance": [
+        5,
+        3,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        5
+      ],
+      "beds": 3,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/residential/zemlyanka_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "zemlyanka",
+      "size": [
+        11,
+        14,
+        16
+      ],
+      "surface": 3,
+      "entrance": [
+        5,
+        3,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        5
+      ],
+      "beds": 2,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/residential/zemlyanka_02",
+      "palette": "temperate",
+      "variant": 2
+    },
+    {
+      "kind": "zemlyanka",
+      "size": [
+        11,
+        14,
+        17
+      ],
+      "surface": 3,
+      "entrance": [
+        5,
+        3,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        5
+      ],
+      "beds": 3,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/residential/zemlyanka_03",
+      "palette": "temperate",
+      "variant": 3
+    },
+    {
+      "kind": "izba",
+      "size": [
+        13,
+        16,
+        18
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 5,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/residential/izba_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "izba",
+      "size": [
+        13,
+        16,
+        19
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 4,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/residential/izba_02",
+      "palette": "temperate",
+      "variant": 2
+    },
+    {
+      "kind": "izba",
+      "size": [
+        13,
+        16,
+        20
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 5,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/residential/izba_03",
+      "palette": "temperate",
+      "variant": 3
+    },
+    {
+      "kind": "chronicler_terem",
+      "size": [
+        13,
+        16,
+        18
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "librarian",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/chronicler_terem_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "herbalist_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "cleric",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/herbalist_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "cartographer_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "cartographer",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/cartographer_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "fisher_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "fisherman",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/fisher_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "fletcher_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "fletcher",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/fletcher_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "shepherd_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "shepherd",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/shepherd_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "tanner_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "leatherworker",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/tanner_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "butcher_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "butcher",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/butcher_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "mason_workshop",
+      "size": [
+        13,
+        16,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "mason",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/mason_workshop_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "toolsmith_forge",
+      "size": [
+        13,
+        16,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "toolsmith",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/toolsmith_forge_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "weaponsmith_forge",
+      "size": [
+        13,
+        16,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "weaponsmith",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/weaponsmith_forge_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "armorer_forge",
+      "size": [
+        13,
+        16,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "armorer",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/armorer_forge_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "miller_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:miller",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/miller_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "brewer_house",
+      "size": [
+        11,
+        15,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:brewer",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/brewer_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "weaver_house",
+      "size": [
+        13,
+        16,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:weaver",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/weaver_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "hunter_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:hunter",
+      "workstation": [
+        6,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/hunter_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "cook_house",
+      "size": [
+        13,
+        16,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:cook",
+      "workstation": [
+        8,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/profession/cook_house_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "ambar",
+      "size": [
+        11,
+        14,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/utility/ambar_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "klet",
+      "size": [
+        11,
+        14,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/utility/klet_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "stable",
+      "size": [
+        11,
+        14,
+        19
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/utility/stable_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "hlev",
+      "size": [
+        11,
+        14,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:herder",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/utility/hlev_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "small_field",
+      "size": [
+        7,
+        7,
+        9
+      ],
+      "surface": 1,
+      "entrance": [
+        3,
+        1,
+        0
+      ],
+      "spawn": [
+        3,
+        2,
+        2
+      ],
+      "beds": 0,
+      "job": "farmer",
+      "workstation": [
+        1,
+        2,
+        2
+      ],
+      "id": "slavicmyths:village/temperate/farm/small_field_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "large_field",
+      "size": [
+        11,
+        7,
+        13
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        2
+      ],
+      "beds": 0,
+      "job": "farmer",
+      "workstation": [
+        1,
+        2,
+        2
+      ],
+      "id": "slavicmyths:village/temperate/farm/large_field_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "druzhinnik_barracks",
+      "size": [
+        20,
+        21,
+        20
+      ],
+      "surface": 1,
+      "entrance": [
+        7,
+        1,
+        0
+      ],
+      "spawn": [
+        7,
+        3,
+        5
+      ],
+      "beds": 5,
+      "job": "slavicmyths:druzhinnik",
+      "workstation": [
+        11,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/temperate/defense/druzhinnik_barracks_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "village_center",
+      "size": [
+        17,
+        12,
+        17
+      ],
+      "surface": 0,
+      "entrance": [
+        8,
+        0,
+        0
+      ],
+      "spawn": [
+        8,
+        1,
+        1
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/temperate/center/village_center_01",
+      "palette": "temperate",
+      "variant": 1
+    },
+    {
+      "kind": "seni",
+      "size": [
+        9,
+        15,
+        13
+      ],
+      "surface": 1,
+      "entrance": [
+        4,
+        1,
+        0
+      ],
+      "spawn": [
+        4,
+        3,
+        5
+      ],
+      "beds": 2,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/residential/seni_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "seni",
+      "size": [
+        9,
+        15,
+        14
+      ],
+      "surface": 1,
+      "entrance": [
+        4,
+        1,
+        0
+      ],
+      "spawn": [
+        4,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/residential/seni_02",
+      "palette": "cold",
+      "variant": 2
+    },
+    {
+      "kind": "seni",
+      "size": [
+        9,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        4,
+        1,
+        0
+      ],
+      "spawn": [
+        4,
+        3,
+        5
+      ],
+      "beds": 2,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/residential/seni_03",
+      "palette": "cold",
+      "variant": 3
+    },
+    {
+      "kind": "zemlyanka",
+      "size": [
+        11,
+        16,
+        15
+      ],
+      "surface": 3,
+      "entrance": [
+        5,
+        3,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        5
+      ],
+      "beds": 3,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/residential/zemlyanka_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "zemlyanka",
+      "size": [
+        11,
+        16,
+        16
+      ],
+      "surface": 3,
+      "entrance": [
+        5,
+        3,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        5
+      ],
+      "beds": 2,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/residential/zemlyanka_02",
+      "palette": "cold",
+      "variant": 2
+    },
+    {
+      "kind": "zemlyanka",
+      "size": [
+        11,
+        16,
+        17
+      ],
+      "surface": 3,
+      "entrance": [
+        5,
+        3,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        5
+      ],
+      "beds": 3,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/residential/zemlyanka_03",
+      "palette": "cold",
+      "variant": 3
+    },
+    {
+      "kind": "izba",
+      "size": [
+        13,
+        18,
+        18
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 5,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/residential/izba_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "izba",
+      "size": [
+        13,
+        18,
+        19
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 4,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/residential/izba_02",
+      "palette": "cold",
+      "variant": 2
+    },
+    {
+      "kind": "izba",
+      "size": [
+        13,
+        18,
+        20
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 5,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/residential/izba_03",
+      "palette": "cold",
+      "variant": 3
+    },
+    {
+      "kind": "chronicler_terem",
+      "size": [
+        13,
+        18,
+        18
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "librarian",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/chronicler_terem_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "herbalist_house",
+      "size": [
+        11,
+        17,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "cleric",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/herbalist_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "cartographer_house",
+      "size": [
+        11,
+        17,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "cartographer",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/cartographer_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "fisher_house",
+      "size": [
+        11,
+        17,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "fisherman",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/fisher_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "fletcher_house",
+      "size": [
+        11,
+        17,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "fletcher",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/fletcher_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "shepherd_house",
+      "size": [
+        11,
+        17,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "shepherd",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/shepherd_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "tanner_house",
+      "size": [
+        11,
+        17,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "leatherworker",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/tanner_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "butcher_house",
+      "size": [
+        11,
+        17,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "butcher",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/butcher_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "mason_workshop",
+      "size": [
+        13,
+        18,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "mason",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/mason_workshop_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "toolsmith_forge",
+      "size": [
+        13,
+        18,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "toolsmith",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/toolsmith_forge_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "weaponsmith_forge",
+      "size": [
+        13,
+        18,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "weaponsmith",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/weaponsmith_forge_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "armorer_forge",
+      "size": [
+        13,
+        18,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "armorer",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/armorer_forge_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "miller_house",
+      "size": [
+        11,
+        17,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:miller",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/miller_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "brewer_house",
+      "size": [
+        11,
+        17,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:brewer",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/brewer_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "weaver_house",
+      "size": [
+        13,
+        18,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:weaver",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/weaver_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "hunter_house",
+      "size": [
+        11,
+        17,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:hunter",
+      "workstation": [
+        6,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/hunter_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "cook_house",
+      "size": [
+        13,
+        18,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:cook",
+      "workstation": [
+        8,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/profession/cook_house_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "ambar",
+      "size": [
+        11,
+        15,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/utility/ambar_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "klet",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/utility/klet_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "stable",
+      "size": [
+        11,
+        15,
+        19
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/utility/stable_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "hlev",
+      "size": [
+        11,
+        15,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:herder",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/utility/hlev_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "small_field",
+      "size": [
+        7,
+        7,
+        9
+      ],
+      "surface": 1,
+      "entrance": [
+        3,
+        1,
+        0
+      ],
+      "spawn": [
+        3,
+        2,
+        2
+      ],
+      "beds": 0,
+      "job": "farmer",
+      "workstation": [
+        1,
+        2,
+        2
+      ],
+      "id": "slavicmyths:village/cold/farm/small_field_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "large_field",
+      "size": [
+        11,
+        7,
+        13
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        2
+      ],
+      "beds": 0,
+      "job": "farmer",
+      "workstation": [
+        1,
+        2,
+        2
+      ],
+      "id": "slavicmyths:village/cold/farm/large_field_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "druzhinnik_barracks",
+      "size": [
+        20,
+        24,
+        20
+      ],
+      "surface": 1,
+      "entrance": [
+        7,
+        1,
+        0
+      ],
+      "spawn": [
+        7,
+        3,
+        5
+      ],
+      "beds": 5,
+      "job": "slavicmyths:druzhinnik",
+      "workstation": [
+        11,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/cold/defense/druzhinnik_barracks_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "village_center",
+      "size": [
+        17,
+        12,
+        17
+      ],
+      "surface": 0,
+      "entrance": [
+        8,
+        0,
+        0
+      ],
+      "spawn": [
+        8,
+        1,
+        1
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/cold/center/village_center_01",
+      "palette": "cold",
+      "variant": 1
+    },
+    {
+      "kind": "seni",
+      "size": [
+        9,
+        14,
+        13
+      ],
+      "surface": 1,
+      "entrance": [
+        4,
+        1,
+        0
+      ],
+      "spawn": [
+        4,
+        3,
+        5
+      ],
+      "beds": 2,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/residential/seni_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "seni",
+      "size": [
+        9,
+        14,
+        14
+      ],
+      "surface": 1,
+      "entrance": [
+        4,
+        1,
+        0
+      ],
+      "spawn": [
+        4,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/residential/seni_02",
+      "palette": "warm",
+      "variant": 2
+    },
+    {
+      "kind": "seni",
+      "size": [
+        9,
+        14,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        4,
+        1,
+        0
+      ],
+      "spawn": [
+        4,
+        3,
+        5
+      ],
+      "beds": 2,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/residential/seni_03",
+      "palette": "warm",
+      "variant": 3
+    },
+    {
+      "kind": "zemlyanka",
+      "size": [
+        11,
+        14,
+        15
+      ],
+      "surface": 3,
+      "entrance": [
+        5,
+        3,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        5
+      ],
+      "beds": 3,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/residential/zemlyanka_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "zemlyanka",
+      "size": [
+        11,
+        14,
+        16
+      ],
+      "surface": 3,
+      "entrance": [
+        5,
+        3,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        5
+      ],
+      "beds": 2,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/residential/zemlyanka_02",
+      "palette": "warm",
+      "variant": 2
+    },
+    {
+      "kind": "zemlyanka",
+      "size": [
+        11,
+        14,
+        17
+      ],
+      "surface": 3,
+      "entrance": [
+        5,
+        3,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        5
+      ],
+      "beds": 3,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/residential/zemlyanka_03",
+      "palette": "warm",
+      "variant": 3
+    },
+    {
+      "kind": "izba",
+      "size": [
+        13,
+        16,
+        18
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 5,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/residential/izba_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "izba",
+      "size": [
+        13,
+        16,
+        19
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 4,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/residential/izba_02",
+      "palette": "warm",
+      "variant": 2
+    },
+    {
+      "kind": "izba",
+      "size": [
+        13,
+        16,
+        20
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 5,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/residential/izba_03",
+      "palette": "warm",
+      "variant": 3
+    },
+    {
+      "kind": "chronicler_terem",
+      "size": [
+        13,
+        16,
+        18
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "librarian",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/chronicler_terem_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "herbalist_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "cleric",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/herbalist_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "cartographer_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "cartographer",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/cartographer_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "fisher_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "fisherman",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/fisher_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "fletcher_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "fletcher",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/fletcher_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "shepherd_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "shepherd",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/shepherd_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "tanner_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "leatherworker",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/tanner_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "butcher_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "butcher",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/butcher_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "mason_workshop",
+      "size": [
+        13,
+        16,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "mason",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/mason_workshop_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "toolsmith_forge",
+      "size": [
+        13,
+        16,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "toolsmith",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/toolsmith_forge_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "weaponsmith_forge",
+      "size": [
+        13,
+        16,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "weaponsmith",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/weaponsmith_forge_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "armorer_forge",
+      "size": [
+        13,
+        16,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "armorer",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/armorer_forge_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "miller_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:miller",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/miller_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "brewer_house",
+      "size": [
+        11,
+        15,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:brewer",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/brewer_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "weaver_house",
+      "size": [
+        13,
+        16,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:weaver",
+      "workstation": [
+        9,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/weaver_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "hunter_house",
+      "size": [
+        11,
+        15,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:hunter",
+      "workstation": [
+        6,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/hunter_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "cook_house",
+      "size": [
+        13,
+        16,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        6,
+        1,
+        0
+      ],
+      "spawn": [
+        6,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:cook",
+      "workstation": [
+        8,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/profession/cook_house_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "ambar",
+      "size": [
+        11,
+        14,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/utility/ambar_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "klet",
+      "size": [
+        11,
+        14,
+        15
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/utility/klet_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "stable",
+      "size": [
+        11,
+        14,
+        19
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/utility/stable_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "hlev",
+      "size": [
+        11,
+        14,
+        17
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        3,
+        5
+      ],
+      "beds": 1,
+      "job": "slavicmyths:herder",
+      "workstation": [
+        7,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/utility/hlev_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "small_field",
+      "size": [
+        7,
+        7,
+        9
+      ],
+      "surface": 1,
+      "entrance": [
+        3,
+        1,
+        0
+      ],
+      "spawn": [
+        3,
+        2,
+        2
+      ],
+      "beds": 0,
+      "job": "farmer",
+      "workstation": [
+        1,
+        2,
+        2
+      ],
+      "id": "slavicmyths:village/warm/farm/small_field_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "large_field",
+      "size": [
+        11,
+        7,
+        13
+      ],
+      "surface": 1,
+      "entrance": [
+        5,
+        1,
+        0
+      ],
+      "spawn": [
+        5,
+        2,
+        2
+      ],
+      "beds": 0,
+      "job": "farmer",
+      "workstation": [
+        1,
+        2,
+        2
+      ],
+      "id": "slavicmyths:village/warm/farm/large_field_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "druzhinnik_barracks",
+      "size": [
+        20,
+        21,
+        20
+      ],
+      "surface": 1,
+      "entrance": [
+        7,
+        1,
+        0
+      ],
+      "spawn": [
+        7,
+        3,
+        5
+      ],
+      "beds": 5,
+      "job": "slavicmyths:druzhinnik",
+      "workstation": [
+        11,
+        3,
+        7
+      ],
+      "id": "slavicmyths:village/warm/defense/druzhinnik_barracks_01",
+      "palette": "warm",
+      "variant": 1
+    },
+    {
+      "kind": "village_center",
+      "size": [
+        17,
+        12,
+        17
+      ],
+      "surface": 0,
+      "entrance": [
+        8,
+        0,
+        0
+      ],
+      "spawn": [
+        8,
+        1,
+        1
+      ],
+      "beds": 0,
+      "job": null,
+      "workstation": null,
+      "id": "slavicmyths:village/warm/center/village_center_01",
+      "palette": "warm",
+      "variant": 1
+    }
+  ]
+}

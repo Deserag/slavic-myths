@@ -1,0 +1,66 @@
+{
+  "version": "1.3.1",
+  "iteration": "city visual/interior polish",
+  "date": "2026-10-08",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.3.1.jar",
+  "sha256": "25dfc0e7adbf284ec8391b197366d1f589c3fdece5df98f0a38af438b156dba9",
+  "bytes": 9441532,
+  "clean_build": "PASS",
+  "final_suites": {
+    "work/city-polish-131-city.log": 8,
+    "work/city-polish-131-buildings-03.log": 6,
+    "work/city-polish-131-regression.log": 53
+  },
+  "required_passed": 67,
+  "actual_headless_launches": 11,
+  "launch_logs": [
+    "work/city-polish-server-01.log",
+    "work/city-polish-server-02.log",
+    "work/city-polish-server-03.log",
+    "work/city-polish-buildings-final.log",
+    "work/city-polish-regression-final.log",
+    "work/city-polish-regression-02.log",
+    "work/city-polish-131-city.log",
+    "work/city-polish-131-buildings.log",
+    "work/city-polish-131-buildings-02.log",
+    "work/city-polish-131-buildings-03.log",
+    "work/city-polish-131-regression.log"
+  ],
+  "client_launches": 0,
+  "polymc_updated": false,
+  "commit_created": false,
+  "catalog": {
+    "templates": 240,
+    "raw_blockstates": 8070,
+    "stock_item_records": 1476,
+    "checked_window_apertures": 1272
+  },
+  "placed_cold_city": {
+    "street_lanterns": 194,
+    "template_lanterns_including_defense": 175,
+    "stocked_inventory_or_table_blocks": 78,
+    "actually_unpacked_loot_chests": 25,
+    "all_eight_wall_tower_junctions_solid": true,
+    "street_block_light_measured": true,
+    "lantern_support_checked": true
+  },
+  "pathfinding": {
+    "climates": 3,
+    "buildings": 66,
+    "native_job_claims_in_sample": 55,
+    "paid_and_restocked_merchants": 9,
+    "crossed_gate_bandits": 8,
+    "guard_engagements": 3
+  },
+  "intermediate_failures": {
+    "city_01": "Trading house bed routes blocked after furnishing/stair move; corrected",
+    "city_02": "Narrow framed window overlapped door; corrected",
+    "buildings_131_01": "Native barracks POI claim timed out; retry in fresh world",
+    "buildings_131_02": "Concurrent clean build removed HuntRecords class during runtime; repeated after builds stopped",
+    "regression_01": "Sheep sheared but dropped wool was not collected/deposited before timeout; unchanged test passed in fresh world on run 02"
+  },
+  "performance_measured": false,
+  "client_visual_acceptance": false,
+  "real_player_relogin_tested": false,
+  "natural_city_fully_placed_in_normal_world_tested": false
+}

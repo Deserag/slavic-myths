@@ -1,0 +1,371 @@
+{
+  "version": "1.2.3",
+  "scope": "Military implementation plus touched integration/regression files. Previous 1.2.1/1.2.2 changes and user files preserved; no commit/push. WorkPackage/VillagerPickup are existing mixins; all mixins listed for configuration review.",
+  "count": 91,
+  "files": [
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "4e6e69fe9a05568d4f8c56a97c82cd60df374866b0ccd00212d0b29a92dd6402"
+    },
+    {
+      "path": "docs/MILITARY_1.2.3.md",
+      "sha256": "b6e28f4baa3772a738f33c6c2538bedfb848cd386fc9147f1c0bbd6bdee4bb92"
+    },
+    {
+      "path": "docs/MILITARY_1.2.3_BANDIT_HOTFIX.md",
+      "sha256": "7b687fc44155973a3d691d633647de6b231c9eab9456ac48258a56f9520cd650"
+    },
+    {
+      "path": "docs/PROJECT_STATUS.md",
+      "sha256": "4c1fb223e0688d33e7ea869a05da41b6cfde6cdd5d8b0595406fba72bfa13ef4"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "sha256": "02747bbb1486baabfbf210e5d7b49837d84d41294acfdccb587c564eb5ced6a4"
+    },
+    {
+      "path": "docs/verification/military-1.2.3-checks.json",
+      "sha256": "f212c11c82fd5009f33e547d75601589a0eb50aceb8c6fd3fe7e62d1871957f2"
+    },
+    {
+      "path": "docs/verification/military-1.2.3-runtime.json",
+      "sha256": "b7c5b097cac454fe27eb779c7d257c2d011bd3736ae2dc5e37d64665378434b6"
+    },
+    {
+      "path": "docs/verification/polymc-1.2.3-bandit-hotfix-installation.json",
+      "sha256": "46fc942edc14f8dd54acdf415bcaa24766178d659d5ccd226b05eb8f3e1621e3"
+    },
+    {
+      "path": "docs/verification/polymc-1.2.3-installation.json",
+      "sha256": "70042fc1529ae1e9fea07ac40e811cdbf64f36635acb887740df8a33a1c66657"
+    },
+    {
+      "path": "gradle.properties",
+      "sha256": "c65b07d9c50664d9161e3de88495bab41a1c975001b91e2d6e9f33271b87a0fb"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/bandit/BanditEntity.java",
+      "sha256": "9bca3c3a33705d7db07c4feaf663e8fed788b28520d8a12429fc79d5f6f42089"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/bandit/CampRecords.java",
+      "sha256": "e736db2bcb7927842ddff69e1146118a926044f21a680d3f1e2567a496415c47"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "sha256": "e38f1c423b719c9f64cc3cffff7b2caa98455f6a62f3b83cdad61779a5e4e17a"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/client/GuardEquipmentLayer.java",
+      "sha256": "0502f2c6c8fe506b56e5d133f3fc4bfbd2d02a435d3df6f417da3813ec052262"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/client/MilitaryScreen.java",
+      "sha256": "7175246819fc86fe221812fd851c8ed789031b702cbd9407620b010a367b3688"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/client/VillageVisuals.java",
+      "sha256": "ca8cf699d58affe7f30873b3ab2458fc9a72788cae7841fb5cd8d70d67c924ec"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/BanditRaids.java",
+      "sha256": "633aa123ae5b1ab8d9535e89368414cc0619731581c8e7780307e230f7560a6f"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/GuardBehavior.java",
+      "sha256": "9365ba3ffad2eba19ec9b32e5535aa67b2fcafc78baecc33b1225f82c8ceff2f"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/Military.java",
+      "sha256": "770e9f4ce7360e238df10d6e0531f1933cbe05f64ad151e307c5900e1ec19883"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/MilitaryBoards.java",
+      "sha256": "33f02c6ddaa3c9e0c9eeb91cc4fec39c177f276c88e6dafb2a37bbb591415375"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/MilitaryCommands.java",
+      "sha256": "a68788fc604e615ddc87baf3172425ca1809e1a05a1f42d801d59662ef612087"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/MilitaryEvents.java",
+      "sha256": "bbcc6c9ad794372f26818f59b980a7a7c73d6647991982164d3af66474e35069"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/MilitaryMenu.java",
+      "sha256": "09f221a900a9c5d8827d54518413e219a18d83203445d93269f09a60b8becf4c"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/MilitaryNetwork.java",
+      "sha256": "20f261b8765a7667e04401b049cce9028d97611bfa681c968654e9e9117022a3"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/MilitaryQuests.java",
+      "sha256": "a33ff3161c420c8cb139f837332da402840463d66499b130df81ac2845446e34"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/MilitaryTable.java",
+      "sha256": "3d5f4a60169a4b25c1988bad9a09756ea980a7903ebe266c3005f5846cf2bc5a"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/MilitaryTableTile.java",
+      "sha256": "8ba9fb88398693b68635fffb64923040d54e734fb5ab1893fb94392b1799b3ae"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/VillageBanditTargetGoal.java",
+      "sha256": "748d852fff6f90d887e373088561f8490c2a40bc8b43b8ce0ff635731545f698"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/village/VillageRoles.java",
+      "sha256": "81648eae8e695cad0a4992515d7efb69a8a20d089e032c131883a7622ca32b5f"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/village/VillageTrades.java",
+      "sha256": "f8a1aadc2eceb5708a28e14c33eb1e90aea97bb308f7d89ffb6ee3be51c6faa1"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/village/VillageWork.java",
+      "sha256": "4e48c9333697b6c739ad14ea9ce9017096d3b902319c1d5946082b027f073e1f"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/village/WorkState.java",
+      "sha256": "d7456ed7e8c05680112f26cc9ff71cdb400f968b7b25bdaeb928a3331de17c67"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/village/mixin/BanditThreatMixin.java",
+      "sha256": "3a8f6b811f27654a7411f37edf2af2d2e55076bc8ef4ff2595165630bd023506"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/village/mixin/BarracksLimitMixin.java",
+      "sha256": "2657b8b8bb0303a0005b1705651b2f4624a8f26288203a4a09f14656df4e8b12"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/village/mixin/GuardRoleMixin.java",
+      "sha256": "ef09f0045b4af288cbd255492dd4bc6ce8fb8869de86b7c28fc446152cb0a9b7"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/village/mixin/VillagerPickupMixin.java",
+      "sha256": "9f882121f036b9ec02d714b2c75e3735fca0a3f7a5a953685178fc6bfcd2cd27"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/village/mixin/WorkPackageMixin.java",
+      "sha256": "2110dbc8b58034c0fb075196b2a6403f06f18396ab07a35c76912389fc1bb901"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/blockstates/druzhinnik_table.json",
+      "sha256": "3967ad6f7e199402ad33217718c67ed7a8487dff31b7ddf618f6ec917fc8cbb1"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/lang/en_us.json",
+      "sha256": "dba904bcacf0d9401ef3d218eabc74dbab982abad88e99a68187ac9e30a422a2"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+      "sha256": "81d590c46855bb2c3f9c87f4ce8c96145045b252f97c8c65c628cda3ffc2ea04"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/block/druzhinnik_table.json",
+      "sha256": "4c29a493f40d19ccdd037cec782cbd2c1169d6b580e3b4cd051cd3ed0ebdc542"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/bandit_token.json",
+      "sha256": "62d226b89cccef0762dd1a8770921c91072995df52ecb90962ed58dd45f2ca97"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/druzhinnik_table.json",
+      "sha256": "21787024b531c18a2798eda0649619abd13895c9221ed908ff4aa920e5867956"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/military_chain.png",
+      "sha256": "542df342c1882049262c3fece1dec1f86765dbc9fcd999cedf1ff9cf58310de0"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/military_parchment.png",
+      "sha256": "bbbf4efb2034dfee28dd9caf435f747e609f455c07169800f77e512dd3131cc7"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/military_trim.png",
+      "sha256": "b38834a8277b4011d1833f5b4cb515fbd536ee93d7be09b07a010d437c08d1a1"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/block/military_wood.png",
+      "sha256": "78b1ae0fc0c6260d29c86b2807e8da95e96ca8eacb56f59c0bcf0677a53b4458"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/entity/guard_equipment.png",
+      "sha256": "933c1e09a390abaff7b60bf404b4d711d0f95d1b7e098921c75b105eddf1c60a"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/entity/villager/profession/druzhinnik_a.png",
+      "sha256": "7c034b3cecd2574b069757a27f229a007b084526e54d4e2cd324b53444cd487b"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/entity/villager/profession/druzhinnik_b.png",
+      "sha256": "71dcd50bfdd5397239fed30919356ab8840bee4c381c19dd92b90293a6af5e1c"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/gui/military.png",
+      "sha256": "87cbf2314ce1f8977b42623ba4c63d2670a159390052a03b347ae44747ba7c8b"
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/textures/item/bandit_token.png",
+      "sha256": "272f4cb88dab4c591716f97ede4aeb531e2040ce5fc30052570bcabbe7c86952"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/mineable/axe.json",
+      "sha256": "62d7b4e8d877831b18552fb6d1e1f6c6d5ed2170a3be961fc645bb147048af01"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/point_of_interest_type/acquirable_job_site.json",
+      "sha256": "24fc544c10a95afda73f9d2b851ed3fbb57a95300d42043b208654301e0f82d6"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/point_of_interest_type/village.json",
+      "sha256": "24fc544c10a95afda73f9d2b851ed3fbb57a95300d42043b208654301e0f82d6"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/worldgen/template_pool/village/desert/houses.json",
+      "sha256": "bb67de641b8206dd50c7cd519f2b48c9d276cae711df6838522bf594ac58b39f"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/worldgen/template_pool/village/plains/houses.json",
+      "sha256": "399b8c22961a6024476b03453981611d1d88dd50ecebd8773aeb5ef18fce1ec8"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/worldgen/template_pool/village/savanna/houses.json",
+      "sha256": "3d4738caa1d5dfa9363495928c11cef174adfab7b897b2a667700702d553e977"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/worldgen/template_pool/village/snowy/houses.json",
+      "sha256": "0d961b2c1a4ea94ca8d309531d79b1aae6dc91bfe87d85efb3d8a890279f3196"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/worldgen/template_pool/village/taiga/houses.json",
+      "sha256": "85146106792483e0236f0660aa6c010a1e59ec95294bf03c3b77a1489ae7d400"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/blocks/druzhinnik_table.json",
+      "sha256": "1e6b115f7ca1a1cbb35855371649b84f52e840b1f28777f0d1f1a8c772850a84"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/chests/bandit_medium.json",
+      "sha256": "deee8cc92e01f67ab544a2b94985d33e484fbe1fe0063238bf24f47ef1e7e791"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/chests/bandit_small.json",
+      "sha256": "deee8cc92e01f67ab544a2b94985d33e484fbe1fe0063238bf24f47ef1e7e791"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/chests/barracks_supply.json",
+      "sha256": "deee8cc92e01f67ab544a2b94985d33e484fbe1fe0063238bf24f47ef1e7e791"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_barracks.json",
+      "sha256": "f40697c5f45bf62e0ddb9faddac67c94da45adf24c8450ba41fec19e9d8f79ec"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_cache.json",
+      "sha256": "40d2f21207ff8b582824992fb753fb9547ac9c39ba00cbfeeb5ff7bacbb450ea"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_forge.json",
+      "sha256": "a496f296e31c87043ea51f8bfc97adcc14f984d57bf177ffe2c00ced7e07669d"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_kitchen.json",
+      "sha256": "6112072f384857a77f4232342eef9a4edabe553659bc29238e83a568169ff4ea"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_warehouse.json",
+      "sha256": "9f7c6552820de63c4182ed5fa8d26643718aa08dc7a3294487f5cfb73c587dc4"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/entities/bandit_archer.json",
+      "sha256": "8fea31bc45e18cb3c6d17dd91a84b61e5676df1108070d6f1dbabb01b22a46c1"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/entities/bandit_fighter.json",
+      "sha256": "8fea31bc45e18cb3c6d17dd91a84b61e5676df1108070d6f1dbabb01b22a46c1"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/entities/bandit_heavy.json",
+      "sha256": "8fea31bc45e18cb3c6d17dd91a84b61e5676df1108070d6f1dbabb01b22a46c1"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/loot_table/entities/bandit_senior.json",
+      "sha256": "8fea31bc45e18cb3c6d17dd91a84b61e5676df1108070d6f1dbabb01b22a46c1"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/military/quests.json",
+      "sha256": "8042a97f3aef73a1f319a29dbefe0f42ebd037d43569ede781f87a709d6fa274"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/recipe/druzhinnik_table.json",
+      "sha256": "5fad14407ef5fe44b51d1d2bfeb10dda81711f62fe3ec16a1f216e27c61034c3"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/structure/military/barracks.nbt",
+      "sha256": "05118311438493116b54067a6d8955a861e4734c06b15c9cb2c4c26eba9ccf88"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/tags/entity_type/bandits.json",
+      "sha256": "82e8e6729b79d3b786ec6c38254b8b5a6a878267b2619535ae7556c92dd974e5"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/tags/entity_type/village_hostiles.json",
+      "sha256": "ebd736b0108be5b64839d04c32ea7c7a8cfae9883d720c31413d6939a551d537"
+    },
+    {
+      "path": "src/main/resources/data/slavicmyths/tags/item/villager_outputs/herder.json",
+      "sha256": "beb91a00657bd7610784e714eb94215641885d2e74e3ca7c71c34484c9c254a9"
+    },
+    {
+      "path": "src/main/resources/slavicmyths.work.mixins.json",
+      "sha256": "5c4d141c91eff817a7d3bd6eebd3e82bf92559e853f690e4db06df98f1e20224"
+    },
+    {
+      "path": "tools/military_resources.py",
+      "sha256": "29f4c383749f4567f705e41fe4ddfd038d0d5f6a40dc0fa59933ba9366fc49f2"
+    },
+    {
+      "path": "tools/settlement_resources.py",
+      "sha256": "c64ef4bf33a6bc18b61f0193ce06638eee2dbfd9cefd9126eb61c34e9e02e8c2"
+    },
+    {
+      "path": "tools/verify_military_123.py",
+      "sha256": "ba09afa718ebb0a7352dfc526263e3c312a89ce56dd5731ec0032b9ac6b9bb09"
+    },
+    {
+      "path": "tools/verify_settlement_122.py",
+      "sha256": "178a9397100e83c35b06f89533eabdc64e8ba7514e619f9c205c93181f0b5f00"
+    },
+    {
+      "path": "tools/verify_village_121.py",
+      "sha256": "2f8f5b15a25367c871f37fcbd4d129c8542285de65a012af954d1c37af1186bf"
+    },
+    {
+      "path": "tools/village-tests/org/slavicmyths/verify/MilitaryGameTests.java",
+      "sha256": "8136e73b0c371a6668d0e33594a71d05ca9f151f315e35e834958b16b42677aa"
+    },
+    {
+      "path": "tools/village-tests/org/slavicmyths/verify/MilitaryRestartTests.java",
+      "sha256": "182331592b4f6b7afb439302e5e255f7f405eaa94f3fae02362de17bb9969278"
+    },
+    {
+      "path": "tools/village-tests/org/slavicmyths/verify/SettlementActivitiesTests.java",
+      "sha256": "3b8de811c7758833a312007aa6a6031b16d11124cdd542fd098ff613a3d2266b"
+    },
+    {
+      "path": "tools/village-tests/org/slavicmyths/verify/VillageGameTests.java",
+      "sha256": "7ade33756abdd020573025cf8c648b416be1840141d90432051ed0c9da390e5a"
+    },
+    {
+      "path": "tools/village-tests/org/slavicmyths/verify/VillageGeometryCheck.java",
+      "sha256": "1c3ac6d1bf55991b488ca444ecbac89175caee6cb66aa92a4a6dc7a1d0cd2ada"
+    },
+    {
+      "path": "tools/village_resources.py",
+      "sha256": "951b75c48454f211ad1339d2a445f1db9374c68741d22091f22a470b68461284"
+    }
+  ]
+}

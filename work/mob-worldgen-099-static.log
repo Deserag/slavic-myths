@@ -1,2 +1,0 @@
-{"recipe": 273, "loot_table": 267, "advancement": 154, "tags/item": 39, "tags/block": 31, "tags/entity_type": 6, "tags/enchantment": 3, "tags/damage_type": 2, "enchantment": 1, "damage_type": 8, "tags/worldgen/biome": 39, "neoforge/biome_modifier": 27, "worldgen/configured_feature": 48, "worldgen/placed_feature": 44, "worldgen/structure": 14, "worldgen/structure_set": 14}
-2671 references checked; 0 errors. This static audit does not execute codecs; see separate loader logs.

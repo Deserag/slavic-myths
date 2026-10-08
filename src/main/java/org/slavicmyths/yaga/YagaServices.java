@@ -22,7 +22,9 @@ public final class YagaServices {
  public static final Entry[] EXCHANGES={
   new Entry("herbs",1,"svyazka_trav_yagi",2,n("ovinnaya_zola",4)),new Entry("linen",1,"flax",4,n("klyk_volkolaka",2)),
   new Entry("cleansing",2,"otvar_ochishcheniya",1,n("nit_durnoy_doli",3)),new Entry("salve",2,"letuchaya_maz",1,n("ognennoe_pero",1)),
-  new Entry("steadfast",3,"yagin_nastoy_stoykosti",1,n("tugarinova_kozha",3)),new Entry("restoring",3,"lesnoy_nastoy_vosstanovleniya",2,n("kost_likha",1))};
+  new Entry("steadfast",3,"yagin_nastoy_stoykosti",1,n("tugarinova_kozha",3)),new Entry("restoring",3,"lesnoy_nastoy_vosstanovleniya",2,n("kost_likha",1)),
+  new Entry("rare_sacrifice",3,"rune_sacrifice",1,n("soul",2),n("soul_fragment",8),n("perunite_dust",4),n("kost_likha",1)),
+  new Entry("rare_floating_weapon",3,"rune_floating_weapon",1,n("empowered_soul",1),n("diamond_dust",4),n("tugarinova_kozha",1),n("ancient_sign",2))};
  public static final Entry[] BREWS={
   new Entry("otvar_ochishcheniya",2,"otvar_ochishcheniya",1,n("svyazka_trav_yagi",1),n("wormwood",2),n("st_johns_wort",2),n("minecraft:glass_bottle",1)),
   new Entry("letuchaya_maz",2,"letuchaya_maz",1,n("uzel_podveya",1),n("minecraft:honey_bottle",1),n("flax",2),n("minecraft:bowl",1)),

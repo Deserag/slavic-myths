@@ -1,0 +1,25 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "copy_components": true,
+  "ingredients": [
+    {
+      "item": "slavicmyths:carved_staff"
+    },
+    {
+      "item": "slavicmyths:oko_likha"
+    },
+    {
+      "item": "slavicmyths:spear_shaft"
+    },
+    {
+      "item": "slavicmyths:nit_durnoy_doli"
+    },
+    {
+      "item": "slavicmyths:nit_durnoy_doli"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:likho_staff",
+    "count": 1
+  }
+}

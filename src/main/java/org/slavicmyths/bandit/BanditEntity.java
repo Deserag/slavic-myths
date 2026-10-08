@@ -59,6 +59,8 @@ public final class BanditEntity extends Monster {
         goalSelector.addGoal(3,new MoveTowardsRestrictionGoal(this,.85));goalSelector.addGoal(5,new WaterAvoidingRandomStrollGoal(this,.65));
         goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,8));goalSelector.addGoal(7,new RandomLookAroundGoal(this));
         targetSelector.addGoal(1,new HurtByTargetGoal(this).setAlertOthers());targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Player.class,true));
+        targetSelector.addGoal(3,new NearestAttackableTargetGoal<>(this,net.minecraft.world.entity.npc.Villager.class,5,true,false,null));
+        targetSelector.addGoal(3,new NearestAttackableTargetGoal<>(this,net.minecraft.world.entity.animal.IronGolem.class,5,true,false,null));
     }
     @Override public boolean isAlliedTo(Entity other){return other instanceof BanditEntity||other instanceof NightingaleEntity||super.isAlliedTo(other);}
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world,DifficultyInstance difficulty,MobSpawnType reason,SpawnGroupData data){
@@ -77,7 +79,7 @@ public final class BanditEntity extends Monster {
         if(isBlocking()&&source.getDirectEntity() instanceof LivingEntity&&((LivingEntity)source.getDirectEntity()).getMainHandItem().getItem() instanceof AxeItem){stopUsingItem();shieldUntil=level().getGameTime()+100;action(0);}
         return super.hurt(source,amount);
     }
-    @Override public void setTarget(LivingEntity target){if(target!=null&&!level().isClientSide&&campTotal==StrongholdRecords.TOTAL&&camp!=null&&!directEngagement){StrongholdRecords records=StrongholdRecords.get((ServerLevel)level());if(records.state((ServerLevel)level(),camp,zone)!=2){if(!records.record(camp).cleared){if(suspect==null)suspectSince=level().getGameTime();suspect=target;records.suspect(camp,zone);}return;}}boolean alert=getTarget()==null&&target!=null;super.setTarget(target);if(alert&&!level().isClientSide)playSound(ModSounds.BANDIT_ALERT.get(),.7F,.92F+face()*.04F);}
+    @Override public void setTarget(LivingEntity target){if(target!=null&&!level().isClientSide&&campTotal==StrongholdRecords.TOTAL&&camp!=null&&!directEngagement&&!(target instanceof net.minecraft.world.entity.npc.Villager)&&!(target instanceof net.minecraft.world.entity.animal.IronGolem)){StrongholdRecords records=StrongholdRecords.get((ServerLevel)level());if(records.state((ServerLevel)level(),camp,zone)!=2){if(!records.record(camp).cleared){if(suspect==null)suspectSince=level().getGameTime();suspect=target;records.suspect(camp,zone);}return;}}boolean alert=getTarget()==null&&target!=null;super.setTarget(target);if(alert&&!level().isClientSide)playSound(ModSounds.BANDIT_ALERT.get(),.7F,.92F+face()*.04F);}
     @Override protected SoundEvent getAmbientSound(){return ModSounds.BANDIT_IDLE.get();}
     @Override protected SoundEvent getHurtSound(DamageSource s){return ModSounds.BANDIT_HURT.get();}
     @Override protected SoundEvent getDeathSound(){return ModSounds.BANDIT_DEATH.get();}
@@ -124,8 +126,8 @@ public final class BanditEntity extends Monster {
                 if(getOffhandItem().getItem() instanceof ShieldItem&&level().getGameTime()>shieldUntil&&random.nextInt(3)==0){startUsingItem(InteractionHand.OFF_HAND);action(4);timer=22;return;}
                 heavy=role==ATAMAN&&random.nextInt(3)==0;timer=heavy?24:getMainHandItem().getItem() instanceof SwordItem?7:15;action(heavy?7:1);
                 if(heavy)playSound(ModSounds.BANDIT_HEAVY.get(),.8F,.9F);
-            }else if(repath==0){repath=commandUntil>level().getGameTime()?12:20;Vec3 d=position().subtract(target.position()).normalize();double side=(getId()%3-1)*.9;
-                getNavigation().moveTo(target.getX()+d.x*1.6+d.z*side,target.getY(),target.getZ()+d.z*1.6-d.x*side,1);action(0);}
+            }else if(repath==0){repath=commandUntil>level().getGameTime()?12:20;
+                getNavigation().moveTo(target,1);action(0);}
         }
         private void ranged(LivingEntity target,double distance,boolean sight){
             if(distance<64){stopUsingItem();shots=0;action(0);if(repath==0){repath=20;Vec3 away=position().subtract(target.position()).normalize();getNavigation().moveTo(getX()+away.x*5,getY(),getZ()+away.z*5,1.15);}return;}

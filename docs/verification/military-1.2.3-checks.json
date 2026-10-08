@@ -1,0 +1,8 @@
+{
+  "version": "1.2.3",
+  "checks": 10274,
+  "json_files": 2756,
+  "new_textures": 8,
+  "client_launches": 0,
+  "jar": "build\\libs\\slavicmyths-1.2.3.jar"
+}

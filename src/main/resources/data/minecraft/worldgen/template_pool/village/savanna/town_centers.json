@@ -1,0 +1,77 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/warm/center/savanna_center_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 100
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/warm/center/savanna_center_02",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 50
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/warm/center/savanna_center_03",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 150
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/warm/center/savanna_center_04",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 150
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/warm/center/savanna_center_05",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/warm/center/savanna_center_06",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/warm/center/savanna_center_07",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/warm/center/savanna_center_08",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

@@ -1,0 +1,32 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:blank_rune_1"
+      },
+      "count": 1,
+      "base": {
+        "tier": 1,
+        "material": "iron"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:iron_dust"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:lapis_dust"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_resilience",
+    "count": 1
+  },
+  "chisel": false
+}

@@ -1,0 +1,192 @@
+{
+  "1": [
+    {
+      "input": "minecraft:wheat",
+      "output": "minecraft:emerald",
+      "cost": 24,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:carrot",
+      "output": "minecraft:emerald",
+      "cost": 22,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:egg",
+      "output": "minecraft:emerald",
+      "cost": 16,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:goose_egg",
+      "output": "minecraft:emerald",
+      "cost": 12,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    }
+  ],
+  "2": [
+    {
+      "input": "slavicmyths:duck_egg",
+      "output": "minecraft:emerald",
+      "cost": 12,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:leather",
+      "output": "minecraft:emerald",
+      "cost": 8,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:white_wool",
+      "output": "minecraft:emerald",
+      "cost": 18,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:goat_hide",
+      "output": "minecraft:emerald",
+      "cost": 6,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    }
+  ],
+  "3": [
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:leather",
+      "cost": 3,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:white_wool",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:goose_egg",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:duck_egg",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    }
+  ],
+  "4": [
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:goat_hide",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:animal_fat",
+      "cost": 3,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:lead",
+      "cost": 5,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:cooked_goat",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    }
+  ],
+  "5": [
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:saddle",
+      "cost": 10,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:lead",
+      "cost": 5,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:goat_hide",
+      "cost": 5,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:cooked_goose",
+      "cost": 5,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    }
+  ]
+}

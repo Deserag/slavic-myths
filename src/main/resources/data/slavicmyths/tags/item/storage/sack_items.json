@@ -1,6 +1,28 @@
 {
   "replace": false,
   "values": [
+    "#minecraft:villager_plantable_seeds",
+    "minecraft:wheat",
+    "minecraft:beetroot",
+    "minecraft:carrot",
+    "minecraft:potato",
+    "minecraft:apple",
+    "minecraft:melon_slice",
+    "minecraft:sweet_berries",
+    "minecraft:glow_berries",
+    "minecraft:melon_seeds",
+    "minecraft:pumpkin_seeds",
+    "minecraft:cocoa_beans",
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom",
+    "minecraft:pumpkin",
+    "minecraft:melon",
+    "minecraft:nether_wart",
+    "minecraft:sugar_cane",
+    "minecraft:bamboo",
+    "minecraft:kelp",
+    "minecraft:dried_kelp",
+    "minecraft:egg",
     "slavicmyths:rye_grain",
     "slavicmyths:barley_grain",
     "slavicmyths:oat_grain",
@@ -15,6 +37,13 @@
     "slavicmyths:rye_flour",
     "slavicmyths:oat_groats",
     "slavicmyths:barley_groats",
-    "slavicmyths:pea_pod"
+    "slavicmyths:pea_pod",
+    "slavicmyths:turnip",
+    "slavicmyths:cabbage",
+    "slavicmyths:flax_stalk",
+    "slavicmyths:flax_fiber",
+    "slavicmyths:dried_berries",
+    "slavicmyths:dried_mushrooms",
+    "#slavicmyths:berries"
   ]
 }

@@ -20,7 +20,7 @@ public final class ModItemGroup {
             THEMATIC.add(TABS.register(id,()->{
                 var b=CreativeModeTab.builder(index<5?CreativeModeTab.Row.TOP:CreativeModeTab.Row.BOTTOM,index<5?index:index-5)
                     .title(Component.translatable("itemGroup.slavicmyths."+id)).icon(()->new ItemStack(icon(index)))
-                    .displayItems((parameters,output)->items(index).forEach(output::accept));
+                    .displayItems((parameters,output)->{if(index==7)org.slavicmyths.rpg.RuneFoundation.creative().forEach(output::accept);items(index).forEach(output::accept);});
                 b.withTabsBefore(index==0?ResourceLocation.fromNamespaceAndPath("minecraft","spawn_eggs"):ResourceLocation.fromNamespaceAndPath("slavicmyths",IDS[index-1]));
                 if(index<8)b.withTabsAfter(ResourceLocation.fromNamespaceAndPath("slavicmyths",IDS[index+1]));
                 else b.withTabsAfter(ResourceLocation.fromNamespaceAndPath("curios","curios"));
@@ -39,10 +39,12 @@ public final class ModItemGroup {
     public static int category(Item item){
         if(item==ModItems.BEAR_CUB_SPAWN_EGG.get()||item==ModItems.DOE_SPAWN_EGG.get())return -1;
         String id=BuiltInRegistries.ITEM.getKey(item).getPath();
+        if(org.slavicmyths.rpg.RuneFoundation.ITEMS.containsKey(id))return 7;
         if(org.slavicmyths.brewing.Brewing.ITEMS.containsKey(id))return org.slavicmyths.brewing.Brewing.category(id);
         if(item instanceof SpawnEggItem||id.endsWith("_spawn_egg"))return 8;
         if(item instanceof org.slavicmyths.textile.ClothingItem||id.equals("woven_belt")||item instanceof ArmorItem||WEAR.contains(id)||id.endsWith("_helmet")||id.endsWith("_chestplate")||id.endsWith("_leggings")||id.endsWith("_boots"))return 5;
         if(MAGIC.contains(id)||id.startsWith("rune_")||id.endsWith("_charm")||id.endsWith("_amulet")||id.startsWith("obereg_"))return 7;
+        if(id.equals("ataman_sign"))return 1;
         if(TOOLS.contains(id)||item instanceof TieredItem||item instanceof ShieldItem||item instanceof BowItem||item instanceof CrossbowItem||id.matches(".*_(sword|dagger|spear|axe|pickaxe|shovel|hoe|knife|mace|shield|arrow)$")||id.equals("mace")||id.equals("chekan"))return 4;
         if(PLANTS.contains(id)||id.endsWith("_seeds")||id.endsWith("_grain")||id.endsWith("_sapling")||Arrays.asList(Gardens.BERRIES).contains(id))return 2;
         if(Set.of("wheat_flour","rye_flour","oat_groats","barley_groats","dough").contains(id))return 1;
@@ -63,6 +65,7 @@ public final class ModItemGroup {
             preferred.add(Gardens.ITEMS.get("apple_sapling").get());
         }
         if(category==6)for(var id:new String[]{"apple_log","stripped_apple_log","apple_wood","stripped_apple_wood","apple_planks","apple_stairs","apple_slab","apple_fence","apple_fence_gate","apple_door","apple_trapdoor","apple_pressure_plate","apple_button","apple_sign","apple_hanging_sign","apple_leaves"})preferred.add(Gardens.ITEMS.get(id).get());
+        items.removeIf(i->org.slavicmyths.rpg.RuneFoundation.ITEMS.containsKey(BuiltInRegistries.ITEM.getKey(i).getPath()));
         items.removeAll(preferred);preferred.addAll(items);return preferred;
     }
     private ModItemGroup(){}

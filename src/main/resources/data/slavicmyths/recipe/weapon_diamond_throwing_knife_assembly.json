@@ -1,0 +1,15 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:diamond_throwing_knife",
+    "count": 1
+  }
+}

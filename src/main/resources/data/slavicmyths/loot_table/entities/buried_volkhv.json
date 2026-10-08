@@ -42,6 +42,22 @@
           "chance": 0.8
         }
       ]
+    },
+    {
+      "name": "rune_foundation_soul",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:soul"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.5
+        }
+      ]
     }
   ]
 }

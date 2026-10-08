@@ -19,7 +19,10 @@ public final class ClientSetup {
     }
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {
+        net.neoforged.neoforge.client.gui.IConfigScreenFactory factory=(container,parent)->new ClassSettingsScreen(parent);
+        net.neoforged.fml.ModList.get().getModContainerById(SlavicMyths.MOD_ID).orElseThrow().registerExtensionPoint(net.neoforged.neoforge.client.gui.IConfigScreenFactory.class,factory);
         event.enqueueWork(() -> {
+            FieldBowClient.properties();
             net.minecraft.client.renderer.Sheets.addWoodType(org.slavicmyths.garden.Gardens.APPLE_TYPE);
             for(String berry:org.slavicmyths.garden.Gardens.BERRIES)ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.garden.Gardens.block(berry+"_bush"),RenderType.cutout());
             for(String name:new String[]{"apple_leaves","apple_sapling","apple_door","apple_trapdoor"})ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.garden.Gardens.block(name),RenderType.cutoutMipped());
@@ -51,6 +54,7 @@ public final class ClientSetup {
     }
 
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers event){
+        event.registerEntityRenderer(org.slavicmyths.rpg.RuneVisual.TYPE.get(),RuneVisualRenderer::new);
         org.slavicmyths.client.HusbandryRenderer.register(event);
         event.registerBlockEntityRenderer(org.slavicmyths.storage.Household.TYPE.get(),StorageDisplay::new);
         event.registerBlockEntityRenderer(org.slavicmyths.brewing.Brewing.TYPE.get(),BrewDisplay::new);
@@ -74,6 +78,7 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.ATAMAN.get(),m->new BanditRenderer(m,4));
 
         event.registerEntityRenderer(ModEntities.THROWN_NET.get(),m->new net.minecraft.client.renderer.entity.ThrownItemRenderer<>(m));
+        event.registerEntityRenderer(ModEntities.WEAPON_PROJECTILE.get(),WeaponProjectileRenderer::new);
         event.registerEntityRenderer(ModEntities.BOLOTNIK.get(),BolotnikRenderer::new);
         event.registerEntityRenderer(ModEntities.VODYANOY.get(),m->new WaterSpiritRenderer(m,false));
         event.registerEntityRenderer(ModEntities.RUSALKA.get(),m->new WaterSpiritRenderer(m,true));
@@ -111,7 +116,10 @@ public final class ClientSetup {
         event.registerBlockEntityRenderer(org.slavicmyths.garden.Gardens.HANGING_SIGN.get(),net.minecraft.client.renderer.blockentity.HangingSignRenderer::new);
     }
     @SubscribeEvent public static void screens(net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event){
-            event.register(org.slavicmyths.rpg.RpgMenu.TYPE.get(),RpgScreen::new);
+        event.register(org.slavicmyths.military.MilitaryMenu.TYPE.get(),MilitaryScreen::new);
+        event.register(org.slavicmyths.village.SettlementMenu.TYPE.get(),SettlementScreen::new);
+        event.register(org.slavicmyths.storage.SackMenu.TYPE.get(),SackScreen::new);
+            event.<org.slavicmyths.rpg.RpgMenu,net.minecraft.client.gui.screens.inventory.AbstractContainerScreen<org.slavicmyths.rpg.RpgMenu>>register(org.slavicmyths.rpg.RpgMenu.TYPE.get(),(menu,inventory,title)->menu.anvil?new RuneAnvilScreen(menu,inventory,title):new RpgScreen(menu,inventory,title));
             event.register(org.slavicmyths.yaga.YagaMenu.TYPE.get(),YagaScreen::new);
             event.register(org.slavicmyths.hunt.PouchMenu.TYPE.get(),PouchScreen::new);
             event.register(org.slavicmyths.kurgan.BurialCoffinMenu.TYPE.get(),BurialCoffinScreen::new);

@@ -7,6 +7,9 @@ import static org.slavicmyths.kurgan.KurganPlan.Archetype;
 /** Seeded instance-wide quotas, independent of disturbance and natural monster spawning. */
 public final class KurganRoster {
     public static Map<Integer,List<Kind>> assign(KurganPlan plan) {
+        return assign(plan,true);
+    }
+    public static Map<Integer,List<Kind>> assign(KurganPlan plan,boolean extraUpyr) {
         Map<Integer,List<Kind>> result=new LinkedHashMap<>();
         for(var room:plan.rooms)result.put(room.id,new ArrayList<>());
         Set<Integer> dedicated=new HashSet<>();
@@ -22,7 +25,7 @@ public final class KurganRoster {
             }
         }
         Random random=new Random(plan.seed^0x431B8E22L);
-        int[] remaining={new int[]{2,3,5}[plan.tier]+random.nextInt(plan.tier==2?4:3),
+        int[] remaining={new int[]{2,3,5}[plan.tier]+(extraUpyr?1:0)+random.nextInt(plan.tier==2?4:3),
             plan.tier==0?(random.nextInt(100)<30?1:0):new int[]{0,2,3}[plan.tier]+random.nextInt(plan.tier==2?3:2),
             plan.tier==0?(random.nextInt(4)==0?1:0):new int[]{0,2,4}[plan.tier]+random.nextInt(3)};
         for(var room:plan.rooms){

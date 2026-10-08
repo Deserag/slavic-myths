@@ -1,3 +1,0 @@
-[main 741acac] docs: record RC2 publication installation and passed server gates
- 8 files changed, 460 insertions(+), 378 deletions(-)
- create mode 100644 docs/verification/playtest-0.9.10-rc2/github-publication.json

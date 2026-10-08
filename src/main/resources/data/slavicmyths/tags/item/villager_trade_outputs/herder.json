@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather",
+    "minecraft:white_wool",
+    "slavicmyths:goose_egg",
+    "slavicmyths:duck_egg",
+    "slavicmyths:goat_hide",
+    "slavicmyths:animal_fat",
+    "minecraft:lead",
+    "slavicmyths:cooked_goat",
+    "minecraft:saddle",
+    "slavicmyths:cooked_goose"
+  ]
+}

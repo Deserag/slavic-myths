@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.slavicmyths.village.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "WorkPackageMixin",
+    "VillagerPickupMixin",
+    "GuardRoleMixin",
+    "BarracksLimitMixin",
+    "BanditThreatMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

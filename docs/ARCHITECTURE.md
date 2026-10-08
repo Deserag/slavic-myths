@@ -1,3 +1,159 @@
+## Редкие руны — 1.3.4.3 (2026-10-08)
+
+Реализованы шесть rare runes, четыре именных fragment, четыре восстановления через существующую Rune Anvil и два stage-3 обмена Яги. Источники: Соловей (3 гарантированных flight fragments, одноразовый бой на стан), Тугарин/Лихо/курганный воевода (1 гарантированный fragment); 25% extra, 4% full rune. Старая rune_protection сохранена, новая — rune_rare_protection; прежние IDs/loot pools/runes I–II/Classes Screen и HUD layout сохранены.
+
+RareRuneRules/Runtime/Network: server authority, persisted player cooldown по overworld clock, одна общая R-кнопка (Shift — выбор), временный полёт и safe cleanup, execute immunity/tag и exact health-cost marker, Berserker/Sacrifice buffs. RuneVisual — одна noSave/non-AI entity с tracked item/count/phase; own client renderer, shields/crack/fade и лёгкий configurable edge overlay. Архитектура/параметры/файлы: [отчёт](RARE_RUNES_1.3.4.3.md).
+
+Clean production build PASS. Offline rare20491, ordinary355, foundation75064, armor147; production resource/preservation audit PASS, сохранены 4931 resources. Итоговый JAR build/libs/slavicmyths-1.3.4.3.jar; [машинная проверка](verification/rare-runes-1.3.4.3.json). Реальных клиентов/серверов 0/0 по запрету пользователя: игровой lifecycle, flight/render/PvP/JEI/dedicated smoke остаются непроверенными. MSPT не измерен. PolyMC остаётся 1.3.3; полная переделка Classes GUI по-прежнему ждёт утверждения. Future frost/clone/III upgrades/new bosses не добавлены; commit не создан. Записи ниже исторические.
+
+## Rune System 2.0 — 1.3.4.2
+
+Восемь рун I–II реализованы: existing IDs heat/wind переиспользованы, шесть новых; RuneBalance централизует diminishing returns/caps, RuneRuntime применяет серверные эффекты и transient modifiers по событиям. Старые особенности heat/wind сохраняет persistent/network legacy_rune_specials; existing RUNES и registry IDs сохранены. RuneCraftRecipe проверяет base component, GUI/JEI используют counted inputs. Кровотечение: 0,5 HP, rune max2/native max3, совместный max3 по ответу пользователя. Силуэты физических камней обновлены.
+
+Clean build PASS; offline 355 + armor147 + foundation75064; resource gates22838, preserved4898. Production build/libs/slavicmyths-1.3.4.2.jar. Реальных запусков клиент/сервер 0/0: игровая приёмка открыта, запрет пользователя сохраняется. Classes GUI ждёт утверждения, PolyMC остаётся 1.3.3. Rune III и следующие milestones не реализованы. [Полный отчёт](RUNES_REWORK_1.3.4.2.md).
+
+## Rune Foundation 1.3.4.1
+
+`RuneFoundation` регистрирует 14 предметов в ModItems и variants в существующей magic tab. `RuneBase` — immutable tier/material с валидированным Codec; `ItemState.RUNE_BASE` persistent/network component, независимый от неизменённого installed `RUNES`. NeoForge GameData registration order (установленные исходники) ставит DATA_COMPONENT_TYPE перед ITEM, поэтому defaults пустых рун получают зарегистрированный component type.
+
+`RuneCraftRecipe` (`slavicmyths:rune_crafting`) — ordered counted Ingredient slots, JSON/registry packet serializer; все рецепты в ресурсах. Existing `RpgMenu` ID сохранён: старые 2 inputs, 4 creation inputs, output и inventory; режим/выбор DataSlot. Выдача output через authoritative Slot.remove сначала оплачивает целую партию; paid remainder возвращается при закрытии, unpaid preview нет. Full-inventory Shift-click preflight, запрет output SWAP/CLONE/PICKUP_ALL, отсутствие новых C2S payload. `RuneAnvilScreen` только client; старый RpgScreen для path stone остаётся. `JeiRunes` client-only optional compat, subtype по RuneBase.
+
+Смерть исходного UPYR обрабатывается LivingDropsEvent без scans; persistent RuneSummoned исключает осколки с summons. KurganInstance хранит RunePopulation: новые +1 UPYR через прежний bounded roster/admissibility, old saves false сохраняют состав. Soul boss drops — добавочные loot pools. Worldgen и эффекты рун не менялись. [Отчёт](RUNE_FOUNDATION_1.3.4.1.md): build/offline PASS, runtime не запускался; GUI-иллюстрация не является игровым screenshot.
+
+## Classes 2.0 — исправление, этап макетов на утверждение (2026-10-08)
+
+По новому пользовательскому ТЗ выполнена диагностика затронутого UI и подготовлены пять PNG-макетов, дополнительный вид направлений без модалки и 40 resolution/state snapshots. 1344 проверки предлагаемой геометрии/bitmap glyphs PASS; это не проверки рабочей реализации. Проверены реальные prerequisites всех 34 навыков; KeyMapping snapshot — ЛКМ/H/J из options.txt, файл не изменён. Макеты и причины дефектов: [проект на утверждение](CLASSES_UI_REDESIGN_APPROVAL.md).
+
+Ожидается утверждение согласно §18.2: «До моего утверждения не приступать к полной переделке GUI». Production GUI, ресурсы/механики, JAR и PolyMC на этом этапе не менялись; установленная версия остаётся 1.3.3. Клиент/сервер не запускались, сборка исправления ещё не выполнялась. Предлагаемый HUD18/right8/bottom8 требует утверждения: найденный в backup1.3.1 старый HUD24/Y=H−74 расходится с новыми координатами ТЗ. История Git для untracked ClassClient отсутствует. Будущая реализация, тесты её ввода/камеры и установка ещё не выполнены.
+
+## Установка 1.3.3 в PolyMC — 2026-10-08
+
+По прямому запросу пользователя production 1.3.3 установлен в существующий `Slavic-Myths-1.21.1-Testing` (Minecraft 1.21.1 / NeoForge 21.1.255). Включены парные мечи Тугарина и остальное редкое оружие 1.3.2.2, Classes UI и рунные слоты брони. Предыдущая 1.3.2.3 сохранена вне mods, активен один JAR, SHA-256 установленной копии совпал; 542 остальных файла экземпляра (включая миры/настройки) побайтно сохранены. Клиент и сервер не запускались. [Квитанция](verification/polymc-1.3.3-installation.json). Записи ниже об отложенной установке исторические.
+
+## 1.3.3 — Рунные слоты брони (2026-10-08)
+
+Существующая Runes.capacity расширена на player ArmorItem: leather/семимильные сапоги 0; chainmail/gold/iron/turtle 1; diamond/netherite 2; perunite 3; gambeson/plate 1. Одежда без ArmorItem, аксессуары и animal BODY исключены. Armor max строго ограничен материалом; grandfathering прежних оружейных ячеек сохранён. Наковальня использует прежние открытие ячеек/установку/удаление, общий лимит и проверку дубликатов. Tooltip/GUI показывают руны, открытые ячейки и отсутствие эффектов на броне. Боевые характеристики и эффекты не добавлены.
+
+`gradlew.bat clean build` PASS; 147 офлайн-проверок capacity/admission/RuneState JSON/NBT/packet, 10 542 проверки ресурсов/JAR PASS. По сравнению с production 1.3.2.3 изменены только пять классов Runes/RuneDefinition/RpgEvents/RpgScreen/RpgClient; 4 862 прежних ресурса побайтно сохранены, RU/EN добавлены только две строки. Новых registry ID нет. ItemState/RuneRepair, материалы/предметы/рецепты/текстуры/классы/HUD не менялись.
+
+По прямому запрету пользователя в этой итерации 0 клиентов и 0 серверов. Полный native ItemStack harness остановился на offline bootstrap: FeatureFlagLoader требует LoadingModList; обходов в production нет. JSON/NBT roundtrip компонента не считается игровым relog. Смерть/respawn/relog/restart/dimension/drop-pickup, реальная починка/отделка и GUI не проверены в игре. Копирование компонентов vanilla-процессами сверено по установленным зависимостям, без заявления runtime PASS.
+
+Production `build/libs/slavicmyths-1.3.3.jar`; в PolyMC в рамках этого задания не устанавливался, там остаётся 1.3.2.3. Пользовательские изменения/миры сохранены; commit не выполнялся. [Таблица, файлы и приёмка](ARMOR_RUNE_SLOTS_1.3.3.md), [gates](verification/armor-runes-1.3.3.json). Предыдущие записи ниже исторические.
+
+`Runes.capacity(ItemStack)` сначала проверяет ArmorItem и material registry key; `armorCapacity` содержит единую таблицу. `max/slots/list` переиспользуют результат; `installationReason` — общая чистая admission rule, `installationBlocker` адаптирует ItemStack и Component для server/preview. `category` остаётся только оружейной; guard life-on-kill исключает броню в руке. Все восемь существующих рун могут храниться на броне, но RuneEffects/attributes не расширены. ItemState.runes сохраняет прежний persistent/network-synchronized компонент slavicmyths:runes; operation меняет только его на исходном stack, preview использует copy. Weapon max grandfathering сохранён; armor capacity не повышается старым/внешним значением slots. Offline fixture source set подключается только через -ParmorOfflineCheck, не входит в production и не создаёт NeoForge runs.
+
+## 1.3.2.3 — Classes 2.0: интерфейс (2026-10-08)
+
+Переработаны существующие классы: дерево по фактическим prerequisites, крупный корень, состояния узлов и ранги, правая карточка с текущими/следующими параметрами и точными требованиями, компактные 3 active + 1 passive. Выбор класса: временный 3D-preview собственного игрока, три карточки с ролью, подробности и подтверждение. Нативные 32px иконки, 64px гербы, деревянные GUI sprites; blur отключён. Управление использует прежние Minecraft KeyMapping и сохраняет options.txt. HUD справа снизу; единственный действующий переключатель — Mods → Slavic Myths → настройки, клиентский config по умолчанию включён. Creative вручную изучает навыки своего класса без требований и расхода очков; пределы рангов сохранены, Survival проверяет обычные требования.
+
+`gradlew.bat clean build` PASS (14 предупреждений deprecated/unchecked), 3 710 офлайн-проверок правил/геометрии и 530 проверок ресурсов/JAR PASS. Проверены границы для 1920×1080/2560×1440, GUI scale 2/3/4; это не проверка игровой отрисовки. В этой итерации 0 запусков клиента и 0 сервера, реальные relog/смерть/механики и FPS/MSPT не проверялись. Существующие сохранение Class2, lifecycle events, баланс, названия, ветви и registry IDs сохранены.
+
+Production `build/libs/slavicmyths-1.3.2.3.jar` установлен в существующий PolyMC `Slavic-Myths-1.21.1-Testing`. Предыдущая 1.3.2.1 сохранена вне mods, установлен один JAR, SHA-256 совпал; 539 остальных файлов экземпляра, включая миры и настройки, побайтно сохранены. Старый экземпляр 1.16.5 не затронут. Commit/push не выполнялись. [Детали и ручная приёмка](CLASSES_UI_1.3.2.3.md), [gates](verification/classes-ui-1.3.2.3.json), [установка](verification/polymc-1.3.2.3-installation.json). Более старые записи об установленной версии ниже исторические.
+
+`ClassTreeLayout` строит дерево из существующего ClassDefinitions; `ClassTheme` масштабирует полные UV и рисует nine-slice кнопки. `ClassLearningRules` общий для UI и серверного ClassState; сервер повторно проверяет текущий gamemode при каждом изучении. `ClassHudConfig` — один client ModConfigSpec без загрузки клиентских классов в common. `ClassSettingsScreen` подключён через IConfigScreenFactory. Preview меняет только предметы в руках на время рендера с восстановлением в finally. Протокол, NBT и события сохранения не менялись; legacy NBT Hud больше не управляет клиентской видимостью. Нового server tick polling нет. Генераторы старых class/integration ресурсов вызывают актуальный UI overlay.
+
+## 1.3.2.2 — Редкое оружие (2026-10-08)
+
+Реализованы парные мечи Тугарина, посох Лихо, кистень атамана и копьё победителя: разные силуэты, серверные механики, максимальная ёмкость 3 руны, 4 рецепта оружейного верстака, RU/EN. Существующие дропы Тугарина/Лихо и курганные трофеи переиспользованы; добавлен только гарантированный знак атамана дополнительным pool. Два меча крафтятся одновременно и сохраняют данные каждого донора отдельно; второй остаётся в ячейке верстака. Броня/новые руны/боссы не добавлены.
+
+`gradlew.bat clean build` PASS; 15,935 ресурсных/JAR-проверок PASS, 4,618 прежних ресурсов побайтно сохранены, остальные изменения старых ресурсов только добавочные. Финальные headless suites: новые 16/16 + прежнее оружие 16/16. 11 реальных серверных запусков, ноль клиентов; промежуточные failures сохранены в отчёте. Проверены нативные крафт/ремонт/подбор, смерть, два dimension transitions, реальные boss drops и player .dat новым серверным процессом (4 оружия + 2 КД). Это не реальный клиентский relog; внешняя ручная приёмка остаётся открытой, FPS/MSPT не измерялись.
+
+[Параметры, рецепты, файлы и краткая ручная приёмка](RARE_WEAPONS_1.3.2.2.md), [acceptance](verification/rare-weapons-1.3.2.2-acceptance.json), [ресурсы/JAR](verification/rare-weapons-1.3.2.2-resources.json). Production: `build/libs/slavicmyths-1.3.2.2.jar`. PolyMC остаётся на установленной 1.3.2.1; клиент/установка не запускались. Пользовательские изменения и игровые миры сохранены, commit/push не выполнялись.
+
+Архитектура патча: `RareWeapons` регистрирует 4 оружия/1 материал; `RareCombat` использует AttackEntityEvent и damage/target/player events. `RareBleedEffect` имеет отдельную нативную cadence, `DisorientationEffect` — только effect-local bounded target search и стандартный блокирующий AI goal. Нет нового глобального world/player tick polling. Второй выпад расходует UUID/dimension-bound окно до штатного Player.attack; только его attackStrengthTicker открыт access transformer. Долгие КД сохраняются в существующем PathData по overworld clock, transient окна очищаются при login/respawn/dimension. ArmorerRecipe возвращает второй нестакающийся клинок в input remainder со своими donor components; RuneRepair и существующий main-hand RuneEffects переиспользованы. `-PrareRuntimeCheck` подключает изолированные fixtures, не входящие в production JAR. Генераторы сохраняют текущий rare overlay.
+
+## Установка 1.3.2.1 в PolyMC — 2026-10-08
+
+По запросу пользователя проверенный JAR установлен в существующий `Slavic-Myths-1.21.1-Testing` (Minecraft 1.21.1 / NeoForge 21.1.255). Предыдущая 1.3.1 сохранена вне mods; SHA-256 установленной копии совпал. Активен один JAR мода, 439 сопутствующих файлов (включая миры и настройки) сохранены побайтно. Клиент не запускался. [Квитанция установки](verification/polymc-1.3.2.1-installation.json). Записи об отложенной установке ниже исторические.
+
+## 1.3.2.1 — Оружие 2.0 (2026-10-08)
+
+Реализованы 30 форм оружия: копья, сулицы, кистени и метательные ножи семи материалов, короткий и тяжёлый луки. 53 новых предмета включают детали; три прежних оружейных ID сохранены. 36 рецептов оружейного верстака и 23 рецепта деталей; просмотр рецептов работает без JEI. Разные силуэты, ru_ru/en_us, серверные броски/подбор, сохранение данных и совместимые ремонты. Централизованы ёмкость рун и категории существующего оружия; ранее открытые слоты сохранены.
+
+Финальный `gradlew.bat clean build` PASS; 15 067 проверок ресурсов/JAR PASS, 2 566 прежних ресурсов сохранены побайтно. Итоговые headless suites: оружие 16/16, классы 15/15. 11 реальных серверных запусков, ноль клиентов. 30 оружейных стеков проверены после загрузки player .dat новым процессом; проверены смерть и два нативных перехода между измерениями. 512 столкновений ножа: 117 потерь при заданной вероятности 25%.
+
+[Реализация, характеристики и рецепты](WEAPONS_1.3.2.1.md), [отчёт и ограничения](verification/weapons-1.3.2.1-acceptance.json), [ручная приёмка](MANUAL_QA_WEAPONS_1.3.2.1.md). Клиентский вид, GUI, бой нескольких игроков и реальный выход/перезаход остаются ручными; FPS/MSPT не измерялись. PolyMC остаётся на проверенной 1.3.1; установка новой версии, commit и push не выполнялись.
+
+`WeaponCatalog` централизует материалы/регистрацию; `ThrowingWeaponItem` и `WeaponProjectile` используют нативный серверный перенос ItemStack, сохранение и однократный подбор. `FieldBowItem` сохраняет стандартные ammo/enchantment hooks. `Runes` определяет категории/ёмкость; `RuneRepair` защищает данные при ремонте. Существующий `ArmorerRecipe` поддерживает перенос компонентов при улучшении. Рендерер, bow properties и браузер рецептов изолированы на client side. Нет глобального tick polling или chunk loading ради оружия. Opt-in `weaponCheck` и его ресурсы не входят в production JAR. Версия class network 1.3.2.1 требует одинаковой версии клиента/сервера, включая новый формат рецепта.
+
+## 1.3.1 — Классы 2.0 (2026-10-08)
+
+Production JAR установлен по ранее зафиксированному пути тестового PolyMC 1.21.1 после gates, с резервной копией 1.2.5 и проверкой SHA-256; зависимости, конфигурация и миры сохранены. [Квитанция](verification/polymc-1.3.1-installation.json).
+
+Реализованы дружинник, ведун и разбойник, 18 ветвей, 28 основных навыков и шесть эволюций. Отдельные class XP/очки, серверные требования, три активных слота G/H/J и один пассивный, триггеры, экран K/камня пути, HUD и 34 разные pixel icons с ru_ru/en_us. Миграция прежних путей сохраняет данные/КД; нативные смерть, /kill и загрузка player .dat новым процессом проверены. API/debug `/smclass`; массовые источники class XP не добавлены.
+
+Clean build PASS; ресурсы/воспроизводимость/JAR PASS. Итоговые серверные suites 15 + 53 + 8 + 6 = 82/82; 25 реальных headless запусков этой итерации, ноль клиентов. Промежуточные ошибки сохранены в [машинном отчёте](verification/classes-1.3.1-acceptance.json). Пользовательские изменения городских построек сохранены. Commit/push не выполнялись; игровые миры не перезаписывались.
+
+[Реализация и ограничения](CLASSES_1.3.1.md). Ручная приёмка GUI scales/F1/keybindings, двух клиентов, боя и реального выхода в меню/перезахода остаётся открытой; FPS/MSPT не измерялись. [Краткий список](MANUAL_QA_CLASSES_1.3.1.md).
+
+Class2 хранится внутри прежнего SlavicPaths; LegacyPaths сохраняет исходный compound. ClassDefinitions/ClassBalance централизуют требования и численные параметры; ClassState выполняет серверные переходы/идемпотентные атрибуты. ClassNetwork принимает только намерения; ClassRuntime/ClassEvents используют нативный бой/столкновения и ограниченные таймеры. ClassClient/ClassScreen изолированы на client side. Нет глобального поиска по миру/игрокам или chunk loading ради способностей; test source set включается только opt-in и не входит в production JAR.
+
+## 1.3.1 — Воспроизводимые интерьеры и сохранённые уличные фонари (2026-10-08)
+
+`city_furnishing.py` формирует реальные Items NBT для table_display / household_storage, обычное оружие в weapon_rack и десять тематических lazy loot tables. Геометрия башни использует полный 9×9 footprint / цельные стойки; окна однородны, узкие проёмы учитывают дверь; перед лестницей два ряда пола. `CityRoadPiece` хранит StreetLights, индексирует отдельные компоненты по чанкам и выполняет только bounded placement. Старые saved pieces без StreetLights совместимы. `CityPlacement` включает столбы в protected-block-entity preflight. Нет новых tick scans / AI chunk loading; расставленные полки / столы / неактивные хранилища не тикают.
+
+[Изменения и доказательства](CITY_POLISH_1.3.1.md), [SHA / runtime receipt](verification/city-polish-1.3.1.json). Clean build / три production resource gate PASS; 8 + 6 + 53 = 67/67 финальных серверных проверок. Одиннадцать реальных headless запусков / ноль клиентов; ранние failures документированы. Установленный PolyMC JAR не заменялся автоматически, commit не создавался.
+
+## Установка 1.2.5 в PolyMC — 2026-10-08
+
+По прямому запросу пользователя проверенный production JAR 1.2.5 установлен в `Slavic-Myths-1.21.1-Testing` (Minecraft 1.21.1 / NeoForge 21.1.255). Предыдущая 1.2.4 сохранена вне mods; SHA-256 копии совпал, активен один JAR мода, восемь сопутствующих файлов / настроек не изменились. Клиент не запускался. [Квитанция](verification/polymc-1.2.5-installation.json). Прежние записи об отложенной установке ниже исторические.
+
+## 1.2.5 — Maintenance boundaries (2026-10-08)
+
+`VillageWork.validJob` short-circuits unloaded chunk before `PoiManager.getType`; loaded behavior/cooldowns/IDs unchanged. No new cache, tick polling, worldgen rarity or art changes. [Code audit](maintenance/PERFORMANCE_AUDIT_1.2.5.md).
+
+Xaero compileOnly uses immutable `maven.modrinth:xaeros-minimap:Q1tuMQBB` (NeoForge1.21.1/26.5.0) through scoped Maven repository, replacing ignored local .tools JAR without bundling. Independent empty-cache source build produces identical production JAR. Test-only fishing uses daylight batch and keeps strict physical assertions; no tests in production.
+
+Old run-* QA data is preserved outside checkout; broad anchored ignore prevents new runtime staging. Git index cleanup affects runtime/generated files only; gc preserves history/reflogs and does not prune. README media is tracked separately and explicitly schematic. Current verifiers/resource IDs remain canonical; duplicates were inventoried, not deleted without full orphan proof.
+
+Final headless suites65/65 and actual restart assertions PASS;8 new headless launches/0 clients. Git publication and remote release clone wait for direct authorization; source-export check is distinct. [Evidence](maintenance/RELEASE_PREPARATION_1.2.5.md).
+
+## 1.2.5 — Native city pieces и пятислотовый мешок
+
+`gorodishche/CityCatalog` читает immutable snapshot ресурсов при reload; `CityPlan` строит дороги перед участками, фиксирует фасад / красную линию / размеры / взвешенные варианты. `GorodishcheStructure` использует настоящую native StructureType с ограниченным отбором рельефа и общим ациклическим контролем пересечений. `CityBuildingPiece` / `CityRoadPiece` сохраняют нативные pieces и размещают только часть своего чанка; фундаменты — общий `LandFoundationPiece`. Маркеры NPC имеют детерминированные UUID / сохранённые обработанные биты, JOB_SITE получает ванильный Brain. `CitySites` ищет город только при старте существующего нападения, используя загруженные references / `ManualStructureRecords`; AI не загружает чанки.
+
+`CityCommands` предварительно проверяет assets / высоту / границы / block entities, готовит временные tickets, размещает всю геометрию, затем NPC и освобождает tickets в finally. Showcase и native generation используют один каталог / план / pieces. `VillageFoundation` выбирает нижний несущий блок столбца и ограниченно продолжает его материал в пустоте, не заменяя авторские сплошные блоки. `SackMenu` содержит пять produce-only слотов / обычный player inventory; `SackScreen` регистрируется только на клиенте. Содержимое сохраняется стандартными Items, старый излишек хранится в SackOverflow; fill = min(5, total/64). Нет новых глобальных tick scans.
+
+Генераторы выполняют городской слой последним, сохраняют исправления sack / beer и воспроизводят ресурсы побайтно. GameTests / QA namespace opt-in и исключены из production. Clean build / resource / JAR gates и 65 серверных проверок PASS; 19 реальных серверов / 0 клиентов. [Подробности и границы доказательств](GORODISHCHE_1.2.5.md), [runtime](verification/gorodishche-1.2.5-runtime.json).
+
+## 1.2.4 — Authored village templates and explicit QA placement
+
+Deployment update 2026-10-07: installed the existing verified production artifact in PolyMC `Slavic-Myths-1.21.1-Testing`, retaining a backup of 1.2.3 and validating all eight companion/configuration files. [Receipt](verification/polymc-1.2.4-installation.json). Architecture/source unchanged, zero new game launches; the earlier installation deferral below is historical.
+
+`tools/village_buildings.py` emits catalog-driven NBT, native pool overlays, biome-specific centers/streets/zombie variants, themed chest loot and a mapping audit. Prior village/military generators invoke it last. Original pool weights and native street graphs remain; outward house sockets permit larger geometry. Existing barracks ID remains, and its native per-assembly limit recognizes both old/new IDs. `VillageFoundation` is a registered stateless placement processor: bounded eight-block local footings, bedrock preservation, no polling or chunk forcing.
+
+`VillageShowcase` registers operator commands on the shared tree and reads the resource catalog. It resolves actual templates, prevalidates bounds, supports negative Y, loads surface chunks before height reads, preserves exterior ground and releases explicit temporary QA tickets in `finally`. Template entities are suppressed only for QA placement; authored livestock is restored and professional villagers use real native POIs. No JOB_SITE assignment shortcut is used. Server/common code has no client dependency. Test-only `slavicmyths_buildings` resources and harness are opt-in and excluded from production. [Verification and limits](VILLAGE_BUILDINGS_1.2.4.md): final 4/4 building and 53/53 regression checks PASS; zero client launches, PolyMC unchanged.
+
+## 1.2.3 — Bandit aggression / golem defense hotfix
+
+See [fix and verification](MILITARY_1.2.3_BANDIT_HOTFIX.md). Ordinary bandits target residents/golems; melee routing no longer stops outside attack reach. Stronghold player alarms remain intact. Golem bandit detection uses 32 blocks without changing other native targets. Clean build, production/resources and final 53/53 server checks PASS; corrected JAR installed in PolyMC with backup. Zero client launches, no commit/push.
+
+## 1.2.3 — Native guard / persistent military architecture
+
+See [implementation and verification](MILITARY_1.2.3.md). Native Villager guard profession, persistent military board/quests, bounded camp raids and modular rare barracks are implemented atop 1.2.1/1.2.2. Clean build, production/resource validation, geometry and final 49/49 isolated server tests PASS; real save/load assertions PASS. Installed 1.2.3 in the PolyMC testing instance with backup and hash validation; zero client launches. Manual visual acceptance is pending. Calm neutral spirits are excluded until aggression, by explicit user decision. No automatic commit/push.
+
+GuardBehavior extends native CORE packages; ResetProfession is guarded only for the 1200-tick reassignment interval. The ordinary worker pickup uses native GoToWantedItem within four blocks. MilitaryBoards and BanditRaids use dimension SavedData; player CompoundTag quest attachment and saved/synced archetype persist separately. Network actions validate a live near-table menu on the server. Client GUI/equipment stay in Dist.CLIENT classes. Active raid maintenance is bounded to active records every 200 ticks; active quest visits every 20 player ticks. Camp discovery runs only on loaded existing leaders; no production chunk forcing. Five copied vanilla village pools preserve baseline elements and append one rare template; jigsaw placement filters a second barracks per assembly.
+
+## 1.2.2 — Native WORK and physical storage architecture
+
+See [implementation and verification](WORK_AI_1.2.2.md). Native WORK behavior, a 64-slot settlement chest and existing production engines implement this iteration. Weaver remains flax-only by explicit user decision. No future settlement systems were scaffolded. Clean build, resource/production gates and final 30/30 isolated server tests PASS; separate real save/load phases PASS. Installed 1.2.2 in the PolyMC testing instance; zero client launches. No commit/push.
+
+## 1.2.1 Village extension architecture
+
+Common `village/VillageRoles` registers six VillagerProfession and PoiType entries with DeferredRegister. NeoForge registry callbacks install state→POI mapping automatically; vanilla acquirable_job_site/village tags are appended. Only drying-rack master states count, so a multiblock has one owner. No custom villager entity or workstation scan is introduced. `MillstoneBlock` is the approved compact workstation-only fallback; existing flour recipes remain intact.
+
+`VillageTrades` handles NeoForge VillagerTradesEvent for these six IDs only. Bundled `data/slavicmyths/village_trades/*.json` supplies four listings for each of five levels. These are bundled configurable source data, not a new datapack reload framework. Vanilla Villager.updateTrades selects two; native MerchantOffers serialization/restock/XP/demand/discounts own the result. Vanilla and wandering-trader pools are untouched.
+
+`OutfitRules` is pure UUID selection and villager-type→climate mapping. `VillageEvents` initializes one saved, automatically synchronized integer attachment and copies it on vanilla LivingConversionEvent.Post. The base bundle is independent of profession and does not reroll at render time; no gender or age data exists.
+
+Client-only `VillageVisuals` extends standard VillagerRenderer/ZombieVillagerRenderer just to switch the existing robe between short and long bundles. The zombie's same native robe geometry/UVs is split into a child part. Adult profession layers replace the vanilla profession layer; babies use the original layer and native proportions. Face/nose, animation, equipment layers and shadows remain native. A real head item suppresses costume head geometry. Climate/profession/level textures and reusable accessory meshes are cached at renderer-layer registration. `VillageOutfitGeometry` is a separate pure mesh factory, validated without graphics/registry bootstrap. Zombie clothing reuses normal profession assets plus dark tint/damaged mask. Merchant uses the native WanderingTrader renderer with a coat/hood/satchel/pack/rolled-rug layer; its AI, llamas, invisibility and trades are untouched.
+
+Operator tools extend `/slavicmyths debug/test`; `/sm` redirects to that existing root. `debug villager [entity]` inspects data/offers, `test villager workstation <role>` places a complete real workstation next to an eligible test villager without assigning a profession or teleporting, `test villager level <1..5>` changes the displayed test level. The latter is a visual helper; normal trading progression is verified separately.
+
+`tools/village-tests` and `tools/village-test-resources` load only with `-PvillageRuntimeCheck`; no test code enters the production JAR. The server run uses isolated `run-village-checks`. `verifyVillageGeometry` bakes actual production accessory meshes without opening a window. `tools/verify_village_121.py` checks resources, bundled bytes, source-side isolation, generation reproducibility and the actual pure Java function. Legacy resource generators invoke the latest village overlay through `integration_polish_resources.py`.
+
+See [implementation/acceptance](VILLAGERS_1.2.1.md) and [measured checks](verification/village-1.2.1-checks.json). Four real headless server launches, zero client/PolyMC launches; no actual relog or measured MSPT is claimed.
+
 ## 1.1.8 Integration Polish — build / production / PolyMC gates PASS
 
 Implemented grouped Kitchen II screen and continuous supported shelf, single headscarf render path, rebuilt carved/storm staff and open-crescent sickle, native 16px berries/bushes, raised Perunite equipment meshes, common numeric rune definitions/tooltips and incompatibility, crate nine-slot GUI, C descent and smooth -0.32 descent for both vessels, rare individual animal ambient calls. Ambient source events: goose/duck use minecraft:entity.chicken.ambient at existing 0.75/1.10 sound pitch; domestic goat uses minecraft:entity.sheep.ambient at 0.9. Defensive hiss uses minecraft:entity.cat.hiss only from GooseDefence.

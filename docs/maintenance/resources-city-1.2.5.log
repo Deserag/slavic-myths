@@ -1,0 +1,2 @@
+Gorodishche 1.2.5: 240 authored templates, three climates, four urban material families
+{"version": "1.2.5", "checks": 469691, "templates": 240, "climates": 3, "mode": "static NBT/catalog/models", "performance_measured": false, "sha256": "a515be4cca3c7424371ca3d0c4639ae80f19f6d04ccd005a2d100cfe8b87b9f6", "jar": "build\\libs\\slavicmyths-1.2.5.jar"}

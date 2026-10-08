@@ -1,0 +1,3078 @@
+{
+  "approval_stage": true,
+  "runtime_screenshots": false,
+  "font": "Minecraft 1.21.1 bitmap provider glyphs/advances, default uniform=false; rendering is an offline approximation",
+  "checks": 1344,
+  "key_bindings_read_from_options": {
+    "key.slavicmyths.path_ability": "key.mouse.left",
+    "key.slavicmyths.class_slot_2": "key.keyboard.h",
+    "key.slavicmyths.class_slot_3": "key.keyboard.j"
+  },
+  "raw_key_collisions": {
+    "key.slavicmyths.path_ability": [
+      "key.attack",
+      "key.jei.showRecipe2",
+      "key.jei.cheatOneItem"
+    ],
+    "key.slavicmyths.class_slot_2": [],
+    "key.slavicmyths.class_slot_3": []
+  },
+  "cases": [
+    {
+      "file": "1649x928-gui2-tree.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 2,
+      "actual_gui_scale": 2,
+      "scaled": [
+        825,
+        464
+      ],
+      "kind": "tree",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          809,
+          348
+        ],
+        "footer": [
+          8,
+          417,
+          809,
+          39
+        ],
+        "card": [
+          651,
+          70,
+          160,
+          336
+        ],
+        "controls": [
+          252,
+          174,
+          320,
+          165
+        ],
+        "modal": [
+          267,
+          172,
+          290,
+          120
+        ],
+        "cancel": [
+          279,
+          262,
+          129,
+          20
+        ],
+        "confirm": [
+          416,
+          262,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          386,
+          142,
+          18
+        ],
+        "close": [
+          797,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          171.5,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          396,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1649x928-gui2-skill.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 2,
+      "actual_gui_scale": 2,
+      "scaled": [
+        825,
+        464
+      ],
+      "kind": "skill",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          809,
+          348
+        ],
+        "footer": [
+          8,
+          417,
+          809,
+          39
+        ],
+        "card": [
+          651,
+          70,
+          160,
+          336
+        ],
+        "controls": [
+          252,
+          174,
+          320,
+          165
+        ],
+        "modal": [
+          267,
+          172,
+          290,
+          120
+        ],
+        "cancel": [
+          279,
+          262,
+          129,
+          20
+        ],
+        "confirm": [
+          416,
+          262,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          386,
+          142,
+          18
+        ],
+        "close": [
+          797,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          171.5,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          396,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1649x928-gui2-branches.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 2,
+      "actual_gui_scale": 2,
+      "scaled": [
+        825,
+        464
+      ],
+      "kind": "branches",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          809,
+          348
+        ],
+        "footer": [
+          8,
+          417,
+          809,
+          39
+        ],
+        "card": [
+          651,
+          70,
+          160,
+          336
+        ],
+        "controls": [
+          252,
+          174,
+          320,
+          165
+        ],
+        "modal": [
+          267,
+          172,
+          290,
+          120
+        ],
+        "cancel": [
+          279,
+          262,
+          129,
+          20
+        ],
+        "confirm": [
+          416,
+          262,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          386,
+          142,
+          18
+        ],
+        "close": [
+          797,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1649x928-gui2-controls.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 2,
+      "actual_gui_scale": 2,
+      "scaled": [
+        825,
+        464
+      ],
+      "kind": "controls",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          809,
+          348
+        ],
+        "footer": [
+          8,
+          417,
+          809,
+          39
+        ],
+        "card": [
+          651,
+          70,
+          160,
+          336
+        ],
+        "controls": [
+          252,
+          174,
+          320,
+          165
+        ],
+        "modal": [
+          267,
+          172,
+          290,
+          120
+        ],
+        "cancel": [
+          279,
+          262,
+          129,
+          20
+        ],
+        "confirm": [
+          416,
+          262,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          386,
+          142,
+          18
+        ],
+        "close": [
+          797,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1649x928-gui2-hud.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 2,
+      "actual_gui_scale": 2,
+      "scaled": [
+        825,
+        464
+      ],
+      "kind": "hud",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          809,
+          348
+        ],
+        "footer": [
+          8,
+          417,
+          809,
+          39
+        ],
+        "card": [
+          651,
+          70,
+          160,
+          336
+        ],
+        "controls": [
+          252,
+          174,
+          320,
+          165
+        ],
+        "modal": [
+          267,
+          172,
+          290,
+          120
+        ],
+        "cancel": [
+          279,
+          262,
+          129,
+          20
+        ],
+        "confirm": [
+          416,
+          262,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          386,
+          142,
+          18
+        ],
+        "close": [
+          797,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "hud": [
+          757,
+          427,
+          60,
+          29
+        ]
+      }
+    },
+    {
+      "file": "1649x928-gui3-tree.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        550,
+        310
+      ],
+      "kind": "tree",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          534,
+          194
+        ],
+        "footer": [
+          8,
+          263,
+          534,
+          39
+        ],
+        "card": [
+          386,
+          70,
+          150,
+          182
+        ],
+        "controls": [
+          115,
+          96,
+          320,
+          165
+        ],
+        "modal": [
+          130,
+          95,
+          290,
+          120
+        ],
+        "cancel": [
+          142,
+          185,
+          129,
+          20
+        ],
+        "confirm": [
+          279,
+          185,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          232,
+          142,
+          18
+        ],
+        "close": [
+          522,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          34.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          258,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1649x928-gui3-skill.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        550,
+        310
+      ],
+      "kind": "skill",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          534,
+          194
+        ],
+        "footer": [
+          8,
+          263,
+          534,
+          39
+        ],
+        "card": [
+          386,
+          70,
+          150,
+          182
+        ],
+        "controls": [
+          115,
+          96,
+          320,
+          165
+        ],
+        "modal": [
+          130,
+          95,
+          290,
+          120
+        ],
+        "cancel": [
+          142,
+          185,
+          129,
+          20
+        ],
+        "confirm": [
+          279,
+          185,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          232,
+          142,
+          18
+        ],
+        "close": [
+          522,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          34.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          258,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1649x928-gui3-branches.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        550,
+        310
+      ],
+      "kind": "branches",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          534,
+          194
+        ],
+        "footer": [
+          8,
+          263,
+          534,
+          39
+        ],
+        "card": [
+          386,
+          70,
+          150,
+          182
+        ],
+        "controls": [
+          115,
+          96,
+          320,
+          165
+        ],
+        "modal": [
+          130,
+          95,
+          290,
+          120
+        ],
+        "cancel": [
+          142,
+          185,
+          129,
+          20
+        ],
+        "confirm": [
+          279,
+          185,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          232,
+          142,
+          18
+        ],
+        "close": [
+          522,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1649x928-gui3-controls.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        550,
+        310
+      ],
+      "kind": "controls",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          534,
+          194
+        ],
+        "footer": [
+          8,
+          263,
+          534,
+          39
+        ],
+        "card": [
+          386,
+          70,
+          150,
+          182
+        ],
+        "controls": [
+          115,
+          96,
+          320,
+          165
+        ],
+        "modal": [
+          130,
+          95,
+          290,
+          120
+        ],
+        "cancel": [
+          142,
+          185,
+          129,
+          20
+        ],
+        "confirm": [
+          279,
+          185,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          232,
+          142,
+          18
+        ],
+        "close": [
+          522,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1649x928-gui3-hud.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        550,
+        310
+      ],
+      "kind": "hud",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          534,
+          194
+        ],
+        "footer": [
+          8,
+          263,
+          534,
+          39
+        ],
+        "card": [
+          386,
+          70,
+          150,
+          182
+        ],
+        "controls": [
+          115,
+          96,
+          320,
+          165
+        ],
+        "modal": [
+          130,
+          95,
+          290,
+          120
+        ],
+        "cancel": [
+          142,
+          185,
+          129,
+          20
+        ],
+        "confirm": [
+          279,
+          185,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          232,
+          142,
+          18
+        ],
+        "close": [
+          522,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "hud": [
+          482,
+          273,
+          60,
+          29
+        ]
+      }
+    },
+    {
+      "file": "1649x928-gui4-tree.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 3,
+      "scaled": [
+        550,
+        310
+      ],
+      "kind": "tree",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          534,
+          194
+        ],
+        "footer": [
+          8,
+          263,
+          534,
+          39
+        ],
+        "card": [
+          386,
+          70,
+          150,
+          182
+        ],
+        "controls": [
+          115,
+          96,
+          320,
+          165
+        ],
+        "modal": [
+          130,
+          95,
+          290,
+          120
+        ],
+        "cancel": [
+          142,
+          185,
+          129,
+          20
+        ],
+        "confirm": [
+          279,
+          185,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          232,
+          142,
+          18
+        ],
+        "close": [
+          522,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          34.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          258,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1649x928-gui4-skill.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 3,
+      "scaled": [
+        550,
+        310
+      ],
+      "kind": "skill",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          534,
+          194
+        ],
+        "footer": [
+          8,
+          263,
+          534,
+          39
+        ],
+        "card": [
+          386,
+          70,
+          150,
+          182
+        ],
+        "controls": [
+          115,
+          96,
+          320,
+          165
+        ],
+        "modal": [
+          130,
+          95,
+          290,
+          120
+        ],
+        "cancel": [
+          142,
+          185,
+          129,
+          20
+        ],
+        "confirm": [
+          279,
+          185,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          232,
+          142,
+          18
+        ],
+        "close": [
+          522,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          34.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          258,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1649x928-gui4-branches.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 3,
+      "scaled": [
+        550,
+        310
+      ],
+      "kind": "branches",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          534,
+          194
+        ],
+        "footer": [
+          8,
+          263,
+          534,
+          39
+        ],
+        "card": [
+          386,
+          70,
+          150,
+          182
+        ],
+        "controls": [
+          115,
+          96,
+          320,
+          165
+        ],
+        "modal": [
+          130,
+          95,
+          290,
+          120
+        ],
+        "cancel": [
+          142,
+          185,
+          129,
+          20
+        ],
+        "confirm": [
+          279,
+          185,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          232,
+          142,
+          18
+        ],
+        "close": [
+          522,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1649x928-gui4-controls.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 3,
+      "scaled": [
+        550,
+        310
+      ],
+      "kind": "controls",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          534,
+          194
+        ],
+        "footer": [
+          8,
+          263,
+          534,
+          39
+        ],
+        "card": [
+          386,
+          70,
+          150,
+          182
+        ],
+        "controls": [
+          115,
+          96,
+          320,
+          165
+        ],
+        "modal": [
+          130,
+          95,
+          290,
+          120
+        ],
+        "cancel": [
+          142,
+          185,
+          129,
+          20
+        ],
+        "confirm": [
+          279,
+          185,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          232,
+          142,
+          18
+        ],
+        "close": [
+          522,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1649x928-gui4-hud.png",
+      "physical": [
+        1649,
+        928
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 3,
+      "scaled": [
+        550,
+        310
+      ],
+      "kind": "hud",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          534,
+          194
+        ],
+        "footer": [
+          8,
+          263,
+          534,
+          39
+        ],
+        "card": [
+          386,
+          70,
+          150,
+          182
+        ],
+        "controls": [
+          115,
+          96,
+          320,
+          165
+        ],
+        "modal": [
+          130,
+          95,
+          290,
+          120
+        ],
+        "cancel": [
+          142,
+          185,
+          129,
+          20
+        ],
+        "confirm": [
+          279,
+          185,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          232,
+          142,
+          18
+        ],
+        "close": [
+          522,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "hud": [
+          482,
+          273,
+          60,
+          29
+        ]
+      }
+    },
+    {
+      "file": "1920x1080-gui2-tree.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 2,
+      "actual_gui_scale": 2,
+      "scaled": [
+        960,
+        540
+      ],
+      "kind": "tree",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          944,
+          424
+        ],
+        "footer": [
+          8,
+          493,
+          944,
+          39
+        ],
+        "card": [
+          786,
+          70,
+          160,
+          412
+        ],
+        "controls": [
+          320,
+          212,
+          320,
+          165
+        ],
+        "modal": [
+          335,
+          210,
+          290,
+          120
+        ],
+        "cancel": [
+          347,
+          300,
+          129,
+          20
+        ],
+        "confirm": [
+          484,
+          300,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          462,
+          142,
+          18
+        ],
+        "close": [
+          932,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          239.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          463,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1920x1080-gui2-skill.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 2,
+      "actual_gui_scale": 2,
+      "scaled": [
+        960,
+        540
+      ],
+      "kind": "skill",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          944,
+          424
+        ],
+        "footer": [
+          8,
+          493,
+          944,
+          39
+        ],
+        "card": [
+          786,
+          70,
+          160,
+          412
+        ],
+        "controls": [
+          320,
+          212,
+          320,
+          165
+        ],
+        "modal": [
+          335,
+          210,
+          290,
+          120
+        ],
+        "cancel": [
+          347,
+          300,
+          129,
+          20
+        ],
+        "confirm": [
+          484,
+          300,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          462,
+          142,
+          18
+        ],
+        "close": [
+          932,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          239.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          463,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1920x1080-gui2-branches.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 2,
+      "actual_gui_scale": 2,
+      "scaled": [
+        960,
+        540
+      ],
+      "kind": "branches",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          944,
+          424
+        ],
+        "footer": [
+          8,
+          493,
+          944,
+          39
+        ],
+        "card": [
+          786,
+          70,
+          160,
+          412
+        ],
+        "controls": [
+          320,
+          212,
+          320,
+          165
+        ],
+        "modal": [
+          335,
+          210,
+          290,
+          120
+        ],
+        "cancel": [
+          347,
+          300,
+          129,
+          20
+        ],
+        "confirm": [
+          484,
+          300,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          462,
+          142,
+          18
+        ],
+        "close": [
+          932,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1920x1080-gui2-controls.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 2,
+      "actual_gui_scale": 2,
+      "scaled": [
+        960,
+        540
+      ],
+      "kind": "controls",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          944,
+          424
+        ],
+        "footer": [
+          8,
+          493,
+          944,
+          39
+        ],
+        "card": [
+          786,
+          70,
+          160,
+          412
+        ],
+        "controls": [
+          320,
+          212,
+          320,
+          165
+        ],
+        "modal": [
+          335,
+          210,
+          290,
+          120
+        ],
+        "cancel": [
+          347,
+          300,
+          129,
+          20
+        ],
+        "confirm": [
+          484,
+          300,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          462,
+          142,
+          18
+        ],
+        "close": [
+          932,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1920x1080-gui2-hud.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 2,
+      "actual_gui_scale": 2,
+      "scaled": [
+        960,
+        540
+      ],
+      "kind": "hud",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          944,
+          424
+        ],
+        "footer": [
+          8,
+          493,
+          944,
+          39
+        ],
+        "card": [
+          786,
+          70,
+          160,
+          412
+        ],
+        "controls": [
+          320,
+          212,
+          320,
+          165
+        ],
+        "modal": [
+          335,
+          210,
+          290,
+          120
+        ],
+        "cancel": [
+          347,
+          300,
+          129,
+          20
+        ],
+        "confirm": [
+          484,
+          300,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          462,
+          142,
+          18
+        ],
+        "close": [
+          932,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "hud": [
+          892,
+          503,
+          60,
+          29
+        ]
+      }
+    },
+    {
+      "file": "1920x1080-gui3-tree.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        640,
+        360
+      ],
+      "kind": "tree",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          624,
+          244
+        ],
+        "footer": [
+          8,
+          313,
+          624,
+          39
+        ],
+        "card": [
+          466,
+          70,
+          160,
+          232
+        ],
+        "controls": [
+          160,
+          122,
+          320,
+          165
+        ],
+        "modal": [
+          175,
+          120,
+          290,
+          120
+        ],
+        "cancel": [
+          187,
+          210,
+          129,
+          20
+        ],
+        "confirm": [
+          324,
+          210,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          282,
+          142,
+          18
+        ],
+        "close": [
+          612,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          79.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          303,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1920x1080-gui3-skill.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        640,
+        360
+      ],
+      "kind": "skill",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          624,
+          244
+        ],
+        "footer": [
+          8,
+          313,
+          624,
+          39
+        ],
+        "card": [
+          466,
+          70,
+          160,
+          232
+        ],
+        "controls": [
+          160,
+          122,
+          320,
+          165
+        ],
+        "modal": [
+          175,
+          120,
+          290,
+          120
+        ],
+        "cancel": [
+          187,
+          210,
+          129,
+          20
+        ],
+        "confirm": [
+          324,
+          210,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          282,
+          142,
+          18
+        ],
+        "close": [
+          612,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          79.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          303,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1920x1080-gui3-branches.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        640,
+        360
+      ],
+      "kind": "branches",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          624,
+          244
+        ],
+        "footer": [
+          8,
+          313,
+          624,
+          39
+        ],
+        "card": [
+          466,
+          70,
+          160,
+          232
+        ],
+        "controls": [
+          160,
+          122,
+          320,
+          165
+        ],
+        "modal": [
+          175,
+          120,
+          290,
+          120
+        ],
+        "cancel": [
+          187,
+          210,
+          129,
+          20
+        ],
+        "confirm": [
+          324,
+          210,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          282,
+          142,
+          18
+        ],
+        "close": [
+          612,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1920x1080-gui3-controls.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        640,
+        360
+      ],
+      "kind": "controls",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          624,
+          244
+        ],
+        "footer": [
+          8,
+          313,
+          624,
+          39
+        ],
+        "card": [
+          466,
+          70,
+          160,
+          232
+        ],
+        "controls": [
+          160,
+          122,
+          320,
+          165
+        ],
+        "modal": [
+          175,
+          120,
+          290,
+          120
+        ],
+        "cancel": [
+          187,
+          210,
+          129,
+          20
+        ],
+        "confirm": [
+          324,
+          210,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          282,
+          142,
+          18
+        ],
+        "close": [
+          612,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1920x1080-gui3-hud.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        640,
+        360
+      ],
+      "kind": "hud",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          624,
+          244
+        ],
+        "footer": [
+          8,
+          313,
+          624,
+          39
+        ],
+        "card": [
+          466,
+          70,
+          160,
+          232
+        ],
+        "controls": [
+          160,
+          122,
+          320,
+          165
+        ],
+        "modal": [
+          175,
+          120,
+          290,
+          120
+        ],
+        "cancel": [
+          187,
+          210,
+          129,
+          20
+        ],
+        "confirm": [
+          324,
+          210,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          282,
+          142,
+          18
+        ],
+        "close": [
+          612,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "hud": [
+          572,
+          323,
+          60,
+          29
+        ]
+      }
+    },
+    {
+      "file": "1920x1080-gui4-tree.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 4,
+      "scaled": [
+        480,
+        270
+      ],
+      "kind": "tree",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          464,
+          154
+        ],
+        "footer": [
+          8,
+          223,
+          464,
+          39
+        ],
+        "card": [
+          336,
+          70,
+          130,
+          142
+        ],
+        "controls": [
+          80,
+          76,
+          320,
+          165
+        ],
+        "modal": [
+          95,
+          75,
+          290,
+          120
+        ],
+        "cancel": [
+          107,
+          165,
+          129,
+          20
+        ],
+        "confirm": [
+          244,
+          165,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          192,
+          142,
+          18
+        ],
+        "close": [
+          452,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          50.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          274,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1920x1080-gui4-skill.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 4,
+      "scaled": [
+        480,
+        270
+      ],
+      "kind": "skill",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          464,
+          154
+        ],
+        "footer": [
+          8,
+          223,
+          464,
+          39
+        ],
+        "card": [
+          336,
+          70,
+          130,
+          142
+        ],
+        "controls": [
+          80,
+          76,
+          320,
+          165
+        ],
+        "modal": [
+          95,
+          75,
+          290,
+          120
+        ],
+        "cancel": [
+          107,
+          165,
+          129,
+          20
+        ],
+        "confirm": [
+          244,
+          165,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          192,
+          142,
+          18
+        ],
+        "close": [
+          452,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          50.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          274,
+          87
+        ]
+      }
+    },
+    {
+      "file": "1920x1080-gui4-branches.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 4,
+      "scaled": [
+        480,
+        270
+      ],
+      "kind": "branches",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          464,
+          154
+        ],
+        "footer": [
+          8,
+          223,
+          464,
+          39
+        ],
+        "card": [
+          336,
+          70,
+          130,
+          142
+        ],
+        "controls": [
+          80,
+          76,
+          320,
+          165
+        ],
+        "modal": [
+          95,
+          75,
+          290,
+          120
+        ],
+        "cancel": [
+          107,
+          165,
+          129,
+          20
+        ],
+        "confirm": [
+          244,
+          165,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          192,
+          142,
+          18
+        ],
+        "close": [
+          452,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1920x1080-gui4-controls.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 4,
+      "scaled": [
+        480,
+        270
+      ],
+      "kind": "controls",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          464,
+          154
+        ],
+        "footer": [
+          8,
+          223,
+          464,
+          39
+        ],
+        "card": [
+          336,
+          70,
+          130,
+          142
+        ],
+        "controls": [
+          80,
+          76,
+          320,
+          165
+        ],
+        "modal": [
+          95,
+          75,
+          290,
+          120
+        ],
+        "cancel": [
+          107,
+          165,
+          129,
+          20
+        ],
+        "confirm": [
+          244,
+          165,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          192,
+          142,
+          18
+        ],
+        "close": [
+          452,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "1920x1080-gui4-hud.png",
+      "physical": [
+        1920,
+        1080
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 4,
+      "scaled": [
+        480,
+        270
+      ],
+      "kind": "hud",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          464,
+          154
+        ],
+        "footer": [
+          8,
+          223,
+          464,
+          39
+        ],
+        "card": [
+          336,
+          70,
+          130,
+          142
+        ],
+        "controls": [
+          80,
+          76,
+          320,
+          165
+        ],
+        "modal": [
+          95,
+          75,
+          290,
+          120
+        ],
+        "cancel": [
+          107,
+          165,
+          129,
+          20
+        ],
+        "confirm": [
+          244,
+          165,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          192,
+          142,
+          18
+        ],
+        "close": [
+          452,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "hud": [
+          412,
+          233,
+          60,
+          29
+        ]
+      }
+    },
+    {
+      "file": "2560x1440-gui3-tree.png",
+      "physical": [
+        2560,
+        1440
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        854,
+        480
+      ],
+      "kind": "tree",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          838,
+          364
+        ],
+        "footer": [
+          8,
+          433,
+          838,
+          39
+        ],
+        "card": [
+          680,
+          70,
+          160,
+          352
+        ],
+        "controls": [
+          267,
+          182,
+          320,
+          165
+        ],
+        "modal": [
+          282,
+          180,
+          290,
+          120
+        ],
+        "cancel": [
+          294,
+          270,
+          129,
+          20
+        ],
+        "confirm": [
+          431,
+          270,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          402,
+          142,
+          18
+        ],
+        "close": [
+          826,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          186.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          410,
+          87
+        ]
+      }
+    },
+    {
+      "file": "2560x1440-gui3-skill.png",
+      "physical": [
+        2560,
+        1440
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        854,
+        480
+      ],
+      "kind": "skill",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          838,
+          364
+        ],
+        "footer": [
+          8,
+          433,
+          838,
+          39
+        ],
+        "card": [
+          680,
+          70,
+          160,
+          352
+        ],
+        "controls": [
+          267,
+          182,
+          320,
+          165
+        ],
+        "modal": [
+          282,
+          180,
+          290,
+          120
+        ],
+        "cancel": [
+          294,
+          270,
+          129,
+          20
+        ],
+        "confirm": [
+          431,
+          270,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          402,
+          142,
+          18
+        ],
+        "close": [
+          826,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          186.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          410,
+          87
+        ]
+      }
+    },
+    {
+      "file": "2560x1440-gui3-branches.png",
+      "physical": [
+        2560,
+        1440
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        854,
+        480
+      ],
+      "kind": "branches",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          838,
+          364
+        ],
+        "footer": [
+          8,
+          433,
+          838,
+          39
+        ],
+        "card": [
+          680,
+          70,
+          160,
+          352
+        ],
+        "controls": [
+          267,
+          182,
+          320,
+          165
+        ],
+        "modal": [
+          282,
+          180,
+          290,
+          120
+        ],
+        "cancel": [
+          294,
+          270,
+          129,
+          20
+        ],
+        "confirm": [
+          431,
+          270,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          402,
+          142,
+          18
+        ],
+        "close": [
+          826,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "2560x1440-gui3-controls.png",
+      "physical": [
+        2560,
+        1440
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        854,
+        480
+      ],
+      "kind": "controls",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          838,
+          364
+        ],
+        "footer": [
+          8,
+          433,
+          838,
+          39
+        ],
+        "card": [
+          680,
+          70,
+          160,
+          352
+        ],
+        "controls": [
+          267,
+          182,
+          320,
+          165
+        ],
+        "modal": [
+          282,
+          180,
+          290,
+          120
+        ],
+        "cancel": [
+          294,
+          270,
+          129,
+          20
+        ],
+        "confirm": [
+          431,
+          270,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          402,
+          142,
+          18
+        ],
+        "close": [
+          826,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "2560x1440-gui3-hud.png",
+      "physical": [
+        2560,
+        1440
+      ],
+      "requested_gui_scale": 3,
+      "actual_gui_scale": 3,
+      "scaled": [
+        854,
+        480
+      ],
+      "kind": "hud",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          838,
+          364
+        ],
+        "footer": [
+          8,
+          433,
+          838,
+          39
+        ],
+        "card": [
+          680,
+          70,
+          160,
+          352
+        ],
+        "controls": [
+          267,
+          182,
+          320,
+          165
+        ],
+        "modal": [
+          282,
+          180,
+          290,
+          120
+        ],
+        "cancel": [
+          294,
+          270,
+          129,
+          20
+        ],
+        "confirm": [
+          431,
+          270,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          402,
+          142,
+          18
+        ],
+        "close": [
+          826,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "hud": [
+          786,
+          443,
+          60,
+          29
+        ]
+      }
+    },
+    {
+      "file": "2560x1440-gui4-tree.png",
+      "physical": [
+        2560,
+        1440
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 4,
+      "scaled": [
+        640,
+        360
+      ],
+      "kind": "tree",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          624,
+          244
+        ],
+        "footer": [
+          8,
+          313,
+          624,
+          39
+        ],
+        "card": [
+          466,
+          70,
+          160,
+          232
+        ],
+        "controls": [
+          160,
+          122,
+          320,
+          165
+        ],
+        "modal": [
+          175,
+          120,
+          290,
+          120
+        ],
+        "cancel": [
+          187,
+          210,
+          129,
+          20
+        ],
+        "confirm": [
+          324,
+          210,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          282,
+          142,
+          18
+        ],
+        "close": [
+          612,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          79.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          303,
+          87
+        ]
+      }
+    },
+    {
+      "file": "2560x1440-gui4-skill.png",
+      "physical": [
+        2560,
+        1440
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 4,
+      "scaled": [
+        640,
+        360
+      ],
+      "kind": "skill",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          624,
+          244
+        ],
+        "footer": [
+          8,
+          313,
+          624,
+          39
+        ],
+        "card": [
+          466,
+          70,
+          160,
+          232
+        ],
+        "controls": [
+          160,
+          122,
+          320,
+          165
+        ],
+        "modal": [
+          175,
+          120,
+          290,
+          120
+        ],
+        "cancel": [
+          187,
+          210,
+          129,
+          20
+        ],
+        "confirm": [
+          324,
+          210,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          282,
+          142,
+          18
+        ],
+        "close": [
+          612,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "camera": [
+          79.0,
+          23
+        ],
+        "zoom": 1,
+        "root": [
+          303,
+          87
+        ]
+      }
+    },
+    {
+      "file": "2560x1440-gui4-branches.png",
+      "physical": [
+        2560,
+        1440
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 4,
+      "scaled": [
+        640,
+        360
+      ],
+      "kind": "branches",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          624,
+          244
+        ],
+        "footer": [
+          8,
+          313,
+          624,
+          39
+        ],
+        "card": [
+          466,
+          70,
+          160,
+          232
+        ],
+        "controls": [
+          160,
+          122,
+          320,
+          165
+        ],
+        "modal": [
+          175,
+          120,
+          290,
+          120
+        ],
+        "cancel": [
+          187,
+          210,
+          129,
+          20
+        ],
+        "confirm": [
+          324,
+          210,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          282,
+          142,
+          18
+        ],
+        "close": [
+          612,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "2560x1440-gui4-controls.png",
+      "physical": [
+        2560,
+        1440
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 4,
+      "scaled": [
+        640,
+        360
+      ],
+      "kind": "controls",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          624,
+          244
+        ],
+        "footer": [
+          8,
+          313,
+          624,
+          39
+        ],
+        "card": [
+          466,
+          70,
+          160,
+          232
+        ],
+        "controls": [
+          160,
+          122,
+          320,
+          165
+        ],
+        "modal": [
+          175,
+          120,
+          290,
+          120
+        ],
+        "cancel": [
+          187,
+          210,
+          129,
+          20
+        ],
+        "confirm": [
+          324,
+          210,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          282,
+          142,
+          18
+        ],
+        "close": [
+          612,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {}
+    },
+    {
+      "file": "2560x1440-gui4-hud.png",
+      "physical": [
+        2560,
+        1440
+      ],
+      "requested_gui_scale": 4,
+      "actual_gui_scale": 4,
+      "scaled": [
+        640,
+        360
+      ],
+      "kind": "hud",
+      "rectangles": {
+        "viewport": [
+          8,
+          64,
+          624,
+          244
+        ],
+        "footer": [
+          8,
+          313,
+          624,
+          39
+        ],
+        "card": [
+          466,
+          70,
+          160,
+          232
+        ],
+        "controls": [
+          160,
+          122,
+          320,
+          165
+        ],
+        "modal": [
+          175,
+          120,
+          290,
+          120
+        ],
+        "cancel": [
+          187,
+          210,
+          129,
+          20
+        ],
+        "confirm": [
+          324,
+          210,
+          129,
+          20
+        ],
+        "nav": [
+          16,
+          282,
+          142,
+          18
+        ],
+        "close": [
+          612,
+          12,
+          18,
+          18
+        ]
+      },
+      "state": {
+        "hud": [
+          572,
+          323,
+          60,
+          29
+        ]
+      }
+    }
+  ]
+}

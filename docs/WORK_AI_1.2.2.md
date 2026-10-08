@@ -1,0 +1,19 @@
+# Work AI / settlement storage — 1.2.2
+
+Extends native Villager WORK packages; vanilla Brain, schedule, trade XP, offers, restock, POIs, infection/cure and personal inventory remain authoritative. Work yields to trade, panic, raids, rest and native nearby item pickup. No world/player tick scanner or AI chunk loading.
+
+Settlement chest: `slavicmyths:settlement_chest`, 64 slots, 16×4 menu, hopper/capability/comparator support, saved inventory and break drops. Capacity is centralized. Recipe: chest surrounded by eight dark oak planks. It is storage, never a job site. NPC logistics use only loaded settlement chests within 32 blocks of the job; other containers are untouched. Transfers require physical proximity, sight and real available quantities/capacity.
+
+Farmer retains native harvest/replant logic, with mod seeds in the native plantable tag. Fisher uses existing fish selection, real rod and shore; shepherd uses native shearing and actual wool drops. Only genuine harvested fish/wool have the approved sell-output exception. Weaver uses only the existing flax→fiber→thread→cloth chain; wool processing was explicitly declined. Miller uses existing crafting recipes; brewer/cook/hunter operate existing vat/kitchen/drying engines with their real durations and ingredients. Herder feeds actual hungry/injured young animals and gathers existing ready products; no automatic breeding. Other roles retain native visual work.
+
+Prof-specific input/output/trade-output tags gate logistics. Only new miller/weaver trade pools changed intermediate sales to purchases; vanilla trades are unchanged. Production grants no trade XP. Full inventories retain goods; workstation pending outputs wait for capacity.
+
+Debug: `/sm debug villager` and `/sm debug settlement_chest <pos>` show native activity, job, task, failures, cooldowns, real inventory, capacity and bounded search/path counters.
+
+Final gates: `gradlew.bat clean build` PASS (39 seconds; Gradle ordinary tests NO-SOURCE). Final isolated NeoForge GameTest suite 30/30 PASS. There were 14 real 1.2.2 server launches including earlier failing iterations and two separate save/load launches; no client launches. Earlier failures included test setup/timing and real navigation, full-storage reporting and native pickup interference; the final run passed. The optional restart test is a no-op in the ordinary suite: actual save/unload and next-process load/resume passed in their separate phase launches.
+
+Resource gate: 14,088 checks, 2,741 JSON, 5,909 model/texture links, 120 listings, 58 existing villager images and 10,010 pure Java assertions. Focused production gate: 716 checks, byte identity of compiled production classes, reproducible resources and exclusion of test harness. Final log: `work/server-1.2.2-linen-state.log`. Actual 1,000-tick worker samples: 20 workers / 102 paths / 40 searches / 58 actions; 40 workers / 207 paths / 80 searches / 147 actions. These are counters, not measured MSPT.
+
+Production: `build/libs/slavicmyths-1.2.2.jar`, 7,330,097 bytes, SHA-256 `7586913c5a78ab9b997b986bd38dbbbb5bc7e8f18cc85d21c7d594cf4f5167d3`. Installed in PolyMC `Slavic-Myths-1.21.1-Testing`; one active mod JAR, previous 1.2.1 backed up and all eight companion/configuration files unchanged. Receipt: `docs/verification/polymc-1.2.2-installation.json`. Server tests include real separate-process save/load, actual chunk unload, native automatic restock/payment, 20/40-worker counters and physical production. Counters are not measured MSPT. Minecraft client launches: 0. No automatic commit/push.
+
+Manual PolyMC checks: chest GUI/shift-click/model; NPC field/shore/workstation layout and reachable storage; trade GUI/discounts; full storage recovery; raid behavior; visual profession acceptance and performance in an actual settlement.

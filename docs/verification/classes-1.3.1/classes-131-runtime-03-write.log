@@ -1,0 +1,88 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileClassCheckJava
+> Task :processClassCheckResources
+> Task :classCheckClasses
+
+> Task :downloadAssets
+Loaded 145 artifacts from D:\slavic-myths\build\tmp\downloadAssets\nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: C:\Users\pavel\.gradle\caches\neoformruntime\assets
+  DL    https://piston-meta.mojang.com/v1/packages/9b16298b1dc0697878cec88bb2d96168f5239e4f/17.json
+
+> Task :writeClassChecksLegacyClasspath
+> Task :prepareClassChecksRun
+
+> Task :runClassChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[08:42:38] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[08:42:38] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[08:42:38] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[08:42:38] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[08:42:38] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[08:42:38] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[08:42:38] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.2.5 (slavicmyths)
+[08:42:39] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[08:42:39] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[08:42:39] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:42:39] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:42:40] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[08:42:40] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[08:42:45] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:42:45] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:42:45] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:42:45] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:42:45] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:42:45] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[08:42:46] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[08:42:46] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[08:42:46] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[08:42:46] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_classes]
+[08:42:47] [main/INFO] [minecraft/RecipeManager]: Loaded 1673 recipes
+[08:42:47] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[08:42:47] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[08:42:47] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[08:42:48] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[08:42:48] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[08:42:48] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 117 ms
+[08:42:48] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[08:42:48] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[08:42:48] [Server thread/INFO] [minecraft/GameTestServer]: 10 tests are now running at position 5364368, -59, 739123!
+[08:42:49] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (10 tests)...
+[08:42:49] [Server thread/INFO] [minecraft/GameTestServer]: [          ]
+CLASS_ACTIVE_RANK_MATRIX_PASS casts=45
+[08:42:49] [Server thread/INFO] [minecraft/GameTestServer]: [++++++    ]
+[08:42:49] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++   ]
+[08:42:49] [Server thread/INFO] [minecraft/MinecraftServer]: ClassDeath was killed
+CLASS_NATIVE_PLAYER_STORAGE_WRITE_PASS
+[08:42:49] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++]
+[08:42:49] [Server thread/INFO] [minecraft/GameTestServer]: ========= 10 GAME TESTS COMPLETE IN 870.8 ms ======================
+[08:42:49] [Server thread/INFO] [minecraft/GameTestServer]: All 10 required tests passed :)
+[08:42:49] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[08:42:49] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[08:42:49] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[08:42:49] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[08:42:49] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[08:42:50] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[08:42:50] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[08:42:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[08:42:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[08:42:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[08:42:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[08:42:50] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+BUILD SUCCESSFUL in 24s
+9 actionable tasks: 6 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

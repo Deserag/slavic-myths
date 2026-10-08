@@ -1,0 +1,19 @@
+{
+  "structures": [
+    {
+      "structure": "slavicmyths:gorodishche",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 128,
+    "separation": 96,
+    "salt": 125176,
+    "spread_type": "linear",
+    "exclusion_zone": {
+      "other_set": "minecraft:villages",
+      "chunk_count": 12
+    }
+  }
+}

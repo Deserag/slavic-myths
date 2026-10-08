@@ -42,7 +42,7 @@ public final class YagaMenu extends AbstractContainerMenu{
   else if(action==120)result=progress.stage>=YagaServices.CONTRACTS[YagaServices.POOL[progress.contract]].stage&&progress.accept("contract:"+progress.contract,p.level().getGameTime());
   else if(action>=200&&action<203)result=completeMain(server,action-200);
   else if(action==220)result=completeContract(server);
-  else if(action>=400&&action<400+YagaServices.EXCHANGES.length){YagaServices.Entry e=YagaServices.EXCHANGES[action-400];if(progress.stage>=e.stage&&YagaServices.has(p.getInventory(),e.inputs)){YagaServices.consume(p.getInventory(),e.inputs);YagaServices.give(server,e.output());result=true;}else YagaServices.fail(server,progress.stage<e.stage?"locked":"ingredients");}
+  else if(action>=400&&action<400+YagaServices.EXCHANGES.length){YagaServices.Entry e=YagaServices.EXCHANGES[action-400];long now=org.slavicmyths.rpg.classes.ClassState.now(p);if(p.getPersistentData().getLong("YagaExchangeUntil")>now)return false;p.getPersistentData().putLong("YagaExchangeUntil",now+4);if(progress.stage>=e.stage&&YagaServices.has(p.getInventory(),e.inputs)){YagaServices.consume(p.getInventory(),e.inputs);YagaServices.give(server,e.output());result=true;}else YagaServices.fail(server,progress.stage<e.stage?"locked":"ingredients");}
   else if(action>=500&&action<500+YagaServices.BREWS.length){info.set(8,action-500);result=true;}
   else if(action==600)result=brew(server);
   if(result){if(action==120)org.slavicmyths.navigation.NavigationManager.contractAccepted(server);data().setDirty();BabaYaga n=npc();if(n!=null){n.gesture(action==600?4:1);n.playSound(action>=200?net.minecraft.sounds.SoundEvents.EXPERIENCE_ORB_PICKUP:org.slavicmyths.registry.ModSounds.YAGA_TALK.get(),.45F,.7F);}}

@@ -1,0 +1,192 @@
+{
+  "1": [
+    {
+      "input": "minecraft:feather",
+      "output": "minecraft:emerald",
+      "cost": 24,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:rabbit_hide",
+      "output": "minecraft:emerald",
+      "cost": 8,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:leather",
+      "output": "minecraft:emerald",
+      "cost": 8,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:raw_carp",
+      "output": "minecraft:emerald",
+      "cost": 12,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    }
+  ],
+  "2": [
+    {
+      "input": "minecraft:rabbit",
+      "output": "minecraft:emerald",
+      "cost": 12,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:blueberry",
+      "output": "minecraft:emerald",
+      "cost": 20,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:raw_goat",
+      "output": "minecraft:emerald",
+      "cost": 12,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:dried_berries",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    }
+  ],
+  "3": [
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:smoked_carp",
+      "cost": 3,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:dried_mushrooms",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:dried_berries",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:cooked_rabbit",
+      "cost": 3,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    }
+  ],
+  "4": [
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:smoked_carp",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:cooked_goat",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:cooked_rabbit",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:goat_hide",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    }
+  ],
+  "5": [
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:bow",
+      "cost": 8,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:lead",
+      "cost": 5,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:fishing_net",
+      "cost": 8,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:smoked_carp",
+      "cost": 5,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    }
+  ]
+}

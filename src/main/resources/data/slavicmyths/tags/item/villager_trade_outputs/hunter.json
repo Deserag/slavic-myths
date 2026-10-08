@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:dried_berries",
+    "slavicmyths:smoked_carp",
+    "slavicmyths:dried_mushrooms",
+    "minecraft:cooked_rabbit",
+    "slavicmyths:cooked_goat",
+    "slavicmyths:goat_hide",
+    "minecraft:bow",
+    "minecraft:lead",
+    "slavicmyths:fishing_net"
+  ]
+}

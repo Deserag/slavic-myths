@@ -1,0 +1,77 @@
+{
+  "version": "1.2.5",
+  "date": "2026-10-08",
+  "actual_headless_server_launches": 19,
+  "client_launches": 0,
+  "launch_logs": [
+    "work\\fixes-125-server.log",
+    "work\\city-125-server-01.log",
+    "work\\city-125-server-02.log",
+    "work\\city-125-server-03.log",
+    "work\\city-125-server-04.log",
+    "work\\city-125-server-05.log",
+    "work\\city-125-server-07.log",
+    "work\\city-125-server-08.log",
+    "work\\city-125-server-09.log",
+    "work\\city-125-server-10.log",
+    "work\\city-125-server-11.log",
+    "work\\city-125-server-12.log",
+    "work\\city-125-server-13.log",
+    "work\\city-125-server-14.log",
+    "work\\city-125-server-15.log",
+    "work\\city-125-server-16.log",
+    "work\\city-125-server-17.log",
+    "work\\buildings-125-server-final.log",
+    "work\\village-125-regression-final.log"
+  ],
+  "compile_only_failure": "work/city-125-server-06.log",
+  "final_suites": {
+    "city-125-server-17.log": {
+      "required_passed": 6,
+      "failed": 0
+    },
+    "buildings-125-server-final.log": {
+      "required_passed": 6,
+      "failed": 0
+    },
+    "village-125-regression-final.log": {
+      "required_passed": 53,
+      "failed": 0
+    }
+  },
+  "total_required_passed": 65,
+  "production_build": "PASS clean build",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.2.5.jar",
+  "sha256": "5a5a70d7b983de46afdc1bb022a32a646e3fcd3191fbca06ac12172e96142348",
+  "native_noise": {
+    "seeds": 3,
+    "extended_accepted": 1,
+    "extended_rejected": 584,
+    "final_accepted": 1,
+    "final_rejected": 34,
+    "accepted_seed": 918273,
+    "accepted_chunk": [
+      29,
+      8
+    ],
+    "pieces": 131,
+    "full_normal_world_city_physically_tested": false
+  },
+  "city_final": {
+    "climates": 3,
+    "ground_y": -57,
+    "interior_buildings_per_city": 22,
+    "beds_per_city": 39,
+    "spawned_npcs_per_city": 19,
+    "spawned_guards_per_city": 8,
+    "sampled_native_job_claims": 55,
+    "paid_and_automatically_restocked_merchants": 9,
+    "gate_crossing_bandits": 7,
+    "guard_engagements": 3,
+    "protected_chest_diamonds": 7
+  },
+  "true_relogin_tested": false,
+  "performance_measured": false,
+  "polymc_updated": false,
+  "commit_created": false
+}

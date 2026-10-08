@@ -1,0 +1,168 @@
+{
+  "version": "1.3.1",
+  "checks": 11959,
+  "skills": 34,
+  "base_classes": 3,
+  "branches": 18,
+  "sha256": "47904602ad9cbc1dec1eaff790e4267fe74959d71488d54513d3a163cf3265ee",
+  "size": 9444143,
+  "client_launches": 0,
+  "client_gameplay_verified": false,
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.3.1.jar",
+  "date": "2026-10-08",
+  "clean_build": "PASS",
+  "required_passed": 82,
+  "final_suites": {
+    "classes-131-runtime-19-final.log": 15,
+    "classes-131-regression-village-final-2.log": 53,
+    "classes-131-regression-city.log": 8,
+    "classes-131-regression-buildings.log": 6
+  },
+  "active_rank_cases": 45,
+  "passive_rank_cases": 24,
+  "native_deaths_and_respawns": 6,
+  "native_player_dat_restart": "write then load in a separate process",
+  "with_jei_pass": true,
+  "without_jei_pass": true,
+  "actual_headless_launches": 25,
+  "launches": [
+    {
+      "log": "classes-131-regression-buildings.log",
+      "passed": true,
+      "sha256": "6f29d8e20af8de2dc2386107060c6692517d95f3857bc8543a5deb66150658c1"
+    },
+    {
+      "log": "classes-131-regression-city.log",
+      "passed": true,
+      "sha256": "4d33a1351fd6f3b7eff9d28aaa79c95e4ae932a376fdcd401c6d050f9f87a554"
+    },
+    {
+      "log": "classes-131-regression-village-final-2.log",
+      "passed": true,
+      "sha256": "3331590eba1405c9341f638869dbe68812c61785705ff0fe589d486e09deee76"
+    },
+    {
+      "log": "classes-131-regression-village-final.log",
+      "passed": false,
+      "sha256": "b27afc34a695f0f89a6b906e4d1d4a6366a3ec5bbd97022218c8d1b0860ea805"
+    },
+    {
+      "log": "classes-131-regression-village-retry.log",
+      "passed": false,
+      "sha256": "7e993432ba62dc78e026f448eeb06e3d267e4743e0a9efcdbe2a9ab50009d170"
+    },
+    {
+      "log": "classes-131-regression-village.log",
+      "passed": false,
+      "sha256": "8617ef76a3f8e699cfd86fc632713aed269b4acb084edd36051cfd332631b3bb"
+    },
+    {
+      "log": "classes-131-runtime-01.log",
+      "passed": false,
+      "sha256": "5032e785570de25402367561fa4dbdff324c9816f2906e4795d8b451bff8cf60"
+    },
+    {
+      "log": "classes-131-runtime-02.log",
+      "passed": true,
+      "sha256": "133090c8ee57fb5c069d4dc1e25c1071e1e7537fac51f9a9458f722b4c4656d4"
+    },
+    {
+      "log": "classes-131-runtime-03-write.log",
+      "passed": true,
+      "sha256": "33e13a5354644628da2f1d610ef0f18e0dceda5ee3a33bc92730084fe4abe885"
+    },
+    {
+      "log": "classes-131-runtime-04-verify.log",
+      "passed": true,
+      "sha256": "f1679f95dc282fb1fe5e4847f67f84f0975d2cdf4c697802815423c2d3b4549f"
+    },
+    {
+      "log": "classes-131-runtime-05-final.log",
+      "passed": true,
+      "sha256": "e3b40f2e52b4a49b5f175367f92437010d48e9e3cc520f0f9d673e509129e51f"
+    },
+    {
+      "log": "classes-131-runtime-06-lifecycle.log",
+      "passed": true,
+      "sha256": "d01dbe685a592966af378cc3c92106ff9c4e01b192919fe62eeef8c499c1f96f"
+    },
+    {
+      "log": "classes-131-runtime-07-triggers.log",
+      "passed": false,
+      "sha256": "2ca8af809e7f8c728a02c7c749ded8c7b6eefcfe7fc109eb098e604e7b79bf18"
+    },
+    {
+      "log": "classes-131-runtime-08-shield.log",
+      "passed": false,
+      "sha256": "cec42687bb3e5eb918cee4fe8b69fdbcc7769ae8535223d7e0cdeadc6cb8daf5"
+    },
+    {
+      "log": "classes-131-runtime-09-final.log",
+      "passed": false,
+      "sha256": "f836f20dea01ba13505e2e36ed229bae6af8901e5cf17ed26b2cb54ee3e29a63"
+    },
+    {
+      "log": "classes-131-runtime-10-final.log",
+      "passed": false,
+      "sha256": "e6023127e381e713d6205d8df9eb5479af927bd293883575dc6cfeee393afc2b"
+    },
+    {
+      "log": "classes-131-runtime-11-final.log",
+      "passed": false,
+      "sha256": "b671c7ec304043eb3ced8d23f2f2c5e5d5b2097182285ec52c6772903a16ab18"
+    },
+    {
+      "log": "classes-131-runtime-12-shield.log",
+      "passed": false,
+      "sha256": "2bc1b9d1be0d96522678b32e5d85d7a8049f800fcab395b5e84821c5a6147ae2"
+    },
+    {
+      "log": "classes-131-runtime-13-final.log",
+      "passed": true,
+      "sha256": "e03a3ca80dca62293a86a884b695c85c8154c1591d1d4060a79a5e0935a05871"
+    },
+    {
+      "log": "classes-131-runtime-14-nojei-final.log",
+      "passed": true,
+      "sha256": "9388b46409ade8fc2b3b340f233506eebe562a357716f0fc8d1d92c0243971d1"
+    },
+    {
+      "log": "classes-131-runtime-15-final.log",
+      "passed": true,
+      "sha256": "5f3742da1f22539fb59126518e46a3ad869971645206356ae56776954140ec0d"
+    },
+    {
+      "log": "classes-131-runtime-16-final.log",
+      "passed": true,
+      "sha256": "c30614b0eaccd00513bab3e8a173afd9ea00ae3c634d18c37a50606d7d1ad957"
+    },
+    {
+      "log": "classes-131-runtime-17-passives.log",
+      "passed": true,
+      "sha256": "e0fa4bbdb5c093fdb76b986c5f914bd763f603f5df8a35428b1bdf43ef3c973d"
+    },
+    {
+      "log": "classes-131-runtime-18-final.log",
+      "passed": true,
+      "sha256": "efa99c0d593f9c7753c9d97ec638e288e70b322f41c4d038b231fffcc418ffd7"
+    },
+    {
+      "log": "classes-131-runtime-19-final.log",
+      "passed": true,
+      "sha256": "70062dc383e4cc8284d172c4461a8bc2b36217507d99ade7cf99a3ac3135b45a"
+    }
+  ],
+  "real_client_relogin_verified": false,
+  "two_real_clients_verified": false,
+  "mspt_fps_measured": false,
+  "commit_created": false,
+  "intermediate_failures": {
+    "runtime_01": "Fixture connection missing native channel; fixed fixture.",
+    "runtime_07_to_12": "Full shield block stat counter stays zero in NeoForge; class trigger now confirms native DamageContainer.blockedDamage.",
+    "village_first_three": "Native pickup/deposit or long linen chain timeout; moved fixture chest closer and extended chain time, physical assertions unchanged.",
+    "first_clean": "Transient Gradle artifact file lock; repeated clean build passed."
+  },
+  "client_manual_checklist": "docs/MANUAL_QA_CLASSES_1.3.1.md",
+  "polymc_installation": "docs/verification/polymc-1.3.1-installation.json",
+  "polymc_updated": true
+}

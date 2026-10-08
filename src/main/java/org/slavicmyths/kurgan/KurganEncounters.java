@@ -94,6 +94,7 @@ public final class KurganEncounters {
     }
     public static void summon(KurganCreature owner,int count){ServerLevel world=(ServerLevel)owner.level();KurganInstance i=owner.kurgan==null?null:BurialRecords.get(world).instances.get(owner.kurgan);KurganEncounterState state=i==null?null:i.encounters.get(owner.room);
         for(int n=0;n<Math.min(3,count);n++){Kind kind=owner.kind==Kind.PRINCE&&n==2?Kind.DRUZHINNIK:n%2==0?Kind.NAV:Kind.UPYR;KurganCreature mob=type(kind).create(world);if(mob==null)continue;mob.kurgan=owner.kurgan;mob.room=owner.room;mob.home=owner.home==null?owner.blockPosition():owner.home;
+            mob.getPersistentData().putBoolean("RuneSummoned",true);
             Vec3 desired=owner.position().add((n-1)*3,0,3);if(i!=null&&owner.kind==Kind.PRINCE&&n<i.plan.niches.size()){KurganPlan.Box niche=i.plan.niches.get(n);BlockPos p=i.origin.offset((niche.x0+niche.x1)/2,niche.y0,(niche.z0+niche.z1)/2);desired=new Vec3(p.getX()+.5,p.getY(),p.getZ()+.5);}
             BlockPos p=safePosition(mob,desired,false);if(p==null)continue;mob.moveTo(p.getX()+.5,p.getY(),p.getZ()+.5,0,0);mob.setTarget(owner.getTarget());mob.setPersistenceRequired();if(world.addFreshEntity(mob)&&state!=null){state.alive.add(mob.getUUID());BurialRecords.get(world).setDirty();}}
     }

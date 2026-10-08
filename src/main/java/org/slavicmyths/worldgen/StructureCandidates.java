@@ -34,7 +34,7 @@ public final class StructureCandidates {
         return true;
     }
     /** Resolve accepted neighbor plans in the native eight-chunk reference window.
-     * The caller supplies an acyclic priority: kurgan -> camps -> swamp sites -> vanilla.
+     * The caller supplies an acyclic priority: kurgan -> gorodishche -> camps -> swamp sites -> vanilla.
      * Discarded cells cannot reserve a footprint. No chunks are loaded by this check.
      */
     public static boolean clearAccepted(Structure.GenerationContext c,ChunkPos candidate,ToIntFunction<ResourceLocation> margin,java.util.List<net.minecraft.world.level.levelgen.structure.StructurePiece> proposed){

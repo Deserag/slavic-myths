@@ -17,6 +17,7 @@ public final class SlavicMyths {
     public static final String MOD_ID = "slavicmyths";
 
     public SlavicMyths(IEventBus bus, ModContainer container) {
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.rpg.classes.ClassHudConfig.SPEC);
         org.slavicmyths.item.ItemState.COMPONENTS.register(bus);
         org.slavicmyths.rpg.Runes.init();
         org.slavicmyths.garden.Gardens.init();
@@ -25,6 +26,8 @@ public final class SlavicMyths {
         org.slavicmyths.kitchen.KitchenII.init(bus);
         org.slavicmyths.storage.Household.init();
         org.slavicmyths.brewing.Brewing.init(bus);
+        org.slavicmyths.village.VillageRoles.init(bus);
+        org.slavicmyths.village.VillageFoundation.init(bus);
         org.slavicmyths.kitchen.KitchenRecipe.SERIALIZER.getId();
         org.slavicmyths.wood.Woodlands.init();
         org.slavicmyths.furniture.Furniture.init();
@@ -36,10 +39,20 @@ public final class SlavicMyths {
         org.slavicmyths.kurgan.KurganStructures.register();
         ModBlocks.BLOCKS.register(bus);
         org.slavicmyths.bandit.CampStructures.register();
+        org.slavicmyths.gorodishche.GorodishcheStructures.init();
         org.slavicmyths.swamp.SwampStructures.STRUCTURES.register(bus);
         org.slavicmyths.swamp.SwampStructures.PIECES.register(bus);
         org.slavicmyths.item.ModGear.ARMOR_MATERIALS.register(bus);
         org.slavicmyths.registry.ModItemGroup.TABS.register(bus);
+        org.slavicmyths.combat.WeaponCatalog.register();
+        org.slavicmyths.combat.RareWeapons.init();
+        org.slavicmyths.rpg.RuneRepair.init();
+        org.slavicmyths.rpg.RuneFoundation.init();
+        org.slavicmyths.rpg.RuneRework.init();
+        org.slavicmyths.rpg.RareRunes.init();
+        org.slavicmyths.rpg.RuneVisual.init();
+        org.slavicmyths.rpg.RuneCraftRecipe.TYPES.register(bus);
+        org.slavicmyths.rpg.RuneCraftRecipe.SERIALIZERS.register(bus);
         ModItems.ITEMS.register(bus);
         org.slavicmyths.armorer.ArmorerRecipe.TYPES.register(bus);
         org.slavicmyths.armorer.ArmorerRecipe.SERIALIZERS.register(bus);
@@ -53,6 +66,7 @@ public final class SlavicMyths {
         bus.addListener(org.slavicmyths.network.LoreNetwork::register);
         bus.addListener(org.slavicmyths.navigation.NavigationNetwork::register);
         bus.addListener(org.slavicmyths.rpg.RpgNetwork::register);
+        bus.addListener(org.slavicmyths.rpg.RareRuneNetwork::register);
         org.slavicmyths.hunt.PouchMenu.register();
         org.slavicmyths.flight.CargoMenu.register();
         bus.addListener(org.slavicmyths.flight.FlightNetwork::register);

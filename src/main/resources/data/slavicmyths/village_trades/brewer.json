@@ -1,0 +1,192 @@
+{
+  "1": [
+    {
+      "input": "slavicmyths:barley_grain",
+      "output": "minecraft:emerald",
+      "cost": 24,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:raspberry",
+      "output": "minecraft:emerald",
+      "cost": 20,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:honey_bottle",
+      "output": "minecraft:emerald",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:kvass_mug",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    }
+  ],
+  "2": [
+    {
+      "input": "slavicmyths:hops",
+      "output": "minecraft:emerald",
+      "cost": 16,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:malted_barley",
+      "output": "minecraft:emerald",
+      "cost": 16,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:berry_mors_mug",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:light_beer_mug",
+      "cost": 3,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    }
+  ],
+  "3": [
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:dark_beer_mug",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:hopped_beer_mug",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:honey_beer_mug",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:apple_cider_bottle",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    }
+  ],
+  "4": [
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:mead_bottle",
+      "cost": 5,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:forest_beer_mug",
+      "cost": 5,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:honey_beer_mug",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:hopped_beer_mug",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    }
+  ],
+  "5": [
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:thunder_beer_mug",
+      "cost": 12,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:veles_dark_beer_mug",
+      "cost": 12,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:witch_berry_beer_mug",
+      "cost": 12,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:mead_bottle",
+      "cost": 6,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    }
+  ]
+}

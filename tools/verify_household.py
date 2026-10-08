@@ -9,7 +9,7 @@ def check(ok,s):
  if not ok:raise AssertionError(s)
 def read(p):return json.loads(p.read_text(encoding='utf-8'))
 blocks=['storage_sack','basket','large_basket','produce_crate','household_chest','wooden_barrel','wall_shelf','storage_shelf','drying_rack','haystack','rye_sheaf','barley_sheaf','oat_sheaf']
-expected={'storage_sack':20,'basket':4,'large_basket':4,'produce_crate':4,'household_chest':8,'wooden_barrel':4,'wall_shelf':4,'storage_shelf':8,'drying_rack':16,'haystack':32,'rye_sheaf':4,'barley_sheaf':4,'oat_sheaf':4}
+expected={'storage_sack':24,'basket':4,'large_basket':4,'produce_crate':4,'household_chest':8,'wooden_barrel':4,'wall_shelf':4,'storage_shelf':8,'drying_rack':16,'haystack':32,'rye_sheaf':4,'barley_sheaf':4,'oat_sheaf':4}
 for name in blocks:
  check(len(read(A/f'blockstates/{name}.json')['variants'])==expected[name],'states '+name)
  check((A/f'models/item/{name}.json').is_file(),'item model '+name)
@@ -61,12 +61,13 @@ for folder in ['models/block','models/item']:
    if 'rotation' in e:check(e['rotation']['angle'] in [-45,-22.5,0,22.5,45],'native rotation')
 # A repeat of the generator must reproduce all resources byte for byte.
 before={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in R.rglob('*') if p.is_file()};subprocess.run(['python','tools/storage_resources.py'],cwd=ROOT,check=True,stdout=subprocess.DEVNULL);after={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in R.rglob('*') if p.is_file()};check(before==after,'reproducible generator')
-check('mod_version=1.1.8' in (ROOT/'gradle.properties').read_text(),'version')
-report={'version':'1.1.8','checks':checks,'json':len(jsons),'model_texture_links':links,'minecraft_launches':0,'mode':'static/resources/geometry'}
+version=next(line.split('=',1)[1].strip() for line in (ROOT/'gradle.properties').read_text().splitlines() if line.startswith('mod_version='))
+check(bool(version),'version')
+report={'version':version,'checks':checks,'json':len(jsons),'model_texture_links':links,'minecraft_launches':0,'mode':'static/resources/geometry'}
 if args.jar:
  z=zipfile.ZipFile(args.jar)
  for p in R.rglob('*'):
   if p.is_file() and p.suffix in ['.json','.png','.ogg']:check(z.read(p.relative_to(R).as_posix())==p.read_bytes(),'production resource')
  for c in ['Household','StorageBlock','StorageTile','SheafBlock','DryingRecipe']:check('org/slavicmyths/storage/'+c+'.class' in z.namelist(),'production class')
- check(b'version="1.1.8"' in z.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version');check(not any('/smoke/' in p or '/verify/' in p or 'GameTest' in p for p in z.namelist()),'no test harness');report.update(checks=checks,mode='static/resources/geometry/production',sha256=hashlib.sha256(args.jar.read_bytes()).hexdigest())
+ check(('version="'+version+'"').encode() in z.read('META-INF/neoforge.mods.toml').replace(b' ',b''),'production version');check(not any('/smoke/' in p or '/verify/' in p or 'GameTest' in p for p in z.namelist()),'no test harness');report.update(checks=checks,mode='static/resources/geometry/production',sha256=hashlib.sha256(args.jar.read_bytes()).hexdigest())
 (ROOT/'work/household-static-checks.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

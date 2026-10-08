@@ -79,6 +79,22 @@
     "facing=west,fill=4": {
       "model": "slavicmyths:block/storage_sack_4",
       "y": 270
+    },
+    "facing=north,fill=5": {
+      "model": "slavicmyths:block/storage_sack_5",
+      "y": 0
+    },
+    "facing=east,fill=5": {
+      "model": "slavicmyths:block/storage_sack_5",
+      "y": 90
+    },
+    "facing=south,fill=5": {
+      "model": "slavicmyths:block/storage_sack_5",
+      "y": 180
+    },
+    "facing=west,fill=5": {
+      "model": "slavicmyths:block/storage_sack_5",
+      "y": 270
     }
   }
 }

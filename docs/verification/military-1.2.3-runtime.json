@@ -1,0 +1,100 @@
+{
+  "version": "1.2.3",
+  "headless_server_launches": 17,
+  "client_launches": 0,
+  "polymc_launches": 0,
+  "final_game_tests": 53,
+  "final_game_tests_passed": 53,
+  "final_log": "work/build-server-1.2.3-bandit-hotfix-final.log",
+  "geometry_meshes": 128,
+  "geometry_cubes": 1543,
+  "outfit_assertions": 10010,
+  "real_separate_save_load_assertions": "PASS (player.dat, guard archetype, quest progress, claimed reward, settlement processing); earlier load suite had a separate shepherd regression, fixed and verified by final 49/49",
+  "runs": [
+    {
+      "log": "work\\server-1.2.3-boundaries.log",
+      "all_passed": null,
+      "failed": 1
+    },
+    {
+      "log": "work\\server-1.2.3-defense-final.log",
+      "all_passed": null,
+      "failed": 1
+    },
+    {
+      "log": "work\\server-1.2.3-defense-retry.log",
+      "all_passed": 45,
+      "failed": 0
+    },
+    {
+      "log": "work\\server-1.2.3-fifth.log",
+      "all_passed": null,
+      "failed": 1
+    },
+    {
+      "log": "work\\server-1.2.3-final.log",
+      "all_passed": null,
+      "failed": 1
+    },
+    {
+      "log": "work\\server-1.2.3-first.log",
+      "all_passed": null,
+      "failed": 1
+    },
+    {
+      "log": "work\\server-1.2.3-fourth.log",
+      "all_passed": null,
+      "failed": 3
+    },
+    {
+      "log": "work\\server-1.2.3-military.log",
+      "all_passed": null,
+      "failed": 4
+    },
+    {
+      "log": "work\\server-1.2.3-release-gate.log",
+      "all_passed": 49,
+      "failed": 0
+    },
+    {
+      "log": "work\\server-1.2.3-restart-load.log",
+      "all_passed": null,
+      "failed": 1
+    },
+    {
+      "log": "work\\server-1.2.3-restart-save.log",
+      "all_passed": 41,
+      "failed": 0
+    },
+    {
+      "log": "work\\server-1.2.3-seventh.log",
+      "all_passed": null,
+      "failed": 3
+    },
+    {
+      "log": "work\\server-1.2.3-third.log",
+      "all_passed": null,
+      "failed": 2
+    },
+    {
+      "log": "work\\build-server-1.2.3-production-final.log",
+      "all_passed": 49,
+      "failed": 0
+    },
+    {
+      "log": "work/server-1.2.3-bandit-hotfix.log",
+      "all_passed": 52,
+      "failed": 0
+    },
+    {
+      "log": "work/server-1.2.3-bandit-hotfix-final.log",
+      "all_passed": null,
+      "failed": 1
+    },
+    {
+      "log": "work/build-server-1.2.3-bandit-hotfix-final.log",
+      "all_passed": 53,
+      "failed": 0
+    }
+  ]
+}

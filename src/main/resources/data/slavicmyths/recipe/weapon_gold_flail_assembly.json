@@ -1,0 +1,18 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:flail_handle"
+    },
+    {
+      "item": "slavicmyths:flail_chain"
+    },
+    {
+      "item": "slavicmyths:gold_flail_ball"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:gold_flail",
+    "count": 1
+  }
+}

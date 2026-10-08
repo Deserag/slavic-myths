@@ -17,13 +17,17 @@ public final class TextileStation extends BlockEntity {
     private int required(){return kind==1?2:4;}
     private int duration(){return kind==1?100:160;}
     public boolean accepts(ItemStack s){return s.is(inputItem());}
+    public ItemStack npcOutput(){return output>0?new ItemStack(outputItem(),output):ItemStack.EMPTY;}
+    public ItemStack npcTakeOutput(){ItemStack stack=npcOutput();output=0;changed();return stack;}
+    public ItemStack npcResult(){return new ItemStack(outputItem(),kind==0?4:1);}
+    public boolean hasFlaxToBreak(){return kind==0&&input>=4;}
+    public ItemStack breakFlax(){if(kind!=0||input<4)return ItemStack.EMPTY;progress++;sound(SoundEvents.WOOD_HIT);ItemStack made=ItemStack.EMPTY;if(progress==3){input-=4;progress=0;made=new ItemStack(outputItem(),4);}changed();return made;}
     public int insert(ItemStack s,int requested){if(!accepts(s))return 0;int n=Math.min(Math.min(s.getCount(),requested),capacity()-input);input+=n;if(n>0)changed();return n;}
     public void workOrExtract(Player p){
         if(kind==0){
             if(input<4){p.displayClientMessage(net.minecraft.network.chat.Component.translatable("message.slavicmyths.requires_flax"),true);return;}
-            progress++;sound(SoundEvents.WOOD_HIT);
             if(level instanceof net.minecraft.server.level.ServerLevel server)server.sendParticles(new net.minecraft.core.particles.ItemParticleOption(net.minecraft.core.particles.ParticleTypes.ITEM,new ItemStack(inputItem())),worldPosition.getX()+.5,worldPosition.getY()+.75,worldPosition.getZ()+.5,3,.15,.05,.15,.01);
-            if(progress==3){input=0;progress=0;give(p,new ItemStack(outputItem(),4));}
+            ItemStack made=breakFlax();if(!made.isEmpty())give(p,made);
         }else if(output>0){give(p,new ItemStack(outputItem(),output));output=0;}
         changed();
     }

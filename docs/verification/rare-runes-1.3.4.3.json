@@ -1,0 +1,31 @@
+{
+  "version": "1.3.4.3",
+  "resource_checks": 18624,
+  "preserved_old_resources": 4931,
+  "changed_old_classes": [
+    "org/slavicmyths/yaga/YagaMenu.class",
+    "org/slavicmyths/client/ClientSetup.class",
+    "org/slavicmyths/rpg/RpgMenu$6.class",
+    "org/slavicmyths/yaga/YagaServices.class",
+    "org/slavicmyths/combat/MythDamageSources.class",
+    "org/slavicmyths/rpg/Runes.class",
+    "org/slavicmyths/client/YagaScreen.class",
+    "org/slavicmyths/rpg/RuneDefinition.class",
+    "org/slavicmyths/client/RuneAnvilScreen.class",
+    "org/slavicmyths/rpg/RuneRework.class",
+    "org/slavicmyths/client/RpgClient.class",
+    "org/slavicmyths/rpg/classes/ClassHudConfig.class",
+    "org/slavicmyths/SlavicMyths.class"
+  ],
+  "offline_checks": {
+    "RARE_RUNE_OFFLINE_CHECKS": 20491,
+    "RUNE_REWORK_OFFLINE_CHECKS": 355,
+    "RUNE_OFFLINE_CHECKS": 75064,
+    "ARMOR_OFFLINE_CHECKS": 147
+  },
+  "real_client_runs": 0,
+  "real_server_runs": 0,
+  "runtime_verified": false,
+  "jar_bytes": 9735384,
+  "jar_sha256": "e0c0b0d195e3e7596e4ce5b244d1729146d6a89383267e5a8f2e0a7ae5e4a951"
+}

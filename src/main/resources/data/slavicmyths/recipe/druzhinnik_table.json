@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BIL",
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:paper"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "item": "minecraft:lantern"
+    },
+    "P": {
+      "item": "minecraft:dark_oak_planks"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:druzhinnik_table",
+    "count": 1
+  }
+}

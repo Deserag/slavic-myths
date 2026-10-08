@@ -1,0 +1,537 @@
+[
+  {
+    "id": "minecraft:bow",
+    "category": "bow",
+    "capacity": 2,
+    "durability": 384
+  },
+  {
+    "id": "minecraft:wooden_sword",
+    "category": "sword",
+    "capacity": 1,
+    "durability": 59,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "minecraft:wooden_axe",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 59,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "minecraft:stone_sword",
+    "category": "sword",
+    "capacity": 1,
+    "durability": 131,
+    "material_damage_bonus": 1.0
+  },
+  {
+    "id": "minecraft:stone_axe",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 131,
+    "material_damage_bonus": 1.0
+  },
+  {
+    "id": "minecraft:golden_sword",
+    "category": "sword",
+    "capacity": 1,
+    "durability": 32,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "minecraft:golden_axe",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 32,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "minecraft:iron_sword",
+    "category": "sword",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "minecraft:iron_axe",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "minecraft:diamond_sword",
+    "category": "sword",
+    "capacity": 2,
+    "durability": 1561,
+    "material_damage_bonus": 3.0
+  },
+  {
+    "id": "minecraft:diamond_axe",
+    "category": "heavy",
+    "capacity": 2,
+    "durability": 1561,
+    "material_damage_bonus": 3.0
+  },
+  {
+    "id": "minecraft:netherite_sword",
+    "category": "sword",
+    "capacity": 2,
+    "durability": 2031,
+    "material_damage_bonus": 4.0
+  },
+  {
+    "id": "minecraft:netherite_axe",
+    "category": "heavy",
+    "capacity": 2,
+    "durability": 2031,
+    "material_damage_bonus": 4.0
+  },
+  {
+    "id": "minecraft:mace",
+    "category": "heavy",
+    "capacity": 2,
+    "durability": 500
+  },
+  {
+    "id": "minecraft:shield",
+    "category": "shield",
+    "capacity": 2,
+    "durability": 336
+  },
+  {
+    "id": "minecraft:trident",
+    "category": "spear",
+    "capacity": 2,
+    "durability": 250
+  },
+  {
+    "id": "minecraft:crossbow",
+    "category": "bow",
+    "capacity": 2,
+    "durability": 465
+  },
+  {
+    "id": "slavicmyths:perunite_sword",
+    "category": "sword",
+    "capacity": 3,
+    "durability": 850,
+    "material_damage_bonus": 2.5
+  },
+  {
+    "id": "slavicmyths:perunite_axe",
+    "category": "heavy",
+    "capacity": 3,
+    "durability": 850,
+    "material_damage_bonus": 2.5
+  },
+  {
+    "id": "slavicmyths:silver_sword",
+    "category": "sword",
+    "capacity": 1,
+    "durability": 220,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:silver_dagger",
+    "category": "dagger",
+    "capacity": 1,
+    "durability": 220,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:bone_knife",
+    "category": "dagger",
+    "capacity": 1,
+    "durability": 75,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "slavicmyths:ritual_knife",
+    "category": "dagger",
+    "capacity": 1,
+    "durability": 220,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:thunder_axe",
+    "category": "heavy",
+    "capacity": 3,
+    "durability": 850,
+    "material_damage_bonus": 2.5
+  },
+  {
+    "id": "slavicmyths:carved_staff",
+    "category": "staff",
+    "capacity": 1,
+    "durability": 59,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "slavicmyths:storm_staff",
+    "category": "staff",
+    "capacity": 3,
+    "durability": 240
+  },
+  {
+    "id": "slavicmyths:club",
+    "category": "sword",
+    "capacity": 1,
+    "durability": 59,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "slavicmyths:battle_axe",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:spear",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 131,
+    "material_damage_bonus": 1.0
+  },
+  {
+    "id": "slavicmyths:silver_spear",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 220,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:retainer_shield",
+    "category": "shield",
+    "capacity": 2,
+    "durability": 280
+  },
+  {
+    "id": "slavicmyths:perunite_shield",
+    "category": "shield",
+    "capacity": 3,
+    "durability": 420
+  },
+  {
+    "id": "slavicmyths:thunder_spear",
+    "category": "spear",
+    "capacity": 3,
+    "durability": 850,
+    "material_damage_bonus": 2.5
+  },
+  {
+    "id": "slavicmyths:mace",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:perunite_mace",
+    "category": "heavy",
+    "capacity": 3,
+    "durability": 850,
+    "material_damage_bonus": 2.5
+  },
+  {
+    "id": "slavicmyths:berdysh",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:noon_sickle",
+    "category": "sword",
+    "capacity": 1,
+    "durability": 220,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:veles_staff",
+    "category": "staff",
+    "capacity": 3,
+    "durability": 48
+  },
+  {
+    "id": "slavicmyths:pool_spear",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:wooden_mace",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 59,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "slavicmyths:stone_mace",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 131,
+    "material_damage_bonus": 1.0
+  },
+  {
+    "id": "slavicmyths:silver_mace",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 220,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:flail",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:nightingale_dagger",
+    "category": "dagger",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:ancient_carolingian_sword",
+    "category": "sword",
+    "capacity": 1,
+    "durability": 131,
+    "material_damage_bonus": 1.0
+  },
+  {
+    "id": "slavicmyths:restored_carolingian_sword",
+    "category": "sword",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:ancient_spear",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 131,
+    "material_damage_bonus": 1.0
+  },
+  {
+    "id": "slavicmyths:restored_spear",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:ancient_chekan",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 131,
+    "material_damage_bonus": 1.0
+  },
+  {
+    "id": "slavicmyths:chekan",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:butchering_knife",
+    "category": "sword",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:stone_sulitsa",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 131,
+    "material_damage_bonus": 1.0
+  },
+  {
+    "id": "slavicmyths:stone_flail",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 131,
+    "material_damage_bonus": 1.0
+  },
+  {
+    "id": "slavicmyths:stone_throwing_knife",
+    "category": "dagger",
+    "capacity": 1,
+    "durability": 131,
+    "material_damage_bonus": 1.0
+  },
+  {
+    "id": "slavicmyths:iron_spear",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:iron_sulitsa",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:iron_throwing_knife",
+    "category": "dagger",
+    "capacity": 1,
+    "durability": 250,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:gold_spear",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 32,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "slavicmyths:gold_sulitsa",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 32,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "slavicmyths:gold_flail",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 32,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "slavicmyths:gold_throwing_knife",
+    "category": "dagger",
+    "capacity": 1,
+    "durability": 32,
+    "material_damage_bonus": 0.0
+  },
+  {
+    "id": "slavicmyths:diamond_spear",
+    "category": "spear",
+    "capacity": 2,
+    "durability": 1561,
+    "material_damage_bonus": 3.0
+  },
+  {
+    "id": "slavicmyths:diamond_sulitsa",
+    "category": "spear",
+    "capacity": 2,
+    "durability": 1561,
+    "material_damage_bonus": 3.0
+  },
+  {
+    "id": "slavicmyths:diamond_flail",
+    "category": "heavy",
+    "capacity": 2,
+    "durability": 1561,
+    "material_damage_bonus": 3.0
+  },
+  {
+    "id": "slavicmyths:diamond_throwing_knife",
+    "category": "dagger",
+    "capacity": 2,
+    "durability": 1561,
+    "material_damage_bonus": 3.0
+  },
+  {
+    "id": "slavicmyths:netherite_spear",
+    "category": "spear",
+    "capacity": 2,
+    "durability": 2031,
+    "material_damage_bonus": 4.0
+  },
+  {
+    "id": "slavicmyths:netherite_sulitsa",
+    "category": "spear",
+    "capacity": 2,
+    "durability": 2031,
+    "material_damage_bonus": 4.0
+  },
+  {
+    "id": "slavicmyths:netherite_flail",
+    "category": "heavy",
+    "capacity": 2,
+    "durability": 2031,
+    "material_damage_bonus": 4.0
+  },
+  {
+    "id": "slavicmyths:netherite_throwing_knife",
+    "category": "dagger",
+    "capacity": 2,
+    "durability": 2031,
+    "material_damage_bonus": 4.0
+  },
+  {
+    "id": "slavicmyths:silver_sulitsa",
+    "category": "spear",
+    "capacity": 1,
+    "durability": 220,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:silver_flail",
+    "category": "heavy",
+    "capacity": 1,
+    "durability": 220,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:silver_throwing_knife",
+    "category": "dagger",
+    "capacity": 1,
+    "durability": 220,
+    "material_damage_bonus": 2.0
+  },
+  {
+    "id": "slavicmyths:perunite_spear",
+    "category": "spear",
+    "capacity": 3,
+    "durability": 850,
+    "material_damage_bonus": 2.5
+  },
+  {
+    "id": "slavicmyths:perunite_sulitsa",
+    "category": "spear",
+    "capacity": 3,
+    "durability": 850,
+    "material_damage_bonus": 2.5
+  },
+  {
+    "id": "slavicmyths:perunite_flail",
+    "category": "heavy",
+    "capacity": 3,
+    "durability": 850,
+    "material_damage_bonus": 2.5
+  },
+  {
+    "id": "slavicmyths:perunite_throwing_knife",
+    "category": "dagger",
+    "capacity": 3,
+    "durability": 850,
+    "material_damage_bonus": 2.5
+  },
+  {
+    "id": "slavicmyths:short_bow",
+    "category": "bow",
+    "capacity": 2,
+    "durability": 300
+  },
+  {
+    "id": "slavicmyths:heavy_bow",
+    "category": "bow",
+    "capacity": 2,
+    "durability": 500
+  }
+]

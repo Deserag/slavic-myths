@@ -1,0 +1,8 @@
+{
+  "version": "1.2.5",
+  "checks": 466949,
+  "templates": 240,
+  "climates": 3,
+  "mode": "static NBT/catalog/models",
+  "performance_measured": false
+}

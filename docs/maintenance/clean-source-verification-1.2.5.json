@@ -1,0 +1,12 @@
+{
+  "kind": "working source export, NOT remote release clone",
+  "source_directory": "D:\\slavic-myths-clean-source-125-20261008",
+  "fresh_gradle_cache": "D:/slavic-myths-clean-gradle-125-20261008",
+  "local_tools_present": false,
+  "build": "PASS",
+  "entries_compared": 5358,
+  "entry_byte_differences": 0,
+  "original_sha256": "a515be4cca3c7424371ca3d0c4639ae80f19f6d04ccd005a2d100cfe8b87b9f6",
+  "rebuilt_sha256": "a515be4cca3c7424371ca3d0c4639ae80f19f6d04ccd005a2d100cfe8b87b9f6",
+  "remote_release_clone": "NOT RUN: no authorized release commit/branch yet"
+}

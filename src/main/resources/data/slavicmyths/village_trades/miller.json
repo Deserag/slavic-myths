@@ -1,0 +1,192 @@
+{
+  "1": [
+    {
+      "input": "minecraft:wheat",
+      "output": "minecraft:emerald",
+      "cost": 24,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:rye_grain",
+      "output": "minecraft:emerald",
+      "cost": 24,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:barley_grain",
+      "output": "minecraft:emerald",
+      "cost": 28,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:wheat_flour",
+      "output": "minecraft:emerald",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    }
+  ],
+  "2": [
+    {
+      "input": "slavicmyths:oat_grain",
+      "output": "minecraft:emerald",
+      "cost": 24,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:rye_flour",
+      "output": "minecraft:emerald",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:dough",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:bread",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    }
+  ],
+  "3": [
+    {
+      "input": "slavicmyths:wheat_flour",
+      "output": "minecraft:emerald",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:rye_flour",
+      "output": "minecraft:emerald",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:rye_bread",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:honey_flatbread",
+      "cost": 3,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    }
+  ],
+  "4": [
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:bliny",
+      "cost": 3,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:apple_pie",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:cabbage_pie",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:honey_bread",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    }
+  ],
+  "5": [
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:honey_bliny",
+      "cost": 6,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:berry_bliny",
+      "cost": 6,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:apple_bliny",
+      "cost": 6,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:meat_pie",
+      "cost": 7,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    }
+  ]
+}

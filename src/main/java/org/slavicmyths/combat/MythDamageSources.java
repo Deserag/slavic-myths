@@ -24,5 +24,6 @@ public final class MythDamageSources {
         @Override public Vec3 getSourcePosition(){return null;}
     };}
     public static DamageSource ember(Entity projectile,net.minecraft.world.entity.LivingEntity owner){return new DamageSource(type(projectile,"ember_projectile"),projectile,owner);}
+    public static DamageSource echo(Entity visual,net.minecraft.world.entity.LivingEntity owner){return new DamageSource(type(visual,"rune_echo"),visual,owner);}
     private MythDamageSources(){}
 }

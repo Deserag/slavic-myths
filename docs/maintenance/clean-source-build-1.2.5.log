@@ -1,0 +1,142 @@
+Downloading https://services.gradle.org/distributions/gradle-9.2.1-bin.zip
+............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+
+Welcome to Gradle 9.2.1!
+
+Here are the highlights of this release:
+ - Windows ARM support
+ - Improved publishing APIs
+ - Better guidance for dependency verification failures
+
+For more details see https://docs.gradle.org/9.2.1/release-notes.html
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :clean UP-TO-DATE
+
+> Task :createMinecraftArtifacts
+Loaded 145 artifacts from D:\slavic-myths-clean-source-125-20261008\build\tmp\createMinecraftArtifacts\nfrt_artifact_manifest.properties
+*** Started working on downloadJson
+  DL    https://piston-meta.mojang.com/mc/game/version_manifest_v2.json
+  DL    https://piston-meta.mojang.com/v1/packages/cedfc3b6dcbca34e2b478d498bf1d56a8fa2f404/1.21.1.json
+ DONE  Completed downloadJson in 0.72s
+*** Started working on downloadClientMappings
+*** Started working on downloadClient
+*** Started working on downloadServer
+  DL    https://piston-data.mojang.com/v1/objects/2244b6f072256667bcd9a73df124d6c58de77992/client.txt
+  DL    https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/server.jar
+  DL    https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar
+ DONE  Completed downloadClientMappings in 1.17s
+*** Started working on mergeMappings
+ RUN   Running external tool net.neoforged.installertools:installertools:2.1.2:fatjar
+ DONE  Completed downloadClient in 1.43s
+*** Started working on stripClient
+ DONE  Completed downloadServer in 2.12s
+*** Started working on extractServer
+ RUN   Running external tool net.neoforged.installertools:installertools:2.1.2:fatjar
+ DONE  Completed extractServer in 0.54s
+*** Started working on stripServer
+ DONE  Completed mergeMappings in 2.38s
+ DONE  Completed stripClient in 2.58s
+ DONE  Completed stripServer in 1.61s
+*** Started working on merge
+ RUN   Running external tool net.neoforged:mergetool:2.0.3:fatjar
+ DONE  Completed merge in 3.33s
+*** Started working on rename
+ RUN   Running external tool net.neoforged:AutoRenamingTool:2.0.3:all
+ DONE  Completed rename in 5.69s
+*** Started working on decompile
+ RUN   Running external tool org.vineflower:vineflower:1.10.1
+ DONE  Completed decompile in 52.95s
+*** Started working on inject
+ DONE  Completed inject in 2.87s
+*** Started working on patch
+ RUN   Running external tool io.codechicken:DiffPatch:2.0.0.36:all
+ DONE  Completed patch in 4.46s
+*** Started working on applyNeoforgePatches
+ RUN   Running external tool io.codechicken:DiffPatch:2.0.0.36:all
+ DONE  Completed applyNeoforgePatches in 8.85s
+*** Started working on transformSources
+ RUN   Running external tool net.neoforged.jst:jst-cli-bundle:2.0.11
+ DONE  Completed transformSources in 6.61s
+*** Started working on recompile
+ 110 items on the compile classpath
+ 0 items on the sourcepath
+*** Started working on sourcesWithNeoForge
+ Compiling 5364 source files
+ DONE  Completed sourcesWithNeoForge in 4.08s
+Copied 0 resource files
+ DONE  Completed recompile in 31.86s
+*** Started working on compiledWithNeoForge
+ DONE  Completed compiledWithNeoForge in 6.77s
+*** Started working on sourcesAndCompiledWithNeoForge
+ DONE  Completed sourcesAndCompiledWithNeoForge in 2.37s
+Total runtime: 132.04s
+
+
+> Task :compileJava
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                         ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                          ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                         ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                                               ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\client\KitchenDisplay.java:19: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                          ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\client\KitchenDisplay.java:19: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                                                ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\military\MilitaryNetwork.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\military\MilitaryNetwork.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\furniture\FurnitureClient.java:16: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                   ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\furniture\FurnitureClient.java:16: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                                                                  ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                                        ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\wood\WoodlandClient.java:9: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                   ^
+D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\wood\WoodlandClient.java:9: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                                                                  ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\slavic-myths-clean-source-125-20261008\src\main\java\org\slavicmyths\world\WildlifeSpawns.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+
+> Task :processResources
+> Task :classes
+> Task :jarJar NO-SOURCE
+> Task :jar
+> Task :assemble
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths-clean-source-125-20261008/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 5m 3s
+5 actionable tasks: 4 executed, 1 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

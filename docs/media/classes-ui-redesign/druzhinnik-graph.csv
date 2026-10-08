@@ -1,0 +1,12 @@
+﻿id,name,rank_fixture,kind,prerequisite,prerequisite_rank,branch,x,y
+lunge,Выпад,0/3,ACTIVE,,0,,108.0,65
+flurry,Сеча,0/3,ACTIVE,lunge,1,,0.0,130
+trip,Подсечка,0/3,ACTIVE,lunge,1,,108.0,130
+aerial_strike,Удар с воздуха,0/3,ACTIVE,flurry,1,,0,195
+shield_ram,Таран щитом,0/3,ACTIVE,trip,1,,108.0,195
+temper,Закалка,0/3,PASSIVE,,0,,324.0,65
+steadfast,Стойкость,0/3,PASSIVE,temper,1,,288,130
+riposte,Ответный удар,0/3,TRIGGER,shield_ram,1,,72,260
+second_wind,Второе дыхание,0/3,TRIGGER,temper,1,,360,130
+onslaught,Натиск,0/1,EVOLUTION,lunge,3,vityaz,216,130
+bulwark,Заслон,0/1,EVOLUTION,shield_ram,3,griden,144,260

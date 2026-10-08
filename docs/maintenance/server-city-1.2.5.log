@@ -1,0 +1,21 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':processResources'.
+> Could not copy file 'D:\slavic-myths\src\main\resources\data\slavicmyths\structure\gorodishche\cold\profession\chronicler_terem_01.nbt' to 'D:\slavic-myths\build\resources\main\data\slavicmyths\structure\gorodishche\cold\profession\chronicler_terem_01.nbt'.
+   > Problems opening file input stream for file: D:\slavic-myths\src\main\resources\data\slavicmyths\structure\gorodishche\cold\profession\chronicler_terem_01.nbt
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 26s
+3 actionable tasks: 1 executed, 2 up-to-date

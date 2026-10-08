@@ -1,0 +1,28 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bow"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:string"
+    },
+    {
+      "item": "slavicmyths:iron_rings"
+    },
+    {
+      "item": "slavicmyths:weapon_wrap"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:heavy_bow",
+    "count": 1
+  },
+  "copy_components": true
+}

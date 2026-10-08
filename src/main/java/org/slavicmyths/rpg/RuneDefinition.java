@@ -26,7 +26,10 @@ public record RuneDefinition(String id,Map<String,Double> parameters,Set<String>
   case "wind"->new Object[]{v("weapon_force"),v("spear_force"),sec("hit_cooldown"),v("shield_force"),sec("shield_cooldown"),v("staff_force"),sec("staff_cooldown"),pct("arrow_speed")};
   default->new Object[0];};
  }
- public Component effect(){return Component.translatable("rpg.slavicmyths.effect_"+id,effectArguments());}
- public List<Component> tooltip(){return java.util.stream.IntStream.rangeClosed(1,3).mapToObj(i->(Component)Component.translatable("rpg.slavicmyths.rune_hint_"+id+"_"+i,effectArguments())).toList();}
- public Component compatible(){var names=categories.stream().sorted().map(c->Component.translatable("rpg.slavicmyths.category_"+c)).toList();var text=Component.empty();for(var c:names){if(!text.getString().isEmpty())text.append(", ");text.append(c);}return Component.translatable("rpg.slavicmyths.compatible",text);}
+ public Component legacyEffect(){return Component.translatable("rpg.slavicmyths.effect_"+id,effectArguments());}
+ public Component effect(){if(RareRunes.rare(id))return RareRunes.text("effect_"+id);if(!RuneBalance.modern(id))return legacyEffect();var text=Component.empty();for(var c:RuneRework.effects(id,1,null)){if(!text.getString().isEmpty())text.append("; ");text.append(c);}return text;}
+ public List<Component> tooltip(){if(RareRunes.rare(id))return RareRunes.tooltip(id);return RuneBalance.modern(id)?RuneRework.runeTooltip(id):java.util.stream.IntStream.rangeClosed(1,3).mapToObj(i->(Component)Component.translatable("rpg.slavicmyths.rune_hint_"+id+"_"+i,effectArguments())).toList();}
+ public Component compatible(){if(RareRunes.rare(id))return RareRunes.compatibility(id);if(RuneBalance.modern(id))return RuneRework.compatibility(id);var names=categories.stream().sorted().map(c->Component.translatable("rpg.slavicmyths.category_"+c)).toList();var text=Component.empty();for(var c:names){if(!text.getString().isEmpty())text.append(", ");text.append(c);}return Component.translatable("rpg.slavicmyths.compatible",text).append(" ").append(Component.translatable("rpg.slavicmyths.armor_rune_storage"));}
+ static {for(var d:RuneBalance.DEFINITIONS)if(!ALL.containsKey(d.id()))ALL.put(d.id(),new RuneDefinition(d.id(),Map.of(),Set.of()));}
+ static {for(String id:RareRuneRules.IDS)ALL.put(id,new RuneDefinition(id,Map.of(),Set.of()));}
 }

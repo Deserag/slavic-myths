@@ -1,0 +1,15 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:spear_shaft"
+    },
+    {
+      "item": "slavicmyths:silver_spearhead"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:silver_spear",
+    "count": 1
+  }
+}

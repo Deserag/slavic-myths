@@ -96,4 +96,15 @@ def main():
     except UnicodeError:pass
    v['item.slavicmyths.rye_flour']='Ржаная мука';v['item.slavicmyths.rye_bread']='Ржаной хлеб'
   js(p,v)
+ # Keep the current village assets/localization intact when older resource generators run.
+ from beer_models_125 import main as beer_models
+ beer_models()
+ from village_resources import main as village_assets
+ village_assets()
+ from rare_weapon_resources_1322 import main as rare_weapon_assets
+ rare_weapon_assets()
+ from class_ui_resources_1323 import main as class_ui_assets
+ class_ui_assets()
+ from armor_rune_resources_133 import main as armor_rune_text
+ armor_rune_text()
 if __name__=='__main__':main()

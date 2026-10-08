@@ -1,0 +1,15 @@
+{
+  "version": "1.3.2.3",
+  "resource_and_packaging_checks": 530,
+  "offline_rule_and_layout_checks": 3710,
+  "skills": 34,
+  "trees": 3,
+  "resolution_scale_pairs": 6,
+  "minecraft_launches": 0,
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.3.2.3.jar",
+  "sha256": "6fd7546ff241e73a9c4f5d3480174915752fedf9a2686e6c1321a4425dbeabad",
+  "bytes": 9600039,
+  "build": "clean build PASS",
+  "runtime_testing": false,
+  "visual_runtime_testing": false
+}

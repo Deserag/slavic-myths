@@ -1,0 +1,30 @@
+{
+  "version": "1.2.2",
+  "clean_build": "PASS",
+  "headless_final": "30/30 PASS",
+  "server_launches": 14,
+  "actual_unload": "PASS",
+  "actual_separate_process_reload": "PASS",
+  "resource_checks": 14088,
+  "focused_production_checks": 716,
+  "client_launches": 0,
+  "polymc_launches": 0,
+  "mspt_measured": false,
+  "jar": {
+    "version": "1.2.2",
+    "instance": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing",
+    "source": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.2.2.jar",
+    "installed": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.2.2.jar",
+    "sha256": "7586913c5a78ab9b997b986bd38dbbbb5bc7e8f18cc85d21c7d594cf4f5167d3",
+    "size": 7330097,
+    "backup": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.slavicmyths-backups/pre-1.2.2-20261007-180103",
+    "active_slavic_jars": 1,
+    "protected_files_unchanged": 8,
+    "client_launches": 0,
+    "polymc_launches": 0
+  },
+  "user_decisions": [
+    "Only existing flax textile chain; no wool recipe",
+    "Only actual harvested fish/wool permitted sell-output exception"
+  ]
+}

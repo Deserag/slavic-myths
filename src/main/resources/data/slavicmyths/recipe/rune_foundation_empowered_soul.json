@@ -1,0 +1,28 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:soul"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:perunite"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:empowered_soul",
+    "count": 1
+  },
+  "chisel": false
+}

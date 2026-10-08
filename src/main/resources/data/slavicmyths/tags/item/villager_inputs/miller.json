@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:wheat",
+    "slavicmyths:rye_grain",
+    "slavicmyths:barley_grain",
+    "slavicmyths:oat_grain"
+  ]
+}

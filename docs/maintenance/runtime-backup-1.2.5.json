@@ -1,0 +1,102 @@
+[
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-01",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-01"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-02",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-02"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-03",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-03"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-04",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-04"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-05",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-05"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-07",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-07"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-08",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-08"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-09",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-09"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-10",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-10"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-11",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-11"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-12",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-12"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-13",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-13"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-14",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-14"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-15",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-15"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-16",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-16"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-gorodishche-125-17",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-gorodishche-125-17"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-kurgan-hotfix",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-kurgan-hotfix"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-placement-priority-high",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-placement-priority-high"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-placement-priority-thin",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-placement-priority-thin"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-placement-priority-water",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-placement-priority-water"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-port-checks",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-port-checks"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-village-buildings-125-final",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-village-buildings-125-final"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-village-buildings-checks",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-village-buildings-checks"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-village-checks",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-village-checks"
+  },
+  {
+    "source": "D:\\slavic-myths\\run-village-regression-125-final",
+    "destination": "D:\\slavic-myths-runtime-backup\\maintenance-1.2.5-20261008\\run-village-regression-125-final"
+  }
+]

@@ -7,6 +7,7 @@ group = mod_group_id
 base { archivesName = 'slavicmyths' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 repositories {
+    maven { url = 'https://api.modrinth.com/maven'; content { includeGroup 'maven.modrinth' } }
     maven { url = 'https://maven.theillusivec4.top/' }
     maven { url = 'https://maven.blamejared.com' }
     mavenCentral()
@@ -22,7 +23,7 @@ neoForge {
 }
 dependencies {
     // Optional, client-only adapter compiled against the exact pinned API; never bundled/runtime-required.
-    compileOnly files('.tools/test-pack-0.9.4/xaerominimap-neoforge-1.21.1-26.5.0.jar')
+    compileOnly 'maven.modrinth:xaeros-minimap:Q1tuMQBB' // NeoForge 1.21.1 / 26.5.0, immutable version ID.
     implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}"
     compileOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
     if (!project.hasProperty('withoutJei')) {
@@ -37,6 +38,60 @@ processResources {
     }
 }
 jar { manifest { attributes 'Implementation-Version': project.version } }
+
+// Weapon 2.0 fixtures are opt-in and never enter the production artifact.
+if (project.hasProperty('weaponRuntimeCheck')) {
+    sourceSets { weaponCheck { java.srcDir 'tools/weapon-tests'; resources.srcDir 'tools/weapon-test-resources' } }
+    sourceSets.weaponCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.weaponCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+    tasks.named('compileWeaponCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.weaponCheck)
+    neoForge.runs { weaponChecks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-weapons-1321')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_weapons'
+        systemProperty 'slavicmyths.weaponRestartPhase', project.findProperty('weaponRestartPhase') ?: 'none'
+    } }
+}
+
+// Class 2.0 fixtures are opt-in and never enter the production artifact.
+if (project.hasProperty('classRuntimeCheck')) {
+    sourceSets { classCheck { java.srcDir 'tools/class-tests'; resources.srcDir 'tools/class-test-resources' } }
+    sourceSets.classCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.classCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+    tasks.named('compileClassCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.classCheck)
+    neoForge.runs { classChecks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-classes-131')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_classes'
+        systemProperty 'slavicmyths.classRestartPhase', project.findProperty('classRestartPhase') ?: 'none'
+    } }
+}
+
+// Opt-in 1.2.1 dedicated-server checks, isolated from the shipped mod and all player worlds.
+if (project.hasProperty('villageRuntimeCheck')) {
+    sourceSets {
+        villageCheck { java.srcDir 'tools/village-tests'; resources.srcDir 'tools/village-test-resources' }
+    }
+    sourceSets.villageCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.villageCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+    tasks.named('compileVillageCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.villageCheck)
+    neoForge.runs {
+        villageChecks {
+            type = 'gameTestServer'
+            gameDirectory = file(project.findProperty('villageCheckDirectory') ?: (project.hasProperty('gorodishcheCheck') ? 'run-gorodishche-checks' : project.hasProperty('villageBuildingsCheck') ? 'run-village-buildings-checks' : 'run-village-checks'))
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.hasProperty('gorodishcheCheck') ? 'slavicmyths_city' : project.hasProperty('villageBuildingsCheck') ? 'slavicmyths_buildings' : 'slavicmyths_village'
+            systemProperty 'slavicmyths.settlementRestartPhase', project.findProperty('settlementRestartPhase') ?: 'none'
+        }
+    }
+    tasks.register('verifyVillageGeometry', JavaExec) {
+        dependsOn 'villageCheckClasses'
+        classpath = sourceSets.villageCheck.runtimeClasspath
+        mainClass = 'org.slavicmyths.verify.VillageGeometryCheck'
+    }
+}
 // Verification remains outside production. API migration is tracked in PORT_STATUS.
 sourceSets {
     kurganCheck {
@@ -197,3 +252,67 @@ if (project.hasProperty("waterFlatPlacementCheck")) {
 // The isolated legacy harness also sees registry classes referenced by new native effects.
 sourceSets.portCore.compileClasspath += sourceSets.main.output
 tasks.named('compilePortCoreJava') { dependsOn 'classes' }
+
+// Rare weapon fixtures remain outside all production outputs.
+// Offline JVM checks: no Minecraft main, client, server, world, or mod-loader run.
+if (project.hasProperty('runeReworkOfflineCheck')) {
+    sourceSets { runeReworkOffline { java.srcDir 'tools/rune-rework-tests' } }
+    sourceSets.runeReworkOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.runeReworkOffline.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileRuneReworkOfflineJava') { dependsOn 'classes' }
+    tasks.register('verifyRuneRework', JavaExec) {
+        dependsOn 'runeReworkOfflineClasses'
+        classpath = sourceSets.runeReworkOffline.runtimeClasspath
+        mainClass = 'org.slavicmyths.verify.RuneReworkOffline'
+    }
+}
+if (project.hasProperty('runeFoundationOfflineCheck')) {
+    sourceSets { runeFoundationOffline { java.srcDir 'tools/rune-foundation-tests' } }
+    sourceSets.runeFoundationOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.runeFoundationOffline.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileRuneFoundationOfflineJava') { dependsOn 'classes' }
+    tasks.register('verifyRuneFoundation', JavaExec) {
+        dependsOn 'runeFoundationOfflineClasses'
+        classpath = sourceSets.runeFoundationOffline.runtimeClasspath
+        mainClass = 'org.slavicmyths.verify.RuneFoundationOffline'
+    }
+}
+if (project.hasProperty('armorOfflineCheck')) {
+    sourceSets { armorOffline { java.srcDir 'tools/armor-offline-tests' } }
+    sourceSets.armorOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.armorOffline.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileArmorOfflineJava') { dependsOn 'classes' }
+    tasks.register('verifyArmorRunes', JavaExec) {
+        dependsOn 'armorOfflineClasses'
+        classpath = sourceSets.armorOffline.runtimeClasspath
+        mainClass = 'org.slavicmyths.verify.ArmorRunesOffline'
+        workingDir = file('.tools')
+    }
+}
+
+if (project.hasProperty('rareRuntimeCheck')) {
+    sourceSets { rareCheck { java.srcDir 'tools/rare-tests'; resources.srcDir 'tools/rare-test-resources' } }
+    sourceSets.rareCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.rareCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+    tasks.named('compileRareCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.rareCheck)
+    neoForge.runs { rareChecks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-rare-1322')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_rare'
+        systemProperty 'slavicmyths.rareRestartPhase', project.findProperty('rareRestartPhase') ?: 'none'
+    } }
+}
+
+// Pure rare-rune fixtures are excluded from production and all NeoForge run configurations.
+if (project.hasProperty('rareRuneOfflineCheck')) {
+    sourceSets { rareRuneOffline { java.srcDir 'tools/rare-rune-tests' } }
+    sourceSets.rareRuneOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.rareRuneOffline.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileRareRuneOfflineJava') { dependsOn 'classes' }
+    tasks.register('verifyRareRunes', JavaExec) {
+        dependsOn 'rareRuneOfflineClasses'
+        classpath = sourceSets.rareRuneOffline.runtimeClasspath
+        mainClass = 'org.slavicmyths.verify.RareRuneOffline'
+    }
+}

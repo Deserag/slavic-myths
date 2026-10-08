@@ -1,0 +1,13 @@
+﻿id,name,rank_fixture,kind,prerequisite,prerequisite_rank,branch,x,y
+keen_eye,Зоркий глаз,0/3,ACTIVE,,0,,216.0,65
+dash,Рывок,0/3,ACTIVE,keen_eye,1,,72.0,130
+dirty_strike,Подлый удар,0/3,ACTIVE,dash,1,,0,195
+net,Сеть,0/3,ACTIVE,keen_eye,1,,216,130
+smoke,Дымовой уход,0/3,ACTIVE,dash,1,,72.0,195
+light_step,Лёгкая поступь,0/3,PASSIVE,,0,,432.0,65
+steady_aim,Меткий глаз,0/3,PASSIVE,light_step,1,,432.0,130
+cold_blood,Хладнокровие,0/3,PASSIVE,steady_aim,1,,432,195
+hunters_fervor,Охотничий пыл,0/3,TRIGGER,keen_eye,1,,288,130
+opportunity,Удачный момент,0/3,TRIGGER,smoke,1,,72,260
+true_shot,Верный выстрел,0/1,EVOLUTION,keen_eye,3,strelok,360,130
+raider_dash,Налёт,0/1,EVOLUTION,dash,3,naletchik,144,195

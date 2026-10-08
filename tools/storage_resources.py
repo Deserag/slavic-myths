@@ -38,12 +38,11 @@ def states(name,variants):js(A/f'blockstates/{name}.json',{'variants':variants})
 def facingVariants(modelname,extra=''):return {f'facing={f}'+(','+extra if extra else ''):{'model':'slavicmyths:block/'+modelname,'y':y} for f,y in [('north',0),('east',90),('south',180),('west',270)]}
 def static(name,els):model(name,els);states(name,facingVariants(name))
 vs={}
-for fill in range(5):
- h=[7,9,11,13,15][fill];width=[10,11,12,13,13][fill];lo=(16-width)/2
- els=[cube([lo,0,lo],[16-lo,h-2,16-lo],'ornament')]
- if fill<3:els += [cube([lo,h-2,lo],[lo+1,h,16-lo],'cloth'),cube([15-lo,h-2,lo],[16-lo,h,16-lo],'cloth'),cube([lo,h-2,lo],[16-lo,h,lo+1],'cloth'),cube([lo,h-2,15-lo],[16-lo,h,16-lo],'cloth')]
- else:els += [cube([5,h-2,5],[11,h,11],'cloth'),cube([4.8,h-1.7,4.8],[11.2,h-1.1,11.2],'metal')]
- model('storage_sack_'+str(fill),els);vs.update(facingVariants('storage_sack_'+str(fill),'fill='+str(fill)))
+for fill in range(6):
+ # Bulging cloth body with tapered shoulders, gathered neck and rope knot.
+ h=5+fill*2;width=7+fill;lo=(16-width)/2
+ els=[cube([lo+1,0,lo+1],[15-lo,1,15-lo],'cloth'),cube([lo,.7,lo],[16-lo,h-3,16-lo],'cloth'),cube([lo+.6,h-3,lo+.6],[15.4-lo,h-2,15.4-lo],'cloth'),cube([lo+1.3,h-2,lo+1.3],[14.7-lo,h-1,14.7-lo],'cloth'),cube([6,h-1,6],[10,h,10],'cloth'),cube([5.8,h-1.1,5.8],[10.2,h-.55,10.2],'weave'),cube([10,h-1.4,6.5],[11,h-.1,7.5],'weave')]
+ model('storage_sack_'+str(fill),els,{'particle':tex['cloth']});vs.update(facingVariants('storage_sack_'+str(fill),'fill='+str(fill)))
 states('storage_sack',vs)
 for name,height in [('basket',7),('large_basket',11),('produce_crate',11)]:
  t='weave' if name!='produce_crate' else 'wood';els=[cube([1,0,1],[15,1,15],t)]
@@ -137,7 +136,7 @@ for name in names:
 for name,ingredient,out in [('berries',{'tag':'slavicmyths:berries'},'dried_berries'),('red_mushroom',{'item':'minecraft:red_mushroom'},'dried_mushrooms'),('brown_mushroom',{'item':'minecraft:brown_mushroom'},'dried_mushrooms')]:js(D/f'recipe/drying/{name}.json',{'type':'slavicmyths:drying','ingredient':ingredient,'result':{'id':'slavicmyths:'+out,'count':1},'drying_time':2400})
 def tag(name,values):js(D/f'tags/item/storage/{name}.json',{'replace':False,'values':values})
 mod=lambda names:['slavicmyths:'+n for n in names]
-sack=mod(['rye_grain','barley_grain','oat_grain','rye_seeds','barley_seeds','oat_seeds','flax_seeds','turnip_seeds','cabbage_seeds','pea_seeds','wheat_flour','rye_flour','oat_groats','barley_groats','pea_pod'])
+sack=['#minecraft:villager_plantable_seeds','minecraft:wheat','minecraft:beetroot','minecraft:carrot','minecraft:potato','minecraft:apple','minecraft:melon_slice','minecraft:sweet_berries','minecraft:glow_berries','minecraft:melon_seeds','minecraft:pumpkin_seeds','minecraft:cocoa_beans','minecraft:red_mushroom','minecraft:brown_mushroom','minecraft:pumpkin','minecraft:melon','minecraft:nether_wart','minecraft:sugar_cane','minecraft:bamboo','minecraft:kelp','minecraft:dried_kelp','minecraft:egg']+mod(['rye_grain','barley_grain','oat_grain','rye_seeds','barley_seeds','oat_seeds','flax_seeds','turnip_seeds','cabbage_seeds','pea_seeds','wheat_flour','rye_flour','oat_groats','barley_groats','pea_pod','turnip','cabbage','flax_stalk','flax_fiber','dried_berries','dried_mushrooms'])+['#slavicmyths:berries']
 tag('sack_items',sack);tag('basket_items',['#slavicmyths:berries','minecraft:apple','minecraft:egg','minecraft:red_mushroom','minecraft:brown_mushroom']+mod(['turnip','cabbage','pea_pod','goose_egg','duck_egg']))
 tag('large_basket_items',['#slavicmyths:storage/basket_items','#slavicmyths:cereal_grains']+mod(['flax_stalk','dried_berries','dried_mushrooms']))
 tag('crate_items',['#slavicmyths:berries','minecraft:apple','minecraft:red_mushroom','minecraft:brown_mushroom']+mod(['turnip','cabbage','pea_pod','flax_stalk','baked_turnip','dried_berries','dried_mushrooms']))

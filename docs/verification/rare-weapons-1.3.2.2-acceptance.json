@@ -1,0 +1,201 @@
+{
+  "version": "1.3.2.2",
+  "date": "2026-10-08",
+  "platform": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.255",
+    "java": "21.0.12"
+  },
+  "actual_headless_server_launches": 11,
+  "client_launches": 0,
+  "final_rare_tests": "16/16 PASS",
+  "final_weapon_regression": "16/16 PASS",
+  "rare_attempts": [
+    {
+      "run": 1,
+      "log": "D:\\slavic-myths\\.tools\\rare-runtime-01.log",
+      "sha256": "fb5cae1205a53b2ec3d2e2721939334b85e6b38db1bac36c5aed8e1f46d87acb",
+      "actual_server_launch": true,
+      "total_tests": 9,
+      "passed": false,
+      "failures": [
+        "secondnativeattack failed at -4301346, -60, 8507218! second native hit still cooled or invulnerable: 0.0",
+        "singleandpairbleed failed at -4301312, -60, 8507218! Cannot invoke \"net.minecraft.world.effect.MobEffectInstance.getAmplifier()\" because the return value of \"net.minecraft.world.entity.monster.Zombie.getEffect(net.minecraft.core.Holder)\" is null"
+      ],
+      "native_new_process_storage": false
+    },
+    {
+      "run": 2,
+      "log": "D:\\slavic-myths\\.tools\\rare-runtime-02.log",
+      "sha256": "3b63a7556e2cf4b2eced7db94dc6cb648430cf1e23ef7f03c910b31d76b33cdb",
+      "actual_server_launch": true,
+      "total_tests": 9,
+      "passed": false,
+      "failures": [
+        "singleandpairbleed failed at -2445679, -60, -3717813! bleed pulse missing"
+      ],
+      "native_new_process_storage": false
+    },
+    {
+      "run": 3,
+      "log": "D:\\slavic-myths\\.tools\\rare-runtime-03.log",
+      "sha256": "024cc300e7703edaa1400a09b0c67cd059491d8dc25330ed65f95e74ab8ff047",
+      "actual_server_launch": true,
+      "total_tests": 13,
+      "passed": false,
+      "failures": [
+        "nativedeathanddimension failed at -13778549, -60, 8951! death loss or duplication",
+        "chargedshieldpressure failed at -13778600, -60, 8969! shield not disabled"
+      ],
+      "native_new_process_storage": false
+    },
+    {
+      "run": 4,
+      "log": "D:\\slavic-myths\\.tools\\rare-runtime-04.log",
+      "sha256": "e9ce40b13edf85c5b2ab47712776e6c2b2f1b197995188547e42d051ea557205",
+      "actual_server_launch": true,
+      "total_tests": 13,
+      "passed": false,
+      "failures": [
+        "chargedshieldpressure failed at 2556019, -60, -4040784! shield not disabled"
+      ],
+      "native_new_process_storage": false
+    },
+    {
+      "run": 5,
+      "log": "D:\\slavic-myths\\.tools\\rare-runtime-05.log",
+      "sha256": "8f359a885eac60623289e03ae7f06fcb89b57ea1493132966f7ab0185f364dbe",
+      "actual_server_launch": true,
+      "total_tests": 14,
+      "passed": false,
+      "failures": [
+        "chargedshieldpressure failed at -13939531, -60, -3475380! shield not disabled"
+      ],
+      "native_new_process_storage": false
+    },
+    {
+      "run": 6,
+      "log": "D:\\slavic-myths\\.tools\\rare-runtime-06.log",
+      "sha256": "cb5be7431309ea7bdd271ef0fec4674d56d0cdaa48cef47c0565ec1cb7c41649",
+      "actual_server_launch": true,
+      "total_tests": 14,
+      "passed": false,
+      "failures": [
+        "chargedshieldpressure failed at -2855088, -60, -9103708! shield not disabled; pvp=false health=20.0 boost=false charge=1.0 blocking=true position=(-2855085.0, -58.0, -9103703.0) look=(1.2246468525851679E-16, -0.0, -1.0)"
+      ],
+      "native_new_process_storage": true
+    },
+    {
+      "run": 7,
+      "log": "D:\\slavic-myths\\.tools\\rare-runtime-07.log",
+      "sha256": "181826f1f4bb9f99dd586a05d145923568e657bd50d5228a35724916bf004379",
+      "actual_server_launch": true,
+      "total_tests": 14,
+      "passed": true,
+      "failures": [],
+      "native_new_process_storage": true
+    },
+    {
+      "run": 8,
+      "log": "D:\\slavic-myths\\.tools\\rare-runtime-08.log",
+      "sha256": "379d7f21a46a4f58635c74d7066772fafab563780158eb22887570386da2a0b9",
+      "actual_server_launch": true,
+      "total_tests": 15,
+      "passed": true,
+      "failures": [],
+      "native_new_process_storage": true
+    },
+    {
+      "run": 9,
+      "log": "D:\\slavic-myths\\.tools\\rare-runtime-09.log",
+      "sha256": "7fba03687dca49d32f516fb807bc77ffd836a1ec9a8411156ed3140dc6f24f08",
+      "actual_server_launch": true,
+      "total_tests": 16,
+      "passed": false,
+      "failures": [
+        "mobshieldcannotimmediatelyreturn failed at 14270582, -60, -12351083! mob shield disable absent"
+      ],
+      "native_new_process_storage": true
+    },
+    {
+      "run": 10,
+      "log": "D:\\slavic-myths\\.tools\\rare-runtime-10.log",
+      "sha256": "0621e025445bffe7d03edc29ee0f2fda293e5edee1bc59c21f218ede46e79863",
+      "actual_server_launch": true,
+      "total_tests": 16,
+      "passed": true,
+      "failures": [],
+      "native_new_process_storage": true
+    }
+  ],
+  "regression": {
+    "log": "D:\\slavic-myths\\.tools\\rare-weapon-regression.log",
+    "sha256": "79195f9cc47e5fe1206c68a25cc6f0df2774aba6aaef874b61c107c4e34ecd11",
+    "actual_server_launch": true,
+    "passed_tests": 16,
+    "build_pass": true
+  },
+  "clean_build": {
+    "passed": true,
+    "log": "D:\\slavic-myths\\.tools\\rare-clean-build.log",
+    "sha256": "745bd75ec31dddac6b0db208247e806e37735336287141633c039f9a5726664c",
+    "gradle_test_task": "NO-SOURCE"
+  },
+  "resources": {
+    "version": "1.3.2.2",
+    "checks": 15935,
+    "preserved_old_resources": 4618,
+    "additive_changed_resources": [
+      "assets/slavicmyths/lang/en_us.json",
+      "assets/slavicmyths/lang/ru_ru.json",
+      "data/minecraft/tags/item/enchantable/durability.json",
+      "data/minecraft/tags/item/enchantable/sharp_weapon.json",
+      "data/minecraft/tags/item/enchantable/weapon.json",
+      "data/slavicmyths/loot_table/entities/ataman.json",
+      "data/slavicmyths/tags/item/rune_capacity_3.json",
+      "data/slavicmyths/tags/item/rune_heavy.json",
+      "data/slavicmyths/tags/item/rune_spear.json",
+      "data/slavicmyths/tags/item/rune_staff.json"
+    ],
+    "new_item_ids": [
+      "slavicmyths:tugarin_sword",
+      "slavicmyths:likho_staff",
+      "slavicmyths:ataman_flail",
+      "slavicmyths:victor_spear",
+      "slavicmyths:ataman_sign"
+    ],
+    "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.3.2.2.jar",
+    "bytes": 9569171,
+    "sha256": "e5b3a975087c43497d4677c210d2f629926b3bd476ca92f83395d765cad5b279",
+    "client_launches": 0,
+    "performance_measured": false
+  },
+  "intermediate_failures_explanation": [
+    "Initial bleed fixture used an undead immune target; subsequent direct pulse assertion retained native hurt immunity instead of advancing time.",
+    "Native ServerPlayer equipment requires doTick; second attack fixture originally used tick.",
+    "Combined dimension/death fixture needed the native hasChangedDimension acknowledgement before kill.",
+    "PvP defaults to false in GameTestServer; shield fixture explicitly enables it and advances spawn immunity.",
+    "Mob shield fixture needed head yaw as well as body yaw after native ticks."
+  ],
+  "verified": [
+    "Single blade versus pair, capped bleed, real native melee, main-hand-only rune application",
+    "Staff held/offhand healing, cap, directed cast, cooldown, stun ending, morok expiring, alternate hostile target, owner/NPC damage rejection",
+    "Three Swing stacks, fourth empowered hit, pause reset, player and mob shield disable",
+    "Far hit window, fast native second attack, no self-chain, near rejection, swap cooldown",
+    "Four native bench recipes, distinct donor data for both blades, no repeated output",
+    "Actual native boss deaths and themed drops",
+    "Four marked weapons through native anvil and item pickup",
+    "Four weapons through two native dimension transitions and native death drops",
+    "Player .dat loaded by a new server process: four marked weapons and two persisted cooldowns; login clears short attack window"
+  ],
+  "manual_pending": [
+    "Client hand rendering and animations, GUI/tooltip appearance",
+    "Two real clients and interactive PvP",
+    "Actual client logout/menu/relogin; native player .dat restart is not that test",
+    "Visual stun and control of every custom boss AI, especially scripted special moves",
+    "Measured FPS/MSPT"
+  ],
+  "polymc_installed": false,
+  "worlds_overwritten": false,
+  "commit_created": false
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "directory": "run-gorodishche-125-01",
+    "expected_bytes": 12698110,
+    "backup_bytes": 12698110,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-02",
+    "expected_bytes": 12676899,
+    "backup_bytes": 12676899,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-03",
+    "expected_bytes": 22836762,
+    "backup_bytes": 22836762,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-04",
+    "expected_bytes": 22616112,
+    "backup_bytes": 22616112,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-05",
+    "expected_bytes": 22703759,
+    "backup_bytes": 22703759,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-07",
+    "expected_bytes": 25146200,
+    "backup_bytes": 25146200,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-08",
+    "expected_bytes": 25158782,
+    "backup_bytes": 25158782,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-09",
+    "expected_bytes": 25290049,
+    "backup_bytes": 25290049,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-10",
+    "expected_bytes": 25274115,
+    "backup_bytes": 25274115,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-11",
+    "expected_bytes": 25180187,
+    "backup_bytes": 25180187,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-12",
+    "expected_bytes": 25097322,
+    "backup_bytes": 25097322,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-13",
+    "expected_bytes": 25204553,
+    "backup_bytes": 25204553,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-14",
+    "expected_bytes": 32796605,
+    "backup_bytes": 32796605,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-15",
+    "expected_bytes": 32591620,
+    "backup_bytes": 32591620,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-16",
+    "expected_bytes": 38224110,
+    "backup_bytes": 38224110,
+    "pass": true
+  },
+  {
+    "directory": "run-gorodishche-125-17",
+    "expected_bytes": 37986520,
+    "backup_bytes": 37986520,
+    "pass": true
+  },
+  {
+    "directory": "run-kurgan-hotfix",
+    "expected_bytes": 309436009,
+    "backup_bytes": 309436009,
+    "pass": true
+  },
+  {
+    "directory": "run-placement-priority-high",
+    "expected_bytes": 271212250,
+    "backup_bytes": 271212250,
+    "pass": true
+  },
+  {
+    "directory": "run-placement-priority-thin",
+    "expected_bytes": 371488160,
+    "backup_bytes": 371488160,
+    "pass": true
+  },
+  {
+    "directory": "run-placement-priority-water",
+    "expected_bytes": 94209691,
+    "backup_bytes": 94209691,
+    "pass": true
+  },
+  {
+    "directory": "run-port-checks",
+    "expected_bytes": 2001182508,
+    "backup_bytes": 2001182508,
+    "pass": true
+  },
+  {
+    "directory": "run-village-buildings-125-final",
+    "expected_bytes": 31407110,
+    "backup_bytes": 31407110,
+    "pass": true
+  },
+  {
+    "directory": "run-village-buildings-checks",
+    "expected_bytes": 113020028,
+    "backup_bytes": 113020028,
+    "pass": true
+  },
+  {
+    "directory": "run-village-checks",
+    "expected_bytes": 210669661,
+    "backup_bytes": 210669661,
+    "pass": true
+  },
+  {
+    "directory": "run-village-regression-125-final",
+    "expected_bytes": 9614336,
+    "backup_bytes": 9614336,
+    "pass": true
+  }
+]

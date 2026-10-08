@@ -1,0 +1,192 @@
+{
+  "1": [
+    {
+      "input": "minecraft:white_wool",
+      "output": "minecraft:emerald",
+      "cost": 18,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:string",
+      "output": "minecraft:emerald",
+      "cost": 24,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:flax_stalk",
+      "output": "minecraft:emerald",
+      "cost": 24,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:linen_thread",
+      "output": "minecraft:emerald",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 2,
+      "price_multiplier": 0.05
+    }
+  ],
+  "2": [
+    {
+      "input": "slavicmyths:flax_fiber",
+      "output": "minecraft:emerald",
+      "cost": 18,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:red_dye",
+      "output": "minecraft:emerald",
+      "cost": 12,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "slavicmyths:linen_cloth",
+      "output": "minecraft:emerald",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:white_wool",
+      "cost": 1,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    }
+  ],
+  "3": [
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:linen_shirt",
+      "cost": 5,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:linen_ports",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:linen_apron",
+      "cost": 4,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:woven_belt",
+      "cost": 5,
+      "count": 1,
+      "max_uses": 12,
+      "xp": 10,
+      "price_multiplier": 0.05
+    }
+  ],
+  "4": [
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:sarafan",
+      "cost": 7,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:linen_headscarf",
+      "cost": 5,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:folk_vest",
+      "cost": 6,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "minecraft:red_carpet",
+      "cost": 2,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 15,
+      "price_multiplier": 0.05
+    }
+  ],
+  "5": [
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:linen_bed",
+      "cost": 12,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:sarafan",
+      "cost": 8,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:folk_vest",
+      "cost": 8,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    },
+    {
+      "input": "minecraft:emerald",
+      "output": "slavicmyths:woven_belt",
+      "cost": 7,
+      "count": 1,
+      "max_uses": 8,
+      "xp": 30,
+      "price_multiplier": 0.05
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                          ^
+D:\slavic-myths\src\main\java\org\slavicmyths\combat\ThrowingWeaponItem.java:51: error: no suitable method found for playSound(<null>,BlockPos,Holder<SoundEvent>,SoundSource,float,float)
+        level.playSound(null,player.blockPosition(),SoundEvents.TRIDENT_THROW,SoundSource.PLAYERS,.45F,knife?1.6F:1F);
+             ^
+    method Level.playSound(Entity,BlockPos,SoundEvent,SoundSource,float,float) is not applicable
+      (argument mismatch; Holder<SoundEvent> cannot be converted to SoundEvent)
+    method Level.playSound(Player,BlockPos,SoundEvent,SoundSource,float,float) is not applicable
+      (argument mismatch; Holder<SoundEvent> cannot be converted to SoundEvent)
+    method Level.playSound(Player,double,double,double,SoundEvent,SoundSource) is not applicable
+      (argument mismatch; BlockPos cannot be converted to double)
+    method Level.playSound(Player,Entity,SoundEvent,SoundSource,float,float) is not applicable
+      (argument mismatch; BlockPos cannot be converted to Entity)
+D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                ^
+D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\world\WildlifeSpawns.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error
+4 warnings
+
+> Task :compileJava FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  D:\slavic-myths\src\main\java\org\slavicmyths\combat\ThrowingWeaponItem.java:51: error: no suitable method found for playSound(<null>,BlockPos,Holder<SoundEvent>,SoundSource,float,float)
+          level.playSound(null,player.blockPosition(),SoundEvents.TRIDENT_THROW,SoundSource.PLAYERS,.45F,knife?1.6F:1F);
+               ^
+      method Level.playSound(Entity,BlockPos,SoundEvent,SoundSource,float,float) is not applicable
+        (argument mismatch; Holder<SoundEvent> cannot be converted to SoundEvent)
+      method Level.playSound(Player,BlockPos,SoundEvent,SoundSource,float,float) is not applicable
+        (argument mismatch; Holder<SoundEvent> cannot be converted to SoundEvent)
+      method Level.playSound(Player,double,double,double,SoundEvent,SoundSource) is not applicable
+        (argument mismatch; BlockPos cannot be converted to double)
+      method Level.playSound(Player,Entity,SoundEvent,SoundSource,float,float) is not applicable
+        (argument mismatch; BlockPos cannot be converted to Entity)
+  Note: Recompile with -Xlint:deprecation for details.
+  Note: D:\slavic-myths\src\main\java\org\slavicmyths\world\WildlifeSpawns.java uses unchecked or unsafe operations.
+  Note: Recompile with -Xlint:unchecked for details.
+  Note: Some input files use or override a deprecated API.
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+  @net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                           ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+  @net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                            ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+  @EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+  @EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                                          ^
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  1 error
+  4 warnings
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 12s
+2 actionable tasks: 1 executed, 1 up-to-date

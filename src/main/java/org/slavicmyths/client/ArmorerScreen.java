@@ -6,6 +6,7 @@ import net.minecraft.network.chat.Component;
 import org.slavicmyths.armorer.ArmorerMenu;
 public final class ArmorerScreen extends AbstractContainerScreen<ArmorerMenu> {
     public ArmorerScreen(ArmorerMenu m,Inventory i,Component title){super(m,i,title);imageWidth=176;imageHeight=193;inventoryLabelY=99;}
+    @Override protected void init(){super.init();addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("?"),b->minecraft.setScreen(new ArmorerRecipeScreen(this))).bounds(leftPos+151,topPos+4,18,14).tooltip(net.minecraft.client.gui.components.Tooltip.create(Component.translatable("weapon.slavicmyths.recipes"))).build());}
     @Override protected void renderBg(GuiGraphics p,float partial,int mx,int my){
         p.fill(leftPos,topPos,leftPos+imageWidth,topPos+imageHeight,0xff32251c);
         p.fill(leftPos+4,topPos+4,leftPos+172,topPos+189,0xff64513b);
