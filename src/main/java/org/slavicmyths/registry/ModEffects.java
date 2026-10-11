@@ -14,6 +14,10 @@ public final class ModEffects {
  public static final DeferredHolder<MobEffect,MobEffect> CURSE=EFFECTS.register("kurgan_curse",CurseEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> ILL_FATE=EFFECTS.register("durnaya_dolya",()->new MobEffect(MobEffectCategory.HARMFUL,0x6C3233){});
  public static final DeferredHolder<MobEffect,MobEffect> CUT=EFFECTS.register("cut",org.slavicmyths.combat.CutEffect::new);
+ public static final DeferredHolder<MobEffect,MobEffect> WOLF_CUT=EFFECTS.register("wolf_cut",org.slavicmyths.wolf.WolfBleeding::new);
+ public static final DeferredHolder<MobEffect,MobEffect> BAD_BLOOD=EFFECTS.register("bad_blood",org.slavicmyths.volkolak.BadBlood::new);
+ // Visible phase marker; WorldBoss.hurt owns the single damage multiplier.
+ public static final DeferredHolder<MobEffect,MobEffect> SERPENT_GUARD=EFFECTS.register("serpent_guard",()->new MobEffect(MobEffectCategory.BENEFICIAL,0xD98835){});
  public static final DeferredHolder<MobEffect,MobEffect> RARE_BLEED=EFFECTS.register("rare_bleeding",org.slavicmyths.combat.RareBleedEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> DISORIENTATION=EFFECTS.register("disorientation",org.slavicmyths.combat.DisorientationEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> CLASS_ROOT=EFFECTS.register("class_root",org.slavicmyths.rpg.classes.ClassControl.RootEffect::new);

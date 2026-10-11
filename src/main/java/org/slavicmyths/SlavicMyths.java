@@ -18,6 +18,9 @@ public final class SlavicMyths {
 
     public SlavicMyths(IEventBus bus, ModContainer container) {
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.rpg.classes.ClassHudConfig.SPEC);
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.earth.EarthVisualConfig.SPEC,"slavicmyths-earth-visuals.toml");
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.chud.AbandonedConfig.SPEC,"slavicmyths-chud-worldgen.toml");
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.earth.EarthConfig.SPEC,"slavicmyths-earth-spirit.toml");
         org.slavicmyths.item.ItemState.COMPONENTS.register(bus);
         org.slavicmyths.rpg.Runes.init();
         org.slavicmyths.garden.Gardens.init();
@@ -37,11 +40,23 @@ public final class SlavicMyths {
         org.slavicmyths.kurgan.KurganCurse.EFFECTS.register(bus);
         org.slavicmyths.kurgan.BurialCoffinMenu.register();
         org.slavicmyths.kurgan.KurganStructures.register();
+        org.slavicmyths.earth.EarthContent.init();
+        org.slavicmyths.sivka.SivkaContent.init();
+        org.slavicmyths.firebird.FirebirdContent.init();
+        org.slavicmyths.nochnitsa.NochnitsaContent.init(bus);
+        org.slavicmyths.pesigolovtsy.DogheadContent.init(bus);
+        org.slavicmyths.kuzya.KuzyaContent.init();
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.pesigolovtsy.DogheadConfig.SPEC,"slavicmyths-pesigolovtsy.toml");
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.nochnitsa.NochnitsaConfig.SPEC,"slavicmyths-nochnitsa.toml");
+        bus.addListener(org.slavicmyths.sivka.SivkaNetwork::register);
         ModBlocks.BLOCKS.register(bus);
         org.slavicmyths.bandit.CampStructures.register();
         org.slavicmyths.gorodishche.GorodishcheStructures.init();
+        org.slavicmyths.chud.ChudStructures.init();
+        org.slavicmyths.worldgen.ChudRegionPlacements.TYPES.register(bus);
         org.slavicmyths.swamp.SwampStructures.STRUCTURES.register(bus);
         org.slavicmyths.swamp.SwampStructures.PIECES.register(bus);
+        org.slavicmyths.equipment.UniqueEquipment.init();
         org.slavicmyths.item.ModGear.ARMOR_MATERIALS.register(bus);
         org.slavicmyths.registry.ModItemGroup.TABS.register(bus);
         org.slavicmyths.combat.WeaponCatalog.register();
@@ -53,6 +68,9 @@ public final class SlavicMyths {
         org.slavicmyths.rpg.RuneVisual.init();
         org.slavicmyths.rpg.RuneCraftRecipe.TYPES.register(bus);
         org.slavicmyths.rpg.RuneCraftRecipe.SERIALIZERS.register(bus);
+        org.slavicmyths.industry.Industry.register(bus);
+        org.slavicmyths.underground.UndergroundMobs.init(bus);
+        org.slavicmyths.underground.UndergroundSounds.init();
         ModItems.ITEMS.register(bus);
         org.slavicmyths.armorer.ArmorerRecipe.TYPES.register(bus);
         org.slavicmyths.armorer.ArmorerRecipe.SERIALIZERS.register(bus);
@@ -67,6 +85,7 @@ public final class SlavicMyths {
         bus.addListener(org.slavicmyths.navigation.NavigationNetwork::register);
         bus.addListener(org.slavicmyths.rpg.RpgNetwork::register);
         bus.addListener(org.slavicmyths.rpg.RareRuneNetwork::register);
+        bus.addListener(org.slavicmyths.equipment.ClearSightNetwork::register);
         org.slavicmyths.hunt.PouchMenu.register();
         org.slavicmyths.flight.CargoMenu.register();
         bus.addListener(org.slavicmyths.flight.FlightNetwork::register);

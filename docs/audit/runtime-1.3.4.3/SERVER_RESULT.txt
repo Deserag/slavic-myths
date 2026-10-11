@@ -1,0 +1,1 @@
+7 actual GameTest server launches; 1 dev client launch. Final server: 37/37 required observations passed. A02 and A18 remain defects; no fixes applied. Native UI capture unavailable; no gameplay screenshots. See server-evidence.log.

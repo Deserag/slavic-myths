@@ -1,0 +1,12 @@
+{
+  "build": "PASS",
+  "offline_checks": "PASS",
+  "production_sha256": "42abe094b92379daca566023d51963c51cd60f8ed6fb82eb0d5584c406590a67",
+  "minecraft_launches": 0,
+  "runtime_validation": "NOT_RUN",
+  "rule_assertions": 18,
+  "mesh_assertions": 2387,
+  "saved_data_roundtrip": "PASS",
+  "loot_probability_samples": 4000,
+  "limitation": "No client/server startup, in-game combat/AI/pose/trade/relog/MSPT verification; Wizard and Ender Skeleton absent from installed mods"
+}

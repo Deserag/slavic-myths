@@ -1,0 +1,13 @@
+{
+  "version": "1.4.1",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.4.1.jar",
+  "sha256": "ffd6a11453ccc34442996edf3ad62fd287595189d55332be9c805b672f03798d",
+  "result": "already installed; exact production match",
+  "build": "clean build PASS",
+  "resource_checks": 22672,
+  "active_mod_jars": 1,
+  "client_launches": 0,
+  "server_launches": 0,
+  "instance_files_modified": 0
+}

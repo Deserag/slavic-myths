@@ -1,0 +1,22 @@
+﻿clip,time_s,sound_event,condition
+walk,0,kuzya.step_wood,ONE_SHOT; server emits once
+walk,0.45,kuzya.step_wood,ONE_SHOT; server emits once
+climb_stove,0.18,kuzya.stove_climb,ONE_SHOT; server emits once
+climb_stove,0.67,kuzya.step_wood,ONE_SHOT; server emits once
+climb_stove,1.35,kuzya.cloth,ONE_SHOT; server emits once
+lie_down,0.66,kuzya.stove_settle,ONE_SHOT; server emits once
+sleep_enter,0.5,kuzya.sleep_breath,ONE_SHOT; server emits once
+wake_up,0.9,kuzya.wake,ONE_SHOT; server emits once
+sit_down,0.5,kuzya.sit,ONE_SHOT; server emits once
+pick_food,0.4,kuzya.bowl,ONE_SHOT; server emits once
+eat_bite,0.43,kuzya.chew,ONE_SHOT; server emits once
+eat_chew,0.54,kuzya.chew,ONE_SHOT; server emits once
+eat_swallow,0.25,kuzya.swallow,ONE_SHOT; server emits once
+domestic_sweep,0.55,kuzya.sweep,ONE_SHOT; server emits once
+grumble_medium,0.55,kuzya.voice_ask_leave,ONE_SHOT; server emits once
+grumble_large,0.6,kuzya.voice_ask_leave,ONE_SHOT; server emits once
+respond_right_click,0.36,kuzya.voice_interact,ONE_SHOT; server emits once
+react_to_yaga,0.52,kuzya.voice_yaga,ONE_SHOT; server emits once
+dismount_stove,1.5,kuzya.step_wood,ONE_SHOT; server emits once
+shoo_guest,0.45,kuzya.huff,ONE_SHOT; server emits once
+sleep_loop,0,kuzya.sleep_breath,ONE_SHOT per clip except sleep_loop = audio scheduler with 35-70s interval

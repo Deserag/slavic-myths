@@ -1,0 +1,113 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileChudCheckJava UP-TO-DATE
+> Task :processChudCheckResources UP-TO-DATE
+> Task :chudCheckClasses UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :writeChudChecksLegacyClasspath UP-TO-DATE
+> Task :prepareChudChecksRun UP-TO-DATE
+
+> Task :runChudChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[14:07:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[14:07:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[14:07:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[14:07:44] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[14:07:44] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[14:07:44] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[14:07:44] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.5.1 (slavicmyths)
+[14:07:45] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[14:07:45] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[14:07:45] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:07:45] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:07:46] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[14:07:46] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[14:07:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:07:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:07:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:07:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:07:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:07:51] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[14:07:52] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[14:07:52] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-152/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[14:07:52] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-152/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[14:07:52] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_abandoned]
+[14:07:54] [main/INFO] [minecraft/RecipeManager]: Loaded 1769 recipes
+[14:07:54] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[14:07:54] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[14:07:54] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[14:07:55] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[14:07:55] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[14:07:55] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 148 ms
+[14:07:55] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[14:07:55] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[14:07:55] [Server thread/INFO] [minecraft/GameTestServer]: 2 tests are now running at position -1335631, -59, -14965510!
+[14:07:55] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (2 tests)...
+[14:07:56] [Server thread/INFO] [minecraft/GameTestServer]: [  ]
+ABANDONED_GEOMETRY seed=0 type=ATTACHED_SMALL reachable=15617 unreachable=[]
+ABANDONED_GEOMETRY seed=0 type=INDEPENDENT_MEDIUM reachable=10195 unreachable=[gallery_upper=BlockPos{x=-50, y=11, z=50}, gallery_upper_south=BlockPos{x=-50, y=11, z=74}]
+ABANDONED_ROUTE entrance reached=132/215 36:BlockPos{x=96, y=118, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] 39:BlockPos{x=93, y=116, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 42:BlockPos{x=90, y=115, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air} 45:BlockPos{x=87, y=112, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] 51:BlockPos{x=81, y=109, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 54:BlockPos{x=78, y=106, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] 57:BlockPos{x=75, y=105, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air} 60:BlockPos{x=72, y=103, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 63:BlockPos{x=69, y=101, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 66:BlockPos{x=66, y=99, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_bricks} 69:BlockPos{x=63, y=97, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 75:BlockPos{x=57, y=93, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] 78:BlockPos{x=54, y=90, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] 84:BlockPos{x=48, y=87, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] 87:BlockPos{x=45, y=85, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 90:BlockPos{x=42, y=84, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air} 93:BlockPos{x=39, y=81, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] 99:BlockPos{x=33, y=78, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 102:BlockPos{x=30, y=75, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] 105:BlockPos{x=27, y=74, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air} 108:BlockPos{x=24, y=72, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 111:BlockPos{x=21, y=70, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 114:BlockPos{x=18, y=68, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_bricks} 117:BlockPos{x=15, y=65, z=30} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] 120:BlockPos{x=15, y=65, z=33} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=north,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 204:BlockPos{x=-40, y=65, z=62} floor=Block{minecraft:air} body=Block{minecraft:air} head=Block{minecraft:air} 207:BlockPos{x=-43, y=65, z=62} floor=Block{minecraft:air} body=Block{minecraft:air} head=Block{minecraft:air} 210:BlockPos{x=-46, y=65, z=62} floor=Block{minecraft:air} body=Block{minecraft:air} head=Block{minecraft:air}
+ABANDONED_ROUTE quarter reached=71/100 3:BlockPos{x=-53, y=66, z=62} floor=Block{minecraft:air} body=Block{minecraft:air} head=Block{minecraft:air} 6:BlockPos{x=-56, y=67, z=62} floor=Block{minecraft:air} body=Block{minecraft:air} head=Block{minecraft:air} 9:BlockPos{x=-57, y=67, z=60} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air} 12:BlockPos{x=-57, y=68, z=57} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air} 18:BlockPos{x=-57, y=70, z=51} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air} 24:BlockPos{x=-57, y=71, z=45} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air} 27:BlockPos{x=-57, y=72, z=42} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=north,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 33:BlockPos{x=-57, y=74, z=36} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air} 36:BlockPos{x=-57, y=75, z=33} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air} 48:BlockPos{x=-57, y=78, z=21} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air}
+ABANDONED_ROUTE maze reached=89/125 3:BlockPos{x=-47, y=63, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_bricks} 6:BlockPos{x=-44, y=60, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=west,half=bottom,shape=straight,waterlogged=false] 9:BlockPos{x=-41, y=59, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:air} 12:BlockPos{x=-38, y=57, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=west,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 15:BlockPos{x=-35, y=55, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=west,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 18:BlockPos{x=-32, y=53, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_bricks} 21:BlockPos{x=-29, y=51, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=west,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 27:BlockPos{x=-23, y=47, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=west,half=bottom,shape=straight,waterlogged=false] 30:BlockPos{x=-20, y=44, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=west,half=bottom,shape=straight,waterlogged=false] 36:BlockPos{x=-14, y=41, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_brick_stairs}[facing=west,half=bottom,shape=straight,waterlogged=false] 39:BlockPos{x=-11, y=39, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_brick_stairs}[facing=west,half=bottom,shape=straight,waterlogged=false] head=Block{minecraft:air} 42:BlockPos{x=-8, y=37, z=62} floor=Block{minecraft:stone_bricks} body=Block{minecraft:stone_bricks} head=Block{minecraft:stone_bricks}
+ABANDONED_ROUTE secondary_join_0 reached=81/81
+ABANDONED_ROUTE secondary_join_1 reached=55/55
+ABANDONED_ROUTE secondary_join_2 reached=68/68
+ABANDONED_ROUTE secondary_join_3 reached=103/103
+ABANDONED_ROUTE secondary_join_4 reached=131/131
+ABANDONED_ROUTE secondary_join_5 reached=163/163
+ABANDONED_ROUTE secondary_join_6 reached=202/202
+ABANDONED_ROUTE secondary_join_7 reached=230/230
+ABANDONED_ROUTE secondary_join_8 reached=68/68
+[14:07:56] [Server thread/ERROR] [minecraft/LogTestReporter]: twelveseedgeometry failed at -1335631, -60, -14965510! out of native bounds INDEPENDENT_GREAT Fill[box=BoundingBox{minX=126, minY=120, minZ=69, maxX=128, maxY=121, maxZ=71}, state=Block{minecraft:polished_andesite}]
+[14:07:56] [Server thread/INFO] [minecraft/GameTestServer]: [X ]
+[14:07:56] [Server thread/INFO] [minecraft/GameTestServer]: [X+]
+[14:07:56] [Server thread/INFO] [minecraft/GameTestServer]: ========= 2 GAME TESTS COMPLETE IN 1.134 s ======================
+[14:07:56] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[14:07:56] [Server thread/INFO] [minecraft/GameTestServer]:    - twelveseedgeometry
+[14:07:56] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[14:07:56] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[14:07:56] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[14:07:56] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[14:07:57] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[14:07:57] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[14:07:57] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[14:07:57] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[14:07:57] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[14:07:57] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[14:07:57] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[14:07:57] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runChudChecks FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/work/chud-152/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runChudChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 25s
+9 actionable tasks: 2 executed, 7 up-to-date

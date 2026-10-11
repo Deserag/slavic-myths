@@ -1,0 +1,13 @@
+{
+  "version": "1.5.3.1",
+  "static_checks": 1063,
+  "production_classes": 952,
+  "depths_classes": 12,
+  "unchanged_chud_classes": 50,
+  "unchanged_chud_resources": 6,
+  "vanilla_tokens": 35,
+  "production_sha256": "0021e06e879d86891f076d3050d5306ab6d9159d3f6689545d4742c6b3943be9",
+  "status": "PASS",
+  "runtime_validation": "NOT_RUN",
+  "minecraft_launches": 0
+}

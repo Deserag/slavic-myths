@@ -12,10 +12,10 @@ import java.util.List;
 public final class LoreScreen extends Screen {
  private final int mask;
  private int article, lineOffset, navOffset, left, top, bookWidth, bookHeight, navWidth;
- private static final String[] IDS={"intro","domovoy","leshy","shrine","altar","ritual","paths","silver","amber","thunder_axe","storm_staff","charms","herbs","ritual_tools","runes","reforging","water_fish","fishing_net","vodyanoy","rusalka","elder_vodyanoy","deep_pool","pool_pearl","pool_spear","depth_amulet","swamp_hut","abandoned_settlement","bog_causeway","flooded_shrine","fishing_camp","underwater_ruins","bandit_gangs","bandit_small","bandit_medium","ataman","arms_craft","woodlands","forest_whistle","nightingale"};
+ private static final String[] IDS={"intro","domovoy","leshy","shrine","altar","ritual","paths","silver","amber","thunder_axe","storm_staff","charms","herbs","ritual_tools","runes","reforging","water_fish","fishing_net","vodyanoy","rusalka","elder_vodyanoy","deep_pool","pool_pearl","pool_spear","depth_amulet","swamp_hut","abandoned_settlement","bog_causeway","flooded_shrine","fishing_camp","underwater_ruins","bandit_gangs","bandit_small","bandit_medium","ataman","arms_craft","woodlands","forest_whistle","nightingale","industry","earth_heart"};
  public LoreScreen(int mask){super(Component.translatable("item.slavicmyths.lore_book"));this.mask=mask;}
  public static void open(int mask){Minecraft.getInstance().setScreen(new LoreScreen(mask));}
- private boolean unlocked(int i){return i==0||i>=6&&i<16||(mask&(1<<(i<6?i-1:i-11)))!=0;}
+ private boolean unlocked(int i){return IDS[i].equals("earth_heart")?(mask&(1<<(org.slavicmyths.progression.Knowledge.ENTRIES.length-1)))!=0:IDS[i].equals("industry")||i==0||i>=6&&i<16||(mask&(1<<(i<6?i-1:i-11)))!=0;}
  private int navRows(){return Math.max(1,(bookHeight-56)/24);}
  private int pageRows(){return Math.max(1,(bookHeight-articleTop()-16)/12);}
  private int articleTop(){return 27+font.split(Component.translatable("book.slavicmyths."+IDS[article]+".title"),bookWidth-navWidth-40).size()*10;}

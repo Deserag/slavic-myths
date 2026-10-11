@@ -1,0 +1,11 @@
+{
+  "checks": 12020,
+  "version": "1.5.2.2",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.5.2.2.jar",
+  "sha256": "925b9eb3914a39bd1b33a39de59f3acb6b36e3724db899e104fe25f08d40e398",
+  "resources": "PASS",
+  "production": "PASS",
+  "spacing_lower_bound_blocks": 2298,
+  "client_launches": 0,
+  "gameplay_visual_qa": "NOT_TESTED"
+}

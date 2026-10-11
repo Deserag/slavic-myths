@@ -1,0 +1,331 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "file": "sounds\\nochnitsa\\ambient_01.ogg",
+      "duration": 1.3879818594104307,
+      "peak_dbfs": -13.543344468957192,
+      "rms_dbfs": -28.860334051336135,
+      "pcm_sha256": "080d9fb437b145d2aa05faf18211f5501f326397c128ca350dc6b53c5db82804",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\ambient_02.ogg",
+      "duration": 1.5229931972789115,
+      "peak_dbfs": -13.415577120672264,
+      "rms_dbfs": -28.202426525923116,
+      "pcm_sha256": "994bf0f7344d7099c645a6f24f267594565dda4203e7f320aaa6007fc0b778d2",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\ambient_03.ogg",
+      "duration": 1.6579818594104307,
+      "peak_dbfs": -13.613997496032091,
+      "rms_dbfs": -29.104514055179138,
+      "pcm_sha256": "214303a03261037e14cf153b6952bf319d766daa8a982e21095d96ddf04a65e2",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\breath_01.ogg",
+      "duration": 0.6570975056689342,
+      "peak_dbfs": -7.482485811135584,
+      "rms_dbfs": -21.464920870817007,
+      "pcm_sha256": "b97b9ad18e88e9e9905efdd61977e790372b18702c25184ec7e703a53b94cdb2",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\breath_02.ogg",
+      "duration": 0.7320861678004535,
+      "peak_dbfs": -7.513658312298547,
+      "rms_dbfs": -22.188637105740064,
+      "pcm_sha256": "0a573975a2ad1ba165f02af763bc69dff4b4f365640a817d40b0247e7a4fda61",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\breath_03.ogg",
+      "duration": 0.8070975056689342,
+      "peak_dbfs": -8.31626988970278,
+      "rms_dbfs": -22.960009274431116,
+      "pcm_sha256": "1a5caa245954e5d387ab9896304eec763f2ea7cf500b67c81d7800c97d37d9ca",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\step_01.ogg",
+      "duration": 0.22494331065759637,
+      "peak_dbfs": -7.660089999146357,
+      "rms_dbfs": -24.664982553758968,
+      "pcm_sha256": "40de1c2caac2328f64d7ad25c5e22b1607ce3799176a165bcf56560c0e92fe0e",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\step_02.ogg",
+      "duration": 0.2510657596371882,
+      "peak_dbfs": -8.184420899353915,
+      "rms_dbfs": -27.75143628693059,
+      "pcm_sha256": "30ef69cf67129631b219b68a897a1e97833c85b743788eda85e1ff3f97318e9f",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\step_03.ogg",
+      "duration": 0.25249433106575964,
+      "peak_dbfs": -7.915212783119725,
+      "rms_dbfs": -26.64322152027289,
+      "pcm_sha256": "ef33a2d9d1330d450c07cf44b1076aa53f9946035bb9d5b12b3565ee7ad028d8",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\step_04.ogg",
+      "duration": 0.27798185941043085,
+      "peak_dbfs": -8.187747082844863,
+      "rms_dbfs": -25.30242754669181,
+      "pcm_sha256": "131cf637c16e13c7cf48fef1f0f29687e3697674c13f8e071a26c036b5284bde",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\claw_swing_01.ogg",
+      "duration": 0.32072562358276646,
+      "peak_dbfs": -1.6910696695652814,
+      "rms_dbfs": -16.69440469728873,
+      "pcm_sha256": "4edbb3dba4222b698dea6e49670f2dd18a0fd1c167f740a19efa6baad07480ae",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\claw_swing_02.ogg",
+      "duration": 0.3304761904761905,
+      "peak_dbfs": -1.9224802259623388,
+      "rms_dbfs": -16.793922207414404,
+      "pcm_sha256": "31383454794004ddf35f3b495a0b4d4af13a8db9668cc503c4e45aab4105fee0",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\hurt_01.ogg",
+      "duration": 0.5570975056689342,
+      "peak_dbfs": -1.782154347852932,
+      "rms_dbfs": -15.733269069006674,
+      "pcm_sha256": "a48e5c15b23391178f452371ce93fd08874df342fb726ed399f8f92d4e7af545",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\hurt_02.ogg",
+      "duration": 0.6320861678004536,
+      "peak_dbfs": -1.6408689198527453,
+      "rms_dbfs": -14.97884796725144,
+      "pcm_sha256": "27dca195e2629e96a255079f869d90e2f3a9f935626ec3dfc46ebd2275be57f4",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\hurt_03.ogg",
+      "duration": 0.7070975056689343,
+      "peak_dbfs": -1.8550594684712507,
+      "rms_dbfs": -16.226803943337668,
+      "pcm_sha256": "3414aef6f7a6f20812a2b7a5ed375b19bddddafcea2211039d419ebfcd685aa9",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\scream_inhale_01.ogg",
+      "duration": 1.0119954648526077,
+      "peak_dbfs": -1.7348244667447874,
+      "rms_dbfs": -15.799890128666325,
+      "pcm_sha256": "42477e8de39b664f1d707810a82e26ed3aca5f796b00eb8d403ef5d13456c4c9",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\scream_inhale_02.ogg",
+      "duration": 1.0644897959183675,
+      "peak_dbfs": -2.0670925023286006,
+      "rms_dbfs": -15.282502262164478,
+      "pcm_sha256": "ab8744b2caa2180ff8c144f295291c377d3eb93fe5081ab271093a7f1e080cd5",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\scream_release_01.ogg",
+      "duration": 1.72,
+      "peak_dbfs": -1.7328529443251046,
+      "rms_dbfs": -13.471828141122465,
+      "pcm_sha256": "6a21422e19a5809a6674e454673a98ca0587defd9d55514951d47e923f45aaaa",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\scream_release_02.ogg",
+      "duration": 1.87,
+      "peak_dbfs": -1.380364664159871,
+      "rms_dbfs": -13.688054985508087,
+      "pcm_sha256": "c63fdb5b828b9948cad6765c09b56d3d66ebcbf0b9a6183144b5fa6be4408002",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\scream_release_03.ogg",
+      "duration": 2.02,
+      "peak_dbfs": -1.5103532514204518,
+      "rms_dbfs": -13.657980986020203,
+      "pcm_sha256": "ec5ca27eb3f45e307e9842690510f8ccd61d73fec12611f1604c812ae5b57c1c",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\scream_interrupt_01.ogg",
+      "duration": 0.42507936507936506,
+      "peak_dbfs": -1.700796246933378,
+      "rms_dbfs": -15.273435334183214,
+      "pcm_sha256": "cb2660dd645e7b641e92f3273a76955fd2f506931abc6061a50fa9d0cbea391e",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\scream_interrupt_02.ogg",
+      "duration": 0.48507936507936505,
+      "peak_dbfs": -2.1957255878232234,
+      "rms_dbfs": -15.364357267496558,
+      "pcm_sha256": "e0b6894d1c6fc359a6d471b915dcc6f928c0e69f64c727712e7d174ba51d6a16",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\target_spotted_01.ogg",
+      "duration": 0.5910884353741497,
+      "peak_dbfs": -1.5800138542998956,
+      "rms_dbfs": -14.545261046447388,
+      "pcm_sha256": "9eb7cf810c0469c54fbdf12b5127e7f6f93cbff75c18c9ecd6b3bf1b3e113372",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\target_spotted_02.ogg",
+      "duration": 0.65859410430839,
+      "peak_dbfs": -2.20900487650561,
+      "rms_dbfs": -15.887876124072239,
+      "pcm_sha256": "725379abc8e4906061d4284389d0d2e55d0510853bdaa54cc838994052c33404",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\sunrise_dissolve_01.ogg",
+      "duration": 1.2239909297052154,
+      "peak_dbfs": -1.4042009261304909,
+      "rms_dbfs": -15.178345365994346,
+      "pcm_sha256": "d44e5fe684028f9f84d3b40122dec558f5443fabf39bc5948a8ab03919f5bb5d",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\sunrise_dissolve_02.ogg",
+      "duration": 1.3289795918367346,
+      "peak_dbfs": -1.8276315148973894,
+      "rms_dbfs": -17.3510348150013,
+      "pcm_sha256": "3261529acbb7476bd91a167e0722451a0dbe67a9a6bbfa38906649931dd930ed",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\death_01.ogg",
+      "duration": 1.3559863945578232,
+      "peak_dbfs": -1.8061633383098064,
+      "rms_dbfs": -15.77159439681595,
+      "pcm_sha256": "7140c099225472940369f1ff9e183c517420f45542ccf0a08b1fc943ca58ddb7",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\death_02.ogg",
+      "duration": 1.475986394557823,
+      "peak_dbfs": -1.2039046071563568,
+      "rms_dbfs": -15.445005056652768,
+      "pcm_sha256": "6a96570fdee6290d4803ae5197e5532195f063ccfdef1534e4468fce3d36183c",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\robes_rustle_01.ogg",
+      "duration": 0.5151927437641723,
+      "peak_dbfs": -9.061600472698618,
+      "rms_dbfs": -25.002701954814476,
+      "pcm_sha256": "3259ea7f9c6867d21c3425e42a486d7cc4c422a6fe5a7bd668c7e278c1f40cde",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\robes_rustle_02.ogg",
+      "duration": 0.579092970521542,
+      "peak_dbfs": -8.105559315462127,
+      "rms_dbfs": -24.519639927019938,
+      "pcm_sha256": "63407c1913ef3b37dc57332b404c88d1e550da20d1c14a34af6c71b9add7c648",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    },
+    {
+      "file": "sounds\\nochnitsa\\robes_rustle_03.ogg",
+      "duration": 0.6690929705215419,
+      "peak_dbfs": -8.08162941903702,
+      "rms_dbfs": -24.987327302916963,
+      "pcm_sha256": "a1151c5802c35a2f6f61d5feed34c023ee354fe7ee3ddfbb14e1dcdaf3c37cfc",
+      "codec": "vorbis",
+      "channels": 1,
+      "sample_rate": 44100
+    }
+  ],
+  "max_family_correlation": {
+    "nochnitsa.ambient": 0.009647596156447055,
+    "nochnitsa.breath": 0.041798579416697346,
+    "nochnitsa.step": 0.09327516746373622,
+    "nochnitsa.claw_swing": 0.03057892236173571,
+    "nochnitsa.hurt": 0.02224357516015095,
+    "nochnitsa.scream_inhale": 0.01612553441317851,
+    "nochnitsa.scream_release": 0.006539030848657354,
+    "nochnitsa.scream_interrupt": 0.03598823210199471,
+    "nochnitsa.target_spotted": 0.00250047403846864,
+    "nochnitsa.sunrise_dissolve": 0.0116178173794725,
+    "nochnitsa.death": 0.00142033055905504,
+    "nochnitsa.robes_rustle": 0.051488203755377944
+  },
+  "game_audio_audition": "NOT TESTED",
+  "source": "Original synthetic formant/noise DSP; no external audio samples"
+}

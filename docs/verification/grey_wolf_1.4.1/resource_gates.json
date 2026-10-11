@@ -1,0 +1,46 @@
+{
+  "version": "1.4.1",
+  "checks": 22672,
+  "production_jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.4.1.jar",
+  "sha256": "ffd6a11453ccc34442996edf3ad62fd287595189d55332be9c805b672f03798d",
+  "preserved_baseline_files": 5609,
+  "changed_baseline_files": [
+    "src/main/resources/assets/slavicmyths/sounds.json",
+    "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "src/main/java/org/slavicmyths/client/ClientSetup.java",
+    "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "src/main/java/org/slavicmyths/entity/WildlifeEntity.java",
+    "src/main/java/org/slavicmyths/navigation/MarkerCategory.java",
+    "src/main/java/org/slavicmyths/registry/ModEffects.java",
+    "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "src/main/java/org/slavicmyths/registry/ModSounds.java",
+    "src/main/java/org/slavicmyths/compat/xaero/XaeroNavigationBridge.java"
+  ],
+  "parts": 30,
+  "cubes": 87,
+  "wolf_to_bear_visual_ratios": [
+    1.9887305270135895,
+    1.987662378917274,
+    1.9853946625421015
+  ],
+  "audio": [
+    {
+      "name": "summon_howl",
+      "duration": 3.95,
+      "peak": 0.910857617855072,
+      "rms": 0.3218497187497386,
+      "sha256": "07343136dc13d34a3f6e13682212c47b2216069a55b490eaff33bf98b14da63a"
+    },
+    {
+      "name": "pack_answer",
+      "duration": 2.0,
+      "peak": 0.3699168264865875,
+      "rms": 0.13952087457345042,
+      "sha256": "f25c78b94e84a7532810bc98f66d67dbaa2996c72b92b237eac81f6fc1c1a153"
+    }
+  ],
+  "client_launches": 0,
+  "manual_qa_open": true
+}

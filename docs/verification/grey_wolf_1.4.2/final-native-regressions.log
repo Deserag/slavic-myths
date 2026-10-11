@@ -1,0 +1,293 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileCombatCheckJava
+Note: D:\slavic-myths\tools\combat-fix-tests\org\slavicmyths\verify\CombatFixGameTests.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\slavic-myths\tools\combat-fix-tests\org\slavicmyths\verify\CombatFixGameTests.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :processCombatCheckResources
+> Task :combatCheckClasses
+
+> Task :compileUniqueEquipmentCheckJava
+Note: D:\slavic-myths\tools\unique-equipment-tests\org\slavicmyths\verify\UniqueEquipmentGameTests.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :compileWolfStoryCheckJava
+Note: D:\slavic-myths\tools\grey-wolf-story-tests\org\slavicmyths\verify\WolfStoryGameTests.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\slavic-myths\tools\grey-wolf-story-tests\org\slavicmyths\verify\WolfStoryGameTests.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :downloadAssets UP-TO-DATE
+> Task :writeWolfStoryChecksLegacyClasspath UP-TO-DATE
+> Task :prepareWolfStoryChecksRun UP-TO-DATE
+> Task :processUniqueEquipmentCheckResources
+> Task :uniqueEquipmentCheckClasses
+> Task :processWolfStoryCheckResources UP-TO-DATE
+> Task :wolfStoryCheckClasses
+
+> Task :runWolfStoryChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[23:42:47] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[23:42:47] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[23:42:47] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[23:42:47] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[23:42:48] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[23:42:48] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[23:42:48] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.4.2.1 (slavicmyths)
+[23:42:49] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[23:42:49] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[23:42:49] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[23:42:49] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[23:42:50] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[23:42:50] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[23:42:55] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23:42:55] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23:42:55] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[23:42:55] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[23:42:55] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23:42:55] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[23:42:56] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[23:42:56] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[23:42:56] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[23:42:56] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_wolf_story]
+[23:42:58] [main/INFO] [minecraft/RecipeManager]: Loaded 1769 recipes
+[23:42:58] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[23:42:58] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[23:42:58] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[23:42:59] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[23:42:59] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[23:42:59] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 116 ms
+[23:42:59] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[23:42:59] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[23:42:59] [Server thread/INFO] [minecraft/GameTestServer]: 25 tests are now running at position -2924875, -59, -1763009!
+[23:42:59] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (25 tests)...
+[23:43:00] [Server thread/INFO] [minecraft/GameTestServer]: [                         ]
+FINIST_NATIVE_BASELINE heavy=9.0 finist=11.0 heavyVelocity=3.5953002822747595 finistVelocity=3.592699296676247
+[23:43:00] [Server thread/INFO] [minecraft/MinecraftServer]: StoryProbe has made the advancement [Take Aim]
+[23:43:00] [Server thread/INFO] [minecraft/MinecraftServer]: StoryProbe has made the advancement [Take Aim]
+[23:43:00] [Server thread/INFO] [minecraft/MinecraftServer]: StoryProbe has made the advancement [Best Friends Forever]
+[23:43:00] [Server thread/INFO] [minecraft/MinecraftServer]: StoryProbe has completed the challenge [Name Your Misfortune]
+[23:43:00] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++_++++++++++++++ ]
+[23:43:01] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++_+++++++++++++++]
+[23:43:01] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++_+++++++++++++++]
+[23:43:01] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++_+++++++++++++++]
+[23:43:01] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++_+++++++++++++++]
+[23:43:01] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++_+++++++++++++++]
+[23:43:01] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++_+++++++++++++++]
+[23:43:01] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++_+++++++++++++++]
+[23:43:01] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++]
+[23:43:01] [Server thread/INFO] [minecraft/GameTestServer]: ========= 25 GAME TESTS COMPLETE IN 2.163 s ======================
+[23:43:01] [Server thread/INFO] [minecraft/GameTestServer]: All 25 required tests passed :)
+[23:43:01] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[23:43:01] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[23:43:01] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[23:43:01] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[23:43:01] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[23:43:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[23:43:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[23:43:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[23:43:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[23:43:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[23:43:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[23:43:02] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :writeCombatFixesLegacyClasspath
+> Task :prepareCombatFixesRun
+
+> Task :runCombatFixes
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[23:43:04] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[23:43:04] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[23:43:04] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[23:43:04] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[23:43:04] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[23:43:04] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[23:43:04] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.4.2.1 (slavicmyths)
+[23:43:05] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[23:43:05] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[23:43:05] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[23:43:05] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[23:43:06] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[23:43:06] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[23:43:12] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23:43:12] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23:43:12] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[23:43:12] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[23:43:12] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23:43:12] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[23:43:13] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[23:43:13] [main/WARN] [ne.ne.ne.co.CommonHooks/WP]: The following mods have version differences that were not resolved:
+slavicmyths (version 1.4.1 -> 1.4.2.1)
+Things may not work well.
+[23:43:13] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[23:43:13] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[23:43:13] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_combat]
+[23:43:15] [main/INFO] [minecraft/RecipeManager]: Loaded 1769 recipes
+[23:43:15] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[23:43:15] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[23:43:15] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[23:43:16] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[23:43:16] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[23:43:16] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 125 ms
+[23:43:16] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[23:43:16] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[23:43:16] [Server thread/INFO] [minecraft/GameTestServer]: 63 tests are now running at position -3180324, -59, -9747892!
+[23:43:17] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (50 tests)...
+[23:43:17] [Server thread/INFO] [minecraft/GameTestServer]: [                                                               ]
+RARE_NATIVE_STORAGE_SAME_PROCESS_PASS items=4 cooldowns=2
+[23:43:18] [Server thread/WARN] [minecraft/Scoreboard]: Requested creation of existing team 'ally62'
+[23:43:18] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has made the advancement [Without an ataman]
+[23:43:18] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has completed the challenge [Name Your Misfortune]
+[23:43:18] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has completed the challenge [Steppe Champion]
+[23:43:18] [Server thread/INFO] [minecraft/GameTestServer]: [+++__+__++++++++_______+___++++_____++++++++++++++             ]
+[23:43:18] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has made the advancement [Monster Hunter]
+[23:43:18] [Server thread/INFO] [minecraft/GameTestServer]: [+++__++_++++++++_______+___++++_____++++++++++++++             ]
+[23:43:18] [Server thread/INFO] [minecraft/GameTestServer]: [+++__++_++++++++_______+___++++_____++++++++++++++             ]
+[23:43:18] [Server thread/INFO] [minecraft/GameTestServer]: [+++__++_++++++++_______+___++++_____++++++++++++++             ]
+[23:43:18] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has made the advancement [Monster Hunter]
+[23:43:18] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has made the advancement [Monster Hunter]
+[23:43:18] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has made the advancement [Monster Hunter]
+[23:43:18] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has made the advancement [Monster Hunter]
+[23:43:18] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has made the advancement [Monster Hunter]
+[23:43:18] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has made the advancement [Monster Hunter]
+[23:43:18] [Server thread/INFO] [minecraft/GameTestServer]: [+++__++_++++++++_______+___++++_____++++++++++++++             ]
+[23:43:18] [Server thread/INFO] [minecraft/GameTestServer]: [+++__++_++++++++_______+___+++++____++++++++++++++             ]
+[23:43:18] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++_++++++++_+++++++_+++++++_+++++++++++++++++             ]
+[23:43:18] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:1' (13 tests)...
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++             ]
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++             ]
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has made the advancement [Arms craft]
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ++++++ ]
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe has made the advancement [We Need to Go Deeper]
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: RareProbe was killed
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++_++++++++]
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++_++++++++]
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++_++++++++]
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++_++++++++]
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++_++++++++]
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++_++++++++]
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++]
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: ========= 63 GAME TESTS COMPLETE IN 2.939 s ======================
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: All 63 required tests passed :)
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[23:43:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[23:43:19] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :writeUniqueEquipmentChecksLegacyClasspath
+> Task :prepareUniqueEquipmentChecksRun
+
+> Task :runUniqueEquipmentChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[23:43:21] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[23:43:21] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[23:43:21] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[23:43:22] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[23:43:22] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[23:43:22] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[23:43:22] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.4.2.1 (slavicmyths)
+[23:43:23] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[23:43:23] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[23:43:23] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[23:43:23] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[23:43:24] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[23:43:24] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[23:43:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23:43:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23:43:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[23:43:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[23:43:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23:43:29] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[23:43:31] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[23:43:31] [main/WARN] [ne.ne.ne.co.CommonHooks/WP]: The following mods have version differences that were not resolved:
+slavicmyths (version 1.4.1 -> 1.4.2.1)
+Things may not work well.
+[23:43:31] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[23:43:31] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[23:43:31] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_unique]
+[23:43:32] [main/INFO] [minecraft/RecipeManager]: Loaded 1769 recipes
+[23:43:32] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[23:43:32] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[23:43:32] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[23:43:33] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[23:43:33] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[23:43:33] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 121 ms
+[23:43:33] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[23:43:33] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[23:43:33] [Server thread/INFO] [minecraft/GameTestServer]: 23 tests are now running at position -11389242, -59, -12357123!
+[23:43:34] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (23 tests)...
+[23:43:34] [Server thread/INFO] [minecraft/GameTestServer]: [                       ]
+WIND_BOOTS_NATIVE_LEDGE height=4.0 range=4.384872464463115
+[23:43:34] [Server thread/INFO] [minecraft/MinecraftServer]: ArmorProbe has made the advancement [Not Today, Thank You]
+WIND_CHARGED_NATIVE_ARC apex=12.461236380060392 range=11.49248706549406 ticks=36
+WIND_ACTIVE_OWNER_SAMPLE samples=1000 total_ns=1228000 attribute_sync=only_on_step_change no_world_scans=true
+[23:43:34] [Server thread/INFO] [minecraft/MinecraftServer]: ArmorProbe has made the advancement [Arms craft]
+WIND_BOOTS_NATIVE_ARC apex=4.153745102335549 range=7.132678126916289 ticks=21
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: ArmorProbe has made the advancement [We Need to Go Deeper]
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: ArmorProbe was killed
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: ArmorProbe was killed
+[23:43:35] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++]
+[23:43:35] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++]
+[23:43:35] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++]
+[23:43:35] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++]
+[23:43:35] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++]
+[23:43:35] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++]
+[23:43:35] [Server thread/INFO] [minecraft/GameTestServer]: ========= 23 GAME TESTS COMPLETE IN 1.571 s ======================
+[23:43:35] [Server thread/INFO] [minecraft/GameTestServer]: All 23 required tests passed :)
+[23:43:35] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[23:43:35] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[23:43:35] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 1m 1s
+19 actionable tasks: 12 executed, 7 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

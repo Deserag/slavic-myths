@@ -31,7 +31,7 @@ public final class ModItemGroup {
     }
     private static Item icon(int n){return switch(n){case 0->ModItems.LORE_BOOK.get();case 1->ModItems.SILVER_INGOT.get();case 2->ModItems.RYE_SEEDS.get();case 3->ModItems.KARAVAI.get();case 4->ModItems.SICKLE.get();case 5->ModItems.PERUNITE_CHESTPLATE.get();case 6->Gardens.ITEMS.get("apple_planks").get();case 7->ModItems.THUNDER_STONE.get();default->ModItems.DOMOVOY_SPAWN_EGG.get();};}
     private static final Set<String> WEAR=Set.of("invisibility_cap","hunter_belt","seven_league_boots","volchiy_poyas","poyas_tugarina","gambeson","plate_cuirass");
-    private static final Set<String> MAGIC=Set.of("thunder_stone","fern_flower","leshy_heart","ancient_sign","ancient_idol","altar","ritual_bowl","ritual_knife","ritual_charcoal","ritual_candle","path_stone","runic_anvil","storm_staff","veles_staff","flying_broom","flying_mortar","pestle","gusli","skatert","badnyak","perun_ring","resin_ring","grave_ward","lunula","grivna","ember_heart","pool_pearl","pool_stone","ancient_water_sign","vodyanoy_net","nav_essence","volkhv_amulet","pustoy_ritualny_sosud","sosud_ognennogo_dyhaniya","sosud_podveya","putevodny_klubok","oko_likha","uzel_durnoy_doli","odnoglazyy_obereg","otvar_ochishcheniya","otvar_lesnoy_zorkosti","yagin_nastoy_stoykosti","otvar_bodrosti","lesnoy_nastoy_vosstanovleniya","letuchaya_maz","uzel_podveya","vetrovoy_uzel","obereg_ohotnika","zolny_obereg","obereg_padayuschey_zvezdy");
+    private static final Set<String> MAGIC=Set.of("ancient_depths_map","thunder_stone","fern_flower","leshy_heart","ancient_sign","ancient_idol","altar","ritual_bowl","ritual_knife","ritual_charcoal","ritual_candle","path_stone","runic_anvil","storm_staff","veles_staff","flying_broom","flying_mortar","pestle","gusli","skatert","badnyak","perun_ring","resin_ring","grave_ward","lunula","grivna","ember_heart","pool_pearl","pool_stone","ancient_water_sign","vodyanoy_net","nav_essence","volkhv_amulet","pustoy_ritualny_sosud","sosud_ognennogo_dyhaniya","sosud_podveya","putevodny_klubok","oko_likha","uzel_durnoy_doli","odnoglazyy_obereg","otvar_ochishcheniya","otvar_lesnoy_zorkosti","yagin_nastoy_stoykosti","otvar_bodrosti","lesnoy_nastoy_vosstanovleniya","letuchaya_maz","uzel_podveya","vetrovoy_uzel","obereg_ohotnika","zolny_obereg","obereg_padayuschey_zvezdy");
     private static final Set<String> PLANTS=Set.of("flax","wormwood","st_johns_wort","nettle","fireweed","juniper_berries","rowan_berries","reed","water_grass","white_lily","field_bundle","svyazka_trav_yagi","organic_fertilizer","turnip","cabbage","pea_pod","flax_stalk");
     private static final Set<String> KITCHEN=Set.of("goose_egg","duck_egg","goat_milk_bucket","hearth","kitchen_table","rolling_pin","metal_pot","flour","ground_wormwood","ground_st_johns_wort","juniper_blend");
     private static final Set<String> MATERIAL=Set.of("animal_fat","goat_hide","flax_fiber","birch_bark","linen_thread","linen_cloth","perunite","amber","large_animal_bone","weapon_wrap","silver_fitting","iron_rings","old_hook","pearl_fragment","kikimora_lock","noon_ear","ovinnik_claw","nightingale_lock","upyr_fang","grave_cloth_scrap","torn_burial_ribbon","shield_boss_fragment","druzhinnik_blade_fragment","ovinnaya_zola","iskra_ovinnika","klyk_volkolaka","nochnoy_kogot","pylayuschaya_cheshuya","ognennoe_pero","vihrevaya_nit","nit_durnoy_doli","kost_likha","us_tugarina","tugarinova_kozha","zmeinaya_pryazhka","naboyka_tugarina");
@@ -39,12 +39,16 @@ public final class ModItemGroup {
     public static int category(Item item){
         if(item==ModItems.BEAR_CUB_SPAWN_EGG.get()||item==ModItems.DOE_SPAWN_EGG.get())return -1;
         String id=BuiltInRegistries.ITEM.getKey(item).getPath();
+        if(org.slavicmyths.industry.MiningRunes.ITEMS.values().stream().anyMatch(v->v.get()==item)||item instanceof org.slavicmyths.industry.IndustryAccessories.Accessory)return 7;
+        if(id.equals("bog_iron_lump")||id.equals("purification_flux"))return 1;
+        if(id.equals("chud_bloomery")||id.equals("refining_hearth"))return 4;
         if(org.slavicmyths.rpg.RuneFoundation.ITEMS.containsKey(id))return 7;
         if(org.slavicmyths.brewing.Brewing.ITEMS.containsKey(id))return org.slavicmyths.brewing.Brewing.category(id);
         if(item instanceof SpawnEggItem||id.endsWith("_spawn_egg"))return 8;
         if(item instanceof org.slavicmyths.textile.ClothingItem||id.equals("woven_belt")||item instanceof ArmorItem||WEAR.contains(id)||id.endsWith("_helmet")||id.endsWith("_chestplate")||id.endsWith("_leggings")||id.endsWith("_boots"))return 5;
+        if(id.equals("ring_of_grey_pack")||id.equals("finist_quiver")||id.equals("sivka_whistle"))return 7;
         if(MAGIC.contains(id)||id.startsWith("rune_")||id.endsWith("_charm")||id.endsWith("_amulet")||id.startsWith("obereg_"))return 7;
-        if(id.equals("ataman_sign"))return 1;
+        if(id.equals("ataman_sign")||id.equals("hardened_iron")||org.slavicmyths.firebird.FirebirdContent.RESOURCES.contains(id))return 1;
         if(TOOLS.contains(id)||item instanceof TieredItem||item instanceof ShieldItem||item instanceof BowItem||item instanceof CrossbowItem||id.matches(".*_(sword|dagger|spear|axe|pickaxe|shovel|hoe|knife|mace|shield|arrow)$")||id.equals("mace")||id.equals("chekan"))return 4;
         if(PLANTS.contains(id)||id.endsWith("_seeds")||id.endsWith("_grain")||id.endsWith("_sapling")||Arrays.asList(Gardens.BERRIES).contains(id))return 2;
         if(Set.of("wheat_flour","rye_flour","oat_groats","barley_groats","dough").contains(id))return 1;
@@ -58,6 +62,7 @@ public final class ModItemGroup {
     public static List<Item> items(int category){
         var items=ModItems.ITEMS.getEntries().stream().map(e->e.get()).filter(i->category(i)==category).sorted(Comparator.comparing(i->BuiltInRegistries.ITEM.getKey(i).getPath())).collect(java.util.stream.Collectors.toCollection(ArrayList::new));
         var preferred=new ArrayList<Item>();
+        if(category==8)preferred.add(org.slavicmyths.firebird.FirebirdContent.EGG.get());
         if(category==2){
             for(var item:org.slavicmyths.farming.Farming.creativeItems())if(category(item)==2)preferred.add(item);
             for(var id:Gardens.BERRIES)preferred.add(Gardens.ITEMS.get(id).get());

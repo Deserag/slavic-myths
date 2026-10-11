@@ -1,0 +1,348 @@
+{
+  "ru_ru": {
+    "wolfstory.slavicmyths.quests": "Задания",
+    "wolfstory.slavicmyths.subtitle": "Древний дух лесов",
+    "wolfstory.slavicmyths.reward": "Награда",
+    "wolfstory.slavicmyths.future": "Продолжение истории появится в следующем обновлении.",
+    "wolfstory.slavicmyths.random_rune": "Случайная руна II уровня",
+    "wolfstory.slavicmyths.target_missing": "Цель ещё не обнаружена. Продолжай исследовать мир.",
+    "wolfstory.slavicmyths.inventory_full": "Недостаточно места в инвентаре. Награда сохранена.",
+    "wolfstory.slavicmyths.ring_cooldown": "До следующего призыва: %s с",
+    "wolfstory.slavicmyths.no_space": "Нет безопасного места для двух волков.",
+    "wolfstory.slavicmyths.key_conflict": "Клавиша призыва конфликтует с другой. Измени её в настройках.",
+    "wolfstory.slavicmyths.clue": "Около X≈%s, Z≈%s",
+    "wolfstory.slavicmyths.title.0": "Разбойничья напасть",
+    "wolfstory.slavicmyths.title.1": "Осквернённая земля",
+    "wolfstory.slavicmyths.title.2": "Лихо Одноглазое",
+    "wolfstory.slavicmyths.title.3": "Проклятие Проклятого Оборотня",
+    "wolfstory.slavicmyths.state.locked": "Закрыто",
+    "wolfstory.slavicmyths.state.offered": "Доступно",
+    "wolfstory.slavicmyths.state.active": "В процессе",
+    "wolfstory.slavicmyths.state.reward_ready": "К награде",
+    "wolfstory.slavicmyths.state.completed": "Получено",
+    "wolfstory.slavicmyths.state.locked_future": "Будет позже",
+    "wolfstory.slavicmyths.button.accept": "Принять",
+    "wolfstory.slavicmyths.button.ask": "О награде",
+    "wolfstory.slavicmyths.button.claim": "Получить",
+    "wolfstory.slavicmyths.button.track": "Отслеживать",
+    "wolfstory.slavicmyths.button.reward": "Награда",
+    "wolfstory.slavicmyths.button.leave": "Уйти",
+    "wolfstory.slavicmyths.button.claimed": "Получено",
+    "wolfstory.slavicmyths.button.locked": "Закрыто",
+    "wolfstory.slavicmyths.objective.0": "Победи 15 разбойников: %s/15",
+    "wolfstory.slavicmyths.objective.1.tier": "Победи хозяина кургана %s уровня",
+    "wolfstory.slavicmyths.objective.1.search": "Найди и очисти курган II–III уровня",
+    "wolfstory.slavicmyths.objective.2": "Найди Лихо в лесной области. Радиус поиска: 300 блоков.",
+    "wolfstory.slavicmyths.dialog.0.offered": "Путник, ты уже доказал свою отвагу. Теперь мне нужна твоя помощь. Когда-то я сам мог отвести беду от этих лесов, но годы берут своё. Исполни мои поручения — и я поделюсь с тобой тем, что обрёл за долгую жизнь. По соседним дорогам ходят разбойники. Они губят путников, тревожат деревни и не дают зверю спокойно жить. Одолей пятнадцать из их шайки — и возвращайся ко мне.",
+    "wolfstory.slavicmyths.dialog.0.active": "Разбойников побеждено: %s/15. Не забывай держать щит наготове.",
+    "wolfstory.slavicmyths.dialog.0.reward_ready": "Пятнадцать разбойников повержены. Хорошо. Возьми три алмаза и отдохни перед новой дорогой.",
+    "wolfstory.slavicmyths.dialog.0.completed": "С первым делом покончено. Теперь поговорим о древней земле и тревожном кургане.",
+    "wolfstory.slavicmyths.dialog.1.offered": "Ты сдержал слово. У меня осталось ещё одно дело для твоей силы и смелости. В одном из старых курганов проснулась злая сила. Она оскверняет землю и тревожит тех, кому полагается покой. Найди великий курган и одолей его хозяина. Если его след затерялся, разыщи другой, не менее опасный.",
+    "wolfstory.slavicmyths.dialog.1.active": "Пока хозяин кургана не повержен, земля не обретёт покоя.",
+    "wolfstory.slavicmyths.dialog.1.reward_ready": "Мрак отступил от кургана. Возьми целую среднюю душу и руну второй ступени. Да послужат они тебе верно.",
+    "wolfstory.slavicmyths.dialog.1.completed": "Есть ещё один обитатель лесных окраин, чьё имя редко произносят без страха.",
+    "wolfstory.slavicmyths.dialog.2.offered": "Далеко за лесными дорогами поселилось Лихо Одноглазое. Где оно ступает, там остаются страх и разорение. Дорога длинна, а ноги мои уже не те, что встарь. Сможешь ли ты разыскать и одолеть его?",
+    "wolfstory.slavicmyths.dialog.2.active": "Не всё, что прячется в тени, находится по прямой тропе. Осмотрись там, где лес стал тише.",
+    "wolfstory.slavicmyths.dialog.2.reward_ready": "Лихо повержено, и этот край вздохнёт свободнее. Ты совершил дело, на которое мне самому уже не хватило бы сил. Возьми Кольцо Серой Стаи. Два лесных волка станут твоими товарищами в схватке. Береги их — это не бессмертные духи.",
+    "wolfstory.slavicmyths.dialog.2.completed": "Ты помог мне больше, чем я смел надеяться. Но есть ещё одна беда. В ней не помогут одни только клыки и клинок. Поговорим о ней, когда придёт время.",
+    "wolfstory.slavicmyths.dialog.3.locked_future": "Есть проклятие, которое нельзя снять одной победой. Пока я не готов раскрыть тебе всё, что знаю.",
+    "wolfstory.slavicmyths.dialog.ask.0": "За эту службу я отдам тебе три алмаза. Найдёшь им применение и в кузнице, и в дороге.",
+    "wolfstory.slavicmyths.dialog.ask.1": "Я сберёг целую среднюю душу и одну руну второй ступени. Пусть они послужат доброму делу.",
+    "wolfstory.slavicmyths.dialog.ask.2": "Когда-то мне досталось Кольцо Серой Стаи. Оно зовёт на помощь пару верных лесных волков. Одержишь верх над Лихом — кольцо будет твоим.",
+    "wolfstory.slavicmyths.dialog.accepted.0": "Не ищи битвы ради славы. Берегись засад и помни: в их числе встречаются и лучники.",
+    "wolfstory.slavicmyths.dialog.accepted.1": "Поищи курган второй или третьей ступени. Мир велик, и не всякое древнее место уже открыто.",
+    "wolfstory.slavicmyths.dialog.accepted.2": "Ищи Лихо у края старого бора, около указанных X и Z. Не верь этим числам слепо: Лихо не станет ждать тебя на отмеченном камне.",
+    "wolfstory.slavicmyths.dialog.rejected": "Выбор недоступен или не хватает места. Награда остаётся у Серого Волка.",
+    "wolfstory.slavicmyths.dialog.waiting": "Ожидается ответ сервера.",
+    "wolfstory.slavicmyths.dialog.0.locked": "Сначала заверши предыдущее поручение.",
+    "wolfstory.slavicmyths.dialog.claimed.0": "С первым делом покончено. Теперь поговорим о древней земле и тревожном кургане.",
+    "wolfstory.slavicmyths.dialog.1.locked": "Сначала заверши предыдущее поручение.",
+    "wolfstory.slavicmyths.dialog.claimed.1": "Есть ещё один обитатель лесных окраин, чьё имя редко произносят без страха.",
+    "wolfstory.slavicmyths.dialog.2.locked": "Сначала заверши предыдущее поручение.",
+    "wolfstory.slavicmyths.dialog.claimed.2": "Ты помог мне больше, чем я смел надеяться. Но есть ещё одна беда. В ней не помогут одни только клыки и клинок. Поговорим о ней, когда придёт время.",
+    "wolfstory.slavicmyths.ring.effect": "Призывает двух дружественных лесных волков",
+    "wolfstory.slavicmyths.ring.health": "Здоровье каждого: 20; урон: 6",
+    "wolfstory.slavicmyths.ring.duration": "Время действия: 40 с",
+    "wolfstory.slavicmyths.ring.cooldown": "Перезарядка: 90 с",
+    "wolfstory.slavicmyths.ring.use": "Надень в слот кольца; призыв — V (настраивается)",
+    "wolfstory.slavicmyths.bow.damage": "Сильнее тяжёлого лука",
+    "wolfstory.slavicmyths.bow.compatibility": "Можно зачаровать и усилить рунами",
+    "wolfstory.slavicmyths.bow.pair": "С Колчаном Финиста стрелы ищут отмеченную цель",
+    "wolfstory.slavicmyths.bow.lock": "Захват цели: 60 с",
+    "wolfstory.slavicmyths.bow.manual": "Присядь при выстреле для ручного выбора цели",
+    "wolfstory.slavicmyths.quiver.charges": "Волшебные стрелы: %s/12",
+    "wolfstory.slavicmyths.quiver.recharge": "Восстановление: 1 за 8 с",
+    "wolfstory.slavicmyths.quiver.pair": "Работает с Луком Финиста",
+    "wolfstory.slavicmyths.quiver.bonus": "Усиление волшебной стрелы: ×1,5",
+    "wolfstory.slavicmyths.quiver.equip": "Для действия надень в слот пояса",
+    "item.slavicmyths.ring_of_grey_pack": "Кольцо Серой Стаи",
+    "item.slavicmyths.finist_bow": "Лук Финиста",
+    "item.slavicmyths.finist_quiver": "Колчан Финиста",
+    "entity.slavicmyths.finist_magic_arrow": "Волшебная стрела Финиста",
+    "key.slavicmyths.grey_pack": "Призыв Серой Стаи",
+    "subtitles.slavicmyths.wolf_story.dialog_open": "Серый Волк: поручения",
+    "subtitles.slavicmyths.wolf_story.quest_select": "Серый Волк: поручения",
+    "subtitles.slavicmyths.wolf_story.dialog_page": "Серый Волк: поручения",
+    "subtitles.slavicmyths.wolf_story.quest_accept": "Серый Волк: поручения",
+    "subtitles.slavicmyths.wolf_story.quest_progress": "Серый Волк: поручения",
+    "subtitles.slavicmyths.wolf_story.quest_complete": "Серый Волк: поручения",
+    "subtitles.slavicmyths.wolf_story.reward_claim": "Серый Волк: поручения",
+    "subtitles.slavicmyths.wolf_story.reject": "Шорох Финиста",
+    "subtitles.slavicmyths.wolf_story.ring_activate": "Зов Серой Стаи",
+    "subtitles.slavicmyths.wolf_story.ring_pack_arrive": "Зов Серой Стаи",
+    "subtitles.slavicmyths.wolf_story.ring_expire": "Зов Серой Стаи",
+    "subtitles.slavicmyths.wolf_story.finist_magic_shot": "Шорох Финиста",
+    "subtitles.slavicmyths.wolf_story.finist_target_lock": "Шорох Финиста",
+    "subtitles.slavicmyths.wolf_story.finist_magic_impact": "Шорох Финиста",
+    "subtitles.slavicmyths.wolf_story.finist_inverted_impact": "Шорох Финиста",
+    "subtitles.slavicmyths.wolf_story.quiver_equip": "Шорох Финиста",
+    "wolfstory.slavicmyths.dialog.0.ready_unknown": "Поручение выполнено. О награде поговорим, когда будешь готов.",
+    "wolfstory.slavicmyths.dialog.2.ready_unknown": "Поручение выполнено. О награде поговорим, когда будешь готов."
+  },
+  "en_us": {
+    "wolfstory.slavicmyths.quests": "Quests",
+    "wolfstory.slavicmyths.subtitle": "Ancient forest spirit",
+    "wolfstory.slavicmyths.reward": "Reward",
+    "wolfstory.slavicmyths.future": "The story continues in a future update.",
+    "wolfstory.slavicmyths.random_rune": "Random tier II rune",
+    "wolfstory.slavicmyths.target_missing": "Target not yet discovered. Keep exploring.",
+    "wolfstory.slavicmyths.inventory_full": "Inventory full. Your reward remains available.",
+    "wolfstory.slavicmyths.ring_cooldown": "Next summon in %s s",
+    "wolfstory.slavicmyths.no_space": "No safe space for two wolves.",
+    "wolfstory.slavicmyths.key_conflict": "Summon key conflicts with another binding. Change it in Controls.",
+    "wolfstory.slavicmyths.clue": "Around X≈%s, Z≈%s",
+    "wolfstory.slavicmyths.title.0": "Bandit Menace",
+    "wolfstory.slavicmyths.title.1": "Desecrated Ground",
+    "wolfstory.slavicmyths.title.2": "One-Eyed Likho",
+    "wolfstory.slavicmyths.title.3": "Curse of the Cursed Werewolf",
+    "wolfstory.slavicmyths.state.locked": "Locked",
+    "wolfstory.slavicmyths.state.offered": "Available",
+    "wolfstory.slavicmyths.state.active": "In progress",
+    "wolfstory.slavicmyths.state.reward_ready": "Reward ready",
+    "wolfstory.slavicmyths.state.completed": "Claimed",
+    "wolfstory.slavicmyths.state.locked_future": "Coming later",
+    "wolfstory.slavicmyths.button.accept": "Accept",
+    "wolfstory.slavicmyths.button.ask": "Ask reward",
+    "wolfstory.slavicmyths.button.claim": "Claim",
+    "wolfstory.slavicmyths.button.track": "Track",
+    "wolfstory.slavicmyths.button.reward": "Reward",
+    "wolfstory.slavicmyths.button.leave": "Leave",
+    "wolfstory.slavicmyths.button.claimed": "Claimed",
+    "wolfstory.slavicmyths.button.locked": "Locked",
+    "wolfstory.slavicmyths.objective.0": "Defeat 15 bandits: %s/15",
+    "wolfstory.slavicmyths.objective.1.tier": "Defeat the tier %s kurgan master",
+    "wolfstory.slavicmyths.objective.1.search": "Find and cleanse a tier II–III kurgan",
+    "wolfstory.slavicmyths.objective.2": "Find Likho in the forest area. Search radius: 300 blocks.",
+    "wolfstory.slavicmyths.dialog.0.offered": "You have proved your courage, traveler. Age weighs on me; I need your help. Bandits prey on travelers, trouble villages and disturb the beasts. Defeat fifteen of them and return; I will share what my long life has brought me.",
+    "wolfstory.slavicmyths.dialog.0.active": "Bandits defeated: %s/15. Keep your shield ready.",
+    "wolfstory.slavicmyths.dialog.0.reward_ready": "Fifteen bandits defeated. Good. Take three diamonds and rest before the next journey.",
+    "wolfstory.slavicmyths.dialog.0.completed": "The first task is done. Let us speak of ancient ground and a troubled kurgan.",
+    "wolfstory.slavicmyths.dialog.1.offered": "You kept your word. An evil force has awakened in an ancient kurgan. Find the great tomb and defeat its master; if its trail is lost, find another no less dangerous.",
+    "wolfstory.slavicmyths.dialog.1.active": "The land cannot rest while the kurgan master remains.",
+    "wolfstory.slavicmyths.dialog.1.reward_ready": "Darkness has retreated. Take a whole medium soul and a tier II rune; may they serve you well.",
+    "wolfstory.slavicmyths.dialog.1.completed": "There is another forest dweller whose name is seldom spoken without fear.",
+    "wolfstory.slavicmyths.dialog.2.offered": "Far beyond the forest roads dwells One-Eyed Likho. Fear and ruin follow it. The road is long and my legs are weary. Will you track and defeat it?",
+    "wolfstory.slavicmyths.dialog.2.active": "Not everything hiding in shadows lies along a straight path. Look where the forest has grown quiet.",
+    "wolfstory.slavicmyths.dialog.2.reward_ready": "Likho is defeated. Take the Ring of the Grey Pack. Two forest wolves will fight beside you; guard them, for they are not immortal spirits.",
+    "wolfstory.slavicmyths.dialog.2.completed": "You have helped more than I dared hope. Another trouble remains, one claws and blades alone cannot solve. We shall speak when the time comes.",
+    "wolfstory.slavicmyths.dialog.3.locked_future": "There is a curse no single victory can break. I am not yet ready to reveal all I know.",
+    "wolfstory.slavicmyths.dialog.ask.0": "I will give you three diamonds, useful at the forge and on the road.",
+    "wolfstory.slavicmyths.dialog.ask.1": "I have kept a whole medium soul and a tier II rune. May they serve a good cause.",
+    "wolfstory.slavicmyths.dialog.ask.2": "The Ring of the Grey Pack calls two loyal forest wolves. Defeat Likho and it is yours.",
+    "wolfstory.slavicmyths.dialog.accepted.0": "Do not fight for glory. Beware ambushes and their archers.",
+    "wolfstory.slavicmyths.dialog.accepted.1": "Seek a tier II or III kurgan. The world is vast and not every ancient place is known.",
+    "wolfstory.slavicmyths.dialog.accepted.2": "Seek Likho near the old forest, around the indicated X and Z. These are rough clues; it will not wait on the marked stone.",
+    "wolfstory.slavicmyths.dialog.rejected": "Action unavailable or inventory full. The wolf keeps your reward.",
+    "wolfstory.slavicmyths.dialog.waiting": "Waiting for the server.",
+    "wolfstory.slavicmyths.dialog.0.locked": "Complete the previous task first.",
+    "wolfstory.slavicmyths.dialog.claimed.0": "The first task is done. Let us speak of ancient ground and a troubled kurgan.",
+    "wolfstory.slavicmyths.dialog.1.locked": "Complete the previous task first.",
+    "wolfstory.slavicmyths.dialog.claimed.1": "There is another forest dweller whose name is seldom spoken without fear.",
+    "wolfstory.slavicmyths.dialog.2.locked": "Complete the previous task first.",
+    "wolfstory.slavicmyths.dialog.claimed.2": "You have helped more than I dared hope. Another trouble remains, one claws and blades alone cannot solve. We shall speak when the time comes.",
+    "wolfstory.slavicmyths.ring.effect": "Summons two allied forest wolves",
+    "wolfstory.slavicmyths.ring.health": "Each wolf: 20 health; 6 damage",
+    "wolfstory.slavicmyths.ring.duration": "Duration: 40 s",
+    "wolfstory.slavicmyths.ring.cooldown": "Cooldown: 90 s",
+    "wolfstory.slavicmyths.ring.use": "Equip in a ring slot; press V (configurable)",
+    "wolfstory.slavicmyths.bow.damage": "Stronger than the heavy bow",
+    "wolfstory.slavicmyths.bow.compatibility": "Supports enchantments and runes",
+    "wolfstory.slavicmyths.bow.pair": "With the Finist Quiver, arrows seek the marked target",
+    "wolfstory.slavicmyths.bow.lock": "Target lock: 60 s",
+    "wolfstory.slavicmyths.bow.manual": "Sneak while firing to manually change target",
+    "wolfstory.slavicmyths.quiver.charges": "Magic arrows: %s/12",
+    "wolfstory.slavicmyths.quiver.recharge": "Recharge: 1 every 8 s",
+    "wolfstory.slavicmyths.quiver.pair": "Works with the Finist Bow",
+    "wolfstory.slavicmyths.quiver.bonus": "Magic arrow damage: ×1.5",
+    "wolfstory.slavicmyths.quiver.equip": "Equip in the belt slot to activate",
+    "item.slavicmyths.ring_of_grey_pack": "Ring of the Grey Pack",
+    "item.slavicmyths.finist_bow": "Finist Bow",
+    "item.slavicmyths.finist_quiver": "Finist Quiver",
+    "entity.slavicmyths.finist_magic_arrow": "Finist Magic Arrow",
+    "key.slavicmyths.grey_pack": "Summon the Grey Pack",
+    "subtitles.slavicmyths.wolf_story.dialog_open": "Finist and Grey Pack cue",
+    "subtitles.slavicmyths.wolf_story.quest_select": "Grey Wolf quest cue",
+    "subtitles.slavicmyths.wolf_story.dialog_page": "Finist and Grey Pack cue",
+    "subtitles.slavicmyths.wolf_story.quest_accept": "Grey Wolf quest cue",
+    "subtitles.slavicmyths.wolf_story.quest_progress": "Grey Wolf quest cue",
+    "subtitles.slavicmyths.wolf_story.quest_complete": "Grey Wolf quest cue",
+    "subtitles.slavicmyths.wolf_story.reward_claim": "Finist and Grey Pack cue",
+    "subtitles.slavicmyths.wolf_story.reject": "Finist and Grey Pack cue",
+    "subtitles.slavicmyths.wolf_story.ring_activate": "Finist and Grey Pack cue",
+    "subtitles.slavicmyths.wolf_story.ring_pack_arrive": "Finist and Grey Pack cue",
+    "subtitles.slavicmyths.wolf_story.ring_expire": "Finist and Grey Pack cue",
+    "subtitles.slavicmyths.wolf_story.finist_magic_shot": "Finist and Grey Pack cue",
+    "subtitles.slavicmyths.wolf_story.finist_target_lock": "Finist and Grey Pack cue",
+    "subtitles.slavicmyths.wolf_story.finist_magic_impact": "Finist and Grey Pack cue",
+    "subtitles.slavicmyths.wolf_story.finist_inverted_impact": "Finist and Grey Pack cue",
+    "subtitles.slavicmyths.wolf_story.quiver_equip": "Finist and Grey Pack cue",
+    "wolfstory.slavicmyths.dialog.0.ready_unknown": "The task is complete. Ask about the reward when you are ready.",
+    "wolfstory.slavicmyths.dialog.2.ready_unknown": "The task is complete. Ask about the reward when you are ready."
+  },
+  "sounds": {
+    "wolf_story.dialog_open": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.dialog_open",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/dialog_open",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.quest_select": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.quest_select",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/quest_select",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.dialog_page": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.dialog_page",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/dialog_page",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.quest_accept": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.quest_accept",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/quest_accept",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.quest_progress": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.quest_progress",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/quest_progress",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.quest_complete": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.quest_complete",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/quest_complete",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.reward_claim": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.reward_claim",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/reward_claim",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.reject": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.reject",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/reject",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.ring_activate": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.ring_activate",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/ring_activate",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.ring_pack_arrive": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.ring_pack_arrive",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/ring_pack_arrive",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.ring_expire": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.ring_expire",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/ring_expire",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.finist_magic_shot": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.finist_magic_shot",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/finist_magic_shot",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.finist_target_lock": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.finist_target_lock",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/finist_target_lock",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.finist_magic_impact": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.finist_magic_impact",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/finist_magic_impact",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.finist_inverted_impact": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.finist_inverted_impact",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/finist_inverted_impact",
+          "stream": false
+        }
+      ]
+    },
+    "wolf_story.quiver_equip": {
+      "subtitle": "subtitles.slavicmyths.wolf_story.quiver_equip",
+      "sounds": [
+        {
+          "name": "slavicmyths:wolf_story/quiver_equip",
+          "stream": false
+        }
+      ]
+    }
+  }
+}

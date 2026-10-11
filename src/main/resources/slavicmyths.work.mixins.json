@@ -8,7 +8,8 @@
     "VillagerPickupMixin",
     "GuardRoleMixin",
     "BarracksLimitMixin",
-    "BanditThreatMixin"
+    "BanditThreatMixin",
+    "BossGolemTargetMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,0 +1,4 @@
+gradle.beforeProject { p -> p.afterEvaluate {
+ p.sourceSets.rareCheck.java.setSrcDirs([p.file('.tools/runtime-audit/tests')])
+ p.neoForge.runs.rareChecks.gameDirectory = p.file('.tools/runtime-audit/server')
+} }

@@ -14,7 +14,7 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.Level;
 public final class PoolSpear extends SwordItem {
- public PoolSpear(Properties p){super(Tiers.IRON,p.durability(420).attributes(SwordItem.createAttributes(Tiers.IRON,4,-2.8F)));}
+ public PoolSpear(Properties p){super(Tiers.IRON,p.durability(420).attributes(SwordItem.createAttributes(Tiers.IRON,6,-2.8F)));}
  public int getUseDuration(ItemStack s,net.minecraft.world.entity.LivingEntity user){return 72000;}public UseAnim getUseAnimation(ItemStack s){return UseAnim.SPEAR;}
  public InteractionResultHolder<ItemStack> use(Level w,Player p,InteractionHand h){if(!p.isInWater()||p.getCooldowns().isOnCooldown(this))return InteractionResultHolder.fail(p.getItemInHand(h));p.startUsingItem(h);return InteractionResultHolder.consume(p.getItemInHand(h));}
  public void releaseUsing(ItemStack s,Level w,LivingEntity user,int left){if(w.isClientSide||!(user instanceof Player)||!user.isInWater()||getUseDuration(s,user)-left<16)return;Player p=(Player)user;if(p.getCooldowns().isOnCooldown(this))return;p.getCooldowns().addCooldown(this,120);Vec3 look=p.getLookAngle();p.setDeltaMovement(p.getDeltaMovement().add(look.scale(.65)));p.hurtMarked=true;LivingEntity target=null;double nearest=9;

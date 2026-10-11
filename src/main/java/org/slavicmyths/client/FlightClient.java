@@ -17,11 +17,13 @@ import org.slavicmyths.flight.*;
 import org.slavicmyths.registry.ModItems;
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class FlightClient {
- private static final KeyMapping DOWN=new KeyMapping("key.slavicmyths.flight_down",67,"key.categories.slavicmyths"),BRAKE=new KeyMapping("key.slavicmyths.flight_brake",82,"key.categories.slavicmyths"),CARGO=new KeyMapping("key.slavicmyths.flight_cargo",66,"key.categories.slavicmyths");
+ private static final KeyMapping DOWN=new KeyMapping("key.slavicmyths.flight_down",88,"key.categories.slavicmyths"),BRAKE=new KeyMapping("key.slavicmyths.flight_brake",82,"key.categories.slavicmyths"),CARGO=new KeyMapping("key.slavicmyths.flight_cargo",66,"key.categories.slavicmyths");
+ private static FlyingVessel hintedVessel;
  private static int tick;private static boolean cargo;private static boolean rendering;private static PlayerRenderer normal,slim;
  public static void keys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e){e.register(DOWN);e.register(BRAKE);e.register(CARGO);}
  public static void renderers(EntityRendererProvider.Context context){normal=new RiderRenderer(context,false);slim=new RiderRenderer(context,true);}
- @SubscribeEvent public static void tick(net.neoforged.neoforge.client.event.ClientTickEvent.Post e){Minecraft mc=Minecraft.getInstance();if(mc.player==null||!(mc.player.getVehicle() instanceof FlyingVessel)){cargo=false;return;}
+ @SubscribeEvent public static void tick(net.neoforged.neoforge.client.event.ClientTickEvent.Post e){Minecraft mc=Minecraft.getInstance();if(mc.player==null||!(mc.player.getVehicle() instanceof FlyingVessel vessel)){cargo=false;hintedVessel=null;return;}
+  if(hintedVessel!=vessel){hintedVessel=vessel;mc.player.displayClientMessage(net.minecraft.network.chat.Component.translatable("flight.slavicmyths.controls",mc.options.keyJump.getTranslatedKeyMessage(),DOWN.getTranslatedKeyMessage(),BRAKE.getTranslatedKeyMessage(),CARGO.getTranslatedKeyMessage(),mc.options.keyShift.getTranslatedKeyMessage()),true);}
   cargo|=CARGO.consumeClick();if(++tick%3!=0)return;boolean gui=mc.screen!=null;float f=gui?0:(mc.options.keyUp.isDown()?1:0)-(mc.options.keyDown.isDown()?1:0),s=gui?0:(mc.options.keyLeft.isDown()?1:0)-(mc.options.keyRight.isDown()?1:0),u=gui?0:(mc.options.keyJump.isDown()?1:0)-(DOWN.isDown()?1:0);
   FlightNetwork.send(f,s,u,mc.player.getYRot(),gui||BRAKE.isDown(),cargo&&!gui);cargo=false;
  }

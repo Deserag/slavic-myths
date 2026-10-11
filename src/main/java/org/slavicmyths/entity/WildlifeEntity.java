@@ -104,6 +104,7 @@ public final class WildlifeEntity extends PathfinderMob {
  private void installGoals(){
   goalSelector.addGoal(0,new FloatGoal(this));
   goalSelector.addGoal(1,new EncounterGoal());
+  goalSelector.addGoal(3,new Goal(){ {setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}public boolean canUse(){return getPersistentData().getBoolean("GreyPackAlly")&&getTarget()==null&&ringOwner()!=null;}public boolean requiresUpdateEveryTick(){return true;}public void tick(){var p=ringOwner();if(p!=null&&tickCount%10==0){getLookControl().setLookAt(p,20,20);if(distanceToSqr(p)>25)getNavigation().moveTo(p,distanceToSqr(p)>64?1.3:1);else getNavigation().stop();}}});
   goalSelector.addGoal(5,new WaterAvoidingRandomStrollGoal(this,kind==Kind.WOLF?1:.72));
   goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,10));
   goalSelector.addGoal(7,new RandomLookAroundGoal(this));
@@ -119,7 +120,7 @@ public final class WildlifeEntity extends PathfinderMob {
  private boolean valid(LivingEntity e){return e!=null&&e.isAlive()&&(!(e instanceof Player)||!((Player)e).isCreative()&&!e.isSpectator());}
  @Override public boolean hurt(DamageSource source,float amount){
   boolean hit=super.hurt(source,amount);
-  if(hit&&!level().isClientSide&&source.getEntity() instanceof LivingEntity){
+  if(hit&&!getPersistentData().getBoolean("GreyPackAlly")&&!getPersistentData().getBoolean("summonedByGreyWolf")&&!level().isClientSide&&source.getEntity() instanceof LivingEntity){
    LivingEntity attacker=(LivingEntity)source.getEntity();
    if(valid(attacker)){
     if(kind==Kind.CUB||kind==Kind.DOE||kind==Kind.STAG&&distanceToSqr(attacker)>9){danger=attacker;fleeTicks=180;setTarget(null);}
@@ -127,7 +128,7 @@ public final class WildlifeEntity extends PathfinderMob {
     if(kind==Kind.CUB&&parentId!=null&&level() instanceof ServerLevel world&&world.getEntity(parentId) instanceof WildlifeEntity parent&&parent.isMother()&&distanceToSqr(parent)<=32*32){
      parent.setTarget(attacker);parent.angerUntil=level().getGameTime()+400;parent.rage=true;parent.action(STAND,20);
     }
-    if(kind==Kind.WOLF||kind==Kind.CUB)for(WildlifeEntity ally:level().getEntitiesOfClass(WildlifeEntity.class,getBoundingBox().inflate(14),a->a!=this&&(kind==Kind.CUB?a.kind==Kind.BEAR:a.kind==Kind.WOLF))){
+    if(kind==Kind.WOLF||kind==Kind.CUB)for(WildlifeEntity ally:level().getEntitiesOfClass(WildlifeEntity.class,getBoundingBox().inflate(14),a->a!=this&&!a.getPersistentData().getBoolean("GreyPackAlly")&&!a.getPersistentData().getBoolean("summonedByGreyWolf")&&(kind==Kind.CUB?a.kind==Kind.BEAR:a.kind==Kind.WOLF))){
      if(kind==Kind.CUB&&parentId!=null&&!parentId.equals(ally.getUUID()))continue;
      ally.setTarget(attacker);ally.angerUntil=level().getGameTime()+400;ally.rage=ally.isMother();
      if(kind==Kind.CUB)ally.action(STAND,20);
@@ -153,7 +154,7 @@ public final class WildlifeEntity extends PathfinderMob {
     if(position().distanceToSqr(center)>36)getNavigation().moveTo(center.x,center.y,center.z,.85);
    }
   }
-  if(kind==Kind.WOLF&&getTarget()==null&&(tickCount+getId())%100<20){
+  if(kind==Kind.WOLF&&!getPersistentData().getBoolean("summonedByGreyWolf")&&getTarget()==null&&(tickCount+getId())%100<20){
    LivingEntity prey=level().getEntitiesOfClass(net.minecraft.world.entity.animal.Sheep.class,getBoundingBox().inflate(16),a->a.isAlive()).stream().findFirst().orElse(null);
    if(prey!=null){setTarget(prey);angerUntil=level().getGameTime()+300;}
   }
@@ -183,6 +184,7 @@ public final class WildlifeEntity extends PathfinderMob {
    visualStand+=((motion()==STAND?1:0)-visualStand)*.1F;
    return;
   }
+  if(ringControl()||greyWolfControl())return;
   if(territory==null)territory=blockPosition();
   if(pendingFamily>0){int count=pendingFamily;pendingFamily=-1;family(count);}
   if(isMother()){
@@ -194,9 +196,9 @@ public final class WildlifeEntity extends PathfinderMob {
   if(getTarget()!=null&&(!valid(getTarget())||level().getGameTime()>angerUntil||distanceToSqr(getTarget())>24*24||territory.distSqr(blockPosition())>32*32)){
    setTarget(null);actionTicks=0;state(IDLE);getNavigation().moveTo(territory.getX()+.5,territory.getY(),territory.getZ()+.5,.9);
   }
-  if((tickCount+getId())%20==0&&actionTicks==0)inspect();
+  if(!getPersistentData().getBoolean("GreyPackAlly")&&!getPersistentData().getBoolean("summonedByGreyWolf")&&(tickCount+getId())%20==0&&actionTicks==0)inspect();
   if(kind==Kind.WOLF&&getTarget()!=null&&(tickCount+getId())%20==0){
-   var pack=level().getEntitiesOfClass(WildlifeEntity.class,getBoundingBox().inflate(16),a->a.kind==Kind.WOLF&&a.getTarget()==getTarget()&&a.isAlive());
+   var pack=level().getEntitiesOfClass(WildlifeEntity.class,getBoundingBox().inflate(16),a->a.kind==Kind.WOLF&&a.getTarget()==getTarget()&&a.isAlive()&&a.getPersistentData().getBoolean("summonedByGreyWolf")==getPersistentData().getBoolean("summonedByGreyWolf")&&a.getPersistentData().getBoolean("GreyPackAlly")==getPersistentData().getBoolean("GreyPackAlly")&&(!getPersistentData().getBoolean("GreyPackAlly")||Objects.equals(a.getPersistentData().getUUID("GreyPackOwner"),getPersistentData().getUUID("GreyPackOwner"))));
    pack.sort(Comparator.comparingInt(Entity::getId));packRole=Math.max(0,pack.indexOf(this))%4;
    if(packSize>pack.size()&&random.nextBoolean()){danger=getTarget();fleeTicks=100;setTarget(null);}packSize=pack.size();
   }
@@ -209,6 +211,7 @@ public final class WildlifeEntity extends PathfinderMob {
   if(level() instanceof ServerLevel)((ServerLevel)level()).sendParticles(new BlockParticleOption(ParticleTypes.BLOCK,level().getBlockState(blockPosition().below())),getX(),getY()+.12,getZ(),count,.3,.05,.3,.03);
  }
  private void strike(LivingEntity target,float multiplier,float knock){
+  if(getPersistentData().getBoolean("GreyPackAlly")&&(ringOwner()==null||!org.slavicmyths.finist.GreyPackRing.enemy(ringOwner(),target)))return;
   if(!valid(target)||distanceToSqr(target)>Math.pow(getBbWidth()+target.getBbWidth()+1,2)||!hasLineOfSight(target))return;
   int blockedBefore=target instanceof net.minecraft.server.level.ServerPlayer?((net.minecraft.server.level.ServerPlayer)target).getStats().getValue(net.minecraft.stats.Stats.CUSTOM.get(net.minecraft.stats.Stats.DAMAGE_BLOCKED_BY_SHIELD)):0;
   float damage=(float)getAttributeValue(Attributes.ATTACK_DAMAGE)*multiplier;
@@ -223,12 +226,26 @@ public final class WildlifeEntity extends PathfinderMob {
    p.getCooldowns().addCooldown(p.getUseItem().getItem(),30);p.stopUsingItem();voice("impact",.75F);
   }
  }
+ public ServerPlayer ringOwner(){return level() instanceof ServerLevel w&&getPersistentData().hasUUID("GreyPackOwner")?(ServerPlayer)w.getPlayerByUUID(getPersistentData().getUUID("GreyPackOwner")):null;}
+ private boolean ringControl(){var d=getPersistentData();if(!d.getBoolean("GreyPackAlly")||!(level() instanceof ServerLevel w))return false;var p=ringOwner();long now=w.getServer().overworld().getGameTime();
+  if(p==null||!p.isAlive()||p.isSpectator()||now>=d.getLong("GreyPackExpires")||!d.hasUUID("GreyPackActivation")||!org.slavicmyths.finist.GreyPackRing.data(p).hasUUID("Activation")||!d.getUUID("GreyPackActivation").equals(org.slavicmyths.finist.GreyPackRing.data(p).getUUID("Activation"))){setTarget(null);actionTicks=fleeTicks=alertTicks=0;if(!d.contains("GreyPackFade")){d.putLong("GreyPackFade",now);getNavigation().stop();playSound(org.slavicmyths.finist.FinistSounds.get("ring_expire"),.2F,1);w.sendParticles(ParticleTypes.POOF,getX(),getY()+.4,getZ(),3,.1,.1,.1,0);}if(now-d.getLong("GreyPackFade")>=8)discard();return true;}
+  var chosen=org.slavicmyths.finist.GreyPackRing.target(p,this);if(chosen!=getTarget()){actionTicks=fleeTicks=alertTicks=0;setTarget(chosen);}angerUntil=d.getLong("GreyPackExpires");territory=p.blockPosition();if(chosen==null){state(getDeltaMovement().horizontalDistanceSqr()>.007?RUN:WALK);return true;}return false;
+ }
+ private boolean greyWolfControl(){
+  var d=getPersistentData();if(!d.getBoolean("summonedByGreyWolf")||!(level() instanceof ServerLevel w))return false;
+  long now=w.getGameTime();var actor=d.hasUUID("greyWolfActor")?w.getEntity(d.getUUID("greyWolfActor")):null;var target=d.hasUUID("targetPlayerUUID")?(ServerPlayer)w.getPlayerByUUID(d.getUUID("targetPlayerUUID")):null;
+  boolean leaving=d.contains("greyWolfLeave")||now>=d.getLong("expireGameTime")||!(actor instanceof org.slavicmyths.wolf.GreyWolf wolf)||!wolf.ownsPack(d.getUUID("targetPlayerUUID"))||target==null||!target.isAlive()||target.level()!=level()||w.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL;
+  if(leaving){setTarget(null);actionTicks=fleeTicks=alertTicks=0;if(!d.contains("greyWolfLeave")){d.putLong("greyWolfLeave",now);getNavigation().stop();}long elapsed=now-d.getLong("greyWolfLeave");if(elapsed>=40){discard();return true;}if(elapsed%10==0&&actor!=null){var away=position().subtract(actor.position()).multiply(1,0,1).normalize().scale(6);getNavigation().moveTo(getX()+away.x,getY(),getZ()+away.z,1);}state(WALK);return true;}
+  if(now<d.getLong("greyWolfActivate")){setTarget(null);getNavigation().stop();state(ALERT);return true;}
+  setTarget(target);angerUntil=d.getLong("expireGameTime");territory=actor.blockPosition();return false;
+ }
  private class EncounterGoal extends Goal {
   EncounterGoal(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
   @Override public boolean requiresUpdateEveryTick(){return true;}
   @Override public boolean canUse(){return actionTicks>0||getTarget()!=null||fleeTicks>0;}
   @Override public boolean canContinueToUse(){return canUse();}
   @Override public void tick(){
+   if(getPersistentData().getBoolean("summonedByGreyWolf")&&getPersistentData().contains("greyWolfLeave"))return;
    if(org.slavicmyths.artifact.ArtifactEvents.calm(WildlifeEntity.this)||org.slavicmyths.artifact.ArtifactEvents.summoned(WildlifeEntity.this))return;
    LivingEntity target=getTarget();
    if(fleeTicks>0&&valid(danger)){

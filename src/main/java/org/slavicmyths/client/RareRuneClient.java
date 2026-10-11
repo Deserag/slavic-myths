@@ -16,7 +16,7 @@ public final class RareRuneClient {
     public static void keys(RegisterKeyMappingsEvent e){e.register(USE);}
     public static void synced(){var mc=Minecraft.getInstance();receivedTick=mc.level==null?0:mc.level.getGameTime();serverTick=RpgClient.data.getCompound(RareRuneRuntime.KEY).getLong("ServerTick");}
     private static long now(){var mc=Minecraft.getInstance();return serverTick+(mc.level==null?0:Math.max(0,mc.level.getGameTime()-receivedTick));}
-    @SubscribeEvent public static void tick(ClientTickEvent.Post e){var mc=Minecraft.getInstance();while(USE.consumeClick())if(mc.player!=null&&mc.screen==null)RareRuneNetwork.send(mc.player.isShiftKeyDown());}
+    @SubscribeEvent public static void tick(ClientTickEvent.Post e){var mc=Minecraft.getInstance();while(USE.consumeClick())if(mc.player!=null&&mc.screen==null){if(net.minecraft.client.gui.screens.Screen.hasAltDown())org.slavicmyths.equipment.ClearSightNetwork.send();else RareRuneNetwork.send(mc.player.isShiftKeyDown());}}
     @SubscribeEvent public static void render(RenderGuiEvent.Post e){var mc=Minecraft.getInstance();if(mc.player==null||mc.screen!=null||mc.options.hideGui)return;var g=e.getGuiGraphics();int w=mc.getWindow().getGuiScaledWidth(),h=mc.getWindow().getGuiScaledHeight();var d=RpgClient.data.getCompound(RareRuneRuntime.KEY);long now=now();
         int tier=RareRuneRuntime.tier(mc.player);double amount=ClassHudConfig.BERSERKER_SCREEN_EFFECT.get()?tier*.10*ClassHudConfig.BERSERKER_INTENSITY.get():0;
         if(tier>=2)amount*=1+.08*Math.sin((mc.level.getGameTime())*.07);

@@ -1,0 +1,43 @@
+{
+  "podzemnik": {
+    "samples": 1000,
+    "pool_hits": [
+      418,
+      195,
+      79
+    ],
+    "method": "JSON independent probability simulation, not native engine"
+  },
+  "podzemnik_miner": {
+    "samples": 1000,
+    "pool_hits": [
+      472,
+      352,
+      70,
+      40
+    ],
+    "method": "JSON independent probability simulation, not native engine"
+  },
+  "kladovik": {
+    "samples": 1000,
+    "pool_hits": [
+      1000,
+      1000,
+      369,
+      62,
+      152
+    ],
+    "method": "JSON independent probability simulation, not native engine"
+  },
+  "large_podzemnik": {
+    "samples": 1000,
+    "pool_hits": [
+      1000,
+      382,
+      160,
+      222,
+      314
+    ],
+    "method": "JSON independent probability simulation, not native engine"
+  }
+}

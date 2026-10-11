@@ -9,7 +9,7 @@ public record RuneDefinition(String id,Map<String,Double> parameters,Set<String>
  public static int i(String id,String key){return (int)n(id,key);}
  public static float f(String id,String key){return (float)n(id,key);}
  private static String format(double n){return java.math.BigDecimal.valueOf(n).setScale(3,java.math.RoundingMode.HALF_UP).stripTrailingZeros().toPlainString();}
- public Component name(){return Component.translatable("item.slavicmyths.rune_"+id);}
+ public Component name(){return org.slavicmyths.industry.MiningRunes.mining(id)?org.slavicmyths.industry.MiningRunes.name(id):Component.translatable("item.slavicmyths.rune_"+id);}
  private String v(String key){return format(parameters.get(key));}
  private String sec(String key){return format(parameters.get(key)/20);}
  private String pct(String key){return format(parameters.get(key)*100);}
@@ -26,10 +26,10 @@ public record RuneDefinition(String id,Map<String,Double> parameters,Set<String>
   case "wind"->new Object[]{v("weapon_force"),v("spear_force"),sec("hit_cooldown"),v("shield_force"),sec("shield_cooldown"),v("staff_force"),sec("staff_cooldown"),pct("arrow_speed")};
   default->new Object[0];};
  }
- public Component legacyEffect(){return Component.translatable("rpg.slavicmyths.effect_"+id,effectArguments());}
+ public Component legacyEffect(){return org.slavicmyths.industry.MiningRunes.mining(id)?Component.translatable("industry.slavicmyths.hint."+org.slavicmyths.industry.MiningRunes.itemId(id)):Component.translatable("rpg.slavicmyths.effect_"+id,effectArguments());}
  public Component effect(){if(RareRunes.rare(id))return RareRunes.text("effect_"+id);if(!RuneBalance.modern(id))return legacyEffect();var text=Component.empty();for(var c:RuneRework.effects(id,1,null)){if(!text.getString().isEmpty())text.append("; ");text.append(c);}return text;}
- public List<Component> tooltip(){if(RareRunes.rare(id))return RareRunes.tooltip(id);return RuneBalance.modern(id)?RuneRework.runeTooltip(id):java.util.stream.IntStream.rangeClosed(1,3).mapToObj(i->(Component)Component.translatable("rpg.slavicmyths.rune_hint_"+id+"_"+i,effectArguments())).toList();}
- public Component compatible(){if(RareRunes.rare(id))return RareRunes.compatibility(id);if(RuneBalance.modern(id))return RuneRework.compatibility(id);var names=categories.stream().sorted().map(c->Component.translatable("rpg.slavicmyths.category_"+c)).toList();var text=Component.empty();for(var c:names){if(!text.getString().isEmpty())text.append(", ");text.append(c);}return Component.translatable("rpg.slavicmyths.compatible",text).append(" ").append(Component.translatable("rpg.slavicmyths.armor_rune_storage"));}
+ public List<Component> tooltip(){if(id.equals("earth_heart_iii"))return org.slavicmyths.earth.EarthRune.tooltip();if(org.slavicmyths.industry.MiningRunes.mining(id))return org.slavicmyths.industry.MiningRunes.tooltip(id);if(RareRunes.rare(id))return RareRunes.tooltip(id);return RuneBalance.modern(id)?RuneRework.runeTooltip(id):java.util.stream.IntStream.rangeClosed(1,3).mapToObj(i->(Component)Component.translatable("rpg.slavicmyths.rune_hint_"+id+"_"+i,effectArguments())).toList();}
+ public Component compatible(){if(org.slavicmyths.industry.MiningRunes.mining(id))return Component.translatable("industry.slavicmyths.pickaxe_only");if(RareRunes.rare(id))return RareRunes.compatibility(id);if(RuneBalance.modern(id))return RuneRework.compatibility(id);var names=categories.stream().sorted().map(c->Component.translatable("rpg.slavicmyths.category_"+c)).toList();var text=Component.empty();for(var c:names){if(!text.getString().isEmpty())text.append(", ");text.append(c);}return Component.translatable("rpg.slavicmyths.compatible",text).append(" ").append(Component.translatable("rpg.slavicmyths.armor_rune_storage"));}
  static {for(var d:RuneBalance.DEFINITIONS)if(!ALL.containsKey(d.id()))ALL.put(d.id(),new RuneDefinition(d.id(),Map.of(),Set.of()));}
  static {for(String id:RareRuneRules.IDS)ALL.put(id,new RuneDefinition(id,Map.of(),Set.of()));}
 }

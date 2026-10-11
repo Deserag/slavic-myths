@@ -15,6 +15,7 @@ import org.slavicmyths.entity.LeshyEntity;
 @EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public final class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, SlavicMyths.MOD_ID);
+    public static final net.neoforged.neoforge.registries.DeferredHolder<net.minecraft.world.entity.EntityType<?>,net.minecraft.world.entity.EntityType<org.slavicmyths.finist.FinistArrow>> FINIST_ARROW = ENTITIES.register("finist_magic_arrow",()->net.minecraft.world.entity.EntityType.Builder.<org.slavicmyths.finist.FinistArrow>of(org.slavicmyths.finist.FinistArrow::new,net.minecraft.world.entity.MobCategory.MISC).sized(.5F,.5F).clientTrackingRange(4).updateInterval(1).build("finist_magic_arrow"));
     public static final DeferredHolder<EntityType<?>, EntityType<DomovoyEntity>> DOMOVOY = ENTITIES.register("domovoy",
             () -> EntityType.Builder.of(DomovoyEntity::new, MobCategory.CREATURE)
                     .sized(0.55F, 1.1F).clientTrackingRange(8).build("slavicmyths:domovoy"));
@@ -39,12 +40,15 @@ public final class ModEntities {
         return ENTITIES.register(id, () -> EntityType.Builder.<org.slavicmyths.entity.WildlifeEntity>of((type,world) -> new org.slavicmyths.entity.WildlifeEntity(type,world,kind), MobCategory.CREATURE).sized(width,height).clientTrackingRange(10).build("slavicmyths:"+id));
     }
 
-    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.bandit.NightingaleEntity>> NIGHTINGALE = ENTITIES.register("nightingale", () -> EntityType.Builder.of(org.slavicmyths.bandit.NightingaleEntity::new, MobCategory.MONSTER).sized(1.1F,2.35F).clientTrackingRange(12).build("slavicmyths:nightingale"));
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.bandit.NightingaleEntity>> NIGHTINGALE = ENTITIES.register("nightingale", () -> EntityType.Builder.of(org.slavicmyths.bandit.NightingaleEntity::new, MobCategory.MONSTER).sized(.95F,1.85F).eyeHeight(1.25F).clientTrackingRange(12).build("slavicmyths:nightingale"));
 
     public static final DeferredHolder<EntityType<?>,EntityType<org.slavicmyths.swamp.BolotnikEntity>> BOLOTNIK=ENTITIES.register("bolotnik",()->EntityType.Builder.of(org.slavicmyths.swamp.BolotnikEntity::new,MobCategory.MONSTER).sized(1.15F,2.0F).clientTrackingRange(10).build("slavicmyths:bolotnik"));
 
+    public static final DeferredHolder<EntityType<?>,EntityType<org.slavicmyths.wolf.GreyWolf>> GREY_WOLF=ENTITIES.register("grey_wolf",()->EntityType.Builder.of(org.slavicmyths.wolf.GreyWolf::new,MobCategory.CREATURE).sized(2.2F,3.5F).clientTrackingRange(16).build("slavicmyths:grey_wolf"));
+
     @SubscribeEvent
     public static void attributes(EntityAttributeCreationEvent event) {
+        event.put(GREY_WOLF.get(),org.slavicmyths.wolf.GreyWolf.attributes().build());
         event.put(NIGHTINGALE.get(),org.slavicmyths.bandit.NightingaleEntity.attributes().build());
         event.put(BANDIT_FIGHTER.get(),org.slavicmyths.bandit.BanditEntity.attributes(0).build());
         event.put(BANDIT_ARCHER.get(),org.slavicmyths.bandit.BanditEntity.attributes(1).build());
@@ -78,6 +82,7 @@ public final class ModEntities {
         event.put(PODVEY.get(),org.slavicmyths.hunt.ElementHuntMob.attributes(false).build());
         event.put(SERPENT_PROJECTION.get(),org.slavicmyths.hunt.SerpentProjection.attributes().build());
         event.put(VOLKOLAK.get(),org.slavicmyths.entity.VolkolakEntity.attributes().build());
+        event.put(CURSED_VOLKOLAK.get(),org.slavicmyths.volkolak.CursedVolkolak.attributes().build());
         event.put(OVINNIK.get(), org.slavicmyths.entity.OvinnikEntity.attributes().build());
         event.put(BROWN_BEAR.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.BEAR).build());
         event.put(BEAR_CUB.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.CUB).build());
@@ -110,9 +115,10 @@ public final class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.ElementHuntMob>> PODVEY=ENTITIES.register("podvey",()->EntityType.Builder.of(org.slavicmyths.hunt.ElementHuntMob::new,MobCategory.MONSTER).sized(1.1F,2.55F).clientTrackingRange(12).build("slavicmyths:podvey"));
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.SerpentProjection>> SERPENT_PROJECTION=ENTITIES.register("serpent_projection",()->EntityType.Builder.of(org.slavicmyths.hunt.SerpentProjection::new,MobCategory.MISC).sized(1.25F,1.55F).clientTrackingRange(12).updateInterval(2).fireImmune().build("slavicmyths:serpent_projection"));
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.entity.VolkolakEntity>> VOLKOLAK=ENTITIES.register("volkolak",()->EntityType.Builder.of(org.slavicmyths.entity.VolkolakEntity::new,MobCategory.MONSTER).sized(1.05F,2.25F).clientTrackingRange(12).build("slavicmyths:volkolak"));
+    public static final DeferredHolder<EntityType<?>,EntityType<org.slavicmyths.volkolak.CursedVolkolak>> CURSED_VOLKOLAK=ENTITIES.register("cursed_volkolak",()->EntityType.Builder.of(org.slavicmyths.volkolak.CursedVolkolak::new,MobCategory.MONSTER).sized(1.65F,1.9F).eyeHeight(1.55F).clientTrackingRange(12).build("slavicmyths:cursed_volkolak"));
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.EmberClump>> EMBER_CLUMP=ENTITIES.register("ember_clump",()->EntityType.Builder.of(org.slavicmyths.hunt.EmberClump::new,MobCategory.MISC).sized(.3F,.3F).clientTrackingRange(8).updateInterval(2).build("slavicmyths:ember_clump"));
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.WorldBoss>> LIKHO_ONE_EYED=ENTITIES.register("likho_one_eyed",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,MobCategory.MONSTER).sized(.95F,3.25F).clientTrackingRange(12).build("slavicmyths:likho_one_eyed"));
-    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.WorldBoss>> TUGARIN_ZMEY=ENTITIES.register("tugarin_zmey",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,MobCategory.MONSTER).sized(1.5F,2.9F).clientTrackingRange(12).build("slavicmyths:tugarin_zmey"));
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.WorldBoss>> TUGARIN_ZMEY=ENTITIES.register("tugarin_zmey",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,MobCategory.MONSTER).sized(3.5F,4.85F).eyeHeight(4.15F).clientTrackingRange(12).build("slavicmyths:tugarin_zmey"));
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.BossStone>> TUGARIN_STONE=ENTITIES.register("tugarin_stone",()->EntityType.Builder.of(org.slavicmyths.hunt.BossStone::new,MobCategory.MISC).sized(.4F,.4F).clientTrackingRange(8).updateInterval(2).build("slavicmyths:tugarin_stone"));
     private ModEntities() { }
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_BROOM=ENTITIES.register("flying_broom",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,false),MobCategory.MISC).sized(1F,.45F).clientTrackingRange(10).updateInterval(3).build("slavicmyths:flying_broom"));

@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "version": "1.6.6",
+  "checks": 31058,
+  "clean_build": "PASS",
+  "native_offline": "471427",
+  "doghead_regression": "PASS",
+  "final_game_test_server": "PASS",
+  "minecraft_server_launches": 10,
+  "minecraft_client_launches": 0,
+  "in_game_visual_audio_mp_relog_mspt": "NOT TESTED",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.6.6.jar",
+  "sha256": "c52b25c10a730a021eda7ff849eda2b736453b0221510850ec92e2912d29ba26",
+  "old_entries_preserved": 6401,
+  "modified_old_entries": [
+    "META-INF/MANIFEST.MF",
+    "org/slavicmyths/SlavicMyths.class",
+    "org/slavicmyths/yaga/YagaData.class",
+    "org/slavicmyths/yaga/YagaHut.class",
+    "org/slavicmyths/yaga/YagaHutPlan.class",
+    "META-INF/neoforge.mods.toml",
+    "assets/slavicmyths/sounds.json",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json",
+    "data/slavicmyths/tags/entity_type/combat_protected.json",
+    "data/slavicmyths/tags/entity_type/control_immune.json"
+  ],
+  "audio_files": 48,
+  "registered_cues": 37
+}

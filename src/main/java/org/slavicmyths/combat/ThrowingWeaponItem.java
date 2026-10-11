@@ -48,15 +48,15 @@ public final class ThrowingWeaponItem extends TieredItem {
         if(!creative)stack.shrink(1);
         player.getCooldowns().addCooldown(this,knife?8:16);
         player.awardStat(Stats.ITEM_USED.get(this));
-        level.playSound(null,player.blockPosition(),SoundEvents.TRIDENT_THROW.value(),SoundSource.PLAYERS,.45F,knife?1.6F:1F);
+        level.playSound(null,player.blockPosition(),knife?SoundEvents.SNOWBALL_THROW:SoundEvents.TRIDENT_THROW.value(),SoundSource.PLAYERS,knife?.3F:.45F,knife?1.7F:1F);
     }
     @Override public boolean hurtEnemy(ItemStack stack,LivingEntity target,LivingEntity attacker){stack.hurtAndBreak(1,attacker,EquipmentSlot.MAINHAND);return true;}
     @Override public boolean supportsEnchantment(ItemStack stack,net.minecraft.core.Holder<net.minecraft.world.item.enchantment.Enchantment> enchantment) {
-        return !enchantment.is(net.minecraft.world.item.enchantment.Enchantments.SWEEPING_EDGE)&&
+        return knife&&enchantment.is(net.minecraft.world.item.enchantment.Enchantments.LOYALTY)||!enchantment.is(net.minecraft.world.item.enchantment.Enchantments.SWEEPING_EDGE)&&
             (enchantment.value().isSupportedItem(new ItemStack(Items.IRON_SWORD))||super.supportsEnchantment(stack,enchantment));
     }
     @Override public boolean isPrimaryItemFor(ItemStack stack,net.minecraft.core.Holder<net.minecraft.world.item.enchantment.Enchantment> enchantment) {
-        return !enchantment.is(net.minecraft.world.item.enchantment.Enchantments.SWEEPING_EDGE)&&
+        return knife&&enchantment.is(net.minecraft.world.item.enchantment.Enchantments.LOYALTY)||!enchantment.is(net.minecraft.world.item.enchantment.Enchantments.SWEEPING_EDGE)&&
             (enchantment.value().isPrimaryItem(new ItemStack(Items.IRON_SWORD))||super.isPrimaryItemFor(stack,enchantment));
     }
 }

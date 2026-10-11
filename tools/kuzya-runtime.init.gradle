@@ -1,0 +1,12 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { kuzyaRuntime { java.srcDir 'tools/kuzya-runtime'; resources.srcDir 'tools/kuzya-runtime-resources' } }
+ p.sourceSets.kuzyaRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.kuzyaRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileKuzyaRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.kuzyaRuntime)
+ p.neoForge.runs { kuzyaChecks {
+  type = 'gameTestServer'
+  gameDirectory = p.file('work/kuzya/runtime-world-'+p.findProperty('kuzyaRun'))
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_kuzya'
+ } }
+} }

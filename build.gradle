@@ -12,6 +12,8 @@ repositories {
     maven { url = 'https://maven.blamejared.com' }
     mavenCentral()
 }
+
+
 neoForge {
     version = project.neo_version
     accessTransformers = files("src/main/resources/META-INF/accesstransformer.cfg")
@@ -38,6 +40,21 @@ processResources {
     }
 }
 jar { manifest { attributes 'Implementation-Version': project.version } }
+
+// Chud city fixtures are opt-in, with a separate smoke world and no production test classes.
+if (project.hasProperty('chudCheck')) {
+    sourceSets { chudCheck { java.srcDir 'tools/chud-tests'; resources.srcDir 'tools/chud-test-resources' } }
+    sourceSets.chudCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.chudCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+    tasks.named('compileChudCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.chudCheck)
+    neoForge.runs { chudChecks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-chud-151')
+        systemProperty 'neoforge.enabledGameTestNamespaces', (project.hasProperty('abandonedCheck') ? 'slavicmyths_abandoned' : 'slavicmyths_chud') + (project.hasProperty('chudTerrainCheck') ? ',slavicmyths_chud_terrain' : '') + (project.hasProperty('chudFullCheck') ? ',slavicmyths_chud_full' : '') + (project.hasProperty('abandonedTerrainCheck') ? ',slavicmyths_abandoned_terrain' : '') + (project.hasProperty('abandonedFullCheck') ? ',slavicmyths_abandoned_full' : '') + (project.hasProperty('chudRegressionCheck') ? ',slavicmyths_chud' : '') + (project.hasProperty('abandonedFinderCheck') ? ',slavicmyths_abandoned_finder' : '')
+        systemProperty 'slavicmyths.chudRoot', project.projectDir.absolutePath
+    } }
+}
 
 // Weapon 2.0 fixtures are opt-in and never enter the production artifact.
 if (project.hasProperty('weaponRuntimeCheck')) {
@@ -315,4 +332,152 @@ if (project.hasProperty('rareRuneOfflineCheck')) {
         classpath = sourceSets.rareRuneOffline.runtimeClasspath
         mainClass = 'org.slavicmyths.verify.RareRuneOffline'
     }
+}
+
+// Opt-in 1.3.4.4 combat regression server; fixtures never enter the production JAR.
+if (project.hasProperty('combatRuntimeCheck')) {
+    sourceSets { combatCheck { java.srcDir 'tools/combat-fix-tests'; resources.srcDir 'tools/combat-fix-test-resources' } }
+    sourceSets.combatCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.combatCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+    tasks.named('compileCombatCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.combatCheck)
+    neoForge.runs { combatFixes {
+        type = 'gameTestServer'
+        gameDirectory = file('run-combat-1344')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_combat'
+    } }
+}
+// Opt-in Tugarin tests; production JAR excludes fixtures.
+if (project.hasProperty('tugarinRuntimeCheck')) {
+    sourceSets { tugarinCheck { java.srcDir 'tools/tugarin-tests'; resources.srcDir 'tools/tugarin-test-resources' } }
+    sourceSets.tugarinCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.tugarinCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+    tasks.named('compileTugarinCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.tugarinCheck)
+    neoForge.runs { tugarinChecks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-tugarin-13451')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_tugarin'
+    } }
+}
+if (project.hasProperty('tugarinModelOfflineCheck')) {
+    sourceSets { tugarinModelOffline { java.srcDir 'tools/tugarin-model-tests' } }
+    sourceSets.tugarinModelOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.tugarinModelOffline.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.register('verifyTugarinModels', JavaExec) {
+        dependsOn 'tugarinModelOfflineClasses'
+        classpath = sourceSets.tugarinModelOffline.runtimeClasspath
+        mainClass = 'org.slavicmyths.verify.TugarinModelsOffline'
+    }
+}
+
+// Isolated unique-equipment server fixtures; never included in production JARs.
+if (project.hasProperty('uniqueEquipmentCheck')) {
+    sourceSets { uniqueEquipmentCheck { java.srcDir 'tools/unique-equipment-tests'; resources.srcDir 'tools/unique-equipment-test-resources' } }
+    sourceSets.uniqueEquipmentCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.uniqueEquipmentCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+    tasks.named('compileUniqueEquipmentCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.uniqueEquipmentCheck)
+    neoForge.runs { uniqueEquipmentChecks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-unique-equipment-checks')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_unique'
+        systemProperty 'slavicmyths.uniqueRestartPhase', project.findProperty('uniqueRestartPhase') ?: 'write'
+    } }
+}
+
+// Isolated Grey Wolf 1.4.1 native fixtures, excluded from production.
+if (project.hasProperty('greyWolfCheck')) {
+ sourceSets { greyWolfCheck { java.srcDir 'tools/grey-wolf-tests'; resources.srcDir 'tools/grey-wolf-test-resources' } }
+ sourceSets.greyWolfCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.greyWolfCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+ tasks.named('compileGreyWolfCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.greyWolfCheck)
+ neoForge.runs { greyWolfChecks {
+  type = 'gameTestServer'
+  gameDirectory = file('run-grey-wolf-checks')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_wolf'
+ } }
+}
+
+if (project.hasProperty('greyWolfModelOfflineCheck')) {
+ sourceSets { greyWolfModelOffline { java.srcDir 'tools/grey-wolf-model-tests' } }
+ sourceSets.greyWolfModelOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.greyWolfModelOffline.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+ tasks.register('verifyGreyWolfModel', JavaExec) {
+  dependsOn 'greyWolfModelOfflineClasses'
+  classpath = sourceSets.greyWolfModelOffline.runtimeClasspath
+  mainClass = 'org.slavicmyths.verify.GreyWolfModelOffline'
+ }
+}
+
+// Isolated 1.4.2 quest/equipment acceptance fixtures, excluded from production.
+if (project.hasProperty('wolfStoryCheck')) {
+ sourceSets { wolfStoryCheck { java.srcDir 'tools/grey-wolf-story-tests'; resources.srcDir 'tools/grey-wolf-story-test-resources' } }
+ sourceSets.wolfStoryCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.wolfStoryCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+ tasks.named('compileWolfStoryCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.wolfStoryCheck)
+ neoForge.runs { wolfStoryChecks {
+  type = 'gameTestServer'
+  gameDirectory = file('run-grey-wolf-story-checks')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_wolf_story'
+ } }
+}
+
+if (project.hasProperty('finistModelOfflineCheck')) {
+ sourceSets { finistModelOffline { java.srcDir 'tools/finist-model-tests' } }
+ sourceSets.finistModelOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.finistModelOffline.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+ tasks.register('verifyFinistModel', JavaExec) {
+  dependsOn 'finistModelOfflineClasses'
+  classpath = sourceSets.finistModelOffline.runtimeClasspath
+  mainClass = 'org.slavicmyths.verify.FinistModelOffline'
+ }
+}
+
+if (project.hasProperty('volkolakModelOfflineCheck')) {
+ sourceSets { volkolakModelOffline { java.srcDir 'tools/volkolak-model-tests' } }
+ sourceSets.volkolakModelOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.volkolakModelOffline.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+ tasks.register('verifyVolkolakModel', JavaExec) {
+  dependsOn 'volkolakModelOfflineClasses'
+  classpath = sourceSets.volkolakModelOffline.runtimeClasspath
+  mainClass = 'org.slavicmyths.verify.VolkolakModelOffline'
+ }
+}
+
+if (project.hasProperty('volkolakCheck')) {
+ sourceSets { volkolakCheck { java.srcDir 'tools/volkolak-tests'; resources.srcDir 'tools/volkolak-test-resources' } }
+ sourceSets.volkolakCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.volkolakCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+ tasks.named('compileVolkolakCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.volkolakCheck)
+ neoForge.runs { volkolakChecks {
+  type = 'gameTestServer'
+  gameDirectory = file('run-volkolak-checks')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_volkolak'
+ } }
+}
+
+// This rework's opt-in native combat tests never enter production.
+if (project.hasProperty('bossReworkCheck')) {
+ sourceSets { bossReworkCheck { java.srcDir 'tools/boss-rework-tests'; resources.srcDir 'tools/boss-rework-test-resources' } }
+ sourceSets.bossReworkCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.bossReworkCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+ tasks.named('compileBossReworkCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.bossReworkCheck)
+ neoForge.runs { bossReworkChecks {
+  type = 'gameTestServer'
+  gameDirectory = file('run-boss-rework-checks')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_boss_rework'
+ } }
+}
+
+if (project.hasProperty('bossReworkClientCheck')) {
+ sourceSets { bossReworkClientCheck { java.srcDir 'tools/boss-rework-client' } }
+ sourceSets.bossReworkClientCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.bossReworkClientCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+ tasks.named('compileBossReworkClientCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.bossReworkClientCheck)
 }

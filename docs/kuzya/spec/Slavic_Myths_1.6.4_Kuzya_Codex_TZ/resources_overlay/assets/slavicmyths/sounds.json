@@ -1,0 +1,379 @@
+{
+  "kuzya.voice_enter_01": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_enter_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_enter_01"
+  },
+  "kuzya.voice_enter_02": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_enter_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_enter_02"
+  },
+  "kuzya.voice_idle_01": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_idle_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_idle_01"
+  },
+  "kuzya.voice_idle_02": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_idle_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_idle_02"
+  },
+  "kuzya.voice_eat_01": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_eat_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_eat_01"
+  },
+  "kuzya.voice_eat_02": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_eat_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_eat_02"
+  },
+  "kuzya.voice_eat_03": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_eat_03",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_eat_03"
+  },
+  "kuzya.voice_sleep_01": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_sleep_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_sleep_01"
+  },
+  "kuzya.voice_sleep_02": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_sleep_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_sleep_02"
+  },
+  "kuzya.voice_notice_01": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_notice_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_notice_01"
+  },
+  "kuzya.voice_notice_02": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_notice_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_notice_02"
+  },
+  "kuzya.voice_ask_leave_01": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_ask_leave_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_ask_leave_01"
+  },
+  "kuzya.voice_ask_leave_02": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_ask_leave_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_ask_leave_02"
+  },
+  "kuzya.voice_ask_leave_03": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_ask_leave_03",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_ask_leave_03"
+  },
+  "kuzya.voice_ask_leave_04": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_ask_leave_04",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_ask_leave_04"
+  },
+  "kuzya.voice_ask_leave_05": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_ask_leave_05",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_ask_leave_05"
+  },
+  "kuzya.voice_yaga_01": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_yaga_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_yaga_01"
+  },
+  "kuzya.voice_yaga_02": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_yaga_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_yaga_02"
+  },
+  "kuzya.voice_interact_01": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_interact_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_interact_01"
+  },
+  "kuzya.voice_interact_02": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/voice_draft/voice_interact_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.voice_interact_02"
+  },
+  "kuzya.step_wood": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/step_wood_01",
+        "stream": false
+      },
+      {
+        "name": "slavicmyths:kuzya/sfx/step_wood_02",
+        "stream": false
+      },
+      {
+        "name": "slavicmyths:kuzya/sfx/step_wood_03",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.footsteps"
+  },
+  "kuzya.stove_climb": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/stove_scramble_01",
+        "stream": false
+      },
+      {
+        "name": "slavicmyths:kuzya/sfx/stove_scramble_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.cloth": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/cloth_rustle_01",
+        "stream": false
+      },
+      {
+        "name": "slavicmyths:kuzya/sfx/cloth_rustle_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.sit": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/sitting_down_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.wake": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/wake_rustle_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.bowl": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/bowl_clink_01",
+        "stream": false
+      },
+      {
+        "name": "slavicmyths:kuzya/sfx/bowl_clink_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.chew": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/chew_01",
+        "stream": false
+      },
+      {
+        "name": "slavicmyths:kuzya/sfx/chew_02",
+        "stream": false
+      },
+      {
+        "name": "slavicmyths:kuzya/sfx/chew_03",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.swallow": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/swallow_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.stove_settle": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/stove_settle_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.chest": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/trunk_wood_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.sweep": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/broom_sweep_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.sleep_breath": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/sleep_breath_01",
+        "stream": false
+      },
+      {
+        "name": "slavicmyths:kuzya/sfx/sleep_breath_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.snore"
+  },
+  "kuzya.snore": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/snore_01",
+        "stream": false
+      },
+      {
+        "name": "slavicmyths:kuzya/sfx/snore_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.snore"
+  },
+  "kuzya.sigh": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/sleepy_sigh_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.grumble_nonverbal": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/grumble_01",
+        "stream": false
+      },
+      {
+        "name": "slavicmyths:kuzya/sfx/grumble_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.huff": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/annoyed_huff_01",
+        "stream": false
+      },
+      {
+        "name": "slavicmyths:kuzya/sfx/annoyed_huff_02",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  },
+  "kuzya.hum": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kuzya/sfx/happy_hum_01",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.kuzya.general"
+  }
+}

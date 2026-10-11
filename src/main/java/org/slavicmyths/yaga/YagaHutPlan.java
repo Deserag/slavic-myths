@@ -40,6 +40,27 @@ public final class YagaHutPlan {
   for(int x=-8;x<=-6;x++)for(int z=4;z<=6;z++)b(x,0,z,"spruce_log[axis=z]");
   b(7,0,5,"stripped_spruce_log[axis=y]");b(6,0,-4,"campfire[lit=false]");
   for(int x:new int[]{-7,7})for(int z:new int[]{-7,-3,1,7})b(x,0,z,z<0?"slavicmyths:wormwood":"brown_mushroom");
+  householdInterior();
+ }
+ /** Only new placements use this interior. Outer walls/legs/door and Yaga home are retained. */
+ private void householdInterior(){
+  for(int x=2;x<=4;x++)for(int z=3;z<=5;z++)for(int y=4;y<=6;y++)b(x,y,z,"air");
+  for(int x=3;x<=4;x++)for(int z=3;z<=5;z++){b(x,4,z,"calcite");b(x,5,z,"calcite");}
+  b(3,4,3,"smoker[facing=north,lit=true]");
+  b(4,6,3,"calcite");b(4,7,3,"calcite");b(3,7,3,"calcite");
+  b(1,4,3,"smooth_quartz_slab[type=bottom]");b(2,4,3,"smooth_quartz_stairs[facing=south]");b(2,5,4,"smooth_quartz_slab[type=bottom]");
+  for(int x=3;x<=4;x++)for(int z=4;z<=5;z++)b(x,6,z,"red_carpet");
+  // No carpet on the navigation bed anchor: the physical surface is exactly y=6.
+  b(3,6,4,"air");
+  for(int z=-4;z<=0;z++)b(-3,4,z,z%2==0?"red_carpet":"brown_carpet");
+  b(1,4,-3,"spruce_slab[type=bottom]");b(1,4,-2,"spruce_slab[type=bottom]");
+  b(2,4,-2,"slavicmyths:pine_table");b(2,5,-2,"air");b(2,6,-2,"air");
+  b(-4,4,2,"spruce_planks");b(-4,5,2,"red_carpet");b(-4,4,1,"potted_fern");
+  b(-4,4,5,"barrel[facing=up]");
+  b(-3,6,4,"spruce_slab[type=top]");b(-3,7,4,"potted_brown_mushroom");
+  b(-1,6,5,"spruce_slab[type=top]");b(-1,7,5,"potted_red_mushroom");
+  b(1,6,5,"spruce_slab[type=top]");b(1,7,5,"potted_fern");
+  b(-1,6,3,"lantern[hanging=true]");b(-1,7,3,"spruce_slab[type=bottom]");
  }
  /** Candidate positions never load chunks. The seeded order is stable across restarts. */
  public static List<BlockPos> candidates(long seed,BlockPos spawn){Random random=new Random(seed^0x596167614875744cL);List<BlockPos> out=new ArrayList<>();for(int i=0;i<64;i++){double a=random.nextDouble()*Math.PI*2,r=820+random.nextDouble()*1650;out.add(new BlockPos(spawn.getX()+(int)Math.round(Math.cos(a)*r),0,spawn.getZ()+(int)Math.round(Math.sin(a)*r)));}return out;}

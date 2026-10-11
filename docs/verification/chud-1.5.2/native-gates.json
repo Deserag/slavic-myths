@@ -1,0 +1,20 @@
+{
+  "technical_status": "PASS",
+  "acceptance": "OPEN_WORLDGEN_QUOTA",
+  "production_sha256": "ca2a1e9e7ab2ebfb740edee54f7318f604a04119d5aa6f8b49c05e8699810103",
+  "native_log": "D:\\slavic-myths\\docs\\verification\\chud-1.5.2\\attempt37.log",
+  "required_tests": 14,
+  "geometry_plans": 36,
+  "native_full_cases": 5,
+  "runtime_production_identical_classes": 921,
+  "natural_world_seeds": 12,
+  "natural_candidates": 480,
+  "unique_natural_examples": {
+    "ATTACHED_SMALL": 1,
+    "INDEPENDENT_MEDIUM": 5,
+    "INDEPENDENT_GREAT": 0
+  },
+  "minimum_four_per_kind": "OPEN",
+  "manual_gameplay": "NOT_TESTED",
+  "client_launches": 0
+}

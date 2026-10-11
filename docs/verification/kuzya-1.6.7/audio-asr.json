@@ -1,0 +1,32 @@
+[
+  {
+    "id": "voice_original_domovity",
+    "recognized": " Я не жадный! Я домовитый!",
+    "subtitle": "Я не жадный, я домовитый!",
+    "method": "faster-whisper-small ru CPU; not human listening"
+  },
+  {
+    "id": "voice_original_desire",
+    "recognized": " ХОЧЕТЕТЕ ВОЙТА!  САМНЕ ЗНАЙЧЕ ВОЙТА!",
+    "subtitle": "Хочется чего-то. Сам не знаю чего.",
+    "method": "faster-whisper-small ru CPU; not human listening"
+  },
+  {
+    "id": "voice_original_pancakes",
+    "recognized": " Блин, ну а вхочу, со сметаной!",
+    "subtitle": "Блинов хочу! Со сметаной!",
+    "method": "faster-whisper-small ru CPU; not human listening"
+  },
+  {
+    "id": "voice_original_sleep",
+    "recognized": " Елни-дос, это спал, деспрос, не досыпал, в общем я.",
+    "subtitle": "Ел недосыта, спал без просыпа… Недосыпал, в общем, я!",
+    "method": "faster-whisper-small ru CPU; not human listening"
+  },
+  {
+    "id": "voice_original_feed",
+    "recognized": " Сперва, молцом, баньки попасть,  Накормить на бои, а потом и любить!",
+    "subtitle": "Сперва молодца в баньке попарь, накорми, напои, а потом и люби!",
+    "method": "faster-whisper-small ru CPU; not human listening"
+  }
+]

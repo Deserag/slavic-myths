@@ -1,0 +1,255 @@
+{
+  "version": "1.5.6",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.5.6.jar",
+  "sha256": "fe757e563a5b868e4f4f85e02647298a1184a09ea0952baec50251aac883a1b7",
+  "production": "PASS",
+  "resources": "PASS",
+  "checks": 13579,
+  "baseline": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-earth-20261010-103138\\slavicmyths-1.5.5.jar",
+  "baseline_sha256": "42abe094b92379daca566023d51963c51cd60f8ed6fb82eb0d5584c406590a67",
+  "preserved_classes": 1016,
+  "preserved_resources": 4996,
+  "audio": [
+    {
+      "file": "ambient_1.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 2.4,
+      "peak": 0.6291991472244263,
+      "sha256": "20342c7465b261a14d6443b667abe3e1bed7e77453f08de5e6cf84504b513696"
+    },
+    {
+      "file": "ambient_2.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 2.7999773242630384,
+      "peak": 0.6590945720672607,
+      "sha256": "e9c566f19a882cd802b7fd3364d1ca8ff42d238de4891bc0b8b00226c18ac8de"
+    },
+    {
+      "file": "armor_activate.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.8,
+      "peak": 0.6157556176185608,
+      "sha256": "7e750565aba664ae81385b6b6e5aedff8596d949c4bc61eaecf3e9b50ca14408"
+    },
+    {
+      "file": "awaken_rumble.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 4.0,
+      "peak": 0.6195494532585144,
+      "sha256": "caed9770604f872decb82ec120daa3494818632fedd9a8cc6ba0863800b55259"
+    },
+    {
+      "file": "death_fall.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 4.4,
+      "peak": 0.747229278087616,
+      "sha256": "40e6564c19148633f0b401c57c903ebb6ed48131c9e9c03f379254a3f889f1fd"
+    },
+    {
+      "file": "footstep_1.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 0.66,
+      "peak": 0.6286254525184631,
+      "sha256": "68dac660687a3373e843d42e375ccfb9a353e7106f64dbbfdb10c68c5368212d"
+    },
+    {
+      "file": "footstep_2.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 0.58,
+      "peak": 0.6065232753753662,
+      "sha256": "1ffd8f271260e13f39aecd622f894ae3fc3ac01e1c80c2420a104a77222df5cf"
+    },
+    {
+      "file": "gate_close.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.9,
+      "peak": 0.6508833169937134,
+      "sha256": "8c50285f6a1505bca4c2e1a76d69524ba6f104a38a0a9386441cc62deb80b0b2"
+    },
+    {
+      "file": "melee_impact.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.3999773242630384,
+      "peak": 0.7443325519561768,
+      "sha256": "3378eadc42d3b5366f6ce76af9bd84cf12ea326676d6da0ff24337ca44e49e05"
+    },
+    {
+      "file": "melee_windup.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 0.9,
+      "peak": 0.7016469240188599,
+      "sha256": "60308eec7f87d8c7730980ac156d48f4396f88748f4048ce489f0e473e9ca716"
+    },
+    {
+      "file": "phase_change.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 2.4,
+      "peak": 0.670551598072052,
+      "sha256": "aca1a43a3c05757b6808cc1009d7838e34fc6e1d6bfd3c7614bf2b36714651b2"
+    },
+    {
+      "file": "pillar_grip.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.1499773242630384,
+      "peak": 0.6550218462944031,
+      "sha256": "fdaa1ced11e2a785b46a258df9095e9c543d1810a4e8518f68d13db18f3a6149"
+    },
+    {
+      "file": "pillar_impact.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 2.1,
+      "peak": 0.7289993762969971,
+      "sha256": "d67c68966522e82b2c317268ccee27cf4a1afdb3e85900db89db77075221ada6"
+    },
+    {
+      "file": "pillar_rip.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.6,
+      "peak": 0.6161002516746521,
+      "sha256": "7fc54a5b778419916cae09d334adb2455594f61912fff690e097c04af13150e4"
+    },
+    {
+      "file": "pillar_throw.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.1,
+      "peak": 0.7806550860404968,
+      "sha256": "14d4220ac39f9a67b61db3479ada01bc82386515b07dc264c53c58b090593bde"
+    },
+    {
+      "file": "roar_1.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 2.5,
+      "peak": 0.6736111044883728,
+      "sha256": "dac385d5f65571e18396bc03c51c106c43f6c4a1300e9e5dd89ee9698f91f30f"
+    },
+    {
+      "file": "roar_2.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 2.1,
+      "peak": 0.6566351056098938,
+      "sha256": "bebd8353d97574ecbe02a599ca1fb61086708f21f27dbfc5cf5143b6664e6ad7"
+    },
+    {
+      "file": "rune_reward.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.8,
+      "peak": 0.642487108707428,
+      "sha256": "5c52961a2ca82fbf4b3f8c2f11da63860681fd55bf094ee72b08a3549838141c"
+    },
+    {
+      "file": "seal_break.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 2.0,
+      "peak": 0.5957509875297546,
+      "sha256": "d7c4bde2b27a7ef01739f53e12740db9903e13043652dc882952a49f026dd583"
+    },
+    {
+      "file": "servant_death.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 0.8,
+      "peak": 0.46557706594467163,
+      "sha256": "c0cec70477fe48ff3be9c5842ed7104fcd8392d651c000cbe01e9e6da8f36a57"
+    },
+    {
+      "file": "servant_emerge.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.2,
+      "peak": 0.5843149423599243,
+      "sha256": "f92852d2aa4cfb4ac10b736cb3a646babac8ce18f26b4fd4f34c09e8cb6475f1"
+    },
+    {
+      "file": "servant_hit.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 0.43,
+      "peak": 0.10487361997365952,
+      "sha256": "165bcc3763abf06c1bd3ef63a0bc27a070a06dc33179d373231089b77c1ae37b"
+    },
+    {
+      "file": "servant_idle.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.0,
+      "peak": 0.5877108573913574,
+      "sha256": "39ee1510ebeb87c0c07a2047bab7fd5f878dd71ff1167b68fdda0afab7466052"
+    },
+    {
+      "file": "shockwave.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.9,
+      "peak": 0.6282010674476624,
+      "sha256": "c1b7b0c1d2c85f755071ba523616f4fb41ece1704375758d9ebef655e98326f7"
+    },
+    {
+      "file": "summon_warning.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.5,
+      "peak": 0.6054298877716064,
+      "sha256": "c7f3dc94dc783a305c6c6e3558f478f8e045ef7323ab2d018e8bffc264065bf1"
+    },
+    {
+      "file": "tremor_impact.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 2.1,
+      "peak": 0.7683557868003845,
+      "sha256": "86f15aea9787d7a6070639c21ffecd81532c016043b532fe822cc3b486e56ac7"
+    },
+    {
+      "file": "tremor_warning.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.3,
+      "peak": 0.6167283654212952,
+      "sha256": "09d48d694311c457344a28dd8704c5b281a90cf826bb735debcd5b74e1899adb"
+    },
+    {
+      "file": "volley_charge.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 1.35,
+      "peak": 0.644402265548706,
+      "sha256": "f6d0a576aa0308aa94a28d9009dd6badbab8da1a8f1f119c4f3062002cf48648"
+    },
+    {
+      "file": "volley_impact.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 0.75,
+      "peak": 0.47131893038749695,
+      "sha256": "db5dd1f4908da220e1f74f3ab05daf088cd27eebe9a0432b8d1e1804e0e42b1e"
+    },
+    {
+      "file": "volley_release.ogg",
+      "rate": 44100,
+      "channels": 1,
+      "duration": 0.45,
+      "peak": 0.10235564410686493,
+      "sha256": "15818623ce604ff8265412f40a2616df37cbc32d0ecaaafe7ef3ce6ce061c9e0"
+    }
+  ],
+  "generator_reproducible": true
+}

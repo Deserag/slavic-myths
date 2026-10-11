@@ -1,0 +1,14 @@
+{
+  "type": "slavicmyths:refining_hearth",
+  "ingredient": {
+    "item": "minecraft:copper_ingot"
+  },
+  "flux": {
+    "item": "slavicmyths:purification_flux"
+  },
+  "result": {
+    "id": "slavicmyths:purified_copper_ingot",
+    "count": 1
+  },
+  "duration": 300
+}

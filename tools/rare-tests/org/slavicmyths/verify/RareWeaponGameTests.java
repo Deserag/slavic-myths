@@ -43,17 +43,14 @@ public final class RareWeaponGameTests {
         }t.succeed();
     }
     @GameTest(template="empty") public static void singleAndPairBleed(GameTestHelper t){
-        var p=player(t);equip(p,RareWeapons.TUGARIN.get());var z=EntityType.COW.create(t.getLevel());z.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(100);z.setHealth(100);z.setNoAi(true);z.moveTo(p.position().add(0,0,2));t.getLevel().addFreshEntity(z);hit(p,z);t.assertTrue(!z.hasEffect(ModEffects.RARE_BLEED),"single blade bleeds");
+        var p=player(t);equip(p,RareWeapons.TUGARIN.get());var z=EntityType.COW.create(t.getLevel());z.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(100);z.setHealth(100);z.setNoAi(true);z.moveTo(p.position().add(0,0,2));t.getLevel().addFreshEntity(z);hit(p,z);t.assertTrue(z.hasEffect(ModEffects.RARE_BLEED),"one pair stack must apply bleed");
         p.setItemSlot(EquipmentSlot.OFFHAND,new ItemStack(RareWeapons.TUGARIN.get()));
         for(int i=0;i<5;i++)hit(p,z);
         t.assertTrue(z.getEffect(ModEffects.RARE_BLEED).getAmplifier()==2,"bleed cap");t.assertTrue(z.getEffect(ModEffects.RARE_BLEED).getDuration()==120,"bleed duration");
         float hp=z.getHealth();z.invulnerableTime=0;z.getPersistentData().putLong("RareBleedPulse",RareCombat.now(z));ModEffects.RARE_BLEED.get().applyEffectTick(z,2);t.assertTrue(z.getHealth()<hp,"bleed pulse missing");
         t.succeed();
     }
-    @GameTest(template="empty") public static void offhandRunesDoNotDuplicate(GameTestHelper t){
-        var p=player(t);equip(p,RareWeapons.TUGARIN.get());p.setItemSlot(EquipmentSlot.OFFHAND,marked(t,RareWeapons.TUGARIN.get(),"heat"));var z=zombie(t,p,2);hit(p,z);
-        t.assertTrue(!z.isOnFire(),"offhand rune triggered");p.setItemSlot(EquipmentSlot.MAINHAND,marked(t,RareWeapons.TUGARIN.get(),"heat"));p.doTick();hit(p,z);t.assertTrue(z.isOnFire(),"main rune missing");t.succeed();
-    }
+    @GameTest(template="empty") public static void offhandRunesDoNotDuplicate(GameTestHelper t){var p=player(t);equip(p,RareWeapons.LIKHO.get());double base=p.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE);p.setItemSlot(EquipmentSlot.OFFHAND,marked(t,RareWeapons.LIKHO.get(),"strength"));p.doTick();RuneRuntime.refresh(p);t.assertTrue(Math.abs(p.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE)-base)<.001,"offhand strength applied");p.setItemSlot(EquipmentSlot.MAINHAND,marked(t,RareWeapons.LIKHO.get(),"strength"));p.doTick();RuneRuntime.refresh(p);t.assertTrue(p.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE)>base,"main strength absent");t.succeed();}
     @GameTest(template="empty") public static void swingFourthAndPause(GameTestHelper t){
         var p=player(t);equip(p,RareWeapons.ATAMAN.get());var z=zombie(t,p,2);
         for(int i=1;i<=3;i++){hit(p,z);t.assertTrue(p.getPersistentData().getInt("RareSwingStacks")==i,"stack "+i);}
@@ -77,7 +74,7 @@ public final class RareWeaponGameTests {
         p.setItemSlot(EquipmentSlot.OFFHAND,new ItemStack(staff));p.setHealth(p.getMaxHealth()-.5F);staff.inventoryTick(p.getOffhandItem(),p.level(),p,40,false);t.assertTrue(p.getHealth()==p.getMaxHealth(),"heal overflow");t.succeed();
     }
     @GameTest(template="empty") public static void staffControlAndProtectedTargets(GameTestHelper t){
-        var p=player(t);equip(p,RareWeapons.LIKHO.get());var z=zombie(t,p,4);var other=zombie(t,p,6);p.setYRot(0);p.setXRot(0);
+        var p=player(t);equip(p,RareWeapons.LIKHO.get());var z=zombie(t,p,4);z.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(90);z.setHealth(90);var other=zombie(t,p,6);p.setYRot(0);p.setXRot(0);
         p.getMainHandItem().getItem().use(p.level(),p,net.minecraft.world.InteractionHand.MAIN_HAND);
         t.assertTrue(z.hasEffect(ModEffects.DISORIENTATION),"cast missed");t.assertTrue(DisorientationEffect.stunned(z),"stun absent");z.setTarget(p);t.assertTrue(z.getTarget()==null,"owner target while stunned");
         float hp=p.getHealth();p.hurt(z.damageSources().mobAttack(z),4);t.assertTrue(p.getHealth()==hp,"stunned mob attacks");
@@ -93,12 +90,12 @@ public final class RareWeaponGameTests {
             input.set(0,marked(t,input.getFirst().getItem(),"heat"));if(holder.id().getPath().equals("rare_tugarin_sword"))input.set(1,marked(t,Items.DIAMOND_SWORD,"wind"));
             var menu=new ArmorerMenu(1,p.getInventory(),t.absolutePos(new BlockPos(3,2,3)));for(int i=0;i<16;i++)menu.input.setItem(i,input.get(i).copy());
             var taken=menu.quickMoveStack(p,0);t.assertTrue(!taken.isEmpty()&&ItemState.runes(taken).equals(ItemState.runes(input.getFirst())),"bench primary state");
-            if(taken.is(RareWeapons.TUGARIN.get())){var second=menu.input.getItem(1);t.assertTrue(second.is(RareWeapons.TUGARIN.get())&&ItemState.runes(second).equals(ItemState.runes(input.get(1))),"second donor state");t.assertTrue(menu.quickMoveStack(p,0).isEmpty(),"repeat craft dupes");}
+            if(taken.is(RareWeapons.TUGARIN.get())){t.assertTrue(menu.input.getItem(1).isEmpty(),"pair recipe returned a second transferable pair");t.assertTrue(menu.quickMoveStack(p,0).isEmpty(),"repeat craft dupes");}
             count++;
         }t.assertTrue(count==4,"four recipes missing");t.succeed();
     }
     @GameTest(template="empty",timeoutTicks=180) public static void controlActuallyExpires(GameTestHelper t){
-        var p=player(t);equip(p,RareWeapons.LIKHO.get());var z=zombie(t,p,4);p.setYRot(0);p.setXRot(0);
+        var p=player(t);equip(p,RareWeapons.LIKHO.get());var z=zombie(t,p,4);z.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(90);z.setHealth(90);p.setYRot(0);p.setXRot(0);
         p.getMainHandItem().getItem().use(p.level(),p,net.minecraft.world.InteractionHand.MAIN_HAND);
         t.runAfterDelay(30,()->t.assertTrue(!DisorientationEffect.stunned(z)&&z.hasEffect(ModEffects.DISORIENTATION),"stun failed to end"));
         t.runAfterDelay(150,()->{t.assertTrue(!z.hasEffect(ModEffects.DISORIENTATION),"morok failed to expire");z.setTarget(p);t.assertTrue(z.getTarget()==p,"native target never restored");t.succeed();});
@@ -162,4 +159,5 @@ public final class RareWeaponGameTests {
         t.assertTrue(z.getPersistentData().getLong("RareShieldUntil")>RareCombat.now(z),"mob shield disable absent; look="+z.getLookAngle()+" health="+z.getHealth()+" stacks="+p.getPersistentData().getInt("RareSwingStacks"));
         z.startUsingItem(net.minecraft.world.InteractionHand.OFF_HAND);for(int i=0;i<6;i++)z.tick();float hp=z.getHealth();hit(p,z);t.assertTrue(z.getHealth()<hp,"mob shield bypassed disable");t.succeed();
     }
+
 }

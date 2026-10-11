@@ -60,7 +60,7 @@ public final class FlyingVessel extends Entity {
  public void openCargo(ServerPlayer p){if(!mortar||!owns(p)||!isAlive()||p.distanceToSqr(this)>16||viewers>0)return;if(owner==null)owner=p.getUUID();(p).openMenu(new SimpleMenuProvider((id,inv,player)->new CargoMenu(id,inv,this),Component.translatable("flight.slavicmyths.cargo")),b->b.writeVarInt(getId()));}
  @Override public InteractionResult interact(Player p,InteractionHand hand){if(level().isClientSide)return InteractionResult.SUCCESS;if(!owns(p)||p.isSpectator())return InteractionResult.FAIL;
   if(mortar&&p.isSecondaryUseActive()){openCargo((ServerPlayer)p);return InteractionResult.CONSUME;}
-  if(!isVehicle()){if(owner==null)owner=p.getUUID();if(p.startRiding(this)){wantedYaw=p.getYRot();p.displayClientMessage(Component.translatable("flight.slavicmyths.controls"),true);}}return InteractionResult.CONSUME;
+  if(!isVehicle()){if(owner==null)owner=p.getUUID();if(p.startRiding(this)){wantedYaw=p.getYRot();}}return InteractionResult.CONSUME;
  }
  @Override public boolean hurt(DamageSource src,float amount){if(level().isClientSide||!isAlive()||isVehicle()||viewers>0||!(src.getEntity() instanceof Player))return false;Player p=(Player)src.getEntity();if(!owns(p)||!p.isCrouching()||p.distanceToSqr(this)>16)return false;
   ItemStack result=vessel.isEmpty()?new ItemStack(mortar?ModItems.FLYING_MORTAR.get():ModItems.FLYING_BROOM.get()):vessel.copy();if(mortar)org.slavicmyths.item.ItemState.inventory(result,true,itemCargo());cargo.clearContent();org.slavicmyths.yaga.FlightRecovery.repack(p);discard();if(!p.getInventory().add(result))p.drop(result,false);return true;

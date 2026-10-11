@@ -20,6 +20,7 @@ import top.theillusivec4.curios.api.client.ICurioRenderer;
 public final class CuriosAccessories implements ICurioRenderer {
     @SubscribeEvent public static void setup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            CuriosRendererRegistry.register(org.slavicmyths.finist.FinistItems.QUIVER.get(), FinistQuiverRenderer::new);
             CuriosRendererRegistry.register(ModItems.POYAS_TUGARINA.get(), CuriosAccessories::new);
             CuriosRendererRegistry.register(ModItems.ODNOGLAZYY_OBEREG.get(), CuriosAccessories::new);
             CuriosRendererRegistry.register(ModItems.OBEREG_PADAYUSCHEY_ZVEZDY.get(), CuriosAccessories::new);

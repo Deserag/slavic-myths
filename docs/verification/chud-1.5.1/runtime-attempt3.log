@@ -1,0 +1,64 @@
+[09окт.2026 08:54:11.369] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[09окт.2026 08:54:11.373] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[09окт.2026 08:54:11.375] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[09окт.2026 08:54:11.492] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[09окт.2026 08:54:11.532] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[09окт.2026 08:54:11.952] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[09окт.2026 08:54:11.955] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.4.2.1 (slavicmyths)
+[09окт.2026 08:54:12.832] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09окт.2026 08:54:12.843] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[09окт.2026 08:54:12.933] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[09окт.2026 08:54:12.933] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[09окт.2026 08:54:13.926] [main/WARN] [oshi.driver.windows.perfmon.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[09окт.2026 08:54:14.217] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09окт.2026 08:54:19.707] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09окт.2026 08:54:19.708] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09окт.2026 08:54:19.711] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09окт.2026 08:54:19.714] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09окт.2026 08:54:19.716] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09окт.2026 08:54:19.802] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[09окт.2026 08:54:21.212] [main/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09окт.2026 08:54:21.302] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[09окт.2026 08:54:21.302] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[09окт.2026 08:54:21.309] [main/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_chud]
+[09окт.2026 08:54:22.607] [main/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1769 recipes
+[09окт.2026 08:54:22.794] [main/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1561 advancements
+[09окт.2026 08:54:22.801] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[09окт.2026 08:54:22.804] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[09окт.2026 08:54:23.731] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[09окт.2026 08:54:23.781] [worldgen/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 2%
+[09окт.2026 08:54:23.885] [Server thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 153 ms
+[09окт.2026 08:54:23.898] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: Started game test server
+[09окт.2026 08:54:23.924] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[09окт.2026 08:54:23.985] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: 6 tests are now running at position 14608520, -59, 14799645!
+[09окт.2026 08:54:24.412] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestRunner/]: Running test batch 'defaultBatch:0' (6 tests)...
+[09окт.2026 08:54:24.537] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [      ]
+[09окт.2026 08:54:24.700] [Server thread/ERROR] [net.minecraft.gametest.framework.LogTestReporter/]: actualthreehallnavigation failed at 14608554, -60, 14799645! unreachable [SQUARE=0, 65, -20 body=Block{minecraft:air} head=Block{minecraft:air}, FORGE=-72, 51, 16 body=Block{minecraft:air} head=Block{minecraft:air}, STORE=-72, 51, 71 body=Block{minecraft:tuff} head=Block{minecraft:spruce_slab}[type=bottom,waterlogged=false], COUNCIL=0, 65, 40 body=Block{minecraft:air} head=Block{minecraft:air}, GATE=-109, 25, -96 body=Block{minecraft:air} head=Block{minecraft:air}, home_4=56, 91, 29, home_5=73, 91, 29, home_6=58, 91, 52, home_7=72, 91, 52, upper tier 1]
+[09окт.2026 08:54:24.882] [Server thread/ERROR] [net.minecraft.gametest.framework.LogTestReporter/]: actualfivehallnavigation failed at 14608588, -60, 14799645! unreachable [SQUARE=0, 65, -20 body=Block{minecraft:air} head=Block{minecraft:air}, RESIDENTIAL=76, 79, 38 body=Block{minecraft:air} head=Block{minecraft:air}, FORGE=-72, 51, 16 body=Block{minecraft:air} head=Block{minecraft:air}, STORE=-66, 41, -69 body=Block{minecraft:air} head=Block{minecraft:air}, COUNCIL=74, 79, -71 body=Block{minecraft:air} head=Block{minecraft:air}, GATE=-109, 25, -96 body=Block{minecraft:air} head=Block{minecraft:air}, home_0=56, 79, 29, home_1=72, 79, 29, home_2=89, 79, 29, home_3=57, 79, 52, home_4=74, 79, 52, home_5=88, 79, 52, home_6=56, 91, 29, home_7=73, 91, 29, home_8=90, 91, 29, home_9=58, 91, 52, home_10=72, 91, 52, home_11=88, 91, 52, home_12=57, 103, 29, home_13=74, 103, 29, home_14=88, 103, 29, home_15=56, 103, 52, home_16=72, 103, 52, home_17=89, 103, 52, upper tier 1, upper tier 2]
+[09окт.2026 08:54:24.926] [Server thread/ERROR] [net.minecraft.gametest.framework.LogTestReporter/]: actualfourhallnavigation failed at 14608605, -60, 14799645! unreachable [SQUARE=0, 65, -20 body=Block{minecraft:air} head=Block{minecraft:air}, FORGE=-72, 51, 16 body=Block{minecraft:air} head=Block{minecraft:air}, STORE=-66, 41, -69 body=Block{minecraft:air} head=Block{minecraft:air}, COUNCIL=0, 65, 40 body=Block{minecraft:air} head=Block{minecraft:air}, GATE=-109, 25, -96 body=Block{minecraft:air} head=Block{minecraft:air}, home_4=56, 91, 29, home_5=73, 91, 29, home_6=58, 91, 52, home_7=72, 91, 52, home_8=57, 103, 29, home_9=74, 103, 29, home_10=56, 103, 52, home_11=72, 103, 52, upper tier 1, upper tier 2]
+[09окт.2026 08:54:24.932] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: [++X+XX]
+[09окт.2026 08:54:24.934] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: ========= 6 GAME TESTS COMPLETE IN 946.0 ms ======================
+[09окт.2026 08:54:24.935] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: 3 required tests failed :(
+[09окт.2026 08:54:24.935] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]:    - actualthreehallnavigation
+[09окт.2026 08:54:24.936] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]:    - actualfivehallnavigation
+[09окт.2026 08:54:24.936] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]:    - actualfourhallnavigation
+[09окт.2026 08:54:24.936] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: ====================================================
+[09окт.2026 08:54:24.946] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[09окт.2026 08:54:24.947] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[09окт.2026 08:54:24.947] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[09окт.2026 08:54:25.389] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[09окт.2026 08:54:25.869] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[09окт.2026 08:54:25.875] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[09окт.2026 08:54:25.894] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09окт.2026 08:54:25.894] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09окт.2026 08:54:25.894] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09окт.2026 08:54:25.895] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09окт.2026 08:54:25.924] [Server thread/INFO] [net.minecraft.gametest.framework.GameTestServer/]: Game test server shutting down

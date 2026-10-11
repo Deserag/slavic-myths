@@ -1,0 +1,15 @@
+{
+  "build": "PASS",
+  "offline_checks": "PASS",
+  "offline_assertions": 29614,
+  "decor_policy_assertions": 11221,
+  "compiled_classes_match": 940,
+  "saved_plan_classes_unchanged": 14,
+  "generation_and_portal_protection_classes_unchanged": 6,
+  "production_sha256": "925b9eb3914a39bd1b33a39de59f3acb6b36e3724db899e104fe25f08d40e398",
+  "runtime_validation": "NOT_RUN",
+  "minecraft_launches": 0,
+  "clients": 0,
+  "servers": 0,
+  "note": "Palette patch/grid math only. Actual Minecraft lighting and visual quality not tested by agent."
+}

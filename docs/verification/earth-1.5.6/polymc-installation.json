@@ -1,0 +1,27 @@
+{
+  "version": "1.5.6",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.5.6.jar",
+  "production_sha256": "fe757e563a5b868e4f4f85e02647298a1184a09ea0952baec50251aac883a1b7",
+  "previous_jars": [
+    {
+      "name": "slavicmyths-1.5.5.jar",
+      "sha256": "42abe094b92379daca566023d51963c51cd60f8ed6fb82eb0d5584c406590a67",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-earth-20261010-103138\\slavicmyths-1.5.5.jar"
+    },
+    {
+      "name": "slavicmyths-1.5.6.jar",
+      "sha256": "8a2e99d464fc5d0866014a3d47a71e7cbfa6686237698e9657fb639ab19fbe70",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-earth-20261010-104828\\slavicmyths-1.5.6.jar"
+    },
+    {
+      "name": "slavicmyths-1.5.6.jar",
+      "sha256": "34815bb547d65a08a0268c7c4da292e9e571d338d4159da40b1d04176ad5644d",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-earth-20261010-105510\\slavicmyths-1.5.6.jar"
+    }
+  ],
+  "other_files_preserved": 356,
+  "minecraft_launches": 0,
+  "acceptance": "OPEN_RUNTIME_NOT_RUN",
+  "old_1_16_5_instance": "NOT_TOUCHED"
+}

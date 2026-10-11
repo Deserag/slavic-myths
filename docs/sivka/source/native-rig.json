@@ -1,0 +1,3507 @@
+{
+  "units_per_block": 16,
+  "axis": "Y down, front -Z, root feet y24",
+  "bones": [
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [
+        0,
+        -25.92,
+        0
+      ]
+    },
+    {
+      "name": "neck",
+      "parent": "body",
+      "pivot": [
+        0,
+        -6.88,
+        -9.76
+      ]
+    },
+    {
+      "name": "neckUpper",
+      "parent": "neck",
+      "pivot": [
+        0,
+        -3,
+        -2.4
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "neckUpper",
+      "pivot": [
+        0,
+        -1,
+        -4.4
+      ]
+    },
+    {
+      "name": "jaw",
+      "parent": "head",
+      "pivot": [
+        0,
+        3,
+        -4
+      ]
+    },
+    {
+      "name": "ear_-1",
+      "parent": "head",
+      "pivot": [
+        -2.9,
+        -5.6,
+        1
+      ]
+    },
+    {
+      "name": "eye_-1",
+      "parent": "head",
+      "pivot": [
+        -4.05,
+        -2.9,
+        -2.7
+      ]
+    },
+    {
+      "name": "ear_1",
+      "parent": "head",
+      "pivot": [
+        2.9,
+        -5.6,
+        1
+      ]
+    },
+    {
+      "name": "eye_1",
+      "parent": "head",
+      "pivot": [
+        4.05,
+        -2.9,
+        -2.7
+      ]
+    },
+    {
+      "name": "leg0",
+      "parent": "body",
+      "pivot": [
+        -6.1,
+        -1.6,
+        -8.6
+      ]
+    },
+    {
+      "name": "knee0",
+      "parent": "leg0",
+      "pivot": [
+        0,
+        12.4,
+        -0.8
+      ]
+    },
+    {
+      "name": "hoof0",
+      "parent": "knee0",
+      "pivot": [
+        0,
+        10.6,
+        -0.6
+      ]
+    },
+    {
+      "name": "leg1",
+      "parent": "body",
+      "pivot": [
+        6.1,
+        -1.6,
+        -8.6
+      ]
+    },
+    {
+      "name": "knee1",
+      "parent": "leg1",
+      "pivot": [
+        0,
+        12.4,
+        -0.8
+      ]
+    },
+    {
+      "name": "hoof1",
+      "parent": "knee1",
+      "pivot": [
+        0,
+        10.6,
+        -0.6
+      ]
+    },
+    {
+      "name": "leg2",
+      "parent": "body",
+      "pivot": [
+        -6.1,
+        -0.64,
+        12.5
+      ]
+    },
+    {
+      "name": "knee2",
+      "parent": "leg2",
+      "pivot": [
+        0,
+        12.4,
+        1.8
+      ]
+    },
+    {
+      "name": "hoof2",
+      "parent": "knee2",
+      "pivot": [
+        0,
+        10.6,
+        -0.6
+      ]
+    },
+    {
+      "name": "leg3",
+      "parent": "body",
+      "pivot": [
+        6.1,
+        -0.64,
+        12.5
+      ]
+    },
+    {
+      "name": "knee3",
+      "parent": "leg3",
+      "pivot": [
+        0,
+        12.4,
+        1.8
+      ]
+    },
+    {
+      "name": "hoof3",
+      "parent": "knee3",
+      "pivot": [
+        0,
+        10.6,
+        -0.6
+      ]
+    },
+    {
+      "name": "mane0",
+      "parent": "neckUpper",
+      "pivot": [
+        -4.8,
+        -7.0,
+        4.1
+      ]
+    },
+    {
+      "name": "maneTip0",
+      "parent": "mane0",
+      "pivot": [
+        -0.4,
+        4.6,
+        2.3
+      ]
+    },
+    {
+      "name": "mane1",
+      "parent": "neckUpper",
+      "pivot": [
+        4.8,
+        -7.0,
+        4.1
+      ]
+    },
+    {
+      "name": "maneTip1",
+      "parent": "mane1",
+      "pivot": [
+        0.4,
+        4.6,
+        2.3
+      ]
+    },
+    {
+      "name": "mane2",
+      "parent": "neckUpper",
+      "pivot": [
+        -5.12,
+        -5.1,
+        4.42
+      ]
+    },
+    {
+      "name": "maneTip2",
+      "parent": "mane2",
+      "pivot": [
+        -0.4,
+        5.0,
+        2.3
+      ]
+    },
+    {
+      "name": "mane3",
+      "parent": "neckUpper",
+      "pivot": [
+        5.12,
+        -5.1,
+        4.42
+      ]
+    },
+    {
+      "name": "maneTip3",
+      "parent": "mane3",
+      "pivot": [
+        0.4,
+        5.0,
+        2.3
+      ]
+    },
+    {
+      "name": "mane4",
+      "parent": "neckUpper",
+      "pivot": [
+        -5.4399999999999995,
+        -3.2,
+        4.739999999999999
+      ]
+    },
+    {
+      "name": "maneTip4",
+      "parent": "mane4",
+      "pivot": [
+        -0.4,
+        5.3999999999999995,
+        2.3
+      ]
+    },
+    {
+      "name": "mane5",
+      "parent": "neckUpper",
+      "pivot": [
+        5.4399999999999995,
+        -3.2,
+        4.739999999999999
+      ]
+    },
+    {
+      "name": "maneTip5",
+      "parent": "mane5",
+      "pivot": [
+        0.4,
+        5.3999999999999995,
+        2.3
+      ]
+    },
+    {
+      "name": "mane6",
+      "parent": "neckUpper",
+      "pivot": [
+        -5.76,
+        -1.3000000000000007,
+        5.06
+      ]
+    },
+    {
+      "name": "maneTip6",
+      "parent": "mane6",
+      "pivot": [
+        -0.4,
+        5.8,
+        2.3
+      ]
+    },
+    {
+      "name": "mane7",
+      "parent": "neckUpper",
+      "pivot": [
+        5.76,
+        -1.3000000000000007,
+        5.06
+      ]
+    },
+    {
+      "name": "maneTip7",
+      "parent": "mane7",
+      "pivot": [
+        0.4,
+        5.8,
+        2.3
+      ]
+    },
+    {
+      "name": "mane8",
+      "parent": "neckUpper",
+      "pivot": [
+        -6.08,
+        0.5999999999999996,
+        5.38
+      ]
+    },
+    {
+      "name": "maneTip8",
+      "parent": "mane8",
+      "pivot": [
+        -0.4,
+        6.199999999999999,
+        2.3
+      ]
+    },
+    {
+      "name": "mane9",
+      "parent": "neckUpper",
+      "pivot": [
+        6.08,
+        0.5999999999999996,
+        5.38
+      ]
+    },
+    {
+      "name": "maneTip9",
+      "parent": "mane9",
+      "pivot": [
+        0.4,
+        6.199999999999999,
+        2.3
+      ]
+    },
+    {
+      "name": "mane10",
+      "parent": "neckUpper",
+      "pivot": [
+        -6.4,
+        2.5,
+        5.699999999999999
+      ]
+    },
+    {
+      "name": "maneTip10",
+      "parent": "mane10",
+      "pivot": [
+        -0.4,
+        6.6,
+        2.3
+      ]
+    },
+    {
+      "name": "mane11",
+      "parent": "neckUpper",
+      "pivot": [
+        6.4,
+        2.5,
+        5.699999999999999
+      ]
+    },
+    {
+      "name": "maneTip11",
+      "parent": "mane11",
+      "pivot": [
+        0.4,
+        6.6,
+        2.3
+      ]
+    },
+    {
+      "name": "forelock",
+      "parent": "head",
+      "pivot": [
+        0,
+        -6.5,
+        -2
+      ]
+    },
+    {
+      "name": "tail",
+      "parent": "body",
+      "pivot": [
+        0,
+        -8,
+        15
+      ]
+    },
+    {
+      "name": "tailMid",
+      "parent": "tail",
+      "pivot": [
+        0,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "tailTip0",
+      "parent": "tailMid",
+      "pivot": [
+        -2.5,
+        5.5,
+        3
+      ]
+    },
+    {
+      "name": "tailTip1",
+      "parent": "tailMid",
+      "pivot": [
+        0.0,
+        5.5,
+        3
+      ]
+    },
+    {
+      "name": "tailTip2",
+      "parent": "tailMid",
+      "pivot": [
+        2.5,
+        5.5,
+        3
+      ]
+    }
+  ],
+  "cubes": [
+    {
+      "name": "ribcage",
+      "bone": "body",
+      "origin": [
+        -7.7,
+        -9.3,
+        -10.5
+      ],
+      "size": [
+        15.4,
+        16.6,
+        24.7
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "back",
+      "bone": "body",
+      "origin": [
+        -6.8,
+        -10.2,
+        -8
+      ],
+      "size": [
+        13.6,
+        3,
+        23
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "belly",
+      "bone": "body",
+      "origin": [
+        -6.4,
+        4.6,
+        -7
+      ],
+      "size": [
+        12.8,
+        4,
+        18
+      ],
+      "material": "shadow",
+      "shell": 0.0,
+      "uv": [
+        1,
+        91
+      ]
+    },
+    {
+      "name": "rib_facet_-1_0",
+      "bone": "body",
+      "origin": [
+        -7.8,
+        -7,
+        -9.0
+      ],
+      "size": [
+        2,
+        4.2,
+        21.0
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "rib_facet_-1_1",
+      "bone": "body",
+      "origin": [
+        -7.8,
+        -4,
+        -8.8
+      ],
+      "size": [
+        2,
+        4.2,
+        19.6
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "rib_facet_-1_2",
+      "bone": "body",
+      "origin": [
+        -7.8,
+        -1,
+        -8.6
+      ],
+      "size": [
+        2,
+        4.2,
+        18.2
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "rib_facet_-1_3",
+      "bone": "body",
+      "origin": [
+        -7.8,
+        2,
+        -8.4
+      ],
+      "size": [
+        2,
+        4.2,
+        16.8
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "shoulder_-1",
+      "bone": "body",
+      "origin": [
+        -8.1,
+        -7.2,
+        -13.4
+      ],
+      "size": [
+        4.2,
+        12.8,
+        9
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "haunch_-1",
+      "bone": "body",
+      "origin": [
+        -7.800000000000001,
+        -7.8,
+        6.5
+      ],
+      "size": [
+        4.8,
+        13.8,
+        9.1
+      ],
+      "material": "coat",
+      "shell": 0.0826,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "haunch_facet_-1_0",
+      "bone": "body",
+      "origin": [
+        -8.4,
+        -5.5,
+        8.0
+      ],
+      "size": [
+        2.8,
+        3.7,
+        6.5
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "haunch_facet_-1_1",
+      "bone": "body",
+      "origin": [
+        -8.4,
+        -2.5,
+        8.3
+      ],
+      "size": [
+        2.8,
+        3.7,
+        6.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "haunch_facet_-1_2",
+      "bone": "body",
+      "origin": [
+        -8.4,
+        0.5,
+        8.6
+      ],
+      "size": [
+        2.8,
+        3.7,
+        6.5
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "rib_facet_1_0",
+      "bone": "body",
+      "origin": [
+        5.8,
+        -7,
+        -9.0
+      ],
+      "size": [
+        2,
+        4.2,
+        21.0
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "rib_facet_1_1",
+      "bone": "body",
+      "origin": [
+        5.8,
+        -4,
+        -8.8
+      ],
+      "size": [
+        2,
+        4.2,
+        19.6
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "rib_facet_1_2",
+      "bone": "body",
+      "origin": [
+        5.8,
+        -1,
+        -8.6
+      ],
+      "size": [
+        2,
+        4.2,
+        18.2
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "rib_facet_1_3",
+      "bone": "body",
+      "origin": [
+        5.8,
+        2,
+        -8.4
+      ],
+      "size": [
+        2,
+        4.2,
+        16.8
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "shoulder_1",
+      "bone": "body",
+      "origin": [
+        3.9,
+        -7.2,
+        -13.4
+      ],
+      "size": [
+        4.2,
+        12.8,
+        9
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "haunch_1",
+      "bone": "body",
+      "origin": [
+        3.0000000000000004,
+        -7.8,
+        6.5
+      ],
+      "size": [
+        4.8,
+        13.8,
+        9.1
+      ],
+      "material": "coat",
+      "shell": 0.0826,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "haunch_facet_1_0",
+      "bone": "body",
+      "origin": [
+        5.6,
+        -5.5,
+        8.0
+      ],
+      "size": [
+        2.8,
+        3.7,
+        6.5
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "haunch_facet_1_1",
+      "bone": "body",
+      "origin": [
+        5.6,
+        -2.5,
+        8.3
+      ],
+      "size": [
+        2.8,
+        3.7,
+        6.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "haunch_facet_1_2",
+      "bone": "body",
+      "origin": [
+        5.6,
+        0.5,
+        8.6
+      ],
+      "size": [
+        2.8,
+        3.7,
+        6.5
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "neck_lower",
+      "bone": "neck",
+      "origin": [
+        -5,
+        -9,
+        -4.8
+      ],
+      "size": [
+        10,
+        15,
+        10
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "neck_front",
+      "bone": "neck",
+      "origin": [
+        -4.6,
+        -9.5,
+        -6.6
+      ],
+      "size": [
+        9.2,
+        15.4,
+        3
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "neck_upper",
+      "bone": "neckUpper",
+      "origin": [
+        -4.2,
+        -7.5,
+        -3.9
+      ],
+      "size": [
+        8.4,
+        10.6,
+        8.7
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "throat_0",
+      "bone": "neckUpper",
+      "origin": [
+        -3.6,
+        -6,
+        -5.4
+      ],
+      "size": [
+        7.2,
+        3.7,
+        3.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "throat_1",
+      "bone": "neckUpper",
+      "origin": [
+        -3.6,
+        -3,
+        -5.6000000000000005
+      ],
+      "size": [
+        7.2,
+        3.7,
+        3.5
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "throat_2",
+      "bone": "neckUpper",
+      "origin": [
+        -3.6,
+        0,
+        -5.800000000000001
+      ],
+      "size": [
+        7.2,
+        3.7,
+        3.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "skull",
+      "bone": "head",
+      "origin": [
+        -4.1,
+        -6,
+        -4
+      ],
+      "size": [
+        8.2,
+        9,
+        8
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "forehead",
+      "bone": "head",
+      "origin": [
+        -3.4,
+        -5.5,
+        -5.5
+      ],
+      "size": [
+        6.8,
+        7.2,
+        3
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "muzzle_bridge",
+      "bone": "head",
+      "origin": [
+        -3.4,
+        -1.5,
+        -9.6
+      ],
+      "size": [
+        6.8,
+        5.5,
+        7
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "muzzle",
+      "bone": "head",
+      "origin": [
+        -3.5,
+        1.4,
+        -11.1
+      ],
+      "size": [
+        7,
+        3.4,
+        3.2
+      ],
+      "material": "muzzle",
+      "shell": 0.0,
+      "uv": [
+        123,
+        161
+      ]
+    },
+    {
+      "name": "jaw",
+      "bone": "jaw",
+      "origin": [
+        -3.2,
+        0,
+        -6
+      ],
+      "size": [
+        6.4,
+        2.5,
+        7.8
+      ],
+      "material": "shadow",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        91
+      ]
+    },
+    {
+      "name": "cheek_-1",
+      "bone": "head",
+      "origin": [
+        -4.5,
+        -1.5,
+        -3.6
+      ],
+      "size": [
+        3,
+        5.5,
+        5
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "nostril_-1",
+      "bone": "head",
+      "origin": [
+        -3.1999999999999997,
+        1.9,
+        -11.3
+      ],
+      "size": [
+        0.8,
+        1.3,
+        0.5
+      ],
+      "material": "dark",
+      "shell": 0.0,
+      "uv": [
+        123,
+        191
+      ]
+    },
+    {
+      "name": "ear_-1",
+      "bone": "ear_-1",
+      "origin": [
+        -0.95,
+        -5.2,
+        -1
+      ],
+      "size": [
+        1.9,
+        5.3,
+        2.1
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "ear_inner_-1",
+      "bone": "ear_-1",
+      "origin": [
+        -0.55,
+        -4.5,
+        -1.1
+      ],
+      "size": [
+        1.1,
+        3.4,
+        0.3
+      ],
+      "material": "shadow",
+      "shell": 0.0,
+      "uv": [
+        1,
+        91
+      ]
+    },
+    {
+      "name": "eye_dark_-1",
+      "bone": "eye_-1",
+      "origin": [
+        -0.25,
+        -0.65,
+        -1.3
+      ],
+      "size": [
+        0.5,
+        1.6,
+        2.4
+      ],
+      "material": "dark",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        191
+      ]
+    },
+    {
+      "name": "eye_amber_-1",
+      "bone": "eye_-1",
+      "origin": [
+        -0.32,
+        -0.38,
+        -0.8
+      ],
+      "size": [
+        0.64,
+        0.8,
+        0.9
+      ],
+      "material": "eye",
+      "shell": 0.0,
+      "uv": [
+        1,
+        199
+      ]
+    },
+    {
+      "name": "eye_glint_-1",
+      "bone": "eye_-1",
+      "origin": [
+        -0.35,
+        -0.45,
+        -0.95
+      ],
+      "size": [
+        0.7,
+        0.3,
+        0.35
+      ],
+      "material": "glow",
+      "shell": 0.0,
+      "uv": [
+        1,
+        225
+      ]
+    },
+    {
+      "name": "cheek_1",
+      "bone": "head",
+      "origin": [
+        1.5,
+        -1.5,
+        -3.6
+      ],
+      "size": [
+        3,
+        5.5,
+        5
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "nostril_1",
+      "bone": "head",
+      "origin": [
+        2.4,
+        1.9,
+        -11.3
+      ],
+      "size": [
+        0.8,
+        1.3,
+        0.5
+      ],
+      "material": "dark",
+      "shell": 0.0,
+      "uv": [
+        123,
+        191
+      ]
+    },
+    {
+      "name": "ear_1",
+      "bone": "ear_1",
+      "origin": [
+        -0.95,
+        -5.2,
+        -1
+      ],
+      "size": [
+        1.9,
+        5.3,
+        2.1
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "ear_inner_1",
+      "bone": "ear_1",
+      "origin": [
+        -0.55,
+        -4.5,
+        -1.1
+      ],
+      "size": [
+        1.1,
+        3.4,
+        0.3
+      ],
+      "material": "shadow",
+      "shell": 0.0,
+      "uv": [
+        1,
+        91
+      ]
+    },
+    {
+      "name": "eye_dark_1",
+      "bone": "eye_1",
+      "origin": [
+        -0.25,
+        -0.65,
+        -1.3
+      ],
+      "size": [
+        0.5,
+        1.6,
+        2.4
+      ],
+      "material": "dark",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        191
+      ]
+    },
+    {
+      "name": "eye_amber_1",
+      "bone": "eye_1",
+      "origin": [
+        -0.32,
+        -0.38,
+        -0.8
+      ],
+      "size": [
+        0.64,
+        0.8,
+        0.9
+      ],
+      "material": "eye",
+      "shell": 0.0,
+      "uv": [
+        1,
+        199
+      ]
+    },
+    {
+      "name": "eye_glint_1",
+      "bone": "eye_1",
+      "origin": [
+        -0.35,
+        -0.45,
+        -0.95
+      ],
+      "size": [
+        0.7,
+        0.3,
+        0.35
+      ],
+      "material": "glow",
+      "shell": 0.0,
+      "uv": [
+        1,
+        225
+      ]
+    },
+    {
+      "name": "upper_0",
+      "bone": "leg0",
+      "origin": [
+        -2.4,
+        -1,
+        -3.1
+      ],
+      "size": [
+        4.8,
+        12.9,
+        6.2
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "outer_muscle_0",
+      "bone": "leg0",
+      "origin": [
+        -2.6,
+        1,
+        -2.8
+      ],
+      "size": [
+        5.2,
+        7.5,
+        5.6
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "joint_0",
+      "bone": "knee0",
+      "origin": [
+        -2.5,
+        -1.2,
+        -2.8
+      ],
+      "size": [
+        5,
+        4,
+        5.5
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "cannon_0",
+      "bone": "knee0",
+      "origin": [
+        -1.5,
+        1,
+        -1.8
+      ],
+      "size": [
+        3,
+        10.7,
+        3.8
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "cannon_front_0",
+      "bone": "knee0",
+      "origin": [
+        -1.25,
+        2,
+        -2.3
+      ],
+      "size": [
+        2.5,
+        9,
+        1
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "fetlock_0",
+      "bone": "hoof0",
+      "origin": [
+        -2.1,
+        -1,
+        -2.5
+      ],
+      "size": [
+        4.2,
+        2.4,
+        4.8
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "hoof_0",
+      "bone": "hoof0",
+      "origin": [
+        -2.6,
+        1,
+        -3.3
+      ],
+      "size": [
+        5.2,
+        2.6,
+        6.2
+      ],
+      "material": "hoof",
+      "shell": 0.0,
+      "uv": [
+        1,
+        135
+      ]
+    },
+    {
+      "name": "hoof_rim_0",
+      "bone": "hoof0",
+      "origin": [
+        -2.65,
+        0.6,
+        -3.35
+      ],
+      "size": [
+        5.3,
+        0.65,
+        6.3
+      ],
+      "material": "horn",
+      "shell": 0.0,
+      "uv": [
+        1,
+        172
+      ]
+    },
+    {
+      "name": "feather_0_0",
+      "bone": "hoof0",
+      "origin": [
+        -2.5,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feather_0_1",
+      "bone": "hoof0",
+      "origin": [
+        -1.1,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0826,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feather_0_2",
+      "bone": "hoof0",
+      "origin": [
+        0.2999999999999998,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "upper_1",
+      "bone": "leg1",
+      "origin": [
+        -2.4,
+        -1,
+        -3.1
+      ],
+      "size": [
+        4.8,
+        12.9,
+        6.2
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "outer_muscle_1",
+      "bone": "leg1",
+      "origin": [
+        -2.6,
+        1,
+        -2.8
+      ],
+      "size": [
+        5.2,
+        7.5,
+        5.6
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "joint_1",
+      "bone": "knee1",
+      "origin": [
+        -2.5,
+        -1.2,
+        -2.8
+      ],
+      "size": [
+        5,
+        4,
+        5.5
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "cannon_1",
+      "bone": "knee1",
+      "origin": [
+        -1.5,
+        1,
+        -1.8
+      ],
+      "size": [
+        3,
+        10.7,
+        3.8
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "cannon_front_1",
+      "bone": "knee1",
+      "origin": [
+        -1.25,
+        2,
+        -2.3
+      ],
+      "size": [
+        2.5,
+        9,
+        1
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "fetlock_1",
+      "bone": "hoof1",
+      "origin": [
+        -2.1,
+        -1,
+        -2.5
+      ],
+      "size": [
+        4.2,
+        2.4,
+        4.8
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "hoof_1",
+      "bone": "hoof1",
+      "origin": [
+        -2.6,
+        1,
+        -3.3
+      ],
+      "size": [
+        5.2,
+        2.6,
+        6.2
+      ],
+      "material": "hoof",
+      "shell": 0.0,
+      "uv": [
+        1,
+        135
+      ]
+    },
+    {
+      "name": "hoof_rim_1",
+      "bone": "hoof1",
+      "origin": [
+        -2.65,
+        0.6,
+        -3.35
+      ],
+      "size": [
+        5.3,
+        0.65,
+        6.3
+      ],
+      "material": "horn",
+      "shell": 0.0,
+      "uv": [
+        1,
+        172
+      ]
+    },
+    {
+      "name": "feather_1_0",
+      "bone": "hoof1",
+      "origin": [
+        -2.5,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feather_1_1",
+      "bone": "hoof1",
+      "origin": [
+        -1.1,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0826,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feather_1_2",
+      "bone": "hoof1",
+      "origin": [
+        0.2999999999999998,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "upper_2",
+      "bone": "leg2",
+      "origin": [
+        -2.4,
+        -1,
+        -3.1
+      ],
+      "size": [
+        4.8,
+        12.9,
+        6.2
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "outer_muscle_2",
+      "bone": "leg2",
+      "origin": [
+        -2.6,
+        1,
+        -2.8
+      ],
+      "size": [
+        5.2,
+        7.5,
+        5.6
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "joint_2",
+      "bone": "knee2",
+      "origin": [
+        -2.5,
+        -1.2,
+        -2.8
+      ],
+      "size": [
+        5,
+        4,
+        5.5
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "cannon_2",
+      "bone": "knee2",
+      "origin": [
+        -1.5,
+        1,
+        -1.8
+      ],
+      "size": [
+        3,
+        10.7,
+        3.8
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "cannon_front_2",
+      "bone": "knee2",
+      "origin": [
+        -1.25,
+        2,
+        -2.3
+      ],
+      "size": [
+        2.5,
+        9,
+        1
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "fetlock_2",
+      "bone": "hoof2",
+      "origin": [
+        -2.1,
+        -1,
+        -2.5
+      ],
+      "size": [
+        4.2,
+        2.4,
+        4.8
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "hoof_2",
+      "bone": "hoof2",
+      "origin": [
+        -2.6,
+        1,
+        -3.3
+      ],
+      "size": [
+        5.2,
+        2.6,
+        6.2
+      ],
+      "material": "hoof",
+      "shell": 0.0,
+      "uv": [
+        1,
+        135
+      ]
+    },
+    {
+      "name": "hoof_rim_2",
+      "bone": "hoof2",
+      "origin": [
+        -2.65,
+        0.6,
+        -3.35
+      ],
+      "size": [
+        5.3,
+        0.65,
+        6.3
+      ],
+      "material": "horn",
+      "shell": 0.0,
+      "uv": [
+        1,
+        172
+      ]
+    },
+    {
+      "name": "feather_2_0",
+      "bone": "hoof2",
+      "origin": [
+        -2.5,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feather_2_1",
+      "bone": "hoof2",
+      "origin": [
+        -1.1,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0826,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feather_2_2",
+      "bone": "hoof2",
+      "origin": [
+        0.2999999999999998,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "upper_3",
+      "bone": "leg3",
+      "origin": [
+        -2.4,
+        -1,
+        -3.1
+      ],
+      "size": [
+        4.8,
+        12.9,
+        6.2
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "outer_muscle_3",
+      "bone": "leg3",
+      "origin": [
+        -2.6,
+        1,
+        -2.8
+      ],
+      "size": [
+        5.2,
+        7.5,
+        5.6
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "joint_3",
+      "bone": "knee3",
+      "origin": [
+        -2.5,
+        -1.2,
+        -2.8
+      ],
+      "size": [
+        5,
+        4,
+        5.5
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "cannon_3",
+      "bone": "knee3",
+      "origin": [
+        -1.5,
+        1,
+        -1.8
+      ],
+      "size": [
+        3,
+        10.7,
+        3.8
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "cannon_front_3",
+      "bone": "knee3",
+      "origin": [
+        -1.25,
+        2,
+        -2.3
+      ],
+      "size": [
+        2.5,
+        9,
+        1
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "fetlock_3",
+      "bone": "hoof3",
+      "origin": [
+        -2.1,
+        -1,
+        -2.5
+      ],
+      "size": [
+        4.2,
+        2.4,
+        4.8
+      ],
+      "material": "coat",
+      "shell": 0.0,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "hoof_3",
+      "bone": "hoof3",
+      "origin": [
+        -2.6,
+        1,
+        -3.3
+      ],
+      "size": [
+        5.2,
+        2.6,
+        6.2
+      ],
+      "material": "hoof",
+      "shell": 0.0,
+      "uv": [
+        1,
+        135
+      ]
+    },
+    {
+      "name": "hoof_rim_3",
+      "bone": "hoof3",
+      "origin": [
+        -2.65,
+        0.6,
+        -3.35
+      ],
+      "size": [
+        5.3,
+        0.65,
+        6.3
+      ],
+      "material": "horn",
+      "shell": 0.0,
+      "uv": [
+        1,
+        172
+      ]
+    },
+    {
+      "name": "feather_3_0",
+      "bone": "hoof3",
+      "origin": [
+        -2.5,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feather_3_1",
+      "bone": "hoof3",
+      "origin": [
+        -1.1,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0826,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feather_3_2",
+      "bone": "hoof3",
+      "origin": [
+        0.2999999999999998,
+        -2,
+        -2.4
+      ],
+      "size": [
+        1.6,
+        3,
+        1.5
+      ],
+      "material": "coat",
+      "shell": 0.0413,
+      "uv": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_0",
+      "bone": "mane0",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        5.6,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_0",
+      "bone": "mane0",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_0",
+      "bone": "maneTip0",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        4.3,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_0",
+      "bone": "maneTip0",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_1",
+      "bone": "mane1",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        5.6,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_1",
+      "bone": "mane1",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_1",
+      "bone": "maneTip1",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        4.3,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_1",
+      "bone": "maneTip1",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_2",
+      "bone": "mane2",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        6.05,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_2",
+      "bone": "mane2",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_2",
+      "bone": "maneTip2",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        4.55,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_2",
+      "bone": "maneTip2",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_3",
+      "bone": "mane3",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        6.05,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_3",
+      "bone": "mane3",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_3",
+      "bone": "maneTip3",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        4.55,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_3",
+      "bone": "maneTip3",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_4",
+      "bone": "mane4",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        6.5,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_4",
+      "bone": "mane4",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_4",
+      "bone": "maneTip4",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        4.8,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_4",
+      "bone": "maneTip4",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_5",
+      "bone": "mane5",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        6.5,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_5",
+      "bone": "mane5",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_5",
+      "bone": "maneTip5",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        4.8,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_5",
+      "bone": "maneTip5",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_6",
+      "bone": "mane6",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        6.949999999999999,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_6",
+      "bone": "mane6",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_6",
+      "bone": "maneTip6",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        5.05,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_6",
+      "bone": "maneTip6",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_7",
+      "bone": "mane7",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        6.949999999999999,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_7",
+      "bone": "mane7",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_7",
+      "bone": "maneTip7",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        5.05,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_7",
+      "bone": "maneTip7",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_8",
+      "bone": "mane8",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        7.3999999999999995,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_8",
+      "bone": "mane8",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_8",
+      "bone": "maneTip8",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        5.3,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_8",
+      "bone": "maneTip8",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_9",
+      "bone": "mane9",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        7.3999999999999995,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_9",
+      "bone": "mane9",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_9",
+      "bone": "maneTip9",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        5.3,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_9",
+      "bone": "maneTip9",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_10",
+      "bone": "mane10",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        7.85,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0826,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_10",
+      "bone": "mane10",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_10",
+      "bone": "maneTip10",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        5.55,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_10",
+      "bone": "maneTip10",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_root_11",
+      "bone": "mane11",
+      "origin": [
+        -1.4,
+        -1,
+        -1
+      ],
+      "size": [
+        2.8,
+        7.85,
+        4.3
+      ],
+      "material": "gold",
+      "shell": 0.0826,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_edge_11",
+      "bone": "mane11",
+      "origin": [
+        -1.65,
+        1.2,
+        1
+      ],
+      "size": [
+        3.3,
+        3.3,
+        3.8
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "mane_tip_11",
+      "bone": "maneTip11",
+      "origin": [
+        -1.15,
+        -0.6,
+        -0.8
+      ],
+      "size": [
+        2.3,
+        5.55,
+        3.2
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "mane_glint_11",
+      "bone": "maneTip11",
+      "origin": [
+        -0.8,
+        0.2,
+        -0.95
+      ],
+      "size": [
+        1.3,
+        2.2,
+        0.3
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "fringe_0",
+      "bone": "forelock",
+      "origin": [
+        -3.3,
+        -0.4,
+        -2.6
+      ],
+      "size": [
+        2.5,
+        4.0,
+        2.5
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "fringe_1",
+      "bone": "forelock",
+      "origin": [
+        -1.0999999999999996,
+        -0.4,
+        -2.6
+      ],
+      "size": [
+        2.5,
+        4.4,
+        2.5
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "fringe_2",
+      "bone": "forelock",
+      "origin": [
+        1.1000000000000005,
+        -0.4,
+        -2.6
+      ],
+      "size": [
+        2.5,
+        4.8,
+        2.5
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "tail_root",
+      "bone": "tail",
+      "origin": [
+        -3,
+        -1,
+        -1
+      ],
+      "size": [
+        6,
+        5,
+        6
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "tail_mid",
+      "bone": "tailMid",
+      "origin": [
+        -3.5,
+        -1,
+        -1
+      ],
+      "size": [
+        7,
+        8,
+        6
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "tail_tuft_0",
+      "bone": "tailTip0",
+      "origin": [
+        -1.8,
+        -1,
+        -1.2
+      ],
+      "size": [
+        3.6,
+        10.5,
+        4.7
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "tail_inner_0",
+      "bone": "tailTip0",
+      "origin": [
+        -1.5,
+        4,
+        1
+      ],
+      "size": [
+        3,
+        9,
+        4
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "tail_end_0",
+      "bone": "tailTip0",
+      "origin": [
+        -1.1,
+        11,
+        2
+      ],
+      "size": [
+        2.2,
+        4.5,
+        3
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "tail_tuft_1",
+      "bone": "tailTip1",
+      "origin": [
+        -1.8,
+        -1,
+        -1.2
+      ],
+      "size": [
+        3.6,
+        11.5,
+        4.7
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "tail_inner_1",
+      "bone": "tailTip1",
+      "origin": [
+        -1.5,
+        4,
+        1
+      ],
+      "size": [
+        3,
+        9,
+        4
+      ],
+      "material": "copper",
+      "shell": 0.0826,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "tail_end_1",
+      "bone": "tailTip1",
+      "origin": [
+        -1.1,
+        11,
+        2
+      ],
+      "size": [
+        2.2,
+        4.5,
+        3
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "tail_tuft_2",
+      "bone": "tailTip2",
+      "origin": [
+        -1.8,
+        -1,
+        -1.2
+      ],
+      "size": [
+        3.6,
+        12.5,
+        4.7
+      ],
+      "material": "gold",
+      "shell": 0.0,
+      "uv": [
+        123,
+        1
+      ]
+    },
+    {
+      "name": "tail_inner_2",
+      "bone": "tailTip2",
+      "origin": [
+        -1.5,
+        4,
+        1
+      ],
+      "size": [
+        3,
+        9,
+        4
+      ],
+      "material": "copper",
+      "shell": 0.0,
+      "uv": [
+        123,
+        97
+      ]
+    },
+    {
+      "name": "tail_end_2",
+      "bone": "tailTip2",
+      "origin": [
+        -1.1,
+        11,
+        2
+      ],
+      "size": [
+        2.2,
+        4.5,
+        3
+      ],
+      "material": "gold",
+      "shell": 0.0413,
+      "uv": [
+        123,
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "version": "1.6.8",
+  "checks": 28007,
+  "clean_build": "PASS",
+  "native_offline": "471397",
+  "doghead_regression": "PASS",
+  "final_game_test_server": "PASS",
+  "minecraft_server_launches": 4,
+  "minecraft_client_launches": 0,
+  "in_game_visual_audio_mp_relog_mspt": "NOT TESTED",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.6.8.jar",
+  "sha256": "0462212c2b18df1e75afa5f37ad60bd6dce5242dfe7f3a31d4af20d7a707aa2b",
+  "old_entries_preserved": 6452,
+  "modified_old_entries": [
+    "META-INF/MANIFEST.MF",
+    "org/slavicmyths/kuzya/KuzyaEntity$1.class",
+    "org/slavicmyths/kuzya/KuzyaEntity$Guest.class",
+    "org/slavicmyths/kuzya/KuzyaEntity.class",
+    "META-INF/neoforge.mods.toml",
+    "assets/slavicmyths/lang/ru_ru.json"
+  ],
+  "audio_files": 33,
+  "registered_cues": 42
+}

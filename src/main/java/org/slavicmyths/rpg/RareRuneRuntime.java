@@ -39,14 +39,14 @@ public final class RareRuneRuntime {
         temp(p).putInt("RuneBerserkTier",tier);temp(p).putFloat("RuneLastHP",p.getHealth());temp(p).putFloat("RuneLastMaxHP",p.getMaxHealth());
         data(p).putInt("Tier",tier);data(p).putLong("ServerTick",now(p));data(p).putLong("SacrificeUntil",temp(p).getLong("RuneSacrificeUntil"));RpgNetwork.sync(p);
     }
-    public static void intent(ServerPlayer p,boolean cycle){if(!p.isAlive()||p.isSpectator())return;var t=temp(p);if(t.getLong("RuneRequestUntil")>now(p))return;t.putLong("RuneRequestUntil",now(p)+4);
-        var active=RareRunes.active(p);if(active.isEmpty())return;int selected=RareRuneRules.selected(data(p).getInt("Selected"),active.size());
+    public static void intent(ServerPlayer p,boolean cycle){if(!p.isAlive()||p.isSpectator()){p.displayClientMessage(RareRunes.text("invalid_state"),true);return;}var t=temp(p);if(t.getLong("RuneRequestUntil")>now(p))return;t.putLong("RuneRequestUntil",now(p)+4);
+        var active=RareRunes.active(p);if(active.isEmpty()){p.displayClientMessage(RareRunes.text("not_equipped"),true);return;}int selected=RareRuneRules.selected(data(p).getInt("Selected"),active.size());
         if(cycle){data(p).putInt("Selected",(selected+1)%active.size());data(p).putLong("ServerTick",now(p));RpgNetwork.sync(p);return;}
         String id=active.get(selected);if(!ready(p,id)){p.displayClientMessage(RareRunes.text("cooldown",(data(p).getLong("CD_"+id)-now(p)+19)/20),true);return;}
         switch(id){
             case "floating_weapon"->{var visual=RuneVisual.weapon(p);if(!p.serverLevel().addFreshEntity(visual))return;t.putInt("RuneWeaponVisual",visual.getId());}
-            case "flight"->{if(p.isCreative()||p.getAbilities().mayfly)return;var a=p.getAbilities();data(p).putBoolean("FlightLease",true);data(p).putFloat("FlightSpeedBefore",a.getFlyingSpeed());t.putLong("RuneFlightUntil",now(p)+100);a.mayfly=true;a.flying=true;a.setFlyingSpeed(.05F*1.35F);p.onUpdateAbilities();}
-            case "sacrifice"->{if(!pay(p,6))return;t.putLong("RuneSacrificeUntil",now(p)+160);data(p).putLong("PulseUntil",now(p)+12);p.serverLevel().sendParticles(ParticleTypes.WITCH,p.getX(),p.getY()+1,p.getZ(),5,.3,.3,.3,.01);}
+            case "flight"->{var a=p.getAbilities();var d=data(p);d.putBoolean("FlightLease",true);d.putFloat("FlightSpeedBefore",a.getFlyingSpeed());d.putBoolean("FlightMayflyBefore",a.mayfly);d.putBoolean("FlightFlyingBefore",a.flying);d.putString("FlightModeBefore",p.gameMode.getGameModeForPlayer().getName());t.putLong("RuneFlightUntil",now(p)+100);a.mayfly=true;a.flying=true;a.setFlyingSpeed(.05F*1.35F);p.onUpdateAbilities();p.displayClientMessage(RareRunes.text("flight_started"),true);}
+            case "sacrifice"->{if(!pay(p,6)){p.displayClientMessage(RareRunes.text("cannot_pay"),true);return;}t.putLong("RuneSacrificeUntil",now(p)+160);data(p).putLong("PulseUntil",now(p)+12);p.serverLevel().sendParticles(ParticleTypes.WITCH,p.getX(),p.getY()+1,p.getZ(),5,.3,.3,.3,.01);}
             default->{return;}
         }
         cooldown(p,id);refresh(p);
@@ -68,7 +68,7 @@ public final class RareRuneRuntime {
     @SubscribeEvent public static void hit(LivingDamageEvent.Post e){if(e.getEntity().level().isClientSide||e.getNewDamage()<=0)return;
         if(e.getEntity() instanceof ServerPlayer p){if(direct(e.getSource())){data(p).putLong("HitUntil",now(p)+8);}refresh(p);}
         if(!e.getSource().is(DamageTypes.PLAYER_ATTACK)||!(e.getSource().getDirectEntity() instanceof ServerPlayer p))return;data(p).putLong("HitUntil",now(p)+8);if(tier(p)>0)RpgNetwork.sync(p);
-        var target=e.getEntity();if(!RareRunes.equipped(p,"death")||!RuneRework.melee(p.getMainHandItem())||!ready(p,"death")||!target.isAlive()||!Abilities.canHit(p,target)||!RareRuneRules.execute(target.getHealth(),p.getHealth(),target.getType().is(IMMUNE)))return;
+        var target=e.getEntity();if(!RareRunes.equipped(p,"death")||!RuneRework.melee(p.getMainHandItem())||!ready(p,"death")||!target.isAlive()||!org.slavicmyths.combat.CombatTargeting.canAttack(p,target)||!p.hasLineOfSight(target)||!RareRuneRules.execute(target.getHealth(),target.getMaxHealth(),p.getHealth(),target.getType().is(IMMUNE)))return;
         var source=MythDamageSources.periodic("rune_execute",p);if(target.isInvulnerableTo(source))return;
         if(target.hurt(source,Math.max(100,target.getMaxHealth()*4))&&!target.isAlive()){pay(p,12);cooldown(p,"death");p.serverLevel().sendParticles(ParticleTypes.SOUL,target.getX(),target.getY()+.7,target.getZ(),4,.2,.3,.2,.01);refresh(p);}
     }
@@ -78,7 +78,12 @@ public final class RareRuneRuntime {
         if(t.getLong("RuneSacrificeUntil")>0&&(!p.isAlive()||t.getLong("RuneSacrificeUntil")<=now)){t.remove("RuneSacrificeUntil");refresh(p);}
         if(RareRunes.equipped(p,"berserker")&&(t.getFloat("RuneLastHP")!=p.getHealth()||t.getFloat("RuneLastMaxHP")!=p.getMaxHealth()))refresh(p);
     }
-    private static void endFlight(ServerPlayer p){if(!data(p).getBoolean("FlightLease"))return;data(p).putBoolean("FlightLease",false);var a=p.getAbilities();if(!p.isCreative()&&!p.isSpectator()){a.mayfly=false;a.flying=false;}a.setFlyingSpeed(data(p).getFloat("FlightSpeedBefore"));p.onUpdateAbilities();temp(p).remove("RuneFlightUntil");temp(p).putLong("RuneFallGrace",now(p)+60);p.fallDistance=0;}
+    private static void endFlight(ServerPlayer p){var d=data(p);if(!d.getBoolean("FlightLease"))return;d.putBoolean("FlightLease",false);var a=p.getAbilities();
+        if(p.gameMode.getGameModeForPlayer().getName().equals(d.getString("FlightModeBefore"))){a.mayfly=d.getBoolean("FlightMayflyBefore");a.flying=a.mayfly&&d.getBoolean("FlightFlyingBefore");}
+        else if(d.getString("FlightModeBefore").isEmpty()&&!p.isCreative()&&!p.isSpectator()){a.mayfly=false;a.flying=false;} // Legacy 1.3.4.3 lease.
+        if(Math.abs(a.getFlyingSpeed()-.0675F)<.00001F)a.setFlyingSpeed(d.getFloat("FlightSpeedBefore"));
+        p.onUpdateAbilities();temp(p).remove("RuneFlightUntil");temp(p).putLong("RuneFallGrace",now(p)+60);p.fallDistance=0;
+    }
     private static void endProtection(ServerPlayer p){if(temp(p).getInt("RuneShields")<=0&&temp(p).getLong("RuneShieldUntil")==0)return;temp(p).remove("RuneShields");temp(p).remove("RuneShieldUntil");cooldown(p,"rare_protection");var v=p.level().getEntity(temp(p).getInt("RuneShieldVisual"));if(v instanceof RuneVisual visual&&visual.ownedBy(p))visual.dissolve();temp(p).remove("RuneShieldVisual");}
     private static void removeVisual(ServerPlayer p,String key){var v=p.level().getEntity(temp(p).getInt(key));if(v instanceof RuneVisual visual&&visual.ownedBy(p))visual.dissolve();temp(p).remove(key);}
     private static void cleanup(ServerPlayer p){endFlight(p);endProtection(p);removeVisual(p,"RuneWeaponVisual");temp(p).remove("RuneSacrificeUntil");refresh(p);}

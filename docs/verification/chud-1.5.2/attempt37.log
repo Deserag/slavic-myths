@@ -1,0 +1,123 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileChudCheckJava
+> Task :processChudCheckResources UP-TO-DATE
+> Task :chudCheckClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeChudChecksLegacyClasspath UP-TO-DATE
+> Task :prepareChudChecksRun
+
+> Task :runChudChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[16:50:13] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[16:50:13] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[16:50:13] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[16:50:14] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[16:50:14] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[16:50:14] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[16:50:14] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.5.2 (slavicmyths)
+[16:50:15] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[16:50:15] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[16:50:15] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[16:50:15] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[16:50:16] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[16:50:17] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[16:50:22] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:50:22] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:50:22] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:50:22] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:50:22] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:50:22] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[16:50:23] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[16:50:23] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-152/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[16:50:23] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-152/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[16:50:23] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_abandoned_full, slavicmyths_abandoned, slavicmyths_chud]
+[16:50:25] [main/INFO] [minecraft/RecipeManager]: Loaded 1769 recipes
+[16:50:25] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[16:50:25] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[16:50:25] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[16:50:26] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[16:50:26] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[16:50:26] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 125 ms
+[16:50:26] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[16:50:26] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[16:50:26] [Server thread/INFO] [minecraft/GameTestServer]: 14 tests are now running at position 2790366, -59, -3871080!
+[16:50:27] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (14 tests)...
+[16:50:27] [Server thread/INFO] [minecraft/GameTestServer]: [              ]
+ABANDONED_GEOMETRY seed=0 type=ATTACHED_SMALL reachable=15579 unreachable=[]
+ABANDONED_GEOMETRY seed=0 type=INDEPENDENT_MEDIUM reachable=10973 unreachable=[]
+ABANDONED_GEOMETRY seed=0 type=INDEPENDENT_GREAT reachable=26258 unreachable=[]
+ABANDONED_GEOMETRY seed=1 type=ATTACHED_SMALL reachable=18740 unreachable=[]
+ABANDONED_GEOMETRY seed=1 type=INDEPENDENT_MEDIUM reachable=10958 unreachable=[]
+ABANDONED_GEOMETRY seed=1 type=INDEPENDENT_GREAT reachable=26279 unreachable=[]
+ABANDONED_GEOMETRY seed=2 type=ATTACHED_SMALL reachable=20724 unreachable=[]
+ABANDONED_GEOMETRY seed=2 type=INDEPENDENT_MEDIUM reachable=11044 unreachable=[]
+ABANDONED_GEOMETRY seed=2 type=INDEPENDENT_GREAT reachable=26446 unreachable=[]
+ABANDONED_GEOMETRY seed=3 type=ATTACHED_SMALL reachable=15576 unreachable=[]
+ABANDONED_GEOMETRY seed=3 type=INDEPENDENT_MEDIUM reachable=10961 unreachable=[]
+ABANDONED_GEOMETRY seed=3 type=INDEPENDENT_GREAT reachable=26301 unreachable=[]
+ABANDONED_GEOMETRY seed=4 type=ATTACHED_SMALL reachable=18686 unreachable=[]
+ABANDONED_GEOMETRY seed=4 type=INDEPENDENT_MEDIUM reachable=11037 unreachable=[]
+ABANDONED_GEOMETRY seed=4 type=INDEPENDENT_GREAT reachable=26047 unreachable=[]
+ABANDONED_GEOMETRY seed=5 type=ATTACHED_SMALL reachable=20668 unreachable=[]
+ABANDONED_GEOMETRY seed=5 type=INDEPENDENT_MEDIUM reachable=10968 unreachable=[]
+ABANDONED_GEOMETRY seed=5 type=INDEPENDENT_GREAT reachable=25267 unreachable=[]
+ABANDONED_GEOMETRY seed=6 type=ATTACHED_SMALL reachable=15702 unreachable=[]
+ABANDONED_GEOMETRY seed=6 type=INDEPENDENT_MEDIUM reachable=10918 unreachable=[]
+ABANDONED_GEOMETRY seed=6 type=INDEPENDENT_GREAT reachable=27557 unreachable=[]
+ABANDONED_GEOMETRY seed=7 type=ATTACHED_SMALL reachable=18684 unreachable=[]
+ABANDONED_GEOMETRY seed=7 type=INDEPENDENT_MEDIUM reachable=10972 unreachable=[]
+ABANDONED_GEOMETRY seed=7 type=INDEPENDENT_GREAT reachable=26450 unreachable=[]
+ABANDONED_GEOMETRY seed=8 type=ATTACHED_SMALL reachable=20655 unreachable=[]
+ABANDONED_GEOMETRY seed=8 type=INDEPENDENT_MEDIUM reachable=10990 unreachable=[]
+ABANDONED_GEOMETRY seed=8 type=INDEPENDENT_GREAT reachable=25498 unreachable=[]
+ABANDONED_GEOMETRY seed=9 type=ATTACHED_SMALL reachable=15695 unreachable=[]
+ABANDONED_GEOMETRY seed=9 type=INDEPENDENT_MEDIUM reachable=10877 unreachable=[]
+ABANDONED_GEOMETRY seed=9 type=INDEPENDENT_GREAT reachable=26308 unreachable=[]
+ABANDONED_GEOMETRY seed=10 type=ATTACHED_SMALL reachable=18761 unreachable=[]
+ABANDONED_GEOMETRY seed=10 type=INDEPENDENT_MEDIUM reachable=10894 unreachable=[]
+ABANDONED_GEOMETRY seed=10 type=INDEPENDENT_GREAT reachable=27172 unreachable=[]
+ABANDONED_GEOMETRY seed=11 type=ATTACHED_SMALL reachable=20596 unreachable=[]
+ABANDONED_GEOMETRY seed=11 type=INDEPENDENT_MEDIUM reachable=10973 unreachable=[]
+ABANDONED_GEOMETRY seed=11 type=INDEPENDENT_GREAT reachable=25279 unreachable=[]
+ABANDONED_FULL {"kind":"ATTACHED_SMALL","chunks":289,"elapsedMsIncludingStoneFixture":45191.8991,"pathStatus":"PASS","visited":19930,"nativePostProcessTotalMs":685.9686,"nativePostProcessP95Ms":8.333,"nativePostProcessMaxMs":57.3195,"nbtRoundtrip":true,"clientRelog":false}
+ABANDONED_FULL {"kind":"INDEPENDENT_MEDIUM","chunks":196,"elapsedMsIncludingStoneFixture":31136.4656,"pathStatus":"PASS","visited":10783,"nativePostProcessTotalMs":254.1494,"nativePostProcessP95Ms":4.8154,"nativePostProcessMaxMs":6.5718,"nbtRoundtrip":true,"clientRelog":false}
+ABANDONED_FULL {"kind":"INDEPENDENT_GREAT","chunks":289,"elapsedMsIncludingStoneFixture":55401.1512,"pathStatus":"PASS","visited":26419,"nativePostProcessTotalMs":793.3726,"nativePostProcessP95Ms":7.2547,"nativePostProcessMaxMs":39.621,"nbtRoundtrip":true,"clientRelog":false}
+ABANDONED_FULL {"kind":"INDEPENDENT_GREAT","chunks":289,"elapsedMsIncludingStoneFixture":56585.595,"pathStatus":"PASS","visited":26216,"nativePostProcessTotalMs":743.1097,"nativePostProcessP95Ms":7.7341,"nativePostProcessMaxMs":12.7298,"nbtRoundtrip":true,"clientRelog":false}
+ABANDONED_FULL {"kind":"INDEPENDENT_GREAT","chunks":289,"elapsedMsIncludingStoneFixture":57634.7961,"pathStatus":"PASS","visited":25504,"nativePostProcessTotalMs":696.5524,"nativePostProcessP95Ms":7.023,"nativePostProcessMaxMs":9.9391,"nbtRoundtrip":true,"clientRelog":false}
+[16:54:42] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 255322ms or 5106 ticks behind
+CHUD_NAV variant=0 fills=51086 visited=12834 elapsedMs=28 failures=[]
+CHUD_NAV variant=2 fills=64498 visited=17392 elapsedMs=45 failures=[]
+[16:54:45] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++ +     ]
+CHUD_NAV variant=1 fills=54508 visited=15724 elapsedMs=55 failures=[]
+[16:54:47] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++]
+[16:54:47] [Server thread/INFO] [minecraft/GameTestServer]: ========= 14 GAME TESTS COMPLETE IN 4.344 min ======================
+[16:54:47] [Server thread/INFO] [minecraft/GameTestServer]: All 14 required tests passed :)
+[16:54:47] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[16:54:47] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[16:54:47] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[16:54:47] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[16:54:47] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[16:54:48] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[16:54:48] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[16:54:48] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[16:54:48] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[16:54:48] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[16:54:48] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[16:54:48] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+BUILD SUCCESSFUL in 4m 47s
+9 actionable tasks: 3 executed, 6 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

@@ -1,0 +1,13 @@
+{
+  "installed_version": "1.3.4.5.5",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.3.4.5.5.jar",
+  "sha256": "e33c90ccea895481fd73ed2b4349b1f40bd9faac04503a6c84ed7013f389ec2c",
+  "validated_reference_sha256": "47003ad0c450d7785f6786f695880b360c7f795bcb9d23e2e84f5fa3234381f3",
+  "checked_entries": 37,
+  "differences": [],
+  "installation_performed_by_this_task": false,
+  "sound_events_checked": 39,
+  "language_entries_match": true,
+  "production_test_classes_absent": true,
+  "build_jar_matches_installed": true
+}

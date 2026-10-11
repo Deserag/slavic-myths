@@ -1,6 +1,117 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:block/block",
   "textures": {
-    "layer0": "slavicmyths:item/tugarin_sword"
+    "blade": "slavicmyths:item/tugarin_sword",
+    "particle": "slavicmyths:item/tugarin_sword"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        7.97
+      ],
+      "to": [
+        8,
+        16,
+        8.03
+      ],
+      "rotation": {
+        "origin": [
+          4.5,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#blade"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#blade"
+        }
+      }
+    },
+    {
+      "from": [
+        8,
+        0,
+        7.97
+      ],
+      "to": [
+        15,
+        16,
+        8.03
+      ],
+      "rotation": {
+        "origin": [
+          11.5,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#blade"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#blade"
+        }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ]
+    }
   }
 }

@@ -15,6 +15,11 @@ import org.slavicmyths.SlavicMyths;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Item,Item> ANCIENT_DEPTHS_MAP=ITEMS.register("ancient_depths_map",()->new org.slavicmyths.depths.DepthsMapItem(properties()));
+    public static final DeferredHolder<Item,Item> CURSED_VOLKOLAK_SKULL=ITEMS.register("cursed_volkolak_skull",()->new Item(properties().stacksTo(1).rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item,Item> PLACH_TRAVA=ITEMS.register("plach_trava",()->new BlockItem(ModBlocks.PLACH_TRAVA.get(),properties()));
+    public static final DeferredHolder<Item,Item> CURSED_SKULL_CACHE=ITEMS.register("cursed_skull_cache",()->new BlockItem(ModBlocks.CURSED_SKULL_CACHE.get(),properties()));
+    public static final DeferredHolder<Item,Item> CURSED_VOLKOLAK_SPAWN_EGG=egg("cursed_volkolak_spawn_egg",ModEntities.CURSED_VOLKOLAK,0x28272B,0x64574D);
 
     public static final DeferredHolder<Item, Item> RYE_SEEDS = ITEMS.register("rye_seeds", () -> new ItemNameBlockItem(ModBlocks.RYE_CROP.get(), properties()));
     public static final DeferredHolder<Item, Item> BARLEY_SEEDS = ITEMS.register("barley_seeds", () -> new ItemNameBlockItem(ModBlocks.BARLEY_CROP.get(), properties()));
@@ -182,6 +187,7 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> BEAR_STEW=stew("bear_stew",11,1F);
     public static final DeferredHolder<Item, Item> BROWN_BEAR_SPAWN_EGG=ITEMS.register("brown_bear_spawn_egg",()->new org.slavicmyths.item.WildlifeFamilyEgg(true,0x4b3427,0xb28a62,properties()));
     public static final DeferredHolder<Item, Item> BEAR_CUB_SPAWN_EGG=egg("bear_cub_spawn_egg",ModEntities.BEAR_CUB,0x6b4a35,0xcda578);
+    public static final DeferredHolder<Item, Item> GREY_WOLF_SPAWN_EGG=egg("grey_wolf_spawn_egg",ModEntities.GREY_WOLF,0x34353a,0xd99a37);
     public static final DeferredHolder<Item, Item> FOREST_WOLF_SPAWN_EGG=egg("forest_wolf_spawn_egg",ModEntities.FOREST_WOLF,0x292b2e,0xb2a98f);
     public static final DeferredHolder<Item, Item> BOAR_SPAWN_EGG=egg("boar_spawn_egg",ModEntities.BOAR,0x493a32,0xd5c09c);
     public static final DeferredHolder<Item, Item> STAG_SPAWN_EGG=ITEMS.register("stag_spawn_egg",()->new org.slavicmyths.item.WildlifeFamilyEgg(false,0x76533b,0xd1ad7b,properties()));
@@ -236,6 +242,7 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> BANDIT_HEAVY_EGG=egg("bandit_heavy_spawn_egg",ModEntities.BANDIT_HEAVY,0x474a49,0xb39978);
     public static final DeferredHolder<Item, Item> BANDIT_SENIOR_EGG=egg("bandit_senior_spawn_egg",ModEntities.BANDIT_SENIOR,0x66503b,0xb39978);
     public static final DeferredHolder<Item, Item> ATAMAN_EGG=egg("ataman_spawn_egg",ModEntities.ATAMAN,0x653d36,0xa5a199);
+    public static final DeferredHolder<Item, Item> NIGHTINGALE_SPAWN_EGG=egg("nightingale_spawn_egg",ModEntities.NIGHTINGALE,0x243c28,0x9d2539);
     public static final DeferredHolder<Item, Item> NIGHTINGALE_MARK=ITEMS.register("nightingale_mark",()->new Item(properties().stacksTo(1).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> NIGHTINGALE_LOCK=ITEMS.register("nightingale_lock",()->new Item(properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> NIGHTINGALE_DAGGER=ITEMS.register("nightingale_dagger",()->new org.slavicmyths.bandit.NightingaleDagger(properties().rarity(Rarity.RARE)));
@@ -316,4 +323,6 @@ public final class ModItems {
  public static final DeferredHolder<Item, Item> OTVAR_BODROSTI=ITEMS.register("otvar_bodrosti",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(16),org.slavicmyths.yaga.YagaUtilityItem.Kind.VIGOR));
  public static final DeferredHolder<Item, Item> LESNOY_NASTOY_VOSSTANOVLENIYA=ITEMS.register("lesnoy_nastoy_vosstanovleniya",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(16),org.slavicmyths.yaga.YagaUtilityItem.Kind.RESTORE));
  public static final DeferredHolder<Item, Item> BABA_YAGA_SPAWN_EGG=ITEMS.register("baba_yaga_spawn_egg",()->new org.slavicmyths.yaga.YagaSpawnEgg(properties()));
+    static { org.slavicmyths.finist.FinistItems.init(); }
+
 }

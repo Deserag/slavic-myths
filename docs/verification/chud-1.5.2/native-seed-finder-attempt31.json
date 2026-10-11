@@ -1,0 +1,4885 @@
+[
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-7144, 5702]",
+    "coarseRank": 10666,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 36,
+        "EXTREME_TERRAIN": 36
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-16373, 7753]",
+    "coarseRank": 10578,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 26,
+        "EXTREME_TERRAIN": 46
+      },
+      "lastMeasurements": {
+        "chudCover": 7
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[15617, -16310]",
+    "coarseRank": 10528,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 7,
+        "UNDERGROUND_COLLISION": 10,
+        "EXTREME_TERRAIN": 55
+      },
+      "lastMeasurements": {
+        "chudCover": 16
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[12869, -6319]",
+    "coarseRank": 10469,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 2,
+        "UNDERGROUND_COLLISION": 14,
+        "EXTREME_TERRAIN": 32
+      },
+      "lastMeasurements": {
+        "chudConflict:slavicmyths:bandit_camp_small": 1
+      },
+      "lastReason": "PROTECTED_STRUCTURE"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[3378, -10732]",
+    "coarseRank": 10467,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 68,
+        "EXTREME_TERRAIN": 4
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-7375, 8798]",
+    "coarseRank": 10445,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 50,
+        "EXTREME_TERRAIN": 22
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 59
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[14338, -418]",
+    "coarseRank": 10440,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 2,
+        "UNDERGROUND_COLLISION": 14,
+        "EXTREME_TERRAIN": 30
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 55
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-2751, -12258]",
+    "coarseRank": 10439,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 9,
+        "EXTREME_TERRAIN": 54
+      },
+      "lastMeasurements": {
+        "chudFloor": -16
+      },
+      "lastReason": "WORLD_BOUNDS"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-4600, -14050]",
+    "coarseRank": 10438,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 54
+      },
+      "lastMeasurements": {
+        "chudCover": -2
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[1871, 12861]",
+    "coarseRank": 10410,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 2,
+        "EXTREME_TERRAIN": 46
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-14051, 1280]",
+    "coarseRank": 10400,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 2,
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 28
+      },
+      "lastMeasurements": {
+        "chudConnectorCover": -5
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-13773, 1846]",
+    "coarseRank": 10385,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 22,
+        "EXTREME_TERRAIN": 26
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[12623, -3025]",
+    "coarseRank": 10379,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 24
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 44
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-3038, -2010]",
+    "coarseRank": 10377,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 2,
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 26
+      },
+      "lastMeasurements": {
+        "chudFloor": -6
+      },
+      "lastReason": "WORLD_BOUNDS"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-5575, -13299]",
+    "coarseRank": 10372,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 48
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 40
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[7482, 13658]",
+    "coarseRank": 10366,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 10,
+        "EXTREME_TERRAIN": 38
+      },
+      "lastMeasurements": {
+        "chudCover": 16
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-7862, -12492]",
+    "coarseRank": 10358,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 4,
+        "UNDERGROUND_COLLISION": 4,
+        "EXTREME_TERRAIN": 36
+      },
+      "lastMeasurements": {
+        "chudFloor": -9
+      },
+      "lastReason": "WORLD_BOUNDS"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-179, -753]",
+    "coarseRank": 10353,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 3,
+        "UNDERGROUND_COLLISION": 2,
+        "EXTREME_TERRAIN": 16
+      },
+      "lastMeasurements": {
+        "chudCover": 16
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-12199, -2980]",
+    "coarseRank": 10341,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 12,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-10666, -14758]",
+    "coarseRank": 10339,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 2,
+        "UNDERGROUND_COLLISION": 5,
+        "EXTREME_TERRAIN": 41
+      },
+      "lastMeasurements": {
+        "chudCover": 15
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-7144, 5702]",
+    "coarseRank": 10787,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-16373, 7753]",
+    "coarseRank": 10449,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 61,
+        "PROTECTED_STRUCTURE": 3
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[8204, 3865]",
+    "coarseRank": 10444,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 48
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[9503, -3771]",
+    "coarseRank": 10441,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[4873, 1570]",
+    "coarseRank": 10441,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[14389, -961]",
+    "coarseRank": 10440,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 58
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-9436, -13012]",
+    "coarseRank": 10434,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 33
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[14593, 256]",
+    "coarseRank": 10425,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 11
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[8499, -13024]",
+    "coarseRank": 10410,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-4073, -2254]",
+    "coarseRank": 10402,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 33
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-11227, 1327]",
+    "coarseRank": 10394,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteFluidY": 12
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-13495, 14627]",
+    "coarseRank": 10393,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-13751, 14681]",
+    "coarseRank": 10378,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 3
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-7850, 14874]",
+    "coarseRank": 10376,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 7
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[7996, -9894]",
+    "coarseRank": 10369,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": -18
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[16448, 776]",
+    "coarseRank": 10369,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-13474, -15086]",
+    "coarseRank": 10354,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 40
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-16128, 11538]",
+    "coarseRank": 10352,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-3506, 1551]",
+    "coarseRank": 10352,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-10682, -8642]",
+    "coarseRank": 10352,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[1883, -12504]",
+    "coarseRank": 10571,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 11,
+        "EXTREME_TERRAIN": 61
+      },
+      "lastMeasurements": {
+        "chudCover": 15
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[4683, -15535]",
+    "coarseRank": 10555,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 6
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 82
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-14261, -13231]",
+    "coarseRank": 10484,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 72
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 30
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[5959, -4034]",
+    "coarseRank": 10457,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 24
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-754, -8149]",
+    "coarseRank": 10456,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 9,
+        "EXTREME_TERRAIN": 15
+      },
+      "lastMeasurements": {
+        "chudCover": 16
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[7729, 11551]",
+    "coarseRank": 10449,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 12,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 93
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-10212, 15375]",
+    "coarseRank": 10433,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 20,
+        "EXTREME_TERRAIN": 4
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 36
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-5847, -6065]",
+    "coarseRank": 10403,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 3,
+        "UNDERGROUND_COLLISION": 32,
+        "EXTREME_TERRAIN": 34
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-3016, -6078]",
+    "coarseRank": 10390,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 20,
+        "EXTREME_TERRAIN": 28
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 58
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[2903, -14559]",
+    "coarseRank": 10379,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 44,
+        "EXTREME_TERRAIN": 28
+      },
+      "lastMeasurements": {
+        "chudCover": 16
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-14555, 14879]",
+    "coarseRank": 10376,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "EXTREME_TERRAIN": 48
+      },
+      "lastMeasurements": {
+        "chudCover": 15
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[7218, 11820]",
+    "coarseRank": 10370,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 4,
+        "EXTREME_TERRAIN": 20
+      },
+      "lastMeasurements": {
+        "chudCover": 16
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-4546, 15117]",
+    "coarseRank": 10369,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 36,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 33
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[6163, 5908]",
+    "coarseRank": 10365,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 4,
+        "EXTREME_TERRAIN": 20
+      },
+      "lastMeasurements": {
+        "chudCover": 16
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-11001, -756]",
+    "coarseRank": 10364,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 9,
+        "UNDERGROUND_COLLISION": 48,
+        "EXTREME_TERRAIN": 6
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 55
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[12352, 5429]",
+    "coarseRank": 10359,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 30
+      },
+      "lastMeasurements": {
+        "chudCover": 16
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-12457, 13599]",
+    "coarseRank": 10342,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 3,
+        "UNDERGROUND_COLLISION": 6,
+        "EXTREME_TERRAIN": 15
+      },
+      "lastMeasurements": {
+        "chudConnectorRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[13864, 2113]",
+    "coarseRank": 10335,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 14,
+        "EXTREME_TERRAIN": 10
+      },
+      "lastMeasurements": {
+        "chudCover": 16
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[2121, -7891]",
+    "coarseRank": 10328,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 20,
+        "EXTREME_TERRAIN": 52
+      },
+      "lastMeasurements": {
+        "chudCover": 12
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[2585, 16145]",
+    "coarseRank": 10326,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 6,
+        "EXTREME_TERRAIN": 42
+      },
+      "lastMeasurements": {
+        "chudCover": 4
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-14075, 11347]",
+    "coarseRank": 10563,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 9
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-16046, 7508]",
+    "coarseRank": 10489,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[12112, -14280]",
+    "coarseRank": 10476,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 59
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-6824, -12468]",
+    "coarseRank": 10456,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-2220, 8538]",
+    "coarseRank": 10450,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[1289, -11775]",
+    "coarseRank": 10448,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 10
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[14418, 1375]",
+    "coarseRank": 10443,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[8010, 10004]",
+    "coarseRank": 10441,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-10212, 15375]",
+    "coarseRank": 10431,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 49
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[12341, 14352]",
+    "coarseRank": 10428,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 61,
+        "PROTECTED_STRUCTURE": 3
+      },
+      "lastMeasurements": {
+        "chudConflict:minecraft:mineshaft": 1
+      },
+      "lastReason": "PROTECTED_STRUCTURE"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[13637, -14775]",
+    "coarseRank": 10412,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 27
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-14261, -13231]",
+    "coarseRank": 10401,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": -20
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[4365, -1020]",
+    "coarseRank": 10394,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 60,
+        "PROTECTED_STRUCTURE": 4
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 20
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-15302, -1444]",
+    "coarseRank": 10379,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 59,
+        "PROTECTED_STRUCTURE": 5
+      },
+      "lastMeasurements": {
+        "abandonedRouteCover": 14
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-4094, -5606]",
+    "coarseRank": 10377,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[14359, 8716]",
+    "coarseRank": 10370,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 16
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[9289, -4073]",
+    "coarseRank": 10361,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 62,
+        "PROTECTED_STRUCTURE": 2
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[2585, 16145]",
+    "coarseRank": 10354,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 56
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-5871, 8711]",
+    "coarseRank": 10352,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[4141, -12523]",
+    "coarseRank": 10351,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 30
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[14882, 9742]",
+    "coarseRank": 10758,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 11,
+        "EXTREME_TERRAIN": 13
+      },
+      "lastMeasurements": {
+        "chudConnectorCover": 1
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[8474, -2042]",
+    "coarseRank": 10533,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 2,
+        "UNDERGROUND_COLLISION": 27,
+        "EXTREME_TERRAIN": 43
+      },
+      "lastMeasurements": {
+        "chudConnectorRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[327, 13636]",
+    "coarseRank": 10511,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 24,
+        "EXTREME_TERRAIN": 24
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-1016, -1491]",
+    "coarseRank": 10505,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 20,
+        "EXTREME_TERRAIN": 4
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 40
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-16384, 14663]",
+    "coarseRank": 10486,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "EXTREME_TERRAIN": 24
+      },
+      "lastMeasurements": {
+        "chudCover": 3
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[9240, -6352]",
+    "coarseRank": 10481,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 12,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudCover": 14
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-7160, 14347]",
+    "coarseRank": 10473,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 38,
+        "EXTREME_TERRAIN": 34
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 45
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-10194, -2501]",
+    "coarseRank": 10455,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 16,
+        "EXTREME_TERRAIN": 56
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 20
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-13035, 16432]",
+    "coarseRank": 10446,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 6
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 40
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-2809, 4683]",
+    "coarseRank": 10440,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 22,
+        "EXTREME_TERRAIN": 26
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-16117, 7184]",
+    "coarseRank": 10440,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 14,
+        "EXTREME_TERRAIN": 10
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 9
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[13058, -10452]",
+    "coarseRank": 10434,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 2,
+        "UNDERGROUND_COLLISION": 17,
+        "EXTREME_TERRAIN": 29
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 57
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-2750, 9292]",
+    "coarseRank": 10417,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 6
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 33
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[2652, -5595]",
+    "coarseRank": 10412,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 6
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[9762, -14277]",
+    "coarseRank": 10390,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 6
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 22
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-9938, 10586]",
+    "coarseRank": 10390,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 1,
+        "UNDERGROUND_COLLISION": 10,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudFloor": -6
+      },
+      "lastReason": "WORLD_BOUNDS"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[2841, 10819]",
+    "coarseRank": 10384,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 16,
+        "EXTREME_TERRAIN": 8
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 53
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[16154, -1724]",
+    "coarseRank": 10376,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 36,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 45
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-5104, 1886]",
+    "coarseRank": 10371,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 60,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-11950, 16196]",
+    "coarseRank": 10368,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "EXTREME_TERRAIN": 72
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[-1255, 13358]",
+    "coarseRank": 10730,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 63,
+        "PROTECTED_STRUCTURE": 1
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[14882, 9742]",
+    "coarseRank": 10688,
+    "accepted": false,
+    "result": "fallback_or_unattached",
+    "diagnostics": {
+      "decisions": {
+        "ACCEPTED": 1,
+        "UNDERGROUND_COLLISION": 49
+      },
+      "lastMeasurements": {
+        "abandonedKind": 1
+      },
+      "lastReason": "ACCEPTED"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[11532, 2104]",
+    "coarseRank": 10557,
+    "accepted": false,
+    "result": "fallback_or_unattached",
+    "diagnostics": {
+      "decisions": {
+        "ACCEPTED": 1,
+        "UNDERGROUND_COLLISION": 37
+      },
+      "lastMeasurements": {
+        "abandonedKind": 1
+      },
+      "lastReason": "ACCEPTED"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[15195, -14250]",
+    "coarseRank": 10541,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 10
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[-740, 8024]",
+    "coarseRank": 10509,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[-1527, 15703]",
+    "coarseRank": 10483,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[3107, 15393]",
+    "coarseRank": 10467,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": -68
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[1097, 313]",
+    "coarseRank": 10466,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 4
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[13058, -10452]",
+    "coarseRank": 10439,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[2064, -11481]",
+    "coarseRank": 10430,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 4
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[16179, 15193]",
+    "coarseRank": 10429,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 63,
+        "PROTECTED_STRUCTURE": 1
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 58
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[16154, -1724]",
+    "coarseRank": 10428,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": -24
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[13829, 778]",
+    "coarseRank": 10424,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 57,
+        "PROTECTED_STRUCTURE": 7
+      },
+      "lastMeasurements": {
+        "chudConflict:minecraft:mineshaft": 1
+      },
+      "lastReason": "PROTECTED_STRUCTURE"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[8474, -2042]",
+    "coarseRank": 10423,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 4
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[-1994, -8117]",
+    "coarseRank": 10410,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 59,
+        "PROTECTED_STRUCTURE": 5
+      },
+      "lastMeasurements": {
+        "abandonedCover": 11
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[-10996, 10759]",
+    "coarseRank": 10408,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[1360, 11272]",
+    "coarseRank": 10403,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 62,
+        "PROTECTED_STRUCTURE": 2
+      },
+      "lastMeasurements": {
+        "chudConflict:minecraft:mineshaft": 1
+      },
+      "lastReason": "PROTECTED_STRUCTURE"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[-3019, -3057]",
+    "coarseRank": 10402,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 30
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[-5865, -9419]",
+    "coarseRank": 10384,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 63,
+        "PROTECTED_STRUCTURE": 1
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 58
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 2,
+    "target": "great",
+    "chunk": "[-7419, -16369]",
+    "coarseRank": 10379,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[-1502, 3871]",
+    "coarseRank": 10585,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 20,
+        "EXTREME_TERRAIN": 4
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 43
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[9812, -3496]",
+    "coarseRank": 10502,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 12,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudCover": -5
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[-3021, 12820]",
+    "coarseRank": 10458,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 26,
+        "EXTREME_TERRAIN": 22
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 45
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[12569, -7605]",
+    "coarseRank": 10440,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 60,
+        "WORLD_BOUNDS": 6
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 22
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[5148, -15028]",
+    "coarseRank": 10435,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 8,
+        "EXTREME_TERRAIN": 16
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 44
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[13620, -2551]",
+    "coarseRank": 10425,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 6,
+        "UNDERGROUND_COLLISION": 8,
+        "EXTREME_TERRAIN": 28
+      },
+      "lastMeasurements": {
+        "chudFloor": -16
+      },
+      "lastReason": "WORLD_BOUNDS"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[-8909, -8100]",
+    "coarseRank": 10408,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 58,
+        "EXTREME_TERRAIN": 14
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 58
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[9238, 521]",
+    "coarseRank": 10387,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 16,
+        "EXTREME_TERRAIN": 8
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 49
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[8976, -3576]",
+    "coarseRank": 10371,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 12,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[-16373, -3770]",
+    "coarseRank": 10371,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 24,
+        "EXTREME_TERRAIN": 48
+      },
+      "lastMeasurements": {
+        "chudCover": -2
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[-2554, 12331]",
+    "coarseRank": 10356,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 22,
+        "EXTREME_TERRAIN": 50
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[-8647, -2992]",
+    "coarseRank": 10338,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 70,
+        "EXTREME_TERRAIN": 2
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 30
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[11537, 7456]",
+    "coarseRank": 10312,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 24
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 55
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[3106, -15032]",
+    "coarseRank": 10310,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 30,
+        "EXTREME_TERRAIN": 42
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 55
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[15170, -4547]",
+    "coarseRank": 10302,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 16,
+        "EXTREME_TERRAIN": 32
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[-13283, 11783]",
+    "coarseRank": 10290,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 52,
+        "EXTREME_TERRAIN": 20
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[6670, 14124]",
+    "coarseRank": 10288,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 32,
+        "EXTREME_TERRAIN": 16
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 40
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[15687, 2872]",
+    "coarseRank": 10283,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 16,
+        "EXTREME_TERRAIN": 8
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[16406, -4795]",
+    "coarseRank": 10272,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 70,
+        "EXTREME_TERRAIN": 2
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 49
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "attached",
+    "chunk": "[3129, 5983]",
+    "coarseRank": 10262,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "EXTREME_TERRAIN": 24
+      },
+      "lastMeasurements": {
+        "chudCover": 13
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-1502, 3871]",
+    "coarseRank": 10535,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-1224, -12475]",
+    "coarseRank": 10514,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": -22
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-2251, -11714]",
+    "coarseRank": 10502,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 10
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-9137, 258]",
+    "coarseRank": 10457,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 30
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[7217, -7647]",
+    "coarseRank": 10418,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-7383, 34]",
+    "coarseRank": 10379,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 63,
+        "PROTECTED_STRUCTURE": 1
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-14546, -4777]",
+    "coarseRank": 10376,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 63,
+        "PROTECTED_STRUCTURE": 1
+      },
+      "lastMeasurements": {
+        "abandonedCover": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-198, -10940]",
+    "coarseRank": 10369,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-13283, 11783]",
+    "coarseRank": 10369,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 36
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-9413, -6321]",
+    "coarseRank": 10367,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 61,
+        "PROTECTED_STRUCTURE": 3
+      },
+      "lastMeasurements": {
+        "abandonedCover": 7
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[3388, -9726]",
+    "coarseRank": 10364,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[4130, 15675]",
+    "coarseRank": 10326,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 60,
+        "PROTECTED_STRUCTURE": 4
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[4121, -12491]",
+    "coarseRank": 10319,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 62,
+        "PROTECTED_STRUCTURE": 2
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[11788, -6615]",
+    "coarseRank": 10296,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-16095, 5139]",
+    "coarseRank": 10296,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 40
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[13094, -4089]",
+    "coarseRank": 10285,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 4
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[12077, -9426]",
+    "coarseRank": 10249,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 62,
+        "PROTECTED_STRUCTURE": 2
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-8909, -8100]",
+    "coarseRank": 10248,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedWorldBounds": -53
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[13855, -11263]",
+    "coarseRank": 10246,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 33
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 3,
+    "target": "great",
+    "chunk": "[-14838, 2361]",
+    "coarseRank": 10243,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedWorldBounds": -57
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[8991, -15328]",
+    "coarseRank": 10622,
+    "accepted": false,
+    "result": "fallback_or_unattached",
+    "diagnostics": {
+      "decisions": {
+        "ACCEPTED": 1,
+        "UNDERGROUND_COLLISION": 25,
+        "EXTREME_TERRAIN": 18
+      },
+      "lastMeasurements": {
+        "chudHalls": 4
+      },
+      "lastReason": "ACCEPTED"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[-14331, 10292]",
+    "coarseRank": 10511,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 6
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 36
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[-8360, -15845]",
+    "coarseRank": 10504,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 6
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 55
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[350, -13527]",
+    "coarseRank": 10481,
+    "accepted": false,
+    "result": "fallback_or_unattached",
+    "diagnostics": {
+      "decisions": {
+        "ACCEPTED": 1,
+        "UNDERGROUND_COLLISION": 1
+      },
+      "lastMeasurements": {
+        "chudHalls": 3
+      },
+      "lastReason": "ACCEPTED"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[-3044, -4347]",
+    "coarseRank": 10459,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 42,
+        "EXTREME_TERRAIN": 30
+      },
+      "lastMeasurements": {
+        "chudCover": -7
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[-7387, 1338]",
+    "coarseRank": 10449,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 6,
+        "EXTREME_TERRAIN": 66
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[-11210, -14061]",
+    "coarseRank": 10441,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 3,
+        "UNDERGROUND_COLLISION": 2,
+        "EXTREME_TERRAIN": 16
+      },
+      "lastMeasurements": {
+        "chudFloor": -12
+      },
+      "lastReason": "WORLD_BOUNDS"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[329, -9171]",
+    "coarseRank": 10427,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 1,
+        "UNDERGROUND_COLLISION": 20,
+        "EXTREME_TERRAIN": 3
+      },
+      "lastMeasurements": {
+        "chudConnectorLiquidY": 15
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[-8391, 13649]",
+    "coarseRank": 10411,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 36,
+        "EXTREME_TERRAIN": 36
+      },
+      "lastMeasurements": {
+        "chudCover": 8
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[-9182, -7902]",
+    "coarseRank": 10377,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 8,
+        "EXTREME_TERRAIN": 40
+      },
+      "lastMeasurements": {
+        "chudCover": 15
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[9786, 3921]",
+    "coarseRank": 10343,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 72
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 33
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[-16295, 8736]",
+    "coarseRank": 10340,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 20,
+        "EXTREME_TERRAIN": 28
+      },
+      "lastMeasurements": {
+        "chudCover": 12
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[-988, 11793]",
+    "coarseRank": 10336,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 30,
+        "EXTREME_TERRAIN": 42
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[7221, 4679]",
+    "coarseRank": 10333,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 72
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 33
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[3636, 6453]",
+    "coarseRank": 10326,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 32,
+        "EXTREME_TERRAIN": 40
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[-4836, 10496]",
+    "coarseRank": 10325,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 16,
+        "EXTREME_TERRAIN": 8
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 58
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[8526, 6239]",
+    "coarseRank": 10323,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 16,
+        "EXTREME_TERRAIN": 32
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 47
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[-13275, -6049]",
+    "coarseRank": 10313,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 1,
+        "UNDERGROUND_COLLISION": 20,
+        "EXTREME_TERRAIN": 2
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 40
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[2105, 2113]",
+    "coarseRank": 10309,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 10,
+        "EXTREME_TERRAIN": 62
+      },
+      "lastMeasurements": {
+        "chudCover": 4
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "attached",
+    "chunk": "[9287, 7769]",
+    "coarseRank": 10288,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 6
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 37
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-8391, 13649]",
+    "coarseRank": 10652,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-15269, 14144]",
+    "coarseRank": 10532,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 55
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[12079, -12457]",
+    "coarseRank": 10461,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 63,
+        "PROTECTED_STRUCTURE": 1
+      },
+      "lastMeasurements": {
+        "abandonedCover": 8
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-7387, 1338]",
+    "coarseRank": 10456,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-4077, -501]",
+    "coarseRank": 10444,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 40
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-4575, -10233]",
+    "coarseRank": 10440,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 10
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-8360, -15845]",
+    "coarseRank": 10435,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-14331, 10292]",
+    "coarseRank": 10435,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 9
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-4296, -8444]",
+    "coarseRank": 10394,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 45
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-5309, -9214]",
+    "coarseRank": 10393,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[5680, -9435]",
+    "coarseRank": 10390,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 40
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-4276, -12719]",
+    "coarseRank": 10381,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 59,
+        "PROTECTED_STRUCTURE": 5
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-16295, 8736]",
+    "coarseRank": 10379,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedWorldBounds": -50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[12630, 8791]",
+    "coarseRank": 10375,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[854, 5965]",
+    "coarseRank": 10369,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[8253, 2108]",
+    "coarseRank": 10349,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 62,
+        "PROTECTED_STRUCTURE": 2
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 34
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[2105, 2113]",
+    "coarseRank": 10313,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 62,
+        "PROTECTED_STRUCTURE": 2
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 33
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-13273, 3352]",
+    "coarseRank": 10309,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 63,
+        "PROTECTED_STRUCTURE": 1
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 38
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[13106, -7388]",
+    "coarseRank": 10304,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 58
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 4,
+    "target": "great",
+    "chunk": "[-13268, -7116]",
+    "coarseRank": 10291,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 45
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[11597, -2266]",
+    "coarseRank": 10704,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 54,
+        "EXTREME_TERRAIN": 18
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 55
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[14140, 12104]",
+    "coarseRank": 10584,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 32,
+        "EXTREME_TERRAIN": 16
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 10
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[-2732, -15321]",
+    "coarseRank": 10473,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 8,
+        "EXTREME_TERRAIN": 16
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[-8662, 13343]",
+    "coarseRank": 10467,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 12,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudCover": -1
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[-10661, 8484]",
+    "coarseRank": 10462,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 44,
+        "EXTREME_TERRAIN": 28
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 33
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[-15099, 13330]",
+    "coarseRank": 10445,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 6,
+        "EXTREME_TERRAIN": 66
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[-9650, -3236]",
+    "coarseRank": 10442,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 8,
+        "EXTREME_TERRAIN": 16
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 45
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[-2989, 5394]",
+    "coarseRank": 10440,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 2,
+        "UNDERGROUND_COLLISION": 14,
+        "EXTREME_TERRAIN": 8
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[-7330, -7392]",
+    "coarseRank": 10437,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 54
+      },
+      "lastMeasurements": {
+        "chudCover": 14
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[-12254, 15877]",
+    "coarseRank": 10432,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 2,
+        "EXTREME_TERRAIN": 22
+      },
+      "lastMeasurements": {
+        "chudCover": 16
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[-15352, -8660]",
+    "coarseRank": 10426,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 9,
+        "UNDERGROUND_COLLISION": 20,
+        "EXTREME_TERRAIN": 34
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[5430, 6736]",
+    "coarseRank": 10417,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 38,
+        "EXTREME_TERRAIN": 34
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 10
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[3098, 15118]",
+    "coarseRank": 10406,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 54
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[6150, -6629]",
+    "coarseRank": 10398,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 24,
+        "EXTREME_TERRAIN": 24
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 58
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[11593, -9171]",
+    "coarseRank": 10397,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 9,
+        "UNDERGROUND_COLLISION": 40,
+        "EXTREME_TERRAIN": 14
+      },
+      "lastMeasurements": {
+        "chudFloor": -18
+      },
+      "lastReason": "WORLD_BOUNDS"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[15923, 813]",
+    "coarseRank": 10392,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 6,
+        "UNDERGROUND_COLLISION": 20,
+        "EXTREME_TERRAIN": 16
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 38
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[2570, -12794]",
+    "coarseRank": 10390,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 48,
+        "EXTREME_TERRAIN": 24
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 33
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[-1753, -3552]",
+    "coarseRank": 10381,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 4,
+        "UNDERGROUND_COLLISION": 26,
+        "EXTREME_TERRAIN": 18
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 13
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[16466, -5376]",
+    "coarseRank": 10353,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "EXTREME_TERRAIN": 46,
+        "PROTECTED_STRUCTURE": 2
+      },
+      "lastMeasurements": {
+        "chudConflict:slavicmyths:bandit_camp_small": 1
+      },
+      "lastReason": "PROTECTED_STRUCTURE"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "attached",
+    "chunk": "[-2217, -2017]",
+    "coarseRank": 10341,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 11,
+        "EXTREME_TERRAIN": 13
+      },
+      "lastMeasurements": {
+        "chudConnectorRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[-14247, -3254]",
+    "coarseRank": 10889,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 172
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[-4863, 588]",
+    "coarseRank": 10528,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 10
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[7188, -1994]",
+    "coarseRank": 10517,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[14140, 12104]",
+    "coarseRank": 10513,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 10
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[-4856, -16078]",
+    "coarseRank": 10502,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 85
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[13608, 6208]",
+    "coarseRank": 10485,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 43
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[5202, -1784]",
+    "coarseRank": 10474,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 16
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[-2732, -15321]",
+    "coarseRank": 10458,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 61
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[-15099, 13330]",
+    "coarseRank": 10457,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": -7
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[11597, -2266]",
+    "coarseRank": 10449,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[12070, 2851]",
+    "coarseRank": 10449,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 62,
+        "PROTECTED_STRUCTURE": 2
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[10041, -13773]",
+    "coarseRank": 10440,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 50
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[11545, 14600]",
+    "coarseRank": 10435,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[1834, 11605]",
+    "coarseRank": 10426,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 54
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[-5026, -6589]",
+    "coarseRank": 10400,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 40
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[-8651, 10811]",
+    "coarseRank": 10396,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": -95
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[-2989, 5394]",
+    "coarseRank": 10382,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 60,
+        "PROTECTED_STRUCTURE": 4
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[15642, 13059]",
+    "coarseRank": 10360,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 20
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[606, -10155]",
+    "coarseRank": 10360,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 20
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 5,
+    "target": "great",
+    "chunk": "[-6864, 8778]",
+    "coarseRank": 10348,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteFluidY": 37
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[9787, 15636]",
+    "coarseRank": 10983,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 4,
+        "EXTREME_TERRAIN": 20
+      },
+      "lastMeasurements": {
+        "chudCover": 15
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[-12481, 4660]",
+    "coarseRank": 10702,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 14,
+        "EXTREME_TERRAIN": 10
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 58
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[-10438, -12480]",
+    "coarseRank": 10560,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 22,
+        "EXTREME_TERRAIN": 2
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[9525, 15884]",
+    "coarseRank": 10556,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 8,
+        "UNDERGROUND_COLLISION": 26,
+        "EXTREME_TERRAIN": 38
+      },
+      "lastMeasurements": {
+        "chudConflict:minecraft:mineshaft": 1
+      },
+      "lastReason": "PROTECTED_STRUCTURE"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[-14241, -8169]",
+    "coarseRank": 10552,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 24,
+        "EXTREME_TERRAIN": 48
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 38
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[15662, -2513]",
+    "coarseRank": 10526,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 14,
+        "EXTREME_TERRAIN": 10
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 53
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[-9947, -15778]",
+    "coarseRank": 10517,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 14,
+        "EXTREME_TERRAIN": 34
+      },
+      "lastMeasurements": {
+        "chudCover": 15
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[-14011, -14577]",
+    "coarseRank": 10478,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 4,
+        "UNDERGROUND_COLLISION": 8,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudCover": 9
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[15427, -8632]",
+    "coarseRank": 10436,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 24
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 59
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[-2527, -8940]",
+    "coarseRank": 10420,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 36,
+        "EXTREME_TERRAIN": 12
+      },
+      "lastMeasurements": {
+        "chudLiquidY": 81
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[-6069, -15790]",
+    "coarseRank": 10414,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 3,
+        "UNDERGROUND_COLLISION": 6,
+        "EXTREME_TERRAIN": 39
+      },
+      "lastMeasurements": {
+        "chudCover": 17
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[5190, -15825]",
+    "coarseRank": 10403,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 18,
+        "EXTREME_TERRAIN": 6
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 55
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[-7651, -9930]",
+    "coarseRank": 10397,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 3,
+        "UNDERGROUND_COLLISION": 12,
+        "EXTREME_TERRAIN": 6
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 44
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[11068, 15925]",
+    "coarseRank": 10387,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 72
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 22
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[5165, -8147]",
+    "coarseRank": 10377,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 36,
+        "EXTREME_TERRAIN": 36
+      },
+      "lastMeasurements": {
+        "chudRockPercent": 53
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[-15018, -14302]",
+    "coarseRank": 10368,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 27,
+        "EXTREME_TERRAIN": 21
+      },
+      "lastMeasurements": {
+        "chudCover": 15
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[13866, 14673]",
+    "coarseRank": 10364,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 6,
+        "UNDERGROUND_COLLISION": 6,
+        "EXTREME_TERRAIN": 60
+      },
+      "lastMeasurements": {
+        "chudCover": 12
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[-4772, -12000]",
+    "coarseRank": 10362,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "PROTECTED_STRUCTURE": 2,
+        "WORLD_BOUNDS": 6,
+        "EXTREME_TERRAIN": 34
+      },
+      "lastMeasurements": {
+        "chudConflict:minecraft:mineshaft": 1
+      },
+      "lastReason": "PROTECTED_STRUCTURE"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[-1702, -11745]",
+    "coarseRank": 10355,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 9,
+        "UNDERGROUND_COLLISION": 20,
+        "EXTREME_TERRAIN": 34
+      },
+      "lastMeasurements": {
+        "chudCover": 12
+      },
+      "lastReason": "EXTREME_TERRAIN"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "attached",
+    "chunk": "[12814, -1965]",
+    "coarseRank": 10347,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "WORLD_BOUNDS": 6,
+        "UNDERGROUND_COLLISION": 12,
+        "EXTREME_TERRAIN": 24
+      },
+      "lastMeasurements": {
+        "chudFloor": -27
+      },
+      "lastReason": "WORLD_BOUNDS"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[9525, 15884]",
+    "coarseRank": 10540,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 59,
+        "PROTECTED_STRUCTURE": 5
+      },
+      "lastMeasurements": {
+        "chudConflict:minecraft:mineshaft": 1
+      },
+      "lastReason": "PROTECTED_STRUCTURE"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[-1444, -10233]",
+    "coarseRank": 10518,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 11
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[15662, -2513]",
+    "coarseRank": 10499,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": 9
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[-13527, 6225]",
+    "coarseRank": 10479,
+    "accepted": false,
+    "result": "fallback_or_unattached",
+    "diagnostics": {
+      "decisions": {
+        "ACCEPTED": 1,
+        "UNDERGROUND_COLLISION": 50
+      },
+      "lastMeasurements": {
+        "abandonedKind": 1
+      },
+      "lastReason": "ACCEPTED"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[11016, 13128]",
+    "coarseRank": 10477,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 61,
+        "PROTECTED_STRUCTURE": 3
+      },
+      "lastMeasurements": {
+        "abandonedCover": -31
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[-2809, -8383]",
+    "coarseRank": 10441,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 63,
+        "PROTECTED_STRUCTURE": 1
+      },
+      "lastMeasurements": {
+        "abandonedRouteFluidY": 40
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[-2302, 16446]",
+    "coarseRank": 10435,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": -39
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[-11207, -7587]",
+    "coarseRank": 10433,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 63,
+        "PROTECTED_STRUCTURE": 1
+      },
+      "lastMeasurements": {
+        "abandonedCover": 9
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[-6069, -15790]",
+    "coarseRank": 10431,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedFluidY": 46
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[7702, 591]",
+    "coarseRank": 10416,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 25
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[-7640, 12894]",
+    "coarseRank": 10405,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedCover": -38
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[-11957, -10658]",
+    "coarseRank": 10400,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[-2287, -12288]",
+    "coarseRank": 10395,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 58
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[12630, 15885]",
+    "coarseRank": 10393,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRockPercent": 36
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[7256, -13750]",
+    "coarseRank": 10377,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 64
+      },
+      "lastMeasurements": {
+        "abandonedRouteRockPercent": 0
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  },
+  {
+    "seed": 6,
+    "target": "great",
+    "chunk": "[-13269, -12743]",
+    "coarseRank": 10375,
+    "accepted": false,
+    "result": "rejected",
+    "diagnostics": {
+      "decisions": {
+        "UNDERGROUND_COLLISION": 62,
+        "PROTECTED_STRUCTURE": 2
+      },
+      "lastMeasurements": {
+        "abandonedCover": -6
+      },
+      "lastReason": "UNDERGROUND_COLLISION"
+    }
+  }
+]

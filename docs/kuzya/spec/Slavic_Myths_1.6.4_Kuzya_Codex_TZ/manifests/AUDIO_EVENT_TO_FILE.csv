@@ -1,0 +1,49 @@
+﻿source_archive_ogg,event_key_for_sounds_json,sound_event_id,spoken_text_ru
+audio/ready/sfx/step_wood_01.ogg,kuzya.step_wood,slavicmyths:kuzya.step_wood,
+audio/ready/sfx/step_wood_02.ogg,kuzya.step_wood,slavicmyths:kuzya.step_wood,
+audio/ready/sfx/step_wood_03.ogg,kuzya.step_wood,slavicmyths:kuzya.step_wood,
+audio/ready/sfx/stove_scramble_01.ogg,kuzya.stove_climb,slavicmyths:kuzya.stove_climb,
+audio/ready/sfx/stove_scramble_02.ogg,kuzya.stove_climb,slavicmyths:kuzya.stove_climb,
+audio/ready/sfx/cloth_rustle_01.ogg,kuzya.cloth,slavicmyths:kuzya.cloth,
+audio/ready/sfx/cloth_rustle_02.ogg,kuzya.cloth,slavicmyths:kuzya.cloth,
+audio/ready/sfx/sitting_down_01.ogg,kuzya.sit,slavicmyths:kuzya.sit,
+audio/ready/sfx/wake_rustle_01.ogg,kuzya.wake,slavicmyths:kuzya.wake,
+audio/ready/sfx/bowl_clink_01.ogg,kuzya.bowl,slavicmyths:kuzya.bowl,
+audio/ready/sfx/bowl_clink_02.ogg,kuzya.bowl,slavicmyths:kuzya.bowl,
+audio/ready/sfx/chew_01.ogg,kuzya.chew,slavicmyths:kuzya.chew,
+audio/ready/sfx/chew_02.ogg,kuzya.chew,slavicmyths:kuzya.chew,
+audio/ready/sfx/chew_03.ogg,kuzya.chew,slavicmyths:kuzya.chew,
+audio/ready/sfx/swallow_01.ogg,kuzya.swallow,slavicmyths:kuzya.swallow,
+audio/ready/sfx/stove_settle_01.ogg,kuzya.stove_settle,slavicmyths:kuzya.stove_settle,
+audio/ready/sfx/trunk_wood_01.ogg,kuzya.chest,slavicmyths:kuzya.chest,
+audio/ready/sfx/broom_sweep_01.ogg,kuzya.sweep,slavicmyths:kuzya.sweep,
+audio/ready/sfx/sleep_breath_01.ogg,kuzya.sleep_breath,slavicmyths:kuzya.sleep_breath,
+audio/ready/sfx/sleep_breath_02.ogg,kuzya.sleep_breath,slavicmyths:kuzya.sleep_breath,
+audio/ready/sfx/snore_01.ogg,kuzya.snore,slavicmyths:kuzya.snore,
+audio/ready/sfx/snore_02.ogg,kuzya.snore,slavicmyths:kuzya.snore,
+audio/ready/sfx/sleepy_sigh_01.ogg,kuzya.sigh,slavicmyths:kuzya.sigh,
+audio/ready/sfx/grumble_01.ogg,kuzya.grumble_nonverbal,slavicmyths:kuzya.grumble_nonverbal,
+audio/ready/sfx/grumble_02.ogg,kuzya.grumble_nonverbal,slavicmyths:kuzya.grumble_nonverbal,
+audio/ready/sfx/annoyed_huff_01.ogg,kuzya.huff,slavicmyths:kuzya.huff,
+audio/ready/sfx/annoyed_huff_02.ogg,kuzya.huff,slavicmyths:kuzya.huff,
+audio/ready/sfx/happy_hum_01.ogg,kuzya.hum,slavicmyths:kuzya.hum,
+audio/ready/voice_draft/voice_enter_01.ogg,kuzya.voice_enter_01,slavicmyths:kuzya.voice_enter_01,Кто это у нас пожаловал?
+audio/ready/voice_draft/voice_enter_02.ogg,kuzya.voice_enter_02,slavicmyths:kuzya.voice_enter_02,Дверь-то за собой прикрой.
+audio/ready/voice_draft/voice_idle_01.ogg,kuzya.voice_idle_01,slavicmyths:kuzya.voice_idle_01,Порядок в доме сам собой не заведётся.
+audio/ready/voice_draft/voice_idle_02.ogg,kuzya.voice_idle_02,slavicmyths:kuzya.voice_idle_02,Опять всё не на месте.
+audio/ready/voice_draft/voice_eat_01.ogg,kuzya.voice_eat_01,slavicmyths:kuzya.voice_eat_01,Вот бы блинов со сметаной!
+audio/ready/voice_draft/voice_eat_02.ogg,kuzya.voice_eat_02,slavicmyths:kuzya.voice_eat_02,Кашка-то остыла. Эх!
+audio/ready/voice_draft/voice_eat_03.ogg,kuzya.voice_eat_03,slavicmyths:kuzya.voice_eat_03,"Люблю, когда сытно да тепло."
+audio/ready/voice_draft/voice_sleep_01.ogg,kuzya.voice_sleep_01,slavicmyths:kuzya.voice_sleep_01,Не мешай дремать.
+audio/ready/voice_draft/voice_sleep_02.ogg,kuzya.voice_sleep_02,slavicmyths:kuzya.voice_sleep_02,Дай мне ещё немножко поспать.
+audio/ready/voice_draft/voice_notice_01.ogg,kuzya.voice_notice_01,slavicmyths:kuzya.voice_notice_01,Ты надолго к нам?
+audio/ready/voice_draft/voice_notice_02.ogg,kuzya.voice_notice_02,slavicmyths:kuzya.voice_notice_02,Чего всё оглядываешься?
+audio/ready/voice_draft/voice_ask_leave_01.ogg,kuzya.voice_ask_leave_01,slavicmyths:kuzya.voice_ask_leave_01,"Гость-то гость, а пора бы и честь знать."
+audio/ready/voice_draft/voice_ask_leave_02.ogg,kuzya.voice_ask_leave_02,slavicmyths:kuzya.voice_ask_leave_02,Долго ещё гостить будешь?
+audio/ready/voice_draft/voice_ask_leave_03.ogg,kuzya.voice_ask_leave_03,slavicmyths:kuzya.voice_ask_leave_03,Чужому тут ночевать не положено.
+audio/ready/voice_draft/voice_ask_leave_04.ogg,kuzya.voice_ask_leave_04,slavicmyths:kuzya.voice_ask_leave_04,"Всё ходишь и ходишь, отдыха нет."
+audio/ready/voice_draft/voice_ask_leave_05.ogg,kuzya.voice_ask_leave_05,slavicmyths:kuzya.voice_ask_leave_05,"Ну, ступай уже, у меня забот полно."
+audio/ready/voice_draft/voice_yaga_01.ogg,kuzya.voice_yaga_01,slavicmyths:kuzya.voice_yaga_01,"Бабушка, а пирожки где?"
+audio/ready/voice_draft/voice_yaga_02.ogg,kuzya.voice_yaga_02,slavicmyths:kuzya.voice_yaga_02,Я тут за порядком присматриваю.
+audio/ready/voice_draft/voice_interact_01.ogg,kuzya.voice_interact_01,slavicmyths:kuzya.voice_interact_01,Чего тебе надо?
+audio/ready/voice_draft/voice_interact_02.ogg,kuzya.voice_interact_02,slavicmyths:kuzya.voice_interact_02,А поговорить-то можно и после обеда.

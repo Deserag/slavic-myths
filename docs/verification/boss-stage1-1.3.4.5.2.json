@@ -1,0 +1,14 @@
+{
+  "version": "1.3.4.5.2",
+  "scope": "boss rework stage1: weapon range and sound profiles; full boss implementation incomplete",
+  "build": "clean build PASS",
+  "automated_server_tests": 63,
+  "actual_server_launches": 1,
+  "client_launches": 0,
+  "pure_rule_checks": 20491,
+  "resource_checks": 13503,
+  "boss_sound_keys": 39,
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.3.4.5.2.jar",
+  "sha256": "514ee00038e046199711ddabb4b687b00929bfbefde36a938ff01459777ebe93",
+  "manual_client_check": "REQUIRES_MANUAL_CLIENT_CHECK"
+}

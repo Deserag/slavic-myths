@@ -1,0 +1,129 @@
+{
+  "voices": [
+    {
+      "line_id": "voice_original_domovity",
+      "text_ru": "Я не жадный, я домовитый!",
+      "text_en": "I am not greedy, I am thrifty!",
+      "file": "docs/kuzya/audio-film/voice_original_domovity.ogg",
+      "source_url": "https://ok.ru/video/474597623273",
+      "source_segment": [
+        "quotes.wav",
+        405.64,
+        409.85
+      ],
+      "source_rms": 0.061184894028259454,
+      "gain": 1.6,
+      "source_sha256": "49a0982c251aeef945d4b755c2c3c34174324a58193175de1e3d3cfc8746fe51"
+    },
+    {
+      "line_id": "voice_original_desire",
+      "text_ru": "Хочется чего-то. Сам не знаю чего.",
+      "text_en": "I want something. I do not know what.",
+      "file": "docs/kuzya/audio-film/voice_original_desire.ogg",
+      "source_url": "https://ok.ru/video/474597623273",
+      "source_segment": [
+        "quotes.wav",
+        269.4,
+        273.1
+      ],
+      "source_rms": 0.22107730019119595,
+      "gain": 0.8107629975566759,
+      "source_sha256": "49a0982c251aeef945d4b755c2c3c34174324a58193175de1e3d3cfc8746fe51"
+    },
+    {
+      "line_id": "voice_original_pancakes",
+      "text_ru": "Блинов хочу! Со сметаной!",
+      "text_en": "I want pancakes! With sour cream!",
+      "file": "docs/kuzya/audio-film/voice_original_pancakes.ogg",
+      "source_url": "https://ok.ru/video/474597623273",
+      "source_segment": [
+        "quotes.wav",
+        294.27,
+        298.1
+      ],
+      "source_rms": 0.15893475695320256,
+      "gain": 0.9179675736246805,
+      "source_sha256": "49a0982c251aeef945d4b755c2c3c34174324a58193175de1e3d3cfc8746fe51"
+    },
+    {
+      "line_id": "voice_original_sleep",
+      "text_ru": "Ел недосыта, спал без просыпа… Недосыпал, в общем, я!",
+      "text_en": "I ate too little, slept without waking… Not enough sleep, that is!",
+      "file": "docs/kuzya/audio-film/voice_original_sleep.ogg",
+      "source_url": "https://ok.ru/video/304064824804",
+      "source_segment": [
+        "full-first.wav",
+        231.86,
+        237.4
+      ],
+      "source_rms": 0.1316553795007819,
+      "gain": 1.1830136739022519,
+      "source_sha256": "ce24c8664e7af1e913623bc1a26a852181f7ead21a342fb4272f29f56dd2d1c7"
+    },
+    {
+      "line_id": "voice_original_feed",
+      "text_ru": "Сперва молодца в баньке попарь, накорми, напои, а потом и люби!",
+      "text_en": "First give a fellow a bath, feed him, give him a drink, and then love him!",
+      "file": "docs/kuzya/audio-film/voice_original_feed.ogg",
+      "source_url": "https://ok.ru/video/950487355834",
+      "source_segment": [
+        "home-section.wav",
+        30.32,
+        34.94
+      ],
+      "source_rms": 0.13817791931294562,
+      "gain": 0.914062554482374,
+      "source_sha256": "0917ba66ec8fe10029e5af0eec72746a29f651fb22d2f1d3a50682c3d3e48b96"
+    }
+  ],
+  "legacy_aliases": {
+    "voice_enter_01": "voice_original_domovity",
+    "voice_enter_02": "voice_original_domovity",
+    "voice_idle_01": "voice_original_domovity",
+    "voice_idle_02": "voice_original_domovity",
+    "voice_eat_01": "voice_original_pancakes",
+    "voice_eat_02": "voice_original_pancakes",
+    "voice_eat_03": "voice_original_pancakes",
+    "voice_sleep_01": "voice_original_sleep",
+    "voice_sleep_02": "voice_original_sleep",
+    "voice_notice_01": "voice_original_desire",
+    "voice_notice_02": "voice_original_desire",
+    "voice_ask_leave_01": "voice_original_domovity",
+    "voice_ask_leave_02": "voice_original_domovity",
+    "voice_ask_leave_03": "voice_original_domovity",
+    "voice_ask_leave_04": "voice_original_domovity",
+    "voice_ask_leave_05": "voice_original_domovity",
+    "voice_yaga_01": "voice_original_feed",
+    "voice_yaga_02": "voice_original_feed",
+    "voice_interact_01": "voice_original_domovity",
+    "voice_interact_02": "voice_original_domovity"
+  },
+  "categories": {
+    "voice_idle": [
+      "voice_original_domovity",
+      "voice_original_desire"
+    ],
+    "voice_interact": [
+      "voice_original_domovity",
+      "voice_original_desire"
+    ],
+    "voice_notice": [
+      "voice_original_desire"
+    ],
+    "voice_eat": [
+      "voice_original_pancakes",
+      "voice_original_feed"
+    ],
+    "voice_sleep": [
+      "voice_original_sleep"
+    ],
+    "voice_yaga": [
+      "voice_original_feed"
+    ],
+    "voice_enter": [
+      "voice_original_domovity"
+    ]
+  },
+  "rights": "Original cartoon excerpts explicitly requested by user; not original/free assets. No redistribution licence verified.",
+  "audio_review": "ASR + technical checks; human listening and in-game mix not confirmed"
+}

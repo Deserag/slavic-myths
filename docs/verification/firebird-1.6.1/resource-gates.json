@@ -1,0 +1,16 @@
+{
+  "version": "1.6.1",
+  "checks": 23286,
+  "clean_build": "PASS",
+  "offline_assertions": 200020,
+  "baseline_preserved": {
+    "classes": 1072,
+    "resources": 5116
+  },
+  "audio_variants": 28,
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.6.1.jar",
+  "sha256": "b008d1626776d7676adcc1f24739ecf07bb002ff0bb1f2d9d3f64235dd197ee7",
+  "client_launches": 0,
+  "server_launches": 0,
+  "runtime": "NOT TESTED"
+}

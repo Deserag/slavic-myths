@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "files": 8,
+  "byte_identical": true,
+  "sha256": {
+    "src\\main\\resources\\assets\\slavicmyths\\lang\\ru_ru.json": "fafbf5d37a718f98b691ae7a7df92296877e3b14f1ceeff83f4e8f42e0dc6e05",
+    "src\\main\\resources\\assets\\slavicmyths\\lang\\en_us.json": "4a3396ac5de1953026337e1340743b0ffd44beebd42f6855876de0e4527a9257",
+    "src\\main\\resources\\data\\slavicmyths\\worldgen\\structure\\chud_city.json": "08bbf938473831a32230516799a11deb7c55aa5338a0696bad18f53651e4f960",
+    "src\\main\\resources\\data\\slavicmyths\\worldgen\\structure\\chud_abandoned.json": "2d050d5065dfb55d4c70ac35386655d35cbf571ee4e63228bdce33f02cabe7ea",
+    "src\\main\\resources\\data\\slavicmyths\\worldgen\\structure_set\\chud_city.json": "1c2fc29cc94b2f8e5675af1d76fc7bb0b8cb1772c6170c2d5b8bf9f8b1643731",
+    "src\\main\\resources\\data\\slavicmyths\\worldgen\\structure_set\\chud_abandoned.json": "7ed2ce79a76f67cd6e0d12f81a40a9d6aef14b93fd2ab91f40f09a6282157f32",
+    "src\\main\\resources\\data\\slavicmyths\\tags\\worldgen\\biome\\has_structure\\chud_city.json": "5fe04171cf4207d53b98c8257b7599b968bb2f4dc54185dafef6012b7b9bfa2b",
+    "src\\main\\resources\\data\\slavicmyths\\tags\\worldgen\\biome\\has_structure\\chud_abandoned.json": "3ed67f8b52d49ba84e48b331814764ace7ccc8363df5d98c663a6c0120b3e2be"
+  }
+}

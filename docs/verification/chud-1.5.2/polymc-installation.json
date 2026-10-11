@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "version": "1.5.2",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.5.2.jar",
+  "development_candidate": true,
+  "acceptance": "OPEN_WORLDGEN_QUOTA",
+  "sha256": "ca2a1e9e7ab2ebfb740edee54f7318f604a04119d5aa6f8b49c05e8699810103",
+  "previous_jars": [
+    {
+      "name": "slavicmyths-1.5.1-combat-feedback.jar",
+      "sha256": "a87f56bc0be26f2f52d47cb26dab29886425789f4a301e0b7966065b039d24ab",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-chud-20261009-165706\\slavicmyths-1.5.1-combat-feedback.jar"
+    }
+  ],
+  "protected_files": 214,
+  "client_launches": 0,
+  "worlds_and_settings": "Preserved byte-for-byte",
+  "old_1_16_5_instance": "Untouched"
+}

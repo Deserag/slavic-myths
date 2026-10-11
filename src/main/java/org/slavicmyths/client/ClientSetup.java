@@ -17,12 +17,15 @@ public final class ClientSetup {
     public static void navigationKeys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent event) {
         org.slavicmyths.navigation.client.NavigationClient.keys(event);
     }
+    @SubscribeEvent public static void tugarinModels(net.neoforged.neoforge.client.event.ModelEvent.RegisterAdditional event){TugarinPairClient.registerModels(event);}
+    @SubscribeEvent public static void tugarinBake(net.neoforged.neoforge.client.event.ModelEvent.ModifyBakingResult event){TugarinPairClient.bake(event);}
+    @SubscribeEvent public static void tugarinLayers(EntityRenderersEvent.AddLayers event){TugarinPairClient.layers(event);}
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {
         net.neoforged.neoforge.client.gui.IConfigScreenFactory factory=(container,parent)->new ClassSettingsScreen(parent);
         net.neoforged.fml.ModList.get().getModContainerById(SlavicMyths.MOD_ID).orElseThrow().registerExtensionPoint(net.neoforged.neoforge.client.gui.IConfigScreenFactory.class,factory);
         event.enqueueWork(() -> {
-            FieldBowClient.properties();
+            FieldBowClient.properties();FinistClient.properties();
             net.minecraft.client.renderer.Sheets.addWoodType(org.slavicmyths.garden.Gardens.APPLE_TYPE);
             for(String berry:org.slavicmyths.garden.Gardens.BERRIES)ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.garden.Gardens.block(berry+"_bush"),RenderType.cutout());
             for(String name:new String[]{"apple_leaves","apple_sapling","apple_door","apple_trapdoor"})ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.garden.Gardens.block(name),RenderType.cutoutMipped());
@@ -37,7 +40,8 @@ public final class ClientSetup {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLUEBERRY_BUSH.get(),RenderType.cutout());
             for (net.minecraft.world.item.Item shield : new net.minecraft.world.item.Item[] {
                     org.slavicmyths.registry.ModItems.RETAINER_SHIELD.get(),
-                    org.slavicmyths.registry.ModItems.PERUNITE_SHIELD.get() }) {
+                    org.slavicmyths.registry.ModItems.PERUNITE_SHIELD.get(),
+                    org.slavicmyths.equipment.UniqueEquipment.WARD_SHIELD.get() }) {
                 net.minecraft.client.renderer.item.ItemProperties.register(shield, net.minecraft.resources.ResourceLocation.parse("blocking"),
                         (stack, world, entity, seed) -> entity != null && entity.isUsingItem()
                                 && entity.getUseItem() == stack ? 1.0F : 0.0F);
@@ -102,8 +106,11 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.PODVEY.get(),m->new ElementRenderer<org.slavicmyths.hunt.ElementHuntMob>(m,false));
         event.registerEntityRenderer(ModEntities.SERPENT_PROJECTION.get(),m->new ElementRenderer<org.slavicmyths.hunt.SerpentProjection>(m,true));
         event.registerEntityRenderer(ModEntities.VOLKOLAK.get(), m->new HuntRenderer<org.slavicmyths.entity.VolkolakEntity>(m,false));
+        event.registerEntityRenderer(ModEntities.CURSED_VOLKOLAK.get(),CursedVolkolakRenderer::new);
         event.registerEntityRenderer(ModEntities.EMBER_CLUMP.get(),m->new net.minecraft.client.renderer.entity.ThrownItemRenderer<>(m));
         event.registerEntityRenderer(ModEntities.HOT_STONE.get(), manager -> new net.minecraft.client.renderer.entity.ThrownItemRenderer<>(manager));
+        event.registerEntityRenderer(ModEntities.GREY_WOLF.get(),GreyWolfRenderer::new);
+        event.registerEntityRenderer(ModEntities.FINIST_ARROW.get(),FinistArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.BROWN_BEAR.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.BEAR,"brown_bear",.8F));
         event.registerEntityRenderer(ModEntities.BEAR_CUB.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.CUB,"bear_cub",.4F));
         event.registerEntityRenderer(ModEntities.FOREST_WOLF.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.WOLF,"forest_wolf",.5F));
@@ -129,6 +136,6 @@ public final class ClientSetup {
     }
     @SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new PeruniteArmor(),org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get(),org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get(),org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get(),org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get());}
     private ClientSetup() { }
-    @SubscribeEvent public static void keys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e){RpgClient.keys(e);FlightClient.keys(e);}
+    @SubscribeEvent public static void keys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e){e.register(WolfStoryClient.RING);RpgClient.keys(e);FlightClient.keys(e);}
     @SubscribeEvent public static void layers(net.neoforged.neoforge.client.event.EntityRenderersEvent.AddLayers e){FolkEquipmentLayer.layers(e);TextileClient.layers(e);FlightClient.renderers(e.getContext());GusliClient.renderers(e.getContext());}
 }

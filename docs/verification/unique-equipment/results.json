@@ -1,0 +1,19 @@
+{
+  "server_launches": 8,
+  "client_launches": 0,
+  "runs": {
+    "1": "4/11: constructor guard failure",
+    "2": "10/11: shield fixture not raised",
+    "3": "10/11: event blocked-damage clamp after subtraction",
+    "4": "14/14 PASS",
+    "5": "16/16 PASS",
+    "6": "16/16 PASS; new-process player .dat read",
+    "7": "17/17 PASS; environmental owner exclusion",
+    "8": "17/17 PASS; final server code; new-process player .dat read"
+  },
+  "clean_build": "PASS",
+  "armor_offline": 147,
+  "rune_offline": 355,
+  "generator_idempotence": "PASS",
+  "client_status": "REQUIRES_MANUAL_CLIENT_CHECK"
+}

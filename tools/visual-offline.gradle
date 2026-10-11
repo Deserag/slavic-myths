@@ -1,0 +1,15 @@
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ def compile=p.tasks.register('compileVisualOffline',JavaCompile){
+  dependsOn p.tasks.named('compileJava')
+  source p.fileTree('tools/visual-tests'){include '**/*.java'}
+  classpath=p.sourceSets.main.compileClasspath+p.files(p.sourceSets.main.output.classesDirs)
+  destinationDirectory.set(p.file('work/visual-162/offline-classes'))
+  options.release.set(21);options.encoding='UTF-8'
+ }
+ p.tasks.register('visualOfflineChecks',JavaExec){
+  dependsOn compile
+  classpath=p.sourceSets.main.compileClasspath+p.files(p.sourceSets.main.output.classesDirs,p.file('work/visual-162/offline-classes'))
+  mainClass.set('org.slavicmyths.client.VisualChecks')
+ }
+}

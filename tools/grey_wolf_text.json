@@ -1,0 +1,186 @@
+{
+  "ru_ru": {
+    "entity.slavicmyths.grey_wolf": "Серый Волк",
+    "item.slavicmyths.grey_wolf_spawn_egg": "Яйцо призыва Серого Волка",
+    "effect.slavicmyths.wolf_cut": "Порез",
+    "wolf.slavicmyths.bar": "Испытание Серого Волка",
+    "navigation.slavicmyths.category.grey_wolf": "Серый Волк",
+    "wolf.slavicmyths.greeting": "«Остановись, путник. Давно не встречал я человека, способного пройти по этим чащам без страха. Гляжу на тебя — и вижу силу. Но крепок ли твой дух настолько же, насколько тверда рука? Готов ли ты принять моё испытание?»",
+    "wolf.slavicmyths.accept": "[Принять испытание]",
+    "wolf.slavicmyths.decline": "[Пока не готов]",
+    "wolf.slavicmyths.accept_hover": "Начать личное испытание Серого Волка",
+    "wolf.slavicmyths.decline_hover": "Остаться в мире; вернуться к испытанию позже",
+    "wolf.slavicmyths.accepted": "«Коль не дрогнул ты перед моими клыками, докажи свою отвагу делом. Встань крепко, путник! Я не стану сдерживать силу, покуда не увижу, на что ты способен!»",
+    "wolf.slavicmyths.declined": "«Не всякая битва должна начинаться сегодня. Когда соберёшься с духом — отыщи меня вновь».",
+    "wolf.slavicmyths.recognition": "«Довольно! Много смельчаков обращалось в бегство, услышав мой рык, и немногие выдерживали удар моих когтей. Ты выстоял, путник. Стало быть, сердце твоё крепче страха, а рука достойна доверия».",
+    "wolf.slavicmyths.help": "«Но выслушай меня. Не те уж ныне силы мои, что были в прежние времена. Есть беда, с которой одному мне более не совладать. Потому и испытал я тебя: прошу твоей помощи, путник. Стань мне союзником в этом деле — и я одарю тебя сокровищами и редкостями, что достались мне за долгие годы странствий. Когда будешь готов, возвращайся ко мне».",
+    "wolf.slavicmyths.return": "«Хорошо, что ты вернулся, путник. Придёт пора — поведаю, какая беда лишила меня прежней силы. Помни: я не забуду того, кто протянет мне руку помощи».",
+    "wolf.slavicmyths.busy": "«Сейчас я испытываю другого путника. Дождись своего часа».",
+    "wolf.slavicmyths.invalid": "«Выбор уже недоступен. Подойди ко мне и поговори вновь».",
+    "wolf.slavicmyths.cut_hint": "Порез: 2 HP за ступень каждые 2 с; до III; длительность 8 с.",
+    "subtitles.slavicmyths.grey_wolf.ambient": "Серый Волк дышит",
+    "subtitles.slavicmyths.grey_wolf.growl": "Серый Волк рычит",
+    "subtitles.slavicmyths.grey_wolf.bite": "Серый Волк кусает",
+    "subtitles.slavicmyths.grey_wolf.claw": "Серый Волк бьёт лапой",
+    "subtitles.slavicmyths.grey_wolf.pounce": "Серый Волк прыгает",
+    "subtitles.slavicmyths.grey_wolf.dash": "Серый Волк совершает рывок",
+    "subtitles.slavicmyths.grey_wolf.step": "Тяжёлые шаги Серого Волка",
+    "subtitles.slavicmyths.grey_wolf.hurt": "Серый Волк рычит от удара",
+    "subtitles.slavicmyths.grey_wolf.trial_end": "Серый Волк успокаивается",
+    "subtitles.slavicmyths.grey_wolf.sit": "Серый Волк садится",
+    "subtitles.slavicmyths.grey_wolf.summon_howl": "Серый Волк воет",
+    "subtitles.slavicmyths.grey_wolf.pack_answer": "Стая отвечает на зов"
+  },
+  "en_us": {
+    "entity.slavicmyths.grey_wolf": "Grey Wolf",
+    "item.slavicmyths.grey_wolf_spawn_egg": "Grey Wolf Spawn Egg",
+    "effect.slavicmyths.wolf_cut": "Laceration",
+    "wolf.slavicmyths.bar": "Trial of the Grey Wolf",
+    "navigation.slavicmyths.category.grey_wolf": "Grey Wolf",
+    "wolf.slavicmyths.greeting": "Traveller, halt. It has been long since I met someone who crossed these woods without fear. I see strength in you. But is your spirit as firm as your hand? Will you accept my trial?",
+    "wolf.slavicmyths.accept": "[Accept the trial]",
+    "wolf.slavicmyths.decline": "[Not yet ready]",
+    "wolf.slavicmyths.accept_hover": "Begin your personal trial of the Grey Wolf",
+    "wolf.slavicmyths.decline_hover": "Remain at peace; return to the trial later",
+    "wolf.slavicmyths.accepted": "If my fangs have not shaken you, prove your courage by deeds. Stand firm, traveller! I shall not hold back until I see your worth!",
+    "wolf.slavicmyths.declined": "Not every battle must begin today. When your courage is ready, seek me again.",
+    "wolf.slavicmyths.recognition": "Enough! Many fled at my growl, and few endured my claws. You stood firm, traveller. Your heart is stronger than fear, and your hand worthy of trust.",
+    "wolf.slavicmyths.help": "Hear me now. My strength is no longer what it once was. There is a trouble I can no longer face alone. That is why I tested you: I ask for your help, traveller. Become my ally, and I will share treasures and rarities gathered over years of wandering. Return when you are ready.",
+    "wolf.slavicmyths.return": "It is good to see you again, traveller. In time I shall tell you what robbed me of my former strength. I will remember the one who offered help.",
+    "wolf.slavicmyths.busy": "I am testing another traveller. Await your turn.",
+    "wolf.slavicmyths.invalid": "That choice is no longer available. Come closer and speak to me again.",
+    "wolf.slavicmyths.cut_hint": "Laceration: 2 HP per level every 2 s; up to III; lasts 8 s.",
+    "subtitles.slavicmyths.grey_wolf.ambient": "Grey Wolf ambient",
+    "subtitles.slavicmyths.grey_wolf.growl": "Grey Wolf growl",
+    "subtitles.slavicmyths.grey_wolf.bite": "Grey Wolf bite",
+    "subtitles.slavicmyths.grey_wolf.claw": "Grey Wolf claw",
+    "subtitles.slavicmyths.grey_wolf.pounce": "Grey Wolf pounce",
+    "subtitles.slavicmyths.grey_wolf.dash": "Grey Wolf dash",
+    "subtitles.slavicmyths.grey_wolf.step": "Grey Wolf step",
+    "subtitles.slavicmyths.grey_wolf.hurt": "Grey Wolf hurt",
+    "subtitles.slavicmyths.grey_wolf.trial_end": "Grey Wolf trial end",
+    "subtitles.slavicmyths.grey_wolf.sit": "Grey Wolf sit",
+    "subtitles.slavicmyths.grey_wolf.summon_howl": "Grey Wolf summon howl",
+    "subtitles.slavicmyths.grey_wolf.pack_answer": "Grey Wolf pack answer"
+  },
+  "sounds": {
+    "grey_wolf.ambient": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.ambient",
+      "sounds": [
+        {
+          "name": "minecraft:entity.wolf.ambient",
+          "type": "event",
+          "pitch": 0.85
+        }
+      ]
+    },
+    "grey_wolf.growl": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.growl",
+      "sounds": [
+        {
+          "name": "minecraft:entity.wolf.growl",
+          "type": "event",
+          "pitch": 0.85
+        }
+      ]
+    },
+    "grey_wolf.bite": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.bite",
+      "sounds": [
+        {
+          "name": "minecraft:entity.fox.bite",
+          "type": "event",
+          "pitch": 0.85
+        }
+      ]
+    },
+    "grey_wolf.claw": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.claw",
+      "sounds": [
+        {
+          "name": "minecraft:entity.player.attack.sweep",
+          "type": "event",
+          "pitch": 1
+        }
+      ]
+    },
+    "grey_wolf.pounce": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.pounce",
+      "sounds": [
+        {
+          "name": "minecraft:entity.wolf.growl",
+          "type": "event",
+          "pitch": 0.85
+        }
+      ]
+    },
+    "grey_wolf.dash": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.dash",
+      "sounds": [
+        {
+          "name": "minecraft:entity.wolf.growl",
+          "type": "event",
+          "pitch": 0.85
+        }
+      ]
+    },
+    "grey_wolf.step": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.step",
+      "sounds": [
+        {
+          "name": "minecraft:entity.wolf.step",
+          "type": "event",
+          "pitch": 0.85
+        }
+      ]
+    },
+    "grey_wolf.hurt": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.hurt",
+      "sounds": [
+        {
+          "name": "minecraft:entity.wolf.growl",
+          "type": "event",
+          "pitch": 0.85
+        }
+      ]
+    },
+    "grey_wolf.trial_end": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.trial_end",
+      "sounds": [
+        {
+          "name": "minecraft:entity.wolf.ambient",
+          "type": "event",
+          "pitch": 0.85
+        }
+      ]
+    },
+    "grey_wolf.sit": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.sit",
+      "sounds": [
+        {
+          "name": "minecraft:entity.wolf.ambient",
+          "type": "event",
+          "pitch": 0.85
+        }
+      ]
+    },
+    "grey_wolf.summon_howl": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.summon_howl",
+      "sounds": [
+        {
+          "name": "slavicmyths:grey_wolf/summon_howl",
+          "stream": false
+        }
+      ]
+    },
+    "grey_wolf.pack_answer": {
+      "subtitle": "subtitles.slavicmyths.grey_wolf.pack_answer",
+      "sounds": [
+        {
+          "name": "slavicmyths:grey_wolf/pack_answer",
+          "stream": false
+        }
+      ]
+    }
+  }
+}

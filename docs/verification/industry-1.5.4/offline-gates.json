@@ -1,0 +1,10 @@
+{
+  "build": "PASS",
+  "offline_checks": "PASS",
+  "production_sha256": "c1e61782b6c71692b60150d48cc1c7b5d05500830a47894f9c71473621f2f5c2",
+  "runtime_validation": "NOT_RUN",
+  "minecraft_launches": 0,
+  "rule_assertions": 5443,
+  "loot_json_samples": 6000,
+  "limitation": "No native loot simulation, GUI/AI/hopper/relog/gameplay/MSPT validation"
+}

@@ -1,0 +1,529 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources
+> Task :classes
+
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:8: error: package org.slavicmyths.chud does not exist
+import org.slavicmyths.chud.*;
+^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:15: error: cannot find symbol
+    private static ChudPlan plan(int variant,long seed,int rotation){return new ChudPlan(seed,new BlockPos(0,64,0),variant,rotation,56);}
+                   ^
+  symbol:   class ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:11: error: package org.slavicmyths.chud does not exist
+import org.slavicmyths.chud.*;
+^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:13: error: package AbandonedPlan does not exist
+        for(int seed=0;seed<12;seed++)for(var kind:AbandonedPlan.Kind.values()){
+                                                                ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:14: error: cannot find symbol
+            long begin=System.nanoTime();var city=new ChudPlan(seed,new BlockPos(0,64,0),seed%3,seed%4,56);
+                                                      ^
+  symbol:   class ChudPlan
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:15: error: cannot find symbol
+            var p=new AbandonedPlan(seed,city.anchor,city.rotation,kind,new int[]{56,60,63}[seed%3],kind==AbandonedPlan.Kind.ATTACHED_SMALL?city.cityId():null,seed%3);
+                      ^
+  symbol:   class AbandonedPlan
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:15: error: package AbandonedPlan does not exist
+            var p=new AbandonedPlan(seed,city.anchor,city.rotation,kind,new int[]{56,60,63}[seed%3],kind==AbandonedPlan.Kind.ATTACHED_SMALL?city.cityId():null,seed%3);
+                                                                                                                       ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:16: error: package ChudGeometry does not exist
+            var all=new ArrayList<ChudGeometry.Fill>();if(kind==AbandonedPlan.Kind.ATTACHED_SMALL)all.addAll(ChudGeometry.build(city));var additions=AbandonedGeometry.build(p);all.addAll(additions);
+                                              ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:16: error: package AbandonedPlan does not exist
+            var all=new ArrayList<ChudGeometry.Fill>();if(kind==AbandonedPlan.Kind.ATTACHED_SMALL)all.addAll(ChudGeometry.build(city));var additions=AbandonedGeometry.build(p);all.addAll(additions);
+                                                                             ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:16: error: cannot find symbol
+            var all=new ArrayList<ChudGeometry.Fill>();if(kind==AbandonedPlan.Kind.ATTACHED_SMALL)all.addAll(ChudGeometry.build(city));var additions=AbandonedGeometry.build(p);all.addAll(additions);
+                                                                                                             ^
+  symbol:   variable ChudGeometry
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:16: error: cannot find symbol
+            var all=new ArrayList<ChudGeometry.Fill>();if(kind==AbandonedPlan.Kind.ATTACHED_SMALL)all.addAll(ChudGeometry.build(city));var additions=AbandonedGeometry.build(p);all.addAll(additions);
+> Task :compileChudCheckJava FAILED
+                                                                                                                                                     ^
+  symbol:   variable AbandonedGeometry
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:18: error: cannot find symbol
+            var grid=new ChudGameTests.Grid(p.nativeBounds());ChudGeometry.rasterize(all,p.nativeBounds(),grid::set);
+                                                              ^
+  symbol:   variable ChudGeometry
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:19: error: package AbandonedPlan does not exist
+            var start=kind==AbandonedPlan.Kind.ATTACHED_SMALL?city.world(city.points.get(ChudPlan.Role.ENTRANCE)):p.world(p.targets.get("entrance"));var seen=grid.flood(start);var unreachable=new ArrayList<String>();
+                                         ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:19: error: package ChudPlan does not exist
+            var start=kind==AbandonedPlan.Kind.ATTACHED_SMALL?city.world(city.points.get(ChudPlan.Role.ENTRANCE)):p.world(p.targets.get("entrance"));var seen=grid.flood(start);var unreachable=new ArrayList<String>();
+                                                                                                 ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:21: error: package AbandonedPlan does not exist
+            if(kind==AbandonedPlan.Kind.ATTACHED_SMALL)for(var role:city.points.entrySet())if(!seen.get(grid.index(city.world(role.getValue()))))unreachable.add("CITY_A:"+role.getKey());
+                                  ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:25: error: cannot find symbol
+            t.assertTrue(p.save().equals(AbandonedPlan.load(p.save()).save()),"NBT changed");
+                                         ^
+  symbol:   variable AbandonedPlan
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:30: error: cannot find symbol
+        var city=new ChudPlan(151,new BlockPos(0,64,0),2,0,60);var original=new ChudPiece(city);var context=net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext.fromLevel(t.getLevel());
+                     ^
+  symbol:   class ChudPlan
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:30: error: cannot find symbol
+        var city=new ChudPlan(151,new BlockPos(0,64,0),2,0,60);var original=new ChudPiece(city);var context=net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext.fromLevel(t.getLevel());
+                                                                                ^
+  symbol:   class ChudPiece
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:31: error: cannot find symbol
+        var restored=new ChudPiece(original.createTag(context));t.assertTrue(restored.abandoned==null,"legacy unexpectedly opened gate");t.assertTrue(restored.getBoundingBox().equals(original.getBoundingBox()),"legacy bbox changed");
+                         ^
+  symbol:   class ChudPiece
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:32: error: cannot find symbol
+        var p=new AbandonedPlan(151,city.anchor,0,AbandonedPlan.Kind.ATTACHED_SMALL,60,city.cityId(),0);var extended=new ChudPiece(city,p);var saved=new ChudPiece(extended.createTag(context));t.assertTrue(saved.abandoned!=null&&saved.abandoned.save().equals(p.save()),"extension lost after piece roundtrip");
+                  ^
+  symbol:   class AbandonedPlan
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:32: error: package AbandonedPlan does not exist
+        var p=new AbandonedPlan(151,city.anchor,0,AbandonedPlan.Kind.ATTACHED_SMALL,60,city.cityId(),0);var extended=new ChudPiece(city,p);var saved=new ChudPiece(extended.createTag(context));t.assertTrue(saved.abandoned!=null&&saved.abandoned.save().equals(p.save()),"extension lost after piece roundtrip");
+                                                               ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:32: error: cannot find symbol
+        var p=new AbandonedPlan(151,city.anchor,0,AbandonedPlan.Kind.ATTACHED_SMALL,60,city.cityId(),0);var extended=new ChudPiece(city,p);var saved=new ChudPiece(extended.createTag(context));t.assertTrue(saved.abandoned!=null&&saved.abandoned.save().equals(p.save()),"extension lost after piece roundtrip");
+                                                                                                                         ^
+  symbol:   class ChudPiece
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:32: error: cannot find symbol
+        var p=new AbandonedPlan(151,city.anchor,0,AbandonedPlan.Kind.ATTACHED_SMALL,60,city.cityId(),0);var extended=new ChudPiece(city,p);var saved=new ChudPiece(extended.createTag(context));t.assertTrue(saved.abandoned!=null&&saved.abandoned.save().equals(p.save()),"extension lost after piece roundtrip");
+                                                                                                                                                         ^
+  symbol:   class ChudPiece
+  location: class AbandonedGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:15: error: cannot find symbol
+    private static ChudPlan plan(int variant,long seed,int rotation){return new ChudPlan(seed,new BlockPos(0,64,0),variant,rotation,56);}
+                                                                                ^
+  symbol:   class ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:19: error: cannot find symbol
+            long begin=System.nanoTime();var p=new ChudPlan(seed,new BlockPos(0,64,0),variant,(int)seed&3,new int[]{56,60,63}[(int)seed%3],(seed&1)==0?-1:1);var fs=ChudGeometry.build(p);var grid=new Grid(p.bounds());ChudGeometry.rasterize(fs,p.bounds(),grid::set);int placed=0,carved=0;
+                                                   ^
+  symbol:   class ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:19: error: cannot find symbol
+            long begin=System.nanoTime();var p=new ChudPlan(seed,new BlockPos(0,64,0),variant,(int)seed&3,new int[]{56,60,63}[(int)seed%3],(seed&1)==0?-1:1);var fs=ChudGeometry.build(p);var grid=new Grid(p.bounds());ChudGeometry.rasterize(fs,p.bounds(),grid::set);int placed=0,carved=0;
+                                                                                                                                                                    ^
+  symbol:   variable ChudGeometry
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:19: error: cannot find symbol
+            long begin=System.nanoTime();var p=new ChudPlan(seed,new BlockPos(0,64,0),variant,(int)seed&3,new int[]{56,60,63}[(int)seed%3],(seed&1)==0?-1:1);var fs=ChudGeometry.build(p);var grid=new Grid(p.bounds());ChudGeometry.rasterize(fs,p.bounds(),grid::set);int placed=0,carved=0;
+                                                                                                                                                                                                                        ^
+  symbol:   variable ChudGeometry
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:20: error: package ChudPlan does not exist
+            var reachable=grid.flood(p.world(p.points.get(ChudPlan.Role.ENTRANCE)));
+                                                                  ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:26: error: cannot find symbol
+            var actual=new ChudPiece(p).getBoundingBox();for(var f:fs)t.assertTrue(actual.isInside(new BlockPos(f.box().minX(),f.box().minY(),f.box().minZ()))&&actual.isInside(new BlockPos(f.box().maxX(),f.box().maxY(),f.box().maxZ())),"fill outside native piece");
+                           ^
+  symbol:   class ChudPiece
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:36: error: cannot find symbol
+        var structure=(ChudStructure)registry.registryOrThrow(net.minecraft.core.registries.Registries.STRUCTURE).get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","chud_city"));
+                       ^
+  symbol:   class ChudStructure
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:51: error: cannot find symbol
+                if(start.isValid()){accepted++;for(var piece:start.getPieces())if(piece instanceof ChudPiece p){entries.add(new com.google.gson.Gson().toJsonTree(Map.of("anchor",p.plan.anchor.toShortString(),"variant",p.plan.variant,"rotation",p.plan.rotation,"cityId",p.plan.cityId())));}}
+                                                                                                   ^
+  symbol:   class ChudPiece
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:52: error: package org.slavicmyths.worldgen does not exist
+                else{var diagnostic=org.slavicmyths.worldgen.StructureCoverageService.lastPlacement();rejects.merge(diagnostic==null?"unknown":diagnostic.lastMeasurements().toString(),1,Integer::sum);}
+                                                            ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:63: error: cannot find symbol
+            var p=plan(variant,seed,rotation);p.validate();var q=ChudPlan.load(p.save());t.assertTrue(p.save().equals(q.save()),"NBT plan changed");t.assertTrue(p.majorHalls()==3+variant,"major halls");
+                                                                 ^
+  symbol:   variable ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:64: error: cannot find symbol
+            var owner=new ChunkPos(0,0);var piece=new ChudPiece(p);t.assertTrue(org.slavicmyths.worldgen.StructureCoverageService.referencesFit(owner,List.of(piece)),"native reference radius");
+                                                      ^
+  symbol:   class ChudPiece
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:64: error: package org.slavicmyths.worldgen does not exist
+            var owner=new ChunkPos(0,0);var piece=new ChudPiece(p);t.assertTrue(org.slavicmyths.worldgen.StructureCoverageService.referencesFit(owner,List.of(piece)),"native reference radius");
+                                                                                                        ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:65: error: cannot find symbol
+            var neighbor=new ChudPlan(seed,new BlockPos(2576,64,0),variant,rotation,14);
+                             ^
+  symbol:   class ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:66: error: cannot find symbol
+            t.assertTrue(ChudPlan.boundaryDistanceSquared(p.bounds(),neighbor.bounds())>=4_000_000,"nearest region boundary distance");n++;
+                         ^
+  symbol:   variable ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:72: error: cannot find symbol
+        t.assertTrue(ChudPlan.boundaryDistanceSquared(a,new BoundingBox(2199,100,0,2399,150,200))<4_000_000,"1999 boundary gap accepted");
+                     ^
+  symbol:   variable ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:73: error: cannot find symbol
+        t.assertTrue(ChudPlan.boundaryDistanceSquared(a,new BoundingBox(2200,100,0,2400,150,200))==4_000_000,"exact 2000 boundary gap rejected");
+                     ^
+  symbol:   variable ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:74: error: cannot find symbol
+        t.assertTrue(ChudPlan.boundaryDistanceSquared(a,new BoundingBox(1400,-50,1800,1600,-10,2000))==4_000_000,"1200/1600 diagonal");
+                     ^
+  symbol:   variable ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:75: error: cannot find symbol
+        t.assertTrue(ChudPlan.boundaryDistanceSquared(a,new BoundingBox(0,100,0,200,150,200))==0,"Y incorrectly contributes to spacing");t.succeed();
+                     ^
+  symbol:   variable ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:81: error: cannot find symbol
+        var p=plan(variant,151,0);long begin=System.nanoTime();var fills=ChudGeometry.build(p);var grid=new Grid(p.bounds());
+                                                                         ^
+  symbol:   variable ChudGeometry
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:82: error: cannot find symbol
+        ChudGeometry.rasterize(fills,p.bounds(),grid::set);
+        ^
+  symbol:   variable ChudGeometry
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:83: error: package ChudPlan does not exist
+        var reached=grid.flood(p.world(p.points.get(ChudPlan.Role.ENTRANCE)));
+                                                            ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:85: error: package ChudPlan does not exist
+        for(var role:ChudPlan.Role.values()){var pos=p.world(p.points.get(role));if(!reached.get(grid.index(pos)))failures.add(role+"="+pos.toShortString()+" body="+grid.get(pos)+" head="+grid.get(pos.above()));}
+                             ^
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:95: error: cannot find symbol
+        var p=new ChudPlan(151,center,2,0,38);var piece=new ChudPiece(p);var chunk=new ChunkPos(p.world(new BlockPos(124,38,38)));
+                  ^
+  symbol:   class ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:95: error: cannot find symbol
+        var p=new ChudPlan(151,center,2,0,38);var piece=new ChudPiece(p);var chunk=new ChunkPos(p.world(new BlockPos(124,38,38)));
+                                                            ^
+  symbol:   class ChudPiece
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:97: error: cannot find symbol
+        w.getChunk(chunk.x,chunk.z);var expected=new HashMap<BlockPos,BlockState>();ChudGeometry.rasterize(piece.blueprint(),clip,expected::put);
+                                                                                    ^
+  symbol:   variable ChudGeometry
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:107: error: cannot find symbol
+        var world=t.getLevel();var p=new ChudPlan(151,t.absolutePos(new BlockPos(640,150,640)),2,0,60,-1);var piece=new ChudPiece(p);
+                                         ^
+  symbol:   class ChudPlan
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:107: error: cannot find symbol
+        var world=t.getLevel();var p=new ChudPlan(151,t.absolutePos(new BlockPos(640,150,640)),2,0,60,-1);var piece=new ChudPiece(p);
+                                                                                                                        ^
+  symbol:   class ChudPiece
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:109: error: cannot find symbol
+        var saved=piece.createTag(context);var restored=new ChudPiece(saved);t.assertTrue(p.save().equals(restored.plan.save()),"native piece serialization changed plan");
+                                                            ^
+  symbol:   class ChudPiece
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:112: error: cannot find symbol
+        var audit=ChudNavigation.inspect(world,p);t.assertTrue(audit.status().equals("PASS"),"actual full city navigation "+audit);
+                  ^
+  symbol:   variable ChudNavigation
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:116: error: cannot find symbol
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/work/chud-151/build/reports/problems/problems-report.html
+        var p=plan(2,982,3);var fs=ChudGeometry.build(p);var a=new Grid(p.bounds());var b=new Grid(p.bounds());
+                                   ^
+  symbol:   variable ChudGeometry
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:117: error: cannot find symbol
+        ChudGeometry.rasterize(fs,p.bounds(),a::set);
+        ^
+  symbol:   variable ChudGeometry
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:119: error: cannot find symbol
+        for(var chunk:chunks){var clip=new BoundingBox(chunk.getMinBlockX(),box.minY(),chunk.getMinBlockZ(),chunk.getMaxBlockX(),box.maxY(),chunk.getMaxBlockZ());ChudGeometry.rasterize(fs,clip,(pos,s)->{t.assertTrue(clip.isInside(pos),"outside chunk");b.set(pos,s);});}
+                                                                                                                                                                  ^
+  symbol:   variable ChudGeometry
+  location: class ChudGameTests
+D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:126: error: cannot find symbol
+        var structure=registry.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","chud_city"));t.assertTrue(structure instanceof ChudStructure,"structure codec not loaded");
+                                                                                                                                                               ^
+  symbol:   class ChudStructure
+  location: class ChudGameTests
+56 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileChudCheckJava'.
+> Compilation failed; see the compiler output below.
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:15: error: cannot find symbol
+      private static ChudPlan plan(int variant,long seed,int rotation){return new ChudPlan(seed,new BlockPos(0,64,0),variant,rotation,56);}
+                     ^
+    symbol:   class ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:14: error: cannot find symbol
+              long begin=System.nanoTime();var city=new ChudPlan(seed,new BlockPos(0,64,0),seed%3,seed%4,56);
+                                                        ^
+    symbol:   class ChudPlan
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:15: error: cannot find symbol
+              var p=new AbandonedPlan(seed,city.anchor,city.rotation,kind,new int[]{56,60,63}[seed%3],kind==AbandonedPlan.Kind.ATTACHED_SMALL?city.cityId():null,seed%3);
+                        ^
+    symbol:   class AbandonedPlan
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:16: error: cannot find symbol
+              var all=new ArrayList<ChudGeometry.Fill>();if(kind==AbandonedPlan.Kind.ATTACHED_SMALL)all.addAll(ChudGeometry.build(city));var additions=AbandonedGeometry.build(p);all.addAll(additions);
+                                                                                                               ^
+    symbol:   variable ChudGeometry
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:16: error: cannot find symbol
+              var all=new ArrayList<ChudGeometry.Fill>();if(kind==AbandonedPlan.Kind.ATTACHED_SMALL)all.addAll(ChudGeometry.build(city));var additions=AbandonedGeometry.build(p);all.addAll(additions);
+                                                                                                                                                       ^
+    symbol:   variable AbandonedGeometry
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:18: error: cannot find symbol
+              var grid=new ChudGameTests.Grid(p.nativeBounds());ChudGeometry.rasterize(all,p.nativeBounds(),grid::set);
+                                                                ^
+    symbol:   variable ChudGeometry
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:25: error: cannot find symbol
+              t.assertTrue(p.save().equals(AbandonedPlan.load(p.save()).save()),"NBT changed");
+                                           ^
+    symbol:   variable AbandonedPlan
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:30: error: cannot find symbol
+          var city=new ChudPlan(151,new BlockPos(0,64,0),2,0,60);var original=new ChudPiece(city);var context=net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext.fromLevel(t.getLevel());
+                       ^
+    symbol:   class ChudPlan
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:30: error: cannot find symbol
+          var city=new ChudPlan(151,new BlockPos(0,64,0),2,0,60);var original=new ChudPiece(city);var context=net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext.fromLevel(t.getLevel());
+                                                                                  ^
+    symbol:   class ChudPiece
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:31: error: cannot find symbol
+          var restored=new ChudPiece(original.createTag(context));t.assertTrue(restored.abandoned==null,"legacy unexpectedly opened gate");t.assertTrue(restored.getBoundingBox().equals(original.getBoundingBox()),"legacy bbox changed");
+                           ^
+    symbol:   class ChudPiece
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:32: error: cannot find symbol
+          var p=new AbandonedPlan(151,city.anchor,0,AbandonedPlan.Kind.ATTACHED_SMALL,60,city.cityId(),0);var extended=new ChudPiece(city,p);var saved=new ChudPiece(extended.createTag(context));t.assertTrue(saved.abandoned!=null&&saved.abandoned.save().equals(p.save()),"extension lost after piece roundtrip");
+                    ^
+    symbol:   class AbandonedPlan
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:32: error: cannot find symbol
+          var p=new AbandonedPlan(151,city.anchor,0,AbandonedPlan.Kind.ATTACHED_SMALL,60,city.cityId(),0);var extended=new ChudPiece(city,p);var saved=new ChudPiece(extended.createTag(context));t.assertTrue(saved.abandoned!=null&&saved.abandoned.save().equals(p.save()),"extension lost after piece roundtrip");
+                                                                                                                           ^
+    symbol:   class ChudPiece
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:32: error: cannot find symbol
+          var p=new AbandonedPlan(151,city.anchor,0,AbandonedPlan.Kind.ATTACHED_SMALL,60,city.cityId(),0);var extended=new ChudPiece(city,p);var saved=new ChudPiece(extended.createTag(context));t.assertTrue(saved.abandoned!=null&&saved.abandoned.save().equals(p.save()),"extension lost after piece roundtrip");
+                                                                                                                                                           ^
+    symbol:   class ChudPiece
+    location: class AbandonedGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:15: error: cannot find symbol
+      private static ChudPlan plan(int variant,long seed,int rotation){return new ChudPlan(seed,new BlockPos(0,64,0),variant,rotation,56);}
+                                                                                  ^
+    symbol:   class ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:19: error: cannot find symbol
+              long begin=System.nanoTime();var p=new ChudPlan(seed,new BlockPos(0,64,0),variant,(int)seed&3,new int[]{56,60,63}[(int)seed%3],(seed&1)==0?-1:1);var fs=ChudGeometry.build(p);var grid=new Grid(p.bounds());ChudGeometry.rasterize(fs,p.bounds(),grid::set);int placed=0,carved=0;
+                                                     ^
+    symbol:   class ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:19: error: cannot find symbol
+              long begin=System.nanoTime();var p=new ChudPlan(seed,new BlockPos(0,64,0),variant,(int)seed&3,new int[]{56,60,63}[(int)seed%3],(seed&1)==0?-1:1);var fs=ChudGeometry.build(p);var grid=new Grid(p.bounds());ChudGeometry.rasterize(fs,p.bounds(),grid::set);int placed=0,carved=0;
+                                                                                                                                                                      ^
+    symbol:   variable ChudGeometry
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:19: error: cannot find symbol
+              long begin=System.nanoTime();var p=new ChudPlan(seed,new BlockPos(0,64,0),variant,(int)seed&3,new int[]{56,60,63}[(int)seed%3],(seed&1)==0?-1:1);var fs=ChudGeometry.build(p);var grid=new Grid(p.bounds());ChudGeometry.rasterize(fs,p.bounds(),grid::set);int placed=0,carved=0;
+                                                                                                                                                                                                                          ^
+    symbol:   variable ChudGeometry
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:26: error: cannot find symbol
+              var actual=new ChudPiece(p).getBoundingBox();for(var f:fs)t.assertTrue(actual.isInside(new BlockPos(f.box().minX(),f.box().minY(),f.box().minZ()))&&actual.isInside(new BlockPos(f.box().maxX(),f.box().maxY(),f.box().maxZ())),"fill outside native piece");
+                             ^
+    symbol:   class ChudPiece
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:36: error: cannot find symbol
+          var structure=(ChudStructure)registry.registryOrThrow(net.minecraft.core.registries.Registries.STRUCTURE).get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","chud_city"));
+                         ^
+    symbol:   class ChudStructure
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:51: error: cannot find symbol
+                  if(start.isValid()){accepted++;for(var piece:start.getPieces())if(piece instanceof ChudPiece p){entries.add(new com.google.gson.Gson().toJsonTree(Map.of("anchor",p.plan.anchor.toShortString(),"variant",p.plan.variant,"rotation",p.plan.rotation,"cityId",p.plan.cityId())));}}
+                                                                                                     ^
+    symbol:   class ChudPiece
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:63: error: cannot find symbol
+              var p=plan(variant,seed,rotation);p.validate();var q=ChudPlan.load(p.save());t.assertTrue(p.save().equals(q.save()),"NBT plan changed");t.assertTrue(p.majorHalls()==3+variant,"major halls");
+                                                                   ^
+    symbol:   variable ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:64: error: cannot find symbol
+              var owner=new ChunkPos(0,0);var piece=new ChudPiece(p);t.assertTrue(org.slavicmyths.worldgen.StructureCoverageService.referencesFit(owner,List.of(piece)),"native reference radius");
+                                                        ^
+    symbol:   class ChudPiece
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:65: error: cannot find symbol
+              var neighbor=new ChudPlan(seed,new BlockPos(2576,64,0),variant,rotation,14);
+                               ^
+    symbol:   class ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:66: error: cannot find symbol
+              t.assertTrue(ChudPlan.boundaryDistanceSquared(p.bounds(),neighbor.bounds())>=4_000_000,"nearest region boundary distance");n++;
+                           ^
+    symbol:   variable ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:72: error: cannot find symbol
+          t.assertTrue(ChudPlan.boundaryDistanceSquared(a,new BoundingBox(2199,100,0,2399,150,200))<4_000_000,"1999 boundary gap accepted");
+                       ^
+    symbol:   variable ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:73: error: cannot find symbol
+          t.assertTrue(ChudPlan.boundaryDistanceSquared(a,new BoundingBox(2200,100,0,2400,150,200))==4_000_000,"exact 2000 boundary gap rejected");
+                       ^
+    symbol:   variable ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:74: error: cannot find symbol
+          t.assertTrue(ChudPlan.boundaryDistanceSquared(a,new BoundingBox(1400,-50,1800,1600,-10,2000))==4_000_000,"1200/1600 diagonal");
+                       ^
+    symbol:   variable ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:75: error: cannot find symbol
+          t.assertTrue(ChudPlan.boundaryDistanceSquared(a,new BoundingBox(0,100,0,200,150,200))==0,"Y incorrectly contributes to spacing");t.succeed();
+                       ^
+    symbol:   variable ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:81: error: cannot find symbol
+          var p=plan(variant,151,0);long begin=System.nanoTime();var fills=ChudGeometry.build(p);var grid=new Grid(p.bounds());
+                                                                           ^
+    symbol:   variable ChudGeometry
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:82: error: cannot find symbol
+          ChudGeometry.rasterize(fills,p.bounds(),grid::set);
+          ^
+    symbol:   variable ChudGeometry
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:95: error: cannot find symbol
+          var p=new ChudPlan(151,center,2,0,38);var piece=new ChudPiece(p);var chunk=new ChunkPos(p.world(new BlockPos(124,38,38)));
+                    ^
+    symbol:   class ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:95: error: cannot find symbol
+          var p=new ChudPlan(151,center,2,0,38);var piece=new ChudPiece(p);var chunk=new ChunkPos(p.world(new BlockPos(124,38,38)));
+                                                              ^
+    symbol:   class ChudPiece
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:97: error: cannot find symbol
+          w.getChunk(chunk.x,chunk.z);var expected=new HashMap<BlockPos,BlockState>();ChudGeometry.rasterize(piece.blueprint(),clip,expected::put);
+                                                                                      ^
+    symbol:   variable ChudGeometry
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:107: error: cannot find symbol
+          var world=t.getLevel();var p=new ChudPlan(151,t.absolutePos(new BlockPos(640,150,640)),2,0,60,-1);var piece=new ChudPiece(p);
+                                           ^
+    symbol:   class ChudPlan
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:107: error: cannot find symbol
+          var world=t.getLevel();var p=new ChudPlan(151,t.absolutePos(new BlockPos(640,150,640)),2,0,60,-1);var piece=new ChudPiece(p);
+                                                                                                                          ^
+    symbol:   class ChudPiece
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:109: error: cannot find symbol
+          var saved=piece.createTag(context);var restored=new ChudPiece(saved);t.assertTrue(p.save().equals(restored.plan.save()),"native piece serialization changed plan");
+                                                              ^
+    symbol:   class ChudPiece
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:112: error: cannot find symbol
+          var audit=ChudNavigation.inspect(world,p);t.assertTrue(audit.status().equals("PASS"),"actual full city navigation "+audit);
+                    ^
+    symbol:   variable ChudNavigation
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:116: error: cannot find symbol
+          var p=plan(2,982,3);var fs=ChudGeometry.build(p);var a=new Grid(p.bounds());var b=new Grid(p.bounds());
+                                     ^
+    symbol:   variable ChudGeometry
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:117: error: cannot find symbol
+          ChudGeometry.rasterize(fs,p.bounds(),a::set);
+          ^
+    symbol:   variable ChudGeometry
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:119: error: cannot find symbol
+          for(var chunk:chunks){var clip=new BoundingBox(chunk.getMinBlockX(),box.minY(),chunk.getMinBlockZ(),chunk.getMaxBlockX(),box.maxY(),chunk.getMaxBlockZ());ChudGeometry.rasterize(fs,clip,(pos,s)->{t.assertTrue(clip.isInside(pos),"outside chunk");b.set(pos,s);});}
+                                                                                                                                                                    ^
+    symbol:   variable ChudGeometry
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:126: error: cannot find symbol
+          var structure=registry.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","chud_city"));t.assertTrue(structure instanceof ChudStructure,"structure codec not loaded");
+                                                                                                                                                                 ^
+    symbol:   class ChudStructure
+    location: class ChudGameTests
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:8: error: package org.slavicmyths.chud does not exist
+  import org.slavicmyths.chud.*;
+  ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:11: error: package org.slavicmyths.chud does not exist
+  import org.slavicmyths.chud.*;
+  ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:13: error: package AbandonedPlan does not exist
+          for(int seed=0;seed<12;seed++)for(var kind:AbandonedPlan.Kind.values()){
+                                                                  ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:15: error: package AbandonedPlan does not exist
+              var p=new AbandonedPlan(seed,city.anchor,city.rotation,kind,new int[]{56,60,63}[seed%3],kind==AbandonedPlan.Kind.ATTACHED_SMALL?city.cityId():null,seed%3);
+                                                                                                                         ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:16: error: package ChudGeometry does not exist
+              var all=new ArrayList<ChudGeometry.Fill>();if(kind==AbandonedPlan.Kind.ATTACHED_SMALL)all.addAll(ChudGeometry.build(city));var additions=AbandonedGeometry.build(p);all.addAll(additions);
+                                                ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:16: error: package AbandonedPlan does not exist
+              var all=new ArrayList<ChudGeometry.Fill>();if(kind==AbandonedPlan.Kind.ATTACHED_SMALL)all.addAll(ChudGeometry.build(city));var additions=AbandonedGeometry.build(p);all.addAll(additions);
+4 actionable tasks: 3 executed, 1 up-to-date
+                                                                               ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:19: error: package AbandonedPlan does not exist
+              var start=kind==AbandonedPlan.Kind.ATTACHED_SMALL?city.world(city.points.get(ChudPlan.Role.ENTRANCE)):p.world(p.targets.get("entrance"));var seen=grid.flood(start);var unreachable=new ArrayList<String>();
+                                           ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:19: error: package ChudPlan does not exist
+              var start=kind==AbandonedPlan.Kind.ATTACHED_SMALL?city.world(city.points.get(ChudPlan.Role.ENTRANCE)):p.world(p.targets.get("entrance"));var seen=grid.flood(start);var unreachable=new ArrayList<String>();
+                                                                                                   ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:21: error: package AbandonedPlan does not exist
+              if(kind==AbandonedPlan.Kind.ATTACHED_SMALL)for(var role:city.points.entrySet())if(!seen.get(grid.index(city.world(role.getValue()))))unreachable.add("CITY_A:"+role.getKey());
+                                    ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\AbandonedGameTests.java:32: error: package AbandonedPlan does not exist
+          var p=new AbandonedPlan(151,city.anchor,0,AbandonedPlan.Kind.ATTACHED_SMALL,60,city.cityId(),0);var extended=new ChudPiece(city,p);var saved=new ChudPiece(extended.createTag(context));t.assertTrue(saved.abandoned!=null&&saved.abandoned.save().equals(p.save()),"extension lost after piece roundtrip");
+                                                                 ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:20: error: package ChudPlan does not exist
+              var reachable=grid.flood(p.world(p.points.get(ChudPlan.Role.ENTRANCE)));
+                                                                    ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:52: error: package org.slavicmyths.worldgen does not exist
+                  else{var diagnostic=org.slavicmyths.worldgen.StructureCoverageService.lastPlacement();rejects.merge(diagnostic==null?"unknown":diagnostic.lastMeasurements().toString(),1,Integer::sum);}
+                                                              ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:64: error: package org.slavicmyths.worldgen does not exist
+              var owner=new ChunkPos(0,0);var piece=new ChudPiece(p);t.assertTrue(org.slavicmyths.worldgen.StructureCoverageService.referencesFit(owner,List.of(piece)),"native reference radius");
+                                                                                                          ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:83: error: package ChudPlan does not exist
+          var reached=grid.flood(p.world(p.points.get(ChudPlan.Role.ENTRANCE)));
+                                                              ^
+  D:\slavic-myths\tools\chud-tests\org\slavicmyths\verify\ChudGameTests.java:85: error: package ChudPlan does not exist
+          for(var role:ChudPlan.Role.values()){var pos=p.world(p.points.get(role));if(!reached.get(grid.index(pos)))failures.add(role+"="+pos.toShortString()+" body="+grid.get(pos)+" head="+grid.get(pos.above()));}
+                               ^
+  56 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 31s

@@ -1,0 +1,98 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileChudCheckJava
+> Task :processChudCheckResources
+> Task :chudCheckClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeChudChecksLegacyClasspath UP-TO-DATE
+> Task :prepareChudChecksRun
+
+> Task :runChudChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[14:39:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[14:39:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[14:39:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[14:39:01] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[14:39:01] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[14:39:01] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[14:39:01] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.5.1 (slavicmyths)
+[14:39:02] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[14:39:02] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[14:39:02] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:39:02] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:39:03] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[14:39:03] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[14:39:07] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:39:07] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:39:07] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:39:07] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:39:07] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:39:08] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[14:39:09] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[14:39:09] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-152/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[14:39:09] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-152/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[14:39:09] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_abandoned, slavicmyths_abandoned_terrain]
+[14:39:10] [main/INFO] [minecraft/RecipeManager]: Loaded 1769 recipes
+[14:39:10] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[14:39:10] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[14:39:10] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[14:39:11] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[14:39:11] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[14:39:11] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 119 ms
+[14:39:11] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[14:39:11] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[14:39:11] [Server thread/INFO] [minecraft/GameTestServer]: 3 tests are now running at position 9188536, -59, 10100089!
+[14:39:11] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (3 tests)...
+[14:39:11] [Server thread/INFO] [minecraft/GameTestServer]: [   ]
+ABANDONED_GEOMETRY seed=0 type=ATTACHED_SMALL reachable=15578 unreachable=[]
+ABANDONED_GEOMETRY seed=0 type=INDEPENDENT_MEDIUM reachable=10973 unreachable=[]
+ABANDONED_GEOMETRY seed=0 type=INDEPENDENT_GREAT reachable=26273 unreachable=[]
+ABANDONED_GEOMETRY seed=1 type=ATTACHED_SMALL reachable=18742 unreachable=[]
+ABANDONED_GEOMETRY seed=1 type=INDEPENDENT_MEDIUM reachable=10958 unreachable=[]
+ABANDONED_GEOMETRY seed=1 type=INDEPENDENT_GREAT reachable=26445 unreachable=[]
+ABANDONED_GEOMETRY seed=2 type=ATTACHED_SMALL reachable=20726 unreachable=[]
+ABANDONED_GEOMETRY seed=2 type=INDEPENDENT_MEDIUM reachable=11019 unreachable=[]
+ABANDONED_GEOMETRY seed=2 type=INDEPENDENT_GREAT reachable=27422 unreachable=[]
+ABANDONED_GEOMETRY seed=3 type=ATTACHED_SMALL reachable=15574 unreachable=[]
+ABANDONED_GEOMETRY seed=3 type=INDEPENDENT_MEDIUM reachable=10973 unreachable=[]
+ABANDONED_GEOMETRY seed=3 type=INDEPENDENT_GREAT reachable=26326 unreachable=[]
+ABANDONED_GEOMETRY seed=4 type=ATTACHED_SMALL reachable=18690 unreachable=[]
+ABANDONED_GEOMETRY seed=4 type=INDEPENDENT_MEDIUM reachable=11051 unreachable=[]
+ABANDONED_GEOMETRY seed=4 type=INDEPENDENT_GREAT reachable=26286 unreachable=[]
+ABANDONED_GEOMETRY seed=5 type=ATTACHED_SMALL reachable=20678 unreachable=[]
+ABANDONED_GEOMETRY seed=5 type=INDEPENDENT_MEDIUM reachable=10953 unreachable=[]
+ABANDONED_GEOMETRY seed=5 type=INDEPENDENT_GREAT reachable=26244 unreachable=[]
+ABANDONED_GEOMETRY seed=6 type=ATTACHED_SMALL reachable=15701 unreachable=[]
+ABANDONED_GEOMETRY seed=6 type=INDEPENDENT_MEDIUM reachable=10929 unreachable=[]
+ABANDONED_GEOMETRY seed=6 type=INDEPENDENT_GREAT reachable=27430 unreachable=[]
+ABANDONED_GEOMETRY seed=7 type=ATTACHED_SMALL reachable=18688 unreachable=[]
+ABANDONED_GEOMETRY seed=7 type=INDEPENDENT_MEDIUM reachable=10982 unreachable=[]
+ABANDONED_GEOMETRY seed=7 type=INDEPENDENT_GREAT reachable=26480 unreachable=[]
+ABANDONED_GEOMETRY seed=8 type=ATTACHED_SMALL reachable=20659 unreachable=[]
+ABANDONED_GEOMETRY seed=8 type=INDEPENDENT_MEDIUM reachable=10975 unreachable=[]
+ABANDONED_GEOMETRY seed=8 type=INDEPENDENT_GREAT reachable=26359 unreachable=[]
+ABANDONED_GEOMETRY seed=9 type=ATTACHED_SMALL reachable=15693 unreachable=[]
+ABANDONED_GEOMETRY seed=9 type=INDEPENDENT_MEDIUM reachable=10878 unreachable=[]
+ABANDONED_GEOMETRY seed=9 type=INDEPENDENT_GREAT reachable=26331 unreachable=[]
+ABANDONED_GEOMETRY seed=10 type=ATTACHED_SMALL reachable=18763 unreachable=[]
+ABANDONED_GEOMETRY seed=10 type=INDEPENDENT_MEDIUM reachable=10896 unreachable=[]
+ABANDONED_GEOMETRY seed=10 type=INDEPENDENT_GREAT reachable=27425 unreachable=[]
+ABANDONED_GEOMETRY seed=11 type=ATTACHED_SMALL reachable=20608 unreachable=[]
+ABANDONED_GEOMETRY seed=11 type=INDEPENDENT_MEDIUM reachable=10949 unreachable=[]
+ABANDONED_GEOMETRY seed=11 type=INDEPENDENT_GREAT reachable=26284 unreachable=[]
+ABANDONED_NATURAL seed=0 eligible=896 accepted=0 reasons={{abandonedCover=-49}=1, {abandonedCover=-9}=1, {}=33, {abandonedCover=-12}=1, {abandonedCover=3}=1, {abandonedCover=-25}=1, {abandonedWorldBounds=-57}=1, {abandonedWorldBounds=-56}=1, {abandonedCover=5}=1, {abandonedCover=11}=1, {abandonedCover=10}=2, {abandonedCover=9}=2, {abandonedWorldBounds=-61}=1, {abandonedRockPercent=40}=1, {abandonedRockPercent=30}=2, {abandonedRockPercent=54}=3, {abandonedWorldBounds=-53}=1, {abandonedFluidY=32}=1, {abandonedFluidY=21}=1, {abandonedFluidY=43}=1, {abandonedRockPercent=50}=2, {abandonedRouteRockPercent=0}=1, {abandonedRockPercent=33}=2, {abandonedRockPercent=36}=1, {abandonedRockPercent=58}=1}
+ABANDONED_NATURAL seed=1 eligible=905 accepted=0 reasons={{abandonedCover=-6}=1, {abandonedCover=10}=1, {abandonedRockPercent=40}=2, {abandonedRockPercent=30}=1, {abandonedRockPercent=20}=2, {abandonedRockPercent=54}=2, {abandonedRockPercent=50}=5, {abandonedRouteRockPercent=0}=1, {}=31, {abandonedCover=-56}=1, {abandonedCover=-12}=1, {abandonedCover=1}=1, {abandonedCover=7}=1, {abandonedCover=-1}=1, {abandonedRouteRockPercent=25}=1, {abandonedCover=11}=1, {abandonedWorldBounds=-49}=1, {abandonedCover=9}=1, {abandonedRockPercent=41}=2, {abandonedFluidY=40}=1, {abandonedWorldBounds=-54}=2, {abandonedFluidY=56}=1, {abandonedFluidY=48}=1, {abandonedRockPercent=33}=1, {abandonedRockPercent=45}=1}
+ABANDONED_NATURAL seed=2 eligible=913 accepted=0 reasons={{abandonedCover=-29}=1, {}=36, {abandonedCover=4}=1, {abandonedCover=-126}=1, {abandonedCover=-6}=1, {abandonedCover=-36}=1, {abandonedCover=-3}=2, {abandonedCover=7}=1, {abandonedRouteFluidY=18}=1, {abandonedRockPercent=0}=1, {abandonedCover=10}=1, {abandonedFluidY=81}=1, {abandonedRockPercent=30}=1, {abandonedRockPercent=20}=2, {abandonedFluidY=84}=1, {abandonedFluidY=55}=1, {abandonedFluidY=33}=1, {abandonedRockPercent=50}=3, {abandonedFluidY=57}=1, {abandonedFluidY=46}=1, {abandonedRockPercent=33}=4, {abandonedRockPercent=58}=1}
+ABANDONED_NATURAL seed=3 eligible=942 accepted=0 reasons={{abandonedCover=-11}=1, {abandonedRockPercent=0}=1, {abandonedRockPercent=30}=1, {abandonedRockPercent=20}=1, {abandonedRockPercent=54}=1, {abandonedRockPercent=10}=1, {abandonedFluidY=31}=1, {abandonedRockPercent=50}=1, {abandonedCover=-21}=1, {abandonedFluidY=37}=1, {abandonedRockPercent=58}=2, {}=33, {abandonedCover=-34}=1, {abandonedCover=-22}=1, {abandonedCover=-5}=1, {abandonedCover=1}=1, {abandonedCover=-3}=1, {abandonedCover=-1}=1, {abandonedWorldBounds=-55}=1, {abandonedRouteRockPercent=25}=2, {abandonedCover=11}=2, {abandonedRockPercent=27}=1, {abandonedFluidY=48}=2, {abandonedFluidY=38}=1, {abandonedRockPercent=33}=2, {abandonedRockPercent=45}=2}

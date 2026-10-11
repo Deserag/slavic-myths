@@ -1,0 +1,56 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                          ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\UniqueArmorModels.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\UniqueArmorModels.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                                                                  ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 warnings
+
+> Task :processResources
+> Task :classes
+
+> Task :compileUniqueEquipmentCheckJava FAILED
+D:\slavic-myths\tools\unique-equipment-tests\org\slavicmyths\verify\UniqueEquipmentGameTests.java:59: error: cannot find symbol
+    @GameTest(template="empty") public static void sightNativeIntentCooldownAndExclusions(GameTestHelper t){var p=player(t);ClearSightNetwork.activate(p);t.assertTrue(UniqueEquipmentEvents.saved(p).getLong("SightReady")==0,"no-helmet activation");equip(p,EquipmentSlot.HEAD,UniqueEquipment.CLEAR_SIGHT_HELMET.get());ClearSightNetwork.activate(p);long ready=UniqueEquipmentEvents.saved(p).getLong("SightReady");t.assertTrue(ready==UniqueEquipmentEvents.now(p)+800,"cooldown");equip(p,EquipmentSlot.HEAD,Items.AIR);equip(p,EquipmentSlot.HEAD,UniqueEquipment.CLEAR_SIGHT_HELMET.get());ClearSightNetwork.activate(p);t.assertTrue(UniqueEquipmentEvents.saved(p).getLong("SightReady")==ready,"equip reset");for(var type:List.of(EntityType.COW,EntityType.ZOMBIE,EntityType.WOLF,EntityType.VILLAGER))t.assertTrue(ClearSightNetwork.eligible(type.create(t.getLevel()),p),"living excluded");t.assertTrue(!ClearSightNetwork.eligible(EntityType.ARMOR_STAND.create(t.getLevel()),p),"armor stand included");var copy=UniqueEquipmentEvents.saved(p).copy();var nbt=net.minecraft.nbt.NbtIo.writeToByteArray(copy);t.assertTrue(net.minecraft.nbt.NbtIo.readFromByteArray(nbt).getLong("SightReady")==ready,"cooldown NBT");t.succeed();}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^
+  symbol:   method writeToByteArray(CompoundTag)
+  location: class NbtIo
+Note: D:\slavic-myths\tools\unique-equipment-tests\org\slavicmyths\verify\UniqueEquipmentGameTests.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileUniqueEquipmentCheckJava'.
+> Compilation failed; see the compiler output below.
+  Note: D:\slavic-myths\tools\unique-equipment-tests\org\slavicmyths\verify\UniqueEquipmentGameTests.java uses or overrides a deprecated API.
+  Note: Recompile with -Xlint:deprecation for details.
+  D:\slavic-myths\tools\unique-equipment-tests\org\slavicmyths\verify\UniqueEquipmentGameTests.java:59: error: cannot find symbol
+      @GameTest(template="empty") public static void sightNativeIntentCooldownAndExclusions(GameTestHelper t){var p=player(t);ClearSightNetwork.activate(p);t.assertTrue(UniqueEquipmentEvents.saved(p).getLong("SightReady")==0,"no-helmet activation");equip(p,EquipmentSlot.HEAD,UniqueEquipment.CLEAR_SIGHT_HELMET.get());ClearSightNetwork.activate(p);long ready=UniqueEquipmentEvents.saved(p).getLong("SightReady");t.assertTrue(ready==UniqueEquipmentEvents.now(p)+800,"cooldown");equip(p,EquipmentSlot.HEAD,Items.AIR);equip(p,EquipmentSlot.HEAD,UniqueEquipment.CLEAR_SIGHT_HELMET.get());ClearSightNetwork.activate(p);t.assertTrue(UniqueEquipmentEvents.saved(p).getLong("SightReady")==ready,"equip reset");for(var type:List.of(EntityType.COW,EntityType.ZOMBIE,EntityType.WOLF,EntityType.VILLAGER))t.assertTrue(ClearSightNetwork.eligible(type.create(t.getLevel()),p),"living excluded");t.assertTrue(!ClearSightNetwork.eligible(EntityType.ARMOR_STAND.create(t.getLevel()),p),"armor stand included");var copy=UniqueEquipmentEvents.saved(p).copy();var nbt=net.minecraft.nbt.NbtIo.writeToByteArray(copy);t.assertTrue(net.minecraft.nbt.NbtIo.readFromByteArray(nbt).getLong("SightReady")==ready,"cooldown NBT");t.succeed();}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+    symbol:   method writeToByteArray(CompoundTag)
+    location: class NbtIo
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 28s
+4 actionable tasks: 3 executed, 1 up-to-date

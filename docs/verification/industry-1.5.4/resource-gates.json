@@ -1,0 +1,12 @@
+{
+  "checks": 79781,
+  "version": "1.5.4",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.5.4.jar",
+  "sha256": "c1e61782b6c71692b60150d48cc1c7b5d05500830a47894f9c71473621f2f5c2",
+  "resources": "PASS",
+  "production": "PASS",
+  "production_classes": 994,
+  "preserved_geometry_and_depths_classes": 60,
+  "minecraft_launches": 0,
+  "runtime_validation": "NOT_RUN"
+}

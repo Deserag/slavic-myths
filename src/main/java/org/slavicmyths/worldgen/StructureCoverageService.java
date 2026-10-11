@@ -80,6 +80,7 @@ public final class StructureCoverageService {
  }
  public static TerrainSamples sampleTerrain(net.minecraft.world.level.levelgen.structure.Structure.GenerationContext context){return new TerrainSamples(context);}
  public static int baseHeight(net.minecraft.world.level.chunk.ChunkGenerator generator,int x,int z,net.minecraft.world.level.levelgen.Heightmap.Types type,net.minecraft.world.level.LevelHeightAccessor height,net.minecraft.world.level.levelgen.RandomState random){
+  org.slavicmyths.chud.ChudSearchBudget.check();
   var active=ACTIVE_SAMPLES.get();
   if(active==null||active.context.chunkGenerator()!=generator||active.context.randomState()!=random||active.context.heightAccessor().getMinBuildHeight()!=height.getMinBuildHeight()||active.context.heightAccessor().getMaxBuildHeight()!=height.getMaxBuildHeight())return generator.getBaseHeight(x,z,type,height,random);
   var key=new Column(x,z,type);var saved=active.columns.get(key);if(saved!=null)return saved;
@@ -99,7 +100,7 @@ public final class StructureCoverageService {
  public static net.minecraft.world.level.levelgen.structure.StructureStart neighborPlan(net.minecraft.world.level.levelgen.structure.Structure.GenerationContext c,net.minecraft.world.level.levelgen.structure.Structure other,ChunkPos chunk){
   var id=c.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.STRUCTURE).getKey(other);var key=new Neighbor(id.toString(),chunk.toLong());var active=ACTIVE_SAMPLES.get();
   var cached=active==null?null:active.neighbors.get(key);if(cached!=null)return cached;
-  var result=other.generate(c.registryAccess(),c.chunkGenerator(),c.biomeSource(),c.randomState(),c.structureTemplateManager(),c.seed(),chunk,0,c.heightAccessor(),other.biomes()::contains);
+  org.slavicmyths.chud.ChudSearchBudget.check();var result=other.generate(c.registryAccess(),c.chunkGenerator(),c.biomeSource(),c.randomState(),c.structureTemplateManager(),c.seed(),chunk,0,c.heightAccessor(),other.biomes()::contains);
   if(active!=null&&active.neighbors.size()<256)active.neighbors.put(key,result);return result;
  }
  /** Ordered bounded local retries; offset zero always comes first. */

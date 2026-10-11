@@ -1,0 +1,87 @@
+{
+  "headless_server_launches": 13,
+  "client_launches": 0,
+  "grey_wolf_runs": [
+    {
+      "log": "server-1.log",
+      "tests": 7,
+      "pass": false,
+      "build_success": false
+    },
+    {
+      "log": "server-2.log",
+      "tests": 7,
+      "pass": true,
+      "build_success": true
+    },
+    {
+      "log": "server-3.log",
+      "tests": 7,
+      "pass": true,
+      "build_success": true
+    },
+    {
+      "log": "server-4.log",
+      "tests": 12,
+      "pass": true,
+      "build_success": true
+    },
+    {
+      "log": "server-5.log",
+      "tests": 12,
+      "pass": true,
+      "build_success": true
+    },
+    {
+      "log": "server-6.log",
+      "tests": 13,
+      "pass": false,
+      "build_success": false
+    },
+    {
+      "log": "server-7.log",
+      "tests": 13,
+      "pass": false,
+      "build_success": false
+    },
+    {
+      "log": "server-8.log",
+      "tests": 13,
+      "pass": false,
+      "build_success": false
+    },
+    {
+      "log": "server-9.log",
+      "tests": 13,
+      "pass": true,
+      "build_success": true
+    },
+    {
+      "log": "server-10.log",
+      "tests": 14,
+      "pass": true,
+      "build_success": true
+    },
+    {
+      "log": "server-11.log",
+      "tests": 15,
+      "pass": true,
+      "build_success": true
+    }
+  ],
+  "final_wolf_tests": 15,
+  "combat_regression_tests": 63,
+  "unique_equipment_regression_tests": 23,
+  "regression_log": "regression-server.log",
+  "offline_checks": {
+    "grey_wolf_model": 2116,
+    "rare_runes": 20491,
+    "rune_rework": 355,
+    "armor": 147,
+    "existing_boss_models": 9176
+  },
+  "clean_build": "PASS",
+  "resources_and_jar_checks": 22672,
+  "installation": "PASS",
+  "visual_sound_relog_xaero_natural_frequency_mspt": "NOT RUN"
+}

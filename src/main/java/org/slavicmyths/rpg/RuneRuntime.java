@@ -54,7 +54,7 @@ public final class RuneRuntime {
             // Refresh a shorter fire only; never shorten existing Fire Aspect or accumulate duration.
             if(target.getRemainingFireTicks()<fireSeconds*20)target.igniteForSeconds(fireSeconds);
         }
-        if(blood>0&&p.getRandom().nextDouble()<RuneBalance.bonus(RuneBalance.BLOOD_CHANCE,blood,RuneBalance.PROC_CAP)){
+        if(blood>0&&!target.getType().is(CutEffect.IMMUNE)&&p.getRandom().nextDouble()<RuneBalance.bonus(RuneBalance.BLOOD_CHANCE,blood,RuneBalance.PROC_CAP)){
             RareBleedEffect.applyRune(p,target);if(target.level() instanceof ServerLevel w)w.sendParticles(new DustParticleOptions(new org.joml.Vector3f(.4F,.06F,.07F),1),target.getX(),target.getEyeY(),target.getZ(),3,.1,.1,.1,0);
         }
         if(crushing>0&&target.level() instanceof ServerLevel w&&PathData.ready(p,"rune2_impact",10)){w.sendParticles(ParticleTypes.CRIT,target.getX(),target.getY()+.7,target.getZ(),3,.1,.1,.1,.01);w.playSound(null,target.blockPosition(),net.minecraft.sounds.SoundEvents.ANVIL_HIT,net.minecraft.sounds.SoundSource.PLAYERS,.15F,1.6F);}

@@ -42,7 +42,7 @@ public final class KurganEncounters {
         if(state.triggered&&state.slots.isEmpty())return;
         state.prepare(roster);boolean changed=false;
         for(var slot:state.slots){
-            if(slot.defeated)continue;
+            if(slot.defeated||i.bossDefeated&&(slot.kind==Kind.PRINCE||i.plan.tier==1&&slot.kind==Kind.VOEVODA))continue;
             if(slot.uuid!=null){
                 Entity existing=world.getEntity(slot.uuid);
                 if(existing!=null){if(existing.isAlive())slot.last=existing.blockPosition();continue;}
@@ -99,7 +99,7 @@ public final class KurganEncounters {
             BlockPos p=safePosition(mob,desired,false);if(p==null)continue;mob.moveTo(p.getX()+.5,p.getY(),p.getZ()+.5,0,0);mob.setTarget(owner.getTarget());mob.setPersistenceRequired();if(world.addFreshEntity(mob)&&state!=null){state.alive.add(mob.getUUID());BurialRecords.get(world).setDirty();}}
     }
     public static void died(KurganCreature mob){if(mob.kurgan==null)return;ServerLevel world=(ServerLevel)mob.level();BurialRecords data=BurialRecords.get(world);KurganInstance i=data.instances.get(mob.kurgan);if(i==null)return;KurganEncounterState state=i.encounters.get(mob.room);if(state!=null&&state.death(mob.getUUID()))data.setDirty();
-        if(mob.kind==Kind.PRINCE&&!i.bossDefeated){i.bossDefeated=true;data.setDirty();KurganCurse.sourceDefeated(world,i.id);}
+        if((mob.kind==Kind.PRINCE||i.plan.tier==1&&mob.kind==Kind.VOEVODA)&&!i.bossDefeated){i.bossDefeated=true;data.setDirty();KurganCurse.sourceDefeated(world,i.id);}
     }
     @SubscribeEvent public static void healing(LivingHealEvent e){if(!e.getEntity().level().isClientSide&&e.getEntity() instanceof Player&&e.getEntity().getPersistentData().getLong("SlavicUpyrBiteUntil")>e.getEntity().level().getGameTime())e.setAmount(e.getAmount()*.5F);}
 }

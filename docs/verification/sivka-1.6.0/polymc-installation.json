@@ -1,0 +1,11 @@
+{
+  "version": "1.6.0",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.6.0.jar",
+  "production_sha256": "0e0bcc1abc9dce2501e152cd6544795fa137e7ec9fd205b09cc5f368a31c9c61",
+  "previous_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-sivka-20261010-132621\\slavicmyths-1.5.6.jar",
+  "other_files_preserved": 357,
+  "minecraft_launches": 0,
+  "acceptance": "OPEN_RUNTIME_NOT_RUN",
+  "old_1_16_5_instance": "NOT_TOUCHED"
+}

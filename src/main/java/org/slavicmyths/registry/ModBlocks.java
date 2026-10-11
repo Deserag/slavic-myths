@@ -15,6 +15,8 @@ import org.slavicmyths.SlavicMyths;
 public final class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(Registries.BLOCK, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Block,Block> PLACH_TRAVA=BLOCKS.register("plach_trava",org.slavicmyths.volkolak.PlachTravaBlock::new);
+    public static final DeferredHolder<Block,Block> CURSED_SKULL_CACHE=BLOCKS.register("cursed_skull_cache",org.slavicmyths.volkolak.SkullCacheBlock::new);
 
     public static final DeferredHolder<Block, Block> RYE_CROP = BLOCKS.register("rye_crop", () -> new org.slavicmyths.farming.FarmingCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.RYE_SEEDS.get(), 1F));
     public static final DeferredHolder<Block, Block> BARLEY_CROP = BLOCKS.register("barley_crop", () -> new org.slavicmyths.farming.FarmingCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.BARLEY_SEEDS.get(), 1F));

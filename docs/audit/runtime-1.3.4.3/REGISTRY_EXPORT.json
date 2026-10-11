@@ -1,0 +1,6592 @@
+[
+  {
+    "item": "slavicmyths:rye_seeds",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:barley_seeds",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:oat_seeds",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:turnip_seeds",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:cabbage_seeds",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:pea_seeds",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:flax_seeds",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:rye_grain",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:barley_grain",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:oat_grain",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:turnip",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:cabbage",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:pea_pod",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:flax_stalk",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:sickle",
+    "class": "org.slavicmyths.farming.SickleItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:field_hoe",
+    "class": "org.slavicmyths.farming.FieldHoeItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 350,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:watering_can",
+    "class": "org.slavicmyths.farming.WateringCanItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:organic_fertilizer",
+    "class": "org.slavicmyths.farming.FertilizerItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:birch_bark_scroll",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:thunder_stone",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:warding_charm",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:birch_bark",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:linen_thread",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:perunite",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:fern_flower",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:flax",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:wormwood",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:perunite_ore",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:leshy_heart",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:domovoy_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:leshy_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:hearth",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:ancient_idol",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:altar",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:ancient_coin",
+    "class": "org.slavicmyths.item.AncientCoinItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:idol_fragment",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:ancient_sign",
+    "class": "org.slavicmyths.item.AncientSignItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:lore_book",
+    "class": "org.slavicmyths.item.LoreBookItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:silver_ore",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:silver_ingot",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:silver_nugget",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:perunite_sword",
+    "class": "net.minecraft.world.item.SwordItem",
+    "damage": 6.5,
+    "attack_speed": 1.5999999046325684,
+    "reach": 3.0,
+    "durability": 850,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perunite_axe",
+    "class": "net.minecraft.world.item.AxeItem",
+    "damage": 8.5,
+    "attack_speed": 0.9000000953674316,
+    "reach": 3.0,
+    "durability": 850,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perunite_pickaxe",
+    "class": "net.minecraft.world.item.PickaxeItem",
+    "damage": 4.5,
+    "attack_speed": 1.2000000476837158,
+    "reach": 3.0,
+    "durability": 850,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perunite_shovel",
+    "class": "net.minecraft.world.item.ShovelItem",
+    "damage": 5.0,
+    "attack_speed": 1.0,
+    "reach": 3.0,
+    "durability": 850,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perunite_hoe",
+    "class": "net.minecraft.world.item.HoeItem",
+    "damage": 1.5,
+    "attack_speed": 3.0,
+    "reach": 3.0,
+    "durability": 850,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perunite_helmet",
+    "class": "net.minecraft.world.item.ArmorItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 253,
+    "rune_slots": 3,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:perunite_chestplate",
+    "class": "net.minecraft.world.item.ArmorItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 368,
+    "rune_slots": 3,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:perunite_leggings",
+    "class": "net.minecraft.world.item.ArmorItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 345,
+    "rune_slots": 3,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:perunite_boots",
+    "class": "net.minecraft.world.item.ArmorItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 299,
+    "rune_slots": 3,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:silver_sword",
+    "class": "net.minecraft.world.item.SwordItem",
+    "damage": 6.0,
+    "attack_speed": 1.5999999046325684,
+    "reach": 3.0,
+    "durability": 220,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:silver_dagger",
+    "class": "net.minecraft.world.item.SwordItem",
+    "damage": 4.0,
+    "attack_speed": 2.5,
+    "reach": 3.0,
+    "durability": 220,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:bone_knife",
+    "class": "net.minecraft.world.item.SwordItem",
+    "damage": 3.0,
+    "attack_speed": 2.5,
+    "reach": 3.0,
+    "durability": 75,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:ritual_knife",
+    "class": "net.minecraft.world.item.SwordItem",
+    "damage": 4.0,
+    "attack_speed": 2.299999952316284,
+    "reach": 3.0,
+    "durability": 220,
+    "rune_slots": 1,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:linen_cloth",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:herb_pouch",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:st_johns_wort",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:nettle",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:fireweed",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:juniper_berries",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:ground_wormwood",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:ground_st_johns_wort",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:juniper_blend",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:honey_bread",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:honey_baked_apple",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:ritual_bowl",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:thunder_axe",
+    "class": "org.slavicmyths.item.ThunderAxeItem",
+    "damage": 8.5,
+    "attack_speed": 0.9000000953674316,
+    "reach": 3.0,
+    "durability": 850,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perun_charm",
+    "class": "org.slavicmyths.item.PerunCharmItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:carved_oak_pillar",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:carved_birch_planks",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:carved_oak_block",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:straw_block",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:amber",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:amber_block",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:amber_charm",
+    "class": "org.slavicmyths.item.AmberCharmItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:carved_staff",
+    "class": "net.minecraft.world.item.SwordItem",
+    "damage": 3.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 3.0,
+    "durability": 59,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:storm_staff",
+    "class": "org.slavicmyths.item.StormStaffItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 240,
+    "rune_slots": 3,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:club",
+    "class": "org.slavicmyths.item.ClubItem",
+    "damage": 5.0,
+    "attack_speed": 0.9000000953674316,
+    "reach": 3.0,
+    "durability": 59,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:battle_axe",
+    "class": "net.minecraft.world.item.AxeItem",
+    "damage": 10.0,
+    "attack_speed": 0.7000000476837158,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "damage": 5.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 4.25,
+    "durability": 131,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:silver_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "damage": 6.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 4.25,
+    "durability": 220,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:ritual_charcoal",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:ritual_candle",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:honey_flatbread",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:berry_mors",
+    "class": "org.slavicmyths.item.BerryMorsItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:forest_mix",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:wall_carving",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:forest_charm",
+    "class": "org.slavicmyths.item.SimpleCharmItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:hunter_charm",
+    "class": "org.slavicmyths.item.SimpleCharmItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:traveler_charm",
+    "class": "org.slavicmyths.item.SimpleCharmItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:retainer_shield",
+    "class": "org.slavicmyths.item.MythShieldItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 280,
+    "rune_slots": 2,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perunite_shield",
+    "class": "org.slavicmyths.item.MythShieldItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 420,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:thunder_spear",
+    "class": "org.slavicmyths.item.HeavyWeaponItem",
+    "damage": 7.5,
+    "attack_speed": 1.0999999046325684,
+    "reach": 3.0,
+    "durability": 850,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:mace",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "damage": 8.0,
+    "attack_speed": 0.9000000953674316,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perunite_mace",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "damage": 9.5,
+    "attack_speed": 0.5999999046325684,
+    "reach": 3.0,
+    "durability": 850,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:berdysh",
+    "class": "org.slavicmyths.item.HeavyWeaponItem",
+    "damage": 9.0,
+    "attack_speed": 0.7000000476837158,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:weapon_wrap",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:silver_fitting",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:kikimora_lock",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:noon_ear",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:field_bundle",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:bath_broom",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:bath_stone",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:old_button",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:ovinnik_claw",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:ember_heart",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:noon_sickle",
+    "class": "net.minecraft.world.item.SwordItem",
+    "damage": 6.0,
+    "attack_speed": 1.5,
+    "reach": 3.0,
+    "durability": 220,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:kikimora_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:poludnitsa_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:polevik_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:bannik_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:igosha_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:ovinnik_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:bath_stove",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:wooden_tub",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:path_stone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:runic_anvil",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_thunder",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_heat",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_forest",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_midday",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_shadow",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_protection",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_life",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_wind",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:raw_bear_meat",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:cooked_bear_meat",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:raw_venison",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:cooked_venison",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:raw_boar_meat",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:cooked_boar_meat",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:large_animal_bone",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:bone_arrow",
+    "class": "net.minecraft.world.item.ArrowItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:flour",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:raspberry",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:blueberry",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:pancakes",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:raspberry_pancakes",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:blueberry_pancakes",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:meat_pancakes",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:karavai",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:berry_pie",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:baked_apple",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:mushroom_stew",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:beef_stew",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:pork_stew",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:venison_stew",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:bear_stew",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:brown_bear_spawn_egg",
+    "class": "org.slavicmyths.item.WildlifeFamilyEgg",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:bear_cub_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:forest_wolf_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:boar_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:stag_spawn_egg",
+    "class": "org.slavicmyths.item.WildlifeFamilyEgg",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:doe_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:invisibility_cap",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:retribution_charm",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:perun_ring",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:veles_amulet",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:hunter_belt",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:resin_ring",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:seven_league_boots",
+    "class": "org.slavicmyths.item.SevenLeagueBoots",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 65,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:kitchen_table",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:rolling_pin",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:metal_pot",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:flying_broom",
+    "class": "org.slavicmyths.flight.FlightItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:flying_mortar",
+    "class": "org.slavicmyths.flight.FlightItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:pestle",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:gusli",
+    "class": "org.slavicmyths.artifact.GusliItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:skatert",
+    "class": "org.slavicmyths.artifact.SkatertItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:badnyak",
+    "class": "org.slavicmyths.artifact.BadnyakItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:veles_staff",
+    "class": "org.slavicmyths.artifact.VelesStaffItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 48,
+    "rune_slots": 3,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:raw_pike",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:cooked_pike",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:raw_carp",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:cooked_carp",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:smoked_carp",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:raw_crayfish",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:cooked_crayfish",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:ukha",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:old_hook",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:pearl_fragment",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:pike_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:carp_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:crayfish_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:fishing_net",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 32,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:reed",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:water_grass",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:white_lily",
+    "class": "net.minecraft.world.item.PlaceOnWaterBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:bolotnik_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:vodyanoy_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:rusalka_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:pool_pearl",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:ancient_water_sign",
+    "class": "org.slavicmyths.depth.WaterSignItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:pool_spear",
+    "class": "org.slavicmyths.depth.PoolSpear",
+    "damage": 7.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:depth_amulet",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:vodyanoy_net",
+    "class": "org.slavicmyths.depth.VodyanoyNetItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 64,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:pool_stone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:elder_vodyanoy_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:armorer_table",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:iron_rings",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:wooden_mace",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "damage": 5.0,
+    "attack_speed": 1.0499999523162842,
+    "reach": 3.0,
+    "durability": 59,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:stone_mace",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "damage": 7.0,
+    "attack_speed": 0.8499999046325684,
+    "reach": 3.0,
+    "durability": 131,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:silver_mace",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "damage": 7.0,
+    "attack_speed": 1.0,
+    "reach": 3.0,
+    "durability": 220,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "damage": 8.0,
+    "attack_speed": 0.7000000476837158,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:gambeson",
+    "class": "net.minecraft.world.item.ArmorItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 192,
+    "rune_slots": 1,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:plate_cuirass",
+    "class": "org.slavicmyths.combat.CombatEquipment$PlateArmor",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 352,
+    "rune_slots": 1,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:bandit_fighter_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:bandit_archer_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:bandit_heavy_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:bandit_senior_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:ataman_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:nightingale_mark",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:nightingale_lock",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:nightingale_dagger",
+    "class": "org.slavicmyths.bandit.NightingaleDagger",
+    "damage": 7.0,
+    "attack_speed": 2.0,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:nightingale_whistle",
+    "class": "org.slavicmyths.bandit.NightingaleWhistle",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:bandit_horn",
+    "class": "org.slavicmyths.bandit.NightingaleWhistle",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:burial_log_coffin",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:ancient_carolingian_sword",
+    "class": "org.slavicmyths.kurgan.BurialWeapon",
+    "damage": 4.0,
+    "attack_speed": 1.5999999046325684,
+    "reach": 3.0,
+    "durability": 131,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:restored_carolingian_sword",
+    "class": "org.slavicmyths.kurgan.BurialWeapon",
+    "damage": 6.0,
+    "attack_speed": 1.5999999046325684,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:ancient_spear",
+    "class": "org.slavicmyths.kurgan.BurialWeapon",
+    "damage": 4.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 3.0,
+    "durability": 131,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:restored_spear",
+    "class": "org.slavicmyths.kurgan.BurialWeapon",
+    "damage": 6.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:ancient_chekan",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "damage": 5.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 3.0,
+    "durability": 131,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:chekan",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "damage": 6.0,
+    "attack_speed": 1.2999999523162842,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:lunula",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:grivna",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:grave_ward",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:ancient_fibula",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:ancient_comb",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:ancient_beads",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:old_buckle",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:pottery_fragment",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:old_arrowhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:upyr_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:nav_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:kurgan_druzhinnik_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:kurgan_voevoda_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:buried_volkhv_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:unresting_prince_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:upyr_fang",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:grave_cloth_scrap",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:nav_essence",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:torn_burial_ribbon",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:shield_boss_fragment",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:druzhinnik_blade_fragment",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:voevoda_insignia",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:volkhv_amulet",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:princely_seal",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:ovinnaya_zola",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:iskra_ovinnika",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:klyk_volkolaka",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:nochnoy_kogot",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:obereg_ohotnika",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:ohotnichiy_rog",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:meshochek_trofeev",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:pustoy_ritualny_sosud",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:zolny_obereg",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:volchiy_poyas",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:pylayuschaya_cheshuya",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:ognennoe_pero",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:obereg_padayuschey_zvezdy",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:uzel_podveya",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:vihrevaya_nit",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:vetrovoy_uzel",
+    "class": "org.slavicmyths.hunt.WindKnotItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:sosud_ognennogo_dyhaniya",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:sosud_podveya",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:fire_serpent_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:podvey_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:volkolak_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:oko_likha",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:nit_durnoy_doli",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:kost_likha",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:us_tugarina",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:tugarinova_kozha",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:zmeinaya_pryazhka",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:naboyka_tugarina",
+    "class": "org.slavicmyths.hunt.HuntItems",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:uzel_durnoy_doli",
+    "class": "org.slavicmyths.hunt.BossRitualItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:stepnoy_shtandart",
+    "class": "org.slavicmyths.hunt.BossRitualItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:odnoglazyy_obereg",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:poyas_tugarina",
+    "class": "org.slavicmyths.item.FolkAccessoryItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:likho_one_eyed_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:tugarin_zmey_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:putevodny_klubok",
+    "class": "org.slavicmyths.yaga.YagaUtilityItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:svyazka_trav_yagi",
+    "class": "org.slavicmyths.yaga.YagaUtilityItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:otvar_ochishcheniya",
+    "class": "org.slavicmyths.yaga.YagaUtilityItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:letuchaya_maz",
+    "class": "org.slavicmyths.yaga.YagaUtilityItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:otvar_lesnoy_zorkosti",
+    "class": "org.slavicmyths.yaga.YagaUtilityItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:yagin_nastoy_stoykosti",
+    "class": "org.slavicmyths.yaga.YagaUtilityItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:otvar_bodrosti",
+    "class": "org.slavicmyths.yaga.YagaUtilityItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:lesnoy_nastoy_vosstanovleniya",
+    "class": "org.slavicmyths.yaga.YagaUtilityItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:baba_yaga_spawn_egg",
+    "class": "org.slavicmyths.yaga.YagaSpawnEgg",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:raspberry_sapling",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:blueberry_sapling",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:blackcurrant",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:blackcurrant_sapling",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:lingonberry",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:lingonberry_sapling",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:cranberry",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:cranberry_sapling",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:apple_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:stripped_apple_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_wood",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:stripped_apple_wood",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_planks",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_fence",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_fence_gate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_door",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_trapdoor",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_pressure_plate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_button",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_sign",
+    "class": "net.minecraft.world.item.SignItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_hanging_sign",
+    "class": "net.minecraft.world.item.HangingSignItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_leaves",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:apple_sapling",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:goose_egg",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:duck_egg",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:goat_milk_bucket",
+    "class": "net.minecraft.world.item.MilkBucketItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:raw_goose",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:cooked_goose",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:raw_duck",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:cooked_duck",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:raw_goat",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:cooked_goat",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:feeder",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:straw_nest",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:goose_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:duck_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:domestic_goat_spawn_egg",
+    "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 8
+  },
+  {
+    "item": "slavicmyths:animal_fat",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:goat_hide",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:flax_fiber",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:butchering_knife",
+    "class": "net.minecraft.world.item.SwordItem",
+    "damage": 3.0,
+    "attack_speed": 1.7999999523162842,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:linen_shirt",
+    "class": "org.slavicmyths.textile.ClothingItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:linen_ports",
+    "class": "org.slavicmyths.textile.ClothingItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:sarafan",
+    "class": "org.slavicmyths.textile.ClothingItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:linen_headscarf",
+    "class": "org.slavicmyths.textile.ClothingItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:linen_apron",
+    "class": "org.slavicmyths.textile.ClothingItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:folk_vest",
+    "class": "org.slavicmyths.textile.ClothingItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:bast_shoes",
+    "class": "org.slavicmyths.textile.ClothingItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:woven_belt",
+    "class": "org.slavicmyths.textile.BeltItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 5
+  },
+  {
+    "item": "slavicmyths:flax_breaker",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:spinning_wheel",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:loom_table",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:tallow_candle",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linen_bed",
+    "class": "net.minecraft.world.item.BedItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:wheat_flour",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:rye_flour",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:oat_groats",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:barley_groats",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:dough",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:rye_bread",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:baked_turnip",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:stewed_turnip",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:stewed_cabbage",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:oat_porridge",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:barley_porridge",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:berry_porridge",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:vegetable_stew",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:meat_stew",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:pea_soup",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:mushroom_stew_slavic",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:bliny",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:berry_bliny",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:meat_bliny",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:apple_bliny",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:honey_bliny",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:apple_pie",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:meat_pie",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:cabbage_pie",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:storage_sack",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:basket",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:large_basket",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:produce_crate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:household_chest",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:wooden_barrel",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:wall_shelf",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:storage_shelf",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:drying_rack",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:haystack",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rye_sheaf",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:barley_sheaf",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:oat_sheaf",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:dried_berries",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:dried_mushrooms",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:malted_barley",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:malt_sack",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:fruit_pomace",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:berry_mash",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:hops",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:honey_infusion",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:forest_herbal_infusion",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:thunder_crystal_powder",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:wooden_mug",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:dark_bottle",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:ceramic_pitcher",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:filled_pitcher",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:berry_mors_pitcher",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:light_beer_mug",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:dark_beer_mug",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:hopped_beer_mug",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:honey_beer_mug",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:forest_beer_mug",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:thunder_beer_mug",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:veles_dark_beer_mug",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:witch_berry_beer_mug",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:kvass_mug",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:berry_mors_mug",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:mead_bottle",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:apple_cider_bottle",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:apple_juice_bottle",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:spoiled_brew",
+    "class": "org.slavicmyths.brewing.BeverageItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 3
+  },
+  {
+    "item": "slavicmyths:light_beer_wort",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:dark_beer_wort",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:hopped_beer_wort",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:honey_beer_wort",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:forest_beer_wort",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:thunder_beer_wort",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:veles_dark_wort",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:witch_berry_wort",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:kvass_wort",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:mead_must",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:cider_must",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": -1
+  },
+  {
+    "item": "slavicmyths:fruit_press",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:fermentation_vat",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:small_keg",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:hops_cutting",
+    "class": "net.minecraft.world.item.ItemNameBlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:settlement_chest",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:bandit_token",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:druzhinnik_table",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:millstone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_wood",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_stripped_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_stripped_wood",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_planks",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_leaves",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_sapling",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:linden_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_fence",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_fence_gate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_door",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_trapdoor",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_pressure_plate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_button",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_sign",
+    "class": "net.minecraft.world.item.SignItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_wood",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_stripped_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_stripped_wood",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_planks",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_leaves",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_sapling",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:rowan_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_fence",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_fence_gate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_door",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_trapdoor",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_pressure_plate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_button",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_sign",
+    "class": "net.minecraft.world.item.SignItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_wood",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_stripped_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_stripped_wood",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_planks",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_leaves",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_sapling",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:willow_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_fence",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_fence_gate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_door",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_trapdoor",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_pressure_plate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_button",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:willow_sign",
+    "class": "net.minecraft.world.item.SignItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_wood",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_stripped_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_stripped_wood",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_planks",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_leaves",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_sapling",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:pine_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_fence",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_fence_gate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_door",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_trapdoor",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_pressure_plate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_button",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_sign",
+    "class": "net.minecraft.world.item.SignItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:rowan_berries",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 2
+  },
+  {
+    "item": "slavicmyths:hanging_willow_leaves",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_table",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_chair",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_stool",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_bench",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_shelf",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_wardrobe",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_bedside_cabinet",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pine_weapon_rack",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_table",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_chair",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_stool",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_bench",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_shelf",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_wardrobe",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_bedside_cabinet",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:linden_weapon_rack",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:cloth_bag",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:wooden_crate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:firewood_bundle",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:training_dummy",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:signal_bell",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:mysterious_black_feather",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:darkened_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:darkened_stripped_log",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:darkened_planks",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:darkened_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:darkened_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:darkened_fence",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:darkened_fence_gate",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:darkened_door",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:darkened_trapdoor",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pale_blue_kurgan_stone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pale_blue_kurgan_cobblestone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:cracked_pale_blue_kurgan_cobblestone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:mossy_pale_blue_kurgan_cobblestone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:bog_green_kurgan_stone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:bog_green_kurgan_cobblestone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:cracked_bog_green_kurgan_cobblestone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:mossy_bog_green_kurgan_cobblestone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:sealed_kurgan_masonry",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pale_blue_kurgan_stone_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pale_blue_kurgan_stone_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pale_blue_kurgan_stone_wall",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pale_blue_kurgan_cobblestone_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pale_blue_kurgan_cobblestone_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:pale_blue_kurgan_cobblestone_wall",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:bog_green_kurgan_stone_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:bog_green_kurgan_stone_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:bog_green_kurgan_stone_wall",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:bog_green_kurgan_cobblestone_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:bog_green_kurgan_cobblestone_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:bog_green_kurgan_cobblestone_wall",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:cracked_bog_green_kurgan_cobblestone_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:cracked_bog_green_kurgan_cobblestone_wall",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:carved_burial_stone",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:carved_burial_stone_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:burial_stone_slab",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:kurgan_column_fragment",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:kurgan_ritual_bowl",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:kurgan_pottery",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:kurgan_stone_altar",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:kurgan_wall_torch_holder",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:kurgan_hanging_brazier",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:kurgan_rubble",
+    "class": "net.minecraft.world.item.BlockItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 6
+  },
+  {
+    "item": "slavicmyths:iron_blank",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:spear_shaft",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:short_shaft",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:flail_handle",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:flail_chain",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:stone_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:stone_light_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:stone_flail_ball",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:stone_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 4.0,
+    "attack_speed": 1.5,
+    "reach": 3.5,
+    "durability": 131,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:stone_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "damage": 7.0,
+    "attack_speed": 0.7000000476837158,
+    "reach": 3.0,
+    "durability": 131,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:stone_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 3.0,
+    "attack_speed": 2.3,
+    "reach": 3.0,
+    "durability": 131,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:iron_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:iron_light_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:iron_flail_ball",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:iron_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "damage": 6.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 4.25,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:iron_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 5.0,
+    "attack_speed": 1.5,
+    "reach": 3.5,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:iron_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 4.0,
+    "attack_speed": 2.3,
+    "reach": 3.0,
+    "durability": 250,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:gold_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:gold_light_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:gold_flail_ball",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:gold_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "damage": 4.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 4.25,
+    "durability": 32,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:gold_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 3.0,
+    "attack_speed": 1.5,
+    "reach": 3.5,
+    "durability": 32,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:gold_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "damage": 6.0,
+    "attack_speed": 0.7000000476837158,
+    "reach": 3.0,
+    "durability": 32,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:gold_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 2.0,
+    "attack_speed": 2.3,
+    "reach": 3.0,
+    "durability": 32,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:diamond_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:diamond_light_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:diamond_flail_ball",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:diamond_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "damage": 7.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 4.25,
+    "durability": 1561,
+    "rune_slots": 2,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:diamond_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 6.0,
+    "attack_speed": 1.5,
+    "reach": 3.5,
+    "durability": 1561,
+    "rune_slots": 2,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:diamond_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "damage": 9.0,
+    "attack_speed": 0.7000000476837158,
+    "reach": 3.0,
+    "durability": 1561,
+    "rune_slots": 2,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:diamond_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 5.0,
+    "attack_speed": 2.3,
+    "reach": 3.0,
+    "durability": 1561,
+    "rune_slots": 2,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:netherite_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:netherite_light_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:netherite_flail_ball",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:netherite_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "damage": 8.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 4.25,
+    "durability": 2031,
+    "rune_slots": 2,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:netherite_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 7.0,
+    "attack_speed": 1.5,
+    "reach": 3.5,
+    "durability": 2031,
+    "rune_slots": 2,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:netherite_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "damage": 10.0,
+    "attack_speed": 0.7000000476837158,
+    "reach": 3.0,
+    "durability": 2031,
+    "rune_slots": 2,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:netherite_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 6.0,
+    "attack_speed": 2.3,
+    "reach": 3.0,
+    "durability": 2031,
+    "rune_slots": 2,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:silver_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:silver_light_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:silver_flail_ball",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:silver_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 5.0,
+    "attack_speed": 1.5,
+    "reach": 3.5,
+    "durability": 220,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:silver_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "damage": 8.0,
+    "attack_speed": 0.7000000476837158,
+    "reach": 3.0,
+    "durability": 220,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:silver_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 4.0,
+    "attack_speed": 2.3,
+    "reach": 3.0,
+    "durability": 220,
+    "rune_slots": 1,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perunite_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:perunite_light_spearhead",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:perunite_flail_ball",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 0
+  },
+  {
+    "item": "slavicmyths:perunite_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "damage": 6.5,
+    "attack_speed": 1.2000000476837158,
+    "reach": 4.25,
+    "durability": 850,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perunite_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 5.5,
+    "attack_speed": 1.5,
+    "reach": 3.5,
+    "durability": 850,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perunite_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "damage": 8.5,
+    "attack_speed": 0.7000000476837158,
+    "reach": 3.0,
+    "durability": 850,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:perunite_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "damage": 4.5,
+    "attack_speed": 2.3,
+    "reach": 3.0,
+    "durability": 850,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:short_bow",
+    "class": "org.slavicmyths.combat.FieldBowItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 300,
+    "rune_slots": 2,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:heavy_bow",
+    "class": "org.slavicmyths.combat.FieldBowItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 500,
+    "rune_slots": 2,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:tugarin_sword",
+    "class": "net.minecraft.world.item.SwordItem",
+    "damage": 6.0,
+    "attack_speed": 1.7999999523162842,
+    "reach": 3.0,
+    "durability": 1561,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:likho_staff",
+    "class": "org.slavicmyths.combat.LikhoStaffItem",
+    "damage": 4.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 3.0,
+    "durability": 1561,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:ataman_flail",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "damage": 9.0,
+    "attack_speed": 0.7000000476837158,
+    "reach": 3.0,
+    "durability": 1561,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:victor_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "damage": 7.0,
+    "attack_speed": 1.2000000476837158,
+    "reach": 4.25,
+    "durability": 1561,
+    "rune_slots": 3,
+    "category": 4
+  },
+  {
+    "item": "slavicmyths:ataman_sign",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 1
+  },
+  {
+    "item": "slavicmyths:rune_chisel",
+    "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 192,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:iron_dust",
+    "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:gold_dust",
+    "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:coal_dust",
+    "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:lapis_dust",
+    "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:diamond_dust",
+    "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:perunite_dust",
+    "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:soul_fragment",
+    "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:soul",
+    "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:empowered_soul",
+    "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:bound_soul",
+    "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:blank_rune_1",
+    "class": "org.slavicmyths.rpg.RuneFoundation$BlankItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:blank_rune_2",
+    "class": "org.slavicmyths.rpg.RuneFoundation$BlankItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:blank_rune_3",
+    "class": "org.slavicmyths.rpg.RuneFoundation$BlankItem",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_strength",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_speed",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_resilience",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_crushing",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_blood",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_fortitude",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_floating_weapon",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_flight",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_rare_protection",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_death",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_berserker",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_sacrifice",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_flight_fragment",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_rare_protection_fragment",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_death_fragment",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  },
+  {
+    "item": "slavicmyths:rune_berserker_fragment",
+    "class": "net.minecraft.world.item.Item",
+    "damage": 1.0,
+    "attack_speed": 4.0,
+    "reach": 3.0,
+    "durability": 0,
+    "rune_slots": 0,
+    "category": 7
+  }
+]

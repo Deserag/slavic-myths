@@ -1,0 +1,9 @@
+{
+  "version": "1.4.2.1",
+  "checks": 10967,
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.4.2.1.jar",
+  "sha256": "9200e829316c8f41036fd89fde487f479485d66f72bd49e5fa5250c6a070b1c9",
+  "resources": "PASS",
+  "production": "PASS",
+  "client_launches": 0
+}

@@ -13,7 +13,8 @@ public final class RareRuneRules {
     public static double speed(int tier){return Math.clamp(tier,0,3)*.05;}
     public static double vulnerability(int tier){return switch(tier){case 1->.05;case 2->.12;case 3->.20;default->0;};}
     public static boolean canPay(double hp,double price){return Double.isFinite(hp)&&hp>price&&price>0;}
-    public static boolean execute(double targetHp,double playerHp,boolean immune){return !immune&&targetHp>0&&targetHp<=5&&canPay(playerHp,12);}
+    public static double executeThreshold(double maxHealth){return Double.isFinite(maxHealth)&&maxHealth>0?Math.min(maxHealth*.15,50):0;}
+    public static boolean execute(double targetHp,double maxHealth,double playerHp,boolean immune){return !immune&&Double.isFinite(targetHp)&&targetHp>0&&targetHp<=executeThreshold(maxHealth)&&canPay(playerHp,12);}
     public static boolean ready(long now,long until){return until<=now;}
     public static int remainingShields(int shields){return Math.max(0,Math.min(3,shields)-1);}
     public static int echoCycle(int age){return age<13?-1:(age-13)%28;}

@@ -1,0 +1,15 @@
+{
+  "json_files": 3018,
+  "png_files": 901,
+  "registered_items": 659,
+  "errors": [],
+  "missing_item_models": [],
+  "missing_translations": {
+    "ru_ru": [],
+    "en_us": []
+  },
+  "production_test_classes": [],
+  "jar_sha256": "e0c0b0d195e3e7596e4ce5b244d1729146d6a89383267e5a8f2e0a7ae5e4a951",
+  "extended_errors": [],
+  "sound_events": 199
+}

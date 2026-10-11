@@ -1,0 +1,9 @@
+{
+  "build": "PASS",
+  "offline_checks": "PASS",
+  "checks": 6186,
+  "production_sha256": "fe757e563a5b868e4f4f85e02647298a1184a09ea0952baec50251aac883a1b7",
+  "runtime_validation": "NOT_RUN",
+  "minecraft_launches": 0,
+  "limits": "Pure damage math, real SavedData codec, eight existing cave layout variants, native mesh/UV checks; not real combat, relog, animation or MSPT."
+}

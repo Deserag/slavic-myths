@@ -7,5 +7,5 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value=VillagerHostilesSensor.class,remap=false)
 public abstract class BanditThreatMixin {
  @Inject(method="isMatchingEntity",at=@At("HEAD"),cancellable=true)
- private void bandits(LivingEntity v,LivingEntity enemy,CallbackInfoReturnable<Boolean> ci){if(enemy.getType().is(org.slavicmyths.military.Military.BANDITS))ci.setReturnValue(v.distanceToSqr(enemy)<=15*15);}
+ private void bandits(LivingEntity v,LivingEntity enemy,CallbackInfoReturnable<Boolean> ci){if(enemy instanceof org.slavicmyths.bandit.NightingaleEntity || enemy instanceof org.slavicmyths.hunt.WorldBoss boss && boss.kind()==org.slavicmyths.hunt.BossKind.TUGARIN || enemy.getType().is(org.slavicmyths.military.Military.BANDITS))ci.setReturnValue(v.distanceToSqr(enemy)<=15*15);}
 }

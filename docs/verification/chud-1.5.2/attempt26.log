@@ -1,0 +1,129 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileChudCheckJava
+> Task :processChudCheckResources UP-TO-DATE
+> Task :chudCheckClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeChudChecksLegacyClasspath UP-TO-DATE
+> Task :prepareChudChecksRun
+
+> Task :runChudChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[14:51:59] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[14:52:00] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[14:52:00] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[14:52:00] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[14:52:00] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[14:52:00] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[14:52:00] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.5.1 (slavicmyths)
+[14:52:01] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[14:52:01] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[14:52:01] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:52:01] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:52:02] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[14:52:02] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[14:52:07] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:52:07] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:52:07] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:52:07] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:52:07] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:52:08] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[14:52:09] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[14:52:09] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-152/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[14:52:09] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-152/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[14:52:09] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_abandoned, slavicmyths_abandoned_full, slavicmyths_abandoned_terrain]
+[14:52:10] [main/INFO] [minecraft/RecipeManager]: Loaded 1769 recipes
+[14:52:10] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[14:52:10] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[14:52:10] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[14:52:11] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[14:52:11] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[14:52:11] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 111 ms
+[14:52:11] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[14:52:11] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[14:52:11] [Server thread/INFO] [minecraft/GameTestServer]: 6 tests are now running at position -2470796, -59, 605220!
+[14:52:12] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (6 tests)...
+[14:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [      ]
+ABANDONED_GEOMETRY seed=0 type=ATTACHED_SMALL reachable=15582 unreachable=[]
+ABANDONED_GEOMETRY seed=0 type=INDEPENDENT_MEDIUM reachable=10985 unreachable=[]
+ABANDONED_GEOMETRY seed=0 type=INDEPENDENT_GREAT reachable=26288 unreachable=[]
+ABANDONED_GEOMETRY seed=1 type=ATTACHED_SMALL reachable=18745 unreachable=[]
+ABANDONED_GEOMETRY seed=1 type=INDEPENDENT_MEDIUM reachable=10971 unreachable=[]
+ABANDONED_GEOMETRY seed=1 type=INDEPENDENT_GREAT reachable=26462 unreachable=[]
+ABANDONED_GEOMETRY seed=2 type=ATTACHED_SMALL reachable=20733 unreachable=[]
+ABANDONED_GEOMETRY seed=2 type=INDEPENDENT_MEDIUM reachable=11057 unreachable=[]
+ABANDONED_GEOMETRY seed=2 type=INDEPENDENT_GREAT reachable=27464 unreachable=[]
+ABANDONED_GEOMETRY seed=3 type=ATTACHED_SMALL reachable=15578 unreachable=[]
+ABANDONED_GEOMETRY seed=3 type=INDEPENDENT_MEDIUM reachable=10984 unreachable=[]
+ABANDONED_GEOMETRY seed=3 type=INDEPENDENT_GREAT reachable=26341 unreachable=[]
+ABANDONED_GEOMETRY seed=4 type=ATTACHED_SMALL reachable=18691 unreachable=[]
+ABANDONED_GEOMETRY seed=4 type=INDEPENDENT_MEDIUM reachable=11062 unreachable=[]
+ABANDONED_GEOMETRY seed=4 type=INDEPENDENT_GREAT reachable=26302 unreachable=[]
+ABANDONED_GEOMETRY seed=5 type=ATTACHED_SMALL reachable=20677 unreachable=[]
+ABANDONED_GEOMETRY seed=5 type=INDEPENDENT_MEDIUM reachable=10990 unreachable=[]
+ABANDONED_GEOMETRY seed=5 type=INDEPENDENT_GREAT reachable=26285 unreachable=[]
+ABANDONED_GEOMETRY seed=6 type=ATTACHED_SMALL reachable=15705 unreachable=[]
+ABANDONED_GEOMETRY seed=6 type=INDEPENDENT_MEDIUM reachable=10941 unreachable=[]
+ABANDONED_GEOMETRY seed=6 type=INDEPENDENT_GREAT reachable=27445 unreachable=[]
+ABANDONED_GEOMETRY seed=7 type=ATTACHED_SMALL reachable=18689 unreachable=[]
+ABANDONED_GEOMETRY seed=7 type=INDEPENDENT_MEDIUM reachable=10995 unreachable=[]
+ABANDONED_GEOMETRY seed=7 type=INDEPENDENT_GREAT reachable=26496 unreachable=[]
+ABANDONED_GEOMETRY seed=8 type=ATTACHED_SMALL reachable=20664 unreachable=[]
+ABANDONED_GEOMETRY seed=8 type=INDEPENDENT_MEDIUM reachable=11013 unreachable=[]
+ABANDONED_GEOMETRY seed=8 type=INDEPENDENT_GREAT reachable=26401 unreachable=[]
+ABANDONED_GEOMETRY seed=9 type=ATTACHED_SMALL reachable=15697 unreachable=[]
+ABANDONED_GEOMETRY seed=9 type=INDEPENDENT_MEDIUM reachable=10890 unreachable=[]
+ABANDONED_GEOMETRY seed=9 type=INDEPENDENT_GREAT reachable=26346 unreachable=[]
+ABANDONED_GEOMETRY seed=10 type=ATTACHED_SMALL reachable=18766 unreachable=[]
+ABANDONED_GEOMETRY seed=10 type=INDEPENDENT_MEDIUM reachable=10907 unreachable=[]
+ABANDONED_GEOMETRY seed=10 type=INDEPENDENT_GREAT reachable=27441 unreachable=[]
+ABANDONED_GEOMETRY seed=11 type=ATTACHED_SMALL reachable=20605 unreachable=[]
+ABANDONED_GEOMETRY seed=11 type=INDEPENDENT_MEDIUM reachable=10986 unreachable=[]
+ABANDONED_GEOMETRY seed=11 type=INDEPENDENT_GREAT reachable=26325 unreachable=[]
+[14:52:21] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 8590ms or 171 ticks behind
+ABANDONED_NATURAL seed=0 eligible=896 accepted=0 reasons={{abandonedCover=0}=1, {abandonedCover=-8}=1, {abandonedCover=-6}=1, {abandonedRouteCover=1}=1, {abandonedWorldBounds=-78}=1, {abandonedRockPercent=0}=1, {abandonedCover=10}=1, {abandonedRockPercent=54}=2, {abandonedFluidY=41}=1, {abandonedFluidY=55}=1, {abandonedRockPercent=50}=3, {abandonedRockPercent=16}=1, {abandonedRouteRockPercent=0}=1, {abandonedFluidY=29}=1, {abandonedCover=-3}=1, {abandonedWorldBounds=-57}=1, {abandonedRouteRockPercent=25}=1, {abandonedCover=5}=1, {abandonedForestFrequency=12}=6, {abandonedCover=11}=2, {abandonedWorldBounds=-70}=1, {abandonedFluidY=30}=1, {abandonedWorldBounds=-54}=1, {abandonedWorldBounds=-86}=1, {abandonedWorldBounds=-52}=1, {abandonedWorldBounds=-74}=1, {abandonedFluidY=22}=1, {abandonedFluidY=34}=1, {abandonedCover=-32}=1, {abandonedFluidY=48}=1, {abandonedRockPercent=33}=1}
+ABANDONED_NATURAL seed=1 eligible=905 accepted=0 reasons={{abandonedCover=8}=1, {abandonedCover=5}=1, {abandonedWorldBounds=-66}=1, {abandonedForestFrequency=12}=6, {abandonedCover=11}=3, {abandonedCover=10}=1, {abandonedCover=9}=1, {abandonedRockPercent=40}=1, {abandonedRockPercent=41}=1, {abandonedWorldBounds=-60}=1, {abandonedWorldBounds=-71}=2, {abandonedRockPercent=30}=1, {abandonedRockPercent=20}=1, {abandonedFluidY=40}=1, {abandonedRockPercent=54}=2, {abandonedWorldBounds=-54}=2, {abandonedFluidY=31}=1, {abandonedWorldBounds=-52}=2, {abandonedFluidY=44}=1, {abandonedWorldBounds=-51}=1, {abandonedRockPercent=50}=6, {abandonedFluidY=49}=1, {abandonedRockPercent=33}=1, {abandonedRockPercent=36}=1}
+ABANDONED_NATURAL seed=2 eligible=913 accepted=0 reasons={{abandonedCover=-109}=1, {abandonedCover=-7}=1, {abandonedCover=-12}=1, {abandonedCover=4}=1, {abandonedCover=3}=1, {abandonedCover=6}=1, {abandonedCover=-19}=1, {abandonedForestFrequency=12}=6, {abandonedRockPercent=0}=3, {abandonedCover=11}=3, {abandonedWorldBounds=-50}=1, {abandonedRockPercent=40}=2, {abandonedRockPercent=41}=1, {abandonedRockPercent=30}=1, {abandonedFluidY=94}=1, {abandonedFluidY=5}=1, {abandonedRockPercent=20}=2, {abandonedRockPercent=54}=1, {abandonedFluidY=41}=1, {abandonedFluidY=53}=1, {abandonedWorldBounds=-53}=1, {abandonedWorldBounds=-63}=2, {abandonedRockPercent=50}=5, {abandonedRockPercent=16}=1}
+ABANDONED_NATURAL seed=3 eligible=942 accepted=0 reasons={{abandonedCover=0}=1, {abandonedCover=-26}=1, {abandonedCover=-17}=2, {abandonedCover=-5}=1, {abandonedCover=-4}=1, {abandonedCover=8}=1, {abandonedRouteFluidY=46}=1, {abandonedWorldBounds=-57}=1, {abandonedWorldBounds=-56}=1, {abandonedCover=6}=1, {chudConflict:slavicmyths:bandit_camp_small=1}=1, {abandonedForestFrequency=12}=5, {abandonedRockPercent=0}=2, {abandonedWorldBounds=-61}=1, {abandonedRouteCover=14}=1, {abandonedRockPercent=54}=3, {abandonedWorldBounds=-53}=1, {abandonedWorldBounds=-62}=1, {abandonedRockPercent=50}=6, {abandonedRockPercent=16}=1, {abandonedRouteRockPercent=0}=3, {abandonedRockPercent=45}=2, {abandonedRockPercent=58}=2}
+ABANDONED_NATURAL seed=4 eligible=970 accepted=0 reasons={{abandonedCover=-15}=1, {abandonedCover=-11}=1, {abandonedWorldBounds=-56}=1, {abandonedCover=6}=1, {abandonedRockPercent=0}=1, {abandonedCover=10}=3, {abandonedRockPercent=40}=2, {abandonedWorldBounds=-81}=1, {abandonedFluidY=53}=1, {abandonedFluidY=31}=1, {abandonedWorldBounds=-73}=1, {abandonedRockPercent=50}=5, {abandonedCover=-26}=1, {chudConflict:minecraft:mineshaft=1}=2, {abandonedWorldBounds=-57}=1, {abandonedRouteRockPercent=25}=1, {abandonedForestFrequency=12}=8, {abandonedCover=9}=1, {abandonedRockPercent=41}=1, {abandonedWorldBounds=-86}=1, {abandonedRouteCover=5}=1, {abandonedCover=-30}=1, {abandonedFluidY=34}=1, {abandonedFluidY=38}=1, {abandonedRockPercent=33}=1}
+ABANDONED_NATURAL seed=5 eligible=880 accepted=0 reasons={{abandonedCover=0}=1, {abandonedCover=3}=1, {abandonedCover=1}=1, {abandonedCover=8}=1, {abandonedWorldBounds=-56}=1, {abandonedWorldBounds=-55}=1, {abandonedRouteRockPercent=25}=1, {abandonedForestFrequency=12}=7, {abandonedCover=11}=1, {abandonedRockPercent=0}=1, {abandonedWorldBounds=-59}=1, {abandonedCover=10}=4, {abandonedRockPercent=40}=2, {abandonedWorldBounds=-80}=1, {abandonedFluidY=6}=1, {abandonedRockPercent=10}=2, {abandonedFluidY=54}=1, {abandonedFluidY=99}=1, {abandonedRockPercent=50}=3, {abandonedRockPercent=16}=2, {abandonedRouteRockPercent=0}=1, {abandonedFluidY=38}=2, {abandonedFluidY=17}=1, {abandonedRockPercent=58}=2}
+ABANDONED_NATURAL seed=6 eligible=1031 accepted=2 reasons={{abandonedCover=-16}=1, {}=1, {abandonedCover=-11}=1, {abandonedCover=-24}=1, {abandonedWorldBounds=-58}=1, {abandonedCover=-1}=1, {abandonedRouteRockPercent=25}=2, {abandonedCover=5}=1, {abandonedForestFrequency=12}=7, {abandonedRockPercent=0}=2, {abandonedCover=11}=3, {abandonedCover=10}=1, {abandonedCover=9}=1, {abandonedWorldBounds=-72}=1, {abandonedWorldBounds=-60}=2, {abandonedRockPercent=30}=2, {abandonedFluidY=7}=1, {abandonedWorldBounds=-53}=1, {abandonedWorldBounds=-64}=1, {abandonedWorldBounds=-63}=1, {abandonedRouteFluidY=9}=1, {abandonedRockPercent=50}=2, {abandonedFluidY=25}=1, {abandonedRockPercent=45}=2}
+ABANDONED_NATURAL seed=7 eligible=876 accepted=1 reasons={{abandonedCover=-6}=1, {abandonedCover=-11}=1, {abandonedWorldBounds=-68}=1, {abandonedRockPercent=0}=2, {abandonedRockPercent=40}=1, {abandonedRockPercent=30}=1, {abandonedRockPercent=54}=2, {abandonedWorldBounds=-53}=1, {abandonedWorldBounds=-63}=1, {abandonedRockPercent=50}=3, {abandonedRouteRockPercent=0}=1, {abandonedRockPercent=58}=1, {abandonedCover=-9}=1, {abandonedCover=-12}=1, {abandonedCover=-14}=2, {abandonedCover=7}=1, {abandonedWorldBounds=-55}=1, {chudConflict:slavicmyths:bandit_camp_small=1}=1, {abandonedForestFrequency=12}=8, {abandonedCover=9}=2, {abandonedWorldBounds=-70}=1, {abandonedWorldBounds=-54}=1, {abandonedWorldBounds=-52}=1, {abandonedFluidY=38}=1, {abandonedRockPercent=45}=2}
+ABANDONED_NATURAL seed=8 eligible=991 accepted=1 reasons={{abandonedCover=0}=1, {abandonedWorldBounds=-68}=1, {abandonedCover=6}=1, {abandonedWorldBounds=-61}=2, {abandonedFluidY=81}=1, {abandonedRockPercent=40}=1, {abandonedRockPercent=30}=1, {abandonedWorldBounds=-81}=1, {abandonedRockPercent=54}=2, {abandonedFluidY=43}=1, {abandonedRockPercent=50}=4, {abandonedFluidY=13}=1, {abandonedRockPercent=16}=1, {abandonedRockPercent=58}=1, {abandonedCover=-12}=1, {chudConflict:minecraft:mineshaft=1}=1, {abandonedCover=-24}=1, {abandonedRouteRockPercent=25}=2, {abandonedForestFrequency=12}=8, {abandonedCover=11}=1, {abandonedWorldBounds=-59}=1, {abandonedWorldBounds=-60}=1, {abandonedWorldBounds=-52}=1, {abandonedFluidY=34}=1, {abandonedFluidY=56}=1, {abandonedRockPercent=25}=1}
+ABANDONED_NATURAL seed=9 eligible=934 accepted=0 reasons={{abandonedCover=4}=1, {abandonedCover=6}=1, {abandonedRockPercent=0}=2, {abandonedCover=10}=2, {abandonedRockPercent=10}=1, {abandonedRockPercent=54}=1, {abandonedFluidY=51}=1, {abandonedWorldBounds=-85}=1, {abandonedRockPercent=50}=3, {abandonedFluidY=55}=1, {abandonedFluidY=13}=1, {abandonedFluidY=47}=1, {abandonedRockPercent=18}=1, {abandonedRockPercent=58}=3, {abandonedRockPercent=36}=1, {abandonedCover=-7}=1, {abandonedCover=5}=1, {abandonedForestFrequency=12}=7, {abandonedCover=11}=1, {abandonedWorldBounds=-59}=1, {abandonedCover=9}=1, {abandonedFluidY=40}=1, {abandonedWorldBounds=-64}=1, {abandonedWorldBounds=-96}=1, {abandonedCover=-10}=2, {abandonedRockPercent=45}=2}
+ABANDONED_NATURAL seed=10 eligible=908 accepted=0 reasons={{abandonedCover=-9}=1, {abandonedCover=-8}=3, {abandonedCover=3}=1, {abandonedCover=-5}=1, {chudConflict:minecraft:mineshaft=1}=1, {abandonedCover=-2}=1, {abandonedRouteRockPercent=25}=2, {abandonedForestFrequency=12}=7, {abandonedRockPercent=0}=1, {abandonedWorldBounds=-59}=1, {abandonedCover=10}=1, {abandonedRockPercent=40}=1, {abandonedWorldBounds=-61}=1, {abandonedRockPercent=54}=1, {abandonedFluidY=84}=1, {abandonedWorldBounds=-53}=1, {abandonedWorldBounds=-63}=3, {abandonedRockPercent=50}=3, {abandonedRouteRockPercent=0}=4, {abandonedCover=-43}=1, {abandonedFluidY=48}=1, {abandonedFluidY=16}=1, {abandonedRockPercent=45}=1, {abandonedFluidY=28}=1}
+ABANDONED_NATURAL seed=11 eligible=940 accepted=1 reasons={{abandonedCover=4}=1, {abandonedCover=2}=3, {abandonedCover=-25}=1, {abandonedCover=6}=1, {abandonedRockPercent=40}=2, {abandonedWorldBounds=-61}=2, {abandonedRockPercent=30}=1, {abandonedRockPercent=20}=1, {abandonedFluidY=5}=1, {abandonedFluidY=41}=1, {abandonedRockPercent=50}=1, {abandonedCover=-41}=1, {abandonedRockPercent=58}=1, {abandonedCover=-9}=1, {}=1, {abandonedCover=3}=1, {abandonedCover=-3}=3, {abandonedCover=7}=1, {abandonedForestFrequency=12}=8, {abandonedWorldBounds=-49}=1, {abandonedCover=11}=2, {abandonedWorldBounds=-59}=1, {abandonedWorldBounds=-72}=1, {abandonedWorldBounds=-80}=1, {abandonedRockPercent=33}=1}
+ABANDONED_FULL {"kind":"ATTACHED_SMALL","chunks":289,"elapsedMsIncludingStoneFixture":43909.9141,"pathStatus":"PASS","visited":19932,"nbtRoundtrip":true,"clientRelog":false}
+ABANDONED_FULL {"kind":"INDEPENDENT_MEDIUM","chunks":196,"elapsedMsIncludingStoneFixture":30641.9177,"pathStatus":"PASS","visited":10806,"nbtRoundtrip":true,"clientRelog":false}
+ABANDONED_FULL {"kind":"INDEPENDENT_GREAT","chunks":289,"elapsedMsIncludingStoneFixture":44594.7631,"pathStatus":"PASS","visited":26320,"nbtRoundtrip":true,"clientRelog":false}
+[15:07:45] [Server thread/INFO] [minecraft/GameTestServer]: [++++++]
+[15:07:45] [Server thread/INFO] [minecraft/GameTestServer]: ========= 6 GAME TESTS COMPLETE IN 15.56 min ======================
+[15:07:45] [Server thread/INFO] [minecraft/GameTestServer]: All 6 required tests passed :)
+[15:07:45] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[15:07:45] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[15:07:45] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[15:07:45] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[15:07:46] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[15:07:47] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[15:07:47] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[15:07:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[15:07:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:07:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:07:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15:07:47] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+BUILD SUCCESSFUL in 16m
+9 actionable tasks: 3 executed, 6 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

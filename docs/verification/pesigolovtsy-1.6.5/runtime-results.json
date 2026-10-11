@@ -1,0 +1,28 @@
+{
+  "minecraft_launches": 10,
+  "dedicated_gametest_server_launches": 7,
+  "dev_client_launches": 3,
+  "final_server_tests": 7,
+  "final_server_status": "PASS",
+  "client_status": "PASS: roles, native attacks, saved-world reopening",
+  "status": "CHECKED SCENARIOS PASS; natural packs, two-client MP, stress MSPT, audio audition NOT TESTED",
+  "native_frames": [
+    "hunter-attack.png",
+    "hunter.png",
+    "leader-attack.png",
+    "leader.png",
+    "scout-attack.png",
+    "scout.png"
+  ],
+  "worlds": "New isolated snapshot QA worlds only",
+  "actual_runtime_fixes": [
+    "Downward spear aim for low prey",
+    "Authoritative running state synchronized to client"
+  ],
+  "known_preexisting_warnings": [
+    "Missing chud_resident/artisan/guard_spawn_egg models in baseline 1.6.4",
+    "Curios dev refmap warnings"
+  ],
+  "early_failed_runs": "One Gradle configuration failure before Minecraft; five failed GameTest runs while correcting fixtures and low-prey aim; preserved logs",
+  "relog_scope": "Actual world closed/saved and reopened by third dev client; one Leader50HP and one loaded pack member verified; full multi-member cooldown persistence not measured"
+}

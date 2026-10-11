@@ -1,0 +1,12 @@
+﻿item_category,registry_id_or_constraint,min_count,max_count,roll_chance_percent
+vanilla,minecraft:glass_bottle,1,3,75
+vanilla,minecraft:bowl,1,2,55
+vanilla,minecraft:paper,1,3,35
+vanilla,minecraft:brown_mushroom,1,4,60
+vanilla,minecraft:red_mushroom,1,3,50
+vanilla,minecraft:spider_eye,1,1,18
+vanilla,minecraft:honey_bottle,1,1,18
+vanilla,minecraft:fermented_spider_eye,1,1,12
+vanilla,minecraft:glow_berries,1,4,25
+mod_if_exists,existing herb/root/berry item,1,3,25
+mod_if_exists,existing simple herbal decoction item,1,1,12

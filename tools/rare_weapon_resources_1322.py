@@ -80,4 +80,9 @@ def main():
  for n,id in enumerate(NAMES):sheet.alpha_composite(icon(id).resize((96,96),Image.Resampling.NEAREST),(n*120+12,8));d.text((n*120+4,112),id,fill='#201b22')
  sheet.save(ROOT/'docs/media/rare-weapons-1322.png')
  print('Rare weapon resources generated: 5 items, 4 bench recipes, 2 effects.')
+ # Preserve the current combat/model overlay when regenerating historical resources.
+ import combat_fix_resources_1344
+ combat_fix_resources_1344.apply()
+ import unique_armor_resources
+ unique_armor_resources.apply()
 if __name__=='__main__':main()

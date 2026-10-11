@@ -1,0 +1,14 @@
+{
+  "version": "1.3.4.5.1",
+  "installed": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.3.4.5.1.jar",
+  "source": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.3.4.5.1.jar",
+  "sha256": "5192078ab48f3fe1511f233bb2251c78f3327c03eb5264292474c266440b8522",
+  "previous": "1.3.4.4",
+  "previous_sha256": "488fe8606a920486bb42956fef44ea401a9a45729a79b79c64513a5d9d762165",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-1.3.4.5.1-20261008-191436\\slavicmyths-1.3.4.4.jar",
+  "protected_files_unchanged": 765,
+  "client_launches_for_installation": 0,
+  "active_slavic_jars": 1,
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.255"
+}

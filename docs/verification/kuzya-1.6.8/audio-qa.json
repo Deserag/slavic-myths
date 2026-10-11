@@ -1,0 +1,167 @@
+[
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/film/voice_original_desire.ogg",
+    "seconds": 3.7,
+    "rms": 5843.626660402474
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/film/voice_original_domovity.ogg",
+    "seconds": 4.210022675736962,
+    "rms": 3218.794646639982
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/film/voice_original_feed.ogg",
+    "seconds": 4.62,
+    "rms": 4147.618293643033
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/film/voice_original_pancakes.ogg",
+    "seconds": 3.8300226757369615,
+    "rms": 4788.436960022143
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/film/voice_original_sleep.ogg",
+    "seconds": 5.54,
+    "rms": 5110.681063186703
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/annoyed_huff_01.ogg",
+    "seconds": 0.6675736961451247,
+    "rms": 2114.2462370828575
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/annoyed_huff_02.ogg",
+    "seconds": 0.8533333333333334,
+    "rms": 2666.257082510662
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/bowl_clink_01.ogg",
+    "seconds": 0.468390022675737,
+    "rms": 1916.0223572823288
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/bowl_clink_02.ogg",
+    "seconds": 0.5863038548752835,
+    "rms": 1443.855954279346
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/broom_sweep_01.ogg",
+    "seconds": 1.2,
+    "rms": 745.3754968420394
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/chew_01.ogg",
+    "seconds": 0.4818140589569161,
+    "rms": 1108.433269006806
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/chew_02.ogg",
+    "seconds": 0.5630839002267574,
+    "rms": 911.6899730935424
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/chew_03.ogg",
+    "seconds": 0.528390022675737,
+    "rms": 1100.5903464596215
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/cloth_rustle_01.ogg",
+    "seconds": 0.6675736961451247,
+    "rms": 1299.9305571440111
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/cloth_rustle_02.ogg",
+    "seconds": 0.737233560090703,
+    "rms": 973.6476737978319
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/grumble_01.ogg",
+    "seconds": 0.9694331065759637,
+    "rms": 2909.276829169174
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/grumble_02.ogg",
+    "seconds": 1.2,
+    "rms": 2990.7836895224013
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/happy_hum_01.ogg",
+    "seconds": 1.1,
+    "rms": 2887.1429416451915
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/sitting_down_01.ogg",
+    "seconds": 0.6907936507936508,
+    "rms": 1095.648641928549
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/sleep_breath_01.ogg",
+    "seconds": 2.3499773242630386,
+    "rms": 3324.251127345048
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/sleep_breath_02.ogg",
+    "seconds": 2.9,
+    "rms": 3037.8020182660953
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/sleepy_sigh_01.ogg",
+    "seconds": 1.1,
+    "rms": 2628.6859836305994
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/snore_01.ogg",
+    "seconds": 1.1499773242630384,
+    "rms": 3200.4766755013056
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/snore_02.ogg",
+    "seconds": 1.6499773242630384,
+    "rms": 3416.746942421239
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/step_wood_01.ogg",
+    "seconds": 0.3183673469387755,
+    "rms": 3075.25724326449
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/step_wood_02.ogg",
+    "seconds": 0.38893424036281177,
+    "rms": 2755.262135832122
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/step_wood_03.ogg",
+    "seconds": 0.34249433106575966,
+    "rms": 1766.018475430379
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/stove_scramble_01.ogg",
+    "seconds": 0.988390022675737,
+    "rms": 2800.0037834847076
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/stove_scramble_02.ogg",
+    "seconds": 1.2,
+    "rms": 2240.410555707474
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/stove_settle_01.ogg",
+    "seconds": 0.988390022675737,
+    "rms": 809.0479261180934
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/swallow_01.ogg",
+    "seconds": 0.5883900226757369,
+    "rms": 512.7306477348129
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/trunk_wood_01.ogg",
+    "seconds": 0.8881632653061224,
+    "rms": 1665.9777955659035
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/wake_rustle_01.ogg",
+    "seconds": 1.0299773242630386,
+    "rms": 848.696546587167
+  }
+]

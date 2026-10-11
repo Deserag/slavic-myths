@@ -1,0 +1,226 @@
+[
+  {
+    "file": "sounds\\firebird\\ambient_01.ogg",
+    "duration": 1.3439999999999999,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "9dac785a7ba8d2cb57df08b76f44bec5f63f1d5b77d495f05e1e877f71c8a266",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\ambient_02.ogg",
+    "duration": 1.4,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "e281189e2b7318ad43ef654218670b1c5778595c469c8e0dc2365350675b9c2f",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\ambient_03.ogg",
+    "duration": 1.456,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "d4f010246b36842a8c1b736a055768caefc6726f0286d7341c7540adc593251d",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\call_01.ogg",
+    "duration": 2.016,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "e9fefba3f81e597128e64a25d4f2708bad931fbbb49e3d70967c5a6e9b43b9a8",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\call_02.ogg",
+    "duration": 2.1,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "cb30f230a9e64080024452f715e7af29abbf47a184affc53d73c814829e0e720",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\wing_flap_01.ogg",
+    "duration": 0.528,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "26b076663cdc8658c02ef1d0914f94501dcff5b279b266d0a4381de1e68559bb",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\wing_flap_02.ogg",
+    "duration": 0.55,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "41b4a970a55fd4d958494b7c868285a7a6b5414a306e496c884e5af9d844fe61",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\wing_flap_03.ogg",
+    "duration": 0.5720000000000001,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "16c0f90be429faa5acab91b0bcb49152dd3c7a1935847c9e481afc6afb6d1736",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\takeoff_01.ogg",
+    "duration": 1.248,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "8e177bea3e580ac64370b3e06d6e255c707d28e3fd20a5c6d3739f85a506fddf",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\takeoff_02.ogg",
+    "duration": 1.3,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "18d8afed2561f4addf4b9a5c648fee54152c31c01b9c362ab05b5867cf01904f",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\glide_01.ogg",
+    "duration": 1.632,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "5f9fc4dc1c3cbcd831da77ba8a83b71709ba590f77fb7ffa158c733637edcb47",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\glide_02.ogg",
+    "duration": 1.7,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "aef179af0c2398edcfbafee908e42daece8d00c971aba1b8e5e1d669114b6d2a",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\perch_01.ogg",
+    "duration": 0.624,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "a8b593c2c083f7b0ac13d91501a5165493d8c3637eb480b0f51348a681b318f5",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\perch_02.ogg",
+    "duration": 0.65,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "591d911a1f05d992d11caaa2c0b90e93ffccb5211c05094ae01a7c3be4f4b5d4",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\warning_01.ogg",
+    "duration": 1.056,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "8c7572bade9ab8489e131d899a20d39151da402fef87946e395ae2e6f8c8d9fb",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\warning_02.ogg",
+    "duration": 1.1,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "773ef43cf5c866946e9db4797b61d0a484de0a1787651e255b272e1f580231f7",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\retaliation_01.ogg",
+    "duration": 0.816,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "cdbb0d0f42d45af581fc61836b88d5ff824281484045fb2314f17313f1274ec1",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\retaliation_02.ogg",
+    "duration": 0.85,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "e6d35c41743ff6dc838dc64fffd6f1c84cf04cd9c305145aa1c3fc0d2f1bc10e",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\hurt_01.ogg",
+    "duration": 0.576,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "36aecf6737ce3c8270e133152f6f589084048aeb1637e79e90424cdd454e520f",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\hurt_02.ogg",
+    "duration": 0.6,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "e7ff49ef3366a43e0e6c86f61345180e849b83d4019f99c4271924072322cd69",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\hurt_03.ogg",
+    "duration": 0.624,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "7121b113dce237ad0b0ec0cc351ddfac88cb2f5949b80d0df85d3993a9769863",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\drop_01.ogg",
+    "duration": 0.816,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "28948d12973e66c1462c8ad49ed43d3a0299ffbb9dcb8317f71cc1a6a502422b",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\drop_02.ogg",
+    "duration": 0.85,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "1c59694173ebcbb372a1b044a459105f5af91c45bc6637345345e3454ccc8060",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\drop_03.ogg",
+    "duration": 0.884,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "7faa10be9ac0957b5dd08f2b7d792fb0ed5c479c56ac68594e23580579a9e3be",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\depart_01.ogg",
+    "duration": 1.776,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "bb947634d341d6828021e24ac4d8b1e3105d85134d760b198bc058eedf9270d3",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\depart_02.ogg",
+    "duration": 1.85,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "c244ec6443029012aee92cb8d7e3cb687965ca7bb560e9cf8e91640acda6a007",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\death_01.ogg",
+    "duration": 2.016,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "54d266ad065fe8f073e7b2bd72bae2b77fea0213562bc44c2682f07975d92c2a",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  },
+  {
+    "file": "sounds\\firebird\\death_02.ogg",
+    "duration": 2.1,
+    "channels": 1,
+    "sample_rate": 44100,
+    "sha256": "706b8ed4c4ada6574cc45e256de72f4e9881cad8cd50cf4560b13cb48b90ab08",
+    "source": "original deterministic synthesis; tools/firebird_audio.py"
+  }
+]

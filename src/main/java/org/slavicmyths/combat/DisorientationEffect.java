@@ -19,7 +19,7 @@ public final class DisorientationEffect extends MobEffect {
         @Override public void tick(){mob.getNavigation().stop();mob.setDeltaMovement(0,Math.min(0,mob.getDeltaMovement().y),0);}
     }
     public static boolean stunned(LivingEntity e){return e.hasEffect(org.slavicmyths.registry.ModEffects.DISORIENTATION)&&RareCombat.now(e)<e.getPersistentData().getLong("RareStunUntil");}
-    public static boolean allowed(Mob mob,LivingEntity target){return target!=null&&target!=mob&&target.isAlive()&&target instanceof Enemy&&!mob.isAlliedTo(target)
+    public static boolean allowed(Mob mob,LivingEntity target){return target!=null&&target!=mob&&target.isAlive()&&CombatTargeting.isHostileCombatTarget(mob,target)
         &&(!mob.getPersistentData().hasUUID("RareMorokOwner")||!target.getUUID().equals(mob.getPersistentData().getUUID("RareMorokOwner")));}
     @Override public boolean shouldApplyEffectTickThisTick(int duration,int amplifier){return true;}
     @Override public boolean applyEffectTick(LivingEntity e,int amplifier){

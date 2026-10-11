@@ -14,6 +14,12 @@ public final class ThrownNet extends ThrowableItemProjectile {
  protected Item getDefaultItem(){return ModItems.VODYANOY_NET.get();}
 
  public void tick(){super.tick();if(!level().isClientSide){if(tickCount>80)discard();if(getPersistentData().contains("ClassNetRange")){var n=getPersistentData();double r=n.getDouble("ClassNetRange");if(position().distanceToSqr(new Vec3(n.getDouble("ClassNetX"),n.getDouble("ClassNetY"),n.getDouble("ClassNetZ")))>r*r)discard();}}}
- protected void onHitEntity(EntityHitResult hit){super.onHitEntity(hit);if(level().isClientSide||!(hit.getEntity() instanceof LivingEntity)||hit.getEntity()==getOwner())return;LivingEntity e=(LivingEntity)hit.getEntity();if(getOwner()!=null&&getOwner().isAlliedTo(e))return;if(getPersistentData().contains("ClassNetDuration")){if(getOwner() instanceof net.minecraft.server.level.ServerPlayer p&&org.slavicmyths.rpg.Abilities.canHit(p,e))org.slavicmyths.rpg.classes.ClassControl.apply(e,getPersistentData().getInt("ClassNetDuration"),false);return;}if(!e.canChangeDimensions(e.level(),e.level())||e.getMaxHealth()>=100||e.getTags().contains("slavic_music_immune"))return;e.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,e.isInWater()?100:60,e.isInWater()?4:3));}
+ protected void onHitEntity(EntityHitResult hit){super.onHitEntity(hit);if(level().isClientSide||!(hit.getEntity() instanceof LivingEntity e)||!(getOwner() instanceof LivingEntity owner))return;
+  if(!org.slavicmyths.combat.CombatTargeting.canControl(owner,e)||e.getTags().contains("slavic_music_immune")){immune(e);return;}
+  if(getPersistentData().contains("ClassNetDuration")){org.slavicmyths.rpg.classes.ClassControl.apply(e,getPersistentData().getInt("ClassNetDuration"),false);return;}
+  if(!e.canChangeDimensions(e.level(),e.level())||e.getMaxHealth()>=100){immune(e);return;}
+  e.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,e.isInWater()?100:60,e.isInWater()?4:3));
+ }
+ private void immune(LivingEntity e){if(getOwner() instanceof net.minecraft.server.level.ServerPlayer p)p.displayClientMessage(net.minecraft.network.chat.Component.translatable("combat.slavicmyths.net_immune"),true);((net.minecraft.server.level.ServerLevel)level()).sendParticles(net.minecraft.core.particles.ParticleTypes.SMOKE,getX(),getY(),getZ(),3,.1,.1,.1,0);}
  protected void onHit(HitResult hit){super.onHit(hit);if(!level().isClientSide)discard();}
 }

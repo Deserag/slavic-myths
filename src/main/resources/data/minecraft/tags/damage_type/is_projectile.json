@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "slavicmyths:ember_projectile"
+    "slavicmyths:ember_projectile",
+    "slavicmyths:earth_projectile"
   ]
 }

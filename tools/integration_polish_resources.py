@@ -107,4 +107,6 @@ def main():
  class_ui_assets()
  from armor_rune_resources_133 import main as armor_rune_text
  armor_rune_text()
+ from unique_armor_resources import apply as unique_equipment_assets
+ unique_equipment_assets()
 if __name__=='__main__':main()

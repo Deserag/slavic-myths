@@ -1,0 +1,22 @@
+{
+  "version": "1.6.5",
+  "status": "PASS",
+  "checks": 25060,
+  "clean_build": "PASS",
+  "offline": "Doghead/Nochnitsa/Earth/Sivka/Firebird/Visual PASS",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.6.5.jar",
+  "sha256": "e04e28685efbd058e3c41d5c73cf101c3a75d1a196ebd170ae7fef8bb3ae58ae",
+  "baseline_entries_preserved": 6300,
+  "modified_baseline_entries": [
+    "META-INF/MANIFEST.MF",
+    "org/slavicmyths/SlavicMyths.class",
+    "META-INF/neoforge.mods.toml",
+    "assets/slavicmyths/sounds.json",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json"
+  ],
+  "minecraft_launches": 10,
+  "gameplay_visual_audio_mp": "CHECKED SCENARIOS PASS; natural packs, two-client MP, stress MSPT, audio audition NOT TESTED",
+  "build_snapshot": "D:\\slavic-myths\\work\\pesigolovtsy\\snapshot-20261010-221422",
+  "excluded_parallel_work": "Kuzya additions only in build snapshot; checkout preserved"
+}

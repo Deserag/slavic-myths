@@ -1,0 +1,21 @@
+{
+  "version": "1.6.4",
+  "status": "PASS",
+  "checks": 23921,
+  "clean_build": "PASS",
+  "offline": "Nochnitsa/Earth/Sivka/Firebird/Visual PASS",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.6.4.jar",
+  "sha256": "13991752b75dbeab4ebf4d18231f8e48d9d2cefc9a911ec1972556f57d226c48",
+  "baseline_entries_preserved": 6240,
+  "modified_baseline_entries": [
+    "META-INF/MANIFEST.MF",
+    "org/slavicmyths/SlavicMyths.class",
+    "org/slavicmyths/earth/EarthConfig.class",
+    "META-INF/neoforge.mods.toml",
+    "assets/slavicmyths/sounds.json",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json"
+  ],
+  "minecraft_launches": 0,
+  "gameplay_visual_audio_mp": "NOT TESTED"
+}

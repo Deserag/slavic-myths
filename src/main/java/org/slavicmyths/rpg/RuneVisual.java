@@ -33,8 +33,8 @@ public final class RuneVisual extends Entity {
     public void dissolve(){if(dissolving==0){dissolving=8;entityData.set(PHASE,20);}}
     @Override public void onSyncedDataUpdated(EntityDataAccessor<?> key){super.onSyncedDataUpdated(key);if(key==PHASE)animationAge=0;}
     private static Vec3 shoulder(ServerPlayer p){double a=Math.toRadians(p.getYRot());return new Vec3(Math.cos(a)*.75,1.5,Math.sin(a)*.75);}
-    private boolean valid(ServerPlayer p,LivingEntity t){return t!=null&&t.isAlive()&&p.distanceToSqr(t)<=144&&Abilities.canHit(p,t)&&p.hasLineOfSight(t);}
-    private LivingEntity target(ServerPlayer p){var last=p.getLastHurtMob();if(valid(p,last))return last;return p.level().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(10),t->t instanceof Enemy&&valid(p,t)).stream().min(java.util.Comparator.comparingDouble(p::distanceToSqr)).orElse(null);}
+    private boolean valid(ServerPlayer p,LivingEntity t){return t!=null&&t.isAlive()&&p.distanceToSqr(t)<=144&&org.slavicmyths.combat.CombatTargeting.canAttack(p,t)&&p.hasLineOfSight(t);}
+    private LivingEntity target(ServerPlayer p){var last=p.getLastHurtMob();if(valid(p,last))return last;return p.level().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(12),t->org.slavicmyths.combat.CombatTargeting.isHostileCombatTarget(p,t)&&valid(p,t)).stream().min(java.util.Comparator.comparingDouble(p::distanceToSqr)).orElse(null);}
     @Override public void tick(){super.tick();animationAge++;if(level().isClientSide)return;var p=owner==null?null:((ServerLevel)level()).getServer().getPlayerList().getPlayer(owner);
         if(p==null||!p.isAlive()||p.level()!=level()||!RareRunes.equipped(p,mode()==0?"floating_weapon":"rare_protection")){discard();return;}
         if(RareRuneRules.ready(RareRuneRuntime.now(p),expires))dissolve();
@@ -45,7 +45,7 @@ public final class RuneVisual extends Entity {
         int cycle=RareRuneRules.echoCycle(lifetime);if(lifetime<=12){setPos(p.position().add(shoulder(p)).add(0,Math.sin(lifetime*.3)*.06,0));entityData.set(PHASE,0);return;}
         if(cycle==0){target=target(p);start=p.position().add(shoulder(p));aim=valid(p,target)?target.position().add(0,target.getBbHeight()*.6,0):start;}
         if(cycle<6){entityData.set(PHASE,1);setPos(start);}
-        else if(cycle<12){entityData.set(PHASE,2);setPos(start.lerp(aim,(cycle-5)/6.0));if(cycle==11){attacks++;if(valid(p,target)&&position().distanceToSqr(target.position().add(0,target.getBbHeight()*.6,0))<4){target.hurt(MythDamageSources.echo(this,p),damage);((ServerLevel)level()).sendParticles(ParticleTypes.ENCHANT,getX(),getY(),getZ(),3,.1,.1,.1,0);}}}
+        else if(cycle<12){entityData.set(PHASE,2);setPos(start.lerp(aim,(cycle-5)/6.0));if(cycle==11&&target!=null){attacks++;if(valid(p,target)&&position().distanceToSqr(target.position().add(0,target.getBbHeight()*.6,0))<4){target.hurt(MythDamageSources.echo(this,p),damage);((ServerLevel)level()).sendParticles(ParticleTypes.ENCHANT,getX(),getY(),getZ(),3,.1,.1,.1,0);}}}
         else{entityData.set(PHASE,3);setPos(aim.lerp(p.position().add(shoulder(p)),Math.min(1,(cycle-11)/10.0)));}
         Vec3 direction=aim.subtract(start);setYRot((float)(Math.atan2(direction.z,direction.x)*180/Math.PI)-90);
     }

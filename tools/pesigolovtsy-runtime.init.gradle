@@ -1,0 +1,13 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { dogheadRuntime { java.srcDir 'tools/pesigolovtsy-runtime'; resources.srcDir 'tools/pesigolovtsy-runtime-resources' } }
+ p.sourceSets.dogheadRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.dogheadRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileDogheadRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.dogheadRuntime)
+ p.neoForge.runs { dogheadChecks {
+  type = 'gameTestServer'
+  gameDirectory = p.file('work/pesigolovtsy/server-world')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_pesigolovtsy'
+ } }
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject; p.neoForge.runs.client.gameDirectory = p.file('work/pesigolovtsy/client-world');p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720');if(p.hasProperty('dogheadRelog'))p.neoForge.runs.client.systemProperty('doghead.relog',p.property('dogheadRelog')) }

@@ -1,0 +1,635 @@
+{
+  "provenance": "Original seeded glottal/formant/noise DSP; no external samples. Game audition NOT RUN.",
+  "files": [
+    {
+      "event": "doghead.hunter.ambient",
+      "file": "pesigolovtsy/hunter_ambient_01.ogg",
+      "duration": 0.89859410430839,
+      "peak_db": -4.365605089174724,
+      "rms_db": -22.534196393275963,
+      "sha256": "2c976c96f231c273f99a0614e06254fa7254184a3f88a418c9e64a3eb508be54",
+      "original_seed": 16501
+    },
+    {
+      "event": "doghead.hunter.ambient",
+      "file": "pesigolovtsy/hunter_ambient_02.ogg",
+      "duration": 0.9935827664399093,
+      "peak_db": -3.9906851349055557,
+      "rms_db": -20.62892556034154,
+      "sha256": "02408a00457bf3d8a35690132c8b80b54f7a0584e8b451109359b8b8704d9e1f",
+      "original_seed": 16502
+    },
+    {
+      "event": "doghead.hunter.ambient",
+      "file": "pesigolovtsy/hunter_ambient_03.ogg",
+      "duration": 1.0914965986394558,
+      "peak_db": -3.677743596164352,
+      "rms_db": -21.902785514567455,
+      "sha256": "6db59a6c9da4c09ec805c11fd2d65322b902a07e7c738293a945d1956ebff0a7",
+      "original_seed": 16503
+    },
+    {
+      "event": "doghead.hunter.ambient",
+      "file": "pesigolovtsy/hunter_ambient_04.ogg",
+      "duration": 1.186485260770975,
+      "peak_db": -4.561706156394911,
+      "rms_db": -21.636728386316687,
+      "sha256": "f8d2efa0a3f37b8a8505b3ff9c51bdfb8c27b621cc08086b3bc9f9bf3b331ff1",
+      "original_seed": 16504
+    },
+    {
+      "event": "doghead.hunter.bark",
+      "file": "pesigolovtsy/hunter_bark_01.ogg",
+      "duration": 0.545079365079365,
+      "peak_db": -3.029186338324691,
+      "rms_db": -18.499600268823777,
+      "sha256": "12df7e4165f8ae7523ada5c0ae9660ff5692678a5f6b4faf736896605e51a91a",
+      "original_seed": 16512
+    },
+    {
+      "event": "doghead.hunter.bark",
+      "file": "pesigolovtsy/hunter_bark_02.ogg",
+      "duration": 0.5850793650793651,
+      "peak_db": -2.8394155631828144,
+      "rms_db": -18.234157509438916,
+      "sha256": "8847b73e5614ea30fb9ba483326f901871538b9a56505b34bf4fcfa9df3a9b9e",
+      "original_seed": 16513
+    },
+    {
+      "event": "doghead.hunter.bark",
+      "file": "pesigolovtsy/hunter_bark_03.ogg",
+      "duration": 0.6250793650793651,
+      "peak_db": -3.287413769528125,
+      "rms_db": -18.853140221618094,
+      "sha256": "76cb578e157624592af3fc0158bc10e4a45beb927465fa196d5163456a3ff4a9",
+      "original_seed": 16514
+    },
+    {
+      "event": "doghead.hunter.thrust_whoosh",
+      "file": "pesigolovtsy/hunter_thrust_whoosh_01.ogg",
+      "duration": 0.23997732426303856,
+      "peak_db": -3.542943237257492,
+      "rms_db": -21.443403484796907,
+      "sha256": "9761b11da27a72a12b1ad11bb876cd76152e3bc36c9a6ec676e79671addd8453",
+      "original_seed": 16523
+    },
+    {
+      "event": "doghead.hunter.thrust_whoosh",
+      "file": "pesigolovtsy/hunter_thrust_whoosh_02.ogg",
+      "duration": 0.256984126984127,
+      "peak_db": -3.3168173979334314,
+      "rms_db": -16.987197826891343,
+      "sha256": "abec32bb180133a23fafeb8a9d3f78dc61f55ecb942b4402034d2fcebaed855d",
+      "original_seed": 16524
+    },
+    {
+      "event": "doghead.hunter.thrust_whoosh",
+      "file": "pesigolovtsy/hunter_thrust_whoosh_03.ogg",
+      "duration": 0.29750566893424035,
+      "peak_db": -3.2441390619406976,
+      "rms_db": -19.407460634941547,
+      "sha256": "bb7e4dcd4e7de976e2920261fa2cc898eed656f97a5582a00cd234ec49eeae2e",
+      "original_seed": 16525
+    },
+    {
+      "event": "doghead.hunter.sweep_whoosh",
+      "file": "pesigolovtsy/hunter_sweep_whoosh_01.ogg",
+      "duration": 0.32108843537414966,
+      "peak_db": -3.7118937716481364,
+      "rms_db": -19.613748570760237,
+      "sha256": "d4481010b4c308248f7940754aa2f740cce11818d7c2e4e08f92c3ff066e822e",
+      "original_seed": 16534
+    },
+    {
+      "event": "doghead.hunter.sweep_whoosh",
+      "file": "pesigolovtsy/hunter_sweep_whoosh_02.ogg",
+      "duration": 0.3410884353741497,
+      "peak_db": -2.5057826466286093,
+      "rms_db": -19.458268683473865,
+      "sha256": "b32e2b3f7b6924bb0a0faffcfb256d85c4c0894404a12140882cf9535d1f2b3d",
+      "original_seed": 16535
+    },
+    {
+      "event": "doghead.scout.ambient",
+      "file": "pesigolovtsy/scout_ambient_01.ogg",
+      "duration": 0.6560770975056689,
+      "peak_db": -4.076386250331713,
+      "rms_db": -19.418600368602842,
+      "sha256": "facc598535d8b4c73fe521f0c2ef5d29297bf62e38ddb3a724d9aef16ee39d39",
+      "original_seed": 16545
+    },
+    {
+      "event": "doghead.scout.ambient",
+      "file": "pesigolovtsy/scout_ambient_02.ogg",
+      "duration": 0.726077097505669,
+      "peak_db": -4.499349418279562,
+      "rms_db": -20.130302557858975,
+      "sha256": "f51081b4fac91bc8bca90bb83eca8e1f0fca65567c25f3a78bf0f8d40c2bd639",
+      "original_seed": 16546
+    },
+    {
+      "event": "doghead.scout.ambient",
+      "file": "pesigolovtsy/scout_ambient_03.ogg",
+      "duration": 0.7960770975056689,
+      "peak_db": -3.762547325507866,
+      "rms_db": -19.60557107572439,
+      "sha256": "65e1c27d7a1e7c7172643ce5ff9737d11e68ab304facfedbc71667328885a1eb",
+      "original_seed": 16547
+    },
+    {
+      "event": "doghead.scout.ambient",
+      "file": "pesigolovtsy/scout_ambient_04.ogg",
+      "duration": 0.866077097505669,
+      "peak_db": -3.9356302996700436,
+      "rms_db": -19.306501091364762,
+      "sha256": "af8d70ef20253c3cf123a977d9f26aac553b7f17e554b2b52902b0d5b852bdac",
+      "original_seed": 16548
+    },
+    {
+      "event": "doghead.scout.spot_bark",
+      "file": "pesigolovtsy/scout_spot_bark_01.ogg",
+      "duration": 0.37006802721088433,
+      "peak_db": -3.476444687014312,
+      "rms_db": -17.98939386130428,
+      "sha256": "5cc6f9da6005c7f863bcdfdcb64b06b915a4125ef7199da73b671344a4c45142",
+      "original_seed": 16556
+    },
+    {
+      "event": "doghead.scout.spot_bark",
+      "file": "pesigolovtsy/scout_spot_bark_02.ogg",
+      "duration": 0.3850793650793651,
+      "peak_db": -3.1571006875973406,
+      "rms_db": -17.269345171631386,
+      "sha256": "a97882025f86b19ac69ad76dd3e6e927651983c04944fc955a8a43a44536fff8",
+      "original_seed": 16557
+    },
+    {
+      "event": "doghead.scout.spot_bark",
+      "file": "pesigolovtsy/scout_spot_bark_03.ogg",
+      "duration": 0.42507936507936506,
+      "peak_db": -3.467065802599427,
+      "rms_db": -18.009778007572955,
+      "sha256": "69cb3d05ccbe6046f2a92468ea57171e201b38e10dd368c511030302844ecf32",
+      "original_seed": 16558
+    },
+    {
+      "event": "doghead.scout.bow_draw",
+      "file": "pesigolovtsy/scout_bow_draw_01.ogg",
+      "duration": 0.5485714285714286,
+      "peak_db": -3.3448948205779154,
+      "rms_db": -18.03278865465537,
+      "sha256": "82177e00dc469ce23fa53337e6a61291bf54a3cb3ea81112c3341310506d09b5",
+      "original_seed": 16567
+    },
+    {
+      "event": "doghead.scout.bow_draw",
+      "file": "pesigolovtsy/scout_bow_draw_02.ogg",
+      "duration": 0.5892063492063492,
+      "peak_db": -3.9175214963001275,
+      "rms_db": -17.022823665531885,
+      "sha256": "3beaae477f15e525de59840757f0a937c4d0dfc1a9f1ef453db742b5a47e51fa",
+      "original_seed": 16568
+    },
+    {
+      "event": "doghead.scout.bow_release",
+      "file": "pesigolovtsy/scout_bow_release_01.ogg",
+      "duration": 0.18369614512471655,
+      "peak_db": -3.8014566563376646,
+      "rms_db": -22.125255798132905,
+      "sha256": "048c8970ae840e9c4e89355be34eff96443ba1d98d2beef4d2b5150f7af4b727",
+      "original_seed": 16578
+    },
+    {
+      "event": "doghead.scout.bow_release",
+      "file": "pesigolovtsy/scout_bow_release_02.ogg",
+      "duration": 0.22494331065759637,
+      "peak_db": -3.250469913541245,
+      "rms_db": -25.62895184692135,
+      "sha256": "41ac166ffade5efcc806d692bb388be003bb3eebfdcb57f3686e4e5e3db47f0b",
+      "original_seed": 16579
+    },
+    {
+      "event": "doghead.scout.bow_release",
+      "file": "pesigolovtsy/scout_bow_release_03.ogg",
+      "duration": 0.21968253968253967,
+      "peak_db": -2.9600988113663074,
+      "rms_db": -27.303750821941698,
+      "sha256": "86beeb09f63bbc6f40bf9bbbf5529774eaee576975a2aeb48485b944ced415a7",
+      "original_seed": 16580
+    },
+    {
+      "event": "doghead.scout.knife_whoosh",
+      "file": "pesigolovtsy/scout_knife_whoosh_01.ogg",
+      "duration": 0.18258503401360543,
+      "peak_db": -3.5189062521202983,
+      "rms_db": -17.97549844510179,
+      "sha256": "a290772fe05f93f2fc3d78d75745dbf3139424bfe43365c61b411f975a238082",
+      "original_seed": 16589
+    },
+    {
+      "event": "doghead.scout.knife_whoosh",
+      "file": "pesigolovtsy/scout_knife_whoosh_02.ogg",
+      "duration": 0.19759637188208617,
+      "peak_db": -3.312649118680352,
+      "rms_db": -19.647521884482018,
+      "sha256": "32bddea6b51da6c1384d945b0bc5d0193c3ccd3e53722ac7acc4c8e73e8c04d5",
+      "original_seed": 16590
+    },
+    {
+      "event": "doghead.leader.ambient",
+      "file": "pesigolovtsy/leader_ambient_01.ogg",
+      "duration": 1.0959863945578232,
+      "peak_db": -3.9935658641478966,
+      "rms_db": -20.768715653217455,
+      "sha256": "3748729d66d7210a7f8649af84757316b015c064884d2789facc40db05cf82dc",
+      "original_seed": 16600
+    },
+    {
+      "event": "doghead.leader.ambient",
+      "file": "pesigolovtsy/leader_ambient_02.ogg",
+      "duration": 1.175986394557823,
+      "peak_db": -3.8379482187441116,
+      "rms_db": -21.594516019286914,
+      "sha256": "94f0c477990e4895d4f89ef58bd9cc58ff745fb116f1edf456de6a5b1fd67164",
+      "original_seed": 16601
+    },
+    {
+      "event": "doghead.leader.ambient",
+      "file": "pesigolovtsy/leader_ambient_03.ogg",
+      "duration": 1.2559863945578231,
+      "peak_db": -3.565610680549981,
+      "rms_db": -21.470031083012103,
+      "sha256": "e592108c58a1e34dddbade58279251182c3db899e9d957e2fb4dd23505f23351",
+      "original_seed": 16602
+    },
+    {
+      "event": "doghead.leader.ambient",
+      "file": "pesigolovtsy/leader_ambient_04.ogg",
+      "duration": 1.3359863945578232,
+      "peak_db": -4.303317561300897,
+      "rms_db": -22.138879695585775,
+      "sha256": "c0a75a46a7f4618cf664d8294a95eba53e497afbb931b6c889e2717312daebd1",
+      "original_seed": 16603
+    },
+    {
+      "event": "doghead.leader.howl_inhale",
+      "file": "pesigolovtsy/leader_howl_inhale_01.ogg",
+      "duration": 0.4580952380952381,
+      "peak_db": -2.872730440387265,
+      "rms_db": -16.958421166286737,
+      "sha256": "59cda5a9aeadbdd49441ac7c6a9b8c7a8f4362ac008acd410596d8dd2dbda7a1",
+      "original_seed": 16611
+    },
+    {
+      "event": "doghead.leader.howl_inhale",
+      "file": "pesigolovtsy/leader_howl_inhale_02.ogg",
+      "duration": 0.4880952380952381,
+      "peak_db": -3.731040501537711,
+      "rms_db": -17.44150971898151,
+      "sha256": "356a6046513e1fcb298636957fa98f70e3c17e3bc0383ff9fc04043ed2b4f761",
+      "original_seed": 16612
+    },
+    {
+      "event": "doghead.leader.howl_release",
+      "file": "pesigolovtsy/leader_howl_release_01.ogg",
+      "duration": 1.37,
+      "peak_db": -3.01886774015143,
+      "rms_db": -16.862911455109035,
+      "sha256": "1584b539e8889a4284877ee0fcf42e6cf841b2da4f11d5d8a5804dd9b786a874",
+      "original_seed": 16622
+    },
+    {
+      "event": "doghead.leader.howl_release",
+      "file": "pesigolovtsy/leader_howl_release_02.ogg",
+      "duration": 1.47,
+      "peak_db": -2.8731563613955573,
+      "rms_db": -16.765988273725704,
+      "sha256": "ef1efb6630330310465eef0e13b48ec707d67ea6fbf4907e944c542745eb052f",
+      "original_seed": 16623
+    },
+    {
+      "event": "doghead.leader.howl_release",
+      "file": "pesigolovtsy/leader_howl_release_03.ogg",
+      "duration": 1.57,
+      "peak_db": -3.1584903068575763,
+      "rms_db": -16.734589178252488,
+      "sha256": "9547806b1c4fd09a333d79dedf5577bb3744b88da6cee9a00ee3135236de7088",
+      "original_seed": 16624
+    },
+    {
+      "event": "doghead.leader.howl_release",
+      "file": "pesigolovtsy/leader_howl_release_04.ogg",
+      "duration": 1.67,
+      "peak_db": -2.8970080894817056,
+      "rms_db": -16.45330694196268,
+      "sha256": "f7de426f13b28ec00d8b84ce5bc95ffa66fe065b93085f435bf3c6d8bbd8fe95",
+      "original_seed": 16625
+    },
+    {
+      "event": "doghead.leader.axe_whoosh",
+      "file": "pesigolovtsy/leader_axe_whoosh_01.ogg",
+      "duration": 0.483265306122449,
+      "peak_db": -3.386850406306033,
+      "rms_db": -20.04959438866325,
+      "sha256": "bd533b29e83f28f28a12ac8b968507670091fc50bb298fd08a50b7cd68234af9",
+      "original_seed": 16633
+    },
+    {
+      "event": "doghead.leader.axe_whoosh",
+      "file": "pesigolovtsy/leader_axe_whoosh_02.ogg",
+      "duration": 0.4880952380952381,
+      "peak_db": -3.03713365316651,
+      "rms_db": -18.303431312056155,
+      "sha256": "b3555db9461604e0011f2035a021fc0de1a5ebb17d44a545dd1085ce3108134c",
+      "original_seed": 16634
+    },
+    {
+      "event": "doghead.leader.axe_whoosh",
+      "file": "pesigolovtsy/leader_axe_whoosh_03.ogg",
+      "duration": 0.518095238095238,
+      "peak_db": -3.8889855543135825,
+      "rms_db": -18.76836067145556,
+      "sha256": "9edaafada055d230867b3b0df67c8c1701b4df50dbaac170c1d45dc4707dfbf4",
+      "original_seed": 16635
+    },
+    {
+      "event": "doghead.leader.axe_impact",
+      "file": "pesigolovtsy/leader_axe_impact_01.ogg",
+      "duration": 0.43682539682539684,
+      "peak_db": -2.979928119919482,
+      "rms_db": -26.259108636287177,
+      "sha256": "f6614f4227a2022379e7a08b92418552258f0181374db823c95eea01b2872d6c",
+      "original_seed": 16644
+    },
+    {
+      "event": "doghead.leader.axe_impact",
+      "file": "pesigolovtsy/leader_axe_impact_02.ogg",
+      "duration": 0.45859410430839004,
+      "peak_db": -3.33331980825038,
+      "rms_db": -24.11942238021925,
+      "sha256": "6d7fd4db5ee65f53a2f28f8b05d4dd6d41c73a4891ea8dbd8d424031b4652b00",
+      "original_seed": 16645
+    },
+    {
+      "event": "doghead.leader.axe_impact",
+      "file": "pesigolovtsy/leader_axe_impact_03.ogg",
+      "duration": 0.5035827664399093,
+      "peak_db": -3.7051938485883236,
+      "rms_db": -24.195952317928455,
+      "sha256": "a178511809b9c9a0668057824d7e19f10ce16b088ae70aff8298326c9838e5e7",
+      "original_seed": 16646
+    },
+    {
+      "event": "doghead.shared.hurt",
+      "file": "pesigolovtsy/shared_hurt_01.ogg",
+      "duration": 0.39328798185941044,
+      "peak_db": -2.9890778699853344,
+      "rms_db": -17.321083466375498,
+      "sha256": "bea2b154376537db728a170b1964025ea6ad2dccf5ef4cc35be36ca0ac27e7d8",
+      "original_seed": 16655
+    },
+    {
+      "event": "doghead.shared.hurt",
+      "file": "pesigolovtsy/shared_hurt_02.ogg",
+      "duration": 0.42149659863945577,
+      "peak_db": -3.087460649815278,
+      "rms_db": -17.30679995816335,
+      "sha256": "a24c012c0d99c678dd393bf0ed03297e00d8589fdda07da15265890c826a2e11",
+      "original_seed": 16656
+    },
+    {
+      "event": "doghead.shared.hurt",
+      "file": "pesigolovtsy/shared_hurt_03.ogg",
+      "duration": 0.4734920634920635,
+      "peak_db": -3.308660908831449,
+      "rms_db": -15.929632093753076,
+      "sha256": "38313567cfc2968ae059c0e1abce9bf58856c0e10eb8f4fbd74584921ae94d4e",
+      "original_seed": 16657
+    },
+    {
+      "event": "doghead.shared.hurt",
+      "file": "pesigolovtsy/shared_hurt_04.ogg",
+      "duration": 0.5254875283446712,
+      "peak_db": -3.1581119747669204,
+      "rms_db": -15.543399487217638,
+      "sha256": "3e53e90496834a02413513f70eea02afa5d222bd4a3b043b95d09d6191472608",
+      "original_seed": 16658
+    },
+    {
+      "event": "doghead.shared.hurt",
+      "file": "pesigolovtsy/shared_hurt_05.ogg",
+      "duration": 0.5774829931972789,
+      "peak_db": -3.286298130841528,
+      "rms_db": -17.815085932002333,
+      "sha256": "d63413ced82fff43dd8269f6dab3e7e9e8674818cf58b8af962811f7ae41ba58",
+      "original_seed": 16659
+    },
+    {
+      "event": "doghead.shared.hurt",
+      "file": "pesigolovtsy/shared_hurt_06.ogg",
+      "duration": 0.6294784580498867,
+      "peak_db": -3.065158439031328,
+      "rms_db": -17.47173580576244,
+      "sha256": "7771d5f1f1e240a028b4c0842e4735a51de22889f90b2519849b97936a7d9edf",
+      "original_seed": 16660
+    },
+    {
+      "event": "doghead.shared.death",
+      "file": "pesigolovtsy/shared_death_01.ogg",
+      "duration": 0.8670975056689343,
+      "peak_db": -2.889072375580204,
+      "rms_db": -17.383020114450183,
+      "sha256": "4a8a0a8ee1e616ff349e2977523a43500f860b75e455bd5c997e6a26b927bfa4",
+      "original_seed": 16666
+    },
+    {
+      "event": "doghead.shared.death",
+      "file": "pesigolovtsy/shared_death_02.ogg",
+      "duration": 0.9670975056689343,
+      "peak_db": -3.229585979565882,
+      "rms_db": -18.169226457251252,
+      "sha256": "5f27dce6db55aa57c6bedb89cea3c172ba8aae97cf619cae747351d89c0bdb18",
+      "original_seed": 16667
+    },
+    {
+      "event": "doghead.shared.death",
+      "file": "pesigolovtsy/shared_death_03.ogg",
+      "duration": 1.07,
+      "peak_db": -2.207699731434643,
+      "rms_db": -16.217593085959138,
+      "sha256": "6f8164559f10361c39c3357017f441b84a5cfc7816793834f444faa949750ad9",
+      "original_seed": 16668
+    },
+    {
+      "event": "doghead.shared.death",
+      "file": "pesigolovtsy/shared_death_04.ogg",
+      "duration": 1.17,
+      "peak_db": -3.2246630678927084,
+      "rms_db": -17.267763131192766,
+      "sha256": "b6daa3da593f7bd9398d838aef4edae06a707e28e9082c4afa6d4bb3f35957f9",
+      "original_seed": 16669
+    },
+    {
+      "event": "doghead.shared.death",
+      "file": "pesigolovtsy/shared_death_05.ogg",
+      "duration": 1.27,
+      "peak_db": -2.7522552186501565,
+      "rms_db": -17.50029199938617,
+      "sha256": "223a874bf5de0513568cfd7c049906048bedb459aede80aea97ca6e69d711345",
+      "original_seed": 16670
+    },
+    {
+      "event": "doghead.shared.death",
+      "file": "pesigolovtsy/shared_death_06.ogg",
+      "duration": 1.37,
+      "peak_db": -2.7667898031432516,
+      "rms_db": -17.658473847471978,
+      "sha256": "fc9bc86cceed49082159ed01609065796b602b69bec42ed46a7f5a144a2f95bc",
+      "original_seed": 16671
+    },
+    {
+      "event": "doghead.shared.claw_gear",
+      "file": "pesigolovtsy/shared_claw_gear_01.ogg",
+      "duration": 0.2643764172335601,
+      "peak_db": -3.360131909278046,
+      "rms_db": -23.519655431415323,
+      "sha256": "07962ff278245c2a4be612dbc433b5b277addedf5a3e4efbe44f61913a1da774",
+      "original_seed": 16677
+    },
+    {
+      "event": "doghead.shared.claw_gear",
+      "file": "pesigolovtsy/shared_claw_gear_02.ogg",
+      "duration": 0.3178231292517007,
+      "peak_db": -3.5383156908374094,
+      "rms_db": -24.413489563542065,
+      "sha256": "90937723b4b135a85fba7d64575aee2b5a17d79f0edf958da732e3b41e90c999",
+      "original_seed": 16678
+    },
+    {
+      "event": "doghead.shared.claw_gear",
+      "file": "pesigolovtsy/shared_claw_gear_03.ogg",
+      "duration": 0.3223809523809524,
+      "peak_db": -4.0503651684882165,
+      "rms_db": -23.72711991279436,
+      "sha256": "0338f129ac5c1ea08d907f2013fc083f0e7e96bbc3aeb2a2abbc4989fabec169",
+      "original_seed": 16679
+    },
+    {
+      "event": "doghead.shared.leather_step",
+      "file": "pesigolovtsy/shared_leather_step_01.ogg",
+      "duration": 0.15997732426303854,
+      "peak_db": -2.950634843453461,
+      "rms_db": -22.474031613955887,
+      "sha256": "e318568c5efe1f70ba61f20a1477807e61d04bbaaae1112ca41c8db8d91dcf14",
+      "original_seed": 16688
+    },
+    {
+      "event": "doghead.shared.leather_step",
+      "file": "pesigolovtsy/shared_leather_step_02.ogg",
+      "duration": 0.2017233560090703,
+      "peak_db": -3.2525347960019326,
+      "rms_db": -23.39726865560515,
+      "sha256": "fe5e2b2815da98c9b393600705a13454db23442a609f207989751bd5ee2e93ee",
+      "original_seed": 16689
+    },
+    {
+      "event": "doghead.shared.leather_step",
+      "file": "pesigolovtsy/shared_leather_step_03.ogg",
+      "duration": 0.19399092970521542,
+      "peak_db": -3.513078058815573,
+      "rms_db": -22.754842498505305,
+      "sha256": "cbfca8f4d95a2934d9a9edb24e65de96c3c8c8bd9bf7aed20a947139bffbb562",
+      "original_seed": 16690
+    },
+    {
+      "event": "doghead.shared.leather_step",
+      "file": "pesigolovtsy/shared_leather_step_04.ogg",
+      "duration": 0.2109750566893424,
+      "peak_db": -2.5167526642470954,
+      "rms_db": -22.652985872970216,
+      "sha256": "213399880d47e209d2eea488a89dec85ad17117653fedf77b948485d7fa71896",
+      "original_seed": 16691
+    },
+    {
+      "event": "doghead.shared.mud_step",
+      "file": "pesigolovtsy/shared_mud_step_01.ogg",
+      "duration": 0.24816326530612245,
+      "peak_db": -3.50293655179555,
+      "rms_db": -22.797449840017443,
+      "sha256": "b81805f79114b8dd52fb9ed345e0d7e8fd4fb82089dcc54553e9877d7b340c86",
+      "original_seed": 16699
+    },
+    {
+      "event": "doghead.shared.mud_step",
+      "file": "pesigolovtsy/shared_mud_step_02.ogg",
+      "duration": 0.24578231292517005,
+      "peak_db": -3.0967710277703144,
+      "rms_db": -21.973444421101323,
+      "sha256": "606659ab0c512bbedfde95c3beeba80c553bb950d00c41b2a6e6dbd11d4969b7",
+      "original_seed": 16700
+    },
+    {
+      "event": "doghead.shared.mud_step",
+      "file": "pesigolovtsy/shared_mud_step_03.ogg",
+      "duration": 0.2667800453514739,
+      "peak_db": -3.045292607544068,
+      "rms_db": -21.283183166201106,
+      "sha256": "f99edbcb3561764dd483a4a39ec1f425f8638822feb9d51375242314a37ba268",
+      "original_seed": 16701
+    },
+    {
+      "event": "doghead.shared.stone_step",
+      "file": "pesigolovtsy/shared_stone_step_01.ogg",
+      "duration": 0.19108843537414966,
+      "peak_db": -3.8532515137252554,
+      "rms_db": -22.262910263848692,
+      "sha256": "60d185fe7570b186242f460ba736fa80a662a8a948067cb26fa12897d2895c82",
+      "original_seed": 16710
+    },
+    {
+      "event": "doghead.shared.stone_step",
+      "file": "pesigolovtsy/shared_stone_step_02.ogg",
+      "duration": 0.21108843537414965,
+      "peak_db": -3.485663570292385,
+      "rms_db": -22.603028576126526,
+      "sha256": "6792f334be919d03e5b18baddb15b8f6a66270056dee94ebb1aee5c48ca60262",
+      "original_seed": 16711
+    },
+    {
+      "event": "doghead.shared.stone_step",
+      "file": "pesigolovtsy/shared_stone_step_03.ogg",
+      "duration": 0.23108843537414966,
+      "peak_db": -4.010709308366502,
+      "rms_db": -23.32540006042415,
+      "sha256": "7e3e1853639b4e17a5fa90da2ca3da706e27190ad53384ec7e36a8d6c7668d46",
+      "original_seed": 16712
+    },
+    {
+      "event": "doghead.shared.fur_cloth",
+      "file": "pesigolovtsy/shared_fur_cloth_01.ogg",
+      "duration": 0.27657596371882087,
+      "peak_db": -2.683594628764272,
+      "rms_db": -19.223652989195056,
+      "sha256": "9e46989395ade7d5cf476b1f06dbba0d9fc01b7d262db9e8e55ef8532c7e31d6",
+      "original_seed": 16721
+    },
+    {
+      "event": "doghead.shared.fur_cloth",
+      "file": "pesigolovtsy/shared_fur_cloth_02.ogg",
+      "duration": 0.3115873015873016,
+      "peak_db": -3.980191754030905,
+      "rms_db": -19.047545637918933,
+      "sha256": "278d52ea557d61c5463f0d334ad7ada8cb90336c86dff6a381e9be32065cfb02",
+      "original_seed": 16722
+    },
+    {
+      "event": "doghead.shared.fur_cloth",
+      "file": "pesigolovtsy/shared_fur_cloth_03.ogg",
+      "duration": 0.3465759637188209,
+      "peak_db": -3.523871449066178,
+      "rms_db": -19.655109546537783,
+      "sha256": "b18c62d55624fb8755f4f3da6cbe29b3dac9f4021c242f48c2d3aeac8c12d23d",
+      "original_seed": 16723
+    }
+  ]
+}

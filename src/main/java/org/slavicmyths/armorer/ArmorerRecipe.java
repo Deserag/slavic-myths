@@ -62,22 +62,17 @@ public final class ArmorerRecipe implements Recipe<ArmorerInput> {
     @Override public ItemStack assemble(ArmorerInput input, HolderLookup.Provider registries) {
         if(copyComponents)for(ItemStack stack:input.items())if(ingredients.getFirst().test(stack)) {
             ItemStack result=stack.transmuteCopy(output.getItem(),output.getCount());
-            result.applyComponents(output.getComponentsPatch());return result;
+            result.applyComponents(output.getComponentsPatch());
+            if(org.slavicmyths.equipment.UniqueEquipment.unique(result) && stack.isDamageableItem() && result.isDamageableItem())
+                result.setDamageValue(org.slavicmyths.equipment.UniqueEquipmentRules.upgradedDamage(stack.getDamageValue(),stack.getMaxDamage(),result.getMaxDamage()));
+            return result;
         }
         return output.copy();
     }
     @Override public ItemStack getResultItem(HolderLookup.Provider registries) { return output.copy(); }
     @Override public NonNullList<ItemStack> getRemainingItems(ArmorerInput input) {
         NonNullList<ItemStack> remaining=Recipe.super.getRemainingItems(input);
-        // Two non-stackable blades: the primary output and the second blade in its input slot.
-        // Each blade inherits only its own donor's data, never duplicates the other blade's runes.
-        if(output.is(org.slavicmyths.combat.RareWeapons.TUGARIN.get())) {
-            boolean first=true;
-            for(int i=0;i<input.size();i++)if(ingredients.getFirst().test(input.getItem(i))) {
-                if(first){first=false;continue;}
-                remaining.set(i,input.getItem(i).transmuteCopy(output.getItem(),1));break;
-            }
-        }
+        // One output stack already contains both Tugarin blades; both donors are consumed.
         return remaining;
     }
     @Override public NonNullList<Ingredient> getIngredients() { NonNullList<Ingredient> copy = NonNullList.create(); copy.addAll(ingredients); return copy; }

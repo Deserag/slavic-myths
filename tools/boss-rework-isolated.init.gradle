@@ -1,0 +1,2 @@
+// Keep this QA run independent of clean builds in other chats.
+gradle.beforeProject { p -> p.layout.buildDirectory.set(p.file('work/boss-rework-build')) }

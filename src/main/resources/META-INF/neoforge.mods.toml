@@ -3,6 +3,12 @@ loaderVersion="[4,)"
 license="All Rights Reserved"
 [[mixins]]
 config="slavicmyths.work.mixins.json"
+[[mixins]]
+config="slavicmyths.equipment.mixins.json"
+[[mixins]]
+config="slavicmyths.industry.mixins.json"
+[[mixins]]
+config="slavicmyths.underground.mixins.json"
 [[mods]]
 modId="slavicmyths"
 version="${mod_version}"

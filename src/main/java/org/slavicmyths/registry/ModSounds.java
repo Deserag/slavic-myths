@@ -135,6 +135,93 @@ public final class ModSounds {
     public static final DeferredHolder<SoundEvent,SoundEvent> NIGHTINGALE_HORN=sound("nightingale_horn");
     public static final DeferredHolder<SoundEvent,SoundEvent> COFFIN_OPEN=sound("coffin_open"),COFFIN_CLOSE=sound("coffin_close");
     public static final DeferredHolder<SoundEvent,SoundEvent> HUNT_HORN=sound("hunt_horn");
+    public static final java.util.Map<String,DeferredHolder<SoundEvent,SoundEvent>> BOSS_PROFILES=registerBossProfiles();
+    private static java.util.Map<String,DeferredHolder<SoundEvent,SoundEvent>> registerBossProfiles(){var map=new java.util.LinkedHashMap<String,DeferredHolder<SoundEvent,SoundEvent>>();
+        map.put("tugarin.phase1.idle_breath",sound("tugarin.phase1.idle_breath"));
+        map.put("tugarin.phase1.aggro",sound("tugarin.phase1.aggro"));
+        map.put("tugarin.phase1.step",sound("tugarin.phase1.step"));
+        map.put("tugarin.phase1.blade_draw",sound("tugarin.phase1.blade_draw"));
+        map.put("tugarin.phase1.slash",sound("tugarin.phase1.slash"));
+        map.put("tugarin.phase1.sweep",sound("tugarin.phase1.sweep"));
+        map.put("tugarin.phase1.charge",sound("tugarin.phase1.charge"));
+        map.put("tugarin.phase1.hurt",sound("tugarin.phase1.hurt"));
+        map.put("tugarin.phase1.death",sound("tugarin.phase1.death"));
+        map.put("tugarin.transform.start",sound("tugarin.transform.start"));
+        map.put("tugarin.transform.crack",sound("tugarin.transform.crack"));
+        map.put("tugarin.transform.wings",sound("tugarin.transform.wings"));
+        map.put("tugarin.transform.burst",sound("tugarin.transform.burst"));
+        map.put("tugarin.phase2.idle",sound("tugarin.phase2.idle"));
+        map.put("tugarin.phase2.fire_charge",sound("tugarin.phase2.fire_charge"));
+        map.put("tugarin.phase2.fire_release",sound("tugarin.phase2.fire_release"));
+        map.put("tugarin.phase2.wing",sound("tugarin.phase2.wing"));
+        map.put("tugarin.phase2.dive",sound("tugarin.phase2.dive"));
+        map.put("tugarin.phase2.lunge",sound("tugarin.phase2.lunge"));
+        map.put("tugarin.phase2.hurt",sound("tugarin.phase2.hurt"));
+        map.put("tugarin.phase2.death",sound("tugarin.phase2.death"));
+        map.put("nightingale.phase1.idle_whistle",sound("nightingale.phase1.idle_whistle"));
+        map.put("nightingale.phase1.aggro",sound("nightingale.phase1.aggro"));
+        map.put("nightingale.phase1.whistle_charge",sound("nightingale.phase1.whistle_charge"));
+        map.put("nightingale.phase1.whistle_release",sound("nightingale.phase1.whistle_release"));
+        map.put("nightingale.phase1.slash",sound("nightingale.phase1.slash"));
+        map.put("nightingale.phase1.leap",sound("nightingale.phase1.leap"));
+        map.put("nightingale.phase1.land",sound("nightingale.phase1.land"));
+        map.put("nightingale.phase1.smoke_dash",sound("nightingale.phase1.smoke_dash"));
+        map.put("nightingale.phase1.hurt",sound("nightingale.phase1.hurt"));
+        map.put("nightingale.phase1.death",sound("nightingale.phase1.death"));
+        map.put("nightingale.phase2.laugh",sound("nightingale.phase2.laugh"));
+        map.put("nightingale.phase2.whirlwind",sound("nightingale.phase2.whirlwind"));
+        map.put("nightingale.phase2.dash",sound("nightingale.phase2.dash"));
+        map.put("nightingale.phase2.wave",sound("nightingale.phase2.wave"));
+        map.put("nightingale.phase2.combo",sound("nightingale.phase2.combo"));
+        map.put("nightingale.phase2.death",sound("nightingale.phase2.death"));
+        map.put("nightingale.weapon.wind_slash",sound("nightingale.weapon.wind_slash"));
+        map.put("tugarin.weapon.sheathe",sound("tugarin.weapon.sheathe"));
+        return java.util.Collections.unmodifiableMap(map);
+    }
+    public static final java.util.Map<String,DeferredHolder<SoundEvent,SoundEvent>> BOSS_REIMPLEMENTATION_PROFILES=registerReimplementationProfiles();
+    private static java.util.Map<String,DeferredHolder<SoundEvent,SoundEvent>> registerReimplementationProfiles(){var map=new java.util.LinkedHashMap<String,DeferredHolder<SoundEvent,SoundEvent>>();
+        map.put("tugarin_phase1_idle",sound("tugarin_phase1_idle"));
+        map.put("tugarin_phase1_aggro",sound("tugarin_phase1_aggro"));
+        map.put("tugarin_phase1_attack",sound("tugarin_phase1_attack"));
+        map.put("tugarin_phase1_sweep",sound("tugarin_phase1_sweep"));
+        map.put("tugarin_phase1_charge",sound("tugarin_phase1_charge"));
+        map.put("tugarin_phase1_hurt",sound("tugarin_phase1_hurt"));
+        map.put("tugarin_phase1_death",sound("tugarin_phase1_death"));
+        map.put("tugarin_transform_start",sound("tugarin_transform_start"));
+        map.put("tugarin_transform_body",sound("tugarin_transform_body"));
+        map.put("tugarin_transform_wings",sound("tugarin_transform_wings"));
+        map.put("tugarin_transform_roar",sound("tugarin_transform_roar"));
+        map.put("tugarin_phase2_idle",sound("tugarin_phase2_idle"));
+        map.put("tugarin_phase2_attack",sound("tugarin_phase2_attack"));
+        map.put("tugarin_phase2_fire_charge",sound("tugarin_phase2_fire_charge"));
+        map.put("tugarin_phase2_fire_release",sound("tugarin_phase2_fire_release"));
+        map.put("tugarin_phase2_wing",sound("tugarin_phase2_wing"));
+        map.put("tugarin_phase2_dive",sound("tugarin_phase2_dive"));
+        map.put("tugarin_phase2_hurt",sound("tugarin_phase2_hurt"));
+        map.put("tugarin_phase2_death",sound("tugarin_phase2_death"));
+        map.put("nightingale_phase1_idle_whistle",sound("nightingale_phase1_idle_whistle"));
+        map.put("nightingale_phase1_aggro",sound("nightingale_phase1_aggro"));
+        map.put("nightingale_phase1_slash",sound("nightingale_phase1_slash"));
+        map.put("nightingale_phase1_whistle_charge",sound("nightingale_phase1_whistle_charge"));
+        map.put("nightingale_phase1_whistle_release",sound("nightingale_phase1_whistle_release"));
+        map.put("nightingale_phase1_leap",sound("nightingale_phase1_leap"));
+        map.put("nightingale_phase1_hurt",sound("nightingale_phase1_hurt"));
+        map.put("nightingale_phase1_death",sound("nightingale_phase1_death"));
+        map.put("nightingale_phase2_laugh",sound("nightingale_phase2_laugh"));
+        map.put("nightingale_phase2_slash",sound("nightingale_phase2_slash"));
+        map.put("nightingale_phase2_whirlwind",sound("nightingale_phase2_whirlwind"));
+        map.put("nightingale_phase2_dash",sound("nightingale_phase2_dash"));
+        map.put("nightingale_phase2_wave",sound("nightingale_phase2_wave"));
+        map.put("nightingale_phase2_hurt",sound("nightingale_phase2_hurt"));
+        map.put("nightingale_phase2_death",sound("nightingale_phase2_death"));
+        map.put("nightingale_blade_draw",sound("nightingale_blade_draw"));
+        map.put("nightingale_blade_slash",sound("nightingale_blade_slash"));
+        map.put("nightingale_blade_wind_charge",sound("nightingale_blade_wind_charge"));
+        map.put("nightingale_blade_wind_release",sound("nightingale_blade_wind_release"));
+        map.put("nightingale_blade_wind_hit",sound("nightingale_blade_wind_hit"));
+        return java.util.Collections.unmodifiableMap(map);
+    }
+    public static SoundEvent boss(String key){var event=BOSS_PROFILES.get(key);if(event==null)event=BOSS_REIMPLEMENTATION_PROFILES.get(key);if(event==null)throw new IllegalArgumentException("Unknown boss sound: "+key);return event.get();}
     private ModSounds() { }
  public static final DeferredHolder<SoundEvent,SoundEvent> YAGA_AMBIENT=sound("yaga_ambient");
  public static final DeferredHolder<SoundEvent,SoundEvent> YAGA_TALK=sound("yaga_talk");
@@ -146,4 +233,8 @@ public final class ModSounds {
  public static final DeferredHolder<SoundEvent,SoundEvent> YAGA_STEP=sound("yaga_step");
  public static final DeferredHolder<SoundEvent,SoundEvent> YAGA_HUT_CREAK=sound("yaga_hut_creak");
  public static final DeferredHolder<SoundEvent,SoundEvent> YAGA_HUT_STEP=sound("yaga_hut_step");
+ static {org.slavicmyths.wolf.WolfSounds.init();}
+    static { org.slavicmyths.finist.FinistSounds.init(); }
+    static { org.slavicmyths.volkolak.VolkolakSounds.init(); }
+
 }

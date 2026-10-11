@@ -1,0 +1,213 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileChudCheckJava UP-TO-DATE
+> Task :processChudCheckResources UP-TO-DATE
+> Task :chudCheckClasses UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :writeChudChecksLegacyClasspath UP-TO-DATE
+> Task :prepareChudChecksRun
+
+> Task :runChudChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[09:48:30] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[09:48:30] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[09:48:30] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[09:48:30] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[09:48:30] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[09:48:31] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[09:48:31] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.4.3 (slavicmyths)
+[09:48:32] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09:48:32] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[09:48:32] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:48:32] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:48:33] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[09:48:33] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09:48:38] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:48:38] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:48:38] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:48:38] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:48:38] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:48:38] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[09:48:39] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09:48:40] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-151/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[09:48:40] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-151/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[09:48:40] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_chud_terrain, slavicmyths_chud, slavicmyths_chud_full]
+[09:48:41] [main/INFO] [minecraft/RecipeManager]: Loaded 1769 recipes
+[09:48:41] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[09:48:41] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[09:48:41] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[09:48:42] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[09:48:42] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[09:48:42] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 116 ms
+[09:48:42] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[09:48:42] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[09:48:42] [Server thread/INFO] [minecraft/GameTestServer]: 10 tests are now running at position 9176270, -59, -5299722!
+[09:48:43] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (10 tests)...
+[09:48:43] [Server thread/INFO] [minecraft/GameTestServer]: [          ]
+CHUD_STAIR x=19 z=-23 y1 R
+CHUD_STAIR x=19 z=-22 y1 R
+CHUD_STAIR x=19 z=-21 y1 R
+CHUD_STAIR x=19 z=-20 y1 R
+CHUD_STAIR x=19 z=-19 y1 R
+CHUD_STAIR x=19 z=-18 y1 R
+CHUD_STAIR x=19 z=-17 y2 R
+CHUD_STAIR x=19 z=-16 y3 R
+CHUD_STAIR x=19 z=-15 y4 R
+CHUD_STAIR x=19 z=-14 y5 R
+CHUD_STAIR x=19 z=-13 y6 R
+CHUD_STAIR x=19 z=-12 y6 R
+CHUD_STAIR x=19 z=-11 y6 R
+CHUD_STAIR x=19 z=-10 y6 R
+CHUD_STAIR x=19 z=-9 y7 R
+CHUD_STAIR x=19 z=-8 y8 R
+CHUD_STAIR x=19 z=-7 y1 R y8 R
+CHUD_STAIR x=19 z=-6 y1 R y8 R
+CHUD_STAIR x=19 z=-5 y1 R y8 R
+CHUD_STAIR x=19 z=-4 y1 R y8 R
+CHUD_STAIR x=19 z=-3 y1 R y14 U
+CHUD_STAIR x=19 z=-2 y1 R y8 U y14 U
+CHUD_STAIR x=19 z=-1 y1 R y8 U y14 U
+CHUD_STAIR x=19 z=0 y1 R y8 U y14 U
+CHUD_STAIR x=19 z=1 y1 R y9 U y15 U
+CHUD_STAIR x=19 z=2 y1 R y8 U y15 U
+CHUD_STAIR x=19 z=3 y1 R y8 U y15 U
+CHUD_STAIR x=19 z=4 y1 R y8 U y15 U
+CHUD_STAIR x=19 z=5 y1 R y8 U y13 U y16 U
+CHUD_STAIR x=19 z=6 y1 R y8 U y13 U y16 U
+CHUD_STAIR x=19 z=7 y1 R y8 U
+CHUD_STAIR x=19 z=8 y1 R y8 U
+CHUD_STAIR x=19 z=9 y1 R y8 U
+CHUD_STAIR x=19 z=10 y1 R y8 U
+CHUD_STAIR x=23 z=-8
+CHUD_STAIR x=23 z=-7 y8 R
+CHUD_STAIR x=23 z=-6 y8 R
+CHUD_STAIR x=23 z=-5 y8 R
+CHUD_STAIR x=23 z=-4 y8 R
+CHUD_STAIR x=23 z=-3 y8 R y14 U
+CHUD_STAIR x=23 z=-2 y8 R y14 U
+CHUD_STAIR x=23 z=-1 y8 R y14 U
+CHUD_STAIR x=23 z=0 y8 R y14 U
+CHUD_STAIR x=23 z=1 y8 R y15 U
+CHUD_STAIR x=23 z=2 y8 R y15 U
+CHUD_STAIR x=23 z=3 y8 R y15 U
+CHUD_STAIR x=23 z=4
+CHUD_STAIR x=23 z=5
+CHUD_STAIR x=23 z=6
+CHUD_STAIR x=23 z=7
+CHUD_STAIR x=23 z=8
+CHUD_STAIR x=23 z=9
+CHUD_STAIR x=23 z=10
+CHUD_STAIR x=-100 z=-117 y-27 R
+CHUD_STAIR x=-100 z=-116 y-27 R
+CHUD_STAIR x=-100 z=-115 y-27 R
+CHUD_STAIR x=-100 z=-114 y-27 R
+CHUD_STAIR x=-100 z=-113 y-27 R
+CHUD_STAIR x=-100 z=-112 y-27 R
+CHUD_STAIR x=-100 z=-111 y-26 R
+CHUD_STAIR x=-100 z=-110 y-25 R
+CHUD_STAIR x=-100 z=-109 y-24 R
+CHUD_STAIR x=-100 z=-108 y-23 R
+CHUD_STAIR x=-100 z=-107 y-22 R
+CHUD_STAIR x=-100 z=-106 y-22 R
+CHUD_STAIR x=-100 z=-105 y-22 R
+CHUD_STAIR x=-100 z=-104 y-22 R
+CHUD_STAIR x=-100 z=-103 y-21 R
+CHUD_STAIR x=-100 z=-102 y-20 R
+CHUD_STAIR x=-100 z=-101 y-19 R
+CHUD_STAIR x=-100 z=-100 y-18 R
+CHUD_STAIR x=-100 z=-99 y-17 R
+CHUD_STAIR x=-100 z=-98 y-17 R
+CHUD_STAIR x=-100 z=-97 y-17 R
+CHUD_STAIR x=-100 z=-96
+CHUD_EDGE 0 entrance->residential reached=104/105
+CHUD_EDGE 0 square->residential reached=167/167
+CHUD_EDGE 0 square->forge reached=105/109
+CHUD_EDGE 0 forge->store reached=62/62
+CHUD_EDGE 0 square->council reached=55/55
+CHUD_EDGE 0 store->gate reached=207/213
+CHUD_EDGE 0 residential->forge reached=149/149
+CHUD_NAV variant=0 fills=51044 visited=12747 elapsedMs=35 failures=[terrace=19, 8, 8 body=Block{minecraft:air}]
+[09:48:48] [Server thread/ERROR] [minecraft/LogTestReporter]: actualthreehallnavigation failed at 9176355, -60, -5299722! unreachable [terrace=19, 8, 8 body=Block{minecraft:air}]
+[09:48:48] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 4669ms or 93 ticks behind
+CHUD_NATURAL seed=0 eligible=103 accepted=0 reasons={{chudFloor=-8}=1, {chudLiquidY=16}=1, {chudCover=17}=8, {chudCover=6}=2, {chudCover=13}=3, {chudLiquidY=22}=1, {chudFloor=-6}=1, {chudCover=15}=2, {chudLiquidY=8}=1, {chudLiquidY=52}=1, {chudLiquidY=40}=1, {chudFloor=-13}=1, {chudRockPercent=45}=1, {chudLiquidY=4}=1, {chudCover=16}=4, {chudFloor=-7}=2, {chudLiquidY=37}=1, {chudFloor=-9}=1, {chudRockPercent=58}=1, {chudCover=12}=4, {chudCover=7}=2, {chudCover=14}=3, {chudFloor=-5}=3, {chudLiquidY=19}=1, {chudCover=-13}=1, {chudRockPercent=40}=2, {chudLiquidY=41}=3, {chudFloor=-12}=1, {chudRockPercent=50}=5, {chudCover=-7}=1, {chudCover=2}=1, {chudRockPercent=54}=3}
+CHUD_NATURAL seed=1 eligible=104 accepted=0 reasons={{chudCover=4}=1, {chudRockPercent=37}=1, {chudCover=17}=10, {chudLiquidY=58}=1, {chudRockPercent=25}=1, {chudCover=8}=1, {chudLiquidY=46}=1, {chudCover=13}=6, {chudFloor=-6}=1, {chudCover=15}=1, {chudFloor=-31}=1, {chudConnectorNonSolidY=0}=1, {chudCover=-6}=1, {chudRockPercent=45}=1, {chudCover=1}=2, {chudLiquidY=39}=1, {chudCover=16}=5, {chudRockPercent=58}=2, {chudCover=12}=2, {chudCover=7}=1, {chudCover=9}=1, {chudFloor=-5}=1, {chudConnectorNonSolidY=40}=1, {chudLiquidY=19}=1, {chudCover=-25}=1, {chudRockPercent=40}=2, {chudRockPercent=30}=1, {chudConnectorNonSolidY=7}=1, {chudRockPercent=50}=5, {chudFloor=-16}=1, {chudRockPercent=10}=1, {chudLiquidY=3}=2, {chudRockPercent=54}=5}
+CHUD_NATURAL seed=2 eligible=95 accepted=0 reasons={{chudCover=4}=2, {chudCover=17}=5, {chudCover=8}=1, {chudLiquidY=24}=1, {chudCover=13}=2, {chudFloor=-6}=1, {chudCover=-1}=1, {chudCover=15}=3, {chudLiquidY=32}=1, {chudCover=11}=1, {chudCover=-17}=2, {chudLiquidY=-4}=1, {chudCover=-12}=1, {chudRockPercent=0}=1, {chudConnectorNonSolidY=58}=1, {chudCover=-6}=1, {chudRockPercent=33}=1, {chudCover=-8}=1, {chudCover=1}=1, {chudCover=16}=6, {chudCover=-4}=1, {chudCover=5}=1, {chudRockPercent=58}=2, {chudFloor=-10}=1, {chudLiquidY=35}=1, {chudCover=14}=5, {chudCover=10}=3, {chudLiquidY=19}=1, {chudLiquidY=9}=1, {chudLiquidY=53}=1, {chudLiquidY=41}=1, {chudRockPercent=30}=1, {chudConnectorNonSolidY=-3}=1, {chudRockPercent=54}=10}
+CHUD_NATURAL seed=3 eligible=88 accepted=0 reasons={{chudCover=4}=1, {chudCover=17}=9, {chudRockPercent=27}=1, {chudCover=6}=1, {chudCover=8}=1, {chudFloor=-11}=1, {chudLiquidY=54}=1, {chudCover=15}=1, {chudCover=11}=1, {chudLiquidY=42}=1, {chudRockPercent=45}=4, {chudCover=-8}=1, {chudFloor=-27}=1, {chudFloor=-17}=1, {chudCover=1}=1, {chudCover=16}=6, {chudLiquidY=39}=1, {chudCover=-2}=1, {chudCover=3}=1, {chudRockPercent=58}=1, {chudRockPercent=36}=1, {chudLiquidY=13}=1, {chudCover=7}=3, {chudCover=14}=1, {chudLiquidY=33}=1, {chudFloor=-5}=1, {chudCover=9}=3, {chudLiquidY=7}=1, {chudCover=-33}=1, {chudConnectorNonSolidY=57}=1, {chudRockPercent=40}=2, {chudRockPercent=30}=1, {chudRockPercent=50}=2, {chudCover=0}=1, {chudRockPercent=9}=1, {chudRockPercent=44}=1, {chudRockPercent=20}=1, {chudRockPercent=54}=5}
+CHUD_NATURAL seed=4 eligible=108 accepted=0 reasons={{chudFloor=-8}=2, {chudRockPercent=27}=1, {chudCover=-3}=1, {chudCover=17}=9, {chudLiquidY=48}=1, {chudCover=6}=2, {chudLiquidY=46}=1, {chudCover=13}=2, {chudCover=-1}=2, {chudCover=15}=5, {chudCover=11}=2, {chudCover=-16}=1, {chudLiquidY=6}=1, {chudConnectorNonSolidY=24}=1, {chudFloor=-25}=1, {chudRockPercent=41}=1, {chudFloor=-15}=1, {chudRockPercent=33}=1, {chudRockPercent=55}=2, {chudFloor=-19}=1, {chudCover=16}=3, {chudCover=3}=1, {chudCover=5}=1, {chudRockPercent=58}=1, {chudCover=14}=3, {chudFloor=-5}=1, {chudCover=10}=1, {chudLiquidY=19}=1, {chudCover=-18}=1, {chudCover=-15}=1, {chudLiquidY=130}=1, {chudCover=-13}=1, {chudLiquidY=9}=1, {chudRockPercent=40}=1, {chudLiquidY=31}=1, {chudLiquidY=3}=1, {chudRockPercent=54}=6}
+CHUD_NATURAL seed=5 eligible=120 accepted=0 reasons={{chudFloor=-8}=1, {chudCover=4}=1, {chudLiquidY=38}=1, {chudLiquidY=16}=1, {chudCover=17}=11, {chudLiquidY=48}=1, {chudCover=8}=1, {chudFloor=-6}=1, {chudLiquidY=44}=1, {chudCover=15}=2, {chudLiquidY=6}=1, {chudConnectorNonSolidY=42}=1, {chudLiquidY=20}=1, {chudLiquidY=30}=1, {chudLiquidY=40}=1, {chudLiquidY=50}=1, {chudRockPercent=55}=1, {chudRockPercent=45}=1, {chudLiquidY=39}=1, {chudCover=16}=2, {chudLiquidY=49}=1, {chudCover=3}=1, {chudRockPercent=58}=5, {chudCover=12}=7, {chudCover=14}=5, {chudFloor=-5}=1, {chudCover=9}=1, {chudRockPercent=18}=1, {chudRockPercent=40}=2, {chudRockPercent=50}=4, {chudCover=0}=1, {chudLiquidY=3}=1, {chudRockPercent=10}=1, {chudRockPercent=54}=1}
+CHUD_NATURAL seed=6 eligible=107 accepted=0 reasons={{chudCover=17}=2, {chudCover=-3}=1, {chudCover=8}=1, {chudLiquidY=56}=2, {chudCover=13}=3, {chudLiquidY=12}=2, {chudFloor=-6}=1, {chudLiquidY=22}=1, {chudCover=15}=3, {chudLiquidY=54}=1, {chudCover=-24}=1, {chudRockPercent=0}=1, {chudLiquidY=62}=1, {chudLiquidY=50}=1, {chudLiquidY=82}=1, {chudRockPercent=55}=1, {chudLiquidY=92}=1, {chudRockPercent=45}=1, {chudLiquidY=4}=1, {chudCover=-2}=1, {chudCover=16}=4, {chudLiquidY=47}=1, {chudRockPercent=58}=4, {chudFloor=-9}=1, {chudRockPercent=36}=1, {chudCover=12}=2, {chudCover=7}=1, {chudCover=14}=4, {chudFloor=-5}=1, {chudCover=10}=3, {chudLiquidY=7}=1, {chudRockPercent=30}=1, {chudLiquidY=51}=1, {chudRockPercent=44}=1, {chudCover=-7}=1, {chudLiquidY=1}=1, {chudCover=2}=1, {chudRockPercent=20}=1, {chudRockPercent=54}=7}
+CHUD_NATURAL seed=7 eligible=108 accepted=0 reasons={{chudCover=4}=2, {chudLiquidY=38}=1, {chudCover=17}=7, {chudLiquidY=48}=1, {chudLiquidY=24}=1, {chudLiquidY=56}=1, {chudLiquidY=12}=1, {chudFloor=-6}=1, {chudCover=-1}=1, {chudCover=11}=2, {chudRockPercent=0}=1, {chudLiquidY=30}=1, {chudLiquidY=50}=1, {chudRockPercent=45}=2, {chudCover=1}=1, {chudLiquidY=17}=1, {chudCover=16}=5, {chudLiquidY=15}=1, {chudRockPercent=46}=1, {chudRockPercent=58}=4, {chudLiquidY=45}=1, {chudLiquidY=55}=1, {chudCover=14}=4, {chudLiquidY=9}=1, {chudRockPercent=40}=3, {chudFloor=-14}=1, {chudRockPercent=30}=4, {chudFloor=-12}=1, {chudRockPercent=50}=2, {chudLiquidY=3}=1, {chudRockPercent=10}=1, {chudRockPercent=54}=8}
+CHUD_NATURAL seed=8 eligible=106 accepted=0 reasons={{chudRockPercent=27}=2, {chudLiquidY=38}=1, {chudLiquidY=16}=2, {chudCover=17}=8, {chudCover=8}=1, {chudLiquidY=34}=1, {chudCover=13}=3, {chudCover=15}=5, {chudCover=11}=2, {chudRockPercent=0}=1, {chudRockPercent=33}=1, {chudRockPercent=45}=3, {chudLiquidY=17}=1, {chudCover=16}=3, {chudFloor=-7}=4, {chudLiquidY=49}=1, {chudCover=5}=1, {chudRockPercent=36}=2, {chudRockPercent=58}=3, {chudLiquidY=47}=1, {chudCover=12}=2, {chudLiquidY=45}=1, {chudCover=14}=4, {chudLiquidY=43}=1, {chudCover=-13}=1, {chudConnectorNonSolidY=53}=1, {chudLiquidY=53}=1, {chudRockPercent=40}=1, {chudFloor=-12}=1, {chudCover=2}=1, {chudRockPercent=20}=1, {chudRockPercent=54}=3}
+CHUD_NATURAL seed=9 eligible=87 accepted=0 reasons={{chudCover=17}=6, {chudLiquidY=48}=1, {chudCover=6}=1, {chudLiquidY=22}=1, {chudCover=15}=3, {chudCover=11}=2, {chudCover=-29}=1, {chudLiquidY=18}=1, {chudLiquidY=0}=1, {chudLiquidY=94}=1, {chudRockPercent=33}=1, {chudRockPercent=45}=3, {chudFloor=-19}=1, {chudRockPercent=53}=1, {chudLiquidY=17}=1, {chudCover=16}=6, {chudLiquidY=39}=1, {chudRockPercent=46}=1, {chudRockPercent=58}=6, {chudCover=7}=1, {chudCover=14}=5, {chudFloor=-5}=1, {chudCover=9}=1, {chudCover=10}=1, {chudConnectorNonSolidY=65}=1, {chudLiquidY=102}=1, {chudLiquidY=9}=1, {chudRockPercent=40}=1, {chudRockPercent=30}=3, {chudLiquidY=51}=1, {chudRockPercent=50}=1, {chudCover=0}=1, {chudLiquidY=81}=1, {chudCover=2}=1, {chudRockPercent=20}=2, {chudRockPercent=54}=2}
+[09:53:27] [Server thread/ERROR] [minecraft/LogTestReporter]: naturaltenseedcandidates failed at 9176372, -60, -5299722! No naturally accepted city in measured mountain candidates
+[09:53:27] [Server thread/INFO] [minecraft/GameTestServer]: [+++++XX   ]
+CHUD_EDGE 2 entrance->residential reached=105/105
+CHUD_EDGE 2 square->residential reached=167/167
+CHUD_EDGE 2 square->forge reached=109/109
+CHUD_EDGE 2 forge->store reached=116/116
+CHUD_EDGE 2 square->council reached=148/148
+CHUD_EDGE 2 store->gate reached=85/85
+CHUD_EDGE 2 residential->council reached=95/97
+CHUD_EDGE 2 council->council reached=31/31
+CHUD_EDGE 2 store->council reached=109/144 [40:-29, 45, -58 b=Block{minecraft:andesite} h=Block{minecraft:andesite} f=Block{minecraft:andesite}] [48:-21, 48, -58 b=Block{minecraft:andesite} h=Block{minecraft:andesite} f=Block{minecraft:andesite}] [56:-13, 52, -58 b=Block{minecraft:andesite} h=Block{minecraft:andesite} f=Block{minecraft:andesite}] [64:-5, 56, -58 b=Block{minecraft:andesite} h=Block{minecraft:andesite} f=Block{minecraft:andesite}]
+CHUD_NAV variant=2 fills=64457 visited=17391 elapsedMs=47 failures=[]
+CHUD_EDGE 1 entrance->residential reached=105/105
+CHUD_EDGE 1 square->residential reached=167/167
+CHUD_EDGE 1 square->forge reached=109/109
+CHUD_EDGE 1 forge->store reached=116/116
+CHUD_EDGE 1 square->council reached=55/55
+CHUD_EDGE 1 store->gate reached=85/85
+CHUD_EDGE 1 square->store reached=106/106
+CHUD_NAV variant=1 fills=54467 visited=15723 elapsedMs=48 failures=[]
+[09:53:27] [Server thread/INFO] [minecraft/GameTestServer]: [+++++XX+++]
+[09:53:27] [Server thread/INFO] [minecraft/GameTestServer]: ========= 10 GAME TESTS COMPLETE IN 4.751 min ======================
+[09:53:27] [Server thread/INFO] [minecraft/GameTestServer]: 2 required tests failed :(
+[09:53:27] [Server thread/INFO] [minecraft/GameTestServer]:    - actualthreehallnavigation
+[09:53:27] [Server thread/INFO] [minecraft/GameTestServer]:    - naturaltenseedcandidates
+[09:53:27] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[09:53:27] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[09:53:27] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[09:53:27] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[09:53:28] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[09:53:28] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[09:53:28] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[09:53:28] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:53:28] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:53:28] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:53:28] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09:53:28] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runChudChecks FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/work/chud-151/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runChudChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 2
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 5m 10s
+9 actionable tasks: 3 executed, 6 up-to-date

@@ -1,3 +1,190 @@
+## Ночница 1.6.4 — 2026-10-10
+
+Код и ресурсы текущего пользовательского пакета Nochnitsa завершены: ночной Monster 50 HP, когти, прерываемый крик существующим врагам, защита существующими рунами, рассветное исчезновение, собственная модель и 31 звук, яйцо для тестирования. Номер release 1.6.4 продолжает уже установленную 1.6.3; будущие milestones не реализовывались.
+
+Clean build, offline/model/audio/resource gates PASS; 1.6.4 установлена с backup. Следующий этап — игровая приёмка в отдельном мире: естественный спавн, толпа/руны/отмена крика, рассвет и настоящий перезаход, визуал/прослушивание, dedicated server и multiplayer. **Запусков Minecraft 0, эти пункты не считаются пройденными.** [Матрица и отчёт](verification/nochnitsa-1.6.4/REPORT.md). Дополнительно устранён конфликт старых defaults EarthConfig с согласованным темпом 1.6.3, без изменения прочих систем.
+
+## Исправления боя и визуала 1.6.3 — 2026-10-10
+
+По новому игровому отзыву: в последнем сохранении подтверждены EASY + Resistance I, которые снижали старый raw удар дополнительно. Для физических атак Духа введены scaling=never damage types без обхода брони/защиты: кулак 8 HP после обычного алмаза, с Resistance I 6.4 HP. Добавлена диагностика фактического Post damage в `/sm earth_spirit status`. Ускорены кулак/залп/снаряды и cooldown первой фазы, походка следует реальному перемещению. Весь корпус получил vanilla stone/cobble/moss/andesite/deepslate atlas; noOcclusion печати исправляет скрытую траву; хвост Сивки больше не использует сетевой modulo gait. Яйцо Жар-птицы первое в «Мобы»; её принятый дизайн сохранён.
+
+1.6.3 установлена в PolyMC 1.21.1-Testing с резервной копией 1.6.2; 464 остальных файла сохранены. Полный Earth resource regeneration: 0 изменений.
+
+Clean build PASS (31s), Earth6186/Sivka7107/Firebird200020/Visual15 и resource/production gates PASS. **Запусков Minecraft: 0, новый игровой бой и визуал NOT TESTED**. [Отчёт и ручные проверки](verification/visual-1.6.3/REPORT.md). Мировые данные read-only, registry IDs и чужие изменения сохранены; commit не создавался.
+
+## Исправления Сивки, Духа земли и Жар-птицы 1.6.2 — 2026-10-10
+
+По пользовательской игровой проверке: разнесены coplanar facets Сивки/Духа, устранён double draw emissive у Духа, добавлены каменная фактура/vanilla block clusters и поэтапный косметический распад на 58 блоков разных материалов. Жар-птица переработана (182 bones/369 cuboids), лапы с пальцами/когтями анимированы; **яйцо добавлено по новому прямому указанию**. Дух реагирует на нападающего и приоритетно отвечает melee. Пользователь отменил старое arena-only ограничение: **руна и обычные награды за победу вне арены тоже**. Кулак теперь 8 HP после diamond без enchantments; тяжёлые атаки на той же основе, слуги неизменны.
+
+Clean build PASS (49s); Earth6186/Sivka7107/Firebird200020/Visual8 offline PASS, 18206 production/resource checks. Actual static geometry: 0 coplanar face pairs; glow vertices submitted once. **Запусков Minecraft агентом:0; исправленная runtime-приёмка NOT TESTED.** [Отчёт и ручная проверка](verification/visual-1.6.2/REPORT.md). Сохранены пользовательские изменения/registry IDs; commit не создавался.
+
+## Жар-птица 1.6.1 — 2026-10-10
+
+Тестовый кандидат: новая `slavicmyths:firebird` без яйца по уточнению пользователя; Overworld nighttime SavedData event/+20…30 дней, единый бюджет 2/3 drops и 10/30/60, три ресурса без рецептов, 3000 HP/20 HP defensive armor bypass, native rig138 bones/267 cuboids/fullbright и 28 оригинальных OGG. Существующий `ognennoe_pero` и прежние механики сохранены. [Архитектура и ограничения](firebird/IMPLEMENTATION.md).
+
+Clean build PASS (1m 2s), 200020 offline assertions, 23286 resource/production checks; **запусков Minecraft: 0**. Fidelity/звук/бой/полёт/MP/relog/MSPT и dedicated server startup NOT TESTED; приёмка OPEN. [Отчёт](verification/firebird-1.6.1/REPORT.md), [ручная проверка](verification/firebird-1.6.1/COMMANDS.md). Runtime не выдан за компиляцию.
+
+## Сивка-Бурка 1.6.0 — 2026-10-10
+
+По новому пакету реализован тестовый кандидат: отдельный белый native-конь152кубоида/51узел, артикулированные наземный/воздушный галоп,7этапов кормления, canonical SavedData/temporary72000online ticks/permanent bond, свисток, безопасный призыв, saddleless riding/разбег/полёт/уход,80HP/retreat, редкий native spawn,31новый OGG и RU/EN. По уточнению пользователя снижение на **X**, как у метлы/ступы; Space вверх, Shift спешивание. Кот Баюн/квесты/новые milestone не добавлены.
+
+Clean build PASS (1m 35s), 7107offline /12878resources-production PASS; сохранены 1055классов/5290ресурсов1.5.6. Кандидат установлен в существующий PolyMC1.21.1 с backup; 357остальных файлов неизменны. **Запусков Minecraft:0**; gameplay/visual/audio/MP/relog/MSPT приёмка OPEN, все runtime-строки NOT TESTED. Статическое превью/codec не заменяют игру. [Отчёт](verification/sivka-1.6.0/REPORT.md), [краткая ручная проверка](verification/sivka-1.6.0/COMMANDS.md).
+
+## Дух земли 1.5.6 — 2026-10-10
+
+Подтверждённый пакет реализован в коде и production JAR: Дух земли, слуги, фазы/атаки/сон, штатная активация арены, руна Сердца Земли III, оригинальные модели/текстуры, 30 звуковых прототипов. Дополнительный пользовательский запрос реализован как переносной запирающий камень для плоского тестового мира вместо яйца босса. Генерация А/Б, поиск/геометрия Глубин и будущие milestone не расширялись.
+
+Build/offline/resources PASS; установлен кандидат 1.5.6. Игровая приёмка **OPEN** (0 запусков агентом): проверить настоящую аренную активацию, столбы/укрытия, телеграфы/прыжок/щит, summons/cap, multiplayer, сон и реальный перезаход, одноразовую награду и снятие рун. Прототипам звука и анимациям не присвоен VISUAL/AUDIO/COMBAT PASS. [Результаты](verification/earth-1.5.6/REPORT.md), [краткий QA](verification/earth-1.5.6/COMMANDS.md).
+
+## Мобы подземелий 1.5.5 — 2026-10-10
+
+Подтверждённый Mobs-пакет реализован: существующая Чудь получила локальное поведение/защиту, добавлены два варианта Подземника, Кладовик, крупный подземник, способности, собственные модели, лут, Зловещая аура и одноразовая очередь появления в Б. Геометрия и прежние системы сохранены; будущие измерения/мобы не добавлялись.
+
+Сборка и offline/resource gates PASS; 1.5.5 установлена в тестовый MC. Игровая приёмка **открыта**, запусков 0: проверить бой/AI/падение, торговлю, применение mixin и реальный перезаход по [списку команд](verification/mobs-1.5.5/COMMANDS.md). Отсутствующие сторонние Wizard/Ender Skeleton требуют реальных ID при добавлении соответствующего мода. [Результаты и ограничения](verification/mobs-1.5.5/REPORT.md).
+
+## Промышленность и торговля Чуди 1.5.4 — 2026-10-09
+
+Код и ресурсы утверждённого Industry/Trade-пакета реализованы: болотное железо; две машины с сохранением и автоматизацией; флюс/очищенные металлы; четыре украшения Curios; три предмета рун; оригинальные NPC, торговля/пополнение/стража; шесть таблиц сундуков и безопасное содержимое новых А/Б. Существующие серебро, генерация и Древние глубины сохранены. Новые измерения, руны III, боссы и будущие milestone не добавлялись.
+
+Clean build/чистые правила/ресурсы/production — PASS; версия 1.5.4 установлена в тестовый PolyMC. Игровая приёмка **OPEN**: запуск запрещён пользователем, выполнено 0 запусков. Требуется ручная проверка GUI/JEI, хопперов, торговли/AI, сохранения/перезахода, аксессуаров и фактического лута. [Отчёт](verification/industry-1.5.4/REPORT.md), [команды](verification/industry-1.5.4/COMMANDS.md).
+
+## Древние глубины 1.5.3.1 — исправление плоского мира, 2026-10-09
+
+Исправлен отказ на четырёхслойном flat: при FlatLevelSource общий путь команды и карты поднимает origin на 32 блока над максимальной отметкой входа. Нижняя граница bbox оказывается на один блок выше поверхности. Все помещения, спуски, арена и содержимое перемещаются вместе; отдельный blueprint и формат сохранения не меняются. Подземная проверка покрытия и выбор природного пролома в этом режиме не применяются: используется CLOSED. В обычном мире размещение остаётся подземным. End portal/frame, бедрок, чужие контейнеры и фактическое пересечение с другими сооружениями защищены. Ссылки на соседние native сооружения не запрещают свободный объём над flat, но пересечение их bbox продолжает запрещаться.
+
+Отказы теперь показывают число кандидатов и причины (вода, склон, высота, граница, занятый объём, защищённые блоки). Истечение общего времени поиска сообщает текущий кандидат/этап и не выдаётся за отсутствие сухой земли. Сообщение о flat содержит реальные координаты поднятого входа.
+
+Финальный clean build — PASS, 46 секунд. 2318 геометрических проверок (включая все блоки поднятого blueprint при четырёх высотах поверхности и четырёх ориентациях), 144 поля NBT, 12 049 ресурсных/production и 1063 статических проверки — PASS. В production JAR 952 класса; по сравнению с 1.5.3 изменились только DepthsPlan/DepthsService/DepthsService$Job. Все прежние переводы сохранены. 1.5.3.1 установлена в PolyMC 1.21.1-Testing с резервной копией; 296 остальных файлов экземпляра неизменны. Запусков Minecraft: 0; игровая приёмка открыта. [Отчёт](verification/ancient-depths-1.5.3.1/REPORT.md), [команды](verification/ancient-depths-1.5.3.1/COMMANDS.md).
+
+## Древние глубины 1.5.3 — 2026-10-09
+
+Реализовано отдельное подземелье В по приложенному пакету 1.5.3. Появляется только по команде или активации карты: зоны E0–E5 и переход K, вход на расстоянии 1500–2000 блоков, закрытый свод либо безопасный пролом к небу. Внутри два сундука, десять обычных мобов и два ванильных стража; финальная арена 29×29 оставлена без босса. Общая серверная операция ограничивает загрузку чанков и число записей за тик; SavedData сохраняет план и прогресс. Завершение выдаёт настоящую карту с RED_X. Естественная генерация В отсутствует; А/Б не изменены.
+
+Финальный `clean build depthsOfflineChecks` — PASS (29 секунд). Геометрия: 2269 проверок / 8 вариантов; NBT: 144 проверки / 12 roundtrip. Ресурсы и production JAR: 12 049 проверок; отдельный статический аудит: 1063 проверки. Все 952 скомпилированных класса совпадают с JAR; 50 классов Чуди и 6 её ресурсов побайтно сохранены. Версия 1.5.3 установлена в PolyMC 1.21.1-Testing с резервной копией; 260 остальных файлов экземпляра неизменны. Клиентских и серверных запусков: 0. Свет, AI, карта в игре, реальный перезаход и MSPT требуют ручной проверки. [Отчёт](verification/ancient-depths-1.5.3/REPORT.md), [команды](verification/ancient-depths-1.5.3/COMMANDS.md).
+
+## Свет/кладка Чуди1.5.2.2 — 2026-10-09
+
+Clean build PASS;29 614 plain JVM assertions (11 221 новых decor policy) и12 020 resources/production checks PASS;940 compiled classes совпадают с JAR.14 классов сохранённых планов и6 классов генерации/portal protection побайтно сохранены. Установлена1.5.2.2 в PolyMC1.21.1-Testing с backup;259 остальных файлов/миров/настроек неизменны. Клиенты0/серверы0; visual/light-engine/relog NOT_RUN. SHA256 925b9eb3914a39bd1b33a39de59f3acb6b36e3724db899e104fe25f08d40e398.
+
+По ручной обратной связи пользователя flat: тёплые вставки8×8 в открытый каменный пол и чаще corridor lanterns. Шесть палитр по назначению зон; tuft/cobble/cracked/mossy/deepslate, patch3×3×4; ruined имеет больше износа. Отделка final chunk writer заменяет только полные кубы; saved plans, проходы, размещение, IDs и portal protection сохранены. Старые chunks не перестраиваются. Клиенты0/серверы0; игровая визуальная приёмка открыта. [Отчёт/gates](verification/chud-1.5.2/lighting-masonry/REPORT.md), [команды](verification/chud-1.5.2/COMMANDS.md).
+
+## Генерация Чуди1.5.2.1 — 2026-10-09
+
+Clean build +18 393 plain JVM assertions PASS;12 014 resource/production checks PASS;937 compiled classes совпадают с JAR;18 saved plan/geometry classes побайтно сохранены. Установлена1.5.2.1 в PolyMC1.21.1-Testing, backup прежней версии;2428 остальных файлов/миров/настроек побайтно неизменны. SHA256 5e692a7e90ebbb4dc29c648f2b54fd6e383489df87595134eaff996e5c085022. Клиенты0/серверы0; runtime NOT_RUN, ручная приёмка открыта.
+
+Убраны rock/fluid/route-cover и конфликты обычных построек. Общий конечный blueprint/roof sampling16:20 блоков под грунтом,5 под дном воды; actual bounds выше бедрока. Существующая сетка independent gap2298≥2000 сохранена, часть клеток выделена B. Новые operator команды generate сохраняют native starts/references; flat размещает над поверхностью. Seed stronghold exclusion, командный preflight PortalRoom/frames и защита portal blocks в rasterizer. Saved geometry/IDs сохранены, старые chunks не перестраиваются. Никаких игровых запусков; runtime/relog/MSPT приёмка открыта. [Отчёт и gates](verification/chud-1.5.2/simple-generation/REPORT.md), [команды](verification/chud-1.5.2/COMMANDS.md).
+
+## Чуди1.5.2 — многоточечное размещение; runtime QA открыта, 2026-10-09
+
+Новый placement проверяет прежнюю точку и до9 запасных в области, выбирает один А/Б root. Горы — предпочтение, biome tags разрешают Overworld;12% фильтр лесов удалён. Исправлена нижняя граница medium/great по фактической конструкции, сохранённые bbox/NBT/геометрия не менялись. Минимальный gap независимых комплексов2298≥2000, native owner совпадает с выбранной точкой. Курганы/поселения не правились.
+
+Clean build PASS;18387 offline assertions, включая192 immutable plans на искусственном сухом грунте Y64;12010 resource/production checks;8 resource files воспроизводятся побайтно.935 compiled classes совпали с JAR;20 saved geometry classes совпадают с CA2. Это не проверка реального worldgen:0 клиентов/0 серверов, runtime/native density/chunk-order/MSPT NOT_RUN по запрету пользователя.
+
+Development candidate SHA256 `8181fe0481c542314b88d64f68de2681a240541fbe7cceb093266a7846988336` установлен в PolyMC1.21.1-Testing;backup предыдущего6ae сохранён,2366 остальных файлов/миров/настроек неизменны. Полная приёмка1.5.2 открыта. [Отчёт размещения](verification/chud-1.5.2/placement-fix/REPORT.md).
+
+## Чуди1.5.2 — поиск исправлен; игровая проверка открыта, 2026-10-09
+
+Реализованы фоновый ограниченный поиск обоих подземелий, немедленный ответ, прогресс, отмена, статус и продолжение непроверенного остатка. Готовые starts читаются без ожидания чанков; native сетка, ID и сохранённая геометрия сохранены. Clean build,11 offline checks и11992 resource checks PASS; development candidate перенесён в PolyMC с backup и2260 неизменными файлами профиля.
+
+Игровые запуски запрещены пользователем:0 новых клиентов /0 новых серверов, runtime исправления не проверен. Следующая разрешённая ручная проверка — ответы обеих команд, отзывчивость игры, отмена/продолжение и загрузка найденного кандидата в отдельном новом мире. Общая QA1.5.2 остаётся открытой: исторические natural medium5 /unique attached1 /great0, визуальная QA, survival, multiplayer, перезаход и MSPT. [Отчёт](verification/chud-1.5.2/search-fix/REPORT.md).
+
+## Исправления боя после обратной связи — 2026-10-09
+
+ТугаринII получил видимый эффект защиты50%; Соловей отгоняет игрока после5 секунд близости и воII фазе летает/пикирует; AI Проклятого Оборотня переработан, устранены простои и зона недоступной атаки. Clean build и21813 resource/production checks PASS; финальные41/41 native GameTests PASS (всего4 headless запуска, первый с исправленной ошибкой). В этой итерации были2 dev client запуска до возражения пользователя; автоматический запуск признан ошибкой. После возражения0 клиентов/0 серверов; дальнейшие игровые запуски только по отдельному явному разрешению. Проверенный JAR установлен в тестовый PolyMC без запуска, backup/179 других файлов сохранены. Ручная survival/multiplayer/relog/MSPT приёмка открыта. [Отчёт](verification/combat-feedback-2026-10-09/REPORT.md).
+
+## Переработка трёх боссов — 2026-10-09
+
+По отдельному ТЗ переработаны пропорции обеих форм Соловья, гигантский Тугарин/змеиная формаII с50% защитой и тройное вращение; Проклятый Оборотень получил Variant B геометрию/две стойки, повышенные скорость/урон/комбо и корректное видимое имя. Stable registry IDs/старый Волколак/квест сохранены. Clean build PASS;34/34 native GameTests,12396 model checks,21807 resource/production checks PASS.8 реальных запусков клиента (5 игровых сцен,2 меню,1 сбой общего build directory) /3 headless сервера; финальный клиент без ERROR/FATAL. Ручной осмотр игровых кадров выполнен; ручной survival/multiplayer/relog/MSPT NOT TESTED, Computer Use не получил кадр окна. Полная игровая приёмка остаётся открытой. JAR `build/libs/slavicmyths-1.5.1-boss-rework.jar`; параллельные изменения общей задачи сохранены, Коммит не выполнялся. По последующему запросу пользователя JAR установлен в тестовый PolyMC1.21.1: backup, один активный mod JAR, SHA-256 совпадает, миры/настройки сохранены; запуск после установки0. Квитанция: `verification/boss-rework-2026-10-09/polymc-installation.json`. [Изменения, доказательства и короткая проверка](verification/boss-rework-2026-10-09/REPORT.md).
+
+## 1.5.2 — реализация и тестовая поставка; QA открыта, 2026-10-09
+
+Три режима комплексов, пять крупных комнат, двенадцать вторичных модулей, native save/debug-команды и три профиля великого колодца реализованы. Final attempt37:14/14 native GameTests PASS; clean build/production/resources PASS. По дополнительному запросу пользователя тестовый кандидат установлен в PolyMC; команды поиска/ручного размещения подготовлены. Natural12 seed/480 candidates:5 medium,1 attached,0 great. Квота четырёх unique attached/great, естественный great, оптимизация cold planning и ручная игровая приёмка остаются открытыми; milestone полностью не закрывать. [Отчёт](verification/chud-1.5.2/REPORT.md), [следующие действия](verification/chud-1.5.2/CONTINUE.md).
+
+## 1.5.1 → 1.5.2 — два явно запрошенных этапа, 2026-10-09
+
+1.5.1: архитектура/native worldgen/spacing/save и техническая поставка выполнены; clean build,production/resources,PolyMC PASS. Ручная игровая/визуальная приёмка остаётся открытой. 1.5.2: следующий порученный этап — присоединённые малые руины и самостоятельные medium/great заброшенные комплексы; тестовая реализация/поставка выполнена после этой контрольной поставки, естественная/ручная QA открыта. Новые NPC,контейнеры/лут,квесты и святилище остаются вне этапов. [Отчёт1.5.1](verification/chud-1.5.1/REPORT.md).
+
+## 1.4.3 — Проклятый Волколак, 2026-10-09
+
+Продолжение по запросу пользователя завершено: прежний `volkolak` сохранён, отдельный `cursed_volkolak`/яйцо, Variant B/две позы, 400HP/атаки/хватка/Дурная кровь, четвёртое поручение/могила/личный череп/атомарная награда Финиста. 28 OGG/23 события с лицензиями. Clean build (isolated output), 156 финальных native GameTests, 1660 model checks и 15945 production/resource checks PASS. 16 headless loader запусков /0 клиентов, промежуточные ошибки исправлены. Установлена проверенная 1.4.3 в тестовый PolyMC, один активный JAR, backup; миры/настройки/старый 1.16.5 сохранены. Клиентская/survival/multiplayer/relog/restart/Xaero приёмка и измеренный MSPT открыты. [Отчёт](verification/volkolak_1.4.3/REPORT.md), [реализация](IMPLEMENTATION_MAP_1_4_3.md).
+
+## Checkpoint 1.4.2 — 2026-10-08
+
+Три последовательных поручения Серого Волка и резервные рабочие предметы Финиста завершены и проверены серверными gates; четвёртая стадия в checkpoint заблокирована. Пользователь явно запросил следующий архив1.4.3: он является отдельным разрешённым продолжением, а не самовольным выполнением roadmap. Клиентская визуальная/звуковая и survival приёмка checkpoint остаётся открытой. [Результаты](verification/grey_wolf_1.4.2/REPORT.md).
+
+## Исправления AI Волка и управления полётом — 2026-10-08
+
+В общей версии 1.4.2.1 исправлены прыжки под кроной/в ствол, остаточное управление движением и самоурон Волка; снижение транспорта по умолчанию X, подсказка показывает сохранённые клавиши, Shift — высадка. Прежние registry IDs, art, урон атак и дальности сохранены. Clean build PASS; финальные 20/20 native GameTests и 10967 production/resource checks PASS; 6 headless запусков / 0 клиентов. Проверенная сборка установлена в тестовый PolyMC с backup и SHA-256, миры/настройки сохранены. Параллельные изменения версии сохранены; roadmap этой задачей не расширен. Клиентская приёмка конкретного дерева и клавиш открыта. [Отчёт и краткая ручная проверка](verification/wolf-flight-hotfix/REPORT.md), [установка](verification/wolf-flight-hotfix/polymc-installation.json).
+
+## Проверка актуальности PolyMC — 2026-10-08
+
+По запросу пользователя подтверждена установленная 1.4.1 в `Slavic-Myths-1.21.1-Testing` (Minecraft 1.21.1 / NeoForge 21.1.255). Повторный `gradlew.bat clean build` PASS, 22672 resource/production checks PASS; SHA-256 единственного активного JAR совпадает с новой сборкой. Замена не требуется, файлы экземпляра и миры не изменены; старый 1.16.5 сохранён. Код, версия и архитектура не менялись; roadmap не расширен. Реальных запусков в этой проверке: 0 клиентов / 0 серверов; игровая приёмка остаётся открытой. [Квитанция](verification/polymc-1.4.1-recheck.json).
+
+## Серый Волк — 1.4.1 (2026-10-08)
+
+Реализовано ТЗ пользовательского архива и яйцо `grey_wolf_spawn_egg`: самостоятельная модель30 частей/87 кубов,512px atlas, личное согласие и испытание500→50HP, пять атак, синхронный реальный вой/ограниченная стая, общий bleeding cap, постоянный NPC и персональная запись existing Journal/Xaero. Прежние Сапоги ветра сохранены. Будущие задания/награды1.4.2 не реализованы.
+
+Серверный state machine + стандартные goals/entity data; safe loaded-only encounter, bounded candidate checks, без force loading. Seed probability.10 и квота≤40% подтверждённых natural Tugarin anchors (до3 таких якорей wolf отсутствует). Native pounce5.386/dash3.243blocks; wolf/bear визуальные размеры≈×1.99. Глобального обхода игроков/мира каждый тик нет. Истечение WOLF_CUT отложенно возвращает оставшийся слабый bleed через server TickTask; milk не восстанавливает удалённый эффект.
+
+Итог: clean build и production/resource gates PASS;15 wolf +63 combat +23 unique native GameTests PASS,2116 wolf model +20491 rare +355 rune +147 armor +9176 existing models offline checks PASS.13 headless запусков /0 клиентов в этой итерации; промежуточные ошибки исправлены. Клиентская визуальная/звуковая приёмка, реальный relog/Xaero, natural частота и MSPT **не проверены**. Production установлен в тестовый PolyMC после gates с резервной копией прежнего JAR; игровые миры/1.16.5 сохранены. Commit не выполнялся.
+
+[Реализация и ограничения](verification/grey_wolf_1.4.1/IMPLEMENTATION.md), [ручная приёмка](verification/grey_wolf_1.4.1/MANUAL_QA.md), [resources/JAR](verification/grey_wolf_1.4.1/resource_gates.json), [установка](verification/grey_wolf_1.4.1/polymc-installation.json), [звуки](verification/grey_wolf_1.4.1/SOUND_SOURCES.md). Ниже сохранена история.
+
+## Разгон Сапог ветра — 1.3.4.5.5 (2026-10-08)
+
+По запросу пользователя добавлен временный серверный заряд: 8 с спринта с прыжками повышают высоту от **4.154 до 12.461 блока**. Штатная физика и syncable JUMP_STRENGTH; дальность до ровного пола растёт от **7.133 до 11.492 блока**, максимальная дуга 36 тиков. Импульсы рассчитаны по высоте ×3; горизонтальная скорость и бонус отрыва не увеличены. Спад после остановки 1.6 с, стена сбрасывает заряд, lifecycle/equipment/flight/fluid/ladder/vehicle/teleport очищают состояние. Добавленная высота конкретного прыжка вычитается из fall distance однократно с ограничением по достигнутому пику; базовое снижение урона 40% сохранено. Registry IDs/рецепты/ресурсы внешнего вида сохранены; RU/EN и генератор актуальны.
+
+`WindBootsMomentum`: O(1) PlayerTick.Post только владельца, без world/player scans, custom movement packets или сохранённого заряда. Атрибут меняется только по ступеням; микропроба 1000 синтетических образцов/handler 4.0043 мс, не MSPT. **1.3.4.5.4 → 1.3.4.5.5**; clean build PASS, 23/23 итоговых native GameTests, 19336 resource/JAR checks. **3 headless запуска / 0 клиентов**; один промежуточный сбой fixture исправлен. Production установлен в PolyMC `Slavic-Myths-1.21.1-Testing`, прежний JAR сохранён вне mods, SHA-256 проверен, 291 прочий файл экземпляра сохранён побайтно. Клиентская приёмка открыта; commit не выполнялся.
+
+[Физика, поведение и проверки](WIND_BOOTS_MOMENTUM_1.3.4.5.5.md), [gates](verification/wind-charge-1.3.4.5.5.json), [установка](verification/polymc-1.3.4.5.5-wind-charge-installation.json). Ниже сохранена история.
+
+## Сапоги ветра: дуга выше четырёх блоков — 1.3.4.5.4 (2026-10-08)
+
+По запросу пользователя вертикальный импульс Сапог ветра изменён на 0.82 блока/тик (`JUMP_STRENGTH +95.238095%`). Штатная физика Minecraft даёт пик **4.154 блока**, дальность **7.133 блока с разбега и удержанием W** до ровного пола и 21 тик полёта. Native ServerPlayer.travel подтвердил расчёт и посадку на уступ высотой 4 блока. Скорость +40%, momentum +10%, снижение fall damage 40%, руны и registry IDs сохранены; RU/EN и генератор ресурсов обновлены.
+
+Версия **1.3.4.5.3 → 1.3.4.5.4**. `gradlew.bat clean build` PASS; 19/19 native GameTests PASS; 19336 resource/production JAR checks PASS. **2 headless запуска сервера / 0 клиентов** для этой правки. Параллельные изменения боссов сохранены и отдельно записаны в audit. Production JAR установлен в PolyMC `Slavic-Myths-1.21.1-Testing`; предыдущая 1.3.4.5.3 сохранена вне mods, SHA-256 проверен, 273 прочих файла экземпляра сохранены побайтно. Клиент не запускался, ручная игровая приёмка открыта; commit не выполнялся.
+
+[Расчёт и ограничения](WIND_BOOTS_JUMP_1.3.4.5.4.md), [gates](verification/wind-boots-1.3.4.5.4.json), [установка](verification/polymc-1.3.4.5.4-wind-boots-installation.json). Ниже сохранена история предыдущих итераций.
+
+## Установка дополнения уникального снаряжения в PolyMC — 2026-10-08
+
+По прямому запросу пользователя проверенный production `slavicmyths-1.3.4.5.3.jar` установлен в существующий `Slavic-Myths-1.21.1-Testing` (Minecraft 1.21.1 / NeoForge 21.1.255). Предыдущая 1.3.4.5.2 сохранена вне mods; активен один JAR, SHA-256 совпал с unique-equipment gates. 246 прочих файлов экземпляра, включая миры и настройки, сохранены побайтно. Версия исходников не менялась. Клиент/сервер при установке не запускались; старый экземпляр 1.16.5 не затронут. [Квитанция](verification/polymc-1.3.4.5.3-unique-equipment-installation.json). Ручная клиентская приёмка открыта; ниже предыдущие записи.
+
+## Уникальное снаряжение — дополнение 1.3.4.5.3 без изменения версии (2026-10-08)
+
+Реализованы Сапоги ветра, Нагрудник богатыря, Шлем ясного взора, Поножи неукротимости, Щит-оберег и Закалённое железо. Пять upgrades существующего верстака сохраняют компоненты и долю износа; ёмкость рун 3. База сапог — Скороходы; чёрное перо из стана одобрено пользователем. RU/EN, нативные sprites/worn models, Creative/Search и optional JEI integration готовы. Версия **1.3.4.5.3 → 1.3.4.5.3**.
+
+Clean build PASS; 17/17 итоговых native GameTests, 147 armor +355 rune offline, 19336 resource/JAR checks. 8 headless servers/0 clients; новый процесс проверил 5 stacks/2 КД в player .dat. Это не клиентский relog/визуальная приёмка/MSPT. Production `build/libs/slavicmyths-1.3.4.5.3.jar`; PolyMC/клиент не запускались, установка/commit/push не выполнялись. Внешние параллельные изменения боссов сохранены и отделены в machine audit. **REQUIRES_MANUAL_CLIENT_CHECK**: [отчёт](UNIQUE_EQUIPMENT_COMPLETION.md), [ручная приёмка](MANUAL_VISUAL_CHECK.md), [gates](verification/unique-equipment.json). Ниже предыдущий статус/история.
+
+Следующий шаг этого дополнения — ручная клиентская приёмка. Остальные milestone автоматически не реализуются.
+
+## Boss reimplementation — завершено, интегрировано в 1.3.4.5.5 (2026-10-08)
+
+Реализованы четыре самостоятельные модели/текстуры, две фазы и атаки обоих боссов, village targeting, яйцо Соловья, волна кинжала и 39 звуковых событий. Последние исправления челюсти Тугарина и спуска Соловья с платформы включены.
+
+В изолированной сборке 1.3.4.5.3: clean build PASS, 40/40 boss + 63/63 combat GameTests, 9176 native model checks, 20491 rune checks и resource/JAR gates PASS. 16 реальных headless запусков / 0 клиентов. Установленная параллельной задачей 1.3.4.5.5 содержит побайтно те же 37 файлов кода/ресурсов боссов и 39 звуковых событий; production JAR совпадает с build/libs. Новая версия не откатывалась, файлы снаряжения не изменялись этой задачей. Подробности: [отчёт](IMPLEMENTATION_REPORT.md), [gates](verification/boss-reimplementation/gates.json), [интеграция](verification/boss-reimplementation/integration-1.3.4.5.5.json). Визуальная/звуковая клиентская приёмка остаётся ручной. Commit/push не выполнялись.
+
+
+## Общий Boss Rework — 1.3.4.5.2, этап1 (2026-10-08)
+
+Первый атомарный этап нового архива Тугарин+Соловей: кинжал wind range6.5/base impulse4/visible arcs; прежний melee10/SPEAR/CD7с сохранён.39stable boss SoundEvent keys/aliases; оригинальные OGG неизменны. Полный rework **не завершён**: две фазы/новые модели/способностиСоловья и новыеdamage/combo/boss-heldbladesТугарина остаются в [STATUS_HANDOFF](../STATUS_HANDOFF.md). Механики1.3.4.5.1 сохранены.
+
+Clean build PASS,63/63GameTests,20491pure rune,13503resource gates;1server/0clients.1.3.4.5.2 установлена в существующийtestPolyMCбеззапуска;765прочихфайловсохранены. REQUIRES_MANUAL_CLIENT_CHECK. [Sound notes](SOUND_PRODUCTION_NOTES.md), [manual](MANUAL_CHECK_BOSSES.md), [gates](verification/boss-stage1-1.3.4.5.2.json). Commit/push не выполнены. Ниже история.
+
+## Тугарин Змей — 1.3.4.5.1 (2026-10-08)
+
+Две формы и единичная трансформация при50% HP: отдельный серверный scheduler, finite DR85% на3сек, устойчивая aggro, четыре phase-two abilities, отдельная геометрия Змея с крыльями и разные звуковые профили.350HP без heal, raw melee6/6.6, phase-two speed+23%; hitbox1.3×2.35. Прежние трофеи сохранены, pair drop12%, natural region probability25% (один multiplier, применён и к прежним anchors). Дополнены alternating pair slash/sheath sound; offhand escrow/native bleed сохранены.
+
+Clean build PASS; итог21/21Tugarin +61/61combat regression,20491pure rune,9772native model bake,11357resource gates. Реальных запусков5servers/0clients; первый11/14, последующие PASS. **REQUIRES_MANUAL_CLIENT_CHECK**: модели/анимации/звук/боевые окна не проверены клиентом.1.3.4.5.1 установлена в существующий тестовый PolyMC1.21.1 без запуска;765 остальных файлов сохранены. Commit/push не сделаны; пользовательские и прежние незакоммиченные изменения сохранены. [Отчёт](TUGARIN_REWORK_1.3.4.5.1.md), [ручная приёмка](MANUAL_CHECK_TUGARIN.md), [gates](verification/tugarin-1.3.4.5.1.json), [установка](verification/polymc-1.3.4.5.1-installation.json). Старые разделы ниже — история.
+
+Следующий шаг этого патча — только ручная проверка по MANUAL_CHECK_TUGARIN. Другие milestone, Knowledge/Classes GUI approval и курганный баланс этой итерацией не реализованы.
+
+## Актуальная версия 1.3.4.4 — 2026-10-08
+
+Реализованы CombatTargeting, исправления Flight/Floating/Likho/Death/Net, knife Loyalty и звук, утверждённый trophy damage10/12/12/10/10 (Pool Spear9), один stack парных клинков Тугарина с безопасным offhand escrow и render-only вторым клинком. Vanilla/material weapons и registry IDs сохранены. Clean build PASS,61/61GameTests,20491pure assertions,6591resource checks. Реальных запусков4servers/0clients; ручной renderer/keybind/sound check не выполнен.1.3.4.4 установлена в 1.21.1 test PolyMC,765прочих файлов сохранены. Commit/push не выполнены. [Полный отчёт](COMBAT_RUNE_FIXES_1.3.4.4.md); [установка](verification/polymc-1.3.4.4-installation.json). Более ранние разделы ниже — история.
+
+Следующий отдельный проход: ручная проверка pair rendering/flight feedback и targeted fixes по результатам. Knowledge duplicate, Creative/book/faction и отложенные visual redesign не реализованы этим патчем.
+
 ## Редкие руны — 1.3.4.3 (2026-10-08)
 
 Реализованы шесть rare runes, четыре именных fragment, четыре восстановления через существующую Rune Anvil и два stage-3 обмена Яги. Источники: Соловей (3 гарантированных flight fragments, одноразовый бой на стан), Тугарин/Лихо/курганный воевода (1 гарантированный fragment); 25% extra, 4% full rune. Старая rune_protection сохранена, новая — rune_rare_protection; прежние IDs/loot pools/runes I–II/Classes Screen и HUD layout сохранены.
@@ -462,3 +649,42 @@ survival-контент отложено согласно заданию; сей
 ## 0.9.4 current next block
 
 Finish custom item/block APIs and concrete EntityBlock/ticker/menu transaction integration, then initialize real registries for codecs/inventory/Curios/JEI verification. Major entity/client/network/worldgen work follows. No 0.9.5 and no gameplay/worldgen/visual backlog fixes in this stage.
+
+
+## Runtime audit 1.3.4.3 — 2026-10-08
+
+Аудит без изменения production кода/баланса/ресурсов. Clean build успешен; проверены 659 предметов,3018JSON,901PNG и исключение тестов из JAR. Реальных запусков:7 GameTest servers и1 dev client; итоговый37/37 проверяет наблюдаемое поведение, включая дефекты A02 (Enemy predicate пропускает Соловья без lastHurtMob) и A18 (duplicate depth_gift рано открывает lore_keeper). Native capture клиента недоступен; визуальные симптомы, ручной игровой проход, multiplayer/restart и MSPT не подтверждены. Отчёт и предложения: [docs/audit/runtime-1.3.4.3/AUDIT_REPORT.md](audit/runtime-1.3.4.3/AUDIT_REPORT.md). Ничего не исправлено и не отправлено в Git.
+
+Следующие отдельные патчи: target/UX contracts; Knowledge duplicate compatibility; баланс ролей; визуальный runtime review; затем Creative/бестиарий/фракции после согласования. Эти пункты запланированы, не реализованы.
+
+
+## Песиголовцы 1.6.5 — 2026-10-10
+
+По архиву добавлены три роли `slavicmyths:pesigolovets` с тремя яйцами, настоящие копьё/лук/нож/топор, ограниченный loaded-only индекс стаи и естественный спавн. Топор прерывается от4 реально прошедших HP до тика17 согласно ответу пользователя. Новые модели имеют отдельные atlas256, IK рук/ног, 70 оригинальных OGG. Существующие registry ID, руны и мобы сохранены. [Описание](pesigolovtsy/IMPLEMENTATION.md).
+
+После разрешения пользователя выполнено10 реальных запусков Minecraft (7 GameTest-серверов,3 dev-клиента). Последний сервер:7/7 PASS; игровые кадры трёх ролей/атак и настоящее открытие сохранённого QA-мира получены. В ходе проверки исправлены укол по низкой добыче и синхронизация беговой походки. Повторный clean build PASS (1m8s), шесть offline-наборов PASS,25060 resource/JAR checks PASS;6300 прежних записей JAR побайтно сохранены. Непроверенные естественный спавн, two-client MP, stress MSPT, прослушивание и остальная матрица явно остаются открытыми. [Отчёт](verification/pesigolovtsy-1.6.5/REPORT.md). Сборка из snapshot1.6.5 исключает только параллельные добавления Кузи; общий checkout1.6.6 сохранён. Commit не создавался.
+
+Установка1.6.5 выполнена после gates в согласованный PolyMC1.21.1-Testing; backup1.6.4 вне mods,473 прочих файла сохранены. Immutable JAR: `release/slavicmyths-1.6.5.jar`; второй чат уведомлён для последовательной установки1.6.6.
+
+
+## Кузя и интерьер Яги 1.6.6 — 2026-10-10
+
+Добавлен канонический домашний NPC `slavicmyths:kuzya`: нативная модель/33 клипа, 48 OGG, физический маршрут на печь, бытовые сцены, гостевые таймеры и явный repair. Новые дома получают интерьер/блюда/умеренный loot; старые автоматически не перестраиваются. Песиголовцы 1.6.5 сохранены. [Реализация](kuzya/IMPLEMENTATION.md).
+
+Clean build PASS; 471427 offline checks Кузи, 73926 regression checks песиголовцев, 31058 resource/JAR checks PASS. Реальных запусков этой задачи: 10 GameTest-серверов, 0 клиентов; финальный интеграционный сценарий PASS. Кандидат установлен после gates в существующий PolyMC1.21.1-Testing, backup1.6.5 вне mods, 474 прочих файла сохранены. Commit не создавался.
+
+Открыты клиентская визуальная/звуковая приёмка, полный длительный бытовой прогон, two-client MP, настоящий перезаход и MSPT. Четыре ориентации не реализованы: сохранена северная генерация. Эти пункты не считать выполненными. [Отчёт](verification/kuzya-1.6.6/REPORT.md).
+
+
+## Доработка Кузи 1.6.7 — 2026-10-11
+
+По пользовательским скриншотам убран контрастный пиксельный шум модели, исправлен UTF-8 импорт русских реплик. Вместо TTS подключены пять выбранных оригинальных мультфрагментов; 20 старых sound registry ID сохранены как aliases, синтетические файлы исключены из production. Таймер домашнего занятия независим от клипа/гостевых реакций; первое занятие8s, паузы15–45s. Интерьер оставлен принятым пользователем.
+
+Clean build PASS; 471397 offline checks Кузи, 73926 regression checks песиголовцев, 31106 resource/JAR checks PASS; 3 новых GameTest-сервера (финальный autonomous + ПКМ + физическая печь PASS), 0 клиентов. Кандидат установлен после gates в PolyMC1.21.1-Testing, backup1.6.6 вне mods, 484 других файла сохранены. Миры и остальные системы сохранены. Commit не создавался.
+
+Человеческое прослушивание/игровой микс, client visual, длительный бытовой прогон, MP/relog/MSPT остаются открыты. Локальный ASR не приравнивается к прослушиванию. [Отчёт и оригинальные аудиофайлы](verification/kuzya-1.6.7/REPORT.md).
+
+
+## Kuzya1.6.8 follow-up (2026-10-11)
+
+Completed current request: correct Russian entity name and owned strings, faster player-independent chores at four fixed anchors, persisted scene/route/rest with bounded unloaded-time adjustment. Verified native offline/build/resource gates and actual autonomous multi-position chores plus stove ascent/descent in isolated dedicated GameTest. Candidate installed; user client acceptance pending. Real player relog/MP/client audio-visual QA and measured MSPT are not complete. No future milestone implemented. [Evidence](verification/kuzya-1.6.8/REPORT.md).

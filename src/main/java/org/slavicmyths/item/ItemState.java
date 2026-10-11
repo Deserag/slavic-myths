@@ -27,8 +27,13 @@ import org.slavicmyths.hunt.HuntTarget;
 
 /** Immutable, persistent and synchronized state owned by ItemStacks. */
 public final class ItemState {
+    public record QuiverState(int charges,long recharge,String identity) {
+        public QuiverState {charges=Math.clamp(charges,0,12);recharge=Math.max(0,recharge);identity=identity==null?"":identity;}
+        public static final Codec<QuiverState> CODEC=RecordCodecBuilder.create(i->i.group(Codec.INT.fieldOf("charges").forGetter(QuiverState::charges),Codec.LONG.fieldOf("recharge").forGetter(QuiverState::recharge),Codec.STRING.fieldOf("identity").forGetter(QuiverState::identity)).apply(i,QuiverState::new));
+    }
     public static final DeferredRegister<DataComponentType<?>> COMPONENTS = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, "slavicmyths");
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> WATER_CHARGES = component("watering_can_water", Codec.intRange(0,8));
+    public static final DeferredHolder<DataComponentType<?>,DataComponentType<QuiverState>> FINIST_QUIVER=component("finist_quiver",QuiverState.CODEC);
     public record RuneState(int slots, List<String> runes) {
         public static final Codec<List<String>> LEGACY_SPECIALS_CODEC=Codec.STRING.sizeLimitedListOf(2).validate(ids->ids.stream().allMatch(id->id.equals("heat")||id.equals("wind"))&&ids.stream().distinct().count()==ids.size()?DataResult.success(List.copyOf(ids)):DataResult.error(()->"Invalid legacy rune provenance"));
         public static List<String> provenance(List<String> installed,List<String> stored){return stored==null?installed.stream().filter(id->id.equals("heat")||id.equals("wind")).distinct().toList():List.copyOf(stored);}

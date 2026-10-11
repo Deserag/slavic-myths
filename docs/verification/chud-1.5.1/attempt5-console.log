@@ -1,0 +1,128 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileChudCheckJava UP-TO-DATE
+> Task :processChudCheckResources UP-TO-DATE
+> Task :chudCheckClasses UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :writeChudChecksLegacyClasspath UP-TO-DATE
+> Task :prepareChudChecksRun UP-TO-DATE
+
+> Task :runChudChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[08:57:39] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[08:57:39] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[08:57:39] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[08:57:39] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[08:57:39] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[08:57:40] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[08:57:40] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.4.2.1 (slavicmyths)
+[08:57:41] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[08:57:41] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[08:57:41] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:57:41] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:57:42] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[08:57:42] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[08:57:48] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:57:48] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:57:48] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:57:48] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:57:48] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:57:48] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[08:57:49] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[08:57:49] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[08:57:49] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[08:57:49] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_chud]
+[08:57:51] [main/INFO] [minecraft/RecipeManager]: Loaded 1769 recipes
+[08:57:51] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[08:57:51] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[08:57:51] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[08:57:52] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[08:57:52] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[08:57:52] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 110 ms
+[08:57:52] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[08:57:52] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[08:57:52] [Server thread/INFO] [minecraft/GameTestServer]: 6 tests are now running at position -6431589, -59, 3832189!
+[08:57:52] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (6 tests)...
+[08:57:53] [Server thread/INFO] [minecraft/GameTestServer]: [      ]
+CHUD_EDGE 0 entrance->residential reached=49/49
+CHUD_EDGE 0 square->residential reached=131/131
+CHUD_EDGE 0 square->forge reached=44/109 [48:-12, 62, 36 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [56:-20, 59, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false]] [64:-28, 55, 36 b=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [72:-36, 52, 36 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [80:-44, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [88:-52, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [96:-60, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [104:-68, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}]
+CHUD_EDGE 0 forge->store reached=0/62 [0:-90, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [8:-90, 51, 44 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [16:-90, 51, 52 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [24:-90, 51, 60 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [32:-90, 51, 68 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [40:-90, 51, 76 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [48:-85, 51, 79 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [56:-77, 51, 79 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}]
+CHUD_EDGE 0 square->council reached=49/55
+CHUD_EDGE 0 store->gate reached=0/213 [0:-72, 51, 79 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [8:-72, 51, 71 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [16:-72, 51, 63 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [24:-72, 51, 55 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [32:-72, 50, 47 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [40:-72, 48, 39 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [48:-72, 47, 31 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=south,half=bottom,shape=straight,waterlogged=false]] [56:-72, 46, 23 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [64:-72, 45, 15 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [72:-72, 44, 7 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [80:-72, 42, -1 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [88:-72, 41, -9 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [96:-72, 40, -17 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=south,half=bottom,shape=straight,waterlogged=false]] [104:-72, 39, -25 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [112:-72, 38, -33 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [120:-72, 36, -41 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [128:-72, 35, -49 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [136:-72, 34, -57 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=south,half=bottom,shape=straight,waterlogged=false]] [144:-72, 33, -65 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [152:-72, 32, -73 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [160:-72, 31, -81 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [168:-72, 29, -89 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [176:-73, 28, -96 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [184:-81, 27, -96 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [192:-89, 26, -96 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [200:-97, 25, -96 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [208:-105, 25, -96 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}]
+CHUD_EDGE 0 residential->forge reached=0/149 [0:76, 79, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [8:68, 79, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [16:60, 79, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [24:52, 79, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [32:44, 79, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [40:36, 78, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false]] [48:28, 75, 66 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [56:20, 72, 66 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [64:12, 69, 66 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [72:4, 67, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [80:-4, 64, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [88:-12, 61, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false]] [96:-20, 58, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false]] [104:-28, 55, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false]] [112:-36, 52, 66 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [120:-44, 51, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [128:-52, 51, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [136:-60, 51, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [144:-68, 51, 66 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}]
+CHUD_NAV variant=0 fills=50038 visited=5357 elapsedMs=119 failures=[FORGE=-72, 51, 16 body=Block{minecraft:air} head=Block{minecraft:air}, STORE=-72, 51, 71 body=Block{minecraft:air} head=Block{minecraft:air}, COUNCIL=0, 65, 40 body=Block{minecraft:andesite} head=Block{minecraft:stone_bricks}, GATE=-109, 25, -96 body=Block{minecraft:air} head=Block{minecraft:air}, home_4=56, 91, 29, home_5=73, 91, 29, home_6=58, 91, 52, home_7=72, 91, 52, upper tier 1]
+[08:57:53] [Server thread/ERROR] [minecraft/LogTestReporter]: actualthreehallnavigation failed at -6431555, -60, 3832189! unreachable [FORGE=-72, 51, 16 body=Block{minecraft:air} head=Block{minecraft:air}, STORE=-72, 51, 71 body=Block{minecraft:air} head=Block{minecraft:air}, COUNCIL=0, 65, 40 body=Block{minecraft:andesite} head=Block{minecraft:stone_bricks}, GATE=-109, 25, -96 body=Block{minecraft:air} head=Block{minecraft:air}, home_4=56, 91, 29, home_5=73, 91, 29, home_6=58, 91, 52, home_7=72, 91, 52, upper tier 1]
+CHUD_EDGE 2 entrance->residential reached=49/49
+CHUD_EDGE 2 square->residential reached=131/131
+CHUD_EDGE 2 square->forge reached=44/109 [48:-12, 62, 36 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [56:-20, 59, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false]] [64:-28, 55, 36 b=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [72:-36, 52, 36 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [80:-44, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [88:-52, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [96:-60, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [104:-68, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}]
+CHUD_EDGE 2 forge->store reached=0/116 [0:-90, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [8:-90, 51, 28 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [16:-90, 51, 20 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [24:-90, 51, 12 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [32:-90, 51, 4 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [40:-90, 49, -4 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=south,half=bottom,shape=straight,waterlogged=false]] [48:-90, 47, -12 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [56:-90, 44, -20 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [64:-90, 42, -28 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [72:-90, 41, -36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [80:-90, 41, -44 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [88:-90, 41, -52 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [96:-85, 41, -55 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [104:-77, 41, -55 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [112:-69, 41, -55 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}]
+CHUD_EDGE 2 square->council reached=148/148
+CHUD_EDGE 2 store->gate reached=0/85 [0:-66, 41, -55 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [8:-66, 41, -63 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [16:-66, 41, -71 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [24:-66, 41, -79 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [32:-66, 39, -87 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [40:-66, 36, -95 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=south,half=bottom,shape=straight,waterlogged=false]] [48:-73, 33, -96 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false]] [56:-81, 29, -96 b=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [64:-89, 26, -96 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [72:-97, 25, -96 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [80:-105, 25, -96 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}]
+CHUD_EDGE 2 residential->council reached=97/97
+CHUD_EDGE 2 council->council reached=31/31
+CHUD_EDGE 2 store->council reached=80/144 [0:-66, 41, -55 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [8:-61, 41, -58 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [16:-53, 41, -58 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [24:-45, 41, -58 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [32:-37, 41, -58 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [40:-29, 45, -58 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false]] [48:-21, 48, -58 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [56:-13, 52, -58 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false]]
+CHUD_NAV variant=2 fills=60798 visited=7067 elapsedMs=48 failures=[SQUARE=0, 65, -20 body=Block{minecraft:air} head=Block{minecraft:air}, FORGE=-72, 51, 16 body=Block{minecraft:air} head=Block{minecraft:air}, STORE=-66, 41, -69 body=Block{minecraft:air} head=Block{minecraft:air}, GATE=-109, 25, -96 body=Block{minecraft:air} head=Block{minecraft:air}, home_12=57, 103, 29, home_13=74, 103, 29, home_14=88, 103, 29, home_15=56, 103, 52, home_16=72, 103, 52, home_17=89, 103, 52, upper tier 2]
+[08:57:53] [Server thread/ERROR] [minecraft/LogTestReporter]: actualfivehallnavigation failed at -6431521, -60, 3832189! unreachable [SQUARE=0, 65, -20 body=Block{minecraft:air} head=Block{minecraft:air}, FORGE=-72, 51, 16 body=Block{minecraft:air} head=Block{minecraft:air}, STORE=-66, 41, -69 body=Block{minecraft:air} head=Block{minecraft:air}, GATE=-109, 25, -96 body=Block{minecraft:air} head=Block{minecraft:air}, home_12=57, 103, 29, home_13=74, 103, 29, home_14=88, 103, 29, home_15=56, 103, 52, home_16=72, 103, 52, home_17=89, 103, 52, upper tier 2]
+CHUD_EDGE 1 entrance->residential reached=49/49
+CHUD_EDGE 1 square->residential reached=131/131
+CHUD_EDGE 1 square->forge reached=44/109 [48:-12, 62, 36 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [56:-20, 59, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false]] [64:-28, 55, 36 b=Block{minecraft:stone_brick_stairs}[facing=east,half=bottom,shape=straight,waterlogged=false] h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [72:-36, 52, 36 b=Block{minecraft:stone_bricks} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [80:-44, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [88:-52, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [96:-60, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}] [104:-68, 51, 36 b=Block{minecraft:air} h=Block{minecraft:air} f=Block{minecraft:stone_bricks}]
+CHUD_EDGE 1 forge->store reached=116/116
+CHUD_EDGE 1 square->council reached=49/55
+CHUD_EDGE 1 store->gate reached=85/85
+CHUD_EDGE 1 square->store reached=106/106
+CHUD_NAV variant=1 fills=50250 visited=6076 elapsedMs=33 failures=[SQUARE=0, 65, -20 body=Block{minecraft:air} head=Block{minecraft:air}, FORGE=-72, 51, 16 body=Block{minecraft:air} head=Block{minecraft:air}, COUNCIL=0, 65, 40 body=Block{minecraft:andesite} head=Block{minecraft:stone_bricks}, home_4=56, 91, 29, home_5=73, 91, 29, home_6=58, 91, 52, home_7=72, 91, 52, home_8=57, 103, 29, home_9=74, 103, 29, home_10=56, 103, 52, home_11=72, 103, 52, upper tier 1, upper tier 2]
+[08:57:53] [Server thread/ERROR] [minecraft/LogTestReporter]: actualfourhallnavigation failed at -6431504, -60, 3832189! unreachable [SQUARE=0, 65, -20 body=Block{minecraft:air} head=Block{minecraft:air}, FORGE=-72, 51, 16 body=Block{minecraft:air} head=Block{minecraft:air}, COUNCIL=0, 65, 40 body=Block{minecraft:andesite} head=Block{minecraft:stone_bricks}, home_4=56, 91, 29, home_5=73, 91, 29, home_6=58, 91, 52, home_7=72, 91, 52, home_8=57, 103, 29, home_9=74, 103, 29, home_10=56, 103, 52, home_11=72, 103, 52, upper tier 1, upper tier 2]
+[08:57:53] [Server thread/INFO] [minecraft/GameTestServer]: [++X+XX]
+[08:57:53] [Server thread/INFO] [minecraft/GameTestServer]: ========= 6 GAME TESTS COMPLETE IN 1.094 s ======================
+[08:57:53] [Server thread/INFO] [minecraft/GameTestServer]: 3 required tests failed :(
+[08:57:53] [Server thread/INFO] [minecraft/GameTestServer]:    - actualthreehallnavigation
+[08:57:53] [Server thread/INFO] [minecraft/GameTestServer]:    - actualfivehallnavigation
+[08:57:53] [Server thread/INFO] [minecraft/GameTestServer]:    - actualfourhallnavigation
+[08:57:53] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[08:57:53] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[08:57:53] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[08:57:53] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[08:57:53] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[08:57:54] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[08:57:54] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[08:57:54] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[08:57:54] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[08:57:54] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[08:57:54] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[08:57:54] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runChudChecks FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runChudChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 3
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 28s
+9 actionable tasks: 2 executed, 7 up-to-date

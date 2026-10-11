@@ -1,0 +1,222 @@
+[
+  {
+    "line_id": "voice_enter_01",
+    "event": "kuzya.voice_enter",
+    "text_ru": "Кто это у нас пожаловал?",
+    "audio_file": "audio/ready/voice_draft/voice_enter_01.ogg",
+    "trigger": "enter",
+    "priority": "ambient",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_enter_01"
+  },
+  {
+    "line_id": "voice_enter_02",
+    "event": "kuzya.voice_enter",
+    "text_ru": "Дверь-то за собой прикрой.",
+    "audio_file": "audio/ready/voice_draft/voice_enter_02.ogg",
+    "trigger": "enter",
+    "priority": "ambient",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_enter_02"
+  },
+  {
+    "line_id": "voice_idle_01",
+    "event": "kuzya.voice_idle",
+    "text_ru": "Порядок в доме сам собой не заведётся.",
+    "audio_file": "audio/ready/voice_draft/voice_idle_01.ogg",
+    "trigger": "idle",
+    "priority": "ambient",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_idle_01"
+  },
+  {
+    "line_id": "voice_idle_02",
+    "event": "kuzya.voice_idle",
+    "text_ru": "Опять всё не на месте.",
+    "audio_file": "audio/ready/voice_draft/voice_idle_02.ogg",
+    "trigger": "idle",
+    "priority": "ambient",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_idle_02"
+  },
+  {
+    "line_id": "voice_eat_01",
+    "event": "kuzya.voice_eat",
+    "text_ru": "Вот бы блинов со сметаной!",
+    "audio_file": "audio/ready/voice_draft/voice_eat_01.ogg",
+    "trigger": "eat",
+    "priority": "contextual",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_eat_01"
+  },
+  {
+    "line_id": "voice_eat_02",
+    "event": "kuzya.voice_eat",
+    "text_ru": "Кашка-то остыла. Эх!",
+    "audio_file": "audio/ready/voice_draft/voice_eat_02.ogg",
+    "trigger": "eat",
+    "priority": "contextual",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_eat_02"
+  },
+  {
+    "line_id": "voice_eat_03",
+    "event": "kuzya.voice_eat",
+    "text_ru": "Люблю, когда сытно да тепло.",
+    "audio_file": "audio/ready/voice_draft/voice_eat_03.ogg",
+    "trigger": "eat",
+    "priority": "contextual",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_eat_03"
+  },
+  {
+    "line_id": "voice_sleep_01",
+    "event": "kuzya.voice_sleep",
+    "text_ru": "Не мешай дремать.",
+    "audio_file": "audio/ready/voice_draft/voice_sleep_01.ogg",
+    "trigger": "sleep",
+    "priority": "contextual",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_sleep_01"
+  },
+  {
+    "line_id": "voice_sleep_02",
+    "event": "kuzya.voice_sleep",
+    "text_ru": "Дай мне ещё немножко поспать.",
+    "audio_file": "audio/ready/voice_draft/voice_sleep_02.ogg",
+    "trigger": "sleep",
+    "priority": "contextual",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_sleep_02"
+  },
+  {
+    "line_id": "voice_notice_01",
+    "event": "kuzya.voice_notice",
+    "text_ru": "Ты надолго к нам?",
+    "audio_file": "audio/ready/voice_draft/voice_notice_01.ogg",
+    "trigger": "notice",
+    "priority": "ambient",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_notice_01"
+  },
+  {
+    "line_id": "voice_notice_02",
+    "event": "kuzya.voice_notice",
+    "text_ru": "Чего всё оглядываешься?",
+    "audio_file": "audio/ready/voice_draft/voice_notice_02.ogg",
+    "trigger": "notice",
+    "priority": "ambient",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_notice_02"
+  },
+  {
+    "line_id": "voice_ask_leave_01",
+    "event": "kuzya.voice_ask_leave",
+    "text_ru": "Гость-то гость, а пора бы и честь знать.",
+    "audio_file": "audio/ready/voice_draft/voice_ask_leave_01.ogg",
+    "trigger": "ask_leave",
+    "priority": "overstay",
+    "speech_cooldown_s": 75,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_ask_leave_01"
+  },
+  {
+    "line_id": "voice_ask_leave_02",
+    "event": "kuzya.voice_ask_leave",
+    "text_ru": "Долго ещё гостить будешь?",
+    "audio_file": "audio/ready/voice_draft/voice_ask_leave_02.ogg",
+    "trigger": "ask_leave",
+    "priority": "overstay",
+    "speech_cooldown_s": 75,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_ask_leave_02"
+  },
+  {
+    "line_id": "voice_ask_leave_03",
+    "event": "kuzya.voice_ask_leave",
+    "text_ru": "Чужому тут ночевать не положено.",
+    "audio_file": "audio/ready/voice_draft/voice_ask_leave_03.ogg",
+    "trigger": "ask_leave",
+    "priority": "overstay",
+    "speech_cooldown_s": 75,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_ask_leave_03"
+  },
+  {
+    "line_id": "voice_ask_leave_04",
+    "event": "kuzya.voice_ask_leave",
+    "text_ru": "Всё ходишь и ходишь, отдыха нет.",
+    "audio_file": "audio/ready/voice_draft/voice_ask_leave_04.ogg",
+    "trigger": "ask_leave",
+    "priority": "overstay",
+    "speech_cooldown_s": 75,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_ask_leave_04"
+  },
+  {
+    "line_id": "voice_ask_leave_05",
+    "event": "kuzya.voice_ask_leave",
+    "text_ru": "Ну, ступай уже, у меня забот полно.",
+    "audio_file": "audio/ready/voice_draft/voice_ask_leave_05.ogg",
+    "trigger": "ask_leave",
+    "priority": "overstay",
+    "speech_cooldown_s": 75,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_ask_leave_05"
+  },
+  {
+    "line_id": "voice_yaga_01",
+    "event": "kuzya.voice_yaga",
+    "text_ru": "Бабушка, а пирожки где?",
+    "audio_file": "audio/ready/voice_draft/voice_yaga_01.ogg",
+    "trigger": "yaga",
+    "priority": "contextual",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_yaga_01"
+  },
+  {
+    "line_id": "voice_yaga_02",
+    "event": "kuzya.voice_yaga",
+    "text_ru": "Я тут за порядком присматриваю.",
+    "audio_file": "audio/ready/voice_draft/voice_yaga_02.ogg",
+    "trigger": "yaga",
+    "priority": "contextual",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_yaga_02"
+  },
+  {
+    "line_id": "voice_interact_01",
+    "event": "kuzya.voice_interact",
+    "text_ru": "Чего тебе надо?",
+    "audio_file": "audio/ready/voice_draft/voice_interact_01.ogg",
+    "trigger": "interact",
+    "priority": "ambient",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_interact_01"
+  },
+  {
+    "line_id": "voice_interact_02",
+    "event": "kuzya.voice_interact",
+    "text_ru": "А поговорить-то можно и после обеда.",
+    "audio_file": "audio/ready/voice_draft/voice_interact_02.ogg",
+    "trigger": "interact",
+    "priority": "ambient",
+    "speech_cooldown_s": 35,
+    "rights": "original newly written text, original synthesized voice; not film recording",
+    "actual_sound_event": "slavicmyths:kuzya.voice_interact_02"
+  }
+]

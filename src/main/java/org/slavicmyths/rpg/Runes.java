@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.progression.Knowledge;
 public final class Runes {
- public static final String[] IDS={"thunder","heat","forest","midday","shadow","protection","life","wind","strength","speed","resilience","crushing","blood","fortitude","floating_weapon","flight","rare_protection","death","berserker","sacrifice"};
+ public static final String[] IDS={"thunder","heat","forest","midday","shadow","protection","life","wind","strength","speed","resilience","crushing","blood","fortitude","floating_weapon","flight","rare_protection","death","berserker","sacrifice","mining_1","mining_2","fortune_1","ominous_aura","earth_heart_iii"};
  private static final java.util.Map<String,net.minecraft.tags.TagKey<Item>> TAGS=new java.util.HashMap<>();
  static {for(String key:new String[]{"rune_staff","rune_dagger","rune_spear","rune_heavy","rune_capacity_1","rune_capacity_3","no_reforging"})TAGS.put(key,ItemTags.create(ResourceLocation.fromNamespaceAndPath("slavicmyths",key)));}
  public static boolean tagged(ItemStack s,String tag){return s.is(TAGS.get(tag));}
@@ -19,6 +19,7 @@ public final class Runes {
  public static String category(ItemStack s){
   // Armor stores runes, but is never classified as a combat weapon.
   if(s.isEmpty()||s.getItem() instanceof ArmorItem)return "";
+  if(s.getItem() instanceof PickaxeItem)return "pickaxe";
   if(s.getItem() instanceof org.slavicmyths.combat.ThrowingWeaponItem item)return item.knife?"dagger":"spear";
   if(s.getItem() instanceof org.slavicmyths.item.SpearItem)return "spear";
   if(s.getItem() instanceof org.slavicmyths.bandit.NightingaleDagger)return "dagger";
@@ -28,6 +29,7 @@ public final class Runes {
   Item i=s.getItem();if(i instanceof BowItem||i instanceof CrossbowItem)return "bow";if(i instanceof ShieldItem)return "shield";if(i instanceof AxeItem||i instanceof net.minecraft.world.item.MaceItem||i instanceof org.slavicmyths.combat.MaceItem)return "heavy";if(i instanceof TridentItem)return "spear";if(i instanceof SwordItem)return "sword";return "";
  }
  public static int capacity(ItemStack s){
+  if(org.slavicmyths.equipment.UniqueEquipment.unique(s))return 3;
   if(armor(s)){var material=((ArmorItem)s.getItem()).getMaterial();return material.unwrapKey().map(key->armorCapacity(key.location())).orElse(0);}
   if(category(s).isEmpty()||tagged(s,"no_reforging"))return 0;if(tagged(s,"rune_capacity_3")||s.getItem() instanceof org.slavicmyths.artifact.VelesStaffItem)return 3;if(tagged(s,"rune_capacity_1"))return 1;
   if(s.getItem() instanceof TieredItem item){Tier t=item.getTier();if(t==org.slavicmyths.item.ModGear.PERUNITE)return 3;if(t==Tiers.DIAMOND||t==Tiers.NETHERITE)return 2;return 1;}return 2;}
@@ -40,7 +42,7 @@ public final class Runes {
   case "slavicmyths:perunite"->3;
   default->0;
  };}
- public static boolean compatible(ItemStack equipment,String id){var rune=RuneDefinition.ALL.get(id);return rune!=null&&capacity(equipment)>0&&(RareRunes.rare(id)?RareRunes.supports(equipment,id):RuneBalance.modern(id)?RuneRework.supports(equipment,id):(armor(equipment)||rune.categories().contains(category(equipment))));}
+ public static boolean compatible(ItemStack equipment,String id){var rune=RuneDefinition.ALL.get(id);return rune!=null&&capacity(equipment)>0&&(id.equals("earth_heart_iii")?armor(equipment):org.slavicmyths.industry.MiningRunes.mining(id)?equipment.getItem() instanceof PickaxeItem:RareRunes.rare(id)?RareRunes.supports(equipment,id):RuneBalance.modern(id)?RuneRework.supports(equipment,id):(armor(equipment)||rune.categories().contains(category(equipment))));}
  /** Equipment-only validation shared by preview and the authoritative operation. */
  public static net.minecraft.network.chat.Component installationBlocker(ItemStack equipment,ItemStack material){
   String id=rune(material),reason=installationReason(equipment.getCount(),max(equipment),slots(equipment),list(equipment),id,compatible(equipment,id));
@@ -59,7 +61,7 @@ public final class Runes {
  public static int occupied(ItemStack s){return list(s).size();}
  public static void write(ItemStack s,int slots,List<String> runes){org.slavicmyths.item.ItemState.runes(s,slots,runes);}
  public static int cost(net.minecraft.world.entity.player.Player p,int base){return p.isCreative()?0:PathData.data(p).getCompound("Skills").getInt("rune_knowledge")>0?Math.max(1,(int)Math.ceil(base*.85)):base;}
- public static String rune(ItemStack stack){var key=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem());String id=key.getNamespace().equals("slavicmyths")&&key.getPath().startsWith("rune_")?key.getPath().substring(5):"";return Arrays.asList(IDS).contains(id)?id:"";}
+ public static String rune(ItemStack stack){var key=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem());if(!key.getNamespace().equals("slavicmyths"))return "";for(String id:org.slavicmyths.industry.MiningRunes.IDS)if(key.getPath().equals(org.slavicmyths.industry.MiningRunes.itemId(id)))return id;String id=key.getPath().startsWith("rune_")?key.getPath().substring(5):"";return Arrays.asList(IDS).contains(id)?id:"";}
  public static Item forgeMaterial(ItemStack weapon){return slots(weapon)==0?Items.IRON_INGOT:slots(weapon)==1?ModItems.SILVER_INGOT.get():ModItems.PERUNITE.get();}
  public static int forgeCount(ItemStack weapon){return slots(weapon)==1?2:3;}
  public static Item extra(ItemStack weapon){return slots(weapon)==0?null:slots(weapon)==1?ModItems.ANCIENT_SIGN.get():ModItems.OVINNIK_CLAW.get();}
@@ -86,7 +88,7 @@ public final class Runes {
   ItemStack weapon=inv.getItem(0),material=inv.getItem(1),result=preview(inv,action);if(result.isEmpty()||!PathData.pay(p,operationCost(p,weapon,action)))return;
   if(action==0){Item extra=extra(weapon);material.shrink(forgeCount(weapon));if(extra!=null){for(int i=0;i<p.getInventory().getContainerSize();i++){ItemStack stack=p.getInventory().getItem(i);if(stack.is(extra)){stack.shrink(1);p.getInventory().setChanged();break;}}}if(slots(result)>=2)Knowledge.award(p,"reforged");}
   else if(action==1){material.shrink(1);Knowledge.award(p,"rune_installed");}
-  write(weapon,slots(result),list(result));weapon.set(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),org.slavicmyths.item.ItemState.legacyRuneSpecials(result));if(list(result).size()==3)Knowledge.award(p,"three_signs");inv.setChanged();PathData.message(p,"operation_done");
+  write(weapon,slots(result),list(result));weapon.set(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),org.slavicmyths.item.ItemState.legacyRuneSpecials(result));if(list(result).size()==3)Knowledge.award(p,"three_signs");inv.setChanged();org.slavicmyths.earth.EarthRune.refresh(p);PathData.message(p,"operation_done");
  }
  private Runes(){}
 }

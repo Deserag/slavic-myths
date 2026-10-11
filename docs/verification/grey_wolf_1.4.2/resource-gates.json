@@ -1,0 +1,138 @@
+{
+  "version": "1.4.2.1",
+  "checks": 22391,
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.4.2.1.jar",
+  "sha256": "c3ab2abfff659ceb1123b11a6d722ee80a1f9b6fd965fa833dc1617127ddabf5",
+  "preserved_baseline_files": 6404,
+  "changed_baseline_files": [
+    "src/main/resources/data/minecraft/tags/item/enchantable/bow.json",
+    "src/main/resources/data/minecraft/tags/item/enchantable/durability.json",
+    "src/main/resources/data/curios/tags/item/belt.json",
+    "src/main/resources/data/curios/tags/item/ring.json",
+    "src/main/resources/assets/slavicmyths/sounds.json",
+    "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "src/main/java/org/slavicmyths/client/ClientSetup.java",
+    "src/main/java/org/slavicmyths/client/CuriosAccessories.java",
+    "src/main/java/org/slavicmyths/client/FlightClient.java",
+    "src/main/java/org/slavicmyths/entity/WildlifeEntity.java",
+    "src/main/java/org/slavicmyths/flight/FlyingVessel.java",
+    "src/main/java/org/slavicmyths/item/ItemState.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganEncounters.java",
+    "src/main/java/org/slavicmyths/kurgan/KurganInstance.java",
+    "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "src/main/java/org/slavicmyths/registry/ModItemGroup.java",
+    "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "src/main/java/org/slavicmyths/registry/ModSounds.java",
+    "src/main/java/org/slavicmyths/wolf/GreyWolf.java",
+    "tools/finalize_065.py",
+    "tools/grey-wolf-tests/org/slavicmyths/verify/GreyWolfGameTests.java",
+    "docs/ARCHITECTURE.md",
+    "docs/PROJECT_STATUS.md",
+    "docs/ROADMAP.md",
+    "build.gradle",
+    "gradle.properties"
+  ],
+  "audio": [
+    {
+      "event": "wolf_story.dialog_open",
+      "duration": 0.28,
+      "mono": true,
+      "sha256": "681e8a0ac74bd7e9577109a60f2f93de5b451b3d17c0b2c33959f50445d33783"
+    },
+    {
+      "event": "wolf_story.quest_select",
+      "duration": 0.1,
+      "mono": true,
+      "sha256": "575c66fe8224fed2f2eccda57bd497296ecd8148a51d7d0b5380c9b1ff831eae"
+    },
+    {
+      "event": "wolf_story.dialog_page",
+      "duration": 0.16,
+      "mono": true,
+      "sha256": "b369358be71031f28412ddc819412bd554c9ae23a158a0236992e5cb141915e9"
+    },
+    {
+      "event": "wolf_story.quest_accept",
+      "duration": 0.38,
+      "mono": true,
+      "sha256": "2f2d32eef9bf0dbcf2ea27bb970a7a9287fcd74d0435287e0a8aa4727f704109"
+    },
+    {
+      "event": "wolf_story.quest_progress",
+      "duration": 0.16,
+      "mono": true,
+      "sha256": "7492fd2caf1f08db9e5e32e224e9a272bea93bc5c495f3b81a696ea43c40b5c9"
+    },
+    {
+      "event": "wolf_story.quest_complete",
+      "duration": 0.62,
+      "mono": true,
+      "sha256": "4be4b84097ea7cd4eff1c776f3831630ad8a764f14ad16f8a390709f93bcea1c"
+    },
+    {
+      "event": "wolf_story.reward_claim",
+      "duration": 0.45,
+      "mono": true,
+      "sha256": "dd963c3bcd2d38ffc144c56bba648d78375272151739be81891c807c9c110c30"
+    },
+    {
+      "event": "wolf_story.reject",
+      "duration": 0.2,
+      "mono": true,
+      "sha256": "a1bb6cafb54b9748d14d8dedc6e61141600363890bd3c0723c675339e88790f1"
+    },
+    {
+      "event": "wolf_story.ring_activate",
+      "duration": 0.72,
+      "mono": true,
+      "sha256": "7d40f7589e3804725cc88c865f7f2dca64871955f990c09c4136a20efc7c1ec7"
+    },
+    {
+      "event": "wolf_story.ring_pack_arrive",
+      "duration": 0.3,
+      "mono": true,
+      "sha256": "e220144dd769b937d575ee6628f9e971e17c23c7504761e6c25d013c335f956e"
+    },
+    {
+      "event": "wolf_story.ring_expire",
+      "duration": 0.36,
+      "mono": true,
+      "sha256": "74fc537406ae54aa2ff9e618affdc9a16f69abd845e81152aeef658497f4f233"
+    },
+    {
+      "event": "wolf_story.finist_magic_shot",
+      "duration": 0.24,
+      "mono": true,
+      "sha256": "169de2d563f4d1ed58bcf3c414e60bacaa26cdf917bdb4d8682325f0ec8bf785"
+    },
+    {
+      "event": "wolf_story.finist_target_lock",
+      "duration": 0.12,
+      "mono": true,
+      "sha256": "b6b52ad15c79d136f8ffe33be465002580341986bb8e4a33d163b0f79032269d"
+    },
+    {
+      "event": "wolf_story.finist_magic_impact",
+      "duration": 0.18,
+      "mono": true,
+      "sha256": "8c1086139a0b641220cdbfdf11059d8eada4ba7b55256baa1eaa2c4519e7e645"
+    },
+    {
+      "event": "wolf_story.finist_inverted_impact",
+      "duration": 0.26,
+      "mono": true,
+      "sha256": "4a3d7d4bd64ace72d085e6d75a40107eecd2c86f94549a72ce3f383274748aff"
+    },
+    {
+      "event": "wolf_story.quiver_equip",
+      "duration": 0.24,
+      "mono": true,
+      "sha256": "de6425f21e8534a47d681aba1c69e314e909cf4794af9708b36455f154a87ca0"
+    }
+  ],
+  "client_launches": 0,
+  "manual_gameplay_acceptance": "pending",
+  "parallel_hotfix_preserved": true,
+  "verified_snapshot": "D:\\slavic-myths\\work\\grey-wolf-142\\verified\\slavicmyths-1.4.2.1.jar"
+}

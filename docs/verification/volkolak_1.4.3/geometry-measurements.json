@@ -1,0 +1,24 @@
+{
+  "quadruped": {
+    "bounds_blocks": [
+      1.5243634565263717,
+      1.8930855713165753,
+      3.521097529886421
+    ],
+    "body_length_without_tail": 2.9466571421353676,
+    "renderer_depth_scale": 0.85,
+    "height_above_ground": 1.840938050351048,
+    "lowest_below_ground": 0.05214752096552733
+  },
+  "biped": {
+    "bounds_blocks": [
+      1.5307133121549892,
+      2.812927698628796,
+      3.0273142051986737
+    ],
+    "body_length_without_tail": 2.4301123960807702,
+    "renderer_depth_scale": 0.85,
+    "height_above_ground": 2.7682198176247077,
+    "lowest_below_ground": 0.04470788100408818
+  }
+}

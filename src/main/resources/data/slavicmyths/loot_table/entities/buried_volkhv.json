@@ -58,6 +58,22 @@
           "chance": 0.5
         }
       ]
+    },
+    {
+      "name": "slavicmyths:unique_hardened_iron",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:hardened_iron",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1
+            }
+          ]
+        }
+      ]
     }
   ]
 }

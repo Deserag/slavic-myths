@@ -59,4 +59,9 @@ def main():
  out=ROOT/'docs/media/rare-runes-1343';out.mkdir(parents=True,exist_ok=True);sheet=Image.new('RGB',(960,360),'#201b24');d=ImageDraw.Draw(sheet)
  for n,(id,(ru,en,im)) in enumerate(ids.items()):x=(n%6)*160;y=(n//6)*180;image=im.resize((128,128),Image.Resampling.NEAREST);sheet.paste(image,(x+16,y+6),image);d.text((x+5,y+145),id.replace('rune_',''),fill='#ddd4df')
  sheet.save(out/'items.png');print('6 rare runes, 4 named fragments, 4 restorations, 4 source loot overlays')
+ # Preserve the current combat/model overlay when regenerating historical resources.
+ import combat_fix_resources_1344
+ combat_fix_resources_1344.apply()
+ import unique_armor_resources
+ unique_armor_resources.apply()
 if __name__=='__main__':main()

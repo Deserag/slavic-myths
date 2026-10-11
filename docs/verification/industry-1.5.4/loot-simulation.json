@@ -1,0 +1,80 @@
+{
+  "chud_residential": {
+    "samples": 1000,
+    "mean_value_proxy": 10.312,
+    "pool_hits": [
+      1000,
+      203,
+      46
+    ],
+    "kind": "JSON probability simulation; not actual engine loot"
+  },
+  "chud_workshop": {
+    "samples": 1000,
+    "mean_value_proxy": 30.901,
+    "pool_hits": [
+      1000,
+      1000,
+      294,
+      109,
+      111,
+      28
+    ],
+    "kind": "JSON probability simulation; not actual engine loot"
+  },
+  "chud_storehouse": {
+    "samples": 1000,
+    "mean_value_proxy": 27.745,
+    "pool_hits": [
+      1000,
+      158,
+      86,
+      96
+    ],
+    "kind": "JSON probability simulation; not actual engine loot"
+  },
+  "abandoned_living": {
+    "samples": 1000,
+    "mean_value_proxy": 14.003,
+    "pool_hits": [
+      1000,
+      37,
+      84,
+      200
+    ],
+    "kind": "JSON probability simulation; not actual engine loot"
+  },
+  "abandoned_mine": {
+    "samples": 1000,
+    "mean_value_proxy": 39.573,
+    "pool_hits": [
+      1000,
+      114,
+      140,
+      77,
+      65,
+      8,
+      26,
+      29
+    ],
+    "kind": "JSON probability simulation; not actual engine loot"
+  },
+  "abandoned_treasury": {
+    "samples": 1000,
+    "mean_value_proxy": 325.366,
+    "pool_hits": [
+      1000,
+      1000,
+      324,
+      60,
+      6,
+      57,
+      23,
+      13,
+      77,
+      37,
+      2
+    ],
+    "kind": "JSON probability simulation; not actual engine loot"
+  }
+}

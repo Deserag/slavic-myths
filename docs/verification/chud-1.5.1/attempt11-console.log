@@ -1,0 +1,93 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\chud\ChudStructure.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileChudCheckJava
+> Task :processChudCheckResources UP-TO-DATE
+> Task :chudCheckClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeChudChecksLegacyClasspath UP-TO-DATE
+> Task :prepareChudChecksRun UP-TO-DATE
+
+> Task :runChudChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[09:13:41] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[09:13:41] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[09:13:41] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[09:13:41] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[09:13:41] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[09:13:42] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[09:13:42] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.4.3 (slavicmyths)
+[09:13:43] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09:13:43] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[09:13:43] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:13:43] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:13:44] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[09:13:44] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09:13:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:13:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:13:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:13:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:13:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:13:49] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[09:13:51] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09:13:51] [main/WARN] [ne.ne.ne.co.CommonHooks/WP]: The following mods have version differences that were not resolved:
+slavicmyths (version 1.4.2.1 -> 1.4.3)
+Things may not work well.
+[09:13:51] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[09:13:51] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[09:13:51] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_chud]
+[09:13:52] [main/INFO] [minecraft/RecipeManager]: Loaded 1769 recipes
+[09:13:52] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[09:13:52] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[09:13:52] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[09:13:53] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[09:13:53] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[09:13:54] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 126 ms
+[09:13:54] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[09:13:54] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[09:13:54] [Server thread/INFO] [minecraft/GameTestServer]: 9 tests are now running at position -5496606, -59, 11706385!
+[09:13:54] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (9 tests)...
+[09:13:54] [Server thread/INFO] [minecraft/GameTestServer]: [         ]
+CHUD_NATURAL seed=0 eligible=103 accepted=0 reasons={{chudCover=17}=8, {chudLiquidY=48}=1, {chudCover=6}=3, {chudLiquidY=58}=1, {chudLiquidY=24}=1, {chudCover=8}=1, {chudCover=13}=1, {chudLiquidY=10}=1, {chudLiquidY=54}=1, {chudCover=11}=3, {chudCover=-29}=1, {chudRoofGapY=58}=1, {chudCover=-16}=1, {chudRoofGapY=38}=1, {chudCover=-12}=1, {chudRoofGapY=78}=1, {chudRoofGapY=40}=1, {chudRoofGapY=62}=1, {chudRoofGapY=74}=1, {chudRoofGapY=42}=1, {chudLiquidY=50}=1, {chudCover=16}=1, {chudLiquidY=49}=1, {chudRockPercent=58}=4, {chudCover=5}=1, {chudCover=12}=1, {chudLiquidY=57}=1, {chudLiquidY=45}=1, {chudCover=7}=2, {chudCover=14}=5, {chudCover=9}=1, {chudCover=10}=1, {chudLiquidY=5}=1, {chudCover=-25}=1, {chudRoofGapY=39}=1, {chudCover=-11}=1, {chudRoofGapY=83}=1, {chudLiquidY=53}=2, {chudLiquidY=51}=1, {chudRoofGapY=53}=1, {chudCover=0}=1, {chudRoofGapY=91}=1, {chudCover=2}=1, {chudRoofGapY=81}=1}
+CHUD_NATURAL seed=1 eligible=104 accepted=0 reasons={{chudCover=17}=3, {chudCover=6}=1, {chudCover=-5}=2, {chudFloor=-21}=1, {chudCover=8}=1, {chudFloor=-6}=1, {chudCover=-1}=1, {chudCover=15}=2, {chudLiquidY=54}=1, {chudCover=11}=3, {chudRoofGapY=58}=1, {chudCover=-12}=1, {chudRoofGapY=66}=1, {chudRoofGapY=78}=1, {chudRoofGapY=46}=2, {chudRoofGapY=50}=1, {chudRoofGapY=72}=1, {chudRoofGapY=102}=1, {chudRoofGapY=62}=1, {chudLiquidY=50}=1, {chudRoofGapY=86}=1, {chudRoofGapY=42}=1, {chudCover=-8}=1, {chudCover=-2}=2, {chudCover=16}=4, {chudCover=3}=1, {chudRockPercent=58}=3, {chudLiquidY=13}=1, {chudLiquidY=57}=1, {chudLiquidY=89}=1, {chudCover=14}=2, {chudCover=9}=2, {chudCover=-28}=1, {chudRoofGapY=69}=1, {chudCover=-47}=1, {chudCover=-11}=1, {chudLiquidY=9}=1, {chudRoofGapY=77}=1, {chudRoofGapY=57}=1, {chudLiquidY=53}=1, {chudRoofGapY=51}=1, {chudLiquidY=41}=1, {chudRoofGapY=85}=1, {chudRoofGapY=53}=2, {chudRoofGapY=97}=1, {chudCover=0}=1, {chudCover=2}=2}
+CHUD_NATURAL seed=2 eligible=95 accepted=0 reasons={{chudCover=17}=1, {chudCover=-3}=1, {chudCover=6}=1, {chudCover=13}=2, {chudLiquidY=88}=1, {chudCover=-19}=1, {chudRoofGapY=36}=1, {chudRoofGapY=48}=1, {chudCover=-26}=1, {chudCover=-22}=1, {chudRoofGapY=44}=1, {chudRoofGapY=56}=1, {chudRoofGapY=72}=1, {chudRoofGapY=112}=1, {chudRoofGapY=96}=1, {chudCover=1}=1, {chudLiquidY=49}=1, {chudCover=-4}=1, {chudLiquidY=37}=2, {chudCover=5}=1, {chudCover=14}=1, {chudRoofGapY=104}=1, {chudCover=10}=1, {chudCover=-13}=1, {chudRoofGapY=55}=1, {chudLiquidY=41}=1, {chudRoofGapY=75}=1, {chudRoofGapY=91}=1, {chudRockPercent=54}=3, {chudCover=4}=2, {chudLiquidY=38}=1, {chudLiquidY=58}=1, {chudCover=8}=2, {chudLiquidY=34}=1, {chudLiquidY=54}=2, {chudCover=15}=3, {chudCover=11}=1, {chudCover=-29}=1, {chudRoofGapY=54}=1, {chudLiquidY=50}=1, {chudRockPercent=33}=1, {chudRoofGapY=82}=1, {chudCover=-2}=1, {chudCover=16}=2, {chudCover=3}=1, {chudCover=12}=2, {chudCover=7}=2, {chudLiquidY=43}=1, {chudCover=-35}=1, {chudRoofGapY=61}=1, {chudRoofGapY=93}=2}
+CHUD_NATURAL seed=3 eligible=88 accepted=0 reasons={{chudCover=-3}=1, {chudCover=17}=4, {chudCover=-19}=1, {chudRoofGapY=48}=1, {chudRoofGapY=76}=2, {chudCover=-22}=1, {chudRoofGapY=88}=1, {chudCover=-10}=1, {chudRoofGapY=84}=1, {chudRoofGapY=92}=1, {chudFloor=-7}=1, {chudCover=-4}=1, {chudRockPercent=58}=2, {chudLiquidY=33}=1, {chudCover=14}=1, {chudCover=9}=1, {chudCover=10}=3, {chudRoofGapY=59}=1, {chudCover=-13}=1, {chudRoofGapY=87}=1, {chudRoofGapY=67}=2, {chudRoofGapY=83}=1, {chudRockPercent=50}=1, {chudCover=-5}=1, {chudCover=8}=2, {chudLiquidY=22}=1, {chudCover=-1}=2, {chudCover=15}=1, {chudCover=11}=1, {chudRoofGapY=58}=1, {chudRoofGapY=22}=1, {chudRoofGapY=66}=1, {chudRoofGapY=46}=1, {chudRoofGapY=50}=2, {chudRoofGapY=62}=1, {chudRockPercent=33}=1, {chudRoofGapY=70}=1, {chudFloor=-17}=1, {chudCover=16}=2, {chudCover=3}=1, {chudCover=12}=1, {chudCover=7}=2, {chudRoofGapY=69}=1, {chudRoofGapY=49}=1, {chudRoofGapY=65}=1, {chudRoofGapY=61}=1, {chudRoofGapY=53}=1, {chudCover=-7}=1, {chudRoofGapY=81}=2, {chudRoofGapY=93}=1}
+CHUD_NATURAL seed=4 eligible=108 accepted=0 reasons={{chudCover=17}=3, {chudCover=-5}=3, {chudCover=13}=1, {chudCover=15}=4, {chudCover=-26}=1, {chudCover=-36}=1, {chudRoofGapY=32}=1, {chudRoofGapY=54}=1, {chudRoofGapY=56}=1, {chudCover=-20}=1, {chudRoofGapY=72}=1, {chudCover=-30}=1, {chudFloor=-15}=1, {chudLiquidY=52}=2, {chudLiquidY=62}=1, {chudRoofGapY=42}=1, {chudRockPercent=53}=1, {chudLiquidY=17}=1, {chudCover=16}=2, {chudFloor=-9}=1, {chudCover=5}=3, {chudCover=12}=3, {chudCover=7}=4, {chudLiquidY=55}=1, {chudCover=14}=3, {chudFloor=-5}=1, {chudCover=9}=3, {chudCover=10}=1, {chudRoofGapY=69}=1, {chudRoofGapY=49}=2, {chudCover=-11}=1, {chudLiquidY=136}=1, {chudRoofGapY=35}=1, {chudRoofGapY=57}=1, {chudRoofGapY=79}=1, {chudRoofGapY=83}=1, {chudRoofGapY=95}=1, {chudRoofGapY=63}=1, {chudRockPercent=50}=1, {chudRoofGapY=75}=1, {chudCover=0}=1, {chudCover=2}=1, {chudRoofGapY=81}=1}
+CHUD_NATURAL seed=5 eligible=120 accepted=0 reasons={{chudCover=4}=1, {chudCover=17}=7, {chudLiquidY=48}=1, {chudLiquidY=36}=1, {chudCover=-5}=2, {chudLiquidY=46}=1, {chudCover=13}=1, {chudLiquidY=44}=1, {chudCover=-1}=1, {chudCover=15}=2, {chudCover=-12}=1, {chudRoofGapY=66}=1, {chudCover=-10}=1, {chudRoofGapY=78}=1, {chudRoofGapY=46}=1, {chudCover=-20}=1, {chudRoofGapY=72}=1, {chudRockPercent=41}=1, {chudLiquidY=52}=2, {chudRoofGapY=74}=1, {chudLiquidY=40}=1, {chudRoofGapY=42}=1, {chudRoofGapY=92}=1, {chudRoofGapY=60}=1, {chudCover=1}=2, {chudCover=-2}=1, {chudCover=3}=1, {chudRockPercent=58}=4, {chudCover=5}=1, {chudLiquidY=13}=1, {chudCover=12}=3, {chudLiquidY=45}=1, {chudCover=7}=2, {chudCover=14}=4, {chudCover=10}=1, {chudRoofGapY=59}=1, {chudRoofGapY=43}=1, {chudRoofGapY=77}=3, {chudRoofGapY=45}=1, {chudRoofGapY=63}=1, {chudRoofGapY=53}=1, {chudRockPercent=50}=1, {chudRoofGapY=81}=1}
+CHUD_NATURAL seed=6 eligible=107 accepted=0 reasons={{chudCover=4}=3, {chudCover=-3}=1, {chudCover=17}=9, {chudLiquidY=14}=1, {chudCover=13}=1, {chudLiquidY=56}=1, {chudLiquidY=44}=1, {chudCover=15}=3, {chudLiquidY=6}=1, {chudRoofGapY=48}=1, {chudRoofGapY=66}=2, {chudRoofGapY=68}=1, {chudRoofGapY=46}=2, {chudCover=-20}=1, {chudRoofGapY=94}=1, {chudRoofGapY=50}=1, {chudRoofGapY=102}=1, {chudRoofGapY=74}=1, {chudCover=-6}=1, {chudCover=-2}=1, {chudCover=16}=3, {chudLiquidY=59}=2, {chudRockPercent=46}=1, {chudRockPercent=58}=1, {chudCover=12}=2, {chudCover=14}=3, {chudRoofGapY=104}=1, {chudCover=10}=1, {chudRoofGapY=69}=1, {chudCover=-13}=1, {chudRoofGapY=65}=1, {chudRoofGapY=99}=1, {chudRoofGapY=45}=1, {chudRoofGapY=79}=1, {chudRoofGapY=83}=1, {chudRoofGapY=73}=1, {chudLiquidY=51}=1, {chudRoofGapY=53}=1, {chudCover=0}=2, {chudCover=-7}=1, {chudCover=2}=1, {chudRoofGapY=81}=1, {chudRoofGapY=93}=1}
+CHUD_NATURAL seed=7 eligible=108 accepted=0 reasons={{chudCover=17}=4, {chudCover=13}=2, {chudRoofGapY=56}=1, {chudLiquidY=52}=1, {chudRoofGapY=52}=1, {chudRoofGapY=64}=1, {chudLiquidY=60}=2, {chudRoofGapY=60}=1, {chudCover=1}=1, {chudRockPercent=58}=2, {chudLiquidY=13}=1, {chudCover=14}=1, {chudRoofGapY=104}=1, {chudRoofGapY=47}=1, {chudRoofGapY=59}=1, {chudRoofGapY=39}=1, {chudRoofGapY=51}=1, {chudRoofGapY=71}=1, {chudRockPercent=54}=2, {chudCover=4}=1, {chudLiquidY=38}=1, {chudLiquidY=26}=1, {chudRockPercent=57}=1, {chudCover=8}=1, {chudCover=15}=1, {chudCover=-17}=1, {chudRoofGapY=58}=1, {chudLiquidY=8}=1, {chudRoofGapY=54}=1, {chudRoofGapY=46}=2, {chudRoofGapY=94}=1, {chudLiquidY=42}=1, {chudRoofGapY=62}=1, {chudRockPercent=41}=2, {chudLiquidY=50}=3, {chudCover=-6}=1, {chudRoofGapY=70}=1, {chudRoofGapY=82}=1, {chudCover=16}=2, {chudCover=3}=1, {chudLiquidY=15}=1, {chudRoofGapY=118}=1, {chudCover=12}=2, {chudLiquidY=19}=1, {chudCover=-15}=1, {chudLiquidY=9}=1, {chudRoofGapY=89}=2, {chudRoofGapY=61}=1, {chudRoofGapY=101}=1, {chudRoofGapY=41}=1}
+CHUD_NATURAL seed=8 eligible=106 accepted=0 reasons={{chudCover=17}=8, {chudLiquidY=14}=1, {chudCover=13}=2, {chudLiquidY=54}=1, {chudCover=15}=2, {chudCover=11}=3, {chudCover=-36}=1, {chudRoofGapY=54}=1, {chudRoofGapY=88}=1, {chudRoofGapY=46}=2, {chudLiquidY=96}=1, {chudLiquidY=40}=1, {chudRoofGapY=112}=1, {chudRoofGapY=86}=2, {chudRoofGapY=92}=1, {chudCover=16}=4, {chudCover=-4}=2, {chudCover=5}=2, {chudRockPercent=58}=3, {chudCover=12}=1, {chudCover=7}=1, {chudLiquidY=55}=1, {chudCover=14}=3, {chudLiquidY=87}=1, {chudCover=10}=1, {chudRoofGapY=49}=1, {chudRoofGapY=43}=1, {chudRoofGapY=45}=1, {chudRoofGapY=79}=1, {chudRoofGapY=57}=1, {chudRoofGapY=35}=1, {chudRoofGapY=83}=1, {chudRoofGapY=51}=1, {chudRoofGapY=41}=1, {chudLiquidY=51}=2, {chudRockPercent=50}=1, {chudRoofGapY=53}=1, {chudCover=0}=1, {chudRoofGapY=91}=1, {chudRoofGapY=71}=1, {chudRoofGapY=93}=1}
+
+> Task :runChudChecks FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runChudChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value -1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 3m 46s
+9 actionable tasks: 3 executed, 6 up-to-date

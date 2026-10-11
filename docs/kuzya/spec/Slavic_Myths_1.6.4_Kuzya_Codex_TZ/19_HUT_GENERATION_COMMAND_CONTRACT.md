@@ -1,0 +1,9 @@
+# Verify, keep or create EXACT house generation command
+
+**Cannot claim the current command name without examining repository.** Do NOT print guessed command in user handoff.
+
+1. Search commands/registrations for `baba`, `yaga`, `izbushka`, `hut`, `chicken`, `structure`, `generate`, `spawn` and structure template references; check existing debug commands, permissions and coordinate syntax. List source files and exact command if found.
+2. If existing command generates current hut: update handler target template to renovated version if needed; check chicken legs/entrance orientation, Yaga and Kuzya presence, exactly one barrel and path nodes. Preserve syntax/permission contract; add help text with actual syntax.
+3. If no command: implement administrator/dev-only command under existing mod command root, using same internal structure placement logic as natural worldgen rather than placing a flat building copy. Suggested **NEW** signature only if no established root exists: `/slavicmyths debug generate_baba_yaga_hut [x y z] [rotation]`; bind to actual dispatcher, guard admin permission level 2, choose safe placement avoiding suffocation/terrain overwrites, report coordinates and failure reason. The string shown here is a PROPOSAL, not a claim that the command currently exists.
+4. Confirm command produces complete NEW interior on all four orientations, loads safely after world save, includes Yaga and Kuzya, one reachable barrel, no duplicate resident upon second command at same location. Proper natural logic for collision/terrain checks. If command places an entire new structure, require explicit confirmation to overwrite a populated area.
+5. Final response must say `(a) existed?`, `(b) exact executable command`, `(c) full copyable invocation example for player`, `(d) command output showing coordinates`, `(e) test in new world`, `(f) test in existing world`, `(g) where to find test jar/instance`.

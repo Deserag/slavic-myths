@@ -1,0 +1,242 @@
+[
+  {
+    "seed": 0,
+    "variant": 0,
+    "fillOperations": 51110,
+    "carvedBlocks": 197956,
+    "placedBlocks": 227049,
+    "blueprintAndFullRasterMilliseconds": 96.4252
+  },
+  {
+    "seed": 0,
+    "variant": 1,
+    "fillOperations": 54507,
+    "carvedBlocks": 278173,
+    "placedBlocks": 276086,
+    "blueprintAndFullRasterMilliseconds": 201.8066
+  },
+  {
+    "seed": 0,
+    "variant": 2,
+    "fillOperations": 64560,
+    "carvedBlocks": 308902,
+    "placedBlocks": 309134,
+    "blueprintAndFullRasterMilliseconds": 208.2594
+  },
+  {
+    "seed": 1,
+    "variant": 0,
+    "fillOperations": 51109,
+    "carvedBlocks": 197921,
+    "placedBlocks": 227218,
+    "blueprintAndFullRasterMilliseconds": 79.8589
+  },
+  {
+    "seed": 1,
+    "variant": 1,
+    "fillOperations": 54507,
+    "carvedBlocks": 277942,
+    "placedBlocks": 276181,
+    "blueprintAndFullRasterMilliseconds": 47.6148
+  },
+  {
+    "seed": 1,
+    "variant": 2,
+    "fillOperations": 64481,
+    "carvedBlocks": 308896,
+    "placedBlocks": 309038,
+    "blueprintAndFullRasterMilliseconds": 41.5233
+  },
+  {
+    "seed": 2,
+    "variant": 0,
+    "fillOperations": 51101,
+    "carvedBlocks": 197842,
+    "placedBlocks": 227651,
+    "blueprintAndFullRasterMilliseconds": 43.6125
+  },
+  {
+    "seed": 2,
+    "variant": 1,
+    "fillOperations": 54513,
+    "carvedBlocks": 278125,
+    "placedBlocks": 276556,
+    "blueprintAndFullRasterMilliseconds": 45.3442
+  },
+  {
+    "seed": 2,
+    "variant": 2,
+    "fillOperations": 64569,
+    "carvedBlocks": 308861,
+    "placedBlocks": 309676,
+    "blueprintAndFullRasterMilliseconds": 61.8748
+  },
+  {
+    "seed": 3,
+    "variant": 0,
+    "fillOperations": 51098,
+    "carvedBlocks": 197842,
+    "placedBlocks": 227333,
+    "blueprintAndFullRasterMilliseconds": 50.974
+  },
+  {
+    "seed": 3,
+    "variant": 1,
+    "fillOperations": 54502,
+    "carvedBlocks": 277831,
+    "placedBlocks": 276406,
+    "blueprintAndFullRasterMilliseconds": 50.5676
+  },
+  {
+    "seed": 3,
+    "variant": 2,
+    "fillOperations": 64487,
+    "carvedBlocks": 308851,
+    "placedBlocks": 309337,
+    "blueprintAndFullRasterMilliseconds": 43.5839
+  },
+  {
+    "seed": 4,
+    "variant": 0,
+    "fillOperations": 51098,
+    "carvedBlocks": 197845,
+    "placedBlocks": 227432,
+    "blueprintAndFullRasterMilliseconds": 40.4525
+  },
+  {
+    "seed": 4,
+    "variant": 1,
+    "fillOperations": 54509,
+    "carvedBlocks": 278106,
+    "placedBlocks": 276476,
+    "blueprintAndFullRasterMilliseconds": 37.8374
+  },
+  {
+    "seed": 4,
+    "variant": 2,
+    "fillOperations": 64569,
+    "carvedBlocks": 308886,
+    "placedBlocks": 309547,
+    "blueprintAndFullRasterMilliseconds": 46.2007
+  },
+  {
+    "seed": 5,
+    "variant": 0,
+    "fillOperations": 51108,
+    "carvedBlocks": 197926,
+    "placedBlocks": 227523,
+    "blueprintAndFullRasterMilliseconds": 75.2342
+  },
+  {
+    "seed": 5,
+    "variant": 1,
+    "fillOperations": 54516,
+    "carvedBlocks": 277919,
+    "placedBlocks": 276596,
+    "blueprintAndFullRasterMilliseconds": 55.206
+  },
+  {
+    "seed": 5,
+    "variant": 2,
+    "fillOperations": 64501,
+    "carvedBlocks": 308951,
+    "placedBlocks": 309372,
+    "blueprintAndFullRasterMilliseconds": 67.3675
+  },
+  {
+    "seed": 6,
+    "variant": 0,
+    "fillOperations": 51119,
+    "carvedBlocks": 198002,
+    "placedBlocks": 227308,
+    "blueprintAndFullRasterMilliseconds": 50.484
+  },
+  {
+    "seed": 6,
+    "variant": 1,
+    "fillOperations": 54533,
+    "carvedBlocks": 278242,
+    "placedBlocks": 276414,
+    "blueprintAndFullRasterMilliseconds": 45.0481
+  },
+  {
+    "seed": 6,
+    "variant": 2,
+    "fillOperations": 64596,
+    "carvedBlocks": 309038,
+    "placedBlocks": 309511,
+    "blueprintAndFullRasterMilliseconds": 47.1578
+  },
+  {
+    "seed": 7,
+    "variant": 0,
+    "fillOperations": 51121,
+    "carvedBlocks": 198069,
+    "placedBlocks": 227263,
+    "blueprintAndFullRasterMilliseconds": 43.1377
+  },
+  {
+    "seed": 7,
+    "variant": 1,
+    "fillOperations": 54535,
+    "carvedBlocks": 278132,
+    "placedBlocks": 276133,
+    "blueprintAndFullRasterMilliseconds": 38.4042
+  },
+  {
+    "seed": 7,
+    "variant": 2,
+    "fillOperations": 64521,
+    "carvedBlocks": 309150,
+    "placedBlocks": 309006,
+    "blueprintAndFullRasterMilliseconds": 40.6454
+  },
+  {
+    "seed": 8,
+    "variant": 0,
+    "fillOperations": 51118,
+    "carvedBlocks": 198041,
+    "placedBlocks": 227397,
+    "blueprintAndFullRasterMilliseconds": 32.6619
+  },
+  {
+    "seed": 8,
+    "variant": 1,
+    "fillOperations": 54538,
+    "carvedBlocks": 278341,
+    "placedBlocks": 276398,
+    "blueprintAndFullRasterMilliseconds": 39.3886
+  },
+  {
+    "seed": 8,
+    "variant": 2,
+    "fillOperations": 64597,
+    "carvedBlocks": 309083,
+    "placedBlocks": 309501,
+    "blueprintAndFullRasterMilliseconds": 40.6574
+  },
+  {
+    "seed": 9,
+    "variant": 0,
+    "fillOperations": 51106,
+    "carvedBlocks": 197998,
+    "placedBlocks": 227022,
+    "blueprintAndFullRasterMilliseconds": 35.8531
+  },
+  {
+    "seed": 9,
+    "variant": 1,
+    "fillOperations": 54536,
+    "carvedBlocks": 278095,
+    "placedBlocks": 276173,
+    "blueprintAndFullRasterMilliseconds": 36.2551
+  },
+  {
+    "seed": 9,
+    "variant": 2,
+    "fillOperations": 64514,
+    "carvedBlocks": 309076,
+    "placedBlocks": 309023,
+    "blueprintAndFullRasterMilliseconds": 62.7362
+  }
+]

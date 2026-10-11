@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "checks": 21813,
+  "silhouettes": {
+    "tugarin_phase1": {
+      "height": 4.86625,
+      "width": 4.382358259080097
+    },
+    "tugarin_phase2": {
+      "height": 5.207058863891707,
+      "width": 7.804269280639873
+    },
+    "nightingale_phase1": {
+      "height": 1.8868023900025677,
+      "width": 1.3544405971723135,
+      "height_without_hair": 1.525
+    },
+    "nightingale_phase2": {
+      "height": 1.8933158663601375,
+      "width": 1.173625014367764,
+      "height_without_hair": 1.525
+    }
+  },
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.5.1-combat-feedback.jar",
+  "sha256": "a87f56bc0be26f2f52d47cb26dab29886425789f4a301e0b7966065b039d24ab",
+  "runtime": "See REPORT.md; offline checks are not gameplay acceptance."
+}

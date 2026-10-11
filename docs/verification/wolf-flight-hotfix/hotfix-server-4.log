@@ -1,0 +1,48 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\FinistQuiverRenderer.java:16: error: cannot find symbol
+ @Override public <T extends LivingEntity,M extends EntityModel<T>> void render(ItemStack s,top.theillusivec4.curios.api.SlotContext c,PoseStack pose,RenderLayerParent<T,M> parent,MultiBufferSource buffer,int light,float walk,float amount,float partial,float age,float yaw,float pitch){top.theillusivec4.curios.api.client.ICurioRenderer.followBodyRotations(c.entity(),MODEL);MODEL.body.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(TEX)),light,net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY);}
+                                                                                                                                                      ^
+  symbol:   class RenderLayerParent
+  location: class FinistQuiverRenderer
+D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                                               ^
+1 error
+2 warnings
+
+> Task :compileJava FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\FinistQuiverRenderer.java:16: error: cannot find symbol
+   @Override public <T extends LivingEntity,M extends EntityModel<T>> void render(ItemStack s,top.theillusivec4.curios.api.SlotContext c,PoseStack pose,RenderLayerParent<T,M> parent,MultiBufferSource buffer,int light,float walk,float amount,float partial,float age,float yaw,float pitch){top.theillusivec4.curios.api.client.ICurioRenderer.followBodyRotations(c.entity(),MODEL);MODEL.body.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(TEX)),light,net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY);}
+                                                                                                                                                        ^
+    symbol:   class RenderLayerParent
+    location: class FinistQuiverRenderer
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+  @EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                           ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+  @EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                                                 ^
+  1 error
+  2 warnings
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 10s
+2 actionable tasks: 1 executed, 1 up-to-date

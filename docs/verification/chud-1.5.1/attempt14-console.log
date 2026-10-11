@@ -1,0 +1,193 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                          ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\CuriosAccessories.java:19: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+                                                               ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\KitchenDisplay.java:19: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                          ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\KitchenDisplay.java:19: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                                                ^
+D:\slavic-myths\src\main\java\org\slavicmyths\military\MilitaryNetwork.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\military\MilitaryNetwork.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\UniqueArmorModels.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\UniqueArmorModels.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                                                                  ^
+D:\slavic-myths\src\main\java\org\slavicmyths\wolf\WolfStoryNetwork.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\wolf\WolfStoryNetwork.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\furniture\FurnitureClient.java:16: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\furniture\FurnitureClient.java:16: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                                                                  ^
+D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                ^
+D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\wood\WoodlandClient.java:9: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                   ^
+D:\slavic-myths\src\main\java\org\slavicmyths\wood\WoodlandClient.java:9: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+                                                                                                                                  ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\world\WildlifeSpawns.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+18 warnings
+
+> Task :processResources
+> Task :classes
+> Task :compileChudCheckJava
+> Task :processChudCheckResources UP-TO-DATE
+> Task :chudCheckClasses
+
+> Task :downloadAssets
+Loaded 145 artifacts from D:\slavic-myths\work\chud-151\build\tmp\downloadAssets\nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: C:\Users\pavel\.gradle\caches\neoformruntime\assets
+  DL    https://piston-meta.mojang.com/v1/packages/9b16298b1dc0697878cec88bb2d96168f5239e4f/17.json
+
+> Task :writeChudChecksLegacyClasspath UP-TO-DATE
+> Task :prepareChudChecksRun
+
+> Task :runChudChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[09:25:44] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[09:25:44] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[09:25:44] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[09:25:44] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[09:25:44] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[09:25:44] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[09:25:44] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.4.3 (slavicmyths)
+[09:25:45] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09:25:45] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[09:25:45] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:25:45] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:25:46] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[09:25:47] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09:25:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:25:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:25:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:25:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:25:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:25:52] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[09:25:54] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09:25:54] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-151/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[09:25:54] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/work/chud-151/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[09:25:54] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_chud]
+[09:25:55] [main/INFO] [minecraft/RecipeManager]: Loaded 1769 recipes
+[09:25:55] [main/INFO] [minecraft/AdvancementTree]: Loaded 1561 advancements
+[09:25:55] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[09:25:55] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[09:25:56] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[09:25:56] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[09:25:56] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 156 ms
+[09:25:56] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[09:25:56] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[09:25:57] [Server thread/INFO] [minecraft/GameTestServer]: 8 tests are now running at position 1281088, -59, 3133716!
+[09:25:57] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (8 tests)...
+[09:25:57] [Server thread/INFO] [minecraft/GameTestServer]: [        ]
+[09:25:57] [Server thread/ERROR] [minecraft/LogTestReporter]: tenseedsgeometrybenchmarks failed at 1281088, -60, 3133716! seed/rotation unreachable role 0 0 COUNCIL
+CHUD_EDGE 0 entrance->residential reached=104/105
+CHUD_EDGE 0 square->residential reached=131/131
+CHUD_EDGE 0 square->forge reached=99/109 [48:-12, 61, 36 b=Block{minecraft:andesite} h=Block{minecraft:stone_bricks} f=Block{minecraft:andesite}]
+CHUD_EDGE 0 forge->store reached=62/62
+CHUD_EDGE 0 square->council reached=47/55 [48:-6, 65, 38 b=Block{minecraft:stone_bricks} h=Block{minecraft:stone_bricks} f=Block{minecraft:andesite}]
+CHUD_EDGE 0 store->gate reached=207/213
+CHUD_EDGE 0 residential->forge reached=149/149
+CHUD_NAV variant=0 fills=47873 visited=11012 elapsedMs=62 failures=[COUNCIL=0, 65, 43 body=Block{minecraft:air} head=Block{minecraft:air}, terrace=-20, 8, 8 body=Block{minecraft:air}, terrace=19, 8, 8 body=Block{minecraft:air}, terrace=-70, -3, 21 body=Block{minecraft:air}, terrace=-109, -27, -106 body=Block{minecraft:air}, terrace=-109, -17, -101 body=Block{minecraft:air}]
+[09:25:58] [Server thread/ERROR] [minecraft/LogTestReporter]: actualthreehallnavigation failed at 1281156, -60, 3133716! unreachable [COUNCIL=0, 65, 43 body=Block{minecraft:air} head=Block{minecraft:air}, terrace=-20, 8, 8 body=Block{minecraft:air}, terrace=19, 8, 8 body=Block{minecraft:air}, terrace=-70, -3, 21 body=Block{minecraft:air}, terrace=-109, -27, -106 body=Block{minecraft:air}, terrace=-109, -17, -101 body=Block{minecraft:air}]
+CHUD_EDGE 2 entrance->residential reached=105/105
+CHUD_EDGE 2 square->residential reached=131/131
+CHUD_EDGE 2 square->forge reached=105/109
+CHUD_EDGE 2 forge->store reached=116/116
+CHUD_EDGE 2 square->council reached=148/148
+CHUD_EDGE 2 store->gate reached=85/85
+CHUD_EDGE 2 residential->council reached=95/97
+CHUD_EDGE 2 council->council reached=31/31
+CHUD_EDGE 2 store->council reached=109/144 [40:-29, 45, -58 b=Block{minecraft:andesite} h=Block{minecraft:andesite} f=Block{minecraft:andesite}] [48:-21, 48, -58 b=Block{minecraft:andesite} h=Block{minecraft:andesite} f=Block{minecraft:andesite}] [56:-13, 52, -58 b=Block{minecraft:andesite} h=Block{minecraft:andesite} f=Block{minecraft:andesite}] [64:-5, 56, -58 b=Block{minecraft:andesite} h=Block{minecraft:andesite} f=Block{minecraft:andesite}]
+CHUD_NAV variant=2 fills=62171 visited=14594 elapsedMs=76 failures=[home_12=57, 103, 29, home_13=74, 103, 29, home_14=88, 103, 29, home_15=56, 103, 52, home_16=72, 103, 52, home_17=89, 103, 52, upper tier 2, terrace=-20, 8, 8 body=Block{minecraft:air}, terrace=19, 8, 8 body=Block{minecraft:air}, terrace=-70, -3, 21 body=Block{minecraft:air}, terrace=-109, -27, -106 body=Block{minecraft:air}, terrace=-109, -17, -101 body=Block{minecraft:air}]
+[09:25:58] [Server thread/ERROR] [minecraft/LogTestReporter]: actualfivehallnavigation failed at 1281190, -60, 3133716! unreachable [home_12=57, 103, 29, home_13=74, 103, 29, home_14=88, 103, 29, home_15=56, 103, 52, home_16=72, 103, 52, home_17=89, 103, 52, upper tier 2, terrace=-20, 8, 8 body=Block{minecraft:air}, terrace=19, 8, 8 body=Block{minecraft:air}, terrace=-70, -3, 21 body=Block{minecraft:air}, terrace=-109, -27, -106 body=Block{minecraft:air}, terrace=-109, -17, -101 body=Block{minecraft:air}]
+CHUD_EDGE 1 entrance->residential reached=105/105
+CHUD_EDGE 1 square->residential reached=131/131
+CHUD_EDGE 1 square->forge reached=105/109
+CHUD_EDGE 1 forge->store reached=116/116
+CHUD_EDGE 1 square->council reached=49/55
+CHUD_EDGE 1 store->gate reached=85/85
+CHUD_EDGE 1 square->store reached=106/106
+CHUD_NAV variant=1 fills=51644 visited=12796 elapsedMs=57 failures=[home_8=57, 103, 29, home_9=74, 103, 29, home_10=56, 103, 52, home_11=72, 103, 52, upper tier 2, terrace=-20, 8, 8 body=Block{minecraft:air}, terrace=19, 8, 8 body=Block{minecraft:air}, terrace=-70, -3, 21 body=Block{minecraft:air}, terrace=-109, -27, -106 body=Block{minecraft:air}, terrace=-109, -17, -101 body=Block{minecraft:air}]
+[09:25:58] [Server thread/ERROR] [minecraft/LogTestReporter]: actualfourhallnavigation failed at 1281207, -60, 3133716! unreachable [home_8=57, 103, 29, home_9=74, 103, 29, home_10=56, 103, 52, home_11=72, 103, 52, upper tier 2, terrace=-20, 8, 8 body=Block{minecraft:air}, terrace=19, 8, 8 body=Block{minecraft:air}, terrace=-70, -3, 21 body=Block{minecraft:air}, terrace=-109, -27, -106 body=Block{minecraft:air}, terrace=-109, -17, -101 body=Block{minecraft:air}]
+[09:25:58] [Server thread/INFO] [minecraft/GameTestServer]: [X+++X+XX]
+[09:25:58] [Server thread/INFO] [minecraft/GameTestServer]: ========= 8 GAME TESTS COMPLETE IN 1.443 s ======================
+[09:25:58] [Server thread/INFO] [minecraft/GameTestServer]: 4 required tests failed :(
+[09:25:58] [Server thread/INFO] [minecraft/GameTestServer]:    - tenseedsgeometrybenchmarks
+[09:25:58] [Server thread/INFO] [minecraft/GameTestServer]:    - actualthreehallnavigation
+[09:25:58] [Server thread/INFO] [minecraft/GameTestServer]:    - actualfivehallnavigation
+[09:25:58] [Server thread/INFO] [minecraft/GameTestServer]:    - actualfourhallnavigation
+[09:25:58] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[09:25:58] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[09:25:58] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[09:25:58] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[09:25:58] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[09:25:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[09:25:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[09:25:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:25:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:25:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:25:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09:25:59] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runChudChecks FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/work/chud-151/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runChudChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 4
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 58s
+9 actionable tasks: 6 executed, 3 up-to-date

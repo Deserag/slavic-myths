@@ -1,0 +1,13 @@
+{
+  "build": "PASS",
+  "offline_checks": "PASS",
+  "offline_check_count": 11,
+  "production_sha256": "6ae23610d8390cc6e5792b8ad70048851ed5ea2bca8fea7618427c5edc75e524",
+  "compiled_classes_identical": 926,
+  "saved_geometry_classes_identical": 21,
+  "baseline_sha256": "ca2a1e9e7ab2ebfb740edee54f7318f604a04119d5aa6f8b49c05e8699810103",
+  "runtime_validation": "NOT_RUN",
+  "minecraft_launches": 0,
+  "acceptance": "OPEN_RUNTIME_NOT_RUN",
+  "natural_worldgen_quota": "OPEN; historical medium=5, unique attached=1, great=0"
+}

@@ -1,0 +1,14 @@
+{
+  "build": "PASS",
+  "offline_checks": "PASS",
+  "offline_assertions": 18393,
+  "new_depth_assertions": 6,
+  "compiled_classes_match": 937,
+  "saved_plan_geometry_classes_unchanged": 18,
+  "production_sha256": "5e692a7e90ebbb4dc29c648f2b54fd6e383489df87595134eaff996e5c085022",
+  "runtime_validation": "NOT_RUN",
+  "minecraft_launches": 0,
+  "clients": 0,
+  "servers": 0,
+  "note": "Plain JVM math/Brigadier checks; artificial terrain layout checks are historical checks, not real worldgen."
+}

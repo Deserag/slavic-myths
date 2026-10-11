@@ -1,0 +1,242 @@
+[
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/annoyed_huff_01.ogg",
+    "seconds": 0.6675736961451247,
+    "rms": 2114.2462370828575
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/annoyed_huff_02.ogg",
+    "seconds": 0.8533333333333334,
+    "rms": 2666.257082510662
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/bowl_clink_01.ogg",
+    "seconds": 0.468390022675737,
+    "rms": 1916.0223572823288
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/bowl_clink_02.ogg",
+    "seconds": 0.5863038548752835,
+    "rms": 1443.855954279346
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/broom_sweep_01.ogg",
+    "seconds": 1.2,
+    "rms": 745.3754968420394
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/chew_01.ogg",
+    "seconds": 0.4818140589569161,
+    "rms": 1108.433269006806
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/chew_02.ogg",
+    "seconds": 0.5630839002267574,
+    "rms": 911.6899730935424
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/chew_03.ogg",
+    "seconds": 0.528390022675737,
+    "rms": 1100.5903464596215
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/cloth_rustle_01.ogg",
+    "seconds": 0.6675736961451247,
+    "rms": 1299.9305571440111
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/cloth_rustle_02.ogg",
+    "seconds": 0.737233560090703,
+    "rms": 973.6476737978319
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/grumble_01.ogg",
+    "seconds": 0.9694331065759637,
+    "rms": 2909.276829169174
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/grumble_02.ogg",
+    "seconds": 1.2,
+    "rms": 2990.7836895224013
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/happy_hum_01.ogg",
+    "seconds": 1.1,
+    "rms": 2887.1429416451915
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/sitting_down_01.ogg",
+    "seconds": 0.6907936507936508,
+    "rms": 1095.648641928549
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/sleep_breath_01.ogg",
+    "seconds": 2.3499773242630386,
+    "rms": 3324.251127345048
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/sleep_breath_02.ogg",
+    "seconds": 2.9,
+    "rms": 3037.8020182660953
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/sleepy_sigh_01.ogg",
+    "seconds": 1.1,
+    "rms": 2628.6859836305994
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/snore_01.ogg",
+    "seconds": 1.1499773242630384,
+    "rms": 3200.4766755013056
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/snore_02.ogg",
+    "seconds": 1.6499773242630384,
+    "rms": 3416.746942421239
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/step_wood_01.ogg",
+    "seconds": 0.3183673469387755,
+    "rms": 3075.25724326449
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/step_wood_02.ogg",
+    "seconds": 0.38893424036281177,
+    "rms": 2755.262135832122
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/step_wood_03.ogg",
+    "seconds": 0.34249433106575966,
+    "rms": 1766.018475430379
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/stove_scramble_01.ogg",
+    "seconds": 0.988390022675737,
+    "rms": 2800.0037834847076
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/stove_scramble_02.ogg",
+    "seconds": 1.2,
+    "rms": 2240.410555707474
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/stove_settle_01.ogg",
+    "seconds": 0.988390022675737,
+    "rms": 809.0479261180934
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/swallow_01.ogg",
+    "seconds": 0.5883900226757369,
+    "rms": 512.7306477348129
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/trunk_wood_01.ogg",
+    "seconds": 0.8881632653061224,
+    "rms": 1665.9777955659035
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/sfx/wake_rustle_01.ogg",
+    "seconds": 1.0299773242630386,
+    "rms": 848.696546587167
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_ask_leave_01.ogg",
+    "seconds": 2.889795918367347,
+    "rms": 1886.168378097137
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_ask_leave_02.ogg",
+    "seconds": 1.6635827664399092,
+    "rms": 1911.9961459117415
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_ask_leave_03.ogg",
+    "seconds": 2.109160997732426,
+    "rms": 1916.176206890681
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_ask_leave_04.ogg",
+    "seconds": 2.6531972789115645,
+    "rms": 1867.4196698535836
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_ask_leave_05.ogg",
+    "seconds": 2.6487528344671203,
+    "rms": 1945.6159035658975
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_eat_01.ogg",
+    "seconds": 1.9259410430839001,
+    "rms": 1923.8600254703679
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_eat_02.ogg",
+    "seconds": 1.975419501133787,
+    "rms": 1722.8561745157212
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_eat_03.ogg",
+    "seconds": 2.334331065759637,
+    "rms": 1917.2406477262857
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_enter_01.ogg",
+    "seconds": 1.6993197278911565,
+    "rms": 1870.905075853828
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_enter_02.ogg",
+    "seconds": 1.8928798185941043,
+    "rms": 1955.3719773098828
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_idle_01.ogg",
+    "seconds": 2.6467573696145124,
+    "rms": 1973.96524948872
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_idle_02.ogg",
+    "seconds": 1.6639002267573697,
+    "rms": 1915.5248811008391
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_interact_01.ogg",
+    "seconds": 1.3853514739229025,
+    "rms": 2077.3215375542172
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_interact_02.ogg",
+    "seconds": 2.3588662131519276,
+    "rms": 1974.8201968761132
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_notice_01.ogg",
+    "seconds": 1.5369614512471654,
+    "rms": 1984.1219324390026
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_notice_02.ogg",
+    "seconds": 1.8025850340136054,
+    "rms": 1996.2227854659093
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_sleep_01.ogg",
+    "seconds": 1.41437641723356,
+    "rms": 2043.2256287516302
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_sleep_02.ogg",
+    "seconds": 2.0419501133786846,
+    "rms": 2118.54146793504
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_yaga_01.ogg",
+    "seconds": 1.9829478458049887,
+    "rms": 1905.7086912988168
+  },
+  {
+    "file": "assets/slavicmyths/sounds/kuzya/voice_draft/voice_yaga_02.ogg",
+    "seconds": 2.4067573696145126,
+    "rms": 1888.298589477238
+  }
+]

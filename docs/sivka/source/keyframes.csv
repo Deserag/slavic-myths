@@ -1,0 +1,16 @@
+clip,time_seconds,normalized_phase,torso_pitch_deg,render_bob_blocks,foreleg_left_deg,foreleg_right_deg,hindleg_left_deg,hindleg_right_deg,fore_knee_deg,hock_deg,fx_or_audio_marker,description
+land_gallop,0.000,0.00,0,0.00,-18,-10,32,27,22,37,hind_impact,compressed rear launch
+land_gallop,0.080,0.13,4,0.08,21,8,-35,-27,30,13,rear_push,drive behind
+land_gallop,0.180,0.29,3,0.12,29,18,-24,-20,12,11,air_gap,full extension suspended
+land_gallop,0.290,0.47,-1,0.03,-13,-24,-8,-10,19,24,front_impact,reach for turf
+land_gallop,0.410,0.65,-3,-0.01,-25,-12,14,22,34,35,fore_transfer,front support and fold
+land_gallop,0.520,0.82,-1,0.00,-16,-8,32,28,22,38,hind_reset,rear gathers
+land_gallop,0.630,1.00,0,0.00,-18,-10,32,27,22,37,cycle_loop,seamless
+air_gallop,0.000,0.00,3,0.00,-14,-8,24,20,36,42,none,gathered ascending transition
+air_gallop,0.086,0.12,6,0.10,24,18,-32,-28,18,16,air_stride_1,leap from invisible footing
+air_gallop,0.194,0.27,2,0.16,35,29,-29,-23,10,11,none,maximum upward leap
+air_gallop,0.288,0.40,0,0.10,13,8,-2,3,28,28,none,crest and fold
+air_gallop,0.403,0.56,-4,-0.06,-19,-14,21,25,36,38,none,downstroke
+air_gallop,0.504,0.70,-1,-0.15,-28,-21,36,31,38,39,air_stride_2,invisible air contact
+air_gallop,0.619,0.86,4,-0.05,-22,-14,32,26,34,43,none,prep next bound
+air_gallop,0.720,1.00,3,0.00,-14,-8,24,20,36,42,cycle_loop,return to phase zero

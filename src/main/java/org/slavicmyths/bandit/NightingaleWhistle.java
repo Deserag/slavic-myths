@@ -22,9 +22,9 @@ public final class NightingaleWhistle extends Item {
     @Override public UseAnim getUseAnimation(ItemStack stack){return UseAnim.DRINK;}
     @Override public InteractionResultHolder<ItemStack> use(Level w,Player p,InteractionHand hand){if(p.getCooldowns().isOnCooldown(this))return InteractionResultHolder.fail(p.getItemInHand(hand));p.startUsingItem(hand);if(!w.isClientSide&&!horn)w.playSound(null,p.blockPosition(),ModSounds.NIGHTINGALE_INHALE.get(),SoundSource.PLAYERS,.6F,1.25F);return InteractionResultHolder.consume(p.getItemInHand(hand));}
     @Override public ItemStack finishUsingItem(ItemStack stack,Level w,LivingEntity entity){if(!w.isClientSide&&entity instanceof Player){Player p=(Player)entity;if(p.getCooldowns().isOnCooldown(this))return stack;
-        p.getCooldowns().addCooldown(this,horn?100:600);
+        p.getCooldowns().addCooldown(this,horn?100:320);
         w.playSound(null,p.blockPosition(),horn?ModSounds.NIGHTINGALE_HORN.get():ModSounds.NIGHTINGALE_WHISTLE.get(),SoundSource.PLAYERS,.9F,horn?1:1.3F);
-        if(!horn){net.minecraft.world.phys.Vec3 direction=WindAttack.facing(p.getYRot());WindAttack.release(p,direction,9,3,1.8F,false,true);WindAttack.terrain(p,direction,9,false);for(int i=1;i<=9;i+=2)WindAttack.particles((ServerLevel)w,p.position().add(0,1,0),direction,i,false);}
+        if(!horn){net.minecraft.world.phys.Vec3 direction=WindAttack.facing(p.getYRot());WindAttack.release(p,direction,6,7,2.2F,true,true);WindAttack.terrain(p,direction,9,false);for(int i=1;i<=6;i+=2)WindAttack.particles((ServerLevel)w,p.position().add(0,1,0),direction,i,true);}
     }return stack;}
     @Override public void appendHoverText(ItemStack stack,net.minecraft.world.item.Item.TooltipContext w,List<Component> lines,TooltipFlag flag){lines.add(Component.translatable(horn?"tooltip.slavicmyths.bandit_horn":"tooltip.slavicmyths.nightingale_whistle").withStyle(ChatFormatting.GRAY));}
 }

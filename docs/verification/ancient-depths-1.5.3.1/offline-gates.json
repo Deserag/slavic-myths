@@ -1,0 +1,13 @@
+{
+  "build": "PASS",
+  "clean_build": "PASS (final source)",
+  "offline_checks": "PASS",
+  "geometry_assertions": 2318,
+  "geometry_layouts": 8,
+  "nbt_field_assertions": 144,
+  "nbt_roundtrips": 12,
+  "production_sha256": "0021e06e879d86891f076d3050d5306ab6d9159d3f6689545d4742c6b3943be9",
+  "runtime_validation": "NOT_RUN",
+  "minecraft_launches": 0,
+  "limitations": "Pure geometry and NBT; not engine collision/light/map/AI/relog/MSPT verification"
+}

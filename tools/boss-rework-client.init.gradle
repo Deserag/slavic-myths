@@ -1,0 +1,8 @@
+// Isolated client directory; no changes to user worlds or PolyMC instances.
+gradle.projectsEvaluated {
+    allprojects { p ->
+        if (p.plugins.hasPlugin('net.neoforged.moddev')) {
+            p.neoForge.runs.client.gameDirectory = p.file('run-boss-rework-client')
+        }
+    }
+}

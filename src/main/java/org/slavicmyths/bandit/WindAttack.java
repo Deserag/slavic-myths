@@ -51,14 +51,34 @@ public final class WindAttack {
             if(victim==source||!victim.isAlive()||source.isAlliedTo(victim))continue;
             if(victim instanceof Player&&(((Player)victim).isCreative()||victim.isSpectator()))continue;
             if(source instanceof NightingaleEntity && victim instanceof BanditEntity)continue;
-            // Player artifacts never damage or control bosses, including modded ones.
-            if(playerArtifact&&(!victim.canChangeDimensions(victim.level(),victim.level())||victim.getMaxHealth()>=100))continue;
+            if(victim.getType().is(WindImpulse.IMMUNE))continue;
             Vec3 delta=victim.position().subtract(source.position());
             if(!inCone(delta,direction,range,radial))continue;
             float cover=exposure(w,source.getEyePosition(1),victim);if(cover==0)continue;
             float falloff=(float)(1-.65*Math.min(1,delta.length()/range));
-            victim.hurt(source instanceof Player?source.damageSources().playerAttack((Player)source):source.damageSources().mobAttack(source),damage*falloff*cover);
-            victim.knockback(push*falloff*cover,-delta.x,-delta.z);victim.hurtMarked=true;
+            victim.hurt(source instanceof Player?source.damageSources().playerAttack((Player)source):source.damageSources().mobAttack(source),damage*(source instanceof NightingaleEntity?1:falloff)*cover);
+            WindImpulse.push(victim,delta,push*falloff*cover);
+        }
+    }
+    /** Fixed-width physical pressure wave: no distance-based damage reduction. */
+    public static void bladeWave(Player source, Vec3 direction) {
+        if (!(source.level() instanceof ServerLevel w)) return;
+        int processed=0;
+        for (LivingEntity victim:w.getEntitiesOfClass(LivingEntity.class,source.getBoundingBox().inflate(8))) {
+            if(processed++>=64) break;
+            if(victim==source||!victim.isAlive()||source.isAlliedTo(victim)||victim.getType().is(WindImpulse.IMMUNE)) continue;
+            if(victim instanceof Player p&&(p.isCreative()||p.isSpectator())) continue;
+            Vec3 delta=victim.position().subtract(source.position());
+            double along=delta.dot(direction), across=delta.x*direction.z-delta.z*direction.x;
+            if(along<0||along>8||Math.abs(across)>1.5+victim.getBbWidth()*.5||Math.abs(delta.y)>2) continue;
+            float cover=exposure(w,source.getEyePosition(),victim);
+            if(cover<=0) continue;
+            if(victim.hurt(source.damageSources().mobProjectile(source,source),7*cover))w.playSound(null,victim.blockPosition(),org.slavicmyths.registry.ModSounds.boss("nightingale_blade_wind_hit"),SoundSource.PLAYERS,.6F,1);
+            WindImpulse.push(victim,direction,.8*cover);
+        }
+        for(int step=1;step<=8;step++) for(int lane=-3;lane<=3;lane++) {
+            Vec3 point=source.position().add(direction.scale(step)).add(direction.z*lane*.5,1,-direction.x*lane*.5);
+            w.sendParticles(ParticleTypes.CLOUD,point.x,point.y,point.z,1,.03,.12,.03,.02);
         }
     }
     public static void particles(ServerLevel w,Vec3 origin,Vec3 direction,double radius,boolean radial) {

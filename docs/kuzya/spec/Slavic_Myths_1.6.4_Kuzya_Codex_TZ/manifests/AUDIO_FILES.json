@@ -1,0 +1,338 @@
+[
+  {
+    "file": "audio/ready/sfx/step_wood_01.ogg",
+    "event": "kuzya.step_wood",
+    "category": "sfx",
+    "seconds": 0.33,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/step_wood_02.ogg",
+    "event": "kuzya.step_wood",
+    "category": "sfx",
+    "seconds": 0.37,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/step_wood_03.ogg",
+    "event": "kuzya.step_wood",
+    "category": "sfx",
+    "seconds": 0.32,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/stove_scramble_01.ogg",
+    "event": "kuzya.stove_climb",
+    "category": "sfx",
+    "seconds": 1.0,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/stove_scramble_02.ogg",
+    "event": "kuzya.stove_climb",
+    "category": "sfx",
+    "seconds": 1.2,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/cloth_rustle_01.ogg",
+    "event": "kuzya.cloth",
+    "category": "sfx",
+    "seconds": 0.65,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/cloth_rustle_02.ogg",
+    "event": "kuzya.cloth",
+    "category": "sfx",
+    "seconds": 0.72,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/sitting_down_01.ogg",
+    "event": "kuzya.sit",
+    "category": "sfx",
+    "seconds": 0.67,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/wake_rustle_01.ogg",
+    "event": "kuzya.wake",
+    "category": "sfx",
+    "seconds": 1.03,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/bowl_clink_01.ogg",
+    "event": "kuzya.bowl",
+    "category": "sfx",
+    "seconds": 0.48,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/bowl_clink_02.ogg",
+    "event": "kuzya.bowl",
+    "category": "sfx",
+    "seconds": 0.57,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/chew_01.ogg",
+    "event": "kuzya.chew",
+    "category": "sfx",
+    "seconds": 0.47,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/chew_02.ogg",
+    "event": "kuzya.chew",
+    "category": "sfx",
+    "seconds": 0.55,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/chew_03.ogg",
+    "event": "kuzya.chew",
+    "category": "sfx",
+    "seconds": 0.54,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/swallow_01.ogg",
+    "event": "kuzya.swallow",
+    "category": "sfx",
+    "seconds": 0.6,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/stove_settle_01.ogg",
+    "event": "kuzya.stove_settle",
+    "category": "sfx",
+    "seconds": 1.0,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/trunk_wood_01.ogg",
+    "event": "kuzya.chest",
+    "category": "sfx",
+    "seconds": 0.87,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/broom_sweep_01.ogg",
+    "event": "kuzya.sweep",
+    "category": "sfx",
+    "seconds": 1.2,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/sleep_breath_01.ogg",
+    "event": "kuzya.sleep_breath",
+    "category": "sfx",
+    "seconds": 2.35,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/sleep_breath_02.ogg",
+    "event": "kuzya.sleep_breath",
+    "category": "sfx",
+    "seconds": 2.9,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/snore_01.ogg",
+    "event": "kuzya.snore",
+    "category": "sfx",
+    "seconds": 1.15,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/snore_02.ogg",
+    "event": "kuzya.snore",
+    "category": "sfx",
+    "seconds": 1.65,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/sleepy_sigh_01.ogg",
+    "event": "kuzya.sigh",
+    "category": "sfx",
+    "seconds": 1.1,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/grumble_01.ogg",
+    "event": "kuzya.grumble_nonverbal",
+    "category": "sfx",
+    "seconds": 0.95,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/grumble_02.ogg",
+    "event": "kuzya.grumble_nonverbal",
+    "category": "sfx",
+    "seconds": 1.2,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/annoyed_huff_01.ogg",
+    "event": "kuzya.huff",
+    "category": "sfx",
+    "seconds": 0.65,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/annoyed_huff_02.ogg",
+    "event": "kuzya.huff",
+    "category": "sfx",
+    "seconds": 0.84,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/sfx/happy_hum_01.ogg",
+    "event": "kuzya.hum",
+    "category": "sfx",
+    "seconds": 1.1,
+    "status": "READY generated original"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_enter_01.ogg",
+    "event": "kuzya.voice_enter",
+    "category": "voice_draft",
+    "line": "Кто это у нас пожаловал?",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_enter_02.ogg",
+    "event": "kuzya.voice_enter",
+    "category": "voice_draft",
+    "line": "Дверь-то за собой прикрой.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_idle_01.ogg",
+    "event": "kuzya.voice_idle",
+    "category": "voice_draft",
+    "line": "Порядок в доме сам собой не заведётся.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_idle_02.ogg",
+    "event": "kuzya.voice_idle",
+    "category": "voice_draft",
+    "line": "Опять всё не на месте.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_eat_01.ogg",
+    "event": "kuzya.voice_eat",
+    "category": "voice_draft",
+    "line": "Вот бы блинов со сметаной!",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_eat_02.ogg",
+    "event": "kuzya.voice_eat",
+    "category": "voice_draft",
+    "line": "Кашка-то остыла. Эх!",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_eat_03.ogg",
+    "event": "kuzya.voice_eat",
+    "category": "voice_draft",
+    "line": "Люблю, когда сытно да тепло.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_sleep_01.ogg",
+    "event": "kuzya.voice_sleep",
+    "category": "voice_draft",
+    "line": "Не мешай дремать.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_sleep_02.ogg",
+    "event": "kuzya.voice_sleep",
+    "category": "voice_draft",
+    "line": "Дай мне ещё немножко поспать.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_notice_01.ogg",
+    "event": "kuzya.voice_notice",
+    "category": "voice_draft",
+    "line": "Ты надолго к нам?",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_notice_02.ogg",
+    "event": "kuzya.voice_notice",
+    "category": "voice_draft",
+    "line": "Чего всё оглядываешься?",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_ask_leave_01.ogg",
+    "event": "kuzya.voice_ask_leave",
+    "category": "voice_draft",
+    "line": "Гость-то гость, а пора бы и честь знать.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_ask_leave_02.ogg",
+    "event": "kuzya.voice_ask_leave",
+    "category": "voice_draft",
+    "line": "Долго ещё гостить будешь?",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_ask_leave_03.ogg",
+    "event": "kuzya.voice_ask_leave",
+    "category": "voice_draft",
+    "line": "Чужому тут ночевать не положено.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_ask_leave_04.ogg",
+    "event": "kuzya.voice_ask_leave",
+    "category": "voice_draft",
+    "line": "Всё ходишь и ходишь, отдыха нет.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_ask_leave_05.ogg",
+    "event": "kuzya.voice_ask_leave",
+    "category": "voice_draft",
+    "line": "Ну, ступай уже, у меня забот полно.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_yaga_01.ogg",
+    "event": "kuzya.voice_yaga",
+    "category": "voice_draft",
+    "line": "Бабушка, а пирожки где?",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_yaga_02.ogg",
+    "event": "kuzya.voice_yaga",
+    "category": "voice_draft",
+    "line": "Я тут за порядком присматриваю.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_interact_01.ogg",
+    "event": "kuzya.voice_interact",
+    "category": "voice_draft",
+    "line": "Чего тебе надо?",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  },
+  {
+    "file": "audio/ready/voice_draft/voice_interact_02.ogg",
+    "event": "kuzya.voice_interact",
+    "category": "voice_draft",
+    "line": "А поговорить-то можно и после обеда.",
+    "status": "READY synthetic ORIGINAL non-copyrighted Russian draft; improve voice if desired"
+  }
+]

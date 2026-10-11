@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "classes": 33,
+  "production_sha256": "ca2a1e9e7ab2ebfb740edee54f7318f604a04119d5aa6f8b49c05e8699810103",
+  "scope": "chud native classes byte-for-byte equal to classes loaded by attempt36"
+}

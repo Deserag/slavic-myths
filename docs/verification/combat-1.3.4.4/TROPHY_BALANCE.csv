@@ -1,0 +1,7 @@
+﻿item,before_damage,after_damage,attack_speed,before_nominal_dps,after_nominal_dps,special
+slavicmyths:tugarin_sword,6,10,1.8,10.8,18.0,"One stack / two visual blades; x1.4 charged =14 HP; native bleed max3,0.5HP/stack;3slots"
+slavicmyths:victor_spear,7,12,1.2,8.4,14.4,Reach4.25; far hit second native attack;3slots
+slavicmyths:ataman_flail,9,12,0.7,6.3,8.4,Fourth chained hit x1.35 =16.2; shield pressure;3slots
+slavicmyths:nightingale_dagger,7,10,2,14,20,Charged wind gust; source unchanged
+slavicmyths:likho_staff,4,10,1.2,4.8,12.0,Heal1HP/9sec; morok/soft control;28secCD;3slots
+slavicmyths:pool_spear,7,9,1.2,8.4,10.8,Confirmed unique pool_pearl from Elder Vodyanoy; underwater ability preserved

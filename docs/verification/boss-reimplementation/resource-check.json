@@ -1,0 +1,24 @@
+{
+  "resource_check": "PASS",
+  "models": [
+    {
+      "name": "tugarin_phase1",
+      "parts": 72
+    },
+    {
+      "name": "tugarin_phase2",
+      "parts": 87
+    },
+    {
+      "name": "nightingale_phase1",
+      "parts": 85
+    },
+    {
+      "name": "nightingale_phase2",
+      "parts": 65
+    }
+  ],
+  "required_sounds": 39,
+  "client_launches": 0,
+  "visual_approval": "MANUAL_REQUIRED"
+}

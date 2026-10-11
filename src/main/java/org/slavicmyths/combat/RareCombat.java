@@ -17,7 +17,7 @@ import org.slavicmyths.rpg.*;
 public final class RareCombat {
     public static final int SWING_WINDOW=80, SECOND_WINDOW=25, SECOND_COOLDOWN=160;
     public static long now(Entity e){return e.getServer()==null?e.level().getGameTime():e.getServer().overworld().getGameTime();}
-    public static boolean paired(Player p){return p.getMainHandItem().is(RareWeapons.TUGARIN.get())&&p.getOffhandItem().is(RareWeapons.TUGARIN.get());}
+    public static boolean paired(Player p){return TugarinPair.held(p);}
     private static boolean melee(net.minecraft.world.damagesource.DamageSource s){return s.is(DamageTypes.PLAYER_ATTACK)&&s.getDirectEntity() instanceof ServerPlayer;}
     public static void feedback(LivingEntity e,SimpleParticleType particle){if(e.level() instanceof ServerLevel w)w.sendParticles(particle,e.getX(),e.getEyeY(),e.getZ(),4,.15,.15,.15,.01);}
     @SubscribeEvent(priority=EventPriority.LOWEST) public static void attack(AttackEntityEvent e){
@@ -56,7 +56,7 @@ public final class RareCombat {
     @SubscribeEvent public static void hit(LivingDamageEvent.Post e){
         if(e.getNewDamage()<=0||!melee(e.getSource()))return;
         var p=(ServerPlayer)e.getSource().getDirectEntity();var d=p.getPersistentData();var target=e.getEntity();
-        if(paired(p)&&d.getFloat("RareAttackCharge")>=.9F){RareBleedEffect.apply(p,target);p.swing(InteractionHand.OFF_HAND,true);p.getOffhandItem().hurtAndBreak(1,p,EquipmentSlot.OFFHAND);}
+        if(paired(p)&&d.getFloat("RareAttackCharge")>=.9F){RareBleedEffect.apply(p,target);p.swing(InteractionHand.OFF_HAND,true);p.getMainHandItem().hurtAndBreak(1,p,EquipmentSlot.MAINHAND);}
         if(p.getMainHandItem().is(RareWeapons.ATAMAN.get())&&d.getFloat("RareAttackCharge")>=.9F){
             boolean boost=d.getBoolean("RareSwingBoost");d.putInt("RareSwingStacks",boost?0:d.getLong("RareSwingUntil")>now(p)?Math.min(3,d.getInt("RareSwingStacks")+1):1);
             d.putLong("RareSwingUntil",now(p)+SWING_WINDOW);d.remove("RareSwingBoost");

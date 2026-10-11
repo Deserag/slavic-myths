@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checks": 12878,
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.6.0.jar",
+  "sha256": "0e0bcc1abc9dce2501e152cd6544795fa137e7ec9fd205b09cc5f368a31c9c61",
+  "preserved_classes": 1055,
+  "preserved_resources": 5290,
+  "audio_files": 31,
+  "minecraft_launches": 0
+}

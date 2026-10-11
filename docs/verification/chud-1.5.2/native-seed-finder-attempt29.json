@@ -1,0 +1,738 @@
+[
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-7144, 5702]",
+    "coarseCoverScore": 62,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[8204, 3865]",
+    "coarseCoverScore": 30,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[9503, -3771]",
+    "coarseCoverScore": 28,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-10990, 5425]",
+    "coarseCoverScore": 25,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-13751, 14681]",
+    "coarseCoverScore": 22,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[12623, -3025]",
+    "coarseCoverScore": 22,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-3063, -254]",
+    "coarseCoverScore": 21,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-7850, 14874]",
+    "coarseCoverScore": 20,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-16128, 11538]",
+    "coarseCoverScore": 19,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-4600, -14050]",
+    "coarseCoverScore": 17,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-13495, 14627]",
+    "coarseCoverScore": 17,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-13773, 1846]",
+    "coarseCoverScore": 16,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-15279, -6114]",
+    "coarseCoverScore": 15,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[15617, -16310]",
+    "coarseCoverScore": 14,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[7482, 13658]",
+    "coarseCoverScore": 14,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-12199, -2980]",
+    "coarseCoverScore": 13,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-7375, 8798]",
+    "coarseCoverScore": 13,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[2111, 8991]",
+    "coarseCoverScore": 13,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-5575, -13299]",
+    "coarseCoverScore": 12,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "attached",
+    "chunk": "[-10666, -14758]",
+    "coarseCoverScore": 11,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-7144, 5702]",
+    "coarseCoverScore": 109,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[14389, -961]",
+    "coarseCoverScore": 67,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[8204, 3865]",
+    "coarseCoverScore": 60,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[14593, 256]",
+    "coarseCoverScore": 57,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-11227, 1327]",
+    "coarseCoverScore": 54,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-13495, 14627]",
+    "coarseCoverScore": 54,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[4873, 1570]",
+    "coarseCoverScore": 53,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[9503, -3771]",
+    "coarseCoverScore": 50,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-13751, 14681]",
+    "coarseCoverScore": 50,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-13474, -15086]",
+    "coarseCoverScore": 50,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-7850, 14874]",
+    "coarseCoverScore": 50,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[8499, -13024]",
+    "coarseCoverScore": 50,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-9436, -13012]",
+    "coarseCoverScore": 50,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-16373, 7753]",
+    "coarseCoverScore": 49,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[16448, 776]",
+    "coarseCoverScore": 49,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-3506, 1551]",
+    "coarseCoverScore": 48,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-10682, -8642]",
+    "coarseCoverScore": 48,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-974, -16361]",
+    "coarseCoverScore": 42,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-4073, -2254]",
+    "coarseCoverScore": 42,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 0,
+    "target": "great",
+    "chunk": "[-16128, 11538]",
+    "coarseCoverScore": 40,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-12450, -11977]",
+    "coarseCoverScore": 37,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-2295, -11462]",
+    "coarseCoverScore": 35,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-4546, 15117]",
+    "coarseCoverScore": 31,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[5946, -14533]",
+    "coarseCoverScore": 28,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[13864, 2113]",
+    "coarseCoverScore": 26,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-5847, -6065]",
+    "coarseCoverScore": 23,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-4534, -6590]",
+    "coarseCoverScore": 22,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-2479, -8924]",
+    "coarseCoverScore": 22,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[12352, 5429]",
+    "coarseCoverScore": 21,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-11001, -756]",
+    "coarseCoverScore": 20,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-14261, -13231]",
+    "coarseCoverScore": 20,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[15887, -12971]",
+    "coarseCoverScore": 19,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-754, -8149]",
+    "coarseCoverScore": 19,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[13657, -6319]",
+    "coarseCoverScore": 19,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[5959, -4034]",
+    "coarseCoverScore": 17,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-6127, -7118]",
+    "coarseCoverScore": 17,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-3016, -6078]",
+    "coarseCoverScore": 16,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-10212, 15375]",
+    "coarseCoverScore": 16,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[2890, -13034]",
+    "coarseCoverScore": 16,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "attached",
+    "chunk": "[-6821, -9975]",
+    "coarseCoverScore": 16,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-4094, -5606]",
+    "coarseCoverScore": 73,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-16046, 7508]",
+    "coarseCoverScore": 65,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[12341, 14352]",
+    "coarseCoverScore": 60,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[4365, -1020]",
+    "coarseCoverScore": 58,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[8010, 10004]",
+    "coarseCoverScore": 57,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[1289, -11775]",
+    "coarseCoverScore": 56,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-6824, -12468]",
+    "coarseCoverScore": 56,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[12112, -14280]",
+    "coarseCoverScore": 52,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-14075, 11347]",
+    "coarseCoverScore": 51,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[14418, 1375]",
+    "coarseCoverScore": 51,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-15302, -1444]",
+    "coarseCoverScore": 51,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[14359, 8716]",
+    "coarseCoverScore": 50,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-14261, -13231]",
+    "coarseCoverScore": 49,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[4141, -12523]",
+    "coarseCoverScore": 47,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[12563, 9483]",
+    "coarseCoverScore": 46,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-2220, 8538]",
+    "coarseCoverScore": 46,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-5871, 8711]",
+    "coarseCoverScore": 46,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[13637, -14775]",
+    "coarseCoverScore": 44,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[-5077, -12751]",
+    "coarseCoverScore": 43,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 1,
+    "target": "great",
+    "chunk": "[13634, 2312]",
+    "coarseCoverScore": 42,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-1016, -1491]",
+    "coarseCoverScore": 31,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[10333, -7123]",
+    "coarseCoverScore": 31,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-2750, 9292]",
+    "coarseCoverScore": 29,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-13035, 16432]",
+    "coarseCoverScore": 28,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[16154, -1724]",
+    "coarseCoverScore": 24,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[327, 13636]",
+    "coarseCoverScore": 23,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-16117, 7184]",
+    "coarseCoverScore": 22,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[8474, -2042]",
+    "coarseCoverScore": 21,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-14279, -8169]",
+    "coarseCoverScore": 20,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[3092, 3616]",
+    "coarseCoverScore": 20,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[-5104, 1886]",
+    "coarseCoverScore": 19,
+    "accepted": false,
+    "result": "rejected"
+  },
+  {
+    "seed": 2,
+    "target": "attached",
+    "chunk": "[5177, -14014]",
+    "coarseCoverScore": 19,
+    "accepted": false,
+    "result": "rejected"
+  }
+]

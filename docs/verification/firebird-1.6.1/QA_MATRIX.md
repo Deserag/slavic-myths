@@ -1,0 +1,41 @@
+# Runtime acceptance — OPEN
+
+Каждая строка ниже требует игровой проверки; build/codec/resources отдельно в REPORT.
+
+- NOT TESTED: Compare in-game front, left, rear and 3/4 views against `references/APPROVED_firebird_1_6_1.png`. Regal long-neck bird, crest upward, beak and distinct feather layers, **5–6 block wingspan**, **2.5–3 block height**, long tail are recognizably present.
+- NOT TESTED: At rest wings folded; during flight wings articulate at shoulder/mid/tip. Tail not stiff and horizontal forever.
+- NOT TESTED: No double textures, black/magenta missing UV, eye at wrong side, floating claws, alpha artifacts, invisible wings due to culling.
+- NOT TESTED: In Minecraft nighttime without held light/shaders, Firebird is unmistakably bright. Check at 16, 32 and 64 blocks.
+- NOT TESTED: Cosmetic particles do not create permanent fires or block placement, no FPS flood.
+- NOT TESTED: Idle micro head/wing/crest/tail movements.
+- NOT TESTED: Takeoff: pre-crouch → open wings → downstroke → leg tuck, elapsed ~0.95s.
+- NOT TESTED: Cruising animation true wing-cycle ~1.75s, tips delayed; gliding different from flapping.
+- NOT TESTED: Resource release animation synced to exactly one item entity and correct SFX.
+- NOT TESTED: Landing and perching transition without teleport or wing clipping.
+- NOT TESTED: Attack warns and telegraphs; hit marker triggers one damage event.
+- NOT TESTED: End at third/second drop or sunrise: visible flying-away sequence before unload.
+- NOT TESTED: New world first natural appearance not before 20 nights; test seed schedules integer 20–30 inclusive.
+- NOT TESTED: Natural event never during day or twilight before 13000; ends at 23000 dawn.
+- NOT TESTED: Never spawns in Nether/End; not a normal spawn entry in mob spawn list.
+- NOT TESTED: Single eligible visit when multiple players are in Overworld; no duplicate on crossing chunks.
+- NOT TESTED: No eligible site? Safely keep pending until future night; no chunkgen or dropped schedule accidentally reset.
+- NOT TESTED: After event ends, next eligible night scheduled +20…30 regardless of 2 or 3 outcomes.
+- NOT TESTED: Fast-forward days, use bed and relog; no recurrence due to day counter rollback/duplicate night.
+- NOT TESTED: For normal 2-drop visit: EXACTLY two item entities, not 2x plus vanilla death loot.
+- NOT TESTED: For normal 3-drop visit: EXACTLY three items, separated over night, not simultaneous rain.
+- NOT TESTED: For dawn interruption: 0/1/2/3 only as actually issued; never catch-up reward spam.
+- NOT TESTED: Per individual roll probability exactly 10% rare, 30% smoldering, 60% down. Statistical 100k seed test within tolerances from `08`.
+- NOT TESTED: Dropped items fall, land safely and can be picked up; not merely visual feather sprites, no wall/void loss under normal conditions.
+- NOT TESTED: All three distinct sprites >=32×32, item registry IDs stable, localization RU/EN; GUI/hand, tooltip and creative tab correct.
+- NOT TESTED: No production crafting recipes added.
+- NOT TESTED: Rejoin after slot 2: third slot only if planned=3, else depart. Test unexpected server stop and recovery.
+- NOT TESTED: Max 3000 HP displayed/verified; Firebird receives weapon/projectile damage and may die.
+- NOT TESTED: If player stands near calmly, no damage at all.
+- NOT TESTED: If attacked, warning animation/SFX then 20 HP hit bypasses *armor and toughness* (subject to other rules), once per legal cooldown.
+- NOT TESTED: No attacking villagers without provocation, no fire spread/grief, creative spectator safety.
+- NOT TESTED: If killed before completed encounter, resources not auto-filled to planned quota.
+- NOT TESTED: Actual new `*.ogg` files (not empty, not silent, no copied copyrighted material); all events in manifest mapped and audible.
+- NOT TESTED: Wing sound not every tick; call and idle sounds infrequent and adequately attenuated.
+- NOT TESTED: Players 1 and 2 see same bird and same items, no separate RNG award per client.
+- NOT TESTED: Dedicated server starts without client renderer classloading exception.
+- NOT TESTED: 20+ min normal-night play does not leak event tasks or millions of particles; manager O(1) check on schedule, no global all-chunk scans.

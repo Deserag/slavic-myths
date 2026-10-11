@@ -56,7 +56,7 @@ public final class XaeroNavigationBridge implements MapIntegrationBridge {
         return state.tracked!=null&&owned.containsKey(state.tracked)&&world.getCurrentSet()==set;
     }
     private static WaypointColor color(MarkerCategory category){return switch(category){
-        case YAGA->WaypointColor.DARK_PURPLE;case WAYSTONE->WaypointColor.AQUA;case KURGAN->WaypointColor.GRAY;
+        case GREY_WOLF->WaypointColor.GRAY;case YAGA->WaypointColor.DARK_PURPLE;case WAYSTONE->WaypointColor.AQUA;case KURGAN->WaypointColor.GRAY;
         case BANDIT->WaypointColor.DARK_RED;case BOSS->WaypointColor.RED;case QUEST->WaypointColor.GOLD;
         case SPECIAL_LOCATION->WaypointColor.GREEN;case EVENT->WaypointColor.YELLOW;};}
     @Override public void clear(){

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "files": 4925,
+  "changed": [],
+  "generators": [
+    "boss_reimplementation_resources.py",
+    "volkolak_143_resources.py",
+    "boss_rework_names.py"
+  ]
+}

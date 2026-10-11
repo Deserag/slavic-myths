@@ -1,0 +1,40 @@
+{
+  "ru_ru": {
+    "rare_runes.slavicmyths.effect_death": "Добивает цель при ≤15% здоровья (максимальный порог 50 HP); цена: 6 сердец; перезарядка: 20 с",
+    "rare_runes.slavicmyths.activation": "Активная руна — клавиша: %s (Shift: выбрать руну)",
+    "rare_runes.slavicmyths.boots": "Установите в ботинки",
+    "rare_runes.slavicmyths.not_equipped": "Активная руна не установлена в подходящую экипировку",
+    "rare_runes.slavicmyths.invalid_state": "В этом состоянии руна недоступна",
+    "rare_runes.slavicmyths.flight_started": "Руна полёта активна: 5 с",
+    "rare_runes.slavicmyths.cannot_pay": "Недостаточно здоровья для активации",
+    "combat.slavicmyths.no_target": "Цель не найдена",
+    "combat.slavicmyths.morok_immune": "Цель невосприимчива к мороку",
+    "combat.slavicmyths.cooldown": "Перезарядка: %s с",
+    "combat.slavicmyths.morok_hit": "Цель окутана мороком",
+    "combat.slavicmyths.morok_resisted": "Цель ослаблена, но сопротивляется оглушению",
+    "combat.slavicmyths.likho_tooltip": "ПКМ: морок и краткое оглушение живой цели до 12 блоков; сильные цели только ослабляются; перезарядка 28 с",
+    "combat.slavicmyths.net_tooltip": "ПКМ: бросить сеть. На суше: замедление 3 с; в воде: сильное замедление 5 с. Союзники и сильные существа защищены",
+    "combat.slavicmyths.net_immune": "Сеть не может удержать эту цель",
+    "tooltip.slavicmyths.weapon.tugarin_sword": "Пара клинков в одном слоте: в руках по клинку; +40% урона полной атаки и кровотечение до 3 стаков (0,5 HP каждые 2 с, 6 с). Предмет из дополнительной руки сохраняется до переключения.",
+    "item.slavicmyths.tugarin_sword": "Парные клинки Тугарина"
+  },
+  "en_us": {
+    "rare_runes.slavicmyths.effect_death": "Executes at ≤15% health (threshold capped at 50 HP); cost: 6 hearts; cooldown: 20 s",
+    "rare_runes.slavicmyths.activation": "Active rune — key: %s (Shift: select rune)",
+    "rare_runes.slavicmyths.boots": "Install in boots",
+    "rare_runes.slavicmyths.not_equipped": "No active rune installed in compatible equipment",
+    "rare_runes.slavicmyths.invalid_state": "Runes are unavailable in this state",
+    "rare_runes.slavicmyths.flight_started": "Flight rune active: 5 s",
+    "rare_runes.slavicmyths.cannot_pay": "Not enough health to activate",
+    "combat.slavicmyths.no_target": "No target found",
+    "combat.slavicmyths.morok_immune": "Target is immune to confusion",
+    "combat.slavicmyths.cooldown": "Cooldown: %s s",
+    "combat.slavicmyths.morok_hit": "Target is confused",
+    "combat.slavicmyths.morok_resisted": "Target is weakened but resists stun",
+    "combat.slavicmyths.likho_tooltip": "Right-click: confuse and briefly stun a living target within 12 blocks; powerful targets are only weakened; cooldown 28 s",
+    "combat.slavicmyths.net_tooltip": "Right-click: throw net. Land: slow for 3 s; water: stronger slow for 5 s. Allies and powerful creatures are protected",
+    "combat.slavicmyths.net_immune": "The net cannot hold this target",
+    "tooltip.slavicmyths.weapon.tugarin_sword": "One slot holds both blades: one in each hand; +40% charged damage and up to 3 bleed stacks (0.5 HP each 2 s for 6 s). Offhand item is stored until switching.",
+    "item.slavicmyths.tugarin_sword": "Tugarin's Paired Blades"
+  }
+}
