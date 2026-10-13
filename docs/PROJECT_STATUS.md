@@ -1,3 +1,9 @@
+## Команды создания святилищ — 2026-10-13
+
+Добавлены operator-level-2 команды `/slavicmyths generate_fire_sanctuary [x y z]` и `/slavicmyths generate_pure_spring [x y z]`. Полное принудительное размещение через обычные SanctuaryPiece, StructureStart, маркеры, лут и ссылки чанков; собственный UUID и SanctuaryRecords. Только Overworld, проверка высоты/границы/загруженных чанков/существующих начал/всех шаблонов до изменения блоков; новые чанки не подгружаются. Естественная генерация, registry IDs и баланс не изменены. RU/EN для ошибок и результата. [Использование](SANCTUARY_COMMANDS_1.9.4.md).
+
+Отдельная 1.9.4: clean build + семь offline suites — PASS; 23306 production/resource gates — PASS. SHA256 `0142494a6445e325c48194949f7d1a957110942357b232e20155346f8334b1b8`. Установлена в PolyMC Testing с backup, 360 прочих файлов сохранены побайтно. Начатая 1.9.5 сохранена локально; её clean build и те же семь offline suites также PASS, но это не игровая приёмка/готовность 1.9.5. Реальных запусков client/server/GameTest агентом: 0; команды в игре NOT_RUN. По запросу пользователя версия 1.9.4 с командами опубликована в GitHub вместе с проверенным JAR; версия 1.9.5 не включена. Квитанции: `docs/verification/sanctuary-commands-1.9.4/`.
+
 ## Исправление загрузки 1.9.4 — 2026-10-13
 
 Устранён пользовательский startup crash `axis` при регистрации SanctuaryDecor: постоянный MapColor вместо функции OAK_LOG, требующей AXIS. Аналогичный путь SanctuaryBlock защищён. Registry IDs, facing/lit, gameplay и ресурсы сохранены. В production JAR изменились ровно два класса; ресурсы побайтно идентичны исходной 1.9.4. Начатая 1.9.5 сохранена отдельно от опубликованной версии.

@@ -5168,5 +5168,12 @@
   "tales.entry.mor_guardian_fragments.studied": "Protective flame and the clean spring hold matching halves of one ward. They are separate from the winter relics. A future revelation after the blighted Likho is still needed; there is no assembled ward recipe yet.",
   "tales.entry.mor_guardian_fragments.completed": "Protective flame and the clean spring hold matching halves of one ward. They are separate from the winter relics. A future revelation after the blighted Likho is still needed; there is no assembled ward recipe yet.",
   "tales.entry.mor_guardian_fragments.legend": "Protective flame and the clean spring hold matching halves of one ward. They are separate from the winter relics. A future revelation after the blighted Likho is still needed; there is no assembled ward recipe yet.",
-  "tales.entry.mor_guardian_fragments.observed": "Protective flame and the clean spring hold matching halves of one ward. They are separate from the winter relics. A future revelation after the blighted Likho is still needed; there is no assembled ward recipe yet."
+  "tales.entry.mor_guardian_fragments.observed": "Protective flame and the clean spring hold matching halves of one ward. They are separate from the winter relics. A future revelation after the blighted Likho is still needed; there is no assembled ward recipe yet.",
+  "sanctuary193.command.overworld": "Sanctuaries can only be placed in the Overworld.",
+  "sanctuary193.command.height": "The sanctuary exceeds the world height limits.",
+  "sanctuary193.command.border": "The sanctuary exceeds the world border.",
+  "sanctuary193.command.loaded": "The entire sanctuary area must be loaded. Move closer to the selected location.",
+  "sanctuary193.command.missing": "The sanctuary structure or a template is missing.",
+  "sanctuary193.command.occupied": "A start for this sanctuary already exists in the selected chunks. Choose another location.",
+  "sanctuary193.command.placed": "Placed %s at %s, %s, %s."
 }
