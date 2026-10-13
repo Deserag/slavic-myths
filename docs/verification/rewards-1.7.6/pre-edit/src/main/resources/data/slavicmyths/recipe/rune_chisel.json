@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " II",
+    " RI",
+    "S  "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "R": {
+      "item": "slavicmyths:iron_rings"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:rune_chisel",
+    "count": 1
+  }
+}

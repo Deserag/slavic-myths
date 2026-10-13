@@ -36,6 +36,9 @@ public final class FolkEquipmentLayer extends RenderLayer<AbstractClientPlayer,P
  }
  @Override public void render(PoseStack pose,MultiBufferSource buffer,int light,AbstractClientPlayer p,float swing,float amount,float partial,float age,float yaw,float pitch){
   if(p.isInvisible())return;
+  show(org.slavicmyths.rewards.RewardContent.item("gift_alyosha_belt"),p,pose,buffer,light,0,.6,-.18,.55F,false);
+  show(org.slavicmyths.rewards.RewardContent.item("gift_finist_amulet"),p,pose,buffer,light,0,.25,-.19,.25F,false);
+  show(org.slavicmyths.rewards.RewardContent.item("trophy_skim_necklace"),p,pose,buffer,light,0,.23,-.19,.36F,false);
   show(ModItems.INVISIBILITY_CAP.get(),p,pose,buffer,light,0,-.62,0,.65F,true);
   show(ModItems.VELES_AMULET.get(),p,pose,buffer,light,0,.3,-.165,.38F,false);
   show(ModItems.HUNTER_BELT.get(),p,pose,buffer,light,0,.65,0,.62F,false);

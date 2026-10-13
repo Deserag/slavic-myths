@@ -1,0 +1,5 @@
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ def c=p.tasks.register('compileGuardianOffline',JavaCompile){dependsOn p.tasks.named('compileJava');source p.fileTree('tools/guardian-tests'){include '**/*.java'};classpath=p.sourceSets.main.compileClasspath+p.files(p.sourceSets.main.output.classesDirs);destinationDirectory.set(p.file('work/guardians/test-classes'));options.release.set(21);options.encoding='UTF-8'}
+ p.tasks.register('guardianOfflineChecks',JavaExec){dependsOn c;classpath=p.sourceSets.main.compileClasspath+p.files(p.sourceSets.main.output.classesDirs,p.file('work/guardians/test-classes'),p.file('tools/kuzya-test-resources'));mainClass.set('org.slavicmyths.guardians.GuardianChecks')}
+}

@@ -1,0 +1,19 @@
+{
+  "version": "1.7.9",
+  "status": "PASS",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.7.9.jar",
+  "sha256": "de4539bd70e33b8ecb0e321fd2a042244a126c50e1d795a40cf6f6b1d68b5880",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-feedback-20261012-130141",
+  "previous_sha256": "5d23385a3aa3d609372677fb422a68b02cad88612aec3c53dc77cc39ea6ef535",
+  "other_files_preserved": 321,
+  "intentional_config_changes": [
+    "Jade displayTooltip=true",
+    "Jade numeric current/max HP, including fractions",
+    "Jade toggle=NumPad6; class ability NumPad1 preserved"
+  ],
+  "client_launches": 0,
+  "server_launches": 0,
+  "old_1_16_5": "NOT_TOUCHED",
+  "worlds": "NOT_TOUCHED"
+}

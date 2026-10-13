@@ -17,7 +17,7 @@ public final class KurganStructure extends Structure {
  public static MapCodec<KurganStructure> codec(int kind){return simpleCodec(settings->new KurganStructure(settings,kind));}
  @Override public StructureType<?> type(){return KurganStructures.type(kind);}
  private boolean candidate(GenerationContext c,ChunkPos at,List<StructurePiece> pieces){
- if(!StructureCandidates.clearAccepted(c,at,other->{if(other==null||other.getNamespace().equals("slavicmyths")&&other.getPath().startsWith("kurgan_")||StructureCandidates.vanilla(other,"mineshaft","stronghold","buried_treasure"))return 0;return (KurganShape.RADIUS[kind]+96+15)/16;},pieces))return false;
+ if(!StructureCandidates.clearAccepted(c,at,other->{if(other==null||other.getNamespace().equals("slavicmyths")&&java.util.Set.of("sanctuary_unfading_fire","abode_pure_spring").contains(other.getPath())||other.getNamespace().equals("slavicmyths")&&other.getPath().startsWith("kurgan_")||StructureCandidates.vanilla(other,"mineshaft","stronghold","buried_treasure"))return 0;return (KurganShape.RADIUS[kind]+96+15)/16;},pieces))return false;
  return true;}
  @Override public Optional<GenerationStub> findGenerationPoint(GenerationContext context){
  try(var samples=org.slavicmyths.worldgen.StructureCoverageService.sampleTerrain(context)){

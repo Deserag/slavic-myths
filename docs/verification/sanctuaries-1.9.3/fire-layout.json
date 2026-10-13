@@ -1,0 +1,185 @@
+{
+  "size": [
+    80,
+    27,
+    76
+  ],
+  "markers": [
+    {
+      "pos": [
+        40,
+        2,
+        51
+      ],
+      "role": "heart:fire"
+    },
+    {
+      "pos": [
+        29,
+        4,
+        21
+      ],
+      "role": "loot:regular"
+    },
+    {
+      "pos": [
+        17,
+        1,
+        39
+      ],
+      "role": "loot:regular"
+    },
+    {
+      "pos": [
+        10,
+        1,
+        45
+      ],
+      "role": "loot:regular"
+    },
+    {
+      "pos": [
+        11,
+        2,
+        17
+      ],
+      "role": "loot:guaranteed"
+    },
+    {
+      "pos": [
+        18,
+        2,
+        20
+      ],
+      "role": "cache:fire"
+    }
+  ],
+  "blocks": 38243,
+  "tiles": [
+    {
+      "name": "fire/0_0",
+      "blocks": 372,
+      "sha256": "cf31cd6aea61befd672f48c84e903dcdb63c905399044103f2941fba192f2e5e"
+    },
+    {
+      "name": "fire/0_16",
+      "blocks": 1069,
+      "sha256": "26266b6baf981dd4de8edaa4bbf4be8e8486b56ce3ef0ebcb32c5475cd9ba558"
+    },
+    {
+      "name": "fire/0_32",
+      "blocks": 1815,
+      "sha256": "8c85f3dc804c8d341f1bc4ce7541e340d6be0cbdab8ac9fccc90298605dbed37"
+    },
+    {
+      "name": "fire/0_48",
+      "blocks": 605,
+      "sha256": "88becb191fb6ae760d3b0e4082def81842f33e60dad1c59ac70444525989e06e"
+    },
+    {
+      "name": "fire/0_64",
+      "blocks": 0,
+      "sha256": "2ba6dbc33fb6ef7206db6e54aacbebfe73b1dff2c2f2a8c798df06bc2e3a9ae6"
+    },
+    {
+      "name": "fire/16_0",
+      "blocks": 1305,
+      "sha256": "5d0158eaff5b04ce7a9457ec8cf6c1829fff934c98538c0510ae8a7ddd9e334e"
+    },
+    {
+      "name": "fire/16_16",
+      "blocks": 1992,
+      "sha256": "9cdfa5ece273b9ef6cd21aeb793c0f429fc4130c6b17a43985ac9da643e112ac"
+    },
+    {
+      "name": "fire/16_32",
+      "blocks": 2687,
+      "sha256": "05ae50942387d63260fa67771e3855235d92e05df3d5f65adcd825890b59c053"
+    },
+    {
+      "name": "fire/16_48",
+      "blocks": 1872,
+      "sha256": "1d485496035ad13e6726d68e06e39c248867fb50bb3bca716a8e4bf3658797e5"
+    },
+    {
+      "name": "fire/16_64",
+      "blocks": 4,
+      "sha256": "b5fbbab0a3527ca7df9efa3b9bff3f47c2a16b4effc5d9826a03ed9ec307726d"
+    },
+    {
+      "name": "fire/32_0",
+      "blocks": 2039,
+      "sha256": "0a701edace05b42fdbf7c1f8ffcbd484cf02fcb4e10d85ee890301e28808b948"
+    },
+    {
+      "name": "fire/32_16",
+      "blocks": 3144,
+      "sha256": "7ad9c521abf65c27693673463b1fc72f117b695bfff4aa0922a851dc88db96a0"
+    },
+    {
+      "name": "fire/32_32",
+      "blocks": 3072,
+      "sha256": "c186f668db8bc5545f9887fdb2dd01958884abc9049533a7c6e15d30d189d9a4"
+    },
+    {
+      "name": "fire/32_48",
+      "blocks": 3072,
+      "sha256": "ab2c4651c4b206d67367ebaa758190de7ea39cf9404086b0080b67140abb248e"
+    },
+    {
+      "name": "fire/32_64",
+      "blocks": 2428,
+      "sha256": "f6ecdea6cf7208e74a6ea3a51fa16be7672899bebea5341bd5d069a6c9d83f0a"
+    },
+    {
+      "name": "fire/48_0",
+      "blocks": 1192,
+      "sha256": "04f804019609f7e32232a86e9cb77280354adda551bd9f1e19e34b7668efa1a8"
+    },
+    {
+      "name": "fire/48_16",
+      "blocks": 1528,
+      "sha256": "456c89884988dbb187d7f3162e539a5be0e1d71fff68500698f6c9d529846f74"
+    },
+    {
+      "name": "fire/48_32",
+      "blocks": 2686,
+      "sha256": "889909e30df2f9692563c3be81941e7f5f8415fcc85697ad2409f4b72765ce8c"
+    },
+    {
+      "name": "fire/48_48",
+      "blocks": 2080,
+      "sha256": "eece17bfa7b7b221534c8f5ebaca0f5e313a297c30dd66877b9db6638fa14bf8"
+    },
+    {
+      "name": "fire/48_64",
+      "blocks": 276,
+      "sha256": "656b6b5ef599f001baa50158619ee37bdeaf0db65e2b791bc1c8625e094dde03"
+    },
+    {
+      "name": "fire/64_0",
+      "blocks": 0,
+      "sha256": "4cddae5087476f0035c9e0c91257fa4773da55391fd619b61c85ddae7e53bf33"
+    },
+    {
+      "name": "fire/64_16",
+      "blocks": 202,
+      "sha256": "e14a0c53fe236a9815d7c6b91c7b8466f3b63d4ecdf2fef9cc0f99ea2d69959c"
+    },
+    {
+      "name": "fire/64_32",
+      "blocks": 3200,
+      "sha256": "e585d5b3ec05659df2ccc554d0c4c6d04179103de9f675430881e013b7ef934b"
+    },
+    {
+      "name": "fire/64_48",
+      "blocks": 1603,
+      "sha256": "e89e065fb4cd326af2fa7d4bdba54387a63f122413043d42db1c0310dccf621f"
+    },
+    {
+      "name": "fire/64_64",
+      "blocks": 0,
+      "sha256": "2ba6dbc33fb6ef7206db6e54aacbebfe73b1dff2c2f2a8c798df06bc2e3a9ae6"
+    }
+  ]
+}

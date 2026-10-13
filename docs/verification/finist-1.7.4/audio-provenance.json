@@ -1,0 +1,218 @@
+[
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/summon_chime.ogg",
+    "sha256": "0192073c30375b058c478c94ea0d00eee899280511b05faefad5b3f975d5bc78"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/mark_cast.ogg",
+    "sha256": "f5404aeb7d6b8ae74e0f35a0c4b3325a1fce918750fab17953063efe499b9844"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/wing_dash.ogg",
+    "sha256": "ab77f5a805aa0de865e1b3eea40f816382894c06d2a6abe2d1179d6aaf133c48"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/inspire.ogg",
+    "sha256": "9ab2bf437f6e252a0390248b793271c5ed9ef20a418ba3714b4b964391416206"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/transform.ogg",
+    "sha256": "43551c837c73f43544ff482c75dcac8ab1434ea34a31911ac0445fac92714a0d"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/banner_break.ogg",
+    "sha256": "985134d0dea186fa16f99d946724bba2b63d527c7c7c072ebf6a7a9801f40b46"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/hurt_1.ogg",
+    "sha256": "b22e1854961f65af1f64074991a0726f20b90a56dde35df853409f77216a8d05"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/hurt_2.ogg",
+    "sha256": "5dad86b576725b7a1d4868107e51a952f2d774217cd9585db9b58c5a8085cc34"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/hurt_3.ogg",
+    "sha256": "56e898657485e1440a6515af8b69c94f243bb3947c3c71ace01156bbbb1be85f"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/retreat.ogg",
+    "sha256": "efe674cf9cf7dc7593370247456b0cc0aa30279b01ebc9decd3c1095c08c4bf9"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/tonic.ogg",
+    "sha256": "b96cfbc32fe57e619b778b4bfcb8dcec5989615709cf869a65d3e72e415a18c4"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/victory.ogg",
+    "sha256": "aa3edcd2664fbaab124c59dd13f4d14e2f2b17fffbc1c8f107b797baaba32f91"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/sword_swing_1.ogg",
+    "sha256": "2ebdc354c4ea1795262260370eb063ceeb1ea81cab1820087553fc357198a1fa"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/sword_swing_2.ogg",
+    "sha256": "3bf07b0268dc0fbe82ea8a89e080db9e3a886f5df59275060b13748580f533c7"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/sword_contact.ogg",
+    "sha256": "826e70bbb97f1e53cb9126ddecae3ac224d794f818afa6bc6d41756f6eaa0d13"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/run_step_1.ogg",
+    "sha256": "08a0bdbee4761c75ec96604322f193b2962acd523d76f90cb854309c524f1557"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/finist/run_step_2.ogg",
+    "sha256": "c7f24bfbbca13e59c6b0b1769bdcb2b0404d1f743efd34ad06645a5dc42a0f43"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/falcon/scout_call.ogg",
+    "sha256": "29b39ac1bf1a6747efaed1c1cae989a4512c1c17e8494ef4b44a611f31a563d7"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/falcon/wing_flap_1.ogg",
+    "sha256": "11f19197c4515e01fd3422d196ef5d4f6797e41e5ddc5de24473a1e2516e93c4"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/falcon/wing_flap_2.ogg",
+    "sha256": "fab1512ba31ecfe1663f80bd7b87997259f63939e0cb9bef7028132d224943df"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/falcon/dive_start.ogg",
+    "sha256": "228d6b57c100513c197a73ecd0b6066e113c476ddc27b3b9aa819fc635e41243"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/falcon/dive_impact.ogg",
+    "sha256": "d7e87f888febcf520bae8a791ae744f0bd2af0f91a3b496b6c3392840804a272"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/falcon/intercept.ogg",
+    "sha256": "d2225e378edac6dc7ab0a7aed8bc8e71007d3df8542f607e23800bda251539a0"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/falcon/chained.ogg",
+    "sha256": "f024be8348eba5170c1ab50f826286681db3584acaadcdde01b96007ba5c6606"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/falcon/chain_break.ogg",
+    "sha256": "0fda5eb7c9cc91716ecfadebd77ba0b331f67b441023e1d2f55c8b7ad5f8caed"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/falcon/perch.ogg",
+    "sha256": "348f082baf3b100e85c377f201a5e91bbad6532f94e55bf2f8423f614c893a0e"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/falcon/morph_flight.ogg",
+    "sha256": "48a48aa95ff43e1c31226dd44264800920944ac077385d3dbab73a5b95e232b5"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/falcon/ambient_call.ogg",
+    "sha256": "0c950c6aead86d595eb07ca6df5a0e5284dda2177bdb4c9ebdec187bf5051d75"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/intro.ogg",
+    "sha256": "f1d94a44b51e3fe4029d51ff67c3ed30295d6d5d5f3a31f609d03aa1e22cbbf1"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/banner_raise.ogg",
+    "sha256": "ed78995b32d0c270e7ebe94f43b7046afb14f2ced8fe272c48993f9c9c162e71"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/summon_guard.ogg",
+    "sha256": "01508f4df7896b659ec7db65c71782ac8beddb965d3f31c19726585171820be8"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/staff_wave.ogg",
+    "sha256": "d0326fc0e9e27deec1626520483bc2cdcca61eef426f932f4e381b45363a9b7b"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/staff_melee.ogg",
+    "sha256": "99e31a0e824ed121b2171b30511d6b164accda921c9ae877914ce276b24f0294"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/chain_bind.ogg",
+    "sha256": "3da8554054d6dbc2d3606c015533fed4e56bcf51f6afaccd0ac0acdd65ff9e4e"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/black_eye_charge.ogg",
+    "sha256": "9c9ba578d25d140cf9d6adf6b316739e52a94fa652ddee5f207a048e84490b48"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/black_eye_impact.ogg",
+    "sha256": "a92258007a0411e6bab37b0d8f11ca11da07118bfcc936e58707df597031ea1d"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/curse_falcon.ogg",
+    "sha256": "3c74f4d0a9185e48160ffb91b6bc4b769aa3c83455644b8ed6dd66ad20865791"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/barrier_break.ogg",
+    "sha256": "c574c33b0cec4c0768b34095e8e50641b751985bf10e964bb602ca189278c53d"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/rage.ogg",
+    "sha256": "1f15876d1e2d5d88d11891cf08eca9ee6314c61eed04cd4822f9a57e061cb904"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/hurt_1.ogg",
+    "sha256": "c8da7915e542934063ef5d4f78837c2bcfb9b914a1bb0375d1190e634cf45e26"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/hurt_2.ogg",
+    "sha256": "6b0cd7e39828f20c4825d2b638585349099954af173f4f3617654c2f02e28bed"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/hurt_3.ogg",
+    "sha256": "477c27097b293a945a99f99fcec1c85fc3c306c3ffe94617b5601e6c0dd76608"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/death.ogg",
+    "sha256": "3d2323eda87cde243db59c6e0eea50df17bd22101e2f4dea2298b1afba6b1355"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/heavy_step_1.ogg",
+    "sha256": "5a4ed55d99da73b114fb7544ac6586ca8bf8ba65b6b03a0de7f67f003f16be61"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/heavy_step_2.ogg",
+    "sha256": "5f654c78494027cebf49a14f7b6585d456785fe8fe55d99a4b8e30a38b845b24"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/kartaus/staff_ground.ogg",
+    "sha256": "57c81f1f2866e75ed1452e4d26a0b485b1169337197c34a164655a15017ee57d"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/items/finist_call.ogg",
+    "sha256": "e144d691b2d2d2bf271d2b5cc5368dbe7d38f023323dc6704d98d777cf229940"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/items/kartaus_seal.ogg",
+    "sha256": "175a77bf0618ab5475d11393b2e3a431e490a2082f2ba1155333eb4f247ee577"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/items/kartaus_egg.ogg",
+    "sha256": "df3f743ee71a090296acd5af97ab3c912f754c86cfeda681f42a238d1f78183a"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/encounter/runic_emerge.ogg",
+    "sha256": "63441c9523c96bac46dec381320d32051efc8435799a3eab77c65fde5e4b404f"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/encounter/black_banner_die.ogg",
+    "sha256": "30b65c9d21b7ced5a7a3f9ffccebb54bdd637b22cc877e5fdf9767d242c3194d"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/encounter/curse_anchor_die.ogg",
+    "sha256": "3dd97d4caf208dda5a53e1fb3aec888d0f8af5ba446297f662a502b5eadaadcd"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/encounter/victory_clear.ogg",
+    "sha256": "93dbc7f14b606176f1bcb854f188fc93cac7a3d9886429d252067ddd24bf39fe"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/sounds/encounter/ambient_wind.ogg",
+    "sha256": "7a19e911fc6eaa67ab9e0a0c99aaad8dc89bf4dbe72eb053d6d47555d2db0689"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "source": "D:\\slavic-myths\\work\\kalin\\runtime-17\\world\\data\\slavicmyths_kalin_175.dat",
+  "sha256": "6567e874b300c4faa546a195843e30332e1d3d6ec667efe0c3d8d22c1266cfd6",
+  "actual_saveddata_disk_readback": true,
+  "flags": {
+    "times_kalin_defeated": 1,
+    "pending_reward_1_7_6": 1,
+    "selected_hero_a": "ilya_muromets",
+    "kalin_battle_won": 1,
+    "kalin_battle_started": 1,
+    "selected_hero_b": "finist",
+    "last_battle_timestamp": 49
+  },
+  "rollback_reservations": 0,
+  "real_player_relog": false,
+  "real_world_restart": false
+}

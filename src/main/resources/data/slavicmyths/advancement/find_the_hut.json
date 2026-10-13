@@ -1,5 +1,5 @@
 {
-  "parent": "slavicmyths:root",
+  "parent": "slavicmyths:group_knowledge",
   "display": {
     "icon": {
       "id": "slavicmyths:svyazka_trav_yagi"

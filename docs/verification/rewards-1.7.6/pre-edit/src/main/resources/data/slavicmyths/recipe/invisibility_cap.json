@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " L ",
+    "LXL",
+    " L "
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "X": {
+      "item": "slavicmyths:rune_shadow"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:invisibility_cap"
+  }
+}

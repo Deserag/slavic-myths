@@ -1,0 +1,302 @@
+{
+  "sample_count": 33,
+  "files": [
+    {
+      "file": "ilya_muromets/ambient_breath_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.ambient_breath_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.1,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/step_heavy_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.step_heavy_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.44,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/shield_raise_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.shield_raise_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.53,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/shield_block_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.shield_block_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.6,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/shield_block_02.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.shield_block_02",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.54,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/mace_swing_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.mace_swing_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.63,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/mace_impact_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.mace_impact_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.72,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/taunt_nonverbal_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.taunt_nonverbal_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.4,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/pain_nonverbal_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.pain_nonverbal_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.77,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/pain_nonverbal_02.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.pain_nonverbal_02",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.94,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/unyielding_nonverbal_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.unyielding_nonverbal_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.65,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/retreat_breath_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.retreat_breath_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.25,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/herbal_drink_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.herbal_drink_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.1,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/recover_breath_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.recover_breath_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.48,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "ilya_muromets/return_nonverbal_01.ogg",
+      "id": "slavicmyths:entity.ilya_muromets.return_nonverbal_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.1,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/step_heavy_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.step_heavy_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.7,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/idle_growl_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.idle_growl_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 2.3,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/idle_growl_02.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.idle_growl_02",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.65,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/punch_impact_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.punch_impact_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.88,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/stomp_near_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.stomp_near_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.15,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/stomp_mid_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.stomp_mid_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.07,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/stomp_outer_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.stomp_outer_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.03,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/grasp_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.grasp_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.91,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/throw_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.throw_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.96,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/eat_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.eat_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.37,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/poison_breath_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.poison_breath_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 2.85,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/rush_charge_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.rush_charge_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.72,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/minions_summon_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.minions_summon_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.56,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/hurt_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.hurt_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 0.98,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/hurt_02.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.hurt_02",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 1.25,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/rage_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.rage_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 2.52,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/death_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.death_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 3.7,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    },
+    {
+      "file": "idolishche_poganoe/roar_01.ogg",
+      "id": "slavicmyths:entity.idolishche_poganoe.roar_01",
+      "type": "OGG Vorbis, mono, 22050 Hz",
+      "duration_s": 2.45,
+      "source": "synthetic-original-2026",
+      "rights": "original generated for this package; may be redistributed with Slavic Myths",
+      "notes": "procedural effect; nonverbal; not an excerpt from a cartoon"
+    }
+  ]
+}

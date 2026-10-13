@@ -4934,5 +4934,3563 @@
         "stream": false
       }
     ]
+  },
+  "bayun.purr.soft": {
+    "subtitle": "subtitles.slavicmyths.bayun.purr.soft",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_purr_soft",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.purr.happy": {
+    "subtitle": "subtitles.slavicmyths.bayun.purr.happy",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_purr_happy",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.mew.soft": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew.soft",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_mew_soft",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.mew.annoyed": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew.annoyed",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_mew_annoyed",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.breath": {
+    "subtitle": "subtitles.slavicmyths.bayun.breath",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_breath",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.settle": {
+    "subtitle": "subtitles.slavicmyths.bayun.settle",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_settle",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.stretch": {
+    "subtitle": "subtitles.slavicmyths.bayun.stretch",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_stretch_exhale",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.groom": {
+    "subtitle": "subtitles.slavicmyths.bayun.groom",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_groom",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.milk": {
+    "subtitle": "subtitles.slavicmyths.bayun.milk",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_lap_milk",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.fish": {
+    "subtitle": "subtitles.slavicmyths.bayun.fish",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_chew_fish",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.pawstep": {
+    "subtitle": "subtitles.slavicmyths.bayun.pawstep",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_pawstep",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.warn": {
+    "subtitle": "subtitles.slavicmyths.bayun.warn",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_spell_warning",
+        "stream": false,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "bayun.song.intro": {
+    "subtitle": "subtitles.slavicmyths.bayun.song.intro",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_sleep_song",
+        "stream": true,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "bayun.song.loop": {
+    "subtitle": "subtitles.slavicmyths.bayun.song.loop",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_song_loop",
+        "stream": true,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "bayun.pounce": {
+    "subtitle": "subtitles.slavicmyths.bayun.pounce",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_pounce",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.claw": {
+    "subtitle": "subtitles.slavicmyths.bayun.claw",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_claw_swoosh",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.book.page": {
+    "subtitle": "subtitles.slavicmyths.bayun.book.page",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/bayun_book_page",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.book.open": {
+    "subtitle": "subtitles.slavicmyths.bayun.book.open",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/book_open",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "bayun.book.discovery": {
+    "subtitle": "subtitles.slavicmyths.bayun.book.discovery",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun/book_discovery",
+        "stream": false,
+        "attenuation_distance": 10
+      }
+    ]
+  },
+  "ilya_muromets.ambient_breath_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.ambient_breath_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/ambient_breath_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.herbal_drink_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.herbal_drink_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/herbal_drink_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.mace_impact_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.mace_impact_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/mace_impact_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.mace_swing_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.mace_swing_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/mace_swing_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.pain_nonverbal_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.pain_nonverbal_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/pain_nonverbal_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.pain_nonverbal_02": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.pain_nonverbal_02",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/pain_nonverbal_02",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.recover_breath_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.recover_breath_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/recover_breath_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.retreat_breath_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.retreat_breath_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/retreat_breath_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.return_nonverbal_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.return_nonverbal_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/return_nonverbal_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.shield_block_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.shield_block_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/shield_block_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.shield_block_02": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.shield_block_02",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/shield_block_02",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.shield_raise_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.shield_raise_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/shield_raise_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.step_heavy_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.step_heavy_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/step_heavy_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.taunt_nonverbal_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.taunt_nonverbal_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/taunt_nonverbal_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ilya_muromets.unyielding_nonverbal_01": {
+    "subtitle": "subtitle.slavicmyths.171.ilya_muromets.unyielding_nonverbal_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:entity/ilya_muromets/unyielding_nonverbal_01",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "idolishche_poganoe.death_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.death_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.death",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.eat_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.eat_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.eat",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.grasp_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.grasp_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.attack",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.hurt_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.hurt_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.hurt",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.hurt_02": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.hurt_02",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.hurt",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.idle_growl_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.idle_growl_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.ambient",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.idle_growl_02": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.idle_growl_02",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.ambient",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.minions_summon_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.minions_summon_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_summon",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.poison_breath_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.poison_breath_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.extinguish_fire",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.punch_impact_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.punch_impact_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.strong",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.rage_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.rage_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.roar_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.roar_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.rush_charge_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.rush_charge_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.attack",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.step_heavy_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.step_heavy_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.step",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.stomp_mid_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.stomp_mid_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.big_fall",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.stomp_near_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.stomp_near_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.big_fall",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.stomp_outer_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.stomp_outer_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.small_fall",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "idolishche_poganoe.throw_01": {
+    "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.throw_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.knockback",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "dobrynya.breath_idle_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.breath_idle_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/breath_idle_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.armor_step_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.armor_step_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/armor_step_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.spear_parry_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.spear_parry_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/spear_parry_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.shield_ward_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.shield_ward_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/shield_ward_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.magic_deflect_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.magic_deflect_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/magic_deflect_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.spear_swing_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.spear_swing_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/spear_swing_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.spear_impact_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.spear_impact_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/spear_impact_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.spear_sweep_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.spear_sweep_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/spear_sweep_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.unravel_hex_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.unravel_hex_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/unravel_hex_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.grunt_hurt_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.grunt_hurt_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/grunt_hurt_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.aurochs_transform_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.aurochs_transform_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/aurochs_transform_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.aurochs_charge_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.aurochs_charge_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/aurochs_charge_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.elixir_drink_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.elixir_drink_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/elixir_drink_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.hero_return_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.hero_return_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/hero_return_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.spear_swing_02": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.spear_swing_02",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/spear_swing_02",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.armor_step_02": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.armor_step_02",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/armor_step_02",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.witch_whisper_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_whisper_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.ambient",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.cloth_step_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.cloth_step_01",
+    "sounds": [
+      {
+        "name": "minecraft:block.wool.step",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.trace_hex_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.trace_hex_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_attack",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.fire_charge_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.fire_charge_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.ambient",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.fire_release_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.fire_release_01",
+    "sounds": [
+      {
+        "name": "minecraft:item.firecharge.use",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.shadow_dissolve_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.shadow_dissolve_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.enderman.teleport",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.shadow_clone_break_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.shadow_clone_break_01",
+    "sounds": [
+      {
+        "name": "minecraft:block.glass.break",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.barrier_raise_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.barrier_raise_01",
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_chain",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.barrier_break_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.barrier_break_01",
+    "sounds": [
+      {
+        "name": "minecraft:block.glass.break",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.witch_blink_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_blink_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.enderman.teleport",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.magpie_change_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.magpie_change_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.parrot.ambient",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.magpie_wings_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.magpie_wings_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.parrot.fly",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.aurochs_hex_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.aurochs_hex_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.cast_spell",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.enchanted_herd_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.enchanted_herd_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.cow.ambient",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.witch_hurt_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_hurt_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.hurt",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.witch_rage_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_rage_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.celebrate",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.witch_defeat_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_defeat_01",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.death",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.witch_whisper_02": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_whisper_02",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.ambient",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "marinka.magpie_wings_02": {
+    "subtitle": "subtitles.slavicmyths.marinka.magpie_wings_02",
+    "sounds": [
+      {
+        "name": "minecraft:entity.parrot.fly",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "arena.yard_wind_01": {
+    "subtitle": "subtitles.slavicmyths.arena.yard_wind_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/yard_wind_01",
+        "stream": true
+      }
+    ]
+  },
+  "arena.ritual_circle_pulse_01": {
+    "subtitle": "subtitles.slavicmyths.arena.ritual_circle_pulse_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/ritual_circle_pulse_01",
+        "stream": false
+      }
+    ]
+  },
+  "arena.hatch_open_01": {
+    "subtitle": "subtitles.slavicmyths.arena.hatch_open_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/hatch_open_01",
+        "stream": false
+      }
+    ]
+  },
+  "arena.basement_ambience_01": {
+    "subtitle": "subtitles.slavicmyths.arena.basement_ambience_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/basement_ambience_01",
+        "stream": true
+      }
+    ]
+  },
+  "alyosha.summon": {
+    "subtitle": "subtitles.slavicmyths.alyosha.summon",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/summon",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.footstep_soft_1": {
+    "subtitle": "subtitles.slavicmyths.alyosha.footstep_soft_1",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/footstep_soft_1",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.footstep_soft_2": {
+    "subtitle": "subtitles.slavicmyths.alyosha.footstep_soft_2",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/footstep_soft_2",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.taunt_1": {
+    "subtitle": "subtitles.slavicmyths.alyosha.taunt_1",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/taunt_1",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.taunt_2": {
+    "subtitle": "subtitles.slavicmyths.alyosha.taunt_2",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/taunt_2",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.dodge_swish_1": {
+    "subtitle": "subtitles.slavicmyths.alyosha.dodge_swish_1",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/dodge_swish_1",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.dodge_swish_2": {
+    "subtitle": "subtitles.slavicmyths.alyosha.dodge_swish_2",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/dodge_swish_2",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.saber_swing_1": {
+    "subtitle": "subtitles.slavicmyths.alyosha.saber_swing_1",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/saber_swing_1",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.saber_swing_2": {
+    "subtitle": "subtitles.slavicmyths.alyosha.saber_swing_2",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/saber_swing_2",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.saber_hit_1": {
+    "subtitle": "subtitles.slavicmyths.alyosha.saber_hit_1",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/saber_hit_1",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.bow_draw": {
+    "subtitle": "subtitles.slavicmyths.alyosha.bow_draw",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/bow_draw",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.arrow_release": {
+    "subtitle": "subtitles.slavicmyths.alyosha.arrow_release",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/arrow_release",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.feint": {
+    "subtitle": "subtitles.slavicmyths.alyosha.feint",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/feint",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.counter": {
+    "subtitle": "subtitles.slavicmyths.alyosha.counter",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/counter",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.hurt_1": {
+    "subtitle": "subtitles.slavicmyths.alyosha.hurt_1",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/hurt_1",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.hurt_2": {
+    "subtitle": "subtitles.slavicmyths.alyosha.hurt_2",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/hurt_2",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.drink_tonic": {
+    "subtitle": "subtitles.slavicmyths.alyosha.drink_tonic",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/drink_tonic",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.recover_breath": {
+    "subtitle": "subtitles.slavicmyths.alyosha.recover_breath",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/recover_breath",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "alyosha.victory": {
+    "subtitle": "subtitles.slavicmyths.alyosha.victory",
+    "sounds": [
+      {
+        "name": "slavicmyths:alyosha/victory",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "skim.ambient_1": {
+    "subtitle": "subtitles.slavicmyths.skim.ambient_1",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.ambient",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.ambient_2": {
+    "subtitle": "subtitles.slavicmyths.skim.ambient_2",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wolf.growl",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.step_1": {
+    "subtitle": "subtitles.slavicmyths.skim.step_1",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.step",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.step_2": {
+    "subtitle": "subtitles.slavicmyths.skim.step_2",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.step",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.run_paws": {
+    "subtitle": "subtitles.slavicmyths.skim.run_paws",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.step",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.claw_windup": {
+    "subtitle": "subtitles.slavicmyths.skim.claw_windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.claw_hit": {
+    "subtitle": "subtitles.slavicmyths.skim.claw_hit",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.strong",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.leap_charge": {
+    "subtitle": "subtitles.slavicmyths.skim.leap_charge",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.attack",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.leap_land": {
+    "subtitle": "subtitles.slavicmyths.skim.leap_land",
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.big_fall",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.whistle_charge": {
+    "subtitle": "subtitles.slavicmyths.skim.whistle_charge",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.listening",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 36
+      }
+    ]
+  },
+  "skim.whistle_release": {
+    "subtitle": "subtitles.slavicmyths.skim.whistle_release",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.sonic_boom",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 36
+      }
+    ]
+  },
+  "skim.roar": {
+    "subtitle": "subtitles.slavicmyths.skim.roar",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 48
+      }
+    ]
+  },
+  "skim.grab": {
+    "subtitle": "subtitles.slavicmyths.skim.grab",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.attack",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.grip_hold": {
+    "subtitle": "subtitles.slavicmyths.skim.grip_hold",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wolf.growl",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.throw": {
+    "subtitle": "subtitles.slavicmyths.skim.throw",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.knockback",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.rage": {
+    "subtitle": "subtitles.slavicmyths.skim.rage",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.exhausted": {
+    "subtitle": "subtitles.slavicmyths.skim.exhausted",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.stunned",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.stone_collision": {
+    "subtitle": "subtitles.slavicmyths.skim.stone_collision",
+    "sounds": [
+      {
+        "name": "minecraft:block.stone.break",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.hurt_1": {
+    "subtitle": "subtitles.slavicmyths.skim.hurt_1",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.hurt",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.hurt_2": {
+    "subtitle": "subtitles.slavicmyths.skim.hurt_2",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.hurt",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "skim.death": {
+    "subtitle": "subtitles.slavicmyths.skim.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.death",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "arena.wind": {
+    "subtitle": "subtitles.slavicmyths.arena.wind",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/wind",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "arena.stone_impact": {
+    "subtitle": "subtitles.slavicmyths.arena.stone_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/stone_impact",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "arena.den_stone_open": {
+    "subtitle": "subtitles.slavicmyths.arena.den_stone_open",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/den_stone_open",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "arena.camp_creak": {
+    "subtitle": "subtitles.slavicmyths.arena.camp_creak",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/camp_creak",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "items.alyosha_whistle": {
+    "subtitle": "subtitles.slavicmyths.items.alyosha_whistle",
+    "sounds": [
+      {
+        "name": "slavicmyths:items/alyosha_whistle",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "items.ilya_token": {
+    "subtitle": "subtitles.slavicmyths.items.ilya_token",
+    "sounds": [
+      {
+        "name": "slavicmyths:items/ilya_token",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "items.dobrynya_emblem": {
+    "subtitle": "subtitles.slavicmyths.items.dobrynya_emblem",
+    "sounds": [
+      {
+        "name": "slavicmyths:items/dobrynya_emblem",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "items.beast_horn": {
+    "subtitle": "subtitles.slavicmyths.items.beast_horn",
+    "sounds": [
+      {
+        "name": "slavicmyths:items/beast_horn",
+        "attenuation_distance": 18
+      }
+    ]
+  },
+  "entity.finist.summon_chime": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/summon_chime",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.summon_chime"
+  },
+  "entity.finist.mark_cast": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/mark_cast",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.mark_cast"
+  },
+  "entity.finist.wing_dash": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/wing_dash",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.wing_dash"
+  },
+  "entity.finist.inspire": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/inspire",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.inspire"
+  },
+  "entity.finist.transform": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/transform",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.transform"
+  },
+  "entity.finist.banner_break": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/banner_break",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.banner_break"
+  },
+  "entity.finist.hurt_1": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/hurt_1",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.hurt_1"
+  },
+  "entity.finist.hurt_2": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/hurt_2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.hurt_2"
+  },
+  "entity.finist.hurt_3": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/hurt_3",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.hurt_3"
+  },
+  "entity.finist.retreat": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/retreat",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.retreat"
+  },
+  "entity.finist.tonic": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/tonic",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.tonic"
+  },
+  "entity.finist.victory": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/victory",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.victory"
+  },
+  "entity.finist.sword_swing_1": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/sword_swing_1",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.sword_swing_1"
+  },
+  "entity.finist.sword_swing_2": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/sword_swing_2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.sword_swing_2"
+  },
+  "entity.finist.sword_contact": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/sword_contact",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.sword_contact"
+  },
+  "entity.finist.run_step_1": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/run_step_1",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.run_step_1"
+  },
+  "entity.finist.run_step_2": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/run_step_2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.run_step_2"
+  },
+  "entity.falcon.scout_call": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/scout_call",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.scout_call"
+  },
+  "entity.falcon.wing_flap_1": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/wing_flap_1",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.wing_flap_1"
+  },
+  "entity.falcon.wing_flap_2": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/wing_flap_2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.wing_flap_2"
+  },
+  "entity.falcon.dive_start": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/dive_start",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.dive_start"
+  },
+  "entity.falcon.dive_impact": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/dive_impact",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.dive_impact"
+  },
+  "entity.falcon.intercept": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/intercept",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.intercept"
+  },
+  "entity.falcon.chained": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/chained",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.chained"
+  },
+  "entity.falcon.chain_break": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/chain_break",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.chain_break"
+  },
+  "entity.falcon.perch": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/perch",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.perch"
+  },
+  "entity.falcon.morph_flight": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/morph_flight",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.morph_flight"
+  },
+  "entity.falcon.ambient_call": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/ambient_call",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.ambient_call"
+  },
+  "entity.kartaus.intro": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.vindicator.ambient",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.intro"
+  },
+  "entity.kartaus.banner_raise": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_leather",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.banner_raise"
+  },
+  "entity.kartaus.summon_guard": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_summon",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.summon_guard"
+  },
+  "entity.kartaus.staff_wave": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.cast_spell",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.staff_wave"
+  },
+  "entity.kartaus.staff_melee": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.strong",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.staff_melee"
+  },
+  "entity.kartaus.chain_bind": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.chain_bind"
+  },
+  "entity.kartaus.black_eye_charge": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_attack",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.black_eye_charge"
+  },
+  "entity.kartaus.black_eye_impact": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker_fangs.attack",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.black_eye_impact"
+  },
+  "entity.kartaus.curse_falcon": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.cast_spell",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.curse_falcon"
+  },
+  "entity.kartaus.barrier_break": {
+    "sounds": [
+      {
+        "name": "minecraft:block.glass.break",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.barrier_break"
+  },
+  "entity.kartaus.rage": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.vindicator.celebrate",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.rage"
+  },
+  "entity.kartaus.hurt_1": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.vindicator.hurt",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.hurt_1"
+  },
+  "entity.kartaus.hurt_2": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.vindicator.hurt",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.hurt_2"
+  },
+  "entity.kartaus.hurt_3": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.vindicator.hurt",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.hurt_3"
+  },
+  "entity.kartaus.death": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.vindicator.death",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.death"
+  },
+  "entity.kartaus.heavy_step_1": {
+    "sounds": [
+      {
+        "name": "minecraft:block.metal.step",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.heavy_step_1"
+  },
+  "entity.kartaus.heavy_step_2": {
+    "sounds": [
+      {
+        "name": "minecraft:block.metal.step",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.heavy_step_2"
+  },
+  "entity.kartaus.staff_ground": {
+    "sounds": [
+      {
+        "name": "minecraft:block.wood.hit",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.staff_ground"
+  },
+  "item.items.finist_call": {
+    "sounds": [
+      {
+        "name": "slavicmyths:items/finist_call",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.items.finist_call"
+  },
+  "item.items.kartaus_seal": {
+    "sounds": [
+      {
+        "name": "slavicmyths:items/kartaus_seal",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.items.kartaus_seal"
+  },
+  "item.items.kartaus_egg": {
+    "sounds": [
+      {
+        "name": "slavicmyths:items/kartaus_egg",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.items.kartaus_egg"
+  },
+  "event.encounter.runic_emerge": {
+    "sounds": [
+      {
+        "name": "slavicmyths:encounter/runic_emerge",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.encounter.runic_emerge"
+  },
+  "event.encounter.black_banner_die": {
+    "sounds": [
+      {
+        "name": "slavicmyths:encounter/black_banner_die",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.encounter.black_banner_die"
+  },
+  "event.encounter.curse_anchor_die": {
+    "sounds": [
+      {
+        "name": "slavicmyths:encounter/curse_anchor_die",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.encounter.curse_anchor_die"
+  },
+  "event.encounter.victory_clear": {
+    "sounds": [
+      {
+        "name": "slavicmyths:encounter/victory_clear",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.encounter.victory_clear"
+  },
+  "event.encounter.ambient_wind": {
+    "sounds": [
+      {
+        "name": "slavicmyths:encounter/ambient_wind",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.encounter.ambient_wind"
+  },
+  "kalin.banner_flap": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_leather",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.banner_flap"
+  },
+  "kalin.battle_seal_use": {
+    "sounds": [
+      {
+        "name": "minecraft:item.book.page_turn",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.battle_seal_use"
+  },
+  "kalin.camp_fire_loop_short": {
+    "sounds": [
+      {
+        "name": "minecraft:block.campfire.crackle",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.camp_fire_loop_short"
+  },
+  "kalin.encounter_start_fx": {
+    "sounds": [
+      {
+        "name": "minecraft:item.goat_horn.sound.0",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.encounter_start_fx"
+  },
+  "kalin.horse_gallop_loop": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.horse.gallop",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.horse_gallop_loop"
+  },
+  "kalin.horse_rear": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.horse.angry",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.horse_rear"
+  },
+  "kalin.horse_snort": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.horse.breathe",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.horse_snort"
+  },
+  "kalin.horse_step_01": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.horse.step",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.horse_step_01"
+  },
+  "kalin.horse_step_02": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.horse.step",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.horse_step_02"
+  },
+  "kalin.horse_stomp": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.big_fall",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.horse_stomp"
+  },
+  "kalin.kalin_command_shout_fx": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.vindicator.celebrate",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.kalin_command_shout_fx"
+  },
+  "kalin.kalin_kneel_surrender": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_leather",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.kalin_kneel_surrender"
+  },
+  "kalin.kalin_parry": {
+    "sounds": [
+      {
+        "name": "minecraft:item.shield.block",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.kalin_parry"
+  },
+  "kalin.kalin_rage_burst": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.vindicator.celebrate",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.kalin_rage_burst"
+  },
+  "kalin.kalin_sabre_heavy": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.strong",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.kalin_sabre_heavy"
+  },
+  "kalin.kalin_sabre_light": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.kalin_sabre_light"
+  },
+  "kalin.kalin_spin_attack": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.kalin_spin_attack"
+  },
+  "kalin.kalin_step_heavy_01": {
+    "sounds": [
+      {
+        "name": "minecraft:block.metal.step",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.kalin_step_heavy_01"
+  },
+  "kalin.kalin_step_heavy_02": {
+    "sounds": [
+      {
+        "name": "minecraft:block.metal.step",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.kalin_step_heavy_02"
+  },
+  "kalin.kalin_war_horn": {
+    "sounds": [
+      {
+        "name": "minecraft:item.goat_horn.sound.0",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.kalin_war_horn"
+  },
+  "kalin.soldier_spawn_common": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.soldier_spawn_common"
+  },
+  "kalin.soldier_spawn_elite": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_chain",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.soldier_spawn_elite"
+  },
+  "kalin.ui_select_two_heroes": {
+    "sounds": [
+      {
+        "name": "minecraft:ui.button.click",
+        "type": "event",
+        "volume": 0.65,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kalin.ui_select_two_heroes"
+  },
+  "reward.rune_stomp_proc": {
+    "subtitle": "subtitles.slavicmyths.reward.rune_stomp_proc",
+    "sounds": [
+      "slavicmyths:rewards176/rune_stomp_proc"
+    ]
+  },
+  "reward.rune_dispelling_proc": {
+    "subtitle": "subtitles.slavicmyths.reward.rune_dispelling_proc",
+    "sounds": [
+      "slavicmyths:rewards176/rune_dispelling_proc"
+    ]
+  },
+  "reward.rune_pursuit_proc": {
+    "subtitle": "subtitles.slavicmyths.reward.rune_pursuit_proc",
+    "sounds": [
+      "slavicmyths:rewards176/rune_pursuit_proc"
+    ]
+  },
+  "reward.rune_suppression_proc": {
+    "subtitle": "subtitles.slavicmyths.reward.rune_suppression_proc",
+    "sounds": [
+      "slavicmyths:rewards176/rune_suppression_proc"
+    ]
+  },
+  "reward.rune_battle_line_proc": {
+    "subtitle": "subtitles.slavicmyths.reward.rune_battle_line_proc",
+    "sounds": [
+      "slavicmyths:rewards176/rune_battle_line_proc"
+    ]
+  },
+  "reward.gift_ilya_block_reflect": {
+    "subtitle": "subtitles.slavicmyths.reward.gift_ilya_block_reflect",
+    "sounds": [
+      "slavicmyths:rewards176/gift_ilya_block_reflect"
+    ]
+  },
+  "reward.gift_ilya_wave": {
+    "subtitle": "subtitles.slavicmyths.reward.gift_ilya_wave",
+    "sounds": [
+      "slavicmyths:rewards176/gift_ilya_wave"
+    ]
+  },
+  "reward.gift_dobrynya_ring_ready": {
+    "subtitle": "subtitles.slavicmyths.reward.gift_dobrynya_ring_ready",
+    "sounds": [
+      "slavicmyths:rewards176/gift_dobrynya_ring_ready"
+    ]
+  },
+  "reward.gift_dobrynya_counter": {
+    "subtitle": "subtitles.slavicmyths.reward.gift_dobrynya_counter",
+    "sounds": [
+      "slavicmyths:rewards176/gift_dobrynya_counter"
+    ]
+  },
+  "reward.gift_alyosha_dodge": {
+    "subtitle": "subtitles.slavicmyths.reward.gift_alyosha_dodge",
+    "sounds": [
+      "slavicmyths:rewards176/gift_alyosha_dodge"
+    ]
+  },
+  "reward.gift_finist_detection": {
+    "subtitle": "subtitles.slavicmyths.reward.gift_finist_detection",
+    "sounds": [
+      "slavicmyths:rewards176/gift_finist_detection"
+    ]
+  },
+  "reward.gift_finist_warning": {
+    "subtitle": "subtitles.slavicmyths.reward.gift_finist_warning",
+    "sounds": [
+      "slavicmyths:rewards176/gift_finist_warning"
+    ]
+  },
+  "reward.trophy_idol_heavy_guard": {
+    "subtitle": "subtitles.slavicmyths.reward.trophy_idol_heavy_guard",
+    "sounds": [
+      "slavicmyths:rewards176/trophy_idol_heavy_guard"
+    ]
+  },
+  "reward.trophy_marinka_blink": {
+    "subtitle": "subtitles.slavicmyths.reward.trophy_marinka_blink",
+    "sounds": [
+      "slavicmyths:rewards176/trophy_marinka_blink"
+    ]
+  },
+  "reward.trophy_skim_execute": {
+    "subtitle": "subtitles.slavicmyths.reward.trophy_skim_execute",
+    "sounds": [
+      "slavicmyths:rewards176/trophy_skim_execute"
+    ]
+  },
+  "reward.trophy_kartaus_resistance": {
+    "subtitle": "subtitles.slavicmyths.reward.trophy_kartaus_resistance",
+    "sounds": [
+      "slavicmyths:rewards176/trophy_kartaus_resistance"
+    ]
+  },
+  "reward.trophy_kalin_momentum_1": {
+    "subtitle": "subtitles.slavicmyths.reward.trophy_kalin_momentum_1",
+    "sounds": [
+      "slavicmyths:rewards176/trophy_kalin_momentum_1"
+    ]
+  },
+  "reward.trophy_kalin_momentum_3": {
+    "subtitle": "subtitles.slavicmyths.reward.trophy_kalin_momentum_3",
+    "sounds": [
+      "slavicmyths:rewards176/trophy_kalin_momentum_3"
+    ]
+  },
+  "reward.trophy_kalin_sweep": {
+    "subtitle": "subtitles.slavicmyths.reward.trophy_kalin_sweep",
+    "sounds": [
+      "slavicmyths:rewards176/trophy_kalin_sweep"
+    ]
+  },
+  "reward.reward_claim_success": {
+    "subtitle": "subtitles.slavicmyths.reward.reward_claim_success",
+    "sounds": [
+      "slavicmyths:rewards176/reward_claim_success"
+    ]
+  },
+  "reward.reward_rare_loot": {
+    "subtitle": "subtitles.slavicmyths.reward.reward_rare_loot",
+    "sounds": [
+      "slavicmyths:rewards176/reward_rare_loot"
+    ]
+  },
+  "reward.rune_anvil_socket": {
+    "subtitle": "subtitles.slavicmyths.reward.rune_anvil_socket",
+    "sounds": [
+      "slavicmyths:rewards176/rune_anvil_socket"
+    ]
+  },
+  "mor_horn_call": {
+    "subtitle": "subtitles.slavicmyths.mor_horn_call",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/mor_horn_call",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "mor_horn_charge": {
+    "subtitle": "subtitles.slavicmyths.mor_horn_charge",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/mor_horn_charge",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_distant_reply": {
+    "subtitle": "subtitles.slavicmyths.poloz_distant_reply",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_distant_reply",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_earth_rumble": {
+    "subtitle": "subtitles.slavicmyths.poloz_earth_rumble",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_earth_rumble",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_ambient_rumble": {
+    "subtitle": "subtitles.slavicmyths.poloz_ambient_rumble",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_ambient_rumble",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_surface_roar": {
+    "subtitle": "subtitles.slavicmyths.poloz_surface_roar",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_surface_roar",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_move_crush": {
+    "subtitle": "subtitles.slavicmyths.poloz_move_crush",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_move_crush",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_armor_deflect": {
+    "subtitle": "subtitles.slavicmyths.poloz_armor_deflect",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_armor_deflect",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_weakspot_hit": {
+    "subtitle": "subtitles.slavicmyths.poloz_weakspot_hit",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_weakspot_hit",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_tail_slam": {
+    "subtitle": "subtitles.slavicmyths.poloz_tail_slam",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_tail_slam",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_mor_rain": {
+    "subtitle": "subtitles.slavicmyths.poloz_mor_rain",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_mor_rain",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_burrow": {
+    "subtitle": "subtitles.slavicmyths.poloz_burrow",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_burrow",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_emerge": {
+    "subtitle": "subtitles.slavicmyths.poloz_emerge",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_emerge",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_phase2_cracks": {
+    "subtitle": "subtitles.slavicmyths.poloz_phase2_cracks",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_phase2_cracks",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_phase3_roar": {
+    "subtitle": "subtitles.slavicmyths.poloz_phase3_roar",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_phase3_roar",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_minion_call": {
+    "subtitle": "subtitles.slavicmyths.poloz_minion_call",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_minion_call",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "poloz_death": {
+    "subtitle": "subtitles.slavicmyths.poloz_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:poloz/poloz_death",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "quest185.invitation": {
+    "subtitle": "subtitles.slavicmyths.quest185.invitation",
+    "sounds": [
+      {
+        "name": "minecraft:block.note_block.chime",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.teleport_start": {
+    "subtitle": "subtitles.slavicmyths.quest185.teleport_start",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_summon",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.teleport_end": {
+    "subtitle": "subtitles.slavicmyths.quest185.teleport_end",
+    "sounds": [
+      {
+        "name": "minecraft:entity.enderman.teleport",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.yaga_greeting": {
+    "subtitle": "subtitles.slavicmyths.quest185.yaga_greeting",
+    "sounds": [
+      {
+        "name": "slavicmyths:yaga_talk",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.bayun_comment": {
+    "subtitle": "subtitles.slavicmyths.quest185.bayun_comment",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun.purr.soft",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.wolf_comment": {
+    "subtitle": "subtitles.slavicmyths.quest185.wolf_comment",
+    "sounds": [
+      {
+        "name": "slavicmyths:grey_wolf.ambient",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.ritual_sample": {
+    "subtitle": "subtitles.slavicmyths.quest185.ritual_sample",
+    "sounds": [
+      {
+        "name": "minecraft:block.sand.break",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.quest_claim": {
+    "subtitle": "subtitles.slavicmyths.quest185.quest_claim",
+    "sounds": [
+      {
+        "name": "minecraft:entity.experience_orb.pickup",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.wolf_call": {
+    "subtitle": "subtitles.slavicmyths.quest185.wolf_call",
+    "sounds": [
+      {
+        "name": "slavicmyths:grey_wolf.summon_howl",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.wolf_arrive": {
+    "subtitle": "subtitles.slavicmyths.quest185.wolf_arrive",
+    "sounds": [
+      {
+        "name": "slavicmyths:grey_wolf.step",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.wolf_howl": {
+    "subtitle": "subtitles.slavicmyths.quest185.wolf_howl",
+    "sounds": [
+      {
+        "name": "slavicmyths:quest185/wolf_howl",
+        "attenuation_distance": 48
+      }
+    ]
+  },
+  "quest185.tracker_on": {
+    "subtitle": "subtitles.slavicmyths.quest185.tracker_on",
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.ward_on": {
+    "subtitle": "subtitles.slavicmyths.quest185.ward_on",
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_leather",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "quest185.purify": {
+    "subtitle": "subtitles.slavicmyths.quest185.purify",
+    "sounds": [
+      {
+        "name": "minecraft:block.sand.break",
+        "type": "event",
+        "volume": 0.65
+      }
+    ]
+  },
+  "morozko.ambient": {
+    "subtitle": "subtitle.slavicmyths.morozko.ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/ambient",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.step": {
+    "subtitle": "subtitle.slavicmyths.morozko.step",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/step",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.staff_hit": {
+    "subtitle": "subtitle.slavicmyths.morozko.staff_hit",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/staff_hit",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.ice_bolt": {
+    "subtitle": "subtitle.slavicmyths.morozko.ice_bolt",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/ice_bolt",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.blizzard_start": {
+    "subtitle": "subtitle.slavicmyths.morozko.blizzard_start",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/blizzard_start",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "morozko.blizzard_loop": {
+    "subtitle": "subtitle.slavicmyths.morozko.blizzard_loop",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/blizzard_loop",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "morozko.spike_telegraph": {
+    "subtitle": "subtitle.slavicmyths.morozko.spike_telegraph",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/spike_telegraph",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.spike_break": {
+    "subtitle": "subtitle.slavicmyths.morozko.spike_break",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/spike_break",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.breath": {
+    "subtitle": "subtitle.slavicmyths.morozko.breath",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/breath",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.wave": {
+    "subtitle": "subtitle.slavicmyths.morozko.wave",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/wave",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.clone_spawn": {
+    "subtitle": "subtitle.slavicmyths.morozko.clone_spawn",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/clone_spawn",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.clone_break": {
+    "subtitle": "subtitle.slavicmyths.morozko.clone_break",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/clone_break",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.frost_damage": {
+    "subtitle": "subtitle.slavicmyths.morozko.frost_damage",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/frost_damage",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.yield": {
+    "subtitle": "subtitle.slavicmyths.morozko.yield",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/yield",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.mirror_summon": {
+    "subtitle": "subtitle.slavicmyths.morozko.mirror_summon",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/mirror_summon",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.mirror_break": {
+    "subtitle": "subtitle.slavicmyths.morozko.mirror_break",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/mirror_break",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.staff_shoot": {
+    "subtitle": "subtitle.slavicmyths.morozko.staff_shoot",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/staff_shoot",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.staff_stream": {
+    "subtitle": "subtitle.slavicmyths.morozko.staff_stream",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/staff_stream",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.staff_icicles": {
+    "subtitle": "subtitle.slavicmyths.morozko.staff_icicles",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/staff_icicles",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.staff_wave": {
+    "subtitle": "subtitle.slavicmyths.morozko.staff_wave",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/staff_wave",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "morozko.trial_call": {
+    "subtitle": "subtitle.slavicmyths.morozko.trial_call",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko/trial_call",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "karachun.ambient_low_wind": {
+    "subtitle": "subtitle.slavicmyths.karachun.ambient_low_wind",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/ambient_low_wind_0",
+        "attenuation_distance": 32
+      },
+      {
+        "name": "slavicmyths:karachun/ambient_low_wind_1",
+        "attenuation_distance": 32
+      },
+      {
+        "name": "slavicmyths:karachun/ambient_low_wind_2",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.enter_trial": {
+    "subtitle": "subtitle.slavicmyths.karachun.enter_trial",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/enter_trial_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.voice_whisper": {
+    "subtitle": "subtitle.slavicmyths.karachun.voice_whisper",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/voice_whisper_0",
+        "attenuation_distance": 32
+      },
+      {
+        "name": "slavicmyths:karachun/voice_whisper_1",
+        "attenuation_distance": 32
+      },
+      {
+        "name": "slavicmyths:karachun/voice_whisper_2",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.scythe_windup": {
+    "subtitle": "subtitle.slavicmyths.karachun.scythe_windup",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/scythe_windup_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.scythe_hit": {
+    "subtitle": "subtitle.slavicmyths.karachun.scythe_hit",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/scythe_hit_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.dark_frost": {
+    "subtitle": "subtitle.slavicmyths.karachun.dark_frost",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/dark_frost_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.long_night_cast": {
+    "subtitle": "subtitle.slavicmyths.karachun.long_night_cast",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/long_night_cast_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.touch_hunger": {
+    "subtitle": "subtitle.slavicmyths.karachun.touch_hunger",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/touch_hunger_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.touch_frost": {
+    "subtitle": "subtitle.slavicmyths.karachun.touch_frost",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/touch_frost_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.touch_death": {
+    "subtitle": "subtitle.slavicmyths.karachun.touch_death",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/touch_death_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.last_hour_mark": {
+    "subtitle": "subtitle.slavicmyths.karachun.last_hour_mark",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/last_hour_mark_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.last_hour_impact": {
+    "subtitle": "subtitle.slavicmyths.karachun.last_hour_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/last_hour_impact_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.fear_phantom_spawn": {
+    "subtitle": "subtitle.slavicmyths.karachun.fear_phantom_spawn",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/fear_phantom_spawn_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.fear_phantom_dispel": {
+    "subtitle": "subtitle.slavicmyths.karachun.fear_phantom_dispel",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/fear_phantom_dispel_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.yield": {
+    "subtitle": "subtitle.slavicmyths.karachun.yield",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/yield_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.raven_call": {
+    "subtitle": "subtitle.slavicmyths.karachun.raven_call",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/raven_call_0",
+        "attenuation_distance": 32
+      },
+      {
+        "name": "slavicmyths:karachun/raven_call_1",
+        "attenuation_distance": 32
+      },
+      {
+        "name": "slavicmyths:karachun/raven_call_2",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.raven_flap": {
+    "subtitle": "subtitle.slavicmyths.karachun.raven_flap",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/raven_flap_0",
+        "attenuation_distance": 32
+      },
+      {
+        "name": "slavicmyths:karachun/raven_flap_1",
+        "attenuation_distance": 32
+      },
+      {
+        "name": "slavicmyths:karachun/raven_flap_2",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.raven_dive": {
+    "subtitle": "subtitle.slavicmyths.karachun.raven_dive",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/raven_dive_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.raven_hit": {
+    "subtitle": "subtitle.slavicmyths.karachun.raven_hit",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/raven_hit_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.life_eater": {
+    "subtitle": "subtitle.slavicmyths.karachun.life_eater",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/life_eater_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.last_breath": {
+    "subtitle": "subtitle.slavicmyths.karachun.last_breath",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/last_breath_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.black_harvest": {
+    "subtitle": "subtitle.slavicmyths.karachun.black_harvest",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/black_harvest_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.wing_activate": {
+    "subtitle": "subtitle.slavicmyths.karachun.wing_activate",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/wing_activate_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "karachun.waning_stage_up": {
+    "subtitle": "subtitle.slavicmyths.karachun.waning_stage_up",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun/waning_stage_up_0",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "sanctuary193.fire_ambient": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.fire_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/fire_ambient",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.fire_restore": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.fire_restore",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/fire_restore",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.fire_seal": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.fire_seal",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/fire_seal",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.fire_relic_hint": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.fire_relic_hint",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/fire_relic_hint",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.spring_ambient": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.spring_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/spring_ambient",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.spring_channel": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.spring_channel",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/spring_channel",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.spring_purify": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.spring_purify",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/spring_purify",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.spring_tainted": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.spring_tainted",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/spring_tainted",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.door_blocked": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.door_blocked",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/door_blocked",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.vial_throw": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.vial_throw",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/vial_throw",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.vial_hit": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.vial_hit",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/vial_hit",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.water_use": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.water_use",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/water_use",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "sanctuary193.tear_use": {
+    "subtitle": "subtitle.slavicmyths.sanctuary193.tear_use",
+    "sounds": [
+      {
+        "name": "slavicmyths:sanctuary193/tear_use",
+        "attenuation_distance": 20
+      }
+    ]
+  },
+  "guardians.fire_guardian_idle": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_guardian_idle",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_guardian_idle"
+      }
+    ]
+  },
+  "guardians.fire_guardian_awaken": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_guardian_awaken",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_guardian_awaken"
+      }
+    ]
+  },
+  "guardians.fire_guardian_step": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_guardian_step",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_guardian_step"
+      }
+    ]
+  },
+  "guardians.fire_guardian_hurt": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_guardian_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_guardian_hurt"
+      }
+    ]
+  },
+  "guardians.fire_guardian_swing": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_guardian_swing",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_guardian_swing"
+      }
+    ]
+  },
+  "guardians.fire_pulse_charge": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_pulse_charge",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_pulse_charge"
+      }
+    ]
+  },
+  "guardians.fire_pulse_burst": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_pulse_burst",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_pulse_burst"
+      }
+    ]
+  },
+  "guardians.fire_lockdown_warning": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_lockdown_warning",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_lockdown_warning"
+      }
+    ]
+  },
+  "guardians.fire_lockdown_ignite": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_lockdown_ignite",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_lockdown_ignite"
+      }
+    ]
+  },
+  "guardians.fire_shield_break": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_shield_break",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_shield_break"
+      }
+    ]
+  },
+  "guardians.fire_guardian_ground_impact": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_guardian_ground_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_guardian_ground_impact"
+      }
+    ]
+  },
+  "guardians.fire_guardian_purify": {
+    "subtitle": "subtitles.slavicmyths.guardians.fire_guardian_purify",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/fire_guardian_purify"
+      }
+    ]
+  },
+  "guardians.spring_keeper_idle": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_keeper_idle",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_keeper_idle"
+      }
+    ]
+  },
+  "guardians.spring_keeper_emerge": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_keeper_emerge",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_keeper_emerge"
+      }
+    ]
+  },
+  "guardians.spring_keeper_step": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_keeper_step",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_keeper_step"
+      }
+    ]
+  },
+  "guardians.spring_keeper_hurt": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_keeper_hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_keeper_hurt"
+      }
+    ]
+  },
+  "guardians.spring_whip_windup": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_whip_windup",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_whip_windup"
+      }
+    ]
+  },
+  "guardians.spring_whip_impact": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_whip_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_whip_impact"
+      }
+    ]
+  },
+  "guardians.spring_whirlpool_warning": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_whirlpool_warning",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_whirlpool_warning"
+      }
+    ]
+  },
+  "guardians.spring_whirlpool_loop": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_whirlpool_loop",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_whirlpool_loop"
+      }
+    ]
+  },
+  "guardians.spring_prison_form": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_prison_form",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_prison_form"
+      }
+    ]
+  },
+  "guardians.spring_prison_break": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_prison_break",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_prison_break"
+      }
+    ]
+  },
+  "guardians.spring_flood_rise": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_flood_rise",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_flood_rise"
+      }
+    ]
+  },
+  "guardians.spring_heal_begin": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_heal_begin",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_heal_begin"
+      }
+    ]
+  },
+  "guardians.spring_heal_interrupt": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_heal_interrupt",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_heal_interrupt"
+      }
+    ]
+  },
+  "guardians.spring_valve_switch": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_valve_switch",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_valve_switch"
+      }
+    ]
+  },
+  "guardians.spring_keeper_purify": {
+    "subtitle": "subtitles.slavicmyths.guardians.spring_keeper_purify",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/spring_keeper_purify"
+      }
+    ]
+  },
+  "guardians.amulet_fragment_claim": {
+    "subtitle": "subtitles.slavicmyths.guardians.amulet_fragment_claim",
+    "sounds": [
+      {
+        "name": "slavicmyths:guardians/amulet_fragment_claim"
+      }
+    ]
+  },
+  "serpenthill.danger": {
+    "subtitle": "subtitles.slavicmyths.serpenthill.danger",
+    "sounds": [
+      {
+        "name": "slavicmyths:serpenthill/danger"
+      }
+    ]
+  },
+  "serpenthill.crystal": {
+    "subtitle": "subtitles.slavicmyths.serpenthill.crystal",
+    "sounds": [
+      {
+        "name": "slavicmyths:serpenthill/crystal"
+      }
+    ]
+  },
+  "serpenthill.brazier": {
+    "subtitle": "subtitles.slavicmyths.serpenthill.brazier",
+    "sounds": [
+      {
+        "name": "slavicmyths:serpenthill/brazier"
+      }
+    ]
+  },
+  "serpenthill.deep_ambient": {
+    "subtitle": "subtitles.slavicmyths.serpenthill.deep_ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:serpenthill/deep_ambient"
+      }
+    ]
+  },
+  "serpenthill.raised": {
+    "subtitle": "subtitles.slavicmyths.serpenthill.raised",
+    "sounds": [
+      {
+        "name": "slavicmyths:serpenthill/raised"
+      }
+    ]
+  },
+  "gorynych.ambient_low": {
+    "sounds": [
+      "slavicmyths:gorynych/ambient_low"
+    ]
+  },
+  "gorynych.step_heavy": {
+    "sounds": [
+      "slavicmyths:gorynych/step_heavy"
+    ]
+  },
+  "gorynych.roar_ground": {
+    "sounds": [
+      "slavicmyths:gorynych/roar_ground"
+    ]
+  },
+  "gorynych.head_mor_charge": {
+    "sounds": [
+      "slavicmyths:gorynych/head_mor_charge"
+    ]
+  },
+  "gorynych.head_mor_shot": {
+    "sounds": [
+      "slavicmyths:gorynych/head_mor_shot"
+    ]
+  },
+  "gorynych.mor_cloud": {
+    "sounds": [
+      "slavicmyths:gorynych/mor_cloud"
+    ]
+  },
+  "gorynych.head_fire_charge": {
+    "sounds": [
+      "slavicmyths:gorynych/head_fire_charge"
+    ]
+  },
+  "gorynych.head_fire_breath": {
+    "sounds": [
+      "slavicmyths:gorynych/head_fire_breath"
+    ]
+  },
+  "gorynych.head_fireball": {
+    "sounds": [
+      "slavicmyths:gorynych/head_fireball"
+    ]
+  },
+  "gorynych.head_predator_bite": {
+    "sounds": [
+      "slavicmyths:gorynych/head_predator_bite"
+    ]
+  },
+  "gorynych.head_predator_grab": {
+    "sounds": [
+      "slavicmyths:gorynych/head_predator_grab"
+    ]
+  },
+  "gorynych.tail_sweep": {
+    "sounds": [
+      "slavicmyths:gorynych/tail_sweep"
+    ]
+  },
+  "gorynych.ground_spikes_warn": {
+    "sounds": [
+      "slavicmyths:gorynych/ground_spikes_warn"
+    ]
+  },
+  "gorynych.ground_spikes_impact": {
+    "sounds": [
+      "slavicmyths:gorynych/ground_spikes_impact"
+    ]
+  },
+  "gorynych.transform_start": {
+    "sounds": [
+      "slavicmyths:gorynych/transform_start"
+    ]
+  },
+  "gorynych.wings_unfold": {
+    "sounds": [
+      "slavicmyths:gorynych/wings_unfold"
+    ]
+  },
+  "gorynych.wings_flap": {
+    "sounds": [
+      "slavicmyths:gorynych/wings_flap"
+    ]
+  },
+  "gorynych.wind_gust": {
+    "sounds": [
+      "slavicmyths:gorynych/wind_gust"
+    ]
+  },
+  "gorynych.dive": {
+    "sounds": [
+      "slavicmyths:gorynych/dive"
+    ]
+  },
+  "gorynych.land": {
+    "sounds": [
+      "slavicmyths:gorynych/land"
+    ]
+  },
+  "gorynych.exhausted": {
+    "sounds": [
+      "slavicmyths:gorynych/exhausted"
+    ]
+  },
+  "gorynych.cleanse_mor_head": {
+    "sounds": [
+      "slavicmyths:gorynych/cleanse_mor_head"
+    ]
+  },
+  "gorynych.cleanse_fire_head": {
+    "sounds": [
+      "slavicmyths:gorynych/cleanse_fire_head"
+    ]
+  },
+  "gorynych.cleanse_predator_head": {
+    "sounds": [
+      "slavicmyths:gorynych/cleanse_predator_head"
+    ]
+  },
+  "gorynych.purified_roar": {
+    "sounds": [
+      "slavicmyths:gorynych/purified_roar"
+    ]
+  },
+  "gorynych.bottle_collect": {
+    "sounds": [
+      "slavicmyths:gorynych/bottle_collect"
+    ]
+  },
+  "gorynych.crossbow_charge": {
+    "sounds": [
+      "slavicmyths:gorynych/crossbow_charge"
+    ]
+  },
+  "gorynych.crossbow_special_fire": {
+    "sounds": [
+      "slavicmyths:gorynych/crossbow_special_fire"
+    ]
+  },
+  "gorynych.crossbow_special_mor": {
+    "sounds": [
+      "slavicmyths:gorynych/crossbow_special_mor"
+    ]
+  },
+  "gorynych.crossbow_special_storm": {
+    "sounds": [
+      "slavicmyths:gorynych/crossbow_special_storm"
+    ]
+  },
+  "gorynych.armor_fullset_proc": {
+    "sounds": [
+      "slavicmyths:gorynych/armor_fullset_proc"
+    ]
   }
 }

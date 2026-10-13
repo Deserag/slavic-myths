@@ -1,0 +1,29 @@
+TASK: IMPLEMENT SLAVIC MYTHS v1.7.3 NOW. THIS ZIP IS THE IMPLEMENTATION SPECIFICATION, NOT A REQUEST FOR ANOTHER PLAN OR SPEC.
+
+READ IN THIS ORDER:
+00_START_HERE/01_SCOPE_AND_EXECUTION_RULES.md
+00_START_HERE/02_ACCEPTANCE_AND_PRIORITIES.md
+01_Alyosha/01_MODEL_TEXTURE_UV.md -> 04_ABILITIES_AI_COMBAT.md
+02_Skim_Beast/01_MODEL_TEXTURE_UV.md -> 04_ABILITIES_AI_COMBAT.md
+04_Summoning_and_Compatibility/01_SUMMONING_ITEMS_AND_EGGS.md
+03_Valley_and_Den/01_WORLD_BUILD_LAYOUT.md
+05_Shared_Systems/* ; 08_Localization/* ; 09_Testing/*
+Image sources and original OGG are INCLUDED. The 3 approved character/location boards are source of truth on appearance; numeric dimensions and timeline details in text take priority where art contains diagram inconsistencies.
+
+RULE #1: DO NOT RE-ANALYZE THE WHOLE MOD. DO NOT PRODUCE A NEW DESIGN DOC. DO NOT ASK WHAT TO IMPLEMENT. IMPLEMENT ONLY THE DELTAS LISTED HERE. One bounded targeted lookup of existing patterns (summoning Sivka/Burka, hero entity, boss entity, boss bar, sound registry, NeoForge creative tabs, arena structure) is allowed. Reuse rather than duplicate.
+
+RULE #2: ALWAYS MAKE A WORKING JAR WHEN POSSIBLE. Run the project's existing build/test commands. Do not invent APIs or rewrite architecture, versions or dependencies. Confirm the actual loader from build files. Preserve Minecraft version already in repo. Known target from prior project context: MC 1.21.1 NeoForge; repository is the authority.
+
+RULE #3: V1.7.3 SCOPE: Alyosha Popovich (175 HP, blond hair, BLUE eyes, saber+bow, low damage/taunt/dodge distraction), Skim Beast (750 HP, four-legged large beast, stamina windows), valley 65x65 and den, hero reusable summoner, boss egg AND in-world boss invocation, targeted retrofit reusable summoners for Ilya/Dobrynya + spawn eggs for Idolishe/Marinka if missing. NO unique rewards (reserved for 1.7.6).
+
+RULE #4: NO copyright-extracted film clips, no fake claims about existing cinematic voice. Original OGG SFX in package are reusable draft sounds; recorded vocal lines are a separate integration asset and SHALL NOT be synthesized to imitate a recognizable actor.
+
+IMPLEMENTATION ORDER FOR SPEED:
+A. Targeted inspect/search 10-15 known files/classes max (not entire repo).
+B. Register entities/items/renderer/animations/sounds with existing systems.
+C. Implement Alyosha AI & abilities; implement Skim AI & abilities.
+D. Implement summon flow & compatibility patches in existing registries.
+E. Implement bounded valley/den generator and encounter state; avoid broad worldgen edits.
+F. Integrate tests/commands, build, smoke test, deliver JAR and concise change log.
+
+If a feature is blocked by existing architecture, implement the smallest compileable compatible solution, document precisely what is blocked, do not quietly skip content. Follow all per-file required states/timings.

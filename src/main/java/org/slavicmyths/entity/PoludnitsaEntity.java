@@ -23,7 +23,7 @@ public final class PoludnitsaEntity extends LandSpiritEntity {
     @Override protected AttackTimeline attackTimeline(){return attack;}
     @Override protected EntityDimensions getDefaultDimensions(Pose pose){return EntityDimensions.scalable(.6F,1.92F+.035F*form());}
     @Override public void onSyncedDataUpdated(EntityDataAccessor<?> p){super.onSyncedDataUpdated(p);if(FORM.equals(p))refreshDimensions();}
-    @Override public void provoke(Player p){super.provoke(p);if(form()==0){entityData.set(FORM,1);windup=20;getNavigation().stop();voice("transform",.65F);}}
+    @Override public void provoke(Player p){if(morState()!=0)return;super.provoke(p);if(form()==0){entityData.set(FORM,1);windup=20;getNavigation().stop();voice("transform",.65F);}}
     @Override protected void abilityTick(){
         if(form()>0 && form()<20){behavior=Behavior.TRANSFORM;windup=1;entityData.set(FORM,form()+1);getNavigation().stop();if(form()%4==0)particles(ParticleTypes.CLOUD,5);if(form()==20)windup=0;return;}
         if(getTarget()==null){attack.cancel();if(form()==20){entityData.set(FORM,0);behavior=Behavior.CALM;voice("transform",.4F);}return;}
@@ -50,7 +50,7 @@ public final class PoludnitsaEntity extends LandSpiritEntity {
         else{watch=0;behavior=d<256?Behavior.APPROACH_THRESHOLD:Behavior.DISTANT_WATCH;if(d<256)getNavigation().moveTo(p,.35);else getNavigation().stop();}
     }
     @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);n.putInt("NoonForm",form());n.putLong("NextSweep",nextSweep);}
-    @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);entityData.set(FORM,n.getInt("NoonForm")>0?20:0);nextSweep=n.getLong("NextSweep");}
+    @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);entityData.set(FORM,morState()!=0?Math.clamp(n.getInt("NoonForm"),0,20):n.getInt("NoonForm")>0?20:0);nextSweep=n.getLong("NextSweep");}
     @Override public int getAmbientSoundInterval(){return 600;}
     @Override public boolean doHurtTarget(net.minecraft.world.entity.Entity target){boolean hit=super.doHurtTarget(target);if(hit && !level().isClientSide)voice("attack",.4F);return hit;}
 }

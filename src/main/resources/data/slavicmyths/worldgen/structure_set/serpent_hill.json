@@ -1,0 +1,19 @@
+{
+  "structures": [
+    {
+      "structure": "slavicmyths:serpent_hill",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 80,
+    "separation": 32,
+    "salt": 1951013,
+    "spread_type": "linear",
+    "exclusion_zone": {
+      "other_set": "minecraft:strongholds",
+      "chunk_count": 12
+    }
+  }
+}

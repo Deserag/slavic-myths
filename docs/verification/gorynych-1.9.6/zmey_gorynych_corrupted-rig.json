@@ -1,0 +1,6167 @@
+{
+  "atlas": 1024,
+  "bones": {
+    "body": {
+      "parent": null,
+      "pos": [
+        0,
+        44,
+        12
+      ]
+    },
+    "leg_front_left": {
+      "parent": "body",
+      "pos": [
+        -28,
+        36,
+        -20
+      ]
+    },
+    "leg_front_left_foot": {
+      "parent": "leg_front_left",
+      "pos": [
+        -31,
+        12,
+        -20
+      ]
+    },
+    "leg_back_left": {
+      "parent": "body",
+      "pos": [
+        -28,
+        36,
+        43
+      ]
+    },
+    "leg_back_left_foot": {
+      "parent": "leg_back_left",
+      "pos": [
+        -31,
+        12,
+        43
+      ]
+    },
+    "leg_front_right": {
+      "parent": "body",
+      "pos": [
+        28,
+        36,
+        -20
+      ]
+    },
+    "leg_front_right_foot": {
+      "parent": "leg_front_right",
+      "pos": [
+        31,
+        12,
+        -20
+      ]
+    },
+    "leg_back_right": {
+      "parent": "body",
+      "pos": [
+        28,
+        36,
+        43
+      ]
+    },
+    "leg_back_right_foot": {
+      "parent": "leg_back_right",
+      "pos": [
+        31,
+        12,
+        43
+      ]
+    },
+    "neck_0_0": {
+      "parent": "body",
+      "pos": [
+        -30,
+        40,
+        -27
+      ]
+    },
+    "neck_0_1": {
+      "parent": "neck_0_0",
+      "pos": [
+        -30,
+        55,
+        -32
+      ]
+    },
+    "neck_0_2": {
+      "parent": "neck_0_1",
+      "pos": [
+        -30,
+        70,
+        -37
+      ]
+    },
+    "neck_0_3": {
+      "parent": "neck_0_2",
+      "pos": [
+        -30,
+        85,
+        -42
+      ]
+    },
+    "neck_0_4": {
+      "parent": "neck_0_3",
+      "pos": [
+        -30,
+        100,
+        -47
+      ]
+    },
+    "head_0": {
+      "parent": "neck_0_4",
+      "pos": [
+        -30,
+        111,
+        -55
+      ]
+    },
+    "jaw_0": {
+      "parent": "head_0",
+      "pos": [
+        -30,
+        106,
+        -61
+      ]
+    },
+    "neck_1_0": {
+      "parent": "body",
+      "pos": [
+        0,
+        40,
+        -27
+      ]
+    },
+    "neck_1_1": {
+      "parent": "neck_1_0",
+      "pos": [
+        0,
+        55,
+        -32
+      ]
+    },
+    "neck_1_2": {
+      "parent": "neck_1_1",
+      "pos": [
+        0,
+        70,
+        -37
+      ]
+    },
+    "neck_1_3": {
+      "parent": "neck_1_2",
+      "pos": [
+        0,
+        85,
+        -42
+      ]
+    },
+    "neck_1_4": {
+      "parent": "neck_1_3",
+      "pos": [
+        0,
+        100,
+        -47
+      ]
+    },
+    "head_1": {
+      "parent": "neck_1_4",
+      "pos": [
+        0,
+        111,
+        -55
+      ]
+    },
+    "jaw_1": {
+      "parent": "head_1",
+      "pos": [
+        0,
+        106,
+        -61
+      ]
+    },
+    "neck_2_0": {
+      "parent": "body",
+      "pos": [
+        30,
+        40,
+        -27
+      ]
+    },
+    "neck_2_1": {
+      "parent": "neck_2_0",
+      "pos": [
+        30,
+        55,
+        -32
+      ]
+    },
+    "neck_2_2": {
+      "parent": "neck_2_1",
+      "pos": [
+        30,
+        70,
+        -37
+      ]
+    },
+    "neck_2_3": {
+      "parent": "neck_2_2",
+      "pos": [
+        30,
+        85,
+        -42
+      ]
+    },
+    "neck_2_4": {
+      "parent": "neck_2_3",
+      "pos": [
+        30,
+        100,
+        -47
+      ]
+    },
+    "head_2": {
+      "parent": "neck_2_4",
+      "pos": [
+        30,
+        111,
+        -55
+      ]
+    },
+    "jaw_2": {
+      "parent": "head_2",
+      "pos": [
+        30,
+        106,
+        -61
+      ]
+    },
+    "tail_0": {
+      "parent": "body",
+      "pos": [
+        0,
+        29,
+        52
+      ]
+    },
+    "tail_1": {
+      "parent": "tail_0",
+      "pos": [
+        0,
+        27,
+        69
+      ]
+    },
+    "tail_2": {
+      "parent": "tail_1",
+      "pos": [
+        0,
+        25,
+        86
+      ]
+    },
+    "tail_3": {
+      "parent": "tail_2",
+      "pos": [
+        0,
+        23,
+        103
+      ]
+    },
+    "tail_4": {
+      "parent": "tail_3",
+      "pos": [
+        0,
+        21,
+        120
+      ]
+    },
+    "tail_5": {
+      "parent": "tail_4",
+      "pos": [
+        0,
+        19,
+        137
+      ]
+    },
+    "tail_6": {
+      "parent": "tail_5",
+      "pos": [
+        0,
+        17,
+        154
+      ]
+    },
+    "tail_7": {
+      "parent": "tail_6",
+      "pos": [
+        0,
+        15,
+        171
+      ]
+    },
+    "wing_left": {
+      "parent": "body",
+      "pos": [
+        -25,
+        56,
+        14
+      ]
+    },
+    "wing_right": {
+      "parent": "body",
+      "pos": [
+        25,
+        56,
+        14
+      ]
+    }
+  },
+  "boxes": [
+    {
+      "bone": "body",
+      "center": [
+        0,
+        42.0,
+        12
+      ],
+      "size": [
+        62,
+        38,
+        88
+      ],
+      "material": "scale",
+      "uv": [
+        2,
+        2,
+        300,
+        126
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        28.0,
+        -8
+      ],
+      "size": [
+        46,
+        12,
+        52
+      ],
+      "material": "belly",
+      "uv": [
+        305,
+        2,
+        196,
+        64
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        52.0,
+        4
+      ],
+      "size": [
+        68,
+        20,
+        58
+      ],
+      "material": "scale",
+      "uv": [
+        504,
+        2,
+        252,
+        78
+      ]
+    },
+    {
+      "bone": "leg_front_left",
+      "center": [
+        -31,
+        23.5,
+        -20
+      ],
+      "size": [
+        17,
+        27,
+        20
+      ],
+      "material": "scale",
+      "uv": [
+        759,
+        2,
+        74,
+        47
+      ]
+    },
+    {
+      "bone": "leg_front_left_foot",
+      "center": [
+        -31,
+        6.0,
+        -24
+      ],
+      "size": [
+        21,
+        12,
+        27
+      ],
+      "material": "scale",
+      "uv": [
+        836,
+        2,
+        96,
+        39
+      ]
+    },
+    {
+      "bone": "leg_front_left_foot",
+      "center": [
+        -38,
+        3.5,
+        -39
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        935,
+        2,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_front_left_foot",
+      "center": [
+        -31,
+        3.5,
+        -39
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        968,
+        2,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_front_left_foot",
+      "center": [
+        -24,
+        3.5,
+        -39
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        2,
+        131,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_front_left",
+      "center": [
+        -32,
+        28.5,
+        -22
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        35,
+        131,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "leg_front_left",
+      "center": [
+        -33,
+        23.5,
+        -22
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        120,
+        131,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "leg_front_left",
+      "center": [
+        -34,
+        18.5,
+        -22
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        205,
+        131,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "leg_back_left",
+      "center": [
+        -31,
+        23.5,
+        43
+      ],
+      "size": [
+        17,
+        27,
+        20
+      ],
+      "material": "scale",
+      "uv": [
+        290,
+        131,
+        74,
+        47
+      ]
+    },
+    {
+      "bone": "leg_back_left_foot",
+      "center": [
+        -31,
+        6.0,
+        39
+      ],
+      "size": [
+        21,
+        12,
+        27
+      ],
+      "material": "scale",
+      "uv": [
+        367,
+        131,
+        96,
+        39
+      ]
+    },
+    {
+      "bone": "leg_back_left_foot",
+      "center": [
+        -38,
+        3.5,
+        24
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        466,
+        131,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_back_left_foot",
+      "center": [
+        -31,
+        3.5,
+        24
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        499,
+        131,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_back_left_foot",
+      "center": [
+        -24,
+        3.5,
+        24
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        532,
+        131,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_back_left",
+      "center": [
+        -32,
+        28.5,
+        41
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        565,
+        131,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "leg_back_left",
+      "center": [
+        -33,
+        23.5,
+        41
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        650,
+        131,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "leg_back_left",
+      "center": [
+        -34,
+        18.5,
+        41
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        735,
+        131,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        -27,
+        34.0,
+        -21
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        820,
+        131,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        -28,
+        41.0,
+        -13
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        847,
+        131,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        -27,
+        48.0,
+        -5
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        874,
+        131,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        -28,
+        34.0,
+        3
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        901,
+        131,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        -27,
+        41.0,
+        11
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        928,
+        131,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        -28,
+        48.0,
+        19
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        955,
+        131,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        -27,
+        34.0,
+        27
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        982,
+        131,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        -28,
+        41.0,
+        35
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        2,
+        181,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        -27,
+        48.0,
+        43
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        29,
+        181,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "leg_front_right",
+      "center": [
+        31,
+        23.5,
+        -20
+      ],
+      "size": [
+        17,
+        27,
+        20
+      ],
+      "material": "scale",
+      "uv": [
+        56,
+        181,
+        74,
+        47
+      ]
+    },
+    {
+      "bone": "leg_front_right_foot",
+      "center": [
+        31,
+        6.0,
+        -24
+      ],
+      "size": [
+        21,
+        12,
+        27
+      ],
+      "material": "scale",
+      "uv": [
+        133,
+        181,
+        96,
+        39
+      ]
+    },
+    {
+      "bone": "leg_front_right_foot",
+      "center": [
+        24,
+        3.5,
+        -39
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        232,
+        181,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_front_right_foot",
+      "center": [
+        31,
+        3.5,
+        -39
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        265,
+        181,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_front_right_foot",
+      "center": [
+        38,
+        3.5,
+        -39
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        298,
+        181,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_front_right",
+      "center": [
+        32,
+        28.5,
+        -22
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        331,
+        181,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "leg_front_right",
+      "center": [
+        33,
+        23.5,
+        -22
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        416,
+        181,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "leg_front_right",
+      "center": [
+        34,
+        18.5,
+        -22
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        501,
+        181,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "leg_back_right",
+      "center": [
+        31,
+        23.5,
+        43
+      ],
+      "size": [
+        17,
+        27,
+        20
+      ],
+      "material": "scale",
+      "uv": [
+        586,
+        181,
+        74,
+        47
+      ]
+    },
+    {
+      "bone": "leg_back_right_foot",
+      "center": [
+        31,
+        6.0,
+        39
+      ],
+      "size": [
+        21,
+        12,
+        27
+      ],
+      "material": "scale",
+      "uv": [
+        663,
+        181,
+        96,
+        39
+      ]
+    },
+    {
+      "bone": "leg_back_right_foot",
+      "center": [
+        24,
+        3.5,
+        24
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        762,
+        181,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_back_right_foot",
+      "center": [
+        31,
+        3.5,
+        24
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        795,
+        181,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_back_right_foot",
+      "center": [
+        38,
+        3.5,
+        24
+      ],
+      "size": [
+        4,
+        5,
+        11
+      ],
+      "material": "horn",
+      "uv": [
+        828,
+        181,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "leg_back_right",
+      "center": [
+        32,
+        28.5,
+        41
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        861,
+        181,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "leg_back_right",
+      "center": [
+        33,
+        23.5,
+        41
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        2,
+        231,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "leg_back_right",
+      "center": [
+        34,
+        18.5,
+        41
+      ],
+      "size": [
+        18,
+        5,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        87,
+        231,
+        82,
+        28
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        27,
+        34.0,
+        -21
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        172,
+        231,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        28,
+        41.0,
+        -13
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        199,
+        231,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        27,
+        48.0,
+        -5
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        226,
+        231,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        28,
+        34.0,
+        3
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        253,
+        231,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        27,
+        41.0,
+        11
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        280,
+        231,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        28,
+        48.0,
+        19
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        307,
+        231,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        27,
+        34.0,
+        27
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        334,
+        231,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        28,
+        41.0,
+        35
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        361,
+        231,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        27,
+        48.0,
+        43
+      ],
+      "size": [
+        4,
+        6,
+        8
+      ],
+      "material": "scale",
+      "uv": [
+        388,
+        231,
+        24,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        64.0,
+        -24
+      ],
+      "size": [
+        5,
+        8,
+        6
+      ],
+      "material": "glow",
+      "uv": [
+        415,
+        231,
+        22,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        62.0,
+        -17
+      ],
+      "size": [
+        5,
+        10,
+        6
+      ],
+      "material": "scale",
+      "uv": [
+        440,
+        231,
+        22,
+        16
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        66.0,
+        -10
+      ],
+      "size": [
+        5,
+        12,
+        6
+      ],
+      "material": "scale",
+      "uv": [
+        465,
+        231,
+        22,
+        18
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        61.0,
+        -3
+      ],
+      "size": [
+        5,
+        8,
+        6
+      ],
+      "material": "glow",
+      "uv": [
+        490,
+        231,
+        22,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        65.0,
+        4
+      ],
+      "size": [
+        5,
+        10,
+        6
+      ],
+      "material": "scale",
+      "uv": [
+        515,
+        231,
+        22,
+        16
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        63.0,
+        11
+      ],
+      "size": [
+        5,
+        12,
+        6
+      ],
+      "material": "scale",
+      "uv": [
+        540,
+        231,
+        22,
+        18
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        64.0,
+        18
+      ],
+      "size": [
+        5,
+        8,
+        6
+      ],
+      "material": "glow",
+      "uv": [
+        565,
+        231,
+        22,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        62.0,
+        25
+      ],
+      "size": [
+        5,
+        10,
+        6
+      ],
+      "material": "scale",
+      "uv": [
+        590,
+        231,
+        22,
+        16
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        66.0,
+        32
+      ],
+      "size": [
+        5,
+        12,
+        6
+      ],
+      "material": "scale",
+      "uv": [
+        615,
+        231,
+        22,
+        18
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        61.0,
+        39
+      ],
+      "size": [
+        5,
+        8,
+        6
+      ],
+      "material": "glow",
+      "uv": [
+        640,
+        231,
+        22,
+        14
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        65.0,
+        46
+      ],
+      "size": [
+        5,
+        10,
+        6
+      ],
+      "material": "scale",
+      "uv": [
+        665,
+        231,
+        22,
+        16
+      ]
+    },
+    {
+      "bone": "neck_0_0",
+      "center": [
+        -30,
+        48.0,
+        -27
+      ],
+      "size": [
+        18,
+        18,
+        19
+      ],
+      "material": "scale",
+      "uv": [
+        690,
+        231,
+        74,
+        37
+      ]
+    },
+    {
+      "bone": "neck_0_0",
+      "center": [
+        -30,
+        48.0,
+        -36
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        767,
+        231,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_0_0",
+      "center": [
+        -30,
+        52.5,
+        -18
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "mor",
+      "uv": [
+        794,
+        231,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_0_1",
+      "center": [
+        -30,
+        63.0,
+        -32
+      ],
+      "size": [
+        17,
+        18,
+        18
+      ],
+      "material": "scale",
+      "uv": [
+        813,
+        231,
+        70,
+        36
+      ]
+    },
+    {
+      "bone": "neck_0_1",
+      "center": [
+        -30,
+        63.0,
+        -41
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        886,
+        231,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_0_1",
+      "center": [
+        -30,
+        67.5,
+        -23
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "mor",
+      "uv": [
+        913,
+        231,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_0_2",
+      "center": [
+        -30,
+        78.0,
+        -37
+      ],
+      "size": [
+        16,
+        18,
+        17
+      ],
+      "material": "scale",
+      "uv": [
+        932,
+        231,
+        66,
+        35
+      ]
+    },
+    {
+      "bone": "neck_0_2",
+      "center": [
+        -30,
+        78.0,
+        -46
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        2,
+        271,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_0_2",
+      "center": [
+        -30,
+        82.5,
+        -28
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "mor",
+      "uv": [
+        29,
+        271,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_0_3",
+      "center": [
+        -30,
+        93.0,
+        -42
+      ],
+      "size": [
+        15,
+        18,
+        16
+      ],
+      "material": "scale",
+      "uv": [
+        48,
+        271,
+        62,
+        34
+      ]
+    },
+    {
+      "bone": "neck_0_3",
+      "center": [
+        -30,
+        93.0,
+        -51
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        113,
+        271,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_0_3",
+      "center": [
+        -30,
+        97.5,
+        -33
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "mor",
+      "uv": [
+        140,
+        271,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_0_4",
+      "center": [
+        -30,
+        108.0,
+        -47
+      ],
+      "size": [
+        14,
+        18,
+        15
+      ],
+      "material": "scale",
+      "uv": [
+        159,
+        271,
+        58,
+        33
+      ]
+    },
+    {
+      "bone": "neck_0_4",
+      "center": [
+        -30,
+        108.0,
+        -56
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        220,
+        271,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_0_4",
+      "center": [
+        -30,
+        112.5,
+        -38
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "mor",
+      "uv": [
+        247,
+        271,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -30,
+        114.0,
+        -56
+      ],
+      "size": [
+        22,
+        18,
+        27
+      ],
+      "material": "scale",
+      "uv": [
+        266,
+        271,
+        98,
+        45
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -30,
+        109.0,
+        -75
+      ],
+      "size": [
+        18,
+        10,
+        22
+      ],
+      "material": "scale",
+      "uv": [
+        367,
+        271,
+        80,
+        32
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -30,
+        105.0,
+        -83
+      ],
+      "size": [
+        15,
+        4,
+        9
+      ],
+      "material": "mor",
+      "uv": [
+        450,
+        271,
+        48,
+        13
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -30,
+        100.5,
+        -72
+      ],
+      "size": [
+        19,
+        7,
+        32
+      ],
+      "material": "scale",
+      "uv": [
+        501,
+        271,
+        102,
+        39
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -30,
+        102.5,
+        -77
+      ],
+      "size": [
+        13,
+        1,
+        18
+      ],
+      "material": "mor",
+      "uv": [
+        606,
+        271,
+        62,
+        19
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -40,
+        116.5,
+        -64
+      ],
+      "size": [
+        5,
+        3,
+        10
+      ],
+      "material": "scale",
+      "uv": [
+        671,
+        271,
+        30,
+        13
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -41.8,
+        115.0,
+        -69
+      ],
+      "size": [
+        1,
+        2,
+        7
+      ],
+      "material": "mor_eye",
+      "uv": [
+        704,
+        271,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -39,
+        125.0,
+        -49
+      ],
+      "size": [
+        4,
+        12,
+        5
+      ],
+      "material": "mor",
+      "uv": [
+        723,
+        271,
+        18,
+        17
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -41,
+        133.0,
+        -45
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "mor",
+      "uv": [
+        744,
+        271,
+        14,
+        12
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -37,
+        102.5,
+        -66
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        761,
+        271,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -37,
+        104.5,
+        -66
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        772,
+        271,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -37,
+        103.0,
+        -70
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        783,
+        271,
+        8,
+        8
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -37,
+        104.5,
+        -70
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        794,
+        271,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -37,
+        102.5,
+        -74
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        805,
+        271,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -37,
+        104.5,
+        -74
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        816,
+        271,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -37,
+        103.0,
+        -78
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        827,
+        271,
+        8,
+        8
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -37,
+        104.5,
+        -78
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        838,
+        271,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -37,
+        102.5,
+        -82
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        849,
+        271,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -37,
+        104.5,
+        -82
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        860,
+        271,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -20,
+        116.5,
+        -64
+      ],
+      "size": [
+        5,
+        3,
+        10
+      ],
+      "material": "scale",
+      "uv": [
+        871,
+        271,
+        30,
+        13
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -18.2,
+        115.0,
+        -69
+      ],
+      "size": [
+        1,
+        2,
+        7
+      ],
+      "material": "mor_eye",
+      "uv": [
+        904,
+        271,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -21,
+        125.0,
+        -49
+      ],
+      "size": [
+        4,
+        12,
+        5
+      ],
+      "material": "mor",
+      "uv": [
+        923,
+        271,
+        18,
+        17
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -19,
+        133.0,
+        -45
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "mor",
+      "uv": [
+        944,
+        271,
+        14,
+        12
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -23,
+        102.5,
+        -66
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        961,
+        271,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -23,
+        104.5,
+        -66
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        972,
+        271,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -23,
+        103.0,
+        -70
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        983,
+        271,
+        8,
+        8
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -23,
+        104.5,
+        -70
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        994,
+        271,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -23,
+        102.5,
+        -74
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        1005,
+        271,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -23,
+        104.5,
+        -74
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        2,
+        319,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -23,
+        103.0,
+        -78
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        13,
+        319,
+        8,
+        8
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -23,
+        104.5,
+        -78
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        24,
+        319,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -23,
+        102.5,
+        -82
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        35,
+        319,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_0",
+      "center": [
+        -23,
+        104.5,
+        -82
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        46,
+        319,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -30,
+        124.5,
+        -52
+      ],
+      "size": [
+        4,
+        5,
+        4
+      ],
+      "material": "mor",
+      "uv": [
+        57,
+        319,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -30,
+        126.0,
+        -47
+      ],
+      "size": [
+        4,
+        8,
+        4
+      ],
+      "material": "mor",
+      "uv": [
+        76,
+        319,
+        16,
+        12
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -30,
+        124.5,
+        -42
+      ],
+      "size": [
+        4,
+        5,
+        4
+      ],
+      "material": "mor",
+      "uv": [
+        95,
+        319,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_0",
+      "center": [
+        -30,
+        126.0,
+        -37
+      ],
+      "size": [
+        4,
+        8,
+        4
+      ],
+      "material": "mor",
+      "uv": [
+        114,
+        319,
+        16,
+        12
+      ]
+    },
+    {
+      "bone": "neck_1_0",
+      "center": [
+        0,
+        48.0,
+        -27
+      ],
+      "size": [
+        18,
+        18,
+        19
+      ],
+      "material": "scale",
+      "uv": [
+        133,
+        319,
+        74,
+        37
+      ]
+    },
+    {
+      "bone": "neck_1_0",
+      "center": [
+        0,
+        48.0,
+        -36
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        210,
+        319,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_1_0",
+      "center": [
+        0,
+        52.5,
+        -18
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "fire",
+      "uv": [
+        237,
+        319,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_1_1",
+      "center": [
+        0,
+        63.0,
+        -32
+      ],
+      "size": [
+        17,
+        18,
+        18
+      ],
+      "material": "scale",
+      "uv": [
+        256,
+        319,
+        70,
+        36
+      ]
+    },
+    {
+      "bone": "neck_1_1",
+      "center": [
+        0,
+        63.0,
+        -41
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        329,
+        319,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_1_1",
+      "center": [
+        0,
+        67.5,
+        -23
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "fire",
+      "uv": [
+        356,
+        319,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_1_2",
+      "center": [
+        0,
+        78.0,
+        -37
+      ],
+      "size": [
+        16,
+        18,
+        17
+      ],
+      "material": "scale",
+      "uv": [
+        375,
+        319,
+        66,
+        35
+      ]
+    },
+    {
+      "bone": "neck_1_2",
+      "center": [
+        0,
+        78.0,
+        -46
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        444,
+        319,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_1_2",
+      "center": [
+        0,
+        82.5,
+        -28
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "fire",
+      "uv": [
+        471,
+        319,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_1_3",
+      "center": [
+        0,
+        93.0,
+        -42
+      ],
+      "size": [
+        15,
+        18,
+        16
+      ],
+      "material": "scale",
+      "uv": [
+        490,
+        319,
+        62,
+        34
+      ]
+    },
+    {
+      "bone": "neck_1_3",
+      "center": [
+        0,
+        93.0,
+        -51
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        555,
+        319,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_1_3",
+      "center": [
+        0,
+        97.5,
+        -33
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "fire",
+      "uv": [
+        582,
+        319,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_1_4",
+      "center": [
+        0,
+        108.0,
+        -47
+      ],
+      "size": [
+        14,
+        18,
+        15
+      ],
+      "material": "scale",
+      "uv": [
+        601,
+        319,
+        58,
+        33
+      ]
+    },
+    {
+      "bone": "neck_1_4",
+      "center": [
+        0,
+        108.0,
+        -56
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        662,
+        319,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_1_4",
+      "center": [
+        0,
+        112.5,
+        -38
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "fire",
+      "uv": [
+        689,
+        319,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        0,
+        114.0,
+        -56
+      ],
+      "size": [
+        25,
+        18,
+        27
+      ],
+      "material": "scale",
+      "uv": [
+        708,
+        319,
+        104,
+        45
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        0,
+        109.0,
+        -75
+      ],
+      "size": [
+        18,
+        10,
+        22
+      ],
+      "material": "scale",
+      "uv": [
+        815,
+        319,
+        80,
+        32
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        0,
+        105.0,
+        -83
+      ],
+      "size": [
+        15,
+        4,
+        9
+      ],
+      "material": "fire",
+      "uv": [
+        898,
+        319,
+        48,
+        13
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        0,
+        100.5,
+        -72
+      ],
+      "size": [
+        19,
+        7,
+        32
+      ],
+      "material": "scale",
+      "uv": [
+        2,
+        367,
+        102,
+        39
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        0,
+        102.5,
+        -77
+      ],
+      "size": [
+        13,
+        1,
+        18
+      ],
+      "material": "fire",
+      "uv": [
+        107,
+        367,
+        62,
+        19
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        -10,
+        116.5,
+        -64
+      ],
+      "size": [
+        5,
+        3,
+        10
+      ],
+      "material": "scale",
+      "uv": [
+        172,
+        367,
+        30,
+        13
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        -11.8,
+        115.0,
+        -69
+      ],
+      "size": [
+        1,
+        2,
+        7
+      ],
+      "material": "fire_eye",
+      "uv": [
+        205,
+        367,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        -9,
+        125.0,
+        -49
+      ],
+      "size": [
+        4,
+        12,
+        5
+      ],
+      "material": "horn",
+      "uv": [
+        224,
+        367,
+        18,
+        17
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        -11,
+        133.0,
+        -45
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "horn",
+      "uv": [
+        245,
+        367,
+        14,
+        12
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        -7,
+        102.5,
+        -66
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        262,
+        367,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        -7,
+        104.5,
+        -66
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        273,
+        367,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        -7,
+        103.0,
+        -70
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        284,
+        367,
+        8,
+        8
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        -7,
+        104.5,
+        -70
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        295,
+        367,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        -7,
+        102.5,
+        -74
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        306,
+        367,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        -7,
+        104.5,
+        -74
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        317,
+        367,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        -7,
+        103.0,
+        -78
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        328,
+        367,
+        8,
+        8
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        -7,
+        104.5,
+        -78
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        339,
+        367,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        -7,
+        102.5,
+        -82
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        350,
+        367,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        -7,
+        104.5,
+        -82
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        361,
+        367,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        10,
+        116.5,
+        -64
+      ],
+      "size": [
+        5,
+        3,
+        10
+      ],
+      "material": "scale",
+      "uv": [
+        372,
+        367,
+        30,
+        13
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        11.8,
+        115.0,
+        -69
+      ],
+      "size": [
+        1,
+        2,
+        7
+      ],
+      "material": "fire_eye",
+      "uv": [
+        405,
+        367,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        9,
+        125.0,
+        -49
+      ],
+      "size": [
+        4,
+        12,
+        5
+      ],
+      "material": "horn",
+      "uv": [
+        424,
+        367,
+        18,
+        17
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        11,
+        133.0,
+        -45
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "horn",
+      "uv": [
+        445,
+        367,
+        14,
+        12
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        7,
+        102.5,
+        -66
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        462,
+        367,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        7,
+        104.5,
+        -66
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        473,
+        367,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        7,
+        103.0,
+        -70
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        484,
+        367,
+        8,
+        8
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        7,
+        104.5,
+        -70
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        495,
+        367,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        7,
+        102.5,
+        -74
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        506,
+        367,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        7,
+        104.5,
+        -74
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        517,
+        367,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        7,
+        103.0,
+        -78
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        528,
+        367,
+        8,
+        8
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        7,
+        104.5,
+        -78
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        539,
+        367,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        7,
+        102.5,
+        -82
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        550,
+        367,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_1",
+      "center": [
+        7,
+        104.5,
+        -82
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        561,
+        367,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        0,
+        124.5,
+        -52
+      ],
+      "size": [
+        4,
+        5,
+        4
+      ],
+      "material": "fire",
+      "uv": [
+        572,
+        367,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        0,
+        126.0,
+        -47
+      ],
+      "size": [
+        4,
+        8,
+        4
+      ],
+      "material": "fire",
+      "uv": [
+        591,
+        367,
+        16,
+        12
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        0,
+        124.5,
+        -42
+      ],
+      "size": [
+        4,
+        5,
+        4
+      ],
+      "material": "fire",
+      "uv": [
+        610,
+        367,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_1",
+      "center": [
+        0,
+        126.0,
+        -37
+      ],
+      "size": [
+        4,
+        8,
+        4
+      ],
+      "material": "fire",
+      "uv": [
+        629,
+        367,
+        16,
+        12
+      ]
+    },
+    {
+      "bone": "neck_2_0",
+      "center": [
+        30,
+        48.0,
+        -27
+      ],
+      "size": [
+        18,
+        18,
+        19
+      ],
+      "material": "scale",
+      "uv": [
+        648,
+        367,
+        74,
+        37
+      ]
+    },
+    {
+      "bone": "neck_2_0",
+      "center": [
+        30,
+        48.0,
+        -36
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        725,
+        367,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_2_0",
+      "center": [
+        30,
+        52.5,
+        -18
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "predator",
+      "uv": [
+        752,
+        367,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_2_1",
+      "center": [
+        30,
+        63.0,
+        -32
+      ],
+      "size": [
+        17,
+        18,
+        18
+      ],
+      "material": "scale",
+      "uv": [
+        771,
+        367,
+        70,
+        36
+      ]
+    },
+    {
+      "bone": "neck_2_1",
+      "center": [
+        30,
+        63.0,
+        -41
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        844,
+        367,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_2_1",
+      "center": [
+        30,
+        67.5,
+        -23
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "predator",
+      "uv": [
+        871,
+        367,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_2_2",
+      "center": [
+        30,
+        78.0,
+        -37
+      ],
+      "size": [
+        16,
+        18,
+        17
+      ],
+      "material": "scale",
+      "uv": [
+        890,
+        367,
+        66,
+        35
+      ]
+    },
+    {
+      "bone": "neck_2_2",
+      "center": [
+        30,
+        78.0,
+        -46
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        959,
+        367,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_2_2",
+      "center": [
+        30,
+        82.5,
+        -28
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "predator",
+      "uv": [
+        986,
+        367,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_2_3",
+      "center": [
+        30,
+        93.0,
+        -42
+      ],
+      "size": [
+        15,
+        18,
+        16
+      ],
+      "material": "scale",
+      "uv": [
+        2,
+        409,
+        62,
+        34
+      ]
+    },
+    {
+      "bone": "neck_2_3",
+      "center": [
+        30,
+        93.0,
+        -51
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        67,
+        409,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_2_3",
+      "center": [
+        30,
+        97.5,
+        -33
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "predator",
+      "uv": [
+        94,
+        409,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "neck_2_4",
+      "center": [
+        30,
+        108.0,
+        -47
+      ],
+      "size": [
+        14,
+        18,
+        15
+      ],
+      "material": "scale",
+      "uv": [
+        113,
+        409,
+        58,
+        33
+      ]
+    },
+    {
+      "bone": "neck_2_4",
+      "center": [
+        30,
+        108.0,
+        -56
+      ],
+      "size": [
+        10,
+        16,
+        2
+      ],
+      "material": "belly",
+      "uv": [
+        174,
+        409,
+        24,
+        18
+      ]
+    },
+    {
+      "bone": "neck_2_4",
+      "center": [
+        30,
+        112.5,
+        -38
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "predator",
+      "uv": [
+        201,
+        409,
+        16,
+        13
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        30,
+        114.0,
+        -56
+      ],
+      "size": [
+        22,
+        18,
+        27
+      ],
+      "material": "scale",
+      "uv": [
+        220,
+        409,
+        98,
+        45
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        30,
+        109.0,
+        -75
+      ],
+      "size": [
+        20,
+        10,
+        22
+      ],
+      "material": "scale",
+      "uv": [
+        321,
+        409,
+        84,
+        32
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        30,
+        105.0,
+        -83
+      ],
+      "size": [
+        15,
+        4,
+        9
+      ],
+      "material": "predator",
+      "uv": [
+        408,
+        409,
+        48,
+        13
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        30,
+        100.5,
+        -72
+      ],
+      "size": [
+        19,
+        7,
+        32
+      ],
+      "material": "scale",
+      "uv": [
+        459,
+        409,
+        102,
+        39
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        30,
+        102.5,
+        -77
+      ],
+      "size": [
+        13,
+        1,
+        18
+      ],
+      "material": "predator",
+      "uv": [
+        564,
+        409,
+        62,
+        19
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        20,
+        116.5,
+        -64
+      ],
+      "size": [
+        5,
+        3,
+        10
+      ],
+      "material": "scale",
+      "uv": [
+        629,
+        409,
+        30,
+        13
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        18.2,
+        115.0,
+        -69
+      ],
+      "size": [
+        1,
+        2,
+        7
+      ],
+      "material": "predator_eye",
+      "uv": [
+        662,
+        409,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        21,
+        125.0,
+        -49
+      ],
+      "size": [
+        4,
+        12,
+        5
+      ],
+      "material": "horn",
+      "uv": [
+        681,
+        409,
+        18,
+        17
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        19,
+        133.0,
+        -45
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "horn",
+      "uv": [
+        702,
+        409,
+        14,
+        12
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        23,
+        102.5,
+        -66
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        719,
+        409,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        23,
+        104.5,
+        -66
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        730,
+        409,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        23,
+        104.0,
+        -70
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        741,
+        409,
+        8,
+        10
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        23,
+        104.5,
+        -70
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        752,
+        409,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        23,
+        102.5,
+        -74
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        763,
+        409,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        23,
+        104.5,
+        -74
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        774,
+        409,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        23,
+        104.0,
+        -78
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        785,
+        409,
+        8,
+        10
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        23,
+        104.5,
+        -78
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        796,
+        409,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        23,
+        102.5,
+        -82
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        807,
+        409,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        23,
+        104.5,
+        -82
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        818,
+        409,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        40,
+        116.5,
+        -64
+      ],
+      "size": [
+        5,
+        3,
+        10
+      ],
+      "material": "scale",
+      "uv": [
+        829,
+        409,
+        30,
+        13
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        41.8,
+        115.0,
+        -69
+      ],
+      "size": [
+        1,
+        2,
+        7
+      ],
+      "material": "predator_eye",
+      "uv": [
+        862,
+        409,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        39,
+        125.0,
+        -49
+      ],
+      "size": [
+        4,
+        12,
+        5
+      ],
+      "material": "horn",
+      "uv": [
+        881,
+        409,
+        18,
+        17
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        41,
+        133.0,
+        -45
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "horn",
+      "uv": [
+        902,
+        409,
+        14,
+        12
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        37,
+        102.5,
+        -66
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        919,
+        409,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        37,
+        104.5,
+        -66
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        930,
+        409,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        37,
+        104.0,
+        -70
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        941,
+        409,
+        8,
+        10
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        37,
+        104.5,
+        -70
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        952,
+        409,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        37,
+        102.5,
+        -74
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        963,
+        409,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        37,
+        104.5,
+        -74
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        974,
+        409,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        37,
+        104.0,
+        -78
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        985,
+        409,
+        8,
+        10
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        37,
+        104.5,
+        -78
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        996,
+        409,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        37,
+        102.5,
+        -82
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        1007,
+        409,
+        8,
+        7
+      ]
+    },
+    {
+      "bone": "jaw_2",
+      "center": [
+        37,
+        104.5,
+        -82
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "tooth",
+      "uv": [
+        2,
+        457,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        30,
+        124.5,
+        -52
+      ],
+      "size": [
+        4,
+        5,
+        4
+      ],
+      "material": "predator",
+      "uv": [
+        13,
+        457,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        30,
+        126.0,
+        -47
+      ],
+      "size": [
+        4,
+        8,
+        4
+      ],
+      "material": "predator",
+      "uv": [
+        32,
+        457,
+        16,
+        12
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        30,
+        124.5,
+        -42
+      ],
+      "size": [
+        4,
+        5,
+        4
+      ],
+      "material": "predator",
+      "uv": [
+        51,
+        457,
+        16,
+        9
+      ]
+    },
+    {
+      "bone": "head_2",
+      "center": [
+        30,
+        126.0,
+        -37
+      ],
+      "size": [
+        4,
+        8,
+        4
+      ],
+      "material": "predator",
+      "uv": [
+        70,
+        457,
+        16,
+        12
+      ]
+    },
+    {
+      "bone": "tail_0",
+      "center": [
+        0,
+        29.0,
+        60
+      ],
+      "size": [
+        27.0,
+        16,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        89,
+        457,
+        100,
+        39
+      ]
+    },
+    {
+      "bone": "tail_0",
+      "center": [
+        0,
+        39.5,
+        59
+      ],
+      "size": [
+        3,
+        9,
+        5
+      ],
+      "material": "glow",
+      "uv": [
+        192,
+        457,
+        16,
+        14
+      ]
+    },
+    {
+      "bone": "tail_1",
+      "center": [
+        0,
+        26.5,
+        77
+      ],
+      "size": [
+        24.2,
+        15,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        211,
+        457,
+        95,
+        38
+      ]
+    },
+    {
+      "bone": "tail_1",
+      "center": [
+        0,
+        37.5,
+        76
+      ],
+      "size": [
+        3,
+        9,
+        5
+      ],
+      "material": "glow",
+      "uv": [
+        309,
+        457,
+        16,
+        14
+      ]
+    },
+    {
+      "bone": "tail_2",
+      "center": [
+        0,
+        24.0,
+        94
+      ],
+      "size": [
+        21.4,
+        14,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        328,
+        457,
+        89,
+        37
+      ]
+    },
+    {
+      "bone": "tail_2",
+      "center": [
+        0,
+        35.5,
+        93
+      ],
+      "size": [
+        3,
+        9,
+        5
+      ],
+      "material": "glow",
+      "uv": [
+        420,
+        457,
+        16,
+        14
+      ]
+    },
+    {
+      "bone": "tail_3",
+      "center": [
+        0,
+        21.5,
+        111
+      ],
+      "size": [
+        18.6,
+        13,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        439,
+        457,
+        84,
+        36
+      ]
+    },
+    {
+      "bone": "tail_3",
+      "center": [
+        0,
+        33.5,
+        110
+      ],
+      "size": [
+        3,
+        9,
+        5
+      ],
+      "material": "glow",
+      "uv": [
+        526,
+        457,
+        16,
+        14
+      ]
+    },
+    {
+      "bone": "tail_4",
+      "center": [
+        0,
+        19.0,
+        128
+      ],
+      "size": [
+        15.8,
+        12,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        545,
+        457,
+        78,
+        35
+      ]
+    },
+    {
+      "bone": "tail_4",
+      "center": [
+        0,
+        31.5,
+        127
+      ],
+      "size": [
+        3,
+        9,
+        5
+      ],
+      "material": "glow",
+      "uv": [
+        626,
+        457,
+        16,
+        14
+      ]
+    },
+    {
+      "bone": "tail_5",
+      "center": [
+        0,
+        16.5,
+        145
+      ],
+      "size": [
+        13.0,
+        11,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        645,
+        457,
+        72,
+        34
+      ]
+    },
+    {
+      "bone": "tail_5",
+      "center": [
+        0,
+        29.5,
+        144
+      ],
+      "size": [
+        3,
+        9,
+        5
+      ],
+      "material": "glow",
+      "uv": [
+        720,
+        457,
+        16,
+        14
+      ]
+    },
+    {
+      "bone": "tail_6",
+      "center": [
+        0,
+        14.0,
+        162
+      ],
+      "size": [
+        10.200000000000003,
+        10,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        739,
+        457,
+        67,
+        33
+      ]
+    },
+    {
+      "bone": "tail_6",
+      "center": [
+        0,
+        27.5,
+        161
+      ],
+      "size": [
+        3,
+        9,
+        5
+      ],
+      "material": "mor",
+      "uv": [
+        809,
+        457,
+        16,
+        14
+      ]
+    },
+    {
+      "bone": "tail_7",
+      "center": [
+        0,
+        11.5,
+        179
+      ],
+      "size": [
+        7.400000000000002,
+        9,
+        23
+      ],
+      "material": "scale",
+      "uv": [
+        828,
+        457,
+        61,
+        32
+      ]
+    },
+    {
+      "bone": "tail_7",
+      "center": [
+        0,
+        25.5,
+        178
+      ],
+      "size": [
+        3,
+        9,
+        5
+      ],
+      "material": "mor",
+      "uv": [
+        892,
+        457,
+        16,
+        14
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -35,
+        64.70848343981605,
+        12
+      ],
+      "size": [
+        17,
+        21.4169668796321,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        911,
+        457,
+        48,
+        29
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -35,
+        54.102624443095735,
+        26
+      ],
+      "size": [
+        17,
+        30.628684873072736,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        962,
+        457,
+        38,
+        33
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -35,
+        53.102624443095735,
+        31
+      ],
+      "size": [
+        4,
+        36.628684873072736,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        1003,
+        457,
+        16,
+        41
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -35,
+        36.78828200655936,
+        33
+      ],
+      "size": [
+        5,
+        6,
+        2
+      ],
+      "material": "glow",
+      "uv": [
+        2,
+        501,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -51,
+        80.13538607229299,
+        16
+      ],
+      "size": [
+        17,
+        19.436838385321778,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        19,
+        501,
+        48,
+        27
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -51,
+        63.426415900282706,
+        30
+      ],
+      "size": [
+        17,
+        40.854778729342335,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        70,
+        501,
+        38,
+        43
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -51,
+        62.426415900282706,
+        35
+      ],
+      "size": [
+        4,
+        46.854778729342335,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        111,
+        501,
+        16,
+        51
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -67,
+        92.71151232330347,
+        20
+      ],
+      "size": [
+        17,
+        15.71541411669918,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        130,
+        501,
+        48,
+        23
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -67,
+        70.34678751731761,
+        34
+      ],
+      "size": [
+        17,
+        48.44486372867091,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        181,
+        501,
+        38,
+        51
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -67,
+        69.34678751731761,
+        39
+      ],
+      "size": [
+        4,
+        54.44486372867091,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        222,
+        501,
+        16,
+        59
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -67,
+        44.124355652982146,
+        41
+      ],
+      "size": [
+        5,
+        6,
+        2
+      ],
+      "material": "glow",
+      "uv": [
+        241,
+        501,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -83,
+        100.91999576311952,
+        24
+      ],
+      "size": [
+        17,
+        10.70155276293292,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        258,
+        501,
+        48,
+        18
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -83,
+        74.02904034337844,
+        38
+      ],
+      "size": [
+        17,
+        52.48346360241507,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        309,
+        501,
+        38,
+        55
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -83,
+        73.02904034337844,
+        43
+      ],
+      "size": [
+        4,
+        58.48346360241507,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        350,
+        501,
+        16,
+        63
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -99,
+        103.77077214458598,
+        28
+      ],
+      "size": [
+        17,
+        5.0,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        369,
+        501,
+        48,
+        12
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -99,
+        74.02904034337844,
+        42
+      ],
+      "size": [
+        17,
+        52.48346360241507,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        420,
+        501,
+        38,
+        55
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -99,
+        73.02904034337844,
+        47
+      ],
+      "size": [
+        4,
+        58.48346360241507,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        461,
+        501,
+        16,
+        63
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -99,
+        45.787308542170905,
+        49
+      ],
+      "size": [
+        5,
+        6,
+        2
+      ],
+      "material": "glow",
+      "uv": [
+        480,
+        501,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -115,
+        100.91999576311952,
+        32
+      ],
+      "size": [
+        17,
+        10.70155276293292,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        497,
+        501,
+        48,
+        18
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -115,
+        70.3467875173176,
+        46
+      ],
+      "size": [
+        17,
+        48.44486372867092,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        548,
+        501,
+        38,
+        51
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -115,
+        69.3467875173176,
+        51
+      ],
+      "size": [
+        4,
+        54.44486372867092,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        589,
+        501,
+        16,
+        59
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -131,
+        92.71151232330348,
+        36
+      ],
+      "size": [
+        17,
+        15.715414116699165,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        608,
+        501,
+        48,
+        23
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -131,
+        63.42641590028272,
+        50
+      ],
+      "size": [
+        17,
+        40.85477872934234,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        659,
+        501,
+        38,
+        43
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -131,
+        62.42641590028272,
+        55
+      ],
+      "size": [
+        4,
+        46.85477872934234,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        700,
+        501,
+        16,
+        51
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -131,
+        40.99902653561155,
+        57
+      ],
+      "size": [
+        5,
+        6,
+        2
+      ],
+      "material": "glow",
+      "uv": [
+        719,
+        501,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -147,
+        80.13538607229299,
+        40
+      ],
+      "size": [
+        17,
+        19.436838385321792,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        736,
+        501,
+        48,
+        27
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -147,
+        54.10262444309573,
+        54
+      ],
+      "size": [
+        17,
+        30.628684873072743,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        787,
+        501,
+        38,
+        33
+      ]
+    },
+    {
+      "bone": "wing_left",
+      "center": [
+        -147,
+        53.10262444309573,
+        59
+      ],
+      "size": [
+        4,
+        36.62868487307274,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        828,
+        501,
+        16,
+        41
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        35,
+        64.70848343981605,
+        12
+      ],
+      "size": [
+        17,
+        21.4169668796321,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        847,
+        501,
+        48,
+        29
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        35,
+        54.102624443095735,
+        26
+      ],
+      "size": [
+        17,
+        30.628684873072736,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        898,
+        501,
+        38,
+        33
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        35,
+        53.102624443095735,
+        31
+      ],
+      "size": [
+        4,
+        36.628684873072736,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        939,
+        501,
+        16,
+        41
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        35,
+        36.78828200655936,
+        33
+      ],
+      "size": [
+        5,
+        6,
+        2
+      ],
+      "material": "glow",
+      "uv": [
+        958,
+        501,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        51,
+        80.13538607229299,
+        16
+      ],
+      "size": [
+        17,
+        19.436838385321778,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        2,
+        567,
+        48,
+        27
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        51,
+        63.426415900282706,
+        30
+      ],
+      "size": [
+        17,
+        40.854778729342335,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        53,
+        567,
+        38,
+        43
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        51,
+        62.426415900282706,
+        35
+      ],
+      "size": [
+        4,
+        46.854778729342335,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        94,
+        567,
+        16,
+        51
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        67,
+        92.71151232330347,
+        20
+      ],
+      "size": [
+        17,
+        15.71541411669918,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        113,
+        567,
+        48,
+        23
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        67,
+        70.34678751731761,
+        34
+      ],
+      "size": [
+        17,
+        48.44486372867091,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        164,
+        567,
+        38,
+        51
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        67,
+        69.34678751731761,
+        39
+      ],
+      "size": [
+        4,
+        54.44486372867091,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        205,
+        567,
+        16,
+        59
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        67,
+        44.124355652982146,
+        41
+      ],
+      "size": [
+        5,
+        6,
+        2
+      ],
+      "material": "glow",
+      "uv": [
+        224,
+        567,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        83,
+        100.91999576311952,
+        24
+      ],
+      "size": [
+        17,
+        10.70155276293292,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        241,
+        567,
+        48,
+        18
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        83,
+        74.02904034337844,
+        38
+      ],
+      "size": [
+        17,
+        52.48346360241507,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        292,
+        567,
+        38,
+        55
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        83,
+        73.02904034337844,
+        43
+      ],
+      "size": [
+        4,
+        58.48346360241507,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        333,
+        567,
+        16,
+        63
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        99,
+        103.77077214458598,
+        28
+      ],
+      "size": [
+        17,
+        5.0,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        352,
+        567,
+        48,
+        12
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        99,
+        74.02904034337844,
+        42
+      ],
+      "size": [
+        17,
+        52.48346360241507,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        403,
+        567,
+        38,
+        55
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        99,
+        73.02904034337844,
+        47
+      ],
+      "size": [
+        4,
+        58.48346360241507,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        444,
+        567,
+        16,
+        63
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        99,
+        45.787308542170905,
+        49
+      ],
+      "size": [
+        5,
+        6,
+        2
+      ],
+      "material": "glow",
+      "uv": [
+        463,
+        567,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        115,
+        100.91999576311952,
+        32
+      ],
+      "size": [
+        17,
+        10.70155276293292,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        480,
+        567,
+        48,
+        18
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        115,
+        70.3467875173176,
+        46
+      ],
+      "size": [
+        17,
+        48.44486372867092,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        531,
+        567,
+        38,
+        51
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        115,
+        69.3467875173176,
+        51
+      ],
+      "size": [
+        4,
+        54.44486372867092,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        572,
+        567,
+        16,
+        59
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        131,
+        92.71151232330348,
+        36
+      ],
+      "size": [
+        17,
+        15.715414116699165,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        591,
+        567,
+        48,
+        23
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        131,
+        63.42641590028272,
+        50
+      ],
+      "size": [
+        17,
+        40.85477872934234,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        642,
+        567,
+        38,
+        43
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        131,
+        62.42641590028272,
+        55
+      ],
+      "size": [
+        4,
+        46.85477872934234,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        683,
+        567,
+        16,
+        51
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        131,
+        40.99902653561155,
+        57
+      ],
+      "size": [
+        5,
+        6,
+        2
+      ],
+      "material": "glow",
+      "uv": [
+        702,
+        567,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        147,
+        80.13538607229299,
+        40
+      ],
+      "size": [
+        17,
+        19.436838385321792,
+        7
+      ],
+      "material": "scale",
+      "uv": [
+        719,
+        567,
+        48,
+        27
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        147,
+        54.10262444309573,
+        54
+      ],
+      "size": [
+        17,
+        30.628684873072743,
+        2
+      ],
+      "material": "membrane",
+      "uv": [
+        770,
+        567,
+        38,
+        33
+      ]
+    },
+    {
+      "bone": "wing_right",
+      "center": [
+        147,
+        53.10262444309573,
+        59
+      ],
+      "size": [
+        4,
+        36.62868487307274,
+        4
+      ],
+      "material": "scale",
+      "uv": [
+        811,
+        567,
+        16,
+        41
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "ZIP CRC, production metadata/test exclusion, source resource presence, assets/data byte parity, JSON syntax; not runtime loading or balance",
+  "resources_checked": 6714,
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.jar",
+  "sha256": "0f1e76dd6bef952350a67d83da5357cc26bcc8dcb290b7eb281c8e46d2290e0e",
+  "game_starts": 0
+}

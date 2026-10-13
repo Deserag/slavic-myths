@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:woodland_plains",
+  "features": [
+    "slavicmyths:rowan_12",
+    "slavicmyths:linden_24"
+  ],
+  "step": "vegetal_decoration"
+}

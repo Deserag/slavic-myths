@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:path_shrine",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 80
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

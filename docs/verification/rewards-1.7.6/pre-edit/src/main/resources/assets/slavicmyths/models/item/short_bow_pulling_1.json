@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "slavicmyths:item/short_bow_pulling_1"
+  }
+}

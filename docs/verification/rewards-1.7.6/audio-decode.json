@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "fully_decoded": 22,
+  "streams": [
+    {
+      "file": "gift_alyosha_dodge.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "gift_dobrynya_counter.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "gift_dobrynya_ring_ready.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "gift_finist_detection.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "gift_finist_warning.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "gift_ilya_block_reflect.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "gift_ilya_wave.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "reward_claim_success.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "reward_rare_loot.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "rune_anvil_socket.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "rune_battle_line_proc.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "rune_dispelling_proc.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "rune_pursuit_proc.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "rune_stomp_proc.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "rune_suppression_proc.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "trophy_idol_heavy_guard.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "trophy_kalin_momentum_1.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "trophy_kalin_momentum_3.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "trophy_kalin_sweep.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "trophy_kartaus_resistance.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "trophy_marinka_blink.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    },
+    {
+      "file": "trophy_skim_execute.ogg",
+      "codec_name": "vorbis",
+      "channels": 1
+    }
+  ]
+}

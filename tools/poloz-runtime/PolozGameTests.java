@@ -1,0 +1,21 @@
+package org.slavicmyths.verify;
+import net.minecraft.core.*;
+import net.minecraft.gametest.framework.*;
+import net.minecraft.nbt.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.gametest.*;
+import org.slavicmyths.poloz.*;
+import org.slavicmyths.mor.*;
+@GameTestHolder("slavicmyths_poloz") @PrefixGameTestTemplate(false)
+public final class PolozGameTests {
+ static GreatPoloz boss(GameTestHelper t){var b=PolozContent.BOSS.get().create(t.getLevel());b.moveTo(t.absoluteVec(new Vec3(16,4,16)));b.setHealth(3000);b.initializeBody();t.getLevel().addFreshEntity(b);return b;}
+ @GameTest(template="empty",timeoutTicks=30) public static void states(GameTestHelper t){int count=0;for(int i=0;i<MorBlocks.IDS.length;i++)for(var state:MorBlocks.BASE[i].getStateDefinition().getPossibleStates()){BlockPos q=t.absolutePos(new BlockPos(2,2,2));t.getLevel().setBlock(q,state,2);t.assertTrue(MorBlocks.convert(t.getLevel(),q,null)==MorBlocks.Result.CONVERTED,"conversion "+state);var converted=t.getLevel().getBlockState(q);t.assertTrue(MorBlocks.prototype(converted).equals(state),"state "+state);count++;}System.out.println("POLOZ_GATE blockstate count="+count);t.succeed();}
+ @GameTest(template="empty",timeoutTicks=30) public static void healthAndParts(GameTestHelper t){var b=boss(t);t.assertTrue(b.getMaxHealth()==3000&&b.getHealth()==3000,"actual 3000HP");t.assertTrue(b.getParts().length==27&&b.parts[23].distanceTo(b)>35&&b.parts[23].distanceTo(b)<42,"40-block native body");for(var p:b.parts)t.assertTrue(p.getParent()==b,"single damage owner");b.discard();t.succeed();}
+ @GameTest(template="empty",timeoutTicks=30) public static void armorAndScars(GameTestHelper t){var b=boss(t);var attacker=new Zombie(EntityType.ZOMBIE,t.getLevel());attacker.moveTo(b.parts[5].position());var source=attacker.damageSources().mobAttack(attacker);t.assertTrue(!b.parts[5].hurt(source,10)&&b.getHealth()==3000,"armor zero");var other=new Zombie(EntityType.ZOMBIE,t.getLevel());other.moveTo(b.parts[24].position());t.assertTrue(b.parts[24].hurt(other.damageSources().mobAttack(other),10),"scar hurt");t.assertTrue(b.getHealth()==2985,"scar x1.5");t.assertTrue(!b.parts[24].hurt(other.damageSources().mobAttack(other),10)&&b.getHealth()==2985,"one actor cooldown");b.discard();t.succeed();}
+ @GameTest(template="empty",timeoutTicks=30) public static void phaseBody(GameTestHelper t){var b=boss(t);b.setPhaseForTest(2);var z=new Zombie(EntityType.ZOMBIE,t.getLevel());z.moveTo(b.parts[7].position());t.assertTrue(b.parts[7].hurt(z.damageSources().mobAttack(z),20)&&b.getHealth()==1485,"phase2 body .75");b.setPhaseForTest(3);var other=new Zombie(EntityType.ZOMBIE,t.getLevel());other.moveTo(b.parts[7].position());t.assertTrue(b.parts[7].hurt(other.damageSources().mobAttack(other),20)&&b.getHealth()==580,"phase3 body 1");var n=new CompoundTag();b.saveWithoutId(n);var loaded=PolozContent.BOSS.get().create(t.getLevel());loaded.load(n);t.assertTrue(loaded.phase()==3&&loaded.getHealth()==580&&loaded.parts[23].distanceTo(loaded)>35,"actual boss NBT roundtrip");b.discard();loaded.discard();t.succeed();}
+ @GameTest(template="empty",timeoutTicks=30) public static void singletonSchema(GameTestHelper t){var d=new PolozEvent();d.state=PolozEvent.State.ACTIVE;d.boss=java.util.UUID.randomUUID();d.event=java.util.UUID.randomUUID();d.cooldownUntil=24000;d.spawn=new BlockPos(3,64,4);var loaded=PolozEvent.load(d.save(new CompoundTag(),t.getLevel().registryAccess()),t.getLevel().registryAccess());t.assertTrue(loaded.running()&&loaded.boss.equals(d.boss)&&loaded.spawn.equals(d.spawn)&&loaded.cooldownUntil==24000,"SavedData schema");t.succeed();}
+ @GameTest(template="empty",timeoutTicks=30) public static void portableHorn(GameTestHelper t){var s=new net.minecraft.world.item.ItemStack(PolozContent.HORN.get());var token=java.util.UUID.randomUUID();MorHorn.mark(s,true,token);var saved=s.save(t.getLevel().registryAccess());var back=net.minecraft.world.item.ItemStack.parseOptional(t.getLevel().registryAccess(),(CompoundTag)saved);t.assertTrue(MorHorn.used(back)&&token.equals(MorHorn.token(back)),"portable horn component");t.succeed();}
+}

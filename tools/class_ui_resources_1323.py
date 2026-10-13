@@ -25,9 +25,11 @@ UI={
  'slot_hint':('Выберите изученный навык и нажмите слот. ПКМ — снять.','Select a learned skill, then click a slot. Right-click to clear.'),
  'tree_hint':('Узел → слот. Дерево: перетаскивание или колесо; Shift + колесо — по горизонтали. Карточка: колесо.','Node → slot. Drag or scroll the tree; Shift + wheel pans horizontally. Scroll the card.'),
  'press_key':('Нажмите клавишу… Esc — отмена','Press a key… Esc cancels'),'binding_row':('Активный навык %s     [%s]','Active skill %s     [%s]'),
- 'binding_hint':('Общие назначения Minecraft. Нажмите кнопку и затем клавишу или кнопку мыши. Пассивный слот клавиши не имеет.','These are Minecraft key mappings. Click a binding, then press a key or mouse button. Passive skills have no binding.'),
+ 'binding_hint':('Нажмите клавишу справа, затем новое назначение. Esc — отменить.','Click a key on the right, then press a new key. Esc cancels.'),
  'conflict_named':('Конфликт: %s','Conflict: %s'),'branch_current':('Текущее направление: %s','Current branch: %s'),
  'settings':('Настройки Slavic Myths','Slavic Myths settings'),'show_hud':('Показывать HUD навыков','Show skill HUD'),'hud_settings_hint':('Скрывается только панель. Способности и назначенные клавиши продолжают работать.','Only the panel is hidden. Abilities and their key mappings continue working.')}
+
+UI.update({'paths': ('Пути развития', 'Development paths'), 'show_skills': ('Навыки', 'Skills'), 'show_directions': ('Направления', 'Specializations'), 'assign_to': ('Закрепить: %s', 'Assign: %s'), 'slot_occupied': ('%s — сейчас: %s. Нажатие заменит навык.', '%s — currently: %s. Click to replace this skill.'), 'clear_slot': ('Снять навык: %s', 'Clear skill: %s'), 'automatic_skill': ('Действует автоматически после изучения. На клавишу не назначается.', 'Works automatically after learning. No key assignment.'), 'learn_then_assign': ('Сначала «Изучить», затем «Закрепить» на выбранную клавишу.', 'First Learn, then Assign to a key.'), 'assign_instruction': ('Закрепите кнопкой ниже. Наведите на кнопку, чтобы увидеть занятый навык.', 'Assign using a button below. Hover to see its current skill.'), 'binding_hint': ('Здесь меняются клавиши. Назначение навыков — в «Путях развития». Конфликты подписаны.', 'Change keys here. Assign skills in Development paths. Conflicts are named.')})
 
 def icon(name):
  im=Image.new('RGBA',(32,32));d=ImageDraw.Draw(im)

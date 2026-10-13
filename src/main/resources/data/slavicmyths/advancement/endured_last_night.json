@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:shard_of_last_night"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.endured_last_night"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.endured_last_night.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

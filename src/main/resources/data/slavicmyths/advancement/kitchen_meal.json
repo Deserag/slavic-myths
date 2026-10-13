@@ -1,5 +1,5 @@
 {
-  "parent": "slavicmyths:root",
+  "parent": "slavicmyths:group_home",
   "display": {
     "icon": {
       "id": "slavicmyths:kitchen_table"

@@ -1,0 +1,32 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:blank_rune_1"
+      },
+      "count": 1,
+      "base": {
+        "tier": 1,
+        "material": "gold"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:coal_dust"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:flint"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_heat",
+    "count": 1
+  },
+  "chisel": false
+}

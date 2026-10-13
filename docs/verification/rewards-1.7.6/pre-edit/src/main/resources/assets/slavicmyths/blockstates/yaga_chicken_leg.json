@@ -1,0 +1,116 @@
+{
+  "variants": {
+    "part=0,facing=north": {
+      "model": "slavicmyths:block/yaga_leg_0",
+      "y": 0
+    },
+    "part=0,facing=east": {
+      "model": "slavicmyths:block/yaga_leg_0",
+      "y": 90
+    },
+    "part=0,facing=south": {
+      "model": "slavicmyths:block/yaga_leg_0",
+      "y": 180
+    },
+    "part=0,facing=west": {
+      "model": "slavicmyths:block/yaga_leg_0",
+      "y": 270
+    },
+    "part=1,facing=north": {
+      "model": "slavicmyths:block/yaga_leg_1",
+      "y": 0
+    },
+    "part=1,facing=east": {
+      "model": "slavicmyths:block/yaga_leg_1",
+      "y": 90
+    },
+    "part=1,facing=south": {
+      "model": "slavicmyths:block/yaga_leg_1",
+      "y": 180
+    },
+    "part=1,facing=west": {
+      "model": "slavicmyths:block/yaga_leg_1",
+      "y": 270
+    },
+    "part=2,facing=north": {
+      "model": "slavicmyths:block/yaga_leg_2",
+      "y": 0
+    },
+    "part=2,facing=east": {
+      "model": "slavicmyths:block/yaga_leg_2",
+      "y": 90
+    },
+    "part=2,facing=south": {
+      "model": "slavicmyths:block/yaga_leg_2",
+      "y": 180
+    },
+    "part=2,facing=west": {
+      "model": "slavicmyths:block/yaga_leg_2",
+      "y": 270
+    },
+    "part=3,facing=north": {
+      "model": "slavicmyths:block/yaga_leg_3",
+      "y": 0
+    },
+    "part=3,facing=east": {
+      "model": "slavicmyths:block/yaga_leg_3",
+      "y": 90
+    },
+    "part=3,facing=south": {
+      "model": "slavicmyths:block/yaga_leg_3",
+      "y": 180
+    },
+    "part=3,facing=west": {
+      "model": "slavicmyths:block/yaga_leg_3",
+      "y": 270
+    },
+    "part=4,facing=north": {
+      "model": "slavicmyths:block/yaga_leg_4",
+      "y": 0
+    },
+    "part=4,facing=east": {
+      "model": "slavicmyths:block/yaga_leg_4",
+      "y": 90
+    },
+    "part=4,facing=south": {
+      "model": "slavicmyths:block/yaga_leg_4",
+      "y": 180
+    },
+    "part=4,facing=west": {
+      "model": "slavicmyths:block/yaga_leg_4",
+      "y": 270
+    },
+    "part=5,facing=north": {
+      "model": "slavicmyths:block/yaga_leg_5",
+      "y": 0
+    },
+    "part=5,facing=east": {
+      "model": "slavicmyths:block/yaga_leg_5",
+      "y": 90
+    },
+    "part=5,facing=south": {
+      "model": "slavicmyths:block/yaga_leg_5",
+      "y": 180
+    },
+    "part=5,facing=west": {
+      "model": "slavicmyths:block/yaga_leg_5",
+      "y": 270
+    },
+    "part=6,facing=north": {
+      "model": "slavicmyths:block/yaga_leg_6",
+      "y": 0
+    },
+    "part=6,facing=east": {
+      "model": "slavicmyths:block/yaga_leg_6",
+      "y": 90
+    },
+    "part=6,facing=south": {
+      "model": "slavicmyths:block/yaga_leg_6",
+      "y": 180
+    },
+    "part=6,facing=west": {
+      "model": "slavicmyths:block/yaga_leg_6",
+      "y": 270
+    }
+  }
+}

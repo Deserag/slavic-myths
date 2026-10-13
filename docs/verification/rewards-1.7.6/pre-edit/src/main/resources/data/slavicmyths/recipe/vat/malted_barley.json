@@ -1,0 +1,29 @@
+{
+  "type": "slavicmyths:vat",
+  "mode": "MALTING",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:barley_grain"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "time": 1200,
+  "result": {
+    "id": "slavicmyths:malted_barley",
+    "count": 4
+  },
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ]
+}

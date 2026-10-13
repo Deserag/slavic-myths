@@ -1,0 +1,14 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :compileFinistOffline
+
+> Task :finistOfflineChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[20:20:21] [main/WARN] [minecraft/DetectedVersion]: Missing version information!
+FINIST OFFLINE PASS checks=116070 clips=26 NOT_GAME_RENDERING
+
+BUILD SUCCESSFUL in 31s
+4 actionable tasks: 2 executed, 2 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

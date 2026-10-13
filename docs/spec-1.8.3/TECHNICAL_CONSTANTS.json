@@ -1,0 +1,70 @@
+{
+  "schema": "slavic-myths-tz-v1",
+  "game": "Minecraft 1.21.1 / NeoForge",
+  "patches": [
+    "1.8.3.1",
+    "1.8.3.2"
+  ],
+  "approved_refs": [
+    "refs/01_approved_corrupted_vanilla_blocks.png",
+    "refs/02_approved_morovoy_horn_recipe_and_use.png"
+  ],
+  "boss": {
+    "id": "slavicmyths:great_poloz",
+    "max_hp": 3000,
+    "length_blocks": 40,
+    "spawn_distance_min": 200,
+    "spawn_distance_max": 300,
+    "phase2_hp_at_or_below": 2100,
+    "phase3_hp_at_or_below": 900,
+    "first_phase_weak_segments": [
+      "head",
+      "tail_last_2",
+      "body5_left",
+      "body12_top",
+      "body18_right"
+    ],
+    "phase2_all_body_vulnerable": true,
+    "phase3_all_body_vulnerable": true
+  },
+  "horn": {
+    "id": "slavicmyths:mor_horn",
+    "recipe_pattern": [
+      "EGH",
+      "MRM",
+      "MMM"
+    ],
+    "eye": 1,
+    "gold_ingot": 1,
+    "ashen_heart": 1,
+    "goat_horn": 1,
+    "mor_dust": 5,
+    "initial_additional_dust": 0,
+    "repeat_dust": 4,
+    "sound_seconds": 9,
+    "audible_radius_blocks": 160
+  },
+  "blocks": [
+    "mor_dirt",
+    "mor_grass_block",
+    "mor_stone",
+    "mor_cobblestone",
+    "mor_sand",
+    "mor_gravel",
+    "mor_oak_log",
+    "mor_oak_leaves",
+    "mor_oak_planks",
+    "mor_birch_log",
+    "mor_sandstone",
+    "mor_obsidian"
+  ],
+  "bounds": {
+    "max_break_ops_per_tick": 32,
+    "max_convert_ops_per_tick": 48,
+    "max_queue_each": 2048,
+    "max_event_chunk_tickets": 16,
+    "max_event_minions_alive": 8,
+    "max_active_poloz_overworld": 1
+  },
+  "poly_mc_client_launch_allowed": false
+}

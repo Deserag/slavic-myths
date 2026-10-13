@@ -1,0 +1,353 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/residential/seni_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/residential/seni_02",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/residential/seni_03",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/residential/seni_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/residential/seni_02",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/residential/seni_03",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/residential/seni_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/residential/seni_02",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/residential/zemlyanka_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/residential/zemlyanka_02",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/residential/zemlyanka_03",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/butcher_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/butcher_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/toolsmith_forge_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/fletcher_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/shepherd_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/armorer_forge_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/armorer_forge_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/fisher_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/tanner_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/cartographer_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/chronicler_terem_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/mason_workshop_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/mason_workshop_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/weaponsmith_forge_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/herbalist_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/farm/small_field_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/farm/small_field_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/utility/hlev_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/utility/hlev_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      },
+      "weight": 6
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/miller_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/brewer_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/weaver_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/hunter_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/profession/cook_house_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/utility/ambar_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/utility/klet_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/cold/defense/druzhinnik_barracks_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    }
+  ],
+  "fallback": "minecraft:village/snowy/terminators"
+}

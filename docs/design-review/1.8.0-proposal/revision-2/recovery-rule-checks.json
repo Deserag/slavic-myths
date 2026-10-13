@@ -1,0 +1,60 @@
+{
+  "status": "DRAFT_MODEL_PASS",
+  "checks": 376,
+  "production_integration": "NOT_IMPLEMENTED",
+  "minecraft_launches": 0,
+  "trace": [
+    {
+      "hero": "ilya_muromets",
+      "before_end": {
+        "battle": "battle-1",
+        "recoveries": 2,
+        "state": "withdrawn"
+      },
+      "next_battle": {
+        "battle": "battle-2",
+        "recoveries": 1,
+        "state": "recovering"
+      }
+    },
+    {
+      "hero": "dobrynya_nikitich",
+      "before_end": {
+        "battle": "battle-1",
+        "recoveries": 2,
+        "state": "withdrawn"
+      },
+      "next_battle": {
+        "battle": "battle-2",
+        "recoveries": 1,
+        "state": "recovering"
+      }
+    },
+    {
+      "hero": "alyosha_popovich",
+      "before_end": {
+        "battle": "battle-1",
+        "recoveries": 2,
+        "state": "withdrawn"
+      },
+      "next_battle": {
+        "battle": "battle-2",
+        "recoveries": 1,
+        "state": "recovering"
+      }
+    },
+    {
+      "hero": "finist",
+      "before_end": {
+        "battle": "battle-1",
+        "recoveries": 2,
+        "state": "withdrawn"
+      },
+      "next_battle": {
+        "battle": "battle-2",
+        "recoveries": 1,
+        "state": "recovering"
+      }
+    }
+  ]
+}

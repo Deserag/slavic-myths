@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:dried_berries"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.winter_stores.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.winter_stores.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "dry": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:dried_berries"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "dry"
+    ]
+  ]
+}

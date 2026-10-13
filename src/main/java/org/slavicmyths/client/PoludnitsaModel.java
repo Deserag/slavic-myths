@@ -9,7 +9,9 @@ public final class PoludnitsaModel extends EntityModel<PoludnitsaEntity>{
  private int texWidth=64,texHeight=32;
  private final FolkModelGeometry geometry=new FolkModelGeometry();
  private final ModelPart nRoot,nBody,nHead,nNose,nBackHair,nLeftHair,nRightHair,nWreath,nEar0,nEar1,nEar2,nEar3,nEar4,nEar5,nDress,nHem0,nHem1,nHem2,nHem3,nLeftArm,nLeftFore,nLeftHand,nLeftLeg,nRightArm,nRightFore,nRightHand,nRightLeg,nSickle,rRoot,rBody,rHead,rNose,rBackHair,rLeftHair,rRightHair,rWreath,rEar0,rEar1,rEar2,rEar3,rEar4,rEar5,rDress,rHem0,rHem1,rHem2,rHem3,rLeftArm,rLeftFore,rLeftHand,rLeftFinger0,rLeftFinger1,rLeftFinger2,rLeftLeg,rRightArm,rRightFore,rRightHand,rRightFinger0,rRightFinger1,rRightFinger2,rRightLeg,rSickle;private float presentationScale=1;
- public PoludnitsaModel(){texWidth=256;texHeight=256;
+ private final boolean mor;
+ public PoludnitsaModel(){this(false);}
+ public PoludnitsaModel(boolean mor){this.mor=mor;texWidth=256;texHeight=256;
  nRoot=geometry.part(texWidth,texHeight);nRoot.setPos(0.0F,0.0F,0.0F);
  nBody=geometry.part(texWidth,texHeight);nBody.setPos(0.0F,2.0F,0.0F);
  geometry.attach(nRoot,nBody);
@@ -226,7 +228,18 @@ public final class PoludnitsaModel extends EntityModel<PoludnitsaEntity>{
  geometry.box(rSickle,198,44,3.0F,0.0F,-0.5F,1.0F,4.0F,1.0F);
  geometry.box(rSickle,204,44,1.0F,-1.0F,-0.5F,3.0F,1.0F,1.0F);
  geometry.box(rSickle,214,44,0.5F,0.0F,-0.5F,1.0F,1.0F,1.0F);
+ if(mor)morParts();
  }
+ private void morParts(){
+    for(int i=0;i<7;i++){float x=(i-3)*.8F;if(i<2||i>4)geometry.box(rHead,224,224,x,-7,-2.8F,.65F,8+i%3,.7F);geometry.box(rHead,224,224,x,-7,2,.65F,10+i%4,1);}
+    geometry.box(rHead,216,244,-1.7F,-4.2F,-2.65F,1,1,.2F);geometry.box(rHead,216,244,.7F,-4.2F,-2.65F,1,1,.2F);
+    for(int i=0;i<6;i++){ModelPart ear=newPart(rHead,224,240);ear.setPos((i-2.5F)*1.2F,-7,0);ear.zRot=(i-2.5F)*.25F;geometry.box(ear,-.5F,-4,-.5F,1,4,1);}
+    for(int i=0;i<4;i++)geometry.box(rDress,192,224,-4+i*2,7+i%2,-2.7F,1.7F,5-i%2,1);
+    for(int i=0;i<3;i++)geometry.box(rLeftHand,192,240,-1.4F+i,1,-.7F,1,5,1);
+    for(int i=0;i<3;i++)geometry.box(rSickle,208,240,-3+i*1.5F,-2+i,-.5F,1,2,1);
+    geometry.box(rSickle,182,44,-.4F,5,-.4F,.8F,2.5F,.8F);
+ }
+ private ModelPart newPart(ModelPart parent,int u,int v){ModelPart p=geometry.part(texWidth,texHeight,u,v);geometry.attach(parent,p);return p;}
  @Override public void setupAnim(PoludnitsaEntity e,float walk,float amount,float age,float yaw,float pitch){
  nRoot.setPos(0.0F,0.0F,0.0F);nRoot.xRot=0.0F;nRoot.yRot=0.0F;nRoot.zRot=0.0F;
  nBody.setPos(0.0F,2.0F,0.0F);nBody.xRot=0.015F;nBody.yRot=0.0F;nBody.zRot=0.0F;
@@ -290,7 +303,7 @@ public final class PoludnitsaModel extends EntityModel<PoludnitsaEntity>{
  rRightFinger2.setPos(0.6F,1.7F,-0.2F);rRightFinger2.xRot=0.16F;rRightFinger2.yRot=0.0F;rRightFinger2.zRot=0.06F;
  rRightLeg.setPos(-1.4F,17.0F,0.0F);rRightLeg.xRot=0.0F;rRightLeg.yRot=0.0F;rRightLeg.zRot=0.0F;
  rSickle.setPos(0.0F,1.0F,0.0F);rSickle.xRot=0.0F;rSickle.yRot=0.0F;rSickle.zRot=0.1F;
- float t=Mth.clamp((e.form()+(e.form()>0 && e.form()<20?age-(int)age:0))/20F,0,1);nRoot.visible=t<.5F;rRoot.visible=!nRoot.visible;presentationScale=(30.5F+11*t)/(t<.5F?30.5F:41.5F);
+ float t=mor?1:Mth.clamp((e.form()+(e.form()>0 && e.form()<20?age-(int)age:0))/20F,0,1);nRoot.visible=t<.5F;rRoot.visible=!nRoot.visible;presentationScale=mor?30.5F/41.5F:(30.5F+11*t)/(t<.5F?30.5F:41.5F);
  nHead.yRot=rHead.yRot=yaw*.0174533F;nHead.xRot=rHead.xRot=pitch*.0174533F;
  nBody.zRot=Mth.sin(age*.022F)*.012F;nLeftArm.xRot=Mth.cos(walk*.5F)*amount*.1F;nRightArm.xRot=-nLeftArm.xRot;
  nLeftLeg.xRot=Mth.cos(walk*.5F)*amount*.25F;nRightLeg.xRot=-nLeftLeg.xRot;nDress.zRot=Mth.sin(walk*.4F)*amount*.015F;
@@ -298,7 +311,10 @@ public final class PoludnitsaModel extends EntityModel<PoludnitsaEntity>{
  rRightArm.xRot=-Mth.sin(attackTime*3.14159F)*1.6F;rLeftArm.zRot=-.12F;rRightArm.zRot=.12F;
  nLeftHair.zRot+=Mth.sin(age*.035F)*.02F;rLeftHair.zRot+=Mth.sin(age*.06F)*.06F;
  if(t>0 && t<1){nHead.zRot=rHead.zRot=Mth.sin(t*3.14159F)*.32F;}
+ if(!mor&&e.morState()==1){nHead.xRot=.15F+Mth.sin(age*1.3F)*.1F;nRightArm.xRot=.2F;return;}
+ if(mor){poseMor(age,e.morSkill(),e.morElapsed(age-e.tickCount),MorVisual.transform(e));presentationScale=(30.5F+11*e.form()/20F)/41.5F;return;}
  switch(e.attackPhase()){case TELEGRAPH->{rRightArm.xRot=-1.7F;rBody.yRot=-.25F;}case ACTIVE->{rRightArm.xRot=-.6F;rBody.yRot=.4F;}case RECOVERY->{rRightArm.xRot=.2F;rBody.xRot=.35F;}default->{}}
  }
+ public void poseMor(float age,int skill,float elapsed,float transform){nRoot.visible=false;rRoot.visible=true;presentationScale=30.5F/41.5F;rRightArm.zRot=.18F;rLeftArm.zRot=-.13F;rRightFore.xRot=-.2F;rRightArm.xRot=-.25F-Mth.sin(attackTime*3.14159F)*1.4F;rSickle.zRot=-.1F;rHead.zRot=Mth.sin(age*.14F)*.025F;rDress.zRot=Mth.sin(age*.14F)*.035F;if(transform>0){rHead.xRot-=transform*.2F;rRightArm.xRot=.4F;}else if(skill==3){rRightArm.xRot=-1.3F;rLeftArm.zRot=-.6F;}else if(skill==4){rBody.yRot=.35F;rRightArm.xRot=elapsed<19?-.7F:elapsed<25?-1.22F:1.13F;}}
  @Override public void renderToBuffer(PoseStack p,VertexConsumer b,int l,int o,int color){p.pushPose();p.translate(0,1.5,0);p.scale(presentationScale,presentationScale,presentationScale);p.translate(0,-1.5,0);nRoot.render(p,b,l,o,color);rRoot.render(p,b,l,o,color);p.popPose();}
 }

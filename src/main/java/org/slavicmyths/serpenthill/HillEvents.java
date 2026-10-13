@@ -1,0 +1,17 @@
+package org.slavicmyths.serpenthill;
+import net.minecraft.core.*;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.item.ItemStack;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+@EventBusSubscriber(modid="slavicmyths")
+public final class HillEvents {
+ public static boolean protectedPlayer(ServerPlayer p){if(!p.isCreative()){var receipts=org.slavicmyths.rpg.PathData.data(p).getCompound("Guardian194Claims");if(!org.slavicmyths.quest185.Quest185Story.data(p).getBoolean("Likho")||!receipts.getBoolean("Fire")||!receipts.getBoolean("Water"))return false;}return p.hasEffect(org.slavicmyths.quest185.Quest185Content.WARD_EFFECT)||java.util.stream.IntStream.range(0,p.getInventory().getContainerSize()).anyMatch(i->p.getInventory().getItem(i).is(org.slavicmyths.quest185.Quest185Content.WARD.get()));}
+ @SubscribeEvent public static void player(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post event){if(!(event.getEntity() instanceof ServerPlayer p)||!p.isAlive()||p.isSpectator()||p.serverLevel().dimension()!=Level.OVERWORLD)return;if(p.tickCount%40!=0&&p.tickCount%HillRules.AURA_INTERVAL!=0)return;var w=p.serverLevel();var d=HillWorld.get(w);if(p.tickCount%40==0){var chunk=w.getChunkSource().getChunkNow(p.chunkPosition().x,p.chunkPosition().z);var type=w.registryAccess().registryOrThrow(Registries.STRUCTURE).get(HillContent.id("serpent_hill"));if(chunk!=null&&type!=null)for(long ref:chunk.getReferencesForStructure(type)){var cp=new ChunkPos(ref);var loaded=w.getChunkSource().getChunkNow(cp.x,cp.z);if(loaded==null)continue;var start=loaded.getStartForStructure(type);if(start==null||!start.isValid())continue;for(var part:start.getPieces())if(part instanceof SerpentHillPiece hill&&hill.getBoundingBox().isInside(p.blockPosition())){d.ensure(hill.instance,hill.origin,hill.rotation,hill.seed);org.slavicmyths.tales.TaleService.promote(p,"slavicmyths:serpent_hill",3,false);}}}
+  if(p.tickCount%HillRules.AURA_INTERVAL!=0)return;for(var id:d.near(p.blockPosition())){var n=d.row(id);if(n.getBoolean("Building"))continue;var at=HillGeometry.local(BlockPos.of(n.getLong("Origin")),Rotation.valueOf(n.getString("Rotation")),p.blockPosition());if(!HillRules.dangerous(at.getX(),at.getY(),at.getZ())&&!(at.getX()>=28&&at.getX()<=116&&at.getZ()>=28&&at.getZ()<=127&&at.getY()>=0&&at.getY()<144))continue;w.sendParticles(net.minecraft.core.particles.DustParticleOptions.REDSTONE,p.getX(),p.getY()+1,p.getZ(),10,.5,.5,.5,.01);if(w.getGameTime()>=n.getLong("AmbientAt")){n.putLong("AmbientAt",w.getGameTime()+200);d.setDirty();w.playSound(null,p.blockPosition(),HillContent.SOUNDS.get("deep_ambient").get(),net.minecraft.sounds.SoundSource.AMBIENT,.2f,1);}if(protectedPlayer(p))continue;var key=net.minecraft.resources.ResourceKey.create(Registries.DAMAGE_TYPE,HillContent.id("serpent_hill_mor"));p.hurt(new net.minecraft.world.damagesource.DamageSource(w.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(key)),HillRules.AURA_DAMAGE);if(w.getGameTime()>=p.getPersistentData().getLong("SerpentHillNotice")){p.getPersistentData().putLong("SerpentHillNotice",w.getGameTime()+100);p.displayClientMessage(HillContent.text("ward_needed"),true);w.playSound(null,p.blockPosition(),HillContent.SOUNDS.get("danger").get(),net.minecraft.sounds.SoundSource.AMBIENT,.4f,1);}break;}
+ }
+ private HillEvents(){}
+}

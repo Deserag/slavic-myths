@@ -57,6 +57,7 @@ public final class FolkAccessoryItem extends Item implements ICurioItem {
  }
  @Override public void onUnequip(SlotContext context,ItemStack next,ItemStack stack){
   LivingEntity entity=context.entity();
+  if(entity instanceof ServerPlayer p&&this==org.slavicmyths.rewards.RewardContent.item("gift_dobrynya_ring"))org.slavicmyths.rewards.RewardEvents.state(p).remove("CounterUntil");
   if(this==org.slavicmyths.registry.ModItems.POYAS_TUGARINA.get()&&!entity.level().isClientSide)org.slavicmyths.hunt.BossEffects.clearBelt(entity);
   if(this==org.slavicmyths.registry.ModItems.VOLCHIY_POYAS.get()&&!entity.level().isClientSide)org.slavicmyths.hunt.HuntEffects.removeBelt(entity);
   if(this==org.slavicmyths.registry.ModItems.INVISIBILITY_CAP.get())entity.getPersistentData().remove("SlavicCapFade");

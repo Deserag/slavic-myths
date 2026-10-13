@@ -1,0 +1,22 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_linden.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:linden_log",
+    "feature/slavicmyths:linden_12",
+    "feature/slavicmyths:linden_2",
+    "feature/slavicmyths:linden_24",
+    "feature/slavicmyths:linden_4",
+    "feature/slavicmyths:linden_6",
+    "feature/slavicmyths:linden_8",
+    "feature/slavicmyths:linden_sapling",
+    "feature/slavicmyths:linden_tree",
+    "item/slavicmyths:linden_sapling"
+  ],
+  "advancements": [],
+  "links": []
+}

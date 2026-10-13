@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "ingredient": {
+    "item": "slavicmyths:raw_goat"
+  },
+  "result": {
+    "id": "slavicmyths:cooked_goat"
+  },
+  "experience": 0.35,
+  "cookingtime": 100
+}

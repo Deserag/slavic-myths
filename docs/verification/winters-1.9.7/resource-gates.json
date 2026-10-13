@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "version": "1.9.7",
+  "checks": 10991,
+  "sha256": "0f1e76dd6bef952350a67d83da5357cc26bcc8dcb290b7eb281c8e46d2290e0e",
+  "baseline_sha256": "e197311398f3634c3e2303dce37535d6dd457f1cf88e52e503452d32125a37aa",
+  "changed_old_resources": [
+    "slavicmyths.equipment.mixins.json",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json"
+  ],
+  "event_subscribers": 208,
+  "client_starts": 0,
+  "server_starts": 0,
+  "runtime": "NOT_RUN",
+  "offline": "ten suites; native recipe/metadata, receipt NBT and rules checks are not live game/relog/shift-click tests"
+}

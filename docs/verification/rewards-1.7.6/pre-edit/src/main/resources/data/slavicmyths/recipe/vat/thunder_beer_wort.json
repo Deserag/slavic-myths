@@ -1,0 +1,45 @@
+{
+  "type": "slavicmyths:vat",
+  "mode": "WORT",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:malted_barley"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:hops"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:honey_infusion"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "time": 1800,
+  "result": {
+    "id": "slavicmyths:thunder_beer_wort",
+    "count": 1
+  },
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ],
+  "catalyst": {
+    "item": "slavicmyths:thunder_crystal_powder"
+  },
+  "retain_catalyst": false
+}

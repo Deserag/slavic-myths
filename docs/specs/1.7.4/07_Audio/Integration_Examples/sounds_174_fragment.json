@@ -1,0 +1,488 @@
+{
+  "entity.finist.summon_chime": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/summon_chime",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.summon_chime"
+  },
+  "entity.finist.mark_cast": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/mark_cast",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.mark_cast"
+  },
+  "entity.finist.wing_dash": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/wing_dash",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.wing_dash"
+  },
+  "entity.finist.inspire": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/inspire",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.inspire"
+  },
+  "entity.finist.transform": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/transform",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.transform"
+  },
+  "entity.finist.banner_break": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/banner_break",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.banner_break"
+  },
+  "entity.finist.hurt_1": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/hurt_1",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.hurt_1"
+  },
+  "entity.finist.hurt_2": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/hurt_2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.hurt_2"
+  },
+  "entity.finist.hurt_3": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/hurt_3",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.hurt_3"
+  },
+  "entity.finist.retreat": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/retreat",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.retreat"
+  },
+  "entity.finist.tonic": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/tonic",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.tonic"
+  },
+  "entity.finist.victory": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/victory",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.victory"
+  },
+  "entity.finist.sword_swing_1": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/sword_swing_1",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.sword_swing_1"
+  },
+  "entity.finist.sword_swing_2": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/sword_swing_2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.sword_swing_2"
+  },
+  "entity.finist.sword_contact": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/sword_contact",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.sword_contact"
+  },
+  "entity.finist.run_step_1": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/run_step_1",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.run_step_1"
+  },
+  "entity.finist.run_step_2": {
+    "sounds": [
+      {
+        "name": "slavicmyths:finist/run_step_2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.finist.run_step_2"
+  },
+  "entity.falcon.scout_call": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/scout_call",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.scout_call"
+  },
+  "entity.falcon.wing_flap_1": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/wing_flap_1",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.wing_flap_1"
+  },
+  "entity.falcon.wing_flap_2": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/wing_flap_2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.wing_flap_2"
+  },
+  "entity.falcon.dive_start": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/dive_start",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.dive_start"
+  },
+  "entity.falcon.dive_impact": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/dive_impact",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.dive_impact"
+  },
+  "entity.falcon.intercept": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/intercept",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.intercept"
+  },
+  "entity.falcon.chained": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/chained",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.chained"
+  },
+  "entity.falcon.chain_break": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/chain_break",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.chain_break"
+  },
+  "entity.falcon.perch": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/perch",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.perch"
+  },
+  "entity.falcon.morph_flight": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/morph_flight",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.morph_flight"
+  },
+  "entity.falcon.ambient_call": {
+    "sounds": [
+      {
+        "name": "slavicmyths:falcon/ambient_call",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.falcon.ambient_call"
+  },
+  "entity.kartaus.intro": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/intro",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.intro"
+  },
+  "entity.kartaus.banner_raise": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/banner_raise",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.banner_raise"
+  },
+  "entity.kartaus.summon_guard": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/summon_guard",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.summon_guard"
+  },
+  "entity.kartaus.staff_wave": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/staff_wave",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.staff_wave"
+  },
+  "entity.kartaus.staff_melee": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/staff_melee",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.staff_melee"
+  },
+  "entity.kartaus.chain_bind": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/chain_bind",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.chain_bind"
+  },
+  "entity.kartaus.black_eye_charge": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/black_eye_charge",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.black_eye_charge"
+  },
+  "entity.kartaus.black_eye_impact": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/black_eye_impact",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.black_eye_impact"
+  },
+  "entity.kartaus.curse_falcon": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/curse_falcon",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.curse_falcon"
+  },
+  "entity.kartaus.barrier_break": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/barrier_break",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.barrier_break"
+  },
+  "entity.kartaus.rage": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/rage",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.rage"
+  },
+  "entity.kartaus.hurt_1": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/hurt_1",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.hurt_1"
+  },
+  "entity.kartaus.hurt_2": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/hurt_2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.hurt_2"
+  },
+  "entity.kartaus.hurt_3": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/hurt_3",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.hurt_3"
+  },
+  "entity.kartaus.death": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/death",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.death"
+  },
+  "entity.kartaus.heavy_step_1": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/heavy_step_1",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.heavy_step_1"
+  },
+  "entity.kartaus.heavy_step_2": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/heavy_step_2",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.heavy_step_2"
+  },
+  "entity.kartaus.staff_ground": {
+    "sounds": [
+      {
+        "name": "slavicmyths:kartaus/staff_ground",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.kartaus.staff_ground"
+  },
+  "item.items.finist_call": {
+    "sounds": [
+      {
+        "name": "slavicmyths:items/finist_call",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.items.finist_call"
+  },
+  "item.items.kartaus_seal": {
+    "sounds": [
+      {
+        "name": "slavicmyths:items/kartaus_seal",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.items.kartaus_seal"
+  },
+  "item.items.kartaus_egg": {
+    "sounds": [
+      {
+        "name": "slavicmyths:items/kartaus_egg",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.items.kartaus_egg"
+  },
+  "event.encounter.runic_emerge": {
+    "sounds": [
+      {
+        "name": "slavicmyths:encounter/runic_emerge",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.encounter.runic_emerge"
+  },
+  "event.encounter.black_banner_die": {
+    "sounds": [
+      {
+        "name": "slavicmyths:encounter/black_banner_die",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.encounter.black_banner_die"
+  },
+  "event.encounter.curse_anchor_die": {
+    "sounds": [
+      {
+        "name": "slavicmyths:encounter/curse_anchor_die",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.encounter.curse_anchor_die"
+  },
+  "event.encounter.victory_clear": {
+    "sounds": [
+      {
+        "name": "slavicmyths:encounter/victory_clear",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.encounter.victory_clear"
+  },
+  "event.encounter.ambient_wind": {
+    "sounds": [
+      {
+        "name": "slavicmyths:encounter/ambient_wind",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitle.slavicmyths.encounter.ambient_wind"
+  }
+}

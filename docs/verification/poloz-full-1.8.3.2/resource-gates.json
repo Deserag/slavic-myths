@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "version": "1.8.3.2",
+  "checks": 8208,
+  "sha256": "91da0b9f3552da1be2059a5f214af0d9c9460f6791ccf017ac518cb684013786",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.8.3.2.jar",
+  "event_subscribers": 184,
+  "audio": {
+    "mor_horn_call": {
+      "seconds": 6.0,
+      "channels": 1,
+      "peak": 0.7392578125
+    },
+    "mor_horn_charge": {
+      "seconds": 3.0,
+      "channels": 1,
+      "peak": 0.74090576171875
+    },
+    "poloz_distant_reply": {
+      "seconds": 3.0,
+      "channels": 1,
+      "peak": 0.75091552734375
+    },
+    "poloz_earth_rumble": {
+      "seconds": 3.0,
+      "channels": 1,
+      "peak": 0.760589599609375
+    },
+    "poloz_ambient_rumble": {
+      "seconds": 2.0,
+      "channels": 1,
+      "peak": 0.772186279296875
+    },
+    "poloz_surface_roar": {
+      "seconds": 2.2999773242630384,
+      "channels": 1,
+      "peak": 0.758697509765625
+    },
+    "poloz_move_crush": {
+      "seconds": 0.6970748299319728,
+      "channels": 1,
+      "peak": 0.514495849609375
+    },
+    "poloz_armor_deflect": {
+      "seconds": 0.49709750566893424,
+      "channels": 1,
+      "peak": 0.297943115234375
+    },
+    "poloz_weakspot_hit": {
+      "seconds": 0.7970975056689342,
+      "channels": 1,
+      "peak": 0.658843994140625
+    },
+    "poloz_tail_slam": {
+      "seconds": 1.5,
+      "channels": 1,
+      "peak": 0.757965087890625
+    },
+    "poloz_mor_rain": {
+      "seconds": 2.0,
+      "channels": 1,
+      "peak": 0.774169921875
+    },
+    "poloz_burrow": {
+      "seconds": 2.0,
+      "channels": 1,
+      "peak": 0.754638671875
+    },
+    "poloz_emerge": {
+      "seconds": 1.3999773242630384,
+      "channels": 1,
+      "peak": 0.750762939453125
+    },
+    "poloz_phase2_cracks": {
+      "seconds": 3.0,
+      "channels": 1,
+      "peak": 0.755035400390625
+    },
+    "poloz_phase3_roar": {
+      "seconds": 2.0,
+      "channels": 1,
+      "peak": 0.77459716796875
+    },
+    "poloz_minion_call": {
+      "seconds": 1.2,
+      "channels": 1,
+      "peak": 0.737091064453125
+    },
+    "poloz_death": {
+      "seconds": 5.0,
+      "channels": 1,
+      "peak": 0.7401123046875
+    }
+  },
+  "client_starts": 0,
+  "headless_server_start_attempts": 5,
+  "headless_world_server_starts": 5,
+  "successful_headless_runs": 4,
+  "manual_gameplay": "NOT_RUN",
+  "MSPT": "NOT_MEASURED"
+}

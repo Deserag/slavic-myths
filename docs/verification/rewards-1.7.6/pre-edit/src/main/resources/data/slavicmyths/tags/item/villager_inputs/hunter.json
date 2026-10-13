@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#slavicmyths:berries",
+    "minecraft:brown_mushroom",
+    "minecraft:red_mushroom"
+  ]
+}

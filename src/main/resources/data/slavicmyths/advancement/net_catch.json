@@ -1,5 +1,5 @@
 {
-  "parent": "slavicmyths:root",
+  "parent": "slavicmyths:group_water",
   "display": {
     "icon": {
       "id": "slavicmyths:fishing_net"

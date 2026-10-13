@@ -1,0 +1,15 @@
+{
+  "part": "creatures",
+  "chapter": "forest",
+  "section": "inhabitants",
+  "title": "tales.entry.leshy.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:leshy"
+  ],
+  "advancements": [
+    "slavicmyths:meet_leshy"
+  ],
+  "links": []
+}

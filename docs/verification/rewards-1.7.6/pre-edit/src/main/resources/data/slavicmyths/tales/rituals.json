@@ -1,0 +1,24 @@
+{
+  "part": "crafts",
+  "chapter": "skills",
+  "section": "catalogue",
+  "title": "tales.entry.rituals.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:altar",
+    "item/slavicmyths:altar",
+    "item/slavicmyths:ancient_sign",
+    "item/slavicmyths:ritual_bowl",
+    "item/slavicmyths:ritual_knife",
+    "recipe/slavicmyths:bog_iron_bloomery",
+    "recipe/slavicmyths:field_sign",
+    "recipe/slavicmyths:reed_string",
+    "recipe/slavicmyths:ritual_bowl"
+  ],
+  "advancements": [
+    "slavicmyths:altar",
+    "slavicmyths:first_ritual"
+  ],
+  "links": []
+}

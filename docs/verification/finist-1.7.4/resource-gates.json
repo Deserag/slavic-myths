@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "version": "1.7.4",
+  "checks": 36387,
+  "sha256": "d5539688425f79b1a9d93e1cf11d21f14ebc3827d030999e52b046198958f4fc",
+  "clean_build": "PASS",
+  "dedicated_cases": 1,
+  "scenario_assertions": 75,
+  "old_jar_entries_identical": 7331,
+  "changed_prior_entries": [
+    "META-INF/MANIFEST.MF",
+    "META-INF/neoforge.mods.toml",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json",
+    "assets/slavicmyths/sounds.json",
+    "org/slavicmyths/SlavicMyths.class",
+    "org/slavicmyths/marinka/StoryPolicy.class",
+    "org/slavicmyths/skim/HeroCalls.class"
+  ],
+  "original_audio": 54,
+  "client_launches": 0
+}

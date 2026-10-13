@@ -1,0 +1,11 @@
+{
+  "version": "1.6.9",
+  "status": "PASS",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.6.9.jar",
+  "sha256": "56e73c2e6581bfa795c1ce81531ced65b8e9d163641c95bf94e49cb6fba84643",
+  "previous_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-bayun-20261011-123044\\slavicmyths-1.6.8.jar",
+  "other_files_preserved": 559,
+  "client_launches": 0,
+  "old_1_16_5_instance": "NOT_TOUCHED",
+  "acceptance": "Candidate only; client visual/audio/controller/multiplayer acceptance NOT_RUN"
+}

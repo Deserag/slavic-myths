@@ -1,0 +1,12 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { marinkaRuntime { java.srcDir 'tools/marinka-runtime'; resources.srcDir 'tools/marinka-runtime-resources' } }
+ p.sourceSets.marinkaRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.marinkaRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileMarinkaRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.marinkaRuntime)
+ p.neoForge.runs { marinkaChecks {
+  type = 'gameTestServer';gameDirectory = p.file('work/marinka/runtime-'+(p.findProperty('marinkaRun') ?: 'checks'))
+  systemProperty 'neoforge.enabledGameTestNamespaces', p.findProperty('marinkaNamespace') ?: 'slavicmyths_marinka'
+  systemProperty 'slavicmyths.marinka.restartPhase', p.findProperty('marinkaRestartPhase') ?: 'none'
+ } }
+} }

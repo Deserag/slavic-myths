@@ -18,5 +18,6 @@
     "brewed": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "parent": "slavicmyths:group_night"
 }

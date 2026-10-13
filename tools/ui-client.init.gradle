@@ -1,0 +1,8 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { uiClient { java.srcDir 'tools/ui-client' } }
+ p.sourceSets.uiClient.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.uiClient.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileUiClientJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.uiClient)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject;p.neoForge.runs.client.gameDirectory=p.file('work/ui-client-1.7.8');p.neoForge.runs.client.programArguments.addAll('--width','1920','--height','1080') }

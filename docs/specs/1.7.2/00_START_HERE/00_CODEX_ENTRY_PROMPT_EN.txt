@@ -1,0 +1,15 @@
+IMPLEMENT THE ATTACHED SLAVIC MYTHS v1.7.2 PACKAGE NOW. This ZIP is the complete specification and reference asset bundle, NOT a request to prepare another plan.
+
+MANDATORY PRIORITIES:
+1. Read 00_START_HERE/01_SCOPE_RULES_AND_PROHIBITIONS.md and 02_DEFINITION_OF_DONE.md, then the character/arena/shared specifications and included PNG references. The MOST RECENT Dobrynya sheet depicts WHITE HAIR + SHORT STUBBLE, NOT A FULL BEARD. His weapon is a 3.6-block SPEAR, NOT a sword. No other reference overrides this approved sheet.
+2. Do NOT scan, audit, or re-analyze the entire repository. Inspect ONLY project build/version metadata, relevant registry/entity/renderer/animation/sound/structure/quest/progression hooks and directly affected files. Use established conventions; inspect further only to resolve direct compile or integration failures.
+3. Implement exactly Dobrynya Nikitich (230 HP) + Marinka the Witch (600 HP) + the Ruined Witch Yard (~60x60) + victory-unlocked ritual basement + scripted duel + localization + sounds + tests.
+4. Use only compatible APIs from the checked-out actual codebase, keep the current Minecraft/mod loader version. No speculative APIs, no silent project migration.
+5. Do NOT add unique boss/hero rewards, recipes or new legendary loot in v1.7.2. Persist win/progress for v1.7.6. Vanilla chest loot is allowed with no reward duplication.
+6. Match four-view look, authored RGB palettes, explicit geometry, rigging, animation keyframes, timings, AI conditions, hitboxes, particles and sound manifest. Use shipped playable OGG assets; voice lines are authored scripts and must not be replaced by copyrighted cartoon audio.
+7. In all personal story boss fights, disable summoning of other bogatyrs; Marinka requires Dobrynya. Never allow mid-fight replacement or summoning 2 allies in these fights. General non-story summon rules remain unchanged.
+8. The main fight challenge targets a player with 24 HP (12 hearts), full diamond armor, no extra protective buffs. Heavy unblocked spell damage >= 6 *actual* player HP. Avoid 6 HP for every small tick or hazard. Armor, potions and balance interactions are specified.
+9. Prove the result: test fresh world, loaded world, re-entry, animation/media loading, dedicated server, invalid terrain, removal, deaths, world persistence, action/reaction cooldowns, permission/protection and low FPS behavior. Build the actual distributable mod artifact, if the repository supports it, and follow existing deployment convention rather than inventing a mods path.
+10. If any implementation detail collides with an existing stable system, preserve it and make the smallest targeted integration change; document the difference in final implementation report. Do not replace specs with placeholders.
+
+Final response: concise exact list of touched files and features, successful build/tests, screenshot evidence of front/side/back/top and arena/basement, OGG manifest verification, unresolved issues. START CODING.

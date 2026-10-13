@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slavicmyths:carved_burial_stone"
+  },
+  "result": {
+    "id": "slavicmyths:carved_burial_stone_slab",
+    "count": 2
+  }
+}

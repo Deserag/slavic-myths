@@ -1,0 +1,11 @@
+{
+  "gradle.properties": "08ae806969d234867e75ba9f196a61c8fdde012f05cf906e15e2ec1b4b1889e9",
+  "src/main/java/org/slavicmyths/SlavicMyths.java": "2bba99073edf84c9325243483a8046aeed787baa74edd9ec3cb6c90f3c146493",
+  "src/main/java/org/slavicmyths/bogatyr/BogatyrLedger.java": "3ed89a5b413385108fc1d4924acd1f60a4518f2c11729f745c69ff81e73e3c8c",
+  "src/main/java/org/slavicmyths/bogatyr/IlyaEntity.java": "c1566d56760ca7c82195e55175ced8b2ed3bbaa060d3151141a1fc173294b5b4",
+  "src/main/java/org/slavicmyths/bogatyr/BogatyrNetwork.java": "daec32c0d12e22ac3af364f2e38478b004e92ec28043b065a67cdb71fb379e1b",
+  "src/main/java/org/slavicmyths/client/BogatyrClient.java": "f8d5c59f06bac7241e21fc09567f03d2347e531d1c56f132a7537286c4030529",
+  "src/main/resources/assets/slavicmyths/lang/ru_ru.json": "a26c80764751b66e093b92c106a5e3f09ce83c1bee8048f4003bbe94ab51753a",
+  "src/main/resources/assets/slavicmyths/lang/en_us.json": "abcd5b5582af6ad9a387d427ff9d118def430385b7f7bc8157f44690a08733dd",
+  "src/main/resources/assets/slavicmyths/sounds.json": "21c6cb48564feed6dc86d667d69690a6cd1112426a4a04595af067a98bece81b"
+}

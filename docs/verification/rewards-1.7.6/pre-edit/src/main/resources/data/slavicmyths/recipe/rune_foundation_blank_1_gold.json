@@ -1,0 +1,34 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:soul"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:gold_dust"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:coal_dust"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:blank_rune_1",
+    "count": 1,
+    "components": {
+      "slavicmyths:rune_base": {
+        "tier": 1,
+        "material": "gold"
+      }
+    }
+  },
+  "chisel": false
+}

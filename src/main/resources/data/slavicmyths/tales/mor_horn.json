@@ -1,0 +1,13 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.mor_horn.title",
+  "icon": "slavicmyths:mor_horn",
+  "initial": 0,
+  "subjects": [
+    "recipe/slavicmyths:mor_horn"
+  ],
+  "advancements": [],
+  "links": []
+}

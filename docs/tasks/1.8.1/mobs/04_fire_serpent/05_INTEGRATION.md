@@ -1,0 +1,8 @@
+# Моровой Огненный змей — АДРЕСНОЕ ВНЕДРЕНИЕ
+1. Найти **действительную** entity Огненного змея. Проверить спавн: существующий биом/time/structure, renderer segmented model, weapon/AI if any; не предполагать, что он появляется повсеместно. Не менять natural spawn register для обычной формы.
+2. Моровая форма использует ту же entity с synced `mor_state`, model+texture changes и ability controller. `mor_clones_summoned` сохраняется. НЕТ нового яйца для original. Клоны или flagged originals или одна скрытая internal entity, как позволяет код; не плодить 2 unrelated dragon types.
+3. В clone internal renderer использовать тот же mor texture/material, одинаковый клиентский nameplate, тот же particle rate/seed distribution как оригинал; **не использовать полупрозрачность после split**. Duration visual-invisible t11..29 только во время морфинга, а затем 3 полных моба.
+4. Только Моровой Огненный змей original может вызывать 2 clones; обычная entity не использует эти атаки, клоны не могут наследовать вторичную генерацию и не могут создавать новые сущности иных типов.
+5. Если у исходного змея нет bossbar, зарегистрировать mor-only bossbar без изменений к другим боссам; скрывать во время двойников в tracking viewers, multiplayer-safe. Новые projectiles/звуки используют client event tracking, без дальнего серверного particle spam.
+6. Проверить сохранение entity owner/UUID, parent/child save, load without duplication, zero XP/drop from copies, no loot on expiration.
+7. После квестовой 1.8.2 отдельная переработка base FireSerpent всё ещё возможна: не переписывать весь текущий FireSerpent AI и не создавать жёсткие зависимости на 1.8.2.

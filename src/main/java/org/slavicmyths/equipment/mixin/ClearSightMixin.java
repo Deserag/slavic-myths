@@ -10,5 +10,5 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Minecraft.class)
 public abstract class ClearSightMixin {
     @Inject(method="shouldEntityAppearGlowing",at=@At("HEAD"),cancellable=true)
-    private void slavicmyths$sight(Entity entity,CallbackInfoReturnable<Boolean> ci){if(org.slavicmyths.client.ClearSightClient.outlined(entity))ci.setReturnValue(true);}
+    private void slavicmyths$sight(Entity entity,CallbackInfoReturnable<Boolean> ci){if(org.slavicmyths.client.ClearSightClient.outlined(entity)||org.slavicmyths.client.Quest185Client.outlined(entity))ci.setReturnValue(true);}
 }

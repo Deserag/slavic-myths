@@ -9,7 +9,9 @@ public final class KikimoraModel extends EntityModel<KikimoraEntity>{
  private int texWidth=64,texHeight=32;
  private final FolkModelGeometry geometry=new FolkModelGeometry();
  private final ModelPart root,body,head,nose,hair0,hair1,hair2,hair3,bonnet,cap,LeftArm,LeftFore,LeftHand,LeftFinger0,LeftFinger1,LeftFinger2,LeftLeg,LeftShin,LeftFoot,LeftToe0,LeftToe1,LeftToe2,RightArm,RightFore,RightHand,RightFinger0,RightFinger1,RightFinger2,RightLeg,RightShin,RightFoot,RightToe0,RightToe1,RightToe2;
- public KikimoraModel(){texWidth=256;texHeight=256;
+ private final boolean mor;
+ public KikimoraModel(){this(false);}
+ public KikimoraModel(boolean mor){this.mor=mor;texWidth=256;texHeight=256;
  root=geometry.part(texWidth,texHeight);root.setPos(0.0F,0.0F,0.0F);
  body=geometry.part(texWidth,texHeight);body.setPos(0.0F,-3.0F,0.0F);
  geometry.attach(root,body);
@@ -121,6 +123,15 @@ public final class KikimoraModel extends EntityModel<KikimoraEntity>{
  RightToe2=geometry.part(texWidth,texHeight);RightToe2.setPos(0.65F,0.0F,0.0F);
  geometry.attach(RightFoot,RightToe2);
  geometry.box(RightToe2,178,14,-0.2F,0.0F,-3.1F,0.4F,0.65F,3.6F);
+ if(mor)morParts();
+ }
+ private void morParts(){
+    for(int i=0;i<8;i++){float x=(i-3.5F)*.65F;if(i<2||i>5)geometry.box(head,224,224,x,-7,-2.2F,.5F,9+i%4,.7F);geometry.box(head,224,224,x,-7,1.6F,.5F,11+i%3,1);}
+    geometry.box(head,216,244,-1.2F,-4.5F,-2.05F,.7F,.8F,.2F);geometry.box(head,216,244,.5F,-4.5F,-2.05F,.7F,.8F,.2F);
+    for(int i=0;i<5;i++){float x=-1.7F+i*.7F;geometry.box(body,216,244,x,1+i*.7F,-1.95F,.75F,.5F,.15F);geometry.box(body,216,244,-x,1+i*.7F,-1.95F,.75F,.5F,.15F);geometry.box(body,216,244,x,1+i*.7F,3.85F,.75F,.5F,.15F);geometry.box(body,216,244,-x,1+i*.7F,3.85F,.75F,.5F,.15F);}
+    geometry.box(body,192,224,-2.5F,1,1,5,4,3);
+    for(int i=0;i<3;i++){geometry.box(LeftHand,192,240,-1.5F+i,1,-1,1,5,1);geometry.box(RightHand,192,240,-1.5F+i,1,-1,1,5,1);}
+    for(int i=0;i<5;i++)geometry.box(body,208,224,-2.5F+i,7+i%2,-2,1,6-i%3,1);
  }
  @Override public void setupAnim(KikimoraEntity e,float walk,float amount,float age,float yaw,float pitch){
  root.setPos(0.0F,0.0F,0.0F);root.xRot=0.0F;root.yRot=0.0F;root.zRot=0.0F;
@@ -157,13 +168,16 @@ public final class KikimoraModel extends EntityModel<KikimoraEntity>{
  RightToe0.setPos(-0.65F,0.0F,0.0F);RightToe0.xRot=0.0F;RightToe0.yRot=-0.23F;RightToe0.zRot=0.0F;
  RightToe1.setPos(0.0F,0.0F,0.0F);RightToe1.xRot=0.0F;RightToe1.yRot=0.0F;RightToe1.zRot=0.0F;
  RightToe2.setPos(0.65F,0.0F,0.0F);RightToe2.xRot=0.0F;RightToe2.yRot=0.23F;RightToe2.zRot=0.0F;
- head.yRot=yaw*.0174533F;head.xRot+=pitch*.0174533F;bonnet.visible=e.variant()<4;cap.visible=!bonnet.visible;
+ head.yRot=yaw*.0174533F;head.xRot+=pitch*.0174533F;bonnet.visible=!mor&&e.variant()<4;cap.visible=!mor&&!bonnet.visible;
  float run=e.state()==4?1:0;body.xRot=.22F+run*.14F;float step=Mth.cos(walk*(1.05F+run*.35F))*amount*.42F;
  LeftLeg.xRot=-.12F+step;RightLeg.xRot=-.12F-step;LeftShin.xRot=.17F+Math.max(0,-step)*.5F;RightShin.xRot=.17F+Math.max(0,step)*.5F;
  LeftArm.xRot=run*.12F-step*.12F;RightArm.xRot=run*.12F+step*.12F-Mth.sin(attackTime*3.14159F)*1.6F;RightFore.xRot-=Mth.sin(attackTime*3.14159F)*.45F;
  if(((int)age+e.getId()*17)%230<7)head.zRot=.09F*Mth.sin(age*1.7F);
  LeftHand.zRot=Mth.sin(age*.018F)*.025F;if(e.state()==1){LeftLeg.xRot=RightLeg.xRot=-.12F;}
+ if(!mor&&e.morState()==1){body.xRot=.4F;head.xRot=.1F;LeftHand.xRot=RightHand.xRot=-.2F;return;}
+ if(mor){poseMor(age,e.morSkill(),e.morElapsed(age-e.tickCount),MorVisual.transform(e));return;}
  switch(e.attackPhase()){case TELEGRAPH->{RightArm.xRot=-1.4F;LeftArm.xRot=-.6F;body.xRot=.4F;}case ACTIVE->{float claw=Mth.sin(e.attackVisualTime(age)*.6F);RightArm.xRot=-.9F-claw*.8F;LeftArm.xRot=-.9F+claw*.8F;}case RECOVERY->{body.xRot=.5F;RightArm.xRot=.3F;}default->{}}
  }
+ public void poseMor(float age,int skill,float elapsed,float transform){bonnet.visible=cap.visible=false;LeftArm.zRot=.08F;RightArm.zRot=-.08F;body.xRot=.24F;head.yRot+=Mth.sin(age*.52F)*.08F;if(transform>0){body.xRot+=transform*.2F;LeftHand.xRot=RightHand.xRot=-.3F;}else if(skill==5){LeftLeg.xRot=RightLeg.xRot=elapsed<22?-.5F:-.1F;LeftArm.xRot=RightArm.xRot=elapsed>=32?-1.4F:-.6F;}else if(skill==6){LeftArm.xRot=RightArm.xRot=-1.1F;LeftHand.yRot=-.4F;RightHand.yRot=.4F;}}
  @Override public void renderToBuffer(PoseStack p,VertexConsumer b,int l,int o,int color){root.render(p,b,l,o,color);}
 }

@@ -25,6 +25,7 @@ public final class ClientSetup {
         net.neoforged.neoforge.client.gui.IConfigScreenFactory factory=(container,parent)->new ClassSettingsScreen(parent);
         net.neoforged.fml.ModList.get().getModContainerById(SlavicMyths.MOD_ID).orElseThrow().registerExtensionPoint(net.neoforged.neoforge.client.gui.IConfigScreenFactory.class,factory);
         event.enqueueWork(() -> {
+            MorJadeCompat.install();
             FieldBowClient.properties();FinistClient.properties();
             net.minecraft.client.renderer.Sheets.addWoodType(org.slavicmyths.garden.Gardens.APPLE_TYPE);
             for(String berry:org.slavicmyths.garden.Gardens.BERRIES)ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.garden.Gardens.block(berry+"_bush"),RenderType.cutout());
@@ -41,7 +42,7 @@ public final class ClientSetup {
             for (net.minecraft.world.item.Item shield : new net.minecraft.world.item.Item[] {
                     org.slavicmyths.registry.ModItems.RETAINER_SHIELD.get(),
                     org.slavicmyths.registry.ModItems.PERUNITE_SHIELD.get(),
-                    org.slavicmyths.equipment.UniqueEquipment.WARD_SHIELD.get() }) {
+                    org.slavicmyths.equipment.UniqueEquipment.WARD_SHIELD.get(),org.slavicmyths.rewards.RewardContent.item("gift_ilya_shield") }) {
                 net.minecraft.client.renderer.item.ItemProperties.register(shield, net.minecraft.resources.ResourceLocation.parse("blocking"),
                         (stack, world, entity, seed) -> entity != null && entity.isUsingItem()
                                 && entity.getUseItem() == stack ? 1.0F : 0.0F);
@@ -57,7 +58,11 @@ public final class ClientSetup {
         });
     }
 
+    @SubscribeEvent public static void morParticles(net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent event){event.registerSpriteSet(org.slavicmyths.mor.MorContent.SPARK.get(),s->MorParticle.provider(s,false));event.registerSpriteSet(org.slavicmyths.mor.MorContent.ASH.get(),s->MorParticle.provider(s,true));}
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers event){
+        event.registerEntityRenderer(org.slavicmyths.mor.MorContent.ZONE.get(),MorZoneRenderer::new);
+        event.registerEntityRenderer(org.slavicmyths.mor.MorContent.FLASK.get(),m->new net.minecraft.client.renderer.entity.ThrownItemRenderer<>(m));
+        event.registerEntityRenderer(org.slavicmyths.mor.MorContent.BOLT.get(),MorBoltRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.rpg.RuneVisual.TYPE.get(),RuneVisualRenderer::new);
         org.slavicmyths.client.HusbandryRenderer.register(event);
         event.registerBlockEntityRenderer(org.slavicmyths.storage.Household.TYPE.get(),StorageDisplay::new);
@@ -134,7 +139,7 @@ public final class ClientSetup {
             event.register(org.slavicmyths.kitchen.KitchenMenu.TYPE.get(),KitchenScreen::new);
             event.register(org.slavicmyths.brewing.VatMenu.TYPE.get(),VatScreen::new);
     }
-    @SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new PeruniteArmor(),org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get(),org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get(),org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get(),org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get());}
+    @SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new RewardArmor(0),org.slavicmyths.rewards.RewardContent.item("trophy_idol_chest"));e.registerItem(new RewardArmor(1),org.slavicmyths.rewards.RewardContent.item("trophy_marinka_cloak"));e.registerItem(new RewardArmor(2),org.slavicmyths.rewards.RewardContent.item("trophy_kartaus_mantle"));e.registerItem(new PeruniteArmor(),org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get(),org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get(),org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get(),org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get());}
     private ClientSetup() { }
     @SubscribeEvent public static void keys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e){e.register(WolfStoryClient.RING);RpgClient.keys(e);FlightClient.keys(e);}
     @SubscribeEvent public static void layers(net.neoforged.neoforge.client.event.EntityRenderersEvent.AddLayers e){FolkEquipmentLayer.layers(e);TextileClient.layers(e);FlightClient.renderers(e.getContext());GusliClient.renderers(e.getContext());}

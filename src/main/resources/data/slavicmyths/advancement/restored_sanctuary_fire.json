@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:sacred_ember"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.restored_sanctuary_fire"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.restored_sanctuary_fire.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

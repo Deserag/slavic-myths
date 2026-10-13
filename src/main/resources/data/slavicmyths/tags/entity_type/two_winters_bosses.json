@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:wither",
+    "minecraft:ender_dragon",
+    "slavicmyths:great_poloz",
+    "slavicmyths:morozko",
+    "slavicmyths:karachun",
+    "slavicmyths:zmey_gorynych",
+    "slavicmyths:extinguished_flame_guardian",
+    "slavicmyths:defiled_spring_keeper",
+    "slavicmyths:idolishche_poganoe",
+    "slavicmyths:marinka",
+    "slavicmyths:skim_beast",
+    "slavicmyths:kartaus",
+    "slavicmyths:kalin_tsar",
+    "slavicmyths:nightingale",
+    "slavicmyths:unresting_prince",
+    "slavicmyths:ovinnik",
+    "slavicmyths:volkolak",
+    "slavicmyths:fire_serpent",
+    "slavicmyths:podvey",
+    "slavicmyths:likho_one_eyed",
+    "slavicmyths:tugarin_zmey"
+  ]
+}

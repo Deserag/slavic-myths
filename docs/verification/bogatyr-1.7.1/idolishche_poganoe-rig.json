@@ -1,0 +1,5639 @@
+{
+  "height": 144,
+  "atlas": 256,
+  "uvScale": 4,
+  "bones": {
+    "hips": {
+      "parent": null,
+      "pos": [
+        0,
+        52,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "hips",
+          "center": [
+            0,
+            55.0,
+            0
+          ],
+          "size": [
+            52,
+            14,
+            36
+          ],
+          "material": "cloth",
+          "uv": [
+            2,
+            2,
+            44,
+            13
+          ]
+        },
+        {
+          "bone": "hips",
+          "center": [
+            -23,
+            45.5,
+            -20
+          ],
+          "size": [
+            8,
+            15,
+            2
+          ],
+          "material": "cloth",
+          "uv": [
+            72,
+            152,
+            5,
+            5
+          ]
+        },
+        {
+          "bone": "hips",
+          "center": [
+            -12,
+            49.5,
+            -20
+          ],
+          "size": [
+            8,
+            15,
+            2
+          ],
+          "material": "cloth",
+          "uv": [
+            81,
+            152,
+            5,
+            5
+          ]
+        },
+        {
+          "bone": "hips",
+          "center": [
+            -1,
+            45.5,
+            -20
+          ],
+          "size": [
+            8,
+            15,
+            2
+          ],
+          "material": "cloth",
+          "uv": [
+            90,
+            152,
+            5,
+            5
+          ]
+        },
+        {
+          "bone": "hips",
+          "center": [
+            10,
+            49.5,
+            -20
+          ],
+          "size": [
+            8,
+            15,
+            2
+          ],
+          "material": "cloth",
+          "uv": [
+            99,
+            152,
+            5,
+            5
+          ]
+        },
+        {
+          "bone": "hips",
+          "center": [
+            21,
+            45.5,
+            -20
+          ],
+          "size": [
+            8,
+            15,
+            2
+          ],
+          "material": "cloth",
+          "uv": [
+            108,
+            152,
+            5,
+            5
+          ]
+        }
+      ]
+    },
+    "belly": {
+      "parent": "hips",
+      "pos": [
+        0,
+        58,
+        -1
+      ],
+      "boxes": [
+        {
+          "bone": "belly",
+          "center": [
+            0,
+            70.0,
+            -3
+          ],
+          "size": [
+            60,
+            36,
+            44
+          ],
+          "material": "flesh",
+          "uv": [
+            50,
+            2,
+            52,
+            20
+          ]
+        },
+        {
+          "bone": "belly",
+          "center": [
+            0,
+            71.0,
+            -8
+          ],
+          "size": [
+            54,
+            26,
+            43
+          ],
+          "material": "flesh",
+          "uv": [
+            106,
+            2,
+            49,
+            18
+          ]
+        },
+        {
+          "bone": "belly",
+          "center": [
+            0,
+            62.9,
+            -30
+          ],
+          "size": [
+            47,
+            1.8,
+            1.8
+          ],
+          "material": "scar",
+          "uv": [
+            159,
+            2,
+            25,
+            1
+          ]
+        },
+        {
+          "bone": "belly",
+          "center": [
+            0,
+            69.9,
+            -30
+          ],
+          "size": [
+            44,
+            1.8,
+            1.8
+          ],
+          "material": "scar",
+          "uv": [
+            188,
+            2,
+            23,
+            1
+          ]
+        },
+        {
+          "bone": "belly",
+          "center": [
+            0,
+            76.9,
+            -30
+          ],
+          "size": [
+            41,
+            1.8,
+            1.8
+          ],
+          "material": "scar",
+          "uv": [
+            215,
+            2,
+            22,
+            1
+          ]
+        }
+      ]
+    },
+    "chest": {
+      "parent": "belly",
+      "pos": [
+        0,
+        86,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "chest",
+          "center": [
+            0,
+            96.5,
+            0
+          ],
+          "size": [
+            65,
+            33,
+            40
+          ],
+          "material": "flesh",
+          "uv": [
+            2,
+            26,
+            53,
+            19
+          ]
+        },
+        {
+          "bone": "chest",
+          "center": [
+            0,
+            113.5,
+            1
+          ],
+          "size": [
+            44,
+            7,
+            31
+          ],
+          "material": "flesh",
+          "uv": [
+            59,
+            26,
+            38,
+            10
+          ]
+        },
+        {
+          "bone": "chest",
+          "center": [
+            -16,
+            95.0,
+            -20.6
+          ],
+          "size": [
+            2,
+            8,
+            1.2
+          ],
+          "material": "scar",
+          "uv": [
+            101,
+            26,
+            2,
+            3
+          ]
+        },
+        {
+          "bone": "chest",
+          "center": [
+            -12,
+            97.0,
+            -20.6
+          ],
+          "size": [
+            2,
+            8,
+            1.2
+          ],
+          "material": "scar",
+          "uv": [
+            107,
+            26,
+            2,
+            3
+          ]
+        },
+        {
+          "bone": "chest",
+          "center": [
+            -8,
+            99.0,
+            -20.6
+          ],
+          "size": [
+            2,
+            8,
+            1.2
+          ],
+          "material": "scar",
+          "uv": [
+            113,
+            26,
+            2,
+            3
+          ]
+        },
+        {
+          "bone": "chest",
+          "center": [
+            -4,
+            95.0,
+            -20.6
+          ],
+          "size": [
+            2,
+            8,
+            1.2
+          ],
+          "material": "scar",
+          "uv": [
+            119,
+            26,
+            2,
+            3
+          ]
+        },
+        {
+          "bone": "chest",
+          "center": [
+            0,
+            97.0,
+            -20.6
+          ],
+          "size": [
+            2,
+            8,
+            1.2
+          ],
+          "material": "scar",
+          "uv": [
+            125,
+            26,
+            2,
+            3
+          ]
+        },
+        {
+          "bone": "chest",
+          "center": [
+            4,
+            99.0,
+            -20.6
+          ],
+          "size": [
+            2,
+            8,
+            1.2
+          ],
+          "material": "scar",
+          "uv": [
+            131,
+            26,
+            2,
+            3
+          ]
+        },
+        {
+          "bone": "chest",
+          "center": [
+            8,
+            95.0,
+            -20.6
+          ],
+          "size": [
+            2,
+            8,
+            1.2
+          ],
+          "material": "scar",
+          "uv": [
+            137,
+            26,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    "head": {
+      "parent": "chest",
+      "pos": [
+        0,
+        116,
+        -4
+      ],
+      "boxes": [
+        {
+          "bone": "head",
+          "center": [
+            0,
+            125.5,
+            -4
+          ],
+          "size": [
+            35,
+            21,
+            29
+          ],
+          "material": "flesh",
+          "uv": [
+            143,
+            26,
+            32,
+            13
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            131.5,
+            -3
+          ],
+          "size": [
+            36,
+            9,
+            29
+          ],
+          "material": "hair",
+          "uv": [
+            179,
+            26,
+            33,
+            10
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            124.0,
+            -19.7
+          ],
+          "size": [
+            9,
+            10,
+            6
+          ],
+          "material": "flesh",
+          "uv": [
+            216,
+            26,
+            8,
+            4
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            118.0,
+            -21
+          ],
+          "size": [
+            26,
+            6,
+            3
+          ],
+          "material": "mouth",
+          "uv": [
+            228,
+            26,
+            15,
+            3
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            -10,
+            126.5,
+            -19
+          ],
+          "size": [
+            10,
+            3,
+            2
+          ],
+          "material": "scar",
+          "uv": [
+            247,
+            26,
+            6,
+            2
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            -10,
+            124.75,
+            -19.5
+          ],
+          "size": [
+            5,
+            2.1,
+            1
+          ],
+          "material": "eye",
+          "uv": [
+            2,
+            49,
+            3,
+            1
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            -19,
+            123.5,
+            -2
+          ],
+          "size": [
+            4,
+            9,
+            8
+          ],
+          "material": "flesh",
+          "uv": [
+            9,
+            49,
+            6,
+            5
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            10,
+            126.5,
+            -19
+          ],
+          "size": [
+            10,
+            3,
+            2
+          ],
+          "material": "scar",
+          "uv": [
+            26,
+            49,
+            6,
+            2
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            10,
+            124.75,
+            -19.5
+          ],
+          "size": [
+            5,
+            2.1,
+            1
+          ],
+          "material": "eye",
+          "uv": [
+            36,
+            49,
+            3,
+            1
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            19,
+            123.5,
+            -2
+          ],
+          "size": [
+            4,
+            9,
+            8
+          ],
+          "material": "flesh",
+          "uv": [
+            43,
+            49,
+            6,
+            5
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            -13.0,
+            116.0,
+            -23
+          ],
+          "size": [
+            2.3,
+            3,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            60,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            -9.3,
+            115.5,
+            -23
+          ],
+          "size": [
+            2.3,
+            4,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            67,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            -5.6,
+            115.0,
+            -23
+          ],
+          "size": [
+            2.3,
+            5,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            74,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            -1.8999999999999986,
+            116.0,
+            -23
+          ],
+          "size": [
+            2.3,
+            3,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            81,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            1.8000000000000007,
+            115.5,
+            -23
+          ],
+          "size": [
+            2.3,
+            4,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            88,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            5.5,
+            115.0,
+            -23
+          ],
+          "size": [
+            2.3,
+            5,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            95,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            9.200000000000003,
+            116.0,
+            -23
+          ],
+          "size": [
+            2.3,
+            3,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            102,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            12.900000000000002,
+            115.5,
+            -23
+          ],
+          "size": [
+            2.3,
+            4,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            109,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            -13.4,
+            114.0,
+            -22
+          ],
+          "size": [
+            4,
+            9,
+            4
+          ],
+          "material": "bone",
+          "uv": [
+            116,
+            49,
+            4,
+            4
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            13.4,
+            114.0,
+            -22
+          ],
+          "size": [
+            4,
+            9,
+            4
+          ],
+          "material": "bone",
+          "uv": [
+            124,
+            49,
+            4,
+            4
+          ]
+        }
+      ]
+    },
+    "rage_eye_0": {
+      "parent": "head",
+      "pos": [
+        -10,
+        124,
+        -20
+      ],
+      "boxes": [
+        {
+          "bone": "rage_eye_0",
+          "center": [
+            -10,
+            124.75,
+            -20.1
+          ],
+          "size": [
+            5,
+            2.1,
+            0.5
+          ],
+          "material": "rage",
+          "uv": [
+            19,
+            49,
+            3,
+            1
+          ]
+        }
+      ]
+    },
+    "rage_eye_2": {
+      "parent": "head",
+      "pos": [
+        10,
+        124,
+        -20
+      ],
+      "boxes": [
+        {
+          "bone": "rage_eye_2",
+          "center": [
+            10,
+            124.75,
+            -20.1
+          ],
+          "size": [
+            5,
+            2.1,
+            0.5
+          ],
+          "material": "rage",
+          "uv": [
+            53,
+            49,
+            3,
+            1
+          ]
+        }
+      ]
+    },
+    "jaw": {
+      "parent": "head",
+      "pos": [
+        0,
+        116,
+        -6
+      ],
+      "boxes": [
+        {
+          "bone": "jaw",
+          "center": [
+            0,
+            114.0,
+            -10
+          ],
+          "size": [
+            29,
+            10,
+            25
+          ],
+          "material": "flesh",
+          "uv": [
+            132,
+            49,
+            27,
+            9
+          ]
+        },
+        {
+          "bone": "jaw",
+          "center": [
+            0,
+            116.5,
+            -13
+          ],
+          "size": [
+            24,
+            1,
+            17
+          ],
+          "material": "mouth",
+          "uv": [
+            163,
+            49,
+            21,
+            5
+          ]
+        },
+        {
+          "bone": "jaw",
+          "center": [
+            -10.0,
+            119.5,
+            -23
+          ],
+          "size": [
+            2.2,
+            3,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            188,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "jaw",
+          "center": [
+            -6.7,
+            120.0,
+            -23
+          ],
+          "size": [
+            2.2,
+            4,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            195,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "jaw",
+          "center": [
+            -3.4000000000000004,
+            119.5,
+            -23
+          ],
+          "size": [
+            2.2,
+            3,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            202,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "jaw",
+          "center": [
+            -0.10000000000000142,
+            120.0,
+            -23
+          ],
+          "size": [
+            2.2,
+            4,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            209,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "jaw",
+          "center": [
+            3.1999999999999993,
+            119.5,
+            -23
+          ],
+          "size": [
+            2.2,
+            3,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            216,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "jaw",
+          "center": [
+            6.5,
+            120.0,
+            -23
+          ],
+          "size": [
+            2.2,
+            4,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            223,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "jaw",
+          "center": [
+            9.799999999999997,
+            119.5,
+            -23
+          ],
+          "size": [
+            2.2,
+            3,
+            2.5
+          ],
+          "material": "bone",
+          "uv": [
+            230,
+            49,
+            3,
+            2
+          ]
+        },
+        {
+          "bone": "jaw",
+          "center": [
+            0,
+            117.65,
+            -13
+          ],
+          "size": [
+            10,
+            1.3,
+            10
+          ],
+          "material": "scar",
+          "uv": [
+            237,
+            49,
+            10,
+            3
+          ]
+        }
+      ]
+    },
+    "right_thigh": {
+      "parent": "hips",
+      "pos": [
+        -15,
+        50,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "right_thigh",
+          "center": [
+            -15,
+            38.0,
+            0
+          ],
+          "size": [
+            27,
+            28,
+            25
+          ],
+          "material": "flesh",
+          "uv": [
+            2,
+            62,
+            26,
+            14
+          ]
+        }
+      ]
+    },
+    "right_shin": {
+      "parent": "right_thigh",
+      "pos": [
+        -15,
+        27,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "right_shin",
+          "center": [
+            -15,
+            19.0,
+            0
+          ],
+          "size": [
+            21,
+            24,
+            21
+          ],
+          "material": "flesh",
+          "uv": [
+            32,
+            62,
+            21,
+            12
+          ]
+        },
+        {
+          "bone": "right_shin",
+          "center": [
+            -15,
+            10.0,
+            0
+          ],
+          "size": [
+            21.4,
+            2,
+            21.4
+          ],
+          "material": "leather",
+          "uv": [
+            57,
+            62,
+            22,
+            6
+          ]
+        },
+        {
+          "bone": "right_shin",
+          "center": [
+            -15,
+            15.0,
+            0
+          ],
+          "size": [
+            21.4,
+            2,
+            21.4
+          ],
+          "material": "leather",
+          "uv": [
+            83,
+            62,
+            22,
+            6
+          ]
+        },
+        {
+          "bone": "right_shin",
+          "center": [
+            -15,
+            20.0,
+            0
+          ],
+          "size": [
+            21.4,
+            2,
+            21.4
+          ],
+          "material": "leather",
+          "uv": [
+            109,
+            62,
+            22,
+            6
+          ]
+        }
+      ]
+    },
+    "right_foot": {
+      "parent": "right_shin",
+      "pos": [
+        -15,
+        9,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "right_foot",
+          "center": [
+            -15,
+            4.5,
+            -3
+          ],
+          "size": [
+            23,
+            9,
+            28
+          ],
+          "material": "flesh",
+          "uv": [
+            135,
+            62,
+            26,
+            10
+          ]
+        },
+        {
+          "bone": "right_foot",
+          "center": [
+            -23,
+            2.0,
+            -18
+          ],
+          "size": [
+            3.5,
+            4,
+            7
+          ],
+          "material": "bone",
+          "uv": [
+            165,
+            62,
+            6,
+            3
+          ]
+        },
+        {
+          "bone": "right_foot",
+          "center": [
+            -18,
+            2.0,
+            -18
+          ],
+          "size": [
+            3.5,
+            4,
+            7
+          ],
+          "material": "bone",
+          "uv": [
+            175,
+            62,
+            6,
+            3
+          ]
+        },
+        {
+          "bone": "right_foot",
+          "center": [
+            -13,
+            2.0,
+            -18
+          ],
+          "size": [
+            3.5,
+            4,
+            7
+          ],
+          "material": "bone",
+          "uv": [
+            185,
+            62,
+            6,
+            3
+          ]
+        },
+        {
+          "bone": "right_foot",
+          "center": [
+            -8,
+            2.0,
+            -18
+          ],
+          "size": [
+            3.5,
+            4,
+            7
+          ],
+          "material": "bone",
+          "uv": [
+            195,
+            62,
+            6,
+            3
+          ]
+        }
+      ]
+    },
+    "right_shoulder": {
+      "parent": "chest",
+      "pos": [
+        -37,
+        112,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "right_shoulder",
+          "center": [
+            -37,
+            113.0,
+            0
+          ],
+          "size": [
+            27,
+            24,
+            31
+          ],
+          "material": "flesh",
+          "uv": [
+            205,
+            62,
+            29,
+            14
+          ]
+        }
+      ]
+    },
+    "right_arm": {
+      "parent": "right_shoulder",
+      "pos": [
+        -37,
+        101,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "right_arm",
+          "center": [
+            -37,
+            90.0,
+            0
+          ],
+          "size": [
+            24,
+            34,
+            26
+          ],
+          "material": "flesh",
+          "uv": [
+            2,
+            80,
+            25,
+            15
+          ]
+        }
+      ]
+    },
+    "right_forearm": {
+      "parent": "right_arm",
+      "pos": [
+        -37,
+        77,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "right_forearm",
+          "center": [
+            -37,
+            67.0,
+            -2
+          ],
+          "size": [
+            22,
+            30,
+            27
+          ],
+          "material": "flesh",
+          "uv": [
+            31,
+            80,
+            25,
+            15
+          ]
+        },
+        {
+          "bone": "right_forearm",
+          "center": [
+            -37,
+            56.5,
+            -2
+          ],
+          "size": [
+            22.5,
+            3,
+            27.5
+          ],
+          "material": "leather",
+          "uv": [
+            60,
+            80,
+            25,
+            8
+          ]
+        },
+        {
+          "bone": "right_forearm",
+          "center": [
+            -37,
+            63.5,
+            -2
+          ],
+          "size": [
+            22.5,
+            3,
+            27.5
+          ],
+          "material": "leather",
+          "uv": [
+            89,
+            80,
+            25,
+            8
+          ]
+        },
+        {
+          "bone": "right_forearm",
+          "center": [
+            -37,
+            70.5,
+            -2
+          ],
+          "size": [
+            22.5,
+            3,
+            27.5
+          ],
+          "material": "leather",
+          "uv": [
+            118,
+            80,
+            25,
+            8
+          ]
+        }
+      ]
+    },
+    "right_hand": {
+      "parent": "right_forearm",
+      "pos": [
+        -37,
+        55,
+        -2
+      ],
+      "boxes": [
+        {
+          "bone": "right_hand",
+          "center": [
+            -37,
+            52.0,
+            -3
+          ],
+          "size": [
+            26,
+            18,
+            25
+          ],
+          "material": "flesh",
+          "uv": [
+            147,
+            80,
+            26,
+            11
+          ]
+        }
+      ]
+    },
+    "right_finger_0": {
+      "parent": "right_hand",
+      "pos": [
+        -46,
+        46,
+        -13
+      ],
+      "boxes": [
+        {
+          "bone": "right_finger_0",
+          "center": [
+            -46,
+            41.0,
+            -13
+          ],
+          "size": [
+            5,
+            12,
+            8
+          ],
+          "material": "flesh",
+          "uv": [
+            177,
+            80,
+            7,
+            5
+          ]
+        },
+        {
+          "bone": "right_finger_0",
+          "center": [
+            -46,
+            35.5,
+            -15
+          ],
+          "size": [
+            4,
+            3,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            188,
+            80,
+            5,
+            2
+          ]
+        }
+      ]
+    },
+    "right_finger_1": {
+      "parent": "right_hand",
+      "pos": [
+        -40,
+        46,
+        -13
+      ],
+      "boxes": [
+        {
+          "bone": "right_finger_1",
+          "center": [
+            -40,
+            41.5,
+            -13
+          ],
+          "size": [
+            5,
+            11,
+            8
+          ],
+          "material": "flesh",
+          "uv": [
+            197,
+            80,
+            7,
+            5
+          ]
+        },
+        {
+          "bone": "right_finger_1",
+          "center": [
+            -40,
+            36.5,
+            -15
+          ],
+          "size": [
+            4,
+            3,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            208,
+            80,
+            5,
+            2
+          ]
+        }
+      ]
+    },
+    "right_finger_2": {
+      "parent": "right_hand",
+      "pos": [
+        -34,
+        46,
+        -13
+      ],
+      "boxes": [
+        {
+          "bone": "right_finger_2",
+          "center": [
+            -34,
+            41.0,
+            -13
+          ],
+          "size": [
+            5,
+            12,
+            8
+          ],
+          "material": "flesh",
+          "uv": [
+            217,
+            80,
+            7,
+            5
+          ]
+        },
+        {
+          "bone": "right_finger_2",
+          "center": [
+            -34,
+            35.5,
+            -15
+          ],
+          "size": [
+            4,
+            3,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            228,
+            80,
+            5,
+            2
+          ]
+        }
+      ]
+    },
+    "right_finger_3": {
+      "parent": "right_hand",
+      "pos": [
+        -28,
+        46,
+        -13
+      ],
+      "boxes": [
+        {
+          "bone": "right_finger_3",
+          "center": [
+            -28,
+            41.5,
+            -13
+          ],
+          "size": [
+            5,
+            11,
+            8
+          ],
+          "material": "flesh",
+          "uv": [
+            237,
+            80,
+            7,
+            5
+          ]
+        },
+        {
+          "bone": "right_finger_3",
+          "center": [
+            -28,
+            36.5,
+            -15
+          ],
+          "size": [
+            4,
+            3,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            248,
+            80,
+            5,
+            2
+          ]
+        }
+      ]
+    },
+    "right_thumb": {
+      "parent": "right_hand",
+      "pos": [
+        -50,
+        49,
+        -3
+      ],
+      "boxes": [
+        {
+          "bone": "right_thumb",
+          "center": [
+            -50,
+            45.5,
+            -3
+          ],
+          "size": [
+            7,
+            11,
+            9
+          ],
+          "material": "flesh",
+          "uv": [
+            2,
+            99,
+            8,
+            5
+          ]
+        }
+      ]
+    },
+    "left_thigh": {
+      "parent": "hips",
+      "pos": [
+        15,
+        50,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "left_thigh",
+          "center": [
+            15,
+            38.0,
+            0
+          ],
+          "size": [
+            27,
+            28,
+            25
+          ],
+          "material": "flesh",
+          "uv": [
+            14,
+            99,
+            26,
+            14
+          ]
+        }
+      ]
+    },
+    "left_shin": {
+      "parent": "left_thigh",
+      "pos": [
+        15,
+        27,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "left_shin",
+          "center": [
+            15,
+            19.0,
+            0
+          ],
+          "size": [
+            21,
+            24,
+            21
+          ],
+          "material": "flesh",
+          "uv": [
+            44,
+            99,
+            21,
+            12
+          ]
+        },
+        {
+          "bone": "left_shin",
+          "center": [
+            15,
+            10.0,
+            0
+          ],
+          "size": [
+            21.4,
+            2,
+            21.4
+          ],
+          "material": "leather",
+          "uv": [
+            69,
+            99,
+            22,
+            6
+          ]
+        },
+        {
+          "bone": "left_shin",
+          "center": [
+            15,
+            15.0,
+            0
+          ],
+          "size": [
+            21.4,
+            2,
+            21.4
+          ],
+          "material": "leather",
+          "uv": [
+            95,
+            99,
+            22,
+            6
+          ]
+        },
+        {
+          "bone": "left_shin",
+          "center": [
+            15,
+            20.0,
+            0
+          ],
+          "size": [
+            21.4,
+            2,
+            21.4
+          ],
+          "material": "leather",
+          "uv": [
+            121,
+            99,
+            22,
+            6
+          ]
+        }
+      ]
+    },
+    "left_foot": {
+      "parent": "left_shin",
+      "pos": [
+        15,
+        9,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "left_foot",
+          "center": [
+            15,
+            4.5,
+            -3
+          ],
+          "size": [
+            23,
+            9,
+            28
+          ],
+          "material": "flesh",
+          "uv": [
+            147,
+            99,
+            26,
+            10
+          ]
+        },
+        {
+          "bone": "left_foot",
+          "center": [
+            7,
+            2.0,
+            -18
+          ],
+          "size": [
+            3.5,
+            4,
+            7
+          ],
+          "material": "bone",
+          "uv": [
+            177,
+            99,
+            6,
+            3
+          ]
+        },
+        {
+          "bone": "left_foot",
+          "center": [
+            12,
+            2.0,
+            -18
+          ],
+          "size": [
+            3.5,
+            4,
+            7
+          ],
+          "material": "bone",
+          "uv": [
+            187,
+            99,
+            6,
+            3
+          ]
+        },
+        {
+          "bone": "left_foot",
+          "center": [
+            17,
+            2.0,
+            -18
+          ],
+          "size": [
+            3.5,
+            4,
+            7
+          ],
+          "material": "bone",
+          "uv": [
+            197,
+            99,
+            6,
+            3
+          ]
+        },
+        {
+          "bone": "left_foot",
+          "center": [
+            22,
+            2.0,
+            -18
+          ],
+          "size": [
+            3.5,
+            4,
+            7
+          ],
+          "material": "bone",
+          "uv": [
+            207,
+            99,
+            6,
+            3
+          ]
+        }
+      ]
+    },
+    "left_shoulder": {
+      "parent": "chest",
+      "pos": [
+        37,
+        112,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "left_shoulder",
+          "center": [
+            37,
+            113.0,
+            0
+          ],
+          "size": [
+            27,
+            24,
+            31
+          ],
+          "material": "wood",
+          "uv": [
+            217,
+            99,
+            29,
+            14
+          ]
+        }
+      ]
+    },
+    "left_arm": {
+      "parent": "left_shoulder",
+      "pos": [
+        37,
+        101,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "left_arm",
+          "center": [
+            37,
+            90.0,
+            0
+          ],
+          "size": [
+            24,
+            34,
+            26
+          ],
+          "material": "flesh",
+          "uv": [
+            2,
+            117,
+            25,
+            15
+          ]
+        }
+      ]
+    },
+    "left_forearm": {
+      "parent": "left_arm",
+      "pos": [
+        37,
+        77,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "left_forearm",
+          "center": [
+            37,
+            67.0,
+            -2
+          ],
+          "size": [
+            22,
+            30,
+            27
+          ],
+          "material": "flesh",
+          "uv": [
+            31,
+            117,
+            25,
+            15
+          ]
+        },
+        {
+          "bone": "left_forearm",
+          "center": [
+            37,
+            56.5,
+            -2
+          ],
+          "size": [
+            22.5,
+            3,
+            27.5
+          ],
+          "material": "leather",
+          "uv": [
+            60,
+            117,
+            25,
+            8
+          ]
+        },
+        {
+          "bone": "left_forearm",
+          "center": [
+            37,
+            63.5,
+            -2
+          ],
+          "size": [
+            22.5,
+            3,
+            27.5
+          ],
+          "material": "leather",
+          "uv": [
+            89,
+            117,
+            25,
+            8
+          ]
+        },
+        {
+          "bone": "left_forearm",
+          "center": [
+            37,
+            70.5,
+            -2
+          ],
+          "size": [
+            22.5,
+            3,
+            27.5
+          ],
+          "material": "leather",
+          "uv": [
+            118,
+            117,
+            25,
+            8
+          ]
+        }
+      ]
+    },
+    "left_hand": {
+      "parent": "left_forearm",
+      "pos": [
+        37,
+        55,
+        -2
+      ],
+      "boxes": [
+        {
+          "bone": "left_hand",
+          "center": [
+            37,
+            52.0,
+            -3
+          ],
+          "size": [
+            26,
+            18,
+            25
+          ],
+          "material": "flesh",
+          "uv": [
+            147,
+            117,
+            26,
+            11
+          ]
+        }
+      ]
+    },
+    "left_finger_0": {
+      "parent": "left_hand",
+      "pos": [
+        28,
+        46,
+        -13
+      ],
+      "boxes": [
+        {
+          "bone": "left_finger_0",
+          "center": [
+            28,
+            41.0,
+            -13
+          ],
+          "size": [
+            5,
+            12,
+            8
+          ],
+          "material": "flesh",
+          "uv": [
+            177,
+            117,
+            7,
+            5
+          ]
+        },
+        {
+          "bone": "left_finger_0",
+          "center": [
+            28,
+            35.5,
+            -15
+          ],
+          "size": [
+            4,
+            3,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            188,
+            117,
+            5,
+            2
+          ]
+        }
+      ]
+    },
+    "left_finger_1": {
+      "parent": "left_hand",
+      "pos": [
+        34,
+        46,
+        -13
+      ],
+      "boxes": [
+        {
+          "bone": "left_finger_1",
+          "center": [
+            34,
+            41.5,
+            -13
+          ],
+          "size": [
+            5,
+            11,
+            8
+          ],
+          "material": "flesh",
+          "uv": [
+            197,
+            117,
+            7,
+            5
+          ]
+        },
+        {
+          "bone": "left_finger_1",
+          "center": [
+            34,
+            36.5,
+            -15
+          ],
+          "size": [
+            4,
+            3,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            208,
+            117,
+            5,
+            2
+          ]
+        }
+      ]
+    },
+    "left_finger_2": {
+      "parent": "left_hand",
+      "pos": [
+        40,
+        46,
+        -13
+      ],
+      "boxes": [
+        {
+          "bone": "left_finger_2",
+          "center": [
+            40,
+            41.0,
+            -13
+          ],
+          "size": [
+            5,
+            12,
+            8
+          ],
+          "material": "flesh",
+          "uv": [
+            217,
+            117,
+            7,
+            5
+          ]
+        },
+        {
+          "bone": "left_finger_2",
+          "center": [
+            40,
+            35.5,
+            -15
+          ],
+          "size": [
+            4,
+            3,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            228,
+            117,
+            5,
+            2
+          ]
+        }
+      ]
+    },
+    "left_finger_3": {
+      "parent": "left_hand",
+      "pos": [
+        46,
+        46,
+        -13
+      ],
+      "boxes": [
+        {
+          "bone": "left_finger_3",
+          "center": [
+            46,
+            41.5,
+            -13
+          ],
+          "size": [
+            5,
+            11,
+            8
+          ],
+          "material": "flesh",
+          "uv": [
+            237,
+            117,
+            7,
+            5
+          ]
+        },
+        {
+          "bone": "left_finger_3",
+          "center": [
+            46,
+            36.5,
+            -15
+          ],
+          "size": [
+            4,
+            3,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            248,
+            117,
+            5,
+            2
+          ]
+        }
+      ]
+    },
+    "left_thumb": {
+      "parent": "left_hand",
+      "pos": [
+        50,
+        49,
+        -3
+      ],
+      "boxes": [
+        {
+          "bone": "left_thumb",
+          "center": [
+            50,
+            45.5,
+            -3
+          ],
+          "size": [
+            7,
+            11,
+            9
+          ],
+          "material": "flesh",
+          "uv": [
+            2,
+            136,
+            8,
+            5
+          ]
+        }
+      ]
+    },
+    "rack": {
+      "parent": "chest",
+      "pos": [
+        0,
+        106,
+        24
+      ],
+      "boxes": [
+        {
+          "bone": "rack",
+          "center": [
+            -23,
+            123.5,
+            24
+          ],
+          "size": [
+            4,
+            41,
+            5
+          ],
+          "material": "wood",
+          "uv": [
+            14,
+            136,
+            5,
+            12
+          ]
+        },
+        {
+          "bone": "rack",
+          "center": [
+            -14,
+            121.5,
+            26
+          ],
+          "size": [
+            4,
+            37,
+            5
+          ],
+          "material": "wood",
+          "uv": [
+            23,
+            136,
+            5,
+            11
+          ]
+        },
+        {
+          "bone": "rack",
+          "center": [
+            -5,
+            119.5,
+            24
+          ],
+          "size": [
+            4,
+            33,
+            5
+          ],
+          "material": "wood",
+          "uv": [
+            32,
+            136,
+            5,
+            10
+          ]
+        },
+        {
+          "bone": "rack",
+          "center": [
+            4,
+            123.5,
+            26
+          ],
+          "size": [
+            4,
+            41,
+            5
+          ],
+          "material": "wood",
+          "uv": [
+            41,
+            136,
+            5,
+            12
+          ]
+        },
+        {
+          "bone": "rack",
+          "center": [
+            13,
+            121.5,
+            24
+          ],
+          "size": [
+            4,
+            37,
+            5
+          ],
+          "material": "wood",
+          "uv": [
+            50,
+            136,
+            5,
+            11
+          ]
+        },
+        {
+          "bone": "rack",
+          "center": [
+            22,
+            119.5,
+            26
+          ],
+          "size": [
+            4,
+            33,
+            5
+          ],
+          "material": "wood",
+          "uv": [
+            59,
+            136,
+            5,
+            10
+          ]
+        },
+        {
+          "bone": "rack",
+          "center": [
+            0,
+            112.0,
+            26
+          ],
+          "size": [
+            50,
+            4,
+            5
+          ],
+          "material": "wood",
+          "uv": [
+            68,
+            136,
+            28,
+            3
+          ]
+        },
+        {
+          "bone": "rack",
+          "center": [
+            0,
+            129.0,
+            26
+          ],
+          "size": [
+            50,
+            4,
+            5
+          ],
+          "material": "wood",
+          "uv": [
+            100,
+            136,
+            28,
+            3
+          ]
+        },
+        {
+          "bone": "rack",
+          "center": [
+            0,
+            140.0,
+            26
+          ],
+          "size": [
+            50,
+            4,
+            5
+          ],
+          "material": "wood",
+          "uv": [
+            132,
+            136,
+            28,
+            3
+          ]
+        }
+      ]
+    },
+    "trophy_0": {
+      "parent": "rack",
+      "pos": [
+        -20,
+        133,
+        31
+      ],
+      "boxes": [
+        {
+          "bone": "trophy_0",
+          "center": [
+            -20,
+            128.5,
+            31
+          ],
+          "size": [
+            7,
+            9,
+            6
+          ],
+          "material": "bone",
+          "uv": [
+            164,
+            136,
+            7,
+            4
+          ]
+        },
+        {
+          "bone": "trophy_0",
+          "center": [
+            -20,
+            128.0,
+            34.4
+          ],
+          "size": [
+            5,
+            2,
+            1
+          ],
+          "material": "mouth",
+          "uv": [
+            175,
+            136,
+            3,
+            1
+          ]
+        },
+        {
+          "bone": "trophy_0",
+          "center": [
+            -20,
+            123.0,
+            31
+          ],
+          "size": [
+            5,
+            4,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            182,
+            136,
+            5,
+            3
+          ]
+        }
+      ]
+    },
+    "trophy_1": {
+      "parent": "rack",
+      "pos": [
+        -7,
+        133,
+        31
+      ],
+      "boxes": [
+        {
+          "bone": "trophy_1",
+          "center": [
+            -7,
+            128.5,
+            31
+          ],
+          "size": [
+            7,
+            9,
+            6
+          ],
+          "material": "bone",
+          "uv": [
+            191,
+            136,
+            7,
+            4
+          ]
+        },
+        {
+          "bone": "trophy_1",
+          "center": [
+            -7,
+            128.0,
+            34.4
+          ],
+          "size": [
+            5,
+            2,
+            1
+          ],
+          "material": "mouth",
+          "uv": [
+            202,
+            136,
+            3,
+            1
+          ]
+        },
+        {
+          "bone": "trophy_1",
+          "center": [
+            -7,
+            123.0,
+            31
+          ],
+          "size": [
+            5,
+            4,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            209,
+            136,
+            5,
+            3
+          ]
+        }
+      ]
+    },
+    "trophy_2": {
+      "parent": "rack",
+      "pos": [
+        6,
+        133,
+        31
+      ],
+      "boxes": [
+        {
+          "bone": "trophy_2",
+          "center": [
+            6,
+            128.5,
+            31
+          ],
+          "size": [
+            7,
+            9,
+            6
+          ],
+          "material": "bone",
+          "uv": [
+            218,
+            136,
+            7,
+            4
+          ]
+        },
+        {
+          "bone": "trophy_2",
+          "center": [
+            6,
+            128.0,
+            34.4
+          ],
+          "size": [
+            5,
+            2,
+            1
+          ],
+          "material": "mouth",
+          "uv": [
+            229,
+            136,
+            3,
+            1
+          ]
+        },
+        {
+          "bone": "trophy_2",
+          "center": [
+            6,
+            123.0,
+            31
+          ],
+          "size": [
+            5,
+            4,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            236,
+            136,
+            5,
+            3
+          ]
+        }
+      ]
+    },
+    "trophy_3": {
+      "parent": "rack",
+      "pos": [
+        19,
+        133,
+        31
+      ],
+      "boxes": [
+        {
+          "bone": "trophy_3",
+          "center": [
+            19,
+            128.5,
+            31
+          ],
+          "size": [
+            7,
+            9,
+            6
+          ],
+          "material": "bone",
+          "uv": [
+            245,
+            136,
+            7,
+            4
+          ]
+        },
+        {
+          "bone": "trophy_3",
+          "center": [
+            19,
+            128.0,
+            34.4
+          ],
+          "size": [
+            5,
+            2,
+            1
+          ],
+          "material": "mouth",
+          "uv": [
+            2,
+            152,
+            3,
+            1
+          ]
+        },
+        {
+          "bone": "trophy_3",
+          "center": [
+            19,
+            123.0,
+            31
+          ],
+          "size": [
+            5,
+            4,
+            5
+          ],
+          "material": "bone",
+          "uv": [
+            9,
+            152,
+            5,
+            3
+          ]
+        }
+      ]
+    },
+    "belt_trophy_0": {
+      "parent": "hips",
+      "pos": [
+        -16,
+        57,
+        -23
+      ],
+      "boxes": [
+        {
+          "bone": "belt_trophy_0",
+          "center": [
+            -16,
+            53.5,
+            -24
+          ],
+          "size": [
+            8,
+            9,
+            6
+          ],
+          "material": "bone",
+          "uv": [
+            18,
+            152,
+            7,
+            4
+          ]
+        },
+        {
+          "bone": "belt_trophy_0",
+          "center": [
+            -16,
+            53.0,
+            -27.5
+          ],
+          "size": [
+            5,
+            2,
+            1
+          ],
+          "material": "mouth",
+          "uv": [
+            29,
+            152,
+            3,
+            1
+          ]
+        }
+      ]
+    },
+    "belt_trophy_1": {
+      "parent": "hips",
+      "pos": [
+        0,
+        57,
+        -23
+      ],
+      "boxes": [
+        {
+          "bone": "belt_trophy_1",
+          "center": [
+            0,
+            53.5,
+            -24
+          ],
+          "size": [
+            8,
+            9,
+            6
+          ],
+          "material": "bone",
+          "uv": [
+            36,
+            152,
+            7,
+            4
+          ]
+        },
+        {
+          "bone": "belt_trophy_1",
+          "center": [
+            0,
+            53.0,
+            -27.5
+          ],
+          "size": [
+            5,
+            2,
+            1
+          ],
+          "material": "mouth",
+          "uv": [
+            47,
+            152,
+            3,
+            1
+          ]
+        }
+      ]
+    },
+    "belt_trophy_2": {
+      "parent": "hips",
+      "pos": [
+        16,
+        57,
+        -23
+      ],
+      "boxes": [
+        {
+          "bone": "belt_trophy_2",
+          "center": [
+            16,
+            53.5,
+            -24
+          ],
+          "size": [
+            8,
+            9,
+            6
+          ],
+          "material": "bone",
+          "uv": [
+            54,
+            152,
+            7,
+            4
+          ]
+        },
+        {
+          "bone": "belt_trophy_2",
+          "center": [
+            16,
+            53.0,
+            -27.5
+          ],
+          "size": [
+            5,
+            2,
+            1
+          ],
+          "material": "mouth",
+          "uv": [
+            65,
+            152,
+            3,
+            1
+          ]
+        }
+      ]
+    }
+  },
+  "boxes": [
+    {
+      "bone": "hips",
+      "center": [
+        0,
+        55.0,
+        0
+      ],
+      "size": [
+        52,
+        14,
+        36
+      ],
+      "material": "cloth",
+      "uv": [
+        2,
+        2,
+        44,
+        13
+      ]
+    },
+    {
+      "bone": "belly",
+      "center": [
+        0,
+        70.0,
+        -3
+      ],
+      "size": [
+        60,
+        36,
+        44
+      ],
+      "material": "flesh",
+      "uv": [
+        50,
+        2,
+        52,
+        20
+      ]
+    },
+    {
+      "bone": "belly",
+      "center": [
+        0,
+        71.0,
+        -8
+      ],
+      "size": [
+        54,
+        26,
+        43
+      ],
+      "material": "flesh",
+      "uv": [
+        106,
+        2,
+        49,
+        18
+      ]
+    },
+    {
+      "bone": "belly",
+      "center": [
+        0,
+        62.9,
+        -30
+      ],
+      "size": [
+        47,
+        1.8,
+        1.8
+      ],
+      "material": "scar",
+      "uv": [
+        159,
+        2,
+        25,
+        1
+      ]
+    },
+    {
+      "bone": "belly",
+      "center": [
+        0,
+        69.9,
+        -30
+      ],
+      "size": [
+        44,
+        1.8,
+        1.8
+      ],
+      "material": "scar",
+      "uv": [
+        188,
+        2,
+        23,
+        1
+      ]
+    },
+    {
+      "bone": "belly",
+      "center": [
+        0,
+        76.9,
+        -30
+      ],
+      "size": [
+        41,
+        1.8,
+        1.8
+      ],
+      "material": "scar",
+      "uv": [
+        215,
+        2,
+        22,
+        1
+      ]
+    },
+    {
+      "bone": "chest",
+      "center": [
+        0,
+        96.5,
+        0
+      ],
+      "size": [
+        65,
+        33,
+        40
+      ],
+      "material": "flesh",
+      "uv": [
+        2,
+        26,
+        53,
+        19
+      ]
+    },
+    {
+      "bone": "chest",
+      "center": [
+        0,
+        113.5,
+        1
+      ],
+      "size": [
+        44,
+        7,
+        31
+      ],
+      "material": "flesh",
+      "uv": [
+        59,
+        26,
+        38,
+        10
+      ]
+    },
+    {
+      "bone": "chest",
+      "center": [
+        -16,
+        95.0,
+        -20.6
+      ],
+      "size": [
+        2,
+        8,
+        1.2
+      ],
+      "material": "scar",
+      "uv": [
+        101,
+        26,
+        2,
+        3
+      ]
+    },
+    {
+      "bone": "chest",
+      "center": [
+        -12,
+        97.0,
+        -20.6
+      ],
+      "size": [
+        2,
+        8,
+        1.2
+      ],
+      "material": "scar",
+      "uv": [
+        107,
+        26,
+        2,
+        3
+      ]
+    },
+    {
+      "bone": "chest",
+      "center": [
+        -8,
+        99.0,
+        -20.6
+      ],
+      "size": [
+        2,
+        8,
+        1.2
+      ],
+      "material": "scar",
+      "uv": [
+        113,
+        26,
+        2,
+        3
+      ]
+    },
+    {
+      "bone": "chest",
+      "center": [
+        -4,
+        95.0,
+        -20.6
+      ],
+      "size": [
+        2,
+        8,
+        1.2
+      ],
+      "material": "scar",
+      "uv": [
+        119,
+        26,
+        2,
+        3
+      ]
+    },
+    {
+      "bone": "chest",
+      "center": [
+        0,
+        97.0,
+        -20.6
+      ],
+      "size": [
+        2,
+        8,
+        1.2
+      ],
+      "material": "scar",
+      "uv": [
+        125,
+        26,
+        2,
+        3
+      ]
+    },
+    {
+      "bone": "chest",
+      "center": [
+        4,
+        99.0,
+        -20.6
+      ],
+      "size": [
+        2,
+        8,
+        1.2
+      ],
+      "material": "scar",
+      "uv": [
+        131,
+        26,
+        2,
+        3
+      ]
+    },
+    {
+      "bone": "chest",
+      "center": [
+        8,
+        95.0,
+        -20.6
+      ],
+      "size": [
+        2,
+        8,
+        1.2
+      ],
+      "material": "scar",
+      "uv": [
+        137,
+        26,
+        2,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        125.5,
+        -4
+      ],
+      "size": [
+        35,
+        21,
+        29
+      ],
+      "material": "flesh",
+      "uv": [
+        143,
+        26,
+        32,
+        13
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        131.5,
+        -3
+      ],
+      "size": [
+        36,
+        9,
+        29
+      ],
+      "material": "hair",
+      "uv": [
+        179,
+        26,
+        33,
+        10
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        124.0,
+        -19.7
+      ],
+      "size": [
+        9,
+        10,
+        6
+      ],
+      "material": "flesh",
+      "uv": [
+        216,
+        26,
+        8,
+        4
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        118.0,
+        -21
+      ],
+      "size": [
+        26,
+        6,
+        3
+      ],
+      "material": "mouth",
+      "uv": [
+        228,
+        26,
+        15,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -10,
+        126.5,
+        -19
+      ],
+      "size": [
+        10,
+        3,
+        2
+      ],
+      "material": "scar",
+      "uv": [
+        247,
+        26,
+        6,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -10,
+        124.75,
+        -19.5
+      ],
+      "size": [
+        5,
+        2.1,
+        1
+      ],
+      "material": "eye",
+      "uv": [
+        2,
+        49,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -19,
+        123.5,
+        -2
+      ],
+      "size": [
+        4,
+        9,
+        8
+      ],
+      "material": "flesh",
+      "uv": [
+        9,
+        49,
+        6,
+        5
+      ]
+    },
+    {
+      "bone": "rage_eye_0",
+      "center": [
+        -10,
+        124.75,
+        -20.1
+      ],
+      "size": [
+        5,
+        2.1,
+        0.5
+      ],
+      "material": "rage",
+      "uv": [
+        19,
+        49,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        10,
+        126.5,
+        -19
+      ],
+      "size": [
+        10,
+        3,
+        2
+      ],
+      "material": "scar",
+      "uv": [
+        26,
+        49,
+        6,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        10,
+        124.75,
+        -19.5
+      ],
+      "size": [
+        5,
+        2.1,
+        1
+      ],
+      "material": "eye",
+      "uv": [
+        36,
+        49,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        19,
+        123.5,
+        -2
+      ],
+      "size": [
+        4,
+        9,
+        8
+      ],
+      "material": "flesh",
+      "uv": [
+        43,
+        49,
+        6,
+        5
+      ]
+    },
+    {
+      "bone": "rage_eye_2",
+      "center": [
+        10,
+        124.75,
+        -20.1
+      ],
+      "size": [
+        5,
+        2.1,
+        0.5
+      ],
+      "material": "rage",
+      "uv": [
+        53,
+        49,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -13.0,
+        116.0,
+        -23
+      ],
+      "size": [
+        2.3,
+        3,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        60,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -9.3,
+        115.5,
+        -23
+      ],
+      "size": [
+        2.3,
+        4,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        67,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -5.6,
+        115.0,
+        -23
+      ],
+      "size": [
+        2.3,
+        5,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        74,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -1.8999999999999986,
+        116.0,
+        -23
+      ],
+      "size": [
+        2.3,
+        3,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        81,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        1.8000000000000007,
+        115.5,
+        -23
+      ],
+      "size": [
+        2.3,
+        4,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        88,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        5.5,
+        115.0,
+        -23
+      ],
+      "size": [
+        2.3,
+        5,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        95,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        9.200000000000003,
+        116.0,
+        -23
+      ],
+      "size": [
+        2.3,
+        3,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        102,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        12.900000000000002,
+        115.5,
+        -23
+      ],
+      "size": [
+        2.3,
+        4,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        109,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -13.4,
+        114.0,
+        -22
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "bone",
+      "uv": [
+        116,
+        49,
+        4,
+        4
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        13.4,
+        114.0,
+        -22
+      ],
+      "size": [
+        4,
+        9,
+        4
+      ],
+      "material": "bone",
+      "uv": [
+        124,
+        49,
+        4,
+        4
+      ]
+    },
+    {
+      "bone": "jaw",
+      "center": [
+        0,
+        114.0,
+        -10
+      ],
+      "size": [
+        29,
+        10,
+        25
+      ],
+      "material": "flesh",
+      "uv": [
+        132,
+        49,
+        27,
+        9
+      ]
+    },
+    {
+      "bone": "jaw",
+      "center": [
+        0,
+        116.5,
+        -13
+      ],
+      "size": [
+        24,
+        1,
+        17
+      ],
+      "material": "mouth",
+      "uv": [
+        163,
+        49,
+        21,
+        5
+      ]
+    },
+    {
+      "bone": "jaw",
+      "center": [
+        -10.0,
+        119.5,
+        -23
+      ],
+      "size": [
+        2.2,
+        3,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        188,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "jaw",
+      "center": [
+        -6.7,
+        120.0,
+        -23
+      ],
+      "size": [
+        2.2,
+        4,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        195,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "jaw",
+      "center": [
+        -3.4000000000000004,
+        119.5,
+        -23
+      ],
+      "size": [
+        2.2,
+        3,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        202,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "jaw",
+      "center": [
+        -0.10000000000000142,
+        120.0,
+        -23
+      ],
+      "size": [
+        2.2,
+        4,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        209,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "jaw",
+      "center": [
+        3.1999999999999993,
+        119.5,
+        -23
+      ],
+      "size": [
+        2.2,
+        3,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        216,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "jaw",
+      "center": [
+        6.5,
+        120.0,
+        -23
+      ],
+      "size": [
+        2.2,
+        4,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        223,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "jaw",
+      "center": [
+        9.799999999999997,
+        119.5,
+        -23
+      ],
+      "size": [
+        2.2,
+        3,
+        2.5
+      ],
+      "material": "bone",
+      "uv": [
+        230,
+        49,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "jaw",
+      "center": [
+        0,
+        117.65,
+        -13
+      ],
+      "size": [
+        10,
+        1.3,
+        10
+      ],
+      "material": "scar",
+      "uv": [
+        237,
+        49,
+        10,
+        3
+      ]
+    },
+    {
+      "bone": "right_thigh",
+      "center": [
+        -15,
+        38.0,
+        0
+      ],
+      "size": [
+        27,
+        28,
+        25
+      ],
+      "material": "flesh",
+      "uv": [
+        2,
+        62,
+        26,
+        14
+      ]
+    },
+    {
+      "bone": "right_shin",
+      "center": [
+        -15,
+        19.0,
+        0
+      ],
+      "size": [
+        21,
+        24,
+        21
+      ],
+      "material": "flesh",
+      "uv": [
+        32,
+        62,
+        21,
+        12
+      ]
+    },
+    {
+      "bone": "right_shin",
+      "center": [
+        -15,
+        10.0,
+        0
+      ],
+      "size": [
+        21.4,
+        2,
+        21.4
+      ],
+      "material": "leather",
+      "uv": [
+        57,
+        62,
+        22,
+        6
+      ]
+    },
+    {
+      "bone": "right_shin",
+      "center": [
+        -15,
+        15.0,
+        0
+      ],
+      "size": [
+        21.4,
+        2,
+        21.4
+      ],
+      "material": "leather",
+      "uv": [
+        83,
+        62,
+        22,
+        6
+      ]
+    },
+    {
+      "bone": "right_shin",
+      "center": [
+        -15,
+        20.0,
+        0
+      ],
+      "size": [
+        21.4,
+        2,
+        21.4
+      ],
+      "material": "leather",
+      "uv": [
+        109,
+        62,
+        22,
+        6
+      ]
+    },
+    {
+      "bone": "right_foot",
+      "center": [
+        -15,
+        4.5,
+        -3
+      ],
+      "size": [
+        23,
+        9,
+        28
+      ],
+      "material": "flesh",
+      "uv": [
+        135,
+        62,
+        26,
+        10
+      ]
+    },
+    {
+      "bone": "right_foot",
+      "center": [
+        -23,
+        2.0,
+        -18
+      ],
+      "size": [
+        3.5,
+        4,
+        7
+      ],
+      "material": "bone",
+      "uv": [
+        165,
+        62,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "right_foot",
+      "center": [
+        -18,
+        2.0,
+        -18
+      ],
+      "size": [
+        3.5,
+        4,
+        7
+      ],
+      "material": "bone",
+      "uv": [
+        175,
+        62,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "right_foot",
+      "center": [
+        -13,
+        2.0,
+        -18
+      ],
+      "size": [
+        3.5,
+        4,
+        7
+      ],
+      "material": "bone",
+      "uv": [
+        185,
+        62,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "right_foot",
+      "center": [
+        -8,
+        2.0,
+        -18
+      ],
+      "size": [
+        3.5,
+        4,
+        7
+      ],
+      "material": "bone",
+      "uv": [
+        195,
+        62,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "right_shoulder",
+      "center": [
+        -37,
+        113.0,
+        0
+      ],
+      "size": [
+        27,
+        24,
+        31
+      ],
+      "material": "flesh",
+      "uv": [
+        205,
+        62,
+        29,
+        14
+      ]
+    },
+    {
+      "bone": "right_arm",
+      "center": [
+        -37,
+        90.0,
+        0
+      ],
+      "size": [
+        24,
+        34,
+        26
+      ],
+      "material": "flesh",
+      "uv": [
+        2,
+        80,
+        25,
+        15
+      ]
+    },
+    {
+      "bone": "right_forearm",
+      "center": [
+        -37,
+        67.0,
+        -2
+      ],
+      "size": [
+        22,
+        30,
+        27
+      ],
+      "material": "flesh",
+      "uv": [
+        31,
+        80,
+        25,
+        15
+      ]
+    },
+    {
+      "bone": "right_forearm",
+      "center": [
+        -37,
+        56.5,
+        -2
+      ],
+      "size": [
+        22.5,
+        3,
+        27.5
+      ],
+      "material": "leather",
+      "uv": [
+        60,
+        80,
+        25,
+        8
+      ]
+    },
+    {
+      "bone": "right_forearm",
+      "center": [
+        -37,
+        63.5,
+        -2
+      ],
+      "size": [
+        22.5,
+        3,
+        27.5
+      ],
+      "material": "leather",
+      "uv": [
+        89,
+        80,
+        25,
+        8
+      ]
+    },
+    {
+      "bone": "right_forearm",
+      "center": [
+        -37,
+        70.5,
+        -2
+      ],
+      "size": [
+        22.5,
+        3,
+        27.5
+      ],
+      "material": "leather",
+      "uv": [
+        118,
+        80,
+        25,
+        8
+      ]
+    },
+    {
+      "bone": "right_hand",
+      "center": [
+        -37,
+        52.0,
+        -3
+      ],
+      "size": [
+        26,
+        18,
+        25
+      ],
+      "material": "flesh",
+      "uv": [
+        147,
+        80,
+        26,
+        11
+      ]
+    },
+    {
+      "bone": "right_finger_0",
+      "center": [
+        -46,
+        41.0,
+        -13
+      ],
+      "size": [
+        5,
+        12,
+        8
+      ],
+      "material": "flesh",
+      "uv": [
+        177,
+        80,
+        7,
+        5
+      ]
+    },
+    {
+      "bone": "right_finger_0",
+      "center": [
+        -46,
+        35.5,
+        -15
+      ],
+      "size": [
+        4,
+        3,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        188,
+        80,
+        5,
+        2
+      ]
+    },
+    {
+      "bone": "right_finger_1",
+      "center": [
+        -40,
+        41.5,
+        -13
+      ],
+      "size": [
+        5,
+        11,
+        8
+      ],
+      "material": "flesh",
+      "uv": [
+        197,
+        80,
+        7,
+        5
+      ]
+    },
+    {
+      "bone": "right_finger_1",
+      "center": [
+        -40,
+        36.5,
+        -15
+      ],
+      "size": [
+        4,
+        3,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        208,
+        80,
+        5,
+        2
+      ]
+    },
+    {
+      "bone": "right_finger_2",
+      "center": [
+        -34,
+        41.0,
+        -13
+      ],
+      "size": [
+        5,
+        12,
+        8
+      ],
+      "material": "flesh",
+      "uv": [
+        217,
+        80,
+        7,
+        5
+      ]
+    },
+    {
+      "bone": "right_finger_2",
+      "center": [
+        -34,
+        35.5,
+        -15
+      ],
+      "size": [
+        4,
+        3,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        228,
+        80,
+        5,
+        2
+      ]
+    },
+    {
+      "bone": "right_finger_3",
+      "center": [
+        -28,
+        41.5,
+        -13
+      ],
+      "size": [
+        5,
+        11,
+        8
+      ],
+      "material": "flesh",
+      "uv": [
+        237,
+        80,
+        7,
+        5
+      ]
+    },
+    {
+      "bone": "right_finger_3",
+      "center": [
+        -28,
+        36.5,
+        -15
+      ],
+      "size": [
+        4,
+        3,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        248,
+        80,
+        5,
+        2
+      ]
+    },
+    {
+      "bone": "right_thumb",
+      "center": [
+        -50,
+        45.5,
+        -3
+      ],
+      "size": [
+        7,
+        11,
+        9
+      ],
+      "material": "flesh",
+      "uv": [
+        2,
+        99,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "left_thigh",
+      "center": [
+        15,
+        38.0,
+        0
+      ],
+      "size": [
+        27,
+        28,
+        25
+      ],
+      "material": "flesh",
+      "uv": [
+        14,
+        99,
+        26,
+        14
+      ]
+    },
+    {
+      "bone": "left_shin",
+      "center": [
+        15,
+        19.0,
+        0
+      ],
+      "size": [
+        21,
+        24,
+        21
+      ],
+      "material": "flesh",
+      "uv": [
+        44,
+        99,
+        21,
+        12
+      ]
+    },
+    {
+      "bone": "left_shin",
+      "center": [
+        15,
+        10.0,
+        0
+      ],
+      "size": [
+        21.4,
+        2,
+        21.4
+      ],
+      "material": "leather",
+      "uv": [
+        69,
+        99,
+        22,
+        6
+      ]
+    },
+    {
+      "bone": "left_shin",
+      "center": [
+        15,
+        15.0,
+        0
+      ],
+      "size": [
+        21.4,
+        2,
+        21.4
+      ],
+      "material": "leather",
+      "uv": [
+        95,
+        99,
+        22,
+        6
+      ]
+    },
+    {
+      "bone": "left_shin",
+      "center": [
+        15,
+        20.0,
+        0
+      ],
+      "size": [
+        21.4,
+        2,
+        21.4
+      ],
+      "material": "leather",
+      "uv": [
+        121,
+        99,
+        22,
+        6
+      ]
+    },
+    {
+      "bone": "left_foot",
+      "center": [
+        15,
+        4.5,
+        -3
+      ],
+      "size": [
+        23,
+        9,
+        28
+      ],
+      "material": "flesh",
+      "uv": [
+        147,
+        99,
+        26,
+        10
+      ]
+    },
+    {
+      "bone": "left_foot",
+      "center": [
+        7,
+        2.0,
+        -18
+      ],
+      "size": [
+        3.5,
+        4,
+        7
+      ],
+      "material": "bone",
+      "uv": [
+        177,
+        99,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "left_foot",
+      "center": [
+        12,
+        2.0,
+        -18
+      ],
+      "size": [
+        3.5,
+        4,
+        7
+      ],
+      "material": "bone",
+      "uv": [
+        187,
+        99,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "left_foot",
+      "center": [
+        17,
+        2.0,
+        -18
+      ],
+      "size": [
+        3.5,
+        4,
+        7
+      ],
+      "material": "bone",
+      "uv": [
+        197,
+        99,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "left_foot",
+      "center": [
+        22,
+        2.0,
+        -18
+      ],
+      "size": [
+        3.5,
+        4,
+        7
+      ],
+      "material": "bone",
+      "uv": [
+        207,
+        99,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "left_shoulder",
+      "center": [
+        37,
+        113.0,
+        0
+      ],
+      "size": [
+        27,
+        24,
+        31
+      ],
+      "material": "wood",
+      "uv": [
+        217,
+        99,
+        29,
+        14
+      ]
+    },
+    {
+      "bone": "left_arm",
+      "center": [
+        37,
+        90.0,
+        0
+      ],
+      "size": [
+        24,
+        34,
+        26
+      ],
+      "material": "flesh",
+      "uv": [
+        2,
+        117,
+        25,
+        15
+      ]
+    },
+    {
+      "bone": "left_forearm",
+      "center": [
+        37,
+        67.0,
+        -2
+      ],
+      "size": [
+        22,
+        30,
+        27
+      ],
+      "material": "flesh",
+      "uv": [
+        31,
+        117,
+        25,
+        15
+      ]
+    },
+    {
+      "bone": "left_forearm",
+      "center": [
+        37,
+        56.5,
+        -2
+      ],
+      "size": [
+        22.5,
+        3,
+        27.5
+      ],
+      "material": "leather",
+      "uv": [
+        60,
+        117,
+        25,
+        8
+      ]
+    },
+    {
+      "bone": "left_forearm",
+      "center": [
+        37,
+        63.5,
+        -2
+      ],
+      "size": [
+        22.5,
+        3,
+        27.5
+      ],
+      "material": "leather",
+      "uv": [
+        89,
+        117,
+        25,
+        8
+      ]
+    },
+    {
+      "bone": "left_forearm",
+      "center": [
+        37,
+        70.5,
+        -2
+      ],
+      "size": [
+        22.5,
+        3,
+        27.5
+      ],
+      "material": "leather",
+      "uv": [
+        118,
+        117,
+        25,
+        8
+      ]
+    },
+    {
+      "bone": "left_hand",
+      "center": [
+        37,
+        52.0,
+        -3
+      ],
+      "size": [
+        26,
+        18,
+        25
+      ],
+      "material": "flesh",
+      "uv": [
+        147,
+        117,
+        26,
+        11
+      ]
+    },
+    {
+      "bone": "left_finger_0",
+      "center": [
+        28,
+        41.0,
+        -13
+      ],
+      "size": [
+        5,
+        12,
+        8
+      ],
+      "material": "flesh",
+      "uv": [
+        177,
+        117,
+        7,
+        5
+      ]
+    },
+    {
+      "bone": "left_finger_0",
+      "center": [
+        28,
+        35.5,
+        -15
+      ],
+      "size": [
+        4,
+        3,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        188,
+        117,
+        5,
+        2
+      ]
+    },
+    {
+      "bone": "left_finger_1",
+      "center": [
+        34,
+        41.5,
+        -13
+      ],
+      "size": [
+        5,
+        11,
+        8
+      ],
+      "material": "flesh",
+      "uv": [
+        197,
+        117,
+        7,
+        5
+      ]
+    },
+    {
+      "bone": "left_finger_1",
+      "center": [
+        34,
+        36.5,
+        -15
+      ],
+      "size": [
+        4,
+        3,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        208,
+        117,
+        5,
+        2
+      ]
+    },
+    {
+      "bone": "left_finger_2",
+      "center": [
+        40,
+        41.0,
+        -13
+      ],
+      "size": [
+        5,
+        12,
+        8
+      ],
+      "material": "flesh",
+      "uv": [
+        217,
+        117,
+        7,
+        5
+      ]
+    },
+    {
+      "bone": "left_finger_2",
+      "center": [
+        40,
+        35.5,
+        -15
+      ],
+      "size": [
+        4,
+        3,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        228,
+        117,
+        5,
+        2
+      ]
+    },
+    {
+      "bone": "left_finger_3",
+      "center": [
+        46,
+        41.5,
+        -13
+      ],
+      "size": [
+        5,
+        11,
+        8
+      ],
+      "material": "flesh",
+      "uv": [
+        237,
+        117,
+        7,
+        5
+      ]
+    },
+    {
+      "bone": "left_finger_3",
+      "center": [
+        46,
+        36.5,
+        -15
+      ],
+      "size": [
+        4,
+        3,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        248,
+        117,
+        5,
+        2
+      ]
+    },
+    {
+      "bone": "left_thumb",
+      "center": [
+        50,
+        45.5,
+        -3
+      ],
+      "size": [
+        7,
+        11,
+        9
+      ],
+      "material": "flesh",
+      "uv": [
+        2,
+        136,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "rack",
+      "center": [
+        -23,
+        123.5,
+        24
+      ],
+      "size": [
+        4,
+        41,
+        5
+      ],
+      "material": "wood",
+      "uv": [
+        14,
+        136,
+        5,
+        12
+      ]
+    },
+    {
+      "bone": "rack",
+      "center": [
+        -14,
+        121.5,
+        26
+      ],
+      "size": [
+        4,
+        37,
+        5
+      ],
+      "material": "wood",
+      "uv": [
+        23,
+        136,
+        5,
+        11
+      ]
+    },
+    {
+      "bone": "rack",
+      "center": [
+        -5,
+        119.5,
+        24
+      ],
+      "size": [
+        4,
+        33,
+        5
+      ],
+      "material": "wood",
+      "uv": [
+        32,
+        136,
+        5,
+        10
+      ]
+    },
+    {
+      "bone": "rack",
+      "center": [
+        4,
+        123.5,
+        26
+      ],
+      "size": [
+        4,
+        41,
+        5
+      ],
+      "material": "wood",
+      "uv": [
+        41,
+        136,
+        5,
+        12
+      ]
+    },
+    {
+      "bone": "rack",
+      "center": [
+        13,
+        121.5,
+        24
+      ],
+      "size": [
+        4,
+        37,
+        5
+      ],
+      "material": "wood",
+      "uv": [
+        50,
+        136,
+        5,
+        11
+      ]
+    },
+    {
+      "bone": "rack",
+      "center": [
+        22,
+        119.5,
+        26
+      ],
+      "size": [
+        4,
+        33,
+        5
+      ],
+      "material": "wood",
+      "uv": [
+        59,
+        136,
+        5,
+        10
+      ]
+    },
+    {
+      "bone": "rack",
+      "center": [
+        0,
+        112.0,
+        26
+      ],
+      "size": [
+        50,
+        4,
+        5
+      ],
+      "material": "wood",
+      "uv": [
+        68,
+        136,
+        28,
+        3
+      ]
+    },
+    {
+      "bone": "rack",
+      "center": [
+        0,
+        129.0,
+        26
+      ],
+      "size": [
+        50,
+        4,
+        5
+      ],
+      "material": "wood",
+      "uv": [
+        100,
+        136,
+        28,
+        3
+      ]
+    },
+    {
+      "bone": "rack",
+      "center": [
+        0,
+        140.0,
+        26
+      ],
+      "size": [
+        50,
+        4,
+        5
+      ],
+      "material": "wood",
+      "uv": [
+        132,
+        136,
+        28,
+        3
+      ]
+    },
+    {
+      "bone": "trophy_0",
+      "center": [
+        -20,
+        128.5,
+        31
+      ],
+      "size": [
+        7,
+        9,
+        6
+      ],
+      "material": "bone",
+      "uv": [
+        164,
+        136,
+        7,
+        4
+      ]
+    },
+    {
+      "bone": "trophy_0",
+      "center": [
+        -20,
+        128.0,
+        34.4
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "mouth",
+      "uv": [
+        175,
+        136,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "trophy_0",
+      "center": [
+        -20,
+        123.0,
+        31
+      ],
+      "size": [
+        5,
+        4,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        182,
+        136,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "trophy_1",
+      "center": [
+        -7,
+        128.5,
+        31
+      ],
+      "size": [
+        7,
+        9,
+        6
+      ],
+      "material": "bone",
+      "uv": [
+        191,
+        136,
+        7,
+        4
+      ]
+    },
+    {
+      "bone": "trophy_1",
+      "center": [
+        -7,
+        128.0,
+        34.4
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "mouth",
+      "uv": [
+        202,
+        136,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "trophy_1",
+      "center": [
+        -7,
+        123.0,
+        31
+      ],
+      "size": [
+        5,
+        4,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        209,
+        136,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "trophy_2",
+      "center": [
+        6,
+        128.5,
+        31
+      ],
+      "size": [
+        7,
+        9,
+        6
+      ],
+      "material": "bone",
+      "uv": [
+        218,
+        136,
+        7,
+        4
+      ]
+    },
+    {
+      "bone": "trophy_2",
+      "center": [
+        6,
+        128.0,
+        34.4
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "mouth",
+      "uv": [
+        229,
+        136,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "trophy_2",
+      "center": [
+        6,
+        123.0,
+        31
+      ],
+      "size": [
+        5,
+        4,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        236,
+        136,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "trophy_3",
+      "center": [
+        19,
+        128.5,
+        31
+      ],
+      "size": [
+        7,
+        9,
+        6
+      ],
+      "material": "bone",
+      "uv": [
+        245,
+        136,
+        7,
+        4
+      ]
+    },
+    {
+      "bone": "trophy_3",
+      "center": [
+        19,
+        128.0,
+        34.4
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "mouth",
+      "uv": [
+        2,
+        152,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "trophy_3",
+      "center": [
+        19,
+        123.0,
+        31
+      ],
+      "size": [
+        5,
+        4,
+        5
+      ],
+      "material": "bone",
+      "uv": [
+        9,
+        152,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "belt_trophy_0",
+      "center": [
+        -16,
+        53.5,
+        -24
+      ],
+      "size": [
+        8,
+        9,
+        6
+      ],
+      "material": "bone",
+      "uv": [
+        18,
+        152,
+        7,
+        4
+      ]
+    },
+    {
+      "bone": "belt_trophy_0",
+      "center": [
+        -16,
+        53.0,
+        -27.5
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "mouth",
+      "uv": [
+        29,
+        152,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "belt_trophy_1",
+      "center": [
+        0,
+        53.5,
+        -24
+      ],
+      "size": [
+        8,
+        9,
+        6
+      ],
+      "material": "bone",
+      "uv": [
+        36,
+        152,
+        7,
+        4
+      ]
+    },
+    {
+      "bone": "belt_trophy_1",
+      "center": [
+        0,
+        53.0,
+        -27.5
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "mouth",
+      "uv": [
+        47,
+        152,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "belt_trophy_2",
+      "center": [
+        16,
+        53.5,
+        -24
+      ],
+      "size": [
+        8,
+        9,
+        6
+      ],
+      "material": "bone",
+      "uv": [
+        54,
+        152,
+        7,
+        4
+      ]
+    },
+    {
+      "bone": "belt_trophy_2",
+      "center": [
+        16,
+        53.0,
+        -27.5
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "mouth",
+      "uv": [
+        65,
+        152,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "hips",
+      "center": [
+        -23,
+        45.5,
+        -20
+      ],
+      "size": [
+        8,
+        15,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        72,
+        152,
+        5,
+        5
+      ]
+    },
+    {
+      "bone": "hips",
+      "center": [
+        -12,
+        49.5,
+        -20
+      ],
+      "size": [
+        8,
+        15,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        81,
+        152,
+        5,
+        5
+      ]
+    },
+    {
+      "bone": "hips",
+      "center": [
+        -1,
+        45.5,
+        -20
+      ],
+      "size": [
+        8,
+        15,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        90,
+        152,
+        5,
+        5
+      ]
+    },
+    {
+      "bone": "hips",
+      "center": [
+        10,
+        49.5,
+        -20
+      ],
+      "size": [
+        8,
+        15,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        99,
+        152,
+        5,
+        5
+      ]
+    },
+    {
+      "bone": "hips",
+      "center": [
+        21,
+        45.5,
+        -20
+      ],
+      "size": [
+        8,
+        15,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        108,
+        152,
+        5,
+        5
+      ]
+    }
+  ]
+}

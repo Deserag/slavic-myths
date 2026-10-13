@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:feature_water",
+  "features": [
+    "slavicmyths:water_patch"
+  ],
+  "step": "vegetal_decoration"
+}

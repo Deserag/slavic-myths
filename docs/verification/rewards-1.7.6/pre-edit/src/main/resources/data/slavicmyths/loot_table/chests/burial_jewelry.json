@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:ancient_fibula"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:grivna"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:lunula"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:grave_ward"
+        }
+      ]
+    }
+  ]
+}

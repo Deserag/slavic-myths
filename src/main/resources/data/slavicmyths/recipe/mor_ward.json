@@ -1,0 +1,19 @@
+{
+  "type": "slavicmyths:gorynych_upgrade",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:mor_fire_amulet_fragment"
+    },
+    {
+      "item": "slavicmyths:mor_water_amulet_fragment"
+    },
+    {
+      "item": "slavicmyths:eye_of_mor"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:mor_ward",
+    "count": 1
+  }
+}

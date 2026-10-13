@@ -1,0 +1,15 @@
+{
+  "version": "1.7.8",
+  "status": "PASS",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.7.8.jar",
+  "sha256": "5d23385a3aa3d609372677fb422a68b02cad88612aec3c53dc77cc39ea6ef535",
+  "previous_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-ui-20261012-110334\\slavicmyths-1.7.7.jar",
+  "previous_sha256": "094c787a6de026e4e817fc702310e6542221b976d9b32f9a888ddd3b6a9ca3cd",
+  "other_files_preserved": 322,
+  "client_launches": 0,
+  "old_1_16_5_instance": "NOT_TOUCHED",
+  "acceptance": "Installed gated candidate; final scripted dev-client UI capture PASS. Manual gameplay/MP/relog NOT_RUN.",
+  "dev_client_launches": 5,
+  "final_scripted_screen_states": 20
+}

@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.group_knowledge.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.group_knowledge.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "section": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

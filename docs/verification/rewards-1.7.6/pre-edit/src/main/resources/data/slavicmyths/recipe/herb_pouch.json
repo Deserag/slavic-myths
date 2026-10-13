@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CWJ",
+    "NCN"
+  ],
+  "key": {
+    "C": {
+      "item": "slavicmyths:linen_cloth"
+    },
+    "W": {
+      "item": "slavicmyths:ground_st_johns_wort"
+    },
+    "N": {
+      "item": "slavicmyths:nettle"
+    },
+    "J": {
+      "item": "slavicmyths:juniper_blend"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:herb_pouch"
+  }
+}

@@ -1,0 +1,13 @@
+package org.slavicmyths.sanctuary;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.core.registries.Registries;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+@EventBusSubscriber(modid="slavicmyths")
+public final class SanctuaryEvents {
+ @SubscribeEvent public static void damage(net.neoforged.neoforge.event.entity.living.LivingDamageEvent.Pre e){if(e.getEntity().hasEffect(SanctuaryContent.GUARD)&&(e.getSource().is(net.minecraft.tags.DamageTypeTags.IS_FIRE)||e.getSource().getMsgId().equals("mor_block")))e.setNewDamage((float)(e.getNewDamage()*(1-SanctuaryConfig.GUARD.get())));}
+ @SubscribeEvent(priority=net.neoforged.bus.api.EventPriority.LOWEST) public static void breakNode(net.neoforged.neoforge.event.level.BlockEvent.BreakEvent e){if(e.isCanceled()||!(e.getPlayer() instanceof ServerPlayer p)||!e.getState().is(SanctuaryContent.block("tainted_spring_node")))return;if(p.serverLevel().getBlockEntity(e.getPos()) instanceof SanctuaryHeart h)h.purifyByBreaking(p);}
+ public static int morDuration(ServerPlayer p,int base){return p.hasEffect(SanctuaryContent.GUARD)?SanctuaryRules.guardDuration(base,SanctuaryConfig.GUARD.get()):base;}
+ @SubscribeEvent public static void discover(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post e){if(!(e.getEntity() instanceof ServerPlayer p)||p.tickCount%40!=0||!p.isAlive()||p.isSpectator()||p.serverLevel().dimension()!=net.minecraft.world.level.Level.OVERWORLD)return;var w=p.serverLevel();var current=w.getChunkSource().getChunkNow(p.chunkPosition().x,p.chunkPosition().z);if(current==null)return;for(boolean spring:new boolean[]{false,true}){var s=w.registryAccess().registryOrThrow(Registries.STRUCTURE).get(SanctuaryContent.id(SanctuaryGeometry.id(spring)));if(s==null)continue;for(long ref:current.getReferencesForStructure(s)){var chunk=new net.minecraft.world.level.ChunkPos(ref);var loaded=w.getChunkSource().getChunkNow(chunk.x,chunk.z);if(loaded==null)continue;var start=loaded.getStartForStructure(s);if(start==null||!start.isValid()||!start.getBoundingBox().isInside(p.blockPosition()))continue;for(var piece:start.getPieces())if(piece instanceof SanctuaryPiece sp){org.slavicmyths.guardians.GuardianWorld.visit(p,sp.instance,sp.origin,sp.rotation,sp.spring);var d=SanctuaryRecords.get(w);if(!d.player(p.getUUID()).hasUUID(spring?"SpringFoundInstance":"FireFoundInstance")||!d.player(p.getUUID()).getUUID(spring?"SpringFoundInstance":"FireFoundInstance").equals(sp.instance)){d.ensure(sp.instance,sp.origin,sp.rotation,sp.spring);d.discover(p,sp.instance);}break;}}}}
+ private SanctuaryEvents(){}
+}

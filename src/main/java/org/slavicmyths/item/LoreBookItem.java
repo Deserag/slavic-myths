@@ -15,7 +15,7 @@ public final class LoreBookItem extends Item {
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         if (player instanceof ServerPlayer) {
             Knowledge.award(player, "lore_book");
-            LoreNetwork.open((ServerPlayer) player, Knowledge.mask((ServerPlayer) player));
+            org.slavicmyths.tales.TaleService.open((ServerPlayer)player);
         }
         return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
     }

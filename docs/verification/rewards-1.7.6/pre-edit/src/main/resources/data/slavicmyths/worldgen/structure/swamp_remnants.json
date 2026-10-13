@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:swamp_remnants",
+  "biomes": "#slavicmyths:structures/swamp_remnants",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

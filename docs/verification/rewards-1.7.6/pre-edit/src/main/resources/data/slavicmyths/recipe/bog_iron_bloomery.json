@@ -1,0 +1,12 @@
+{
+  "type": "slavicmyths:chud_bloomery",
+  "ingredient": {
+    "item": "slavicmyths:bog_iron_lump"
+  },
+  "result": {
+    "id": "minecraft:iron_ingot",
+    "count": 1
+  },
+  "duration": 200,
+  "experience": 0.7
+}

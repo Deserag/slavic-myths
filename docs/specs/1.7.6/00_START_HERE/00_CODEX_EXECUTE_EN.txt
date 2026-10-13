@@ -1,0 +1,17 @@
+SLAVIC MYTHS 1.7.6 — IMPLEMENT NOW. THIS ZIP IS THE COMPLETE TECHNICAL SPECIFICATION, NOT A REQUEST FOR ANOTHER PLAN.
+
+TARGET: Minecraft 1.21.1 / NeoForge, existing mod namespace as found in local code. Verify only the project files relevant to item registration, runic anvil, accessories, recipes, quest/victory persistence, loot and client assets. Do NOT crawl the repository. Do not switch mappings, loaders, Minecraft version, renderer, animation libraries, or entire architecture.
+
+Implement exactly 19 NEW reward items: five rune stones, four permanent hero gifts, five crafted trophy pieces, five boss-only crafting resources. Copy all three approved image sheets and the 19 provided 64x64 item textures from this archive. If refining icons is needed, keep exact silhouette/palette and preserve assets in repository. Read 00_START_HERE/01_SCOPE_AND_HARD_LIMITS.md, 02_REWARD_MATRIX.md, 03_APPROVAL_AND_CONFLICT_RESOLUTION.md before implementing. Then read only files for systems being touched.
+
+Critical decisions:
+* Ilya gift shield reflects 1.5x hypothetical incoming HP damage of SUCCESSFULLY blocked hit back at original attacker and emits knockback wave, on 35s cooldown. Exact semantics in 02_Bogatyr_Gifts/01_gift_ilya_shield.md.
+* Dobrynya ring: next qualified direct melee hit after successful block becomes 1.75x final damage; 4s window, 12s post-proc cooldown.
+* Alyosha evasive belt and Finist detection charm retain previous approved designs.
+* Rune recipes and installed effects integrate with current runic anvil. No standalone duplicate system.
+* Five materials come exclusively from bosses, not new ore worldgen.
+* All earlier earned victories must grant once-only first-clear claims WITHOUT replaying boss; do not grant duplicate claims after reconnect or world reload.
+* Keep existing hero summoning items: NOT rewards, NOT consumed, NOT replaced.
+* No new bosses, structures, GUI frameworks, accessory core, systems overhaul, worldgen, or full audit.
+
+Delivery: working implementation, all item resources, tested mechanics, short proof + build/smoke check; if a single bridge/API differs, adapt locally and document with minimal edits. Do not ask the user to invent any art or gameplay behavior.

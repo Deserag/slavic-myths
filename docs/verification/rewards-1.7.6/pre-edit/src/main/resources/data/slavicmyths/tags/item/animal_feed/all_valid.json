@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "#slavicmyths:animal_feed/goose",
+    "#slavicmyths:animal_feed/duck",
+    "#slavicmyths:animal_feed/domestic_goat",
+    "#slavicmyths:animal_feed/cow",
+    "#slavicmyths:animal_feed/sheep",
+    "#slavicmyths:animal_feed/pig",
+    "#slavicmyths:animal_feed/chicken",
+    "#slavicmyths:animal_feed/rabbit",
+    "minecraft:wheat",
+    "minecraft:wheat_seeds",
+    "minecraft:melon_seeds",
+    "minecraft:pumpkin_seeds",
+    "minecraft:beetroot_seeds",
+    "minecraft:carrot",
+    "minecraft:potato",
+    "minecraft:beetroot",
+    "minecraft:dandelion",
+    "minecraft:golden_carrot"
+  ]
+}

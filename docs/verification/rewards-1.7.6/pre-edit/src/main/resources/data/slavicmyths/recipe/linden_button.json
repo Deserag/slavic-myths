@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "slavicmyths:linden_planks"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:linden_button"
+  }
+}

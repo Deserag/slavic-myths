@@ -1,0 +1,1869 @@
+{
+  "height": 51.2,
+  "atlas": 256,
+  "uvScale": 1,
+  "bones": {
+    "body": {
+      "parent": null,
+      "pos": [
+        0,
+        29,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "body",
+          "center": [
+            0,
+            29.5,
+            1
+          ],
+          "size": [
+            15,
+            17,
+            29
+          ],
+          "material": "black",
+          "uv": [
+            2,
+            2,
+            88,
+            46
+          ]
+        },
+        {
+          "bone": "body",
+          "center": [
+            0,
+            35.5,
+            0
+          ],
+          "size": [
+            12,
+            3,
+            16
+          ],
+          "material": "leather",
+          "uv": [
+            94,
+            2,
+            56,
+            19
+          ]
+        },
+        {
+          "bone": "body",
+          "center": [
+            0,
+            38.5,
+            5
+          ],
+          "size": [
+            12,
+            3,
+            4
+          ],
+          "material": "gold",
+          "uv": [
+            154,
+            2,
+            32,
+            7
+          ]
+        }
+      ]
+    },
+    "right_front": {
+      "parent": "body",
+      "pos": [
+        -5.3,
+        23,
+        -10
+      ],
+      "boxes": [
+        {
+          "bone": "right_front",
+          "center": [
+            -5.3,
+            15.5,
+            -10
+          ],
+          "size": [
+            5,
+            15,
+            6
+          ],
+          "material": "black",
+          "uv": [
+            190,
+            2,
+            22,
+            21
+          ]
+        },
+        {
+          "bone": "right_front",
+          "center": [
+            -5.3,
+            10.0,
+            -13.2
+          ],
+          "size": [
+            5.5,
+            2,
+            0.7
+          ],
+          "material": "gold",
+          "uv": [
+            216,
+            2,
+            13,
+            3
+          ]
+        }
+      ]
+    },
+    "right_front_hoof": {
+      "parent": "right_front",
+      "pos": [
+        -5.3,
+        9,
+        -10
+      ],
+      "boxes": [
+        {
+          "bone": "right_front_hoof",
+          "center": [
+            -5.3,
+            4.5,
+            -10.8
+          ],
+          "size": [
+            5.7,
+            9,
+            7
+          ],
+          "material": "steel",
+          "uv": [
+            2,
+            52,
+            26,
+            16
+          ]
+        },
+        {
+          "bone": "right_front_hoof",
+          "center": [
+            -5.3,
+            1.5,
+            -14.4
+          ],
+          "size": [
+            5.8,
+            1,
+            0.5
+          ],
+          "material": "gold",
+          "uv": [
+            32,
+            52,
+            13,
+            2
+          ]
+        }
+      ]
+    },
+    "right_back": {
+      "parent": "body",
+      "pos": [
+        -5.3,
+        23,
+        11
+      ],
+      "boxes": [
+        {
+          "bone": "right_back",
+          "center": [
+            -5.3,
+            15.5,
+            11
+          ],
+          "size": [
+            5,
+            15,
+            6
+          ],
+          "material": "black",
+          "uv": [
+            49,
+            52,
+            22,
+            21
+          ]
+        },
+        {
+          "bone": "right_back",
+          "center": [
+            -5.3,
+            10.0,
+            7.8
+          ],
+          "size": [
+            5.5,
+            2,
+            0.7
+          ],
+          "material": "gold",
+          "uv": [
+            75,
+            52,
+            13,
+            3
+          ]
+        }
+      ]
+    },
+    "right_back_hoof": {
+      "parent": "right_back",
+      "pos": [
+        -5.3,
+        9,
+        11
+      ],
+      "boxes": [
+        {
+          "bone": "right_back_hoof",
+          "center": [
+            -5.3,
+            4.5,
+            10.2
+          ],
+          "size": [
+            5.7,
+            9,
+            7
+          ],
+          "material": "steel",
+          "uv": [
+            92,
+            52,
+            26,
+            16
+          ]
+        },
+        {
+          "bone": "right_back_hoof",
+          "center": [
+            -5.3,
+            1.5,
+            6.6
+          ],
+          "size": [
+            5.8,
+            1,
+            0.5
+          ],
+          "material": "gold",
+          "uv": [
+            122,
+            52,
+            13,
+            2
+          ]
+        }
+      ]
+    },
+    "right_barding": {
+      "parent": "body",
+      "pos": [
+        -8,
+        31,
+        3
+      ],
+      "boxes": [
+        {
+          "bone": "right_barding",
+          "center": [
+            -8,
+            23.0,
+            3
+          ],
+          "size": [
+            1,
+            16,
+            22
+          ],
+          "material": "crimson",
+          "uv": [
+            139,
+            52,
+            46,
+            38
+          ]
+        },
+        {
+          "bone": "right_barding",
+          "center": [
+            -8,
+            15.5,
+            3
+          ],
+          "size": [
+            1.4,
+            1,
+            23
+          ],
+          "material": "gold",
+          "uv": [
+            189,
+            52,
+            49,
+            24
+          ]
+        },
+        {
+          "bone": "right_barding",
+          "center": [
+            -8.8,
+            24.0,
+            4
+          ],
+          "size": [
+            0.5,
+            10,
+            1
+          ],
+          "material": "gold",
+          "uv": [
+            242,
+            52,
+            3,
+            11
+          ]
+        },
+        {
+          "bone": "right_barding",
+          "center": [
+            -8.8,
+            24.5,
+            4
+          ],
+          "size": [
+            0.5,
+            1,
+            10
+          ],
+          "material": "gold",
+          "uv": [
+            2,
+            94,
+            21,
+            11
+          ]
+        }
+      ]
+    },
+    "left_front": {
+      "parent": "body",
+      "pos": [
+        5.3,
+        23,
+        -10
+      ],
+      "boxes": [
+        {
+          "bone": "left_front",
+          "center": [
+            5.3,
+            15.5,
+            -10
+          ],
+          "size": [
+            5,
+            15,
+            6
+          ],
+          "material": "black",
+          "uv": [
+            27,
+            94,
+            22,
+            21
+          ]
+        },
+        {
+          "bone": "left_front",
+          "center": [
+            5.3,
+            10.0,
+            -13.2
+          ],
+          "size": [
+            5.5,
+            2,
+            0.7
+          ],
+          "material": "gold",
+          "uv": [
+            53,
+            94,
+            13,
+            3
+          ]
+        }
+      ]
+    },
+    "left_front_hoof": {
+      "parent": "left_front",
+      "pos": [
+        5.3,
+        9,
+        -10
+      ],
+      "boxes": [
+        {
+          "bone": "left_front_hoof",
+          "center": [
+            5.3,
+            4.5,
+            -10.8
+          ],
+          "size": [
+            5.7,
+            9,
+            7
+          ],
+          "material": "steel",
+          "uv": [
+            70,
+            94,
+            26,
+            16
+          ]
+        },
+        {
+          "bone": "left_front_hoof",
+          "center": [
+            5.3,
+            1.5,
+            -14.4
+          ],
+          "size": [
+            5.8,
+            1,
+            0.5
+          ],
+          "material": "gold",
+          "uv": [
+            100,
+            94,
+            13,
+            2
+          ]
+        }
+      ]
+    },
+    "left_back": {
+      "parent": "body",
+      "pos": [
+        5.3,
+        23,
+        11
+      ],
+      "boxes": [
+        {
+          "bone": "left_back",
+          "center": [
+            5.3,
+            15.5,
+            11
+          ],
+          "size": [
+            5,
+            15,
+            6
+          ],
+          "material": "black",
+          "uv": [
+            117,
+            94,
+            22,
+            21
+          ]
+        },
+        {
+          "bone": "left_back",
+          "center": [
+            5.3,
+            10.0,
+            7.8
+          ],
+          "size": [
+            5.5,
+            2,
+            0.7
+          ],
+          "material": "gold",
+          "uv": [
+            143,
+            94,
+            13,
+            3
+          ]
+        }
+      ]
+    },
+    "left_back_hoof": {
+      "parent": "left_back",
+      "pos": [
+        5.3,
+        9,
+        11
+      ],
+      "boxes": [
+        {
+          "bone": "left_back_hoof",
+          "center": [
+            5.3,
+            4.5,
+            10.2
+          ],
+          "size": [
+            5.7,
+            9,
+            7
+          ],
+          "material": "steel",
+          "uv": [
+            160,
+            94,
+            26,
+            16
+          ]
+        },
+        {
+          "bone": "left_back_hoof",
+          "center": [
+            5.3,
+            1.5,
+            6.6
+          ],
+          "size": [
+            5.8,
+            1,
+            0.5
+          ],
+          "material": "gold",
+          "uv": [
+            190,
+            94,
+            13,
+            2
+          ]
+        }
+      ]
+    },
+    "left_barding": {
+      "parent": "body",
+      "pos": [
+        8,
+        31,
+        3
+      ],
+      "boxes": [
+        {
+          "bone": "left_barding",
+          "center": [
+            8,
+            23.0,
+            3
+          ],
+          "size": [
+            1,
+            16,
+            22
+          ],
+          "material": "crimson",
+          "uv": [
+            207,
+            94,
+            46,
+            38
+          ]
+        },
+        {
+          "bone": "left_barding",
+          "center": [
+            8,
+            15.5,
+            3
+          ],
+          "size": [
+            1.4,
+            1,
+            23
+          ],
+          "material": "gold",
+          "uv": [
+            2,
+            136,
+            49,
+            24
+          ]
+        },
+        {
+          "bone": "left_barding",
+          "center": [
+            8.8,
+            24.0,
+            4
+          ],
+          "size": [
+            0.5,
+            10,
+            1
+          ],
+          "material": "gold",
+          "uv": [
+            55,
+            136,
+            3,
+            11
+          ]
+        },
+        {
+          "bone": "left_barding",
+          "center": [
+            8.8,
+            24.5,
+            4
+          ],
+          "size": [
+            0.5,
+            1,
+            10
+          ],
+          "material": "gold",
+          "uv": [
+            62,
+            136,
+            21,
+            11
+          ]
+        }
+      ]
+    },
+    "neck": {
+      "parent": "body",
+      "pos": [
+        0,
+        32,
+        -10
+      ],
+      "boxes": [
+        {
+          "bone": "neck",
+          "center": [
+            0,
+            38.0,
+            -12
+          ],
+          "size": [
+            10,
+            18,
+            11
+          ],
+          "material": "black",
+          "uv": [
+            87,
+            136,
+            42,
+            29
+          ]
+        }
+      ]
+    },
+    "head": {
+      "parent": "neck",
+      "pos": [
+        0,
+        46,
+        -17
+      ],
+      "boxes": [
+        {
+          "bone": "head",
+          "center": [
+            0,
+            42.0,
+            -21
+          ],
+          "size": [
+            10,
+            10,
+            15
+          ],
+          "material": "black",
+          "uv": [
+            133,
+            136,
+            50,
+            25
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            39.5,
+            -28
+          ],
+          "size": [
+            11,
+            5,
+            3
+          ],
+          "material": "steel",
+          "uv": [
+            187,
+            136,
+            28,
+            8
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            41.5,
+            -29.5
+          ],
+          "size": [
+            10,
+            1,
+            0.7
+          ],
+          "material": "gold",
+          "uv": [
+            219,
+            136,
+            22,
+            2
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            44.5,
+            -23
+          ],
+          "size": [
+            11,
+            1,
+            14
+          ],
+          "material": "gold",
+          "uv": [
+            2,
+            169,
+            50,
+            15
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            45.0,
+            -29.5
+          ],
+          "size": [
+            1,
+            6,
+            0.8
+          ],
+          "material": "gold",
+          "uv": [
+            56,
+            169,
+            4,
+            7
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            -5.3,
+            43.55,
+            -22
+          ],
+          "size": [
+            0.4,
+            1.1,
+            2
+          ],
+          "material": "red",
+          "uv": [
+            64,
+            169,
+            5,
+            4
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            -3,
+            48.5,
+            -15
+          ],
+          "size": [
+            2,
+            3,
+            2
+          ],
+          "material": "black",
+          "uv": [
+            73,
+            169,
+            8,
+            5
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            5.3,
+            43.55,
+            -22
+          ],
+          "size": [
+            0.4,
+            1.1,
+            2
+          ],
+          "material": "red",
+          "uv": [
+            85,
+            169,
+            5,
+            4
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            3,
+            48.5,
+            -15
+          ],
+          "size": [
+            2,
+            3,
+            2
+          ],
+          "material": "black",
+          "uv": [
+            94,
+            169,
+            8,
+            5
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            49.6,
+            -18.0
+          ],
+          "size": [
+            2.5,
+            3.2,
+            3
+          ],
+          "material": "crimson",
+          "uv": [
+            106,
+            169,
+            11,
+            7
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            48.800000000000004,
+            -15.6
+          ],
+          "size": [
+            2.5,
+            3.2,
+            3
+          ],
+          "material": "crimson",
+          "uv": [
+            121,
+            169,
+            11,
+            7
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            48.0,
+            -13.2
+          ],
+          "size": [
+            2.5,
+            3.2,
+            3
+          ],
+          "material": "crimson",
+          "uv": [
+            136,
+            169,
+            11,
+            7
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            47.2,
+            -10.8
+          ],
+          "size": [
+            2.5,
+            3.2,
+            3
+          ],
+          "material": "crimson",
+          "uv": [
+            151,
+            169,
+            11,
+            7
+          ]
+        },
+        {
+          "bone": "head",
+          "center": [
+            0,
+            46.4,
+            -8.4
+          ],
+          "size": [
+            2.5,
+            3.2,
+            3
+          ],
+          "material": "crimson",
+          "uv": [
+            166,
+            169,
+            11,
+            7
+          ]
+        }
+      ]
+    },
+    "tail": {
+      "parent": "body",
+      "pos": [
+        0,
+        32,
+        16
+      ],
+      "boxes": [
+        {
+          "bone": "tail",
+          "center": [
+            0,
+            24.5,
+            16
+          ],
+          "size": [
+            4,
+            15,
+            4
+          ],
+          "material": "black",
+          "uv": [
+            181,
+            169,
+            16,
+            19
+          ]
+        }
+      ]
+    }
+  },
+  "boxes": [
+    {
+      "bone": "body",
+      "center": [
+        0,
+        29.5,
+        1
+      ],
+      "size": [
+        15,
+        17,
+        29
+      ],
+      "material": "black",
+      "uv": [
+        2,
+        2,
+        88,
+        46
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        35.5,
+        0
+      ],
+      "size": [
+        12,
+        3,
+        16
+      ],
+      "material": "leather",
+      "uv": [
+        94,
+        2,
+        56,
+        19
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        38.5,
+        5
+      ],
+      "size": [
+        12,
+        3,
+        4
+      ],
+      "material": "gold",
+      "uv": [
+        154,
+        2,
+        32,
+        7
+      ]
+    },
+    {
+      "bone": "right_front",
+      "center": [
+        -5.3,
+        15.5,
+        -10
+      ],
+      "size": [
+        5,
+        15,
+        6
+      ],
+      "material": "black",
+      "uv": [
+        190,
+        2,
+        22,
+        21
+      ]
+    },
+    {
+      "bone": "right_front",
+      "center": [
+        -5.3,
+        10.0,
+        -13.2
+      ],
+      "size": [
+        5.5,
+        2,
+        0.7
+      ],
+      "material": "gold",
+      "uv": [
+        216,
+        2,
+        13,
+        3
+      ]
+    },
+    {
+      "bone": "right_front_hoof",
+      "center": [
+        -5.3,
+        4.5,
+        -10.8
+      ],
+      "size": [
+        5.7,
+        9,
+        7
+      ],
+      "material": "steel",
+      "uv": [
+        2,
+        52,
+        26,
+        16
+      ]
+    },
+    {
+      "bone": "right_front_hoof",
+      "center": [
+        -5.3,
+        1.5,
+        -14.4
+      ],
+      "size": [
+        5.8,
+        1,
+        0.5
+      ],
+      "material": "gold",
+      "uv": [
+        32,
+        52,
+        13,
+        2
+      ]
+    },
+    {
+      "bone": "right_back",
+      "center": [
+        -5.3,
+        15.5,
+        11
+      ],
+      "size": [
+        5,
+        15,
+        6
+      ],
+      "material": "black",
+      "uv": [
+        49,
+        52,
+        22,
+        21
+      ]
+    },
+    {
+      "bone": "right_back",
+      "center": [
+        -5.3,
+        10.0,
+        7.8
+      ],
+      "size": [
+        5.5,
+        2,
+        0.7
+      ],
+      "material": "gold",
+      "uv": [
+        75,
+        52,
+        13,
+        3
+      ]
+    },
+    {
+      "bone": "right_back_hoof",
+      "center": [
+        -5.3,
+        4.5,
+        10.2
+      ],
+      "size": [
+        5.7,
+        9,
+        7
+      ],
+      "material": "steel",
+      "uv": [
+        92,
+        52,
+        26,
+        16
+      ]
+    },
+    {
+      "bone": "right_back_hoof",
+      "center": [
+        -5.3,
+        1.5,
+        6.6
+      ],
+      "size": [
+        5.8,
+        1,
+        0.5
+      ],
+      "material": "gold",
+      "uv": [
+        122,
+        52,
+        13,
+        2
+      ]
+    },
+    {
+      "bone": "right_barding",
+      "center": [
+        -8,
+        23.0,
+        3
+      ],
+      "size": [
+        1,
+        16,
+        22
+      ],
+      "material": "crimson",
+      "uv": [
+        139,
+        52,
+        46,
+        38
+      ]
+    },
+    {
+      "bone": "right_barding",
+      "center": [
+        -8,
+        15.5,
+        3
+      ],
+      "size": [
+        1.4,
+        1,
+        23
+      ],
+      "material": "gold",
+      "uv": [
+        189,
+        52,
+        49,
+        24
+      ]
+    },
+    {
+      "bone": "right_barding",
+      "center": [
+        -8.8,
+        24.0,
+        4
+      ],
+      "size": [
+        0.5,
+        10,
+        1
+      ],
+      "material": "gold",
+      "uv": [
+        242,
+        52,
+        3,
+        11
+      ]
+    },
+    {
+      "bone": "right_barding",
+      "center": [
+        -8.8,
+        24.5,
+        4
+      ],
+      "size": [
+        0.5,
+        1,
+        10
+      ],
+      "material": "gold",
+      "uv": [
+        2,
+        94,
+        21,
+        11
+      ]
+    },
+    {
+      "bone": "left_front",
+      "center": [
+        5.3,
+        15.5,
+        -10
+      ],
+      "size": [
+        5,
+        15,
+        6
+      ],
+      "material": "black",
+      "uv": [
+        27,
+        94,
+        22,
+        21
+      ]
+    },
+    {
+      "bone": "left_front",
+      "center": [
+        5.3,
+        10.0,
+        -13.2
+      ],
+      "size": [
+        5.5,
+        2,
+        0.7
+      ],
+      "material": "gold",
+      "uv": [
+        53,
+        94,
+        13,
+        3
+      ]
+    },
+    {
+      "bone": "left_front_hoof",
+      "center": [
+        5.3,
+        4.5,
+        -10.8
+      ],
+      "size": [
+        5.7,
+        9,
+        7
+      ],
+      "material": "steel",
+      "uv": [
+        70,
+        94,
+        26,
+        16
+      ]
+    },
+    {
+      "bone": "left_front_hoof",
+      "center": [
+        5.3,
+        1.5,
+        -14.4
+      ],
+      "size": [
+        5.8,
+        1,
+        0.5
+      ],
+      "material": "gold",
+      "uv": [
+        100,
+        94,
+        13,
+        2
+      ]
+    },
+    {
+      "bone": "left_back",
+      "center": [
+        5.3,
+        15.5,
+        11
+      ],
+      "size": [
+        5,
+        15,
+        6
+      ],
+      "material": "black",
+      "uv": [
+        117,
+        94,
+        22,
+        21
+      ]
+    },
+    {
+      "bone": "left_back",
+      "center": [
+        5.3,
+        10.0,
+        7.8
+      ],
+      "size": [
+        5.5,
+        2,
+        0.7
+      ],
+      "material": "gold",
+      "uv": [
+        143,
+        94,
+        13,
+        3
+      ]
+    },
+    {
+      "bone": "left_back_hoof",
+      "center": [
+        5.3,
+        4.5,
+        10.2
+      ],
+      "size": [
+        5.7,
+        9,
+        7
+      ],
+      "material": "steel",
+      "uv": [
+        160,
+        94,
+        26,
+        16
+      ]
+    },
+    {
+      "bone": "left_back_hoof",
+      "center": [
+        5.3,
+        1.5,
+        6.6
+      ],
+      "size": [
+        5.8,
+        1,
+        0.5
+      ],
+      "material": "gold",
+      "uv": [
+        190,
+        94,
+        13,
+        2
+      ]
+    },
+    {
+      "bone": "left_barding",
+      "center": [
+        8,
+        23.0,
+        3
+      ],
+      "size": [
+        1,
+        16,
+        22
+      ],
+      "material": "crimson",
+      "uv": [
+        207,
+        94,
+        46,
+        38
+      ]
+    },
+    {
+      "bone": "left_barding",
+      "center": [
+        8,
+        15.5,
+        3
+      ],
+      "size": [
+        1.4,
+        1,
+        23
+      ],
+      "material": "gold",
+      "uv": [
+        2,
+        136,
+        49,
+        24
+      ]
+    },
+    {
+      "bone": "left_barding",
+      "center": [
+        8.8,
+        24.0,
+        4
+      ],
+      "size": [
+        0.5,
+        10,
+        1
+      ],
+      "material": "gold",
+      "uv": [
+        55,
+        136,
+        3,
+        11
+      ]
+    },
+    {
+      "bone": "left_barding",
+      "center": [
+        8.8,
+        24.5,
+        4
+      ],
+      "size": [
+        0.5,
+        1,
+        10
+      ],
+      "material": "gold",
+      "uv": [
+        62,
+        136,
+        21,
+        11
+      ]
+    },
+    {
+      "bone": "neck",
+      "center": [
+        0,
+        38.0,
+        -12
+      ],
+      "size": [
+        10,
+        18,
+        11
+      ],
+      "material": "black",
+      "uv": [
+        87,
+        136,
+        42,
+        29
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        42.0,
+        -21
+      ],
+      "size": [
+        10,
+        10,
+        15
+      ],
+      "material": "black",
+      "uv": [
+        133,
+        136,
+        50,
+        25
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        39.5,
+        -28
+      ],
+      "size": [
+        11,
+        5,
+        3
+      ],
+      "material": "steel",
+      "uv": [
+        187,
+        136,
+        28,
+        8
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        41.5,
+        -29.5
+      ],
+      "size": [
+        10,
+        1,
+        0.7
+      ],
+      "material": "gold",
+      "uv": [
+        219,
+        136,
+        22,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        44.5,
+        -23
+      ],
+      "size": [
+        11,
+        1,
+        14
+      ],
+      "material": "gold",
+      "uv": [
+        2,
+        169,
+        50,
+        15
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        45.0,
+        -29.5
+      ],
+      "size": [
+        1,
+        6,
+        0.8
+      ],
+      "material": "gold",
+      "uv": [
+        56,
+        169,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -5.3,
+        43.55,
+        -22
+      ],
+      "size": [
+        0.4,
+        1.1,
+        2
+      ],
+      "material": "red",
+      "uv": [
+        64,
+        169,
+        5,
+        4
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -3,
+        48.5,
+        -15
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "black",
+      "uv": [
+        73,
+        169,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        5.3,
+        43.55,
+        -22
+      ],
+      "size": [
+        0.4,
+        1.1,
+        2
+      ],
+      "material": "red",
+      "uv": [
+        85,
+        169,
+        5,
+        4
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        3,
+        48.5,
+        -15
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "black",
+      "uv": [
+        94,
+        169,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        49.6,
+        -18.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        3
+      ],
+      "material": "crimson",
+      "uv": [
+        106,
+        169,
+        11,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        48.800000000000004,
+        -15.6
+      ],
+      "size": [
+        2.5,
+        3.2,
+        3
+      ],
+      "material": "crimson",
+      "uv": [
+        121,
+        169,
+        11,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        48.0,
+        -13.2
+      ],
+      "size": [
+        2.5,
+        3.2,
+        3
+      ],
+      "material": "crimson",
+      "uv": [
+        136,
+        169,
+        11,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        47.2,
+        -10.8
+      ],
+      "size": [
+        2.5,
+        3.2,
+        3
+      ],
+      "material": "crimson",
+      "uv": [
+        151,
+        169,
+        11,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        46.4,
+        -8.4
+      ],
+      "size": [
+        2.5,
+        3.2,
+        3
+      ],
+      "material": "crimson",
+      "uv": [
+        166,
+        169,
+        11,
+        7
+      ]
+    },
+    {
+      "bone": "tail",
+      "center": [
+        0,
+        24.5,
+        16
+      ],
+      "size": [
+        4,
+        15,
+        4
+      ],
+      "material": "black",
+      "uv": [
+        181,
+        169,
+        16,
+        19
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tales.entry.grey_wolf.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 1,
+  "subjects": [
+    "entity/slavicmyths:grey_wolf"
+  ],
+  "advancements": [],
+  "links": []
+}

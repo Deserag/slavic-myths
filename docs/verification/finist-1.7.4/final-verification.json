@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "version": "1.7.4",
+  "sha256": "d5539688425f79b1a9d93e1cf11d21f14ebc3827d030999e52b046198958f4fc",
+  "three_jar_copies_identical": true,
+  "baseline_backup": "PASS",
+  "other_files_preserved": 261,
+  "server_launches": 6,
+  "client_launches": 0,
+  "full_game_acceptance": "NOT_RUN",
+  "commit_created": false
+}

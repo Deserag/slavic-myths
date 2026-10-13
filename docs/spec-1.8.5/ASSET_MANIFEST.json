@@ -1,0 +1,175 @@
+{
+  "release": "1.8.5",
+  "files": [
+    {
+      "path": "00_RULES_AND_TARGETED_INTEGRATION.md",
+      "bytes": 4416,
+      "sha256": "0284d2955c780a9350d5080f55c69a4d6a86ee6ee9eb241ee3bf412291597f89"
+    },
+    {
+      "path": "00_START_HERE.md",
+      "bytes": 6180,
+      "sha256": "51b35bf8db406a477de16385bd137612941e601c767831f58a731379ee655df3"
+    },
+    {
+      "path": "01_QUEST_MASTER_FLOW.md",
+      "bytes": 6025,
+      "sha256": "b3b77cec2d67d9c3ee6e47b71ca3c68db6caf2c87e69ba5fa460951ab1eea3db"
+    },
+    {
+      "path": "02_TRIGGER_AND_TELEPORT/01_TRIGGER_MESSAGES.md",
+      "bytes": 3533,
+      "sha256": "58c01a0f4203bd7b88b230bac8ce9de9de1d29e855180c7d2f99e5fd0b30dd62"
+    },
+    {
+      "path": "02_TRIGGER_AND_TELEPORT/02_SAFE_TELEPORT.md",
+      "bytes": 3581,
+      "sha256": "e0c731c71129cbed0b9ab096227192b388d9da55babba861a5f560c6efac1d9e"
+    },
+    {
+      "path": "03_PORCH_SCENE/01_STAGE_ACTORS_CAMERA.md",
+      "bytes": 4863,
+      "sha256": "6b105606fc12f2ad18dc119b18646b324e274bfea40965fcad80b2cf6ca83596"
+    },
+    {
+      "path": "03_PORCH_SCENE/02_SOUNDS_AND_ANIMATIONS.md",
+      "bytes": 3470,
+      "sha256": "4c2ff5a3a3e882a4e23bb9f6f3cf19e8418c02b46c38d5c1ce789198357886ce"
+    },
+    {
+      "path": "03_PORCH_SCENE/03_DIALOGUE_SCRIPT_RU.md",
+      "bytes": 6960,
+      "sha256": "1ad50037c3c19458e34840087f7486fbfbbf56d37bbae430202669c97ae91829"
+    },
+    {
+      "path": "04_QUEST_STAGES/01_MAIN_OBJECTIVES_AND_REWARDS.md",
+      "bytes": 8502,
+      "sha256": "e54b0fb485fa0b1178ad0980d42dd5398bb6d4881431a710f76126af09bf176f"
+    },
+    {
+      "path": "04_QUEST_STAGES/02_SIDEQUESTS_WOLF.md",
+      "bytes": 5687,
+      "sha256": "d1cd1300c048a7579947f84f2e12f4b1c44b30fd3fca250f2ee38b406b90ed9a"
+    },
+    {
+      "path": "04_QUEST_STAGES/03_STORY_CONSISTENCY_AND_SHORTCUTS.md",
+      "bytes": 3091,
+      "sha256": "8c6cf28e7fbdd7c28e197535809cbb681caac2bea1e75f703427c01e9d9d37ca"
+    },
+    {
+      "path": "05_GRAY_WOLF/01_SUMMON_ITEM_AND_ELIGIBILITY.md",
+      "bytes": 4142,
+      "sha256": "f61d9a6be38356b0e8a1d029af35990b6c39fab5dfb35f6d1c2903f5d46ded2d"
+    },
+    {
+      "path": "05_GRAY_WOLF/02_WOLF_COMBAT_AI_AND_ANIMATIONS.md",
+      "bytes": 4744,
+      "sha256": "0c43e04dde08000f7432f0c10f8307abee19fdd342d0caa0a3c58c13d0d45e99"
+    },
+    {
+      "path": "06_ITEMS_AND_REWARDS/01_REFERENCE_PALETTE_AND_PIXEL_ART.md",
+      "bytes": 4069,
+      "sha256": "82562dc58f8df6906d4c4bc8f54e9803c1e471d5718213e4bf20094e5256b443"
+    },
+    {
+      "path": "06_ITEMS_AND_REWARDS/02_MOR_WARD.md",
+      "bytes": 3266,
+      "sha256": "6537275504c80fb005c6cb2c8b01f993be1e4a8a05ee6b838646c924c257afa2"
+    },
+    {
+      "path": "06_ITEMS_AND_REWARDS/03_TRACKER_SENSE.md",
+      "bytes": 3188,
+      "sha256": "d6771acd433848bd9b9444cba9bc795105644b862e6bed85f09c1479d0cf63a2"
+    },
+    {
+      "path": "06_ITEMS_AND_REWARDS/04_REWARDS_BALANCE_RECIPES.md",
+      "bytes": 3324,
+      "sha256": "24cd2e0d7cbcde0164a6a54ff71c25a432f80e7021a2e118df281155d61b7e80"
+    },
+    {
+      "path": "07_CLEANSING/01_CLEANSING_POWDER_VISUAL_AND_GAMEPLAY.md",
+      "bytes": 5278,
+      "sha256": "2ae7075bbcf35d8d0f3d0957f6559916ed6f8335846c308cc450048552c4c113"
+    },
+    {
+      "path": "07_CLEANSING/02_BLOCK_STATE_RESTORATION.md",
+      "bytes": 4321,
+      "sha256": "c733c3e51bb6303af977a03168deca4f0aeee92e0dc82f8cae11173534fe2f61"
+    },
+    {
+      "path": "07_CLEANSING/03_BOOK_CHAPTER_AND_PERSISTENCE.md",
+      "bytes": 2500,
+      "sha256": "3c05e5e555fb127e548968761b26e8cfad3849ec22dd71bf266df9c4c649c51c"
+    },
+    {
+      "path": "08_BOOK_UI_LOCALIZATION/01_JOURNAL_QUEST_UI.md",
+      "bytes": 3242,
+      "sha256": "329b95dd8d61b0135dc29171aee0b87ba8b3e0ea48481c2108eb3d3367bd3cbf"
+    },
+    {
+      "path": "08_BOOK_UI_LOCALIZATION/02_RUSSIAN_STRINGS_AND_KEYS.md",
+      "bytes": 3242,
+      "sha256": "0f041d6625ff7d33f09e6d8a8f28bca88557c0f8267f8608febaf79ec0527f4b"
+    },
+    {
+      "path": "08_BOOK_UI_LOCALIZATION/03_DIALOGUE_GUI_STATES.md",
+      "bytes": 2794,
+      "sha256": "6d6133e206dfce4a1d9295c8bb8f392101939ee17c24bb3e004d5345bb279a77"
+    },
+    {
+      "path": "09_SOUND_ANIMATION_ASSETS/01_ASSET_REGISTER_AND_REQUIREMENTS.md",
+      "bytes": 3609,
+      "sha256": "b42ff1fcdc1a1b31320947c2415c5cbc9596f9d96987263123d6b716a3993db3"
+    },
+    {
+      "path": "09_SOUND_ANIMATION_ASSETS/02_STATE_MACHINE_AND_TIMELINE.md",
+      "bytes": 2706,
+      "sha256": "cf2071da56c78335539631318043634eeb723310097a6b2f99effe5b7a60e89a"
+    },
+    {
+      "path": "09_SOUND_ANIMATION_ASSETS/03_SOUND_EVENT_MATRIX.md",
+      "bytes": 3039,
+      "sha256": "5c19a4bf23e07a9990cf140f70638840d791224f052444b49e4b5f9885339b44"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/01_PERSISTENCE_AND_MULTIPLAYER.md",
+      "bytes": 4740,
+      "sha256": "91aeb91367ba56d237b2c39978a3974cbf895f33612d6965d3da497239f8fc07"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/02_SERVER_EVENTS_AND_STATE_MACHINE.md",
+      "bytes": 2707,
+      "sha256": "ece93118cdbca30de95fb3e0afc5fb0d29ee41a58e95b0ccfb15f9fad3c35178"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/03_REGRESSION_TEST_MATRIX.md",
+      "bytes": 6396,
+      "sha256": "e7f6bc3579bd1148394d786473efd5a2f9a3816c5cf5c7948fca4e3578ce06d5"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/04_COMMANDS_DEV_TESTS.md",
+      "bytes": 2775,
+      "sha256": "999467c042ccc1816cf4bb17a3d15b4c7cc8964091ea9b23250946c632c30851"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/05_RELEASE_POLYMC_AND_REPORT.md",
+      "bytes": 4056,
+      "sha256": "b11ccc6a743c7623b2bda322298c4fcbd209db0aaa3ca591cf3af46ef1a56ea3"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/06_ACCEPTANCE_AND_NO_GAPS.md",
+      "bytes": 3933,
+      "sha256": "603e36a0dce04c50a0b75faf8be699cd72e7e59c4523ffdc2efdab0b316feb2e"
+    },
+    {
+      "path": "refs/01_APPROVED_1_8_5_QUEST_REWARDS_AND_DIALOG.png",
+      "bytes": 2404507,
+      "sha256": "f46baec52d0070ce912c220999c0409f96f776b2e37519ae620071c41c167f69"
+    },
+    {
+      "path": "refs/README_REFERENCE.md",
+      "bytes": 840,
+      "sha256": "ffd9efff660dad76874dea1106051db05892bbdcc9447fc9d4520e041bb01c16"
+    }
+  ]
+}

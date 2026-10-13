@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "checks": 22684,
+  "version": "1.9.3",
+  "sha256": "ab2397c7ae3aada79526305a620715515e986a7974cc31a54bd056cd4088f4e9",
+  "baseline": "75f1cec8b4af7fe2f566765328ec2a0108617a85921a169e6b84f709a511ea70",
+  "native_templates": 61,
+  "authored_block_entries": 90484,
+  "sound_events": 13,
+  "loot_simulations": 100000,
+  "interpreted_category_rates": {
+    "fire1": 0.64813,
+    "fire2": 0.2995,
+    "fire3": 0.12493,
+    "fire4": 0.09962,
+    "spring1": 0.65034,
+    "spring2": 0.30044,
+    "spring3": 0.12287,
+    "spring4": 0.10066
+  },
+  "event_subscribers": 196,
+  "changed_existing_resources": [
+    "assets/slavicmyths/sounds.json",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json"
+  ],
+  "client_starts": 0,
+  "server_starts": 0,
+  "gameplay": "NOT_RUN",
+  "natural_seed_generation": "NOT_RUN",
+  "MSPT": "NOT_MEASURED"
+}

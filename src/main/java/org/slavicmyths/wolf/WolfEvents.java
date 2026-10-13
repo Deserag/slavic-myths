@@ -3,7 +3,7 @@ import net.neoforged.bus.api.*;
 import net.neoforged.neoforge.event.entity.living.*;
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class WolfEvents {
- @SubscribeEvent(priority=EventPriority.LOWEST) public static void damage(LivingDamageEvent.Pre e){if(e.getEntity() instanceof GreyWolf wolf){if(!wolf.active()){e.setNewDamage(0);return;}if(e.getNewDamage()>0&&wolf.getHealth()-e.getNewDamage()<=50){e.setNewDamage(0);wolf.finish();}}}
+ @SubscribeEvent(priority=EventPriority.LOWEST) public static void damage(LivingDamageEvent.Pre e){if(e.getEntity() instanceof GreyWolf wolf&&wolf.narrativeActor()){if(!wolf.active()){e.setNewDamage(0);return;}if(e.getNewDamage()>0&&wolf.getHealth()-e.getNewDamage()<=50){e.setNewDamage(0);wolf.finish();}}}
  @SubscribeEvent public static void drops(LivingDropsEvent e){if(e.getEntity() instanceof GreyWolf||e.getEntity().getPersistentData().getBoolean("summonedByGreyWolf"))e.getDrops().clear();}
  @SubscribeEvent public static void xp(LivingExperienceDropEvent e){if(e.getEntity() instanceof GreyWolf||e.getEntity().getPersistentData().getBoolean("summonedByGreyWolf"))e.setDroppedExperience(0);}
  @SubscribeEvent public static void expired(MobEffectEvent.Expired e){

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PSP",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:perunite"
+    },
+    "S": {
+      "item": "slavicmyths:retainer_shield"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:perunite_shield"
+  }
+}

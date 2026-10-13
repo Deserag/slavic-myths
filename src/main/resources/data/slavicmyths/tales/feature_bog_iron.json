@@ -1,0 +1,15 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_bog_iron.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:bog_iron_ore",
+    "feature/slavicmyths:bog_iron",
+    "item/slavicmyths:bog_iron_ore"
+  ],
+  "advancements": [],
+  "links": []
+}

@@ -18,7 +18,7 @@ import net.minecraft.sounds.SoundSource;
 import org.slavicmyths.registry.ModEntities;
 import static org.slavicmyths.wolf.WolfTimeline.*;
 /** One physical immortal actor; only a consenting participant owns its current trial. */
-public final class GreyWolf extends PathfinderMob {
+public class GreyWolf extends PathfinderMob {
  private static final EntityDataAccessor<Integer> STATE=SynchedEntityData.defineId(GreyWolf.class,EntityDataSerializers.INT),MOVE=SynchedEntityData.defineId(GreyWolf.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Long> CLOCK=SynchedEntityData.defineId(GreyWolf.class,EntityDataSerializers.LONG);
  private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("wolf.slavicmyths.bar"),BossEvent.BossBarColor.WHITE,BossEvent.BossBarOverlay.PROGRESS);
@@ -113,7 +113,11 @@ public final class GreyWolf extends PathfinderMob {
   if(landed&&p.getHealth()+p.getAbsorptionAmount()<before){WolfBleeding.apply(this,p);if(action==Move.POUNCE)p.knockback(.65,getX()-p.getX(),getZ()-p.getZ());}
   voice(action==Move.DOUBLE_CLAW?"claw":"bite",.8F);
  }
+ public boolean narrativeActor(){return true;}
+ public void supportMove(WolfTimeline.Move action){if(!narrativeActor())move(action);}
+ public void scenePose(WolfTimeline.Move action){if(level().isClientSide){entityData.set(STATE,State.POST_TRIAL_NPC.ordinal());entityData.set(MOVE,action.ordinal());entityData.set(CLOCK,level().getGameTime());}}
  @Override public boolean hurt(DamageSource source,float amount){
+  if(!narrativeActor())return super.hurt(source,amount);
   if(source.is(net.minecraft.world.damagesource.DamageTypes.IN_WALL)||source.getEntity()==this)return false;
   if(!active()||source.getEntity() instanceof Player p&&!Objects.equals(participant,p.getUUID()))return false;
   return super.hurt(source,amount);
@@ -123,7 +127,7 @@ public final class GreyWolf extends PathfinderMob {
  @Override protected void playStepSound(BlockPos pos,net.minecraft.world.level.block.state.BlockState block){if(onGround())playSound(WolfSounds.get("step"),.35F,1);}
  @Override public float getPickRadius(){return 1.1F;}
  @Override public boolean removeWhenFarAway(double d){return false;}
- @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w))return;if(home==null)home=blockPosition().immutable();
+ @Override public void tick(){super.tick();if(!narrativeActor()||!(level() instanceof ServerLevel w))return;if(home==null)home=blockPosition().immutable();
   long now=w.getGameTime();int t=elapsed();var p=player();
   if(busy()&&(p==null||!p.isAlive()||p.level()!=level()||level().getDifficulty()==Difficulty.PEACEFUL)){abort();return;}
   if(busy()){if(home.distSqr(p.blockPosition())>38*38){if(outsideSince<0)outsideSince=now;if(now-outsideSince>=240){abort();return;}}else outsideSince=-1;}

@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:hearth"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.group_home.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.group_home.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "section": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

@@ -48,7 +48,7 @@ public final class StructureCandidates {
                 Structure other=entry.structure().value();var otherId=structures.getKey(other);
                 // The new underground city yields to every existing planner. Keeping it out of
                 // their dependency graph preserves prior placements and prevents recursive plans.
-                if(otherId!=null&&otherId.getNamespace().equals("slavicmyths")&&(otherId.getPath().equals("chud_city")||otherId.getPath().equals("chud_abandoned")))continue;
+                if(otherId!=null&&otherId.getNamespace().equals("slavicmyths")&&(otherId.getPath().equals("chud_city")||otherId.getPath().equals("chud_abandoned")||otherId.getPath().equals("serpent_hill")))continue;
                 if(margin.applyAsInt(otherId)<=0)continue;
                 if(c.biomeSource().possibleBiomes().stream().noneMatch(other.biomes()::contains))continue;
                 for(int gx=Math.floorDiv(minX-8,spacing);gx<=Math.floorDiv(maxX+8,spacing);gx++)for(int gz=Math.floorDiv(minZ-8,spacing);gz<=Math.floorDiv(maxZ+8,spacing);gz++){

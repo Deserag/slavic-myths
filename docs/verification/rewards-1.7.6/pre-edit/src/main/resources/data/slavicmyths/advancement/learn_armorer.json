@@ -1,0 +1,32 @@
+{
+  "parent": "slavicmyths:group_depths",
+  "criteria": {
+    "table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:armorer_table"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.learn_armorer.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.learn_armorer.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  }
+}

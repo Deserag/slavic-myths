@@ -1,0 +1,15 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:short_shaft"
+    },
+    {
+      "item": "slavicmyths:netherite_light_spearhead"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:netherite_sulitsa",
+    "count": 1
+  }
+}

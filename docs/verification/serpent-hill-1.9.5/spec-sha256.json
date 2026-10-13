@@ -1,0 +1,13 @@
+{
+  "00_START.md": "78e5cba48f409a1339325f75a69d2a5533f5c94eac8c74d540d98bb0a9ca5254",
+  "01_IMPLEMENTATION.md": "c739ab6f64661b8963b88d219b411c3a665da0f1fd4483af3f18014fcdc95924",
+  "02_VISUAL.md": "2fe5e1f9e61df14609e0d25d388026a5102b3a19febd0f47390b0df28915b93f",
+  "03_ASSETS.md": "ca4ae08c48819815ea7cd56a265a06ed2fedd8d367865639bb4bd1c261229a05",
+  "04_ACCEPTANCE.md": "54dd8d7c198a0b9dedd0e1903cf578c0274630aef6f838650c978bb65619bdff",
+  "references/01_serpent_hill_overview.png": "e1f86ad65bf60d71c66a35e22477395430450751c1bf745b07a347c3509f0a27",
+  "references/02_serpent_fortress_blueprint.png": "7fba82255320be69eb7877fca08f33c10becdf49c6fed45b30ca14440b7d8d3f",
+  "references/03_serpent_hill_blueprint.png": "e933a6e3d780fe0208142fb1a5e11270decf693a8e5c9467b45a06bf3c61c46f",
+  "references/04_serpent_fortress_interior.png": "addb7c2b800ad33aa947419a7791ade60b423f1cc63351a663bb701a2581af39",
+  "references/05_serpent_fortress_blocks.png": "a443af387080aebdc8d1f7d278d3af5205a2fae9bea553fcf5e618195770c197",
+  "references/06_serpent_fortress_lights.png": "bdfaf8c02ca32f54bc17f221a25877a694148012d53cca08f5d1a28ddd3d7b24"
+}

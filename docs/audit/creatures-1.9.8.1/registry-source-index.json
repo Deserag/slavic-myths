@@ -1,0 +1,890 @@
+[
+  {
+    "id": "slavicmyths:alyosha_arrow",
+    "name": "alyosha_arrow",
+    "source": "src/main/java/org/slavicmyths/skim/SkimContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"alyosha_arrow\",()->EntityType.Builder.<AlyoshaArrow>of(AlyoshaArrow::new,MobCategory.MISC).sized(.5F,.5F).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:alyosha_arrow\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:alyosha_popovich",
+    "name": "Алёша Попович",
+    "source": "src/main/java/org/slavicmyths/skim/SkimContent.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"alyosha_popovich\",()->EntityType.Builder.of(AlyoshaEntity::new,MobCategory.CREATURE).sized(.72F,2.15F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:alyosha_popovich\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:ataman",
+    "name": "Атаман",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 106,
+    "declaration": "ENTITIES.register(\"ataman\",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,4),MobCategory.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build(\"slavicmyths:ataman\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:baba_yaga",
+    "name": "Баба-яга",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 126,
+    "declaration": "ENTITIES.register(\"baba_yaga\",()->EntityType.Builder.of(org.slavicmyths.yaga.BabaYaga::new,MobCategory.CREATURE).sized(.6F,1.75F).clientTrackingRange(8).build(\"slavicmyths:baba_yaga\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:bandit_archer",
+    "name": "Разбойник-лучник",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 103,
+    "declaration": "ENTITIES.register(\"bandit_archer\",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,1),MobCategory.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build(\"slavicmyths:bandit_archer\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:bandit_fighter",
+    "name": "Разбойник-боец",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 102,
+    "declaration": "ENTITIES.register(\"bandit_fighter\",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,0),MobCategory.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build(\"slavicmyths:bandit_fighter\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:bandit_heavy",
+    "name": "Тяжёлый разбойник",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 104,
+    "declaration": "ENTITIES.register(\"bandit_heavy\",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,2),MobCategory.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build(\"slavicmyths:bandit_heavy\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:bandit_senior",
+    "name": "Старший разбойник",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 105,
+    "declaration": "ENTITIES.register(\"bandit_senior\",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,3),MobCategory.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build(\"slavicmyths:bandit_senior\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:bannik",
+    "name": "Банник",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 29,
+    "declaration": "ENTITIES.register(\"bannik\", () -> EntityType.Builder.of(org.slavicmyths.entity.BannikEntity::new, MobCategory.MONSTER).sized(0.9F,1.45F).clientTrackingRange(10).build(\"slavicmyths:bannik\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:bear_cub",
+    "name": "Медвежонок",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 34,
+    "declaration": "= wildlife(\"bear_cub\", org.slavicmyths.entity.WildlifeEntity.Kind.CUB, .72F, .78F)",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:boar",
+    "name": "Кабан",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 36,
+    "declaration": "= wildlife(\"boar\", org.slavicmyths.entity.WildlifeEntity.Kind.BOAR, 1.05F, 1.0F)",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:bolotnik",
+    "name": "Болотник",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 45,
+    "declaration": "ENTITIES.register(\"bolotnik\",()->EntityType.Builder.of(org.slavicmyths.swamp.BolotnikEntity::new,MobCategory.MONSTER).sized(1.15F,2.0F).clientTrackingRange(10).build(\"slavicmyths:bolotnik\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:brown_bear",
+    "name": "Бурый медведь",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 33,
+    "declaration": "= wildlife(\"brown_bear\", org.slavicmyths.entity.WildlifeEntity.Kind.BEAR, 1.35F, 1.65F)",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:buried_volkhv",
+    "name": "Погребённый волхв",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 111,
+    "declaration": "ENTITIES.register(\"buried_volkhv\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.VOLKHV),MobCategory.MONSTER).sized(0.7F,2.1F).clientTrackingRange(12).build(\"slavicmyths:buried_volkhv\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:carcass",
+    "name": "Туша",
+    "source": "src/main/java/org/slavicmyths/textile/Textiles.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"carcass\",()->EntityType.Builder.of(Carcass::new,MobCategory.MISC).sized(1.2F,.45F).clientTrackingRange(8).build(\"slavicmyths:carcass\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:carp",
+    "name": "Карп",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 96,
+    "declaration": "ENTITIES.register(\"carp\",()->EntityType.Builder.<org.slavicmyths.water.RiverFish>of((t,w)->new org.slavicmyths.water.RiverFish(t,w,1),MobCategory.WATER_AMBIENT).sized(.65F,.5F).clientTrackingRange(8).build(\"slavicmyths:carp\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:crayfish",
+    "name": "Речной рак",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 97,
+    "declaration": "ENTITIES.register(\"crayfish\",()->EntityType.Builder.<org.slavicmyths.water.RiverFish>of((t,w)->new org.slavicmyths.water.RiverFish(t,w,2),MobCategory.WATER_AMBIENT).sized(.45F,.2F).clientTrackingRange(8).build(\"slavicmyths:crayfish\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:cursed_volkolak",
+    "name": "Проклятый Оборотень",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 118,
+    "declaration": "ENTITIES.register(\"cursed_volkolak\",()->EntityType.Builder.of(org.slavicmyths.volkolak.CursedVolkolak::new,MobCategory.MONSTER).sized(1.65F,1.9F).eyeHeight(1.55F).clientTrackingRange(12).build(\"slavicmyths:cursed_volkolak\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:defiled_spring_keeper",
+    "name": "Осквернённая хранительница источника",
+    "source": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"defiled_spring_keeper\",()->EntityType.Builder.of(SpringKeeper::new,MobCategory.MONSTER).sized(1f,3f).clientTrackingRange(12).updateInterval(2).build(\"slavicmyths:defiled_spring_keeper\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:dobrynya_nikitich",
+    "name": "Добрыня Никитич",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"dobrynya_nikitich\",()->EntityType.Builder.of(DobrynyaEntity::new,MobCategory.CREATURE).sized(.8F,2.2F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:dobrynya_nikitich\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:doe",
+    "name": "Олениха",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 38,
+    "declaration": "= wildlife(\"doe\", org.slavicmyths.entity.WildlifeEntity.Kind.DOE, .9F, 1.8F)",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:doghead_arrow",
+    "name": "Стрела песиголовца",
+    "source": "src/main/java/org/slavicmyths/pesigolovtsy/DogheadContent.java",
+    "line": 29,
+    "declaration": "ModEntities.ENTITIES.register(\"doghead_arrow\",()->EntityType.Builder.<DogheadArrow>of(DogheadArrow::new,MobCategory.MISC).sized(.5F,.5F).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:doghead_arrow\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:domovoy",
+    "name": "Домовой",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 19,
+    "declaration": "ENTITIES.register(\"domovoy\",\n            () -> EntityType.Builder.of(DomovoyEntity::new, MobCategory.CREATURE)\n                    .sized(0.55F, 1.1F).clientTrackingRange(8).build(\"slavicmyths:domovoy\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:earth_encounter_actor",
+    "name": "Каменные осколки",
+    "source": "src/main/java/org/slavicmyths/earth/EarthContent.java",
+    "line": 21,
+    "declaration": "ModEntities.ENTITIES.register(\"earth_encounter_actor\",()->EntityType.Builder.<EarthActor>of(EarthActor::new,MobCategory.MISC).sized(.6F,.6F).clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:earth_encounter_actor\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:earth_servant",
+    "name": "Слуга земли",
+    "source": "src/main/java/org/slavicmyths/earth/EarthContent.java",
+    "line": 20,
+    "declaration": "ModEntities.ENTITIES.register(\"earth_servant\",()->EntityType.Builder.of(EarthServant::new,MobCategory.MONSTER).sized(.85F,1.4F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:earth_servant\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:earth_spirit",
+    "name": "Дух земли",
+    "source": "src/main/java/org/slavicmyths/earth/EarthContent.java",
+    "line": 19,
+    "declaration": "ModEntities.ENTITIES.register(\"earth_spirit\",()->EntityType.Builder.of(EarthSpirit::new,MobCategory.MONSTER).sized(3.1F,6.35F).clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:earth_spirit\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:elder_vodyanoy",
+    "name": "Старший Водяной",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 101,
+    "declaration": "ENTITIES.register(\"elder_vodyanoy\",()->EntityType.Builder.of(org.slavicmyths.depth.ElderVodyanoy::new,MobCategory.MONSTER).sized(1.4F,2.35F).clientTrackingRange(10).build(\"slavicmyths:elder_vodyanoy\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:ember_clump",
+    "name": "ember_clump",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 119,
+    "declaration": "ENTITIES.register(\"ember_clump\",()->EntityType.Builder.of(org.slavicmyths.hunt.EmberClump::new,MobCategory.MISC).sized(.3F,.3F).clientTrackingRange(8).updateInterval(2).build(\"slavicmyths:ember_clump\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:extinguished_flame_guardian",
+    "name": "Страж погасшего пламени",
+    "source": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"extinguished_flame_guardian\",()->EntityType.Builder.of(FireGuardian::new,MobCategory.MONSTER).sized(1.5f,3.6f).clientTrackingRange(12).updateInterval(2).build(\"slavicmyths:extinguished_flame_guardian\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:finist",
+    "name": "Финист Ясный Сокол",
+    "source": "src/main/java/org/slavicmyths/finist/FinistContent.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"finist\",()->EntityType.Builder.of(FinistEntity::new,MobCategory.CREATURE).sized(.76F,2.2F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:finist\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:finist_magic_arrow",
+    "name": "Волшебная стрела Финиста",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 18,
+    "declaration": "ENTITIES.register(\"finist_magic_arrow\",()->net.minecraft.world.entity.EntityType.Builder.<org.slavicmyths.finist.FinistArrow>of(org.slavicmyths.finist.FinistArrow::new,net.minecraft.world.entity.MobCategory.MISC).sized(.5F,.5F).clientTrackingRange(4).updateInterval(1).build(\"finist_magic_arrow\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:fire_serpent",
+    "name": "Огненный змей",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 114,
+    "declaration": "ENTITIES.register(\"fire_serpent\",()->EntityType.Builder.of(org.slavicmyths.hunt.ElementHuntMob::new,MobCategory.MONSTER).sized(1.25F,1.55F).clientTrackingRange(12).fireImmune().build(\"slavicmyths:fire_serpent\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:firebird",
+    "name": "Жар-птица",
+    "source": "src/main/java/org/slavicmyths/firebird/FirebirdContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"firebird\",()->EntityType.Builder.of(FirebirdEntity::new,MobCategory.CREATURE).sized(1.35F,2.6F).fireImmune().clientTrackingRange(16).updateInterval(2).build(\"slavicmyths:firebird\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:flame_vial",
+    "name": "Огненная склянка",
+    "source": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
+    "line": 28,
+    "declaration": "ModEntities.ENTITIES.register(\"flame_vial\",()->EntityType.Builder.<FlameVial>of(FlameVial::new,MobCategory.MISC).sized(.25f,.25f).noSave().clientTrackingRange(8).build(\"slavicmyths:flame_vial\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:flying_broom",
+    "name": "Метла Бабы-Яги",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 124,
+    "declaration": "ENTITIES.register(\"flying_broom\",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,false),MobCategory.MISC).sized(1F,.45F).clientTrackingRange(10).updateInterval(3).build(\"slavicmyths:flying_broom\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:flying_mortar",
+    "name": "Летающая ступа",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 125,
+    "declaration": "ENTITIES.register(\"flying_mortar\",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,true),MobCategory.MISC).sized(.95F,1.2F).clientTrackingRange(10).updateInterval(3).build(\"slavicmyths:flying_mortar\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:forest_wolf",
+    "name": "Лесной волк",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 35,
+    "declaration": "= wildlife(\"forest_wolf\", org.slavicmyths.entity.WildlifeEntity.Kind.WOLF, .82F, 1.05F)",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:furniture_seat",
+    "name": "Сиденье",
+    "source": "src/main/java/org/slavicmyths/furniture/Furniture.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"furniture_seat\",()->EntityType.Builder.<SeatEntity>of(SeatEntity::new,MobCategory.MISC).sized(.01F,.01F).clientTrackingRange(8).updateInterval(20).noSave().noSummon().build(\"slavicmyths:furniture_seat\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:gorynych_breath_cloud",
+    "name": "Облако дыхания",
+    "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+    "line": 12,
+    "declaration": "ModEntities.ENTITIES.register(\"gorynych_breath_cloud\",()->EntityType.Builder.<BreathCloud>of(BreathCloud::new,MobCategory.MISC).sized(6,1.4f).noSave().clientTrackingRange(12).updateInterval(2).build(\"slavicmyths:gorynych_breath_cloud\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:gorynych_breath_shot",
+    "name": "Сгусток дыхания",
+    "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"gorynych_breath_shot\",()->EntityType.Builder.<BreathShot>of(BreathShot::new,MobCategory.MISC).sized(.6f,.6f).noSave().clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:gorynych_breath_shot\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:great_poloz",
+    "name": "Великий Полоз",
+    "source": "src/main/java/org/slavicmyths/poloz/PolozContent.java",
+    "line": 11,
+    "declaration": "ModEntities.ENTITIES.register(\"great_poloz\",()->EntityType.Builder.<GreatPoloz>of(GreatPoloz::new,MobCategory.MONSTER).sized(3.5F,3).fireImmune().clientTrackingRange(16).updateInterval(4).build(\"slavicmyths:great_poloz\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:grey_wolf",
+    "name": "Серый Волк",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 47,
+    "declaration": "ENTITIES.register(\"grey_wolf\",()->EntityType.Builder.of(org.slavicmyths.wolf.GreyWolf::new,MobCategory.CREATURE).sized(2.2F,3.5F).clientTrackingRange(16).build(\"slavicmyths:grey_wolf\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:grey_wolf_support",
+    "name": "Серый Волк — поддержка",
+    "source": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"grey_wolf_support\",()->EntityType.Builder.<WolfSupport>of(WolfSupport::new,MobCategory.CREATURE).sized(2.2F,3.5F).clientTrackingRange(16).build(\"slavicmyths:grey_wolf_support\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:guardian_water_echo",
+    "name": "Водное воплощение",
+    "source": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"guardian_water_echo\",()->EntityType.Builder.of(WaterEcho::new,MobCategory.MONSTER).sized(.65f,1.4f).noSave().clientTrackingRange(10).build(\"slavicmyths:guardian_water_echo\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:guardian_water_prison",
+    "name": "Водяная темница",
+    "source": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"guardian_water_prison\",()->EntityType.Builder.<WaterPrison>of(WaterPrison::new,MobCategory.MISC).sized(2f,2.8f).noSave().clientTrackingRange(10).updateInterval(2).build(\"slavicmyths:guardian_water_prison\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:hot_stone",
+    "name": "hot_stone",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 32,
+    "declaration": "ENTITIES.register(\"hot_stone\", () -> EntityType.Builder.<org.slavicmyths.entity.HotStoneEntity>of(org.slavicmyths.entity.HotStoneEntity::new, MobCategory.MISC).sized(.25F,.25F).clientTrackingRange(4).updateInterval(10).build(\"slavicmyths:hot_stone\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:idolishche_poganoe",
+    "name": "Идолище Поганое",
+    "source": "src/main/java/org/slavicmyths/bogatyr/BogatyrContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"idolishche_poganoe\",()->EntityType.Builder.of(IdolishcheEntity::new,MobCategory.MONSTER).sized(4.2F,8.8F).clientTrackingRange(12).updateInterval(1).fireImmune().build(\"slavicmyths:idolishche_poganoe\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:igosha",
+    "name": "Игоша",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 30,
+    "declaration": "ENTITIES.register(\"igosha\", () -> EntityType.Builder.of(org.slavicmyths.entity.IgoshaEntity::new, MobCategory.MONSTER).sized(0.5F,0.75F).clientTrackingRange(10).build(\"slavicmyths:igosha\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:ilya_muromets",
+    "name": "Илья Муромец",
+    "source": "src/main/java/org/slavicmyths/bogatyr/BogatyrContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"ilya_muromets\",()->EntityType.Builder.of(IlyaEntity::new,MobCategory.CREATURE).sized(.93F,2.45F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:ilya_muromets\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kalin_common_soldier",
+    "name": "Воин Калина",
+    "source": "src/main/java/org/slavicmyths/kalin/KalinContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"kalin_common_soldier\",()->EntityType.Builder.of(KalinSoldier::new,MobCategory.MONSTER).sized(.65F,1.95F).clientTrackingRange(12).build(\"slavicmyths:kalin_common_soldier\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kalin_elite_soldier",
+    "name": "Дружинник Калина",
+    "source": "src/main/java/org/slavicmyths/kalin/KalinContent.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"kalin_elite_soldier\",()->EntityType.Builder.of(KalinSoldier::new,MobCategory.MONSTER).sized(.8F,2.2F).clientTrackingRange(12).build(\"slavicmyths:kalin_elite_soldier\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kalin_tsar",
+    "name": "Калин-царь",
+    "source": "src/main/java/org/slavicmyths/kalin/KalinContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"kalin_tsar\",()->EntityType.Builder.of(KalinEntity::new,MobCategory.MONSTER).sized(1.05F,2.8F).clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:kalin_tsar\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kalin_war_horse",
+    "name": "Боевой конь Калина",
+    "source": "src/main/java/org/slavicmyths/kalin/KalinContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"kalin_war_horse\",()->EntityType.Builder.of(WarHorse::new,MobCategory.CREATURE).sized(1.65F,3.2F).clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:kalin_war_horse\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:karachun",
+    "name": "Карачун",
+    "source": "src/main/java/org/slavicmyths/karachun/NightContent.java",
+    "line": 11,
+    "declaration": "ModEntities.ENTITIES.register(\"karachun\",()->EntityType.Builder.of(Karachun::new,MobCategory.MONSTER).sized(1.5f,3.95f).clientTrackingRange(16).build(\"slavicmyths:karachun\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:karachun_blade",
+    "name": "Призрачное лезвие",
+    "source": "src/main/java/org/slavicmyths/karachun/NightContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"karachun_blade\",()->EntityType.Builder.<NightBlade>of(NightBlade::new,MobCategory.MISC).sized(.7f,.7f).noSave().clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:karachun_blade\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:karachun_raven",
+    "name": "Ворон Карачуна",
+    "source": "src/main/java/org/slavicmyths/karachun/NightContent.java",
+    "line": 12,
+    "declaration": "ModEntities.ENTITIES.register(\"karachun_raven\",()->EntityType.Builder.of(NightRaven::new,MobCategory.CREATURE).sized(.6f,.65f).noSave().clientTrackingRange(12).updateInterval(2).build(\"slavicmyths:karachun_raven\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kartaus",
+    "name": "Картаус Рыжий Ус",
+    "source": "src/main/java/org/slavicmyths/finist/FinistContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"kartaus\",()->EntityType.Builder.of(KartausEntity::new,MobCategory.MONSTER).sized(.92F,2.65F).clientTrackingRange(14).updateInterval(1).build(\"slavicmyths:kartaus\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kartaus_banner",
+    "name": "Чёрное знамя",
+    "source": "src/main/java/org/slavicmyths/finist/FinistContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"kartaus_banner\",()->EntityType.Builder.of(BannerEntity::new,MobCategory.MISC).sized(.85F,1.95F).clientTrackingRange(12).build(\"slavicmyths:kartaus_banner\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kartaus_curse_anchor",
+    "name": "Печать оков",
+    "source": "src/main/java/org/slavicmyths/finist/FinistContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"kartaus_curse_anchor\",()->EntityType.Builder.of(BannerEntity::new,MobCategory.MISC).sized(.7F,.95F).clientTrackingRange(12).build(\"slavicmyths:kartaus_curse_anchor\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kikimora",
+    "name": "Кикимора",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 26,
+    "declaration": "ENTITIES.register(\"kikimora\", () -> EntityType.Builder.of(org.slavicmyths.entity.KikimoraEntity::new, MobCategory.MONSTER).sized(0.55F,2.25F).clientTrackingRange(10).build(\"slavicmyths:kikimora\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kladovik",
+    "name": "Кладовик",
+    "source": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"kladovik\",()->EntityType.Builder.of(Kladovik::new,MobCategory.MONSTER).sized(.82F,1.4F).clientTrackingRange(12).build(\"slavicmyths:kladovik\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kladovik_spike",
+    "name": "kladovik_spike",
+    "source": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+    "line": 19,
+    "declaration": "ModEntities.ENTITIES.register(\"kladovik_spike\",()->EntityType.Builder.<StoneSpike>of(StoneSpike::new,MobCategory.MISC).sized(.5F,1.1F).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:kladovik_spike\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kladovik_stone",
+    "name": "kladovik_stone",
+    "source": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"kladovik_stone\",()->EntityType.Builder.<ThrownStone>of(ThrownStone::new,MobCategory.MISC).sized(.35F,.35F).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:kladovik_stone\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kot_bayun",
+    "name": "Кот Баюн",
+    "source": "src/main/java/org/slavicmyths/bayun/BayunContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"kot_bayun\",()->EntityType.Builder.of(BayunEntity::new,MobCategory.CREATURE).sized(1.25F,1.65F).clientTrackingRange(12).updateInterval(2).build(\"slavicmyths:kot_bayun\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kurgan_bolt",
+    "name": "kurgan_bolt",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 113,
+    "declaration": "ENTITIES.register(\"kurgan_bolt\",()->EntityType.Builder.of(org.slavicmyths.kurgan.KurganBolt::new,MobCategory.MISC).sized(.25F,.25F).clientTrackingRange(8).updateInterval(2).build(\"slavicmyths:kurgan_bolt\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kurgan_druzhinnik",
+    "name": "Курганный дружинник",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 109,
+    "declaration": "ENTITIES.register(\"kurgan_druzhinnik\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.DRUZHINNIK),MobCategory.MONSTER).sized(0.8F,2F).clientTrackingRange(12).build(\"slavicmyths:kurgan_druzhinnik\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kurgan_voevoda",
+    "name": "Курганный воевода",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 110,
+    "declaration": "ENTITIES.register(\"kurgan_voevoda\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.VOEVODA),MobCategory.MONSTER).sized(1F,2.3F).clientTrackingRange(12).build(\"slavicmyths:kurgan_voevoda\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:kuzya",
+    "name": "Домовёнок Кузя",
+    "source": "src/main/java/org/slavicmyths/kuzya/KuzyaContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"kuzya\",()->EntityType.Builder.of(KuzyaEntity::new,MobCategory.MISC).sized(.52F,.70F).fireImmune().clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:kuzya\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:large_podzemnik",
+    "name": "Крупный Подземник",
+    "source": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"large_podzemnik\",()->EntityType.Builder.of(LargePodzemnik::new,MobCategory.MONSTER).sized(1.45F,2.8F).clientTrackingRange(14).build(\"slavicmyths:large_podzemnik\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:leshy",
+    "name": "Леший",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 22,
+    "declaration": "ENTITIES.register(\"leshy\",\n            () -> EntityType.Builder.of(LeshyEntity::new, MobCategory.MONSTER)\n                    .sized(0.8F, 2.8F).clientTrackingRange(8).build(\"slavicmyths:leshy\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:likho_one_eyed",
+    "name": "Лихо Одноглазое",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 120,
+    "declaration": "ENTITIES.register(\"likho_one_eyed\",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,MobCategory.MONSTER).sized(.95F,3.25F).clientTrackingRange(12).build(\"slavicmyths:likho_one_eyed\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:marinka",
+    "name": "Маринка",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"marinka\",()->EntityType.Builder.of(MarinkaEntity::new,MobCategory.MONSTER).sized(.68F,1.96F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:marinka\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:marinka_bolt",
+    "name": "Ведьмин огонь",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"marinka_bolt\",()->EntityType.Builder.<WitchBolt>of(WitchBolt::new,MobCategory.MISC).sized(.35F,.35F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:marinka_bolt\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:marinka_hex_focus",
+    "name": "Сердце заклятия",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"marinka_hex_focus\",()->EntityType.Builder.of(HexAnchor::new,MobCategory.MISC).sized(1,1.8F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:marinka_hex_focus\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:marinka_rune",
+    "name": "Колдовской след",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 19,
+    "declaration": "ModEntities.ENTITIES.register(\"marinka_rune\",()->EntityType.Builder.<WitchRune>of(WitchRune::new,MobCategory.MISC).sized(2.5F,.05F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:marinka_rune\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:marinka_tur_minion",
+    "name": "Заколдованный тур",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"marinka_tur_minion\",()->EntityType.Builder.of(TurMinion::new,MobCategory.MONSTER).sized(1.15F,1.7F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:marinka_tur_minion\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:mor_bolt",
+    "name": "mor_bolt",
+    "source": "src/main/java/org/slavicmyths/mor/MorContent.java",
+    "line": 12,
+    "declaration": "ModEntities.ENTITIES.register(\"mor_bolt\",()->EntityType.Builder.<MorBolt>of(MorBolt::new,MobCategory.MISC).sized(.35F,.35F).clientTrackingRange(4).updateInterval(2).build(\"slavicmyths:mor_bolt\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:mor_flask_projectile",
+    "name": "mor_flask_projectile",
+    "source": "src/main/java/org/slavicmyths/mor/MorContent.java",
+    "line": 11,
+    "declaration": "ModEntities.ENTITIES.register(\"mor_flask_projectile\",()->EntityType.Builder.<MorFlaskProjectile>of(MorFlaskProjectile::new,MobCategory.MISC).sized(.25F,.25F).clientTrackingRange(4).updateInterval(2).build(\"slavicmyths:mor_flask_projectile\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:mor_zone",
+    "name": "Поражённая земля",
+    "source": "src/main/java/org/slavicmyths/mor/MorContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"mor_zone\",()->EntityType.Builder.<MorZone>of(MorZone::new,MobCategory.MISC).sized(.1F,.1F).clientTrackingRange(8).updateInterval(20).build(\"slavicmyths:mor_zone\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:morozko",
+    "name": "Морозко",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "line": 12,
+    "declaration": "ModEntities.ENTITIES.register(\"morozko\",()->EntityType.Builder.of(Morozko::new,MobCategory.MONSTER).sized(1.35f,3.15f).clientTrackingRange(16).build(\"slavicmyths:morozko\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:morozko_ice_bolt",
+    "name": "Ледяной снаряд",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"morozko_ice_bolt\",()->EntityType.Builder.<FrostShard>of(FrostShard::new,MobCategory.MISC).sized(.25f,.4f).noSave().clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:morozko_ice_bolt\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:morozko_ice_double",
+    "name": "Ледяной двойник Морозко",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"morozko_ice_double\",()->EntityType.Builder.of(IceDouble::new,MobCategory.MONSTER).sized(1.35f,3.15f).clientTrackingRange(16).build(\"slavicmyths:morozko_ice_double\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:morozko_icicle",
+    "name": "Ледяной пик",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"morozko_icicle\",()->EntityType.Builder.<FrostHazard>of(FrostHazard::new,MobCategory.MISC).sized(.65f,2.4f).noSave().clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:morozko_icicle\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:nav",
+    "name": "Навь",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 108,
+    "declaration": "ENTITIES.register(\"nav\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.NAV),MobCategory.MONSTER).sized(0.6F,2.1F).clientTrackingRange(12).build(\"slavicmyths:nav\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:nightingale",
+    "name": "Соловей-разбойник",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 43,
+    "declaration": "ENTITIES.register(\"nightingale\", () -> EntityType.Builder.of(org.slavicmyths.bandit.NightingaleEntity::new, MobCategory.MONSTER).sized(.95F,1.85F).eyeHeight(1.25F).clientTrackingRange(12).build(\"slavicmyths:nightingale\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:nochnitsa",
+    "name": "Ночница",
+    "source": "src/main/java/org/slavicmyths/nochnitsa/NochnitsaContent.java",
+    "line": 23,
+    "declaration": "ModEntities.ENTITIES.register(\"nochnitsa\",()->EntityType.Builder.of(NochnitsaEntity::new,MobCategory.MONSTER).sized(.72F,2.15F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:nochnitsa\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:ovinnik",
+    "name": "Овинник",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 31,
+    "declaration": "ENTITIES.register(\"ovinnik\", () -> EntityType.Builder.of(org.slavicmyths.entity.OvinnikEntity::new, MobCategory.MONSTER).sized(1.15F,2.45F).clientTrackingRange(12).fireImmune().build(\"slavicmyths:ovinnik\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:pesigolovets",
+    "name": "Песиголовец",
+    "source": "src/main/java/org/slavicmyths/pesigolovtsy/DogheadContent.java",
+    "line": 28,
+    "declaration": "ModEntities.ENTITIES.register(\"pesigolovets\",()->EntityType.Builder.of(DogheadEntity::new,MobCategory.MONSTER).sized(.95F,2.3F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:pesigolovets\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:pike",
+    "name": "Щука",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 95,
+    "declaration": "ENTITIES.register(\"pike\",()->EntityType.Builder.<org.slavicmyths.water.RiverFish>of((t,w)->new org.slavicmyths.water.RiverFish(t,w,0),MobCategory.WATER_AMBIENT).sized(.85F,.35F).clientTrackingRange(8).build(\"slavicmyths:pike\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:player_ice_double",
+    "name": "Ледяная копия %s",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"player_ice_double\",()->EntityType.Builder.of(PlayerDouble::new,MobCategory.CREATURE).sized(.6f,1.8f).noSave().clientTrackingRange(16).build(\"slavicmyths:player_ice_double\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:podvey",
+    "name": "Подвей",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 115,
+    "declaration": "ENTITIES.register(\"podvey\",()->EntityType.Builder.of(org.slavicmyths.hunt.ElementHuntMob::new,MobCategory.MONSTER).sized(1.1F,2.55F).clientTrackingRange(12).build(\"slavicmyths:podvey\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:podzemnik",
+    "name": "Подземник",
+    "source": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"podzemnik\",()->EntityType.Builder.of(Podzemnik::new,MobCategory.MONSTER).sized(.68F,1.68F).clientTrackingRange(10).build(\"slavicmyths:podzemnik\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:polevik",
+    "name": "Полевик",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 28,
+    "declaration": "ENTITIES.register(\"polevik\", () -> EntityType.Builder.of(org.slavicmyths.entity.PolevikEntity::new, MobCategory.MONSTER).sized(0.6F,2.1F).clientTrackingRange(10).build(\"slavicmyths:polevik\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:poloz_glob",
+    "name": "Моровой сгусток",
+    "source": "src/main/java/org/slavicmyths/poloz/PolozContent.java",
+    "line": 12,
+    "declaration": "ModEntities.ENTITIES.register(\"poloz_glob\",()->EntityType.Builder.<PolozGlob>of(PolozGlob::new,MobCategory.MISC).sized(.4F,.4F).clientTrackingRange(8).updateInterval(4).build(\"slavicmyths:poloz_glob\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:poloz_stone_spike",
+    "name": "Каменный шип Полоза",
+    "source": "src/main/java/org/slavicmyths/poloz/PolozContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"poloz_stone_spike\",()->EntityType.Builder.<PolozStoneSpike>of(PolozStoneSpike::new,MobCategory.MISC).sized(.7F,2).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:poloz_stone_spike\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:poludnitsa",
+    "name": "Полудница",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 27,
+    "declaration": "ENTITIES.register(\"poludnitsa\", () -> EntityType.Builder.of(org.slavicmyths.entity.PoludnitsaEntity::new, MobCategory.MONSTER).sized(0.6F,1.98F).clientTrackingRange(10).build(\"slavicmyths:poludnitsa\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:rune_visual",
+    "name": "rune_visual",
+    "source": "src/main/java/org/slavicmyths/rpg/RuneVisual.java",
+    "line": 20,
+    "declaration": "ModEntities.ENTITIES.register(\"rune_visual\",()->EntityType.Builder.<RuneVisual>of(RuneVisual::new,MobCategory.MISC).sized(.4F,.4F).clientTrackingRange(12).updateInterval(1).noSave().build(\"slavicmyths:rune_visual\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:rusalka",
+    "name": "Русалка",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 99,
+    "declaration": "ENTITIES.register(\"rusalka\",()->EntityType.Builder.of(org.slavicmyths.water.RusalkaEntity::new,MobCategory.MONSTER).sized(.55F,1.85F).clientTrackingRange(10).build(\"slavicmyths:rusalka\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:serpent_projection",
+    "name": "Огненный двойник",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 116,
+    "declaration": "ENTITIES.register(\"serpent_projection\",()->EntityType.Builder.of(org.slavicmyths.hunt.SerpentProjection::new,MobCategory.MISC).sized(1.25F,1.55F).clientTrackingRange(12).updateInterval(2).fireImmune().build(\"slavicmyths:serpent_projection\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:sivka_burka",
+    "name": "Сивка-Бурка",
+    "source": "src/main/java/org/slavicmyths/sivka/SivkaContent.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"sivka_burka\",()->EntityType.Builder.of(SivkaEntity::new,MobCategory.CREATURE).sized(SivkaRules.WIDTH,SivkaRules.HEIGHT).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:sivka_burka\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:skim_beast",
+    "name": "Ским-зверь",
+    "source": "src/main/java/org/slavicmyths/skim/SkimContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"skim_beast\",()->EntityType.Builder.of(SkimBeastEntity::new,MobCategory.MONSTER).sized(2.1F,2.95F).clientTrackingRange(14).updateInterval(1).build(\"slavicmyths:skim_beast\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:stag",
+    "name": "Олень",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 37,
+    "declaration": "= wildlife(\"stag\", org.slavicmyths.entity.WildlifeEntity.Kind.STAG, 1.0F, 2.1F)",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:thrown_net",
+    "name": "Брошенная сеть",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 100,
+    "declaration": "ENTITIES.register(\"thrown_net\",()->EntityType.Builder.<org.slavicmyths.depth.ThrownNet>of(org.slavicmyths.depth.ThrownNet::new,MobCategory.MISC).sized(.3F,.3F).clientTrackingRange(4).updateInterval(5).build(\"slavicmyths:thrown_net\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:tugarin_stone",
+    "name": "tugarin_stone",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 122,
+    "declaration": "ENTITIES.register(\"tugarin_stone\",()->EntityType.Builder.of(org.slavicmyths.hunt.BossStone::new,MobCategory.MISC).sized(.4F,.4F).clientTrackingRange(8).updateInterval(2).build(\"slavicmyths:tugarin_stone\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:tugarin_zmey",
+    "name": "Тугарин Змей",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 121,
+    "declaration": "ENTITIES.register(\"tugarin_zmey\",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,MobCategory.MONSTER).sized(3.5F,4.85F).eyeHeight(4.15F).clientTrackingRange(12).build(\"slavicmyths:tugarin_zmey\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:unresting_prince",
+    "name": "Неупокоенный князь",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 112,
+    "declaration": "ENTITIES.register(\"unresting_prince\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.PRINCE),MobCategory.MONSTER).sized(1.1F,2.6F).clientTrackingRange(12).build(\"slavicmyths:unresting_prince\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:upyr",
+    "name": "Упырь",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 107,
+    "declaration": "ENTITIES.register(\"upyr\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.UPYR),MobCategory.MONSTER).sized(0.65F,1.9F).clientTrackingRange(12).build(\"slavicmyths:upyr\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:vodyanoy",
+    "name": "Водяной",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 98,
+    "declaration": "ENTITIES.register(\"vodyanoy\",()->EntityType.Builder.of(org.slavicmyths.water.VodyanoyEntity::new,MobCategory.MONSTER).sized(.9F,1.7F).clientTrackingRange(10).build(\"slavicmyths:vodyanoy\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:volkolak",
+    "name": "Волколак",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 117,
+    "declaration": "ENTITIES.register(\"volkolak\",()->EntityType.Builder.of(org.slavicmyths.entity.VolkolakEntity::new,MobCategory.MONSTER).sized(1.05F,2.25F).clientTrackingRange(12).build(\"slavicmyths:volkolak\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:weapon_projectile",
+    "name": "Метательное оружие",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 127,
+    "declaration": "ENTITIES.register(\"weapon_projectile\",()->EntityType.Builder.<org.slavicmyths.combat.WeaponProjectile>of(org.slavicmyths.combat.WeaponProjectile::new,MobCategory.MISC).sized(.25F,.25F).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:weapon_projectile\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  },
+  {
+    "id": "slavicmyths:zmey_gorynych",
+    "name": "Змея Горыныча",
+    "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+    "line": 11,
+    "declaration": "ModEntities.ENTITIES.register(\"zmey_gorynych\",()->EntityType.Builder.of(Gorynych::new,MobCategory.MONSTER).sized(4.8f,5.5f).eyeHeight(4.8f).fireImmune().clientTrackingRange(20).updateInterval(2).build(\"slavicmyths:zmey_gorynych\"))",
+    "status": "SOURCE_INDEX; manual combat audit pending"
+  }
+]

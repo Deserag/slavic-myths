@@ -1,0 +1,23 @@
+{
+  "boss": {
+    "length_blocks": 19,
+    "head_height_blocks": 8.5,
+    "wingspan_blocks": 22,
+    "legs": 4,
+    "heads": 3
+  },
+  "serpent_crossbow": {
+    "shape": "wide transverse steel limbs, heavy longitudinal stock, forked snake jaws at bow tips",
+    "stock_units": 14,
+    "limb_span_units": 20,
+    "materials": "dark serpent steel, red seam, brown grip",
+    "distinguishing": "physical string, paired serpent jaw ends"
+  },
+  "three_breath_crossbow": {
+    "shape": "same crossbow family with three distinct essence chambers above stock",
+    "stock_units": 15,
+    "limb_span_units": 22,
+    "materials": "serpent steel, ivory scale plates, orange/purple/blue chambers",
+    "distinguishing": "three raised chambers and colored loaded bolt"
+  }
+}

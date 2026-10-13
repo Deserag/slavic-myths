@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "version": "1.9.5",
+  "checks": 23227,
+  "sha256": "dbdb101677397ac28ebe4b937d6f2352956fb4e40f36d6c3c55aebd885047b22",
+  "baseline_sha256": "0142494a6445e325c48194949f7d1a957110942357b232e20155346f8334b1b8",
+  "old_resources_changed": [
+    "assets/slavicmyths/sounds.json",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json"
+  ],
+  "new_blocks": 11,
+  "recipes": 11,
+  "sounds": 5,
+  "unified_dimensions": [
+    128,
+    144,
+    128
+  ],
+  "solid_voxels_seed195": 650174,
+  "reachable_cells_static": 8175,
+  "rooms": [
+    "entrance_hall",
+    "main_corridor",
+    "inner_hall",
+    "ritual_chamber",
+    "armory",
+    "ruined_side_room",
+    "ritual_courtyard",
+    "internal_ascent_landing",
+    "tower_28_28",
+    "tower_87_28",
+    "tower_28_87",
+    "tower_87_87",
+    "ritual_cave",
+    "tainted_side_cave",
+    "blocked_lair_approach"
+  ],
+  "offline_checks": 1504,
+  "event_subscribers": 202,
+  "generator_reproducibility": "PASS",
+  "client_starts": 0,
+  "server_starts": 0,
+  "superflat_command_runtime": "NOT_RUN",
+  "natural_seed_generation": "NOT_RUN",
+  "multiplayer": "NOT_RUN",
+  "MSPT": "NOT_MEASURED"
+}

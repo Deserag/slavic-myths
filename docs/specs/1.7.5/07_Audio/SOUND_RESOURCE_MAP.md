@@ -1,0 +1,25 @@
+# Sound resource map
+
+- `banner_flap.ogg` — placeholder synthetic effect for `banner_flap` event
+- `battle_seal_use.ogg` — placeholder synthetic effect for `battle_seal_use` event
+- `camp_fire_loop_short.ogg` — placeholder synthetic effect for `camp_fire_loop_short` event
+- `encounter_start_fx.ogg` — placeholder synthetic effect for `encounter_start_fx` event
+- `horse_gallop_loop.ogg` — placeholder synthetic effect for `horse_gallop_loop` event
+- `horse_rear.ogg` — placeholder synthetic effect for `horse_rear` event
+- `horse_snort.ogg` — placeholder synthetic effect for `horse_snort` event
+- `horse_step_01.ogg` — placeholder synthetic effect for `horse_step_01` event
+- `horse_step_02.ogg` — placeholder synthetic effect for `horse_step_02` event
+- `horse_stomp.ogg` — placeholder synthetic effect for `horse_stomp` event
+- `kalin_command_shout_fx.ogg` — placeholder synthetic effect for `kalin_command_shout_fx` event
+- `kalin_kneel_surrender.ogg` — placeholder synthetic effect for `kalin_kneel_surrender` event
+- `kalin_parry.ogg` — placeholder synthetic effect for `kalin_parry` event
+- `kalin_rage_burst.ogg` — placeholder synthetic effect for `kalin_rage_burst` event
+- `kalin_sabre_heavy.ogg` — placeholder synthetic effect for `kalin_sabre_heavy` event
+- `kalin_sabre_light.ogg` — placeholder synthetic effect for `kalin_sabre_light` event
+- `kalin_spin_attack.ogg` — placeholder synthetic effect for `kalin_spin_attack` event
+- `kalin_step_heavy_01.ogg` — placeholder synthetic effect for `kalin_step_heavy_01` event
+- `kalin_step_heavy_02.ogg` — placeholder synthetic effect for `kalin_step_heavy_02` event
+- `kalin_war_horn.ogg` — placeholder synthetic effect for `kalin_war_horn` event
+- `soldier_spawn_common.ogg` — placeholder synthetic effect for `soldier_spawn_common` event
+- `soldier_spawn_elite.ogg` — placeholder synthetic effect for `soldier_spawn_elite` event
+- `ui_select_two_heroes.ogg` — placeholder synthetic effect for `ui_select_two_heroes` event

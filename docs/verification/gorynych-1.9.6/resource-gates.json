@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "version": "1.9.6",
+  "checks": 17065,
+  "sha256": "e197311398f3634c3e2303dce37535d6dd457f1cf88e52e503452d32125a37aa",
+  "baseline_sha256": "45c33a8b7275e475fa50287505ad0d0916068939ffcf41c9a59903d1c99fa910",
+  "changed_old_resources": [
+    "slavicmyths.equipment.mixins.json",
+    "assets/slavicmyths/sounds.json",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json",
+    "data/minecraft/tags/damage_type/is_fire.json",
+    "data/slavicmyths/loot_table/chests/serpent_fortress.json",
+    "data/slavicmyths/recipe/mor_ward.json"
+  ],
+  "event_subscribers": 205,
+  "client_starts": 0,
+  "server_starts": 0,
+  "runtime": "NOT_RUN"
+}

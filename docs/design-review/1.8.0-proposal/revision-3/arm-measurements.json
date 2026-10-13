@@ -1,0 +1,113 @@
+{
+  "status": "OFFLINE_GEOMETRY_PASS",
+  "checks": 20,
+  "changes": {
+    "ilya": [
+      0,
+      0
+    ],
+    "alyosha": [
+      2,
+      3
+    ],
+    "dobrynya": [
+      0.5,
+      2
+    ],
+    "finist": [
+      0.5,
+      0.5
+    ]
+  },
+  "measurements": {
+    "ilya": {
+      "right": {
+        "elbow_before": 3.5,
+        "elbow_after": 3.5,
+        "fingertips_before": 11.5,
+        "fingertips_after": 11.5,
+        "extension": 0,
+        "pelvis_bottom": 10.0,
+        "below_pelvis_before": 1.5,
+        "below_pelvis_after": 1.5
+      },
+      "left": {
+        "elbow_before": 3.5,
+        "elbow_after": 3.5,
+        "fingertips_before": 11.5,
+        "fingertips_after": 11.5,
+        "extension": 0,
+        "pelvis_bottom": 10.0,
+        "below_pelvis_before": 1.5,
+        "below_pelvis_after": 1.5
+      }
+    },
+    "alyosha": {
+      "right": {
+        "elbow_before": 1.1,
+        "elbow_after": 3.1,
+        "fingertips_before": 5.9,
+        "fingertips_after": 10.9,
+        "extension": 5,
+        "pelvis_bottom": 10.2,
+        "below_pelvis_before": -4.299999999999999,
+        "below_pelvis_after": 0.7000000000000011
+      },
+      "left": {
+        "elbow_before": 1.1,
+        "elbow_after": 3.1,
+        "fingertips_before": 5.9,
+        "fingertips_after": 10.9,
+        "extension": 5,
+        "pelvis_bottom": 10.2,
+        "below_pelvis_before": -4.299999999999999,
+        "below_pelvis_after": 0.7000000000000011
+      }
+    },
+    "dobrynya": {
+      "right": {
+        "elbow_before": 1.52,
+        "elbow_after": 2.02,
+        "fingertips_before": 6.5,
+        "fingertips_after": 9.0,
+        "extension": 2.5,
+        "pelvis_bottom": 6.0,
+        "below_pelvis_before": 0.5,
+        "below_pelvis_after": 3.0
+      },
+      "left": {
+        "elbow_before": 0.65186733,
+        "elbow_after": 1.15186733,
+        "fingertips_before": 6.371322,
+        "fingertips_after": 8.871322,
+        "extension": 2.5,
+        "pelvis_bottom": 6.0,
+        "below_pelvis_before": 0.37132200000000015,
+        "below_pelvis_after": 2.8713219999999993
+      }
+    },
+    "finist": {
+      "right": {
+        "elbow_before": 2.0,
+        "elbow_after": 2.5,
+        "fingertips_before": 10.0,
+        "fingertips_after": 11.0,
+        "extension": 1.0,
+        "pelvis_bottom": 10.0,
+        "below_pelvis_before": 0.0,
+        "below_pelvis_after": 1.0
+      },
+      "left": {
+        "elbow_before": 2.0,
+        "elbow_after": 2.5,
+        "fingertips_before": 10.0,
+        "fingertips_after": 11.0,
+        "extension": 1.0,
+        "pelvis_bottom": 10.0,
+        "below_pelvis_before": 0.0,
+        "below_pelvis_after": 1.0
+      }
+    }
+  },
+  "production_integration": "NOT_IMPLEMENTED"
+}

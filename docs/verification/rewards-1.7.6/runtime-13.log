@@ -1,0 +1,219 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\rewards\RewardEvents.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileRewardsRuntimeJava UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :writeRewardsChecksLegacyClasspath UP-TO-DATE
+> Task :prepareRewardsChecksRun UP-TO-DATE
+> Task :processRewardsRuntimeResources UP-TO-DATE
+> Task :rewardsRuntimeClasses UP-TO-DATE
+
+> Task :runRewardsChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[08:56:30] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[08:56:30] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[08:56:30] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[08:56:30] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[08:56:30] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[08:56:31] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[08:56:31] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.7.6 (slavicmyths)
+[08:56:32] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[08:56:32] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[08:56:32] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:56:32] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:56:32] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[08:56:33] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[08:56:38] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:56:38] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:56:38] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:56:38] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:56:38] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:56:38] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[08:56:39] [main/ERROR] [minecraft/Settings]: Failed to load properties from file: server.properties
+java.nio.file.NoSuchFileException: server.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431) ~[?:?] {}
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?] {}
+	at java.base/java.nio.file.Files.newInputStream(Files.java:159) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.Settings.loadFromFile(Settings.java:38) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerProperties.fromFile(DedicatedServerProperties.java:132) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerSettings.<init>(DedicatedServerSettings.java:12) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Main.main(Main.java:125) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeServerDevLaunchHandler.runService(NeoForgeServerDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+[08:56:39] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[08:56:39] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[08:56:39] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[08:56:39] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_rewards]
+[08:56:40] [Worker-Main-4/ERROR] [minecraft/TagLoader]: Couldn't load tag slavicmyths:reward_interruptible as it is missing following references: 
+	slavicmyths:kartaus_ryzhiy_us (from mod/slavicmyths)
+[08:56:41] [main/INFO] [minecraft/RecipeManager]: Loaded 1787 recipes
+[08:56:41] [main/INFO] [minecraft/AdvancementTree]: Loaded 1579 advancements
+[08:56:41] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[08:56:41] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[08:56:42] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[08:56:42] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[08:56:42] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 190 ms
+[08:56:42] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[08:56:42] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[08:56:42] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position 2414538, -59, -1984045!
+[08:56:43] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[08:56:43] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[08:56:43] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+REWARDS_CHECK Exactly nineteen items
+REWARDS_CHECK Registered rune_stomp
+REWARDS_CHECK Registered rune_dispelling
+REWARDS_CHECK Registered rune_pursuit
+REWARDS_CHECK Registered rune_suppression
+REWARDS_CHECK Registered rune_battle_line
+REWARDS_CHECK Registered gift_ilya_shield
+REWARDS_CHECK Registered gift_dobrynya_ring
+REWARDS_CHECK Registered gift_alyosha_belt
+REWARDS_CHECK Registered gift_finist_amulet
+REWARDS_CHECK Registered trophy_skim_necklace
+REWARDS_CHECK Registered trophy_idol_chest
+REWARDS_CHECK Registered trophy_marinka_cloak
+REWARDS_CHECK Registered trophy_kartaus_mantle
+REWARDS_CHECK Registered trophy_kalin_sabre
+REWARDS_CHECK Registered mat_bone_plates
+REWARDS_CHECK Registered mat_mirror_shards
+REWARDS_CHECK Registered mat_skim_fang
+REWARDS_CHECK Registered mat_banner_remnant
+REWARDS_CHECK Registered mat_royal_iron
+REWARDS_CHECK Missing history refuses first claim 0
+REWARDS_CHECK Missing history refuses first claim 1
+REWARDS_CHECK Missing history refuses first claim 2
+REWARDS_CHECK Missing history refuses first claim 3
+REWARDS_CHECK Missing history refuses first claim 4
+REWARDS_CHECK Five historical first rewards without replay
+REWARDS_CHECK Full inventory retains undelivered claim
+REWARDS_CHECK Single free slot does not partially grant bundle
+REWARDS_CHECK Historical source reward 0
+REWARDS_CHECK Exact first quantities 0
+REWARDS_CHECK Duplicate first claim refused 0
+REWARDS_CHECK Historical source reward 1
+REWARDS_CHECK Exact first quantities 1
+REWARDS_CHECK Duplicate first claim refused 1
+REWARDS_CHECK Historical source reward 2
+REWARDS_CHECK Exact first quantities 2
+REWARDS_CHECK Duplicate first claim refused 2
+REWARDS_CHECK Historical source reward 3
+REWARDS_CHECK Exact first quantities 3
+REWARDS_CHECK Duplicate first claim refused 3
+REWARDS_CHECK Historical source reward 4
+REWARDS_CHECK Exact first quantities 4
+REWARDS_CHECK Duplicate first claim refused 4
+REWARDS_CHECK Separate hero gift 0
+REWARDS_CHECK Duplicate gift refused 0
+REWARDS_CHECK Separate hero gift 1
+REWARDS_CHECK Duplicate gift refused 1
+REWARDS_CHECK Separate hero gift 2
+REWARDS_CHECK Duplicate gift refused 2
+REWARDS_CHECK Separate hero gift 3
+REWARDS_CHECK Duplicate gift refused 3
+REWARDS_CHECK Losing gift does not restore claim
+REWARDS_CHECK Other player cannot use owner history
+REWARDS_CHECK Repeat enters persistent inbox
+REWARDS_CHECK Duplicate victory callback cannot reroll
+REWARDS_CHECK Repeat material quantity bounded
+REWARDS_CHECK Save-bound claim IDs survive NBT load
+REWARDS_CHECK Stable save/player/boss/version identity
+REWARDS_CHECK Existing anvil accepts stomp
+REWARDS_CHECK Existing socket rules admit stomp
+REWARDS_CHECK Reject incompatible pickaxe stomp
+REWARDS_CHECK Existing anvil accepts dispelling
+REWARDS_CHECK Existing socket rules admit dispelling
+REWARDS_CHECK Reject incompatible pickaxe dispelling
+REWARDS_CHECK Existing anvil accepts pursuit
+REWARDS_CHECK Existing socket rules admit pursuit
+REWARDS_CHECK Reject incompatible pickaxe pursuit
+REWARDS_CHECK Existing anvil accepts suppression
+REWARDS_CHECK Existing socket rules admit suppression
+REWARDS_CHECK Reject incompatible pickaxe suppression
+REWARDS_CHECK Existing anvil accepts battle_line
+REWARDS_CHECK Existing socket rules admit battle_line
+REWARDS_CHECK Reject incompatible pickaxe battle_line
+REWARDS_CHECK Legacy runes preserved
+REWARDS_CHECK Ring amplifies exactly one final melee hit by 1.75
+REWARDS_CHECK Ring counter consumed once
+REWARDS_CHECK Ring cooldown starts after proc
+REWARDS_CHECK Pursuit hit 1
+REWARDS_CHECK Pursuit hit 2
+REWARDS_CHECK Pursuit hit 3
+NECKLACE_FIXTURE hp=29.0 max=100.0 equipped=true
+REWARDS_CHECK Necklace below strict 30 percent
+REWARDS_CHECK Reflection estimate honors real armor
+SHIELD_FIXTURE using=true ticks=6 facing=(0.0, -0.0, 1.0)
+REWARDS_CHECK Actual raised shield blocks player damage
+REWARDS_CHECK Accepted block returns mitigated damage times 1.5
+REWARDS_CHECK Shield cooldown persists separately from item
+REWARDS_CHECK Shield down never reflects
+REWARDS_CHECK Suppression arms target next attack
+REWARDS_CHECK Suppression reduces only next outgoing hit by 15 percent
+REWARDS_CHECK Suppression is consumed once
+REWARDS_CHECK Dispel shortens eligible new effect once by 25 percent
+REWARDS_CHECK Dispel cleanses one effect and starts 45 second cooldown
+REWARDS_CHECK Stomp landing pushes hostile mob without extra damage
+REWARDS_CHECK Cloak blinks only to validated side floor and starts cooldown
+[08:56:43] [Server thread/INFO] [minecraft/MinecraftServer]: RewardTest has made the advancement [Monster Hunter]
+REWARDS_CHECK Saber builds three unique hostile kill charges
+REWARDS_CHECK Saber consumes charges on bounded frontal sweep
+REWARDS_CHECK Durable player cooldown state
+REWARDS_PLAYER_SAVE 6371d24a-3577-40ef-84cc-c42c73a24fe6
+REWARDS_CHECKS_PASSED 96
+[08:56:43] [Server thread/INFO] [minecraft/GameTestServer]: [+]
+[08:56:43] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 889.6 ms ======================
+[08:56:43] [Server thread/INFO] [minecraft/GameTestServer]: All 1 required tests passed :)
+[08:56:43] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[08:56:43] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[08:56:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[08:56:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[08:56:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[08:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[08:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[08:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[08:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[08:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[08:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[08:56:45] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 27s
+9 actionable tasks: 2 executed, 7 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

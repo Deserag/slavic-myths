@@ -1,0 +1,28 @@
+SLAVIC MYTHS 1.7.5 — EXECUTION ENTRY FOR CODEX
+
+Goal:
+Implement only the content described in this package for version 1.7.5:
+- final boss Kalin-tsar
+- Kalin's armored war horse and mounted phase
+- temporary military camp battlefield
+- army summoning waves
+- two-hero support logic for the final battle
+- boss summoning item(s)
+- save-data and progression hooks needed for future 1.7.6 rewards
+
+MANDATORY FAST-WORK RULES:
+1. DO NOT scan the entire project.
+2. DO NOT re-plan the project from scratch.
+3. Reuse existing boss, hero, summon-item, save-data, animation, and AI patterns where possible.
+4. Do not refactor unrelated systems.
+5. Do not redesign older bosses except where explicitly required for compatibility.
+6. No new large worldgen system. The battle uses a compact generated encounter camp or scripted placement.
+7. No unique reward items in 1.7.5. Only save victory data for 1.7.6.
+
+Expected output from Codex:
+- implementation code
+- assets wired into the mod
+- data/registry additions
+- localization entries
+- proof of what was changed
+- concise implementation notes

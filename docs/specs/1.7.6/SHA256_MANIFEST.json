@@ -1,0 +1,787 @@
+[
+  {
+    "path": "00_START_HERE/00_CODEX_EXECUTE_EN.txt",
+    "sha256": "aa7dad9b8e16afa05249e4c347f3a0a4394c5d29571f9b4e5be959a761846eaf",
+    "bytes": 2225
+  },
+  {
+    "path": "00_START_HERE/01_SCOPE_AND_HARD_LIMITS.md",
+    "sha256": "b2c9a27f4180f59735330f296d1daafc59f2112a3555f1809f9de35384f90e69",
+    "bytes": 2813
+  },
+  {
+    "path": "00_START_HERE/02_REWARD_MATRIX.md",
+    "sha256": "f85030608bf8475093f9ac7f57b1bdccb31b258cf5b4164eb65d579bab4f08e0",
+    "bytes": 1161
+  },
+  {
+    "path": "00_START_HERE/03_APPROVAL_AND_CONFLICT_RESOLUTION.md",
+    "sha256": "50bdf67d7432962f51c242c8df8a489b89e4d3c9e407b24ba696be568e99de46",
+    "bytes": 1780
+  },
+  {
+    "path": "00_START_HERE/04_CONTENT_INDEX.md",
+    "sha256": "8a5a172795d52af171bd2c3215f72fa6bff186ff265193e4c3571bb1b1be1059",
+    "bytes": 619
+  },
+  {
+    "path": "01_Runes/01_rune_stomp.md",
+    "sha256": "1892de1911caeed1a285fcd1cf5a0d8dc60c7e08b89af7ee64100999e2c1741c",
+    "bytes": 4828
+  },
+  {
+    "path": "01_Runes/02_rune_dispelling.md",
+    "sha256": "365d084eef1a61fbd55fd5170646026908e982e484ce91c65d46d0de7b250e02",
+    "bytes": 4879
+  },
+  {
+    "path": "01_Runes/03_rune_pursuit.md",
+    "sha256": "d96486a1c051d3563799ef7bd1d0c92cf127e2fa3fa5357a378c5e22638ccbf7",
+    "bytes": 4779
+  },
+  {
+    "path": "01_Runes/04_rune_suppression.md",
+    "sha256": "852f2599ef5b16c6b43d53e9cc2dae00d9ac073de03a25cce23586c7eb9e8779",
+    "bytes": 4852
+  },
+  {
+    "path": "01_Runes/05_rune_battle_line.md",
+    "sha256": "4647a28a88a5428b7c7e79cfe52ae37053d93bf9c0b0eae143d14034925ab585",
+    "bytes": 4852
+  },
+  {
+    "path": "02_Bogatyr_Gifts/06_gift_ilya_shield.md",
+    "sha256": "b92aa63a91274324ba5fed9dfffdfd3c4670b52eceb4de18e35d0c2d497edfda",
+    "bytes": 4988
+  },
+  {
+    "path": "02_Bogatyr_Gifts/07_gift_dobrynya_ring.md",
+    "sha256": "325e1085b738e93e29624dfe67bc0333c7613673d165e3dbd5a9cbf5a5dbbe3a",
+    "bytes": 4896
+  },
+  {
+    "path": "02_Bogatyr_Gifts/08_gift_alyosha_belt.md",
+    "sha256": "4dfd8d12037f3ef876417fc219ad78c51cc4757a96aac798385a5962b171e521",
+    "bytes": 4842
+  },
+  {
+    "path": "02_Bogatyr_Gifts/09_gift_finist_amulet.md",
+    "sha256": "20be1f9f482776e0749b4e44a4c228f1a0e37b567f793e9933e6b415f6d0c8c1",
+    "bytes": 4896
+  },
+  {
+    "path": "03_Boss_Trophies/10_trophy_idol_chest.md",
+    "sha256": "841001e148c2f760c43081113b8e1670db23a91cdbc96b5e93b04e0c64c329f7",
+    "bytes": 4836
+  },
+  {
+    "path": "03_Boss_Trophies/11_trophy_marinka_cloak.md",
+    "sha256": "e4fb8a5d1fb7d6af276b51bb40306adeb0db17e885cd17844fe0ec15f2ef5474",
+    "bytes": 4819
+  },
+  {
+    "path": "03_Boss_Trophies/12_trophy_skim_necklace.md",
+    "sha256": "1aebc54715bfca39347976f387f12d1ce204be9ee8a578f55ef078bd02f213dc",
+    "bytes": 4778
+  },
+  {
+    "path": "03_Boss_Trophies/13_trophy_kartaus_mantle.md",
+    "sha256": "c50a5d47afecff8cd315ca81b186099a9d68e86174dd1efd6d5e52a5bd38bf78",
+    "bytes": 4868
+  },
+  {
+    "path": "03_Boss_Trophies/14_trophy_kalin_sabre.md",
+    "sha256": "50cdaa908e7930a87bcebc881f72de60e093da516d5d03102cfdafe7da5f8f76",
+    "bytes": 4947
+  },
+  {
+    "path": "04_Boss_Materials/15_mat_bone_plates.md",
+    "sha256": "f0a8a30f888a647c8bcab885cdba3803307003d27bbb10b080dbd085ccaa83a5",
+    "bytes": 4637
+  },
+  {
+    "path": "04_Boss_Materials/16_mat_mirror_shards.md",
+    "sha256": "1e36cf93df3bab1d9af32a77cc42889be7d7ab8357da9347aa7ead68469eb434",
+    "bytes": 4694
+  },
+  {
+    "path": "04_Boss_Materials/17_mat_skim_fang.md",
+    "sha256": "9d71bf650551e3b283c665aed2d5d2ab29329e3808fc147b64ee4ea984ccd8f3",
+    "bytes": 4603
+  },
+  {
+    "path": "04_Boss_Materials/18_mat_banner_remnant.md",
+    "sha256": "e355c794178aaac338434abe55ab45cf8d48d2d0f63da20db9eb8fdc10b48a73",
+    "bytes": 4680
+  },
+  {
+    "path": "04_Boss_Materials/19_mat_royal_iron.md",
+    "sha256": "33e86aea67bbbaf0345a46048d22b24cecda80a8fc92cb6e742b3fb7c9052711",
+    "bytes": 4648
+  },
+  {
+    "path": "05_Shared_Implementation/01_REWARD_DROPS_AND_CLAIM_PROGRESSION.md",
+    "sha256": "0b36d15f970d720915b81856ec15edc386805b9ab51a604531ca12252dab36a0",
+    "bytes": 3411
+  },
+  {
+    "path": "05_Shared_Implementation/02_RUNIC_ANVIL_SLOT_RULES_AND_PREVIEW.md",
+    "sha256": "3c7dbb6811cb9b145c10c857b4d9e62c4969fae422871c822657e5e21419a023",
+    "bytes": 3171
+  },
+  {
+    "path": "05_Shared_Implementation/03_EQUIPMENT_ACCESSORY_SLOTS_AND_RENDER.md",
+    "sha256": "7aa36446a73d880e1bc20b74583ef5d9496e28c4cea620c9af3a92de0292fbaa",
+    "bytes": 2354
+  },
+  {
+    "path": "05_Shared_Implementation/04_SHIELD_REFLECTION_AND_RING_DAMAGE_ORDER.md",
+    "sha256": "610f30df8c763958b5d702b54ce05320d99512570b85ac327cc2456fb52bbef0",
+    "bytes": 3362
+  },
+  {
+    "path": "05_Shared_Implementation/05_COMBAT_TIMINGS_FORMULAS_NO_EXPLOITS.md",
+    "sha256": "bc10f9b8a18c0a07c057cd7a0e989e4e66f9c01bb03dafa81ae66bc31cf5cb1c",
+    "bytes": 4409
+  },
+  {
+    "path": "05_Shared_Implementation/06_RECIPES_AND_JEI.md",
+    "sha256": "1a40a80d85dc4dd70939d242e4eb06c3bb56a86188a99d509d0a381ef14be825",
+    "bytes": 2007
+  },
+  {
+    "path": "05_Shared_Implementation/07_LOOT_RARITY_ECONOMY_BALANCE.md",
+    "sha256": "f8f12f2481cada377ef4ea0ea86b3161f241e665d7566f1b966775f8bb8e57da",
+    "bytes": 1454
+  },
+  {
+    "path": "05_Shared_Implementation/08_ANIMATION_VFX_KEYFRAMES.md",
+    "sha256": "680b2802b0fb2dc28b700b43019f2cbc8c4d5439e3ea65dc9eea1aa093426c01",
+    "bytes": 2980
+  },
+  {
+    "path": "06_UI_Localization/01_TOOLTIPS_RU_AND_EN.md",
+    "sha256": "721441946522ca7beff65d58888814ccb4aa84f81d7b26f7e4a251dba5e2ef2b",
+    "bytes": 1491
+  },
+  {
+    "path": "06_UI_Localization/02_GUI_LAYOUT_PIXEL_COORDINATES.md",
+    "sha256": "fe0696e8601df52d936c32277193c91d7730f5ac512bf747df707549b6312a4b",
+    "bytes": 1579
+  },
+  {
+    "path": "06_UI_Localization/03_SOUND_EVENTS_AND_SUBTITLES.md",
+    "sha256": "b6b41c1eeaa884c6998b2a350a09636ac5a92b93688110fcb3452755899fbd42",
+    "bytes": 1303
+  },
+  {
+    "path": "06_UI_Localization/04_FULL_NAMES_AND_TEXT_KEY_SOURCE.json",
+    "sha256": "23663a9a1e840f7368a5dd31faf45feeece55be702a4cdb80798160cbffcf53c",
+    "bytes": 2796
+  },
+  {
+    "path": "07_Visual_References/Approved/Approved_01_Five_Runes.png",
+    "sha256": "544e2689797de548fcd956387066f076ac833287d81814ce34859fddda1abb6f",
+    "bytes": 2603959
+  },
+  {
+    "path": "07_Visual_References/Approved/Approved_02_Four_Bogatyr_Gifts.png",
+    "sha256": "4cf05d4306c704db47dc09069b01b9496fef05063e59e35786b2fe2279925b31",
+    "bytes": 2566371
+  },
+  {
+    "path": "07_Visual_References/Approved/Approved_03_Five_Boss_Trophies_And_Materials.png",
+    "sha256": "461c599d8fd492aab0f8ddefe2b1c3cfd34e15351651931d794c20c03d1579ab",
+    "bytes": 2981254
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/gift_alyosha_belt.png",
+    "sha256": "53a8c7f4aea23e32d8e362b09f26ff5389dd796364f07e2db4a9e9f2b8eb1566",
+    "bytes": 523
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/gift_dobrynya_ring.png",
+    "sha256": "9e9f235197482a45e80d45c8a2b7b924ea88d0d04e2fc5b9d2610f145ef5c0c1",
+    "bytes": 558
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/gift_finist_amulet.png",
+    "sha256": "6512bf53716dfc005bd81d833e77789a3d3020d8adbe0d859753987a10c0351d",
+    "bytes": 563
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/gift_ilya_shield.png",
+    "sha256": "79cce9c59554b0a938f1dedfb01125e5e17394d9b6579aaaed5809ff6d05bd14",
+    "bytes": 557
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/mat_banner_remnant.png",
+    "sha256": "518167bcbd76a2c157f777fec026bfb8699b1ed61d53fc3e8a83cebc542ac3bd",
+    "bytes": 476
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/mat_bone_plates.png",
+    "sha256": "9571b04c14698dc3908c0333c753b9e08a7b135be886ad51b40d4249282be23d",
+    "bytes": 435
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/mat_mirror_shards.png",
+    "sha256": "5b43de21c2f8efda762c9c83e5b9913df55391d3a87db139ae6a84d7e2e1c8e2",
+    "bytes": 537
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/mat_royal_iron.png",
+    "sha256": "8c1a7644c1aeff3ebe317edd5132710ca146600a05d134f46d7e4c818a66330b",
+    "bytes": 445
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/mat_skim_fang.png",
+    "sha256": "f542a65a5ebacb8deec9b55e9bbd8fb3728ecdb9ceed9e4e9cbeac9bb7be389a",
+    "bytes": 419
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/rune_battle_line.png",
+    "sha256": "fed3db3d6275b07ae37bccb4b2d4fa59103ef02de6659c99c764ff3e9f7f11fb",
+    "bytes": 419
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/rune_dispelling.png",
+    "sha256": "dbeb8d8652a8ad6c9f3d3e4fa7c8b6d36e21499dc69cecf5ad30b5d65dabf69a",
+    "bytes": 673
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/rune_pursuit.png",
+    "sha256": "be5244d4217406d82f6576b02efad8647aa54fc783b4a3b55d183b90604cacb0",
+    "bytes": 529
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/rune_stomp.png",
+    "sha256": "1794160e02915bb74826e4b63f0b847dc57a5b4498d9c1929d1985efefaa44c2",
+    "bytes": 599
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/rune_suppression.png",
+    "sha256": "33ecddc551adad958d28098fb069a36a4e69901902034cf74324f7ae128f4708",
+    "bytes": 555
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/trophy_idol_chest.png",
+    "sha256": "caa26f89088de8bf7cabcf402b869ad18d82900b651a52589a536e05c4fb916b",
+    "bytes": 544
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/trophy_kalin_sabre.png",
+    "sha256": "356788c29fafdc8ef5f70bc3f111352cb2c8c4ef1e05b0ee5e8a2cac6cd72623",
+    "bytes": 564
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/trophy_kartaus_mantle.png",
+    "sha256": "5c83a4c7dab107130650d2c556cccb3e1d758bd2cfe330be160111803050c027",
+    "bytes": 505
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/trophy_marinka_cloak.png",
+    "sha256": "2ee3fe00b788cf577ada2bf35d13d07f6a97cc6bcf8c92cbecf2ec9cc455ea75",
+    "bytes": 576
+  },
+  {
+    "path": "07_Visual_References/Item_Textures_64/trophy_skim_necklace.png",
+    "sha256": "11a2c1f0c3cbb5005f2e60734e06c93ce1fa7bc78a9af587132901296e533f3b",
+    "bytes": 448
+  },
+  {
+    "path": "07_Visual_References/Technical/All_19_Items_64px_Atlas.png",
+    "sha256": "5404b8db105dc425a069a68ca227767f49f188f566b84794ba85cdd77f4d4384",
+    "bytes": 33288
+  },
+  {
+    "path": "07_Visual_References/Technical/Item_GUI_Scale_Example.png",
+    "sha256": "bedc3cc7f18f5b11583215db7060ed162832e5097a15387dfb05b9de9df654f2",
+    "bytes": 13982
+  },
+  {
+    "path": "07_Visual_References/Technical/Item_Texture_Specs.json",
+    "sha256": "5adaf4d2fa3772be4265ea954f2727090bd02ffa07280ae5e34dacc8f62e5447",
+    "bytes": 8680
+  },
+  {
+    "path": "08_Audio/MANIFEST_RIGHTS.json",
+    "sha256": "6f9633067c4bbe280b5b09fc1288300992e2900508f49df356d33fe2460d6bc4",
+    "bytes": 1065
+  },
+  {
+    "path": "08_Audio/SOUND_MAP.json",
+    "sha256": "f8f6011353f9773063141dbc8f45dad33e35d5000e30ada3df23e0f3fe6b239a",
+    "bytes": 3977
+  },
+  {
+    "path": "08_Audio/ogg/gift_alyosha_dodge.ogg",
+    "sha256": "7cf8c1877ecd3dfd685cf3ec09341c1de3f714184f68d15f7a431b7a4ad2bf3d",
+    "bytes": 4851
+  },
+  {
+    "path": "08_Audio/ogg/gift_dobrynya_counter.ogg",
+    "sha256": "1e6411aea5b42cf68bfa14fd1273097c310480342320cea773f5a140a5c8be53",
+    "bytes": 5208
+  },
+  {
+    "path": "08_Audio/ogg/gift_dobrynya_ring_ready.ogg",
+    "sha256": "1578cb7bcfd9d5acbdc431a0d974f2405a3e24b4523a256ff7d36d20dfa15542",
+    "bytes": 5358
+  },
+  {
+    "path": "08_Audio/ogg/gift_finist_detection.ogg",
+    "sha256": "062d7cecd71f98e799653d4c59356d3936938ce405a9cc81d0eaf9558cf9f2bb",
+    "bytes": 4892
+  },
+  {
+    "path": "08_Audio/ogg/gift_finist_warning.ogg",
+    "sha256": "8c2884e52cb9f048e80229871b61a377b9ed5c65a74b76df711abe89c62ff046",
+    "bytes": 4576
+  },
+  {
+    "path": "08_Audio/ogg/gift_ilya_block_reflect.ogg",
+    "sha256": "f85c8e9a5cd2e8983267e8c89854e2c95ad0a0391fb0d79ebc346877cbf9fab6",
+    "bytes": 6029
+  },
+  {
+    "path": "08_Audio/ogg/gift_ilya_wave.ogg",
+    "sha256": "8b244186e67e3dd88227d624cbe23de44b912f24a8a2a13243d8bdbde7e24f16",
+    "bytes": 6648
+  },
+  {
+    "path": "08_Audio/ogg/reward_claim_success.ogg",
+    "sha256": "b596d352d5a7c89247be4feec152a488f5a7b3b96d75e36fae7bd750dc0b674b",
+    "bytes": 5499
+  },
+  {
+    "path": "08_Audio/ogg/reward_rare_loot.ogg",
+    "sha256": "77f08a080c11fd75333b639b7c4c292c5228c61cbf5b473c9bd3ed62d6ff8a0d",
+    "bytes": 5846
+  },
+  {
+    "path": "08_Audio/ogg/rune_anvil_socket.ogg",
+    "sha256": "fc1f8d70e8f9b4666a1c6b9397d64ed84713cb0efca295d3ba627a0843e33a36",
+    "bytes": 5774
+  },
+  {
+    "path": "08_Audio/ogg/rune_battle_line_proc.ogg",
+    "sha256": "547fd7f998c941a5dda526170b43fd2ce1b0b3836e846768aab48b75d905e2c0",
+    "bytes": 7052
+  },
+  {
+    "path": "08_Audio/ogg/rune_dispelling_proc.ogg",
+    "sha256": "8e89a333852bd9391208e1d812bf4201c2549aecdd7ca3301c72a60e810b0b23",
+    "bytes": 5656
+  },
+  {
+    "path": "08_Audio/ogg/rune_pursuit_proc.ogg",
+    "sha256": "51d2dac10394c459dd1fbf05ff9f37fafbf8f06ef2fcc81912f1a18a6c8a2188",
+    "bytes": 5178
+  },
+  {
+    "path": "08_Audio/ogg/rune_stomp_proc.ogg",
+    "sha256": "1d47a456204985c6972f064e9311a27cb500133de7c468726101dfcb4d351006",
+    "bytes": 6396
+  },
+  {
+    "path": "08_Audio/ogg/rune_suppression_proc.ogg",
+    "sha256": "5f7ab635d37b229e27d813b93d1658e2b8af85d9342f9a2321aa25fada461ba6",
+    "bytes": 5940
+  },
+  {
+    "path": "08_Audio/ogg/trophy_idol_heavy_guard.ogg",
+    "sha256": "31982e3b65a2b02e92987f7c0d117e42bd81c47f8ca197559e85520dc8143448",
+    "bytes": 5384
+  },
+  {
+    "path": "08_Audio/ogg/trophy_kalin_momentum_1.ogg",
+    "sha256": "eb7fcebbb9d3d3a2fdb63ebcc8247c0040e941205f4756aae4d4200f3e6a758d",
+    "bytes": 4569
+  },
+  {
+    "path": "08_Audio/ogg/trophy_kalin_momentum_3.ogg",
+    "sha256": "b30f9d13c6ef9a2d876abdce8a136017191cfc61aed25251db7516c59d9ea161",
+    "bytes": 5324
+  },
+  {
+    "path": "08_Audio/ogg/trophy_kalin_sweep.ogg",
+    "sha256": "e794651fb9d2547f06d4266c8e6ce7505322c991b55d83129e62dbb3a439afc9",
+    "bytes": 5982
+  },
+  {
+    "path": "08_Audio/ogg/trophy_kartaus_resistance.ogg",
+    "sha256": "cc3c19f173ad596a67048b550cbf6eb6b6d7e31fd3e395ff785999e8f7d1a34c",
+    "bytes": 6166
+  },
+  {
+    "path": "08_Audio/ogg/trophy_marinka_blink.ogg",
+    "sha256": "74b30b37c49f53e50dae4e38934b28b305acdc7bf5b6e000f44bd63e0ff11471",
+    "bytes": 6150
+  },
+  {
+    "path": "08_Audio/ogg/trophy_skim_execute.ogg",
+    "sha256": "2e0fd44d16e9a749c32836dbf03057687d4c7b092d0d08a832d38a0db6ee3769",
+    "bytes": 5325
+  },
+  {
+    "path": "09_Testing/01_ACCEPTANCE_MATRIX.md",
+    "sha256": "8b46d0b27cb9195343fcc36da34cb7a8e1796af7af0b58ed11d64e26381a7445",
+    "bytes": 2587
+  },
+  {
+    "path": "09_Testing/02_PERFORMANCE_FAST_WORKFLOW.md",
+    "sha256": "61c72b6797dcd3973c110b9e75cd4c88a706d31e00d9d8d02276852a59e465f7",
+    "bytes": 1276
+  },
+  {
+    "path": "09_Testing/03_MULTIPLAYER_SECURITY_AND_REGRESSION.md",
+    "sha256": "4f30c552cd0061ec6c644bf737b720b002f31293dc9e52724bcee287189b65f3",
+    "bytes": 1208
+  },
+  {
+    "path": "10_Ready_Resource_Templates/README_ADAPTER_RULES.md",
+    "sha256": "618406c8e5a0c19abd9f21d268424fb5337cda83d9e0c4defe683e617be9bfcf",
+    "bytes": 840
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/lang/en_us.json",
+    "sha256": "4efb3e0fcbcd28684e22a1194327f4f4c4f31c3e2efcb0fb032f51fd43f6b7f1",
+    "bytes": 5693
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/lang/ru_ru.json",
+    "sha256": "e47441dd6ea2505478b00fed7dee569eb81165b583fb6fd6aa7ee6909164f705",
+    "bytes": 4917
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/gift_alyosha_belt.json",
+    "sha256": "02ec508a29afd84cb343137d780727cf48655e09ee2c4eeba20d47bdc0d37abc",
+    "bytes": 115
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/gift_dobrynya_ring.json",
+    "sha256": "90267f0c6a3f55267eaecf5fbb11c66c71a1796cfc86377e68a3a555141a1a42",
+    "bytes": 116
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/gift_finist_amulet.json",
+    "sha256": "3be61ad54adfa6ec74c98f849ef2c7a39e0fe84a61be673aaaa399f64f083318",
+    "bytes": 116
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/gift_ilya_shield.json",
+    "sha256": "f054bcb6e8a70dbf9c2e285a4e42210ac36df59e626b4e5526218bd022239723",
+    "bytes": 114
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/mat_banner_remnant.json",
+    "sha256": "604710686dfab6689a0a49d7711787f8ee702ee87e68198a9e68039a21db2eb1",
+    "bytes": 116
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/mat_bone_plates.json",
+    "sha256": "8d7fb0772a62fd69fcd62c5e76761f54b49e1f005483c87a82c63f2dcfbff25a",
+    "bytes": 113
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/mat_mirror_shards.json",
+    "sha256": "9cb4f2b603bb3a3f26e840c10ef68b7a8ade8b20d2cd75fc12e7dc3e4ff1fb61",
+    "bytes": 115
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/mat_royal_iron.json",
+    "sha256": "9abf527aa4a7f50345e9f35d6b3f7e79fbaefdd4bb623cfa66db94ad22941997",
+    "bytes": 112
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/mat_skim_fang.json",
+    "sha256": "46cea143033380ed8b191f286b220b8f1ec534bb13939e52f9b046f58f09413d",
+    "bytes": 111
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/rune_battle_line.json",
+    "sha256": "28eda2845ac47a075f9ad24b8e3b6352a530ebdbb61f1e10f1245a09a6acae8e",
+    "bytes": 114
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/rune_dispelling.json",
+    "sha256": "bf57ed901b386d2ff026ce43c14f0ff16abe792f17483eb0f383b367313652ac",
+    "bytes": 113
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/rune_pursuit.json",
+    "sha256": "76c035438ceefea87896bc7a153a5a9a6b85f2276ee8042c4956488adc0ea0b1",
+    "bytes": 110
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/rune_stomp.json",
+    "sha256": "e22c0bf180bbe7a7366455ef37e783aabfc347aaad921feaab7df726c7956c74",
+    "bytes": 108
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/rune_suppression.json",
+    "sha256": "3673fa15cbfe4cf2d845851440baeaa5a5797e0853f6bdae9e9ca448d2c37037",
+    "bytes": 114
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/trophy_idol_chest.json",
+    "sha256": "21463a40a01b4b9fa946201a1a87046951206ddda354c89545f20f89c2b8df8f",
+    "bytes": 115
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/trophy_kalin_sabre.json",
+    "sha256": "7684a1357f381526736c65f8e507202be1da2a238951cd771f79d3ef4084a0e8",
+    "bytes": 116
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/trophy_kartaus_mantle.json",
+    "sha256": "0408fdc351c882ccde8066b37d1411a09109ade52305a2b72085a8352898dd79",
+    "bytes": 119
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/trophy_marinka_cloak.json",
+    "sha256": "ab5a91c29c3bb2d6d4080851991d5e79f0d33135d522e3f83b2df8cc84b96b04",
+    "bytes": 118
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/models/item/trophy_skim_necklace.json",
+    "sha256": "30fdbcbb8ac17a1f451b4b8a625294cb8fce33e23fd2064a2001d18cc24755b9",
+    "bytes": 118
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/gift_alyosha_dodge.ogg",
+    "sha256": "7cf8c1877ecd3dfd685cf3ec09341c1de3f714184f68d15f7a431b7a4ad2bf3d",
+    "bytes": 4851
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/gift_dobrynya_counter.ogg",
+    "sha256": "1e6411aea5b42cf68bfa14fd1273097c310480342320cea773f5a140a5c8be53",
+    "bytes": 5208
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/gift_dobrynya_ring_ready.ogg",
+    "sha256": "1578cb7bcfd9d5acbdc431a0d974f2405a3e24b4523a256ff7d36d20dfa15542",
+    "bytes": 5358
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/gift_finist_detection.ogg",
+    "sha256": "062d7cecd71f98e799653d4c59356d3936938ce405a9cc81d0eaf9558cf9f2bb",
+    "bytes": 4892
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/gift_finist_warning.ogg",
+    "sha256": "8c2884e52cb9f048e80229871b61a377b9ed5c65a74b76df711abe89c62ff046",
+    "bytes": 4576
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/gift_ilya_block_reflect.ogg",
+    "sha256": "f85c8e9a5cd2e8983267e8c89854e2c95ad0a0391fb0d79ebc346877cbf9fab6",
+    "bytes": 6029
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/gift_ilya_wave.ogg",
+    "sha256": "8b244186e67e3dd88227d624cbe23de44b912f24a8a2a13243d8bdbde7e24f16",
+    "bytes": 6648
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/reward_claim_success.ogg",
+    "sha256": "b596d352d5a7c89247be4feec152a488f5a7b3b96d75e36fae7bd750dc0b674b",
+    "bytes": 5499
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/reward_rare_loot.ogg",
+    "sha256": "77f08a080c11fd75333b639b7c4c292c5228c61cbf5b473c9bd3ed62d6ff8a0d",
+    "bytes": 5846
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/rune_anvil_socket.ogg",
+    "sha256": "fc1f8d70e8f9b4666a1c6b9397d64ed84713cb0efca295d3ba627a0843e33a36",
+    "bytes": 5774
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/rune_battle_line_proc.ogg",
+    "sha256": "547fd7f998c941a5dda526170b43fd2ce1b0b3836e846768aab48b75d905e2c0",
+    "bytes": 7052
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/rune_dispelling_proc.ogg",
+    "sha256": "8e89a333852bd9391208e1d812bf4201c2549aecdd7ca3301c72a60e810b0b23",
+    "bytes": 5656
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/rune_pursuit_proc.ogg",
+    "sha256": "51d2dac10394c459dd1fbf05ff9f37fafbf8f06ef2fcc81912f1a18a6c8a2188",
+    "bytes": 5178
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/rune_stomp_proc.ogg",
+    "sha256": "1d47a456204985c6972f064e9311a27cb500133de7c468726101dfcb4d351006",
+    "bytes": 6396
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/rune_suppression_proc.ogg",
+    "sha256": "5f7ab635d37b229e27d813b93d1658e2b8af85d9342f9a2321aa25fada461ba6",
+    "bytes": 5940
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/trophy_idol_heavy_guard.ogg",
+    "sha256": "31982e3b65a2b02e92987f7c0d117e42bd81c47f8ca197559e85520dc8143448",
+    "bytes": 5384
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/trophy_kalin_momentum_1.ogg",
+    "sha256": "eb7fcebbb9d3d3a2fdb63ebcc8247c0040e941205f4756aae4d4200f3e6a758d",
+    "bytes": 4569
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/trophy_kalin_momentum_3.ogg",
+    "sha256": "b30f9d13c6ef9a2d876abdce8a136017191cfc61aed25251db7516c59d9ea161",
+    "bytes": 5324
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/trophy_kalin_sweep.ogg",
+    "sha256": "e794651fb9d2547f06d4266c8e6ce7505322c991b55d83129e62dbb3a439afc9",
+    "bytes": 5982
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/trophy_kartaus_resistance.ogg",
+    "sha256": "cc3c19f173ad596a67048b550cbf6eb6b6d7e31fd3e395ff785999e8f7d1a34c",
+    "bytes": 6166
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/trophy_marinka_blink.ogg",
+    "sha256": "74b30b37c49f53e50dae4e38934b28b305acdc7bf5b6e000f44bd63e0ff11471",
+    "bytes": 6150
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds/reward/trophy_skim_execute.ogg",
+    "sha256": "2e0fd44d16e9a749c32836dbf03057687d4c7b092d0d08a832d38a0db6ee3769",
+    "bytes": 5325
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/sounds.json",
+    "sha256": "526c16489163a8094455fadb75fff4bd82ae13a483ed9a3906f45c0261379328",
+    "bytes": 5057
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/gift_alyosha_belt.png",
+    "sha256": "53a8c7f4aea23e32d8e362b09f26ff5389dd796364f07e2db4a9e9f2b8eb1566",
+    "bytes": 523
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/gift_dobrynya_ring.png",
+    "sha256": "9e9f235197482a45e80d45c8a2b7b924ea88d0d04e2fc5b9d2610f145ef5c0c1",
+    "bytes": 558
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/gift_finist_amulet.png",
+    "sha256": "6512bf53716dfc005bd81d833e77789a3d3020d8adbe0d859753987a10c0351d",
+    "bytes": 563
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/gift_ilya_shield.png",
+    "sha256": "79cce9c59554b0a938f1dedfb01125e5e17394d9b6579aaaed5809ff6d05bd14",
+    "bytes": 557
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/mat_banner_remnant.png",
+    "sha256": "518167bcbd76a2c157f777fec026bfb8699b1ed61d53fc3e8a83cebc542ac3bd",
+    "bytes": 476
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/mat_bone_plates.png",
+    "sha256": "9571b04c14698dc3908c0333c753b9e08a7b135be886ad51b40d4249282be23d",
+    "bytes": 435
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/mat_mirror_shards.png",
+    "sha256": "5b43de21c2f8efda762c9c83e5b9913df55391d3a87db139ae6a84d7e2e1c8e2",
+    "bytes": 537
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/mat_royal_iron.png",
+    "sha256": "8c1a7644c1aeff3ebe317edd5132710ca146600a05d134f46d7e4c818a66330b",
+    "bytes": 445
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/mat_skim_fang.png",
+    "sha256": "f542a65a5ebacb8deec9b55e9bbd8fb3728ecdb9ceed9e4e9cbeac9bb7be389a",
+    "bytes": 419
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/rune_battle_line.png",
+    "sha256": "fed3db3d6275b07ae37bccb4b2d4fa59103ef02de6659c99c764ff3e9f7f11fb",
+    "bytes": 419
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/rune_dispelling.png",
+    "sha256": "dbeb8d8652a8ad6c9f3d3e4fa7c8b6d36e21499dc69cecf5ad30b5d65dabf69a",
+    "bytes": 673
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/rune_pursuit.png",
+    "sha256": "be5244d4217406d82f6576b02efad8647aa54fc783b4a3b55d183b90604cacb0",
+    "bytes": 529
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/rune_stomp.png",
+    "sha256": "1794160e02915bb74826e4b63f0b847dc57a5b4498d9c1929d1985efefaa44c2",
+    "bytes": 599
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/rune_suppression.png",
+    "sha256": "33ecddc551adad958d28098fb069a36a4e69901902034cf74324f7ae128f4708",
+    "bytes": 555
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/trophy_idol_chest.png",
+    "sha256": "caa26f89088de8bf7cabcf402b869ad18d82900b651a52589a536e05c4fb916b",
+    "bytes": 544
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/trophy_kalin_sabre.png",
+    "sha256": "356788c29fafdc8ef5f70bc3f111352cb2c8c4ef1e05b0ee5e8a2cac6cd72623",
+    "bytes": 564
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/trophy_kartaus_mantle.png",
+    "sha256": "5c83a4c7dab107130650d2c556cccb3e1d758bd2cfe330be160111803050c027",
+    "bytes": 505
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/trophy_marinka_cloak.png",
+    "sha256": "2ee3fe00b788cf577ada2bf35d13d07f6a97cc6bcf8c92cbecf2ec9cc455ea75",
+    "bytes": 576
+  },
+  {
+    "path": "10_Ready_Resource_Templates/assets/slavicmyths/textures/item/trophy_skim_necklace.png",
+    "sha256": "11a2c1f0c3cbb5005f2e60734e06c93ce1fa7bc78a9af587132901296e533f3b",
+    "bytes": 448
+  },
+  {
+    "path": "10_Ready_Resource_Templates/data/slavicmyths/recipe/trophy_idol_chest.json",
+    "sha256": "015330be474e8660730845d2fc2968c45dd6755ef6049d95f8ae72099cfe8b31",
+    "bytes": 357
+  },
+  {
+    "path": "10_Ready_Resource_Templates/data/slavicmyths/recipe/trophy_kalin_sabre.json",
+    "sha256": "05affc6da3cec83ebfa53308167c5fe06596eea771608a971a5e30b50e67908c",
+    "bytes": 322
+  },
+  {
+    "path": "10_Ready_Resource_Templates/data/slavicmyths/recipe/trophy_kartaus_mantle.json",
+    "sha256": "a2ebb0d3ab01a431bfda23a41224380d8b45472d5f4a13cdf0b1653204b94162",
+    "bytes": 362
+  },
+  {
+    "path": "10_Ready_Resource_Templates/data/slavicmyths/recipe/trophy_marinka_cloak.json",
+    "sha256": "f1e3952cc7363246ea0479bc2f74e837d162863ca6f5fd0e82fe6c36fd0c24fb",
+    "bytes": 361
+  },
+  {
+    "path": "10_Ready_Resource_Templates/data/slavicmyths/recipe/trophy_skim_necklace.json",
+    "sha256": "eee2f68e96a357a9ccef686db4e6088a633189e926a8ec7153e223f4f14feff9",
+    "bytes": 347
+  }
+]

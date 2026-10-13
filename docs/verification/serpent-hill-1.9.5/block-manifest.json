@@ -1,0 +1,63 @@
+{
+  "blocks": {
+    "serpent_masonry": [
+      "Змеиная кладка",
+      "Serpent Masonry"
+    ],
+    "cracked_serpent_masonry": [
+      "Потрескавшаяся змеиная кладка",
+      "Cracked Serpent Masonry"
+    ],
+    "ruined_serpent_masonry": [
+      "Разрушенная змеиная кладка",
+      "Ruined Serpent Masonry"
+    ],
+    "serpent_bas_relief": [
+      "Змеиный барельеф",
+      "Serpent Bas-relief"
+    ],
+    "ancient_ritual_slab": [
+      "Древняя ритуальная плита",
+      "Ancient Ritual Slab"
+    ],
+    "defiled_ritual_slab": [
+      "Осквернённая ритуальная плита",
+      "Defiled Ritual Slab"
+    ],
+    "serpent_torch": [
+      "Змеиный факел",
+      "Serpent Torch"
+    ],
+    "ritual_brazier": [
+      "Ритуальная жаровня",
+      "Ritual Brazier"
+    ],
+    "defiled_ritual_brazier": [
+      "Осквернённая ритуальная жаровня",
+      "Defiled Ritual Brazier"
+    ],
+    "ancient_hanging_lamp": [
+      "Древний подвесной светильник",
+      "Ancient Hanging Lamp"
+    ],
+    "mor_crystal": [
+      "Моровой кристалл",
+      "Mor Crystal"
+    ]
+  },
+  "light_levels": {
+    "serpent_masonry": 0,
+    "cracked_serpent_masonry": 0,
+    "ruined_serpent_masonry": 0,
+    "serpent_bas_relief": 2,
+    "ancient_ritual_slab": 0,
+    "defiled_ritual_slab": 4,
+    "serpent_torch": 12,
+    "ritual_brazier": 15,
+    "defiled_ritual_brazier": 10,
+    "ancient_hanging_lamp": 12,
+    "mor_crystal": 7
+  },
+  "recipes": 11,
+  "sounds": 5
+}

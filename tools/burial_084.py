@@ -130,3 +130,7 @@ def sounds():
 
 def generate():textures();wood();models();data();sounds()
 if __name__=='__main__':generate()
+
+if __name__ == "__main__":
+ from feedback_resource_policy import apply as apply_feedback_policy
+ apply_feedback_policy()

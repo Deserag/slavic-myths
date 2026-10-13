@@ -1,0 +1,58 @@
+{
+  "ilya": {
+    "elbow": [
+      -9.3500005,
+      3.5,
+      -0.2250000000000001
+    ],
+    "palm_before_rotation": [
+      -9.3500005,
+      9.7,
+      -0.2250000000000001
+    ],
+    "forearm_pitch": -90,
+    "mace_head_width": 6.8
+  },
+  "alyosha": {
+    "elbow": [
+      -6.4,
+      1.1,
+      0.0
+    ],
+    "palm_before_rotation": [
+      -6.4,
+      4.7,
+      0.0
+    ],
+    "forearm_pitch": -90,
+    "mace_head_width": null
+  },
+  "dobrynya": {
+    "elbow": [
+      -7.0,
+      1.52,
+      -0.7999999499999999
+    ],
+    "palm_before_rotation": [
+      -7.0,
+      5.3,
+      -0.7999999499999999
+    ],
+    "forearm_pitch": -90,
+    "mace_head_width": null
+  },
+  "finist": {
+    "elbow": [
+      -7.0,
+      2.0,
+      -0.16249999999999987
+    ],
+    "palm_before_rotation": [
+      -7.0,
+      8.5,
+      -0.16249999999999987
+    ],
+    "forearm_pitch": -90,
+    "mace_head_width": null
+  }
+}

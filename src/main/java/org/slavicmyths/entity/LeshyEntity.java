@@ -26,7 +26,7 @@ public final class LeshyEntity extends LandSpiritEntity {
  @Override protected boolean meleeReady(){return false;}
  @Override protected AttackTimeline attackTimeline(){return attack;}
  @Override public boolean hurt(DamageSource source,float amount){
-  if(vanished>0&&!source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY))return false;
+  if(morState()==0&&vanished>0&&!source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY))return false;
   boolean hit=super.hurt(source,amount);if(hit&&source.getEntity() instanceof Player player)org.slavicmyths.progression.Knowledge.award(player,"meet_leshy");return hit;
  }
  public void disturb(Player player){

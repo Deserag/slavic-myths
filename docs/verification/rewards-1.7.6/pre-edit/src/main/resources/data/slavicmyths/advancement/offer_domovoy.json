@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:meet_domovoy",
+  "display": {
+    "icon": {
+      "id": "minecraft:bread"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.offer_domovoy.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.offer_domovoy.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

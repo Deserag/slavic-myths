@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slavicmyths:item/poloz_whip"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "slavicmyths:whip_pose": 0.1
+      },
+      "model": "slavicmyths:item/poloz_whip_pose_0"
+    },
+    {
+      "predicate": {
+        "slavicmyths:whip_pose": 0.35
+      },
+      "model": "slavicmyths:item/poloz_whip_pose_1"
+    },
+    {
+      "predicate": {
+        "slavicmyths:whip_pose": 0.5
+      },
+      "model": "slavicmyths:item/poloz_whip_pose_2"
+    },
+    {
+      "predicate": {
+        "slavicmyths:whip_pose": 0.7
+      },
+      "model": "slavicmyths:item/poloz_whip_pose_3"
+    },
+    {
+      "predicate": {
+        "slavicmyths:whip_pose": 1
+      },
+      "model": "slavicmyths:item/poloz_whip_pose_4"
+    }
+  ]
+}

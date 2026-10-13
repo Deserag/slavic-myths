@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "slavicmyths:rune_execute"
+    "slavicmyths:rune_execute",
+    "slavicmyths:reward_reflection"
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "version": "1.8.5",
+  "status": "PASS",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.8.5.jar",
+  "sha256": "1be024d3a1cd07757bb7b078e8bc773caf01c8a0c4c64b1acb4edd04b3883b4b",
+  "source": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.8.5.jar",
+  "previous_hashes": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.8.3.2.jar": "91da0b9f3552da1be2059a5f214af0d9c9460f6791ccf017ac518cb684013786"
+  },
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-full-1.8.5-20261012-212405",
+  "other_files_preserved": 383,
+  "configuration_changes": 0,
+  "client_starts": 0,
+  "installer_server_starts": 0,
+  "worlds": "NOT_TOUCHED",
+  "old_1_16_5": "NOT_TOUCHED"
+}

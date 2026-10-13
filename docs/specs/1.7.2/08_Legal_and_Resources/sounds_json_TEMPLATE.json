@@ -1,0 +1,353 @@
+{
+  "dobrynya.breath_idle_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.breath_idle_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/breath_idle_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.armor_step_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.armor_step_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/armor_step_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.spear_parry_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.spear_parry_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/spear_parry_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.shield_ward_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.shield_ward_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/shield_ward_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.magic_deflect_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.magic_deflect_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/magic_deflect_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.spear_swing_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.spear_swing_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/spear_swing_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.spear_impact_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.spear_impact_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/spear_impact_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.spear_sweep_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.spear_sweep_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/spear_sweep_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.unravel_hex_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.unravel_hex_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/unravel_hex_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.grunt_hurt_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.grunt_hurt_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/grunt_hurt_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.aurochs_transform_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.aurochs_transform_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/aurochs_transform_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.aurochs_charge_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.aurochs_charge_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/aurochs_charge_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.elixir_drink_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.elixir_drink_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/elixir_drink_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.hero_return_01": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.hero_return_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/hero_return_01",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.spear_swing_02": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.spear_swing_02",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/spear_swing_02",
+        "stream": false
+      }
+    ]
+  },
+  "dobrynya.armor_step_02": {
+    "subtitle": "subtitles.slavicmyths.dobrynya.armor_step_02",
+    "sounds": [
+      {
+        "name": "slavicmyths:dobrynya/armor_step_02",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.witch_whisper_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_whisper_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/witch_whisper_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.cloth_step_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.cloth_step_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/cloth_step_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.trace_hex_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.trace_hex_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/trace_hex_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.fire_charge_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.fire_charge_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/fire_charge_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.fire_release_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.fire_release_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/fire_release_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.shadow_dissolve_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.shadow_dissolve_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/shadow_dissolve_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.shadow_clone_break_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.shadow_clone_break_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/shadow_clone_break_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.barrier_raise_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.barrier_raise_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/barrier_raise_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.barrier_break_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.barrier_break_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/barrier_break_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.witch_blink_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_blink_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/witch_blink_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.magpie_change_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.magpie_change_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/magpie_change_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.magpie_wings_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.magpie_wings_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/magpie_wings_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.aurochs_hex_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.aurochs_hex_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/aurochs_hex_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.enchanted_herd_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.enchanted_herd_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/enchanted_herd_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.witch_hurt_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_hurt_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/witch_hurt_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.witch_rage_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_rage_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/witch_rage_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.witch_defeat_01": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_defeat_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/witch_defeat_01",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.witch_whisper_02": {
+    "subtitle": "subtitles.slavicmyths.marinka.witch_whisper_02",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/witch_whisper_02",
+        "stream": false
+      }
+    ]
+  },
+  "marinka.magpie_wings_02": {
+    "subtitle": "subtitles.slavicmyths.marinka.magpie_wings_02",
+    "sounds": [
+      {
+        "name": "slavicmyths:marinka/magpie_wings_02",
+        "stream": false
+      }
+    ]
+  },
+  "arena.yard_wind_01": {
+    "subtitle": "subtitles.slavicmyths.arena.yard_wind_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/yard_wind_01",
+        "stream": true
+      }
+    ]
+  },
+  "arena.ritual_circle_pulse_01": {
+    "subtitle": "subtitles.slavicmyths.arena.ritual_circle_pulse_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/ritual_circle_pulse_01",
+        "stream": false
+      }
+    ]
+  },
+  "arena.hatch_open_01": {
+    "subtitle": "subtitles.slavicmyths.arena.hatch_open_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/hatch_open_01",
+        "stream": false
+      }
+    ]
+  },
+  "arena.basement_ambience_01": {
+    "subtitle": "subtitles.slavicmyths.arena.basement_ambience_01",
+    "sounds": [
+      {
+        "name": "slavicmyths:arena/basement_ambience_01",
+        "stream": true
+      }
+    ]
+  }
+}

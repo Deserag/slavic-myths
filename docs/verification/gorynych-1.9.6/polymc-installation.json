@@ -1,0 +1,18 @@
+{
+  "version": "1.9.6",
+  "status": "PASS",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.6.jar",
+  "sha256": "e197311398f3634c3e2303dce37535d6dd457f1cf88e52e503452d32125a37aa",
+  "source": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.6.jar",
+  "previous_hashes": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.6.jar": "89c95ccba002e24edcfca4710dd703ece262d34641bfc2e219ec720bc0f5d893"
+  },
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-gorynych-1.9.6-20261013-184821",
+  "other_files_preserved": 311,
+  "configuration_changes": 0,
+  "client_starts": 0,
+  "installer_server_starts": 0,
+  "worlds": "NOT_TOUCHED",
+  "old_1_16_5": "NOT_TOUCHED"
+}

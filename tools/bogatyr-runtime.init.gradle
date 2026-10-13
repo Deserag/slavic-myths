@@ -1,0 +1,12 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { bogatyrRuntime { java.srcDir 'tools/bogatyr-runtime'; resources.srcDir 'tools/bogatyr-runtime-resources' } }
+ p.sourceSets.bogatyrRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.bogatyrRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileBogatyrRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.bogatyrRuntime)
+ p.neoForge.runs { bogatyrChecks {
+  type = 'gameTestServer';gameDirectory = p.file('work/bogatyr/runtime-'+(p.findProperty('bogatyrRun') ?: 'checks'))
+  systemProperty 'neoforge.enabledGameTestNamespaces', p.findProperty('bogatyrNamespace') ?: 'slavicmyths_bogatyr'
+  systemProperty 'slavicmyths.bogatyr.restartPhase', p.findProperty('bogatyrRestartPhase') ?: 'none'
+ } }
+} }

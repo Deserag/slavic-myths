@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:meat_pie"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.generous_table.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.generous_table.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "dish": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#slavicmyths:complex_dishes"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "dish"
+    ]
+  ]
+}

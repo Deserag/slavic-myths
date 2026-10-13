@@ -1,0 +1,15 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:spear_shaft"
+    },
+    {
+      "item": "slavicmyths:perunite_spearhead"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:perunite_spear",
+    "count": 1
+  }
+}

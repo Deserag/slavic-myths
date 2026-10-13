@@ -1,0 +1,112 @@
+{
+  "rune_stomp_proc": {
+    "ogg": "ogg/rune_stomp_proc.ogg",
+    "registration": "slavicmyths:reward.rune_stomp_proc",
+    "subtitle_ru": "rune stomp proc"
+  },
+  "rune_dispelling_proc": {
+    "ogg": "ogg/rune_dispelling_proc.ogg",
+    "registration": "slavicmyths:reward.rune_dispelling_proc",
+    "subtitle_ru": "rune dispelling proc"
+  },
+  "rune_pursuit_proc": {
+    "ogg": "ogg/rune_pursuit_proc.ogg",
+    "registration": "slavicmyths:reward.rune_pursuit_proc",
+    "subtitle_ru": "rune pursuit proc"
+  },
+  "rune_suppression_proc": {
+    "ogg": "ogg/rune_suppression_proc.ogg",
+    "registration": "slavicmyths:reward.rune_suppression_proc",
+    "subtitle_ru": "rune suppression proc"
+  },
+  "rune_battle_line_proc": {
+    "ogg": "ogg/rune_battle_line_proc.ogg",
+    "registration": "slavicmyths:reward.rune_battle_line_proc",
+    "subtitle_ru": "rune battle line proc"
+  },
+  "gift_ilya_block_reflect": {
+    "ogg": "ogg/gift_ilya_block_reflect.ogg",
+    "registration": "slavicmyths:reward.gift_ilya_block_reflect",
+    "subtitle_ru": "gift ilya block reflect"
+  },
+  "gift_ilya_wave": {
+    "ogg": "ogg/gift_ilya_wave.ogg",
+    "registration": "slavicmyths:reward.gift_ilya_wave",
+    "subtitle_ru": "gift ilya wave"
+  },
+  "gift_dobrynya_ring_ready": {
+    "ogg": "ogg/gift_dobrynya_ring_ready.ogg",
+    "registration": "slavicmyths:reward.gift_dobrynya_ring_ready",
+    "subtitle_ru": "gift dobrynya ring ready"
+  },
+  "gift_dobrynya_counter": {
+    "ogg": "ogg/gift_dobrynya_counter.ogg",
+    "registration": "slavicmyths:reward.gift_dobrynya_counter",
+    "subtitle_ru": "gift dobrynya counter"
+  },
+  "gift_alyosha_dodge": {
+    "ogg": "ogg/gift_alyosha_dodge.ogg",
+    "registration": "slavicmyths:reward.gift_alyosha_dodge",
+    "subtitle_ru": "gift alyosha dodge"
+  },
+  "gift_finist_detection": {
+    "ogg": "ogg/gift_finist_detection.ogg",
+    "registration": "slavicmyths:reward.gift_finist_detection",
+    "subtitle_ru": "gift finist detection"
+  },
+  "gift_finist_warning": {
+    "ogg": "ogg/gift_finist_warning.ogg",
+    "registration": "slavicmyths:reward.gift_finist_warning",
+    "subtitle_ru": "gift finist warning"
+  },
+  "trophy_idol_heavy_guard": {
+    "ogg": "ogg/trophy_idol_heavy_guard.ogg",
+    "registration": "slavicmyths:reward.trophy_idol_heavy_guard",
+    "subtitle_ru": "trophy idol heavy guard"
+  },
+  "trophy_marinka_blink": {
+    "ogg": "ogg/trophy_marinka_blink.ogg",
+    "registration": "slavicmyths:reward.trophy_marinka_blink",
+    "subtitle_ru": "trophy marinka blink"
+  },
+  "trophy_skim_execute": {
+    "ogg": "ogg/trophy_skim_execute.ogg",
+    "registration": "slavicmyths:reward.trophy_skim_execute",
+    "subtitle_ru": "trophy skim execute"
+  },
+  "trophy_kartaus_resistance": {
+    "ogg": "ogg/trophy_kartaus_resistance.ogg",
+    "registration": "slavicmyths:reward.trophy_kartaus_resistance",
+    "subtitle_ru": "trophy kartaus resistance"
+  },
+  "trophy_kalin_momentum_1": {
+    "ogg": "ogg/trophy_kalin_momentum_1.ogg",
+    "registration": "slavicmyths:reward.trophy_kalin_momentum_1",
+    "subtitle_ru": "trophy kalin momentum 1"
+  },
+  "trophy_kalin_momentum_3": {
+    "ogg": "ogg/trophy_kalin_momentum_3.ogg",
+    "registration": "slavicmyths:reward.trophy_kalin_momentum_3",
+    "subtitle_ru": "trophy kalin momentum 3"
+  },
+  "trophy_kalin_sweep": {
+    "ogg": "ogg/trophy_kalin_sweep.ogg",
+    "registration": "slavicmyths:reward.trophy_kalin_sweep",
+    "subtitle_ru": "trophy kalin sweep"
+  },
+  "reward_claim_success": {
+    "ogg": "ogg/reward_claim_success.ogg",
+    "registration": "slavicmyths:reward.reward_claim_success",
+    "subtitle_ru": "reward claim success"
+  },
+  "reward_rare_loot": {
+    "ogg": "ogg/reward_rare_loot.ogg",
+    "registration": "slavicmyths:reward.reward_rare_loot",
+    "subtitle_ru": "reward rare loot"
+  },
+  "rune_anvil_socket": {
+    "ogg": "ogg/rune_anvil_socket.ogg",
+    "registration": "slavicmyths:reward.rune_anvil_socket",
+    "subtitle_ru": "rune anvil socket"
+  }
+}

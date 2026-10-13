@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:linden_sapling",
+    "slavicmyths:rowan_sapling",
+    "slavicmyths:willow_sapling",
+    "slavicmyths:pine_sapling",
+    "slavicmyths:apple_sapling"
+  ]
+}

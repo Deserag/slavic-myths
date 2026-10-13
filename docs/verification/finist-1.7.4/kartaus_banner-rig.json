@@ -1,0 +1,309 @@
+{
+  "height": 31.0,
+  "atlas": 256,
+  "uvScale": 1,
+  "bones": {
+    "body": {
+      "parent": null,
+      "pos": [
+        0,
+        12,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "body",
+          "center": [
+            0,
+            15.5,
+            0
+          ],
+          "size": [
+            1.5,
+            31,
+            1.5
+          ],
+          "material": "wood",
+          "uv": [
+            2,
+            2,
+            6,
+            33
+          ]
+        },
+        {
+          "bone": "body",
+          "center": [
+            0,
+            28.7,
+            0
+          ],
+          "size": [
+            13,
+            1.4,
+            1.4
+          ],
+          "material": "iron",
+          "uv": [
+            12,
+            2,
+            29,
+            3
+          ]
+        }
+      ]
+    },
+    "cloth": {
+      "parent": "body",
+      "pos": [
+        0,
+        27,
+        0
+      ],
+      "boxes": [
+        {
+          "bone": "cloth",
+          "center": [
+            0,
+            16.5,
+            0.9
+          ],
+          "size": [
+            11,
+            21,
+            0.5
+          ],
+          "material": "black",
+          "uv": [
+            45,
+            2,
+            23,
+            22
+          ]
+        },
+        {
+          "bone": "cloth",
+          "center": [
+            0,
+            17.0,
+            0.4
+          ],
+          "size": [
+            1.1,
+            16,
+            0.4
+          ],
+          "material": "crimson",
+          "uv": [
+            72,
+            2,
+            3,
+            17
+          ]
+        },
+        {
+          "bone": "cloth",
+          "center": [
+            0,
+            16.45,
+            0.3
+          ],
+          "size": [
+            7,
+            0.9,
+            0.4
+          ],
+          "material": "crimson",
+          "uv": [
+            79,
+            2,
+            15,
+            2
+          ]
+        },
+        {
+          "bone": "cloth",
+          "center": [
+            -2.6,
+            16.5,
+            0.3
+          ],
+          "size": [
+            1,
+            7,
+            0.4
+          ],
+          "material": "crimson",
+          "uv": [
+            98,
+            2,
+            3,
+            8
+          ]
+        },
+        {
+          "bone": "cloth",
+          "center": [
+            2.6,
+            16.5,
+            0.3
+          ],
+          "size": [
+            1,
+            7,
+            0.4
+          ],
+          "material": "crimson",
+          "uv": [
+            105,
+            2,
+            3,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  "boxes": [
+    {
+      "bone": "body",
+      "center": [
+        0,
+        15.5,
+        0
+      ],
+      "size": [
+        1.5,
+        31,
+        1.5
+      ],
+      "material": "wood",
+      "uv": [
+        2,
+        2,
+        6,
+        33
+      ]
+    },
+    {
+      "bone": "body",
+      "center": [
+        0,
+        28.7,
+        0
+      ],
+      "size": [
+        13,
+        1.4,
+        1.4
+      ],
+      "material": "iron",
+      "uv": [
+        12,
+        2,
+        29,
+        3
+      ]
+    },
+    {
+      "bone": "cloth",
+      "center": [
+        0,
+        16.5,
+        0.9
+      ],
+      "size": [
+        11,
+        21,
+        0.5
+      ],
+      "material": "black",
+      "uv": [
+        45,
+        2,
+        23,
+        22
+      ]
+    },
+    {
+      "bone": "cloth",
+      "center": [
+        0,
+        17.0,
+        0.4
+      ],
+      "size": [
+        1.1,
+        16,
+        0.4
+      ],
+      "material": "crimson",
+      "uv": [
+        72,
+        2,
+        3,
+        17
+      ]
+    },
+    {
+      "bone": "cloth",
+      "center": [
+        0,
+        16.45,
+        0.3
+      ],
+      "size": [
+        7,
+        0.9,
+        0.4
+      ],
+      "material": "crimson",
+      "uv": [
+        79,
+        2,
+        15,
+        2
+      ]
+    },
+    {
+      "bone": "cloth",
+      "center": [
+        -2.6,
+        16.5,
+        0.3
+      ],
+      "size": [
+        1,
+        7,
+        0.4
+      ],
+      "material": "crimson",
+      "uv": [
+        98,
+        2,
+        3,
+        8
+      ]
+    },
+    {
+      "bone": "cloth",
+      "center": [
+        2.6,
+        16.5,
+        0.3
+      ],
+      "size": [
+        1,
+        7,
+        0.4
+      ],
+      "material": "crimson",
+      "uv": [
+        105,
+        2,
+        3,
+        8
+      ]
+    }
+  ]
+}

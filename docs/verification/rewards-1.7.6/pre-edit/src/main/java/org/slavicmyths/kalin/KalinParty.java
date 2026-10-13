@@ -1,0 +1,20 @@
+package org.slavicmyths.kalin;
+import java.util.*;import net.minecraft.server.level.*;import net.minecraft.world.entity.*;import org.slavicmyths.skim.HeroCalls;
+/** Compatibility adapter: existing four AI/action controllers keep their attacks and support. */
+public final class KalinParty {
+ public static UUID owner(Entity h){return h instanceof org.slavicmyths.bogatyr.IlyaEntity a?a.owner:h instanceof org.slavicmyths.marinka.DobrynyaEntity a?a.owner:h instanceof org.slavicmyths.skim.AlyoshaEntity a?a.owner:h instanceof org.slavicmyths.finist.FinistEntity a?a.owner:null;}
+ public static boolean recovering(LivingEntity h){return h instanceof org.slavicmyths.bogatyr.IlyaEntity a?a.recovering():h instanceof org.slavicmyths.marinka.DobrynyaEntity a?a.recovering():h instanceof org.slavicmyths.skim.AlyoshaEntity a?a.recovering():h instanceof org.slavicmyths.finist.FinistEntity a?a.recovering():false;}
+ public static boolean chosen(Entity h,KalinEncounter.Entry e){return h.getUUID().equals(e.heroA)||h.getUUID().equals(e.heroB);}
+ public static boolean prepare(Mob h,UUID owner){if(owner==null||!(h.level() instanceof ServerLevel w))return false;var e=KalinEncounter.get(w).owner(owner);if(e==null){if(h.getPersistentData().getBoolean("KalinRetreated")&&h instanceof org.slavicmyths.marinka.DobrynyaEntity d&&!d.recovering())d.begin(org.slavicmyths.marinka.WitchAction.DRINK);h.getPersistentData().remove("KalinRetreated");return false;}if(e.stage!=KalinEncounter.Stage.ACTIVE||!chosen(h,e)){h.setTarget(null);h.getNavigation().stop();return true;}
+ if(h.getHealth()<=h.getMaxHealth()*.15||recovering(h)){if(!h.getPersistentData().getBoolean("KalinRetreated")&&h instanceof org.slavicmyths.bogatyr.IlyaEntity i)i.begin(org.slavicmyths.bogatyr.BogatyrRules.State.DOWN_FOR_ENCOUNTER,0);h.getPersistentData().putBoolean("KalinRetreated",true);}
+ if(h.getPersistentData().getBoolean("KalinRetreated")){h.setTarget(null);if(h.tickCount%10==0){var at=org.slavicmyths.bogatyr.BogatyrLedger.safe(w,e.center.add(0,0,24),h.getBbWidth(),h.getBbHeight(),3);if(at!=null)h.getNavigation().moveTo(at.x,at.y,at.z,1.1);}return true;}
+ var boss=commander(h);if(h instanceof org.slavicmyths.bogatyr.IlyaEntity i&&boss!=null&&i.tickCount%5==0&&i.duration()==0&&i.ready("shield")&&i.distanceToSqr(boss)<25&&(boss.action()==org.slavicmyths.finist.FalconAction.SWORD||boss.action()==org.slavicmyths.finist.FalconAction.DASH)&&boss.age()<12)i.kalinGuard(boss);
+ if(h.position().distanceToSqr(e.center)>28*28){h.setTarget(null);if(h.tickCount%10==0)h.getNavigation().moveTo(e.center.x,e.center.y,e.center.z,1.1);return true;}return false;}
+ public static LivingEntity target(Mob h,ServerPlayer p){if(p==null||!(h.level() instanceof ServerLevel w))return null;var e=KalinEncounter.get(w).owner(p.getUUID());if(e==null||e.stage!=KalinEncounter.Stage.ACTIVE||!chosen(h,e)||!(w.getEntity(e.boss) instanceof KalinEntity k))return null;
+ // Addressed army IDs; assist when soldiers press owner, otherwise attack commander.
+ LivingEntity best=null;double nearest=100;for(var id:k.soldiers){var entity=w.getEntity(id);if(entity instanceof KalinSoldier s&&s.isAlive()&&s.distanceToSqr(p)<36&&h.hasLineOfSight(s)&&h.distanceToSqr(s)<nearest){nearest=h.distanceToSqr(s);best=s;}}return best!=null?best:k;
+ }
+ public static KalinEntity commander(Mob h){if(!(h.level() instanceof ServerLevel w))return null;var owner=owner(h);var e=owner==null?null:KalinEncounter.get(w).owner(owner);return e!=null&&e.stage==KalinEncounter.Stage.ACTIVE&&chosen(h,e)&&w.getEntity(e.boss) instanceof KalinEntity k?k:null;}
+ public static boolean allowed(Mob h,LivingEntity t){if(t==null||!(h.level() instanceof ServerLevel w))return false;var owner=owner(h);var e=owner==null?null:KalinEncounter.get(w).owner(owner);if(e==null||!chosen(h,e)||e.stage!=KalinEncounter.Stage.ACTIVE)return false;return t instanceof KalinEntity k&&Objects.equals(k.encounter,e.id)||t instanceof KalinSoldier s&&Objects.equals(s.commander,e.boss);}
+ private KalinParty(){}
+}

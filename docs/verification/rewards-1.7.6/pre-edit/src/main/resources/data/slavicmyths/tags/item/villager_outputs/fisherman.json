@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:cod",
+    "minecraft:salmon",
+    "minecraft:pufferfish",
+    "minecraft:tropical_fish",
+    "slavicmyths:raw_pike",
+    "slavicmyths:raw_carp",
+    "slavicmyths:raw_crayfish"
+  ]
+}

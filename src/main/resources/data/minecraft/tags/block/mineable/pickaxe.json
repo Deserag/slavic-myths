@@ -41,6 +41,11 @@
     "slavicmyths:millstone",
     "slavicmyths:bog_iron_ore",
     "slavicmyths:chud_bloomery",
-    "slavicmyths:refining_hearth"
+    "slavicmyths:refining_hearth",
+    "slavicmyths:mor_stone",
+    "slavicmyths:mor_cobblestone",
+    "slavicmyths:mor_sandstone",
+    "slavicmyths:mor_obsidian",
+    "slavicmyths:mor_stone_bricks"
   ]
 }

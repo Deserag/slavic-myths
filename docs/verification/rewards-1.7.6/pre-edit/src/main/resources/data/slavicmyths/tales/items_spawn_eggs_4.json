@@ -1,0 +1,16 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_spawn_eggs_4.title",
+  "icon": "slavicmyths:polevik_spawn_egg",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:chud_artisan_spawn_egg",
+    "item/slavicmyths:chud_guard_spawn_egg",
+    "item/slavicmyths:polevik_spawn_egg",
+    "item/slavicmyths:poludnitsa_spawn_egg"
+  ],
+  "advancements": [],
+  "links": []
+}

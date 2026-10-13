@@ -49,7 +49,7 @@ public final class KikimoraEntity extends LandSpiritEntity {
         else {state(2);behavior=hasLineOfSight(p)?Behavior.STALK:Behavior.HIDE;Vec3 side=p.getLookAngle();getNavigation().moveTo(p.getX()+side.z*6,p.getY(),p.getZ()-side.x*6,.85);}
     }
     @Override public int getAmbientSoundInterval(){return 650;}
-    @Override public void playAmbientSound(){if(!level().isClientSide){if(tickCount%3==0)voice("laugh",.22F);else voice("ambient",.25F);}}
+    @Override public void playAmbientSound(){if(morState()!=0)return;if(!level().isClientSide){if(tickCount%3==0)voice("laugh",.22F);else voice("ambient",.25F);}}
     @Override protected void playStepSound(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState block){if(!level().isClientSide && tickCount%2==0)voice("step",.1F);}
     @Override public boolean doHurtTarget(net.minecraft.world.entity.Entity target){boolean hit=super.doHurtTarget(target);if(hit && !level().isClientSide)voice("attack",.4F);return hit;}
 }

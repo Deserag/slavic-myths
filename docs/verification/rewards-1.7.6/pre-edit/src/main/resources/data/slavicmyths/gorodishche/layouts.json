@@ -1,0 +1,17 @@
+{
+  "size": 176,
+  "square": [
+    70,
+    70,
+    35,
+    35
+  ],
+  "layouts": [
+    "axial",
+    "cross_axis"
+  ],
+  "spacing_chunks": 128,
+  "separation_chunks": 96,
+  "terrain_max_delta": 16,
+  "local_correction": 6
+}
