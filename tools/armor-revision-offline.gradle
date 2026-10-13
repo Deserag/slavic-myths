@@ -1,0 +1,16 @@
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ def c=p.tasks.register('compileArmorRevisionOffline',JavaCompile){
+  dependsOn p.tasks.named('compileJava');source p.fileTree('tools/armor-revision-offline'){include '**/*.java'}
+  classpath=p.sourceSets.main.compileClasspath+p.files(p.sourceSets.main.output.classesDirs)
+  destinationDirectory.set(p.file('work/armor-revision/offline-classes'));options.release.set(21);options.encoding='UTF-8'
+ }
+ p.tasks.register('armorRevisionOffline',JavaExec){
+  dependsOn c;classpath=p.sourceSets.main.compileClasspath+p.files(p.sourceSets.main.output.classesDirs,p.file('work/armor-revision/offline-classes'),p.file('tools/kuzya-test-resources'))
+  mainClass.set('org.slavicmyths.client.ArmorRevisionMeshes');args p.file('work/armor-revision/meshes-after.json').absolutePath
+ }
+ p.tasks.register('armorRevisionBeforeOffline',JavaExec){
+  dependsOn c;classpath=p.files(p.file('work/armor-revision/baseline-production.jar'))+p.sourceSets.main.compileClasspath+p.files(p.file('work/armor-revision/offline-classes'),p.file('tools/kuzya-test-resources'))
+  mainClass.set('org.slavicmyths.client.ArmorRevisionMeshes');args p.file('work/armor-revision/meshes-before.json').absolutePath
+ }
+}

@@ -88,3 +88,8 @@ def generate():
  write(A/'sounds.json',sounds)
  for lang,data in langs.items():write(A/f'lang/{lang}.json',data)
 if __name__=='__main__':generate()
+
+# Keep the current armor revision after legacy asset output.
+if __name__ == "__main__":
+ from armor_revision_assets import apply as armor_revision
+ armor_revision()

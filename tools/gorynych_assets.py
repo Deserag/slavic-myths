@@ -172,3 +172,8 @@ def sounds():
 def main():
  O.mkdir(parents=True,exist_ok=True);model();crossbows();icons();data();language();sounds();__import__('weapon_patch_assets').main();print('GORYNYCH_ASSETS_PASS native rig, 9 appearances, 12 crossbow states, 31 original OGG')
 if __name__=='__main__':main()
+
+# Preserve current armor after both the original and weapon overlays.
+if __name__ == "__main__":
+ from armor_revision_assets import apply as armor_revision
+ armor_revision()

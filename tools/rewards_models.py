@@ -28,3 +28,7 @@ for id,palette in [('trophy_idol_chest',['#493524','#806544','#ddd7c7','#e7d4ab'
 
 from weapon_patch_assets import main as weapon_patch
 weapon_patch()
+
+# Preserve current armor after both the original and weapon overlays.
+from armor_revision_assets import apply as armor_revision
+armor_revision()

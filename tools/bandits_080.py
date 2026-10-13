@@ -348,6 +348,8 @@ def sounds():
 
 def generate():
     gear_models();human_textures();recipes();camps();loot();advancements();language();sounds()
+    from armor_revision_assets import apply as armor_revision
+    armor_revision()
 
 
 if __name__=='__main__':generate()

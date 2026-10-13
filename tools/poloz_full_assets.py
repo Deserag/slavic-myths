@@ -139,3 +139,8 @@ if __name__=='__main__':main()
 # Preserve the user-authorized 1.9.1 summon rules after legacy text generation.
 from summon_access_policy import apply as apply_summon_access
 apply_summon_access()
+
+# Keep the current armor revision after legacy asset output.
+if __name__ == "__main__":
+ from armor_revision_assets import apply as armor_revision
+ armor_revision()

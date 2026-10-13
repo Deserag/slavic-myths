@@ -376,3 +376,8 @@ def generate(root):
         p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
 if __name__=='__main__': generate(Path(__file__).resolve().parents[1])
+
+# Keep the current armor revision after legacy asset output.
+if __name__ == "__main__":
+ from armor_revision_assets import apply as armor_revision
+ armor_revision()

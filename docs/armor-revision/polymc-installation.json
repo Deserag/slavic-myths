@@ -1,0 +1,19 @@
+{
+  "label": "1.9.7 + патч оружия — ревизия брони",
+  "version": "1.9.7",
+  "status": "PASS",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.jar",
+  "sha256": "f73888579014ed8b297bdb943ca2e742a2947d533369c85d7fc4c310ac6cf7ef",
+  "source": "D:\\slavic-myths\\release\\slavicmyths-1.9.7-patch-weapons-armor.jar",
+  "previous_hashes": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.jar": "470bee79a459721a5b4080bf5098e4b77b8ea2f1ee06553bb6e18574f5281fc2"
+  },
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-armor-revision-20261013-211538",
+  "other_files_preserved": 381,
+  "configuration_changes": 0,
+  "client_starts": 0,
+  "installer_server_starts": 0,
+  "worlds": "NOT_TOUCHED",
+  "old_1_16_5": "NOT_TOUCHED"
+}

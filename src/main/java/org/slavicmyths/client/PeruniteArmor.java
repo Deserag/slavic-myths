@@ -20,7 +20,7 @@ public final class PeruniteArmor implements IClientItemExtensions {
   root.addOrReplaceChild("head",CubeListBuilder.create().texOffs(0,0)
    .addBox(-4.5F,-9,-4.5F,9,1.5F,9).texOffs(0,0)
    .addBox(-4.5F,-7.5F,3.5F,9,7.5F,1).addBox(-4.5F,-7.5F,-4.5F,1,5,8)
-   .addBox(3.5F,-7.5F,-4.5F,1,5,8).addBox(-4,-7.5F,-4.7F,8,1,1)
+   .addBox(3.5F,-7.5F,-4.5F,1,5,8).texOffs(40,0).addBox(-4,-7.5F,-4.7F,8,1,1).texOffs(40,4)
    .addBox(-.6F,-10,-4.5F,1.2F,1,8),PartPose.ZERO);
   if(slot==EquipmentSlot.CHEST)root.getChild("body").addOrReplaceChild("breastplate",CubeListBuilder.create().texOffs(16,0)
    .addBox(-3.5F,1,-3.5F,7,8,1.5F).addBox(-4.8F,3,-2.5F,1,7,5)

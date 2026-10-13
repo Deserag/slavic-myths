@@ -120,4 +120,6 @@ def apply():
   lang['death.attack.ward_reflection']='%1$s пал от воздаяния %2$s' if locale=='ru_ru' else '%1$s fell to %2$s\u2019s retribution'
   write(path,lang)
  write(D/'damage_type/ward_reflection.json',{'message_id':'ward_reflection','scaling':'when_caused_by_living_non_player','exhaustion':.1})
+ from armor_revision_assets import apply as armor_revision
+ armor_revision()
 if __name__=='__main__':apply()
