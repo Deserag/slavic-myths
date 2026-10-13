@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "old_entries": 8677,
+  "unchanged_entries": 8649,
+  "changed_entries": [
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json",
+    "assets/slavicmyths/models/item/ataman_flail.json",
+    "assets/slavicmyths/models/item/karachun_scythe_held.json",
+    "assets/slavicmyths/models/item/likho_staff.json",
+    "assets/slavicmyths/models/item/serpent_crossbow.json",
+    "assets/slavicmyths/models/item/serpent_crossbow_arrow.json",
+    "assets/slavicmyths/models/item/serpent_crossbow_firework.json",
+    "assets/slavicmyths/models/item/serpent_crossbow_pulling_0.json",
+    "assets/slavicmyths/models/item/serpent_crossbow_pulling_1.json",
+    "assets/slavicmyths/models/item/serpent_crossbow_pulling_2.json",
+    "assets/slavicmyths/models/item/three_breath_crossbow.json",
+    "assets/slavicmyths/models/item/three_breath_crossbow_arrow.json",
+    "assets/slavicmyths/models/item/three_breath_crossbow_firework.json",
+    "assets/slavicmyths/models/item/three_breath_crossbow_pulling_0.json",
+    "assets/slavicmyths/models/item/three_breath_crossbow_pulling_1.json",
+    "assets/slavicmyths/models/item/three_breath_crossbow_pulling_2.json",
+    "assets/slavicmyths/models/item/trophy_kalin_sabre.json",
+    "assets/slavicmyths/models/item/victor_spear.json",
+    "assets/slavicmyths/textures/item/karachun_scythe.png",
+    "org/slavicmyths/client/GorynychClient.class",
+    "org/slavicmyths/client/NightClient$Reaper$1.class",
+    "org/slavicmyths/client/NightClient$Registration$1.class",
+    "org/slavicmyths/client/NightClient$Registration.class",
+    "org/slavicmyths/client/NightClient.class",
+    "org/slavicmyths/client/Quest185ItemRenderer.class",
+    "org/slavicmyths/karachun/NightCombat.class",
+    "org/slavicmyths/karachun/NightEvents.class"
+  ],
+  "added_entries": [
+    "assets/slavicmyths/textures/item/weapon_scythe_surface.png"
+  ],
+  "removed_entries": []
+}

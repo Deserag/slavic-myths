@@ -25,3 +25,6 @@ for id,palette in [('trophy_idol_chest',['#493524','#806544','#ddd7c7','#e7d4ab'
    tile=2 if id=='trophy_idol_chest' and x>=40 and y<32 else 3 if id=='trophy_kartaus_mantle' and x>=60 and y>=48 else 0 if y<48 else 1
    px[x,y]=tuple(bytes.fromhex(palette[tile][1:]))+(255,)
  dest=ROOT/'src/main/resources/assets/slavicmyths/textures/models/armor'/(id+'.png');dest.parent.mkdir(parents=True,exist_ok=True);im.save(dest)
+
+from weapon_patch_assets import main as weapon_patch
+weapon_patch()

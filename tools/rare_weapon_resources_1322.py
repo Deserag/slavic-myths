@@ -85,4 +85,6 @@ def main():
  combat_fix_resources_1344.apply()
  import unique_armor_resources
  unique_armor_resources.apply()
+ import weapon_patch_assets
+ weapon_patch_assets.main()
 if __name__=='__main__':main()

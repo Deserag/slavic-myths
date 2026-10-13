@@ -170,5 +170,5 @@ def sounds():
   events['gorynych.'+name]={'sounds':['slavicmyths:gorynych/'+name]}
  merge(A/'sounds.json',events)
 def main():
- O.mkdir(parents=True,exist_ok=True);model();crossbows();icons();data();language();sounds();print('GORYNYCH_ASSETS_PASS native rig, 9 appearances, 12 crossbow states, 31 original OGG')
+ O.mkdir(parents=True,exist_ok=True);model();crossbows();icons();data();language();sounds();__import__('weapon_patch_assets').main();print('GORYNYCH_ASSETS_PASS native rig, 9 appearances, 12 crossbow states, 31 original OGG')
 if __name__=='__main__':main()

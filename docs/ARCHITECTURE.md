@@ -1,3 +1,9 @@
+## Патч оружия — поверх 1.9.7, 2026-10-13
+
+Исправлены фильтр целей/учёт боевых атрибутов косы Карачуна и сброс её позы; компактная объёмная коса/16px иконка, разные модели копья победителя, кистеня атамана, посоха Лихо и Сабли Воеводы. Арбалеты: безопасный pull predicate и компактные first-person transforms. Registry ID и номер версии сохранены. Clean build + Night offline PASS; 15764 resource gates, 921 item models, 208 subscribers PASS. Игровых запусков 0; визуальная/боевая приёмка OPEN. PolyMC Testing обновлён с backup, имя дополнено «Патч оружия». Параллельные правки брони/аудита сохранены отдельно. [Отчёт](verification/weapon-patch/REPORT.md).
+
+Серверный delayed swing использует CombatTargeting.canAttack с NPC/PvP/ally guards и реальные ATTACK_DAMAGE атрибуты для удерживаемой косы; projectile lanes сохраняют собственную базу. Existing Pose duration=0 отменяет клиентское Swing состояние без нового протокола; vanilla first-person renderer, временная third-person pose. Quest185 context renderer выбирает held geometry для ground/fixed косы. Resource overlay tools/weapon_patch_assets.py воспроизводит изменения после owning generators; opt-in native Night checks не входят в JAR. Нет нового глобального tick polling или registry entries.
+
 ## 1.9.8.1 — начат аналитический аудит существ (2026-10-13)
 
 Статус IN_PROGRESS: исходный индекс 111 деклараций EntityType, выдержки кода и проверенные расхождения HP; полная ручная таблица атак/форм/типов/спавна ещё не завершена. Production остаётся 1.9.7; баланс, механики, ресурсы и ID не менялись. Следующие патчи не начаты. Генератор tools/creature_audit_1981.py работает только с документацией; новой runtime архитектуры нет. Отчёт: docs/audit/creatures-1.9.8.1/REPORT.md; результаты gates: CHECKS.md в том же каталоге. Клиент/сервер/GameTest: 0 запусков.

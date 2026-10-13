@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "patch": "Патч оружия",
+  "version_unchanged": "1.9.7",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.jar",
+  "sha256": "470bee79a459721a5b4080bf5098e4b77b8ea2f1ee06553bb6e18574f5281fc2",
+  "checks": 15764,
+  "item_models_audited": 921,
+  "subscribers": 208,
+  "client_starts": 0,
+  "server_starts": 0,
+  "gameplay": "NOT_RUN",
+  "visual_acceptance": "REQUIRES_MANUAL_QA"
+}
