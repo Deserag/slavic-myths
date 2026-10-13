@@ -1,0 +1,22 @@
+{
+  "part": "people",
+  "chapter": "home",
+  "section": "inhabitants",
+  "title": "tales.entry.baba_yaga.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 1,
+  "subjects": [
+    "block/slavicmyths:yaga_bone_charm",
+    "block/slavicmyths:yaga_cauldron",
+    "block/slavicmyths:yaga_chicken_leg",
+    "block/slavicmyths:yaga_dried_herbs",
+    "entity/slavicmyths:baba_yaga",
+    "entity/slavicmyths:flying_broom",
+    "entity/slavicmyths:flying_mortar"
+  ],
+  "advancements": [
+    "slavicmyths:guest_of_yaga",
+    "slavicmyths:trusted_by_yaga"
+  ],
+  "links": []
+}

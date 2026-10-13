@@ -1,0 +1,12 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { skimRuntime { java.srcDir 'tools/skim-runtime'; resources.srcDir 'tools/skim-runtime-resources' } }
+ p.sourceSets.skimRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.skimRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileSkimRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.skimRuntime)
+ p.neoForge.runs { skimChecks {
+  type = 'gameTestServer';gameDirectory = p.file('work/skim/runtime-'+(p.findProperty('skimRun') ?: 'checks'))
+  systemProperty 'neoforge.enabledGameTestNamespaces', p.findProperty('skimNamespace') ?: 'slavicmyths_skim'
+  systemProperty 'slavicmyths.skim.restartPhase', p.findProperty('skimRestartPhase') ?: 'none'
+ } }
+} }

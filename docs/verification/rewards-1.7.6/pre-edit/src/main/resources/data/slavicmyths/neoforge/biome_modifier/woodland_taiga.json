@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:woodland_taiga",
+  "features": [
+    "slavicmyths:pine_2",
+    "slavicmyths:rowan_12"
+  ],
+  "step": "vegetal_decoration"
+}

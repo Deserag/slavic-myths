@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:animal_fat"
+    },
+    {
+      "item": "slavicmyths:linen_thread"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:tallow_candle",
+    "count": 2
+  }
+}

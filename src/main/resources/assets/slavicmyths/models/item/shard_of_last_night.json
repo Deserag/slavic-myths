@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slavicmyths:item/shard_of_last_night"
+  }
+}

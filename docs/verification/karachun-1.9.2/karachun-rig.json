@@ -1,0 +1,6075 @@
+{
+  "atlas": 512,
+  "bones": {
+    "pelvis": {
+      "parent": null,
+      "pos": [
+        0,
+        24,
+        0
+      ]
+    },
+    "torso": {
+      "parent": "pelvis",
+      "pos": [
+        0,
+        48,
+        0
+      ]
+    },
+    "leg_right": {
+      "parent": "pelvis",
+      "pos": [
+        -5,
+        24,
+        0
+      ]
+    },
+    "arm_right": {
+      "parent": "torso",
+      "pos": [
+        -11,
+        46,
+        0
+      ]
+    },
+    "forearm_right": {
+      "parent": "arm_right",
+      "pos": [
+        -11,
+        32,
+        0
+      ]
+    },
+    "hand_right": {
+      "parent": "forearm_right",
+      "pos": [
+        -11,
+        22,
+        0
+      ]
+    },
+    "fur_right": {
+      "parent": "torso",
+      "pos": [
+        -10,
+        48,
+        0
+      ]
+    },
+    "cloak_front_right": {
+      "parent": "pelvis",
+      "pos": [
+        -7,
+        27,
+        -6
+      ]
+    },
+    "cloak_back_right": {
+      "parent": "pelvis",
+      "pos": [
+        -7,
+        27,
+        6
+      ]
+    },
+    "cloak_side_right": {
+      "parent": "pelvis",
+      "pos": [
+        -7,
+        27,
+        1
+      ]
+    },
+    "chains_right": {
+      "parent": "torso",
+      "pos": [
+        -6,
+        41,
+        -6
+      ]
+    },
+    "leg_left": {
+      "parent": "pelvis",
+      "pos": [
+        5,
+        24,
+        0
+      ]
+    },
+    "arm_left": {
+      "parent": "torso",
+      "pos": [
+        11,
+        46,
+        0
+      ]
+    },
+    "forearm_left": {
+      "parent": "arm_left",
+      "pos": [
+        11,
+        32,
+        0
+      ]
+    },
+    "hand_left": {
+      "parent": "forearm_left",
+      "pos": [
+        11,
+        22,
+        0
+      ]
+    },
+    "fur_left": {
+      "parent": "torso",
+      "pos": [
+        10,
+        48,
+        0
+      ]
+    },
+    "cloak_front_left": {
+      "parent": "pelvis",
+      "pos": [
+        7,
+        27,
+        -6
+      ]
+    },
+    "cloak_back_left": {
+      "parent": "pelvis",
+      "pos": [
+        7,
+        27,
+        6
+      ]
+    },
+    "cloak_side_left": {
+      "parent": "pelvis",
+      "pos": [
+        7,
+        27,
+        1
+      ]
+    },
+    "chains_left": {
+      "parent": "torso",
+      "pos": [
+        6,
+        41,
+        -6
+      ]
+    },
+    "head": {
+      "parent": "torso",
+      "pos": [
+        0,
+        52,
+        -2
+      ]
+    },
+    "hair_right": {
+      "parent": "head",
+      "pos": [
+        -5,
+        59,
+        -2
+      ]
+    },
+    "hair_left": {
+      "parent": "head",
+      "pos": [
+        5,
+        59,
+        -2
+      ]
+    },
+    "hair_back": {
+      "parent": "head",
+      "pos": [
+        0,
+        59,
+        2
+      ]
+    },
+    "beard": {
+      "parent": "head",
+      "pos": [
+        0,
+        50,
+        -7.5
+      ]
+    },
+    "scythe": {
+      "parent": "hand_right",
+      "pos": [
+        -14,
+        20,
+        -3
+      ]
+    }
+  },
+  "boxes": [
+    {
+      "bone": "torso",
+      "center": [
+        0,
+        38.5,
+        1
+      ],
+      "size": [
+        16,
+        23,
+        10
+      ],
+      "material": "cloth",
+      "uv": [
+        2,
+        2,
+        52,
+        33
+      ]
+    },
+    {
+      "bone": "pelvis",
+      "center": [
+        0,
+        25.5,
+        0
+      ],
+      "size": [
+        18,
+        3,
+        11
+      ],
+      "material": "wood",
+      "uv": [
+        57,
+        2,
+        58,
+        14
+      ]
+    },
+    {
+      "bone": "leg_right",
+      "center": [
+        -5,
+        14.5,
+        0
+      ],
+      "size": [
+        7,
+        19,
+        7
+      ],
+      "material": "cloth",
+      "uv": [
+        118,
+        2,
+        28,
+        26
+      ]
+    },
+    {
+      "bone": "leg_right",
+      "center": [
+        -5,
+        3.0,
+        -1.2
+      ],
+      "size": [
+        8,
+        6,
+        9
+      ],
+      "material": "metal",
+      "uv": [
+        149,
+        2,
+        34,
+        15
+      ]
+    },
+    {
+      "bone": "arm_right",
+      "center": [
+        -11,
+        38.5,
+        0
+      ],
+      "size": [
+        7,
+        15,
+        8
+      ],
+      "material": "cloth",
+      "uv": [
+        186,
+        2,
+        30,
+        23
+      ]
+    },
+    {
+      "bone": "forearm_right",
+      "center": [
+        -11,
+        26.5,
+        0
+      ],
+      "size": [
+        6,
+        11,
+        7
+      ],
+      "material": "cloth",
+      "uv": [
+        219,
+        2,
+        26,
+        18
+      ]
+    },
+    {
+      "bone": "hand_right",
+      "center": [
+        -11,
+        19.5,
+        0
+      ],
+      "size": [
+        5,
+        5,
+        5
+      ],
+      "material": "skin",
+      "uv": [
+        248,
+        2,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -6.0,
+        44.0,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        271,
+        2,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -6.0,
+        41.0,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        304,
+        2,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -6.0,
+        37.5,
+        -5.5
+      ],
+      "size": [
+        0.9,
+        3,
+        1
+      ],
+      "material": "ice",
+      "uv": [
+        317,
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -7.7,
+        43.5,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        324,
+        2,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -7.7,
+        40.4,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        357,
+        2,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -9.4,
+        43.0,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        370,
+        2,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -9.4,
+        39.8,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        403,
+        2,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -9.4,
+        36.3,
+        -5.5
+      ],
+      "size": [
+        0.9,
+        3,
+        1
+      ],
+      "material": "ice",
+      "uv": [
+        416,
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -11.1,
+        42.5,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        423,
+        2,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -11.1,
+        39.2,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        456,
+        2,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -12.8,
+        42.0,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        469,
+        2,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -12.8,
+        38.6,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        2,
+        38,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -12.8,
+        35.1,
+        -5.5
+      ],
+      "size": [
+        0.9,
+        3,
+        1
+      ],
+      "material": "ice",
+      "uv": [
+        15,
+        38,
+        4,
+        4
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -14.5,
+        41.5,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        22,
+        38,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -14.5,
+        38.0,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        55,
+        38,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -16.2,
+        41.0,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        68,
+        38,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -16.2,
+        37.4,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        101,
+        38,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_right",
+      "center": [
+        -16.2,
+        33.9,
+        -5.5
+      ],
+      "size": [
+        0.9,
+        3,
+        1
+      ],
+      "material": "ice",
+      "uv": [
+        114,
+        38,
+        4,
+        4
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -7.0,
+        22.0,
+        -6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        121,
+        38,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -10.0,
+        17.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        144,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -8.0,
+        17.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        151,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -6.0,
+        17.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        158,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -4.0,
+        17.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        165,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -7.7,
+        16.0,
+        -6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        172,
+        38,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -10.7,
+        11.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        195,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -8.7,
+        11.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        202,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -6.699999999999999,
+        11.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        209,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -4.699999999999999,
+        11.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        216,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -8.4,
+        10.0,
+        -6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        223,
+        38,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -11.4,
+        5.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        246,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -9.4,
+        5.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        253,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -7.4,
+        5.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        260,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -5.4,
+        5.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        267,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -9.1,
+        4.0,
+        -6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        274,
+        38,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -12.1,
+        1.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        297,
+        38,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -10.1,
+        1.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        304,
+        38,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -8.1,
+        1.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        311,
+        38,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_front_right",
+      "center": [
+        -6.1,
+        1.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        318,
+        38,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -7.0,
+        22.0,
+        6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        325,
+        38,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -10.0,
+        17.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        348,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -8.0,
+        17.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        355,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -6.0,
+        17.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        362,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -4.0,
+        17.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        369,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -7.7,
+        16.0,
+        6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        376,
+        38,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -10.7,
+        11.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        399,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -8.7,
+        11.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        406,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -6.699999999999999,
+        11.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        413,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -4.699999999999999,
+        11.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        420,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -8.4,
+        10.0,
+        6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        427,
+        38,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -11.4,
+        5.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        450,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -9.4,
+        5.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        457,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -7.4,
+        5.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        464,
+        38,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -5.4,
+        5.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        471,
+        38,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -9.1,
+        4.0,
+        6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        478,
+        38,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -12.1,
+        1.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        501,
+        38,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -10.1,
+        1.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        2,
+        57,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -8.1,
+        1.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        9,
+        57,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_back_right",
+      "center": [
+        -6.1,
+        1.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        16,
+        57,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -11.0,
+        22.0,
+        1
+      ],
+      "size": [
+        3,
+        8,
+        11
+      ],
+      "material": "cloth",
+      "uv": [
+        23,
+        57,
+        28,
+        19
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -14.0,
+        17.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        54,
+        57,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -12.0,
+        17.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        61,
+        57,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -10.0,
+        17.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        68,
+        57,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -8.0,
+        17.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        75,
+        57,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -11.8,
+        16.0,
+        1
+      ],
+      "size": [
+        3,
+        8,
+        11
+      ],
+      "material": "cloth",
+      "uv": [
+        82,
+        57,
+        28,
+        19
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -14.8,
+        11.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        113,
+        57,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -12.8,
+        11.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        120,
+        57,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -10.8,
+        11.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        127,
+        57,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -8.8,
+        11.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        134,
+        57,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -12.6,
+        10.0,
+        1
+      ],
+      "size": [
+        3,
+        8,
+        11
+      ],
+      "material": "cloth",
+      "uv": [
+        141,
+        57,
+        28,
+        19
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -15.6,
+        5.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        172,
+        57,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -13.6,
+        5.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        179,
+        57,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -11.6,
+        5.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        186,
+        57,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -9.6,
+        5.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        193,
+        57,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -13.4,
+        4.0,
+        1
+      ],
+      "size": [
+        3,
+        8,
+        11
+      ],
+      "material": "cloth",
+      "uv": [
+        200,
+        57,
+        28,
+        19
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -16.4,
+        1.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        231,
+        57,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -14.399999999999999,
+        1.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        238,
+        57,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -12.399999999999999,
+        1.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        245,
+        57,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_side_right",
+      "center": [
+        -10.399999999999999,
+        1.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        252,
+        57,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -6.0,
+        39.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        259,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -6.389418342308651,
+        38.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        266,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -6.717356090899523,
+        36.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        273,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -6.932039085967227,
+        35.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        280,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -6.999573603041505,
+        33.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        287,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -6.909297426825682,
+        32.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        294,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -6.675463180551151,
+        30.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        301,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -6.334988150155905,
+        29.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        308,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -5.94162585657242,
+        27.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        315,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -5.557479556705148,
+        26.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        322,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -5.243197504692072,
+        24.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        329,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -5.048397926110484,
+        23.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        336,
+        57,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -7,
+        36.0,
+        -7
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "bone",
+      "uv": [
+        343,
+        57,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -7,
+        35.75,
+        -7.6
+      ],
+      "size": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "material": "metal",
+      "uv": [
+        352,
+        57,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -7,
+        30.0,
+        -7
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "bone",
+      "uv": [
+        358,
+        57,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -7,
+        29.75,
+        -7.6
+      ],
+      "size": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "material": "metal",
+      "uv": [
+        367,
+        57,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -7,
+        24.0,
+        -7
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "bone",
+      "uv": [
+        373,
+        57,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "chains_right",
+      "center": [
+        -7,
+        23.75,
+        -7.6
+      ],
+      "size": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "material": "metal",
+      "uv": [
+        382,
+        57,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "leg_left",
+      "center": [
+        5,
+        14.5,
+        0
+      ],
+      "size": [
+        7,
+        19,
+        7
+      ],
+      "material": "cloth",
+      "uv": [
+        388,
+        57,
+        28,
+        26
+      ]
+    },
+    {
+      "bone": "leg_left",
+      "center": [
+        5,
+        3.0,
+        -1.2
+      ],
+      "size": [
+        8,
+        6,
+        9
+      ],
+      "material": "metal",
+      "uv": [
+        419,
+        57,
+        34,
+        15
+      ]
+    },
+    {
+      "bone": "arm_left",
+      "center": [
+        11,
+        38.5,
+        0
+      ],
+      "size": [
+        7,
+        15,
+        8
+      ],
+      "material": "cloth",
+      "uv": [
+        456,
+        57,
+        30,
+        23
+      ]
+    },
+    {
+      "bone": "forearm_left",
+      "center": [
+        11,
+        26.5,
+        0
+      ],
+      "size": [
+        6,
+        11,
+        7
+      ],
+      "material": "cloth",
+      "uv": [
+        2,
+        86,
+        26,
+        18
+      ]
+    },
+    {
+      "bone": "hand_left",
+      "center": [
+        11,
+        19.5,
+        0
+      ],
+      "size": [
+        5,
+        5,
+        5
+      ],
+      "material": "skin",
+      "uv": [
+        31,
+        86,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        6.0,
+        44.0,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        54,
+        86,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        6.0,
+        41.0,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        87,
+        86,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        6.0,
+        37.5,
+        -5.5
+      ],
+      "size": [
+        0.9,
+        3,
+        1
+      ],
+      "material": "ice",
+      "uv": [
+        100,
+        86,
+        4,
+        4
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        7.7,
+        43.5,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        107,
+        86,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        7.7,
+        40.4,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        140,
+        86,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        9.4,
+        43.0,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        153,
+        86,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        9.4,
+        39.8,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        186,
+        86,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        9.4,
+        36.3,
+        -5.5
+      ],
+      "size": [
+        0.9,
+        3,
+        1
+      ],
+      "material": "ice",
+      "uv": [
+        199,
+        86,
+        4,
+        4
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        11.1,
+        42.5,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        206,
+        86,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        11.1,
+        39.2,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        239,
+        86,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        12.8,
+        42.0,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        252,
+        86,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        12.8,
+        38.6,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        285,
+        86,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        12.8,
+        35.1,
+        -5.5
+      ],
+      "size": [
+        0.9,
+        3,
+        1
+      ],
+      "material": "ice",
+      "uv": [
+        298,
+        86,
+        4,
+        4
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        14.5,
+        41.5,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        305,
+        86,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        14.5,
+        38.0,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        338,
+        86,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        16.2,
+        41.0,
+        1
+      ],
+      "size": [
+        3,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        351,
+        86,
+        30,
+        16
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        16.2,
+        37.4,
+        -5
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        384,
+        86,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "fur_left",
+      "center": [
+        16.2,
+        33.9,
+        -5.5
+      ],
+      "size": [
+        0.9,
+        3,
+        1
+      ],
+      "material": "ice",
+      "uv": [
+        397,
+        86,
+        4,
+        4
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        7.0,
+        22.0,
+        -6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        404,
+        86,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        4.0,
+        17.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        427,
+        86,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        6.0,
+        17.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        434,
+        86,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        8.0,
+        17.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        441,
+        86,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        10.0,
+        17.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        448,
+        86,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        7.7,
+        16.0,
+        -6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        455,
+        86,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        4.7,
+        11.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        478,
+        86,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        6.7,
+        11.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        485,
+        86,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        8.7,
+        11.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        492,
+        86,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        10.7,
+        11.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        499,
+        86,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        8.4,
+        10.0,
+        -6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        2,
+        107,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        5.4,
+        5.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        25,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        7.4,
+        5.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        32,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        9.4,
+        5.5,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        39,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        11.4,
+        5.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        46,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        9.1,
+        4.0,
+        -6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        53,
+        107,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        6.1,
+        1.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        76,
+        107,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        8.1,
+        1.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        83,
+        107,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        10.1,
+        1.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        90,
+        107,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_front_left",
+      "center": [
+        12.1,
+        1.0,
+        -7.3
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        97,
+        107,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        7.0,
+        22.0,
+        6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        104,
+        107,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        4.0,
+        17.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        127,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        6.0,
+        17.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        134,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        8.0,
+        17.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        141,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        10.0,
+        17.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        148,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        7.7,
+        16.0,
+        6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        155,
+        107,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        4.7,
+        11.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        178,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        6.7,
+        11.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        185,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        8.7,
+        11.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        192,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        10.7,
+        11.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        199,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        8.4,
+        10.0,
+        6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        206,
+        107,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        5.4,
+        5.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        229,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        7.4,
+        5.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        236,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        9.4,
+        5.5,
+        4.7
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        243,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        11.4,
+        5.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        250,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        9.1,
+        4.0,
+        6
+      ],
+      "size": [
+        8,
+        8,
+        2
+      ],
+      "material": "cloth",
+      "uv": [
+        257,
+        107,
+        20,
+        10
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        6.1,
+        1.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        280,
+        107,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        8.1,
+        1.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        287,
+        107,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        10.1,
+        1.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        294,
+        107,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_back_left",
+      "center": [
+        12.1,
+        1.0,
+        4.7
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        301,
+        107,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        11.0,
+        22.0,
+        1
+      ],
+      "size": [
+        3,
+        8,
+        11
+      ],
+      "material": "cloth",
+      "uv": [
+        308,
+        107,
+        28,
+        19
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        8.0,
+        17.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        339,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        10.0,
+        17.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        346,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        12.0,
+        17.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        353,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        14.0,
+        17.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        360,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        11.8,
+        16.0,
+        1
+      ],
+      "size": [
+        3,
+        8,
+        11
+      ],
+      "material": "cloth",
+      "uv": [
+        367,
+        107,
+        28,
+        19
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        8.8,
+        11.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        398,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        10.8,
+        11.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        405,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        12.8,
+        11.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        412,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        14.8,
+        11.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        419,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        12.6,
+        10.0,
+        1
+      ],
+      "size": [
+        3,
+        8,
+        11
+      ],
+      "material": "cloth",
+      "uv": [
+        426,
+        107,
+        28,
+        19
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        9.6,
+        5.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        457,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        11.6,
+        5.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        464,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        13.6,
+        5.5,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        5,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        471,
+        107,
+        4,
+        6
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        15.6,
+        5.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        6,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        478,
+        107,
+        4,
+        7
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        13.4,
+        4.0,
+        1
+      ],
+      "size": [
+        3,
+        8,
+        11
+      ],
+      "material": "cloth",
+      "uv": [
+        2,
+        129,
+        28,
+        19
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        10.4,
+        1.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        33,
+        129,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        12.4,
+        1.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        40,
+        129,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        14.4,
+        1.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        47,
+        129,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "cloak_side_left",
+      "center": [
+        16.4,
+        1.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        1.3,
+        2.0,
+        0.7
+      ],
+      "material": "fur",
+      "uv": [
+        54,
+        129,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        6.0,
+        39.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        61,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        6.389418342308651,
+        38.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        68,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        6.717356090899523,
+        36.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        75,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        6.932039085967227,
+        35.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        82,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        6.999573603041505,
+        33.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        89,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        6.909297426825682,
+        32.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        96,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        6.675463180551151,
+        30.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        103,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        6.334988150155905,
+        29.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        110,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        5.94162585657242,
+        27.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        117,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        5.557479556705148,
+        26.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        124,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        5.243197504692072,
+        24.55,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        131,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        5.048397926110484,
+        23.05,
+        -6.6
+      ],
+      "size": [
+        0.9,
+        1.1,
+        0.8
+      ],
+      "material": "bone",
+      "uv": [
+        138,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        7,
+        36.0,
+        -7
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "bone",
+      "uv": [
+        145,
+        129,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        7,
+        35.75,
+        -7.6
+      ],
+      "size": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "material": "metal",
+      "uv": [
+        154,
+        129,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        7,
+        30.0,
+        -7
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "bone",
+      "uv": [
+        160,
+        129,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        7,
+        29.75,
+        -7.6
+      ],
+      "size": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "material": "metal",
+      "uv": [
+        169,
+        129,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        7,
+        24.0,
+        -7
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "bone",
+      "uv": [
+        175,
+        129,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "chains_left",
+      "center": [
+        7,
+        23.75,
+        -7.6
+      ],
+      "size": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "material": "metal",
+      "uv": [
+        184,
+        129,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        53.5,
+        -3
+      ],
+      "size": [
+        9,
+        11,
+        8
+      ],
+      "material": "skin",
+      "uv": [
+        190,
+        129,
+        34,
+        19
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        51.0,
+        -7
+      ],
+      "size": [
+        2,
+        4,
+        2
+      ],
+      "material": "skin",
+      "uv": [
+        227,
+        129,
+        8,
+        6
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -2.5,
+        54.15,
+        -7.3
+      ],
+      "size": [
+        3,
+        2.3,
+        0.7
+      ],
+      "material": "metal",
+      "uv": [
+        238,
+        129,
+        8,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -2.5,
+        53.9,
+        -7.8
+      ],
+      "size": [
+        1.5,
+        0.8,
+        0.4
+      ],
+      "material": "glow",
+      "uv": [
+        249,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -3.5,
+        51.4,
+        -7.2
+      ],
+      "size": [
+        2,
+        2.8,
+        1
+      ],
+      "material": "skin",
+      "uv": [
+        256,
+        129,
+        6,
+        4
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -4.5,
+        52.5,
+        -5.0
+      ],
+      "size": [
+        1.8,
+        11,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        265,
+        129,
+        8,
+        13
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -4.95,
+        51.5,
+        -3.4
+      ],
+      "size": [
+        1.8,
+        13,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        276,
+        129,
+        8,
+        15
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -5.4,
+        50.5,
+        -1.7999999999999998
+      ],
+      "size": [
+        1.8,
+        15,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        287,
+        129,
+        8,
+        17
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -5.85,
+        49.5,
+        -0.1999999999999993
+      ],
+      "size": [
+        1.8,
+        17,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        298,
+        129,
+        8,
+        19
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -6.3,
+        48.5,
+        1.4000000000000004
+      ],
+      "size": [
+        1.8,
+        19,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        309,
+        129,
+        8,
+        21
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        2.5,
+        54.15,
+        -7.3
+      ],
+      "size": [
+        3,
+        2.3,
+        0.7
+      ],
+      "material": "metal",
+      "uv": [
+        320,
+        129,
+        8,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        2.5,
+        53.9,
+        -7.8
+      ],
+      "size": [
+        1.5,
+        0.8,
+        0.4
+      ],
+      "material": "glow",
+      "uv": [
+        331,
+        129,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        3.5,
+        51.4,
+        -7.2
+      ],
+      "size": [
+        2,
+        2.8,
+        1
+      ],
+      "material": "skin",
+      "uv": [
+        338,
+        129,
+        6,
+        4
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        4.5,
+        52.5,
+        -5.0
+      ],
+      "size": [
+        1.8,
+        11,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        347,
+        129,
+        8,
+        13
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        4.95,
+        51.5,
+        -3.4
+      ],
+      "size": [
+        1.8,
+        13,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        358,
+        129,
+        8,
+        15
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        5.4,
+        50.5,
+        -1.7999999999999998
+      ],
+      "size": [
+        1.8,
+        15,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        369,
+        129,
+        8,
+        17
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        5.85,
+        49.5,
+        -0.1999999999999993
+      ],
+      "size": [
+        1.8,
+        17,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        380,
+        129,
+        8,
+        19
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        6.3,
+        48.5,
+        1.4000000000000004
+      ],
+      "size": [
+        1.8,
+        19,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        391,
+        129,
+        8,
+        21
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -5,
+        51.0,
+        3
+      ],
+      "size": [
+        1.8,
+        16,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        402,
+        129,
+        8,
+        18
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -3,
+        51.5,
+        3
+      ],
+      "size": [
+        1.8,
+        15,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        413,
+        129,
+        8,
+        17
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -1,
+        52.0,
+        3
+      ],
+      "size": [
+        1.8,
+        14,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        424,
+        129,
+        8,
+        16
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        1,
+        51.0,
+        3
+      ],
+      "size": [
+        1.8,
+        16,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        435,
+        129,
+        8,
+        18
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        3,
+        51.5,
+        3
+      ],
+      "size": [
+        1.8,
+        15,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        446,
+        129,
+        8,
+        17
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        5,
+        52.0,
+        3
+      ],
+      "size": [
+        1.8,
+        14,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        457,
+        129,
+        8,
+        16
+      ]
+    },
+    {
+      "bone": "beard",
+      "center": [
+        -4,
+        46.0,
+        -7.5
+      ],
+      "size": [
+        1.7,
+        8,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        468,
+        129,
+        8,
+        10
+      ]
+    },
+    {
+      "bone": "beard",
+      "center": [
+        -2,
+        45.5,
+        -7.5
+      ],
+      "size": [
+        1.7,
+        9,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        479,
+        129,
+        8,
+        11
+      ]
+    },
+    {
+      "bone": "beard",
+      "center": [
+        0,
+        45.0,
+        -7.5
+      ],
+      "size": [
+        1.7,
+        10,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        490,
+        129,
+        8,
+        12
+      ]
+    },
+    {
+      "bone": "beard",
+      "center": [
+        2,
+        45.5,
+        -7.5
+      ],
+      "size": [
+        1.7,
+        9,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        501,
+        129,
+        8,
+        11
+      ]
+    },
+    {
+      "bone": "beard",
+      "center": [
+        4,
+        46.0,
+        -7.5
+      ],
+      "size": [
+        1.7,
+        8,
+        2
+      ],
+      "material": "hair",
+      "uv": [
+        2,
+        153,
+        8,
+        10
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        23.0,
+        -3
+      ],
+      "size": [
+        2,
+        42,
+        2
+      ],
+      "material": "wood",
+      "uv": [
+        13,
+        153,
+        8,
+        44
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        3.75,
+        -3
+      ],
+      "size": [
+        3,
+        1.5,
+        3
+      ],
+      "material": "bone",
+      "uv": [
+        24,
+        153,
+        12,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        10.75,
+        -3
+      ],
+      "size": [
+        3,
+        1.5,
+        3
+      ],
+      "material": "metal",
+      "uv": [
+        39,
+        153,
+        12,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        18.75,
+        -3
+      ],
+      "size": [
+        3,
+        1.5,
+        3
+      ],
+      "material": "metal",
+      "uv": [
+        54,
+        153,
+        12,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        26.75,
+        -3
+      ],
+      "size": [
+        3,
+        1.5,
+        3
+      ],
+      "material": "bone",
+      "uv": [
+        69,
+        153,
+        12,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        34.75,
+        -3
+      ],
+      "size": [
+        3,
+        1.5,
+        3
+      ],
+      "material": "metal",
+      "uv": [
+        84,
+        153,
+        12,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        41.75,
+        -3
+      ],
+      "size": [
+        3,
+        1.5,
+        3
+      ],
+      "material": "metal",
+      "uv": [
+        99,
+        153,
+        12,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        13.0,
+        -3
+      ],
+      "size": [
+        2.5,
+        4,
+        2.5
+      ],
+      "material": "wood",
+      "uv": [
+        114,
+        153,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        12.85,
+        -4.4
+      ],
+      "size": [
+        0.6,
+        2.5,
+        0.3
+      ],
+      "material": "glow",
+      "uv": [
+        127,
+        153,
+        2,
+        3
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        23.0,
+        -3
+      ],
+      "size": [
+        2.5,
+        4,
+        2.5
+      ],
+      "material": "wood",
+      "uv": [
+        132,
+        153,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        22.85,
+        -4.4
+      ],
+      "size": [
+        0.6,
+        2.5,
+        0.3
+      ],
+      "material": "glow",
+      "uv": [
+        145,
+        153,
+        2,
+        3
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        33.0,
+        -3
+      ],
+      "size": [
+        2.5,
+        4,
+        2.5
+      ],
+      "material": "wood",
+      "uv": [
+        150,
+        153,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        32.85,
+        -4.4
+      ],
+      "size": [
+        0.6,
+        2.5,
+        0.3
+      ],
+      "material": "glow",
+      "uv": [
+        163,
+        153,
+        2,
+        3
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14.0,
+        46.25,
+        -3
+      ],
+      "size": [
+        2.5,
+        4.5,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        168,
+        153,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14.0,
+        44.025000000000006,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        181,
+        153,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14.0,
+        42.75,
+        -3
+      ],
+      "size": [
+        0.9,
+        2.5,
+        1.3
+      ],
+      "material": "ice",
+      "uv": [
+        194,
+        153,
+        5,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -15.8,
+        46.05861111111111,
+        -3
+      ],
+      "size": [
+        2.5,
+        4.27,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        202,
+        153,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -15.8,
+        43.94861111111112,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        215,
+        153,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -17.6,
+        45.714444444444446,
+        -3
+      ],
+      "size": [
+        2.5,
+        4.04,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        228,
+        153,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -17.6,
+        43.71944444444445,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        241,
+        153,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -17.6,
+        42.27444444444444,
+        -3
+      ],
+      "size": [
+        0.9,
+        2.8,
+        1.3
+      ],
+      "material": "ice",
+      "uv": [
+        254,
+        153,
+        5,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -19.4,
+        45.2175,
+        -3
+      ],
+      "size": [
+        2.5,
+        3.81,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        262,
+        153,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -19.4,
+        43.337500000000006,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        275,
+        153,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -21.2,
+        44.56777777777778,
+        -3
+      ],
+      "size": [
+        2.5,
+        3.58,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        288,
+        153,
+        10,
+        6
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -21.2,
+        42.802777777777784,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        301,
+        153,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -21.2,
+        41.187777777777775,
+        -3
+      ],
+      "size": [
+        0.9,
+        3.1,
+        1.3
+      ],
+      "material": "ice",
+      "uv": [
+        314,
+        153,
+        5,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -23.0,
+        43.765277777777776,
+        -3
+      ],
+      "size": [
+        2.5,
+        3.3499999999999996,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        322,
+        153,
+        10,
+        6
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -23.0,
+        42.115277777777784,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        335,
+        153,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -24.8,
+        42.81,
+        -3
+      ],
+      "size": [
+        2.5,
+        3.12,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        348,
+        153,
+        10,
+        6
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -24.8,
+        41.275000000000006,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        361,
+        153,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -24.8,
+        39.49,
+        -3
+      ],
+      "size": [
+        0.9,
+        3.4,
+        1.3
+      ],
+      "material": "ice",
+      "uv": [
+        374,
+        153,
+        5,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -26.6,
+        41.70194444444444,
+        -3
+      ],
+      "size": [
+        2.5,
+        2.8899999999999997,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        382,
+        153,
+        10,
+        6
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -26.6,
+        40.28194444444445,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        395,
+        153,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -28.4,
+        40.44111111111111,
+        -3
+      ],
+      "size": [
+        2.5,
+        2.66,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        408,
+        153,
+        10,
+        6
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -28.4,
+        39.13611111111112,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        421,
+        153,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -28.4,
+        37.181111111111115,
+        -3
+      ],
+      "size": [
+        0.9,
+        3.7,
+        1.3
+      ],
+      "material": "ice",
+      "uv": [
+        434,
+        153,
+        5,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -30.2,
+        39.0275,
+        -3
+      ],
+      "size": [
+        2.5,
+        2.4299999999999997,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        442,
+        153,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -30.2,
+        37.837500000000006,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        455,
+        153,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -32.0,
+        37.46111111111111,
+        -3
+      ],
+      "size": [
+        2.5,
+        2.1999999999999997,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        468,
+        153,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -32.0,
+        36.38611111111111,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        481,
+        153,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -32.0,
+        34.261111111111106,
+        -3
+      ],
+      "size": [
+        0.9,
+        4.0,
+        1.3
+      ],
+      "material": "ice",
+      "uv": [
+        494,
+        153,
+        5,
+        6
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -33.8,
+        35.74194444444444,
+        -3
+      ],
+      "size": [
+        2.5,
+        1.9699999999999998,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        2,
+        200,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -33.8,
+        34.78194444444445,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        15,
+        200,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -35.6,
+        33.87,
+        -3
+      ],
+      "size": [
+        2.5,
+        1.7399999999999998,
+        2.4
+      ],
+      "material": "metal",
+      "uv": [
+        28,
+        200,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -35.6,
+        33.025000000000006,
+        -3.05
+      ],
+      "size": [
+        2.1,
+        0.65,
+        2.7
+      ],
+      "material": "glow",
+      "uv": [
+        41,
+        200,
+        10,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -35.6,
+        30.729999999999997,
+        -3
+      ],
+      "size": [
+        0.9,
+        4.3,
+        1.3
+      ],
+      "material": "ice",
+      "uv": [
+        54,
+        200,
+        5,
+        6
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -17,
+        38.425,
+        -3
+      ],
+      "size": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "material": "bone",
+      "uv": [
+        62,
+        200,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -17,
+        36.925,
+        -3
+      ],
+      "size": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "material": "bone",
+      "uv": [
+        68,
+        200,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -17,
+        35.425,
+        -3
+      ],
+      "size": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "material": "bone",
+      "uv": [
+        74,
+        200,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -17,
+        33.925,
+        -3
+      ],
+      "size": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "material": "bone",
+      "uv": [
+        80,
+        200,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -17,
+        32.425,
+        -3
+      ],
+      "size": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "material": "bone",
+      "uv": [
+        86,
+        200,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -17,
+        30.0,
+        -3
+      ],
+      "size": [
+        1.3,
+        2,
+        1.3
+      ],
+      "material": "ice",
+      "uv": [
+        92,
+        200,
+        6,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -23,
+        38.425,
+        -3
+      ],
+      "size": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "material": "bone",
+      "uv": [
+        101,
+        200,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -23,
+        36.925,
+        -3
+      ],
+      "size": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "material": "bone",
+      "uv": [
+        107,
+        200,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -23,
+        35.425,
+        -3
+      ],
+      "size": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "material": "bone",
+      "uv": [
+        113,
+        200,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -23,
+        33.925,
+        -3
+      ],
+      "size": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "material": "bone",
+      "uv": [
+        119,
+        200,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -23,
+        32.425,
+        -3
+      ],
+      "size": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "material": "bone",
+      "uv": [
+        125,
+        200,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -23,
+        30.0,
+        -3
+      ],
+      "size": [
+        1.3,
+        2,
+        1.3
+      ],
+      "material": "ice",
+      "uv": [
+        131,
+        200,
+        6,
+        4
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        3.25,
+        -3
+      ],
+      "size": [
+        3.5,
+        2.5,
+        3.5
+      ],
+      "material": "bone",
+      "uv": [
+        140,
+        200,
+        14,
+        6
+      ]
+    },
+    {
+      "bone": "scythe",
+      "center": [
+        -14,
+        3.1,
+        -4.85
+      ],
+      "size": [
+        1,
+        1,
+        0.2
+      ],
+      "material": "glow",
+      "uv": [
+        157,
+        200,
+        3,
+        2
+      ]
+    }
+  ]
+}

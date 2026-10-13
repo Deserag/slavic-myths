@@ -1,0 +1,28 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "copy_components": true,
+  "ingredients": [
+    {
+      "item": "minecraft:iron_helmet"
+    },
+    {
+      "item": "slavicmyths:oko_likha"
+    },
+    {
+      "item": "slavicmyths:hardened_iron"
+    },
+    {
+      "item": "slavicmyths:hardened_iron"
+    },
+    {
+      "item": "slavicmyths:ancient_sign"
+    },
+    {
+      "item": "slavicmyths:ancient_sign"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:clear_sight_helmet",
+    "count": 1
+  }
+}

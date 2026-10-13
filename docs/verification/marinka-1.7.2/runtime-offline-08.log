@@ -1,0 +1,145 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :compileMarinkaOffline FROM-CACHE
+
+> Task :marinkaOfflineChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[16:46:27] [main/WARN] [minecraft/DetectedVersion]: Missing version information!
+MARINKA OFFLINE PASS checks=216393 clips=38 NOT_GAME_RENDERING
+
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileMarinkaRuntimeJava
+> Task :processMarinkaRuntimeResources
+> Task :marinkaRuntimeClasses
+
+> Task :downloadAssets
+Loaded 145 artifacts from D:\slavic-myths\build\tmp\downloadAssets\nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: C:\Users\pavel\.gradle\caches\neoformruntime\assets
+  DL    https://piston-meta.mojang.com/v1/packages/9b16298b1dc0697878cec88bb2d96168f5239e4f/17.json
+
+> Task :writeMarinkaChecksLegacyClasspath
+> Task :prepareMarinkaChecksRun
+
+> Task :runMarinkaChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[16:46:37] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[16:46:37] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[16:46:37] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[16:46:38] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[16:46:38] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[16:46:38] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[16:46:38] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.7.2 (slavicmyths)
+[16:46:39] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[16:46:39] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[16:46:39] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[16:46:39] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[16:46:40] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[16:46:40] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[16:46:46] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:46:46] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:46:46] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:46:46] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:46:46] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:46:46] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[16:46:47] [main/ERROR] [minecraft/Settings]: Failed to load properties from file: server.properties
+java.nio.file.NoSuchFileException: server.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431) ~[?:?] {}
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?] {}
+	at java.base/java.nio.file.Files.newInputStream(Files.java:159) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.Settings.loadFromFile(Settings.java:38) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerProperties.fromFile(DedicatedServerProperties.java:132) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerSettings.<init>(DedicatedServerSettings.java:12) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Main.main(Main.java:125) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeServerDevLaunchHandler.runService(NeoForgeServerDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+[16:46:47] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[16:46:47] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[16:46:47] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[16:46:47] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_marinka]
+[16:46:49] [main/INFO] [minecraft/RecipeManager]: Loaded 1778 recipes
+[16:46:49] [main/INFO] [minecraft/AdvancementTree]: Loaded 1575 advancements
+[16:46:49] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[16:46:49] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[16:46:50] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[16:46:50] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[16:46:50] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 245 ms
+[16:46:50] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[16:46:50] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[16:46:50] [Server thread/INFO] [minecraft/GameTestServer]: 36 tests are now running at position -9763765, -59, -3763727!
+[16:46:53] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (36 tests)...
+[16:46:53] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 3100ms or 62 ticks behind
+[16:46:54] [Server thread/INFO] [minecraft/GameTestServer]: [                                    ]
+[16:46:54] [Server thread/INFO] [Boss172/]: [Boss172] target=0a3239ca-ae5d-452f-bfac-c570737e7fb4 hit=marinka_fire armor=20 toughness=8.0 hpBefore=24.0 hpAfter=21.0 raw=10.0 final=3.0 effects=[]
+MARINKA_DIAMOND kind=fire raw=10.0 armor=20 net=3.0
+[16:46:54] [Server thread/INFO] [Boss172/]: [Boss172] target=3ca6ceab-7dc2-4b6a-971f-2690f335537c hit=marinka_fire armor=20 toughness=8.0 hpBefore=24.0 hpAfter=18.75 raw=17.5 final=5.25 effects=[effect.minecraft.resistance, Duration: 100]
+[16:46:54] [Server thread/INFO] [Boss172/]: [Boss172] target=5554dc78-a2b1-4503-b9db-77d11b07c5b7 hit=marinka_rage armor=20 toughness=8.0 hpBefore=24.0 hpAfter=17.4375 raw=17.5 final=6.5625 effects=[]
+MARINKA_DIAMOND kind=rage raw=17.5 armor=20 net=6.5625
+[16:46:54] [Server thread/INFO] [Boss172/]: [Boss172] target=353b77c6-3bd8-4ee4-9776-c038c64d70e7 hit=marinka_trace armor=20 toughness=8.0 hpBefore=24.0 hpAfter=20.5056 raw=11.2 final=3.4944 effects=[]
+MARINKA_DIAMOND kind=trace raw=11.2 armor=20 net=3.4944
+[16:46:54] [Server thread/INFO] [Boss172/]: [Boss172] target=40a32eef-442d-4f1e-b0a3-ac6c0ffb8ce2 hit=marinka_lure armor=20 toughness=8.0 hpBefore=24.0 hpAfter=22.000175 raw=7.32 final=1.999824 effects=[]
+MARINKA_DIAMOND kind=lure raw=7.32 armor=20 net=1.9998245
+[16:46:55] [Server thread/INFO] [Boss172/]: [Boss172] target=1c48e3b3-de15-4c2d-85e1-eb48f5c4023b hit=marinka_fire armor=20 toughness=8.0 hpBefore=24.0 hpAfter=17.4375 raw=17.5 final=6.5625 effects=[]
+MARINKA_DIAMOND kind=fire raw=17.5 armor=20 net=6.5625
+[16:46:56] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_++_+++_++++_++_++++++_]
+[16:46:56] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++_+++_++++_++_+++++++]
+[16:46:56] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++_+++_+++++++_+++++++]
+[16:46:56] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++_+++_+++++++_+++++++]
+[16:46:56] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++_+++_+++++++_+++++++]
+[16:46:56] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++_+++_+++++++_+++++++]
+[16:46:57] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++_+++_+++++++_+++++++]
+[16:46:57] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++_+++_+++++++_+++++++]
+[16:46:57] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++_+++_+++++++_+++++++]
+[16:46:57] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++_+++_+++++++++++++++]
+[16:46:57] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++_+++++++++++++++++++]
+[16:46:57] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++]
+[16:46:57] [Server thread/INFO] [minecraft/GameTestServer]: ========= 36 GAME TESTS COMPLETE IN 6.818 s ======================
+[16:46:57] [Server thread/INFO] [minecraft/GameTestServer]: All 36 required tests passed :)
+[16:46:57] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[16:46:57] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[16:46:57] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[16:46:57] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[16:46:58] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[16:46:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[16:46:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[16:46:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[16:46:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[16:46:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[16:46:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[16:46:59] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+BUILD SUCCESSFUL in 42s
+11 actionable tasks: 7 executed, 1 from cache, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

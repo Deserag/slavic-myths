@@ -136,3 +136,7 @@ def generate():
  for l,data in langs.items():write(A/f'lang/{l}.json',data)
  write(R/'docs/verification/hunt-0.9.1.json',{'version':'0.9.1','items':list(ITEMS),'small_items':sorted(SMALL),'entities':['fire_serpent','podvey'],'recipes':list(rows)+['sosud_ognennogo_dyhaniya','sosud_podveya'],'minecraft_launches':0})
 if __name__=='__main__':generate()
+
+if __name__ == "__main__":
+ from feedback_resource_policy import apply as apply_feedback_policy
+ apply_feedback_policy()

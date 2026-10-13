@@ -1,5 +1,5 @@
 {
-  "parent": "slavicmyths:root",
+  "parent": "slavicmyths:group_forest",
   "display": {
     "icon": {
       "id": "slavicmyths:linden_log"

@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "id": "slavicmyths:birch_bark_scroll"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.birch_bark_scroll.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.birch_bark_scroll.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:birch_bark_scroll"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "slavicmyths:birch_bark"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:diamond_flail_ball"
+    },
+    {
+      "item": "minecraft:netherite_ingot"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:netherite_flail_ball",
+    "count": 1
+  },
+  "copy_components": true
+}

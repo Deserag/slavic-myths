@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:spear",
+    "slavicmyths:stone_sulitsa",
+    "slavicmyths:stone_flail",
+    "slavicmyths:iron_spear",
+    "slavicmyths:iron_sulitsa",
+    "slavicmyths:flail",
+    "slavicmyths:gold_spear",
+    "slavicmyths:gold_sulitsa",
+    "slavicmyths:gold_flail",
+    "slavicmyths:diamond_spear",
+    "slavicmyths:diamond_sulitsa",
+    "slavicmyths:diamond_flail",
+    "slavicmyths:netherite_spear",
+    "slavicmyths:netherite_sulitsa",
+    "slavicmyths:netherite_flail",
+    "slavicmyths:silver_spear",
+    "slavicmyths:silver_sulitsa",
+    "slavicmyths:silver_flail",
+    "slavicmyths:perunite_spear",
+    "slavicmyths:perunite_sulitsa",
+    "slavicmyths:perunite_flail",
+    "slavicmyths:tugarin_sword",
+    "slavicmyths:likho_staff",
+    "slavicmyths:ataman_flail",
+    "slavicmyths:victor_spear"
+  ]
+}

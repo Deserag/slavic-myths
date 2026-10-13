@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "XXX",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:stone_flail_ball",
+    "count": 1
+  }
+}

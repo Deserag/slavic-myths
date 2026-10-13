@@ -1,0 +1,344 @@
+{
+  "package": "Slavic Myths v1.7.3 original procedural SFX",
+  "license": "CC0-style original generated effects provided for this mod; no third-party samples",
+  "source": "Created in this package via Python numerical DSP; no copyrighted recordings; no spoken dialogue",
+  "format": "48kHz, mono, Ogg Vorbis",
+  "events": [
+    {
+      "key": "alyosha.summon",
+      "path": "Alyosha/summon.ogg",
+      "seconds": 1.0,
+      "synthesis_family": "bell",
+      "sha256": "d92134d5e2fd9d65f23e513a636ff394b5fd9ccd3cb38891eea6ac89a8f1cd5a"
+    },
+    {
+      "key": "alyosha.footstep_soft_1",
+      "path": "Alyosha/footstep_soft_1.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "thud",
+      "sha256": "98094f9ab50e67d249fd9636ed8b1c3916662bcd22c73b41d61899cd46f97404"
+    },
+    {
+      "key": "alyosha.footstep_soft_2",
+      "path": "Alyosha/footstep_soft_2.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "thud",
+      "sha256": "cad571dae9a125ec1ccff90eb1f01e4ac9c0d8f2d23f44852e8270797f8c380c"
+    },
+    {
+      "key": "alyosha.taunt_1",
+      "path": "Alyosha/taunt_1.ogg",
+      "seconds": 1.4,
+      "synthesis_family": "whistle",
+      "sha256": "70514439deb04d5dd09923973fa7422613816f0547b5fd00f1165e5a0636c0a6"
+    },
+    {
+      "key": "alyosha.taunt_2",
+      "path": "Alyosha/taunt_2.ogg",
+      "seconds": 1.4,
+      "synthesis_family": "whistle",
+      "sha256": "2ca224646be45c966bafda6c72185592f4dacdd167762e63076ccebcd204f040"
+    },
+    {
+      "key": "alyosha.dodge_swish_1",
+      "path": "Alyosha/dodge_swish_1.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "b38c07477a503ae8b40ec05206952f09488335900ac518cd42dab5caf3c1cd87"
+    },
+    {
+      "key": "alyosha.dodge_swish_2",
+      "path": "Alyosha/dodge_swish_2.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "51d4cf6717b5467eb3f9698874355f0623e63591622630785a7334590dae096f"
+    },
+    {
+      "key": "alyosha.saber_swing_1",
+      "path": "Alyosha/saber_swing_1.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "39e11f65503aecc31af137f409e4f1d893bfabea4e215bfeb0fb071d73d2d3b3"
+    },
+    {
+      "key": "alyosha.saber_swing_2",
+      "path": "Alyosha/saber_swing_2.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "2484674316b5e3b3acd1eeb6b6ddd22a26c324eed7fec4c0629fb09cdb9a8056"
+    },
+    {
+      "key": "alyosha.saber_hit_1",
+      "path": "Alyosha/saber_hit_1.ogg",
+      "seconds": 0.56,
+      "synthesis_family": "clank",
+      "sha256": "1bf9bff2f03bc07e8830d2b509d0cec754f50248f9bb5960a411138694d04e85"
+    },
+    {
+      "key": "alyosha.bow_draw",
+      "path": "Alyosha/bow_draw.ogg",
+      "seconds": 0.83,
+      "synthesis_family": "wood",
+      "sha256": "66b0a978e4da41c56360086269f672a3b3158ce09ecb704070f682120a9bd2ed"
+    },
+    {
+      "key": "alyosha.arrow_release",
+      "path": "Alyosha/arrow_release.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "566e35432ba29e2574463c85a8de2afedc3f16b996eebc5d54fb05097ac6827d"
+    },
+    {
+      "key": "alyosha.feint",
+      "path": "Alyosha/feint.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "da4061f876c8268098c3afe140a53b76ccedd33f66512e7b4d51c85dd6e6028d"
+    },
+    {
+      "key": "alyosha.counter",
+      "path": "Alyosha/counter.ogg",
+      "seconds": 0.56,
+      "synthesis_family": "clank",
+      "sha256": "a874dfc902dbe43ecc9fae6d53d78df7186245db2f934450c7474b2ee7e72a51"
+    },
+    {
+      "key": "alyosha.hurt_1",
+      "path": "Alyosha/hurt_1.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "growl",
+      "sha256": "11208939a1a757370fcc66594d7e303380fbfa00bcf0bffb1c954b1b25ccad21"
+    },
+    {
+      "key": "alyosha.hurt_2",
+      "path": "Alyosha/hurt_2.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "growl",
+      "sha256": "eb1b3b1819f30fe0fc44f03834deb78ad1d99f68298cd7ff313ef6edd2bdc5ec"
+    },
+    {
+      "key": "alyosha.drink_tonic",
+      "path": "Alyosha/drink_tonic.ogg",
+      "seconds": 0.85,
+      "synthesis_family": "water",
+      "sha256": "e078660441d3b5c999690569cd33aee26ae91d23dbda783a86b2b493a6885e12"
+    },
+    {
+      "key": "alyosha.recover_breath",
+      "path": "Alyosha/recover_breath.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "a91d12182bda62adebf6d4ec3fa927c710533e84a451174ce110360d5a46aada"
+    },
+    {
+      "key": "alyosha.victory",
+      "path": "Alyosha/victory.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "b68f77dfb243b4fc299e63a4bccc1fd9e91caae845627d267949f3369906f42c"
+    },
+    {
+      "key": "skim.ambient_1",
+      "path": "Skim/ambient_1.ogg",
+      "seconds": 1.7,
+      "synthesis_family": "growl",
+      "sha256": "f2eb42f08f11bb216e06ae652a7d4ab73d59ad6ca9fc5c25aae39d192aadafc0"
+    },
+    {
+      "key": "skim.ambient_2",
+      "path": "Skim/ambient_2.ogg",
+      "seconds": 1.7,
+      "synthesis_family": "growl",
+      "sha256": "85d170a08ec2899317c77441a99633f94bed5707fc3f7de7e39110c29cd163b1"
+    },
+    {
+      "key": "skim.step_1",
+      "path": "Skim/step_1.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "thud",
+      "sha256": "94b0e1ebb9252dc25e0d0b80a5190a65efb846177d8c4c7e686cbb89e69ffea6"
+    },
+    {
+      "key": "skim.step_2",
+      "path": "Skim/step_2.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "thud",
+      "sha256": "6091a7bd9a16bf002d98aa6eff0e69796599935b7cebfe64cdef76ea5b12ce74"
+    },
+    {
+      "key": "skim.run_paws",
+      "path": "Skim/run_paws.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "3d0f0250dfaf5e6f37f3bec3b96d270142b837dcd33653ff3896983925fdb7c1"
+    },
+    {
+      "key": "skim.claw_windup",
+      "path": "Skim/claw_windup.ogg",
+      "seconds": 2.8,
+      "synthesis_family": "wind",
+      "sha256": "0d28c492c85e37889bb7f3ed20fd7231c8dc0c44e454fdabf47b99b301331458"
+    },
+    {
+      "key": "skim.claw_hit",
+      "path": "Skim/claw_hit.ogg",
+      "seconds": 0.56,
+      "synthesis_family": "clank",
+      "sha256": "d6771318e232010e34113c331f8e073c72eed7000284914cdf59e527d0af5fe2"
+    },
+    {
+      "key": "skim.leap_charge",
+      "path": "Skim/leap_charge.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "3f1eeacdcfea8410250078e43e46dfaebff7380791265517c6855c38d6cd080c"
+    },
+    {
+      "key": "skim.leap_land",
+      "path": "Skim/leap_land.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "thud",
+      "sha256": "057bf42921971cbe65eadb7daaff789250cdea9491c26d4f5da6af4579ee2ffc"
+    },
+    {
+      "key": "skim.whistle_charge",
+      "path": "Skim/whistle_charge.ogg",
+      "seconds": 1.4,
+      "synthesis_family": "whistle",
+      "sha256": "ec8107b8005dc0b14399d9126fcafde5c957c4a371a778bf904212bc48909b72"
+    },
+    {
+      "key": "skim.whistle_release",
+      "path": "Skim/whistle_release.ogg",
+      "seconds": 1.4,
+      "synthesis_family": "whistle",
+      "sha256": "719c01d726c26371fbed9fffe7efc6dcaf7b65ad5c27288f74712006ed4e2176"
+    },
+    {
+      "key": "skim.roar",
+      "path": "Skim/roar.ogg",
+      "seconds": 2.1,
+      "synthesis_family": "growl",
+      "sha256": "256a2999786a8bc5e49708957267098d7d472b1577cd505c0d2bc97473a6eb20"
+    },
+    {
+      "key": "skim.grab",
+      "path": "Skim/grab.ogg",
+      "seconds": 0.56,
+      "synthesis_family": "clank",
+      "sha256": "f034586be92937353aa9f7d125ba0b936dca8595c3e62d52b7ecfd8e773657c0"
+    },
+    {
+      "key": "skim.grip_hold",
+      "path": "Skim/grip_hold.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "0cd6b3d155a4c1985dad537bdc1d7884551eac0ba35abc84bc18df75325ea8b0"
+    },
+    {
+      "key": "skim.throw",
+      "path": "Skim/throw.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "6d554b22e6e5e52b28610262f386aa1c9b8c4efe1716dd503a458b08c6d6376f"
+    },
+    {
+      "key": "skim.rage",
+      "path": "Skim/rage.ogg",
+      "seconds": 2.1,
+      "synthesis_family": "growl",
+      "sha256": "76e23afe773de3214ca778162ef60d6a086f02a9465132fb0cd7d32d218cf8fc"
+    },
+    {
+      "key": "skim.exhausted",
+      "path": "Skim/exhausted.ogg",
+      "seconds": 1.7,
+      "synthesis_family": "growl",
+      "sha256": "f0f4d4c84434b34be872c1ee613d5e29c761018b2b2a189fe1f75dd764263148"
+    },
+    {
+      "key": "skim.stone_collision",
+      "path": "Skim/stone_collision.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "thud",
+      "sha256": "7d890f23aa995239b77847b65af60661e741e3bed332d58bf478456daa916e2c"
+    },
+    {
+      "key": "skim.hurt_1",
+      "path": "Skim/hurt_1.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "growl",
+      "sha256": "2319c6d167e25fd41dfc12913fbd566577feb0d220b086063b6d98b790c1022d"
+    },
+    {
+      "key": "skim.hurt_2",
+      "path": "Skim/hurt_2.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "growl",
+      "sha256": "b0d720a71b3838967c5161f36487b190354062611d713e256b956a01e87133f3"
+    },
+    {
+      "key": "skim.death",
+      "path": "Skim/death.ogg",
+      "seconds": 2.1,
+      "synthesis_family": "growl",
+      "sha256": "3596552d4abc44c79d0962ade2756c0edf28ff6b94cbad51acd7313899ceea6e"
+    },
+    {
+      "key": "arena.wind",
+      "path": "Arena/wind.ogg",
+      "seconds": 2.8,
+      "synthesis_family": "wind",
+      "sha256": "1ea6f5546fb4e2c9edfd73b9cb6d46b9189e632fecc702f93011b8a3757934f4"
+    },
+    {
+      "key": "arena.stone_impact",
+      "path": "Arena/stone_impact.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "thud",
+      "sha256": "81f7a20c0cd1f8799002d810be0714b7735f6ff5d2e497071763c5f23c48c25b"
+    },
+    {
+      "key": "arena.den_stone_open",
+      "path": "Arena/den_stone_open.ogg",
+      "seconds": 0.65,
+      "synthesis_family": "thud",
+      "sha256": "be83146e8786b87b8734d77b03418dd294f67c95fba4c77497adfc7ae49d6a6e"
+    },
+    {
+      "key": "arena.camp_creak",
+      "path": "Arena/camp_creak.ogg",
+      "seconds": 0.9,
+      "synthesis_family": "whoosh",
+      "sha256": "08a411f95161be4861932cd07ad151a065ff1d7729ae073b269b6b9e64e6e3f2"
+    },
+    {
+      "key": "items.alyosha_whistle",
+      "path": "Items/alyosha_whistle.ogg",
+      "seconds": 1.4,
+      "synthesis_family": "whistle",
+      "sha256": "e3142398d154058880fd5974f031dd0283ac94abe63401c3a5b9855d6ac27388"
+    },
+    {
+      "key": "items.ilya_token",
+      "path": "Items/ilya_token.ogg",
+      "seconds": 1.0,
+      "synthesis_family": "bell",
+      "sha256": "4a5b81dc573a8c3f9584bec410b260a006a42ad3812114b8a470db291985f1a1"
+    },
+    {
+      "key": "items.dobrynya_emblem",
+      "path": "Items/dobrynya_emblem.ogg",
+      "seconds": 1.0,
+      "synthesis_family": "bell",
+      "sha256": "c8dfeee47cabb1ad8228c816fc231383e21b752b0d1660adfb6ddc7ec89752f1"
+    },
+    {
+      "key": "items.beast_horn",
+      "path": "Items/beast_horn.ogg",
+      "seconds": 1.4,
+      "synthesis_family": "whistle",
+      "sha256": "30e33cb630432168f2ade2b70800d31b10082cd7ac7039963e8547b4d790fb4f"
+    }
+  ]
+}

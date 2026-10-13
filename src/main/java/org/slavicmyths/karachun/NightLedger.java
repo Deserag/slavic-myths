@@ -1,0 +1,28 @@
+package org.slavicmyths.karachun;
+import java.util.*;
+import net.minecraft.nbt.*;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.server.level.*;
+import net.minecraft.world.level.saveddata.SavedData;
+import net.minecraft.world.item.*;
+/** World-owned progression and durable pending deliveries. Loading cancels unfinished trials. */
+public final class NightLedger extends SavedData {
+ private CompoundTag root=new CompoundTag();
+ public static NightLedger get(ServerLevel w){return w.getServer().overworld().getDataStorage().computeIfAbsent(new SavedData.Factory<>(NightLedger::new,NightLedger::load),"slavicmyths_night192");}
+ public CompoundTag player(UUID id){return compound(compound(root,"Players"),id.toString());}
+ public CompoundTag session(UUID id){return compound(compound(root,"Sessions"),id.toString());}
+ public boolean activeSessions(){var s=root.getCompound("Sessions");return s.getAllKeys().stream().anyMatch(k->!s.getCompound(k).getBoolean("Complete")&&!s.getCompound(k).getBoolean("Cancelled"));}
+ public boolean closed(UUID id){var s=root.getCompound("Sessions");if(!s.contains(id.toString(),10))return false;var n=s.getCompound(id.toString());return n.getBoolean("Cancelled")||n.getBoolean("Complete");}
+ private static CompoundTag compound(CompoundTag n,String key){if(!n.contains(key,10))n.put(key,new CompoundTag());return n.getCompound(key);}
+ public long now(ServerLevel w){return w.getServer().overworld().getGameTime();}
+ public void enqueue(ServerPlayer p,ItemStack s){enqueue(p.getUUID(),s,p.registryAccess());}
+ public void enqueue(UUID id,ItemStack s,HolderLookup.Provider registry){var n=player(id);var l=n.getList("Pending",10);var entry=new CompoundTag();entry.putUUID("Delivery",UUID.randomUUID());entry.put("Stack",s.save(registry));l.add(entry);n.put("Pending",l);setDirty();}
+ public void collect(ServerPlayer p){var n=player(p.getUUID());var out=new ListTag();var names=new java.util.ArrayList<net.minecraft.network.chat.Component>();var delivered=compound(org.slavicmyths.rpg.PathData.data(p),"Night192Deliveries");for(var raw:n.getList("Pending",10)){var entry=(CompoundTag)raw;if(!entry.hasUUID("Delivery"))continue;String token=entry.getUUID("Delivery").toString();if(delivered.getBoolean(token))continue;var s=ItemStack.parseOptional(p.registryAccess(),entry.getCompound("Stack"));if(p.getInventory().getFreeSlot()<0) {out.add(entry.copy());continue;}var name=s.getHoverName();p.getInventory().add(s);if(s.isEmpty()){names.add(name);delivered.putBoolean(token,true);p.getInventory().setChanged();}else{var pending=entry.copy();pending.put("Stack",s.save(p.registryAccess()));out.add(pending);}}if(!names.isEmpty())((org.slavicmyths.equipment.mixin.FrostPlayerSaveInvoker)p.server.getPlayerList()).slavicmyths$saveFrost(p);n.put("Pending",out);p.getInventory().setChanged();setDirty();if(!names.isEmpty()){var text=net.minecraft.network.chat.Component.empty();for(var name:names){if(!text.getString().isEmpty())text.append(", ");text.append(name);}p.sendSystemMessage(NightContent.text("received",text));}}
+
+ public void complete(ServerLevel w,UUID id){var event=session(id);if(event.getBoolean("Complete"))return;var parts=event.getCompound("Participants");var eligible=new ArrayList<UUID>();for(String key:parts.getAllKeys()){var row=parts.getCompound(key);if(!NightRules.eligible(row.getDouble("Damage"),row.getInt("Active"),row.getBoolean("Attacked")))continue;var uuid=UUID.fromString(key);eligible.add(uuid);prepare(w,id,uuid);}event.putBoolean("Complete",true);setDirty();w.getServer().overworld().getDataStorage().save();for(var uuid:eligible){var p=w.getServer().getPlayerList().getPlayer(uuid);if(p!=null){collect(p);if(!player(uuid).getList("Pending",10).isEmpty())p.sendSystemMessage(NightContent.text("queued",player(uuid).getList("Pending",10).size()));progress(p);}}}
+ private void prepare(ServerLevel w,UUID session,UUID player){var claims=compound(session(session),"Rewarded");if(claims.getBoolean(player.toString()))return;var n=player(player);var r=NightRules.roll(!n.getBoolean("BlackWingClaimed"),w.random.nextDouble(),NightConfig.value("scytheChance"));if(r.wing())enqueue(player,new ItemStack(NightContent.WING.get()),w.registryAccess());enqueue(player,new ItemStack(NightContent.RUNE.get()),w.registryAccess());if(r.scythe())enqueue(player,new ItemStack(NightContent.SCYTHE.get()),w.registryAccess());enqueue(player,new ItemStack(NightContent.SHARD.get()),w.registryAccess());n.putBoolean("BlackWingClaimed",true);n.putBoolean("Completed",true);n.putInt("Wins",n.getInt("Wins")+1);n.putLong("TrialReady",now(w)+0);claims.putBoolean(player.toString(),true);setDirty();}
+ public void progress(ServerPlayer p){if(player(p.getUUID()).getBoolean("Completed")){org.slavicmyths.item.FolkAccessoryItem.award(p,"endured_last_night");org.slavicmyths.tales.TaleService.promote(p,"slavicmyths:karachun_trial",4,true);}if(player(p.getUUID()).getBoolean("CancelledNotice")){p.sendSystemMessage(NightContent.text("cancel"));player(p.getUUID()).remove("CancelledNotice");setDirty();}}
+
+ public static NightLedger load(CompoundTag tag,HolderLookup.Provider registry){var d=new NightLedger();d.root=tag.copy();var sessions=d.root.getCompound("Sessions");for(String key:sessions.getAllKeys()){var n=sessions.getCompound(key);if(!n.getBoolean("Complete")&&!n.getBoolean("Cancelled")){n.putBoolean("Cancelled",true);if(n.hasUUID("Owner"))d.player(n.getUUID("Owner")).putBoolean("CancelledNotice",true);for(String player:n.getCompound("Participants").getAllKeys())d.player(UUID.fromString(player)).putBoolean("CancelledNotice",true);}}d.setDirty();return d;}
+ @Override public CompoundTag save(CompoundTag n,HolderLookup.Provider registry){return root.copy();}
+}

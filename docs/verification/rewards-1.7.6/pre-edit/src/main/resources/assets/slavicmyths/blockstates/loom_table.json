@@ -1,0 +1,44 @@
+{
+  "variants": {
+    "active=false,facing=north": {
+      "model": "slavicmyths:block/loom_table_0",
+      "y": 0,
+      "uvlock": true
+    },
+    "active=false,facing=east": {
+      "model": "slavicmyths:block/loom_table_0",
+      "y": 90,
+      "uvlock": true
+    },
+    "active=false,facing=south": {
+      "model": "slavicmyths:block/loom_table_0",
+      "y": 180,
+      "uvlock": true
+    },
+    "active=false,facing=west": {
+      "model": "slavicmyths:block/loom_table_0",
+      "y": 270,
+      "uvlock": true
+    },
+    "active=true,facing=north": {
+      "model": "slavicmyths:block/loom_table_1",
+      "y": 0,
+      "uvlock": true
+    },
+    "active=true,facing=east": {
+      "model": "slavicmyths:block/loom_table_1",
+      "y": 90,
+      "uvlock": true
+    },
+    "active=true,facing=south": {
+      "model": "slavicmyths:block/loom_table_1",
+      "y": 180,
+      "uvlock": true
+    },
+    "active=true,facing=west": {
+      "model": "slavicmyths:block/loom_table_1",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

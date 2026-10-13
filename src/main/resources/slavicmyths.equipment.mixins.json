@@ -3,7 +3,21 @@
   "minVersion": "0.8",
   "package": "org.slavicmyths.equipment.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": ["EquipmentHealthMixin", "WardBlockMixin", "BadBloodFoodMixin", "BadBloodInstantMixin"],
-  "client": ["ClearSightMixin"],
-  "injectors": {"defaultRequire": 1}
+  "mixins": [
+    "FrostPlayerSaveInvoker",
+    "EquipmentHealthMixin",
+    "WardBlockMixin",
+    "BadBloodFoodMixin",
+    "BadBloodInstantMixin",
+    "Quest185CraftingMixin",
+    "Quest185CrafterMixin",
+    "Quest185BlockChangeMixin"
+  ],
+  "client": [
+    "ClearSightMixin",
+    "Quest185ColorMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

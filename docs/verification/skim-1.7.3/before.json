@@ -1,0 +1,8 @@
+{
+  "gradle.properties": "9a2fa214ee1a0c5b433dd19c5955e30034c7d7ad105276cad8e7283848c30c37",
+  "src/main/java/org/slavicmyths/SlavicMyths.java": "1bdb8d518878304ad50ad10a9a18ed3aa69fbc8b01cb65fe26bf50d9cd787da1",
+  "src/main/java/org/slavicmyths/marinka/StoryPolicy.java": "e2a4e3f9ee076d2605abae1f00094527bf87d0a205f684b5cde4d696b8798ff9",
+  "src/main/java/org/slavicmyths/marinka/DobrynyaEntity.java": "3cdad743cc99cbd55b9ca1cc165ac57766924e347f8d68dae16fc02a4ab2adeb",
+  "src/main/java/org/slavicmyths/bogatyr/BogatyrLedger.java": "b087b24bbe8b846f3a1ad5dbce9b1f7741361d00d5c9d0b49575f4c51f8efaf7",
+  "src/main/java/org/slavicmyths/marinka/WitchYard.java": "837c320d4e0ef11c3c0df58507e65ee07406b901ee8ae1d2b78c6ec30fbe4226"
+}

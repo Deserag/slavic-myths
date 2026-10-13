@@ -1,0 +1,27 @@
+{
+  "type": "slavicmyths:armorer_shaped",
+  "pattern": [
+    "  II",
+    " RRI",
+    " SR ",
+    " LS "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "slavicmyths:iron_rings"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:flail"
+  }
+}

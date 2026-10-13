@@ -1,0 +1,209 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\BrightFalconClient.java:5: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+ @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)public static class Registration{
+                                                           ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\BrightFalconClient.java:5: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+ @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)public static class Registration{
+                                                                                 ^
+D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistContent.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistContent.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistEntity.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+4 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileFinistRuntimeJava
+> Task :processFinistRuntimeResources UP-TO-DATE
+> Task :finistRuntimeClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeFinistChecksLegacyClasspath UP-TO-DATE
+> Task :prepareFinistChecksRun UP-TO-DATE
+
+> Task :runFinistChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[20:27:03] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[20:27:03] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[20:27:03] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[20:27:04] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[20:27:04] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[20:27:04] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[20:27:04] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.7.4 (slavicmyths)
+[20:27:06] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[20:27:06] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[20:27:06] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[20:27:06] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[20:27:08] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[20:27:09] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[20:27:19] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20:27:19] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20:27:19] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[20:27:19] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[20:27:19] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20:27:19] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[20:27:22] [main/ERROR] [minecraft/Settings]: Failed to load properties from file: server.properties
+java.nio.file.NoSuchFileException: server.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431) ~[?:?] {}
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?] {}
+	at java.base/java.nio.file.Files.newInputStream(Files.java:159) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.Settings.loadFromFile(Settings.java:38) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerProperties.fromFile(DedicatedServerProperties.java:132) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerSettings.<init>(DedicatedServerSettings.java:12) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Main.main(Main.java:125) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeServerDevLaunchHandler.runService(NeoForgeServerDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+[20:27:22] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[20:27:22] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[20:27:22] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[20:27:22] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_finist]
+[20:27:24] [main/INFO] [minecraft/RecipeManager]: Loaded 1782 recipes
+[20:27:25] [main/INFO] [minecraft/AdvancementTree]: Loaded 1579 advancements
+[20:27:25] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[20:27:25] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[20:27:27] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[20:27:27] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[20:27:27] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 356 ms
+[20:27:27] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[20:27:27] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[20:27:27] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position -12622727, -59, -1463600!
+[20:27:28] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[20:27:28] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[20:27:28] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[20:27:28] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+FINIST_CHECK Feather really summons 170HP Finist, not consumed
+FINIST_CHECK 20 repeat calls no duplicate
+FINIST_CHECK Registered accessible item finist_call_feather
+FINIST_CHECK Creative tab includes finist_call_feather
+[20:27:28] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Finist's Falcon Feather] to BogatyrTest]
+FINIST_CHECK Registered accessible item kartaus_black_seal
+FINIST_CHECK Creative tab includes kartaus_black_seal
+[20:27:28] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Black Banner Seal] to BogatyrTest]
+FINIST_CHECK Registered accessible item kartaus_spawn_egg
+FINIST_CHECK Creative tab includes kartaus_spawn_egg
+[20:27:28] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Kartaus Spawn Egg] to BogatyrTest]
+FINIST_CHECK Registered accessible item ilya_call_token
+FINIST_CHECK Creative tab includes ilya_call_token
+[20:27:28] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Ilya's Sign] to BogatyrTest]
+FINIST_CHECK Registered accessible item dobrynya_call_emblem
+FINIST_CHECK Creative tab includes dobrynya_call_emblem
+[20:27:28] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Dobrynya's Emblem] to BogatyrTest]
+FINIST_CHECK Registered accessible item alyosha_call_whistle
+FINIST_CHECK Creative tab includes alyosha_call_whistle
+[20:27:29] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Alyosha's Whistle] to BogatyrTest]
+FINIST_CHECK Registered accessible item idolishche_poganoe_spawn_egg
+FINIST_CHECK Creative tab includes idolishche_poganoe_spawn_egg
+[20:27:29] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Idolishe Poganoe Spawn Egg] to BogatyrTest]
+FINIST_CHECK Registered accessible item marinka_spawn_egg
+FINIST_CHECK Creative tab includes marinka_spawn_egg
+[20:27:29] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Marinka Spawn Egg] to BogatyrTest]
+FINIST_CHECK Registered accessible item skim_beast_spawn_egg
+FINIST_CHECK Creative tab includes skim_beast_spawn_egg
+[20:27:29] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Skim Beast Spawn Egg] to BogatyrTest]
+FINIST_CHECK Real Kartaus egg type
+FINIST_CHECK Fourth hero participates in shared cap
+FINIST_CHECK Wrong preexisting hero rejects challenge without deletion
+FINIST_CHECK 17-sample clear existing terrain passes
+FINIST_CHECK Unsafe site refuses with no boss
+FINIST_CHECK Reusable seal queues one encounter
+FINIST_CHECK No repeated boss/recall/replacement during intro
+[20:27:29] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[20:27:29] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FINIST_CHECK Server spawns exactly one 650HP Kartaus
+FINIST_CHECK Real damageable banner placed
+FINIST_CHECK P1 banner cap1 and45HP
+FINIST_CHECK 10 percent base plus15 banner
+FINIST_CHECK Banner destruction cancels cast and locks recast160t
+FINIST_CHECK Phase2 binds companion with physical anchor
+FINIST_CHECK Curse anchor12HP and companion disabled
+FINIST_CHECK Breaking anchor immediate rescue50t,180t immunity
+FINIST_CHECK Repeated guard summon hard cap3
+FINIST_CHECK Guard target and encounter ownership
+FINIST_CHECK Guard target and encounter ownership
+FINIST_CHECK Guard target and encounter ownership
+FINIST_CHECK Falcon Guard cancels one interruptible melee
+FINIST_CHECK Guard cooldown240 does not cancel next strike
+KARTAUS_DIAMOND melee=6.0
+FINIST_CHECK Measured diamond melee
+KARTAUS_DIAMOND wave=6.5
+FINIST_CHECK Measured diamond wave
+KARTAUS_DIAMOND eye=7.0
+FINIST_CHECK Measured diamond eye
+KARTAUS_DIAMOND chains=2.0
+FINIST_CHECK Measured diamond chains
+FINIST_CHECK Resistance respected, no blanket bypass
+FINIST_CHECK Finist NBT owner/HP roundtrip, not relog
+FINIST_CHECK Finist canonical map serialized without old ID change
+[20:27:29] [Server thread/ERROR] [minecraft/LogTestReporter]: integration failed at -12622727, -60, -1463600! Clear Sight real server frame marks target
+[20:27:29] [Server thread/INFO] [minecraft/GameTestServer]: [X]
+[20:27:29] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 2.009 s ======================
+[20:27:29] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[20:27:29] [Server thread/INFO] [minecraft/GameTestServer]:    - integration
+[20:27:29] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[20:27:29] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[20:27:29] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[20:27:29] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[20:27:31] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[20:27:31] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[20:27:31] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[20:27:31] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[20:27:31] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[20:27:31] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[20:27:31] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[20:27:31] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runFinistChecks FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runFinistChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 57s
+9 actionable tasks: 3 executed, 6 up-to-date

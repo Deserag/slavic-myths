@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:block/linen_bed_inventory",
+  "display": {
+    "gui": {
+      "rotation": [
+        30,
+        225,
+        0
+      ],
+      "scale": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "reward.rune_stomp_proc": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/rune_stomp_proc",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.rune_stomp_proc"
+  },
+  "reward.rune_dispelling_proc": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/rune_dispelling_proc",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.rune_dispelling_proc"
+  },
+  "reward.rune_pursuit_proc": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/rune_pursuit_proc",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.rune_pursuit_proc"
+  },
+  "reward.rune_suppression_proc": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/rune_suppression_proc",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.rune_suppression_proc"
+  },
+  "reward.rune_battle_line_proc": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/rune_battle_line_proc",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.rune_battle_line_proc"
+  },
+  "reward.gift_ilya_block_reflect": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/gift_ilya_block_reflect",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.gift_ilya_block_reflect"
+  },
+  "reward.gift_ilya_wave": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/gift_ilya_wave",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.gift_ilya_wave"
+  },
+  "reward.gift_dobrynya_ring_ready": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/gift_dobrynya_ring_ready",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.gift_dobrynya_ring_ready"
+  },
+  "reward.gift_dobrynya_counter": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/gift_dobrynya_counter",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.gift_dobrynya_counter"
+  },
+  "reward.gift_alyosha_dodge": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/gift_alyosha_dodge",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.gift_alyosha_dodge"
+  },
+  "reward.gift_finist_detection": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/gift_finist_detection",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.gift_finist_detection"
+  },
+  "reward.gift_finist_warning": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/gift_finist_warning",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.gift_finist_warning"
+  },
+  "reward.trophy_idol_heavy_guard": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/trophy_idol_heavy_guard",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.trophy_idol_heavy_guard"
+  },
+  "reward.trophy_marinka_blink": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/trophy_marinka_blink",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.trophy_marinka_blink"
+  },
+  "reward.trophy_skim_execute": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/trophy_skim_execute",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.trophy_skim_execute"
+  },
+  "reward.trophy_kartaus_resistance": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/trophy_kartaus_resistance",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.trophy_kartaus_resistance"
+  },
+  "reward.trophy_kalin_momentum_1": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/trophy_kalin_momentum_1",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.trophy_kalin_momentum_1"
+  },
+  "reward.trophy_kalin_momentum_3": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/trophy_kalin_momentum_3",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.trophy_kalin_momentum_3"
+  },
+  "reward.trophy_kalin_sweep": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/trophy_kalin_sweep",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.trophy_kalin_sweep"
+  },
+  "reward.reward_claim_success": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/reward_claim_success",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.reward_claim_success"
+  },
+  "reward.reward_rare_loot": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/reward_rare_loot",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.reward_rare_loot"
+  },
+  "reward.rune_anvil_socket": {
+    "sounds": [
+      {
+        "name": "slavicmyths:reward/rune_anvil_socket",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.slavicmyths.reward.rune_anvil_socket"
+  }
+}

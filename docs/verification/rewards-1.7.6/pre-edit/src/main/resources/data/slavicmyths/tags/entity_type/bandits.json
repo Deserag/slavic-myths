@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:bandit_fighter",
+    "slavicmyths:bandit_archer",
+    "slavicmyths:bandit_heavy",
+    "slavicmyths:bandit_senior",
+    "slavicmyths:ataman"
+  ]
+}

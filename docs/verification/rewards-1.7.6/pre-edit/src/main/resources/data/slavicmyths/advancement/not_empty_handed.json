@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:find_the_hut",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:svyazka_trav_yagi"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.not_empty_handed.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.not_empty_handed.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

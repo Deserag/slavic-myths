@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:mor_dirt",
+    "slavicmyths:mor_grass_block",
+    "slavicmyths:mor_sand",
+    "slavicmyths:mor_gravel"
+  ]
+}

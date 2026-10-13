@@ -1,0 +1,122 @@
+[
+  {
+    "id": "bandit_threat",
+    "type": "kill",
+    "target": "slavicmyths:bandits",
+    "amount": 8,
+    "difficulty": 0,
+    "rarity": 1,
+    "refresh": "daily",
+    "eligibility": "settlement",
+    "rewards": [
+      {
+        "item": "slavicmyths:ancient_coin",
+        "count": 8
+      },
+      {
+        "item": "minecraft:arrow",
+        "count": 12
+      }
+    ]
+  },
+  {
+    "id": "bandit_signs",
+    "type": "trophy",
+    "target": "slavicmyths:bandit_token",
+    "amount": 6,
+    "difficulty": 0,
+    "rarity": 1,
+    "refresh": "daily",
+    "eligibility": "settlement",
+    "rewards": [
+      {
+        "item": "slavicmyths:ancient_coin",
+        "count": 6
+      },
+      {
+        "item": "minecraft:iron_ingot",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": "clear_camp",
+    "type": "camp",
+    "target": "slavicmyths:bandits",
+    "amount": 1,
+    "difficulty": 1,
+    "rarity": 1,
+    "refresh": "daily",
+    "eligibility": "loaded_uncleared_camp",
+    "rewards": [
+      {
+        "item": "slavicmyths:ancient_coin",
+        "count": 12
+      },
+      {
+        "item": "minecraft:iron_ingot",
+        "count": 4
+      }
+    ]
+  },
+  {
+    "id": "defend_settlement",
+    "type": "defend",
+    "target": "slavicmyths:bandits",
+    "amount": 1,
+    "difficulty": 1,
+    "rarity": 1,
+    "refresh": "daily",
+    "eligibility": "settlement",
+    "rewards": [
+      {
+        "item": "slavicmyths:ancient_coin",
+        "count": 12
+      },
+      {
+        "item": "minecraft:arrow",
+        "count": 16
+      }
+    ]
+  },
+  {
+    "id": "solovey",
+    "type": "boss",
+    "target": "slavicmyths:nightingale",
+    "amount": 1,
+    "difficulty": 2,
+    "rarity": 8,
+    "refresh": "daily",
+    "eligibility": "registered_entity",
+    "rewards": [
+      {
+        "item": "slavicmyths:ancient_coin",
+        "count": 20
+      },
+      {
+        "item": "minecraft:saddle",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "tugarin",
+    "type": "boss",
+    "target": "slavicmyths:tugarin_zmey",
+    "amount": 1,
+    "difficulty": 2,
+    "rarity": 8,
+    "refresh": "daily",
+    "eligibility": "registered_entity",
+    "rewards": [
+      {
+        "item": "slavicmyths:ancient_coin",
+        "count": 24
+      },
+      {
+        "item": "minecraft:iron_horse_armor",
+        "count": 1
+      }
+    ]
+  }
+]

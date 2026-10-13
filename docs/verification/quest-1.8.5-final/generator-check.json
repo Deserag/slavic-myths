@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "checked_resources": 6147,
+  "changed_files": [],
+  "scope": "FINAL overlay rerun is byte-identical; base generator invokes this overlay"
+}

@@ -2,7 +2,9 @@
 
 Мод о славянской мифологии, исследовании мира и хозяйственной жизни: духи и боссы, курганы, разбойники, ритуалы, ремёсла и поселения. Фольклор и исторические мотивы адаптированы для игры; это не реконструкция единой исторической религии.
 
-**Версия 1.4.3 · Minecraft 1.21.1 · NeoForge 21.1.255 · Java 21**
+**Версия 1.9.4 · Minecraft 1.21.1 · NeoForge 21.1.255 · Java 21**
+
+[Скачать исправленную 1.9.4](release/slavicmyths-1.9.4.jar) · [Отчёт об исправлении запуска](docs/verification/startup-fix-1.9.4/REPORT.md).
 
 Рунные слоты брони: существующая наковальня и хранение рун без новых эффектов. [Таблица и проверки](docs/ARMOR_RUNE_SLOTS_1.3.3.md).
 
@@ -62,3 +64,9 @@ Metadata указывает **All Rights Reserved**. Отдельного LICENS
 
 
 Чуди1.5.2, исправление размещения2026-10-09:до10 точек на область с одним root, горы как предпочтение/Overworld biome allowance, удалён12% forest filter, corrected actual lower construction limits без изменений saved layouts. Build/offline/resource gates PASS;development candidate установлен в PolyMC.0 игровых запусков, runtime QA новой генерации NOT_RUN. Отчёт:docs/verification/chud-1.5.2/placement-fix/REPORT.md.
+
+
+Патч 1.9.3: две естественные святыни Overworld, ритуалы, предметы и лут. PolyMC Testing обновлён после build/offline/resource gates; игровых запусков 0. Отчёт: [1.9.3](docs/verification/sanctuaries-1.9.3/REPORT.md).
+
+
+1.9.4: два осквернённых хранителя в существующих святынях, очищение и персональные половины оберега. PolyMC Testing обновлён после успешных gates; игровых запусков 0. [Отчёт](docs/verification/guardians-1.9.4/REPORT.md).

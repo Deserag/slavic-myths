@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OO",
+    "OO"
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+  "result": {
+    "count": 4,
+    "id": "slavicmyths:carved_oak_block"
+  }
+}

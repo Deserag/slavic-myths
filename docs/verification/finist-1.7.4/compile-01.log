@@ -1,0 +1,108 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                          ^
+D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistContent.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistContent.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\finist\KartausEntity.java:44: error: no suitable method found for getNearestPlayer(KartausEntity,int,(p)->p.isA[...]ive())
+ if(encounter!=null){var p=w.getServer().getPlayerList().getPlayer(owner);if(p==null||!p.isAlive()||p.serverLevel()!=w||p.isSpectator()){var e=KartausEncounter.get(w).entries.get(encounter);if(e!=null)KartausEncounter.get(w).finish(w,e,false);return;}setTarget(p);}else if(tickCount%20==0)setTarget(w.getNearestPlayer(this,24,p->p.isAlive()&&!p.isSpectator()&&!p.isCreative()));
+                                                                                                                                                                                                                                                                                                            ^
+    method EntityGetter.getNearestPlayer(double,double,double,double,Predicate<Entity>) is not applicable
+      (actual and formal argument lists differ in length)
+    method EntityGetter.getNearestPlayer(Entity,double) is not applicable
+      (actual and formal argument lists differ in length)
+    method EntityGetter.getNearestPlayer(double,double,double,double,boolean) is not applicable
+      (actual and formal argument lists differ in length)
+    method EntityGetter.getNearestPlayer(TargetingConditions,LivingEntity) is not applicable
+      (actual and formal argument lists differ in length)
+    method EntityGetter.getNearestPlayer(TargetingConditions,LivingEntity,double,double,double) is not applicable
+      (actual and formal argument lists differ in length)
+    method EntityGetter.getNearestPlayer(TargetingConditions,double,double,double) is not applicable
+      (actual and formal argument lists differ in length)
+D:\slavic-myths\src\main\java\org\slavicmyths\finist\KartausEncounter.java:12: error: reference to ClipContext is ambiguous
+ public static Vec3 ground(ServerLevel w,Vec3 p,double width,double height){var top=p.add(0,5,0);var end=p.add(0,-4,0);if(!w.hasChunkAt(BlockPos.containing(p)))return null;var hit=w.clip(new ClipContext(top,end,ClipContext.Block.COLLIDER,ClipContext.Fluid.ANY,null));if(hit.getType()!=HitResult.Type.BLOCK)return null;var at=new Vec3(p.x,hit.getLocation().y+.001,p.z);if(Math.abs(at.y-p.y)>2.5||w.getBlockEntity(hit.getBlockPos())!=null||!HeroCalls.safeSpot(w,at,width,height))return null;return at;}
+                                                                                                                                                                                           ^
+  both constructor ClipContext(Vec3,Vec3,Block,Fluid,Entity) in ClipContext and constructor ClipContext(Vec3,Vec3,Block,Fluid,CollisionContext) in ClipContext match
+D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                ^
+D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistEntity.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+6 warnings
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  D:\slavic-myths\src\main\java\org\slavicmyths\finist\KartausEncounter.java:12: error: reference to ClipContext is ambiguous
+   public static Vec3 ground(ServerLevel w,Vec3 p,double width,double height){var top=p.add(0,5,0);var end=p.add(0,-4,0);if(!w.hasChunkAt(BlockPos.containing(p)))return null;var hit=w.clip(new ClipContext(top,end,ClipContext.Block.COLLIDER,ClipContext.Fluid.ANY,null));if(hit.getType()!=HitResult.Type.BLOCK)return null;var at=new Vec3(p.x,hit.getLocation().y+.001,p.z);if(Math.abs(at.y-p.y)>2.5||w.getBlockEntity(hit.getBlockPos())!=null||!HeroCalls.safeSpot(w,at,width,height))return null;return at;}
+                                                                                                                                                                                             ^
+    both constructor ClipContext(Vec3,Vec3,Block,Fluid,Entity) in ClipContext and constructor ClipContext(Vec3,Vec3,Block,Fluid,CollisionContext) in ClipContext match
+  D:\slavic-myths\src\main\java\org\slavicmyths\finist\KartausEntity.java:44: error: no suitable method found for getNearestPlayer(KartausEntity,int,(p)->p.isA[...]ive())
+   if(encounter!=null){var p=w.getServer().getPlayerList().getPlayer(owner);if(p==null||!p.isAlive()||p.serverLevel()!=w||p.isSpectator()){var e=KartausEncounter.get(w).entries.get(encounter);if(e!=null)KartausEncounter.get(w).finish(w,e,false);return;}setTarget(p);}else if(tickCount%20==0)setTarget(w.getNearestPlayer(this,24,p->p.isAlive()&&!p.isSpectator()&&!p.isCreative()));
+
+                                                                                                                                                                                                                                                                                                              ^
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+      method EntityGetter.getNearestPlayer(double,double,double,double,Predicate<Entity>) is not applicable
+        (actual and formal argument lists differ in length)
+      method EntityGetter.getNearestPlayer(Entity,double) is not applicable
+        (actual and formal argument lists differ in length)
+      method EntityGetter.getNearestPlayer(double,double,double,double,boolean) is not applicable
+        (actual and formal argument lists differ in length)
+      method EntityGetter.getNearestPlayer(TargetingConditions,LivingEntity) is not applicable
+        (actual and formal argument lists differ in length)
+      method EntityGetter.getNearestPlayer(TargetingConditions,LivingEntity,double,double,double) is not applicable
+        (actual and formal argument lists differ in length)
+      method EntityGetter.getNearestPlayer(TargetingConditions,double,double,double) is not applicable
+        (actual and formal argument lists differ in length)
+  Note: Recompile with -Xlint:deprecation for details.
+  Note: D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistEntity.java uses unchecked or unsafe operations.
+  Note: Recompile with -Xlint:unchecked for details.
+  Note: Some input files use or override a deprecated API.
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+  @net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                           ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+  @net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                            ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistContent.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+  @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                          ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistContent.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+  @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                                ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+  @EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                  ^
+  D:\slavic-myths\src\main\java\org\slavicmyths\registry\ModEntities.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+  @EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+                                                                          ^
+  2 errors
+  6 warnings
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 26s
+2 actionable tasks: 1 executed, 1 up-to-date

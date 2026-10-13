@@ -1,0 +1,29 @@
+{
+  "type": "slavicmyths:vat",
+  "mode": "MUST",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:honey_infusion"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "time": 1600,
+  "result": {
+    "id": "slavicmyths:mead_must",
+    "count": 1
+  },
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ]
+}

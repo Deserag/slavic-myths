@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.slavicmyths.equipment.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": ["EquipmentHealthMixin", "WardBlockMixin", "BadBloodFoodMixin", "BadBloodInstantMixin"],
+  "client": ["ClearSightMixin"],
+  "injectors": {"defaultRequire": 1}
+}

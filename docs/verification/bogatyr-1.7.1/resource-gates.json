@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "version": "1.7.1",
+  "clean_build": "PASS",
+  "dedicated_cases": 48,
+  "offline_checks": 227016,
+  "clips": 36,
+  "checks": 49497,
+  "baseline_entries_preserved": 6753,
+  "baseline_entries_changed": [
+    "META-INF/MANIFEST.MF",
+    "org/slavicmyths/SlavicMyths.class",
+    "META-INF/neoforge.mods.toml",
+    "assets/slavicmyths/sounds.json",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json"
+  ],
+  "audio_ogg": 33,
+  "sha256": "ffe114374fbd43b3e57c2e0ce088bd1c0d7749f3bf5755c439d696d464de2ab0",
+  "client_launches": 0,
+  "client_acceptance": "NOT_RUN"
+}

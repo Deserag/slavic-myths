@@ -9,7 +9,8 @@ import org.slavicmyths.hunt.*;
 public class HuntModel<T extends HuntMob> extends EntityModel<T>{
  private int texWidth=64,texHeight=32;
  private final FolkModelGeometry geometry=new FolkModelGeometry();
- private final boolean oven;private final ModelPart root,body,head,jaw,left,right,leftFore,rightFore,leftLeg,rightLeg,leftShin,rightShin,eyes,chestGlow,leftGlow,rightGlow;
+ private final java.util.List<ModelPart> baseClaws=new java.util.ArrayList<>();
+ private final boolean oven;private boolean higher;private final ModelPart root,body,head,jaw,left,right,leftFore,rightFore,leftLeg,rightLeg,leftShin,rightShin,eyes,chestGlow,leftGlow,rightGlow;
  private ModelPart part(ModelPart parent,int material,float x,float y,float z){ModelPart p=geometry.part(texWidth,texHeight,material%4*64,material/4*64);p.setPos(x,y,z);if(parent!=null)geometry.attach(parent,p);return p;}
  private ModelPart box(ModelPart parent,int mat,float x,float y,float z,float w,float h,float d){ModelPart p=part(parent,mat,0,0,0);geometry.box(p,x,y,z,w,h,d);return p;}
  public HuntModel(boolean oven){this.oven=oven;texWidth=256;texHeight=256;root=part(null,0,0,24,0);body=part(root,0,0,oven?-12:-13,0);geometry.box(body,oven?-7:-6,oven?-19:-13,-4,oven?14:12,oven?19:13,8);
@@ -18,7 +19,7 @@ public class HuntModel<T extends HuntMob> extends EntityModel<T>{
   box(head,4,-3,-5,-4.2F,2,2,.4F);box(head,4,1,-5,-4.2F,2,2,.4F);
   eyes=part(head,6,0,0,0);geometry.box(eyes,-2.8F,-4.6F,-4.6F,1.5F,1.3F,.5F);geometry.box(eyes,1.3F,-4.6F,-4.6F,1.5F,1.3F,.5F);
   left=part(body,0,oven?8:7,oven?-16:-11,0);right=part(body,0,oven?-8:-7,oven?-16:-11,0);geometry.box(left,-.5F,0,-2.5F,oven?5:4,oven?9:7,5);geometry.box(right,oven?-4.5F:-3.5F,0,-2.5F,oven?5:4,oven?9:7,5);
-  leftFore=part(left,0,1.5F,oven?8:6,0);rightFore=part(right,0,-1.5F,oven?8:6,0);for(ModelPart fore:new ModelPart[]{leftFore,rightFore}){geometry.box(fore,oven?-3:-2.5F,0,-3,oven?6:5,oven?10:8,6);box(fore,oven?2:1,-3,oven?9:7,-3,6,3,6);for(int f=0;f<3;f++){ModelPart claw=box(fore,2,-2.7F+f*2,oven?11:9,-4,1.2F,4,1.5F);claw.xRot=-.25F;}}
+  leftFore=part(left,0,1.5F,oven?8:6,0);rightFore=part(right,0,-1.5F,oven?8:6,0);for(ModelPart fore:new ModelPart[]{leftFore,rightFore}){geometry.box(fore,oven?-3:-2.5F,0,-3,oven?6:5,oven?10:8,6);box(fore,oven?2:1,-3,oven?9:7,-3,6,3,6);for(int f=0;f<3;f++){ModelPart claw=box(fore,2,-2.7F+f*2,oven?11:9,-4,1.2F,4,1.5F);claw.xRot=-.25F;baseClaws.add(claw);}}
   leftLeg=part(root,0,oven?3.8F:3,oven?-12:-13,0);rightLeg=part(root,0,oven?-3.8F:-3,oven?-12:-13,0);for(ModelPart leg:new ModelPart[]{leftLeg,rightLeg})geometry.box(leg,oven?-2.8F:-2.5F,0,-3,oven?5.6F:5,oven?6:6,6);
   leftShin=part(leftLeg,0,0,5,1);rightShin=part(rightLeg,0,0,5,1);for(ModelPart shin:new ModelPart[]{leftShin,rightShin}){geometry.box(shin,-2.3F,0,-2.5F,4.6F,oven?7:8,5);box(shin,oven?2:1,-3,oven?4:5,-5,6,3,8);}
   chestGlow=part(body,3,0,0,0);leftGlow=part(leftFore,3,0,0,0);rightGlow=part(rightFore,3,0,0,0);
@@ -32,8 +33,20 @@ public class HuntModel<T extends HuntMob> extends EntityModel<T>{
    box(body,8,-1.6F,-2.5F,-5,3.2F,3,1);
   }
  }
+ public HuntModel(boolean oven,boolean higher){this(oven);this.higher=higher;if(oven&&higher){for(ModelPart c:baseClaws)c.xRot=0;
+  for(int s:new int[]{-1,1})for(int i=0;i<4;i++){ModelPart board=box(head,1,s<0?-6-i*.4F:3+i*.4F,-11+i,-3+i*.7F,2,4+i,3);board.zRot=s*.15F;}
+  for(int i=0;i<7;i++){box(head,1,-3+i,-2,-4.8F,.8F,7+i%3,1);box(body,0,-6+i*2,-18,4.4F,1.5F,15+i%4,1);}
+  for(ModelPart fore:new ModelPart[]{leftFore,rightFore})for(int i=0;i<3;i++){ModelPart claw=part(fore,2,-3+i*2.4F,11,-3);geometry.box(claw,0,0,-1.5F,1.5F,7,2);claw.xRot=-.15F;}
+  for(int i=0;i<6;i++){ModelPart plate=box(body,0,-8+i*2.7F,-20-i%2,-5,3,5,3);plate.zRot=(i-3)*.08F;}
+ }}
+ public void poseHigher(float age,int skill,float t,int hurt,int death){float prep=Math.min(1,t/24),hit=Math.min(1,Math.max(0,t-22)/5);body.xRot=.16F+(float)Math.sin(age*.07)*.03F;left.zRot=-.12F;right.zRot=.12F;
+  if(skill==11){right.xRot=-prep*1.7F+hit*2.8F;body.yRot=-prep*.3F+hit*.6F;}
+  if(skill==13){body.xRot+=prep*.15F;left.xRot=right.xRot=-prep*.9F;head.xRot=-prep*.2F;}
+  if(skill==12||skill==15){left.zRot-=prep*.5F;right.zRot+=prep*.5F;body.xRot+=(float)Math.sin(t*.2)*.08F;}
+  if(hurt>0)body.xRot-=.12F;if(death>0){root.zRot=Math.min(1,death/20F)*1.4F;eyes.visible=death<14;}else {root.zRot=0;eyes.visible=true;}
+ }
  @Override public void setupAnim(T e,float stride,float amount,float age,float yaw,float pitch){float walk=Mth.cos(stride*.65F)*amount;root.y=24;root.xRot=0;body.xRot=oven?.16F:.18F;body.yRot=0;head.yRot=yaw*.017453F;head.xRot=pitch*.017453F;jaw.xRot=!oven&&e.rage()?.2F:0;left.xRot=walk*.3F;right.xRot=-walk*.3F;left.zRot=-.09F;right.zRot=.09F;leftFore.xRot=rightFore.xRot=oven?-.05F:-.23F;leftLeg.xRot=-walk*.65F;rightLeg.xRot=walk*.65F;leftShin.xRot=rightShin.xRot=oven?0:-.22F;
-  HuntRules.Move move=e.action();float t=e.elapsed(age-e.tickCount),prep=Math.min(1,t/Math.max(1,move.windup));if(move==HuntRules.Move.IDLE){body.xRot+=Mth.sin(age*.075F)*.015F;return;}
+  HuntRules.Move move=e.action();float t=e.elapsed(age-e.tickCount),prep=Math.min(1,t/Math.max(1,move.windup));if(higher){poseHigher(age,e.morSkill(),e.morElapsed(age-e.tickCount),e.hurtTime,e.deathTime);return;}if(move==HuntRules.Move.IDLE){body.xRot+=Mth.sin(age*.075F)*.015F;return;}
   float swing=t<move.windup?0:Math.min(1,(t-move.windup)/5);
   switch(move){case SLAM:left.xRot=right.xRot=-prep*2.7F+swing*3.7F;body.xRot+=swing*.3F;break;
    case MELEE:body.yRot=-prep*.35F+swing*.6F;right.xRot=-prep*1.8F+swing*2.7F;break;
@@ -46,6 +59,6 @@ public class HuntModel<T extends HuntMob> extends EntityModel<T>{
    case TRAIL:body.xRot=.35F;left.xRot=walk*.6F;right.xRot=-walk*.6F;break;
    case DODGE:body.yRot=.35F;break;default:break;}
  }
- public void glow(PoseStack p,VertexConsumer out,T e){float intensity=oven?e.rage()||e.action()==HuntRules.Move.ASH?1:.65F:1;p.pushPose();root.translateAndRotate(p);body.translateAndRotate(p);chestGlow.render(p,out,15728640,0,net.minecraft.util.FastColor.ARGB32.color(255,(int)(intensity*255),(int)(intensity*255),(int)(intensity*255)));p.pushPose();head.translateAndRotate(p);eyes.render(p,out,15728640,0);p.popPose();for(int side=0;side<2;side++){p.pushPose();(side==0?left:right).translateAndRotate(p);(side==0?leftFore:rightFore).translateAndRotate(p);(side==0?leftGlow:rightGlow).render(p,out,15728640,0,net.minecraft.util.FastColor.ARGB32.color(255,(int)(intensity*255),(int)(intensity*255),(int)(intensity*255)));p.popPose();}p.popPose();}
+ public void glow(PoseStack p,VertexConsumer out,T e){float intensity=oven?e.rage()||higher&&e.getHealth()<=e.getMaxHealth()*.5F||e.action()==HuntRules.Move.ASH?1:.65F:1;p.pushPose();root.translateAndRotate(p);body.translateAndRotate(p);chestGlow.render(p,out,15728640,0,net.minecraft.util.FastColor.ARGB32.color(255,(int)(intensity*255),(int)(intensity*255),(int)(intensity*255)));p.pushPose();head.translateAndRotate(p);eyes.render(p,out,15728640,0);p.popPose();for(int side=0;side<2;side++){p.pushPose();(side==0?left:right).translateAndRotate(p);(side==0?leftFore:rightFore).translateAndRotate(p);(side==0?leftGlow:rightGlow).render(p,out,15728640,0,net.minecraft.util.FastColor.ARGB32.color(255,(int)(intensity*255),(int)(intensity*255),(int)(intensity*255)));p.popPose();}p.popPose();}
  @Override public void renderToBuffer(PoseStack p,VertexConsumer out,int light,int overlay,int color){root.render(p,out,light,overlay,color);}
 }

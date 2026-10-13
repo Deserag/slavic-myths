@@ -1,0 +1,154 @@
+[
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/Karachun.java",
+    "sha256": "604bca08cdbb34d804e9f8a13cd037aa40817680e8990f27f0e34c97dffd899e"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightBlade.java",
+    "sha256": "de4fd227e6eaa1fdc5dcbee57b3951fef72ea0b4cade2d1cb570e6946a52e519"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightCombat.java",
+    "sha256": "2d11ab9bc58fde8705222bbdd0c9c4ace2e11366da3ba8998f1b9b8991056318"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightConfig.java",
+    "sha256": "e68d0e535e8b4e196d21352b6bb9ca33809a671929cd5729766e62f3fb7d64b2"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightContent.java",
+    "sha256": "d3fcbd83d62c05e86d9777a36f3081e09c574ed513e5c6196d2c24e11ebe41cd"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightEffects.java",
+    "sha256": "fd09d3f9b47d833631052d426a23cae615d2f44ae8a8998667ff17e1c3af8b36"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+    "sha256": "1d012677e4641dc831d098611d118d0897652071ea0f9c7e42d21c0a161dcdfa"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightLedger.java",
+    "sha256": "594662d41cc479895fb192480a11b47e14e6066c3afc1c381a54e0d759d6e165"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightNetwork.java",
+    "sha256": "36570593fa06fc258bea120f487ad0048d7f10f956d996a41cda46e20df298f3"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightOwners.java",
+    "sha256": "a88ccb6c227f2ed33be56d5eb28e1d56f656ebbd20d077a3af9489372107e663"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightRaven.java",
+    "sha256": "cc30bc702b6910bab586327ee841df1a8f0c4c74719310c67bf32a0ad473902f"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightRules.java",
+    "sha256": "7faadbba1bbc98ec0a283a4630496f4cf5e47f18a415ed0d65f3439f418e9459"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightScythe.java",
+    "sha256": "a69abb68df188a42f76e937c429fb962ba29f0cf26b8548b0f28b02779288dba"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightStatus.java",
+    "sha256": "65808567552bc613e35f44256d8d6fa048ed59a349f20080a8be3a6512d8472c"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightTotem.java",
+    "sha256": "fd73ef27b8623c433a2081af0d32f80a45018e92b4a3709eadda35a5a0d526dd"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/NightClient.java",
+    "sha256": "442b583057f65b9dc4f89b8fac6dab6b1dabdb9aaa7c3bc2b86676289e55742c"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/NightRavenMesh.java",
+    "sha256": "13faed7d8f3d56d4bed3e0a7aaaa751f0780069cc85f30aaf779ba02939bc3c3"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/NightRavenRenderer.java",
+    "sha256": "8457e34c9083835d0e797b42f6c0c3f4c7f5f75ea1ab2a6d1a216bf7d580a024"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/NightBladeRenderer.java",
+    "sha256": "df67e6cda28bc21eda98f5d1119726265f14b1b436628b246b40d76fa7890072"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/NightPhantomRenderer.java",
+    "sha256": "7bd7fee1d63053dafc391b592ffa40cd7052573412c4876d770f75f5387025a2"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/KarachunMesh.java",
+    "sha256": "8c19bad43296fc98909d21f0d76bfa5b32c836c31593361917cdd6b54f78e0fd"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/KarachunModel.java",
+    "sha256": "137f6a9a0fde038146f98ba4901617abdef1b5c2684af963a9c68522b0a0528b"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/KarachunRenderer.java",
+    "sha256": "c24cfec2a94e7614f69c048b4010f5ee65e5a1db2a9a6487fb6fc10b5b5c2094"
+  },
+  {
+    "path": "tools/install_karachun.ps1",
+    "sha256": "1b27813815433da319fde735d7294b8c923f23f38a334c8500bc2af1e99e302e"
+  },
+  {
+    "path": "tools/karachun-offline.gradle",
+    "sha256": "050f84595f62cf524b405cb5fc1234ecb1ef71fe77b9b1ec17bd2ffefac73cfe"
+  },
+  {
+    "path": "tools/karachun_assets.py",
+    "sha256": "4af87e3d799867ddb36ac4a23f8272e2838feb17748c05731c9f01a389884854"
+  },
+  {
+    "path": "tools/karachun_preview.py",
+    "sha256": "d4e7669c47c6d9119391bc3835b63a9fadbac6500ab7dda2e7d66b3dbf89ea54"
+  },
+  {
+    "path": "tools/karachun_reports.py",
+    "sha256": "84906197d43f1d3fc14df825af84bbca040727290bd77414a60bca495e177f3c"
+  },
+  {
+    "path": "tools/verify_karachun.py",
+    "sha256": "eff4afe8fa7a1741cc1542412ee7678078643463b566e5d9667cc0faced59c2f"
+  },
+  {
+    "path": "gradle.properties",
+    "sha256": "bd5f94791b2598afc7cebd863500711030b8c30134740bee7d658897aa90ef32"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/SlavicMyths.java",
+    "sha256": "f5a8ea2aa7fb68ef2be0984481d7ddf0ffc5c4cdf6b4e1dad225d6343403fe14"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/Runes.java",
+    "sha256": "99acdc348718a4f41db9808a020850522f87a183541a90965a921af4b45ef964"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/RuneDefinition.java",
+    "sha256": "36e272d590778864ede7375f09e64dfef6f9dd07a9f17e3558ed286ffa5c38b8"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/bogatyr/HeroThreats.java",
+    "sha256": "1911da037a97d9049f141faab80fc52f61649263b9a755f99847e7ff6cc3ba14"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/yaga/YagaMenu.java",
+    "sha256": "8b2d2418345515d16da86f3d13c0a44c4173a1a159c873ddf056e31254b83840"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/bayun/BayunNetwork.java",
+    "sha256": "08902c4f4bf3e41546d0217590980bed6ce43f7a1bcf65d0db1d911d5e843f08"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/YagaScreen.java",
+    "sha256": "fbfe583fd9862bd5ab90917c5886ab32b08e4322e2a2c602a46740c403f6554c"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/BayunDialogueScreen.java",
+    "sha256": "0efd03e0a980700fb17f6699ceb42cce7d6937d1b3d437506cec8ac9a786b955"
+  }
+]

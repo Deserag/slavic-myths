@@ -1,0 +1,176 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_corner_01",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_corner_03",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_straight_02",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_straight_04",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 7
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_straight_05",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_straight_06",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_straight_08",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_straight_09",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_straight_10",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_straight_11",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_crossroad_02",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_crossroad_03",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_crossroad_04",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_crossroad_05",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_crossroad_06",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_crossroad_07",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_split_01",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_split_02",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slavicmyths:village/warm/roads/savanna_streets_turn_01",
+        "processors": "minecraft:street_savanna",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "minecraft:village/savanna/terminators"
+}

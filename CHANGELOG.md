@@ -1,3 +1,44 @@
+# 1.9.4 — Осквернённые хранители
+
+Два самостоятельных хранителя в залах 1.9.3, локальные фазовые бои, очищение, персональные части оберега, модели/анимации/звуки/сказания. Старые шаблоны, обычные рецепты и лут сохранены. Build/offline/resource gates PASS; PolyMC Testing обновлён; игровых запусков 0.
+
+# 1.9.3 — Две древние святыни
+
+Две естественные святыни Overworld, локальные ритуалы, девять предметов, семь рецептов, тематический лут и предания. PolyMC Testing обновлён после успешных gates; игровых запусков 0. Отчёт: docs/verification/sanctuaries-1.9.3/REPORT.md.
+
+## 1.8.3.2 — Великий Полоз (включая 1.8.3.1), 2026-10-12
+
+12 поражённых блоков, рог с точным рецептом/дропами/подтверждением, мировой multipart-босс 3000 HP/40 блоков, шесть атак и постоянные последствия. Native/offline/23 headless/production gates PASS, PolyMC Testing обновлён с backup. Клиент не запускался; ручная приёмка и MSPT/FPS открыты. Старые registry IDs сохранены. Подробности: docs/verification/poloz-1.8.3.2/REPORT.md.
+
+## 1.8.3 — исправления bossbar, хвата и целей богатырей
+
+- Полоски боссов не восстанавливаются после смерти; очищаются при удалении/выгрузке.
+- Призванные богатыри распознают все активные моровые формы.
+- Исправлены реальные руки/хват и связность оружия Ильи, Алёши, Добрыни, Финиста; генераторы обновлены.
+- Build/native/resource gates PASS; PolyMC обновлён с backup, игровых запусков 0.
+
+## 1.8.2 — Высшие моровые
+
+- Высшие формы существующих Лиха и Овинника: отдельные силуэты/материалы, светящиеся глаза, анимации и vanilla-звуки.
+- Временная заражённая земля, облако Хвори, зольная завеса, луч, три угля и вторая фаза при половине HP; блоки мира не изменяются.
+- Отторжение мора через стандартные локальные AI goals, расширенная склянка, RU/EN; обычные формы/ID сохранены.
+- Production build и офлайн-проверки PASS. Игровых запусков 0; ручная приёмка ожидается.
+
+## 1.8.1 — 2026-10-12
+
+- Added persistent blighted variants of the existing Leshy, Poludnitsa, Kikimora and Fire Serpent, distinct native models/textures and nine telegraphed abilities including two once-only30HP serpent copies.
+- Added creative-only Flask of Blight, rare gated natural variants and one existing lore-book discovery; RU/EN and actual vanilla sound cues.
+- Preserved ordinary registry IDs/assets and dependencies. Final clean build/offline/resource gates PASS; installed final JAR in existing PolyMC Testing with backup/hash preservation, no game launch. Manual gameplay/visual/audio/rejoin/MSPT pending.
+
+## 1.6.9 candidate — 2026-10-11
+
+- Added persistent Kot Bayun with personal gifts/trust, four functional dialogue choices, loaded-only ambient actions, warning/song/charm and cancellable physical pounce.
+- Rebuilt the existing lore book with once-only world-owned delivery, eight searchable sections, sparse personal knowledge, real recipes, schematic hints and actual advancement graph.
+- Added 217 catalogue records with complete current registry coverage and 58 individual Russian living-creature profiles; preserved Yaga quest schema/rewards and all stable registry/legacy advancement IDs.
+- Added native143bone/254cube model,17 timelines,19 supplied original synthesized OGG prototypes, distinct32px category icons, RU/EN keys. Fixed four pre-existing corrupted entity names.
+- Clean build, native Bayun/Kuzya/doghead regression, production resource gates, final15/15 dedicated GameTests and actual saved-server restart passed. Candidate installed with backup in selected1.21.1 profile;559 other files preserved.19 dedicated launches,0clients.
+- Client Russian GUI/visual/audio/controller/natural seed/real multiplayer/old Yaga walkthrough remain NOT_RUN; actual MSPT/FPS NOT_MEASURED. This is not a fully accepted final release. No commit/push.
+
 # Changelog
 
 ## 1.4.3

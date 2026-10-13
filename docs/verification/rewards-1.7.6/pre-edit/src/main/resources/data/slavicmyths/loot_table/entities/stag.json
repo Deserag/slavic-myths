@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:raw_venison",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 4
+              }
+            },
+            {
+              "function": "minecraft:enchanted_count_increase",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0,
+                "max": 1
+              },
+              "enchantment": "minecraft:looting"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:large_animal_bone",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance_with_enchanted_bonus",
+              "enchantment": "minecraft:looting",
+              "unenchanted_chance": 0.35,
+              "enchanted_chance": {
+                "type": "minecraft:linear",
+                "base": 0.47,
+                "per_level_above_first": 0.12
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

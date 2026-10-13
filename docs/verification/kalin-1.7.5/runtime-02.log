@@ -1,0 +1,230 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\bogatyr\BogatyrContent.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\bogatyr\BogatyrContent.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\BogatyrClient.java:30: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+    @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+                                            ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\BogatyrClient.java:30: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+    @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+                                                                  ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\BrightFalconClient.java:5: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+ @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)public static class Registration{
+                                                           ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\BrightFalconClient.java:5: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+ @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)public static class Registration{
+                                                                                 ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\KalinClient.java:3: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                          ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\KalinClient.java:3: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                                                ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\MarinkaClient.java:22: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+ @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                           ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\MarinkaClient.java:22: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+ @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                                                 ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\SkimClient.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+ @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                           ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\SkimClient.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+ @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                                                 ^
+D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistContent.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistContent.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\kalin\KalinContent.java:13: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\kalin\KalinContent.java:13: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\marinka\MarinkaContent.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\marinka\MarinkaContent.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\skim\SkimContent.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\skim\SkimContent.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistEntity.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+20 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileKalinRuntimeJava
+> Task :processKalinRuntimeResources UP-TO-DATE
+> Task :kalinRuntimeClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeKalinChecksLegacyClasspath UP-TO-DATE
+> Task :prepareKalinChecksRun UP-TO-DATE
+
+> Task :runKalinChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[21:03:15] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[21:03:15] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[21:03:15] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[21:03:16] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[21:03:16] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[21:03:17] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[21:03:17] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.7.5 (slavicmyths)
+[21:03:18] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[21:03:18] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[21:03:18] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[21:03:18] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[21:03:20] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[21:03:21] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[21:03:31] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[21:03:31] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[21:03:31] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[21:03:31] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[21:03:31] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[21:03:31] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[21:03:34] [main/ERROR] [minecraft/Settings]: Failed to load properties from file: server.properties
+java.nio.file.NoSuchFileException: server.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431) ~[?:?] {}
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?] {}
+	at java.base/java.nio.file.Files.newInputStream(Files.java:159) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.Settings.loadFromFile(Settings.java:38) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerProperties.fromFile(DedicatedServerProperties.java:132) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerSettings.<init>(DedicatedServerSettings.java:12) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Main.main(Main.java:125) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeServerDevLaunchHandler.runService(NeoForgeServerDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+[21:03:34] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[21:03:34] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[21:03:34] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[21:03:34] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_kalin]
+[21:03:36] [main/INFO] [minecraft/RecipeManager]: Loaded 1782 recipes
+[21:03:36] [main/INFO] [minecraft/AdvancementTree]: Loaded 1579 advancements
+[21:03:36] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[21:03:36] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[21:03:39] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[21:03:39] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[21:03:39] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 425 ms
+[21:03:39] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[21:03:39] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[21:03:39] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position 2511618, -59, -11399288!
+[21:03:40] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[21:03:40] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[21:03:40] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[21:03:40] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+KALIN_CHECK Registered item kalin_battle_seal
+KALIN_CHECK Creative accessible kalin_battle_seal
+[21:03:41] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Kalin Battle Seal] to BogatyrTest]
+KALIN_CHECK Registered item kalin_tsar_spawn_egg
+KALIN_CHECK Creative accessible kalin_tsar_spawn_egg
+[21:03:41] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Kalin-tsar Spawn Egg] to BogatyrTest]
+KALIN_CHECK Registered item kalin_war_horse_spawn_egg
+KALIN_CHECK Creative accessible kalin_war_horse_spawn_egg
+[21:03:41] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Kalin War Horse Spawn Egg] to BogatyrTest]
+KALIN_CHECK Registered item ilya_call_token
+KALIN_CHECK Creative accessible ilya_call_token
+[21:03:41] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Ilya's Sign] to BogatyrTest]
+KALIN_CHECK Registered item dobrynya_call_emblem
+KALIN_CHECK Creative accessible dobrynya_call_emblem
+[21:03:41] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Dobrynya's Emblem] to BogatyrTest]
+KALIN_CHECK Registered item alyosha_call_whistle
+KALIN_CHECK Creative accessible alyosha_call_whistle
+[21:03:41] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Alyosha's Whistle] to BogatyrTest]
+KALIN_CHECK Registered item finist_call_feather
+KALIN_CHECK Creative accessible finist_call_feather
+[21:03:41] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Finist's Falcon Feather] to BogatyrTest]
+KALIN_CHECK Registered item kartaus_black_seal
+KALIN_CHECK Creative accessible kartaus_black_seal
+[21:03:41] [Server thread/INFO] [minecraft/MinecraftServer]: [BogatyrTest: Gave 1 [Black Banner Seal] to BogatyrTest]
+KALIN_CHECK Creative egg really resolves Kalin
+KALIN_CHECK Horse egg resolves mount
+KALIN_CHECK No zero-hero battle
+KALIN_CHECK Real Ilya call works
+KALIN_CHECK No one-hero battle
+KALIN_CHECK Real Finist call works
+KALIN_CHECK Shared canonical two-hero cap
+KALIN_CHECK Third ally refused
+KALIN_CHECK Select two different present heroes only
+KALIN_CHECK Unsafe occupied camp refuses and preserves chest
+KALIN_SITE suitable=false recovering=false,false levels=true,true distance=2.5495098,2.1213202
+[21:03:41] [Server thread/ERROR] [minecraft/LogTestReporter]: integration failed at 2511618, -60, -11399288! Real reusable seal starts camp job
+[21:03:41] [Server thread/INFO] [minecraft/GameTestServer]: [X]
+[21:03:41] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 1.781 s ======================
+[21:03:41] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[21:03:41] [Server thread/INFO] [minecraft/GameTestServer]:    - integration
+[21:03:41] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[21:03:41] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[21:03:41] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[21:03:41] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[21:03:42] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[21:03:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[21:03:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[21:03:43] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[21:03:43] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[21:03:43] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[21:03:43] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[21:03:43] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runKalinChecks FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runKalinChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+9 actionable tasks: 3 executed, 6 up-to-date
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 59s

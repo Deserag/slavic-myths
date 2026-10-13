@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "crack=0": {
+      "model": "slavicmyths:block/earth_heart_seal_0"
+    },
+    "crack=1": {
+      "model": "slavicmyths:block/earth_heart_seal_1"
+    },
+    "crack=2": {
+      "model": "slavicmyths:block/earth_heart_seal_2"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "part": "creatures",
+  "chapter": "roads",
+  "section": "inhabitants",
+  "title": "tales.entry.pesigolovets.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:doghead_arrow",
+    "entity/slavicmyths:pesigolovets"
+  ],
+  "advancements": [],
+  "links": []
+}

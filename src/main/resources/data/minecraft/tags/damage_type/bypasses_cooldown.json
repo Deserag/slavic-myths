@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "slavicmyths:rune_execute"
+    "slavicmyths:rune_execute",
+    "slavicmyths:morozko_mirror",
+    "slavicmyths:morozko_icicle_damage"
   ]
 }

@@ -1,0 +1,14 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { bayunRuntime { java.srcDir 'tools/bayun-runtime'; resources.srcDir 'tools/bayun-runtime-resources' } }
+ p.sourceSets.bayunRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.bayunRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileBayunRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.bayunRuntime)
+ p.neoForge.runs { bayunChecks {
+  type = 'gameTestServer'
+  gameDirectory = p.file('work/bayun/runtime-world-'+p.findProperty('bayunRun'))
+  systemProperty 'neoforge.enabledGameTestNamespaces', p.findProperty('bayunNamespace') ?: 'slavicmyths_bayun'
+  systemProperty 'slavicmyths.bayun.restartPhase', p.findProperty('bayunRestartPhase') ?: 'none'
+  systemProperty 'slavicmyths.audit.path', p.file('docs/verification/bayun-book-final/registry-after.json').absolutePath
+ } }
+} }

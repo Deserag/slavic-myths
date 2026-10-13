@@ -1,0 +1,18 @@
+{
+  "version": "1.9.1",
+  "status": "PASS",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.1.jar",
+  "sha256": "94e471d9c3c96a8d63168a499f6256015e870de8ecd227570d6d9def3ba951f1",
+  "source": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.1.jar",
+  "previous_hashes": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.1.jar": "92933210b8f6b507385954fc3f9da65e2ec73d4ccf7ce27ff3d0ea8510703dcc"
+  },
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-morozko-1.9.1-20261013-102803",
+  "other_files_preserved": 456,
+  "configuration_changes": 0,
+  "client_starts": 0,
+  "installer_server_starts": 0,
+  "worlds": "NOT_TOUCHED",
+  "old_1_16_5": "NOT_TOUCHED"
+}

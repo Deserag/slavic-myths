@@ -1,0 +1,8 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { polozRuntime { java.srcDir 'tools/poloz-runtime'; resources.srcDir 'tools/poloz-runtime-resources' } }
+ p.sourceSets.polozRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.polozRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compilePolozRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.polozRuntime)
+ p.neoForge.runs { polozChecks {type='gameTestServer';gameDirectory=p.file('work/poloz/runtime');systemProperty 'neoforge.enabledGameTestNamespaces','slavicmyths_poloz'} }
+} }

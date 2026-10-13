@@ -32,3 +32,7 @@ treasury=[item('minecraft:gold_nugget',14,(3,8)),item('ancient_fibula',8),item('
 for name,rolls,entries in [('common_cache',(2,4),common),('burial',(2,5),common+burial),('warrior',(2,5),common+warrior),('ritual',(2,5),common+ritual),('treasury',(4,7),treasury),('secret',(2,4),burial+ritual+treasury),('great_special',(3,6),burial+warrior+treasury)]:
  put(D/'loot_table/kurgan'/f'{name}.json',{'type':'minecraft:chest','pools':[{'rolls':{'type':'minecraft:uniform','min':rolls[0],'max':rolls[1]},'entries':entries}]})
 print('KURGAN lootTables=7 oldTablesPreserved=15 masonryRecipes=6')
+
+if __name__ == "__main__":
+ from feedback_resource_policy import apply as apply_feedback_policy
+ apply_feedback_policy()

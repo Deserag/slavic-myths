@@ -1,0 +1,1959 @@
+{
+  "atlas": 512,
+  "bones": {
+    "pelvis": {
+      "parent": null,
+      "pos": [
+        0,
+        22,
+        0
+      ]
+    },
+    "torso": {
+      "parent": "pelvis",
+      "pos": [
+        0,
+        43,
+        0
+      ]
+    },
+    "core": {
+      "parent": "torso",
+      "pos": [
+        0,
+        35,
+        -4
+      ]
+    },
+    "head": {
+      "parent": "torso",
+      "pos": [
+        0,
+        47,
+        0
+      ]
+    },
+    "leg_right": {
+      "parent": "pelvis",
+      "pos": [
+        -6,
+        22,
+        0
+      ]
+    },
+    "arm_right": {
+      "parent": "torso",
+      "pos": [
+        -14,
+        43,
+        0
+      ]
+    },
+    "forearm_right": {
+      "parent": "arm_right",
+      "pos": [
+        -14,
+        29,
+        0
+      ]
+    },
+    "hand_right": {
+      "parent": "forearm_right",
+      "pos": [
+        -14,
+        17,
+        -1
+      ]
+    },
+    "apron_right": {
+      "parent": "pelvis",
+      "pos": [
+        -3,
+        23,
+        -7.2
+      ]
+    },
+    "leg_left": {
+      "parent": "pelvis",
+      "pos": [
+        6,
+        22,
+        0
+      ]
+    },
+    "arm_left": {
+      "parent": "torso",
+      "pos": [
+        14,
+        43,
+        0
+      ]
+    },
+    "forearm_left": {
+      "parent": "arm_left",
+      "pos": [
+        14,
+        29,
+        0
+      ]
+    },
+    "hand_left": {
+      "parent": "forearm_left",
+      "pos": [
+        14,
+        17,
+        -1
+      ]
+    },
+    "apron_left": {
+      "parent": "pelvis",
+      "pos": [
+        3,
+        23,
+        -7.2
+      ]
+    }
+  },
+  "boxes": [
+    {
+      "bone": "pelvis",
+      "center": [
+        0,
+        22.0,
+        0
+      ],
+      "size": [
+        22,
+        4,
+        13
+      ],
+      "material": "bark",
+      "uv": [
+        2,
+        2,
+        70,
+        17
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        -8,
+        34.0,
+        0
+      ],
+      "size": [
+        6,
+        20,
+        14
+      ],
+      "material": "wood",
+      "uv": [
+        75,
+        2,
+        40,
+        34
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        8,
+        34.0,
+        0
+      ],
+      "size": [
+        6,
+        20,
+        14
+      ],
+      "material": "wood",
+      "uv": [
+        118,
+        2,
+        40,
+        34
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        0,
+        26.5,
+        0
+      ],
+      "size": [
+        12,
+        5,
+        14
+      ],
+      "material": "bark",
+      "uv": [
+        161,
+        2,
+        52,
+        19
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        0,
+        42.5,
+        0
+      ],
+      "size": [
+        12,
+        5,
+        14
+      ],
+      "material": "wood",
+      "uv": [
+        216,
+        2,
+        52,
+        19
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        -7,
+        34.0,
+        6
+      ],
+      "size": [
+        4.5,
+        20,
+        3
+      ],
+      "material": "bark",
+      "uv": [
+        271,
+        2,
+        15,
+        23
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        -2,
+        34.0,
+        6
+      ],
+      "size": [
+        4.5,
+        20,
+        3
+      ],
+      "material": "bark",
+      "uv": [
+        289,
+        2,
+        15,
+        23
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        3,
+        34.0,
+        6
+      ],
+      "size": [
+        4.5,
+        20,
+        3
+      ],
+      "material": "bark",
+      "uv": [
+        307,
+        2,
+        15,
+        23
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        8,
+        34.0,
+        6
+      ],
+      "size": [
+        4.5,
+        20,
+        3
+      ],
+      "material": "bark",
+      "uv": [
+        325,
+        2,
+        15,
+        23
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        -6,
+        34.5,
+        -7.5
+      ],
+      "size": [
+        2,
+        11,
+        2
+      ],
+      "material": "rune",
+      "uv": [
+        343,
+        2,
+        8,
+        13
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        6,
+        34.5,
+        -7.5
+      ],
+      "size": [
+        2,
+        11,
+        2
+      ],
+      "material": "rune",
+      "uv": [
+        354,
+        2,
+        8,
+        13
+      ]
+    },
+    {
+      "bone": "core",
+      "center": [
+        0,
+        31.5,
+        -4
+      ],
+      "size": [
+        7,
+        3,
+        6
+      ],
+      "material": "glow",
+      "uv": [
+        365,
+        2,
+        26,
+        9
+      ]
+    },
+    {
+      "bone": "core",
+      "center": [
+        -2,
+        35.5,
+        -3
+      ],
+      "size": [
+        3,
+        5,
+        3
+      ],
+      "material": "glow",
+      "uv": [
+        394,
+        2,
+        12,
+        8
+      ]
+    },
+    {
+      "bone": "core",
+      "center": [
+        2,
+        37.5,
+        -4
+      ],
+      "size": [
+        3,
+        7,
+        3
+      ],
+      "material": "glow",
+      "uv": [
+        409,
+        2,
+        12,
+        10
+      ]
+    },
+    {
+      "bone": "core",
+      "center": [
+        0,
+        39.0,
+        -6
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "glow",
+      "uv": [
+        424,
+        2,
+        8,
+        8
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        50.0,
+        -1
+      ],
+      "size": [
+        12,
+        12,
+        11
+      ],
+      "material": "wood",
+      "uv": [
+        435,
+        2,
+        46,
+        23
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        51.0,
+        -7
+      ],
+      "size": [
+        2,
+        6,
+        3
+      ],
+      "material": "wood",
+      "uv": [
+        484,
+        2,
+        10,
+        9
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        46.5,
+        -7
+      ],
+      "size": [
+        5,
+        1,
+        1
+      ],
+      "material": "bark",
+      "uv": [
+        497,
+        2,
+        12,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -3.4,
+        51.8,
+        -6.8
+      ],
+      "size": [
+        3.5,
+        1.6,
+        1
+      ],
+      "material": "bark",
+      "uv": [
+        2,
+        39,
+        9,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -3.4,
+        51.65,
+        -7.4
+      ],
+      "size": [
+        2.3,
+        0.7,
+        0.5
+      ],
+      "material": "eye",
+      "uv": [
+        14,
+        39,
+        6,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -4.5,
+        48.5,
+        -6.7
+      ],
+      "size": [
+        2.5,
+        3,
+        1.7
+      ],
+      "material": "wood",
+      "uv": [
+        23,
+        39,
+        9,
+        5
+      ]
+    },
+    {
+      "bone": "leg_right",
+      "center": [
+        -6,
+        13.5,
+        0
+      ],
+      "size": [
+        9,
+        17,
+        9
+      ],
+      "material": "wood",
+      "uv": [
+        35,
+        39,
+        36,
+        26
+      ]
+    },
+    {
+      "bone": "leg_right",
+      "center": [
+        -6,
+        3.0,
+        -1
+      ],
+      "size": [
+        11,
+        6,
+        12
+      ],
+      "material": "bark",
+      "uv": [
+        74,
+        39,
+        46,
+        18
+      ]
+    },
+    {
+      "bone": "arm_right",
+      "center": [
+        -14,
+        35.5,
+        0
+      ],
+      "size": [
+        9,
+        15,
+        10
+      ],
+      "material": "wood",
+      "uv": [
+        123,
+        39,
+        38,
+        25
+      ]
+    },
+    {
+      "bone": "arm_right",
+      "center": [
+        -12,
+        41.5,
+        0
+      ],
+      "size": [
+        11,
+        3,
+        13
+      ],
+      "material": "bark",
+      "uv": [
+        164,
+        39,
+        48,
+        16
+      ]
+    },
+    {
+      "bone": "arm_right",
+      "center": [
+        -13,
+        39.5,
+        0
+      ],
+      "size": [
+        11,
+        3,
+        13
+      ],
+      "material": "bark",
+      "uv": [
+        215,
+        39,
+        48,
+        16
+      ]
+    },
+    {
+      "bone": "arm_right",
+      "center": [
+        -14,
+        37.5,
+        0
+      ],
+      "size": [
+        11,
+        3,
+        13
+      ],
+      "material": "bark",
+      "uv": [
+        266,
+        39,
+        48,
+        16
+      ]
+    },
+    {
+      "bone": "forearm_right",
+      "center": [
+        -14,
+        22.0,
+        -1
+      ],
+      "size": [
+        8,
+        12,
+        10
+      ],
+      "material": "wood",
+      "uv": [
+        317,
+        39,
+        36,
+        22
+      ]
+    },
+    {
+      "bone": "forearm_right",
+      "center": [
+        -14,
+        18.5,
+        -1
+      ],
+      "size": [
+        10,
+        3,
+        12
+      ],
+      "material": "bark",
+      "uv": [
+        356,
+        39,
+        44,
+        15
+      ]
+    },
+    {
+      "bone": "hand_right",
+      "center": [
+        -14,
+        13.5,
+        -2
+      ],
+      "size": [
+        10,
+        7,
+        10
+      ],
+      "material": "wood",
+      "uv": [
+        403,
+        39,
+        40,
+        17
+      ]
+    },
+    {
+      "bone": "hand_right",
+      "center": [
+        -17,
+        10.5,
+        -4
+      ],
+      "size": [
+        2.5,
+        5,
+        4
+      ],
+      "material": "wood",
+      "uv": [
+        446,
+        39,
+        13,
+        9
+      ]
+    },
+    {
+      "bone": "hand_right",
+      "center": [
+        -14,
+        10.5,
+        -4
+      ],
+      "size": [
+        2.5,
+        5,
+        4
+      ],
+      "material": "wood",
+      "uv": [
+        462,
+        39,
+        13,
+        9
+      ]
+    },
+    {
+      "bone": "hand_right",
+      "center": [
+        -11,
+        10.5,
+        -4
+      ],
+      "size": [
+        2.5,
+        5,
+        4
+      ],
+      "material": "wood",
+      "uv": [
+        478,
+        39,
+        13,
+        9
+      ]
+    },
+    {
+      "bone": "leg_right",
+      "center": [
+        -6,
+        10.0,
+        -5
+      ],
+      "size": [
+        0.9,
+        4,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        494,
+        39,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "leg_right",
+      "center": [
+        -6,
+        17.0,
+        -5
+      ],
+      "size": [
+        0.9,
+        4,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        500,
+        39,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "arm_right",
+      "center": [
+        -15,
+        29.0,
+        -5
+      ],
+      "size": [
+        0.9,
+        4,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        506,
+        39,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "arm_right",
+      "center": [
+        -15,
+        36.0,
+        -5
+      ],
+      "size": [
+        0.9,
+        4,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        2,
+        68,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "arm_right",
+      "center": [
+        -15,
+        44.0,
+        -5
+      ],
+      "size": [
+        0.9,
+        4,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        8,
+        68,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -4,
+        56.0,
+        1
+      ],
+      "size": [
+        2,
+        2,
+        3
+      ],
+      "material": "wood",
+      "uv": [
+        14,
+        68,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -6,
+        57.5,
+        1
+      ],
+      "size": [
+        2,
+        3,
+        3
+      ],
+      "material": "wood",
+      "uv": [
+        27,
+        68,
+        10,
+        6
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -8,
+        57.0,
+        1
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "wood",
+      "uv": [
+        40,
+        68,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -10,
+        57.0,
+        1
+      ],
+      "size": [
+        2,
+        2,
+        3
+      ],
+      "material": "wood",
+      "uv": [
+        53,
+        68,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -7,
+        58.0,
+        1
+      ],
+      "size": [
+        2,
+        4,
+        2
+      ],
+      "material": "wood",
+      "uv": [
+        66,
+        68,
+        8,
+        6
+      ]
+    },
+    {
+      "bone": "apron_right",
+      "center": [
+        -3,
+        17.5,
+        -7.2
+      ],
+      "size": [
+        6,
+        11,
+        1.2
+      ],
+      "material": "cloth",
+      "uv": [
+        77,
+        68,
+        15,
+        13
+      ]
+    },
+    {
+      "bone": "apron_right",
+      "center": [
+        -3,
+        11.5,
+        -7.4
+      ],
+      "size": [
+        6,
+        3,
+        1.3
+      ],
+      "material": "rune",
+      "uv": [
+        95,
+        68,
+        15,
+        5
+      ]
+    },
+    {
+      "bone": "apron_right",
+      "center": [
+        -2,
+        14.5,
+        -8
+      ],
+      "size": [
+        0.8,
+        1,
+        0.3
+      ],
+      "material": "rune",
+      "uv": [
+        113,
+        68,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "apron_right",
+      "center": [
+        -4,
+        16.2,
+        -8
+      ],
+      "size": [
+        0.8,
+        1,
+        0.3
+      ],
+      "material": "rune",
+      "uv": [
+        119,
+        68,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "apron_right",
+      "center": [
+        -2,
+        17.9,
+        -8
+      ],
+      "size": [
+        0.8,
+        1,
+        0.3
+      ],
+      "material": "rune",
+      "uv": [
+        125,
+        68,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "apron_right",
+      "center": [
+        -4,
+        19.6,
+        -8
+      ],
+      "size": [
+        0.8,
+        1,
+        0.3
+      ],
+      "material": "rune",
+      "uv": [
+        131,
+        68,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        3.4,
+        51.8,
+        -6.8
+      ],
+      "size": [
+        3.5,
+        1.6,
+        1
+      ],
+      "material": "bark",
+      "uv": [
+        137,
+        68,
+        9,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        3.4,
+        51.65,
+        -7.4
+      ],
+      "size": [
+        2.3,
+        0.7,
+        0.5
+      ],
+      "material": "eye",
+      "uv": [
+        149,
+        68,
+        6,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        4.5,
+        48.5,
+        -6.7
+      ],
+      "size": [
+        2.5,
+        3,
+        1.7
+      ],
+      "material": "wood",
+      "uv": [
+        158,
+        68,
+        9,
+        5
+      ]
+    },
+    {
+      "bone": "leg_left",
+      "center": [
+        6,
+        13.5,
+        0
+      ],
+      "size": [
+        9,
+        17,
+        9
+      ],
+      "material": "mor",
+      "uv": [
+        170,
+        68,
+        36,
+        26
+      ]
+    },
+    {
+      "bone": "leg_left",
+      "center": [
+        6,
+        3.0,
+        -1
+      ],
+      "size": [
+        11,
+        6,
+        12
+      ],
+      "material": "bark",
+      "uv": [
+        209,
+        68,
+        46,
+        18
+      ]
+    },
+    {
+      "bone": "arm_left",
+      "center": [
+        14,
+        35.5,
+        0
+      ],
+      "size": [
+        9,
+        15,
+        10
+      ],
+      "material": "mor",
+      "uv": [
+        258,
+        68,
+        38,
+        25
+      ]
+    },
+    {
+      "bone": "arm_left",
+      "center": [
+        12,
+        41.5,
+        0
+      ],
+      "size": [
+        11,
+        3,
+        13
+      ],
+      "material": "bark",
+      "uv": [
+        299,
+        68,
+        48,
+        16
+      ]
+    },
+    {
+      "bone": "arm_left",
+      "center": [
+        13,
+        39.5,
+        0
+      ],
+      "size": [
+        11,
+        3,
+        13
+      ],
+      "material": "bark",
+      "uv": [
+        350,
+        68,
+        48,
+        16
+      ]
+    },
+    {
+      "bone": "arm_left",
+      "center": [
+        14,
+        37.5,
+        0
+      ],
+      "size": [
+        11,
+        3,
+        13
+      ],
+      "material": "bark",
+      "uv": [
+        401,
+        68,
+        48,
+        16
+      ]
+    },
+    {
+      "bone": "forearm_left",
+      "center": [
+        14,
+        22.0,
+        -1
+      ],
+      "size": [
+        8,
+        12,
+        10
+      ],
+      "material": "mor",
+      "uv": [
+        452,
+        68,
+        36,
+        22
+      ]
+    },
+    {
+      "bone": "forearm_left",
+      "center": [
+        14,
+        18.5,
+        -1
+      ],
+      "size": [
+        10,
+        3,
+        12
+      ],
+      "material": "bark",
+      "uv": [
+        2,
+        97,
+        44,
+        15
+      ]
+    },
+    {
+      "bone": "hand_left",
+      "center": [
+        14,
+        13.5,
+        -2
+      ],
+      "size": [
+        10,
+        7,
+        10
+      ],
+      "material": "mor",
+      "uv": [
+        49,
+        97,
+        40,
+        17
+      ]
+    },
+    {
+      "bone": "hand_left",
+      "center": [
+        11,
+        10.5,
+        -4
+      ],
+      "size": [
+        2.5,
+        5,
+        4
+      ],
+      "material": "wood",
+      "uv": [
+        92,
+        97,
+        13,
+        9
+      ]
+    },
+    {
+      "bone": "hand_left",
+      "center": [
+        14,
+        10.5,
+        -4
+      ],
+      "size": [
+        2.5,
+        5,
+        4
+      ],
+      "material": "wood",
+      "uv": [
+        108,
+        97,
+        13,
+        9
+      ]
+    },
+    {
+      "bone": "hand_left",
+      "center": [
+        17,
+        10.5,
+        -4
+      ],
+      "size": [
+        2.5,
+        5,
+        4
+      ],
+      "material": "wood",
+      "uv": [
+        124,
+        97,
+        13,
+        9
+      ]
+    },
+    {
+      "bone": "leg_left",
+      "center": [
+        6,
+        10.0,
+        -5
+      ],
+      "size": [
+        0.9,
+        4,
+        0.6
+      ],
+      "material": "mor",
+      "uv": [
+        140,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "leg_left",
+      "center": [
+        6,
+        17.0,
+        -5
+      ],
+      "size": [
+        0.9,
+        4,
+        0.6
+      ],
+      "material": "mor",
+      "uv": [
+        146,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "arm_left",
+      "center": [
+        15,
+        29.0,
+        -5
+      ],
+      "size": [
+        0.9,
+        4,
+        0.6
+      ],
+      "material": "mor",
+      "uv": [
+        152,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "arm_left",
+      "center": [
+        15,
+        36.0,
+        -5
+      ],
+      "size": [
+        0.9,
+        4,
+        0.6
+      ],
+      "material": "mor",
+      "uv": [
+        158,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "arm_left",
+      "center": [
+        15,
+        44.0,
+        -5
+      ],
+      "size": [
+        0.9,
+        4,
+        0.6
+      ],
+      "material": "mor",
+      "uv": [
+        164,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        4,
+        56.0,
+        1
+      ],
+      "size": [
+        2,
+        2,
+        3
+      ],
+      "material": "wood",
+      "uv": [
+        170,
+        97,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        6,
+        57.5,
+        1
+      ],
+      "size": [
+        2,
+        3,
+        3
+      ],
+      "material": "wood",
+      "uv": [
+        183,
+        97,
+        10,
+        6
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        8,
+        57.0,
+        1
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "wood",
+      "uv": [
+        196,
+        97,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        10,
+        57.0,
+        1
+      ],
+      "size": [
+        2,
+        2,
+        3
+      ],
+      "material": "wood",
+      "uv": [
+        209,
+        97,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        7,
+        57.5,
+        1
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "wood",
+      "uv": [
+        222,
+        97,
+        8,
+        5
+      ]
+    },
+    {
+      "bone": "apron_left",
+      "center": [
+        3,
+        17.5,
+        -7.2
+      ],
+      "size": [
+        6,
+        11,
+        1.2
+      ],
+      "material": "cloth",
+      "uv": [
+        233,
+        97,
+        15,
+        13
+      ]
+    },
+    {
+      "bone": "apron_left",
+      "center": [
+        3,
+        11.5,
+        -7.4
+      ],
+      "size": [
+        6,
+        3,
+        1.3
+      ],
+      "material": "rune",
+      "uv": [
+        251,
+        97,
+        15,
+        5
+      ]
+    },
+    {
+      "bone": "apron_left",
+      "center": [
+        4,
+        14.5,
+        -8
+      ],
+      "size": [
+        0.8,
+        1,
+        0.3
+      ],
+      "material": "rune",
+      "uv": [
+        269,
+        97,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "apron_left",
+      "center": [
+        2,
+        16.2,
+        -8
+      ],
+      "size": [
+        0.8,
+        1,
+        0.3
+      ],
+      "material": "rune",
+      "uv": [
+        275,
+        97,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "apron_left",
+      "center": [
+        4,
+        17.9,
+        -8
+      ],
+      "size": [
+        0.8,
+        1,
+        0.3
+      ],
+      "material": "rune",
+      "uv": [
+        281,
+        97,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "apron_left",
+      "center": [
+        2,
+        19.6,
+        -8
+      ],
+      "size": [
+        0.8,
+        1,
+        0.3
+      ],
+      "material": "rune",
+      "uv": [
+        287,
+        97,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        -8,
+        28.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "rune",
+      "uv": [
+        293,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        -3,
+        28.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "mor",
+      "uv": [
+        299,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        2,
+        28.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "mor",
+      "uv": [
+        305,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        7,
+        28.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "rune",
+      "uv": [
+        311,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        -8,
+        33.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "mor",
+      "uv": [
+        317,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        -3,
+        33.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "mor",
+      "uv": [
+        323,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        2,
+        33.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "rune",
+      "uv": [
+        329,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        7,
+        33.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "mor",
+      "uv": [
+        335,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        -8,
+        38.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "mor",
+      "uv": [
+        341,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        -3,
+        38.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "rune",
+      "uv": [
+        347,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        2,
+        38.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "mor",
+      "uv": [
+        353,
+        97,
+        3,
+        5
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        7,
+        38.0,
+        7.8
+      ],
+      "size": [
+        0.8,
+        4,
+        0.5
+      ],
+      "material": "mor",
+      "uv": [
+        359,
+        97,
+        3,
+        5
+      ]
+    }
+  ]
+}

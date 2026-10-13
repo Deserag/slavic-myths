@@ -1,0 +1,239 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\bogatyr\BogatyrContent.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\bogatyr\BogatyrContent.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\BogatyrClient.java:30: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+    @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+                                            ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\BogatyrClient.java:30: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+    @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+                                                                  ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileBogatyrRuntimeJava
+> Task :processBogatyrRuntimeResources UP-TO-DATE
+> Task :bogatyrRuntimeClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeBogatyrChecksLegacyClasspath UP-TO-DATE
+> Task :prepareBogatyrChecksRun
+
+> Task :runBogatyrChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[14:06:22] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[14:06:22] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[14:06:22] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[14:06:22] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[14:06:22] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[14:06:23] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[14:06:23] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.7.1 (slavicmyths)
+[14:06:23] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[14:06:23] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[14:06:24] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:06:24] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:06:24] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[14:06:25] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[14:06:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:06:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:06:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:06:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:06:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:06:29] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[14:06:31] [main/ERROR] [minecraft/Settings]: Failed to load properties from file: server.properties
+java.nio.file.NoSuchFileException: server.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431) ~[?:?] {}
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?] {}
+	at java.base/java.nio.file.Files.newInputStream(Files.java:159) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.Settings.loadFromFile(Settings.java:38) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerProperties.fromFile(DedicatedServerProperties.java:132) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerSettings.<init>(DedicatedServerSettings.java:12) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Main.main(Main.java:125) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeServerDevLaunchHandler.runService(NeoForgeServerDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+[14:06:31] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[14:06:31] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[14:06:31] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[14:06:31] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_bogatyr]
+[14:06:32] [main/INFO] [minecraft/RecipeManager]: Loaded 1778 recipes
+[14:06:32] [main/INFO] [minecraft/AdvancementTree]: Loaded 1575 advancements
+[14:06:32] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[14:06:32] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[14:06:33] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[14:06:33] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[14:06:33] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 188 ms
+[14:06:33] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[14:06:33] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[14:06:33] [Server thread/INFO] [minecraft/GameTestServer]: 48 tests are now running at position 4164656, -59, 11630211!
+[14:06:37] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (48 tests)...
+[14:06:37] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 3254ms or 65 ticks behind
+[14:06:37] [Server thread/INFO] [minecraft/GameTestServer]: [                                                ]
+[14:06:37] [Server thread/INFO] [Boss171/]: [Boss171] target=05d9751e-0301-4df7-88d9-69245e47f5e5 hit=idolishche_stomp armor=20 toughness=8.0 hpBefore=24.000 hpAfter=12.040 preArmorDamage=26.000 postArmorDamage=11.960 postEffectsDamage=11.960 affectedByShield=false statusEffects=[]
+BOGATYR_DIAMOND hit=stomp raw=26.0 hpBefore=24.0 hpAfter=12.040001 net=11.959999
+[14:06:37] [Server thread/INFO] [Boss171/]: [Boss171] target=5e3bd205-7884-44cb-8c55-700e1000617d hit=idolishche_stomp armor=20 toughness=8.0 hpBefore=24.000 hpAfter=14.760 preArmorDamage=22.000 postArmorDamage=9.240 postEffectsDamage=9.240 affectedByShield=false statusEffects=[]
+BOGATYR_DIAMOND hit=stomp raw=22.0 hpBefore=24.0 hpAfter=14.759999 net=9.240001
+[14:06:37] [Server thread/INFO] [Boss171/]: [Boss171] target=50bfda8d-73db-43c6-94ba-4be4bf025d9a hit=idolishche_fist armor=20 toughness=8.0 hpBefore=24.000 hpAfter=16.000 preArmorDamage=20.000 postArmorDamage=8.000 postEffectsDamage=8.000 affectedByShield=false statusEffects=[]
+BOGATYR_DIAMOND hit=fist raw=20.0 hpBefore=24.0 hpAfter=16.0 net=8.0
+[14:06:37] [Server thread/INFO] [Boss171/]: [Boss171] target=73397dd2-22b3-4272-8df0-0dc144b524bd hit=idolishche_fist armor=20 toughness=8.0 hpBefore=24.000 hpAfter=17.600 preArmorDamage=20.000 postArmorDamage=8.000 postEffectsDamage=6.400 affectedByShield=false statusEffects=[effect.minecraft.resistance, Duration: 100]
+[14:06:38] [Server thread/INFO] [Boss171/]: [Boss171] target=72ce2d38-e169-4ded-9084-c1638cef665b hit=idolishche_stomp armor=20 toughness=8.0 hpBefore=24.000 hpAfter=16.000 preArmorDamage=20.000 postArmorDamage=8.000 postEffectsDamage=8.000 affectedByShield=false statusEffects=[]
+BOGATYR_DIAMOND hit=stomp raw=20.0 hpBefore=24.0 hpAfter=16.0 net=8.0
+[14:06:38] [Server thread/INFO] [Boss171/]: [Boss171] target=eb805c77-d708-49aa-9783-b48011c50c38 hit=idolishche_fist armor=20 toughness=8.0 hpBefore=24.000 hpAfter=16.000 preArmorDamage=20.000 postArmorDamage=8.000 postEffectsDamage=8.000 affectedByShield=false statusEffects=[]
+[14:06:38] [Server thread/INFO] [Boss171/]: [Boss171] target=546f202a-3413-4f21-a7f2-69050c86c199 hit=idolishche_stomp armor=20 toughness=8.0 hpBefore=24.000 hpAfter=16.000 preArmorDamage=20.000 postArmorDamage=8.000 postEffectsDamage=8.000 affectedByShield=false statusEffects=[]
+[14:06:38] [Server thread/INFO] [minecraft/GameTestServer]: [+__++_+++++___+++_+++_+__++____+__+++++_++++_+_+]
+[14:06:39] [Server thread/INFO] [Boss171/]: [Boss171] target=bc6cb998-66e7-4f8e-b1fe-115c935b0fb1 hit=idolishche_fist armor=20 toughness=8.0 hpBefore=24.000 hpAfter=16.000 preArmorDamage=20.000 postArmorDamage=8.000 postEffectsDamage=8.000 affectedByShield=false statusEffects=[]
+[14:06:39] [Server thread/INFO] [Boss171/]: [Boss171] target=9261aaa2-b33b-4d86-967c-237438ca1651 hit=idolishche_grasp armor=20 toughness=8.0 hpBefore=24.000 hpAfter=17.160 preArmorDamage=18.000 postArmorDamage=6.840 postEffectsDamage=6.840 affectedByShield=false statusEffects=[]
+[14:06:39] [Server thread/INFO] [Boss171/]: [Boss171] target=d816f8a8-b140-4185-a1a5-67ca190c1ee7 hit=idolishche_grasp armor=20 toughness=8.0 hpBefore=24.000 hpAfter=17.160 preArmorDamage=18.000 postArmorDamage=6.840 postEffectsDamage=6.840 affectedByShield=false statusEffects=[]
+[14:06:39] [Server thread/INFO] [Boss171/]: [Boss171] target=fd4e97a4-9eb0-4764-8081-8975615291d4 hit=idolishche_breath armor=20 toughness=8.0 hpBefore=24.000 hpAfter=16.000 preArmorDamage=20.000 postArmorDamage=8.000 postEffectsDamage=8.000 affectedByShield=false statusEffects=[]
+[14:06:39] [Server thread/INFO] [Boss171/]: [Boss171] target=b00e1ebd-d3c2-481a-a0aa-dad433fcaf7d hit=idolishche_stomp armor=20 toughness=8.0 hpBefore=100.000 hpAfter=88.040 preArmorDamage=26.000 postArmorDamage=11.960 postEffectsDamage=11.960 affectedByShield=false statusEffects=[]
+[14:06:39] [Server thread/INFO] [Boss171/]: [Boss171] target=40abe87d-874f-4dc9-81e3-3b34fea0ab8b hit=idolishche_stomp armor=20 toughness=8.0 hpBefore=24.000 hpAfter=20.291 preArmorDamage=11.700 postArmorDamage=3.709 postEffectsDamage=3.709 affectedByShield=false statusEffects=[]
+[14:06:39] [Server thread/ERROR] [minecraft/LogTestReporter]: timelyjumpreduction failed at 4165041, -60, 11630435! Jump reduction 3.7089005
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_+++++___+++_+++_+__+++_+++__+++++X++++_+_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++__+++++++++__+++_++++++++++X++++_+_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++_++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [Boss171/]: [Boss171] target=40abe87d-874f-4dc9-81e3-3b34fea0ab8b hit=idolishche_grasp armor=20 toughness=8.0 hpBefore=20.291 hpAfter=13.451 preArmorDamage=18.000 postArmorDamage=6.840 postEffectsDamage=6.840 affectedByShield=false statusEffects=[]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [Boss171/]: [Boss171] target=40abe87d-874f-4dc9-81e3-3b34fea0ab8b hit=idolishche_stomp armor=20 toughness=8.0 hpBefore=13.451 hpAfter=9.742 preArmorDamage=11.700 postArmorDamage=3.709 postEffectsDamage=3.709 affectedByShield=false statusEffects=[]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [Boss171/]: [Boss171] target=40abe87d-874f-4dc9-81e3-3b34fea0ab8b hit=idolishche_breath armor=20 toughness=8.0 hpBefore=9.742 hpAfter=1.742 preArmorDamage=20.000 postArmorDamage=8.000 postEffectsDamage=8.000 affectedByShield=false statusEffects=[]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [Boss171/]: [Boss171] target=40abe87d-874f-4dc9-81e3-3b34fea0ab8b hit=indirectMagic armor=20 toughness=8.0 hpBefore=1.742 hpAfter=0.742 preArmorDamage=1.000 postArmorDamage=1.000 postEffectsDamage=1.000 affectedByShield=false statusEffects=[effect.minecraft.nausea, Duration: 50, effect.minecraft.slowness, Duration: 60, effect.minecraft.weakness, Duration: 80]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [Boss171/]: [Boss171] target=40abe87d-874f-4dc9-81e3-3b34fea0ab8b hit=indirectMagic armor=20 toughness=8.0 hpBefore=0.742 hpAfter=0.000 preArmorDamage=1.000 postArmorDamage=1.000 postEffectsDamage=1.000 affectedByShield=false statusEffects=[effect.minecraft.nausea, Duration: 50, effect.minecraft.slowness, Duration: 60, effect.minecraft.weakness, Duration: 80]
+[14:06:39] [Server thread/INFO] [minecraft/MinecraftServer]: BogatyrTest was killed by Foul Idolishche using magic
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++_+]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++X++++++++]
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: ========= 48 GAME TESTS COMPLETE IN 7.024 s ======================
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]:    - timelyjumpreduction
+[14:06:40] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[14:06:40] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[14:06:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[14:06:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[14:06:41] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[14:06:42] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[14:06:42] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[14:06:42] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[14:06:42] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[14:06:42] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[14:06:42] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[14:06:42] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runBogatyrChecks FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runBogatyrChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 33s
+9 actionable tasks: 4 executed, 5 up-to-date

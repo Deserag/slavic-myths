@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "version": "1.9.4",
+  "checks": 23304,
+  "sha256": "410407f918508c0b04fef14aca0c7cad7aa39b7d77c4279f2e1088bd870837c3",
+  "baseline_sha256": "ab2397c7ae3aada79526305a620715515e986a7974cc31a54bd056cd4088f4e9",
+  "old_resources_changed": [
+    "assets/slavicmyths/sounds.json",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json",
+    "data/minecraft/tags/damage_type/is_fire.json"
+  ],
+  "rigs": {
+    "extinguished_flame_guardian": {
+      "bones": 14,
+      "boxes": 92,
+      "atlas": 512
+    },
+    "defiled_spring_keeper": {
+      "bones": 34,
+      "boxes": 119,
+      "atlas": 512
+    }
+  },
+  "original_sound_events": 28,
+  "fragments": 2,
+  "new_fragment_recipes": 0,
+  "client_starts": 0,
+  "server_starts": 0,
+  "gameplay": "NOT_RUN",
+  "MP": "NOT_RUN",
+  "relog": "NOT_RUN",
+  "MSPT": "NOT_MEASURED",
+  "event_subscribers": 199,
+  "asset_reproducibility": "PASS",
+  "ordinary_193_loot_recipes_templates": "UNCHANGED"
+}

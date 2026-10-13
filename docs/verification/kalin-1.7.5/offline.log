@@ -1,0 +1,47 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\bogatyr\BogatyrContent.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\bogatyr\BogatyrContent.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\BogatyrClient.java:30: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+    @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+                                            ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\BogatyrClient.java:30: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+    @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+                                                                  ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\KalinClient.java:3: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                          ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\KalinClient.java:3: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                                                ^
+D:\slavic-myths\src\main\java\org\slavicmyths\kalin\KalinContent.java:13: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\kalin\KalinContent.java:13: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+D:\slavic-myths\src\main\java\org\slavicmyths\skim\SkimContent.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                        ^
+D:\slavic-myths\src\main\java\org\slavicmyths\skim\SkimContent.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+                                                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\finist\FinistEntity.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+10 warnings
+
+> Task :compileKalinOffline UP-TO-DATE
+
+> Task :kalinOfflineChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[22:00:41] [main/WARN] [minecraft/DetectedVersion]: Missing version information!
+KALIN OFFLINE PASS checks=149000 clips=48 NOT_GAME_RENDERING

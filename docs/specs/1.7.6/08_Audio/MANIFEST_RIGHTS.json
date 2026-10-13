@@ -1,0 +1,31 @@
+{
+  "description": "Original procedural synthetic item-effect sound cues, for game prototyping and integration",
+  "recorded_voices": false,
+  "third_party_recordings": false,
+  "sourced_from_films": false,
+  "generation": "Python-generated sine harmonics and seeded procedural noise, OGG Vorbis encoded with ffmpeg; all produced in this task",
+  "files": [
+    "rune_stomp_proc.ogg",
+    "rune_dispelling_proc.ogg",
+    "rune_pursuit_proc.ogg",
+    "rune_suppression_proc.ogg",
+    "rune_battle_line_proc.ogg",
+    "gift_ilya_block_reflect.ogg",
+    "gift_ilya_wave.ogg",
+    "gift_dobrynya_ring_ready.ogg",
+    "gift_dobrynya_counter.ogg",
+    "gift_alyosha_dodge.ogg",
+    "gift_finist_detection.ogg",
+    "gift_finist_warning.ogg",
+    "trophy_idol_heavy_guard.ogg",
+    "trophy_marinka_blink.ogg",
+    "trophy_skim_execute.ogg",
+    "trophy_kartaus_resistance.ogg",
+    "trophy_kalin_momentum_1.ogg",
+    "trophy_kalin_momentum_3.ogg",
+    "trophy_kalin_sweep.ogg",
+    "reward_claim_success.ogg",
+    "reward_rare_loot.ogg",
+    "rune_anvil_socket.ogg"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "bayun.purr.soft": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_purr_soft",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.purr.happy": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_purr_happy",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.mew.soft": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_mew_soft",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.mew.annoyed": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_mew_annoyed",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.breath": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_breath",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.settle": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_settle",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.stretch": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_stretch_exhale",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.groom": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_groom",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.milk": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_lap_milk",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.fish": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_chew_fish",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.pawstep": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_pawstep",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.warn": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_spell_warning",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.song.intro": {
+    "subtitle": "subtitles.slavicmyths.bayun.song",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_sleep_song",
+        "stream": true
+      }
+    ]
+  },
+  "bayun.song.loop": {
+    "subtitle": "subtitles.slavicmyths.bayun.song",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_song_loop",
+        "stream": true
+      }
+    ]
+  },
+  "bayun.pounce": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_pounce",
+        "stream": false
+      }
+    ]
+  },
+  "bayun.claw": {
+    "subtitle": "subtitles.slavicmyths.bayun.mew",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_claw_swoosh",
+        "stream": false
+      }
+    ]
+  },
+  "book.page": {
+    "subtitle": "subtitles.slavicmyths.book.page",
+    "sounds": [
+      {
+        "name": "slavicmyths:bayun_book_page",
+        "stream": false
+      }
+    ]
+  },
+  "book.open": {
+    "subtitle": "subtitles.slavicmyths.book.page",
+    "sounds": [
+      {
+        "name": "slavicmyths:book_open",
+        "stream": false
+      }
+    ]
+  },
+  "book.discovery": {
+    "subtitle": "subtitles.slavicmyths.book.page",
+    "sounds": [
+      {
+        "name": "slavicmyths:book_discovery",
+        "stream": false
+      }
+    ]
+  }
+}

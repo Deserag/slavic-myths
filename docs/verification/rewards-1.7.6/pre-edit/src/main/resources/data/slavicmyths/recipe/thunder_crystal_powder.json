@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:thunder_stone"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:thunder_crystal_powder",
+    "count": 4
+  }
+}

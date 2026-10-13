@@ -1,0 +1,84 @@
+{
+  "variants": {
+    "part=head,occupied=false,facing=north": {
+      "model": "slavicmyths:block/linen_bed_head",
+      "y": 0,
+      "uvlock": true
+    },
+    "part=head,occupied=false,facing=east": {
+      "model": "slavicmyths:block/linen_bed_head",
+      "y": 90,
+      "uvlock": true
+    },
+    "part=head,occupied=false,facing=south": {
+      "model": "slavicmyths:block/linen_bed_head",
+      "y": 180,
+      "uvlock": true
+    },
+    "part=head,occupied=false,facing=west": {
+      "model": "slavicmyths:block/linen_bed_head",
+      "y": 270,
+      "uvlock": true
+    },
+    "part=head,occupied=true,facing=north": {
+      "model": "slavicmyths:block/linen_bed_head",
+      "y": 0,
+      "uvlock": true
+    },
+    "part=head,occupied=true,facing=east": {
+      "model": "slavicmyths:block/linen_bed_head",
+      "y": 90,
+      "uvlock": true
+    },
+    "part=head,occupied=true,facing=south": {
+      "model": "slavicmyths:block/linen_bed_head",
+      "y": 180,
+      "uvlock": true
+    },
+    "part=head,occupied=true,facing=west": {
+      "model": "slavicmyths:block/linen_bed_head",
+      "y": 270,
+      "uvlock": true
+    },
+    "part=foot,occupied=false,facing=north": {
+      "model": "slavicmyths:block/linen_bed_foot",
+      "y": 0,
+      "uvlock": true
+    },
+    "part=foot,occupied=false,facing=east": {
+      "model": "slavicmyths:block/linen_bed_foot",
+      "y": 90,
+      "uvlock": true
+    },
+    "part=foot,occupied=false,facing=south": {
+      "model": "slavicmyths:block/linen_bed_foot",
+      "y": 180,
+      "uvlock": true
+    },
+    "part=foot,occupied=false,facing=west": {
+      "model": "slavicmyths:block/linen_bed_foot",
+      "y": 270,
+      "uvlock": true
+    },
+    "part=foot,occupied=true,facing=north": {
+      "model": "slavicmyths:block/linen_bed_foot",
+      "y": 0,
+      "uvlock": true
+    },
+    "part=foot,occupied=true,facing=east": {
+      "model": "slavicmyths:block/linen_bed_foot",
+      "y": 90,
+      "uvlock": true
+    },
+    "part=foot,occupied=true,facing=south": {
+      "model": "slavicmyths:block/linen_bed_foot",
+      "y": 180,
+      "uvlock": true
+    },
+    "part=foot,occupied=true,facing=west": {
+      "model": "slavicmyths:block/linen_bed_foot",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_stormstaffitem_1.title",
+  "icon": "slavicmyths:storm_staff",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:storm_staff"
+  ],
+  "advancements": [],
+  "links": []
+}

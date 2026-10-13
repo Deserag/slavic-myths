@@ -1,0 +1,7 @@
+finist 20 bones 116 cuboids atlas 256
+kartaus 21 bones 128 cuboids atlas 256
+finist_falcon 9 bones 22 cuboids atlas 128
+kartaus_banner 2 bones 7 cuboids atlas 256
+kartaus_curse_anchor 1 bones 3 cuboids atlas 256
+Approved sprites and 54 original audio files installed
+FINIST PRODUCTION PASS {"status": "PASS", "version": "1.7.4", "checks": 36387, "sha256": "d5539688425f79b1a9d93e1cf11d21f14ebc3827d030999e52b046198958f4fc", "clean_build": "PASS", "dedicated_cases": 1, "scenario_assertions": 75, "old_jar_entries_identical": 7331, "changed_prior_entries": ["META-INF/MANIFEST.MF", "META-INF/neoforge.mods.toml", "assets/slavicmyths/lang/en_us.json", "assets/slavicmyths/lang/ru_ru.json", "assets/slavicmyths/sounds.json", "org/slavicmyths/SlavicMyths.class", "org/slavicmyths/marinka/StoryPolicy.class", "org/slavicmyths/skim/HeroCalls.class"], "original_audio": 54, "client_launches": 0}

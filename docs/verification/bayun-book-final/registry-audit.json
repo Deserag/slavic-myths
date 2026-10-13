@@ -1,0 +1,4527 @@
+{
+  "items": [
+    {
+      "id": "slavicmyths:honey_flatbread",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:straw_block",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:hanging_willow_leaves",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:uzel_podveya",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:baked_turnip",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:raw_goat",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:iron_spear",
+      "class": "org.slavicmyths.item.SpearItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_flight",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:berry_bliny",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:wooden_barrel",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_fortitude",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bear_stew",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:polevik_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:crayfish_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:raspberry",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:linden_leaves",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_bench",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:duck_egg",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:raw_bear_meat",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:kurgan_column_fragment",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:blackcurrant",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:ancient_carolingian_sword",
+      "class": "org.slavicmyths.kurgan.BurialWeapon",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_mace",
+      "class": "org.slavicmyths.combat.MaceItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:tallow_candle",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:leshy_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_bedside_cabinet",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:short_shaft",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:amber",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pesigolovets_leader_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:earth_servant_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:veles_staff",
+      "class": "org.slavicmyths.artifact.VelesStaffItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:turnip_seeds",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:iskra_ovinnika",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ancient_depths_map",
+      "class": "org.slavicmyths.depths.DepthsMapItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:wall_shelf",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_rare_protection",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:chekan",
+      "class": "org.slavicmyths.combat.MaceItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_wood",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kikimora_lock",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mead_must",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pike_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:oat_groats",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:netherite_light_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ancient_idol",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_sapling",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_shield",
+      "class": "org.slavicmyths.item.MythShieldItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:idol_fragment",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bog_green_kurgan_stone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:finist_quiver",
+      "class": "org.slavicmyths.finist.FinistQuiver",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:letuchaya_maz",
+      "class": "org.slavicmyths.yaga.YagaUtilityItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pylayuschaya_cheshuya",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linen_headscarf",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ovinnik_claw",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:diamond_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_berserker",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:malt_sack",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_button",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:thunder_crystal_powder",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kikimora_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_stripped_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stripped_apple_wood",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:honey_bread",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:mining_rune_2",
+      "class": "org.slavicmyths.industry.IndustryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mining_rune_1",
+      "class": "org.slavicmyths.industry.IndustryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:traveler_charm",
+      "class": "org.slavicmyths.item.SimpleCharmItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_stripped_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:wheat_flour",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ring_of_grey_pack",
+      "class": "org.slavicmyths.finist.GreyPackRing",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stone_sulitsa",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bliny",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:raw_boar_meat",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:baked_apple",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:refining_hearth",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:altar",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rye_sheaf",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pea_soup",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:flail",
+      "class": "org.slavicmyths.combat.FlailItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_door",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:netherite_flail_ball",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stone_throwing_knife",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:grivna",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:gambeson",
+      "class": "net.minecraft.world.item.ArmorItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_throwing_knife",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:gold_light_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:diamond_flail_ball",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_nugget",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:plach_trava",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_sword",
+      "class": "net.minecraft.world.item.SwordItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:carp_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_hoe",
+      "class": "net.minecraft.world.item.HoeItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:storm_staff",
+      "class": "org.slavicmyths.item.StormStaffItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:otvar_lesnoy_zorkosti",
+      "class": "org.slavicmyths.yaga.YagaUtilityItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:fireweed",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:underground_guard_belt",
+      "class": "org.slavicmyths.industry.IndustryAccessories$Accessory",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:butchering_knife",
+      "class": "net.minecraft.world.item.SwordItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:sivka_whistle",
+      "class": "org.slavicmyths.sivka.SivkaWhistle",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bog_green_kurgan_stone_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_shadow",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_fence",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:forest_wolf_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:hardened_iron",
+      "class": "org.slavicmyths.equipment.UniqueEquipment$1",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_wall",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:sarafan",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_light_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:tugarinova_kozha",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:millstone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cooked_duck",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:pine_bench",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_fence_gate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bolotnik_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pale_blue_kurgan_cobblestone_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bog_green_kurgan_cobblestone_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:large_podzemnik_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_wood",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linen_bed",
+      "class": "net.minecraft.world.item.BedItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_throwing_knife",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_pickaxe",
+      "class": "net.minecraft.world.item.PickaxeItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:reed",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kurgan_wall_torch_holder",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:carved_oak_pillar",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:field_hoe",
+      "class": "org.slavicmyths.farming.FieldHoeItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:filled_pitcher",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_leaves",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:wind_boots",
+      "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:earth_gate_stone",
+      "class": "org.slavicmyths.earth.EarthContent$3",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:domestic_goat_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:flax_seeds",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:barley_sheaf",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_earth_heart_iii",
+      "class": "org.slavicmyths.earth.EarthContent$2",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:unresting_prince_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:nit_durnoy_doli",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_light_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_pressure_plate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:gold_dust",
+      "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_pressure_plate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:short_bow",
+      "class": "org.slavicmyths.combat.FieldBowItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:thunder_stone",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_planks",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_button",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:straw_nest",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kladovik_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ward_shield",
+      "class": "org.slavicmyths.equipment.UniqueEquipment$WardShield",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:st_johns_wort",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:large_animal_bone",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:firebird_feather",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:meshochek_trofeev",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_stool",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:goose_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:dried_mushrooms",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:seven_league_boots",
+      "class": "org.slavicmyths.item.SevenLeagueBoots",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:field_bundle",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_death_fragment",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:darkened_stripped_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ritual_bowl",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_wardrobe",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:darkened_fence",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_trapdoor",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_wind",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:fruit_pomace",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:chud_resident_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:princely_seal",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cider_must",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:flour",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ancient_beads",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_fence",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_door",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:nav_essence",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pork_stew",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:retribution_charm",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:meat_stew",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:lesnoy_nastoy_vosstanovleniya",
+      "class": "org.slavicmyths.yaga.YagaUtilityItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:training_dummy",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:netherite_throwing_knife",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cooked_crayfish",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:cranberry_sapling",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:loom_table",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:juniper_berries",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:berry_mors",
+      "class": "org.slavicmyths.item.BerryMorsItem",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:vodyanoy_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_fitting",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:goat_hide",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:baba_yaga_spawn_egg",
+      "class": "org.slavicmyths.yaga.YagaSpawnEgg",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ritual_knife",
+      "class": "net.minecraft.world.item.SwordItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:feeder",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_pressure_plate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:thunder_beer_mug",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:druzhinnik_table",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:firewood_bundle",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cooked_carp",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:pale_blue_kurgan_cobblestone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_sapling",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:fire_serpent_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mossy_bog_green_kurgan_cobblestone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linen_thread",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pancakes",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:forest_herbal_infusion",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:earth_heart_seal",
+      "class": "org.slavicmyths.earth.EarthContent$3",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:chud_artisan_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ancient_sign",
+      "class": "org.slavicmyths.item.AncientSignItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pool_spear",
+      "class": "org.slavicmyths.depth.PoolSpear",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:podzemnik_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pestle",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_leaves",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:lapis_dust",
+      "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:otvar_bodrosti",
+      "class": "org.slavicmyths.yaga.YagaUtilityItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_sapling",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ancient_chekan",
+      "class": "org.slavicmyths.combat.MaceItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_wood",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:torn_burial_ribbon",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:thunder_spear",
+      "class": "org.slavicmyths.item.HeavyWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_pressure_plate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:herb_pouch",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_door",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:gold_throwing_knife",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_berserker_fragment",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_trapdoor",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_spear",
+      "class": "org.slavicmyths.item.SpearItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:firebird_down",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:forest_beer_mug",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_berries",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:bogatyr_chestplate",
+      "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bone_arrow",
+      "class": "net.minecraft.world.item.ArrowItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:amber_block",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_stool",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:yagin_nastoy_stoykosti",
+      "class": "org.slavicmyths.yaga.YagaUtilityItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:soul_fragment",
+      "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:vetrovoy_uzel",
+      "class": "org.slavicmyths.hunt.WindKnotItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:svyazka_trav_yagi",
+      "class": "org.slavicmyths.yaga.YagaUtilityItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cooked_venison",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:restored_spear",
+      "class": "org.slavicmyths.kurgan.BurialWeapon",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:upyr_fang",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pustoy_ritualny_sosud",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_door",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:oat_porridge",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:cranberry",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:lunula",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:oat_seeds",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:iron_rings",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pea_seeds",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:tugarin_sword",
+      "class": "net.minecraft.world.item.SwordItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kurgan_druzhinnik_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:heavy_bow",
+      "class": "org.slavicmyths.combat.FieldBowItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_planks",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:diamond_spear",
+      "class": "org.slavicmyths.item.SpearItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cursed_volkolak_skull",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cooked_boar_meat",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:iron_blank",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_weapon_rack",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_mace",
+      "class": "org.slavicmyths.combat.MaceItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_stripped_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:oat_grain",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kurgan_stone_altar",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cabbage_seeds",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ancient_comb",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:basket",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ataman_sign",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_button",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:finist_bow",
+      "class": "org.slavicmyths.finist.FinistBow",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:hops",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:light_beer_mug",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:dark_beer_wort",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:diamond_light_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:nettle",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_wood",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:putevodny_klubok",
+      "class": "org.slavicmyths.yaga.YagaUtilityItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_hanging_sign",
+      "class": "net.minecraft.world.item.HangingSignItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:raw_pike",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:grave_cloth_scrap",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cooked_bear_meat",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:pesigolovets_scout_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:storage_shelf",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:fruit_press",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:netherite_flail",
+      "class": "org.slavicmyths.combat.FlailItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pesigolovets_hunter_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:raw_goose",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:pale_blue_kurgan_stone_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pale_blue_kurgan_cobblestone_wall",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:wall_carving",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:iron_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:lingonberry_sapling",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:birch_bark_scroll",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ritual_candle",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:spear",
+      "class": "org.slavicmyths.item.SpearItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:veles_dark_beer_mug",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bandit_archer_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:flail_chain",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:soul",
+      "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:old_button",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:organic_fertilizer",
+      "class": "org.slavicmyths.farming.FertilizerItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:forest_mix",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:path_stone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:depth_amulet",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_button",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:victor_spear",
+      "class": "org.slavicmyths.item.SpearItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bog_green_kurgan_stone_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:oko_likha",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_resilience",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stewed_turnip",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:cabbage_pie",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:rye_bread",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:flying_mortar",
+      "class": "org.slavicmyths.flight.FlightItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:goose_egg",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pale_blue_kurgan_stone_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:small_keg",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:flail_handle",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_ore",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:settlement_chest",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cooked_goose",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:brown_bear_spawn_egg",
+      "class": "org.slavicmyths.item.WildlifeFamilyEgg",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:netherite_spear",
+      "class": "org.slavicmyths.item.SpearItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_table",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_flail",
+      "class": "org.slavicmyths.combat.FlailItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:old_arrowhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bog_green_kurgan_cobblestone_wall",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:sosud_ognennogo_dyhaniya",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:gold_flail_ball",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stag_spawn_egg",
+      "class": "org.slavicmyths.item.WildlifeFamilyEgg",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:haystack",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:klyk_volkolaka",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_bedside_cabinet",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:otvar_ochishcheniya",
+      "class": "org.slavicmyths.yaga.YagaUtilityItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_trapdoor",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_sacrifice",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:flax_stalk",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bound_soul",
+      "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ancient_coin",
+      "class": "org.slavicmyths.item.AncientCoinItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:gusli",
+      "class": "org.slavicmyths.artifact.GusliItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cursed_skull_cache",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:buried_volkhv_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:nochnoy_kogot",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:blueberry_sapling",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:karavai",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:darkened_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_forest",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:upyr_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:wooden_mug",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:large_basket",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:vegetable_stew",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:pine_door",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:honey_beer_mug",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:berry_pie",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:kost_likha",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:resin_ring",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stone_flail_ball",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_trapdoor",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_midday",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cabbage",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:perunite_shovel",
+      "class": "net.minecraft.world.item.ShovelItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:uzel_durnoy_doli",
+      "class": "org.slavicmyths.hunt.BossRitualItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bog_green_kurgan_stone_wall",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_sulitsa",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:tugarin_zmey_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:honey_bliny",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:rowan_sign",
+      "class": "net.minecraft.world.item.SignItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:venison_stew",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:forest_beer_wort",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:grey_wolf_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_wardrobe",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stone_flail",
+      "class": "org.slavicmyths.combat.FlailItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:carved_burial_stone_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:amber_charm",
+      "class": "org.slavicmyths.item.AmberCharmItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_spear",
+      "class": "org.slavicmyths.item.SpearItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_flail_ball",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:meat_bliny",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:linden_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:lingonberry",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:purified_iron_ingot",
+      "class": "org.slavicmyths.industry.IndustryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_crushing",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:voevoda_insignia",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:wooden_crate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cooked_goat",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:apple_leaves",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_trapdoor",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:flying_broom",
+      "class": "org.slavicmyths.flight.FlightItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:darkened_planks",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:gold_spear",
+      "class": "org.slavicmyths.item.SpearItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mead_bottle",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pottery_fragment",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:smoked_carp",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:perunite_flail",
+      "class": "org.slavicmyths.combat.FlailItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:flax_fiber",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bandit_fighter_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:produce_crate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:coal_dust",
+      "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:restored_carolingian_sword",
+      "class": "org.slavicmyths.kurgan.BurialWeapon",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:retainer_shield",
+      "class": "org.slavicmyths.item.MythShieldItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_table",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rusalka_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_chestplate",
+      "class": "net.minecraft.world.item.ArmorItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_fence_gate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:burial_stone_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_thunder",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:witch_berry_wort",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:berry_mash",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:juniper_blend",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rolling_pin",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linen_apron",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:gold_flail",
+      "class": "org.slavicmyths.combat.FlailItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_stripped_wood",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:duck_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pale_blue_kurgan_stone_wall",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:dough",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:veles_amulet",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:prospectors_ring",
+      "class": "org.slavicmyths.industry.IndustryAccessories$Accessory",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:doe_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stripped_apple_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:carved_birch_planks",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:runic_anvil",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pale_blue_kurgan_cobblestone_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:grave_ward",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:miners_goggles",
+      "class": "org.slavicmyths.industry.IndustryAccessories$Accessory",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:watering_can",
+      "class": "org.slavicmyths.farming.WateringCanItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ancient_water_sign",
+      "class": "org.slavicmyths.depth.WaterSignItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:berdysh",
+      "class": "org.slavicmyths.item.HeavyWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ground_wormwood",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:drying_rack",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_sapling",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:goat_milk_bucket",
+      "class": "net.minecraft.world.item.MilkBucketItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:earth_shelter_stone",
+      "class": "org.slavicmyths.earth.EarthContent$3",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:battle_axe",
+      "class": "net.minecraft.world.item.AxeItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:zolny_obereg",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:wooden_tub",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:club",
+      "class": "org.slavicmyths.item.ClubItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ritual_charcoal",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:meat_pie",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:linden_wood",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_shelf",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_ore",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:warding_charm",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ceramic_pitcher",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:darkened_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:nightingale_whistle",
+      "class": "org.slavicmyths.bandit.NightingaleWhistle",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mace",
+      "class": "org.slavicmyths.combat.MaceItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ancient_fibula",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:plate_cuirass",
+      "class": "org.slavicmyths.combat.CombatEquipment$PlateArmor",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:raspberry_pancakes",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:earth_pillar_stone",
+      "class": "org.slavicmyths.earth.EarthContent$3",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kurgan_rubble",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:flax_breaker",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bog_green_kurgan_cobblestone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_sign",
+      "class": "net.minecraft.world.item.SignItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:darkened_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_sapling",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:iron_light_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:diamond_flail",
+      "class": "org.slavicmyths.combat.FlailItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:raw_venison",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:stewed_cabbage",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:linen_shirt",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_dust",
+      "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:fern_flower",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kurgan_voevoda_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_sulitsa",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:darkened_trapdoor",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:clear_sight_helmet",
+      "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:darkened_door",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:us_tugarina",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_ominous_aura",
+      "class": "org.slavicmyths.industry.IndustryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ognennoe_pero",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cooked_pike",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:skatert",
+      "class": "org.slavicmyths.artifact.SkatertItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:old_hook",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:podvey_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:honey_infusion",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_leggings",
+      "class": "net.minecraft.world.item.ArmorItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_shelf",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_floating_weapon",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:household_chest",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:metal_pot",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:barley_groats",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:berry_porridge",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:poludnitsa_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:nav_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:folk_vest",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:water_grass",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kvass_wort",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:oat_sheaf",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_pie",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:pea_pod",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:pine_pressure_plate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:spinning_wheel",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bath_stone",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:old_buckle",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:carved_oak_block",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:druzhinnik_blade_fragment",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ovinnaya_zola",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:spoiled_brew",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pale_blue_kurgan_stone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:vodyanoy_net",
+      "class": "org.slavicmyths.depth.VodyanoyNetItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_stripped_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:beef_stew",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:rowan_planks",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bandit_token",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_fence_gate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:netherite_sulitsa",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_fence",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:honey_beer_wort",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:sosud_podveya",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:carved_staff",
+      "class": "net.minecraft.world.item.SwordItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rye_flour",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:berry_mors_mug",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:ancient_spear",
+      "class": "org.slavicmyths.kurgan.BurialWeapon",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:nightingale_mark",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_stripped_wood",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:chud_bloomery",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pearl_fragment",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:hopped_beer_wort",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_fence_gate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:poyas_tugarina",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:dark_beer_mug",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:empowered_soul",
+      "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:iron_flail_ball",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:noon_sickle",
+      "class": "net.minecraft.world.item.SwordItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bandit_heavy_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linen_cloth",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:woven_belt",
+      "class": "org.slavicmyths.textile.BeltItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:fishing_net",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cracked_bog_green_kurgan_cobblestone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:nochnitsa_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:diamond_sulitsa",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bear_cub_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:obereg_ohotnika",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bog_iron_lump",
+      "class": "org.slavicmyths.industry.IndustryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:raw_carp",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:bath_stove",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:sivka_burka_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_dagger",
+      "class": "net.minecraft.world.item.SwordItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:lore_book",
+      "class": "org.slavicmyths.item.LoreBookItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_stripped_wood",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:likho_staff",
+      "class": "org.slavicmyths.combat.LikhoStaffItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ataman_flail",
+      "class": "org.slavicmyths.combat.MaceItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:white_lily",
+      "class": "net.minecraft.world.item.PlaceOnWaterBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cloth_bag",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:fortune_rune_1",
+      "class": "org.slavicmyths.industry.IndustryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:flax",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:darkened_fence_gate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:netherite_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_blood",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:berry_mors_pitcher",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kurgan_pottery",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:purified_copper_ingot",
+      "class": "org.slavicmyths.industry.IndustryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bast_shoes",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:shield_boss_fragment",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linen_ports",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:volkolak_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:noon_ear",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stone_path_amulet",
+      "class": "org.slavicmyths.industry.IndustryAccessories$Accessory",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_life",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:leshy_heart",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:raw_crayfish",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:nightingale_dagger",
+      "class": "org.slavicmyths.bandit.NightingaleDagger",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_stripped_wood",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bannik_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_chair",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:blueberry_pancakes",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:barley_seeds",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:vihrevaya_nit",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:burial_log_coffin",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_ingot",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cracked_bog_green_kurgan_cobblestone_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:diamond_throwing_knife",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:barley_grain",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:gold_sulitsa",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_bliny",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:igosha_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_axe",
+      "class": "net.minecraft.world.item.AxeItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bone_knife",
+      "class": "net.minecraft.world.item.SwordItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:weapon_wrap",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_cider_bottle",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:signal_bell",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:indomitability_leggings",
+      "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_strength",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stepnoy_shtandart",
+      "class": "org.slavicmyths.hunt.BossRitualItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bog_iron_ore",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:blackcurrant_sapling",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pool_stone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:purification_flux",
+      "class": "org.slavicmyths.industry.IndustryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:witch_berry_beer_mug",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_chair",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_boots",
+      "class": "net.minecraft.world.item.ArmorItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:animal_fat",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:hopped_beer_mug",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:honey_baked_apple",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:pine_leaves",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:birch_bark",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mushroom_stew",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:bandit_senior_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_stairs",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:firebird_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_rare_protection_fragment",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kurgan_hanging_brazier",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:nightingale_lock",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:light_beer_wort",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cursed_volkolak_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_heat",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ataman_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_sign",
+      "class": "net.minecraft.world.item.SignItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:willow_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:malted_barley",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:thunder_beer_wort",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_speed",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bath_broom",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_flail_ball",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:diamond_dust",
+      "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_planks",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:volchiy_poyas",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:storage_sack",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:hunter_charm",
+      "class": "org.slavicmyths.item.SimpleCharmItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_chisel",
+      "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:thunder_axe",
+      "class": "org.slavicmyths.item.ThunderAxeItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:dark_bottle",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:barley_porridge",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:smoldering_feather",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_protection",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:iron_sulitsa",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:raspberry_sapling",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:sickle",
+      "class": "org.slavicmyths.farming.SickleItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:volkhv_amulet",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rye_grain",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:dried_berries",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:kvass_mug",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:naboyka_tugarina",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_fence",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stone_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stone_light_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:veles_dark_wort",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:raw_duck",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:meat_pancakes",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:pine_weapon_rack",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:kurgan_ritual_bowl",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:boar_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pool_pearl",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:stone_mace",
+      "class": "org.slavicmyths.combat.MaceItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:hops_cutting",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:spear_shaft",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:obereg_padayuschey_zvezdy",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mushroom_stew_slavic",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:elder_vodyanoy_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_button",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:domovoy_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:badnyak",
+      "class": "org.slavicmyths.artifact.BadnyakItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_sign",
+      "class": "net.minecraft.world.item.SignItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bog_green_kurgan_cobblestone_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:pine_planks",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:hearth",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rowan_fence",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perun_ring",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:zmeinaya_pryazhka",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:wormwood",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ovinnik_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ukha",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:odnoglazyy_obereg",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_flight_fragment",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:chud_guard_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:bandit_horn",
+      "class": "org.slavicmyths.bandit.NightingaleWhistle",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:nightingale_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perunite_helmet",
+      "class": "net.minecraft.world.item.ArmorItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:silver_sword",
+      "class": "net.minecraft.world.item.SwordItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:fermentation_vat",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_fence_gate",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:sealed_kurgan_masonry",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_sign",
+      "class": "net.minecraft.world.item.SignItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:linden_log",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:rune_death",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:iron_throwing_knife",
+      "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:carved_burial_stone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:invisibility_cap",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:mysterious_black_feather",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:iron_dust",
+      "class": "org.slavicmyths.rpg.RuneFoundation$FoundationItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:armorer_table",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:gold_spearhead",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:blueberry",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:kitchen_table",
+      "class": "net.minecraft.world.item.BlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ohotnichiy_rog",
+      "class": "org.slavicmyths.hunt.HuntItems",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:apple_juice_bottle",
+      "class": "org.slavicmyths.brewing.BeverageItem",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:hunter_belt",
+      "class": "org.slavicmyths.item.FolkAccessoryItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:perun_charm",
+      "class": "org.slavicmyths.item.PerunCharmItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:wooden_mace",
+      "class": "org.slavicmyths.combat.MaceItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:likho_one_eyed_spawn_egg",
+      "class": "net.neoforged.neoforge.common.DeferredSpawnEggItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:turnip",
+      "class": "net.minecraft.world.item.Item",
+      "food": true
+    },
+    {
+      "id": "slavicmyths:rye_seeds",
+      "class": "net.minecraft.world.item.ItemNameBlockItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:forest_charm",
+      "class": "org.slavicmyths.item.SimpleCharmItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ember_heart",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:ground_st_johns_wort",
+      "class": "net.minecraft.world.item.Item",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:blank_rune_3",
+      "class": "org.slavicmyths.rpg.RuneFoundation$BlankItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:blank_rune_1",
+      "class": "org.slavicmyths.rpg.RuneFoundation$BlankItem",
+      "food": false
+    },
+    {
+      "id": "slavicmyths:blank_rune_2",
+      "class": "org.slavicmyths.rpg.RuneFoundation$BlankItem",
+      "food": false
+    }
+  ],
+  "entity_type": [
+    "slavicmyths:unresting_prince",
+    "slavicmyths:igosha",
+    "slavicmyths:bandit_fighter",
+    "slavicmyths:carp",
+    "slavicmyths:tugarin_zmey",
+    "slavicmyths:bannik",
+    "slavicmyths:pike",
+    "slavicmyths:boar",
+    "slavicmyths:forest_wolf",
+    "slavicmyths:domovoy",
+    "slavicmyths:bolotnik",
+    "slavicmyths:baba_yaga",
+    "slavicmyths:nochnitsa",
+    "slavicmyths:kuzya",
+    "slavicmyths:bandit_heavy",
+    "slavicmyths:crayfish",
+    "slavicmyths:volkolak",
+    "slavicmyths:polevik",
+    "slavicmyths:thrown_net",
+    "slavicmyths:flying_broom",
+    "slavicmyths:nightingale",
+    "slavicmyths:earth_spirit",
+    "slavicmyths:chud_artisan",
+    "slavicmyths:firebird",
+    "slavicmyths:chud_guard",
+    "slavicmyths:kurgan_voevoda",
+    "slavicmyths:bandit_senior",
+    "slavicmyths:ember_clump",
+    "slavicmyths:grey_wolf",
+    "slavicmyths:cursed_volkolak",
+    "slavicmyths:chud_resident",
+    "slavicmyths:rusalka",
+    "slavicmyths:vodyanoy",
+    "slavicmyths:kladovik_spike",
+    "slavicmyths:kladovik",
+    "slavicmyths:carcass",
+    "slavicmyths:elder_vodyanoy",
+    "slavicmyths:bear_cub",
+    "slavicmyths:ataman",
+    "slavicmyths:serpent_projection",
+    "slavicmyths:kladovik_stone",
+    "slavicmyths:stag",
+    "slavicmyths:ovinnik",
+    "slavicmyths:flying_mortar",
+    "slavicmyths:finist_magic_arrow",
+    "slavicmyths:brown_bear",
+    "slavicmyths:buried_volkhv",
+    "slavicmyths:podvey",
+    "slavicmyths:rune_visual",
+    "slavicmyths:kikimora",
+    "slavicmyths:domestic_goat",
+    "slavicmyths:likho_one_eyed",
+    "slavicmyths:pesigolovets",
+    "slavicmyths:sivka_burka",
+    "slavicmyths:bandit_archer",
+    "slavicmyths:leshy",
+    "slavicmyths:earth_encounter_actor",
+    "slavicmyths:duck",
+    "slavicmyths:hot_stone",
+    "slavicmyths:earth_servant",
+    "slavicmyths:kurgan_druzhinnik",
+    "slavicmyths:doe",
+    "slavicmyths:fire_serpent",
+    "slavicmyths:goose",
+    "slavicmyths:upyr",
+    "slavicmyths:tugarin_stone",
+    "slavicmyths:furniture_seat",
+    "slavicmyths:weapon_projectile",
+    "slavicmyths:poludnitsa",
+    "slavicmyths:kurgan_bolt",
+    "slavicmyths:large_podzemnik",
+    "slavicmyths:nav",
+    "slavicmyths:podzemnik",
+    "slavicmyths:doghead_arrow"
+  ],
+  "block": [
+    "slavicmyths:rowan_trapdoor",
+    "slavicmyths:straw_block",
+    "slavicmyths:hanging_willow_leaves",
+    "slavicmyths:bog_green_kurgan_stone_wall",
+    "slavicmyths:barley_crop",
+    "slavicmyths:rowan_sign",
+    "slavicmyths:apple_wall_hanging_sign",
+    "slavicmyths:pine_wardrobe",
+    "slavicmyths:wooden_barrel",
+    "slavicmyths:carved_burial_stone_slab",
+    "slavicmyths:rowan_log",
+    "slavicmyths:linden_leaves",
+    "slavicmyths:linden_bench",
+    "slavicmyths:linden_slab",
+    "slavicmyths:kurgan_column_fragment",
+    "slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab",
+    "slavicmyths:pine_wall_sign",
+    "slavicmyths:tallow_candle",
+    "slavicmyths:linden_bedside_cabinet",
+    "slavicmyths:wooden_crate",
+    "slavicmyths:apple_leaves",
+    "slavicmyths:willow_trapdoor",
+    "slavicmyths:darkened_planks",
+    "slavicmyths:apple_stairs",
+    "slavicmyths:cabbage_crop",
+    "slavicmyths:produce_crate",
+    "slavicmyths:linden_table",
+    "slavicmyths:pine_fence_gate",
+    "slavicmyths:burial_stone_slab",
+    "slavicmyths:wall_shelf",
+    "slavicmyths:rye_crop",
+    "slavicmyths:pine_stripped_wood",
+    "slavicmyths:linden_stairs",
+    "slavicmyths:pale_blue_kurgan_stone_wall",
+    "slavicmyths:rowan_wood",
+    "slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs",
+    "slavicmyths:stripped_apple_log",
+    "slavicmyths:carved_birch_planks",
+    "slavicmyths:runic_anvil",
+    "slavicmyths:pale_blue_kurgan_cobblestone_slab",
+    "slavicmyths:ancient_idol",
+    "slavicmyths:linden_sapling",
+    "slavicmyths:bog_green_kurgan_stone",
+    "slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs",
+    "slavicmyths:drying_rack",
+    "slavicmyths:willow_sapling",
+    "slavicmyths:rowan_button",
+    "slavicmyths:pine_stripped_log",
+    "slavicmyths:stripped_apple_wood",
+    "slavicmyths:earth_shelter_stone",
+    "slavicmyths:willow_slab",
+    "slavicmyths:willow_stripped_log",
+    "slavicmyths:wooden_tub",
+    "slavicmyths:linden_wood",
+    "slavicmyths:pine_shelf",
+    "slavicmyths:rowan_wall_sign",
+    "slavicmyths:perunite_ore",
+    "slavicmyths:turnip_crop",
+    "slavicmyths:oat_crop",
+    "slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall",
+    "slavicmyths:apple_slab",
+    "slavicmyths:darkened_log",
+    "slavicmyths:refining_hearth",
+    "slavicmyths:altar",
+    "slavicmyths:rye_sheaf",
+    "slavicmyths:rowan_door",
+    "slavicmyths:earth_pillar_stone",
+    "slavicmyths:kurgan_rubble",
+    "slavicmyths:flax_breaker",
+    "slavicmyths:bog_green_kurgan_cobblestone",
+    "slavicmyths:willow_sign",
+    "slavicmyths:darkened_stairs",
+    "slavicmyths:pine_sapling",
+    "slavicmyths:plach_trava",
+    "slavicmyths:darkened_trapdoor",
+    "slavicmyths:darkened_door",
+    "slavicmyths:fireweed",
+    "slavicmyths:skatert",
+    "slavicmyths:bog_green_kurgan_stone_slab",
+    "slavicmyths:linden_fence",
+    "slavicmyths:pine_log",
+    "slavicmyths:linden_shelf",
+    "slavicmyths:cracked_bog_green_kurgan_cobblestone_wall",
+    "slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs",
+    "slavicmyths:household_chest",
+    "slavicmyths:apple_log",
+    "slavicmyths:millstone",
+    "slavicmyths:water_grass",
+    "slavicmyths:pine_bench",
+    "slavicmyths:oat_sheaf",
+    "slavicmyths:rowan_fence_gate",
+    "slavicmyths:pale_blue_kurgan_cobblestone_stairs",
+    "slavicmyths:bog_green_kurgan_cobblestone_stairs",
+    "slavicmyths:willow_wood",
+    "slavicmyths:pine_pressure_plate",
+    "slavicmyths:linen_bed",
+    "slavicmyths:spinning_wheel",
+    "slavicmyths:carved_oak_block",
+    "slavicmyths:reed",
+    "slavicmyths:kurgan_wall_torch_holder",
+    "slavicmyths:carved_oak_pillar",
+    "slavicmyths:pale_blue_kurgan_stone",
+    "slavicmyths:rowan_leaves",
+    "slavicmyths:earth_gate_stone",
+    "slavicmyths:rowan_stripped_log",
+    "slavicmyths:barley_sheaf",
+    "slavicmyths:rowan_planks",
+    "slavicmyths:apple_fence_gate",
+    "slavicmyths:willow_fence",
+    "slavicmyths:apple_pressure_plate",
+    "slavicmyths:linden_pressure_plate",
+    "slavicmyths:pine_slab",
+    "slavicmyths:linden_planks",
+    "slavicmyths:pine_button",
+    "slavicmyths:straw_nest",
+    "slavicmyths:st_johns_wort",
+    "slavicmyths:pine_stool",
+    "slavicmyths:rowan_stripped_wood",
+    "slavicmyths:chud_bloomery",
+    "slavicmyths:darkened_stripped_log",
+    "slavicmyths:linden_wardrobe",
+    "slavicmyths:darkened_fence",
+    "slavicmyths:willow_fence_gate",
+    "slavicmyths:apple_trapdoor",
+    "slavicmyths:fishing_net",
+    "slavicmyths:pine_fence",
+    "slavicmyths:cracked_bog_green_kurgan_cobblestone",
+    "slavicmyths:willow_door",
+    "slavicmyths:bath_stove",
+    "slavicmyths:linden_stripped_wood",
+    "slavicmyths:training_dummy",
+    "slavicmyths:white_lily",
+    "slavicmyths:loom_table",
+    "slavicmyths:juniper_berries",
+    "slavicmyths:cloth_bag",
+    "slavicmyths:willow_stairs",
+    "slavicmyths:flax",
+    "slavicmyths:darkened_fence_gate",
+    "slavicmyths:feeder",
+    "slavicmyths:rowan_pressure_plate",
+    "slavicmyths:druzhinnik_table",
+    "slavicmyths:firewood_bundle",
+    "slavicmyths:pale_blue_kurgan_cobblestone",
+    "slavicmyths:yaga_chicken_leg",
+    "slavicmyths:flax_crop",
+    "slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs",
+    "slavicmyths:rowan_sapling",
+    "slavicmyths:mossy_bog_green_kurgan_cobblestone",
+    "slavicmyths:kurgan_pottery",
+    "slavicmyths:apple_wall_sign",
+    "slavicmyths:earth_heart_seal",
+    "slavicmyths:yaga_bone_charm",
+    "slavicmyths:willow_leaves",
+    "slavicmyths:raspberry_bush",
+    "slavicmyths:apple_sapling",
+    "slavicmyths:willow_stripped_wood",
+    "slavicmyths:pine_wood",
+    "slavicmyths:lingonberry_bush",
+    "slavicmyths:linden_chair",
+    "slavicmyths:willow_pressure_plate",
+    "slavicmyths:linden_door",
+    "slavicmyths:burial_log_coffin",
+    "slavicmyths:cracked_bog_green_kurgan_cobblestone_slab",
+    "slavicmyths:pine_trapdoor",
+    "slavicmyths:signal_bell",
+    "slavicmyths:amber_block",
+    "slavicmyths:linden_stool",
+    "slavicmyths:bog_iron_ore",
+    "slavicmyths:pool_stone",
+    "slavicmyths:pine_chair",
+    "slavicmyths:apple_door",
+    "slavicmyths:pine_leaves",
+    "slavicmyths:rowan_stairs",
+    "slavicmyths:kurgan_hanging_brazier",
+    "slavicmyths:willow_planks",
+    "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab",
+    "slavicmyths:pine_sign",
+    "slavicmyths:willow_log",
+    "slavicmyths:linden_weapon_rack",
+    "slavicmyths:hops_crop",
+    "slavicmyths:linden_stripped_log",
+    "slavicmyths:linden_wall_sign",
+    "slavicmyths:kurgan_stone_altar",
+    "slavicmyths:apple_planks",
+    "slavicmyths:storage_sack",
+    "slavicmyths:basket",
+    "slavicmyths:blueberry_bush",
+    "slavicmyths:willow_button",
+    "slavicmyths:mossy_pale_blue_kurgan_cobblestone",
+    "slavicmyths:nettle",
+    "slavicmyths:apple_wood",
+    "slavicmyths:apple_hanging_sign",
+    "slavicmyths:apple_fence",
+    "slavicmyths:willow_wall_sign",
+    "slavicmyths:storage_shelf",
+    "slavicmyths:fruit_press",
+    "slavicmyths:pale_blue_kurgan_stone_slab",
+    "slavicmyths:pine_weapon_rack",
+    "slavicmyths:kurgan_ritual_bowl",
+    "slavicmyths:pale_blue_kurgan_cobblestone_wall",
+    "slavicmyths:wall_carving",
+    "slavicmyths:ritual_candle",
+    "slavicmyths:rowan_slab",
+    "slavicmyths:apple_button",
+    "slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall",
+    "slavicmyths:yaga_cauldron",
+    "slavicmyths:linden_sign",
+    "slavicmyths:pea_crop",
+    "slavicmyths:bog_green_kurgan_cobblestone_slab",
+    "slavicmyths:path_stone",
+    "slavicmyths:pine_planks",
+    "slavicmyths:hearth",
+    "slavicmyths:linden_button",
+    "slavicmyths:rowan_fence",
+    "slavicmyths:bog_green_kurgan_stone_stairs",
+    "slavicmyths:wormwood",
+    "slavicmyths:cranberry_bush",
+    "slavicmyths:pale_blue_kurgan_stone_stairs",
+    "slavicmyths:small_keg",
+    "slavicmyths:silver_ore",
+    "slavicmyths:settlement_chest",
+    "slavicmyths:pine_table",
+    "slavicmyths:fermentation_vat",
+    "slavicmyths:linden_fence_gate",
+    "slavicmyths:sealed_kurgan_masonry",
+    "slavicmyths:bog_green_kurgan_cobblestone_wall",
+    "slavicmyths:apple_sign",
+    "slavicmyths:linden_log",
+    "slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab",
+    "slavicmyths:haystack",
+    "slavicmyths:pine_stairs",
+    "slavicmyths:carved_burial_stone",
+    "slavicmyths:pine_bedside_cabinet",
+    "slavicmyths:yaga_dried_herbs",
+    "slavicmyths:linden_trapdoor",
+    "slavicmyths:armorer_table",
+    "slavicmyths:cracked_pale_blue_kurgan_cobblestone",
+    "slavicmyths:kitchen_table",
+    "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall",
+    "slavicmyths:cursed_skull_cache",
+    "slavicmyths:blackcurrant_bush",
+    "slavicmyths:darkened_slab",
+    "slavicmyths:large_basket",
+    "slavicmyths:pine_door"
+  ],
+  "worldgen/feature": [
+    "slavicmyths:bog_iron",
+    "slavicmyths:blueberry_garden_patch",
+    "slavicmyths:rowan_tree",
+    "slavicmyths:cranberry_garden_patch",
+    "slavicmyths:ancient_shrine",
+    "slavicmyths:berry_patch",
+    "slavicmyths:bathhouse",
+    "slavicmyths:path_shrine",
+    "slavicmyths:blackcurrant_garden_patch",
+    "slavicmyths:lingonberry_garden_patch",
+    "slavicmyths:apple_tree",
+    "slavicmyths:linden_tree",
+    "slavicmyths:deep_pool",
+    "slavicmyths:pine_tree",
+    "slavicmyths:swamp_nature",
+    "slavicmyths:old_barn",
+    "slavicmyths:willow_tree",
+    "slavicmyths:water_patch",
+    "slavicmyths:raspberry_garden_patch"
+  ],
+  "worldgen/structure": [
+    "slavicmyths:chud_abandoned",
+    "slavicmyths:bandit_camp_large",
+    "slavicmyths:kurgan_great",
+    "slavicmyths:bandit_camp_medium",
+    "slavicmyths:chud_city",
+    "slavicmyths:underwater_ruins",
+    "slavicmyths:swamp_watchtower",
+    "slavicmyths:bog_causeway",
+    "slavicmyths:fishing_camp",
+    "slavicmyths:flooded_shrine",
+    "slavicmyths:kurgan_small",
+    "slavicmyths:abandoned_settlement",
+    "slavicmyths:bandit_camp_small",
+    "slavicmyths:gorodishche",
+    "slavicmyths:swamp_hut",
+    "slavicmyths:kurgan_warrior",
+    "slavicmyths:swamp_remnants"
+  ],
+  "worldgen/configured_feature": [
+    "slavicmyths:bog_iron",
+    "slavicmyths:swamp_oak",
+    "slavicmyths:cranberry_garden_patch",
+    "slavicmyths:pine_sapling",
+    "slavicmyths:patch_juniper",
+    "slavicmyths:lingonberry_garden_patch",
+    "slavicmyths:ore_silver",
+    "slavicmyths:patch_wormwood",
+    "slavicmyths:pine_12",
+    "slavicmyths:rowan_24",
+    "slavicmyths:pine_24",
+    "slavicmyths:rowan_12",
+    "slavicmyths:raspberry_garden_patch",
+    "slavicmyths:willow_24",
+    "slavicmyths:patch_nettle",
+    "slavicmyths:swamp_willow",
+    "slavicmyths:ancient_shrine",
+    "slavicmyths:rowan_sapling",
+    "slavicmyths:berry_patch",
+    "slavicmyths:ore_perunite",
+    "slavicmyths:blackcurrant_garden_patch",
+    "slavicmyths:swamp_dead",
+    "slavicmyths:apple_sapling",
+    "slavicmyths:rowan_8",
+    "slavicmyths:rowan_6",
+    "slavicmyths:rowan_4",
+    "slavicmyths:willow_12",
+    "slavicmyths:patch_st_johns_wort",
+    "slavicmyths:rowan_2",
+    "slavicmyths:linden_24",
+    "slavicmyths:willow_6",
+    "slavicmyths:willow_4",
+    "slavicmyths:patch_fireweed",
+    "slavicmyths:willow_2",
+    "slavicmyths:pine_6",
+    "slavicmyths:pine_8",
+    "slavicmyths:pine_2",
+    "slavicmyths:pine_4",
+    "slavicmyths:willow_8",
+    "slavicmyths:linden_12",
+    "slavicmyths:bathhouse",
+    "slavicmyths:linden_8",
+    "slavicmyths:linden_6",
+    "slavicmyths:linden_4",
+    "slavicmyths:linden_2",
+    "slavicmyths:apple_tree",
+    "slavicmyths:linden_sapling",
+    "slavicmyths:deep_pool",
+    "slavicmyths:old_barn",
+    "slavicmyths:willow_sapling",
+    "slavicmyths:blueberry_garden_patch",
+    "slavicmyths:path_shrine",
+    "slavicmyths:swamp_pine",
+    "slavicmyths:giant_pine_sapling",
+    "slavicmyths:swamp_detail",
+    "slavicmyths:patch_flax",
+    "slavicmyths:water_patch"
+  ],
+  "worldgen/placed_feature": [
+    "slavicmyths:bog_iron",
+    "slavicmyths:swamp_oak",
+    "slavicmyths:cranberry_garden_patch",
+    "slavicmyths:patch_juniper",
+    "slavicmyths:lingonberry_garden_patch",
+    "slavicmyths:ore_silver",
+    "slavicmyths:patch_wormwood",
+    "slavicmyths:pine_12",
+    "slavicmyths:rowan_24",
+    "slavicmyths:pine_24",
+    "slavicmyths:rowan_12",
+    "slavicmyths:raspberry_garden_patch",
+    "slavicmyths:willow_24",
+    "slavicmyths:patch_nettle",
+    "slavicmyths:swamp_willow",
+    "slavicmyths:ancient_shrine",
+    "slavicmyths:berry_patch",
+    "slavicmyths:ore_perunite",
+    "slavicmyths:blackcurrant_garden_patch",
+    "slavicmyths:swamp_dead",
+    "slavicmyths:rowan_8",
+    "slavicmyths:rowan_6",
+    "slavicmyths:rowan_4",
+    "slavicmyths:willow_12",
+    "slavicmyths:patch_st_johns_wort",
+    "slavicmyths:rowan_2",
+    "slavicmyths:linden_24",
+    "slavicmyths:willow_6",
+    "slavicmyths:willow_4",
+    "slavicmyths:patch_fireweed",
+    "slavicmyths:willow_2",
+    "slavicmyths:pine_6",
+    "slavicmyths:pine_8",
+    "slavicmyths:pine_2",
+    "slavicmyths:pine_4",
+    "slavicmyths:willow_8",
+    "slavicmyths:linden_12",
+    "slavicmyths:bathhouse",
+    "slavicmyths:linden_8",
+    "slavicmyths:linden_6",
+    "slavicmyths:linden_4",
+    "slavicmyths:linden_2",
+    "slavicmyths:apple_tree",
+    "slavicmyths:deep_pool",
+    "slavicmyths:old_barn",
+    "slavicmyths:blueberry_garden_patch",
+    "slavicmyths:path_shrine",
+    "slavicmyths:swamp_pine",
+    "slavicmyths:swamp_detail",
+    "slavicmyths:patch_flax",
+    "slavicmyths:water_patch"
+  ],
+  "recipes": [
+    "slavicmyths:vat/veles_dark_wort",
+    "slavicmyths:honey_flatbread",
+    "slavicmyths:straw_block",
+    "slavicmyths:rune_foundation_dust_perunite",
+    "slavicmyths:wooden_barrel",
+    "slavicmyths:bear_stew",
+    "slavicmyths:kitchen/barley_porridge",
+    "slavicmyths:linden_bench",
+    "slavicmyths:armorer_chainmail_boots",
+    "slavicmyths:tallow_candle",
+    "slavicmyths:linden_bedside_cabinet",
+    "slavicmyths:weapon_diamond_throwing_knife_assembly",
+    "slavicmyths:kitchen/rye_bread",
+    "slavicmyths:weapon_stone_sulitsa_assembly",
+    "slavicmyths:wall_shelf",
+    "slavicmyths:chekan",
+    "slavicmyths:linden_stairs",
+    "slavicmyths:claw_knife",
+    "slavicmyths:rowan_wood",
+    "slavicmyths:rune_rework_speed",
+    "slavicmyths:kitchen/meat_bliny",
+    "slavicmyths:drying/brown_mushroom",
+    "slavicmyths:weapon_diamond_spear_assembly",
+    "slavicmyths:rare_rune_restore_berserker",
+    "slavicmyths:oat_groats",
+    "slavicmyths:perunite_shield",
+    "slavicmyths:bog_green_kurgan_stone",
+    "slavicmyths:baked_turnip_smoking",
+    "slavicmyths:linen_headscarf",
+    "slavicmyths:weapon_part_flail_handle",
+    "slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs",
+    "slavicmyths:weapon_stone_throwing_knife_assembly",
+    "slavicmyths:malt_sack",
+    "slavicmyths:rowan_button",
+    "slavicmyths:thunder_crystal_powder",
+    "slavicmyths:weapon_netherite_spearhead_upgrade",
+    "slavicmyths:stripped_apple_wood",
+    "slavicmyths:weapon_gold_flail_assembly",
+    "slavicmyths:willow_slab",
+    "slavicmyths:honey_bread",
+    "slavicmyths:vat/mead_must",
+    "slavicmyths:traveler_charm",
+    "slavicmyths:wheat_flour",
+    "slavicmyths:rare_tugarin_sword",
+    "slavicmyths:pale_blue_kurgan_stone_stairs_stonecutting",
+    "slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall",
+    "slavicmyths:baked_apple",
+    "slavicmyths:refining_hearth",
+    "slavicmyths:rye_sheaf",
+    "slavicmyths:flail",
+    "slavicmyths:rowan_door",
+    "slavicmyths:rune_foundation_blank_1_iron",
+    "slavicmyths:gambeson",
+    "slavicmyths:silver_nugget",
+    "slavicmyths:perunite_sword",
+    "slavicmyths:weapon_perunite_throwing_knife_assembly",
+    "slavicmyths:weapon_part_silver_spearhead",
+    "slavicmyths:armorer_chainmail_leggings",
+    "slavicmyths:perunite_hoe",
+    "slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs_stonecutting",
+    "slavicmyths:underground_guard_belt",
+    "slavicmyths:weapon_part_iron_flail_ball",
+    "slavicmyths:butchering_knife",
+    "slavicmyths:unique/indomitability_leggings",
+    "slavicmyths:rune_foundation_blank_3",
+    "slavicmyths:bog_green_kurgan_stone_slab",
+    "slavicmyths:linden_fence",
+    "slavicmyths:cracked_bog_green_kurgan_cobblestone_wall",
+    "slavicmyths:sarafan",
+    "slavicmyths:millstone",
+    "slavicmyths:weapon_silver_sulitsa_assembly",
+    "slavicmyths:barley_sheaf_unpack",
+    "slavicmyths:pine_bench",
+    "slavicmyths:rune_rework_wind",
+    "slavicmyths:rowan_fence_gate",
+    "slavicmyths:pale_blue_kurgan_cobblestone_stairs",
+    "slavicmyths:bog_green_kurgan_cobblestone_stairs",
+    "slavicmyths:willow_wood",
+    "slavicmyths:bog_green_kurgan_cobblestone_slab_stonecutting",
+    "slavicmyths:linen_bed",
+    "slavicmyths:perunite_pickaxe",
+    "slavicmyths:cooked_goat_from_smoking",
+    "slavicmyths:vat/dark_beer_wort",
+    "slavicmyths:carved_oak_pillar",
+    "slavicmyths:field_hoe",
+    "slavicmyths:weapon_netherite_flail_upgrade",
+    "slavicmyths:barley_sheaf",
+    "slavicmyths:apple_pressure_plate",
+    "slavicmyths:linden_pressure_plate",
+    "slavicmyths:carved_burial_stone_slab_stonecutting",
+    "slavicmyths:bog_green_kurgan_stone_wall_stonecutting",
+    "slavicmyths:thunder_stone",
+    "slavicmyths:weapon_gold_throwing_knife_assembly",
+    "slavicmyths:linden_planks",
+    "slavicmyths:kitchen/dough",
+    "slavicmyths:pine_button",
+    "slavicmyths:straw_nest",
+    "slavicmyths:bog_green_kurgan_stone_slab_stonecutting",
+    "slavicmyths:meshochek_trofeev",
+    "slavicmyths:pine_stool",
+    "slavicmyths:seven_league_boots",
+    "slavicmyths:rare_victor_spear",
+    "slavicmyths:ritual_bowl",
+    "slavicmyths:linden_wardrobe",
+    "slavicmyths:darkened_fence",
+    "slavicmyths:apple_trapdoor",
+    "slavicmyths:pale_blue_kurgan_stone_stonecutting",
+    "slavicmyths:rune_foundation_dust_lapis",
+    "slavicmyths:armorer_chainmail_chestplate",
+    "slavicmyths:flour",
+    "slavicmyths:weapon_iron_spear_assembly",
+    "slavicmyths:pine_fence",
+    "slavicmyths:willow_door",
+    "slavicmyths:pale_blue_kurgan_stone_wall_stonecutting",
+    "slavicmyths:kitchen/honey_bliny",
+    "slavicmyths:pork_stew",
+    "slavicmyths:pale_blue_kurgan_stone_slab_stonecutting",
+    "slavicmyths:retribution_charm",
+    "slavicmyths:training_dummy",
+    "slavicmyths:loom_table",
+    "slavicmyths:berry_mors",
+    "slavicmyths:kitchen/oat_porridge",
+    "slavicmyths:silver_fitting",
+    "slavicmyths:ritual_knife",
+    "slavicmyths:feeder",
+    "slavicmyths:rowan_pressure_plate",
+    "slavicmyths:druzhinnik_table",
+    "slavicmyths:firewood_bundle",
+    "slavicmyths:pale_blue_kurgan_cobblestone",
+    "slavicmyths:weapon_spear_assembly",
+    "slavicmyths:field_sign",
+    "slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs",
+    "slavicmyths:mossy_bog_green_kurgan_cobblestone",
+    "slavicmyths:pancakes",
+    "slavicmyths:weapon_netherite_sulitsa_upgrade",
+    "slavicmyths:pool_spear",
+    "slavicmyths:kitchen/mushroom_stew_slavic",
+    "slavicmyths:pine_wood",
+    "slavicmyths:willow_pressure_plate",
+    "slavicmyths:herb_pouch",
+    "slavicmyths:weapon_part_diamond_spearhead",
+    "slavicmyths:linden_door",
+    "slavicmyths:weapon_part_iron_blank",
+    "slavicmyths:rune_foundation_dust_coal",
+    "slavicmyths:unique/wind_boots",
+    "slavicmyths:pine_trapdoor",
+    "slavicmyths:silver_spear",
+    "slavicmyths:oat_sheaf_unpack",
+    "slavicmyths:weapon_part_silver_flail_ball",
+    "slavicmyths:rare_rune_restore_flight",
+    "slavicmyths:bone_arrow",
+    "slavicmyths:amber_block",
+    "slavicmyths:linden_stool",
+    "slavicmyths:cooked_goose_from_smelting",
+    "slavicmyths:vetrovoy_uzel",
+    "slavicmyths:cooked_venison",
+    "slavicmyths:weapon_silver_spear_assembly",
+    "slavicmyths:drying/berries",
+    "slavicmyths:apple_door",
+    "slavicmyths:iron_rings",
+    "slavicmyths:purify_copper",
+    "slavicmyths:willow_planks",
+    "slavicmyths:rune_foundation_dust_diamond",
+    "slavicmyths:cooked_boar_meat",
+    "slavicmyths:rune_rework_fortitude",
+    "slavicmyths:linden_weapon_rack",
+    "slavicmyths:silver_mace",
+    "slavicmyths:weapon_iron_throwing_knife_assembly",
+    "slavicmyths:kitchen/berry_porridge",
+    "slavicmyths:basket",
+    "slavicmyths:willow_button",
+    "slavicmyths:reed_string",
+    "slavicmyths:kitchen/apple_pie",
+    "slavicmyths:kitchen/meat_pie",
+    "slavicmyths:apple_wood",
+    "slavicmyths:apple_hanging_sign",
+    "slavicmyths:unique/ward_shield",
+    "slavicmyths:weapon_flail_assembly",
+    "slavicmyths:cooked_bear_meat",
+    "slavicmyths:weapon_part_spear_shaft",
+    "slavicmyths:storage_shelf",
+    "slavicmyths:fruit_press",
+    "slavicmyths:weapon_part_gold_spearhead",
+    "slavicmyths:weapon_netherite_spear_assembly",
+    "slavicmyths:weapon_iron_sulitsa_assembly",
+    "slavicmyths:pale_blue_kurgan_stone_slab",
+    "slavicmyths:weapon_stone_flail_assembly",
+    "slavicmyths:pale_blue_kurgan_cobblestone_wall",
+    "slavicmyths:wall_carving",
+    "slavicmyths:vat/forest_herbal_infusion",
+    "slavicmyths:birch_bark_scroll",
+    "slavicmyths:ritual_candle",
+    "slavicmyths:spear",
+    "slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall_stonecutting",
+    "slavicmyths:silver_ingot_from_ore",
+    "slavicmyths:bog_green_kurgan_cobblestone_stairs_stonecutting",
+    "slavicmyths:cracked_bog_green_kurgan_cobblestone_slab_stonecutting",
+    "slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall",
+    "slavicmyths:organic_fertilizer",
+    "slavicmyths:forest_mix",
+    "slavicmyths:path_stone",
+    "slavicmyths:depth_amulet",
+    "slavicmyths:vat/cider_must",
+    "slavicmyths:rare_rune_restore_death",
+    "slavicmyths:linden_button",
+    "slavicmyths:weapon_diamond_sulitsa_assembly",
+    "slavicmyths:bog_green_kurgan_stone_stairs",
+    "slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs_stonecutting",
+    "slavicmyths:cooked_pike_campfire_cooking",
+    "slavicmyths:kitchen/cabbage_pie",
+    "slavicmyths:pale_blue_kurgan_stone_stairs",
+    "slavicmyths:small_keg",
+    "slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab_stonecutting",
+    "slavicmyths:bog_green_kurgan_stone_stairs_stonecutting",
+    "slavicmyths:kitchen/stewed_turnip",
+    "slavicmyths:settlement_chest",
+    "slavicmyths:weapon_part_silver_light_spearhead",
+    "slavicmyths:weapon_netherite_flail_assembly",
+    "slavicmyths:pine_table",
+    "slavicmyths:bog_green_kurgan_cobblestone_wall",
+    "slavicmyths:sosud_ognennogo_dyhaniya",
+    "slavicmyths:haystack",
+    "slavicmyths:pine_stairs",
+    "slavicmyths:hair_charm",
+    "slavicmyths:armorer_chainmail_helmet",
+    "slavicmyths:rune_foundation_soul_coal",
+    "slavicmyths:pine_bedside_cabinet",
+    "slavicmyths:weapon_netherite_spear_upgrade",
+    "slavicmyths:linden_trapdoor",
+    "slavicmyths:weapon_part_diamond_light_spearhead",
+    "slavicmyths:weapon_gold_sulitsa_assembly",
+    "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall",
+    "slavicmyths:darkened_slab",
+    "slavicmyths:wooden_mug",
+    "slavicmyths:weapon_part_diamond_flail_ball",
+    "slavicmyths:large_basket",
+    "slavicmyths:vat/honey_infusion",
+    "slavicmyths:cracked_bog_green_kurgan_cobblestone_wall_stonecutting",
+    "slavicmyths:rune_rework_resilience",
+    "slavicmyths:pine_door",
+    "slavicmyths:resin_ring",
+    "slavicmyths:rowan_trapdoor",
+    "slavicmyths:unique/clear_sight_helmet",
+    "slavicmyths:perunite_shovel",
+    "slavicmyths:uzel_durnoy_doli",
+    "slavicmyths:bog_green_kurgan_stone_wall",
+    "slavicmyths:rowan_sign",
+    "slavicmyths:venison_stew",
+    "slavicmyths:pine_wardrobe",
+    "slavicmyths:carved_burial_stone_slab",
+    "slavicmyths:rune_foundation_dust_gold",
+    "slavicmyths:rune_rework_blood",
+    "slavicmyths:linden_slab",
+    "slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab",
+    "slavicmyths:wooden_crate",
+    "slavicmyths:willow_trapdoor",
+    "slavicmyths:darkened_planks",
+    "slavicmyths:apple_stairs",
+    "slavicmyths:bog_iron_bloomery",
+    "slavicmyths:smoked_carp",
+    "slavicmyths:produce_crate",
+    "slavicmyths:retainer_shield",
+    "slavicmyths:amber_from_block",
+    "slavicmyths:linden_table",
+    "slavicmyths:perunite_chestplate",
+    "slavicmyths:pine_fence_gate",
+    "slavicmyths:juniper_blend",
+    "slavicmyths:rolling_pin",
+    "slavicmyths:noon_stone",
+    "slavicmyths:linen_apron",
+    "slavicmyths:weapon_gold_spear_assembly",
+    "slavicmyths:pine_stripped_wood",
+    "slavicmyths:weapon_part_perunite_light_spearhead",
+    "slavicmyths:restore_restored_carolingian_sword",
+    "slavicmyths:pale_blue_kurgan_stone_wall",
+    "slavicmyths:kitchen/karavai",
+    "slavicmyths:veles_amulet",
+    "slavicmyths:weapon_part_gold_flail_ball",
+    "slavicmyths:kitchen/vegetable_stew",
+    "slavicmyths:prospectors_ring",
+    "slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs",
+    "slavicmyths:pale_blue_kurgan_cobblestone_slab_stonecutting",
+    "slavicmyths:carved_birch_planks",
+    "slavicmyths:pale_blue_kurgan_cobblestone_wall_stonecutting",
+    "slavicmyths:runic_anvil",
+    "slavicmyths:weapon_netherite_flail_ball_upgrade",
+    "slavicmyths:pale_blue_kurgan_cobblestone_slab",
+    "slavicmyths:rune_foundation_soul_lapis",
+    "slavicmyths:miners_goggles",
+    "slavicmyths:weapon_short_bow",
+    "slavicmyths:watering_can",
+    "slavicmyths:kitchen/apple_bliny",
+    "slavicmyths:berdysh",
+    "slavicmyths:weapon_perunite_sulitsa_assembly",
+    "slavicmyths:ground_wormwood",
+    "slavicmyths:drying_rack",
+    "slavicmyths:battle_axe",
+    "slavicmyths:zolny_obereg",
+    "slavicmyths:wooden_tub",
+    "slavicmyths:club",
+    "slavicmyths:linden_wood",
+    "slavicmyths:rune_rework_strength",
+    "slavicmyths:pine_shelf",
+    "slavicmyths:warding_charm",
+    "slavicmyths:ceramic_pitcher",
+    "slavicmyths:apple_slab",
+    "slavicmyths:nightingale_whistle",
+    "slavicmyths:mace",
+    "slavicmyths:weapon_part_stone_light_spearhead",
+    "slavicmyths:plate_cuirass",
+    "slavicmyths:raspberry_pancakes",
+    "slavicmyths:flax_breaker",
+    "slavicmyths:weapon_netherite_light_spearhead_upgrade",
+    "slavicmyths:bog_green_kurgan_cobblestone",
+    "slavicmyths:willow_sign",
+    "slavicmyths:darkened_stairs",
+    "slavicmyths:linen_shirt",
+    "slavicmyths:darkened_trapdoor",
+    "slavicmyths:vat/light_beer_wort",
+    "slavicmyths:darkened_door",
+    "slavicmyths:vat/malted_barley",
+    "slavicmyths:weapon_part_stone_flail_ball",
+    "slavicmyths:kitchen/meat_stew",
+    "slavicmyths:old_hook",
+    "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall_stonecutting",
+    "slavicmyths:perunite_leggings",
+    "slavicmyths:linden_shelf",
+    "slavicmyths:kitchen/pea_soup",
+    "slavicmyths:cooked_duck_from_smoking",
+    "slavicmyths:cooked_crayfish_campfire_cooking",
+    "slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs",
+    "slavicmyths:weapon_diamond_flail_assembly",
+    "slavicmyths:kitchen/bliny",
+    "slavicmyths:household_chest",
+    "slavicmyths:metal_pot",
+    "slavicmyths:barley_groats",
+    "slavicmyths:kitchen/berry_pie",
+    "slavicmyths:cooked_crayfish_smelting",
+    "slavicmyths:folk_vest",
+    "slavicmyths:oat_sheaf",
+    "slavicmyths:cooked_carp_campfire_cooking",
+    "slavicmyths:pine_pressure_plate",
+    "slavicmyths:spinning_wheel",
+    "slavicmyths:drying/red_mushroom",
+    "slavicmyths:carved_oak_block",
+    "slavicmyths:cooked_pike_smelting",
+    "slavicmyths:vodyanoy_net",
+    "slavicmyths:beef_stew",
+    "slavicmyths:rowan_planks",
+    "slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab_stonecutting",
+    "slavicmyths:apple_fence_gate",
+    "slavicmyths:willow_fence",
+    "slavicmyths:weapon_silver_flail_assembly",
+    "slavicmyths:pine_slab",
+    "slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall_stonecutting",
+    "slavicmyths:vat/honey_beer_wort",
+    "slavicmyths:sosud_podveya",
+    "slavicmyths:weapon_heavy_bow",
+    "slavicmyths:carved_staff",
+    "slavicmyths:cooked_goat_from_smelting",
+    "slavicmyths:rye_flour",
+    "slavicmyths:rowan_stripped_wood",
+    "slavicmyths:chud_bloomery",
+    "slavicmyths:willow_fence_gate",
+    "slavicmyths:poyas_tugarina",
+    "slavicmyths:rune_foundation_bound_soul",
+    "slavicmyths:vat/forest_beer_wort",
+    "slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs_stonecutting",
+    "slavicmyths:woven_belt",
+    "slavicmyths:fishing_net",
+    "slavicmyths:rune_foundation_blank_2_diamond",
+    "slavicmyths:rare_rune_restore_rare_protection",
+    "slavicmyths:cracked_bog_green_kurgan_cobblestone",
+    "slavicmyths:obereg_ohotnika",
+    "slavicmyths:bath_stove",
+    "slavicmyths:silver_dagger",
+    "slavicmyths:purify_iron",
+    "slavicmyths:lore_book",
+    "slavicmyths:linden_stripped_wood",
+    "slavicmyths:cloth_bag",
+    "slavicmyths:willow_stairs",
+    "slavicmyths:weapon_part_perunite_flail_ball",
+    "slavicmyths:darkened_fence_gate",
+    "slavicmyths:weapon_silver_throwing_knife_assembly",
+    "slavicmyths:cooked_carp_smelting",
+    "slavicmyths:vat/thunder_beer_wort",
+    "slavicmyths:rare_likho_staff",
+    "slavicmyths:weapon_part_stone_spearhead",
+    "slavicmyths:restore_restored_spear",
+    "slavicmyths:weapon_part_perunite_spearhead",
+    "slavicmyths:vat/berry_mors",
+    "slavicmyths:bast_shoes",
+    "slavicmyths:linen_ports",
+    "slavicmyths:stone_path_amulet",
+    "slavicmyths:rune_foundation_dust_iron",
+    "slavicmyths:rune_foundation_blank_2_perunite",
+    "slavicmyths:rune_rework_crushing",
+    "slavicmyths:willow_stripped_wood",
+    "slavicmyths:weapon_part_iron_light_spearhead",
+    "slavicmyths:linden_chair",
+    "slavicmyths:blueberry_pancakes",
+    "slavicmyths:weapon_part_short_shaft",
+    "slavicmyths:bog_green_kurgan_cobblestone_wall_stonecutting",
+    "slavicmyths:burial_log_coffin",
+    "slavicmyths:cracked_bog_green_kurgan_cobblestone_slab",
+    "slavicmyths:silver_ingot",
+    "slavicmyths:weapon_perunite_flail_assembly",
+    "slavicmyths:rye_sheaf_unpack",
+    "slavicmyths:perunite_axe",
+    "slavicmyths:bone_knife",
+    "slavicmyths:weapon_wrap",
+    "slavicmyths:rune_rework_heat",
+    "slavicmyths:signal_bell",
+    "slavicmyths:stepnoy_shtandart",
+    "slavicmyths:pine_chair",
+    "slavicmyths:perunite_boots",
+    "slavicmyths:button_charm",
+    "slavicmyths:cooked_duck_from_smelting",
+    "slavicmyths:honey_baked_apple",
+    "slavicmyths:birch_bark",
+    "slavicmyths:mushroom_stew",
+    "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab_stonecutting",
+    "slavicmyths:vat/hopped_beer_wort",
+    "slavicmyths:rowan_stairs",
+    "slavicmyths:rune_foundation_blank_1_gold",
+    "slavicmyths:restore_chekan",
+    "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab",
+    "slavicmyths:pine_sign",
+    "slavicmyths:unique/bogatyr_chestplate",
+    "slavicmyths:bath_broom",
+    "slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs_stonecutting",
+    "slavicmyths:vat/kvass_wort",
+    "slavicmyths:weapon_part_gold_light_spearhead",
+    "slavicmyths:vat/witch_berry_wort",
+    "slavicmyths:apple_planks",
+    "slavicmyths:volchiy_poyas",
+    "slavicmyths:storage_sack",
+    "slavicmyths:hunter_charm",
+    "slavicmyths:rune_chisel",
+    "slavicmyths:weapon_part_flail_chain",
+    "slavicmyths:dark_bottle",
+    "slavicmyths:malt_sack_unpack",
+    "slavicmyths:weapon_netherite_throwing_knife_upgrade",
+    "slavicmyths:sickle",
+    "slavicmyths:mossy_pale_blue_kurgan_cobblestone",
+    "slavicmyths:baked_turnip_smelting",
+    "slavicmyths:pale_blue_kurgan_cobblestone_stairs_stonecutting",
+    "slavicmyths:apple_fence",
+    "slavicmyths:rare_ataman_flail",
+    "slavicmyths:meat_pancakes",
+    "slavicmyths:weapon_perunite_spear_assembly",
+    "slavicmyths:pine_weapon_rack",
+    "slavicmyths:rowan_slab",
+    "slavicmyths:stone_mace",
+    "slavicmyths:obereg_padayuschey_zvezdy",
+    "slavicmyths:apple_button",
+    "slavicmyths:rune_foundation_empowered_soul",
+    "slavicmyths:linden_sign",
+    "slavicmyths:bog_green_kurgan_cobblestone_slab",
+    "slavicmyths:pine_planks",
+    "slavicmyths:hearth",
+    "slavicmyths:rowan_fence",
+    "slavicmyths:perun_ring",
+    "slavicmyths:kitchen/ukha",
+    "slavicmyths:odnoglazyy_obereg",
+    "slavicmyths:cooked_goose_from_smoking",
+    "slavicmyths:perunite_helmet",
+    "slavicmyths:silver_sword",
+    "slavicmyths:fermentation_vat",
+    "slavicmyths:weapon_part_iron_spearhead",
+    "slavicmyths:linden_fence_gate",
+    "slavicmyths:apple_sign",
+    "slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab",
+    "slavicmyths:carved_burial_stone",
+    "slavicmyths:invisibility_cap",
+    "slavicmyths:kitchen/stewed_cabbage",
+    "slavicmyths:carved_burial_stone_stonecutting",
+    "slavicmyths:armorer_table",
+    "slavicmyths:cracked_pale_blue_kurgan_cobblestone",
+    "slavicmyths:kitchen/berry_bliny",
+    "slavicmyths:kitchen_table",
+    "slavicmyths:ohotnichiy_rog",
+    "slavicmyths:hunter_belt",
+    "slavicmyths:wooden_mace",
+    "slavicmyths:weapon_netherite_sulitsa_assembly",
+    "slavicmyths:forest_charm",
+    "slavicmyths:ground_st_johns_wort"
+  ]
+}

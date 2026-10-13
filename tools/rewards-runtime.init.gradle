@@ -1,0 +1,11 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { rewardsRuntime { java.srcDir 'tools/rewards-runtime'; resources.srcDir 'tools/rewards-runtime-resources' } }
+ p.sourceSets.rewardsRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.rewardsRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileRewardsRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.rewardsRuntime)
+ p.neoForge.runs { rewardsChecks {
+  type = 'gameTestServer';gameDirectory = p.file('work/rewards/runtime-'+(p.findProperty('rewardsRun') ?: 'checks'))
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_rewards'
+ } }
+} }

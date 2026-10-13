@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:warding_charm"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.group_night.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.group_night.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "section": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

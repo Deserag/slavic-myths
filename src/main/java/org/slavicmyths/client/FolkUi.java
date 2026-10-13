@@ -35,11 +35,11 @@ final class FolkUi {
  private static class PaintedButton extends Button {
   private final boolean selected;private final net.minecraft.world.item.ItemStack icon;
   PaintedButton(int x,int y,int w,int h,Component c,boolean selected,OnPress press){this(x,y,w,h,c,selected,press,net.minecraft.world.item.ItemStack.EMPTY);}
-  PaintedButton(int x,int y,int w,int h,Component c,boolean selected,OnPress press,net.minecraft.world.item.ItemStack icon){super(x,y,w,h,c,press,DEFAULT_NARRATION);this.selected=selected;this.icon=icon;}
+  PaintedButton(int x,int y,int w,int h,Component c,boolean selected,OnPress press,net.minecraft.world.item.ItemStack icon){super(x,y,w,h,c,press,DEFAULT_NARRATION);this.selected=selected;this.icon=icon;if(!c.getString().isBlank())setTooltip(net.minecraft.client.gui.components.Tooltip.create(c));}
   @Override protected void renderWidget(GuiGraphics g,int mx,int my,float delta){
    int background=!active?0xff62574a:selected?RED:isHoveredOrFocused()?0xff765139:0xff443023;
    panel(g,getX(),getY(),getWidth(),getHeight(),background);
-   var font=Minecraft.getInstance().font;int inset=icon.isEmpty()?0:19;if(!icon.isEmpty())g.renderItem(icon,getX()+4,getY()+(getHeight()-16)/2);var lines=font.split(getMessage(),getWidth()-10-inset);int rows=Math.min(lines.size(),Math.max(1,(getHeight()-4)/10));int y=getY()+(getHeight()-rows*10)/2+1;
+   var font=Minecraft.getInstance().font;int inset=icon.isEmpty()?0:19;if(!icon.isEmpty())g.renderItem(icon,getX()+4,getY()+(getHeight()-16)/2);var lines=UiText.lines(font,getMessage(),getWidth()-10-inset,Math.max(1,(getHeight()-4)/10));int rows=lines.size();int y=getY()+(getHeight()-rows*10)/2+1;
    for(int i=0;i<rows;i++)g.drawString(font,lines.get(i),getX()+5+inset,y+i*10,active?0xfff3e2bf:0xffc5b99e,false);
   }
  }

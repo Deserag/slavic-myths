@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:linden_fence_gate",
+    "slavicmyths:rowan_fence_gate",
+    "slavicmyths:willow_fence_gate",
+    "slavicmyths:pine_fence_gate",
+    "slavicmyths:darkened_fence_gate"
+  ]
+}

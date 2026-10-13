@@ -1,0 +1,13 @@
+{
+  "part": "places",
+  "chapter": "depths",
+  "section": "catalogue",
+  "title": "tales.entry.place_chud_abandoned.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "structure/slavicmyths:chud_abandoned"
+  ],
+  "advancements": [],
+  "links": []
+}

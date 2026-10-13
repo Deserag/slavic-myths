@@ -1,0 +1,248 @@
+{
+  "size": [
+    96,
+    27,
+    86
+  ],
+  "markers": [
+    {
+      "pos": [
+        53,
+        1,
+        55
+      ],
+      "role": "heart:spring"
+    },
+    {
+      "pos": [
+        23,
+        1,
+        39
+      ],
+      "role": "pool:0"
+    },
+    {
+      "pos": [
+        23,
+        1,
+        48
+      ],
+      "role": "pool:1"
+    },
+    {
+      "pos": [
+        89,
+        1,
+        35
+      ],
+      "role": "loot:regular"
+    },
+    {
+      "pos": [
+        12,
+        1,
+        14
+      ],
+      "role": "loot:regular"
+    },
+    {
+      "pos": [
+        23,
+        1,
+        22
+      ],
+      "role": "loot:regular"
+    },
+    {
+      "pos": [
+        11,
+        1,
+        23
+      ],
+      "role": "cache:spring"
+    }
+  ],
+  "blocks": 52241,
+  "tiles": [
+    {
+      "name": "spring/0_0",
+      "blocks": 770,
+      "sha256": "88c187001f177bd0984a18d714ff79b6f408060b2a42aef4916cbe2f9f6ec80c"
+    },
+    {
+      "name": "spring/0_16",
+      "blocks": 1658,
+      "sha256": "1d375e10ef56ef9db4d267e190950f7a2bf1dbacee111aeb662afdd1db2485e7"
+    },
+    {
+      "name": "spring/0_32",
+      "blocks": 1920,
+      "sha256": "44ff729a4344affea7ca9eedb5fab8551e521cfc717111ea2cd4c4668834a1b8"
+    },
+    {
+      "name": "spring/0_48",
+      "blocks": 603,
+      "sha256": "17df433296232ecc5118643e0f5530e9c41c25e057576aafc7576b971089d2be"
+    },
+    {
+      "name": "spring/0_64",
+      "blocks": 0,
+      "sha256": "4cddae5087476f0035c9e0c91257fa4773da55391fd619b61c85ddae7e53bf33"
+    },
+    {
+      "name": "spring/0_80",
+      "blocks": 0,
+      "sha256": "2dc618fa843c4d0af671154ee2f85573e8da7a264ee420524bf43c2375583673"
+    },
+    {
+      "name": "spring/16_0",
+      "blocks": 1154,
+      "sha256": "41f2e4521c89a16852b8f1e5a657a67eb5e092a2ce60087d4953c05bf2a99ab8"
+    },
+    {
+      "name": "spring/16_16",
+      "blocks": 2690,
+      "sha256": "ecec11a85e08cb6fafac8a8037c4660edd4768e3d127c47fa59c20da06e5ebcc"
+    },
+    {
+      "name": "spring/16_32",
+      "blocks": 3328,
+      "sha256": "aaef6e0e4beee88f179a9c80363c62475452edb55c8dfdc22776a24b8f600498"
+    },
+    {
+      "name": "spring/16_48",
+      "blocks": 1365,
+      "sha256": "73fabe564f41958dcc024827c79056015d6942fbc5a3b88d2f48a6fd4a94631f"
+    },
+    {
+      "name": "spring/16_64",
+      "blocks": 0,
+      "sha256": "4cddae5087476f0035c9e0c91257fa4773da55391fd619b61c85ddae7e53bf33"
+    },
+    {
+      "name": "spring/16_80",
+      "blocks": 0,
+      "sha256": "2dc618fa843c4d0af671154ee2f85573e8da7a264ee420524bf43c2375583673"
+    },
+    {
+      "name": "spring/32_0",
+      "blocks": 0,
+      "sha256": "4cddae5087476f0035c9e0c91257fa4773da55391fd619b61c85ddae7e53bf33"
+    },
+    {
+      "name": "spring/32_16",
+      "blocks": 1536,
+      "sha256": "1a1a46052ed82a7c9af3e311faea4342925e0dbf40ef6c16d750e4167a488a54"
+    },
+    {
+      "name": "spring/32_32",
+      "blocks": 4096,
+      "sha256": "86a6254a6e800ef68bee5c8bd6a90c4d6305d3a9ce6769de4f941a522c388d53"
+    },
+    {
+      "name": "spring/32_48",
+      "blocks": 2992,
+      "sha256": "d03bc20fce586dddd2d71419d7189311f0df5f1d1640414bb00241e5dec2548e"
+    },
+    {
+      "name": "spring/32_64",
+      "blocks": 1153,
+      "sha256": "cce8737efa9ce11e0ce45ba0679fbc84837d26312e73d7bd67932a70b8f8f794"
+    },
+    {
+      "name": "spring/32_80",
+      "blocks": 433,
+      "sha256": "fbaca6744590143a295d09a83808bd5755fbbb90314a8156f85afd0d0e5915f4"
+    },
+    {
+      "name": "spring/48_0",
+      "blocks": 0,
+      "sha256": "4cddae5087476f0035c9e0c91257fa4773da55391fd619b61c85ddae7e53bf33"
+    },
+    {
+      "name": "spring/48_16",
+      "blocks": 1536,
+      "sha256": "c1998bc0a67ea5d256fcd357df33818304e2ad06a41a5f9716315c17a726de70"
+    },
+    {
+      "name": "spring/48_32",
+      "blocks": 4096,
+      "sha256": "c06b757d9d9fb79886256b2a5de261838039ae146f5e863fefa2407dcc6271a6"
+    },
+    {
+      "name": "spring/48_48",
+      "blocks": 3040,
+      "sha256": "a6dbcb3b5bd4d8f2c3468bf097d33204f08f66da3dbde6fdd3602481f4113214"
+    },
+    {
+      "name": "spring/48_64",
+      "blocks": 1281,
+      "sha256": "56ee3b2b3ce80536243125902d3242867039037b6644e780805ba3a4120c5aca"
+    },
+    {
+      "name": "spring/48_80",
+      "blocks": 481,
+      "sha256": "732d688b719c53f077b16c8c6eb18a1f69c6c8403e65d0221677e201b2a9d2ff"
+    },
+    {
+      "name": "spring/64_0",
+      "blocks": 1406,
+      "sha256": "3d4f81e742940db1d665ba130817759debd3aee73f0726e4f3f14ece3b6a263f"
+    },
+    {
+      "name": "spring/64_16",
+      "blocks": 2782,
+      "sha256": "1eb32ffc9fdd64bb1273eb77ba7fd228b482aae4574fb94e653db7baa35ecfab"
+    },
+    {
+      "name": "spring/64_32",
+      "blocks": 3568,
+      "sha256": "c390b2b3b3ae8eaa0cecc21ba2e7eec13d93a0028fc56265a7caadee3f4cf273"
+    },
+    {
+      "name": "spring/64_48",
+      "blocks": 2092,
+      "sha256": "9801d7162c60d53849822d24166c3c96d33f0af83d1f7859111427495db68d01"
+    },
+    {
+      "name": "spring/64_64",
+      "blocks": 0,
+      "sha256": "4cddae5087476f0035c9e0c91257fa4773da55391fd619b61c85ddae7e53bf33"
+    },
+    {
+      "name": "spring/64_80",
+      "blocks": 0,
+      "sha256": "2dc618fa843c4d0af671154ee2f85573e8da7a264ee420524bf43c2375583673"
+    },
+    {
+      "name": "spring/80_0",
+      "blocks": 1757,
+      "sha256": "5a6fb2275b9aec050495a9917fb23bf641e60b363ad9805404375a2e8ae4f4ae"
+    },
+    {
+      "name": "spring/80_16",
+      "blocks": 2926,
+      "sha256": "8906aea10ed0920d269e2a158141f8cb635508455b7eb76ab57adae209a400e5"
+    },
+    {
+      "name": "spring/80_32",
+      "blocks": 2288,
+      "sha256": "a937c189974675f02ce673183067ed64ecbb9a6c9bc75a8330a80edc5f09b4a0"
+    },
+    {
+      "name": "spring/80_48",
+      "blocks": 1290,
+      "sha256": "5929267db51353ed86fe804d1242ecb74ec6ef815805228d468b84c4ce2b2e44"
+    },
+    {
+      "name": "spring/80_64",
+      "blocks": 0,
+      "sha256": "4cddae5087476f0035c9e0c91257fa4773da55391fd619b61c85ddae7e53bf33"
+    },
+    {
+      "name": "spring/80_80",
+      "blocks": 0,
+      "sha256": "2dc618fa843c4d0af671154ee2f85573e8da7a264ee420524bf43c2375583673"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_bossritualitem_1.title",
+  "icon": "slavicmyths:stepnoy_shtandart",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:stepnoy_shtandart",
+    "item/slavicmyths:uzel_durnoy_doli",
+    "recipe/slavicmyths:stepnoy_shtandart",
+    "recipe/slavicmyths:uzel_durnoy_doli"
+  ],
+  "advancements": [],
+  "links": []
+}

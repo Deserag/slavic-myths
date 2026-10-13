@@ -1,0 +1,16 @@
+{
+  "gradle.properties": "a51d52c40847b355441f7259b3f675910007ef191f5b8a4fd160d3f4f44fd276",
+  "src/main/java/org/slavicmyths/SlavicMyths.java": "b8a177a0b1e7057c67e1e1618a007fa30f83715e949b2c25e3970a878472ea1b",
+  "src/main/java/org/slavicmyths/skim/HeroCalls.java": "6eb6a058d08abc37cae2773b79f22f3f95fbc5c239212d1f69ec53f988f1e252",
+  "src/main/java/org/slavicmyths/marinka/StoryPolicy.java": "83792a359da2f8283998671cc86597627a4d46fbf9e42e07f5c7ac00632011e2",
+  "src/main/java/org/slavicmyths/bogatyr/IlyaEntity.java": "8109e2ce54a3e7d13f5dfdeb944a49fe6794884fd00bb51f08febbae85572e68",
+  "src/main/java/org/slavicmyths/marinka/DobrynyaEntity.java": "18dff8743456e26a1945888b3e5771110b1ec85afd2cf29deec88d2e2b0a6149",
+  "src/main/java/org/slavicmyths/skim/AlyoshaEntity.java": "337146ba3ea20314695b989eecbe23e858363aa3fc366e9c3b5ba88d5aa1db57",
+  "src/main/java/org/slavicmyths/finist/FinistEntity.java": "f0a9a690e1ad401f4e50fa0a7870760dbe67605c6efb3ba0748bfffb1795f579",
+  "src/main/resources/assets/slavicmyths/sounds.json": "1c55840d990bbc2e560e9e18a629174204969cc876cbd5c114d9503276407549",
+  "src/main/resources/assets/slavicmyths/lang/ru_ru.json": "6d89b9e69d5c304f24b5a594fab8f79cd78bc782da94e267252cb43596fac592",
+  "src/main/resources/assets/slavicmyths/lang/en_us.json": "c000773b8fc5fdb58c6e372051a180387c1db0697bf20c5643f842ca0f4ddc3a",
+  "docs/PROJECT_STATUS.md": "01c1a44fdff4d298c50e3cc8cf9909ca73aa4530ed0c91fd5bc4687be0df760e",
+  "docs/ROADMAP.md": "f5f0416878888c51e7cf9dc15419544a6726f19ac04ad114e870dda84d6296dd",
+  "docs/ARCHITECTURE.md": "7d3f8f4094b07336ceb1f5053e78689540e11b890e0b694ba69fb8100656f4cc"
+}

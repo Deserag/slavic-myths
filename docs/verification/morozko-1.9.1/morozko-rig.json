@@ -1,0 +1,4208 @@
+{
+  "atlas": 512,
+  "height": 52,
+  "bones": {
+    "pelvis": {
+      "parent": null,
+      "pos": [
+        0,
+        24,
+        0
+      ]
+    },
+    "torso": {
+      "parent": "pelvis",
+      "pos": [
+        0,
+        42,
+        0
+      ]
+    },
+    "leg_right": {
+      "parent": "pelvis",
+      "pos": [
+        -6,
+        24,
+        0
+      ]
+    },
+    "boot_right": {
+      "parent": "leg_right",
+      "pos": [
+        -6,
+        9,
+        0
+      ]
+    },
+    "upper_arm_right": {
+      "parent": "torso",
+      "pos": [
+        -14,
+        41,
+        0
+      ]
+    },
+    "forearm_right": {
+      "parent": "upper_arm_right",
+      "pos": [
+        -14,
+        29,
+        0
+      ]
+    },
+    "hand_right": {
+      "parent": "forearm_right",
+      "pos": [
+        -14,
+        22,
+        0
+      ]
+    },
+    "shoulder_fur_right": {
+      "parent": "torso",
+      "pos": [
+        -10,
+        42,
+        0
+      ]
+    },
+    "coat_front_right": {
+      "parent": "pelvis",
+      "pos": [
+        -6.5,
+        25,
+        -4
+      ]
+    },
+    "coat_tail_right": {
+      "parent": "pelvis",
+      "pos": [
+        -6.5,
+        25,
+        4
+      ]
+    },
+    "leg_left": {
+      "parent": "pelvis",
+      "pos": [
+        6,
+        24,
+        0
+      ]
+    },
+    "boot_left": {
+      "parent": "leg_left",
+      "pos": [
+        6,
+        9,
+        0
+      ]
+    },
+    "upper_arm_left": {
+      "parent": "torso",
+      "pos": [
+        14,
+        41,
+        0
+      ]
+    },
+    "forearm_left": {
+      "parent": "upper_arm_left",
+      "pos": [
+        14,
+        29,
+        0
+      ]
+    },
+    "hand_left": {
+      "parent": "forearm_left",
+      "pos": [
+        14,
+        22,
+        0
+      ]
+    },
+    "shoulder_fur_left": {
+      "parent": "torso",
+      "pos": [
+        10,
+        42,
+        0
+      ]
+    },
+    "coat_front_left": {
+      "parent": "pelvis",
+      "pos": [
+        6.5,
+        25,
+        -4
+      ]
+    },
+    "coat_tail_left": {
+      "parent": "pelvis",
+      "pos": [
+        6.5,
+        25,
+        4
+      ]
+    },
+    "coat_center": {
+      "parent": "pelvis",
+      "pos": [
+        0,
+        26,
+        -8
+      ]
+    },
+    "back_emblem": {
+      "parent": "torso",
+      "pos": [
+        0,
+        36,
+        7
+      ]
+    },
+    "head": {
+      "parent": "torso",
+      "pos": [
+        0,
+        44,
+        0
+      ]
+    },
+    "hair_back": {
+      "parent": "head",
+      "pos": [
+        0,
+        49,
+        3
+      ]
+    },
+    "brow_l": {
+      "parent": "head",
+      "pos": [
+        -2.8,
+        48,
+        -5.3
+      ]
+    },
+    "brow_r": {
+      "parent": "head",
+      "pos": [
+        2.8,
+        48,
+        -5.3
+      ]
+    },
+    "beard_main": {
+      "parent": "head",
+      "pos": [
+        0,
+        44,
+        -6.3
+      ]
+    },
+    "beard_tips": {
+      "parent": "beard_main",
+      "pos": [
+        0,
+        35,
+        -7
+      ]
+    },
+    "staff_root": {
+      "parent": "hand_right",
+      "pos": [
+        -16,
+        20,
+        -3.5
+      ]
+    },
+    "staff_root_head": {
+      "parent": "staff_root",
+      "pos": [
+        -16,
+        44,
+        -3.5
+      ]
+    },
+    "staff_root_crystals": {
+      "parent": "staff_root_head",
+      "pos": [
+        -16,
+        50,
+        -3.5
+      ]
+    },
+    "yield_heart": {
+      "parent": "hand_left",
+      "pos": [
+        14,
+        22,
+        -4
+      ]
+    }
+  },
+  "boxes": [
+    {
+      "bone": "torso",
+      "center": [
+        0,
+        33.0,
+        0
+      ],
+      "size": [
+        22,
+        22,
+        13
+      ],
+      "material": "navy",
+      "uv": [
+        2,
+        2,
+        70,
+        35
+      ]
+    },
+    {
+      "bone": "pelvis",
+      "center": [
+        0,
+        24.5,
+        -0.1
+      ],
+      "size": [
+        23,
+        3,
+        13.6
+      ],
+      "material": "wood",
+      "uv": [
+        76,
+        2,
+        74,
+        17
+      ]
+    },
+    {
+      "bone": "pelvis",
+      "center": [
+        0,
+        25.3,
+        -7.4
+      ],
+      "size": [
+        5,
+        4,
+        1
+      ],
+      "material": "metal",
+      "uv": [
+        154,
+        2,
+        12,
+        5
+      ]
+    },
+    {
+      "bone": "leg_right",
+      "center": [
+        -6,
+        16.0,
+        0
+      ],
+      "size": [
+        8,
+        16,
+        8
+      ],
+      "material": "boot",
+      "uv": [
+        170,
+        2,
+        32,
+        24
+      ]
+    },
+    {
+      "bone": "boot_right",
+      "center": [
+        -6,
+        4.5,
+        -1
+      ],
+      "size": [
+        8,
+        9,
+        9
+      ],
+      "material": "boot",
+      "uv": [
+        206,
+        2,
+        34,
+        18
+      ]
+    },
+    {
+      "bone": "boot_right",
+      "center": [
+        -6,
+        8.0,
+        -1
+      ],
+      "size": [
+        8.5,
+        2,
+        9.5
+      ],
+      "material": "fur",
+      "uv": [
+        244,
+        2,
+        36,
+        12
+      ]
+    },
+    {
+      "bone": "upper_arm_right",
+      "center": [
+        -14,
+        34.5,
+        0
+      ],
+      "size": [
+        7,
+        13,
+        9
+      ],
+      "material": "navy",
+      "uv": [
+        284,
+        2,
+        32,
+        22
+      ]
+    },
+    {
+      "bone": "forearm_right",
+      "center": [
+        -14,
+        26.0,
+        0
+      ],
+      "size": [
+        7,
+        8,
+        9
+      ],
+      "material": "navy",
+      "uv": [
+        320,
+        2,
+        32,
+        17
+      ]
+    },
+    {
+      "bone": "forearm_right",
+      "center": [
+        -14,
+        23.0,
+        0
+      ],
+      "size": [
+        7.6,
+        2,
+        9.6
+      ],
+      "material": "fur",
+      "uv": [
+        356,
+        2,
+        35,
+        12
+      ]
+    },
+    {
+      "bone": "forearm_right",
+      "center": [
+        -14,
+        26.5,
+        0
+      ],
+      "size": [
+        7.5,
+        1,
+        9.5
+      ],
+      "material": "fur",
+      "uv": [
+        395,
+        2,
+        34,
+        11
+      ]
+    },
+    {
+      "bone": "hand_right",
+      "center": [
+        -14,
+        20.5,
+        0
+      ],
+      "size": [
+        6.5,
+        5,
+        7
+      ],
+      "material": "boot",
+      "uv": [
+        433,
+        2,
+        27,
+        12
+      ]
+    },
+    {
+      "bone": "shoulder_fur_right",
+      "center": [
+        -10,
+        42.0,
+        0
+      ],
+      "size": [
+        12,
+        6,
+        15
+      ],
+      "material": "fur",
+      "uv": [
+        2,
+        41,
+        54,
+        21
+      ]
+    },
+    {
+      "bone": "shoulder_fur_right",
+      "center": [
+        -10,
+        45.0,
+        0
+      ],
+      "size": [
+        9,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        60,
+        41,
+        42,
+        16
+      ]
+    },
+    {
+      "bone": "shoulder_fur_right",
+      "center": [
+        -7.0,
+        39.5,
+        -6.8
+      ],
+      "size": [
+        4,
+        5,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        106,
+        41,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "shoulder_fur_right",
+      "center": [
+        -10.5,
+        40.5,
+        -6.8
+      ],
+      "size": [
+        4,
+        5,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        124,
+        41,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "shoulder_fur_right",
+      "center": [
+        -14.0,
+        39.5,
+        -6.8
+      ],
+      "size": [
+        4,
+        5,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        142,
+        41,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -6,
+        20.0,
+        -4
+      ],
+      "size": [
+        12,
+        10,
+        7
+      ],
+      "material": "navy",
+      "uv": [
+        160,
+        41,
+        38,
+        17
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -7,
+        12.0,
+        -4
+      ],
+      "size": [
+        14,
+        8,
+        7
+      ],
+      "material": "navy",
+      "uv": [
+        202,
+        41,
+        42,
+        15
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -7,
+        8.5,
+        -4
+      ],
+      "size": [
+        14,
+        3,
+        7.5
+      ],
+      "material": "fur",
+      "uv": [
+        248,
+        41,
+        43,
+        11
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -12,
+        17.0,
+        -4
+      ],
+      "size": [
+        2,
+        14,
+        7.8
+      ],
+      "material": "fur",
+      "uv": [
+        295,
+        41,
+        20,
+        22
+      ]
+    },
+    {
+      "bone": "coat_tail_right",
+      "center": [
+        -6,
+        20.0,
+        4
+      ],
+      "size": [
+        12,
+        10,
+        7
+      ],
+      "material": "navy",
+      "uv": [
+        319,
+        41,
+        38,
+        17
+      ]
+    },
+    {
+      "bone": "coat_tail_right",
+      "center": [
+        -7,
+        12.0,
+        4
+      ],
+      "size": [
+        14,
+        8,
+        7
+      ],
+      "material": "navy",
+      "uv": [
+        361,
+        41,
+        42,
+        15
+      ]
+    },
+    {
+      "bone": "coat_tail_right",
+      "center": [
+        -7,
+        8.5,
+        4
+      ],
+      "size": [
+        14,
+        3,
+        7.5
+      ],
+      "material": "fur",
+      "uv": [
+        407,
+        41,
+        43,
+        11
+      ]
+    },
+    {
+      "bone": "coat_tail_right",
+      "center": [
+        -12,
+        17.0,
+        4
+      ],
+      "size": [
+        2,
+        14,
+        7.8
+      ],
+      "material": "fur",
+      "uv": [
+        454,
+        41,
+        20,
+        22
+      ]
+    },
+    {
+      "bone": "leg_left",
+      "center": [
+        6,
+        16.0,
+        0
+      ],
+      "size": [
+        8,
+        16,
+        8
+      ],
+      "material": "boot",
+      "uv": [
+        478,
+        41,
+        32,
+        24
+      ]
+    },
+    {
+      "bone": "boot_left",
+      "center": [
+        6,
+        4.5,
+        -1
+      ],
+      "size": [
+        8,
+        9,
+        9
+      ],
+      "material": "boot",
+      "uv": [
+        2,
+        69,
+        34,
+        18
+      ]
+    },
+    {
+      "bone": "boot_left",
+      "center": [
+        6,
+        8.0,
+        -1
+      ],
+      "size": [
+        8.5,
+        2,
+        9.5
+      ],
+      "material": "fur",
+      "uv": [
+        40,
+        69,
+        36,
+        12
+      ]
+    },
+    {
+      "bone": "upper_arm_left",
+      "center": [
+        14,
+        34.5,
+        0
+      ],
+      "size": [
+        7,
+        13,
+        9
+      ],
+      "material": "navy",
+      "uv": [
+        80,
+        69,
+        32,
+        22
+      ]
+    },
+    {
+      "bone": "forearm_left",
+      "center": [
+        14,
+        26.0,
+        0
+      ],
+      "size": [
+        7,
+        8,
+        9
+      ],
+      "material": "navy",
+      "uv": [
+        116,
+        69,
+        32,
+        17
+      ]
+    },
+    {
+      "bone": "forearm_left",
+      "center": [
+        14,
+        23.0,
+        0
+      ],
+      "size": [
+        7.6,
+        2,
+        9.6
+      ],
+      "material": "fur",
+      "uv": [
+        152,
+        69,
+        35,
+        12
+      ]
+    },
+    {
+      "bone": "forearm_left",
+      "center": [
+        14,
+        26.5,
+        0
+      ],
+      "size": [
+        7.5,
+        1,
+        9.5
+      ],
+      "material": "fur",
+      "uv": [
+        191,
+        69,
+        34,
+        11
+      ]
+    },
+    {
+      "bone": "hand_left",
+      "center": [
+        14,
+        20.5,
+        0
+      ],
+      "size": [
+        6.5,
+        5,
+        7
+      ],
+      "material": "boot",
+      "uv": [
+        229,
+        69,
+        27,
+        12
+      ]
+    },
+    {
+      "bone": "shoulder_fur_left",
+      "center": [
+        10,
+        42.0,
+        0
+      ],
+      "size": [
+        12,
+        6,
+        15
+      ],
+      "material": "fur",
+      "uv": [
+        260,
+        69,
+        54,
+        21
+      ]
+    },
+    {
+      "bone": "shoulder_fur_left",
+      "center": [
+        10,
+        45.0,
+        0
+      ],
+      "size": [
+        9,
+        4,
+        12
+      ],
+      "material": "fur",
+      "uv": [
+        318,
+        69,
+        42,
+        16
+      ]
+    },
+    {
+      "bone": "shoulder_fur_left",
+      "center": [
+        7.0,
+        39.5,
+        -6.8
+      ],
+      "size": [
+        4,
+        5,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        364,
+        69,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "shoulder_fur_left",
+      "center": [
+        10.5,
+        40.5,
+        -6.8
+      ],
+      "size": [
+        4,
+        5,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        382,
+        69,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "shoulder_fur_left",
+      "center": [
+        14.0,
+        39.5,
+        -6.8
+      ],
+      "size": [
+        4,
+        5,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        400,
+        69,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        6,
+        20.0,
+        -4
+      ],
+      "size": [
+        12,
+        10,
+        7
+      ],
+      "material": "navy",
+      "uv": [
+        418,
+        69,
+        38,
+        17
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        7,
+        12.0,
+        -4
+      ],
+      "size": [
+        14,
+        8,
+        7
+      ],
+      "material": "navy",
+      "uv": [
+        460,
+        69,
+        42,
+        15
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        7,
+        8.5,
+        -4
+      ],
+      "size": [
+        14,
+        3,
+        7.5
+      ],
+      "material": "fur",
+      "uv": [
+        2,
+        95,
+        43,
+        11
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        12,
+        17.0,
+        -4
+      ],
+      "size": [
+        2,
+        14,
+        7.8
+      ],
+      "material": "fur",
+      "uv": [
+        49,
+        95,
+        20,
+        22
+      ]
+    },
+    {
+      "bone": "coat_tail_left",
+      "center": [
+        6,
+        20.0,
+        4
+      ],
+      "size": [
+        12,
+        10,
+        7
+      ],
+      "material": "navy",
+      "uv": [
+        73,
+        95,
+        38,
+        17
+      ]
+    },
+    {
+      "bone": "coat_tail_left",
+      "center": [
+        7,
+        12.0,
+        4
+      ],
+      "size": [
+        14,
+        8,
+        7
+      ],
+      "material": "navy",
+      "uv": [
+        115,
+        95,
+        42,
+        15
+      ]
+    },
+    {
+      "bone": "coat_tail_left",
+      "center": [
+        7,
+        8.5,
+        4
+      ],
+      "size": [
+        14,
+        3,
+        7.5
+      ],
+      "material": "fur",
+      "uv": [
+        161,
+        95,
+        43,
+        11
+      ]
+    },
+    {
+      "bone": "coat_tail_left",
+      "center": [
+        12,
+        17.0,
+        4
+      ],
+      "size": [
+        2,
+        14,
+        7.8
+      ],
+      "material": "fur",
+      "uv": [
+        208,
+        95,
+        20,
+        22
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        0,
+        17.0,
+        -8
+      ],
+      "size": [
+        6,
+        20,
+        1
+      ],
+      "material": "navy",
+      "uv": [
+        232,
+        95,
+        14,
+        21
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        0,
+        10.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        250,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        -1,
+        11.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        257,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        1,
+        11.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        264,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        0,
+        12.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        271,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        0,
+        16.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        278,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        -1,
+        17.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        285,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        1,
+        17.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        292,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        0,
+        18.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        299,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        0,
+        22.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        306,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        -1,
+        23.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        313,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        1,
+        23.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        320,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_center",
+      "center": [
+        0,
+        24.5,
+        -8.8
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "fur",
+      "uv": [
+        327,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        4,
+        11.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        334,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        5,
+        12.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        341,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        6,
+        13.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        348,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        7,
+        12.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        355,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        8,
+        11.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        362,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        4,
+        17.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        369,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        5,
+        18.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        376,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        6,
+        19.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        383,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        7,
+        18.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        390,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_left",
+      "center": [
+        8,
+        17.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        397,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -8,
+        11.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        404,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -7,
+        12.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        411,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -6,
+        13.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        418,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -5,
+        12.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        425,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -4,
+        11.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        432,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -8,
+        17.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        439,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -7,
+        18.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        446,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -6,
+        19.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        453,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -5,
+        18.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        460,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "coat_front_right",
+      "center": [
+        -4,
+        17.5,
+        -7.8
+      ],
+      "size": [
+        1,
+        1,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        467,
+        95,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        0,
+        30.5,
+        7
+      ],
+      "size": [
+        14,
+        21,
+        0.5
+      ],
+      "material": "navy",
+      "uv": [
+        474,
+        95,
+        29,
+        22
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -4.05,
+        23.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        2,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        4.05,
+        23.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        11,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -3.15,
+        25.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        20,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        3.15,
+        25.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        29,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -2.25,
+        27.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        38,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        2.25,
+        27.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        47,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -1.35,
+        29.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        56,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        1.35,
+        29.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        65,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -0.45,
+        31.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        74,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        0.45,
+        31.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        83,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -0.45,
+        33.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        92,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        0.45,
+        33.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        101,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -1.35,
+        35.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        110,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        1.35,
+        35.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        119,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -2.25,
+        37.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        128,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        2.25,
+        37.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        137,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -3.15,
+        39.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        146,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        3.15,
+        39.0,
+        7.5
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        155,
+        121,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -5,
+        30.0,
+        7.7
+      ],
+      "size": [
+        1,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        164,
+        121,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -4,
+        30.0,
+        7.7
+      ],
+      "size": [
+        1,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        171,
+        121,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -3,
+        30.0,
+        7.7
+      ],
+      "size": [
+        1,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        178,
+        121,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -2,
+        30.0,
+        7.7
+      ],
+      "size": [
+        1,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        185,
+        121,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        -1,
+        30.0,
+        7.7
+      ],
+      "size": [
+        1,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        192,
+        121,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        0,
+        30.0,
+        7.7
+      ],
+      "size": [
+        1,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        199,
+        121,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        1,
+        30.0,
+        7.7
+      ],
+      "size": [
+        1,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        206,
+        121,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        2,
+        30.0,
+        7.7
+      ],
+      "size": [
+        1,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        213,
+        121,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        3,
+        30.0,
+        7.7
+      ],
+      "size": [
+        1,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        220,
+        121,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        4,
+        30.0,
+        7.7
+      ],
+      "size": [
+        1,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        227,
+        121,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "back_emblem",
+      "center": [
+        5,
+        30.0,
+        7.7
+      ],
+      "size": [
+        1,
+        2,
+        0.5
+      ],
+      "material": "fur",
+      "uv": [
+        234,
+        121,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        46.0,
+        0
+      ],
+      "size": [
+        11,
+        10,
+        10
+      ],
+      "material": "skin",
+      "uv": [
+        241,
+        121,
+        42,
+        20
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        44.5,
+        -6
+      ],
+      "size": [
+        3,
+        3,
+        3
+      ],
+      "material": "skin",
+      "uv": [
+        287,
+        121,
+        12,
+        6
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        0,
+        47.0,
+        4.8
+      ],
+      "size": [
+        11.5,
+        10,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        303,
+        121,
+        29,
+        13
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -5.4,
+        49.0,
+        0
+      ],
+      "size": [
+        2,
+        6,
+        10.5
+      ],
+      "material": "fur",
+      "uv": [
+        336,
+        121,
+        25,
+        17
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -5.5,
+        45.0,
+        -3.7
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        365,
+        121,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -2.7,
+        47.0,
+        -5.3
+      ],
+      "size": [
+        2,
+        2,
+        0.7
+      ],
+      "material": "eye",
+      "uv": [
+        379,
+        121,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "brow_l",
+      "center": [
+        -2.8,
+        48.75,
+        -5.5
+      ],
+      "size": [
+        3.5,
+        1.5,
+        1.3
+      ],
+      "material": "fur",
+      "uv": [
+        389,
+        121,
+        10,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        5.4,
+        49.0,
+        0
+      ],
+      "size": [
+        2,
+        6,
+        10.5
+      ],
+      "material": "fur",
+      "uv": [
+        403,
+        121,
+        25,
+        17
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        5.5,
+        45.0,
+        -3.7
+      ],
+      "size": [
+        2,
+        4,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        432,
+        121,
+        10,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        2.7,
+        47.0,
+        -5.3
+      ],
+      "size": [
+        2,
+        2,
+        0.7
+      ],
+      "material": "eye",
+      "uv": [
+        446,
+        121,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "brow_r",
+      "center": [
+        2.8,
+        48.75,
+        -5.5
+      ],
+      "size": [
+        3.5,
+        1.5,
+        1.3
+      ],
+      "material": "fur",
+      "uv": [
+        456,
+        121,
+        10,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -4,
+        50.5,
+        -4.4
+      ],
+      "size": [
+        2.5,
+        2,
+        2
+      ],
+      "material": "fur",
+      "uv": [
+        470,
+        121,
+        9,
+        4
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -2,
+        51.0,
+        -4.4
+      ],
+      "size": [
+        2.5,
+        2,
+        2
+      ],
+      "material": "fur",
+      "uv": [
+        483,
+        121,
+        9,
+        4
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        50.5,
+        -4.4
+      ],
+      "size": [
+        2.5,
+        2,
+        2
+      ],
+      "material": "fur",
+      "uv": [
+        496,
+        121,
+        9,
+        4
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        2,
+        51.0,
+        -4.4
+      ],
+      "size": [
+        2.5,
+        2,
+        2
+      ],
+      "material": "fur",
+      "uv": [
+        2,
+        145,
+        9,
+        4
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        4,
+        50.5,
+        -4.4
+      ],
+      "size": [
+        2.5,
+        2,
+        2
+      ],
+      "material": "fur",
+      "uv": [
+        15,
+        145,
+        9,
+        4
+      ]
+    },
+    {
+      "bone": "beard_main",
+      "center": [
+        0,
+        39.5,
+        -6.3
+      ],
+      "size": [
+        11,
+        9,
+        4
+      ],
+      "material": "fur",
+      "uv": [
+        28,
+        145,
+        30,
+        13
+      ]
+    },
+    {
+      "bone": "beard_main",
+      "center": [
+        0,
+        35.0,
+        -7
+      ],
+      "size": [
+        9,
+        6,
+        4
+      ],
+      "material": "fur",
+      "uv": [
+        62,
+        145,
+        26,
+        10
+      ]
+    },
+    {
+      "bone": "beard_tips",
+      "center": [
+        -3,
+        32.0,
+        -7.1
+      ],
+      "size": [
+        3,
+        6,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        92,
+        145,
+        12,
+        9
+      ]
+    },
+    {
+      "bone": "beard_tips",
+      "center": [
+        0,
+        31.0,
+        -7.1
+      ],
+      "size": [
+        3,
+        8,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        108,
+        145,
+        12,
+        11
+      ]
+    },
+    {
+      "bone": "beard_tips",
+      "center": [
+        3,
+        32.5,
+        -7.1
+      ],
+      "size": [
+        3,
+        5,
+        3
+      ],
+      "material": "fur",
+      "uv": [
+        124,
+        145,
+        12,
+        8
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16,
+        22.0,
+        -3.5
+      ],
+      "size": [
+        3,
+        44,
+        3
+      ],
+      "material": "wood",
+      "uv": [
+        140,
+        145,
+        12,
+        47
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16,
+        2.0,
+        -3.5
+      ],
+      "size": [
+        4,
+        4,
+        4
+      ],
+      "material": "metal",
+      "uv": [
+        156,
+        145,
+        16,
+        8
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16,
+        2.0,
+        -5.6
+      ],
+      "size": [
+        2,
+        2,
+        0.4
+      ],
+      "material": "eye",
+      "uv": [
+        176,
+        145,
+        5,
+        3
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16,
+        7.75,
+        -3.5
+      ],
+      "size": [
+        4.5,
+        1.5,
+        4.5
+      ],
+      "material": "metal",
+      "uv": [
+        185,
+        145,
+        18,
+        6
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16,
+        19.75,
+        -3.5
+      ],
+      "size": [
+        4.5,
+        1.5,
+        4.5
+      ],
+      "material": "metal",
+      "uv": [
+        207,
+        145,
+        18,
+        6
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16,
+        34.75,
+        -3.5
+      ],
+      "size": [
+        4.5,
+        1.5,
+        4.5
+      ],
+      "material": "metal",
+      "uv": [
+        229,
+        145,
+        18,
+        6
+      ]
+    },
+    {
+      "bone": "staff_root_head",
+      "center": [
+        -16,
+        41.75,
+        -3.5
+      ],
+      "size": [
+        4.5,
+        1.5,
+        4.5
+      ],
+      "material": "metal",
+      "uv": [
+        251,
+        145,
+        18,
+        6
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16,
+        13.0,
+        -5.1
+      ],
+      "size": [
+        2.5,
+        8,
+        0.5
+      ],
+      "material": "navy",
+      "uv": [
+        273,
+        145,
+        6,
+        9
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16.35,
+        9.35,
+        -5.45
+      ],
+      "size": [
+        1,
+        0.7,
+        0.3
+      ],
+      "material": "fur",
+      "uv": [
+        283,
+        145,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -15.65,
+        10.85,
+        -5.45
+      ],
+      "size": [
+        1,
+        0.7,
+        0.3
+      ],
+      "material": "fur",
+      "uv": [
+        290,
+        145,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16.35,
+        12.35,
+        -5.45
+      ],
+      "size": [
+        1,
+        0.7,
+        0.3
+      ],
+      "material": "fur",
+      "uv": [
+        297,
+        145,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -15.65,
+        13.85,
+        -5.45
+      ],
+      "size": [
+        1,
+        0.7,
+        0.3
+      ],
+      "material": "fur",
+      "uv": [
+        304,
+        145,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16.35,
+        15.35,
+        -5.45
+      ],
+      "size": [
+        1,
+        0.7,
+        0.3
+      ],
+      "material": "fur",
+      "uv": [
+        311,
+        145,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16,
+        27.0,
+        -5.1
+      ],
+      "size": [
+        2.5,
+        8,
+        0.5
+      ],
+      "material": "navy",
+      "uv": [
+        318,
+        145,
+        6,
+        9
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16.35,
+        23.35,
+        -5.45
+      ],
+      "size": [
+        1,
+        0.7,
+        0.3
+      ],
+      "material": "fur",
+      "uv": [
+        328,
+        145,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -15.65,
+        24.85,
+        -5.45
+      ],
+      "size": [
+        1,
+        0.7,
+        0.3
+      ],
+      "material": "fur",
+      "uv": [
+        335,
+        145,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16.35,
+        26.35,
+        -5.45
+      ],
+      "size": [
+        1,
+        0.7,
+        0.3
+      ],
+      "material": "fur",
+      "uv": [
+        342,
+        145,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -15.65,
+        27.85,
+        -5.45
+      ],
+      "size": [
+        1,
+        0.7,
+        0.3
+      ],
+      "material": "fur",
+      "uv": [
+        349,
+        145,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "staff_root",
+      "center": [
+        -16.35,
+        29.35,
+        -5.45
+      ],
+      "size": [
+        1,
+        0.7,
+        0.3
+      ],
+      "material": "fur",
+      "uv": [
+        356,
+        145,
+        3,
+        1
+      ]
+    },
+    {
+      "bone": "staff_root_head",
+      "center": [
+        -16,
+        43.5,
+        -3.5
+      ],
+      "size": [
+        6,
+        3,
+        5
+      ],
+      "material": "metal",
+      "uv": [
+        363,
+        145,
+        22,
+        8
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -16,
+        43.5,
+        -6.2
+      ],
+      "size": [
+        2,
+        1,
+        0.5
+      ],
+      "material": "eye",
+      "uv": [
+        389,
+        145,
+        5,
+        2
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -16,
+        51.5,
+        -3.5
+      ],
+      "size": [
+        3,
+        15,
+        3
+      ],
+      "material": "ice",
+      "uv": [
+        398,
+        145,
+        12,
+        18
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -16,
+        60.0,
+        -3.5
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        414,
+        145,
+        8,
+        4
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -16,
+        61.5,
+        -3.5
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "eye",
+      "uv": [
+        426,
+        145,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -16,
+        52.0,
+        -5.1
+      ],
+      "size": [
+        1,
+        12,
+        0.4
+      ],
+      "material": "eye",
+      "uv": [
+        434,
+        145,
+        3,
+        13
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -20,
+        50.5,
+        -3.5
+      ],
+      "size": [
+        3,
+        11,
+        3
+      ],
+      "material": "ice",
+      "uv": [
+        441,
+        145,
+        12,
+        14
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -20,
+        57.0,
+        -3.5
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        457,
+        145,
+        8,
+        4
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -20,
+        58.5,
+        -3.5
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "eye",
+      "uv": [
+        469,
+        145,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -20,
+        51.0,
+        -5.1
+      ],
+      "size": [
+        1,
+        8,
+        0.4
+      ],
+      "material": "eye",
+      "uv": [
+        477,
+        145,
+        3,
+        9
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -12,
+        50.5,
+        -3.5
+      ],
+      "size": [
+        3,
+        11,
+        3
+      ],
+      "material": "ice",
+      "uv": [
+        484,
+        145,
+        12,
+        14
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -12,
+        57.0,
+        -3.5
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        500,
+        145,
+        8,
+        4
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -12,
+        58.5,
+        -3.5
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "eye",
+      "uv": [
+        2,
+        196,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -12,
+        51.0,
+        -5.1
+      ],
+      "size": [
+        1,
+        8,
+        0.4
+      ],
+      "material": "eye",
+      "uv": [
+        10,
+        196,
+        3,
+        9
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -24,
+        48.5,
+        -3.5
+      ],
+      "size": [
+        3,
+        5,
+        3
+      ],
+      "material": "ice",
+      "uv": [
+        17,
+        196,
+        12,
+        8
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -24,
+        52.0,
+        -3.5
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        33,
+        196,
+        8,
+        4
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -24,
+        53.5,
+        -3.5
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "eye",
+      "uv": [
+        45,
+        196,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -24,
+        49.0,
+        -5.1
+      ],
+      "size": [
+        1,
+        2,
+        0.4
+      ],
+      "material": "eye",
+      "uv": [
+        53,
+        196,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -8,
+        48.5,
+        -3.5
+      ],
+      "size": [
+        3,
+        5,
+        3
+      ],
+      "material": "ice",
+      "uv": [
+        60,
+        196,
+        12,
+        8
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -8,
+        52.0,
+        -3.5
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        76,
+        196,
+        8,
+        4
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -8,
+        53.5,
+        -3.5
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "eye",
+      "uv": [
+        88,
+        196,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -8,
+        49.0,
+        -5.1
+      ],
+      "size": [
+        1,
+        2,
+        0.4
+      ],
+      "material": "eye",
+      "uv": [
+        96,
+        196,
+        3,
+        3
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -21,
+        43.5,
+        -3.5
+      ],
+      "size": [
+        3,
+        3,
+        3
+      ],
+      "material": "ice",
+      "uv": [
+        103,
+        196,
+        12,
+        6
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -21,
+        46.0,
+        -3.5
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        119,
+        196,
+        8,
+        4
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -21,
+        47.5,
+        -3.5
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "eye",
+      "uv": [
+        131,
+        196,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -21,
+        44.5,
+        -5.1
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "eye",
+      "uv": [
+        139,
+        196,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -11,
+        43.5,
+        -3.5
+      ],
+      "size": [
+        3,
+        3,
+        3
+      ],
+      "material": "ice",
+      "uv": [
+        146,
+        196,
+        12,
+        6
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -11,
+        46.0,
+        -3.5
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        162,
+        196,
+        8,
+        4
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -11,
+        47.5,
+        -3.5
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "eye",
+      "uv": [
+        174,
+        196,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -11,
+        44.5,
+        -5.1
+      ],
+      "size": [
+        1,
+        1,
+        0.4
+      ],
+      "material": "eye",
+      "uv": [
+        182,
+        196,
+        3,
+        2
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -16,
+        49.0,
+        -3.5
+      ],
+      "size": [
+        17,
+        2,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        189,
+        196,
+        38,
+        4
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -18,
+        50.5,
+        -5.5
+      ],
+      "size": [
+        3,
+        3,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        231,
+        196,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -20,
+        52.5,
+        -5.5
+      ],
+      "size": [
+        3,
+        3,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        245,
+        196,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -22,
+        54.5,
+        -5.5
+      ],
+      "size": [
+        3,
+        3,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        259,
+        196,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -24,
+        56.5,
+        -5.5
+      ],
+      "size": [
+        3,
+        3,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        273,
+        196,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -14,
+        50.5,
+        -5.5
+      ],
+      "size": [
+        3,
+        3,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        287,
+        196,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -12,
+        52.5,
+        -5.5
+      ],
+      "size": [
+        3,
+        3,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        301,
+        196,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -10,
+        54.5,
+        -5.5
+      ],
+      "size": [
+        3,
+        3,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        315,
+        196,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -8,
+        56.5,
+        -5.5
+      ],
+      "size": [
+        3,
+        3,
+        2
+      ],
+      "material": "ice",
+      "uv": [
+        329,
+        196,
+        10,
+        5
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -23,
+        39.5,
+        -3.5
+      ],
+      "size": [
+        2.5,
+        5,
+        2.5
+      ],
+      "material": "ice",
+      "uv": [
+        343,
+        196,
+        10,
+        8
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -23,
+        36.5,
+        -3.5
+      ],
+      "size": [
+        1.5,
+        1,
+        1.5
+      ],
+      "material": "eye",
+      "uv": [
+        357,
+        196,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -9,
+        39.5,
+        -3.5
+      ],
+      "size": [
+        2.5,
+        5,
+        2.5
+      ],
+      "material": "ice",
+      "uv": [
+        367,
+        196,
+        10,
+        8
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -9,
+        36.5,
+        -3.5
+      ],
+      "size": [
+        1.5,
+        1,
+        1.5
+      ],
+      "material": "eye",
+      "uv": [
+        381,
+        196,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -20,
+        34.5,
+        -3.5
+      ],
+      "size": [
+        2.5,
+        5,
+        2.5
+      ],
+      "material": "ice",
+      "uv": [
+        391,
+        196,
+        10,
+        8
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -20,
+        31.5,
+        -3.5
+      ],
+      "size": [
+        1.5,
+        1,
+        1.5
+      ],
+      "material": "eye",
+      "uv": [
+        405,
+        196,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -12,
+        34.5,
+        -3.5
+      ],
+      "size": [
+        2.5,
+        5,
+        2.5
+      ],
+      "material": "ice",
+      "uv": [
+        415,
+        196,
+        10,
+        8
+      ]
+    },
+    {
+      "bone": "staff_root_crystals",
+      "center": [
+        -12,
+        31.5,
+        -3.5
+      ],
+      "size": [
+        1.5,
+        1,
+        1.5
+      ],
+      "material": "eye",
+      "uv": [
+        429,
+        196,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "yield_heart",
+      "center": [
+        14,
+        26.0,
+        -4
+      ],
+      "size": [
+        4,
+        4,
+        4
+      ],
+      "material": "ice",
+      "uv": [
+        439,
+        196,
+        16,
+        8
+      ]
+    },
+    {
+      "bone": "yield_heart",
+      "center": [
+        12.5,
+        28.0,
+        -4
+      ],
+      "size": [
+        3,
+        2,
+        3
+      ],
+      "material": "eye",
+      "uv": [
+        459,
+        196,
+        12,
+        5
+      ]
+    },
+    {
+      "bone": "yield_heart",
+      "center": [
+        15.5,
+        28.0,
+        -4
+      ],
+      "size": [
+        3,
+        2,
+        3
+      ],
+      "material": "eye",
+      "uv": [
+        475,
+        196,
+        12,
+        5
+      ]
+    }
+  ]
+}

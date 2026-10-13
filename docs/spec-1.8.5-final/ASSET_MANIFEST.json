@@ -1,0 +1,210 @@
+{
+  "release": "1.8.5 Final",
+  "files": [
+    {
+      "path": "00_FINAL_IMPLEMENTATION_ORDER.md",
+      "bytes": 5197,
+      "sha256": "d96040f37babd8f34b0f8b42d7ad7d26d715cc3267a0ee56d34abd6452440a48"
+    },
+    {
+      "path": "00_RULES_AND_TARGETED_INTEGRATION.md",
+      "bytes": 4416,
+      "sha256": "0284d2955c780a9350d5080f55c69a4d6a86ee6ee9eb241ee3bf412291597f89"
+    },
+    {
+      "path": "00_START_HERE.md",
+      "bytes": 7352,
+      "sha256": "ea58e98155f99b6a4ec7b48ee299f7aa4fc1158187823816dfd8b9cf22c47bad"
+    },
+    {
+      "path": "01_QUEST_MASTER_FLOW.md",
+      "bytes": 5658,
+      "sha256": "60586a9629b3b60e72918abf43fdfa76e1fe9f06881552923886c6eebd55c948"
+    },
+    {
+      "path": "02_TRIGGER_AND_TELEPORT/01_TRIGGER_MESSAGES.md",
+      "bytes": 3533,
+      "sha256": "58c01a0f4203bd7b88b230bac8ce9de9de1d29e855180c7d2f99e5fd0b30dd62"
+    },
+    {
+      "path": "02_TRIGGER_AND_TELEPORT/02_SAFE_TELEPORT.md",
+      "bytes": 3581,
+      "sha256": "e0c731c71129cbed0b9ab096227192b388d9da55babba861a5f560c6efac1d9e"
+    },
+    {
+      "path": "03_PORCH_SCENE/01_STAGE_ACTORS_CAMERA.md",
+      "bytes": 4863,
+      "sha256": "6b105606fc12f2ad18dc119b18646b324e274bfea40965fcad80b2cf6ca83596"
+    },
+    {
+      "path": "03_PORCH_SCENE/02_SOUNDS_AND_ANIMATIONS.md",
+      "bytes": 3470,
+      "sha256": "4c2ff5a3a3e882a4e23bb9f6f3cf19e8418c02b46c38d5c1ce789198357886ce"
+    },
+    {
+      "path": "03_PORCH_SCENE/03_DIALOGUE_SCRIPT_RU.md",
+      "bytes": 7205,
+      "sha256": "b3b87a884701a45193744a30296ea4499c70dec83352b8283453a8a216daa69b"
+    },
+    {
+      "path": "03_PORCH_SCENE/04_EARLY_CLEANSING_DIALOGUE_RU.md",
+      "bytes": 3779,
+      "sha256": "fef2bd8ba16295c4342effa31e956a4773d0d2ea489290654c4ed5684e44b49a"
+    },
+    {
+      "path": "04_QUEST_STAGES/01_MAIN_OBJECTIVES_AND_REWARDS.md",
+      "bytes": 6214,
+      "sha256": "e1e6e89a4e045893d36fcaa8d8221d7edef425838a3f9f3597adc0ccc0a4db60"
+    },
+    {
+      "path": "04_QUEST_STAGES/02_SIDEQUESTS_WOLF.md",
+      "bytes": 5687,
+      "sha256": "d1cd1300c048a7579947f84f2e12f4b1c44b30fd3fca250f2ee38b406b90ed9a"
+    },
+    {
+      "path": "04_QUEST_STAGES/03_STORY_CONSISTENCY_AND_SHORTCUTS.md",
+      "bytes": 3370,
+      "sha256": "aaaeda5b2372974f573fd16135b4df51fe72ea5bbff885f2036d033e6f96630b"
+    },
+    {
+      "path": "05_GRAY_WOLF/01_SUMMON_ITEM_AND_ELIGIBILITY.md",
+      "bytes": 4142,
+      "sha256": "f61d9a6be38356b0e8a1d029af35990b6c39fab5dfb35f6d1c2903f5d46ded2d"
+    },
+    {
+      "path": "05_GRAY_WOLF/02_WOLF_COMBAT_AI_AND_ANIMATIONS.md",
+      "bytes": 4744,
+      "sha256": "0c43e04dde08000f7432f0c10f8307abee19fdd342d0caa0a3c58c13d0d45e99"
+    },
+    {
+      "path": "06_ITEMS_AND_REWARDS/01_REFERENCE_PALETTE_AND_PIXEL_ART.md",
+      "bytes": 4680,
+      "sha256": "7f9bca9b8f8fea8e6230d756bd5984b87ee2f53db8ebf04d39bd9b2bf746303f"
+    },
+    {
+      "path": "06_ITEMS_AND_REWARDS/02_MOR_WARD.md",
+      "bytes": 3266,
+      "sha256": "6537275504c80fb005c6cb2c8b01f993be1e4a8a05ee6b838646c924c257afa2"
+    },
+    {
+      "path": "06_ITEMS_AND_REWARDS/03_TRACKER_SENSE.md",
+      "bytes": 3188,
+      "sha256": "d6771acd433848bd9b9444cba9bc795105644b862e6bed85f09c1479d0cf63a2"
+    },
+    {
+      "path": "06_ITEMS_AND_REWARDS/04_REWARDS_BALANCE_RECIPES.md",
+      "bytes": 2669,
+      "sha256": "386f8685fbdb7e5e9f3d60ad0b223a2d08f47271b5472627effe11bba1a18f86"
+    },
+    {
+      "path": "07_CLEANSING/01_CLEANSING_POWDER_VISUAL_AND_GAMEPLAY.md",
+      "bytes": 10522,
+      "sha256": "10dd0fb205a052d6fc4f7c85f2cccad14a315150d5dabded771d2f426c69b8b4"
+    },
+    {
+      "path": "07_CLEANSING/02_BLOCK_STATE_RESTORATION.md",
+      "bytes": 4321,
+      "sha256": "c733c3e51bb6303af977a03168deca4f0aeee92e0dc82f8cae11173534fe2f61"
+    },
+    {
+      "path": "07_CLEANSING/03_BOOK_CHAPTER_AND_PERSISTENCE.md",
+      "bytes": 3180,
+      "sha256": "0246c5c2207f12f72bb06be330f992252120e0757e272862aad716197ca9bf3b"
+    },
+    {
+      "path": "07_CLEANSING/04_TRAINING_PATCH_AND_QUEST.md",
+      "bytes": 6166,
+      "sha256": "6c8b5317ddb72f73bb3a6bedc4e379428980cdb096a7d648623727f5af205ef8"
+    },
+    {
+      "path": "07_CLEANSING/05_PROTECTION_90_SECONDS.md",
+      "bytes": 3001,
+      "sha256": "fd34ebbd11bc8a69c486d072ef72655ba340b291c720f1e497350ae95302c664"
+    },
+    {
+      "path": "08_BOOK_UI_LOCALIZATION/01_JOURNAL_QUEST_UI.md",
+      "bytes": 3614,
+      "sha256": "160903382d429f1a3e4f34f5245db1ede34299c48c4c156fddc323769ccfc7c7"
+    },
+    {
+      "path": "08_BOOK_UI_LOCALIZATION/02_RUSSIAN_STRINGS_AND_KEYS.md",
+      "bytes": 3763,
+      "sha256": "5ebb0c1f04a50c8902be582f8073017d259363e738eb307140b7db92b1ad188a"
+    },
+    {
+      "path": "08_BOOK_UI_LOCALIZATION/03_DIALOGUE_GUI_STATES.md",
+      "bytes": 2794,
+      "sha256": "6d6133e206dfce4a1d9295c8bb8f392101939ee17c24bb3e004d5345bb279a77"
+    },
+    {
+      "path": "09_SOUND_ANIMATION_ASSETS/01_ASSET_REGISTER_AND_REQUIREMENTS.md",
+      "bytes": 3793,
+      "sha256": "84448717a96a53df1982b5c38daa2475e57cf2af3bc801796b70f0749184a965"
+    },
+    {
+      "path": "09_SOUND_ANIMATION_ASSETS/02_STATE_MACHINE_AND_TIMELINE.md",
+      "bytes": 2991,
+      "sha256": "518df712a6b0fc986b2fffed57667d22c35cf783b8b8e47adaaf93301bda8ffc"
+    },
+    {
+      "path": "09_SOUND_ANIMATION_ASSETS/03_SOUND_EVENT_MATRIX.md",
+      "bytes": 3039,
+      "sha256": "5c19a4bf23e07a9990cf140f70638840d791224f052444b49e4b5f9885339b44"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/01_PERSISTENCE_AND_MULTIPLAYER.md",
+      "bytes": 5448,
+      "sha256": "4d12c57a386cd28e32e93c9c00869f5e69e9e21aef74cbb53a6d801aca4e049f"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/02_SERVER_EVENTS_AND_STATE_MACHINE.md",
+      "bytes": 3059,
+      "sha256": "5a76e46c39f1ad8bfd0e3f10c1ced09c48c4e4601bde1c0ac483c086420fcf7c"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/03_REGRESSION_TEST_MATRIX.md",
+      "bytes": 6649,
+      "sha256": "463082b2bb53a3f5aac642c907fc6b684b313cb9113585d48486adf5038c7e87"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/04_COMMANDS_DEV_TESTS.md",
+      "bytes": 3489,
+      "sha256": "1f864cbd892af0c4008a85b7080a5878742bb3d61f8140161e61e745de9aeda5"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/05_RELEASE_POLYMC_AND_REPORT.md",
+      "bytes": 4701,
+      "sha256": "05f4b55e30855f65a621253655f38c2bfacf5626c53bc85c71c6049a2651f54d"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/06_ACCEPTANCE_AND_NO_GAPS.md",
+      "bytes": 4531,
+      "sha256": "5ff58a5dceae9e4e5c1d848e410f785eb2226f31a25698b83b54526d44cb8f78"
+    },
+    {
+      "path": "10_SAVE_SERVER_TESTS_RELEASE/07_EARLY_CLEANSING_TEST_MATRIX.md",
+      "bytes": 4402,
+      "sha256": "639a0b74fcc9eb98ec92a768019ccd06da7b60edf91b95b584f6a3e748af9388"
+    },
+    {
+      "path": "refs/01_APPROVED_1_8_5_QUEST_REWARDS_AND_DIALOG.png",
+      "bytes": 2404507,
+      "sha256": "f46baec52d0070ce912c220999c0409f96f776b2e37519ae620071c41c167f69"
+    },
+    {
+      "path": "refs/02_APPROVED_CLEANSING_POWDER_BLUEPRINT.png",
+      "bytes": 2296905,
+      "sha256": "3446f4a43a6bffdecae8c92d472da5be08f4c5da18447f3e471064763aa34471"
+    },
+    {
+      "path": "refs/03_CLEANSING_QUEST_VISUAL_OVERVIEW.png",
+      "bytes": 2501558,
+      "sha256": "7f945d1dc00a2da5fa80273d724349097558ebaf50cfdb74e57963e6cbfdd211"
+    },
+    {
+      "path": "refs/README_REFERENCE.md",
+      "bytes": 1493,
+      "sha256": "796c2e701188b26f77d4703aa62567dfac6b09650712cc35fa39bb7a31d0d891"
+    }
+  ]
+}

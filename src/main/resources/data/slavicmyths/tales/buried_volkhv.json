@@ -1,0 +1,14 @@
+{
+  "part": "creatures",
+  "chapter": "burial",
+  "section": "inhabitants",
+  "title": "tales.entry.buried_volkhv.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:buried_volkhv",
+    "entity/slavicmyths:kurgan_bolt"
+  ],
+  "advancements": [],
+  "links": []
+}

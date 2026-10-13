@@ -1,0 +1,1 @@
+Identical javap -c -p instructions

@@ -1,0 +1,268 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                          ^
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+> Task :processResources
+> Task :classes
+> Task :compileRewardsRuntimeJava
+
+> Task :downloadAssets
+Loaded 145 artifacts from D:\slavic-myths\build\tmp\downloadAssets\nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: C:\Users\pavel\.gradle\caches\neoformruntime\assets
+  DL    https://piston-meta.mojang.com/v1/packages/9b16298b1dc0697878cec88bb2d96168f5239e4f/17.json
+
+> Task :writeRewardsChecksLegacyClasspath
+> Task :prepareRewardsChecksRun
+> Task :processRewardsRuntimeResources
+> Task :rewardsRuntimeClasses
+
+> Task :runRewardsChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[08:38:52] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[08:38:52] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[08:38:52] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[08:38:52] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[08:38:52] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[08:38:53] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[08:38:53] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.7.6 (slavicmyths)
+[08:38:54] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[08:38:54] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[08:38:54] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:38:54] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:38:55] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[08:38:55] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[08:39:01] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:39:01] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:39:01] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:39:01] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:39:01] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:39:01] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[08:39:03] [main/ERROR] [minecraft/Settings]: Failed to load properties from file: server.properties
+java.nio.file.NoSuchFileException: server.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431) ~[?:?] {}
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?] {}
+	at java.base/java.nio.file.Files.newInputStream(Files.java:159) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.Settings.loadFromFile(Settings.java:38) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerProperties.fromFile(DedicatedServerProperties.java:132) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerSettings.<init>(DedicatedServerSettings.java:12) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Main.main(Main.java:125) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeServerDevLaunchHandler.runService(NeoForgeServerDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+[08:39:03] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[08:39:03] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[08:39:03] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[08:39:03] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_rewards]
+[08:39:04] [Worker-Main-11/ERROR] [minecraft/TagLoader]: Couldn't load tag slavicmyths:reward_interruptible as it is missing following references: 
+	slavicmyths:kartaus_ryzhiy_us (from mod/slavicmyths)
+[08:39:04] [main/INFO] [minecraft/RecipeManager]: Loaded 1787 recipes
+[08:39:04] [main/INFO] [minecraft/AdvancementTree]: Loaded 1579 advancements
+[08:39:04] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[08:39:04] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[08:39:05] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[08:39:05] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[08:39:06] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 180 ms
+[08:39:06] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[08:39:06] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[08:39:06] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position 9971249, -59, 4944805!
+[08:39:06] [Server thread/ERROR] [minecraft/MinecraftServer]: Encountered an unexpected exception
+net.minecraft.ResourceLocationException: Non [a-z0-9/._-] character in path of location: slavicmyths_rewards:neoforge:empty
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.resources.ResourceLocation.assertValidPath(ResourceLocation.java:284) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.resources.ResourceLocation.createUntrusted(ResourceLocation.java:48) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.resources.ResourceLocation.bySeparator(ResourceLocation.java:79) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.resources.ResourceLocation.parse(ResourceLocation.java:56) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.StructureUtils.prepareTestStructure(StructureUtils.java:107) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestInfo.prepareTestStructure(GameTestInfo.java:265) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.StructureGridSpawner.spawnStructure(StructureGridSpawner.java:48) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestRunner.spawn(GameTestRunner.java:163) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?] {}
+	at java.base/java.util.AbstractList$RandomAccessSpliterator.forEachRemaining(AbstractList.java:722) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:622) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:627) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestRunner.createStructuresForBatch(GameTestRunner.java:158) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestRunner.runBatch(GameTestRunner.java:90) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestRunner.start(GameTestRunner.java:63) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestServer.startTests(GameTestServer.java:246) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestServer.tickServer(GameTestServer.java:171) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:707) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+[08:39:06] [Server thread/FATAL] [ne.ne.ne.co.NeoForgeMod/]: Preparing crash report with UUID 67a3716e-71a8-4d02-81ab-deb1271a153a
+[08:39:06] [Server thread/ERROR] [minecraft/MinecraftServer]: This crash report has been saved to: D:\slavic-myths\work\rewards\runtime-1\crash-reports\crash-2026-10-12_08.39.06-server.txt
+[08:39:06] [Server thread/FATAL] [ne.ne.ne.co.NeoForgeMod/]: Preparing crash report with UUID c00b1abd-1afe-452d-8ab2-3e745a73c30d
+[08:39:06] [Server thread/ERROR] [minecraft/GameTestServer]: Game test server crashed
+---- Minecraft Crash Report ----
+// I bet Cylons wouldn't have this problem.
+
+Time: 2026-10-12 08:39:06
+Description: Exception in server tick loop
+
+net.minecraft.ResourceLocationException: Non [a-z0-9/._-] character in path of location: slavicmyths_rewards:neoforge:empty
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.resources.ResourceLocation.assertValidPath(ResourceLocation.java:284) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.resources.ResourceLocation.createUntrusted(ResourceLocation.java:48) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.resources.ResourceLocation.bySeparator(ResourceLocation.java:79) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.resources.ResourceLocation.parse(ResourceLocation.java:56) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.StructureUtils.prepareTestStructure(StructureUtils.java:107) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestInfo.prepareTestStructure(GameTestInfo.java:265) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.StructureGridSpawner.spawnStructure(StructureGridSpawner.java:48) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestRunner.spawn(GameTestRunner.java:163) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?] {}
+	at java.base/java.util.AbstractList$RandomAccessSpliterator.forEachRemaining(AbstractList.java:722) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:622) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:627) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestRunner.createStructuresForBatch(GameTestRunner.java:158) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestRunner.runBatch(GameTestRunner.java:90) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestRunner.start(GameTestRunner.java:63) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestServer.startTests(GameTestServer.java:246) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestServer.tickServer(GameTestServer.java:171) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:707) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 21.0.12, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 336775984 bytes (321 MiB) / 633339904 bytes (604 MiB) up to 4131389440 bytes (3940 MiB)
+	CPUs: 12
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 5 5600H with Radeon Graphics         
+	Identifier: AuthenticAMD Family 25 Model 80 Stepping 0
+	Microarchitecture: Zen 3
+	Frequency (GHz): 3.29
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: AMD Radeon(TM) Graphics
+	Graphics card #0 vendor: Advanced Micro Devices, Inc.
+	Graphics card #0 VRAM (MiB): 512.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 27.20.21018.1012
+	Graphics card #1 name: AMD Radeon RX 6600M
+	Graphics card #1 vendor: Advanced Micro Devices, Inc.
+	Graphics card #1 VRAM (MiB): 8176.00
+	Graphics card #1 deviceId: VideoController2
+	Graphics card #1 versionInfo: 32.0.21045.5002
+	Memory slot #0 capacity (MiB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MiB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 3.20
+	Memory slot #1 type: DDR4
+	Virtual memory max (MiB): 36669.25
+	Virtual memory used (MiB): 21802.53
+	Swap memory total (MiB): 20914.47
+	Swap memory used (MiB): 1043.84
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 62882.96, total: 488369.00
+	Space in storage for workdir (MiB): available: 21485.54, total: 459514.00
+	JVM Flags: 0 total; 
+	Server Running: true
+	Player Count: 0 / 1; []
+	Active Data Packs: bundle, trade_rebalance, vanilla, mod_data, mod/curios (incompatible), mod/neoforge, mod/jei (incompatible), mod/slavicmyths (incompatible)
+	Available Data Packs: bundle, trade_rebalance, vanilla, mod/curios (incompatible), mod/jei (incompatible), mod/neoforge, mod/slavicmyths (incompatible), mod_data
+	Enabled Feature Flags: minecraft:bundle, minecraft:vanilla, minecraft:trade_rebalance
+	World Generation: Stable
+	World Seed: 0
+	Type: Game test server
+	ModLauncher: 11.0.5+main.901c6ea8
+	ModLauncher launch target: forgeserverdev
+	ModLauncher services: 
+		sponge-mixin-0.16.4+mixin.0.8.7.jar mixin PLUGINSERVICE 
+		loader-4.0.45.jar slf4jfixer PLUGINSERVICE 
+		loader-4.0.45.jar runtime_enum_extender PLUGINSERVICE 
+		at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+		loader-4.0.45.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-11.0.5.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-11.0.5.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		javafml@4.0
+		lowcodefml@4.0
+		minecraft@4.0
+	Mod List: 
+		curios-neoforge-9.5.1+1.21.1.jar                  |Curios API                    |curios                        |9.5.1+1.21.1        |Manifest: NOSIGNATURE
+		jei-1.21.1-neoforge-19.51.0.418.jar               |Just Enough Items             |jei                           |19.51.0.418         |Manifest: NOSIGNATURE
+		neoforge-21.1.255.jar                             |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
+		neoforge-21.1.255.jar                             |NeoForge                      |neoforge                      |21.1.255            |Manifest: NOSIGNATURE
+		rewardsRuntime                                    |Slavic Myths                  |slavicmyths                   |1.7.6               |Manifest: NOSIGNATURE
+	Crash Report UUID: c00b1abd-1afe-452d-8ab2-3e745a73c30d
+	FML: 4.0.45
+	NeoForge: 21.1.255
+
+> Task :runRewardsChecks FAILED
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+Execution failed for task ':runRewardsChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 56s
+9 actionable tasks: 8 executed, 1 up-to-date

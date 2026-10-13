@@ -29,7 +29,7 @@ public final class JeiRunes implements IModPlugin {
         });
     }
     public void registerCategories(IRecipeCategoryRegistration r){r.addRecipeCategories(new Category(r.getJeiHelpers().getGuiHelper()));}
-    public void registerRecipes(IRecipeRegistration r){if(Minecraft.getInstance().level!=null)r.addRecipes(TYPE,Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(RuneCraftRecipe.TYPE.get()));}
+    public void registerRecipes(IRecipeRegistration r){for(var h:java.util.List.of(org.slavicmyths.morozko.FrostContent.TOTEM,org.slavicmyths.morozko.FrostContent.STAFF,org.slavicmyths.morozko.FrostContent.MIRROR,org.slavicmyths.morozko.FrostContent.RESISTANCE,org.slavicmyths.morozko.FrostContent.RUNE,org.slavicmyths.morozko.FrostContent.HEART))r.addIngredientInfo(new ItemStack(h.get()),VanillaTypes.ITEM_STACK,Component.translatable(h.get().getDescriptionId()+".desc"));for(var id:org.slavicmyths.rewards.RewardContent.ITEMS.keySet())r.addIngredientInfo(new ItemStack(org.slavicmyths.rewards.RewardContent.item(id)),VanillaTypes.ITEM_STACK,Component.translatable("item.slavicmyths."+id+".desc"));if(Minecraft.getInstance().level!=null)r.addRecipes(TYPE,Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(RuneCraftRecipe.TYPE.get()));}
     public void registerRecipeCatalysts(IRecipeCatalystRegistration r){r.addRecipeCatalyst(new ItemStack(ModItems.RUNIC_ANVIL.get()),TYPE);}
     private static final class Category implements IRecipeCategory<RecipeHolder<RuneCraftRecipe>> {
         private final IDrawable icon;

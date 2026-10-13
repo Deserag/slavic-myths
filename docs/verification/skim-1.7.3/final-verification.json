@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "three_jar_sha256": "6496e20b1d1dfc39ae3c05eead9e45126991c0ef10db33ad158676cb601133e6",
+  "baseline_backup": "PASS",
+  "other_instance_files_preserved": 260,
+  "client_launches": 0,
+  "server_launches": 15,
+  "full_game_acceptance": "NOT_RUN",
+  "commit_created": false
+}

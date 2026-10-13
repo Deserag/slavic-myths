@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:cobblestone"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "slavicmyths:bath_stone"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:bath_stove"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "ROLLING",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:bliny"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:apple"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:rolling_pin"
+  },
+  "time": 80,
+  "result": {
+    "id": "slavicmyths:apple_bliny",
+    "count": 1
+  },
+  "servings": 0,
+  "remainders": []
+}

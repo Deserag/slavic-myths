@@ -1,0 +1,2 @@
+# Keyframe dataset
+`BAYUN_KEYFRAMES.csv` contains 225 explicitly authored control-point rows across 17 clips. Rotation angles in degrees, translations in Minecraft blocks. All bones correspond to MODEL_AND_TEXTURES pivots; coefficients need converting to the actual model coordinate axes. Do not simply import rotations without visual QA. Additional bones and exact in-between frames should be implemented using smooth interpolation. Timings, sound cues and mandatory states are in `03_BAYUN/ANIMATION_SPEC.md`.

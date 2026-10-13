@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/restored_spear_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/restored_spear"
+      }
+    }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/restored_spear"
+  }
+}

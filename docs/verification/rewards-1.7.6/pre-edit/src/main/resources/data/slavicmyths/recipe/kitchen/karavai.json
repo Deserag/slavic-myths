@@ -1,0 +1,49 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "ROLLING",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:wheat_flour"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "tag": "slavicmyths:cooking/eggs"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "slavicmyths:cooking/milk"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:honey_bottle"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:rolling_pin"
+  },
+  "time": 120,
+  "result": {
+    "id": "slavicmyths:karavai",
+    "count": 1
+  },
+  "servings": 0,
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    },
+    {
+      "id": "minecraft:glass_bottle",
+      "count": 1
+    }
+  ]
+}

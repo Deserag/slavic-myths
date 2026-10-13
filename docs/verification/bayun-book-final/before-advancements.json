@@ -1,0 +1,5060 @@
+{
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\all_timber.json": {
+    "parent": "slavicmyths:woodlands",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:pine_log"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.all_timber.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.all_timber.description"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "linden": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "rowan": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "willow": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "pine": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "linden"
+      ],
+      [
+        "rowan"
+      ],
+      [
+        "willow"
+      ],
+      [
+        "pine"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\altar.json": {
+    "parent": "slavicmyths:shrine",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:altar"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.altar.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.altar.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\amber.json": {
+    "parent": "slavicmyths:ancient_find",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:amber"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.amber.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.amber.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:amber"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\ancient_find.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:ancient_coin"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.ancient_find.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.ancient_find.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "ancient_coin": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:ancient_coin"
+              ]
+            }
+          ]
+        }
+      },
+      "idol_fragment": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:idol_fragment"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "ancient_coin",
+        "idol_fragment"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\ancient_sign.json": {
+    "parent": "slavicmyths:first_ritual",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:ancient_sign"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.ancient_sign.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.ancient_sign.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:ancient_sign"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\armorer_craft.json": {
+    "parent": "slavicmyths:bad_people",
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "done"
+      ]
+    ],
+    "display": {
+      "icon": {
+        "id": "slavicmyths:armorer_table"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.armorer_craft.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.armorer_craft.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\bad_people.json": {
+    "parent": "slavicmyths:root",
+    "criteria": {
+      "small": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:bandit_camp_small"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "medium": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:bandit_camp_medium"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "small",
+        "medium"
+      ]
+    ],
+    "display": {
+      "icon": {
+        "id": "minecraft:campfire"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.bad_people.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.bad_people.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\berry_garden.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:raspberry"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.berry_garden.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.berry_garden.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\bind_hearth.json": {
+    "parent": "slavicmyths:friend_domovoy",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:hearth"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.bind_hearth.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.bind_hearth.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\birch_bark.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:birch_bark"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.birch_bark.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.birch_bark.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:birch_bark"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "parent": "slavicmyths:root"
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\birch_bark_scroll.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:birch_bark_scroll"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.birch_bark_scroll.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.birch_bark_scroll.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:birch_bark_scroll"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "parent": "slavicmyths:birch_bark"
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\black_feather.json": {
+    "parent": "slavicmyths:bad_people",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:mysterious_black_feather"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.black_feather.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.black_feather.description"
+      },
+      "frame": "task",
+      "hidden": true,
+      "show_toast": true,
+      "announce_to_chat": false
+    },
+    "criteria": {
+      "found": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:mysterious_black_feather"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\boar_charge_block.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:hunter_belt"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.boar_charge_block.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.boar_charge_block.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\bog_explorer.json": {
+    "parent": "slavicmyths:traces_of_past",
+    "display": {
+      "icon": {
+        "id": "minecraft:map"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.bog_explorer.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.bog_explorer.description"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "swamp_hut": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:swamp_hut"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "abandoned_settlement": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:abandoned_settlement"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "bog_causeway": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:bog_causeway"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "flooded_shrine": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:flooded_shrine"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "fishing_camp": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:fishing_camp"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "underwater_ruins": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:underwater_ruins"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "swamp_hut"
+      ],
+      [
+        "abandoned_settlement"
+      ],
+      [
+        "bog_causeway"
+      ],
+      [
+        "flooded_shrine"
+      ],
+      [
+        "fishing_camp"
+      ],
+      [
+        "underwater_ruins"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\bottled_elements.json": {
+    "parent": "slavicmyths:hunt_begins",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:sosud_podveya"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.bottled_elements.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.bottled_elements.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:sosud_ognennogo_dyhaniya"
+              ]
+            },
+            {
+              "items": [
+                "slavicmyths:sosud_podveya"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\break_water_call.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:veles_amulet"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.break_water_call.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.break_water_call.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\catch_the_wind.json": {
+    "parent": "slavicmyths:hunt_begins",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:uzel_podveya"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.catch_the_wind.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.catch_the_wind.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\cauldron_service.json": {
+    "parent": "slavicmyths:follow_the_thread",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:svyazka_trav_yagi"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.cauldron_service.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.cauldron_service.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\clear_large_camp.json": {
+    "parent": "slavicmyths:find_large_camp",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:mace"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.clear_large_camp.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.clear_large_camp.description"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "clear": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\defeat_depth_master.json": {
+    "parent": "slavicmyths:wake_depth_master",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:pool_pearl"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.defeat_depth_master.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.defeat_depth_master.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\defeat_leshy.json": {
+    "parent": "slavicmyths:meet_leshy",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:leshy_heart"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.defeat_leshy.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.defeat_leshy.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:player_killed_entity",
+        "conditions": {
+          "entity": {
+            "type": "slavicmyths:leshy"
+          }
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\defeat_nightingale.json": {
+    "parent": "slavicmyths:find_large_camp",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:nightingale_mark"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.defeat_nightingale.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.defeat_nightingale.description"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "victory": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\depth_clue.json": {
+    "parent": "slavicmyths:meet_vodyanoy",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:ancient_water_sign"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.depth_clue.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.depth_clue.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\depth_gift.json": {
+    "parent": "slavicmyths:defeat_depth_master",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:depth_amulet"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.depth_gift.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.depth_gift.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\disperse_bandits.json": {
+    "parent": "slavicmyths:bad_people",
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "done"
+      ]
+    ],
+    "display": {
+      "icon": {
+        "id": "minecraft:iron_sword"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.disperse_bandits.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.disperse_bandits.description"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\earth_heart.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:rune_earth_heart_iii"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.earth_heart.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.earth_heart.description"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "parent": "slavicmyths:root",
+    "criteria": {
+      "victory": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\explore_abandoned_settlement.json": {
+    "parent": "slavicmyths:traces_of_past",
+    "display": {
+      "icon": {
+        "id": "minecraft:cauldron"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.explore_abandoned_settlement.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.explore_abandoned_settlement.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "visit": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:abandoned_settlement"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\explore_bog_causeway.json": {
+    "parent": "slavicmyths:traces_of_past",
+    "display": {
+      "icon": {
+        "id": "minecraft:spruce_slab"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.explore_bog_causeway.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.explore_bog_causeway.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "visit": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:bog_causeway"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\explore_fishing_camp.json": {
+    "parent": "slavicmyths:traces_of_past",
+    "display": {
+      "icon": {
+        "id": "minecraft:fishing_rod"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.explore_fishing_camp.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.explore_fishing_camp.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "visit": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:fishing_camp"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\explore_flooded_shrine.json": {
+    "parent": "slavicmyths:traces_of_past",
+    "display": {
+      "icon": {
+        "id": "minecraft:mossy_cobblestone"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.explore_flooded_shrine.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.explore_flooded_shrine.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "visit": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:flooded_shrine"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\explore_swamp_hut.json": {
+    "parent": "slavicmyths:traces_of_past",
+    "display": {
+      "icon": {
+        "id": "minecraft:spruce_log"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.explore_swamp_hut.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.explore_swamp_hut.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "visit": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:swamp_hut"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\explore_underwater_ruins.json": {
+    "parent": "slavicmyths:traces_of_past",
+    "display": {
+      "icon": {
+        "id": "minecraft:barrel"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.explore_underwater_ruins.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.explore_underwater_ruins.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "visit": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:underwater_ruins"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\extinguish_the_barn.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:iskra_ovinnika"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.extinguish_the_barn.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.extinguish_the_barn.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\falling_star.json": {
+    "parent": "slavicmyths:hunt_begins",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:obereg_padayuschey_zvezdy"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.falling_star.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.falling_star.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\fern_flower.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:fern_flower"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.fern_flower.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.fern_flower.description"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:fern_flower"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "parent": "slavicmyths:root"
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\find_deep_pool.json": {
+    "parent": "slavicmyths:depth_clue",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:pool_stone"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.find_deep_pool.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.find_deep_pool.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\find_large_camp.json": {
+    "parent": "slavicmyths:bad_people",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:pine_log"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.find_large_camp.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.find_large_camp.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "visit": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "structures": [
+                    "slavicmyths:bandit_camp_large"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\find_medium_camp.json": {
+    "parent": "slavicmyths:bad_people",
+    "criteria": {
+      "medium": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:bandit_camp_medium"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "medium"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\find_small_camp.json": {
+    "parent": "slavicmyths:bad_people",
+    "criteria": {
+      "small": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:bandit_camp_small"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "small"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\find_the_hut.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:svyazka_trav_yagi"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.find_the_hut.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.find_the_hut.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\fire_in_the_sky.json": {
+    "parent": "slavicmyths:hunt_begins",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:ognennoe_pero"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.fire_in_the_sky.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.fire_in_the_sky.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\first_accessory.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:veles_amulet"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.first_accessory.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.first_accessory.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\first_brew.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:light_beer_mug"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.first_brew"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.first_brew.desc"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "brewed": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\first_flight.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:flying_broom"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.first_flight.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.first_flight.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\first_hunt.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:raw_venison"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.first_hunt.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.first_hunt.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "has_item": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:raw_venison"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\first_ritual.json": {
+    "parent": "slavicmyths:altar",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:ancient_sign"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.first_ritual.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.first_ritual.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\flax.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:flax"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.flax.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.flax.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:flax"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "parent": "slavicmyths:root"
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\follow_the_thread.json": {
+    "parent": "slavicmyths:guest_of_yaga",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:putevodny_klubok"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.follow_the_thread.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.follow_the_thread.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\forest_guardian.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:veles_staff"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.forest_guardian.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.forest_guardian.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\friend_domovoy.json": {
+    "parent": "slavicmyths:offer_domovoy",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:warding_charm"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.friend_domovoy.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.friend_domovoy.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\full_speed_ahead.json": {
+    "parent": "slavicmyths:hunt_begins",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:poyas_tugarina"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.full_speed_ahead.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.full_speed_ahead.description"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\full_yard.json": {
+    "parent": "minecraft:husbandry/breed_an_animal",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:goose_spawn_egg"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.full_yard.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.full_yard.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "goose": {
+        "trigger": "minecraft:bred_animals",
+        "conditions": {
+          "child": {
+            "type": "slavicmyths:goose"
+          }
+        }
+      },
+      "duck": {
+        "trigger": "minecraft:bred_animals",
+        "conditions": {
+          "child": {
+            "type": "slavicmyths:duck"
+          }
+        }
+      },
+      "domestic_goat": {
+        "trigger": "minecraft:bred_animals",
+        "conditions": {
+          "child": {
+            "type": "slavicmyths:domestic_goat"
+          }
+        }
+      }
+    },
+    "requirements": [
+      [
+        "goose"
+      ],
+      [
+        "duck"
+      ],
+      [
+        "domestic_goat"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\garden_harvest.json": {
+    "parent": "minecraft:husbandry/root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:raspberry"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.garden_harvest.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.garden_harvest.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "berry": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:berries"
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "berry"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\generous_table.json": {
+    "parent": "minecraft:husbandry/root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:meat_pie"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.generous_table.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.generous_table.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "dish": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:complex_dishes"
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "dish"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\guest_of_yaga.json": {
+    "parent": "slavicmyths:not_empty_handed",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:svyazka_trav_yagi"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.guest_of_yaga.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.guest_of_yaga.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\hunt_begins.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:ohotnichiy_rog"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.hunt_begins.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.hunt_begins.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\ill_fate_broken.json": {
+    "parent": "slavicmyths:hunt_begins",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:odnoglazyy_obereg"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.ill_fate_broken.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.ill_fate_broken.description"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:odnoglazyy_obereg"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\kitchen_meal.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:kitchen_table"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.kitchen_meal.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.kitchen_meal.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\learn_armorer.json": {
+    "parent": "slavicmyths:root",
+    "criteria": {
+      "table": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:armorer_table"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\leshy_heart.json": {
+    "parent": "slavicmyths:defeat_leshy",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:leshy_heart"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.leshy_heart.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.leshy_heart.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:leshy_heart"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\linen_craft.json": {
+    "parent": "minecraft:husbandry/root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:linen_cloth"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.linen_craft.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.linen_craft.description"
+      },
+      "frame": "task",
+      "hidden": false,
+      "show_toast": true,
+      "announce_to_chat": true
+    },
+    "criteria": {
+      "cloth": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:linen_cloth"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\linen_thread.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:linen_thread"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.linen_thread.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.linen_thread.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:linen_thread"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "parent": "slavicmyths:flax"
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\lore_book.json": {
+    "parent": "slavicmyths:birch_bark_scroll",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:lore_book"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.lore_book.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.lore_book.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:lore_book"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\lore_keeper.json": {
+    "parent": "slavicmyths:lore_book",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:lore_book"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.lore_keeper.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.lore_keeper.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\meet_domovoy.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:domovoy_spawn_egg"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.meet_domovoy.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.meet_domovoy.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "encounter": {
+        "trigger": "minecraft:player_interacted_with_entity",
+        "conditions": {
+          "entity": {
+            "type": "slavicmyths:domovoy"
+          }
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\meet_leshy.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:leshy_spawn_egg"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.meet_leshy.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.meet_leshy.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "encounter": {
+        "trigger": "minecraft:player_interacted_with_entity",
+        "conditions": {
+          "entity": {
+            "type": "slavicmyths:leshy"
+          }
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\meet_nightingale.json": {
+    "criteria": {
+      "encounter": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\meet_rusalka.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:white_lily"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.meet_rusalka.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.meet_rusalka.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\meet_vodyanoy.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:pearl_fragment"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.meet_vodyanoy.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.meet_vodyanoy.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\name_your_misfortune.json": {
+    "parent": "slavicmyths:hunt_begins",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:oko_likha"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.name_your_misfortune.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.name_your_misfortune.description"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\net_catch.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:fishing_net"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.net_catch.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.net_catch.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\new_catch.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:raw_pike"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.new_catch.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.new_catch.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\new_seeds.json": {
+    "parent": "minecraft:husbandry/root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:rye_seeds"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.new_seeds.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.new_seeds.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "seeds": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:agricultural_seeds"
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "seeds"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\not_empty_handed.json": {
+    "parent": "slavicmyths:find_the_hut",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:svyazka_trav_yagi"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.not_empty_handed.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.not_empty_handed.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\not_today.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:retribution_charm"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.not_today.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.not_today.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\offer_domovoy.json": {
+    "parent": "slavicmyths:meet_domovoy",
+    "display": {
+      "icon": {
+        "id": "minecraft:bread"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.offer_domovoy.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.offer_domovoy.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\old_weapons.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:spear"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.old_weapons.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.old_weapons.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:spear"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\own_path.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:path_stone"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.own_path.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.own_path.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\perunite.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:perunite"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.perunite.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.perunite.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:perunite"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "parent": "slavicmyths:root"
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\rare_accessory.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:invisibility_cap"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.rare_accessory.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.rare_accessory.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\reforged.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:runic_anvil"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.reforged.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.reforged.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\root.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:birch_bark"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.root.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.root.description"
+      },
+      "frame": "task",
+      "show_toast": false,
+      "announce_to_chat": false,
+      "hidden": false,
+      "background": "minecraft:textures/block/birch_log.png"
+    },
+    "criteria": {
+      "first_join": {
+        "trigger": "minecraft:tick"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\rune_installed.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:rune_thunder"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.rune_installed.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.rune_installed.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\self_playing_music.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:gusli"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.self_playing_music.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.self_playing_music.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\shrine.json": {
+    "parent": "slavicmyths:ancient_find",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:ancient_idol"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.shrine.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.shrine.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\silver_remedy.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:klyk_volkolaka"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.silver_remedy.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.silver_remedy.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\steppe_champion.json": {
+    "parent": "slavicmyths:hunt_begins",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:us_tugarina"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.steppe_champion.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.steppe_champion.description"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\stolen_goods.json": {
+    "parent": "slavicmyths:bad_people",
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "done"
+      ]
+    ],
+    "display": {
+      "icon": {
+        "id": "minecraft:barrel"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.stolen_goods.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.stolen_goods.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\storm_staff.json": {
+    "parent": "slavicmyths:first_ritual",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:storm_staff"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.storm_staff.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.storm_staff.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:storm_staff"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\table_is_set.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:skatert"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.table_is_set.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.table_is_set.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\three_signs.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:rune_protection"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.three_signs.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.three_signs.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\thunder_axe.json": {
+    "parent": "slavicmyths:first_ritual",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:thunder_axe"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.thunder_axe.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.thunder_axe.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:thunder_axe"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\thunder_stone.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:thunder_stone"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.thunder_stone.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.thunder_stone.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:thunder_stone"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "parent": "slavicmyths:perunite"
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\too_much.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:dark_beer_mug"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.too_much"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.too_much.desc"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "brewed": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\traces_of_past.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "minecraft:map"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.traces_of_past.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.traces_of_past.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "swamp_hut": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:swamp_hut"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "abandoned_settlement": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:abandoned_settlement"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "bog_causeway": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:bog_causeway"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "flooded_shrine": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:flooded_shrine"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "fishing_camp": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:fishing_camp"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "underwater_ruins": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "dimension": "minecraft:overworld",
+                  "structures": [
+                    "slavicmyths:underwater_ruins"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "swamp_hut",
+        "abandoned_settlement",
+        "bog_causeway",
+        "flooded_shrine",
+        "fishing_camp",
+        "underwater_ruins"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\trophy_keeper.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:meshochek_trofeev"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.trophy_keeper.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.trophy_keeper.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\trusted_by_yaga.json": {
+    "parent": "slavicmyths:follow_the_thread",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:svyazka_trav_yagi"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.trusted_by_yaga.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.trusted_by_yaga.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\two_rings.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:perun_ring"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.two_rings.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.two_rings.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\village_feast.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:karavai"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.village_feast.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.village_feast.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "has_item": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:karavai"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\wake_depth_master.json": {
+    "parent": "slavicmyths:find_deep_pool",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:elder_vodyanoy_spawn_egg"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.wake_depth_master.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.wake_depth_master.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\warding_charm.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:warding_charm"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.warding_charm.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.warding_charm.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:warding_charm"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "parent": "slavicmyths:linen_thread"
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\water_call.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:white_lily"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.water_call.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.water_call.description"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\wildlife_encounter.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:stag_spawn_egg"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.wildlife_encounter.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.wildlife_encounter.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\winter_stores.json": {
+    "parent": "minecraft:husbandry/root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:dried_berries"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.winter_stores.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.winter_stores.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "dry": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:dried_berries"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "dry"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\without_ataman.json": {
+    "parent": "slavicmyths:bad_people",
+    "criteria": {
+      "done": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "done"
+      ]
+    ],
+    "display": {
+      "icon": {
+        "id": "slavicmyths:mace"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.without_ataman.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.without_ataman.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\woodlands.json": {
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:linden_log"
+      },
+      "title": {
+        "translate": "advancement.slavicmyths.woodlands.title"
+      },
+      "description": {
+        "translate": "advancement.slavicmyths.woodlands.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "linden": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "rowan": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "willow": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "pine": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "linden",
+        "rowan",
+        "willow",
+        "pine"
+      ]
+    ]
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\wormwood.json": {
+    "display": {
+      "icon": {
+        "id": "slavicmyths:wormwood"
+      },
+      "title": {
+        "translate": "advancements.slavicmyths.wormwood.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.wormwood.description"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "obtained": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:wormwood"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "parent": "slavicmyths:flax"
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\armorer_table.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "iron": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "minecraft:iron_ingot"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "rewards": {
+      "recipes": [
+        "slavicmyths:armorer_table"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\birch_bark.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_ingredient": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "minecraft:birch_log"
+              ]
+            }
+          ]
+        }
+      },
+      "has_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:birch_bark"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_ingredient",
+        "has_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:birch_bark"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\birch_bark_scroll.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_ingredient": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:birch_bark"
+              ]
+            }
+          ]
+        }
+      },
+      "has_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:birch_bark_scroll"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_ingredient",
+        "has_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:birch_bark_scroll"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\hearth.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_bark": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:birch_bark"
+              ]
+            }
+          ]
+        }
+      },
+      "unlocked": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:hearth"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_bark",
+        "unlocked"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:hearth"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_button.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_button"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_button"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_door.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_door"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_door"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_fence.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_fence"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_fence"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_fence_gate.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_fence_gate"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_fence_gate"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_planks.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_planks"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_planks"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_pressure_plate.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_pressure_plate"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_pressure_plate"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_sign.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_sign"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_sign"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_slab.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_slab"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_slab"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_stairs.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_stairs"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_stairs"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_stripped_wood.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_stripped_wood"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_stripped_wood"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_trapdoor.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_trapdoor"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_trapdoor"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\linden_wood.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:linden_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:linden_wood"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:linden_wood"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\lore_book.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_bark": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:birch_bark"
+              ]
+            }
+          ]
+        }
+      },
+      "unlocked": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:lore_book"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_bark",
+        "unlocked"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:lore_book"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_button.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_button"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_button"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_door.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_door"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_door"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_fence.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_fence"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_fence"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_fence_gate.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_fence_gate"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_fence_gate"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_planks.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_planks"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_planks"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_pressure_plate.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_pressure_plate"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_pressure_plate"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_sign.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_sign"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_sign"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_slab.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_slab"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_slab"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_stairs.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_stairs"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_stairs"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_stripped_wood.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_stripped_wood"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_stripped_wood"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_trapdoor.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_trapdoor"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_trapdoor"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\pine_wood.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:pine_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:pine_wood"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:pine_wood"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_button.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_button"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_button"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_door.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_door"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_door"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_fence.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_fence"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_fence"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_fence_gate.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_fence_gate"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_fence_gate"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_planks.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_planks"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_planks"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_pressure_plate.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_pressure_plate"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_pressure_plate"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_sign.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_sign"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_sign"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_slab.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_slab"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_slab"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_stairs.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_stairs"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_stairs"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_stripped_wood.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_stripped_wood"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_stripped_wood"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_trapdoor.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_trapdoor"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_trapdoor"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\rowan_wood.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:rowan_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:rowan_wood"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:rowan_wood"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\thunder_stone.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_ingredient": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:perunite"
+              ]
+            }
+          ]
+        }
+      },
+      "has_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:thunder_stone"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_ingredient",
+        "has_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:thunder_stone"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\warding_charm.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_ingredient": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "slavicmyths:linen_thread"
+              ]
+            }
+          ]
+        }
+      },
+      "has_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:warding_charm"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_ingredient",
+        "has_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:warding_charm"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_button.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_button"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_button"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_door.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_door"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_door"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_fence.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_fence"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_fence"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_fence_gate.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_fence_gate"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_fence_gate"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_planks.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_planks"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_planks"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_pressure_plate.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_pressure_plate"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_pressure_plate"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_sign.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_sign"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_sign"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_slab.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_slab"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_slab"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_stairs.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_stairs"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_stairs"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_stripped_wood.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_stripped_wood"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_stripped_wood"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_trapdoor.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_trapdoor"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_trapdoor"
+      ]
+    }
+  },
+  "src\\main\\resources\\data\\slavicmyths\\advancement\\recipes\\willow_wood.json": {
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wood": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "#slavicmyths:willow_logs"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "slavicmyths:willow_wood"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_wood",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "slavicmyths:willow_wood"
+      ]
+    }
+  }
+}

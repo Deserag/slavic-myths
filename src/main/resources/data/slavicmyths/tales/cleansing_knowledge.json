@@ -1,0 +1,15 @@
+{
+  "part": "crafts",
+  "chapter": "mor",
+  "section": "cleansing",
+  "title": "tales.entry.cleansing_knowledge.title",
+  "icon": "slavicmyths:cleansing_knowledge",
+  "initial": 0,
+  "subjects": [
+    "recipe/slavicmyths:cleansing_powder"
+  ],
+  "advancements": [],
+  "links": [
+    "slavicmyths:great_poloz"
+  ]
+}

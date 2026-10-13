@@ -1,0 +1,2659 @@
+{
+  "atlas": 512,
+  "bones": {
+    "pelvis": {
+      "parent": null,
+      "pos": [
+        0,
+        20,
+        0
+      ]
+    },
+    "torso": {
+      "parent": "pelvis",
+      "pos": [
+        0,
+        34,
+        0
+      ]
+    },
+    "leg_right": {
+      "parent": "pelvis",
+      "pos": [
+        -3,
+        20,
+        0
+      ]
+    },
+    "arm_right": {
+      "parent": "torso",
+      "pos": [
+        -8,
+        34,
+        0
+      ]
+    },
+    "forearm_right": {
+      "parent": "arm_right",
+      "pos": [
+        -8,
+        24,
+        0
+      ]
+    },
+    "hand_right": {
+      "parent": "forearm_right",
+      "pos": [
+        -8,
+        14,
+        -1
+      ]
+    },
+    "skirt_right_0": {
+      "parent": "pelvis",
+      "pos": [
+        -4.0,
+        20,
+        0
+      ]
+    },
+    "skirt_right_1": {
+      "parent": "pelvis",
+      "pos": [
+        -4.7,
+        20,
+        0
+      ]
+    },
+    "skirt_right_2": {
+      "parent": "pelvis",
+      "pos": [
+        -5.4,
+        20,
+        0
+      ]
+    },
+    "skirt_right_3": {
+      "parent": "pelvis",
+      "pos": [
+        -6.1,
+        20,
+        0
+      ]
+    },
+    "stream_right": {
+      "parent": "pelvis",
+      "pos": [
+        -7,
+        13,
+        0
+      ]
+    },
+    "whip_right_0": {
+      "parent": "hand_right",
+      "pos": [
+        -8,
+        12,
+        -1
+      ]
+    },
+    "whip_right_1": {
+      "parent": "whip_right_0",
+      "pos": [
+        -8,
+        12,
+        -17
+      ]
+    },
+    "whip_right_2": {
+      "parent": "whip_right_1",
+      "pos": [
+        -8,
+        12,
+        -33
+      ]
+    },
+    "whip_right_3": {
+      "parent": "whip_right_2",
+      "pos": [
+        -8,
+        12,
+        -49
+      ]
+    },
+    "whip_right_4": {
+      "parent": "whip_right_3",
+      "pos": [
+        -8,
+        12,
+        -65
+      ]
+    },
+    "leg_left": {
+      "parent": "pelvis",
+      "pos": [
+        3,
+        20,
+        0
+      ]
+    },
+    "arm_left": {
+      "parent": "torso",
+      "pos": [
+        8,
+        34,
+        0
+      ]
+    },
+    "forearm_left": {
+      "parent": "arm_left",
+      "pos": [
+        8,
+        24,
+        0
+      ]
+    },
+    "hand_left": {
+      "parent": "forearm_left",
+      "pos": [
+        8,
+        14,
+        -1
+      ]
+    },
+    "skirt_left_0": {
+      "parent": "pelvis",
+      "pos": [
+        4.0,
+        20,
+        0
+      ]
+    },
+    "skirt_left_1": {
+      "parent": "pelvis",
+      "pos": [
+        4.7,
+        20,
+        0
+      ]
+    },
+    "skirt_left_2": {
+      "parent": "pelvis",
+      "pos": [
+        5.4,
+        20,
+        0
+      ]
+    },
+    "skirt_left_3": {
+      "parent": "pelvis",
+      "pos": [
+        6.1,
+        20,
+        0
+      ]
+    },
+    "stream_left": {
+      "parent": "pelvis",
+      "pos": [
+        7,
+        13,
+        0
+      ]
+    },
+    "whip_left_0": {
+      "parent": "hand_left",
+      "pos": [
+        8,
+        12,
+        -1
+      ]
+    },
+    "whip_left_1": {
+      "parent": "whip_left_0",
+      "pos": [
+        8,
+        12,
+        -17
+      ]
+    },
+    "whip_left_2": {
+      "parent": "whip_left_1",
+      "pos": [
+        8,
+        12,
+        -33
+      ]
+    },
+    "whip_left_3": {
+      "parent": "whip_left_2",
+      "pos": [
+        8,
+        12,
+        -49
+      ]
+    },
+    "whip_left_4": {
+      "parent": "whip_left_3",
+      "pos": [
+        8,
+        12,
+        -65
+      ]
+    },
+    "head": {
+      "parent": "torso",
+      "pos": [
+        0,
+        39,
+        -0.5
+      ]
+    },
+    "hair_left": {
+      "parent": "head",
+      "pos": [
+        5,
+        47,
+        3
+      ]
+    },
+    "hair_right": {
+      "parent": "head",
+      "pos": [
+        -5,
+        47,
+        3
+      ]
+    },
+    "hair_back": {
+      "parent": "head",
+      "pos": [
+        0,
+        47,
+        3
+      ]
+    }
+  },
+  "boxes": [
+    {
+      "bone": "torso",
+      "center": [
+        -3,
+        27.5,
+        0
+      ],
+      "size": [
+        6,
+        15,
+        7
+      ],
+      "material": "cloth",
+      "uv": [
+        2,
+        2,
+        26,
+        22
+      ]
+    },
+    {
+      "bone": "leg_right",
+      "center": [
+        -3,
+        11.0,
+        0
+      ],
+      "size": [
+        4,
+        18,
+        4
+      ],
+      "material": "cloth",
+      "uv": [
+        31,
+        2,
+        16,
+        22
+      ]
+    },
+    {
+      "bone": "arm_right",
+      "center": [
+        -8,
+        28.5,
+        0
+      ],
+      "size": [
+        4,
+        11,
+        5
+      ],
+      "material": "skin",
+      "uv": [
+        50,
+        2,
+        18,
+        16
+      ]
+    },
+    {
+      "bone": "forearm_right",
+      "center": [
+        -8,
+        19.0,
+        -1
+      ],
+      "size": [
+        4,
+        10,
+        5
+      ],
+      "material": "skin",
+      "uv": [
+        71,
+        2,
+        18,
+        15
+      ]
+    },
+    {
+      "bone": "forearm_right",
+      "center": [
+        -8,
+        13.5,
+        -1
+      ],
+      "size": [
+        4,
+        3,
+        5
+      ],
+      "material": "cloth",
+      "uv": [
+        92,
+        2,
+        18,
+        8
+      ]
+    },
+    {
+      "bone": "hand_right",
+      "center": [
+        -8,
+        12.0,
+        -1
+      ],
+      "size": [
+        3,
+        4,
+        4
+      ],
+      "material": "skin",
+      "uv": [
+        113,
+        2,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "skirt_right_0",
+      "center": [
+        -4.0,
+        12.0,
+        0
+      ],
+      "size": [
+        5,
+        18,
+        8
+      ],
+      "material": "cloth",
+      "uv": [
+        130,
+        2,
+        26,
+        26
+      ]
+    },
+    {
+      "bone": "skirt_right_0",
+      "center": [
+        -4.0,
+        3.0,
+        -5.3
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        159,
+        2,
+        12,
+        3
+      ]
+    },
+    {
+      "bone": "skirt_right_1",
+      "center": [
+        -4.7,
+        12.5,
+        0
+      ],
+      "size": [
+        5,
+        15,
+        9
+      ],
+      "material": "cloth",
+      "uv": [
+        174,
+        2,
+        28,
+        24
+      ]
+    },
+    {
+      "bone": "skirt_right_1",
+      "center": [
+        -4.7,
+        5.0,
+        -5.3
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        205,
+        2,
+        12,
+        3
+      ]
+    },
+    {
+      "bone": "skirt_right_2",
+      "center": [
+        -5.4,
+        13.0,
+        0
+      ],
+      "size": [
+        5,
+        12,
+        10
+      ],
+      "material": "cloth",
+      "uv": [
+        220,
+        2,
+        30,
+        22
+      ]
+    },
+    {
+      "bone": "skirt_right_2",
+      "center": [
+        -5.4,
+        7.0,
+        -5.3
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        253,
+        2,
+        12,
+        3
+      ]
+    },
+    {
+      "bone": "skirt_right_3",
+      "center": [
+        -6.1,
+        13.5,
+        0
+      ],
+      "size": [
+        5,
+        9,
+        11
+      ],
+      "material": "cloth",
+      "uv": [
+        268,
+        2,
+        32,
+        20
+      ]
+    },
+    {
+      "bone": "skirt_right_3",
+      "center": [
+        -6.1,
+        9.0,
+        -5.3
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        303,
+        2,
+        12,
+        3
+      ]
+    },
+    {
+      "bone": "stream_right",
+      "center": [
+        -7.0,
+        3.0,
+        -2
+      ],
+      "size": [
+        2,
+        6,
+        3
+      ],
+      "material": "water",
+      "uv": [
+        318,
+        2,
+        10,
+        9
+      ]
+    },
+    {
+      "bone": "stream_right",
+      "center": [
+        -7.7,
+        4.1,
+        -1
+      ],
+      "size": [
+        2,
+        7,
+        3
+      ],
+      "material": "water",
+      "uv": [
+        331,
+        2,
+        10,
+        10
+      ]
+    },
+    {
+      "bone": "stream_right",
+      "center": [
+        -8.4,
+        5.2,
+        0
+      ],
+      "size": [
+        2,
+        8,
+        3
+      ],
+      "material": "water",
+      "uv": [
+        344,
+        2,
+        10,
+        11
+      ]
+    },
+    {
+      "bone": "stream_right",
+      "center": [
+        -9.1,
+        6.3,
+        1
+      ],
+      "size": [
+        2,
+        9,
+        3
+      ],
+      "material": "water",
+      "uv": [
+        357,
+        2,
+        10,
+        12
+      ]
+    },
+    {
+      "bone": "stream_right",
+      "center": [
+        -9.8,
+        7.4,
+        2
+      ],
+      "size": [
+        2,
+        10,
+        3
+      ],
+      "material": "water",
+      "uv": [
+        370,
+        2,
+        10,
+        13
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        -5,
+        32.5,
+        -4
+      ],
+      "size": [
+        2,
+        3,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        383,
+        2,
+        6,
+        4
+      ]
+    },
+    {
+      "bone": "whip_right_0",
+      "center": [
+        -8,
+        12.0,
+        -9
+      ],
+      "size": [
+        2,
+        2,
+        16
+      ],
+      "material": "water",
+      "uv": [
+        392,
+        2,
+        36,
+        18
+      ]
+    },
+    {
+      "bone": "whip_right_1",
+      "center": [
+        -8,
+        12.0,
+        -25
+      ],
+      "size": [
+        2,
+        2,
+        16
+      ],
+      "material": "water",
+      "uv": [
+        431,
+        2,
+        36,
+        18
+      ]
+    },
+    {
+      "bone": "whip_right_2",
+      "center": [
+        -8,
+        12.0,
+        -41
+      ],
+      "size": [
+        2,
+        2,
+        16
+      ],
+      "material": "water",
+      "uv": [
+        470,
+        2,
+        36,
+        18
+      ]
+    },
+    {
+      "bone": "whip_right_3",
+      "center": [
+        -8,
+        12.0,
+        -57
+      ],
+      "size": [
+        2,
+        2,
+        16
+      ],
+      "material": "water",
+      "uv": [
+        2,
+        31,
+        36,
+        18
+      ]
+    },
+    {
+      "bone": "whip_right_4",
+      "center": [
+        -8,
+        12.0,
+        -73
+      ],
+      "size": [
+        2,
+        2,
+        16
+      ],
+      "material": "water",
+      "uv": [
+        41,
+        31,
+        36,
+        18
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        3,
+        27.5,
+        0
+      ],
+      "size": [
+        6,
+        15,
+        7
+      ],
+      "material": "morcloth",
+      "uv": [
+        80,
+        31,
+        26,
+        22
+      ]
+    },
+    {
+      "bone": "leg_left",
+      "center": [
+        3,
+        11.0,
+        0
+      ],
+      "size": [
+        4,
+        18,
+        4
+      ],
+      "material": "morcloth",
+      "uv": [
+        109,
+        31,
+        16,
+        22
+      ]
+    },
+    {
+      "bone": "arm_left",
+      "center": [
+        8,
+        28.5,
+        0
+      ],
+      "size": [
+        4,
+        11,
+        5
+      ],
+      "material": "morskin",
+      "uv": [
+        128,
+        31,
+        18,
+        16
+      ]
+    },
+    {
+      "bone": "forearm_left",
+      "center": [
+        8,
+        19.0,
+        -1
+      ],
+      "size": [
+        4,
+        10,
+        5
+      ],
+      "material": "morskin",
+      "uv": [
+        149,
+        31,
+        18,
+        15
+      ]
+    },
+    {
+      "bone": "forearm_left",
+      "center": [
+        8,
+        13.5,
+        -1
+      ],
+      "size": [
+        4,
+        3,
+        5
+      ],
+      "material": "morcloth",
+      "uv": [
+        170,
+        31,
+        18,
+        8
+      ]
+    },
+    {
+      "bone": "hand_left",
+      "center": [
+        8,
+        12.0,
+        -1
+      ],
+      "size": [
+        3,
+        4,
+        4
+      ],
+      "material": "morskin",
+      "uv": [
+        191,
+        31,
+        14,
+        8
+      ]
+    },
+    {
+      "bone": "skirt_left_0",
+      "center": [
+        4.0,
+        12.0,
+        0
+      ],
+      "size": [
+        5,
+        18,
+        8
+      ],
+      "material": "morcloth",
+      "uv": [
+        208,
+        31,
+        26,
+        26
+      ]
+    },
+    {
+      "bone": "skirt_left_0",
+      "center": [
+        4.0,
+        3.0,
+        -5.3
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        237,
+        31,
+        12,
+        3
+      ]
+    },
+    {
+      "bone": "skirt_left_1",
+      "center": [
+        4.7,
+        12.5,
+        0
+      ],
+      "size": [
+        5,
+        15,
+        9
+      ],
+      "material": "morcloth",
+      "uv": [
+        252,
+        31,
+        28,
+        24
+      ]
+    },
+    {
+      "bone": "skirt_left_1",
+      "center": [
+        4.7,
+        5.0,
+        -5.3
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        283,
+        31,
+        12,
+        3
+      ]
+    },
+    {
+      "bone": "skirt_left_2",
+      "center": [
+        5.4,
+        13.0,
+        0
+      ],
+      "size": [
+        5,
+        12,
+        10
+      ],
+      "material": "morcloth",
+      "uv": [
+        298,
+        31,
+        30,
+        22
+      ]
+    },
+    {
+      "bone": "skirt_left_2",
+      "center": [
+        5.4,
+        7.0,
+        -5.3
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        331,
+        31,
+        12,
+        3
+      ]
+    },
+    {
+      "bone": "skirt_left_3",
+      "center": [
+        6.1,
+        13.5,
+        0
+      ],
+      "size": [
+        5,
+        9,
+        11
+      ],
+      "material": "morcloth",
+      "uv": [
+        346,
+        31,
+        32,
+        20
+      ]
+    },
+    {
+      "bone": "skirt_left_3",
+      "center": [
+        6.1,
+        9.0,
+        -5.3
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        381,
+        31,
+        12,
+        3
+      ]
+    },
+    {
+      "bone": "stream_left",
+      "center": [
+        7.0,
+        3.0,
+        -2
+      ],
+      "size": [
+        2,
+        6,
+        3
+      ],
+      "material": "mor",
+      "uv": [
+        396,
+        31,
+        10,
+        9
+      ]
+    },
+    {
+      "bone": "stream_left",
+      "center": [
+        7.7,
+        4.1,
+        -1
+      ],
+      "size": [
+        2,
+        7,
+        3
+      ],
+      "material": "mor",
+      "uv": [
+        409,
+        31,
+        10,
+        10
+      ]
+    },
+    {
+      "bone": "stream_left",
+      "center": [
+        8.4,
+        5.2,
+        0
+      ],
+      "size": [
+        2,
+        8,
+        3
+      ],
+      "material": "mor",
+      "uv": [
+        422,
+        31,
+        10,
+        11
+      ]
+    },
+    {
+      "bone": "stream_left",
+      "center": [
+        9.1,
+        6.3,
+        1
+      ],
+      "size": [
+        2,
+        9,
+        3
+      ],
+      "material": "mor",
+      "uv": [
+        435,
+        31,
+        10,
+        12
+      ]
+    },
+    {
+      "bone": "stream_left",
+      "center": [
+        9.8,
+        7.4,
+        2
+      ],
+      "size": [
+        2,
+        10,
+        3
+      ],
+      "material": "mor",
+      "uv": [
+        448,
+        31,
+        10,
+        13
+      ]
+    },
+    {
+      "bone": "torso",
+      "center": [
+        5,
+        32.5,
+        -4
+      ],
+      "size": [
+        2,
+        3,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        461,
+        31,
+        6,
+        4
+      ]
+    },
+    {
+      "bone": "whip_left_0",
+      "center": [
+        8,
+        12.0,
+        -9
+      ],
+      "size": [
+        2,
+        2,
+        16
+      ],
+      "material": "mor",
+      "uv": [
+        470,
+        31,
+        36,
+        18
+      ]
+    },
+    {
+      "bone": "whip_left_1",
+      "center": [
+        8,
+        12.0,
+        -25
+      ],
+      "size": [
+        2,
+        2,
+        16
+      ],
+      "material": "mor",
+      "uv": [
+        2,
+        60,
+        36,
+        18
+      ]
+    },
+    {
+      "bone": "whip_left_2",
+      "center": [
+        8,
+        12.0,
+        -41
+      ],
+      "size": [
+        2,
+        2,
+        16
+      ],
+      "material": "mor",
+      "uv": [
+        41,
+        60,
+        36,
+        18
+      ]
+    },
+    {
+      "bone": "whip_left_3",
+      "center": [
+        8,
+        12.0,
+        -57
+      ],
+      "size": [
+        2,
+        2,
+        16
+      ],
+      "material": "mor",
+      "uv": [
+        80,
+        60,
+        36,
+        18
+      ]
+    },
+    {
+      "bone": "whip_left_4",
+      "center": [
+        8,
+        12.0,
+        -73
+      ],
+      "size": [
+        2,
+        2,
+        16
+      ],
+      "material": "mor",
+      "uv": [
+        119,
+        60,
+        36,
+        18
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -3,
+        41.5,
+        -1
+      ],
+      "size": [
+        6,
+        11,
+        10
+      ],
+      "material": "skin",
+      "uv": [
+        158,
+        60,
+        32,
+        21
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        3,
+        41.5,
+        -1
+      ],
+      "size": [
+        6,
+        11,
+        10
+      ],
+      "material": "morskin",
+      "uv": [
+        193,
+        60,
+        32,
+        21
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        40.5,
+        -6.5
+      ],
+      "size": [
+        1.5,
+        3,
+        1.5
+      ],
+      "material": "skin",
+      "uv": [
+        228,
+        60,
+        6,
+        5
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -3,
+        42.5,
+        -6.3
+      ],
+      "size": [
+        1.5,
+        1,
+        0.5
+      ],
+      "material": "glow",
+      "uv": [
+        237,
+        60,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -4.5,
+        38.0,
+        -6
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "skin",
+      "uv": [
+        244,
+        60,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        3,
+        42.5,
+        -6.3
+      ],
+      "size": [
+        1.5,
+        1,
+        0.5
+      ],
+      "material": "red_eye",
+      "uv": [
+        253,
+        60,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        4.5,
+        38.0,
+        -6
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "morskin",
+      "uv": [
+        260,
+        60,
+        6,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0,
+        38.3,
+        -6.3
+      ],
+      "size": [
+        3,
+        0.6,
+        0.4
+      ],
+      "material": "hair",
+      "uv": [
+        269,
+        60,
+        7,
+        1
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        5.0,
+        30.0,
+        -5
+      ],
+      "size": [
+        2,
+        30,
+        2.5
+      ],
+      "material": "mor",
+      "uv": [
+        279,
+        60,
+        9,
+        33
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        5.0,
+        28.0,
+        -6.3
+      ],
+      "size": [
+        0.8,
+        20,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        291,
+        60,
+        3,
+        21
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        5.0,
+        41.0,
+        -6.5
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        297,
+        60,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        5.8,
+        31.0,
+        -2
+      ],
+      "size": [
+        2,
+        28,
+        2.5
+      ],
+      "material": "mor",
+      "uv": [
+        304,
+        60,
+        9,
+        31
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        5.8,
+        30.5,
+        -3.3
+      ],
+      "size": [
+        0.8,
+        17,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        316,
+        60,
+        3,
+        18
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        5.8,
+        40.0,
+        -3.5
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        322,
+        60,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        6.6,
+        32.0,
+        1
+      ],
+      "size": [
+        2,
+        26,
+        2.5
+      ],
+      "material": "mor",
+      "uv": [
+        329,
+        60,
+        9,
+        29
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        6.6,
+        25.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        0.8,
+        14,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        341,
+        60,
+        3,
+        15
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        6.6,
+        41.0,
+        -0.5
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        347,
+        60,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        7.4,
+        30.0,
+        4
+      ],
+      "size": [
+        2,
+        30,
+        2.5
+      ],
+      "material": "mor",
+      "uv": [
+        354,
+        60,
+        9,
+        33
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        7.4,
+        32.0,
+        2.7
+      ],
+      "size": [
+        0.8,
+        20,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        366,
+        60,
+        3,
+        21
+      ]
+    },
+    {
+      "bone": "hair_left",
+      "center": [
+        7.4,
+        40.0,
+        2.5
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        372,
+        60,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -5.0,
+        30.0,
+        -5
+      ],
+      "size": [
+        2,
+        30,
+        2.5
+      ],
+      "material": "hair",
+      "uv": [
+        379,
+        60,
+        9,
+        33
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -5.0,
+        28.0,
+        -6.3
+      ],
+      "size": [
+        0.8,
+        20,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        391,
+        60,
+        3,
+        21
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -5.0,
+        41.0,
+        -6.5
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        397,
+        60,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -5.8,
+        31.0,
+        -2
+      ],
+      "size": [
+        2,
+        28,
+        2.5
+      ],
+      "material": "hair",
+      "uv": [
+        404,
+        60,
+        9,
+        31
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -5.8,
+        30.5,
+        -3.3
+      ],
+      "size": [
+        0.8,
+        17,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        416,
+        60,
+        3,
+        18
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -5.8,
+        40.0,
+        -3.5
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        422,
+        60,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -6.6,
+        32.0,
+        1
+      ],
+      "size": [
+        2,
+        26,
+        2.5
+      ],
+      "material": "hair",
+      "uv": [
+        429,
+        60,
+        9,
+        29
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -6.6,
+        25.0,
+        -0.30000000000000004
+      ],
+      "size": [
+        0.8,
+        14,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        441,
+        60,
+        3,
+        15
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -6.6,
+        41.0,
+        -0.5
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        447,
+        60,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -7.4,
+        30.0,
+        4
+      ],
+      "size": [
+        2,
+        30,
+        2.5
+      ],
+      "material": "hair",
+      "uv": [
+        454,
+        60,
+        9,
+        33
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -7.4,
+        32.0,
+        2.7
+      ],
+      "size": [
+        0.8,
+        20,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        466,
+        60,
+        3,
+        21
+      ]
+    },
+    {
+      "bone": "hair_right",
+      "center": [
+        -7.4,
+        40.0,
+        2.5
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        472,
+        60,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -6,
+        30.0,
+        5.3
+      ],
+      "size": [
+        2,
+        30,
+        2.5
+      ],
+      "material": "hair",
+      "uv": [
+        479,
+        60,
+        9,
+        33
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -6,
+        28.0,
+        4.0
+      ],
+      "size": [
+        0.8,
+        20,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        491,
+        60,
+        3,
+        21
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -6,
+        41.0,
+        3.8
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        497,
+        60,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -4,
+        31.0,
+        5.3
+      ],
+      "size": [
+        2,
+        28,
+        2.5
+      ],
+      "material": "hair",
+      "uv": [
+        2,
+        96,
+        9,
+        31
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -4,
+        30.5,
+        4.0
+      ],
+      "size": [
+        0.8,
+        17,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        14,
+        96,
+        3,
+        18
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -4,
+        40.0,
+        3.8
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        20,
+        96,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -2,
+        32.0,
+        5.3
+      ],
+      "size": [
+        2,
+        26,
+        2.5
+      ],
+      "material": "hair",
+      "uv": [
+        27,
+        96,
+        9,
+        29
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -2,
+        25.0,
+        4.0
+      ],
+      "size": [
+        0.8,
+        14,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        39,
+        96,
+        3,
+        15
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        -2,
+        41.0,
+        3.8
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        45,
+        96,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        0,
+        30.0,
+        5.3
+      ],
+      "size": [
+        2,
+        30,
+        2.5
+      ],
+      "material": "hair",
+      "uv": [
+        52,
+        96,
+        9,
+        33
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        0,
+        32.0,
+        4.0
+      ],
+      "size": [
+        0.8,
+        20,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        64,
+        96,
+        3,
+        21
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        0,
+        40.0,
+        3.8
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        70,
+        96,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        2,
+        31.0,
+        5.3
+      ],
+      "size": [
+        2,
+        28,
+        2.5
+      ],
+      "material": "mor",
+      "uv": [
+        77,
+        96,
+        9,
+        31
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        2,
+        26.5,
+        4.0
+      ],
+      "size": [
+        0.8,
+        17,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        89,
+        96,
+        3,
+        18
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        2,
+        41.0,
+        3.8
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        95,
+        96,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        4,
+        32.0,
+        5.3
+      ],
+      "size": [
+        2,
+        26,
+        2.5
+      ],
+      "material": "mor",
+      "uv": [
+        102,
+        96,
+        9,
+        29
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        4,
+        29.0,
+        4.0
+      ],
+      "size": [
+        0.8,
+        14,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        114,
+        96,
+        3,
+        15
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        4,
+        40.0,
+        3.8
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        120,
+        96,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        6,
+        30.0,
+        5.3
+      ],
+      "size": [
+        2,
+        30,
+        2.5
+      ],
+      "material": "mor",
+      "uv": [
+        127,
+        96,
+        9,
+        33
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        6,
+        28.0,
+        4.0
+      ],
+      "size": [
+        0.8,
+        20,
+        0.5
+      ],
+      "material": "weed",
+      "uv": [
+        139,
+        96,
+        3,
+        21
+      ]
+    },
+    {
+      "bone": "hair_back",
+      "center": [
+        6,
+        41.0,
+        3.8
+      ],
+      "size": [
+        1.1,
+        2,
+        0.6
+      ],
+      "material": "rune",
+      "uv": [
+        145,
+        96,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -6.0,
+        47.0,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        5
+      ],
+      "material": "hair",
+      "uv": [
+        152,
+        96,
+        14,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -6.0,
+        47.5,
+        -4
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        169,
+        96,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -4.3,
+        47.0,
+        -1
+      ],
+      "size": [
+        2,
+        2,
+        5
+      ],
+      "material": "hair",
+      "uv": [
+        176,
+        96,
+        14,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -4.3,
+        48.0,
+        -3
+      ],
+      "size": [
+        1,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        193,
+        96,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -2.6,
+        47.0,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        5
+      ],
+      "material": "hair",
+      "uv": [
+        200,
+        96,
+        14,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -2.6,
+        47.5,
+        -2
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        217,
+        96,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -0.9000000000000004,
+        47.0,
+        -1
+      ],
+      "size": [
+        2,
+        2,
+        5
+      ],
+      "material": "hair",
+      "uv": [
+        224,
+        96,
+        14,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        -0.9000000000000004,
+        48.0,
+        -4
+      ],
+      "size": [
+        1,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        241,
+        96,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0.7999999999999998,
+        47.0,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        5
+      ],
+      "material": "hair",
+      "uv": [
+        248,
+        96,
+        14,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        0.7999999999999998,
+        47.5,
+        -3
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        265,
+        96,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        2.5,
+        47.0,
+        -1
+      ],
+      "size": [
+        2,
+        2,
+        5
+      ],
+      "material": "hair",
+      "uv": [
+        272,
+        96,
+        14,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        2.5,
+        48.0,
+        -2
+      ],
+      "size": [
+        1,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        289,
+        96,
+        4,
+        3
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        4.199999999999999,
+        47.0,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        5
+      ],
+      "material": "hair",
+      "uv": [
+        296,
+        96,
+        14,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        4.199999999999999,
+        47.5,
+        -4
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        313,
+        96,
+        4,
+        2
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        5.9,
+        47.0,
+        -1
+      ],
+      "size": [
+        2,
+        2,
+        5
+      ],
+      "material": "hair",
+      "uv": [
+        320,
+        96,
+        14,
+        7
+      ]
+    },
+    {
+      "bone": "head",
+      "center": [
+        5.9,
+        48.0,
+        -3
+      ],
+      "size": [
+        1,
+        2,
+        1
+      ],
+      "material": "rune",
+      "uv": [
+        337,
+        96,
+        4,
+        3
+      ]
+    }
+  ]
+}

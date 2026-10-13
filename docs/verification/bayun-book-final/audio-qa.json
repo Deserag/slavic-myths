@@ -1,0 +1,154 @@
+[
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_purr_soft.ogg",
+    "seconds": 2.3,
+    "rms": 8673.939160467933,
+    "peak": 22317,
+    "channels": 1,
+    "sha256": "d2767b25514b647e38d55d9f91d3dc0808e24d09fe24101c89abbc4265e2e238"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_purr_happy.ogg",
+    "seconds": 2.1,
+    "rms": 9488.698683521485,
+    "peak": 22346,
+    "channels": 1,
+    "sha256": "462ae870b5a67e61596b1aa4b2947fcb861a3d1339b8bc78475de3d6c146541b"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_mew_soft.ogg",
+    "seconds": 0.7473469387755102,
+    "rms": 11145.98721663977,
+    "peak": 22708,
+    "channels": 1,
+    "sha256": "50ce967db72532838d3bfcff8d079598ba7c65995eb8cfe21e0b213bc39d7195"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_mew_annoyed.ogg",
+    "seconds": 0.8473469387755102,
+    "rms": 11835.684720041703,
+    "peak": 22673,
+    "channels": 1,
+    "sha256": "49d3a5fd5cbf076e1161e6f5eb06206aa260467b62678fa81df90d644aa6a1c3"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_breath.ogg",
+    "seconds": 1.2,
+    "rms": 5537.125259062026,
+    "peak": 22112,
+    "channels": 1,
+    "sha256": "950a7092da5d71356f067dc80b5f6b11df00a6eb3df00ac7c6da1779165da02d"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_settle.ogg",
+    "seconds": 0.6973696145124717,
+    "rms": 5489.056126273251,
+    "peak": 20949,
+    "channels": 1,
+    "sha256": "037a545ccf003065ac497cf5d24ca084d8cc07e0f71d11ad3946b20e39fe8177"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_stretch_exhale.ogg",
+    "seconds": 0.9973696145124716,
+    "rms": 6513.074871819159,
+    "peak": 21763,
+    "channels": 1,
+    "sha256": "9ee1fd8fc091648549f5921a054a1b936e1d97d303d53f5e282f26125875ae4b"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_groom.ogg",
+    "seconds": 0.6273469387755102,
+    "rms": 1998.6545272746985,
+    "peak": 20305,
+    "channels": 1,
+    "sha256": "fa70cf417e243c425ba2b30cd6d2dae6e5bdcc5851bbb17efbc17be6f244b460"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_lap_milk.ogg",
+    "seconds": 0.8473469387755102,
+    "rms": 2943.774023529261,
+    "peak": 22685,
+    "channels": 1,
+    "sha256": "bf842df14b49ca096eff7071b5b922fbaa17f59030fe95db6ddb46e31b029f3c"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_chew_fish.ogg",
+    "seconds": 0.7473469387755102,
+    "rms": 1845.561253240419,
+    "peak": 22199,
+    "channels": 1,
+    "sha256": "a314ca19cbce26a27493cb7c41292aa299c95a395e24bf81a3793a0c5e70f9e8"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_pawstep.ogg",
+    "seconds": 0.4473469387755102,
+    "rms": 1858.0714217033885,
+    "peak": 22619,
+    "channels": 1,
+    "sha256": "4242534bf5ad9e93eff8dbcd3ba7c48b73e6665504c010d4e8623bea11dfbbf6"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_spell_warning.ogg",
+    "seconds": 1.3,
+    "rms": 7911.090553178466,
+    "peak": 22180,
+    "channels": 1,
+    "sha256": "2ce23a116c32d0d0bf698ac16e77bada32bbd32c97e86479fc5877636fb2e39e"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_sleep_song.ogg",
+    "seconds": 3.8100226757369615,
+    "rms": 5766.503225261681,
+    "peak": 21696,
+    "channels": 1,
+    "sha256": "ca8a9e9ce48addc609ea0f3d5af97752cf23979379589048c1ddf38535673865"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_song_loop.ogg",
+    "seconds": 2.0,
+    "rms": 11650.376283165382,
+    "peak": 22696,
+    "channels": 1,
+    "sha256": "83514f760e77e854f5a859d43d25934ec4206c4bf542079ac2802ad00cbdd13d"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_pounce.ogg",
+    "seconds": 0.7773696145124717,
+    "rms": 6538.661436822658,
+    "peak": 22128,
+    "channels": 1,
+    "sha256": "926615af22b54ebf496101d61509efdd77a0e59e731ffa433045d623bac0d727"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_claw_swoosh.ogg",
+    "seconds": 0.8721995464852608,
+    "rms": 2658.7977419330564,
+    "peak": 18625,
+    "channels": 1,
+    "sha256": "071d75ada660d2344b0994b3624da45bb3c005257b3818855c9a9457dcdc8b3e"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/bayun_book_page.ogg",
+    "seconds": 0.7271201814058957,
+    "rms": 3079.732907242744,
+    "peak": 20146,
+    "channels": 1,
+    "sha256": "2befa95f370de6c3c9b661a16ea6c9831b1b38ba204069eaec6e92f378a7f4a9"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/book_open.ogg",
+    "seconds": 0.86,
+    "rms": 4389.710016126531,
+    "peak": 19760,
+    "channels": 1,
+    "sha256": "113c2563e0cbc770e6150be686fcd7c7919eeb49837e7f8f3791825966fb066f"
+  },
+  {
+    "file": "assets/slavicmyths/sounds/bayun/book_discovery.ogg",
+    "seconds": 1.2,
+    "rms": 5449.904623115729,
+    "peak": 22745,
+    "channels": 1,
+    "sha256": "daa3ca68bfeba659fd3b2d1bac4c6c2be5e70774357a68314bbab734b05b8e90"
+  }
+]

@@ -36,6 +36,9 @@ public final class YagaMenu extends AbstractContainerMenu{
  @Override public void clicked(int slot,int button,ClickType type,Player p){if(!stillValid(p)||slot>=0&&slot<5&&tab()!=3)return;super.clicked(slot,button,type,p);}
  @Override public void removed(Player p){super.removed(p);if(!p.level().isClientSide){clearContainer(p,input);BabaYaga npc=npc();if(npc!=null){npc.gesture(2);npc.playSound(org.slavicmyths.registry.ModSounds.YAGA_CLOSE.get(),.25F,.7F);}}}
  @Override public boolean clickMenuButton(Player p,int action){if(!(p instanceof ServerPlayer)||!stillValid(p))return false;ServerPlayer server=(ServerPlayer)p;YagaData.Progress progress=progress();boolean result=false;
+  if(action==702){return org.slavicmyths.karachun.NightCombat.unlock(server,npc());}
+  if(action==701){return org.slavicmyths.morozko.FrostSkills.unlock(server,npc());}
+  if(action==700){p.closeContainer();org.slavicmyths.quest185.Quest185Sessions.open(server,!org.slavicmyths.quest185.Quest185Story.data(server).getBoolean("IntroDone"));return true;}
   if(action>=0&&action<=3){info.set(6,action);result=true;}
   else if(action>=10&&action<=13){if(action==10)info.set(6,1);else if(action==13){p.closeContainer();return true;}else info.set(7,action-10);result=true;}
   else if(action>=100&&action<103)result=progress.accept("main:"+(action-100),p.level().getGameTime());

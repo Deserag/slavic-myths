@@ -3,5 +3,21 @@
     "encounter": {
       "trigger": "minecraft:impossible"
     }
-  }
+  },
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.meet_nightingale.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.meet_nightingale.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "parent": "slavicmyths:group_roads"
 }

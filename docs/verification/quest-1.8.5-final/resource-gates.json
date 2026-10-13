@@ -1,0 +1,17 @@
+{
+  "version": "1.8.5",
+  "status": "PASS",
+  "checks": 7761,
+  "sha256": "f2b66c13d9034f9e94c47385750d843ac6838b2ccfb7fec26fef7c80c64741c0",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.8.5.jar",
+  "event_subscribers": 188,
+  "preserved_poloz_horn_assets": 51,
+  "offline_checks": 182,
+  "model_checks": 4290,
+  "block_checks": 120,
+  "client_starts": 0,
+  "server_starts": 0,
+  "gameplay": "NOT_RUN",
+  "real_relog": "NOT_RUN",
+  "mspt_fps": "NOT_MEASURED"
+}

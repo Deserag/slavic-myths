@@ -100,3 +100,7 @@ def generate():
  for i,n in enumerate(ITEMS):sheet.alpha_composite(Image.open(A/f'textures/item/{n}.png').resize((128,128),Image.Resampling.NEAREST),(i%6*128,i//6*256));sd.text((i%6*128,i//6*256+132),n[:20],fill='white')
  sheet.convert('RGB').save(R/'docs/verification/world-bosses-0.9.2/items.png')
 if __name__=='__main__':generate()
+
+if __name__ == "__main__":
+ from feedback_resource_policy import apply as apply_feedback_policy
+ apply_feedback_policy()

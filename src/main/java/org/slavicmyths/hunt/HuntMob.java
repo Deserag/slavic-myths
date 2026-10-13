@@ -54,7 +54,7 @@ public abstract class HuntMob extends LandSpiritEntity {
  public Move action(){return Move.values()[entityData.get(ACTION)];}public boolean rage(){return entityData.get(RAGE);}public float elapsed(float partial){return Math.max(0,(int)level().getGameTime()-entityData.get(START)+partial);}
  @Override protected boolean usesSpiritSchedule(){return false;}
  @Override protected void think(){} // Combat is wholly scheduled by Fight below, never by two goals.
- @Override protected void registerGoals(){goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new Fight());goalSelector.addGoal(4,new LookAtPlayerGoal(this,Player.class,12));goalSelector.addGoal(5,new RandomLookAroundGoal(this));targetSelector.addGoal(1,new HurtByTargetGoal(this));targetSelector.addGoal(2,new NearestAttackableTargetGoal<Player>(this,Player.class,true).setUnseenMemoryTicks(oven()?200:240));}
+ @Override protected void registerGoals(){goalSelector.addGoal(0,new org.slavicmyths.mor.MorGoal(this));goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new Fight());goalSelector.addGoal(4,new LookAtPlayerGoal(this,Player.class,12));goalSelector.addGoal(5,new RandomLookAroundGoal(this));targetSelector.addGoal(1,new HurtByTargetGoal(this));targetSelector.addGoal(2,new NearestAttackableTargetGoal<Player>(this,Player.class,true).setUnseenMemoryTicks(oven()?200:240));}
  @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);bar.addPlayer(p);}
  @Override public void stopSeenByPlayer(ServerPlayer p){super.stopSeenByPlayer(p);bar.removePlayer(p);}
  @Override public void onRemovedFromLevel(){bar.removeAllPlayers();super.onRemovedFromLevel();}
@@ -64,14 +64,15 @@ public abstract class HuntMob extends LandSpiritEntity {
  @Override public void checkDespawn(){if(!level().isClientSide&&level().getDifficulty()==Difficulty.PEACEFUL&&owner!=null)HuntRecords.get((ServerLevel)level()).finish(owner,getUUID(),HuntRecords.Status.FAILED);super.checkDespawn();}
  public boolean wetRain(){return level().isRainingAt(blockPosition().above());}
  @Override protected void playStepSound(BlockPos p,net.minecraft.world.level.block.state.BlockState b){playSound(oven()?SoundEvents.WOOD_STEP:SoundEvents.WOLF_STEP,.35F,.65F);}
- @Override protected SoundEvent getAmbientSound(){return oven()?super.getAmbientSound():random.nextBoolean()?SoundEvents.WOLF_GROWL:SoundEvents.WOLF_PANT;}
+ @Override protected SoundEvent getAmbientSound(){return morState()!=0?null:oven()?super.getAmbientSound():random.nextBoolean()?SoundEvents.WOLF_GROWL:SoundEvents.WOLF_PANT;}
  @Override protected SoundEvent getHurtSound(DamageSource source){return oven()?super.getHurtSound(source):SoundEvents.WOLF_HURT;}
  @Override protected SoundEvent getDeathSound(){return oven()?super.getDeathSound():SoundEvents.WOLF_DEATH;}
  @Override public float getVoicePitch(){return .65F;}
  @Override public boolean hurt(DamageSource source,float amount){if(oven()&&source.is(net.minecraft.tags.DamageTypeTags.IS_FIRE))return false;return super.hurt(source,amount);}
  private void cue(SoundEvent sound){playSound(sound,.85F,.65F);}
- @Override public void tick(){super.tick();if(level().isClientSide)return;if(home==null){home=blockPosition();setPersistenceRequired();}bar.setVisible(showsHuntBar()&&getTarget()!=null);bar.setProgress(getHealth()/getMaxHealth());
+ @Override public void tick(){super.tick();if(level().isClientSide)return;if(!isAlive()){bar.setVisible(false);bar.removeAllPlayers();return;}if(home==null){home=blockPosition();setPersistenceRequired();}if(morState()!=0)bar.setName(getDisplayName());bar.setVisible(showsHuntBar()&&getTarget()!=null);bar.setProgress(getHealth()/getMaxHealth());
   if(owner!=null&&isAlive()){HuntRecords.Hunt h=HuntRecords.get((ServerLevel)level()).hunts.get(owner);if(h==null||h.status!=HuntRecords.Status.ACTIVE||!h.target.equals(getUUID())){discard();return;}}
+  if(morState()!=0)return;
   if(miniBoss()&&!(this instanceof ElementHuntMob)&&isAlive()&&!rage()&&getHealth()<=getMaxHealth()*.5){entityData.set(RAGE,true);cue(SoundEvents.RAVAGER_ROAR);}
   if(oven()&&isInWater()&&tickCount%20==0)hurt(damageSources().drown(),2);
   if(tickCount%5==0){prey.entrySet().removeIf(e->e.getValue()<=level().getGameTime());trail.removeIf(t->t.until<=level().getGameTime());trailHits.entrySet().removeIf(e->e.getValue()+40<level().getGameTime());
@@ -104,7 +105,7 @@ public abstract class HuntMob extends LandSpiritEntity {
  private final class Fight extends Goal{
   Fight(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
         @Override public boolean requiresUpdateEveryTick(){return true;}
-  @Override public boolean canUse(){return getTarget()!=null&&getTarget().isAlive()||home!=null&&distanceToSqr(home.getX()+.5,home.getY(),home.getZ()+.5)>40*40;}
+  @Override public boolean canUse(){return morState()==0&&(getTarget()!=null&&getTarget().isAlive()||home!=null&&distanceToSqr(home.getX()+.5,home.getY(),home.getZ()+.5)>40*40);}
   @Override public void stop(){navigation.stop();entityData.set(ACTION,0);}
   @Override public void tick(){LivingEntity t=getTarget();if(t!=null&&(!t.isAlive()||t instanceof Player&&(((Player)t).isCreative()||t.isSpectator()))){setTarget(null);t=null;}
    if(home!=null&&((distanceToSqr(home.getX()+.5,home.getY(),home.getZ()+.5)>56*56&&(t==null||distanceTo(t)>16))||(t!=null&&distanceToSqr(home.getX()+.5,home.getY(),home.getZ()+.5)>40*40&&t.distanceToSqr(home.getX()+.5,home.getY(),home.getZ()+.5)>56*56))){entityData.set(ACTION,0);if(tickCount%10==0)navigation.moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,1);return;}if(t==null){if(home!=null&&tickCount%10==0)navigation.moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,1);return;}
@@ -123,7 +124,7 @@ public abstract class HuntMob extends LandSpiritEntity {
    if(tickCount%10==0){Vec3 dest=lastSeen==null?t.position():new Vec3(lastSeen.getX()+.5,lastSeen.getY(),lastSeen.getZ()+.5);if(!oven()&&sight&&distanceTo(t)<7){Vec3 flank=new Vec3(-aim.z,0,aim.x);if(flank.lengthSqr()<.1)flank=new Vec3(-(t.getZ()-getZ()),0,t.getX()-getX()).normalize();dest=dest.add(flank.scale(Math.sin(tickCount*.07)*2));}boolean path=navigation.moveTo(dest.x,dest.y,dest.z,1);unreachable=path?0:unreachable+10;}
   }
  }
- @Override public void die(DamageSource source){boolean before=dead;super.die(source);if(!before&&dead&&!level().isClientSide){cue(oven()?SoundEvents.WOOD_BREAK:SoundEvents.GENERIC_BIG_FALL);if(oven())cue(SoundEvents.FIRE_EXTINGUISH);if(owner!=null)HuntRecords.get((ServerLevel)level()).finish(owner,getUUID(),HuntRecords.Status.CLEARED);if(miniBoss()&&!(this instanceof ElementHuntMob)&&source.getEntity() instanceof Player&&(oven()||org.slavicmyths.item.SilverCombat.silverStrike(source)))org.slavicmyths.item.FolkAccessoryItem.award((LivingEntity)source.getEntity(),oven()?"extinguish_the_barn":"silver_remedy");}}
+ @Override public void die(DamageSource source){boolean before=dead;super.die(source);if(!level().isClientSide){bar.setVisible(false);bar.removeAllPlayers();}if(!before&&dead&&!level().isClientSide){cue(oven()?SoundEvents.WOOD_BREAK:SoundEvents.GENERIC_BIG_FALL);if(oven())cue(SoundEvents.FIRE_EXTINGUISH);if(owner!=null)HuntRecords.get((ServerLevel)level()).finish(owner,getUUID(),HuntRecords.Status.CLEARED);if(miniBoss()&&!(this instanceof ElementHuntMob)&&source.getEntity() instanceof Player&&(oven()||org.slavicmyths.item.SilverCombat.silverStrike(source)))org.slavicmyths.item.FolkAccessoryItem.award((LivingEntity)source.getEntity(),oven()?"extinguish_the_barn":"silver_remedy");}}
  @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);if(owner!=null)n.putUUID("HuntOwner",owner);n.putBoolean("HuntRage",rage());CompoundTag cd=new CompoundTag();for(Map.Entry<Move,Integer> e:timers.entrySet())cd.putInt(e.getKey().name(),e.getValue());n.put("HuntTimers",cd);}
  @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);owner=n.hasUUID("HuntOwner")?n.getUUID("HuntOwner"):null;entityData.set(RAGE,n.getBoolean("HuntRage")||n.getBoolean("Enraged"));CompoundTag cd=n.getCompound("HuntTimers");for(Move m:Move.values())timers.put(m,Math.max(0,Math.min(m.cooldown,cd.getInt(m.name()))));entityData.set(ACTION,0);
   if(!miniBoss())return;

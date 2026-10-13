@@ -1,0 +1,4 @@
+{
+  "org/slavicmyths/bogatyr/IlyaEntity$1.class": "Identical javap -p -c; difference only class debug/source line metadata",
+  "org/slavicmyths/skim/AlyoshaEntity$1.class": "Identical javap -p -c; difference only class debug/source line metadata"
+}

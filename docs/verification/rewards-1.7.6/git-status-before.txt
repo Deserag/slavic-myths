@@ -1,0 +1,417 @@
+ M CHANGELOG.md
+ M docs/ARCHITECTURE.md
+ M docs/PROJECT_STATUS.md
+ M docs/ROADMAP.md
+ M gradle.properties
+ M src/main/java/org/slavicmyths/SlavicMyths.java
+ M src/main/java/org/slavicmyths/client/FinistClient.java
+ M src/main/java/org/slavicmyths/item/LoreBookItem.java
+ M src/main/resources/assets/slavicmyths/lang/en_us.json
+ M src/main/resources/assets/slavicmyths/lang/ru_ru.json
+ M src/main/resources/assets/slavicmyths/sounds.json
+ M src/main/resources/assets/slavicmyths/textures/item/lore_book.png
+ M src/main/resources/data/minecraft/tags/damage_type/bypasses_armor.json
+ M src/main/resources/data/slavicmyths/advancement/all_timber.json
+ M src/main/resources/data/slavicmyths/advancement/altar.json
+ M src/main/resources/data/slavicmyths/advancement/amber.json
+ M src/main/resources/data/slavicmyths/advancement/ancient_find.json
+ M src/main/resources/data/slavicmyths/advancement/ancient_sign.json
+ M src/main/resources/data/slavicmyths/advancement/armorer_craft.json
+ M src/main/resources/data/slavicmyths/advancement/bad_people.json
+ M src/main/resources/data/slavicmyths/advancement/berry_garden.json
+ M src/main/resources/data/slavicmyths/advancement/bind_hearth.json
+ M src/main/resources/data/slavicmyths/advancement/birch_bark.json
+ M src/main/resources/data/slavicmyths/advancement/birch_bark_scroll.json
+ M src/main/resources/data/slavicmyths/advancement/black_feather.json
+ M src/main/resources/data/slavicmyths/advancement/boar_charge_block.json
+ M src/main/resources/data/slavicmyths/advancement/bog_explorer.json
+ M src/main/resources/data/slavicmyths/advancement/bottled_elements.json
+ M src/main/resources/data/slavicmyths/advancement/break_water_call.json
+ M src/main/resources/data/slavicmyths/advancement/catch_the_wind.json
+ M src/main/resources/data/slavicmyths/advancement/cauldron_service.json
+ M src/main/resources/data/slavicmyths/advancement/clear_large_camp.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_depth_master.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_leshy.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_nightingale.json
+ M src/main/resources/data/slavicmyths/advancement/depth_clue.json
+ M src/main/resources/data/slavicmyths/advancement/depth_gift.json
+ M src/main/resources/data/slavicmyths/advancement/disperse_bandits.json
+ M src/main/resources/data/slavicmyths/advancement/earth_heart.json
+ M src/main/resources/data/slavicmyths/advancement/explore_abandoned_settlement.json
+ M src/main/resources/data/slavicmyths/advancement/explore_bog_causeway.json
+ M src/main/resources/data/slavicmyths/advancement/explore_fishing_camp.json
+ M src/main/resources/data/slavicmyths/advancement/explore_flooded_shrine.json
+ M src/main/resources/data/slavicmyths/advancement/explore_swamp_hut.json
+ M src/main/resources/data/slavicmyths/advancement/explore_underwater_ruins.json
+ M src/main/resources/data/slavicmyths/advancement/extinguish_the_barn.json
+ M src/main/resources/data/slavicmyths/advancement/falling_star.json
+ M src/main/resources/data/slavicmyths/advancement/fern_flower.json
+ M src/main/resources/data/slavicmyths/advancement/find_deep_pool.json
+ M src/main/resources/data/slavicmyths/advancement/find_large_camp.json
+ M src/main/resources/data/slavicmyths/advancement/find_medium_camp.json
+ M src/main/resources/data/slavicmyths/advancement/find_small_camp.json
+ M src/main/resources/data/slavicmyths/advancement/find_the_hut.json
+ M src/main/resources/data/slavicmyths/advancement/fire_in_the_sky.json
+ M src/main/resources/data/slavicmyths/advancement/first_accessory.json
+ M src/main/resources/data/slavicmyths/advancement/first_brew.json
+ M src/main/resources/data/slavicmyths/advancement/first_flight.json
+ M src/main/resources/data/slavicmyths/advancement/first_hunt.json
+ M src/main/resources/data/slavicmyths/advancement/first_ritual.json
+ M src/main/resources/data/slavicmyths/advancement/flax.json
+ M src/main/resources/data/slavicmyths/advancement/follow_the_thread.json
+ M src/main/resources/data/slavicmyths/advancement/forest_guardian.json
+ M src/main/resources/data/slavicmyths/advancement/friend_domovoy.json
+ M src/main/resources/data/slavicmyths/advancement/full_speed_ahead.json
+ M src/main/resources/data/slavicmyths/advancement/guest_of_yaga.json
+ M src/main/resources/data/slavicmyths/advancement/hunt_begins.json
+ M src/main/resources/data/slavicmyths/advancement/ill_fate_broken.json
+ M src/main/resources/data/slavicmyths/advancement/kitchen_meal.json
+ M src/main/resources/data/slavicmyths/advancement/learn_armorer.json
+ M src/main/resources/data/slavicmyths/advancement/leshy_heart.json
+ M src/main/resources/data/slavicmyths/advancement/linen_thread.json
+ M src/main/resources/data/slavicmyths/advancement/lore_book.json
+ M src/main/resources/data/slavicmyths/advancement/lore_keeper.json
+ M src/main/resources/data/slavicmyths/advancement/meet_domovoy.json
+ M src/main/resources/data/slavicmyths/advancement/meet_leshy.json
+ M src/main/resources/data/slavicmyths/advancement/meet_nightingale.json
+ M src/main/resources/data/slavicmyths/advancement/meet_rusalka.json
+ M src/main/resources/data/slavicmyths/advancement/meet_vodyanoy.json
+ M src/main/resources/data/slavicmyths/advancement/name_your_misfortune.json
+ M src/main/resources/data/slavicmyths/advancement/net_catch.json
+ M src/main/resources/data/slavicmyths/advancement/new_catch.json
+ M src/main/resources/data/slavicmyths/advancement/not_empty_handed.json
+ M src/main/resources/data/slavicmyths/advancement/not_today.json
+ M src/main/resources/data/slavicmyths/advancement/offer_domovoy.json
+ M src/main/resources/data/slavicmyths/advancement/old_weapons.json
+ M src/main/resources/data/slavicmyths/advancement/own_path.json
+ M src/main/resources/data/slavicmyths/advancement/perunite.json
+ M src/main/resources/data/slavicmyths/advancement/rare_accessory.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/armorer_table.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/birch_bark.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/birch_bark_scroll.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/hearth.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_button.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_door.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_fence.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_fence_gate.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_planks.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_pressure_plate.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_sign.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_slab.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_stairs.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_stripped_wood.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_trapdoor.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/linden_wood.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/lore_book.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_button.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_door.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_fence.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_fence_gate.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_planks.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_pressure_plate.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_sign.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_slab.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_stairs.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_stripped_wood.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_trapdoor.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/pine_wood.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_button.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_door.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_fence.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_fence_gate.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_planks.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_pressure_plate.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_sign.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_slab.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_stairs.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_stripped_wood.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_trapdoor.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/rowan_wood.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/thunder_stone.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/warding_charm.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_button.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_door.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_fence.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_fence_gate.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_planks.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_pressure_plate.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_sign.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_slab.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_stairs.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_stripped_wood.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_trapdoor.json
+ M src/main/resources/data/slavicmyths/advancement/recipes/willow_wood.json
+ M src/main/resources/data/slavicmyths/advancement/reforged.json
+ M src/main/resources/data/slavicmyths/advancement/root.json
+ M src/main/resources/data/slavicmyths/advancement/rune_installed.json
+ M src/main/resources/data/slavicmyths/advancement/self_playing_music.json
+ M src/main/resources/data/slavicmyths/advancement/shrine.json
+ M src/main/resources/data/slavicmyths/advancement/silver_remedy.json
+ M src/main/resources/data/slavicmyths/advancement/steppe_champion.json
+ M src/main/resources/data/slavicmyths/advancement/stolen_goods.json
+ M src/main/resources/data/slavicmyths/advancement/storm_staff.json
+ M src/main/resources/data/slavicmyths/advancement/table_is_set.json
+ M src/main/resources/data/slavicmyths/advancement/three_signs.json
+ M src/main/resources/data/slavicmyths/advancement/thunder_axe.json
+ M src/main/resources/data/slavicmyths/advancement/thunder_stone.json
+ M src/main/resources/data/slavicmyths/advancement/too_much.json
+ M src/main/resources/data/slavicmyths/advancement/traces_of_past.json
+ M src/main/resources/data/slavicmyths/advancement/trophy_keeper.json
+ M src/main/resources/data/slavicmyths/advancement/trusted_by_yaga.json
+ M src/main/resources/data/slavicmyths/advancement/two_rings.json
+ M src/main/resources/data/slavicmyths/advancement/village_feast.json
+ M src/main/resources/data/slavicmyths/advancement/wake_depth_master.json
+ M src/main/resources/data/slavicmyths/advancement/warding_charm.json
+ M src/main/resources/data/slavicmyths/advancement/water_call.json
+ M src/main/resources/data/slavicmyths/advancement/wildlife_encounter.json
+ M src/main/resources/data/slavicmyths/advancement/without_ataman.json
+ M src/main/resources/data/slavicmyths/advancement/woodlands.json
+ M src/main/resources/data/slavicmyths/advancement/wormwood.json
+ M src/main/resources/data/slavicmyths/tags/entity_type/combat_protected.json
+ M src/main/resources/data/slavicmyths/tags/entity_type/control_immune.json
+?? docs/IMPLEMENTATION_REPORT_1.7.2.md
+?? docs/IMPLEMENTATION_REPORT_1.7.3.md
+?? docs/IMPLEMENTATION_REPORT_1.7.4.md
+?? docs/IMPLEMENTATION_REPORT_1.7.5.md
+?? docs/bayun/
+?? docs/bogatyr/
+?? docs/specs/
+?? docs/verification/bayun-book-final/
+?? docs/verification/bogatyr-1.7.1/
+?? docs/verification/finist-1.7.4/
+?? docs/verification/kalin-1.7.5/
+?? docs/verification/marinka-1.7.2/
+?? docs/verification/skim-1.7.3/
+?? release/slavicmyths-1.6.9.jar
+?? release/slavicmyths-1.7.1.jar
+?? release/slavicmyths-1.7.2.jar
+?? release/slavicmyths-1.7.3.jar
+?? release/slavicmyths-1.7.4.jar
+?? release/slavicmyths-1.7.5.jar
+?? src/main/java/org/slavicmyths/bayun/
+?? src/main/java/org/slavicmyths/bogatyr/
+?? src/main/java/org/slavicmyths/client/AlyoshaMesh.java
+?? src/main/java/org/slavicmyths/client/AurochsMesh.java
+?? src/main/java/org/slavicmyths/client/BayunClient.java
+?? src/main/java/org/slavicmyths/client/BayunDialogueScreen.java
+?? src/main/java/org/slavicmyths/client/BayunMesh.java
+?? src/main/java/org/slavicmyths/client/BayunSong.java
+?? src/main/java/org/slavicmyths/client/BlackBannerMesh.java
+?? src/main/java/org/slavicmyths/client/BogatyrClient.java
+?? src/main/java/org/slavicmyths/client/BrightFalconClient.java
+?? src/main/java/org/slavicmyths/client/CommonSoldierMesh.java
+?? src/main/java/org/slavicmyths/client/CurseAnchorMesh.java
+?? src/main/java/org/slavicmyths/client/DobrynyaMesh.java
+?? src/main/java/org/slavicmyths/client/EliteSoldierMesh.java
+?? src/main/java/org/slavicmyths/client/FalconMesh.java
+?? src/main/java/org/slavicmyths/client/FinistMesh.java
+?? src/main/java/org/slavicmyths/client/FinistModel.java
+?? src/main/java/org/slavicmyths/client/HexFocusMesh.java
+?? src/main/java/org/slavicmyths/client/IdolishcheMesh.java
+?? src/main/java/org/slavicmyths/client/IlyaMesh.java
+?? src/main/java/org/slavicmyths/client/KalinClient.java
+?? src/main/java/org/slavicmyths/client/KalinMesh.java
+?? src/main/java/org/slavicmyths/client/KalinModel.java
+?? src/main/java/org/slavicmyths/client/KartausMesh.java
+?? src/main/java/org/slavicmyths/client/MagpieMesh.java
+?? src/main/java/org/slavicmyths/client/MarinkaClient.java
+?? src/main/java/org/slavicmyths/client/MarinkaMesh.java
+?? src/main/java/org/slavicmyths/client/SkimClient.java
+?? src/main/java/org/slavicmyths/client/SkimMesh.java
+?? src/main/java/org/slavicmyths/client/SkimModel.java
+?? src/main/java/org/slavicmyths/client/TaleClientEvents.java
+?? src/main/java/org/slavicmyths/client/TaleRecipeText.java
+?? src/main/java/org/slavicmyths/client/TaleScreen.java
+?? src/main/java/org/slavicmyths/client/WarHorseMesh.java
+?? src/main/java/org/slavicmyths/client/WitchModel.java
+?? src/main/java/org/slavicmyths/finist/BannerEntity.java
+?? src/main/java/org/slavicmyths/finist/FalconAction.java
+?? src/main/java/org/slavicmyths/finist/FalconActor.java
+?? src/main/java/org/slavicmyths/finist/FalconCallItem.java
+?? src/main/java/org/slavicmyths/finist/FinistContent.java
+?? src/main/java/org/slavicmyths/finist/FinistEntity.java
+?? src/main/java/org/slavicmyths/finist/FinistEvents.java
+?? src/main/java/org/slavicmyths/finist/KartausEncounter.java
+?? src/main/java/org/slavicmyths/finist/KartausEntity.java
+?? src/main/java/org/slavicmyths/kalin/
+?? src/main/java/org/slavicmyths/marinka/
+?? src/main/java/org/slavicmyths/skim/
+?? src/main/java/org/slavicmyths/tales/
+?? src/main/resources/assets/slavicmyths/blockstates/witch_yard_altar.json
+?? src/main/resources/assets/slavicmyths/models/block/witch_yard_altar.json
+?? src/main/resources/assets/slavicmyths/models/item/alyosha_call_whistle.json
+?? src/main/resources/assets/slavicmyths/models/item/beast_challenge_horn.json
+?? src/main/resources/assets/slavicmyths/models/item/dobrynya_call_emblem.json
+?? src/main/resources/assets/slavicmyths/models/item/finist_call_feather.json
+?? src/main/resources/assets/slavicmyths/models/item/idolishche_poganoe_spawn_egg.json
+?? src/main/resources/assets/slavicmyths/models/item/ilya_call_token.json
+?? src/main/resources/assets/slavicmyths/models/item/kalin_battle_seal.json
+?? src/main/resources/assets/slavicmyths/models/item/kalin_tsar_spawn_egg.json
+?? src/main/resources/assets/slavicmyths/models/item/kalin_war_horse_spawn_egg.json
+?? src/main/resources/assets/slavicmyths/models/item/kartaus_black_seal.json
+?? src/main/resources/assets/slavicmyths/models/item/kartaus_spawn_egg.json
+?? src/main/resources/assets/slavicmyths/models/item/kot_bayun_spawn_egg.json
+?? src/main/resources/assets/slavicmyths/models/item/marinka_spawn_egg.json
+?? src/main/resources/assets/slavicmyths/models/item/skim_beast_spawn_egg.json
+?? src/main/resources/assets/slavicmyths/models/item/witch_yard_altar.json
+?? src/main/resources/assets/slavicmyths/sounds/alyosha/
+?? src/main/resources/assets/slavicmyths/sounds/arena/
+?? src/main/resources/assets/slavicmyths/sounds/bayun/
+?? src/main/resources/assets/slavicmyths/sounds/dobrynya/
+?? src/main/resources/assets/slavicmyths/sounds/encounter/
+?? src/main/resources/assets/slavicmyths/sounds/entity/idolishche_poganoe/
+?? src/main/resources/assets/slavicmyths/sounds/entity/ilya_muromets/
+?? src/main/resources/assets/slavicmyths/sounds/falcon/
+?? src/main/resources/assets/slavicmyths/sounds/finist/
+?? src/main/resources/assets/slavicmyths/sounds/items/
+?? src/main/resources/assets/slavicmyths/sounds/kalin/
+?? src/main/resources/assets/slavicmyths/sounds/kartaus/
+?? src/main/resources/assets/slavicmyths/sounds/marinka/
+?? src/main/resources/assets/slavicmyths/sounds/skim/
+?? src/main/resources/assets/slavicmyths/textures/block/witch_yard_altar.png
+?? src/main/resources/assets/slavicmyths/textures/entity/alyosha_popovich.png
+?? src/main/resources/assets/slavicmyths/textures/entity/bogatyr_warning.png
+?? src/main/resources/assets/slavicmyths/textures/entity/dobrynya_aurochs.png
+?? src/main/resources/assets/slavicmyths/textures/entity/dobrynya_nikitich.png
+?? src/main/resources/assets/slavicmyths/textures/entity/finist.png
+?? src/main/resources/assets/slavicmyths/textures/entity/finist_falcon.png
+?? src/main/resources/assets/slavicmyths/textures/entity/finist_morph_falcon.png
+?? src/main/resources/assets/slavicmyths/textures/entity/idolishche_poganoe.png
+?? src/main/resources/assets/slavicmyths/textures/entity/ilya_muromets.png
+?? src/main/resources/assets/slavicmyths/textures/entity/kalin_common_soldier.png
+?? src/main/resources/assets/slavicmyths/textures/entity/kalin_elite_soldier.png
+?? src/main/resources/assets/slavicmyths/textures/entity/kalin_tsar.png
+?? src/main/resources/assets/slavicmyths/textures/entity/kalin_war_horse.png
+?? src/main/resources/assets/slavicmyths/textures/entity/kartaus.png
+?? src/main/resources/assets/slavicmyths/textures/entity/kartaus_banner.png
+?? src/main/resources/assets/slavicmyths/textures/entity/kartaus_curse_anchor.png
+?? src/main/resources/assets/slavicmyths/textures/entity/kot_bayun/
+?? src/main/resources/assets/slavicmyths/textures/entity/marinka.png
+?? src/main/resources/assets/slavicmyths/textures/entity/marinka_hex_focus.png
+?? src/main/resources/assets/slavicmyths/textures/entity/marinka_magic.png
+?? src/main/resources/assets/slavicmyths/textures/entity/marinka_magpie.png
+?? src/main/resources/assets/slavicmyths/textures/entity/marinka_tur_minion.png
+?? src/main/resources/assets/slavicmyths/textures/entity/skim_beast.png
+?? src/main/resources/assets/slavicmyths/textures/gui/tales/
+?? src/main/resources/assets/slavicmyths/textures/item/alyosha_call_whistle.png
+?? src/main/resources/assets/slavicmyths/textures/item/beast_challenge_horn.png
+?? src/main/resources/assets/slavicmyths/textures/item/dobrynya_call_emblem.png
+?? src/main/resources/assets/slavicmyths/textures/item/finist_call_feather.png
+?? src/main/resources/assets/slavicmyths/textures/item/idolishche_poganoe_spawn_egg.png
+?? src/main/resources/assets/slavicmyths/textures/item/ilya_call_token.png
+?? src/main/resources/assets/slavicmyths/textures/item/kalin_battle_seal.png
+?? src/main/resources/assets/slavicmyths/textures/item/kalin_tsar_spawn_egg.png
+?? src/main/resources/assets/slavicmyths/textures/item/kalin_war_horse_spawn_egg.png
+?? src/main/resources/assets/slavicmyths/textures/item/kartaus_black_seal.png
+?? src/main/resources/assets/slavicmyths/textures/item/kartaus_spawn_egg.png
+?? src/main/resources/assets/slavicmyths/textures/item/marinka_spawn_egg.png
+?? src/main/resources/assets/slavicmyths/textures/item/skim_beast_spawn_egg.png
+?? src/main/resources/data/slavicmyths/advancement/bookkeeper.json
+?? src/main/resources/data/slavicmyths/advancement/first_book_entry.json
+?? src/main/resources/data/slavicmyths/advancement/friend_of_bayun.json
+?? src/main/resources/data/slavicmyths/advancement/group_burial.json
+?? src/main/resources/data/slavicmyths/advancement/group_depths.json
+?? src/main/resources/data/slavicmyths/advancement/group_forest.json
+?? src/main/resources/data/slavicmyths/advancement/group_home.json
+?? src/main/resources/data/slavicmyths/advancement/group_knowledge.json
+?? src/main/resources/data/slavicmyths/advancement/group_legends.json
+?? src/main/resources/data/slavicmyths/advancement/group_night.json
+?? src/main/resources/data/slavicmyths/advancement/group_roads.json
+?? src/main/resources/data/slavicmyths/advancement/group_water.json
+?? src/main/resources/data/slavicmyths/advancement/meet_bayun.json
+?? src/main/resources/data/slavicmyths/advancement/recipes/alyosha_call_whistle.json
+?? src/main/resources/data/slavicmyths/advancement/recipes/beast_challenge_horn.json
+?? src/main/resources/data/slavicmyths/advancement/recipes/dobrynya_call_emblem.json
+?? src/main/resources/data/slavicmyths/advancement/recipes/ilya_call_token.json
+?? src/main/resources/data/slavicmyths/damage_type/bayun_claws.json
+?? src/main/resources/data/slavicmyths/damage_type/idolishche_breath.json
+?? src/main/resources/data/slavicmyths/damage_type/idolishche_charge.json
+?? src/main/resources/data/slavicmyths/damage_type/idolishche_fist.json
+?? src/main/resources/data/slavicmyths/damage_type/idolishche_grasp.json
+?? src/main/resources/data/slavicmyths/damage_type/idolishche_stomp.json
+?? src/main/resources/data/slavicmyths/damage_type/kalin_charge.json
+?? src/main/resources/data/slavicmyths/damage_type/kalin_sabre.json
+?? src/main/resources/data/slavicmyths/damage_type/kalin_spin.json
+?? src/main/resources/data/slavicmyths/damage_type/kalin_stomp.json
+?? src/main/resources/data/slavicmyths/damage_type/kartaus_chains.json
+?? src/main/resources/data/slavicmyths/damage_type/kartaus_eye.json
+?? src/main/resources/data/slavicmyths/damage_type/kartaus_melee.json
+?? src/main/resources/data/slavicmyths/damage_type/kartaus_wave.json
+?? src/main/resources/data/slavicmyths/damage_type/marinka_fire.json
+?? src/main/resources/data/slavicmyths/damage_type/marinka_lure.json
+?? src/main/resources/data/slavicmyths/damage_type/marinka_rage.json
+?? src/main/resources/data/slavicmyths/damage_type/marinka_trace.json
+?? src/main/resources/data/slavicmyths/damage_type/skim_claw.json
+?? src/main/resources/data/slavicmyths/damage_type/skim_flank.json
+?? src/main/resources/data/slavicmyths/damage_type/skim_grip.json
+?? src/main/resources/data/slavicmyths/damage_type/skim_leap.json
+?? src/main/resources/data/slavicmyths/damage_type/skim_roar.json
+?? src/main/resources/data/slavicmyths/damage_type/skim_whistle.json
+?? src/main/resources/data/slavicmyths/loot_table/blocks/witch_yard_altar.json
+?? src/main/resources/data/slavicmyths/neoforge/biome_modifier/bayun_nook.json
+?? src/main/resources/data/slavicmyths/recipe/alyosha_call_whistle.json
+?? src/main/resources/data/slavicmyths/recipe/beast_challenge_horn.json
+?? src/main/resources/data/slavicmyths/recipe/dobrynya_call_emblem.json
+?? src/main/resources/data/slavicmyths/recipe/ilya_call_token.json
+?? src/main/resources/data/slavicmyths/tales/
+?? src/main/resources/data/slavicmyths/worldgen/configured_feature/bayun_nook.json
+?? src/main/resources/data/slavicmyths/worldgen/placed_feature/bayun_nook.json
+?? tools/bayun-offline.gradle
+?? tools/bayun-runtime-resources/
+?? tools/bayun-runtime.init.gradle
+?? tools/bayun-runtime/
+?? tools/bayun-tests/
+?? tools/bayun_assets.py
+?? tools/bayun_preview.py
+?? tools/bayun_report.py
+?? tools/bogatyr-offline.gradle
+?? tools/bogatyr-runtime-resources/
+?? tools/bogatyr-runtime.init.gradle
+?? tools/bogatyr-runtime/
+?? tools/bogatyr-tests/
+?? tools/bogatyr_assets.py
+?? tools/bogatyr_preview.py
+?? tools/check_kalin_saveddata_disk.py
+?? tools/finist-offline.gradle
+?? tools/finist-runtime-resources/
+?? tools/finist-runtime.init.gradle
+?? tools/finist-runtime/
+?? tools/finist-tests/
+?? tools/finist_assets.py
+?? tools/finist_preview.py
+?? tools/install_bayun.py
+?? tools/install_bogatyr.py
+?? tools/install_finist.py
+?? tools/install_kalin.py
+?? tools/install_marinka.py
+?? tools/install_skim.py
+?? tools/kalin-offline.gradle
+?? tools/kalin-runtime-resources/
+?? tools/kalin-runtime.init.gradle
+?? tools/kalin-runtime/
+?? tools/kalin-tests/
+?? tools/kalin_assets.py
+?? tools/kalin_preview.py
+?? tools/marinka-offline.gradle
+?? tools/marinka-runtime-resources/
+?? tools/marinka-runtime.init.gradle
+?? tools/marinka-runtime/
+?? tools/marinka-tests/
+?? tools/marinka_assets.py
+?? tools/marinka_preview.py
+?? tools/skim-offline.gradle
+?? tools/skim-runtime-resources/
+?? tools/skim-runtime.init.gradle
+?? tools/skim-runtime/
+?? tools/skim-tests/
+?? tools/skim_assets.py
+?? tools/skim_preview.py
+?? tools/tale_advancements.py
+?? tools/tale_art.py
+?? tools/tale_content.py
+?? tools/verify_bayun.py
+?? tools/verify_bogatyr.py
+?? tools/verify_finist.py
+?? tools/verify_kalin.py
+?? tools/verify_marinka.py
+?? tools/verify_skim.py

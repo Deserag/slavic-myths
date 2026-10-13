@@ -1,0 +1,12 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { finistRuntime { java.srcDir 'tools/finist-runtime'; resources.srcDir 'tools/finist-runtime-resources' } }
+ p.sourceSets.finistRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.finistRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileFinistRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.finistRuntime)
+ p.neoForge.runs { finistChecks {
+  type = 'gameTestServer';gameDirectory = p.file('work/finist/runtime-'+(p.findProperty('finistRun') ?: 'checks'))
+  systemProperty 'neoforge.enabledGameTestNamespaces', p.findProperty('finistNamespace') ?: 'slavicmyths_finist'
+  systemProperty 'slavicmyths.skim.restartPhase', p.findProperty('skimRestartPhase') ?: 'none'
+ } }
+} }

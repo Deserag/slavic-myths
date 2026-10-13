@@ -7,7 +7,7 @@ import org.slavicmyths.rpg.classes.ClassState;
 
 /** Full-texture UVs and nine-slice plates independent of the vanilla button atlas. */
 public final class ClassTheme {
- public static final int TEXT=0xF1E7D0,MUTED=0xC1B6A1,GOLD=0xD6B46D,ERROR=0xE49288;
+ public static final int TEXT=0xFFF1E7D0,MUTED=0xFFD4C8B1,GOLD=0xFFD6B46D,ERROR=0xFFFFABA0;
  public static void image(GuiGraphics g,String file,int x,int y,int w,int h,int sw,int sh){g.blit(ClassState.id("textures/gui/classes/"+file+".png"),x,y,w,h,0,0,sw,sh,sw,sh);}
  public static void icon(GuiGraphics g,String id,int x,int y,int size){int source=org.slavicmyths.rpg.classes.ClassDefinitions.BASES.contains(id)?64:32;image(g,id,x,y,size,size,source,source);}
  public static void plate(GuiGraphics g,int x,int y,int w,int h,String state){
@@ -18,9 +18,9 @@ public final class ClassTheme {
  public static void panel(GuiGraphics g,int x,int y,int w,int h){g.fill(x,y,x+w,y+h,0xF7211A14);g.fill(x,y,x+w,y+1,0xFF80623D);g.fill(x,y+h-1,x+w,y+h,0xFF59452E);}
  public static final class WoodButton extends Button {
   public boolean selected;private long pressedUntil;
-  public WoodButton(int x,int y,int w,int h,Component label,OnPress press){super(x,y,w,h,label,press,DEFAULT_NARRATION);}
+  public WoodButton(int x,int y,int w,int h,Component label,OnPress press){super(x,y,w,h,label,press,DEFAULT_NARRATION);if(!label.getString().isBlank())setTooltip(net.minecraft.client.gui.components.Tooltip.create(label));}
   @Override public void onPress(){pressedUntil=net.minecraft.Util.getMillis()+120;super.onPress();}
-  @Override protected void renderWidget(GuiGraphics g,int mx,int my,float delta){String state=!active?"disabled":net.minecraft.Util.getMillis()<pressedUntil?"pressed":selected?"selected":isHoveredOrFocused()?"hover":"normal";plate(g,getX(),getY(),getWidth(),getHeight(),state);renderScrollingString(g,Minecraft.getInstance().font,6,active?TEXT:MUTED);}
+  @Override protected void renderWidget(GuiGraphics g,int mx,int my,float delta){String state=!active?"disabled":net.minecraft.Util.getMillis()<pressedUntil?"pressed":selected?"selected":isHoveredOrFocused()?"hover":"normal";plate(g,getX(),getY(),getWidth(),getHeight(),state);var font=Minecraft.getInstance().font;var lines=UiText.lines(font,getMessage(),getWidth()-12,Math.max(1,(getHeight()-4)/10));int y=getY()+(getHeight()-lines.size()*10)/2+1;for(var line:lines){g.drawString(font,line,getX()+6,y,active?TEXT:MUTED,false);y+=10;}}
  }
  private ClassTheme(){}
 }

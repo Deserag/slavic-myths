@@ -1,0 +1,11 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { kalinRuntime { java.srcDir 'tools/kalin-runtime'; resources.srcDir 'tools/kalin-runtime-resources' } }
+ p.sourceSets.kalinRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.kalinRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileKalinRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.kalinRuntime)
+ p.neoForge.runs { kalinChecks {
+  type = 'gameTestServer';gameDirectory = p.file('work/kalin/runtime-'+(p.findProperty('kalinRun') ?: 'checks'))
+  systemProperty 'neoforge.enabledGameTestNamespaces', p.findProperty('kalinNamespace') ?: 'slavicmyths_kalin'
+ } }
+} }

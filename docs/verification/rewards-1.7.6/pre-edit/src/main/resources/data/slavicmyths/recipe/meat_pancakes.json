@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:pancakes"
+    },
+    {
+      "item": "slavicmyths:cooked_boar_meat"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:meat_pancakes"
+  }
+}

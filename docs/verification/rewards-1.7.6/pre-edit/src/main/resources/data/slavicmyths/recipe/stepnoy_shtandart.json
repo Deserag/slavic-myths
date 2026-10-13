@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RSR",
+    "LVL",
+    " W "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:red_wool"
+    },
+    "S": {
+      "item": "slavicmyths:pylayuschaya_cheshuya"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "V": {
+      "item": "slavicmyths:sosud_ognennogo_dyhaniya"
+    },
+    "W": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:stepnoy_shtandart"
+  }
+}

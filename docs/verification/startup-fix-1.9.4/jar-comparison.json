@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "changed_entries": [
+    "org/slavicmyths/sanctuary/SanctuaryBlock.class",
+    "org/slavicmyths/sanctuary/SanctuaryDecor.class"
+  ],
+  "resources": "BYTE_IDENTICAL_TO_INSTALLED_1.9.4",
+  "sha256": "410407f918508c0b04fef14aca0c7cad7aa39b7d77c4279f2e1088bd870837c3",
+  "baseline_sha256": "04a995f83146dd05a4c3c0c22950ec53fbe0da660026a890b916df8d2235f0f7",
+  "client_starts": 0,
+  "server_starts": 0
+}

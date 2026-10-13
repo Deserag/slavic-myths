@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "item": "minecraft:string"
+    },
+    {
+      "item": "minecraft:gold_nugget"
+    },
+    {
+      "item": "slavicmyths:mor_dust"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:mor_ward",
+    "count": 1
+  }
+}
