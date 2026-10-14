@@ -14,3 +14,6 @@ if __name__=='__main__':finish()
 # Preserve the user-authorized 1.9.1 summon rules after legacy text generation.
 from summon_access_policy import apply as apply_summon_access
 apply_summon_access()
+
+from weapon_feedback_assets import apply as weapon_feedback
+weapon_feedback()

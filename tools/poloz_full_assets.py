@@ -144,3 +144,6 @@ apply_summon_access()
 if __name__ == "__main__":
  from armor_revision_assets import apply as armor_revision
  armor_revision()
+
+from weapon_feedback_assets import apply as weapon_feedback
+weapon_feedback()

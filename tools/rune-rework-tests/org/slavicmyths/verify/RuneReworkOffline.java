@@ -38,7 +38,15 @@ public final class RuneReworkOffline {
         check(RuneState.LEGACY_SPECIALS_CODEC.encodeStart(JsonOps.INSTANCE,List.of("life")).error().isPresent(),"Provenance rejects other IDs");
         check(RuneState.LEGACY_SPECIALS_CODEC.encodeStart(JsonOps.INSTANCE,List.of("heat","heat")).error().isPresent(),"Provenance rejects duplicate flags");
         check(Runes.installationReason(1,3,3,List.of("life"),"life",true).equals("duplicate_rune"),"Unique legacy still unique");
-        try{new RuneState(3,List.of("life","life"));throw new AssertionError("Legacy duplicate");}catch(IllegalArgumentException expected){checks++;}
+        var legacyDuplicate=new RuneState(3,List.of("life","life"));
+        check(RuneState.CODEC.parse(NbtOps.INSTANCE,RuneState.CODEC.encodeStart(NbtOps.INSTANCE,legacyDuplicate).getOrThrow()).getOrThrow().equals(legacyDuplicate),"Historical duplicates preserved, admission remains strict");
+        for(String id:AdvancedRuneRules.IDS){check(!RuneBalance.modern(id),"III/IV never enter duplicate-enabled I-II definitions");check(!Runes.installationReason(1,3,3,List.of(id),id,true).isEmpty(),"New duplicate denied");}
+        var historicalIV=new RuneState(3,List.of("earth_lord_iv","veles_oath_iv"));check(RuneState.CODEC.parse(JsonOps.INSTANCE,RuneState.CODEC.encodeStart(JsonOps.INSTANCE,historicalIV).getOrThrow()).getOrThrow().equals(historicalIV),"Historical IV sequence preserved");
+        check(Runes.installationReason(1,3,3,List.of("earth_lord_iv"),"veles_oath_iv",true).equals("iv_occupied"),"Second IV rejected");
+        near(AdvancedRuneRules.mining(false,true,true),1.3,"Mining II + depths capped at thirty percent");near(AdvancedRuneRules.mining(true,false,true),1.3,"Mining I + depths");near(AdvancedRuneRules.mining(true,true,false),1.2,"I and II do not add");
+        check(!AdvancedRuneRules.hunter(11.9*11.9)&&AdvancedRuneRules.hunter(144),"Hunter distance boundary");
+        check(AdvancedRuneRules.lastStand(6.8,20,3,true)&&!AdvancedRuneRules.lastStand(7.2,20,3,true)&&!AdvancedRuneRules.lastStand(6,20,0,true)&&!AdvancedRuneRules.lastStand(6,20,3,false),"Last stand boundaries");
+        for(int marks=0;marks<=8;marks++){near(AdvancedRuneRules.oath(marks,0),1+Math.min(marks,5)*.02,"Oath marks");check(AdvancedRuneRules.oath(marks,.59)*1.59<=1.600000001,"Shared sixty percent cap");}
         for(int nativeCount=0;nativeCount<=6;nativeCount++)for(int runeCount=0;runeCount<=6;runeCount++){check(RuneBalance.bleedStacks(nativeCount,runeCount)<=3,"Combined source cap");check(RuneBalance.bleedStacks(0,runeCount)<=2,"Rune source cap");}
         near(RuneBalance.BLEED_HP,.5,"User preserved bleed HP");check(RuneBalance.BLEED_INTERVAL==40&&RuneBalance.BLEED_DURATION==120,"Bleed cadence/duration");
         near(.7*RuneBalance.safeAttackFactor(.7,0,3),.5635,"Slow mace factor");

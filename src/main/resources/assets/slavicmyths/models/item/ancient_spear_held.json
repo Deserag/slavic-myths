@@ -244,14 +244,48 @@
     },
     "thirdperson_righthand": {
       "rotation": [
-        0,
         90,
+        0,
         0
+      ],
+      "translation": [
+        0,
+        0,
+        2.3
       ],
       "scale": [
         1.15,
         1.15,
         1.15
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        90,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        2.3
+      ],
+      "scale": [
+        1.15,
+        1.15,
+        1.15
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
       ]
     }
   }

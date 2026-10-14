@@ -1,0 +1,6 @@
+// Separate build output prevents another active chat's clean task from deleting this candidate.
+gradle.beforeProject { project ->
+    if (project == project.rootProject) {
+        project.layout.buildDirectory.set(project.file('work/creative-build'))
+    }
+}

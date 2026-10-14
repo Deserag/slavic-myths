@@ -30,7 +30,7 @@ public final class ChudPeopleClient {
             root.addOrReplaceChild("left_leg",CubeListBuilder.create().texOffs(0,16).mirror().addBox(-1.5F,0,-2,3,12,4),PartPose.offset(2,12,0));
             return LayerDefinition.create(mesh,64,64).bakeRoot();
         }
-        public void setupAnim(ChudPerson e,float swing,float amount,float age,float yaw,float pitch){super.setupAnim(e,swing,amount,age,yaw,pitch);if(e.activity()==1){rightArm.xRot=-.6F-(float)Math.abs(Math.sin(e.activityAge(0)*.18))*1.3F;}else if(e.activity()==2){body.xRot=.15F;rightArm.xRot=leftArm.xRot=-.4F;}else if(e.activity()==3){float t=e.activityAge(0);rightArm.xRot=t<4?-2F*t/4:-2F+Math.min(1,(t-4)/3)*2.8F;}else body.xRot=0;apron.visible=e.role()==1||e.role()==2;goggles.visible=e.role()==2;helmet.visible=e.role()==3;}
+        public void setupAnim(ChudPerson e,float swing,float amount,float age,float yaw,float pitch){rightArmPose=e.role()==3&&!e.getMainHandItem().isEmpty()?ArmPose.ITEM:ArmPose.EMPTY;super.setupAnim(e,swing,amount,age,yaw,pitch);if(e.activity()==1){rightArm.xRot=-.6F-(float)Math.abs(Math.sin(e.activityAge(0)*.18))*1.3F;}else if(e.activity()==2){body.xRot=.15F;rightArm.xRot=leftArm.xRot=-.4F;}else if(e.activity()==3){float t=e.activityAge(0);rightArm.xRot=t<4?-2F*t/4:-2F+Math.min(1,(t-4)/3)*2.8F;}else body.xRot=0;apron.visible=e.role()==1||e.role()==2;goggles.visible=e.role()==2;helmet.visible=e.role()==3;}
     }
     static final class Renderer extends MobRenderer<ChudPerson,Model> {
         Renderer(EntityRendererProvider.Context c){super(c,new Model(),.35F);addLayer(new net.minecraft.client.renderer.entity.layers.ItemInHandLayer<>(this,c.getItemInHandRenderer()));}

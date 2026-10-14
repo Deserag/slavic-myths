@@ -1,0 +1,8 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { weaponVisualClient { java.srcDir 'tools/weapon-visual-client' } }
+ p.sourceSets.weaponVisualClient.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.weaponVisualClient.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileWeaponVisualClientJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.weaponVisualClient)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject;p.neoForge.runs.client.gameDirectory=p.file('work/weapon-visual-repair-client');p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720');p.neoForge.runs.client.systemProperty('slavicmyths.visualOutput',p.file('docs/implementation/weapon-visual-repair/client-dragon-final').absolutePath) }

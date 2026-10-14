@@ -1,0 +1,19 @@
+{
+  "patch": "Восстановление оружия",
+  "version": "1.9.7.3",
+  "status": "PASS",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.3.jar",
+  "sha256": "df40d262c03c40159a3d8d232dc18ea7795ad4ddac91cd5120bf4100f6e52952",
+  "source": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.3.jar",
+  "previous_hashes": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.2.jar": "b24727af8d8a016a4f12e258e0b31373eec09688bc4d3fa47a78d9c7a1bf1b3d"
+  },
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-weapon-visual-repair-20261014-152116",
+  "other_files_preserved": 460,
+  "configuration_changes": 1,
+  "client_starts": 0,
+  "installer_server_starts": 0,
+  "worlds": "NOT_TOUCHED",
+  "old_1_16_5": "NOT_TOUCHED"
+}

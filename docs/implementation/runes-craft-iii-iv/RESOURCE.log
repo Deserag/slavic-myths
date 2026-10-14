@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\slavic-myths\tools\verify_runes_craft.py", line 29, in <module>
+    require(hashlib.sha256(s.encode()).hexdigest()==baseline[path],'all pre-task translation bytes preserved '+lang)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\slavic-myths\tools\verify_runes_craft.py", line 8, in require
+    if not ok:raise AssertionError(label)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: all pre-task translation bytes preserved ru_ru

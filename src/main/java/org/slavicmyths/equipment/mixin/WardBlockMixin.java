@@ -11,5 +11,5 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(LivingEntity.class)
 public abstract class WardBlockMixin {
     @Redirect(method="hurt",at=@At(value="INVOKE",target="Lnet/neoforged/neoforge/common/damagesource/DamageContainer;setBlockedDamage(Lnet/neoforged/neoforge/event/entity/living/LivingShieldBlockEvent;)V"))
-    private void slavicmyths$blocked(DamageContainer container,LivingShieldBlockEvent event){container.setBlockedDamage(event);org.slavicmyths.rewards.RewardEvents.blocked((LivingEntity)(Object)this,event);org.slavicmyths.equipment.UniqueEquipmentEvents.reflected((LivingEntity)(Object)this,event);}
+    private void slavicmyths$blocked(DamageContainer container,LivingShieldBlockEvent event){container.setBlockedDamage(event);org.slavicmyths.rpg.AdvancedRunes.blocked((LivingEntity)(Object)this,event);org.slavicmyths.rewards.RewardEvents.blocked((LivingEntity)(Object)this,event);org.slavicmyths.equipment.UniqueEquipmentEvents.reflected((LivingEntity)(Object)this,event);}
 }

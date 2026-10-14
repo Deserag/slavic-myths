@@ -1,0 +1,223 @@
+ M docs/ARCHITECTURE.md
+ M docs/PROJECT_STATUS.md
+ M docs/ROADMAP.md
+ M docs/audit/creatures-1.9.8.1/CHECKS.md
+ M docs/audit/creatures-1.9.8.1/REPORT.md
+A  docs/implementation/runes-patch/FILES.md
+A  docs/implementation/runes-patch/MANUAL_CHECKS.md
+A  docs/implementation/runes-patch/OWNED_HASHES.json
+A  docs/implementation/runes-patch/REGRESSION_LIMITATIONS.md
+A  docs/implementation/runes-patch/REPORT.md
+A  docs/implementation/runes-patch/RESOURCE_JAR_CHECKS.json
+A  docs/implementation/runes-patch/SOURCE_CHECKS.json
+ M gradle.properties
+ M src/main/java/org/slavicmyths/bandit/BanditEntity.java
+ M src/main/java/org/slavicmyths/bandit/LargeCampPiece.java
+ M src/main/java/org/slavicmyths/bandit/NightingaleEntity.java
+ M src/main/java/org/slavicmyths/client/ChudPeopleClient.java
+ M src/main/java/org/slavicmyths/client/GorynychModel.java
+ M src/main/java/org/slavicmyths/client/NightClient.java
+ M src/main/java/org/slavicmyths/client/PolozRenderer.java
+ M src/main/java/org/slavicmyths/client/YagaScreen.java
+ M src/main/java/org/slavicmyths/combat/CombatTargeting.java
+ M src/main/java/org/slavicmyths/compat/JeiRunes.java
+ M src/main/java/org/slavicmyths/earth/EarthSpirit.java
+ M src/main/java/org/slavicmyths/equipment/mixin/WardBlockMixin.java
+ M src/main/java/org/slavicmyths/finist/KartausEntity.java
+ M src/main/java/org/slavicmyths/firebird/FirebirdEntity.java
+ M src/main/java/org/slavicmyths/gorynych/BreathCloud.java
+ M src/main/java/org/slavicmyths/gorynych/Gorynych.java
+ M src/main/java/org/slavicmyths/gorynych/GorynychLedger.java
+ M src/main/java/org/slavicmyths/gorynych/GorynychRewards.java
+ M src/main/java/org/slavicmyths/gorynych/GorynychRules.java
+ M src/main/java/org/slavicmyths/gorynych/GorynychWorld.java
+ M src/main/java/org/slavicmyths/gorynych/SerpentCrossbow.java
+ M src/main/java/org/slavicmyths/guardians/GuardianEntity.java
+ M src/main/java/org/slavicmyths/guardians/GuardianLedger.java
+ M src/main/java/org/slavicmyths/guardians/GuardianRules.java
+ M src/main/java/org/slavicmyths/guardians/GuardianWorld.java
+ M src/main/java/org/slavicmyths/hunt/BossKind.java
+ M src/main/java/org/slavicmyths/hunt/WorldBoss.java
+ M src/main/java/org/slavicmyths/industry/ChudPerson.java
+ M src/main/java/org/slavicmyths/industry/IndustryAccessories.java
+ M src/main/java/org/slavicmyths/item/ItemState.java
+ M src/main/java/org/slavicmyths/kalin/KalinEntity.java
+ M src/main/java/org/slavicmyths/karachun/Karachun.java
+ M src/main/java/org/slavicmyths/karachun/NightConfig.java
+ M src/main/java/org/slavicmyths/karachun/NightNetwork.java
+ M src/main/java/org/slavicmyths/karachun/NightStatus.java
+ M src/main/java/org/slavicmyths/marinka/MarinkaEntity.java
+ M src/main/java/org/slavicmyths/morozko/FrostCold.java
+ M src/main/java/org/slavicmyths/morozko/FrostConfig.java
+ M src/main/java/org/slavicmyths/morozko/FrostEvents.java
+ M src/main/java/org/slavicmyths/morozko/FrostRules.java
+ M src/main/java/org/slavicmyths/morozko/Morozko.java
+ M src/main/java/org/slavicmyths/poloz/GreatPoloz.java
+ M src/main/java/org/slavicmyths/poloz/PolozGlob.java
+ M src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java
+ M src/main/java/org/slavicmyths/poloz/PolozRules.java
+ M src/main/java/org/slavicmyths/registry/ModItemGroup.java
+ M src/main/java/org/slavicmyths/rewards/RewardEvents.java
+ M src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java
+ M src/main/java/org/slavicmyths/rpg/RpgEvents.java
+ M src/main/java/org/slavicmyths/rpg/RuneBase.java
+ M src/main/java/org/slavicmyths/rpg/RuneDefinition.java
+ M src/main/java/org/slavicmyths/rpg/RuneEffects.java
+ M src/main/java/org/slavicmyths/rpg/RuneFoundation.java
+ M src/main/java/org/slavicmyths/rpg/RuneRework.java
+ M src/main/java/org/slavicmyths/rpg/RuneRuntime.java
+ M src/main/java/org/slavicmyths/rpg/Runes.java
+ M src/main/java/org/slavicmyths/volkolak/CursedVolkolak.java
+ M src/main/java/org/slavicmyths/wolf/GreyWolf.java
+ M src/main/java/org/slavicmyths/yaga/YagaMenu.java
+ M src/main/java/org/slavicmyths/yaga/YagaServices.java
+ M src/main/resources/assets/slavicmyths/lang/en_us.json
+ M src/main/resources/assets/slavicmyths/lang/ru_ru.json
+ M src/main/resources/assets/slavicmyths/models/item/ancient_carolingian_sword_held.json
+ M src/main/resources/assets/slavicmyths/models/item/ancient_chekan_held.json
+ M src/main/resources/assets/slavicmyths/models/item/ancient_spear_held.json
+ M src/main/resources/assets/slavicmyths/models/item/ataman_flail.json
+ M src/main/resources/assets/slavicmyths/models/item/chekan_held.json
+ M src/main/resources/assets/slavicmyths/models/item/karachun_scythe_held.json
+ M src/main/resources/assets/slavicmyths/models/item/likho_staff.json
+ M src/main/resources/assets/slavicmyths/models/item/nightingale_dagger.json
+ M src/main/resources/assets/slavicmyths/models/item/restored_carolingian_sword_held.json
+ M src/main/resources/assets/slavicmyths/models/item/restored_spear_held.json
+ M src/main/resources/assets/slavicmyths/models/item/serpent_crossbow.json
+ M src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_arrow.json
+ M src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_firework.json
+ M src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_0.json
+ M src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_1.json
+ M src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_2.json
+ M src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow.json
+ M src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_arrow.json
+ M src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_firework.json
+ M src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_0.json
+ M src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_1.json
+ M src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_2.json
+ M src/main/resources/assets/slavicmyths/models/item/trophy_kalin_sabre.json
+ M src/main/resources/assets/slavicmyths/models/item/victor_spear.json
+ M src/main/resources/assets/slavicmyths/textures/item/karachun_scythe.png
+ M src/main/resources/data/slavicmyths/tags/entity_type/rune_death_immune.json
+ M tools/gardens_resources.py
+ M tools/poloz-tests/PolozChecks.java
+ M tools/poloz_full_assets.py
+ M tools/poloz_text_finish.py
+ M tools/rare-rune-tests/org/slavicmyths/verify/RareRuneOffline.java
+ M tools/rune-rework-tests/org/slavicmyths/verify/RuneReworkOffline.java
+ M tools/underground_mob_resources.py
+ M tools/verify_gardens.py
+ M tools/weapon_patch_assets.py
+?? .codex/
+?? docs/audit/creatures-1.9.8.1/ATTACKS.csv
+?? docs/audit/creatures-1.9.8.1/CREATURES.csv
+?? docs/audit/creatures-1.9.8.1/FORMS.md
+?? docs/audit/creatures-1.9.8.1/POST_IMPLEMENTATION_REQUIREMENTS.md
+?? docs/audit/creatures-1.9.8.1/REPORT_BEFORE_FINALIZATION.md
+?? docs/audit/creatures-1.9.8.1/TECHNICAL_RISKS.md
+?? docs/audit/creatures-1.9.8.1/UNVERIFIED.csv
+?? docs/audit/creatures-1.9.8.1/completion-summary.json
+?? docs/audit/creatures-1.9.8.1/table-checks.json
+?? docs/implementation/creative-inventory/
+?? docs/implementation/creature-feedback/
+?? docs/implementation/creatures-1.9.8.2/
+?? docs/implementation/runes-craft-iii-iv/
+?? docs/implementation/runes-patch/BASELINE_HASHES.json
+?? docs/implementation/runes-patch/BUILD.log
+?? docs/implementation/runes-patch/BUILD_BEFORE_IMMUNITY_FIX.log
+?? docs/implementation/runes-patch/BUILD_BEFORE_LIFE_FIX.log
+?? docs/implementation/runes-patch/COMPILE.log
+?? docs/implementation/runes-patch/DIFF_STAT.txt
+?? docs/implementation/runes-patch/ICONS.png
+?? docs/implementation/runes-patch/OFFLINE.log
+?? docs/implementation/runes-patch/REGRESSION.log
+?? docs/implementation/runes-patch/RELATED_REGRESSION.log
+?? docs/implementation/runes-patch/REMAINING_REGRESSION.log
+?? docs/implementation/runes-patch/START_STATUS.txt
+?? docs/implementation/runes-patch/spec/
+?? docs/implementation/tool-runes-iii-iv/
+?? docs/implementation/weapon-feedback/
+?? docs/implementation/weapon-visual-repair/
+?? src/main/java/org/slavicmyths/client/NightSwingPose.java
+?? src/main/java/org/slavicmyths/client/WeaponHands.java
+?? src/main/java/org/slavicmyths/combat/CreatureHealthBalance.java
+?? src/main/java/org/slavicmyths/combat/CreatureSafety.java
+?? src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java
+?? src/main/java/org/slavicmyths/gorynych/GorynychPose.java
+?? src/main/java/org/slavicmyths/registry/CreativeCatalog.java
+?? src/main/java/org/slavicmyths/rpg/AdvancedRuneRules.java
+?? src/main/java/org/slavicmyths/rpg/AdvancedRunes.java
+?? src/main/java/org/slavicmyths/rpg/CraftRuneRules.java
+?? src/main/java/org/slavicmyths/rpg/CraftRunes.java
+?? src/main/resources/assets/minecraft/atlases/
+?? src/main/resources/assets/slavicmyths/creative_catalog.tsv
+?? src/main/resources/assets/slavicmyths/models/item/blank_rune_4.json
+?? src/main/resources/assets/slavicmyths/models/item/rune_counterstrike_iii.json
+?? src/main/resources/assets/slavicmyths/models/item/rune_depths_iii.json
+?? src/main/resources/assets/slavicmyths/models/item/rune_forest_spirit_iv.json
+?? src/main/resources/assets/slavicmyths/models/item/rune_hunter_iii.json
+?? src/main/resources/assets/slavicmyths/models/item/rune_last_stand_iii.json
+?? src/main/resources/assets/slavicmyths/models/item/rune_mastery_iv.json
+?? src/main/resources/assets/slavicmyths/models/item/rune_perun_rage_iv.json
+?? src/main/resources/assets/slavicmyths/models/item/rune_unbreakable_iv.json
+?? src/main/resources/assets/slavicmyths/models/item/rune_veles_oath_iv.json
+?? src/main/resources/assets/slavicmyths/textures/item/blank_rune_4.png
+?? src/main/resources/assets/slavicmyths/textures/item/rune_counterstrike_iii.png
+?? src/main/resources/assets/slavicmyths/textures/item/rune_depths_iii.png
+?? src/main/resources/assets/slavicmyths/textures/item/rune_forest_spirit_iv.png
+?? src/main/resources/assets/slavicmyths/textures/item/rune_hunter_iii.png
+?? src/main/resources/assets/slavicmyths/textures/item/rune_last_stand_iii.png
+?? src/main/resources/assets/slavicmyths/textures/item/rune_mastery_iv.png
+?? src/main/resources/assets/slavicmyths/textures/item/rune_perun_rage_iv.png
+?? src/main/resources/assets/slavicmyths/textures/item/rune_unbreakable_iv.png
+?? src/main/resources/assets/slavicmyths/textures/item/rune_veles_oath_iv.png
+?? src/main/resources/data/slavicmyths/recipe/rune_foundation_blank_4.json
+?? src/main/resources/data/slavicmyths/recipe/rune_rework_counterstrike_iii.json
+?? src/main/resources/data/slavicmyths/recipe/rune_rework_depths_iii.json
+?? src/main/resources/data/slavicmyths/recipe/rune_rework_forest_spirit_iv.json
+?? src/main/resources/data/slavicmyths/recipe/rune_rework_hunter_iii.json
+?? src/main/resources/data/slavicmyths/recipe/rune_rework_last_stand_iii.json
+?? src/main/resources/data/slavicmyths/recipe/rune_rework_mastery_iv.json
+?? src/main/resources/data/slavicmyths/recipe/rune_rework_perun_rage_iv.json
+?? src/main/resources/data/slavicmyths/recipe/rune_rework_unbreakable_iv.json
+?? tools/check_creature_audit_tables_1981.py
+?? tools/complete_creature_audit_1981.py
+?? tools/creative-build.init.gradle
+?? tools/creative-tests/
+?? tools/creative_checkpoint.py
+?? tools/creative_source_inventory.py
+?? tools/creative_tab_names.py
+?? tools/creature-feedback-runtime-resources/
+?? tools/creature-feedback-runtime.init.gradle
+?? tools/creature-feedback-runtime/
+?? tools/creature-health-offline.gradle
+?? tools/creature-health-tests/
+?? tools/creature_feedback_report.py
+?? tools/finalize_creature_audit_1981.py
+?? tools/finalize_creature_audit_docs_1981.py
+?? tools/install_creative_inventory.ps1
+?? tools/install_creature_feedback.ps1
+?? tools/install_runes_craft.ps1
+?? tools/install_weapon_feedback.ps1
+?? tools/install_weapon_visual_repair.ps1
+?? tools/runes-craft-art/
+?? tools/runes-craft-offline.gradle
+?? tools/runes-craft-tests/
+?? tools/runes_craft_resources.py
+?? tools/runes_patch_assets.py
+?? tools/runes_patch_report.py
+?? tools/verify_creative_inventory.py
+?? tools/verify_creature_feedback.py
+?? tools/verify_creature_health_1982.py
+?? tools/verify_runes_craft.py
+?? tools/verify_runes_patch.py
+?? tools/verify_weapon_feedback.py
+?? tools/verify_weapon_visual_repair.py
+?? tools/weapon-art-original/
+?? tools/weapon-feedback-offline.gradle
+?? tools/weapon-feedback-tests/
+?? tools/weapon-mor-client.init.gradle
+?? tools/weapon-visual-client.init.gradle
+?? tools/weapon-visual-client/
+?? tools/weapon_feedback_assets.py
+?? tools/weapon_visual_repair_assets.py

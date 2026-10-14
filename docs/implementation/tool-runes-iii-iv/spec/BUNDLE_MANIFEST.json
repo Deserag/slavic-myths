@@ -1,0 +1,10 @@
+{
+  "bundle": "Tool runes III–IV (4 III + 4 IV)",
+  "date": "2026-10-14",
+  "status": "implementation specification, not implemented",
+  "asset_sha256": {
+    "III_TOOL_RUNES_BLUEPRINT.png": "ec8916561375adac937907d63df620c52d6b322260f1d9b40498527a8678f7a2",
+    "IV_TOOL_RUNES_BLUEPRINT.png": "c3fe220005f07c4914f17b8cb3ec4201b072dc637492ebe2844bb9c4bcc4ecea"
+  },
+  "note": "PNG drawings are visual references only, Markdown specifies exact game mechanics."
+}

@@ -1,0 +1,42 @@
+# Адресные файлы этой итерации
+
+Ранее изменённые пути содержат пользовательские и предыдущие правки; список не означает владение всем diff. Report/frames/logs/gates находятся рядом с этим файлом.
+
+- docs/ARCHITECTURE.md
+- docs/PROJECT_STATUS.md
+- docs/ROADMAP.md
+- docs/implementation/weapon-feedback/REPORT.md
+- gradle.properties
+- src/main/java/org/slavicmyths/client/NightClient.java
+- src/main/java/org/slavicmyths/client/NightSwingPose.java
+- src/main/java/org/slavicmyths/client/WeaponHands.java
+- src/main/java/org/slavicmyths/gorynych/BreathCloud.java
+- src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java
+- src/main/java/org/slavicmyths/gorynych/SerpentCrossbow.java
+- src/main/resources/assets/minecraft/atlases/blocks.json
+- src/main/resources/assets/slavicmyths/models/item/karachun_scythe_held.json
+- src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow.json
+- src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_arrow.json
+- src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_firework.json
+- src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_0.json
+- src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_1.json
+- src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_2.json
+- src/main/resources/assets/slavicmyths/textures/item/karachun_scythe.png
+- tools/install_weapon_visual_repair.ps1
+- tools/verify_weapon_visual_repair.py
+- tools/weapon-art-original/karachun_scythe.png
+- tools/weapon-art-original/karachun_scythe_held.json
+- tools/weapon-art-original/karachun_scythe_icon.json
+- tools/weapon-art-original/three_breath_crossbow.json
+- tools/weapon-art-original/three_breath_crossbow_arrow.json
+- tools/weapon-art-original/three_breath_crossbow_firework.json
+- tools/weapon-art-original/three_breath_crossbow_pulling_0.json
+- tools/weapon-art-original/three_breath_crossbow_pulling_1.json
+- tools/weapon-art-original/three_breath_crossbow_pulling_2.json
+- tools/weapon-feedback-tests/WeaponFeedbackChecks.java
+- tools/weapon-mor-client.init.gradle
+- tools/weapon-visual-client.init.gradle
+- tools/weapon-visual-client/WeaponVisualProbe.java
+- tools/weapon_feedback_assets.py
+- tools/weapon_patch_assets.py
+- tools/weapon_visual_repair_assets.py

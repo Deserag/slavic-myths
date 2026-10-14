@@ -1,0 +1,35 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources
+> Task :classes
+
+> Task :compileWeaponVisualClientJava FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+D:\slavic-myths\tools\weapon-visual-client\WeaponVisualProbe.java:34: error: cannot find symbol
+   var w=p.serverLevel();w.setDayTime(6000);w.setWeatherParameters(0,12000,false,false);w.setDifficulty(net.minecraft.world.Difficulty.NORMAL);
+                                                                                         ^
+  symbol:   method setDifficulty(Difficulty)
+  location: variable w of type ServerLevel
+1 error
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileWeaponVisualClientJava'.
+> Compilation failed; see the compiler output below.
+  D:\slavic-myths\tools\weapon-visual-client\WeaponVisualProbe.java:34: error: cannot find symbol
+     var w=p.serverLevel();w.setDayTime(6000);w.setWeatherParameters(0,12000,false,false);w.setDifficulty(net.minecraft.world.Difficulty.NORMAL);
+                                                                                           ^
+    symbol:   method setDifficulty(Difficulty)
+    location: variable w of type ServerLevel
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1m 5s
+4 actionable tasks: 2 executed, 2 up-to-date

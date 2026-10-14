@@ -1,3 +1,148 @@
+## Общая публикация GitHub — 2026-10-14
+
+По запросу пользователя подготовлен полный текущий snapshot для main и codex/tool-runes-iii-iv: production исходники/ресурсы, поддерживаемые tools и доказательные отчёты. Версия1.9.7.3; новые механики этим шагом не добавляются. Исторические записи «commit/push не делались» описывают предыдущие задачи. [Актуальная сводка для ChatGPT](CHATGPT_HANDOFF_2026-10-14.md). Повторный clean build и проверка production JAR фиксируются в GIT_PUBLICATION_BUILD_2026-10-14.log и последнем RESOURCE_JAR_CHECKS.json. Игровых запусков этой публикации0; PolyMC/миры не менялись.
+
+## Инструментальные руны III–IV — 2026-10-14
+
+COMPLETE_WITH_LIMITATIONS:8 новых ID, прежние46 сохранены; Shift области кирки/
+лопаты9/18, мотыги9/25, лесоруб R4/R7/48–96 с консервативными прямыми1×1/2×2
+деревьями и dimension provenance. Native break/use/rollback confirmation,
+4 extras/tick и256 tree reads/tick, без world scan/chunk forcing. Старые крафтовые/
+трофейные руны, blankIV, баланс оружия/боссов и art сохранены. Rune-anvil recipes,
+RU/EN,8 прозрачных64px sprites, magic catalog и generic JEI discovery.
+Java21 clean build PASS;11731 Tool +3518 Craft +398 Rework +20491 Rare offline,
+21993 source/resource/JAR checks PASS. Production1.9.7.3, SHA256 1ade97e48ee8f8a12348b377e22f4f8edcb8f00cf4927894917d3974a95871f7.
+Реальных client/server/GameTest/PolyMC0; GUI/loot/claims/MP/relog/MSPT NOT_RUN.
+Старое происхождение брёвен не доказуемо на100%; сложные деревья пропускаются.
+Основная рука/Survival–Creative; offhand/adventure остаются vanilla single action.
+Веткаcodex/tool-runes-iii-iv, HEAD сохранён, staged/commit/push/PolyMC/миры не менялись.
+[Отчёт](implementation/tool-runes-iii-iv/REPORT.md).
+
+## PolyMC: руны III–IV — 2026-10-14
+
+Установлен прошедший gates JAR1.9.7.3 с крафтовыми рунами III–IV в существующий PolyMC1.21.1 Testing. SHA256 совпал; backup прежнего JAR/instance.cfg, 461 прочих файлов сохранены побайтно. Имя дополнено «Руны III–IV»; миры/старый1.16.5 не затронуты. Игровых запусков0, commit/push нет.
+[Квитанция](implementation/runes-craft-iii-iv/POLYMC_INSTALLATION.md).
+
+## Крафтовые руны III–IV — 2026-10-14
+
+COMPLETE_WITH_LIMITATIONS: сохранены 42 прежних rune ID, четыре новые крафтовые IV
+и blank_rune_4/perunite; пять rune-anvil recipes, RU/EN, JEI subtype/каталог,
+прозрачные 64px иконки по чертежам. Новые IV независимы от трофеев; защита/Ярость/
+лечение/скорость руд и Fortune подключены к существующим событиям и loot hook.
+Предыдущие согласованные условия Last Stand/Глубин сохранены и отличия явно описаны.
+Java21 clean build PASS; 3518 новых +398 RuneRework +20491 RareRune offline
+assertions, 21793 source/resource/JAR checks PASS. Production версия1.9.7.3
+не менялась; итоговый SHA256 1da8fff39146a1070b4340ea1332ab6c54c8736cbcb85ea5b6263e08d77cbdf8.
+Ранний build FAIL из-за ошибочно удалённого hook исправлен; mixin/чужие патчи сохранены.
+Реальных client/server/GameTest/PolyMC запусков0; игровая GUI/loot/MP/relog/MSPT
+приёмка NOT_RUN. Профили/миры, staged файлы и commit/push не затронуты.
+[Отчёт](implementation/runes-craft-iii-iv/REPORT.md).
+
+## Восстановление оружия и три головы арбалета — 1.9.7.3 (2026-10-14)
+
+Заменяет непринятый визуальный результат1.9.7.2. Возвращены прежняя ornate коса
+(60 деталей/32px иконка), texture atlas и цельное движение кисти/древка по дуге;
+середина взмаха совпадает с серверным hit. Исправлены UV12 арбалетных моделей.
+Арбалеты массивнее в first-person; у three_breath_crossbow три драконьи головы,
+пасти/зубы/рога/глаза и три болта в charged state, серверные muzzle lanes0/1/2.
+Убрана физическая перехватываемость стрел облаком Мора; bottle interaction сохранён.
+Все6 сочетаний effect×volley в Survival: 3 arrows/3 hits, реальные HP/effects,
+ammo1/durability3 PASS. Шесть реальных клиентов+6 integrated servers за задачу,
+0 GameTest; одна fixture input ошибка исправлена, ранние art-FAIL не скрыты.
+После запрета частых запусков соблюдён интервал≥10мин; последний запуск после15:11MSK.
+Clean build Java21 PASS;41260 focused +Night40/10000 +Poloz4215 PASS;
+17873 gates/213 subscribers PASS, production classes совпадают с протестированными.
+PolyMC Testing установлен на1.9.7.3 с SHA256/backup,460 прочих файлов сохранены;
+миры и старый1.16.5 не затронуты. Commit/push не выполнялись.
+MP/relog/длительный gameplay/FPS/MSPT NOT_TESTED. [Отчёт](implementation/weapon-visual-repair/REPORT.md).
+
+## Исправления оружия и Полоза — 1.9.7.2 (2026-10-14)
+
+COMPLETE_WITH_LIMITATIONS: рука/рукав у двух арбалетов в first-person;
+посох Лихо и 12 voxel-моделей оружия — хват/вертикальные third-person transforms;
+коса — непрерывная дуга с общей точкой хвата, без vanilla вращения рукояти.
+Полоз принимает урон по любой части тела с первой фазы, ×1; scar-only gate удалён.
+Арбалет трёх дыханий всегда стреляет тремя стрелами с выбранным эффектом:
+Shift+ПКМ — Мор/Пламя/Буря, Shift+ЛКМ — веер/очередь 0/4/8 ticks,
+без расхода бутылочек. ID/силуэты/материалы/рецепты и параллельные правки сохранены.
+Clean build Java21 PASS; 41233 focused, Night40/10000 simulations,
+Poloz4215 native checks PASS; 13606 resource/JAR gates, 213 subscribers PASS.
+Production JAR1.9.7.2 установлен в отдельный PolyMC Testing с backup;
+455 остальных файлов сохранены побайтно (название instance.cfg обновлено отдельно).
+Клиент/сервер/GameTest/PolyMC запусков0; visual/gameplay/MP/relog/MSPT NOT_RUN.
+Ошибки ранних fixtures/import исправлены и сохранены в истории логов.
+Не выполнялись commit/push. [Отчёт](implementation/weapon-feedback/REPORT.md).
+Нижеследующие ограничения по отсутствию скриншотов оружия — исторические;
+предоставленные в этой задаче скриншоты использованы для адресных исправлений.
+
+## Творческий инвентарь — 1.9.7.2 (2026-10-14)
+
+COMPLETE_WITH_LIMITATIONS: 10 вкладок, прежние 9 registry ID сохранены, добавлен weapons.
+Текущие регистрации статически сверены: 849 ID, 835 видимых / 837 стеков, 14 намеренно
+скрытых. Явный каталог группирует оружие, комплекты брони, древесину, рецептурные уровни
+рун; runtime сборка вкладок охватывает весь namespace с контролируемым fallback.
+Механики/registry ID предметов этой задачей не менялись; параллельный патч оружия
+1.9.7.2 сохранён в итоговой сборке. Native runtime/визуальная проверка NOT_RUN:
+0 клиентов, 0 серверов, 0 GameTest по запрету пользователя.
+Clean build Java21/NeoForge21.1.255 PASS; 1710 Java catalog checks и 24145
+source/resource/JAR gates PASS. Production JAR в build/libs, установлен в PolyMC
+1.21.1 Testing с SHA256/backup; 457 прочих файлов и миры сохранены.
+Ветка `pred-relise`, HEAD `b76160800223267abc04e7c6d46812dfba8976dc`; commit/push/merge не делались.
+[Отчёт и ведомость](implementation/creative-inventory/REPORT.md).
+
+## Исправления существ после игрового теста (2026-10-14)
+
+COMPLETE_WITH_LIMITATIONS: Peaceful/Creative защита, броня и локальный AI Полоза,
+экипировка стража Чуди, устойчивый страх Карачуна, общая поза/контакт захвата Горыныча.
+13 повреждённых ru_ru значений восстановлены; параллельные оружие/броня/руны сохранены.
+Clean build Java21 PASS, 107 серверных assertions (4 изолированных GameTest запуска,
+первый FAIL исправлен), 1545 HP/NBT assertions PASS. Клиентских запусков0;
+визуальная проверка остаётся ручной. Свежий JAR установлен в PolyMC Testing,
+имя дополнено «Исправления существ» поверх «Патч оружия», миры сохранены.
+Production metadata1.9.7. Отчёт: [REPORT](implementation/creature-feedback/REPORT.md).
+
+## Патч рун — A–C (2026-10-14)
+
+COMPLETE_WITH_LIMITATIONS: 37 прежних ID сохранены, 4 крафтовые III и
+Велесова клятва IV у Яги; совместимость/старые дубликаты/legacy extraction,
+death immunity, source-local морозная защита, 4-секундное Подавление,
+числа старых рун и немедленный anvil refresh. Оружие/броня и чужой HP-патч
+сохранены. Production версия1.9.7. Финальная clean build PASS; 390/20491/75064
+основных offline assertions и15333 resource/JAR gates PASS. Earth6186,
+Frost6946, Poloz4290 PASS. Два старых смежных fixture FAIL: RewardModelChecks
+(cube counts8/8/7), GorynychChecks (ожидает старые3600/1800/180). Они не исправлены.
+Client/server/GameTest/PolyMC0; игровые события/GUI/MP/relog/MSPT NOT_RUN.
+Профили и миры не менялись. Исторические creative receipts неотличимы по
+старому формату; новые помечены отдельно. Отчёт: docs/implementation/runes-patch/REPORT.md.
+Ветка runs, собственные отчёты staged; commit/push не выполнялись.
+
+## Подготовка независимой проверки1.9.8.2 —2026-10-14
+
+Итоговый REPORT.md в docs/implementation/creatures-1.9.8.2 дополнен полным44-file
+списком, миграцией/фазами, Git/SHA256 и границами тестов:1545 assertions =1524
+helper/native behaviour +21 фиксированное значение; игровых сценариев0.
+Только документация, без изменения production/test-кода и повторной сборки.
+Параллельные изменения основного дерева отделены от frozen audit staged diff.
+Неподтверждённые config/ledger/phase/runtime случаи переданы для анализа;
+commit/push/PolyMC/вторая часть не выполнялись.
+
+## 1.9.8.2 — баланс существ, этап1 (2026-10-13)
+
+Реализованы согласованные HP и адресная версионная миграция Entity NBT/ledger:
+Атаман100, Тугарин400, Соловей350, Лихо350/mor700, cursed_volkolak700,
+хранители900/800 (45/40), Морозко1400 default, Карачун1600 default,
+Горыныч2800 logical/1500/75 с service1024. Жар-птица3000 защищена от боевой
+смерти с сохранением прежнего ответного scheduler. Калин1800/Полоз3000/volkolak165,
+урон, серебро, ID, награды, art и production-версия1.9.7 сохранены.
+Локальные load adapters, без глобального tick polling или новых сетевых пакетов;
+Morozko uncapped getter использует существующий attribute sync, IceDouble исключён.
+Clean build Java21 PASS;1545 native offline и актуальные JAR/resource gates PASS.
+Game/client/server/GameTest0 запусков, relog/MP/audio/MSPT NOT_RUN.
+Параллельные опубликованные оружие/броня сохранены. Подготовлена отдельная ветка
+audit со своими файлами; commit/push/PolyMC не выполнялись. Следующий этап не начат.
+Отчёт: docs/implementation/creatures-1.9.8.2/REPORT.md; SHA256/CHECKS/FILES там же.
+Нижеследующие записи описывают прежние этапы.
+
 ## Патч оружия — ревизия брони поверх 1.9.7 (2026-10-13)
 
 Переработаны22 иконки и worn textures существующей экипировки;3 item model переведены на generated,4 client armor classes уточняют UV/декор/различимость плащей. Gameplay/ID/версия сохранены,7 предметов одежды без изменений. Параллельный опубликованный патч оружия f53447cc включён. Clean build PASS;8771 native geometry/UV и39061 production/resource checks PASS. PolyMC Testing обновлён с backup;381 прочий файл сохранён. Реальных запусков клиента/сервера/GameTest0. [Аудит, файлы, before/after и границы проверки](armor-revision/REPORT.md).
@@ -5,6 +150,24 @@
 ## Патч оружия — поверх 1.9.7, 2026-10-13
 
 Исправлены фильтр целей/учёт боевых атрибутов косы Карачуна и сброс её позы; компактная объёмная коса/16px иконка, разные модели копья победителя, кистеня атамана, посоха Лихо и Сабли Воеводы. Арбалеты: безопасный pull predicate и компактные first-person transforms. Registry ID и номер версии сохранены. Clean build + Night offline PASS; 15764 resource gates, 921 item models, 208 subscribers PASS. Игровых запусков 0; визуальная/боевая приёмка OPEN. PolyMC Testing обновлён с backup, имя дополнено «Патч оружия». Параллельные правки брони/аудита сохранены отдельно. [Отчёт](verification/weapon-patch/REPORT.md).
+
+## Финальный аналитический аудит1.9.8.1 —2026-10-13
+
+COMPLETE_WITH_LIMITATIONS:69/69 существ классифицированы,262 известные строки
+действий обработаны +3 исключённые недостижимые ветки (265). VERIFIED/PROPOSED
+разделены;4 группы решений перед реализацией, source/runtime ограничения явные.
+Горыныч target2800/1500/75; Лихо350/mor700 тот же ID; Жар-птица3000 и обязательная
+неубиваемость (текущий путь смерти — дефект); cursed_volkolak700 PROPOSED.
+Архитектура runtime и production-версия аудитом не менялись,1.9.8.2 не начата.
+Build/resources NOT_REPEATED, игровые запуски0. Параллельные production правки
+сохранены, текущий JAR hash отличается от исторического; чужие gates не приняты.
+Результаты: docs/audit/creatures-1.9.8.1/REPORT.md. Git/PolyMC и маркировка
+«патч оружия» после реализации: POST_IMPLEMENTATION_REQUIREMENTS.md там же.
+Нижеследующие IN_PROGRESS записи — история предыдущих итераций.
+
+## 1.9.8.1 — продолжение аудита существ (2026-10-13)
+
+Аудит IN_PROGRESS: CREATURES.csv покрывает 111 исходных EntityType (69 самостоятельных существ, 42 auxiliary); ATTACKS.csv содержит 262 строку атак/компонентов/proc/боевых действий. FORMS.md и TECHNICAL_RISKS.md фиксируют формы и точки будущих изменений. Полная семантическая проверка всех полей/покрытия ещё не завершена; остаток явно в UNVERIFIED.csv. Табличная проверка PASS не доказывает полноту механик. Production 1.9.7 и JAR SHA256 сохранены, gameplay/ресурсы/ID не менялись; следующий патч не начат. Build/resources повторно NOT_RUN (только документы); game/client/server/GameTest: 0 запусков. Подробнее: docs/audit/creatures-1.9.8.1/REPORT.md.
 
 ## 1.9.8.1 — начат аналитический аудит существ (2026-10-13)
 

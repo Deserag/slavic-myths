@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\slavic-myths\tools\verify_runes_craft.py", line 85, in <module>
+    require(z.read(path).decode()==expected,'packaged metadata with only Gradle version expansion')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\slavic-myths\tools\verify_runes_craft.py", line 8, in require
+    if not ok:raise AssertionError(label)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: packaged metadata with only Gradle version expansion

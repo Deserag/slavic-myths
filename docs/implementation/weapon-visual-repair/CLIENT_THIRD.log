@@ -1,0 +1,353 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\NightClient.java:58: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+ @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                           ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\NightClient.java:58: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+ @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                                                 ^
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\client\NightClient.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileWeaponVisualClientJava
+> Task :downloadAssets UP-TO-DATE
+> Task :writeClientLegacyClasspath UP-TO-DATE
+> Task :prepareClientRun
+> Task :processWeaponVisualClientResources NO-SOURCE
+> Task :weaponVisualClientClasses
+
+> Task :runClient
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[14:48:54] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientdev, --version, 21.1.255, --assetIndex, 17, --assetsDir, C:\\Users\\pavel\\.gradle\\caches\\neoformruntime\\assets, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --width, 1280, --height, 720]
+[14:48:54] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[14:48:54] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[14:48:54] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[14:48:54] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[14:48:54] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[14:48:55] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%23138!/ Service=ModLauncher Env=CLIENT
+[14:48:55] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: AMD Radeon RX 6600M GL version 4.6.0 Core Profile Context 26.8.1.260806, ATI Technologies Inc.
+[14:48:55] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[14:48:55] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.9.7.3 (slavicmyths)
+[14:48:56] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[14:48:56] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientdev' with arguments [--version, 21.1.255, --gameDir, ., --assetsDir, C:\Users\pavel\.gradle\caches\neoformruntime\assets, --assetIndex, 17, --width, 1280, --height, 720]
+[14:48:56] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:48:56] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:48:57] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[14:48:58] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 327 milliseconds
+[14:48:58] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[14:49:02] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:49:02] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:49:02] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:49:02] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:49:02] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:49:02] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23189!/assets/.mcassetsroot' uses unexpected schema
+[14:49:02] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23189!/data/.mcassetsroot' uses unexpected schema
+[14:49:02] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[14:49:02] [Render thread/INFO] [minecraft/Minecraft]: Setting user: Dev
+[14:49:02] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+[14:49:03] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[14:49:03] [modloading-worker-0/INFO] [me.je.li.lo.PluginCaller/]: Sending ConfigManager...
+[14:49:03] [modloading-worker-0/INFO] [me.je.li.lo.PluginCaller/]: Sending ConfigManager took 1.370 milliseconds
+[14:49:05] [Render thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[14:49:05] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/curios, mod/neoforge, mod/jei, mod/slavicmyths
+[14:49:05] [Worker-Main-6/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
+[14:49:05] [Worker-Main-8/INFO] [minecraft/UnihexProvider]: Found unifont_jp_patch-15.1.05.hex, loading
+[14:49:07] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
+[14:49:07] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[14:49:07] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on Наушники (G435 Bluetooth Gaming Headset Stereo)
+[14:49:07] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 2048x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[14:49:07] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[14:49:07] [Render thread/INFO] [ne.ne.ne.cl.en.an.js.AnimationLoader/]: Loaded 0 entity animations
+[14:49:07] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x0 jei:textures/atlas/gui.png-atlas
+[14:49:08] [Render thread/INFO] [minecraft/RecipeManager]: Loaded 1816 recipes
+[14:49:08] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 1606 advancements
+[14:49:08] [Render thread/INFO] [Curios API/]: Loaded 10 curio slots
+[14:49:08] [Render thread/INFO] [Curios API/]: Loaded 1 curio entities
+[14:49:09] [Server thread/INFO] [minecraft/IntegratedServer]: Starting integrated minecraft server version 1.21.1
+[14:49:09] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[14:49:09] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[14:49:09] [progressListener/INFO] [minecraft/LoggerChunkProgressListener]: Подготовка области возрождения: 0%
+[14:49:09] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[14:49:09] [progressListener/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 242 ms
+[14:49:09] [Server thread/INFO] [minecraft/IntegratedServer]: Changing view distance to 6, from 10
+[14:49:09] [Server thread/INFO] [minecraft/IntegratedServer]: Changing simulation distance to 5, from 0
+[14:49:10] [Server thread/INFO] [minecraft/PlayerList]: Dev[local:E:1b5635a8] logged in with entity id 7 at (0.0, 100.0, 0.0)
+[14:49:10] [Server thread/INFO] [minecraft/MinecraftServer]: Dev присоединился к игре
+[14:49:10] [Render thread/INFO] [me.je.co.ut.LoggedTimer/]: Starting JEI...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Configuring JEI...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Configuring JEI took 752.8 microseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering item subtypes...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering item subtypes took 5.395 milliseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering fluid subtypes...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering fluid subtypes took 209.2 microseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering ingredients...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCallerTimerRunnable/]: Registering ingredients: jei:minecraft took 137.3 milliseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering ingredients took 138.0 milliseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering extra ingredients...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering extra ingredients took 242.3 microseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering search ingredient aliases...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering search ingredient aliases took 189.1 microseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering Mod Info...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering Mod Info took 369.8 microseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering advanced search...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering advanced search took 232.8 microseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering categories...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCallerTimerRunnable/]: Registering categories: jei:minecraft took 24.60 milliseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering categories took 36.26 milliseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering vanilla category extensions...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering vanilla category extensions took 2.993 milliseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering recipe catalysts...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering recipe catalysts took 971.8 microseconds
+[14:49:10] [Render thread/INFO] [me.je.co.ut.LoggedTimer/]: Building recipe registry...
+[14:49:10] [Render thread/INFO] [me.je.co.ut.LoggedTimer/]: Building recipe registry took 7.522 milliseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering advanced plugins...
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering advanced plugins took 295.9 microseconds
+[14:49:10] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering recipes...
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCallerTimerRunnable/]: Registering recipes: jei:minecraft took 354.2 milliseconds
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCallerTimerRunnable/]: Registering recipes: jei:internal took 33.06 milliseconds
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering recipes took 396.9 milliseconds
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering recipes transfer handlers...
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering recipes transfer handlers took 2.603 milliseconds
+[14:49:11] [Render thread/INFO] [me.je.co.ut.LoggedTimer/]: Building runtime...
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering gui handlers...
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering gui handlers took 5.193 milliseconds
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering Runtime...
+[14:49:11] [Render thread/INFO] [me.je.gu.st.JeiGuiStarter/]: Starting JEI GUI
+[14:49:11] [Render thread/INFO] [me.je.co.ut.LoggedTimer/]: Building ingredient list...
+[14:49:11] [Render thread/INFO] [me.je.co.ut.LoggedTimer/]: Building ingredient list took 19.24 milliseconds
+[14:49:11] [Render thread/INFO] [me.je.co.ut.LoggedTimer/]: Building ingredient filter...
+[14:49:11] [Render thread/INFO] [me.je.gu.in.IngredientFilter/]: Adding 2529 ingredients
+[14:49:11] [Render thread/INFO] [me.je.gu.in.IngredientFilter/]: Added 2529 ingredients
+[14:49:11] [Render thread/INFO] [me.je.co.ut.LoggedTimer/]: Building ingredient filter took 346.9 milliseconds
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCallerTimerRunnable/]: Registering Runtime: jei:neoforge_gui took 437.8 milliseconds
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Registering Runtime took 438.5 milliseconds
+[14:49:11] [Render thread/INFO] [me.je.co.ut.LoggedTimer/]: Building runtime took 449.1 milliseconds
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Sending Runtime...
+[14:49:11] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Sending Runtime took 228.4 microseconds
+[14:49:11] [Render thread/INFO] [me.je.co.ut.LoggedTimer/]: Starting JEI took 1.131 seconds
+[14:49:11] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 107 advancements
+WEAPON_VISUAL_SCENE=0
+WEAPON_VISUAL_FRAME=scene0-idle
+WEAPON_VISUAL_SCENE=1
+WEAPON_VISUAL_FRAME=scene1-idle
+WEAPON_VISUAL_SCENE=2
+WEAPON_VISUAL_FRAME=scene2-idle
+WEAPON_VISUAL_SCENE=3
+WEAPON_VISUAL_FRAME=scene3-idle
+WEAPON_VISUAL_SCENE=4
+SCYTHE_REAL_ACTION_SENT scene=4
+SCYTHE_REAL_POSE_RECEIVED combo=0 duration=14
+WEAPON_VISUAL_FRAME=scene4-swing-age0
+WEAPON_VISUAL_FRAME=scene4-swing-age1
+WEAPON_VISUAL_FRAME=scene4-swing-age2
+WEAPON_VISUAL_FRAME=scene4-swing-age4
+WEAPON_VISUAL_FRAME=scene4-swing-age5
+WEAPON_VISUAL_FRAME=scene4-swing-age6
+WEAPON_VISUAL_FRAME=scene4-swing-age7
+WEAPON_VISUAL_FRAME=scene4-swing-age8
+WEAPON_VISUAL_FRAME=scene4-swing-age9
+WEAPON_VISUAL_FRAME=scene4-swing-age11
+WEAPON_VISUAL_FRAME=scene4-swing-age12
+WEAPON_VISUAL_FRAME=scene4-swing-age13
+WEAPON_VISUAL_FRAME=scene4-swing-age14
+WEAPON_VISUAL_FRAME=scene4-swing-age15
+WEAPON_VISUAL_FRAME=scene4-swing-age16
+WEAPON_VISUAL_FRAME=scene4-swing-age17
+WEAPON_VISUAL_FRAME=scene4-swing-age19
+WEAPON_VISUAL_FRAME=scene4-swing-age20
+WEAPON_VISUAL_FRAME=scene4-swing-age21
+WEAPON_VISUAL_FRAME=scene4-swing-age22
+WEAPON_VISUAL_SCENE=5
+SCYTHE_REAL_ACTION_SENT scene=5
+SCYTHE_REAL_POSE_RECEIVED combo=0 duration=14
+WEAPON_VISUAL_FRAME=scene5-swing-age0
+WEAPON_VISUAL_FRAME=scene5-swing-age1
+WEAPON_VISUAL_FRAME=scene5-swing-age2
+WEAPON_VISUAL_FRAME=scene5-swing-age3
+WEAPON_VISUAL_FRAME=scene5-swing-age5
+WEAPON_VISUAL_FRAME=scene5-swing-age6
+WEAPON_VISUAL_FRAME=scene5-swing-age7
+WEAPON_VISUAL_FRAME=scene5-swing-age8
+WEAPON_VISUAL_FRAME=scene5-swing-age9
+WEAPON_VISUAL_FRAME=scene5-swing-age10
+WEAPON_VISUAL_FRAME=scene5-swing-age11
+WEAPON_VISUAL_FRAME=scene5-swing-age12
+WEAPON_VISUAL_FRAME=scene5-swing-age14
+WEAPON_VISUAL_FRAME=scene5-swing-age15
+WEAPON_VISUAL_FRAME=scene5-swing-age16
+WEAPON_VISUAL_FRAME=scene5-swing-age18
+WEAPON_VISUAL_FRAME=scene5-swing-age19
+WEAPON_VISUAL_FRAME=scene5-swing-age20
+WEAPON_VISUAL_FRAME=scene5-swing-age21
+WEAPON_VISUAL_SCENE=6
+SCYTHE_REAL_ACTION_SENT scene=6
+SCYTHE_REAL_POSE_RECEIVED combo=0 duration=14
+WEAPON_VISUAL_FRAME=scene6-swing-age0
+WEAPON_VISUAL_FRAME=scene6-swing-age1
+WEAPON_VISUAL_FRAME=scene6-swing-age2
+WEAPON_VISUAL_FRAME=scene6-swing-age3
+WEAPON_VISUAL_FRAME=scene6-swing-age4
+WEAPON_VISUAL_FRAME=scene6-swing-age5
+WEAPON_VISUAL_FRAME=scene6-swing-age8
+WEAPON_VISUAL_FRAME=scene6-swing-age9
+WEAPON_VISUAL_FRAME=scene6-swing-age10
+WEAPON_VISUAL_FRAME=scene6-swing-age11
+WEAPON_VISUAL_FRAME=scene6-swing-age13
+WEAPON_VISUAL_FRAME=scene6-swing-age14
+WEAPON_VISUAL_FRAME=scene6-swing-age15
+WEAPON_VISUAL_FRAME=scene6-swing-age16
+WEAPON_VISUAL_FRAME=scene6-swing-age17
+WEAPON_VISUAL_FRAME=scene6-swing-age19
+WEAPON_VISUAL_FRAME=scene6-swing-age20
+WEAPON_VISUAL_FRAME=scene6-swing-age22
+WEAPON_VISUAL_SCENE=7
+WEAPON_VISUAL_FRAME=scene7-idle
+WEAPON_VISUAL_SCENE=8
+WEAPON_VISUAL_FRAME=scene8-idle
+WEAPON_VISUAL_SCENE=9
+VOLLEY_CASE_STARTED id=0
+WEAPON_VISUAL_FRAME=scene9-volley-tick15
+WEAPON_VISUAL_FRAME=scene9-volley-tick45
+WEAPON_VISUAL_FRAME=scene9-volley-tick64
+VOLLEY_ARROW case=0 tick=11276 mode=1 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+VOLLEY_ARROW case=0 tick=11276 mode=1 direction=(0.546991713908075, 0.0, -3.102144526892765) pickup=CREATIVE_ONLY
+VOLLEY_ARROW case=0 tick=11276 mode=1 direction=(-0.546991713908075, 0.0, -3.102144526892765) pickup=CREATIVE_ONLY
+VOLLEY_REAL_ENTITY_HIT case=0 at=(0.0, 100.0, -8.0)
+VOLLEY_REAL_ENTITY_HIT case=0 at=(1.4, 100.0, -8.0)
+VOLLEY_REAL_ENTITY_HIT case=0 at=(-1.4, 100.0, -8.0)
+WEAPON_VISUAL_FRAME=scene9-volley-tick70
+WEAPON_VISUAL_FRAME=scene9-volley-tick78
+WEAPON_VISUAL_FRAME=scene9-volley-tick90
+VOLLEY_RUNTIME_PASS case=0 arrows=3 hits=3 damage=true weakness=true flameOrStorm=false clouds=3 remainingHP=[189.556, 184.716, 188.588]
+WEAPON_VISUAL_FRAME=scene9-volley-tick102
+WEAPON_VISUAL_SCENE=10
+VOLLEY_CASE_STARTED id=1
+WEAPON_VISUAL_FRAME=scene10-volley-tick15
+WEAPON_VISUAL_FRAME=scene10-volley-tick45
+WEAPON_VISUAL_FRAME=scene10-volley-tick64
+VOLLEY_ARROW case=1 tick=11415 mode=1 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+VOLLEY_REAL_ENTITY_HIT case=1 at=(0.0, 100.0, -8.0)
+VOLLEY_ARROW case=1 tick=11419 mode=1 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+WEAPON_VISUAL_FRAME=scene10-volley-tick70
+VOLLEY_ARROW case=1 tick=11423 mode=1 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+WEAPON_VISUAL_FRAME=scene10-volley-tick78
+WEAPON_VISUAL_FRAME=scene10-volley-tick90
+VOLLEY_RUNTIME_PASS case=1 arrows=3 hits=1 damage=true weakness=true flameOrStorm=false clouds=3 remainingHP=[197.3, 187.62001, 197.3]
+WEAPON_VISUAL_FRAME=scene10-volley-tick102
+WEAPON_VISUAL_SCENE=11
+VOLLEY_CASE_STARTED id=2
+WEAPON_VISUAL_FRAME=scene11-volley-tick15
+WEAPON_VISUAL_FRAME=scene11-volley-tick45
+WEAPON_VISUAL_FRAME=scene11-volley-tick64
+VOLLEY_ARROW case=2 tick=11555 mode=2 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+VOLLEY_ARROW case=2 tick=11555 mode=2 direction=(0.546991713908075, 0.0, -3.102144526892765) pickup=CREATIVE_ONLY
+VOLLEY_ARROW case=2 tick=11555 mode=2 direction=(-0.546991713908075, 0.0, -3.102144526892765) pickup=CREATIVE_ONLY
+VOLLEY_REAL_ENTITY_HIT case=2 at=(0.0, 100.0, -8.0)
+VOLLEY_REAL_ENTITY_HIT case=2 at=(1.4, 100.0, -8.0)
+VOLLEY_REAL_ENTITY_HIT case=2 at=(-1.4, 100.0, -8.0)
+WEAPON_VISUAL_FRAME=scene11-volley-tick70
+WEAPON_VISUAL_FRAME=scene11-volley-tick78
+WEAPON_VISUAL_FRAME=scene11-volley-tick90
+VOLLEY_RUNTIME_PASS case=2 arrows=3 hits=3 damage=true weakness=false flameOrStorm=true clouds=0 remainingHP=[190.62001, 189.6, 186.556]
+WEAPON_VISUAL_FRAME=scene11-volley-tick102
+WEAPON_VISUAL_SCENE=12
+VOLLEY_CASE_STARTED id=3
+WEAPON_VISUAL_FRAME=scene12-volley-tick15
+WEAPON_VISUAL_FRAME=scene12-volley-tick45
+WEAPON_VISUAL_FRAME=scene12-volley-tick64
+VOLLEY_ARROW case=3 tick=11696 mode=2 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+VOLLEY_REAL_ENTITY_HIT case=3 at=(0.0, 100.0, -8.0)
+VOLLEY_ARROW case=3 tick=11700 mode=2 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+WEAPON_VISUAL_FRAME=scene12-volley-tick70
+VOLLEY_REAL_ENTITY_HIT case=3 at=(0.0, 100.0, -8.0)
+VOLLEY_ARROW case=3 tick=11704 mode=2 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+VOLLEY_REAL_ENTITY_HIT case=3 at=(0.0, 100.0, -8.0)
+WEAPON_VISUAL_FRAME=scene12-volley-tick78
+WEAPON_VISUAL_FRAME=scene12-volley-tick90
+VOLLEY_RUNTIME_PASS case=3 arrows=3 hits=3 damage=true weakness=false flameOrStorm=true clouds=0 remainingHP=[194.3, 186.78001, 194.3]
+WEAPON_VISUAL_FRAME=scene12-volley-tick102
+WEAPON_VISUAL_SCENE=13
+VOLLEY_CASE_STARTED id=4
+WEAPON_VISUAL_FRAME=scene13-volley-tick15
+WEAPON_VISUAL_FRAME=scene13-volley-tick45
+WEAPON_VISUAL_FRAME=scene13-volley-tick64
+VOLLEY_ARROW case=4 tick=11836 mode=3 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+VOLLEY_ARROW case=4 tick=11836 mode=3 direction=(0.546991713908075, 0.0, -3.102144526892765) pickup=CREATIVE_ONLY
+VOLLEY_ARROW case=4 tick=11836 mode=3 direction=(-0.546991713908075, 0.0, -3.102144526892765) pickup=CREATIVE_ONLY
+VOLLEY_REAL_ENTITY_HIT case=4 at=(0.0, 100.0, -8.0)
+VOLLEY_REAL_ENTITY_HIT case=4 at=(1.4, 100.0, -8.0)
+VOLLEY_REAL_ENTITY_HIT case=4 at=(-1.4, 100.0, -8.0)
+WEAPON_VISUAL_FRAME=scene13-volley-tick70
+WEAPON_VISUAL_FRAME=scene13-volley-tick78
+WEAPON_VISUAL_FRAME=scene13-volley-tick90
+VOLLEY_RUNTIME_PASS case=4 arrows=3 hits=3 damage=true weakness=false flameOrStorm=true clouds=0 remainingHP=[187.416, 190.32, 190.32]
+WEAPON_VISUAL_FRAME=scene13-volley-tick102
+WEAPON_VISUAL_SCENE=14
+VOLLEY_CASE_STARTED id=5
+WEAPON_VISUAL_FRAME=scene14-volley-tick15
+WEAPON_VISUAL_FRAME=scene14-volley-tick45
+WEAPON_VISUAL_FRAME=scene14-volley-tick64
+VOLLEY_ARROW case=5 tick=11976 mode=3 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+VOLLEY_REAL_ENTITY_HIT case=5 at=(0.0, 100.0, -8.0)
+VOLLEY_ARROW case=5 tick=11980 mode=3 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+WEAPON_VISUAL_FRAME=scene14-volley-tick70
+VOLLEY_REAL_ENTITY_HIT case=5 at=(0.0, 100.0, -8.0)
+VOLLEY_ARROW case=5 tick=11984 mode=3 direction=(3.8576377024347037E-16, 0.0, -3.1500000953674316) pickup=CREATIVE_ONLY
+VOLLEY_REAL_ENTITY_HIT case=5 at=(0.0, 100.0, -8.0)
+WEAPON_VISUAL_FRAME=scene14-volley-tick78
+WEAPON_VISUAL_FRAME=scene14-volley-tick90
+VOLLEY_RUNTIME_PASS case=5 arrows=3 hits=3 damage=true weakness=false flameOrStorm=true clouds=0 remainingHP=[200.0, 190.32, 200.0]
+WEAPON_VISUAL_FRAME=scene14-volley-tick102
+WEAPON_VISUAL_CLIENT_CAPTURE_DONE frames=105 actual client/integrated server; not manual free play
+[14:50:29] [Render thread/INFO] [me.je.li.st.JeiStarter/]: Stopping JEI
+[14:50:29] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Sending Runtime Unavailable...
+[14:50:29] [Render thread/INFO] [me.je.ne.pl.ne.NeoForgeGuiPlugin/]: Stopping JEI GUI
+[14:50:29] [Render thread/INFO] [me.je.li.lo.PluginCaller/]: Sending Runtime Unavailable took 3.365 milliseconds
+[14:50:29] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+[14:50:29] [Server thread/INFO] [minecraft/ServerGamePacketListenerImpl]: Dev lost connection: Отключение
+[14:50:29] [Server thread/INFO] [minecraft/MinecraftServer]: Dev покинул игру
+[14:50:29] [Server thread/INFO] [minecraft/ServerCommonPacketListenerImpl]: Stopping singleplayer server as player logged out
+[14:50:29] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[14:50:29] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[14:50:29] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[14:50:29] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[14:50:29] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[14:50:29] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[14:50:29] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (VisualQA): All chunks are saved
+[14:50:29] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[14:50:29] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[14:50:29] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 1m 51s
+8 actionable tasks: 4 executed, 4 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

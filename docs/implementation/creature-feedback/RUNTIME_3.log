@@ -1,0 +1,220 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\poloz\GreatPoloz.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileCreatureFeedbackRuntimeJava
+> Task :processCreatureFeedbackRuntimeResources UP-TO-DATE
+> Task :creatureFeedbackRuntimeClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeCreatureFeedbackChecksLegacyClasspath UP-TO-DATE
+> Task :prepareCreatureFeedbackChecksRun UP-TO-DATE
+
+> Task :runCreatureFeedbackChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[09:26:00] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[09:26:00] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[09:26:00] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[09:26:00] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[09:26:00] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[09:26:00] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[09:26:00] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]:
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.9.7 (slavicmyths)
+[09:26:01] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09:26:01] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[09:26:01] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:26:01] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:26:02] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[09:26:03] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09:26:08] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:26:08] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:26:08] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:26:08] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:26:08] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:26:08] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[09:26:10] [main/ERROR] [minecraft/Settings]: Failed to load properties from file: server.properties
+java.nio.file.NoSuchFileException: server.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431) ~[?:?] {}
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?] {}
+	at java.base/java.nio.file.Files.newInputStream(Files.java:159) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.Settings.loadFromFile(Settings.java:38) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerProperties.fromFile(DedicatedServerProperties.java:132) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerSettings.<init>(DedicatedServerSettings.java:12) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Main.main(Main.java:125) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeServerDevLaunchHandler.runService(NeoForgeServerDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+[09:26:10] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09:26:10] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[09:26:10] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[09:26:10] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_creature_feedback]
+[09:26:11] [main/INFO] [minecraft/RecipeManager]: Loaded 1816 recipes
+[09:26:11] [main/INFO] [minecraft/AdvancementTree]: Loaded 1606 advancements
+[09:26:11] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[09:26:11] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[09:26:12] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[09:26:12] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[09:26:12] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 215 ms
+[09:26:12] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[09:26:12] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[09:26:12] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position -6224100, -59, -9069762!
+[09:26:13] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[09:26:13] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[09:26:13] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+CREATURE_FEEDBACK_PASS 1 Poloz 3000 HP
+CREATURE_FEEDBACK_PASS 2 root armor phase 1
+CREATURE_FEEDBACK_PASS 3 actual scar contact and ordinary mob cap phase 1
+CREATURE_FEEDBACK_PASS 4 root armor phase 2
+CREATURE_FEEDBACK_PASS 5 actual scar contact and ordinary mob cap phase 2
+CREATURE_FEEDBACK_PASS 6 root armor phase 3
+CREATURE_FEEDBACK_PASS 7 actual scar contact and ordinary mob cap phase 3
+CREATURE_FEEDBACK_PASS 8 Creative excluded from Poloz/common targeting
+CREATURE_FEEDBACK_PASS 9 target event rejects Creative
+CREATURE_FEEDBACK_PASS 10 Creative takes no delayed damage
+CREATURE_FEEDBACK_PASS 11 Gorynych excludes Creative owner
+CREATURE_FEEDBACK_PASS 12 Night excludes Creative trial owner
+CREATURE_FEEDBACK_PASS 13 Spectator excluded from control
+CREATURE_FEEDBACK_PASS 14 Spectator receives no fear/control status
+CREATURE_FEEDBACK_PASS 15 passive animal is Poloz candidate
+CREATURE_FEEDBACK_PASS 16 attack budget skill 1
+CREATURE_FEEDBACK_PASS 17 attack budget skill 2
+CREATURE_FEEDBACK_PASS 18 attack budget skill 3
+CREATURE_FEEDBACK_PASS 19 attack budget skill 4
+CREATURE_FEEDBACK_PASS 20 attack budget skill 5
+CREATURE_FEEDBACK_PASS 21 rain per-victim cap
+CREATURE_FEEDBACK_PASS 22 guard constructor weapon
+CREATURE_FEEDBACK_PASS 23 guard weapon save/load
+CREATURE_FEEDBACK_PASS 24 old empty guard repaired
+CREATURE_FEEDBACK_PASS 25 fear builds to three phantoms
+CREATURE_FEEDBACK_PASS 26 successful hit weakens fear
+CREATURE_FEEDBACK_PASS 27 fear demotion grace holds tier
+CREATURE_FEEDBACK_PASS 28 fear tier demotes after grace
+CREATURE_FEEDBACK_PASS 29 source-local fear cleanup preserves second source
+CREATURE_FEEDBACK_PASS 30 head finite pose 0/0
+CREATURE_FEEDBACK_PASS 31 head finite pose 0/24
+CREATURE_FEEDBACK_PASS 32 head finite pose 0/30
+CREATURE_FEEDBACK_PASS 33 head finite pose 0/34
+CREATURE_FEEDBACK_PASS 34 head finite pose 0/52
+CREATURE_FEEDBACK_PASS 35 head finite pose 1/0
+CREATURE_FEEDBACK_PASS 36 head finite pose 1/24
+CREATURE_FEEDBACK_PASS 37 head finite pose 1/30
+CREATURE_FEEDBACK_PASS 38 head finite pose 1/34
+CREATURE_FEEDBACK_PASS 39 head finite pose 1/52
+CREATURE_FEEDBACK_PASS 40 head finite pose 2/0
+CREATURE_FEEDBACK_PASS 41 head finite pose 2/24
+CREATURE_FEEDBACK_PASS 42 head finite pose 2/30
+CREATURE_FEEDBACK_PASS 43 head finite pose 2/34
+CREATURE_FEEDBACK_PASS 44 head finite pose 2/52
+CREATURE_FEEDBACK_PASS 45 bite contact restricted to lunge
+CREATURE_FEEDBACK_PASS 46 Peaceful removes Poloz/Night/Frost without death
+CREATURE_FEEDBACK_PASS 47 Night cancelled without victory
+CREATURE_FEEDBACK_PASS 48 Frost cancelled safely
+CREATURE_FEEDBACK_PASS 49 Peaceful blocks new hostile spawn
+CREATURE_FEEDBACK_PASS 50 Peaceful preserves civilian
+CREATURE_FEEDBACK_PASS 51 Peaceful rejects slavicmyths:leshy
+CREATURE_FEEDBACK_PASS 52 Peaceful rejects slavicmyths:kikimora
+CREATURE_FEEDBACK_PASS 53 Peaceful rejects slavicmyths:poludnitsa
+CREATURE_FEEDBACK_PASS 54 Peaceful rejects slavicmyths:polevik
+CREATURE_FEEDBACK_PASS 55 Peaceful rejects slavicmyths:bannik
+CREATURE_FEEDBACK_PASS 56 Peaceful rejects slavicmyths:igosha
+CREATURE_FEEDBACK_PASS 57 Peaceful rejects slavicmyths:ovinnik
+CREATURE_FEEDBACK_PASS 58 Peaceful rejects slavicmyths:nightingale
+CREATURE_FEEDBACK_PASS 59 Peaceful rejects slavicmyths:bolotnik
+CREATURE_FEEDBACK_PASS 60 Peaceful rejects slavicmyths:vodyanoy
+CREATURE_FEEDBACK_PASS 61 Peaceful rejects slavicmyths:rusalka
+CREATURE_FEEDBACK_PASS 62 Peaceful rejects slavicmyths:elder_vodyanoy
+CREATURE_FEEDBACK_PASS 63 Peaceful rejects slavicmyths:bandit_fighter
+CREATURE_FEEDBACK_PASS 64 Peaceful rejects slavicmyths:bandit_archer
+CREATURE_FEEDBACK_PASS 65 Peaceful rejects slavicmyths:bandit_heavy
+CREATURE_FEEDBACK_PASS 66 Peaceful rejects slavicmyths:bandit_senior
+CREATURE_FEEDBACK_PASS 67 Peaceful rejects slavicmyths:ataman
+CREATURE_FEEDBACK_PASS 68 Peaceful rejects slavicmyths:upyr
+CREATURE_FEEDBACK_PASS 69 Peaceful rejects slavicmyths:nav
+CREATURE_FEEDBACK_PASS 70 Peaceful rejects slavicmyths:kurgan_druzhinnik
+CREATURE_FEEDBACK_PASS 71 Peaceful rejects slavicmyths:kurgan_voevoda
+CREATURE_FEEDBACK_PASS 72 Peaceful rejects slavicmyths:buried_volkhv
+CREATURE_FEEDBACK_PASS 73 Peaceful rejects slavicmyths:unresting_prince
+CREATURE_FEEDBACK_PASS 74 Peaceful rejects slavicmyths:fire_serpent
+CREATURE_FEEDBACK_PASS 75 Peaceful rejects slavicmyths:podvey
+CREATURE_FEEDBACK_PASS 76 Peaceful rejects slavicmyths:volkolak
+CREATURE_FEEDBACK_PASS 77 Peaceful rejects slavicmyths:cursed_volkolak
+CREATURE_FEEDBACK_PASS 78 Peaceful rejects slavicmyths:likho_one_eyed
+CREATURE_FEEDBACK_PASS 79 Peaceful rejects slavicmyths:tugarin_zmey
+CREATURE_FEEDBACK_PASS 80 Peaceful rejects slavicmyths:earth_spirit
+CREATURE_FEEDBACK_PASS 81 Peaceful rejects slavicmyths:earth_servant
+CREATURE_FEEDBACK_PASS 82 Peaceful rejects slavicmyths:nochnitsa
+CREATURE_FEEDBACK_PASS 83 Peaceful rejects slavicmyths:pesigolovets
+CREATURE_FEEDBACK_PASS 84 Peaceful rejects slavicmyths:idolishche_poganoe
+CREATURE_FEEDBACK_PASS 85 Peaceful rejects slavicmyths:marinka
+CREATURE_FEEDBACK_PASS 86 Peaceful rejects slavicmyths:marinka_tur_minion
+CREATURE_FEEDBACK_PASS 87 Peaceful rejects slavicmyths:skim_beast
+CREATURE_FEEDBACK_PASS 88 Peaceful rejects slavicmyths:kartaus
+CREATURE_FEEDBACK_PASS 89 Peaceful rejects slavicmyths:kalin_tsar
+CREATURE_FEEDBACK_PASS 90 Peaceful rejects slavicmyths:kalin_common_soldier
+CREATURE_FEEDBACK_PASS 91 Peaceful rejects slavicmyths:kalin_elite_soldier
+CREATURE_FEEDBACK_PASS 92 Peaceful rejects slavicmyths:great_poloz
+CREATURE_FEEDBACK_PASS 93 Peaceful rejects slavicmyths:morozko
+CREATURE_FEEDBACK_PASS 94 Peaceful rejects slavicmyths:morozko_ice_double
+CREATURE_FEEDBACK_PASS 95 Peaceful rejects slavicmyths:karachun
+CREATURE_FEEDBACK_PASS 96 Peaceful rejects slavicmyths:karachun_raven
+CREATURE_FEEDBACK_PASS 97 Peaceful rejects slavicmyths:extinguished_flame_guardian
+CREATURE_FEEDBACK_PASS 98 Peaceful rejects slavicmyths:defiled_spring_keeper
+CREATURE_FEEDBACK_PASS 99 Peaceful rejects slavicmyths:guardian_water_echo
+CREATURE_FEEDBACK_PASS 100 Peaceful rejects slavicmyths:zmey_gorynych
+CREATURE_FEEDBACK_PASS 101 Peaceful rejects slavicmyths:podzemnik
+CREATURE_FEEDBACK_PASS 102 Peaceful rejects slavicmyths:kladovik
+CREATURE_FEEDBACK_PASS 103 Peaceful rejects slavicmyths:large_podzemnik
+CREATURE_FEEDBACK_PASS 104 registered hostile matrix covered
+[09:26:13] [Server thread/INFO] [minecraft/GameTestServer]: [+]
+[09:26:13] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 906.6 ms ======================
+[09:26:13] [Server thread/INFO] [minecraft/GameTestServer]: All 1 required tests passed :)
+[09:26:13] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[09:26:13] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[09:26:13] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[09:26:13] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[09:26:14] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[09:26:15] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[09:26:15] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[09:26:15] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:26:15] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:26:15] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:26:15] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09:26:15] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 29s
+9 actionable tasks: 3 executed, 6 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

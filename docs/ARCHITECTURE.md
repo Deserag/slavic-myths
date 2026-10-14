@@ -1,3 +1,175 @@
+## Общая публикация GitHub — 2026-10-14
+
+По запросу пользователя подготовлен полный текущий snapshot для main и codex/tool-runes-iii-iv: production исходники/ресурсы, поддерживаемые tools и доказательные отчёты. Версия1.9.7.3; новые механики этим шагом не добавляются. Исторические записи «commit/push не делались» описывают предыдущие задачи. [Актуальная сводка для ChatGPT](CHATGPT_HANDOFF_2026-10-14.md). Повторный clean build и проверка production JAR фиксируются в GIT_PUBLICATION_BUILD_2026-10-14.log и последнем RESOURCE_JAR_CHECKS.json. Игровых запусков этой публикации0; PolyMC/миры не менялись.
+
+## Tool runes III–IV — 2026-10-14
+
+ToolRuneRules/Content расширяют прежние Runes/RuneDefinition/RuneRework без новой
+installed-rune storage. Shovel/Hoe capacity наследует TieredItem1–3, combat category
+не менялась. Family III/IV admission mutually exclusive; legacy IV wins without wipe.
+ToolRuneBreakMixin(ServerPlayerGameMode) подтверждает actual removeBlock после
+принятого destroyBlock; ToolRuneUseMixin(ItemStack) оборачивает accepted CommonHooks
+placement transaction, создаёт queue после commit/rollback, crop harvest вне snapshots.
+ToolRuneRuntime: исходный stack/world/mode/slot/intent,≤4native extras/player tick,
+TTL160/range8, re-entry guard; предыдущий RpgEvents tick/reset lifecycle reused.
+ToolRuneTrees: immutable sampled view,≤256new reads/tick/8192 total, straight1×1/2×2
+trunks height4–32, same-family canopy, nearest-base R4/R7/ΔY2, total48/96 inclcenter.
+ToolLogOrigins — реально используемый per-dimension SavedData placed/moved denylist,
+65536positions/4096unsafe chunks fail-closed, future schema opaque; не rune component.
+Extras только normal GameMode.destroyBlock/useItemOn с permission hooks и vanilla
+loot/wear; single-block crops only, harvest explicit1native durability usage/no replant.
+Нет глобального world/player scan, chunk acquisition, client/JEI imports in common.
+Версия/blankIV/old art/gameplay сохранены. Actual mixin dispatch/gameplay/MP/MSPT NOT_RUN.
+[Точки интеграции](implementation/tool-runes-iii-iv/FILES.md).
+
+## PolyMC: руны III–IV — 2026-10-14
+
+Установка рун III–IV в существующий PolyMC Testing выполняется tools/install_runes_craft.ps1: exact gate SHA256/build/platform/process checks, staged copy, backup/checksums, rollback и проверка сохранения прочих файлов. Production архитектура/код не менялись; клиент/сервер не запускались.
+[Квитанция](implementation/runes-craft-iii-iv/POLYMC_INSTALLATION.md).
+
+## Крафтовые IV: интеграция — 2026-10-14
+
+RuneBase сохраняет прежний формат, codec допускает IV только perunite; Foundation
+и JEI subtype охватывают1–4. Четыре ID зарегистрированы прежним RuneRework register,
+обычные counted RuneCraftRecipe проверяют exact base component; новая storage система
+не введена. Все предметы явно размещены в существующей magic tab.
+CraftRuneRules — общие pure boundaries/state, CraftRunes — hooks существующего
+AdvancedRunes/RpgEvents dispatcher, без нового subscriber/сети/обходов мира.
+Три player-wide PathData timestamps сохраняют CD; активные серии/лечебный цикл
+эфемерны. Attack intent target/charge исключает вторичные попадания; собственная
+отложенная коса учитывает один первичный контакт cast. Ярость damage stage делит cap
+Strength/Crushing/Oath, скорость — прежний AttributeModifier с cap. Несокрушимость
+после native armor/resistance учитывает absorption и подавляет только Last pending.
+Лечение —1Hz; активная Ярость имеет короткую локальную проверку срока/предмета каждый
+player tick. Equipment/lifecycle/anvil reset удаляют активные состояния и атрибуты.
+Mining speed едина для клиента/сервера; Fortune расширяет прежний единственный
+ApplyBonusCount redirect, без второго loot roll. Common не импортирует client/JEI.
+Бой/GUI/loot/MP/relog/MSPT runtime NOT_RUN; source/native fixtures не являются игрой.
+[Точки изменений](implementation/runes-craft-iii-iv/FILES.md).
+
+## Оружие1.9.7.3: восстановленные assets, цельный swing и три muzzle (2026-10-14)
+
+weapon_visual_repair_assets — frozen original60-part scythe/32px icon,
+additive minecraft:blocks atlas singles и нормализованные UV всех12 crossbow states.
+three_breath_crossbow —65/68 cuboids, три открытые головы вместо essence chambers;
+обычный serpent_crossbow сохраняет geometry. weapon_patch/feedback overlays применяют
+repair последним и воспроизводят актуальные ресурсы; primitive scythe генерация удалена.
+WeaponHands рисует held baked geometry через NONE ровно один раз; wrist/weapon
+имеют общий grip/shoulder pivot. NightSwingPose начинает sweep на hit−2,
+заканчивает hit+2, держит древко horizontal весь sweep; Reaper ItemInHandLayer
+использует тот же native mesh/хват. Common NightCombat не менялся.
+SerpentCrossbow/CrossbowVolley передают lane0/1/2 каждой стреле, включая pending rounds;
+current look/up/right и actual hand задают muzzle. Block clip не допускает стрельбу
+из-за стены; ограниченный32b aim ray пересчитывается только при реальном выстреле.
+BreathCloud.canBeHitByProjectile=false предотвращает self-interception Мора,
+isPickable/interact остаются прежними. Нет global scans/chunk forcing; MSPT не измерялся.
+Опциональный weaponVisualClient sourceSet — копия QA мира, реальные renderer/network/
+projectile/impact/effect/ammo проверки, исключён из production JAR.6 client/integrated
+server starts, финальные6 Survival scenarios PASS; tested-class byte parity PASS.
+После нового ограничения пользователя новые запуски не чаще одного за10мин.
+[Отчёт и пределы доказательств](implementation/weapon-visual-repair/REPORT.md).
+
+## Оружие: хват, дуга косы и тройной залп (2026-10-14)
+
+Dist.CLIENT WeaponHands рисует native arm/sleeve и предмет вокруг точки хвата;
+ItemTransform.apply используется для компенсации фактического first-person offset.
+NightSwingPose — общая непрерывная windup/sweep/recovery математика для 1st/3rd person.
+NightClient полностью подменяет атакующий first-person кадр, сохраняя серверный NightCombat.
+weapon_feedback_assets — воспроизводимый слой 12 voxel third-person transforms,
+обе руки и локализация; исходная geometry/materials/textures не меняются.
+GreatPoloz/PolozRules принимают ×1 для любого сегмента/шрама/root во всех фазах;
+scarContact/deflection удалены, повторные projectile hits и ordinary NPC caps сохранены.
+SerpentCrossbow использует прежний custom-data namespace Gorynych196 (Mode/Burst),
+vanilla CHARGED_PROJECTILES/ArrowItem/customArrow/enchanted ammo, три стрелы на заряд.
+Старые Ammo-поля игнорируются; bottle ID/upgrade recipes сохраняются.
+CrossbowVolley: server-only weak player index, ≤2 pending rounds, PlayerTick O(1)
+lookup и ≤2 проверки только активного залпа; current aim на тиках4/8,
+stack identity/hand/alive/dimension cancel, logout/server-stop cleanup.
+Нет global world/entity/player scans или chunk forcing; MSPT не измерялся.
+Отдельный server-validated Toggle payload с cooldown5 для Shift+ЛКМ;
+выбор эффекта через штатный use, во время очереди оружие блокирует reload/toggle.
+Production1.9.7.2 clean build/native/resource gates PASS; игровых запусков0.
+[Результаты и границы](implementation/weapon-feedback/REPORT.md).
+
+## Творческий инвентарь — 1.9.7.2 (2026-10-14)
+
+COMPLETE_WITH_LIMITATIONS: 10 вкладок, прежние 9 registry ID сохранены, добавлен weapons.
+Текущие регистрации статически сверены: 849 ID, 835 видимых / 837 стеков, 14 намеренно
+скрытых. Явный каталог группирует оружие, комплекты брони, древесину, рецептурные уровни
+рун; runtime сборка вкладок охватывает весь namespace с контролируемым fallback.
+Механики/registry ID предметов этой задачей не менялись; параллельный патч оружия
+1.9.7.2 сохранён в итоговой сборке. Native runtime/визуальная проверка NOT_RUN:
+0 клиентов, 0 серверов, 0 GameTest по запрету пользователя.
+Clean build Java21/NeoForge21.1.255 PASS; 1710 Java catalog checks и 24145
+source/resource/JAR gates PASS. Production JAR в build/libs, установлен в PolyMC
+1.21.1 Testing с SHA256/backup; 457 прочих файлов и миры сохранены.
+Ветка `pred-relise`, HEAD `b76160800223267abc04e7c6d46812dfba8976dc`; commit/push/merge не делались.
+[Отчёт и ведомость](implementation/creative-inventory/REPORT.md).
+
+## Исправления существ: события и общая геометрия (2026-10-14)
+
+CreatureSafety: difficulty-change обработка загруженных сущностей и EntityJoinLevel,
+без новых глобальных tick scans/chunk loading. Hostile-классификация учитывает
+очищенные/сюжетные состояния; отмена через discard и собственные encounter ledgers.
+CombatTargeting/target/damage/mode events защищают Creative/Spectator. GorynychPose
+общий для FK server head parts и client ModelPart; 4-tick sync/interpolation,
+контактный hurt предшествует grab. PolozRules хранит raw-бюджеты способностей,
+GreatPoloz — scar geometry и bounded caps; target search локально раз в20 ticks.
+NightStatus хранит source-local страх, tier hysteresis/grace и отдельное visual value.
+Тестовые sourceSets tools/creature-feedback-runtime исключены из production JAR.
+[Отчёт и ограничения](implementation/creature-feedback/REPORT.md).
+
+## Патч рун — A–C (2026-10-14)
+
+COMPLETE_WITH_LIMITATIONS: 37 прежних ID сохранены, 4 крафтовые III и
+Велесова клятва IV у Яги; совместимость/старые дубликаты/legacy extraction,
+death immunity, source-local морозная защита, 4-секундное Подавление,
+числа старых рун и немедленный anvil refresh. Оружие/броня и чужой HP-патч
+сохранены. Production версия1.9.7. Финальная clean build PASS; 390/20491/75064
+основных offline assertions и15333 resource/JAR gates PASS. Earth6186,
+Frost6946, Poloz4290 PASS. Два старых смежных fixture FAIL: RewardModelChecks
+(cube counts8/8/7), GorynychChecks (ожидает старые3600/1800/180). Они не исправлены.
+Client/server/GameTest/PolyMC0; игровые события/GUI/MP/relog/MSPT NOT_RUN.
+Профили и миры не менялись. Исторические creative receipts неотличимы по
+старому формату; новые помечены отдельно. Отчёт: docs/implementation/runes-patch/REPORT.md.
+Ветка runs, собственные отчёты staged; commit/push не выполнялись.
+
+AdvancedRuneRules — pure константы/границы; AdvancedRunes — server Pre/Post,
+source-identity pending и weak per-player stack-identity series; persisted RPG
+cooldowns, accepted-block bridge, AbstractArrow launch snapshot, общий capped
+BreakSpeed. Одна IV по порядку записи, вторичные Poloz hits исключены. YagaMenu
+синхронизирует server claim gate; GorynychRewards добавляет только CreativeClaim.
+ItemState codec сохраняет старые дубликаты, admission отдельно запрещает новые.
+Клиентский UI не загружается common/server кодом, JEI остаётся optional.
+Новых world scans, forced chunks, глобального player polling и библиотек нет.
+
+## Подготовка независимой проверки1.9.8.2 —2026-10-14
+
+Итоговый REPORT.md в docs/implementation/creatures-1.9.8.2 дополнен полным44-file
+списком, миграцией/фазами, Git/SHA256 и границами тестов:1545 assertions =1524
+helper/native behaviour +21 фиксированное значение; игровых сценариев0.
+Только документация, без изменения production/test-кода и повторной сборки.
+Параллельные изменения основного дерева отделены от frozen audit staged diff.
+Неподтверждённые config/ledger/phase/runtime случаи переданы для анализа;
+commit/push/PolyMC/вторая часть не выполнялись.
+
+## 1.9.8.2 — баланс существ, этап1 (2026-10-13)
+
+Реализованы согласованные HP и адресная версионная миграция Entity NBT/ledger:
+Атаман100, Тугарин400, Соловей350, Лихо350/mor700, cursed_volkolak700,
+хранители900/800 (45/40), Морозко1400 default, Карачун1600 default,
+Горыныч2800 logical/1500/75 с service1024. Жар-птица3000 защищена от боевой
+смерти с сохранением прежнего ответного scheduler. Калин1800/Полоз3000/volkolak165,
+урон, серебро, ID, награды, art и production-версия1.9.7 сохранены.
+Локальные load adapters, без глобального tick polling или новых сетевых пакетов;
+Morozko uncapped getter использует существующий attribute sync, IceDouble исключён.
+Clean build Java21 PASS;1545 native offline и актуальные JAR/resource gates PASS.
+Game/client/server/GameTest0 запусков, relog/MP/audio/MSPT NOT_RUN.
+Параллельные опубликованные оружие/броня сохранены. Подготовлена отдельная ветка
+audit со своими файлами; commit/push/PolyMC не выполнялись. Следующий этап не начат.
+Отчёт: docs/implementation/creatures-1.9.8.2/REPORT.md; SHA256/CHECKS/FILES там же.
+Нижеследующие записи описывают прежние этапы.
+
 ## Патч оружия — визуальная ревизия брони (2026-10-13)
 
 Runtime changes только в4 существующих Dist.CLIENT armor model implementations: выделенные UV islands, солнечная застёжка, передние драконьи вставки, приталенный robe/split pointed tails и широкий воинский стяг. Generated item models используются для3 прежних cuboid items. armor_revision_assets — детерминированный финальный overlay, legacy hooks сохраняют weapon overlay. Никаких common/server зависимостей от клиента или новых gameplay систем. Native bake/UV fixture и software projection — tools-only, исключены из production. [Аудит/проверки](armor-revision/REPORT.md).
@@ -7,6 +179,24 @@ Runtime changes только в4 существующих Dist.CLIENT armor mode
 Исправлены фильтр целей/учёт боевых атрибутов косы Карачуна и сброс её позы; компактная объёмная коса/16px иконка, разные модели копья победителя, кистеня атамана, посоха Лихо и Сабли Воеводы. Арбалеты: безопасный pull predicate и компактные first-person transforms. Registry ID и номер версии сохранены. Clean build + Night offline PASS; 15764 resource gates, 921 item models, 208 subscribers PASS. Игровых запусков 0; визуальная/боевая приёмка OPEN. PolyMC Testing обновлён с backup, имя дополнено «Патч оружия». Параллельные правки брони/аудита сохранены отдельно. [Отчёт](verification/weapon-patch/REPORT.md).
 
 Серверный delayed swing использует CombatTargeting.canAttack с NPC/PvP/ally guards и реальные ATTACK_DAMAGE атрибуты для удерживаемой косы; projectile lanes сохраняют собственную базу. Existing Pose duration=0 отменяет клиентское Swing состояние без нового протокола; vanilla first-person renderer, временная third-person pose. Quest185 context renderer выбирает held geometry для ground/fixed косы. Resource overlay tools/weapon_patch_assets.py воспроизводит изменения после owning generators; opt-in native Night checks не входят в JAR. Нет нового глобального tick polling или registry entries.
+
+## Финальный аналитический аудит1.9.8.1 —2026-10-13
+
+COMPLETE_WITH_LIMITATIONS:69/69 существ классифицированы,262 известные строки
+действий обработаны +3 исключённые недостижимые ветки (265). VERIFIED/PROPOSED
+разделены;4 группы решений перед реализацией, source/runtime ограничения явные.
+Горыныч target2800/1500/75; Лихо350/mor700 тот же ID; Жар-птица3000 и обязательная
+неубиваемость (текущий путь смерти — дефект); cursed_volkolak700 PROPOSED.
+Архитектура runtime и production-версия аудитом не менялись,1.9.8.2 не начата.
+Build/resources NOT_REPEATED, игровые запуски0. Параллельные production правки
+сохранены, текущий JAR hash отличается от исторического; чужие gates не приняты.
+Результаты: docs/audit/creatures-1.9.8.1/REPORT.md. Git/PolyMC и маркировка
+«патч оружия» после реализации: POST_IMPLEMENTATION_REQUIREMENTS.md там же.
+Нижеследующие IN_PROGRESS записи — история предыдущих итераций.
+
+## 1.9.8.1 — продолжение аудита существ (2026-10-13)
+
+Аудит IN_PROGRESS: CREATURES.csv покрывает 111 исходных EntityType (69 самостоятельных существ, 42 auxiliary); ATTACKS.csv содержит 262 строку атак/компонентов/proc/боевых действий. FORMS.md и TECHNICAL_RISKS.md фиксируют формы и точки будущих изменений. Полная семантическая проверка всех полей/покрытия ещё не завершена; остаток явно в UNVERIFIED.csv. Табличная проверка PASS не доказывает полноту механик. Production 1.9.7 и JAR SHA256 сохранены, gameplay/ресурсы/ID не менялись; следующий патч не начат. Build/resources повторно NOT_RUN (только документы); game/client/server/GameTest: 0 запусков. Подробнее: docs/audit/creatures-1.9.8.1/REPORT.md.
 
 ## 1.9.8.1 — начат аналитический аудит существ (2026-10-13)
 

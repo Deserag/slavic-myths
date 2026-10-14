@@ -1,0 +1,1138 @@
+--- a/docs/ARCHITECTURE.md
++++ b/docs/ARCHITECTURE.md
+@@ -1,3 +1,16 @@
++## Исправления существ: события и общая геометрия (2026-10-14)
++
++CreatureSafety: difficulty-change обработка загруженных сущностей и EntityJoinLevel,
++без новых глобальных tick scans/chunk loading. Hostile-классификация учитывает
++очищенные/сюжетные состояния; отмена через discard и собственные encounter ledgers.
++CombatTargeting/target/damage/mode events защищают Creative/Spectator. GorynychPose
++общий для FK server head parts и client ModelPart; 4-tick sync/interpolation,
++контактный hurt предшествует grab. PolozRules хранит raw-бюджеты способностей,
++GreatPoloz — scar geometry и bounded caps; target search локально раз в20 ticks.
++NightStatus хранит source-local страх, tier hysteresis/grace и отдельное visual value.
++Тестовые sourceSets tools/creature-feedback-runtime исключены из production JAR.
++[Отчёт и ограничения](implementation/creature-feedback/REPORT.md).
++
+ ## Патч рун — A–C (2026-10-14)
+ 
+ COMPLETE_WITH_LIMITATIONS: 37 прежних ID сохранены, 4 крафтовые III и
+--- a/docs/PROJECT_STATUS.md
++++ b/docs/PROJECT_STATUS.md
+@@ -1,3 +1,14 @@
++## Исправления существ после игрового теста (2026-10-14)
++
++COMPLETE_WITH_LIMITATIONS: Peaceful/Creative защита, броня и локальный AI Полоза,
++экипировка стража Чуди, устойчивый страх Карачуна, общая поза/контакт захвата Горыныча.
++13 повреждённых ru_ru значений восстановлены; параллельные оружие/броня/руны сохранены.
++Clean build Java21 PASS, 107 серверных assertions (4 изолированных GameTest запуска,
++первый FAIL исправлен), 1545 HP/NBT assertions PASS. Клиентских запусков0;
++визуальная проверка остаётся ручной. Свежий JAR установлен в PolyMC Testing,
++имя дополнено «Исправления существ» поверх «Патч оружия», миры сохранены.
++Production metadata1.9.7. Отчёт: [REPORT](implementation/creature-feedback/REPORT.md).
++
+ ## Патч рун — A–C (2026-10-14)
+ 
+ COMPLETE_WITH_LIMITATIONS: 37 прежних ID сохранены, 4 крафтовые III и
+--- a/docs/ROADMAP.md
++++ b/docs/ROADMAP.md
+@@ -1,3 +1,12 @@
++## Завершено: исправления существ по игровому тесту (2026-10-14)
++
++Реализация и адресные серверные gates завершены, свежий JAR установлен в PolyMC Testing.
++Остались ручные визуальные/runtime сценарии из
++[отчёта](implementation/creature-feedback/REPORT.md): шрамы/группы/Волк, страх,
++шеи/сетевая интерполяция, реальные сохранения. Player weapon/staff transforms
++заблокированы отсутствием корректных скриншотов; мебельный EntityBlock/null factory —
++отдельный системный патч. Следующий этап 1.9.8.2 автоматически не начинать.
++
+ ## Патч рун — A–C (2026-10-14)
+ 
+ COMPLETE_WITH_LIMITATIONS: 37 прежних ID сохранены, 4 крафтовые III и
+--- a/src/main/java/org/slavicmyths/client/ChudPeopleClient.java
++++ b/src/main/java/org/slavicmyths/client/ChudPeopleClient.java
+@@ -30,7 +30,7 @@
+             root.addOrReplaceChild("left_leg",CubeListBuilder.create().texOffs(0,16).mirror().addBox(-1.5F,0,-2,3,12,4),PartPose.offset(2,12,0));
+             return LayerDefinition.create(mesh,64,64).bakeRoot();
+         }
+-        public void setupAnim(ChudPerson e,float swing,float amount,float age,float yaw,float pitch){super.setupAnim(e,swing,amount,age,yaw,pitch);if(e.activity()==1){rightArm.xRot=-.6F-(float)Math.abs(Math.sin(e.activityAge(0)*.18))*1.3F;}else if(e.activity()==2){body.xRot=.15F;rightArm.xRot=leftArm.xRot=-.4F;}else if(e.activity()==3){float t=e.activityAge(0);rightArm.xRot=t<4?-2F*t/4:-2F+Math.min(1,(t-4)/3)*2.8F;}else body.xRot=0;apron.visible=e.role()==1||e.role()==2;goggles.visible=e.role()==2;helmet.visible=e.role()==3;}
++        public void setupAnim(ChudPerson e,float swing,float amount,float age,float yaw,float pitch){rightArmPose=e.role()==3&&!e.getMainHandItem().isEmpty()?ArmPose.ITEM:ArmPose.EMPTY;super.setupAnim(e,swing,amount,age,yaw,pitch);if(e.activity()==1){rightArm.xRot=-.6F-(float)Math.abs(Math.sin(e.activityAge(0)*.18))*1.3F;}else if(e.activity()==2){body.xRot=.15F;rightArm.xRot=leftArm.xRot=-.4F;}else if(e.activity()==3){float t=e.activityAge(0);rightArm.xRot=t<4?-2F*t/4:-2F+Math.min(1,(t-4)/3)*2.8F;}else body.xRot=0;apron.visible=e.role()==1||e.role()==2;goggles.visible=e.role()==2;helmet.visible=e.role()==3;}
+     }
+     static final class Renderer extends MobRenderer<ChudPerson,Model> {
+         Renderer(EntityRendererProvider.Context c){super(c,new Model(),.35F);addLayer(new net.minecraft.client.renderer.entity.layers.ItemInHandLayer<>(this,c.getItemInHandRenderer()));}
+--- a/src/main/java/org/slavicmyths/client/GorynychModel.java
++++ b/src/main/java/org/slavicmyths/client/GorynychModel.java
+@@ -7,7 +7,7 @@
+  public final ModelPart root=GorynychMesh.create();private final ModelPart body=root.getChild("body");
+  @Override public void setupAnim(Gorynych e,float limb,float amount,float time,float yaw,float pitch){root.getAllParts().forEach(ModelPart::resetPose);boolean exhausted=e.state()>=GorynychRules.EXHAUSTED&&e.state()<GorynychRules.PURIFIED;body.y+=(float)Math.sin(time*.04)*.6f;body.xRot=e.flying()?-.12f:0;
+   for(String side:new String[]{"left","right"})for(String place:new String[]{"front","back"}){var leg=body.getChild("leg_"+place+"_"+side);leg.xRot=e.flying()?.6f:(float)Math.cos(limb*.55+(side.equals("left")^place.equals("back")?Math.PI:0))*amount*.4f;}
+-  var heads=e.heads();for(int h=0;h<3;h++){var neck=body.getChild("neck_"+h+"_0");neck.yRot=exhausted?0:(float)Math.toRadians(Math.clamp(heads.getFloat("Yaw"+h),-55,55));neck.xRot=exhausted?1.3f:e.ducking()?.8f:(float)Math.sin(time*.04+h)*.035f;for(int i=1;i<5;i++){neck=neck.getChild("neck_"+h+"_"+i);neck.xRot=exhausted||e.ducking()?0:(float)Math.toRadians(heads.getFloat("Pitch"+h)*.18);neck.yRot=0;}var head=neck.getChild("head_"+h);var jaw=head.getChild("jaw_"+h);int action=heads.getInt("Action"+h),age=heads.getInt("Age"+h);jaw.xRot=exhausted?.08f:action>0?Math.min(.65f,age*.022f):.05f+(float)Math.sin(time*.05+h)*.02f;if(h==2&&action>0)head.z-=Math.sin(Math.min(1,age/20.)*Math.PI)*7;}
++  var heads=e.heads();for(int h=0;h<3;h++){var neck=body.getChild("neck_"+h+"_0");neck.yRot=exhausted?0:(float)Math.toRadians(GorynychPose.lane(h,e.visualHeadYaw(h,time-e.tickCount)));neck.xRot=GorynychPose.rootPitch(h,e.visualHeadPitch(h,time-e.tickCount),time,exhausted,e.ducking());for(int i=1;i<5;i++){neck=neck.getChild("neck_"+h+"_"+i);neck.xRot=exhausted||e.ducking()?0:(float)Math.toRadians(e.visualHeadPitch(h,time-e.tickCount)*.18);neck.yRot=0;}var head=neck.getChild("head_"+h);var jaw=head.getChild("jaw_"+h);int action=heads.getInt("Action"+h);float age=e.visualHeadAge(h,time-e.tickCount);jaw.xRot=exhausted?.08f:action>0?Math.min(.65f,age*.022f):.05f+(float)Math.sin(time*.05+h)*.02f;if(h==2&&action>0)head.z-=GorynychPose.extension(action,age);}
+   var tail=body.getChild("tail_0");for(int i=0;i<8;i++){tail.yRot=(e.ducking()?.35f:0)+(float)Math.sin(time*.065-i*.5)*.07f+(e.bodyAction()==1?(float)Math.sin(time*.18)*.16f:0);if(i<7)tail=tail.getChild("tail_"+(i+1));}
+   for(String name:new String[]{"wing_left","wing_right"}){var wing=body.getChild(name);wing.visible=e.wings();float sign=name.endsWith("left")?-1:1;wing.yRot=e.ducking()?-sign*1.2f:0;float unfold=e.state()==GorynychRules.TRANSFORM?Math.clamp((e.age()-40)/80f,0,1):1;wing.zRot=sign*(1-unfold)*1.4f+sign*(e.flying()?(float)Math.sin(time*.15)*.4f:exhausted?.5f:.16f);if(e.bodyAction()==5)wing.zRot+=sign*(float)Math.sin(time*.28)*.7f;}
+  }
+--- a/src/main/java/org/slavicmyths/client/PolozRenderer.java
++++ b/src/main/java/org/slavicmyths/client/PolozRenderer.java
+@@ -34,8 +34,8 @@
+   // Texture switches above can end the previous BufferBuilder. Acquire the body buffer only after the head and eyes are finished.
+   var buffer=b.getBuffer(RenderType.entityCutoutNoCull(getTextureLocation(e)));
+   Vec3 previous=root;for(int i=0;i<24;i++){Vec3 at=at(e.parts[i],alpha);Vec3 dir=previous.subtract(at);p.pushPose();p.translate(at.x-root.x,at.y-root.y,at.z-root.z);p.mulPose(Axis.YP.rotation((float)Math.atan2(-dir.x,-dir.z)));float width=PolozRules.width(i);if(e.action()==4&&i>14){float age=e.actionAge(partial);p.translate(0,age<24?Math.sin(age*Math.PI/48)*1.5:Math.max(0,1.5-(age-24)*.3),0);}p.translate(0,e.deathTime>0?-Math.min(2,e.deathTime/50f):Math.sin((e.tickCount+partial)*.045-i*.3)*.04,0);p.scale(width,(i<20?3:1.4f)*(1-Math.min(.5f,e.deathTime/200f)),i<20?3:2);body.render(p,buffer,light,OverlayTexture.NO_OVERLAY);p.popPose();previous=at;}
+-  for(int i=24;i<27;i++){var part=e.parts[i];Vec3 at=at(part,alpha),center=at(e.parts[part.segment],alpha);p.pushPose();p.translate(at.x-root.x,at.y-root.y,at.z-root.z);p.mulPose(Axis.YP.rotation((float)Math.atan2(at.x-center.x,at.z-center.z)));if(i==25)p.mulPose(Axis.XP.rotationDegrees(90));p.scale(1.6f,1.6f,1.6f);scar.render(p,buffer,e.deathTime>60?light:0xF000F0,OverlayTexture.NO_OVERLAY);p.popPose();}
+-  if(e.phase()>1)for(int i=0;i<20;i++){Vec3 at=at(e.parts[i],alpha);p.pushPose();p.translate(at.x-root.x,at.y-root.y+2.9,at.z-root.z);p.mulPose(Axis.XP.rotationDegrees(90));float reveal=.8f*e.reveal(partial);p.scale(reveal,reveal,reveal);scar.render(p,buffer,e.deathTime>60?light:0xF000F0,OverlayTexture.NO_OVERLAY);p.popPose();}super.render(e,yaw,partial,p,b,light);
++  for(int i=24;i<27;i++){var part=e.parts[i];Vec3 at=at(part,alpha),center=at(e.parts[part.segment],alpha);p.pushPose();p.translate(at.x-root.x,at.y-root.y,at.z-root.z);p.mulPose(Axis.YP.rotation((float)Math.atan2(at.x-center.x,at.z-center.z)));if(i==25){p.translate(0,.15,-.45);p.mulPose(Axis.XP.rotationDegrees(90));}p.scale(1.6f,1.6f,1.6f);scar.render(p,buffer,e.deathTime>60?light:0xF000F0,OverlayTexture.NO_OVERLAY);p.popPose();}
++  super.render(e,yaw,partial,p,b,light);
+  }
+  public static ModelPart glob(){var m=new MeshDefinition();m.getRoot().addOrReplaceChild("glob",CubeListBuilder.create().texOffs(0,0).addBox(-3,-3,-3,6,6,6),PartPose.ZERO);return LayerDefinition.create(m,32,32).bakeRoot();}
+  public static final class GlobRenderer extends EntityRenderer<PolozGlob>{private final ModelPart glob;public GlobRenderer(EntityRendererProvider.Context c){super(c);glob=glob();}@Override public ResourceLocation getTextureLocation(PolozGlob e){return PolozContent.id("textures/entity/poloz_glob.png");}@Override public void render(PolozGlob e,float y,float t,PoseStack p,MultiBufferSource b,int l){glob.render(p,b.getBuffer(RenderType.entityCutoutNoCull(getTextureLocation(e))),0xF000F0,OverlayTexture.NO_OVERLAY);}}
+--- a/src/main/java/org/slavicmyths/combat/CombatTargeting.java
++++ b/src/main/java/org/slavicmyths/combat/CombatTargeting.java
+@@ -13,7 +13,7 @@
+     private static TagKey<EntityType<?>> tag(String id){return TagKey.create(Registries.ENTITY_TYPE,ResourceLocation.fromNamespaceAndPath("slavicmyths",id));}
+     public static final TagKey<EntityType<?>> HOSTILE=tag("village_hostiles"),PROTECTED=tag("combat_protected"),CONTROL_IMMUNE=tag("control_immune");
+     public static boolean canAttack(LivingEntity owner,LivingEntity target){
+-        if(owner==null||target==null||owner==target||owner.isSpectator()||target instanceof net.minecraft.world.entity.decoration.ArmorStand||!owner.isAlive()||!target.isAlive()||target.isRemoved()||target.isSpectator()||target.isInvulnerable()||target.getType().is(PROTECTED)||owner.isAlliedTo(target)||target.isAlliedTo(owner))return false;
++        if(owner==null||target==null||owner==target||owner.isSpectator()||target instanceof net.minecraft.world.entity.decoration.ArmorStand||!owner.isAlive()||!target.isAlive()||target.isRemoved()||target.isSpectator()||CreatureSafety.protectedPlayer(target)||target.isInvulnerable()||target.getType().is(PROTECTED)||owner.isAlliedTo(target)||target.isAlliedTo(owner))return false;
+         if(target instanceof TamableAnimal pet&&pet.getOwnerUUID()!=null&&pet.getOwnerUUID().equals(owner.getUUID()))return false;
+         if(owner instanceof Player player){
+             if(target instanceof Player other&&!player.canHarmPlayer(other))return false;
+--- /dev/null
++++ b/src/main/java/org/slavicmyths/combat/CreatureSafety.java
+@@ -0,0 +1,107 @@
++package org.slavicmyths.combat;
++
++import java.util.*;
++import net.minecraft.core.registries.BuiltInRegistries;
++import net.minecraft.nbt.CompoundTag;
++import net.minecraft.server.level.*;
++import net.minecraft.world.Difficulty;
++import net.minecraft.world.entity.*;
++import net.minecraft.world.entity.player.Player;
++import net.minecraft.world.level.GameType;
++import net.neoforged.bus.api.*;
++import net.neoforged.fml.common.EventBusSubscriber;
++import net.neoforged.neoforge.event.DifficultyChangeEvent;
++import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
++import net.neoforged.neoforge.event.entity.living.*;
++import net.neoforged.neoforge.event.entity.player.PlayerEvent;
++
++/** Event-driven cleanup: one loaded-entity pass on difficulty changes; no tick/world polling. */
++@EventBusSubscriber(modid="slavicmyths")
++public final class CreatureSafety {
++    public static final Set<String> HOSTILES=Set.of("ataman","bandit_archer","bandit_fighter","bandit_heavy","bandit_senior","nightingale","leshy","kikimora","poludnitsa","polevik","bannik","igosha","rusalka","vodyanoy","bolotnik","elder_vodyanoy","ovinnik","volkolak","cursed_volkolak","fire_serpent","podvey","likho_one_eyed","tugarin_zmey","upyr","nav","kurgan_druzhinnik","kurgan_voevoda","buried_volkhv","unresting_prince","nochnitsa","pesigolovets","kladovik","large_podzemnik","earth_spirit","idolishche_poganoe","kartaus","marinka","skim_beast","kalin_tsar","kalin_common_soldier","kalin_elite_soldier","morozko","karachun","great_poloz","zmey_gorynych","extinguished_flame_guardian","defiled_spring_keeper","earth_servant","morozko_ice_double","karachun_raven","marinka_tur_minion");
++    public static boolean protectedPlayer(LivingEntity e){return e instanceof Player p&&(p.isCreative()||p.isSpectator());}
++    private static boolean ours(Entity e){return BuiltInRegistries.ENTITY_TYPE.getKey(e.getType()).getNamespace().equals("slavicmyths");}
++    public static boolean hostile(Mob e){
++        if(!ours(e))return false;
++        if(e instanceof org.slavicmyths.guardians.GuardianEntity g&&g.state()>=org.slavicmyths.guardians.GuardianRules.PURIFY)return false;
++        if(e instanceof org.slavicmyths.gorynych.Gorynych g&&g.state()>=org.slavicmyths.gorynych.GorynychRules.EXHAUSTED)return false;
++        if(e instanceof org.slavicmyths.karachun.NightRaven r&&r.allied())return false;
++        return HOSTILES.contains(BuiltInRegistries.ENTITY_TYPE.getKey(e.getType()).getPath())||e.getType().getCategory()==MobCategory.MONSTER;
++    }
++    public static void cancel(Mob mob){
++        if(!(mob.level() instanceof ServerLevel w)||!hostile(mob)||mob.isRemoved())return;
++        mob.setTarget(null);mob.setLastHurtByMob(null);mob.getNavigation().stop();
++        if(mob instanceof org.slavicmyths.morozko.Morozko frost)frost.cancelPeacefully();
++        else if(mob instanceof org.slavicmyths.karachun.Karachun night)night.cancelPeacefully();
++        else if(mob instanceof org.slavicmyths.poloz.GreatPoloz poloz)poloz.cancel();
++        else if(mob instanceof org.slavicmyths.gorynych.Gorynych dragon)dragon.cancelPeacefully();
++        else if(mob instanceof org.slavicmyths.guardians.GuardianEntity guardian)guardian.cancelPeacefully();
++        else if(mob instanceof org.slavicmyths.earth.EarthSpirit earth)earth.cancelPeacefully();
++        else {
++            if(mob instanceof org.slavicmyths.hunt.HuntMob hunt&&hunt.owner!=null)org.slavicmyths.hunt.HuntRecords.get(w).finish(hunt.owner,hunt.getUUID(),org.slavicmyths.hunt.HuntRecords.Status.FAILED);
++            if(mob instanceof org.slavicmyths.hunt.WorldBoss boss&&!boss.encounter.isEmpty()){
++                var data=org.slavicmyths.hunt.HuntRecords.get(w);var row=data.bosses.get(boss.encounter);
++                if(row!=null&&mob.getUUID().equals(row.target)){row.active=false;row.ready=w.getGameTime();data.setDirty();}
++            }
++            if(mob instanceof org.slavicmyths.entity.LandSpiritEntity spirit)spirit.mor.cleanup();
++            if(mob instanceof org.slavicmyths.finist.KartausEntity kartaus){if(kartaus.encounter!=null){var data=org.slavicmyths.finist.KartausEncounter.get(w);var row=data.entries.get(kartaus.encounter);if(row!=null)data.finish(w,row,false);}kartaus.cleanup();}
++            if(mob instanceof org.slavicmyths.kalin.KalinEntity kalin){var row=kalin.entry();if(row!=null)org.slavicmyths.kalin.KalinEncounter.get(w).finish(w,row,false);kalin.cleanup();}
++            if(mob instanceof org.slavicmyths.marinka.MarinkaEntity witch){var row=witch.yard();if(row!=null)org.slavicmyths.marinka.WitchYard.fail(w,row);witch.cleanup();}
++            if(mob instanceof org.slavicmyths.skim.SkimBeastEntity skim){skim.release();var row=skim.valley();if(row!=null)org.slavicmyths.skim.SkimValley.abort(w,row);}
++            mob.discard(); // Never die/kill: no victory, death loot or death advancements.
++        }
++    }
++    private static List<Entity> loaded(ServerLevel w){var out=new ArrayList<Entity>();w.getAllEntities().forEach(out::add);return out;}
++    private static Set<UUID> references(Entity e){
++        var ids=new HashSet<UUID>();var n=new CompoundTag();e.saveWithoutId(n);
++        for(String k:n.getAllKeys())if(n.hasUUID(k))ids.add(n.getUUID(k));return ids;
++    }
++    @SubscribeEvent public static void difficulty(DifficultyChangeEvent event){
++        if(event.getDifficulty()!=Difficulty.PEACEFUL)return;
++        var server=net.neoforged.neoforge.server.ServerLifecycleHooks.getCurrentServer();if(server==null)return;
++        server.execute(()->{for(var w:server.getAllLevels()){
++            var entities=loaded(w);var ids=new HashSet<UUID>();
++            for(var e:entities)if(e instanceof Mob m&&hostile(m)){ids.add(e.getUUID());
++                if(m instanceof org.slavicmyths.morozko.Morozko f&&f.session!=null)ids.add(f.session);
++                if(m instanceof org.slavicmyths.karachun.Karachun n&&n.session!=null)ids.add(n.session);
++                cancel(m);
++            }
++            // Only a difficulty-change pass, no chunk loading; handle owned projectiles/areas outside local boss radius.
++            for(var e:entities)if(!e.isRemoved()&&ours(e)&&!(e instanceof LivingEntity)&&!Collections.disjoint(references(e),ids))e.discard();
++            for(var e:entities)if(e instanceof LivingEntity l&&protectedPlayer(l))clearControlled(l);
++        }});
++    }
++    @SubscribeEvent public static void join(EntityJoinLevelEvent event){
++        if(event.getLevel() instanceof ServerLevel w&&w.getDifficulty()==Difficulty.PEACEFUL&&event.getEntity() instanceof Mob m&&hostile(m)){
++            cancel(m);event.setCanceled(true);
++        }
++    }
++    @SubscribeEvent(priority=EventPriority.LOWEST) public static void target(LivingChangeTargetEvent event){
++        if(event.getEntity() instanceof Mob&&protectedPlayer(event.getNewAboutToBeSetTarget()))event.setNewAboutToBeSetTarget(null);
++    }
++    @SubscribeEvent(priority=EventPriority.HIGHEST) public static void damage(LivingIncomingDamageEvent event){
++        // Defensive boundary for delayed/projectile/AoE hits; generic_kill remains an explicit admin operation.
++        if(event.getSource().is(net.minecraft.world.damagesource.DamageTypes.GENERIC_KILL))return;
++        if(protectedPlayer(event.getEntity())||event.getSource().getEntity() instanceof Mob m&&hostile(m)&&m.level().getDifficulty()==Difficulty.PEACEFUL)event.setCanceled(true);
++    }
++    private static void clearControlled(LivingEntity player){
++        org.slavicmyths.karachun.NightStatus.clearAll(player);
++        for(String key:new ArrayList<>(player.getPersistentData().getCompound("Night192Effects").getAllKeys()))try{org.slavicmyths.karachun.NightEffects.clear(player,UUID.fromString(key));}catch(IllegalArgumentException ignored){}
++        org.slavicmyths.morozko.FrostCold.stop(player);
++        if(player.getVehicle() instanceof org.slavicmyths.volkolak.CursedVolkolak)player.stopRiding();
++        player.getPersistentData().remove("VolkolakHolder");player.getPersistentData().remove("VolkolakHeldUntil");
++    }
++    @SubscribeEvent(priority=EventPriority.LOWEST) public static void mode(PlayerEvent.PlayerChangeGameModeEvent event){
++        if(!(event.getEntity() instanceof ServerPlayer p)||event.getNewGameMode()!=GameType.CREATIVE&&event.getNewGameMode()!=GameType.SPECTATOR)return;
++        // Event precedes the actual mode assignment; defer so each controller sees the final mode.
++        p.server.tell(new net.minecraft.server.TickTask(p.server.getTickCount()+1,()->{if(!protectedPlayer(p))return;clearControlled(p);
++            for(var m:p.serverLevel().getEntitiesOfClass(Mob.class,p.getBoundingBox().inflate(128))){
++                if(m.getTarget()==p){m.setTarget(null);m.getNavigation().stop();}if(m.getLastHurtByMob()==p)m.setLastHurtByMob(null);
++                if(m instanceof org.slavicmyths.gorynych.Gorynych g)g.cancelTarget(p);
++                if(m instanceof org.slavicmyths.hunt.WorldBoss boss)boss.cancelTarget(p);
++                if(m instanceof org.slavicmyths.skim.SkimBeastEntity skim&&skim.victim!=null&&skim.victim.equals(p.getUUID()))skim.release();
++            }
++        }));
++    }
++    private CreatureSafety(){}
++}
+--- a/src/main/java/org/slavicmyths/earth/EarthSpirit.java
++++ b/src/main/java/org/slavicmyths/earth/EarthSpirit.java
+@@ -95,6 +95,7 @@
+     private Vec3 predicted(int ticks){var t=getTarget();return valid(t)?t.position().add(0,.7,0).add(t.getDeltaMovement().multiply(ticks,0,ticks)):aim.add(0,.7,0);}
+     private List<BlockPos> planSummons(ServerLevel w){var points=new ArrayList<BlockPos>();for(int i=0;i<12&&points.size()<3;i++){double a=i*Math.PI*2/12+random.nextDouble()*.2;var p=BlockPos.containing(getX()+Math.cos(a)*8,getY(),getZ()+Math.sin(a)*8);if(safeSpawn(w,p)&&points.stream().allMatch(q->q.distSqr(p)>=9))points.add(p);}return List.copyOf(points);}
+     private boolean safeSpawn(ServerLevel w,BlockPos p){if(!inside(p.getCenter())||!w.hasChunkAt(p)||!w.getBlockState(p.below()).isCollisionShapeFullBlock(w,p.below()))return false;var box=new AABB(p.getX()+.05,p.getY(),p.getZ()+.05,p.getX()+.95,p.getY()+1.5,p.getZ()+.95);return w.noCollision(box)&&w.getEntitiesOfClass(Player.class,box.inflate(3),Player::isAlive).isEmpty()&&w.getEntitiesOfClass(EarthServant.class,box.inflate(1)).isEmpty();}
++    public void cancelPeacefully(){if(level() instanceof ServerLevel w){cancelActors();for(UUID id:servants){var servant=w.getEntity(id);if(servant!=null)servant.discard();}var e=entry();if(e!=null&&e.state!=EarthArena.State.DEFEATED){e.state=EarthArena.State.SEALED;e.boss=null;EarthArena.open(w,e);EarthArena.get(w).setDirty();}bar.removeAllPlayers();discard();}}
+     private void cancelActors(){if(level() instanceof ServerLevel w)for(var actor:w.getEntitiesOfClass(EarthActor.class,getBoundingBox().inflate(40),a->getUUID().equals(a.owner())))actor.discard();entityData.set(PENDING,0);entityData.set(PILLAR,-1);}
+     @Override public void die(DamageSource source){if(source.getEntity() instanceof Player p&&valid(p))participants.add(p.getUUID());legitimate=!source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)&&!participants.isEmpty()&&!(source.getEntity() instanceof Player p&&(p.isCreative()||p.isSpectator()));if(!legitimate)xpReward=0;bar.removeAllPlayers();cancelActors();armorIn=0;begin(Action.DEATH,EarthRules.DEATH);if(level() instanceof ServerLevel w){var e=entry();if(e!=null)EarthArena.defeat(w,e,true);for(var id:servants)if(w.getEntity(id) instanceof EarthServant s)s.collapse();}if(legitimate&&level() instanceof ServerLevel w)for(var id:participants){var p=w.getServer().getPlayerList().getPlayer(id);if(p!=null)org.slavicmyths.progression.Knowledge.award(p,"earth_heart");}super.die(source);cue("death_fall");}
+     @Override protected void tickDeath(){deathTime++;if(level() instanceof ServerLevel w){if(deathTime==16)EarthActor.collapse(w,position().add(0,5.8,0),8,.7);if(deathTime==28)EarthActor.collapse(w,position().add(0,3.6,0),12,1.4);if(deathTime==44)EarthActor.collapse(w,position().add(0,4.1,0),14,.85);if(deathTime==60)EarthActor.collapse(w,position().add(0,2.2,0),12,.7);if(deathTime==78)EarthActor.collapse(w,position().add(0,.8,0),12,.8);}if(deathTime>=EarthRules.DEATH&&!level().isClientSide)remove(RemovalReason.KILLED);}
+--- a/src/main/java/org/slavicmyths/finist/KartausEntity.java
++++ b/src/main/java/org/slavicmyths/finist/KartausEntity.java
+@@ -21,7 +21,7 @@
+  public float mitigation(){if(action()==FalconAction.STAGGER)return 0;int n=0;if(level() instanceof ServerLevel w)for(var id:banners)if(w.getEntity(id) instanceof BannerEntity a&&a.isAlive()&&distanceTo(a)<=11)n++;return Math.min(.4F,.1F+n*.15F);}
+  public DamageSource source(String name){return new DamageSource(level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE,FinistContent.id("kartaus_"+name))),this);}
+  public static float raw(float net){return (float)((-.2+Math.sqrt(.04+.04*net))/.02);}
+- public void strike(LivingEntity t,String name,float net){if(t==null||!t.isAlive()||!hasLineOfSight(t))return;float damage=raw(net);if(phase==3&&(name.equals("wave")||name.equals("eye")))damage=raw(net*1.25F);t.hurt(source(name),damage);}
++ public void strike(LivingEntity t,String name,float net){if(t==null||!t.isAlive()||org.slavicmyths.combat.CreatureSafety.protectedPlayer(t)||!hasLineOfSight(t))return;float damage=raw(net);if(phase==3&&(name.equals("wave")||name.equals("eye")))damage=raw(net*1.25F);t.hurt(source(name),damage);}
+  public void cleanup(){if(!(level() instanceof ServerLevel w))return;for(var id:new ArrayList<>(banners)){var e=w.getEntity(id);if(e!=null)e.discard();}for(var id:new ArrayList<>(guards)){var e=w.getEntity(id);if(e!=null)e.discard();}var a=anchor();if(a!=null)a.discard();anchor=null;banners.clear();guards.clear();chains.clear();entityData.set(COUNT,0);var f=hero();if(f!=null)f.clearCurse();bar.removeAllPlayers();}
+  public void releaseCurse(boolean rescued){var a=anchor();if(a!=null)a.discard();anchor=null;var f=hero();if(f!=null)f.clearCurse();curseImmune=level().getGameTime()+180;if(isAlive()){begin(FalconAction.STAGGER,rescued?50:20);cue("entity.falcon.chain_break");}}
+  public void propGone(BannerEntity a,boolean destroyed){if(a.anchor()){releaseCurse(destroyed);return;}banners.remove(a.getUUID());entityData.set(COUNT,banners.size());if(banners.isEmpty()){cooldown("banner",160);begin(FalconAction.STAGGER,60);cue("entity.kartaus.barrier_break");}}
+@@ -46,9 +46,9 @@
+  case CHAINS->{if(frame(22)&&committed!=null&&committed.position().distanceToSqr(Vec3.atBottomCenterOf(aim()))<2.5*2.5&&hasLineOfSight(committed)){strike(committed,"chains",2);committed.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,50,1));chains.put(committed.getUUID(),new Chain(committed.position(),level().getGameTime()+20,3));}}
+  default->{} }
+  }
+- private void chainTicks(ServerLevel w){for(var item:new ArrayList<>(chains.entrySet())){var c=item.getValue();var t=w.getEntity(item.getKey());if(!(t instanceof LivingEntity l)||!l.isAlive()||l.position().distanceToSqr(c.at)>36){chains.remove(item.getKey());continue;}if(w.getGameTime()>=c.until){strike(l,"chains",1);if(c.pulses<=1)chains.remove(item.getKey());else chains.put(item.getKey(),new Chain(c.at,c.until+20,c.pulses-1));}}}
++ private void chainTicks(ServerLevel w){for(var item:new ArrayList<>(chains.entrySet())){var c=item.getValue();var t=w.getEntity(item.getKey());if(!(t instanceof LivingEntity l)||!l.isAlive()||org.slavicmyths.combat.CreatureSafety.protectedPlayer(l)||l.position().distanceToSqr(c.at)>36){chains.remove(item.getKey());continue;}if(w.getGameTime()>=c.until){strike(l,"chains",1);if(c.pulses<=1)chains.remove(item.getKey());else chains.put(item.getKey(),new Chain(c.at,c.until+20,c.pulses-1));}}}
+  @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w))return;if(!isAlive()){bar.setVisible(false);bar.removeAllPlayers();return;}if(tickCount==1)cue("entity.kartaus.intro");if(!validEncounter()){cleanup();discard();return;}if(encounter==null&&tickCount==1){center=position();begin(FalconAction.INTRO);}
+- if(encounter!=null){var p=w.getServer().getPlayerList().getPlayer(owner);if(p==null||!p.isAlive()||p.serverLevel()!=w||p.isSpectator()){var e=KartausEncounter.get(w).entries.get(encounter);if(e!=null)KartausEncounter.get(w).finish(w,e,false);return;}setTarget(p);}else if(tickCount%20==0)setTarget(org.slavicmyths.bogatyr.HeroThreats.debugOpponent(this,24));
++ if(encounter!=null){var p=w.getServer().getPlayerList().getPlayer(owner);if(p==null||!p.isAlive()||p.serverLevel()!=w||p.isSpectator()||p.isCreative()){var e=KartausEncounter.get(w).entries.get(encounter);if(e!=null)KartausEncounter.get(w).finish(w,e,false);return;}setTarget(p);}else if(tickCount%20==0)setTarget(org.slavicmyths.bogatyr.HeroThreats.debugOpponent(this,24));
+  if(tickCount%20==0){banners.removeIf(id->!(w.getEntity(id) instanceof BannerEntity a)||!a.isAlive());guards.removeIf(id->!(w.getEntity(id) instanceof Monster m)||!m.isAlive());entityData.set(COUNT,banners.size());for(var id:guards){var m=(Monster)w.getEntity(id);if(m!=null){if(center.distanceToSqr(m.position())>24*24){m.discard();continue;}m.setTarget(getTarget());if(m.getPersistentData().getLong("FinistDistractedUntil")>w.getGameTime())m.setTarget(null);}}
+  bar.setName(Component.translatable("entity.slavicmyths.kartaus").append(" — ").append(Component.translatable("message.slavicmyths.kartaus_banner_count",bannerCount())));bar.setProgress(Math.max(0,getHealth()/650));for(var p:w.players()){boolean visible=p.isAlive()&&!p.isSpectator()&&distanceTo(p)<36;if(visible)bar.addPlayer(p);else bar.removePlayer(p);}}
+  chainTicks(w);if(tickCount%10==0&&anchor()!=null){var a=anchor();if(hero()==null||hero().recovering()||!HeroCallsSafe(a))releaseCurse(false);}int next=getHealth()<=195?3:getHealth()<=422.5?2:1;if(next>phase){phase=next;entityData.set(PHASE,phase);if(phase==3&&!raged){raged=true;begin(FalconAction.RAGE);cue("entity.kartaus.rage");}else begin(FalconAction.STAGGER,60);}
+--- a/src/main/java/org/slavicmyths/gorynych/Gorynych.java
++++ b/src/main/java/org/slavicmyths/gorynych/Gorynych.java
+@@ -36,11 +36,11 @@
+  @Override public boolean isMultipartEntity(){return true;}@Override public GorynychHead[] getParts(){return parts;}@Override public void setId(int id){super.setId(id);if(parts!=null)for(int i=0;i<parts.length;i++)if(parts[i]!=null)parts[i].setId(id+i+1);}
+  @Override public void move(MoverType type,Vec3 delta){if(instance!=null&&level() instanceof ServerLevel w){var bounds=GorynychPlaces.bounds(layout);double r=getBbWidth()/2;delta=new Vec3(Math.clamp(getX()+delta.x,bounds.minX+r,bounds.maxX-r)-getX(),Math.clamp(getY()+delta.y,bounds.minY,bounds.maxY-getBbHeight())-getY(),Math.clamp(getZ()+delta.z,bounds.minZ+r,bounds.maxZ-r)-getZ());if(!GorynychPlaces.loaded(w,getBoundingBox().expandTowards(delta).inflate(1)))delta=Vec3.ZERO;}super.move(type,delta);}
+  private void unbound(){var w=(ServerLevel)level();var n=new CompoundTag();n.putLong("Origin",blockPosition().asLong());n.putString("Rotation","NONE");n.putLong("Seed",getUUID().getLeastSignificantBits());var d=GorynychLedger.get(w);d.ensure(getUUID(),n);var row=d.row(getUUID());row.putBoolean("Standalone",true);row.putUUID("Boss",getUUID());configure(getUUID(),row);}
+- public boolean candidate(LivingEntity t){return t!=null&&t.isAlive()&&t!=this&&t.level()==level()&&GorynychPlaces.bounds(layout).contains(t.position())&&org.slavicmyths.karachun.NightOwners.owner(t)!=null&&(!(t instanceof ServerPlayer p)||!p.isSpectator()&&!p.hasDisconnected());}
++ public boolean candidate(LivingEntity t){return t!=null&&t.isAlive()&&t!=this&&t.level()==level()&&GorynychPlaces.bounds(layout).contains(t.position())&&org.slavicmyths.karachun.NightOwners.owner(t)!=null&&(!(t instanceof ServerPlayer p)||!p.isSpectator()&&!p.isCreative()&&!p.hasDisconnected());}
+  private List<LivingEntity> targets(){if(tickCount-nearbyAt>=10){nearby=level().getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(48,30,48),this::candidate);nearbyAt=tickCount;}return nearby.stream().filter(this::candidate).toList();}
+  private void credit(Entity t){if(instance==null||!(level() instanceof ServerLevel w))return;UUID owner=org.slavicmyths.karachun.NightOwners.owner(t);if(owner!=null)GorynychLedger.get(w).participant(instance,owner);}
+  private boolean hit(LivingEntity t,float amount,int type){if(!fighting()||!candidate(t)||!hasLineOfSight(t))return false;boolean ok=t.hurt(org.slavicmyths.combat.MythDamageSources.caused(type==0?"gorynych_mor":type==1?"gorynych_fire":"gorynych_impact",this),amount);if(ok){credit(t);if(type==1)t.igniteForSeconds(3);if(type==0)t.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS,100));}return ok;}
+- @Override public void tick(){super.tick();if(level().isClientSide){positionHeads();return;}if(instance==null)unbound();var w=(ServerLevel)level();entityData.set(AGE,age()+1);if(tickCount%10==0){var overhead=getBoundingBox().move(0,2,0);entityData.set(DUCK,!flying()&&(!layout.getBoolean("Standalone")&&node>=3||GorynychPlaces.loaded(w,overhead)&&!w.noCollision(this,overhead)));}positionHeads();
++ @Override public void tick(){super.tick();yBodyRot=getYRot();if(level().isClientSide){positionHeads();return;}if(instance==null)unbound();var w=(ServerLevel)level();entityData.set(AGE,age()+1);if(tickCount%10==0){var overhead=getBoundingBox().move(0,2,0);entityData.set(DUCK,!flying()&&(!layout.getBoolean("Standalone")&&node>=3||GorynychPlaces.loaded(w,overhead)&&!w.noCollision(this,overhead)));}positionHeads();
+   if(tickCount%20==0){persist();if(!GorynychPlaces.bounds(layout).contains(position())){var back=GorynychPlaces.node(layout,node);if(GorynychPlaces.safe(w,this,back)){setPos(back);getNavigation().stop();}}
+    var choices=targets();for(var p:new ArrayList<>(bar.getPlayers()))if(!candidate(p)||!fighting())bar.removePlayer(p);if(fighting())for(var t:choices)if(t instanceof ServerPlayer p)bar.addPlayer(p);var live=choices.stream().filter(this::hasLineOfSight).toList();setTarget(live.isEmpty()?null:live.get(Math.floorMod(tickCount/120,live.size())));if(state()==GorynychRules.PATROL&&getTarget()!=null){state(GorynychRules.GROUND);sound("roar_ground");}
+    if(state()==GorynychRules.PURIFIED)for(String key:GorynychLedger.part(GorynychLedger.get(w).row(instance),"Participants").getAllKeys()){var p=w.getServer().getPlayerList().getPlayer(UUID.fromString(key));if(p!=null&&GorynychPlaces.bounds(layout).contains(p.position()))GorynychRewards.claim(p,instance);}
+@@ -57,13 +57,14 @@
+   getNavigation().stop();var center=GorynychPlaces.node(layout,1);double a=airAge*.015;var desired=center.add(Math.cos(a)*5,bodyAction()==7?3:8+Math.sin(a*.5)*2,Math.sin(a)*5);var delta=desired.subtract(position());if(delta.length()>0.1){delta=delta.normalize().scale(.22);if(GorynychPlaces.loaded((ServerLevel)level(),getBoundingBox().move(delta))&&level().noCollision(this,getBoundingBox().move(delta)))move(MoverType.SELF,delta);}if(tickCount%45==0)sound("wings_flap");
+  }
+  private int danger(){int count=bodyAction()==0?0:1;for(int a:headAction)if(a>0)count++;return count;}
+- private void headTick(){var ts=targets().stream().filter(this::hasLineOfSight).toList();for(int h=0;h<3;h++){if(headRest[h]>0)headRest[h]--;var t=headTarget[h];if(!candidate(t)||!hasLineOfSight(t)){headTarget[h]=ts.isEmpty()?null:ts.get(Math.floorMod(h+tickCount/100,ts.size()));t=headTarget[h];}if(t!=null){var d=t.getEyePosition().subtract(parts[h].position());float target=(float)Math.toDegrees(Math.atan2(d.x,d.z));target=getYRot()+Math.clamp(Mth.wrapDegrees(target-getYRot()),-55,55);yaw[h]=Mth.approachDegrees(yaw[h],target,3);pitch[h]=Mth.approachDegrees(pitch[h],(float)-Math.toDegrees(Math.atan2(d.y,d.horizontalDistance())),2);}
++ private void headTick(){var ts=targets().stream().filter(this::hasLineOfSight).toList();for(int h=0;h<3;h++){if(headRest[h]>0)headRest[h]--;var t=headTarget[h];if(!candidate(t)||!hasLineOfSight(t)){headTarget[h]=ts.isEmpty()?null:ts.get(Math.floorMod(h+tickCount/100,ts.size()));t=headTarget[h];}if(t!=null){var d=t.getEyePosition().subtract(parts[h].position());float target=(float)Math.toDegrees(Math.atan2(-d.x,d.z));target=getYRot()+GorynychPose.lane(h,Mth.wrapDegrees(target-getYRot()));yaw[h]=Mth.approachDegrees(yaw[h],target,3);pitch[h]=Mth.approachDegrees(pitch[h],(float)-Math.toDegrees(Math.atan2(d.y,d.horizontalDistance())),2);}
+    if(headAction[h]==0&&headRest[h]==0&&t!=null&&danger()<2){if(h==2&&distanceToSqr(t)>120)continue;headAction[h]=h==2?(getRandom().nextBoolean()?1:2):(getRandom().nextBoolean()?1:2);headAge[h]=0;sound(h==0?"head_mor_charge":h==1?"head_fire_charge":"head_predator_bite");}
+-   if(headAction[h]>0){headAge[h]++;int warning=h==2?20:headAction[h]==1?24:36;if(headAge[h]<warning&&tickCount%4==0)particle(h,parts[h].position().add(0,1,0),4);if(headAge[h]==warning&&t!=null&&candidate(t)&&hasLineOfSight(t)){if(h<2&&headAction[h]==1){shot(h,t.getEyePosition(),parts[h].position().add(0,1,0));sound(h==0?"head_mor_shot":"head_fireball");}else if(h==2&&distanceToSqr(t)<120){if(hit(t,11,2)&&headAction[h]==2&&t instanceof ServerPlayer p&&level().getGameTime()>=p.getPersistentData().getLong("GorynychGrabUntil"))grab(p);}}
+-    if(h<2&&headAction[h]==2&&headAge[h]>=warning&&headAge[h]<warning+60){Vec3 from=parts[h].position().add(0,1,0);double ry=Math.toRadians(yaw[h]);Vec3 direction=new Vec3(Math.sin(ry),0,Math.cos(ry));if(tickCount%4==0)for(int i=1;i<=18;i++)particle(h,from.add(direction.scale(i)),2);if(tickCount%10==0)for(var target:ts){var d=target.getEyePosition().subtract(from);double dot=d.normalize().dot(direction);if(d.length()<22&&dot>(h==0?.98:.88)&&visible(from,target.getEyePosition()))hit(target,4,h);}if(headAge[h]==warning){sound(h==0?"head_mor_shot":"head_fire_breath");if(t!=null)cloud(h,t.position(),3);}}
+-    if(headAge[h]>warning+(h<2&&headAction[h]==2?75:22)){headAction[h]=0;headRest[h]=h==2?100:h==0?400:480;headAge[h]=0;}
++   if(h==2&&headAction[h]==3){if(grabbed==null){headAction[h]=4;headAge[h]=0;}continue;}if(h==2&&headAction[h]==4){if(++headAge[h]>=18){headAction[h]=0;headAge[h]=0;headRest[h]=100;}continue;}
++   if(headAction[h]>0){headAge[h]++;positionHeads();int warning=h==2?32:headAction[h]==1?24:36;if(headAge[h]<warning&&tickCount%4==0)particle(h,parts[h].position().add(0,1,0),4);if(headAge[h]==warning&&t!=null&&candidate(t)&&hasLineOfSight(t)){if(h<2&&headAction[h]==1){shot(h,t.getEyePosition(),parts[h].position().add(0,1,0));sound(h==0?"head_mor_shot":"head_fireball");}else if(h==2&&GorynychPose.contact(headAction[h],headAge[h])&&parts[h].getBoundingBox().inflate(.35).intersects(t.getBoundingBox())&&visible(parts[h].position(),t.getEyePosition())){if(hit(t,11,2)&&headAction[h]==2&&t instanceof ServerPlayer p&&level().getGameTime()>=p.getPersistentData().getLong("GorynychGrabUntil"))grab(p);}}
++    if(h<2&&headAction[h]==2&&headAge[h]>=warning&&headAge[h]<warning+60){Vec3 from=parts[h].position().add(0,1,0);double ry=Math.toRadians(yaw[h]);Vec3 direction=new Vec3(-Math.sin(ry),0,Math.cos(ry));if(tickCount%4==0)for(int i=1;i<=18;i++)particle(h,from.add(direction.scale(i)),2);if(tickCount%10==0)for(var target:ts){var d=target.getEyePosition().subtract(from);double dot=d.normalize().dot(direction);if(d.length()<22&&dot>(h==0?.98:.88)&&visible(from,target.getEyePosition()))hit(target,4,h);}if(headAge[h]==warning){sound(h==0?"head_mor_shot":"head_fire_breath");if(t!=null)cloud(h,t.position(),3);}}
++    if(headAge[h]>warning+(h<2&&headAction[h]==2?75:22)&&headAction[h]!=3){headAction[h]=0;headRest[h]=h==2?100:h==0?400:480;headAge[h]=0;}
+    }
+-  }if(tickCount%4==0){var n=new CompoundTag();for(int h=0;h<3;h++){n.putFloat("Yaw"+h,Mth.wrapDegrees(yaw[h]-getYRot()));n.putFloat("Pitch"+h,pitch[h]);n.putInt("Action"+h,headAction[h]);n.putInt("Age"+h,headAge[h]);}n.putInt("BodyAge",bodyAge);if(bodyAction()==2)n.putLongArray("Spikes",marks.stream().mapToLong(p->BlockPos.containing(p).asLong()).toArray());entityData.set(HEADS,n);}}
++  }if(tickCount%4==0){var n=new CompoundTag();for(int h=0;h<3;h++){n.putFloat("Yaw"+h,Mth.wrapDegrees(yaw[h]-getYRot()));n.putFloat("Pitch"+h,pitch[h]);n.putInt("Action"+h,headAction[h]);n.putInt("Age"+h,headAge[h]);}n.putLong("At",level().getGameTime());n.putInt("BodyAge",bodyAge);if(bodyAction()==2)n.putLongArray("Spikes",marks.stream().mapToLong(p->BlockPos.containing(p).asLong()).toArray());entityData.set(HEADS,n);}}
+  private boolean visible(Vec3 from,Vec3 to){return level().clip(new ClipContext(from,to,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,this)).getType()==HitResult.Type.MISS;}
+  private void bodyTick(){if(bodyRest>0)bodyRest--;if(bodyAction()==0){if(bodyRest==0&&getTarget()!=null&&danger()<2){int action=flying()?3+getRandom().nextInt(5):1+getRandom().nextInt(2);entityData.set(BODY,action);bodyAge=0;bodyAim=getTarget().position();marks.clear();if(action==2||action==3){int count=action==3?7:5;for(int i=0;i<count;i++){var p=bodyAim.add((i%3-1)*3,0,(i/3-1)*3);if(visible(getEyePosition(),p.add(0,1,0)))marks.add(p);}}sound(action==1||action==7?"tail_sweep":action==2?"ground_spikes_warn":action==3?"head_mor_charge":action==4?"head_fire_charge":action==5?"wind_gust":"dive");}return;}
+   bodyAge++;int action=bodyAction();if(bodyAge<32&&tickCount%4==0){if(marks.isEmpty())particle(action==4?1:2,bodyAim,12);else for(var p:marks)particle(action==3?0:2,p,6);}
+@@ -73,11 +74,18 @@
+  }
+  private void shot(int type,Vec3 aim,Vec3 from){if(effects.size()>24)return;var shot=GorynychContent.SHOT.get().create(level());if(shot==null)return;shot.configure(this,type,from,aim);if(level().addFreshEntity(shot))effects.add(shot.getUUID());}
+  public void cloud(int type,Vec3 p,int uses){if(effects.size()>24)return;var w=(ServerLevel)level();BlockPos at=BlockPos.containing(p);for(int i=0;i<16&&w.hasChunkAt(at)&&w.getBlockState(at.below()).isAir();i++)at=at.below();if(!w.hasChunkAt(at))return;var cloud=GorynychContent.CLOUD.get().create(w);if(cloud==null)return;cloud.configure(this,type,Vec3.atBottomCenterOf(at),uses);if(w.addFreshEntity(cloud))effects.add(cloud.getUUID());}
+- private void positionHeads(){for(int h=0;h<3;h++){float angle=getYRot();double r=Math.toRadians(angle);double sideways=-(h-1)*1.875;boolean folded=state()>=GorynychRules.EXHAUSTED&&state()<GorynychRules.PURIFIED;double height=folded?1.5:ducking()?4:6.5;double forward=folded?6.4:ducking()?5.6:3.7;Vec3 p=position().add(Math.cos(r)*sideways-Math.sin(r)*forward,height,Math.sin(r)*sideways+Math.cos(r)*forward);parts[h].setPos(p);}}
+- private void grab(ServerPlayer p){releaseGrab();grabbed=p;grabAge=grabHits=0;sound("head_predator_grab");}
++ private float[] previousHeadYaw=new float[3],previousHeadPitch=new float[3],currentHeadYaw=new float[3],currentHeadPitch=new float[3];private long poseReceived;private boolean firstPose=true;
++ @Override public void onSyncedDataUpdated(EntityDataAccessor<?> key){super.onSyncedDataUpdated(key);if(key.equals(HEADS)&&level().isClientSide&&currentHeadYaw!=null){float alpha=Math.clamp((level().getGameTime()-poseReceived)/4f,0,1);var n=heads();for(int h=0;h<3;h++){previousHeadYaw[h]=firstPose?n.getFloat("Yaw"+h):Mth.rotLerp(alpha,previousHeadYaw[h],currentHeadYaw[h]);previousHeadPitch[h]=firstPose?n.getFloat("Pitch"+h):Mth.lerp(alpha,previousHeadPitch[h],currentHeadPitch[h]);currentHeadYaw[h]=n.getFloat("Yaw"+h);currentHeadPitch[h]=n.getFloat("Pitch"+h);}firstPose=false;poseReceived=level().getGameTime();}}
++ public float visualHeadYaw(int h,float partial){return Mth.rotLerp(Math.clamp((level().getGameTime()-poseReceived+partial)/4f,0,1),previousHeadYaw[h],currentHeadYaw[h]);}
++ public float visualHeadPitch(int h,float partial){return Mth.lerp(Math.clamp((level().getGameTime()-poseReceived+partial)/4f,0,1),previousHeadPitch[h],currentHeadPitch[h]);}
++ public float visualHeadAge(int h,float partial){var n=heads();return n.getInt("Age"+h)+Math.clamp(level().getGameTime()-n.getLong("At")+partial,0,4);}
++ private void positionHeads(){if(parts==null)return;boolean folded=state()>=GorynychRules.EXHAUSTED&&state()<GorynychRules.PURIFIED;for(int h=0;h<3;h++){boolean client=level().isClientSide;var n=heads();float ry=client?visualHeadYaw(h,0):Mth.wrapDegrees(yaw[h]-getYRot()),p=client?visualHeadPitch(h,0):pitch[h];int action=client?n.getInt("Action"+h):headAction[h];float age=client?visualHeadAge(h,0):headAge[h];parts[h].setPos(position().add(GorynychPose.offset(h,getYRot(),ry,p,tickCount,folded,ducking(),flying(),action,age)));}}
++ private void grab(ServerPlayer p){releaseGrab();grabbed=p;headAction[2]=3;headAge[2]=0;grabAge=grabHits=0;sound("head_predator_grab");}
+  public void resistGrab(){if(grabbed!=null&&++grabHits>=3)releaseGrab();}
+  private void grabTick(){if(grabbed==null)return;if(!candidate(grabbed)||grabbed.hasDisconnected()||grabbed.distanceToSqr(this)>225||++grabAge>GorynychRules.GRAB_MAX){releaseGrab();return;}var p=parts[2].position();if(visible(grabbed.position(),p)&&level().noCollision(grabbed,grabbed.getBoundingBox().move(p.subtract(grabbed.position())))){grabbed.connection.teleport(p.x,p.y,p.z,grabbed.getYRot(),grabbed.getXRot());grabbed.setDeltaMovement(Vec3.ZERO);grabbed.fallDistance=0;}if(grabAge%20==0)hit(grabbed,3,2);}
+- private void releaseGrab(){if(grabbed!=null){grabbed.getPersistentData().putLong("GorynychGrabUntil",level().getGameTime()+GorynychRules.GRAB_IMMUNITY);grabbed.fallDistance=0;grabbed=null;}grabAge=grabHits=0;}
++ private void releaseGrab(){if(grabbed!=null){grabbed.getPersistentData().putLong("GorynychGrabUntil",level().getGameTime()+GorynychRules.GRAB_IMMUNITY);grabbed.fallDistance=0;grabbed=null;headAction[2]=4;headAge[2]=0;}grabAge=grabHits=0;}
++ public void cancelPeacefully(){stopAttacks();persist();discard();}
++ public void cancelTarget(Player p){if(grabbed==p)releaseGrab();for(int h=0;h<3;h++)if(headTarget[h]==p){headTarget[h]=null;headAction[h]=headAge[h]=0;headRest[h]=20;}if(getTarget()==p){setTarget(null);entityData.set(BODY,0);bodyAge=0;}}
+  public boolean grabbed(Player p){return grabbed==p;}
+  @Override public boolean hurt(DamageSource source,float amount){if(level().isClientSide||!Float.isFinite(amount)||amount<=0||state()>=GorynychRules.EXHAUSTED||state()==GorynychRules.TRANSFORM)return false;if(source.getEntity() instanceof Gorynych)return false;if(!layout.getBoolean("Standalone")&&source.getEntity() instanceof LivingEntity attacker&&!candidate(attacker))return false;if(damagePass){boolean nested=super.hurt(source,amount);if(nested)credit(source.getEntity());return nested;}if(state()==GorynychRules.PATROL)state(GorynychRules.GROUND);pendingDamage=0;damagePass=true;super.setHealth(1024);boolean hit=super.hurt(source,amount);damagePass=false;entityData.set(HP,GorynychRules.remaining(logicalHealth(),pendingDamage));super.setHealth(1024*logicalHealth()/GorynychRules.HP);if(hit&&pendingDamage>0){credit(source.getEntity());resistGrab();}if(logicalHealth()<=GorynychRules.FLOOR)exhaust();else if(logicalHealth()<=GorynychRules.TRANSFORM_HP&&!wings()){stopAttacks();state(GorynychRules.TRANSFORM);sound("transform_start");}persist();return hit;}
+  @Override public void setHealth(float value){if(damagePass){pendingDamage+=Math.max(0,getHealth()-value);super.setHealth(Math.max(1,value));}else super.setHealth(Math.max(1,value));}
+--- /dev/null
++++ b/src/main/java/org/slavicmyths/gorynych/GorynychPose.java
+@@ -0,0 +1,25 @@
++package org.slavicmyths.gorynych;
++
++import net.minecraft.util.Mth;
++import net.minecraft.world.phys.Vec3;
++import org.joml.Matrix4f;
++import org.joml.Vector3f;
++
++/** Shared authored-model kinematics. Coordinates follow ModelPart (pixels, Y down). */
++public final class GorynychPose {
++ public static float lane(int head,float yaw){return head==0?Mth.clamp(yaw,0,40):head==2?Mth.clamp(yaw,-40,0):Mth.clamp(yaw,-12,12);}
++ public static float bend(int head,float time,boolean folded,boolean duck){return folded?1.3f:duck?.8f:(float)Math.sin(time*.04+head)*.035f;}
++ public static float rootPitch(int head,float pitch,float time,boolean folded,boolean duck){return bend(head,time,folded,duck)+(folded||duck?0:(float)Math.toRadians(Mth.clamp(pitch,-35,65)*.7));}
++ private static float smooth(float t){t=Mth.clamp(t,0,1);return t*t*(3-2*t);}
++ public static float extension(int action,float age){if(action==3)return 32;if(action==4)return 32*(1-smooth(age/18));if(action==0)return 0;return 32*smooth((age-24)/6)*(1-smooth((age-34)/18));}
++ public static boolean contact(int action,int age){return (action==1||action==2)&&age>=30&&age<=34;}
++ public static Vec3 offset(int head,float bodyYaw,float relativeYaw,float pitch,float time,boolean folded,boolean duck,boolean flying,int action,float age){
++  Matrix4f m=new Matrix4f().translate(0,-20+(float)Math.sin(time*.04)*.6f,12).rotateX(flying?-.12f:0).translate((head-1)*30,4,-39).rotateY((float)Math.toRadians(folded?0:lane(head,relativeYaw))).rotateX(rootPitch(head,pitch,time,folded,duck));
++  for(int i=1;i<5;i++)m.translate(0,-15,-5).rotateX(folded||duck?0:(float)Math.toRadians(pitch*.18));
++  m.translate(0,-11,-8-(head==2?extension(action,age):0));
++  // Center beneath the visible skull, toward the jaw; PartEntity uses its bottom center.
++  Vector3f v=m.transformPosition(new Vector3f(0,6,-10));double x=v.x/16.,y=1.5-v.y/16.,forward=-v.z/16.,r=Math.toRadians(bodyYaw);
++  return new Vec3(Math.cos(r)*x-Math.sin(r)*forward,y,Math.sin(r)*x+Math.cos(r)*forward);
++ }
++ private GorynychPose(){}
++}
+--- a/src/main/java/org/slavicmyths/gorynych/GorynychWorld.java
++++ b/src/main/java/org/slavicmyths/gorynych/GorynychWorld.java
+@@ -8,7 +8,7 @@
+ import net.neoforged.fml.common.EventBusSubscriber;
+ @EventBusSubscriber(modid="slavicmyths")
+ public final class GorynychWorld {
+- public static void ensure(ServerLevel w,UUID id){if(w.dimension()!=Level.OVERWORLD)return;var hill=org.slavicmyths.serpenthill.HillWorld.get(w).row(id);if(!hill.contains("Origin")||hill.getBoolean("Building"))return;var d=GorynychLedger.get(w);d.ensure(id,hill);var n=d.row(id);long now=w.getGameTime();if(n.contains("PopulationAt")&&now<n.getLong("PopulationAt"))return;n.putLong("PopulationAt",now+40);
++ public static void ensure(ServerLevel w,UUID id){if(w.dimension()!=Level.OVERWORLD)return;var hill=org.slavicmyths.serpenthill.HillWorld.get(w).row(id);if(!hill.contains("Origin")||hill.getBoolean("Building"))return;var d=GorynychLedger.get(w);d.ensure(id,hill);var n=d.row(id);if(w.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL&&n.getInt("State")<GorynychRules.EXHAUSTED)return;long now=w.getGameTime();if(n.contains("PopulationAt")&&now<n.getLong("PopulationAt"))return;n.putLong("PopulationAt",now+40);
+   if(n.hasUUID("Boss")){var known=w.getEntity(n.getUUID("Boss"));if(known instanceof Gorynych)return;for(var realm:w.getServer().getAllLevels())if(realm!=w&&realm.getEntity(n.getUUID("Boss")) instanceof Gorynych)return;if(n.contains("LastPosition")){var last=BlockPos.of(n.getLong("LastPosition"));if(!w.hasChunkAt(last)||!w.areEntitiesLoaded(net.minecraft.world.level.ChunkPos.asLong(last)))return;}if(!n.contains("MissingSince")){n.putLong("MissingSince",now);return;}if(now-n.getLong("MissingSince")<200)return;}
+   var found=w.getEntitiesOfClass(Gorynych.class,GorynychPlaces.bounds(n),e->id.equals(e.instance));if(!found.isEmpty()){var keeper=found.stream().filter(e->n.hasUUID("Boss")&&n.getUUID("Boss").equals(e.getUUID())).findFirst().orElse(found.getFirst());for(var e:found)if(e!=keeper)e.discard();n.putUUID("Boss",keeper.getUUID());n.remove("MissingSince");d.setDirty();return;}
+   var boss=GorynychContent.BOSS.get().create(w);if(boss==null)return;boss.configure(id,n);int start=n.contains("Node")?n.getInt("Node"):Math.floorMod((int)n.getLong("Seed"),GorynychPlaces.NODES.length);for(int i=0;i<GorynychPlaces.NODES.length;i++){int node=(start+i)%GorynychPlaces.NODES.length;Vec3 pos=n.contains("LastPosition")&&i==0?Vec3.atBottomCenterOf(BlockPos.of(n.getLong("LastPosition"))):GorynychPlaces.node(n,node);if(!GorynychPlaces.safe(w,boss,pos))continue;boss.node=node;boss.setYRot((node>=3?-90:0)+GorynychPlaces.rotation(n).rotate(Direction.SOUTH).toYRot());boss.yBodyRot=boss.getYRot();boss.setPos(pos);if(w.addFreshEntity(boss)){n.putUUID("Boss",boss.getUUID());n.putInt("Node",node);n.putLong("LastPosition",boss.blockPosition().asLong());n.remove("MissingSince");d.setDirty();}return;}
+--- a/src/main/java/org/slavicmyths/guardians/GuardianEntity.java
++++ b/src/main/java/org/slavicmyths/guardians/GuardianEntity.java
+@@ -61,6 +61,7 @@
+  /** Spawn eggs and /summon get a real local encounter rather than disappearing. */
+  private void standalone(ServerLevel w){configure(getUUID(),GuardianLedger.get(w).standalone(getUUID(),blockPosition(),water));}
+  @Override protected net.minecraft.world.InteractionResult mobInteract(net.minecraft.world.entity.player.Player p,net.minecraft.world.InteractionHand hand){if(instance!=null&&layout.getBoolean("Standalone")&&state()==GuardianRules.PURIFY){if(p instanceof ServerPlayer server)finishPurification(server);return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);}return super.mobInteract(p,hand);}
++ public void cancelPeacefully(){if(level() instanceof ServerLevel w&&instance!=null){var d=GuardianLedger.get(w);var n=d.row(instance);n.putFloat("Health",getHealth());if(state()>GuardianRules.IDLE&&state()<GuardianRules.PURIFY)d.stage(instance,"READY");d.setDirty();}clearHazards();bar.removeAllPlayers();discard();}
+  protected abstract void combat();
+  protected void clearHazards(){}
+  protected boolean melee(){var t=getTarget();if(t==null||distanceToSqr(t)>12.25||!hasLineOfSight(t))return false;if(state()==GuardianRules.COMBAT&&level().getGameTime()>=meleeReady){hitArm=1-hitArm;pattern(hitArm);state(GuardianRules.MELEE);sound(water?"spring_whip_windup":"fire_guardian_swing");return true;}return false;}
+--- a/src/main/java/org/slavicmyths/guardians/GuardianWorld.java
++++ b/src/main/java/org/slavicmyths/guardians/GuardianWorld.java
+@@ -19,10 +19,10 @@
+  public static BlockPos healingSource(CompoundTag n){return at(n,79,1,21);}
+  public static boolean loaded(ServerLevel w,AABB box){for(int x=((int)box.minX)>>4;x<=((int)box.maxX)>>4;x++)for(int z=((int)box.minZ)>>4;z<=((int)box.maxZ)>>4;z++)if(w.getChunkSource().getChunkNow(x,z)==null)return false;return true;}
+  public static void visit(ServerPlayer p,UUID id,BlockPos origin,Rotation r,boolean spring){var s=SanctuaryRecords.get(p.serverLevel());s.ensure(id,origin,r,spring);ensure(p.serverLevel(),id);}
+- public static void ensure(ServerLevel w,UUID id){var d=GuardianLedger.get(w);d.ensure(id,SanctuaryRecords.get(w).row(id));var n=d.row(id);if(!n.contains("Origin")||n.getBoolean("Standalone"))return;long now=w.getGameTime();if(n.contains("PopulationCheckAt")&&now<n.getLong("PopulationCheckAt"))return;n.putLong("PopulationCheckAt",now+20);populate(w,id,n);}
++ public static void ensure(ServerLevel w,UUID id){var d=GuardianLedger.get(w);d.ensure(id,SanctuaryRecords.get(w).row(id));var n=d.row(id);if(w.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL&&!n.getString("Stage").equals("CLEARED")&&!n.getString("Stage").equals("PURIFICATION"))return;if(!n.contains("Origin")||n.getBoolean("Standalone"))return;long now=w.getGameTime();if(n.contains("PopulationCheckAt")&&now<n.getLong("PopulationCheckAt"))return;n.putLong("PopulationCheckAt",now+20);populate(w,id,n);}
+  public static void generated(ServerLevel w,UUID id,BlockPos origin,Rotation r,boolean spring){SanctuaryRecords.get(w).ensure(id,origin,r,spring);ensure(w,id);}
+  /** Chunk-local population; never loads chunks and does not depend on arena entry. */
+- private static void populate(ServerLevel w,UUID id,CompoundTag n){var d=GuardianLedger.get(w);if(!loaded(w,chamber(n)))return;
++ private static void populate(ServerLevel w,UUID id,CompoundTag n){var d=GuardianLedger.get(w);if(w.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL&&!n.getString("Stage").equals("CLEARED")&&!n.getString("Stage").equals("PURIFICATION"))return;if(!loaded(w,chamber(n)))return;
+   // UUID and last loaded position prevent treating an unloaded guardian as missing.
+   var found=w.getEntitiesOfClass(GuardianEntity.class,chamber(n).inflate(2),e->id.equals(e.instance));
+   if(!found.isEmpty()){var keeper=found.stream().filter(e->n.hasUUID("Boss")&&n.getUUID("Boss").equals(e.getUUID())).findFirst().orElse(found.getFirst());for(var e:found)if(e!=keeper)e.discard();n.putUUID("Boss",keeper.getUUID());n.remove("MissingSince");return;}
+--- a/src/main/java/org/slavicmyths/hunt/WorldBoss.java
++++ b/src/main/java/org/slavicmyths/hunt/WorldBoss.java
+@@ -76,6 +76,7 @@
+  private List<Player> players(double radius){return level().getEntitiesOfClass(Player.class,getBoundingBox().inflate(radius),p->p.isAlive()&&!p.isCreative()&&!p.isSpectator());}
+  private void area(float damage,double r,double cone,float kb){for(Player p:players(r))strike(p,damage,r,cone,kb);}
+  private void fate(LivingEntity p){p.addEffect(new MobEffectInstance(BossEffects.ILL_FATE,160));}
++ public void cancelTarget(Player player){if(heldEntity()==player)releaseHeld(false);if(getTarget()==player){setTarget(null);recover(20);}}
+  private LivingEntity heldEntity(){if(held==null||level().isClientSide)return null;Entity e=((ServerLevel)level()).getEntity(held);return e instanceof LivingEntity?(LivingEntity)e:null;}
+  private void releaseHeld(boolean toss){LivingEntity p=heldEntity();held=null;holdTicks=0;if(p==null)return;p.fallDistance=0;p.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,60,0,false,false));if(toss&&p.isAlive()){p.hurt(damageSources().mobAttack(this),6);p.setDeltaMovement(heading.scale(.72).add(0,.35,0));p.hurtMarked=true;}}
+  private boolean spinSafe(){return onGround()&&!isInWater()&&level().noCollision(getBoundingBox().inflate(.7,0,.7).expandTowards(0,.4,0));}
+@@ -103,7 +104,7 @@
+    if(t==null){if(move()!=Move.IDLE)recover(10);if(home!=null&&tickCount%10==0)navigation.moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,1);return;}
+    if(home!=null&&distanceToSqr(home.getX()+.5,home.getY(),home.getZ()+.5)>96*96){setTarget(null);recover(10);return;}
+    if(move()==Move.IDLE){Move chosen=choose(t,sight);if(chosen!=Move.IDLE){begin(chosen,t);return;}lookControl.setLookAt(t,25,25);if(tickCount%10==0){boolean path=navigation.moveTo(t,1);unreachable=path?0:unreachable+10;}return;}
+-   time++;Move m=move();if(m==Move.HOLD){LivingEntity victim=heldEntity();if(victim==null||!victim.isAlive()||distanceTo(victim)>5){recover(26);return;}navigation.stop();Vec3 desired=position().add(heading.scale(1.4)).add(0,1.2,0);victim.setDeltaMovement(desired.subtract(victim.position()).scale(.25));victim.fallDistance=0;victim.hurtMarked=true;if(++holdTicks>=20){releaseHeld(true);recover(26);}return;}
++   time++;Move m=move();if(m==Move.HOLD){LivingEntity victim=heldEntity();if(victim==null||!victim.isAlive()||org.slavicmyths.combat.CreatureSafety.protectedPlayer(victim)||distanceTo(victim)>5){recover(26);return;}navigation.stop();Vec3 desired=position().add(heading.scale(1.4)).add(0,1.2,0);victim.setDeltaMovement(desired.subtract(victim.position()).scale(.25));victim.fallDistance=0;victim.hurtMarked=true;if(++holdTicks>=20){releaseHeld(true);recover(26);}return;}
+    if(m==Move.CHASE){if(tickCount%8==0)navigation.moveTo(t,1.25);heading=t.position().subtract(position()).multiply(1,0,1).normalize();if(time%25==0)area(10,4,Math.cos(Math.toRadians(55)),.55F);if(time>=80)recover(40);return;}
+    navigation.stop();if(m==Move.CHARGE||m==Move.LEAP){if(time<=m.windup){heading=t.position().add(t.getDeltaMovement().scale(3)).subtract(position()).multiply(1,0,1).normalize();boolean aligned=DashFacing.turn(WorldBoss.this,heading,m==Move.CHARGE?18:25);if(time==m.windup&&!aligned){if(++align<=20){time--;entityData.set(START,entityData.get(START)+1);return;}recover(10);return;}if(time==m.windup){if(m==Move.CHARGE&&!level().noCollision(getBoundingBox().expandTowards(heading.scale(3)))){recover(30);return;}DashFacing.lock(WorldBoss.this,heading);}}else DashFacing.lock(WorldBoss.this,heading);}
+    else if(m!=Move.SPIN&&time<=m.windup)DashFacing.turn(WorldBoss.this,heading,25);
+--- a/src/main/java/org/slavicmyths/industry/ChudPerson.java
++++ b/src/main/java/org/slavicmyths/industry/ChudPerson.java
+@@ -28,13 +28,14 @@
+     private void activity(int a){if(activity()!=a){entityData.set(ACT,a);entityData.set(ACT_START,level().getGameTime());}}
+     private boolean alarm(Player p){var n=getPersistentData();return n.getCompound("ChudAggressors").getLong(p.getUUID().toString())>level().getGameTime();}
+     private BlockPos home;private boolean rareStock;private long stockDay=-1;private int stockBits;
+-    public ChudPerson(EntityType<? extends ChudPerson> type,Level level){super(type,level);setPersistenceRequired();getAttribute(Attributes.STEP_HEIGHT).setBaseValue(1);setPathfindingMalus(net.minecraft.world.level.pathfinder.PathType.WATER,-1);setPathfindingMalus(net.minecraft.world.level.pathfinder.PathType.LAVA,-1);setPathfindingMalus(net.minecraft.world.level.pathfinder.PathType.DAMAGE_FIRE,-1);if(type==ChudPeople.GUARD.get())entityData.set(ROLE,3);else if(type==ChudPeople.ARTISAN.get())entityData.set(ROLE,1);}
+-    public static AttributeSupplier.Builder attributes(double hp){return createMobAttributes().add(Attributes.MAX_HEALTH,hp).add(Attributes.MOVEMENT_SPEED,hp==44?.29:hp==20?.26:.24).add(Attributes.FOLLOW_RANGE,hp==44?16:20).add(Attributes.ATTACK_DAMAGE,5).add(Attributes.ARMOR,2);}
++    public ChudPerson(EntityType<? extends ChudPerson> type,Level level){super(type,level);setPersistenceRequired();getAttribute(Attributes.STEP_HEIGHT).setBaseValue(1);setPathfindingMalus(net.minecraft.world.level.pathfinder.PathType.WATER,-1);setPathfindingMalus(net.minecraft.world.level.pathfinder.PathType.LAVA,-1);setPathfindingMalus(net.minecraft.world.level.pathfinder.PathType.DAMAGE_FIRE,-1);if(type==ChudPeople.GUARD.get()){entityData.set(ROLE,3);guardEquipment();}else if(type==ChudPeople.ARTISAN.get())entityData.set(ROLE,1);}
++    public static AttributeSupplier.Builder attributes(double hp){return createMobAttributes().add(Attributes.MAX_HEALTH,hp).add(Attributes.MOVEMENT_SPEED,hp==44?.29:hp==20?.26:.24).add(Attributes.FOLLOW_RANGE,hp==44?16:20).add(Attributes.ATTACK_DAMAGE,hp==44?2:5).add(Attributes.ARMOR,2);}
+     protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(ROLE,0);b.define(ACT,0);b.define(ACT_START,0L);}
+     public int role(){return entityData.get(ROLE);}
+     public int getMaxFallDistance(){return 2;}
+     public boolean isAlliedTo(Entity e){return e instanceof ChudPerson||super.isAlliedTo(e);}
+-    public void setup(int role,BlockPos home,boolean rare){entityData.set(ROLE,role);this.home=home.immutable();restrictTo(home,10);rareStock=rare;offers=null;if(role==1||role==2){setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(role==2?Items.IRON_PICKAXE:Items.IRON_AXE));setDropChance(EquipmentSlot.MAINHAND,0);}}
++    private void guardEquipment(){if(role()!=3)return;if(getMainHandItem().isEmpty())setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(Items.IRON_AXE));setDropChance(EquipmentSlot.MAINHAND,0);}
++    public void setup(int role,BlockPos home,boolean rare){entityData.set(ROLE,role);this.home=home.immutable();restrictTo(home,10);rareStock=rare;offers=null;guardEquipment();if(role==1||role==2){setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(role==2?Items.IRON_PICKAXE:Items.IRON_AXE));setDropChance(EquipmentSlot.MAINHAND,0);}}
+     public Component getDisplayName(){return hasCustomName()?super.getDisplayName():Component.translatable("industry.slavicmyths.role."+role());}
+     protected void registerGoals(){
+         goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new TradeWithPlayerGoal(this));goalSelector.addGoal(1,new LookAtTradingPlayerGoal(this));
+@@ -79,7 +80,7 @@
+     }
+     private void offer(Item a,int n,Item b,int m,Item out,int count,int uses){offers.add(new MerchantOffer(new ItemCost(a,n),b==null?Optional.empty():Optional.of(new ItemCost(b,m)),new ItemStack(out,count),uses,1,0));}
+     public void aiStep(){super.aiStep();if(level().isClientSide)return;long now=level().getGameTime();
+-        if(role()==3&&guardVictim!=null&&now>=guardHitAt){if(guardVictim.isAlive()&&distanceToSqr(guardVictim)<6.25&&hasLineOfSight(guardVictim)){swing(InteractionHand.MAIN_HAND);guardVictim.hurt(damageSources().mobAttack(this),5.5F);}guardVictim=null;}
++        if(role()==3&&guardVictim!=null&&now>=guardHitAt){if(org.slavicmyths.combat.CombatTargeting.canAttack(this,guardVictim)&&distanceToSqr(guardVictim)<6.25&&hasLineOfSight(guardVictim)){swing(InteractionHand.MAIN_HAND);doHurtTarget(guardVictim);}guardVictim=null;}
+         if(activity()==3&&activityAge(0)>=15)activity(0);
+         if(getTarget() instanceof Player player&&!alarm(player)&&distanceToSqr(player)>6.25)setTarget(null);
+         if(getTarget()!=null&&home!=null&&getTarget().distanceToSqr(home.getCenter())>576)setTarget(null);
+@@ -93,7 +94,7 @@
+     }
+     public boolean hurt(net.minecraft.world.damagesource.DamageSource source,float amount){boolean hit=super.hurt(source,amount);if(hit&&!level().isClientSide&&source.getEntity() instanceof LivingEntity enemy){for(var n:level().getEntitiesOfClass(ChudPerson.class,getBoundingBox().inflate(24))){if(enemy instanceof Player p){var aggression=n.getPersistentData().getCompound("ChudAggressors");long now=level().getGameTime();for(String key:new ArrayList<>(aggression.getAllKeys()))if(aggression.getLong(key)<=now)aggression.remove(key);aggression.putLong(p.getUUID().toString(),now+1200);n.getPersistentData().put("ChudAggressors",aggression);n.getPersistentData().putLong("ChudAggressorUntil",now+1200);}if(n.role()==3&&n.hasLineOfSight(enemy)&&!(enemy instanceof ChudPerson))n.setTarget(enemy);}}return hit;}
+     public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);n.putInt("ChudRole",role());n.putBoolean("RareStock",rareStock);n.putLong("StockDay",stockDay);n.putInt("StockBits",stockBits);if(home!=null)n.putLong("Home",home.asLong());}
+-    public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);if(n.contains("ChudRole"))entityData.set(ROLE,Math.clamp(n.getInt("ChudRole"),0,3));rareStock=n.getBoolean("RareStock");stockDay=n.getLong("StockDay");stockBits=n.getInt("StockBits");if(n.contains("Home")){home=BlockPos.of(n.getLong("Home"));restrictTo(home,10);}}
++    public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);if(n.contains("ChudRole"))entityData.set(ROLE,Math.clamp(n.getInt("ChudRole"),0,3));rareStock=n.getBoolean("RareStock");stockDay=n.getLong("StockDay");stockBits=n.getInt("StockBits");if(n.contains("Home")){home=BlockPos.of(n.getLong("Home"));restrictTo(home,10);}guardEquipment();}
+     public void remove(RemovalReason reason){if(!level().isClientSide&&getTradingPlayer()!=null){getTradingPlayer().closeContainer();setTradingPlayer(null);}super.remove(reason);}
+     public void die(net.minecraft.world.damagesource.DamageSource source){if(!level().isClientSide&&getTradingPlayer()!=null){getTradingPlayer().closeContainer();setTradingPlayer(null);}super.die(source);}
+ }
+--- a/src/main/java/org/slavicmyths/kalin/KalinEntity.java
++++ b/src/main/java/org/slavicmyths/kalin/KalinEntity.java
+@@ -16,7 +16,7 @@
+  public void dismount(){if(dismounted)return;dismounted=true;var h=getVehicle();stopRiding();if(h instanceof WarHorse a){var at=KartausEncounter.ground((ServerLevel)level(),a.position().add(2,0,0),1.05,2.8);if(at==null)at=KartausEncounter.ground((ServerLevel)level(),a.position().add(-2,0,0),1.05,2.8);if(at!=null)setPos(at);a.getNavigation().stop();a.setDeltaMovement(Vec3.ZERO);a.begin(FalconAction.RECALL,45);a.exitAt=level().getGameTime()+45;a.playSound(KalinContent.sound("horse_rear"),1,1);}begin(FalconAction.MORPH,45);sound("horse_rear");}
+  private void sound(String k){playSound(KalinContent.sound(k),.9F,1);}
+  public boolean enemy(LivingEntity e){if(e==null||!e.isAlive())return false;if(e instanceof ServerPlayer p)return !p.isCreative()&&!p.isSpectator()&&(owner==null||p.getUUID().equals(owner));if(encounter==null&&org.slavicmyths.bogatyr.HeroThreats.availableHero(e))return true;var a=entry();return a!=null&&(e.getUUID().equals(a.heroA)||e.getUUID().equals(a.heroB))&&!KalinParty.recovering(e)&&!e.getPersistentData().getBoolean("KalinRetreated");}
+- public LivingEntity partyTarget(Entity from){if(!(level() instanceof ServerLevel w))return null;var p=owner==null?null:w.getServer().getPlayerList().getPlayer(owner);var e=entry();if(e!=null){for(UUID id:List.of(e.heroA,e.heroB)){if(w.getEntity(id) instanceof LivingEntity h&&enemy(h)&&from.distanceToSqr(h)<16&&from.distanceToSqr(p==null?this:p)>9)return h;}}return p;}
++ public LivingEntity partyTarget(Entity from){if(!(level() instanceof ServerLevel w))return null;var p=owner==null?null:w.getServer().getPlayerList().getPlayer(owner);var e=entry();if(e!=null){for(UUID id:List.of(e.heroA,e.heroB)){if(w.getEntity(id) instanceof LivingEntity h&&enemy(h)&&from.distanceToSqr(h)<16&&from.distanceToSqr(p==null?this:p)>9)return h;}}return enemy(p)?p:null;}
+  public List<LivingEntity> targets(){var r=new ArrayList<LivingEntity>();var t=getTarget();if(enemy(t))r.add(t);if(level() instanceof ServerLevel w){var e=entry();if(e!=null){var p=w.getServer().getPlayerList().getPlayer(owner);if(enemy(p)&&!r.contains(p))r.add(p);for(UUID id:List.of(e.heroA,e.heroB))if(w.getEntity(id) instanceof LivingEntity h&&enemy(h)&&!r.contains(h))r.add(h);}}return r;}
+  public static float diamondRaw(float net){return (float)((-.2+Math.sqrt(.04+.04*net))/.02);}
+  public DamageSource source(String kind){var key=net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.DAMAGE_TYPE,KalinContent.id("kalin_"+kind));return new DamageSource(level().registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(key),this);}
+--- a/src/main/java/org/slavicmyths/karachun/Karachun.java
++++ b/src/main/java/org/slavicmyths/karachun/Karachun.java
+@@ -23,15 +23,16 @@
+  @Override public float getMaxHealth(){return entityData==null?1600:entityData.get(MAX);}
+  public void configureHealth(float health){entityData.set(MAX,health);setHealth(health);}
+  public int phase(){return entityData.get(PHASE);}public int action(){return entityData.get(ACTION);}public int age(){return entityData.get(AGE);}public boolean fighting(){return session!=null&&phase()>=1&&phase()<=3;}
+- public boolean candidate(LivingEntity e){return fighting()&&e.isAlive()&&NightOwners.owner(e)!=null&&e.position().distanceToSqr(anchor)<=Math.pow(NightConfig.value("arena"),2)&&(!(e instanceof ServerPlayer p)||!p.isSpectator()&&(!p.isCreative()||p.getUUID().equals(owner)))&&(!(e instanceof Mob)||e instanceof org.slavicmyths.morozko.PlayerDouble||e instanceof org.slavicmyths.quest185.WolfSupport||e instanceof net.minecraft.world.entity.TamableAnimal||org.slavicmyths.bogatyr.HeroThreats.availableHero(e));}
++ public boolean candidate(LivingEntity e){return fighting()&&e.isAlive()&&NightOwners.owner(e)!=null&&e.position().distanceToSqr(anchor)<=Math.pow(NightConfig.value("arena"),2)&&(!(e instanceof ServerPlayer p)||!p.isSpectator()&&!p.isCreative())&&(!(e instanceof Mob)||e instanceof org.slavicmyths.morozko.PlayerDouble||e instanceof org.slavicmyths.quest185.WolfSupport||e instanceof net.minecraft.world.entity.TamableAnimal||org.slavicmyths.bogatyr.HeroThreats.availableHero(e));}
+  private List<LivingEntity> targets(){return level().getEntitiesOfClass(LivingEntity.class,new AABB(anchor,anchor).inflate(NightConfig.value("arena")),this::candidate);}
+  public void credit(UUID uuid,float damage,boolean attacked){if(uuid==null||session==null||!(level() instanceof ServerLevel w))return;var d=NightLedger.get(w);var s=d.session(session);var parts=s.getCompound("Participants");var n=parts.getCompound(uuid.toString());n.putDouble("Damage",n.getDouble("Damage")+damage);if(attacked)n.putBoolean("Attacked",true);parts.put(uuid.toString(),n);s.put("Participants",parts);d.setDirty();}
+  private void action(int a){entityData.set(ACTION,a);entityData.set(AGE,0);getNavigation().stop();if(a>0)NightContent.sound(this,switch(a){case 1,2,3->"scythe_windup";case 4->"touch_hunger";case 5->"touch_frost";case 6->"touch_death";case 7->"long_night_cast";case 8->"voice_whisper";case 9->"last_hour_mark";default->"yield";});}
++ public void cancelPeacefully(){if(level() instanceof ServerLevel w){if(session!=null){var d=NightLedger.get(w);var row=d.session(session);if(!row.getBoolean("Complete")){row.putBoolean("Cancelled",true);if(row.hasUUID("Owner"))d.player(row.getUUID("Owner")).putLong("TrialReady",d.now(w));d.setDirty();}}cleanup();bar.removeAllPlayers();discard();}}
+  @Override public void tick(){super.tick();if(level().isClientSide)return;var w=(ServerLevel)level();if(session==null||NightLedger.get(w).session(session).getBoolean("Cancelled")){discard();return;}entityData.set(AGE,age()+1);stageAge++;
+   if(phase()==0){if(stageAge==20)ravens();if(stageAge>=60){entityData.set(PHASE,1);stageAge=0;}return;}
+   if(phase()>=4){if(stageAge==40)NightLedger.get(w).complete(w,session);if(stageAge>=80)discard();return;}
+   if(getHealth()<=NightRules.floor(getMaxHealth())+.001){yieldTrial();return;}entityData.set(PHASE,NightRules.phase(getHealth(),getMaxHealth()));battleTicks++;bar.setName(NightContent.text("boss_phase",phase()));bar.setProgress(getHealth()/getMaxHealth());if(nightTicks>0)nightTicks--;
+-  if(tickCount%4==0){var ts=targets();boolean present=false;var d=NightLedger.get(w);var parts=d.session(session).getCompound("Participants");for(var t:ts){affected.add(t.getUUID());if(t instanceof ServerPlayer p){present=true;bar.addPlayer(p);var row=parts.getCompound(p.getUUID().toString());row.putInt("Active",row.getInt("Active")+4);parts.put(p.getUUID().toString(),row);}double distance=Math.sqrt(FrostWorld.bboxDistance(position().add(0,1,0),t.getBoundingBox()));double radius=NightConfig.value("aura"),rate=distance<4?NightConfig.value("nearGain"):distance<7?NightConfig.value("midGain"):distance<=radius?NightConfig.value("farGain"):0;if(rate>0&&hasLineOfSight(t))NightStatus.add(t,session,rate/5*(t instanceof ServerPlayer?1:.5)*(nightTicks>0?1.4:1),nightTicks>0?.6:phase()==3?.2:0,nightTicks>0);else if(nightTicks>0)NightStatus.add(t,session,0,.6,true);}
++  if(tickCount%4==0){var ts=targets();boolean present=false;var d=NightLedger.get(w);var parts=d.session(session).getCompound("Participants");for(var t:ts){affected.add(t.getUUID());if(t instanceof ServerPlayer p){present=true;bar.addPlayer(p);var row=parts.getCompound(p.getUUID().toString());row.putInt("Active",row.getInt("Active")+4);parts.put(p.getUUID().toString(),row);}double distance=Math.sqrt(FrostWorld.bboxDistance(position().add(0,1,0),t.getBoundingBox()));double radius=NightConfig.value("aura"),rate=distance<4?NightConfig.value("nearGain"):distance<7?NightConfig.value("midGain"):distance<=radius?NightConfig.value("farGain"):0;if(rate>0&&hasLineOfSight(t))NightStatus.add(t,session,rate/5*(t instanceof ServerPlayer?1:.5)*(nightTicks>0?1.4:1),rate/5*.6+(nightTicks>0?.6:phase()==3?.2:0),nightTicks>0);else if(nightTicks>0)NightStatus.add(t,session,0,.6,true);}
+    d.session(session).put("Participants",parts);d.setDirty();for(var p:new ArrayList<>(bar.getPlayers()))if(!candidate(p))bar.removePlayer(p);absent=present?0:absent+4;if(absent>=600){d.session(session).putBoolean("Cancelled",true);d.setDirty();discard();return;}setTarget(ts.stream().filter(this::hasLineOfSight).min(Comparator.comparingDouble(this::distanceToSqr)).orElse(null));}
+   if(marker!=null){markerAge++;if(markerAge%20==0)ring(marker,3,24);if(markerAge==40||markerAge==80)NightContent.sound(this,"last_hour_mark");if(markerAge>=NightConfig.ticks("hourWindup")){NightContent.sound(this,"last_hour_impact");for(var t:targets())if(FrostWorld.bboxDistance(marker,t.getBoundingBox())<=9&&hasLineOfSight(t))hit(t,16,10,10);burst(marker,40);marker=null;}}
+   if(tickCount%40==0){ring(position(),NightConfig.value("aura"),18);if(nightTicks>0)NightContent.sound(this,"dark_frost");}if(tickCount%240==0)NightContent.sound(this,"ambient_low_wind");
+--- a/src/main/java/org/slavicmyths/karachun/NightNetwork.java
++++ b/src/main/java/org/slavicmyths/karachun/NightNetwork.java
+@@ -13,6 +13,6 @@
+  public static final class PoseReceived extends net.neoforged.bus.api.Event{public final Pose pose;public PoseReceived(Pose p){pose=p;}}
+  public static void register(net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent e){var r=e.registrar("1.9.2");r.playToServer(Action.TYPE,Action.CODEC,(a,c)->{if(c.player() instanceof ServerPlayer p)NightCombat.action(p,a.action);});r.playToClient(View.TYPE,View.CODEC,(v,c)->net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(new Received(v.tag)));r.playToClient(Pose.TYPE,Pose.CODEC,(v,c)->net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(new PoseReceived(v)));}
+  public static void pose(ServerPlayer p,int action,int combo,int duration){PacketDistributor.sendToPlayersTrackingEntityAndSelf(p,new Pose(p.getId(),action,combo,duration));}
+- public static void send(ServerPlayer p){var n=NightLedger.get(p.serverLevel()).player(p.getUUID()).copy();n.remove("Pending");n.remove("Souls");n.putLong("Now",NightCombat.now(p));n.putDouble("Waning",NightStatus.value(p,"Waning"));n.putDouble("Fear",NightStatus.value(p,"Fear"));n.putBoolean("Night",NightStatus.night(p));n.putBoolean("WingEquipped",!org.slavicmyths.item.FolkAccessoryItem.equipped(p,NightContent.WING.get()).isEmpty());PacketDistributor.sendToPlayer(p,new View(n));}
++ public static void send(ServerPlayer p){var n=NightLedger.get(p.serverLevel()).player(p.getUUID()).copy();n.remove("Pending");n.remove("Souls");n.putLong("Now",NightCombat.now(p));n.putDouble("Waning",NightStatus.value(p,"Waning"));n.putDouble("Fear",NightStatus.visualFear(p));n.putBoolean("Night",NightStatus.night(p));n.putBoolean("WingEquipped",!org.slavicmyths.item.FolkAccessoryItem.equipped(p,NightContent.WING.get()).isEmpty());PacketDistributor.sendToPlayer(p,new View(n));}
+  private NightNetwork(){}
+ }
+--- a/src/main/java/org/slavicmyths/karachun/NightStatus.java
++++ b/src/main/java/org/slavicmyths/karachun/NightStatus.java
+@@ -8,15 +8,17 @@
+ public final class NightStatus {
+  public static final String KEY="Night192Status";
+  private static final net.minecraft.resources.ResourceLocation SLOW=NightContent.id("waning_slow"),WEAK=NightContent.id("waning_weak");
+- public static void add(LivingEntity e,UUID source,double waning,double fear,boolean night){if(e.level().isClientSide)return;var n=e.getPersistentData().getCompound(KEY);var k=source.toString();var row=n.getCompound(k);long now=e.level().getGameTime();row.putDouble("Waning",Math.clamp(row.getDouble("Waning")+waning,0,100));row.putDouble("Fear",Math.clamp(row.getDouble("Fear")+fear,0,100));row.putLong("Touched",now);if(night)row.putLong("Night",now+8);n.put(k,row);e.getPersistentData().put(KEY,n);}
++ public static void add(LivingEntity e,UUID source,double waning,double fear,boolean night){if(e.level().isClientSide||org.slavicmyths.combat.CreatureSafety.protectedPlayer(e))return;var n=e.getPersistentData().getCompound(KEY);var k=source.toString();var row=n.getCompound(k);long now=e.level().getGameTime();row.putDouble("Waning",Math.clamp(row.getDouble("Waning")+waning,0,100));row.putDouble("Fear",Math.clamp(row.getDouble("Fear")+fear,0,100));row.putLong("Touched",now);if(night)row.putLong("Night",now+8);hysteresis(row,now);n.put(k,row);e.getPersistentData().put(KEY,n);}
+  public static double value(LivingEntity e,String key){double max=0;var n=e.getPersistentData().getCompound(KEY);for(String k:n.getAllKeys())max=Math.max(max,n.getCompound(k).getDouble(key));return max;}
++ private static void hysteresis(CompoundTag row,long now){double fear=row.getDouble("Fear");int tier=row.getInt("FearTier"),next=NightRules.tier(fear);if(next>tier){tier=next;row.remove("FearFallAt");}else if(next<tier&&fear<tier*25-8){if(!row.contains("FearFallAt"))row.putLong("FearFallAt",now);if(now-row.getLong("FearFallAt")>=40){tier=next;row.remove("FearFallAt");}}else row.remove("FearFallAt");row.putInt("FearTier",tier);}
++ public static double visualFear(LivingEntity e){double result=0;var n=e.getPersistentData().getCompound(KEY);for(String k:n.getAllKeys()){var row=n.getCompound(k);result=Math.max(result,Math.max(row.getDouble("Fear"),row.getInt("FearTier")*25));}return result;}
+  public static boolean night(LivingEntity e){long now=e.level().getGameTime();var n=e.getPersistentData().getCompound(KEY);return n.getAllKeys().stream().anyMatch(k->n.getCompound(k).getLong("Night")>now);}
+  public static int tier(LivingEntity e){int t=NightRules.tier(value(e,"Waning"));return e instanceof org.slavicmyths.morozko.Morozko||e instanceof Karachun?Math.min(2,t):t;}
+  public static boolean offhand(LivingEntity e){return tier(e)>=3;}
+  public static void reduceFear(LivingEntity e,UUID source){var n=e.getPersistentData().getCompound(KEY).getCompound(source.toString());long now=e.level().getGameTime();if(now>=n.getLong("HitReady")){n.putDouble("Fear",Math.max(0,n.getDouble("Fear")-6));n.putLong("HitReady",now+40);}}
+  public static void clear(LivingEntity e,UUID source){var n=e.getPersistentData().getCompound(KEY);n.remove(source.toString());apply(e);if(n.isEmpty())e.getPersistentData().remove(KEY);}
+  public static void clearAll(LivingEntity e){e.getPersistentData().remove(KEY);apply(e);}
+- public static void tick(LivingEntity e){if(e.level().isClientSide||e.tickCount%4!=0||!e.getPersistentData().contains(KEY))return;var n=e.getPersistentData().getCompound(KEY);long now=e.level().getGameTime();for(String k:new ArrayList<>(n.getAllKeys())){UUID source;try{source=UUID.fromString(k);}catch(IllegalArgumentException bad){n.remove(k);continue;}if(NightLedger.get((ServerLevel)e.level()).closed(source)){NightEffects.clear(e,source);n.remove(k);continue;}var row=n.getCompound(k);if(now-row.getLong("Touched")>40){row.putDouble("Waning",Math.max(0,row.getDouble("Waning")-NightConfig.value("decay")/5));row.putDouble("Fear",Math.max(0,row.getDouble("Fear")-NightConfig.value("fearDecay")/5));}if(row.getDouble("Waning")<=0&&row.getDouble("Fear")<=0&&row.getLong("Night")<=now)n.remove(k);}int previous=e.getPersistentData().getInt("Night192Tier");apply(e);if(tier(e)>previous)NightContent.sound(e,"waning_stage_up");if(n.isEmpty())e.getPersistentData().remove(KEY);}
++ public static void tick(LivingEntity e){if(e.level().isClientSide||e.tickCount%4!=0||!e.getPersistentData().contains(KEY))return;var n=e.getPersistentData().getCompound(KEY);long now=e.level().getGameTime();for(String k:new ArrayList<>(n.getAllKeys())){UUID source;try{source=UUID.fromString(k);}catch(IllegalArgumentException bad){n.remove(k);continue;}if(NightLedger.get((ServerLevel)e.level()).closed(source)){NightEffects.clear(e,source);n.remove(k);continue;}var row=n.getCompound(k);if(now-row.getLong("Touched")>40){row.putDouble("Waning",Math.max(0,row.getDouble("Waning")-NightConfig.value("decay")/5));row.putDouble("Fear",Math.max(0,row.getDouble("Fear")-NightConfig.value("fearDecay")/5));}hysteresis(row,now);if(row.getDouble("Waning")<=0&&row.getDouble("Fear")<=0&&row.getLong("Night")<=now)n.remove(k);}int previous=e.getPersistentData().getInt("Night192Tier");apply(e);if(tier(e)>previous)NightContent.sound(e,"waning_stage_up");if(n.isEmpty())e.getPersistentData().remove(KEY);}
+  private static void apply(LivingEntity e){int t=tier(e);e.getPersistentData().putInt("Night192Tier",t);modifier(e,Attributes.MOVEMENT_SPEED,SLOW,t>0?-.15:0,AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);modifier(e,Attributes.ATTACK_DAMAGE,WEAK,!(e instanceof net.minecraft.world.entity.player.Player)&&t>=2?(t==3?-.35:-.2):0,AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);if(offhand(e)&&e.isUsingItem()&&e.getUsedItemHand()==net.minecraft.world.InteractionHand.OFF_HAND)e.stopUsingItem();}
+  private static void modifier(LivingEntity e,net.minecraft.core.Holder<Attribute> type,net.minecraft.resources.ResourceLocation id,double value,AttributeModifier.Operation op){var a=e.getAttribute(type);if(a==null)return;var old=a.getModifier(id);if(old!=null&&old.amount()==value)return;a.removeModifier(id);if(value!=0)a.addTransientModifier(new AttributeModifier(id,value,op));}
+  private NightStatus(){}
+--- a/src/main/java/org/slavicmyths/marinka/MarinkaEntity.java
++++ b/src/main/java/org/slavicmyths/marinka/MarinkaEntity.java
+@@ -44,7 +44,7 @@
+   }
+   if(tickCount%4==0){var walker=w.getServer().getPlayerList().getPlayer(owner);if(walker!=null&&walker.level()==w){var foot=walker.blockPosition();if(footprints.isEmpty()||!footprints.peekLast().equals(foot)){footprints.addLast(foot);while(footprints.size()>3)footprints.removeFirst();}}}
+   step(w,e);if(length()>0&&age()>=length())finish(w);if(length()>0)return;if(tickCount%4!=0)return;
+-  var p=w.getServer().getPlayerList().getPlayer(owner);if(p==null)return;var h=WitchYard.hero(p);LivingEntity target=p;if(h!=null&&h.isAlive()&&!h.recovering()&&random.nextFloat()<.25F)target=h;if(debug&&arena==null){target=org.slavicmyths.bogatyr.HeroThreats.debugOpponent(this,24);if(target==null){setTarget(null);getNavigation().stop();return;}}setTarget(target);face(target);
++  var p=w.getServer().getPlayerList().getPlayer(owner);if(p==null)return;var h=WitchYard.hero(p);LivingEntity target=p;if(org.slavicmyths.combat.CreatureSafety.protectedPlayer(p)){if(h!=null&&h.isAlive()&&!h.recovering())target=h;else{setTarget(null);getNavigation().stop();begin(WitchAction.IDLE);return;}}if(h!=null&&h.isAlive()&&!h.recovering()&&random.nextFloat()<.25F)target=h;if(debug&&arena==null){target=org.slavicmyths.bogatyr.HeroThreats.debugOpponent(this,24);if(target==null){setTarget(null);getNavigation().stop();return;}}setTarget(target);face(target);
+   if(!falseBody()&&phase>=2&&!curseUsed&&h!=null&&h.isAlive()){if(h.recovering()){if(w.getGameTime()>=curseDelay){curseUsed=true;cast(WitchAction.TRACE,"trace",220);return;}}else if(shadowEnd==0&&ready("curse")&&ready("heavy_safe")){curseUsed=true;entityData.set(VEIL,false);cast(WitchAction.CURSE,"curse",999999);return;}}
+   if(!falseBody()&&shadowEnd==0&&ready("shadow")&&ready("heavy_safe")){entityData.set(VEIL,false);cast(WitchAction.SHADOW,"shadow",700);return;}
+   if(!falseBody()&&shadowEnd==0&&ready("magpie")&&ready("heavy_safe")){destination=landing(target,8,12);if(destination!=null){entityData.set(ARRIVAL,BlockPos.containing(destination));entityData.set(VEIL,false);cast(WitchAction.BIRD_CHANGE,"magpie",540);return;}}
+--- a/src/main/java/org/slavicmyths/morozko/Morozko.java
++++ b/src/main/java/org/slavicmyths/morozko/Morozko.java
+@@ -26,10 +26,13 @@
+  public int phase(){return entityData.get(PHASE);}public int action(){return entityData.get(ACTION);}public int age(){return entityData.get(AGE);}
+  protected void action(int a){entityData.set(ACTION,a);entityData.set(AGE,0);getNavigation().stop();if(a>0){String cue=switch(a){case 1,2->null;case 3->"blizzard_start";case 4->"spike_telegraph";case 5->"breath";case 6->"wave";case 7->"clone_spawn";case 8->"blizzard_start";default->"yield";};if(cue!=null)FrostContent.sound(this,cue);}}
+  public boolean fighting(){return phase()>=1&&phase()<=3&&session!=null;}
+- public boolean candidate(LivingEntity e){return fighting()&&e.isAlive()&&!(e instanceof Morozko)&&FrostWorld.owner(e)!=null&&e.position().distanceToSqr(anchor)<=1600&&(!(e instanceof ServerPlayer p)||!p.isSpectator()&&(!p.isCreative()||p.getUUID().equals(owner)))&&(!(e instanceof Mob)||e instanceof PlayerDouble||org.slavicmyths.bogatyr.HeroThreats.availableHero(e));}
++ public boolean candidate(LivingEntity e){return fighting()&&e.isAlive()&&!(e instanceof Morozko)&&FrostWorld.owner(e)!=null&&e.position().distanceToSqr(anchor)<=1600&&(!(e instanceof ServerPlayer p)||!p.isSpectator()&&!p.isCreative())&&(!(e instanceof Mob)||e instanceof PlayerDouble||org.slavicmyths.bogatyr.HeroThreats.availableHero(e));}
+  public void credit(UUID id,float damage){if(id==null||!(level() instanceof ServerLevel w)||session==null)return;var d=FrostLedger.get(w);var s=d.session(session);var n=s.getCompound("Participants");var row=n.getCompound(id.toString());row.putDouble("Damage",row.getDouble("Damage")+damage);n.put(id.toString(),row);s.put("Participants",n);d.setDirty();}
+  public void attacked(LivingEntity e){UUID id=FrostWorld.owner(e);if(id==null||session==null)return;var d=FrostLedger.get((ServerLevel)level());var s=d.session(session);var n=s.getCompound("Participants");var row=n.getCompound(id.toString());row.putBoolean("Attacked",true);n.put(id.toString(),row);s.put("Participants",n);d.setDirty();}
+  protected List<LivingEntity> targets(){return level().getEntitiesOfClass(LivingEntity.class,new net.minecraft.world.phys.AABB(anchor,anchor).inflate(40),this::candidate);}
++ public void cancelPeacefully(){
++  if(level() instanceof ServerLevel w){if(session!=null){var d=FrostLedger.get(w);var row=d.session(session);if(!row.getBoolean("Complete")){row.putBoolean("Cancelled",true);if(row.hasUUID("Owner"))d.player(row.getUUID("Owner")).putLong("TrialReady",d.now(w));d.setDirty();}}cleanup();bar.removeAllPlayers();discard();}
++ }
+  @Override public void tick(){super.tick();if(level().isClientSide)return;var w=(ServerLevel)level();if(session==null||FrostLedger.get(w).session(session).getBoolean("Cancelled")){cleanup();discard();return;}
+  if(this instanceof IceDouble){doubleTick();return;}
+  if(tickCount%12==0&&getDeltaMovement().horizontalDistanceSqr()>.0005&&onGround())FrostContent.sound(this,"step");
+--- a/src/main/java/org/slavicmyths/poloz/GreatPoloz.java
++++ b/src/main/java/org/slavicmyths/poloz/GreatPoloz.java
+@@ -32,14 +32,16 @@
+  private final Set<UUID> projectiles=new HashSet<>(),attackHits=new HashSet<>();
+  public final Set<UUID> minions=new HashSet<>();
+  private final int[] cooldowns=new int[6];private int attackAge,rest,phaseAge,noPlayers,debugTicks;
++ private long ordinaryWindow;private float ordinaryDamage;
++ private UUID rainVolley=UUID.randomUUID();public UUID rainVolley(){return rainVolley;}
+  private UUID deferredTarget;private Vec3 aim=Vec3.ZERO,mark=Vec3.ZERO;private float heading;private boolean finished;private long trackReceived;
+  public final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.great_poloz"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+  public GreatPoloz(EntityType<? extends GreatPoloz> type,Level level){super(type,level);setPersistenceRequired();noPhysics=true;noCulling=true;
+   for(int i=0;i<24;i++)parts[i]=new PolozPart(this,i,false,PolozRules.width(i),i<20?3:1.4f);
+-  for(int i=0;i<3;i++)parts[24+i]=new PolozPart(this,new int[]{5,12,18}[i],true,i==1?1.2f:1,i==1?.8f:.9f);
++  for(int i=0;i<3;i++)parts[24+i]=new PolozPart(this,new int[]{5,12,18}[i],true,i==1?1.2f:1,i==1?.3f:.9f);
+   setId(ENTITY_COUNTER.getAndAdd(parts.length+1)+1);setHealth(3000);
+  }
+- public static AttributeSupplier.Builder attributes(){return Mob.createMobAttributes().add(Attributes.MAX_HEALTH,3000).add(Attributes.MOVEMENT_SPEED,.23).add(Attributes.KNOCKBACK_RESISTANCE,1).add(Attributes.FOLLOW_RANGE,80).add(Attributes.ATTACK_DAMAGE,12);}
++ public static AttributeSupplier.Builder attributes(){return Mob.createMobAttributes().add(Attributes.MAX_HEALTH,3000).add(Attributes.MOVEMENT_SPEED,.23).add(Attributes.KNOCKBACK_RESISTANCE,1).add(Attributes.FOLLOW_RANGE,80).add(Attributes.ATTACK_DAMAGE,26);}
+  @Override public float getMaxHealth(){return 3000;}
+  @Override protected void registerGoals(){}
+  @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(PHASE,1);b.define(ACTION,0);b.define(CLOCK,0);b.define(TRACK,new CompoundTag());b.define(PHASE_START,0L);}
+@@ -66,17 +68,26 @@
+  private void updateParts(){if(history.isEmpty())return;var points=new ArrayList<>(history);for(int i=0;i<24;i++){double remaining=PolozRules.offset(i);Vec3 at=points.getLast();for(int j=1;j<points.size();j++){double length=points.get(j-1).distanceTo(points.get(j));if(length>=remaining&&length>0){at=points.get(j-1).lerp(points.get(j),remaining/length);break;}remaining-=length;}var p=parts[i];p.setPos(at);Vec3 tangent=(i==0?position():parts[i-1].position()).subtract(at).multiply(1,0,1).normalize();double width=PolozRules.width(i),length=i<20?1.5:1;double x=(Math.abs(tangent.z)*width+Math.abs(tangent.x)*length)/2,z=(Math.abs(tangent.x)*width+Math.abs(tangent.z)*length)/2;double h=i<20?3:1.4;p.setBoundingBox(new AABB(at.x-x,at.y,at.z-z,at.x+x,at.y+h,at.z+z));}
+   for(int i=0;i<3;i++){var scar=parts[24+i];var body=parts[scar.segment];Vec3 tangent=(scar.segment==0?position():parts[scar.segment-1].position()).subtract(body.position()).normalize();Vec3 side=new Vec3(-tangent.z,0,tangent.x).scale(i==0?-1:1);Vec3 at=body.position().add(i==1?Vec3.ZERO:side.scale(PolozRules.width(scar.segment)/2+.15)).add(0,i==1?2.85:1.4,0);scar.setPos(at);}
+  }
+- private boolean ally(LivingEntity entity){return entity==this||entity instanceof LandSpiritEntity s&&s.morState()!=0||entity.getPersistentData().hasUUID("summonedByPolozUUID");}
++ private boolean ally(LivingEntity entity){return entity==this||entity.getPersistentData().hasUUID("summonedByPolozUUID")&&getUUID().equals(entity.getPersistentData().getUUID("summonedByPolozUUID"));}
+  @Override public boolean isAlliedTo(Entity e){return e instanceof LivingEntity living&&ally(living)||super.isAlliedTo(e);}
+  public boolean rewardFissure(ServerPlayer p,float amount){if(!isAlive()||isAlliedTo(p)||nearestDistance(p.position())>36)return false;invulnerableTime=0;boolean hit=super.hurt(p.damageSources().playerAttack(p),amount);if(hit)updatePhase();return hit;}
+- public boolean hitPart(PolozPart part,DamageSource source,float amount){return acceptHit(part.segment,part.scar,source,amount,part.position());}
+- @Override public boolean hurt(DamageSource source,float amount){
+-  // Root has only the physical head. A melee actor at the body resolves the closest touched part.
+-  Vec3 origin=source.getSourcePosition();if(origin==null)return false;
+-  if(source.getDirectEntity() instanceof LivingEntity attacker){PolozPart closest=null;double best=getBoundingBox().distanceToSqr(attacker.getEyePosition());for(var p:parts){double d=p.getBoundingBox().distanceToSqr(attacker.getEyePosition());if(d<best){closest=p;best=d;}}if(best>(attacker instanceof ServerPlayer?Math.pow(attacker.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ENTITY_INTERACTION_RANGE),2):16))return false;if(closest!=null)return hitPart(closest,source,amount);}
+-  else if(getBoundingBox().distanceToSqr(origin)>36)return false;
+-  return acceptHit(-1,false,source,amount,position());
++ public boolean validVictim(LivingEntity e){return e.isAlive()&&!e.isSpectator()&&!e.isInvulnerable()&&!ally(e)&&!org.slavicmyths.combat.CreatureSafety.protectedPlayer(e)&&!(e instanceof net.minecraft.world.entity.decoration.ArmorStand);}
++ public boolean hitPart(PolozPart part,DamageSource source,float amount){
++  if(!java.util.Arrays.asList(parts).contains(part))return false;
++  if(part.scar&&!scarContact(part,source))return false;
++  return acceptHit(part.segment,part.scar,source,amount,part.position());
+  }
++ private boolean scarContact(PolozPart part,DamageSource source){
++  if(source.is(net.minecraft.tags.DamageTypeTags.IS_EXPLOSION))return false;
++  var direct=source.getDirectEntity();var box=part.getBoundingBox();
++  if(direct instanceof net.minecraft.world.entity.projectile.Projectile projectile){Vec3 v=projectile.getDeltaMovement();return box.inflate(.15).contains(projectile.position())||box.inflate(.15).clip(projectile.position().subtract(v),projectile.position().add(v)).isPresent();}
++  if(!(direct instanceof LivingEntity actor)||source.getEntity()!=direct)return false;
++  Vec3 from=actor.getEyePosition();double reach=actor instanceof Player?actor.getAttributeValue(Attributes.ENTITY_INTERACTION_RANGE):3.5;
++  Vec3 end=from.add(actor.getLookAngle().scale(reach));var contact=box.clip(from,end);
++  if(contact.isEmpty()&&!(actor instanceof Player)&&box.inflate(.25).intersects(actor.getBoundingBox().inflate(.6)))contact=Optional.of(box.getCenter());
++  return contact.isPresent()&&level().clip(new ClipContext(from,contact.get(),ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,actor)).getType()==HitResult.Type.MISS;
++ }
++ @Override public boolean hurt(DamageSource source,float amount){return acceptHit(-1,false,source,amount,position());}
+  private boolean acceptHit(int segment,boolean scar,DamageSource source,float amount,Vec3 at){if(level().isClientSide||!isAlive()||!Float.isFinite(amount)||amount<=0||source.getEntity() instanceof LivingEntity living&&ally(living))return false;
+   if(source.is(net.minecraft.tags.DamageTypeTags.IS_FIRE)||source.is(net.minecraft.tags.DamageTypeTags.IS_FALL)||source.getSourcePosition()==null)return false;
+   float multiplier=PolozRules.multiplier(phase(),segment,scar);
+@@ -84,11 +95,12 @@
+   if(key==null||now-hitTimes.getOrDefault(key,-100L)<6||direct instanceof net.minecraft.world.entity.projectile.Projectile&&projectiles.contains(direct.getUUID()))return false;
+   hitTimes.put(key,now);if(direct instanceof net.minecraft.world.entity.projectile.Projectile)projectiles.add(direct.getUUID());
+   if(multiplier==0){w.sendParticles(net.minecraft.core.particles.ParticleTypes.CRIT,at.x,at.y+1,at.z,6,.5,.3,.5,0);playSound(PolozContent.sound("poloz_armor_deflect"),.7f,1);if(attacker instanceof ServerPlayer p&&!p.getPersistentData().getBoolean("PolozArmorHint")){p.getPersistentData().putBoolean("PolozArmorHint",true);p.displayClientMessage(Component.translatable("poloz.armor"),true);}return false;}
+-  invulnerableTime=0;boolean result=super.hurt(source,amount*multiplier);if(result){UUID credit=attacker instanceof ServerPlayer p?p.getUUID():attacker instanceof LivingEntity l?org.slavicmyths.kalin.KalinParty.owner(l):null;if(credit!=null){participants.put(credit,now);PolozEvent.get(w).participants.add(credit);PolozEvent.get(w).setDirty();}playSound(PolozContent.sound("poloz_weakspot_hit"),.7f,1);updatePhase();}return result;
++  boolean ordinary=attacker instanceof Mob mob&&!(mob instanceof org.slavicmyths.wolf.GreyWolf)&&!(mob instanceof org.slavicmyths.quest185.WolfSupport)&&!org.slavicmyths.bogatyr.HeroThreats.availableHero(mob)&&org.slavicmyths.kalin.KalinParty.owner(mob)==null;if(ordinary){if(now-ordinaryWindow>=20){ordinaryWindow=now;ordinaryDamage=0;}amount=Math.min(amount,Math.min(4,Math.max(0,12-ordinaryDamage)));if(amount<=0)return false;}
++  invulnerableTime=0;boolean result=super.hurt(source,amount*multiplier);if(result){if(ordinary)ordinaryDamage+=amount;w.sendParticles(net.minecraft.core.particles.ParticleTypes.DAMAGE_INDICATOR,at.x,at.y+.4,at.z,5,.2,.2,.2,0);UUID credit=attacker instanceof ServerPlayer p?p.getUUID():attacker instanceof LivingEntity l?org.slavicmyths.kalin.KalinParty.owner(l):null;if(credit!=null){participants.put(credit,now);PolozEvent.get(w).participants.add(credit);PolozEvent.get(w).setDirty();}playSound(PolozContent.sound("poloz_weakspot_hit"),.7f,1);updatePhase();}return result;
+  }
+  private void updatePhase(){if(!isAlive())return;int next=PolozRules.phase(getHealth());if(next<=phase())return;entityData.set(PHASE,next);entityData.set(PHASE_START,level().getGameTime());phaseAge=0;playSound(PolozContent.sound(next==2?"poloz_phase2_cracks":"poloz_phase3_roar"),3,1);if(level() instanceof ServerLevel w)for(var p:w.players())if(nearestDistance(p.position())<256*256){p.displayClientMessage(Component.translatable(next==2?"poloz.phase2":"poloz.phase3"),true);org.slavicmyths.tales.TaleService.promote(p,"slavicmyths:great_poloz",3,false);}}
+- @Override public void aiStep(){if(level().isClientSide){super.aiStep();headBox();return;}var w=(ServerLevel)level();if(!isAlive())return;phaseAge++;
+-  if(w.players().isEmpty())noPlayers++;else noPlayers=0;if(noPlayers>=6000){impact.clear();return;}
++ @Override public void aiStep(){if(level().isClientSide){super.aiStep();headBox();return;}var w=(ServerLevel)level();if(!isAlive())return;if(getTarget()!=null&&!validVictim(getTarget())){setTarget(null);entityData.set(ACTION,0);attackHits.clear();rest=20;}phaseAge++;
++  if(w.players().isEmpty())noPlayers++;else noPlayers=0;if(noPlayers>=6000&&getTarget()==null){impact.clear();}
+   for(int i=0;i<cooldowns.length;i++)if(cooldowns[i]>0)cooldowns[i]--;if(rest>0)rest--;
+   if(tickCount%20==0){hitTimes.entrySet().removeIf(e->w.getGameTime()-e.getValue()>100);if(projectiles.size()>512)projectiles.clear();updateBar(w);pickTarget(w);minions.removeIf(id->w.getEntity(id) instanceof LivingEntity l&&!l.isAlive());}
+   if(action()==0&&rest==0&&getTarget()!=null){int chosen=choose();if(chosen>0)begin(chosen);}
+@@ -103,25 +115,27 @@
+   if(debugTicks>0){debugTicks--;if(tickCount%4==0)for(var part:parts)if(PolozRules.multiplier(phase(),part.segment,part.scar)>0)w.sendParticles(net.minecraft.core.particles.ParticleTypes.FLAME,part.getX(),part.getY()+.5,part.getZ(),2,.2,.2,.2,0);}
+  }
+  private void updateBar(ServerLevel w){bar.setProgress(Math.clamp(getHealth()/3000f,0,1));for(var p:new ArrayList<>(bar.getPlayers()))if(!p.isAlive()||p.serverLevel()!=w||nearestDistance(p.position())>256*256)bar.removePlayer(p);for(var p:w.players())if(p.isAlive()&&nearestDistance(p.position())<=256*256)bar.addPlayer(p);}
+- private void pickTarget(ServerLevel w){if(deferredTarget!=null){if(w.getEntity(deferredTarget) instanceof LivingEntity old&&old.isAlive())setTarget(old);deferredTarget=null;}var current=getTarget();if(current instanceof org.slavicmyths.quest185.WolfSupport wolf&&wolf.isAlive()&&w.getGameTime()<wolf.getPersistentData().getLong("ThreatUntil"))return;if(current!=null&&current.isAlive()&&tickCount%60!=0)return;setTarget(w.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(80),e->e.isAlive()&&!ally(e)&&(!(e instanceof Player p)||!p.isCreative()&&!p.isSpectator())&&(e instanceof Player||org.slavicmyths.bogatyr.HeroThreats.availableHero(e)||e instanceof Mob m&&m.getTarget()==this)).stream().min(Comparator.comparingDouble(e->distanceToSqr(e)-(e instanceof Player?800:0))).orElse(null));}
+- private int choose(){for(int k=0;k<6;k++){int skill=1+random.nextInt(phase()==1?4:6);if(cooldowns[skill-1]>0)continue;if(skill==5&&(!ringSpace()||getTarget().distanceTo(this)>20))continue;if(skill==6&&minions.size()+(phase()==3?6:4)>8)continue;return skill;}return 0;}
++ private void pickTarget(ServerLevel w){deferredTarget=null;AABB area=getBoundingBox();for(var part:parts)area=area.minmax(part.getBoundingBox());
++  setTarget(w.getEntitiesOfClass(LivingEntity.class,area.inflate(48),e->validVictim(e)&&nearestDistance(e.position())<=48*48&&hasLineOfSight(e)).stream().min(Comparator.comparingDouble(e->nearestDistance(e.position()))).orElse(null));
++ }
++ private int choose(){for(int k=0;k<6;k++){int skill=1+random.nextInt(phase()==1?4:6);if(cooldowns[skill-1]>0)continue;if(skill==1&&getBoundingBox().distanceToSqr(getTarget().position())>36)continue;if(skill==4&&parts[23].getBoundingBox().distanceToSqr(getTarget().position())>81)continue;if(skill==5&&(!ringSpace()||getTarget().distanceTo(this)>20))continue;if(skill==6&&minions.size()+(phase()==3?6:4)>8)continue;return skill;}return 0;}
+  private int windup(int skill){return switch(skill){case 1->30;case 2,3,5->40;default->24;};}
+  private boolean ringSpace(){if(getTarget()==null||isInWater())return false;Vec3 center=getTarget().position();for(int i=0;i<16;i++){double a=i*Math.PI/8;BlockPos p=BlockPos.containing(center.add(Math.cos(a)*9,0,Math.sin(a)*9));if(!level().hasChunkAt(p)||!level().getFluidState(p).isEmpty()||Math.abs(level().getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,p.getX(),p.getZ())-center.y)>2)return false;for(int y=0;y<4;y++)if(!level().getBlockState(p.above(y)).getCollisionShape(level(),p.above(y)).isEmpty())return false;}return true;}
+- private void begin(int skill){entityData.set(ACTION,skill);entityData.set(CLOCK,(int)level().getGameTime());attackAge=0;attackHits.clear();var target=getTarget();mark=target==null?position():target.position();aim=mark.subtract(position()).multiply(1,0,1).normalize();cooldowns[skill-1]=PolozRules.cooldown(skill,phase());playSound(PolozContent.sound(switch(skill){case 2->"poloz_burrow";case 3->"poloz_mor_rain";case 4->"poloz_tail_slam";case 6->"poloz_minion_call";default->"poloz_surface_roar";}),2,1);}
++ private void begin(int skill){entityData.set(ACTION,skill);entityData.set(CLOCK,(int)level().getGameTime());attackAge=0;attackHits.clear();if(skill==3)rainVolley=UUID.randomUUID();var target=getTarget();mark=target==null?position():target.position();aim=mark.subtract(position()).multiply(1,0,1).normalize();cooldowns[skill-1]=PolozRules.cooldown(skill,phase());playSound(PolozContent.sound(switch(skill){case 2->"poloz_burrow";case 3->"poloz_mor_rain";case 4->"poloz_tail_slam";case 6->"poloz_minion_call";default->"poloz_surface_roar";}),2,1);}
+  private void attack(ServerLevel w){int skill=action();attackAge++;int wind=windup(skill);if(attackAge<wind&&tickCount%4==0)w.sendParticles(org.slavicmyths.mor.MorContent.SPARK.get(),getX(),getY()+1,getZ(),12,2,.4,2,.02);
+-  if(skill==1&&attackAge>=30&&attackAge<60)strike(getBoundingBox().inflate(1),12,2.5,false);
+-  if(skill==2&&attackAge>=76&&attackAge<100&&attackAge%4==0){for(int i=0;i<20;i++){double a=i*Math.PI/10;w.sendParticles(org.slavicmyths.mor.MorContent.SPARK.get(),getX()+Math.cos(a)*4,w.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,(int)getX(),(int)getZ())+.1,getZ()+Math.sin(a)*4,1,0,0,0,0);}}if(skill==2&&attackAge==100){setPos(getX(),w.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,(int)getX(),(int)getZ()),getZ());playSound(PolozContent.sound("poloz_emerge"),3,1);strike(getBoundingBox().inflate(4),isInWater()?12:14,2.5,true);}
++  if(skill==1&&attackAge>=30&&attackAge<60)strike(getBoundingBox().inflate(1),PolozRules.damage(1),2.5,false);
++  if(skill==2&&attackAge>=76&&attackAge<100&&attackAge%4==0){for(int i=0;i<20;i++){double a=i*Math.PI/10;w.sendParticles(org.slavicmyths.mor.MorContent.SPARK.get(),getX()+Math.cos(a)*4,w.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,(int)getX(),(int)getZ())+.1,getZ()+Math.sin(a)*4,1,0,0,0,0);}}if(skill==2&&attackAge==100){setPos(getX(),w.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,(int)getX(),(int)getZ()),getZ());playSound(PolozContent.sound("poloz_emerge"),3,1);strike(getBoundingBox().inflate(4),PolozRules.damage(2),2.5,true);}
+   if(skill==3&&attackAge>=40&&attackAge<80&&(attackAge-40)%5==0){var glob=PolozContent.GLOB.get().create(w);if(glob!=null){glob.configure(this,aim.yRot((random.nextFloat()-.5f)*.96f).scale(.6+random.nextFloat()*.3).add(0,.45,0));w.addFreshEntity(glob);}}
+   if(skill==4&&attackAge==24)tailSweep(w);
+-  if(skill==5&&attackAge>=80&&attackAge<140&&attackAge%20==0){attackHits.clear();for(var victim:w.getEntitiesOfClass(LivingEntity.class,new AABB(mark.add(-7,-1,-7),mark.add(7,4,7)),v->v.isAlive()&&!ally(v)&&v.position().multiply(1,0,1).distanceToSqr(mark.multiply(1,0,1))<=49))if(!(victim instanceof Player p)||!p.isCreative()&&!p.isSpectator()){victim.hurt(damageSources().mobAttack(this),8);Vec3 push=mark.subtract(victim.position()).multiply(1,0,1).normalize().scale(.15);victim.push(push.x,.1,push.z);}}
++  if(skill==5&&attackAge>=80&&attackAge<140&&attackAge%20==0){attackHits.clear();for(var victim:w.getEntitiesOfClass(LivingEntity.class,new AABB(mark.add(-7,-1,-7),mark.add(7,4,7)),v->v.isAlive()&&!ally(v)&&v.position().multiply(1,0,1).distanceToSqr(mark.multiply(1,0,1))<=49))if(!(victim instanceof Player p)||!p.isCreative()&&!p.isSpectator()){victim.hurt(damageSources().mobAttack(this),PolozRules.damage(5)/3);Vec3 push=mark.subtract(victim.position()).multiply(1,0,1).normalize().scale(.15);victim.push(push.x,.1,push.z);}}
+   if(skill==6&&attackAge==24)summon(w);
+   int end=skill==2?110:skill==5?150:skill==3?95:skill==1?75:50;
+   if(attackAge>=end){entityData.set(ACTION,0);rest=phase()==1?100:phase()==2?80:60;attackHits.clear();}
+  }
+- private void strike(AABB box,float damage,double push,boolean up){for(var e:level().getEntitiesOfClass(LivingEntity.class,box,l->l.isAlive()&&!ally(l)&&(!(l instanceof Player p)||!p.isCreative()&&!p.isSpectator())))if(attackHits.add(e.getUUID())){float mult=phase()==1?1:phase()==2?1.15f:1.25f;if(e.hurt(damageSources().mobAttack(this),damage*mult)){Vec3 dir=e.position().subtract(position()).multiply(1,0,1).normalize().scale(push*.2);e.push(dir.x,up?.9:.2,dir.z);}}}
+- private void tailSweep(ServerLevel w){Vec3 center=parts[23].position(),forward=parts[22].position().subtract(center).multiply(1,0,1).normalize();float mult=phase()==1?1:phase()==2?1.15f:1.25f;for(var victim:w.getEntitiesOfClass(LivingEntity.class,parts[23].getBoundingBox().inflate(9,2,9),v->v.isAlive()&&!ally(v)&&(!(v instanceof Player p)||!p.isCreative()&&!p.isSpectator()))){Vec3 relative=victim.position().subtract(center).multiply(1,0,1);if(relative.lengthSqr()<=81&&(relative.lengthSqr()<.01||relative.normalize().dot(forward)>=Math.cos(Math.toRadians(70)))&&attackHits.add(victim.getUUID())){victim.hurt(damageSources().mobAttack(this),Math.min(12,11*mult));Vec3 push=relative.normalize().scale(.8);victim.push(push.x,.2,push.z);}}Vec3 wave=parts[19].position();for(var victim:w.getEntitiesOfClass(LivingEntity.class,parts[19].getBoundingBox().inflate(6,1,6),v->v.isAlive()&&!ally(v)&&(!(v instanceof Player p)||!p.isCreative()&&!p.isSpectator())))if(victim.position().multiply(1,0,1).distanceToSqr(wave.multiply(1,0,1))<=36&&attackHits.add(victim.getUUID()))victim.hurt(damageSources().mobAttack(this),5*mult);}
++ private void strike(AABB box,float damage,double push,boolean up){for(var e:level().getEntitiesOfClass(LivingEntity.class,box,l->l.isAlive()&&!ally(l)&&(!(l instanceof Player p)||!p.isCreative()&&!p.isSpectator())))if(attackHits.add(e.getUUID())){if(e.hurt(damageSources().mobAttack(this),damage)){Vec3 dir=e.position().subtract(position()).multiply(1,0,1).normalize().scale(push*.2);e.push(dir.x,up?.9:.2,dir.z);}}}
++ private void tailSweep(ServerLevel w){Vec3 center=parts[23].position(),forward=parts[22].position().subtract(center).multiply(1,0,1).normalize();for(var victim:w.getEntitiesOfClass(LivingEntity.class,parts[23].getBoundingBox().inflate(9,2,9),v->v.isAlive()&&!ally(v)&&(!(v instanceof Player p)||!p.isCreative()&&!p.isSpectator()))){Vec3 relative=victim.position().subtract(center).multiply(1,0,1);if(relative.lengthSqr()<=81&&(relative.lengthSqr()<.01||relative.normalize().dot(forward)>=Math.cos(Math.toRadians(70)))&&attackHits.add(victim.getUUID())){victim.hurt(damageSources().mobAttack(this),PolozRules.damage(4));Vec3 push=relative.normalize().scale(.8);victim.push(push.x,.2,push.z);}}Vec3 wave=parts[19].position();for(var victim:w.getEntitiesOfClass(LivingEntity.class,parts[19].getBoundingBox().inflate(6,1,6),v->v.isAlive()&&!ally(v)&&(!(v instanceof Player p)||!p.isCreative()&&!p.isSpectator())))if(victim.position().multiply(1,0,1).distanceToSqr(wave.multiply(1,0,1))<=36&&attackHits.add(victim.getUUID()))victim.hurt(damageSources().mobAttack(this),PolozRules.damage(4)/2);}
+  private void summon(ServerLevel w){int count=phase()==3?6:4;for(int i=0;i<count&&minions.size()<8;i++){EntityType<? extends LandSpiritEntity> type=i<2?ModEntities.KIKIMORA.get():i==4?ModEntities.LESHY.get():ModEntities.POLUDNITSA.get();var m=type.create(w);if(m==null)continue;double a=random.nextDouble()*Math.PI*2;BlockPos p=blockPosition().offset((int)(Math.cos(a)*9),0,(int)(Math.sin(a)*9));if(!w.hasChunkAt(p))continue;p=w.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,p);m.moveTo(Vec3.atBottomCenterOf(p));m.getPersistentData().putUUID("summonedByPolozUUID",getUUID());if(m.mor.apply(true)&&w.noCollision(m)&&w.addFreshEntity(m))minions.add(m.getUUID());}}
+- public boolean rainDamage(LivingEntity target,float amount,UUID volley){var n=target.getPersistentData();long now=level().getGameTime();if(!n.hasUUID("PolozRainOwner")||!volley.equals(n.getUUID("PolozRainOwner"))||now>n.getLong("PolozRainUntil")){n.putUUID("PolozRainOwner",volley);n.putLong("PolozRainUntil",now+100);n.putFloat("PolozRainDamage",0);}float allowed=Math.max(0,Math.min(amount,12-n.getFloat("PolozRainDamage")));if(allowed<=0)return false;n.putFloat("PolozRainDamage",n.getFloat("PolozRainDamage")+allowed);return target.hurt(damageSources().mobAttack(this),allowed);}
++ public boolean rainDamage(LivingEntity target,float amount,UUID volley){if(!validVictim(target)||volley==null)return false;var n=target.getPersistentData();long now=level().getGameTime();if(!n.hasUUID("PolozRainOwner")||!volley.equals(n.getUUID("PolozRainOwner"))||now>n.getLong("PolozRainUntil")){n.putUUID("PolozRainOwner",volley);n.putLong("PolozRainUntil",now+100);n.putFloat("PolozRainDamage",0);}float allowed=Math.max(0,Math.min(amount,PolozRules.damage(3)-n.getFloat("PolozRainDamage")));if(allowed<=0)return false;n.putFloat("PolozRainDamage",n.getFloat("PolozRainDamage")+allowed);return target.hurt(damageSources().mobAttack(this),allowed);}
+  public void cancel(){cleanup(false);discard();}
+  private void cleanup(boolean defeated){if(finished)return;finished=true;impact.clear();bar.removeAllPlayers();PolozEvent.get((ServerLevel)level()).finish((ServerLevel)level(),defeated);for(UUID id:minions)if(((ServerLevel)level()).getEntity(id) instanceof LivingEntity m)m.getPersistentData().putLong("PolozRemoveAt",level().getGameTime()+100);}
+  @Override public void die(DamageSource source){if(!level().isClientSide&&!finished){var w=(ServerLevel)level();for(var e:participants.entrySet()){var p=w.getServer().getPlayerList().getPlayer(e.getKey());if(p!=null&&p.serverLevel()==w&&w.getGameTime()-e.getValue()<=2400&&nearestDistance(p.position())<=256*256){org.slavicmyths.tales.TaleService.promote(p,"slavicmyths:great_poloz",4,true);org.slavicmyths.progression.Knowledge.award(p,"great_poloz_fall");org.slavicmyths.quest185.Quest185Story.data(p).putBoolean("Poloz",true);org.slavicmyths.tales.TaleService.promote(p,"slavicmyths:poloz_rewards",4,true);}}playSound(PolozContent.sound("poloz_death"),3,1);if(w.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)){spawnAtLocation(PolozContent.CORE.get());spawnAtLocation(PolozRewards.WHIP.get());spawnAtLocation(PolozTrophy.ITEM.get());if(random.nextInt(100)<5)spawnAtLocation(PolozRewards.RUNE.get());spawnAtLocation(new net.minecraft.world.item.ItemStack(PolozContent.SCALE.get(),8+random.nextInt(5)));spawnAtLocation(new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.GOLD_INGOT,16+random.nextInt(9)));ExperienceOrb.award(w,position(),1500);}cleanup(true);}super.die(source);}
+--- a/src/main/java/org/slavicmyths/poloz/PolozGlob.java
++++ b/src/main/java/org/slavicmyths/poloz/PolozGlob.java
+@@ -9,12 +9,12 @@
+ public final class PolozGlob extends Entity {
+  private UUID owner,volley;private int age;
+  public PolozGlob(EntityType<? extends PolozGlob> t,Level w){super(t,w);}
+- public void configure(GreatPoloz p,Vec3 velocity){owner=p.getUUID();volley=p.getUUID();setPos(p.position().add(0,3,0));setDeltaMovement(velocity);}
++ public void configure(GreatPoloz p,Vec3 velocity){owner=p.getUUID();volley=p.rainVolley();setPos(p.position().add(0,3,0));setDeltaMovement(velocity);}
+  @Override protected void defineSynchedData(SynchedEntityData.Builder b){}
+  @Override public void tick(){super.tick();if(level().isClientSide)return;if(++age>100){discard();return;}var w=(ServerLevel)level();if(!(w.getEntity(owner) instanceof GreatPoloz boss)||!boss.isAlive()){discard();return;}
+-  Vec3 start=position(),end=start.add(getDeltaMovement());if(!w.hasChunkAt(net.minecraft.core.BlockPos.containing(end))){discard();return;}var hit=w.clip(new net.minecraft.world.level.ClipContext(start,end,net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,this));var entity=net.minecraft.world.entity.projectile.ProjectileUtil.getEntityHitResult(w,this,start,end,getBoundingBox().expandTowards(getDeltaMovement()).inflate(.2),e->e instanceof LivingEntity l&&!boss.isAlliedTo(l),0);
+-  if(entity!=null&&entity.getEntity() instanceof LivingEntity living&&entity.getLocation().distanceToSqr(start)<=hit.getLocation().distanceToSqr(start))boss.rainDamage(living,6,volley);
+-  if(entity!=null||hit.getType()==HitResult.Type.BLOCK){Vec3 at=entity!=null?entity.getLocation():hit.getLocation();boss.impact.patch(net.minecraft.core.BlockPos.containing(at).below());for(var l:w.getEntitiesOfClass(LivingEntity.class,new AABB(at.add(-2,-2,-2),at.add(2,2,2)),l->!boss.isAlliedTo(l))){boss.rainDamage(l,3,volley);l.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN,60,0));}discard();return;}setPos(end);setDeltaMovement(getDeltaMovement().add(0,-.025,0));
++  Vec3 start=position(),end=start.add(getDeltaMovement());if(!w.hasChunkAt(net.minecraft.core.BlockPos.containing(end))){discard();return;}var hit=w.clip(new net.minecraft.world.level.ClipContext(start,end,net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,this));var entity=net.minecraft.world.entity.projectile.ProjectileUtil.getEntityHitResult(w,this,start,end,getBoundingBox().expandTowards(getDeltaMovement()).inflate(.2),e->e instanceof LivingEntity l&&boss.validVictim(l),0);
++  if(entity!=null&&entity.getEntity() instanceof LivingEntity living&&entity.getLocation().distanceToSqr(start)<=hit.getLocation().distanceToSqr(start))boss.rainDamage(living,5.2f,volley);
++  if(entity!=null||hit.getType()==HitResult.Type.BLOCK){Vec3 at=entity!=null?entity.getLocation():hit.getLocation();boss.impact.patch(net.minecraft.core.BlockPos.containing(at).below());for(var l:w.getEntitiesOfClass(LivingEntity.class,new AABB(at.add(-2,-2,-2),at.add(2,2,2)),l->boss.validVictim(l))){boss.rainDamage(l,2.6f,volley);l.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN,60,0));}discard();return;}setPos(end);setDeltaMovement(getDeltaMovement().add(0,-.025,0));
+  }
+  @Override protected void addAdditionalSaveData(CompoundTag n){if(owner!=null)n.putUUID("Owner",owner);if(volley!=null)n.putUUID("Volley",volley);n.putInt("Age",age);}
+  @Override protected void readAdditionalSaveData(CompoundTag n){owner=n.hasUUID("Owner")?n.getUUID("Owner"):null;volley=n.hasUUID("Volley")?n.getUUID("Volley"):null;age=Math.clamp(n.getInt("Age"),0,100);}
+--- a/src/main/java/org/slavicmyths/poloz/PolozRules.java
++++ b/src/main/java/org/slavicmyths/poloz/PolozRules.java
+@@ -2,7 +2,8 @@
+ /** Shared production policy, directly exercised by the offline gates. */
+ public final class PolozRules {
+  public static int phase(float hp){return hp<=900?3:hp<=2100?2:1;}
+- public static float multiplier(int phase,int segment,boolean scar){if(phase==1)return scar?1.5f:segment<0?1:segment>=22?.8f:0;if(phase==2)return scar?1.25f:segment<0?1.2f:.75f;return scar?1.5f:segment<0?1.4f:segment>=20?.9f:1;}
++ public static float multiplier(int phase,int segment,boolean scar){return scar?(phase==2?1.25f:1.5f):0;}
++ public static float damage(int skill){return 26*switch(skill){case 1->1f;case 2->1.35f;case 3->.8f;case 4->.7f;case 5->.65f;default->0f;};}
+  public static float width(int i){return i<20?(float)(3.1+.8*Math.sin(i*Math.PI/20)):(float)(2.2-(i-20)*.4);}
+  public static double offset(int i){return i<20?3.0+i*1.5:33+(i-20)*1.0;}
+  public static int cooldown(int skill,int phase){return switch(skill){case 1->new int[]{440,360,300}[phase-1];case 2->new int[]{600,520,440}[phase-1];case 3->new int[]{560,460,380}[phase-1];case 4->new int[]{360,320,280}[phase-1];case 5->1100;default->phase==3?700:900;};}
+--- a/src/main/java/org/slavicmyths/wolf/GreyWolf.java
++++ b/src/main/java/org/slavicmyths/wolf/GreyWolf.java
+@@ -28,7 +28,7 @@
+  public GreyWolf(EntityType<? extends GreyWolf> type,Level level){super(type,level);setPersistenceRequired();bar.setVisible(false);}
+  public static AttributeSupplier.Builder attributes(){return createMobAttributes().add(Attributes.MAX_HEALTH,500).add(Attributes.MOVEMENT_SPEED,.28).add(Attributes.ATTACK_DAMAGE,13).add(Attributes.FOLLOW_RANGE,40).add(Attributes.KNOCKBACK_RESISTANCE,.85).add(Attributes.STEP_HEIGHT,1);}
+  @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(STATE,0);b.define(MOVE,0);b.define(CLOCK,0L);}
+- @Override protected void registerGoals(){goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new TrialGoal());goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,10));goalSelector.addGoal(7,new RandomLookAroundGoal(this));}
++ @Override protected void registerGoals(){goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new TrialGoal());goalSelector.addGoal(2,new DefendPolozGoal());goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,10));goalSelector.addGoal(7,new RandomLookAroundGoal(this));}
+  public UUID encounterId(){return encounter;}public BlockPos home(){return home==null?blockPosition():home;}public UUID participant(){return participant;}public boolean debug(){return debug;}public void debug(boolean value){debug=value;}
+  public State state(){return State.values()[entityData.get(STATE)];}public Move move(){return Move.values()[entityData.get(MOVE)];}public float animationTicks(float partial){return Math.max(0,level().getGameTime()-entityData.get(CLOCK)+partial);}
+  private int elapsed(){return (int)animationTicks(0);}private void state(State state){entityData.set(STATE,state.ordinal());entityData.set(MOVE,0);entityData.set(CLOCK,level().getGameTime());getNavigation().stop();}
+@@ -53,7 +53,7 @@
+   return start(p);
+  }
+  public boolean start(ServerPlayer p){
+-  if(busy()||WolfProgress.passed(p)||p.isSpectator()||!p.isAlive()||p.level()!=level()||distanceToSqr(p)>100||!hasLineOfSight(p)||level().dimension()!=Level.OVERWORLD||level().getDifficulty()==Difficulty.PEACEFUL)return false;
++  if(busy()||WolfProgress.passed(p)||p.isSpectator()||p.isCreative()||!p.isAlive()||p.level()!=level()||distanceToSqr(p)>100||!hasLineOfSight(p)||level().dimension()!=Level.OVERWORLD||level().getDifficulty()==Difficulty.PEACEFUL)return false;
+   participant=p.getUUID();pending=token=null;setHealth(500);summons=0;outsideSince=-1;trialStart=level().getGameTime()+PREPARE;howlReady=trialStart+HOWL_DELAY;dashReady=trialStart;nextAttack=trialStart+25;state(State.TRIAL_PREPARE);say(p,"accepted");voice("growl",1);return true;
+  }
+  public void abort(){
+@@ -86,6 +86,15 @@
+    velocity=velocity.multiply(i==0?.546:.91,1,i==0?.546:.91);velocity=new Vec3(velocity.x,(velocity.y-.08)*.98,velocity.z);
+   }
+   return false;
++ }
++ private final class DefendPolozGoal extends Goal {
++  private org.slavicmyths.poloz.GreatPoloz threat;private long nextScan,nextHit;
++  DefendPolozGoal(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
++  private boolean available(){return state()==State.IDLE_UNMET||state()==State.POST_TRIAL_NPC;}
++  public boolean canUse(){if(!available()||level().getDifficulty()==Difficulty.PEACEFUL||level().getGameTime()<nextScan)return false;nextScan=level().getGameTime()+20;threat=level().getEntitiesOfClass(org.slavicmyths.poloz.GreatPoloz.class,getBoundingBox().inflate(64),p->p.isAlive()&&p.nearestDistance(position())<40*40).stream().min(Comparator.comparingDouble(p->p.nearestDistance(position()))).orElse(null);return threat!=null;}
++  public boolean canContinueToUse(){return available()&&threat!=null&&threat.isAlive()&&threat.nearestDistance(position())<48*48&&level().getDifficulty()!=Difficulty.PEACEFUL;}
++  public void stop(){threat=null;getNavigation().stop();}
++  public void tick(){var scar=java.util.Arrays.stream(threat.parts).filter(p->p.scar).min(Comparator.comparingDouble(p->p.getBoundingBox().distanceToSqr(position()))).orElseThrow();getLookControl().setLookAt(scar.getX(),scar.getY()+.3,scar.getZ());if(tickCount%10==0)getNavigation().moveTo(scar.getX(),scar.getY(),scar.getZ(),1.15);if(level().getGameTime()>=nextHit&&getBoundingBox().inflate(.6).intersects(scar.getBoundingBox())){nextHit=level().getGameTime()+30;threat.hitPart(scar,damageSources().mobAttack(GreyWolf.this),(float)getAttributeValue(Attributes.ATTACK_DAMAGE));}}
+  }
+  private void stopWalking(){getNavigation().stop();getMoveControl().setWantedPosition(getX(),getY(),getZ(),0);setSpeed(0);setXxa(0);setZza(0);}
+  private void face(Vec3 heading){if(heading.horizontalDistanceSqr()<1.0E-6)return;float yaw=(float)(Math.toDegrees(Math.atan2(heading.z,heading.x))-90);setYRot(yaw);yBodyRot=yaw;setYHeadRot(yaw);}
+--- a/src/main/resources/assets/slavicmyths/lang/ru_ru.json
++++ b/src/main/resources/assets/slavicmyths/lang/ru_ru.json
+@@ -2504,14 +2504,14 @@
+   "book.slavicmyths.industry.title": "Домница и очищение металлов",
+   "book.slavicmyths.industry.text": "Болотная руда встречается под грунтом болот и добывается каменной киркой. Железистый комок плавится в Домнице Чуди: один комок даёт один железный слиток за 10 секунд. Очистной горн расходует слиток железа или меди, один очищающий плавень и топливо: за 15 секунд получится очищенный слиток. Плавень продают ремесленники и плавильщики Чуди. Очищенные металлы нужны для очков, кольца, оберега и пояса. Очки занимают головной слот Curios и дают ночное зрение. Руны добычи продаёт плавильщик; устанавливайте их в гнёзда кирки через существующую Рунную наковальню. Руна рудокопа ускоряет добычу руды, руна старателя добавляет эффективный уровень Удачи до IV без изменения зачарований; Шёлковое касание сохраняет приоритет. Редкие жители предлагают готовые аксессуары, в новых владениях Чуди есть тематические сундуки. Это игровая интерпретация ремесла, не описание исторического технологического процесса.",
+   "entity.slavicmyths.podzemnik": "Подземник",
+-  "item.slavicmyths.podzemnik_spawn_egg": "РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РџРѕРґР·РµРјРЅРёРє",
++  "item.slavicmyths.podzemnik_spawn_egg": "Яйцо призыва: Подземник",
+   "entity.slavicmyths.podzemnik_miner": "Подземник-шахтёр",
+   "entity.slavicmyths.kladovik": "Кладовик",
+-  "item.slavicmyths.kladovik_spawn_egg": "РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РљР»Р°РґРѕРІРёРє",
++  "item.slavicmyths.kladovik_spawn_egg": "Яйцо призыва: Кладовик",
+   "entity.slavicmyths.large_podzemnik": "Крупный Подземник",
+-  "item.slavicmyths.large_podzemnik_spawn_egg": "РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РљСЂСѓРїРЅС‹Р№ РџРѕРґР·РµРјРЅРёРє",
++  "item.slavicmyths.large_podzemnik_spawn_egg": "Яйцо призыва: Крупный Подземник",
+   "item.slavicmyths.rune_ominous_aura": "Руна Зловещей ауры",
+-  "effect.slavicmyths.underground_knockdown": "РЎР±РёС‚ СЃ РЅРѕРі",
++  "effect.slavicmyths.underground_knockdown": "Сбит с ног",
+   "industry.slavicmyths.hint.rune_ominous_aura": "Трофей Крупного Подземника. Устанавливается через руническую наковальню.",
+   "rpg.slavicmyths.effect_ominous_aura": "Две активные копии в экипировке: обычная враждебная нечисть до 50 макс. HP не нападает первой. Боссы, особые существа и спровоцированные враги не подчиняются.",
+   "rpg.slavicmyths.rune_hint_ominous_aura_1": "Одна руна: печать не завершена",
+@@ -3090,7 +3090,7 @@
+   "tales.entry.large_podzemnik.title": "Крупный Подземник",
+   "tales.entry.large_podzemnik.rumor": "Крупный подземник готовит тяжёлый удар, сотрясает землю и разгоняется физически. Преграды прерывают его натиск.\n\nРазмер крупного подземника требует оценивать не только его силу, но и доступный проход. Видимая подготовка тяжёлого действия оставляет возможность принять решение до контакта. Натиск движется в пространстве и связан с препятствиями, поэтому настоящее укрытие полезнее надежды на одну дистанцию. Не смешивайте его с обычным шахтёром: масштаб и набор действий отличаются. В глубинах заранее отметьте свободное направление отхода и не позволяйте тяжёлой фигуре запереть вас в тупике.",
+   "tales.entry.large_podzemnik.discovered": "Крупный подземник готовит тяжёлый удар, сотрясает землю и разгоняется физически. Преграды прерывают его натиск.\n\nБазовое здоровье: 300 HP. Броня: 0.\n\nРазмер крупного подземника требует оценивать не только его силу, но и доступный проход. Видимая подготовка тяжёлого действия оставляет возможность принять решение до контакта. Натиск движется в пространстве и связан с препятствиями, поэтому настоящее укрытие полезнее надежды на одну дистанцию. Не смешивайте его с обычным шахтёром: масштаб и набор действий отличаются. В глубинах заранее отметьте свободное направление отхода и не позволяйте тяжёлой фигуре запереть вас в тупике.",
+-  "tales.entry.large_podzemnik.studied": "Крупный подземник готовит тяжёлый удар, сотрясает землю и разгоняется физически. Преграды прерывают его натиск.\n\nВ настоящей таблице добычи указаны: Алмаз, Незеритовый лом, Руна рудокопа II, Очищенный железный слиток, Р СѓРЅР° Р—Р»РѕРІРµС‰РµР№ Р°СѓСЂС‹. Выпадение зависит от её условий и случайности, а не гарантируется чтением книги.\n\nРазмер крупного подземника требует оценивать не только его силу, но и доступный проход. Видимая подготовка тяжёлого действия оставляет возможность принять решение до контакта. Натиск движется в пространстве и связан с препятствиями, поэтому настоящее укрытие полезнее надежды на одну дистанцию. Не смешивайте его с обычным шахтёром: масштаб и набор действий отличаются. В глубинах заранее отметьте свободное направление отхода и не позволяйте тяжёлой фигуре запереть вас в тупике.",
++  "tales.entry.large_podzemnik.studied": "Крупный подземник готовит тяжёлый удар, сотрясает землю и разгоняется физически. Преграды прерывают его натиск.\n\nВ настоящей таблице добычи указаны: Алмаз, Незеритовый лом, Руна рудокопа II, Очищенный железный слиток, Руна Зловещей ауры. Выпадение зависит от её условий и случайности, а не гарантируется чтением книги.\n\nРазмер крупного подземника требует оценивать не только его силу, но и доступный проход. Видимая подготовка тяжёлого действия оставляет возможность принять решение до контакта. Натиск движется в пространстве и связан с препятствиями, поэтому настоящее укрытие полезнее надежды на одну дистанцию. Не смешивайте его с обычным шахтёром: масштаб и набор действий отличаются. В глубинах заранее отметьте свободное направление отхода и не позволяйте тяжёлой фигуре запереть вас в тупике.",
+   "tales.entry.large_podzemnik.verified": "Крупный подземник готовит тяжёлый удар, сотрясает землю и разгоняется физически. Преграды прерывают его натиск.\n\nОбычное здоровье: 300 HP. Броня: 0. Эти базовые значения проверены на сервере; варианты и боевые состояния могут их изменять.\n\nПодтверждение относится к событию, которое совершили именно вы. Чужая находка или простое чтение не засчитывают личное убийство; отметка «побеждён» требует настоящей победы.\n\nРазмер крупного подземника требует оценивать не только его силу, но и доступный проход. Видимая подготовка тяжёлого действия оставляет возможность принять решение до контакта. Натиск движется в пространстве и связан с препятствиями, поэтому настоящее укрытие полезнее надежды на одну дистанцию. Не смешивайте его с обычным шахтёром: масштаб и набор действий отличаются. В глубинах заранее отметьте свободное направление отхода и не позволяйте тяжёлой фигуре запереть вас в тупике.",
+   "tales.entry.nav.title": "Навь",
+   "tales.entry.nav.rumor": "Навь принадлежит беспокойным мертвецам. Осмотр погребального места и реальная победа дают разные уровни знания.\n\nНавь связана с темой беспокойных мертвецов, но её запись не заменяет описания дружинника, воеводы или волхва. При осмотре погребального пространства отдельно узнавайте каждую фигуру. Сведения о кургане помогают понять обстановку, а состояние самого существа определяет опасность приближения. Не считайте найденную погребальную вещь доказательством победы над всеми обитателями. Для собственной истории важны реальные наблюдения и отдельные события боя, а не только общий список предметов из захоронения.",
+@@ -3368,10 +3368,10 @@
+   "tales.entry.items_huntitems_2.studied": "Рецепты проверяются сервером. Используйте соответствующее рабочее место; точные количества показывает обычная книга рецептов или JEI.\n\n• Тугаринова кожа\n• Узел Подвея\n• Ус Тугарина",
+   "tales.entry.items_huntitems_2.verified": "Полученный и изготовленный предмет — разные события знания. Эта запись не является наградой за победу над владельцем материала.\n\n• Тугаринова кожа\n• Узел Подвея\n• Ус Тугарина",
+   "tales.entry.items_industryitem_1.title": "Железистый болотный комок — Руна удачливого старателя I",
+-  "tales.entry.items_industryitem_1.rumor": "Предметы и блоки существующего мира. Запись открывается после получения предмета или знакомства с блоком.\n\n• Железистый болотный комок\n• Очищающий плавень\n• Очищенный железный слиток\n• Очищенный медный слиток\n• Р СѓРЅР° Р—Р»РѕРІРµС‰РµР№ Р°СѓСЂС‹\n• Руна рудокопа I\n• Руна рудокопа II\n• Руна удачливого старателя I",
+-  "tales.entry.items_industryitem_1.discovered": "В этом разделе перечислены реальные предметы, а не обещания будущих обновлений.\n\n• Железистый болотный комок\n• Очищающий плавень\n• Очищенный железный слиток\n• Очищенный медный слиток\n• Р СѓРЅР° Р—Р»РѕРІРµС‰РµР№ Р°СѓСЂС‹\n• Руна рудокопа I\n• Руна рудокопа II\n• Руна удачливого старателя I",
+-  "tales.entry.items_industryitem_1.studied": "Рецепты проверяются сервером. Используйте соответствующее рабочее место; точные количества показывает обычная книга рецептов или JEI.\n\n• Железистый болотный комок\n• Очищающий плавень\n• Очищенный железный слиток\n• Очищенный медный слиток\n• Р СѓРЅР° Р—Р»РѕРІРµС‰РµР№ Р°СѓСЂС‹\n• Руна рудокопа I\n• Руна рудокопа II\n• Руна удачливого старателя I",
+-  "tales.entry.items_industryitem_1.verified": "Полученный и изготовленный предмет — разные события знания. Эта запись не является наградой за победу над владельцем материала.\n\n• Железистый болотный комок\n• Очищающий плавень\n• Очищенный железный слиток\n• Очищенный медный слиток\n• Р СѓРЅР° Р—Р»РѕРІРµС‰РµР№ Р°СѓСЂС‹\n• Руна рудокопа I\n• Руна рудокопа II\n• Руна удачливого старателя I",
++  "tales.entry.items_industryitem_1.rumor": "Предметы и блоки существующего мира. Запись открывается после получения предмета или знакомства с блоком.\n\n• Железистый болотный комок\n• Очищающий плавень\n• Очищенный железный слиток\n• Очищенный медный слиток\n• Руна Зловещей ауры\n• Руна рудокопа I\n• Руна рудокопа II\n• Руна удачливого старателя I",
++  "tales.entry.items_industryitem_1.discovered": "В этом разделе перечислены реальные предметы, а не обещания будущих обновлений.\n\n• Железистый болотный комок\n• Очищающий плавень\n• Очищенный железный слиток\n• Очищенный медный слиток\n• Руна Зловещей ауры\n• Руна рудокопа I\n• Руна рудокопа II\n• Руна удачливого старателя I",
++  "tales.entry.items_industryitem_1.studied": "Рецепты проверяются сервером. Используйте соответствующее рабочее место; точные количества показывает обычная книга рецептов или JEI.\n\n• Железистый болотный комок\n• Очищающий плавень\n• Очищенный железный слиток\n• Очищенный медный слиток\n• Руна Зловещей ауры\n• Руна рудокопа I\n• Руна рудокопа II\n• Руна удачливого старателя I",
++  "tales.entry.items_industryitem_1.verified": "Полученный и изготовленный предмет — разные события знания. Эта запись не является наградой за победу над владельцем материала.\n\n• Железистый болотный комок\n• Очищающий плавень\n• Очищенный железный слиток\n• Очищенный медный слиток\n• Руна Зловещей ауры\n• Руна рудокопа I\n• Руна рудокопа II\n• Руна удачливого старателя I",
+   "tales.entry.items_item_1.title": "Алмазный лёгкий наконечник — Железный наконечник копья",
+   "tales.entry.items_item_1.rumor": "Предметы и блоки существующего мира. Запись открывается после получения предмета или знакомства с блоком.\n\n• Алмазный лёгкий наконечник\n• Алмазный наконечник копья\n• Алмазный шар кистеня\n• Амулет волхва\n• Банный веник\n• Банный камень\n• Береста\n• Берестяной свиток\n• Громовой камень\n• Гусиное яйцо\n• Древко копья\n• Древние бусины\n• Древний гребень\n• Древняя фибула\n• Железная заготовка\n• Железные кольца\n• Железный лёгкий наконечник\n• Железный наконечник копья",
+   "tales.entry.items_item_1.discovered": "В этом разделе перечислены реальные предметы, а не обещания будущих обновлений.\n\n• Алмазный лёгкий наконечник\n• Алмазный наконечник копья\n• Алмазный шар кистеня\n• Амулет волхва\n• Банный веник\n• Банный камень\n• Береста\n• Берестяной свиток\n• Громовой камень\n• Гусиное яйцо\n• Древко копья\n• Древние бусины\n• Древний гребень\n• Древняя фибула\n• Железная заготовка\n• Железные кольца\n• Железный лёгкий наконечник\n• Железный наконечник копья",
+@@ -3533,10 +3533,10 @@
+   "tales.entry.items_spawn_eggs_1.studied": "Рецепты проверяются сервером. Используйте соответствующее рабочее место; точные количества показывает обычная книга рецептов или JEI.\n\n• Атаман — яйцо призыва\n• Бурый медведь (яйцо призыва)\n• Водяной: яйцо призыва\n• Волколак — яйцо призыва\n• Кабан (яйцо призыва)\n• Карп: яйцо призыва\n• Курганный воевода — яйцо призыва\n• Курганный дружинник — яйцо призыва\n• Лесной волк (яйцо призыва)\n• Лихо Одноглазое — яйцо призыва\n• Медвежонок (яйцо призыва)\n• Навь — яйцо призыва\n• Неупокоенный князь — яйцо призыва\n• Овинник — яйцо призыва\n• Огненный змей — яйцо призыва\n• Олениха (яйцо призыва)\n• Погребённый волхв — яйцо призыва\n• Подвей — яйцо призыва",
+   "tales.entry.items_spawn_eggs_1.verified": "Полученный и изготовленный предмет — разные события знания. Эта запись не является наградой за победу над владельцем материала.\n\n• Атаман — яйцо призыва\n• Бурый медведь (яйцо призыва)\n• Водяной: яйцо призыва\n• Волколак — яйцо призыва\n• Кабан (яйцо призыва)\n• Карп: яйцо призыва\n• Курганный воевода — яйцо призыва\n• Курганный дружинник — яйцо призыва\n• Лесной волк (яйцо призыва)\n• Лихо Одноглазое — яйцо призыва\n• Медвежонок (яйцо призыва)\n• Навь — яйцо призыва\n• Неупокоенный князь — яйцо призыва\n• Овинник — яйцо призыва\n• Огненный змей — яйцо призыва\n• Олениха (яйцо призыва)\n• Погребённый волхв — яйцо призыва\n• Подвей — яйцо призыва",
+   "tales.entry.items_spawn_eggs_2.title": "Проклятый Оборотень — яйцо призыва — Яйцо призыва домашней козы",
+-  "tales.entry.items_spawn_eggs_2.rumor": "Предметы и блоки существующего мира. Запись открывается после получения предмета или знакомства с блоком.\n\n• Проклятый Оборотень — яйцо призыва\n• Разбойник-боец — яйцо призыва\n• Разбойник-лучник — яйцо призыва\n• Речной рак: яйцо призыва\n• Русалка: яйцо призыва\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РљР»Р°РґРѕРІРёРє\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РљСЂСѓРїРЅС‹Р№ РџРѕРґР·РµРјРЅРёРє\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РџРѕРґР·РµРјРЅРёРє\n• Старший Водяной: яйцо призыва\n• Старший разбойник — яйцо призыва\n• Тугарин Змей — яйцо призыва\n• Тяжёлый разбойник — яйцо призыва\n• Упырь — яйцо призыва\n• Щука: яйцо призыва\n• Яйцо призыва Бабы-яги\n• Яйцо призыва болотника\n• Яйцо призыва гуся\n• Яйцо призыва домашней козы",
+-  "tales.entry.items_spawn_eggs_2.discovered": "В этом разделе перечислены реальные предметы, а не обещания будущих обновлений.\n\n• Проклятый Оборотень — яйцо призыва\n• Разбойник-боец — яйцо призыва\n• Разбойник-лучник — яйцо призыва\n• Речной рак: яйцо призыва\n• Русалка: яйцо призыва\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РљР»Р°РґРѕРІРёРє\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РљСЂСѓРїРЅС‹Р№ РџРѕРґР·РµРјРЅРёРє\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РџРѕРґР·РµРјРЅРёРє\n• Старший Водяной: яйцо призыва\n• Старший разбойник — яйцо призыва\n• Тугарин Змей — яйцо призыва\n• Тяжёлый разбойник — яйцо призыва\n• Упырь — яйцо призыва\n• Щука: яйцо призыва\n• Яйцо призыва Бабы-яги\n• Яйцо призыва болотника\n• Яйцо призыва гуся\n• Яйцо призыва домашней козы",
+-  "tales.entry.items_spawn_eggs_2.studied": "Рецепты проверяются сервером. Используйте соответствующее рабочее место; точные количества показывает обычная книга рецептов или JEI.\n\n• Проклятый Оборотень — яйцо призыва\n• Разбойник-боец — яйцо призыва\n• Разбойник-лучник — яйцо призыва\n• Речной рак: яйцо призыва\n• Русалка: яйцо призыва\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РљР»Р°РґРѕРІРёРє\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РљСЂСѓРїРЅС‹Р№ РџРѕРґР·РµРјРЅРёРє\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РџРѕРґР·РµРјРЅРёРє\n• Старший Водяной: яйцо призыва\n• Старший разбойник — яйцо призыва\n• Тугарин Змей — яйцо призыва\n• Тяжёлый разбойник — яйцо призыва\n• Упырь — яйцо призыва\n• Щука: яйцо призыва\n• Яйцо призыва Бабы-яги\n• Яйцо призыва болотника\n• Яйцо призыва гуся\n• Яйцо призыва домашней козы",
+-  "tales.entry.items_spawn_eggs_2.verified": "Полученный и изготовленный предмет — разные события знания. Эта запись не является наградой за победу над владельцем материала.\n\n• Проклятый Оборотень — яйцо призыва\n• Разбойник-боец — яйцо призыва\n• Разбойник-лучник — яйцо призыва\n• Речной рак: яйцо призыва\n• Русалка: яйцо призыва\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РљР»Р°РґРѕРІРёРє\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РљСЂСѓРїРЅС‹Р№ РџРѕРґР·РµРјРЅРёРє\n• РЇР№С†Рѕ РїСЂРёР·С‹РІР°: РџРѕРґР·РµРјРЅРёРє\n• Старший Водяной: яйцо призыва\n• Старший разбойник — яйцо призыва\n• Тугарин Змей — яйцо призыва\n• Тяжёлый разбойник — яйцо призыва\n• Упырь — яйцо призыва\n• Щука: яйцо призыва\n• Яйцо призыва Бабы-яги\n• Яйцо призыва болотника\n• Яйцо призыва гуся\n• Яйцо призыва домашней козы",
++  "tales.entry.items_spawn_eggs_2.rumor": "Предметы и блоки существующего мира. Запись открывается после получения предмета или знакомства с блоком.\n\n• Проклятый Оборотень — яйцо призыва\n• Разбойник-боец — яйцо призыва\n• Разбойник-лучник — яйцо призыва\n• Речной рак: яйцо призыва\n• Русалка: яйцо призыва\n• Яйцо призыва: Кладовик\n• Яйцо призыва: Крупный Подземник\n• Яйцо призыва: Подземник\n• Старший Водяной: яйцо призыва\n• Старший разбойник — яйцо призыва\n• Тугарин Змей — яйцо призыва\n• Тяжёлый разбойник — яйцо призыва\n• Упырь — яйцо призыва\n• Щука: яйцо призыва\n• Яйцо призыва Бабы-яги\n• Яйцо призыва болотника\n• Яйцо призыва гуся\n• Яйцо призыва домашней козы",
++  "tales.entry.items_spawn_eggs_2.discovered": "В этом разделе перечислены реальные предметы, а не обещания будущих обновлений.\n\n• Проклятый Оборотень — яйцо призыва\n• Разбойник-боец — яйцо призыва\n• Разбойник-лучник — яйцо призыва\n• Речной рак: яйцо призыва\n• Русалка: яйцо призыва\n• Яйцо призыва: Кладовик\n• Яйцо призыва: Крупный Подземник\n• Яйцо призыва: Подземник\n• Старший Водяной: яйцо призыва\n• Старший разбойник — яйцо призыва\n• Тугарин Змей — яйцо призыва\n• Тяжёлый разбойник — яйцо призыва\n• Упырь — яйцо призыва\n• Щука: яйцо призыва\n• Яйцо призыва Бабы-яги\n• Яйцо призыва болотника\n• Яйцо призыва гуся\n• Яйцо призыва домашней козы",
++  "tales.entry.items_spawn_eggs_2.studied": "Рецепты проверяются сервером. Используйте соответствующее рабочее место; точные количества показывает обычная книга рецептов или JEI.\n\n• Проклятый Оборотень — яйцо призыва\n• Разбойник-боец — яйцо призыва\n• Разбойник-лучник — яйцо призыва\n• Речной рак: яйцо призыва\n• Русалка: яйцо призыва\n• Яйцо призыва: Кладовик\n• Яйцо призыва: Крупный Подземник\n• Яйцо призыва: Подземник\n• Старший Водяной: яйцо призыва\n• Старший разбойник — яйцо призыва\n• Тугарин Змей — яйцо призыва\n• Тяжёлый разбойник — яйцо призыва\n• Упырь — яйцо призыва\n• Щука: яйцо призыва\n• Яйцо призыва Бабы-яги\n• Яйцо призыва болотника\n• Яйцо призыва гуся\n• Яйцо призыва домашней козы",
++  "tales.entry.items_spawn_eggs_2.verified": "Полученный и изготовленный предмет — разные события знания. Эта запись не является наградой за победу над владельцем материала.\n\n• Проклятый Оборотень — яйцо призыва\n• Разбойник-боец — яйцо призыва\n• Разбойник-лучник — яйцо призыва\n• Речной рак: яйцо призыва\n• Русалка: яйцо призыва\n• Яйцо призыва: Кладовик\n• Яйцо призыва: Крупный Подземник\n• Яйцо призыва: Подземник\n• Старший Водяной: яйцо призыва\n• Старший разбойник — яйцо призыва\n• Тугарин Змей — яйцо призыва\n• Тяжёлый разбойник — яйцо призыва\n• Упырь — яйцо призыва\n• Щука: яйцо призыва\n• Яйцо призыва Бабы-яги\n• Яйцо призыва болотника\n• Яйцо призыва гуся\n• Яйцо призыва домашней козы",
+   "tales.entry.items_spawn_eggs_3.title": "Яйцо призыва Домового — Яйцо призыва: Песиголовец-разведчик",
+   "tales.entry.items_spawn_eggs_3.rumor": "Предметы и блоки существующего мира. Запись открывается после получения предмета или знакомства с блоком.\n\n• Яйцо призыва Домового\n• Яйцо призыва Жар-птицы\n• Яйцо призыва Кота Баюна\n• Яйцо призыва Лешего\n• Яйцо призыва Ночницы\n• Яйцо призыва оленей\n• Яйцо призыва Серого Волка\n• Яйцо призыва Сивки-Бурки\n• Яйцо призыва Слуги земли\n• Яйцо призыва Соловья-разбойника\n• Яйцо призыва утки\n• Яйцо призыва: Банник\n• Яйцо призыва: Житель Чуди\n• Яйцо призыва: Игоша\n• Яйцо призыва: Кикимора\n• Яйцо призыва: Песиголовец-вожак\n• Яйцо призыва: Песиголовец-охотник\n• Яйцо призыва: Песиголовец-разведчик",
+   "tales.entry.items_spawn_eggs_3.discovered": "В этом разделе перечислены реальные предметы, а не обещания будущих обновлений.\n\n• Яйцо призыва Домового\n• Яйцо призыва Жар-птицы\n• Яйцо призыва Кота Баюна\n• Яйцо призыва Лешего\n• Яйцо призыва Ночницы\n• Яйцо призыва оленей\n• Яйцо призыва Серого Волка\n• Яйцо призыва Сивки-Бурки\n• Яйцо призыва Слуги земли\n• Яйцо призыва Соловья-разбойника\n• Яйцо призыва утки\n• Яйцо призыва: Банник\n• Яйцо призыва: Житель Чуди\n• Яйцо призыва: Игоша\n• Яйцо призыва: Кикимора\n• Яйцо призыва: Песиголовец-вожак\n• Яйцо призыва: Песиголовец-охотник\n• Яйцо призыва: Песиголовец-разведчик",
+--- /dev/null
++++ b/tools/creature-feedback-runtime.init.gradle
+@@ -0,0 +1,11 @@
++gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
++ p.sourceSets { creatureFeedbackRuntime { java.srcDir 'tools/creature-feedback-runtime'; resources.srcDir 'tools/creature-feedback-runtime-resources' } }
++ p.sourceSets.creatureFeedbackRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
++ p.sourceSets.creatureFeedbackRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
++ p.tasks.named('compileCreatureFeedbackRuntimeJava') { dependsOn p.tasks.named('classes') }
++ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.creatureFeedbackRuntime)
++ p.neoForge.runs { creatureFeedbackChecks {
++  type='gameTestServer';gameDirectory=p.file('work/creature-feedback/runtime-'+(p.findProperty('creatureRun') ?: 'checks'))
++  systemProperty 'neoforge.enabledGameTestNamespaces','slavicmyths_creature_feedback'
++ } }
++} }
+--- /dev/null
++++ b/tools/creature-feedback-runtime/CreatureFeedbackTests.java
+@@ -0,0 +1,98 @@
++package org.slavicmyths.verify;
++import java.util.*;
++import net.minecraft.core.BlockPos;
++import net.minecraft.core.registries.BuiltInRegistries;
++import net.minecraft.resources.ResourceLocation;
++import net.minecraft.gametest.framework.*;
++import net.minecraft.nbt.CompoundTag;
++import net.minecraft.server.level.*;
++import net.minecraft.world.Difficulty;
++import net.minecraft.world.entity.*;
++import net.minecraft.world.item.Items;
++import net.minecraft.world.level.GameType;
++import net.minecraft.world.phys.Vec3;
++import net.neoforged.neoforge.gametest.*;
++import org.slavicmyths.combat.*;
++import org.slavicmyths.poloz.*;
++import org.slavicmyths.karachun.*;
++import org.slavicmyths.gorynych.*;
++@GameTestHolder("slavicmyths_creature_feedback") @PrefixGameTestTemplate(false)
++public final class CreatureFeedbackTests {
++    private static final class Connection extends net.minecraft.network.Connection {
++        private final io.netty.channel.embedded.EmbeddedChannel channel=new io.netty.channel.embedded.EmbeddedChannel();
++        Connection(){super(net.minecraft.network.protocol.PacketFlow.SERVERBOUND);}@Override public io.netty.channel.Channel channel(){return channel;}
++    }
++    private static final class Listener extends net.minecraft.server.network.ServerGamePacketListenerImpl {
++        Listener(ServerPlayer p){super(p.getServer(),new Connection(),p,net.minecraft.server.network.CommonListenerCookie.createInitial(p.getGameProfile(),false));}
++        @Override public void send(net.minecraft.network.protocol.Packet<?> p){}@Override public void send(net.minecraft.network.protocol.Packet<?> p,net.minecraft.network.PacketSendListener l){}
++    }
++ private static ServerPlayer player(GameTestHelper t){var w=t.getLevel();var p=new ServerPlayer(w.getServer(),w,new com.mojang.authlib.GameProfile(UUID.randomUUID(),"CreatureCheck"),ClientInformation.createDefault());p.connection=new Listener(p);p.setPos(t.absoluteVec(new Vec3(16,3,16)));p.setNoGravity(true);return p;}
++ private static Object field(Object e,String name){try{var f=e.getClass().getDeclaredField(name);f.setAccessible(true);return f.get(e);}catch(Exception ex){throw new RuntimeException(ex);}}
++ private static void call(Object e,String name){try{var m=e.getClass().getDeclaredMethod(name);m.setAccessible(true);m.invoke(e);}catch(Exception ex){throw new RuntimeException(ex);}}
++ private static void bite(Gorynych d,ServerPlayer p){((int[])field(d,"headRest"))[0]=999;((int[])field(d,"headRest"))[1]=999;((int[])field(d,"headAction"))[2]=2;((int[])field(d,"headAge"))[2]=31;((LivingEntity[])field(d,"headTarget"))[2]=p;((float[])field(d,"pitch"))[2]=45;call(d,"positionHeads");}
++ private static int checks;
++ static void check(GameTestHelper t,boolean ok,String name){t.assertTrue(ok,name);System.out.println("CREATURE_FEEDBACK_PASS "+(++checks)+" "+name);}
++ static Entity make(ServerLevel w,String name){return BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse("slavicmyths:"+name)).create(w);}
++ @GameTest(template="empty",timeoutTicks=600) public static void mechanics(GameTestHelper t){
++  var w=t.getLevel();w.getServer().setDifficulty(Difficulty.NORMAL,true);
++  var origin=t.absoluteVec(new Vec3(12,3,12));
++  var p=(GreatPoloz)make(w,"great_poloz");p.setPos(origin);p.setNoAi(true);w.addFreshEntity(p);p.initializeBody();
++  check(t,p.getMaxHealth()==3000&&p.getHealth()==3000,"Poloz 3000 HP");
++  var attacker=EntityType.ZOMBIE.create(w);attacker.setNoAi(true);attacker.setPos(origin);w.addFreshEntity(attacker);
++  for(int phase=1;phase<=3;phase++){
++   p.setPhaseForTest(phase);float before=p.getHealth();
++   check(t,!p.hurt(attacker.damageSources().mobAttack(attacker),100)&&p.getHealth()==before,"root armor phase "+phase);
++   var arrow=EntityType.ARROW.create(w);arrow.setPos(p.parts[24].getBoundingBox().getCenter());arrow.setDeltaMovement(.1,0,0);
++   var source=attacker.damageSources().arrow(arrow,attacker);
++   // Different owner per contact avoids the intentional six-tick per-attacker gate.
++   var archer=EntityType.SKELETON.create(w);archer.setPos(origin);source=archer.damageSources().arrow(arrow,archer);
++   check(t,p.hitPart(p.parts[24],source,100)&&p.getHealth()<before&&before-p.getHealth()<=6.01,"actual scar contact and ordinary mob cap phase "+phase);
++   arrow.discard();archer.discard();
++  }
++  var player=player(t);player.setGameMode(GameType.CREATIVE);w.addNewPlayer(player);
++  check(t,!p.validVictim(player)&&!CombatTargeting.canAttack(p,player),"Creative excluded from Poloz/common targeting");
++  p.setTarget(player);check(t,p.getTarget()==null,"target event rejects Creative");
++  float safeHealth=player.getHealth();player.hurt(p.damageSources().mobAttack(p),100);check(t,player.getHealth()==safeHealth,"Creative takes no delayed damage");
++  var dragon=(Gorynych)make(w,"zmey_gorynych");check(t,!dragon.candidate(player),"Gorynych excludes Creative owner");
++  var nightProbe=(Karachun)make(w,"karachun");nightProbe.owner=player.getUUID();check(t,!nightProbe.candidate(player),"Night excludes Creative trial owner");
++  player.setGameMode(GameType.SPECTATOR);check(t,!p.validVictim(player)&&!CombatTargeting.canControl(p,player),"Spectator excluded from control");
++  NightStatus.add(player,UUID.randomUUID(),30,90,true);check(t,!player.getPersistentData().contains(NightStatus.KEY),"Spectator receives no fear/control status");
++  player.setGameMode(GameType.SURVIVAL);try{var f=ServerPlayer.class.getDeclaredField("spawnInvulnerableTime");f.setAccessible(true);f.setInt(player,0);}catch(Exception ex){throw new RuntimeException(ex);}
++  var record=new CompoundTag();record.putLong("Origin",BlockPos.containing(origin).asLong());record.putBoolean("Standalone",true);record.putInt("State",GorynychRules.GROUND);record.putFloat("HP",2800);record.putInt(GorynychRules.BALANCE,GorynychRules.BALANCE_VERSION);dragon.setPos(origin);dragon.configure(UUID.randomUUID(),record);
++  player.setPos(origin.add(0,0,10));bite(dragon,player);float beforeBite=player.getHealth();call(dragon,"headTick");check(t,field(dragon,"grabbed")==null&&player.getHealth()==beforeBite,"Gorynych cannot grab without head contact");
++  bite(dragon,player);player.setPos(origin.add(GorynychPose.offset(2,0,0,43,dragon.tickCount,false,false,false,2,32)).add(0,-.2,0));call(dragon,"headTick");check(t,field(dragon,"grabbed")==player&&player.getHealth()<beforeBite,"contact bite damages before confirmed grab");
++  player.setGameMode(GameType.CREATIVE);dragon.cancelTarget(player);check(t,field(dragon,"grabbed")==null,"Creative mode releases Gorynych grab");
++  player.discard();dragon.discard();nightProbe.discard();
++  var cow=EntityType.COW.create(w);cow.setPos(p.parts[8].position().add(3,0,0));w.addFreshEntity(cow);attacker.discard();
++  check(t,p.validVictim(cow),"passive animal is Poloz candidate");
++  for(int skill=1;skill<=5;skill++)check(t,PolozRules.damage(skill)>0,"attack budget skill "+skill);
++  p.setPhaseForTest(1);float cowBefore=cow.getHealth();UUID volley=UUID.randomUUID();for(int i=0;i<20;i++){cow.invulnerableTime=0;p.rainDamage(cow,3,volley);}check(t,cowBefore-cow.getHealth()<=PolozRules.damage(3)+.01,"rain per-victim cap");
++  var guard=(org.slavicmyths.industry.ChudPerson)make(w,"chud_guard");
++  check(t,guard.getMainHandItem().is(Items.IRON_AXE),"guard constructor weapon");
++  var n=new CompoundTag();guard.saveWithoutId(n);var restored=(org.slavicmyths.industry.ChudPerson)make(w,"chud_guard");restored.load(n);
++  check(t,restored.getMainHandItem().is(Items.IRON_AXE),"guard weapon save/load");
++  n.remove("HandItems");restored.load(n);check(t,restored.getMainHandItem().is(Items.IRON_AXE),"old empty guard repaired");
++  var fearTarget=EntityType.COW.create(w);fearTarget.setNoAi(true);fearTarget.setPos(origin.add(0,2,0));w.addFreshEntity(fearTarget);UUID fear=UUID.randomUUID(),other=UUID.randomUUID();
++  for(int i=0;i<90;i++)NightStatus.add(fearTarget,fear,0,1,false);
++  check(t,NightStatus.value(fearTarget,"Fear")==90&&NightRules.phantoms(NightStatus.visualFear(fearTarget))==3,"fear builds to three phantoms");
++  NightStatus.add(fearTarget,other,0,10,false);NightStatus.reduceFear(fearTarget,fear);check(t,NightStatus.value(fearTarget,"Fear")==84,"successful hit weakens fear");
++  var row=fearTarget.getPersistentData().getCompound(NightStatus.KEY).getCompound(fear.toString());row.putDouble("Fear",65);NightStatus.add(fearTarget,fear,0,0,false);check(t,NightStatus.visualFear(fearTarget)==75,"fear demotion grace holds tier");
++  row.putLong("FearFallAt",w.getGameTime()-41);NightStatus.add(fearTarget,fear,0,0,false);check(t,NightStatus.visualFear(fearTarget)==65,"fear tier demotes after grace");
++  NightStatus.clear(fearTarget,fear);check(t,NightStatus.value(fearTarget,"Fear")==10,"source-local fear cleanup preserves second source");
++  for(int h=0;h<3;h++)for(int a:new int[]{0,24,30,34,52})check(t,Double.isFinite(GorynychPose.offset(h,0,0,0,a,false,false,false,1,a).x),"head finite pose "+h+"/"+a);
++  check(t,!GorynychPose.contact(2,24)&&GorynychPose.contact(2,32)&&!GorynychPose.contact(2,40),"bite contact restricted to lunge");
++  var night=(Karachun)make(w,"karachun");night.session=UUID.randomUUID();night.owner=UUID.randomUUID();night.setPos(origin);NightLedger.get(w).session(night.session).putUUID("Owner",night.owner);w.addFreshEntity(night);
++  var frost=(org.slavicmyths.morozko.Morozko)make(w,"morozko");frost.session=UUID.randomUUID();frost.owner=UUID.randomUUID();frost.setPos(origin);org.slavicmyths.morozko.FrostLedger.get(w).session(frost.session).putUUID("Owner",frost.owner);w.addFreshEntity(frost);
++  var civilian=(Mob)make(w,"chud_resident");civilian.setPos(origin);w.addFreshEntity(civilian);
++  w.getServer().setDifficulty(Difficulty.PEACEFUL,true);
++  t.runAfterDelay(5,()->{
++   check(t,p.isRemoved()&&night.isRemoved()&&frost.isRemoved(),"Peaceful removes Poloz/Night/Frost without death");
++   check(t,NightLedger.get(w).session(night.session).getBoolean("Cancelled")&&!NightLedger.get(w).player(night.owner).getBoolean("Completed"),"Night cancelled without victory");
++   check(t,org.slavicmyths.morozko.FrostLedger.get(w).session(frost.session).getBoolean("Cancelled"),"Frost cancelled safely");
++   var hostile=(Mob)make(w,"cursed_volkolak");hostile.setPos(origin);check(t,!w.addFreshEntity(hostile),"Peaceful blocks new hostile spawn");
++   check(t,!civilian.isRemoved(),"Peaceful preserves civilian");
++   int rejected=0;for(var type:BuiltInRegistries.ENTITY_TYPE){if(!BuiltInRegistries.ENTITY_TYPE.getKey(type).getNamespace().equals("slavicmyths"))continue;var e=type.create(w);if(e instanceof Mob mob&&CreatureSafety.hostile(mob)){mob.setPos(origin);check(t,!w.addFreshEntity(mob),"Peaceful rejects "+BuiltInRegistries.ENTITY_TYPE.getKey(type));rejected++;}else if(e!=null)e.discard();}check(t,rejected>30,"registered hostile matrix covered");
++   civilian.discard();cow.discard();fearTarget.discard();p.discard();guard.discard();restored.discard();w.getServer().setDifficulty(Difficulty.NORMAL,true);t.succeed();
++  });
++ }
++}
+--- /dev/null
++++ b/tools/creature_feedback_report.py
+@@ -0,0 +1,108 @@
++"""Write a review bundle scoped to the task-start snapshot, including untracked task files."""
++from pathlib import Path
++import json,hashlib,subprocess,difflib,shutil,re
++R=Path(__file__).resolve().parents[1];O=R/'docs/implementation/creature-feedback';B=R/'.tools/creature-feedback-before';O.mkdir(parents=True,exist_ok=True)
++manifest=json.loads((B/'manifest.json').read_text(encoding='utf-8'));gates=json.loads((O/'ARTIFACT_GATES.json').read_text(encoding='utf-8'))
++def norm(p):return p.read_bytes().replace(b'\r\n',b'\n')
++changed=[p for p in manifest['paths'] if norm(R/p)!=norm(B/p)]
++new=['src/main/java/org/slavicmyths/combat/CreatureSafety.java','src/main/java/org/slavicmyths/gorynych/GorynychPose.java','tools/creature-feedback-runtime.init.gradle','tools/creature-feedback-runtime/CreatureFeedbackTests.java','tools/creature-feedback-runtime-resources/data/slavicmyths_creature_feedback/structure/empty.nbt','tools/verify_creature_feedback.py','tools/install_creature_feedback.ps1','tools/creature_feedback_report.py']
++paths=sorted(set(changed+new));patch=[];rows=[]
++for rel in paths:
++ data=(R/rel).read_bytes();before=(B/rel).read_bytes() if (B/rel).exists() else b''
++ rows.append({'path':rel,'kind':'production Java' if rel.startswith('src/main/java/') else 'resource' if rel.startswith('src/main/resources/') else 'documentation' if rel.startswith('docs/') else 'test/tool','sha256':hashlib.sha256(data).hexdigest(),'new':rel in new})
++ if rel.endswith('.nbt'):continue
++ patch.extend(difflib.unified_diff(before.decode('utf-8-sig').replace('\r\n','\n').splitlines(keepends=True),data.decode('utf-8-sig').replace('\r\n','\n').splitlines(keepends=True),fromfile='a/'+rel if before else '/dev/null',tofile='b/'+rel))
++(O/'OWN_PATCH.patch').write_text(''.join(patch),encoding='utf-8')
++(O/'OWN_FILES.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2),encoding='utf-8')
++(O/'FILES.md').write_text('# Файлы текущего исправления\n\nИзменения относительно начала этого задания, включая новые untracked-файлы. Полный snapshot файлов и SHA256: OWN_FILES.json. Архивные HP/оружие/руны в общий список не включены.\n\n'+'\n'.join('- `'+row['path']+'` — '+row['kind'] for row in rows)+'\n\nДополнительно: все отчёты, логи, спецификация и квитанция в этой папке.\n',encoding='utf-8')
++def logcopy(source,target):target.write_text('\n'.join(line.rstrip() for line in source.read_text(encoding='utf-8').splitlines())+'\n',encoding='utf-8')
++for i in range(1,5):logcopy(R/f'.tools/creature-feedback-runtime{i}.log',O/f'RUNTIME_{i}.log')
++logcopy(R/'.tools/creature-feedback-clean-build.log',O/'CLEAN_BUILD.log')
++shutil.copyfile(B/'manifest.json',O/'START_SNAPSHOT.json')
++spec=Path('C:/Users/pavel/.codex/attachments/73e1958d-eac4-4171-a28c-85ee8d441288/Вставленный текст.txt');shutil.copyfile(spec,O/'SPEC.md')
++proc=subprocess.run(['git','diff','--check'],cwd=R,capture_output=True,text=True,encoding='utf-8');assert proc.returncode==0,proc.stdout
++(O/'DIFF_CHECK.txt').write_text('git diff --check: PASS (exit 0)\n'+proc.stdout+proc.stderr,encoding='utf-8')
++(O/'WORKSPACE_DIFF_STAT.txt').write_text(subprocess.check_output(['git','diff','--stat'],cwd=R,text=True,encoding='utf-8'),encoding='utf-8')
++runtime=(O/'RUNTIME_4.log').read_text(encoding='utf-8');checks=len(re.findall(r'CREATURE_FEEDBACK_PASS ',runtime));hostiles=len(re.findall(r'CREATURE_FEEDBACK_PASS \d+ Peaceful rejects ',runtime))
++receipt=json.loads((O/'polymc-installation.json').read_text(encoding='utf-8-sig')) if (O/'polymc-installation.json').exists() else None
++status='COMPLETE_WITH_LIMITATIONS' if receipt else 'VERIFIED_PENDING_INSTALL'
++report=f'''# Исправления существ после игрового тестирования
++
++Статус: **{status}**. Minecraft 1.21.1, NeoForge 21.1.255, Java 21.0.12. Production metadata остаётся 1.9.7; это отдельный патч поверх оружия, здоровья и рун. Commit/push не выполнялись.
++
++## Исправлено
++
++- Мирная сложность: CreatureSafety обрабатывает смену сложности и EntityJoinLevel, а не обходит мир каждый тик. Явный перечень типов плюс mod MobCategory.MONSTER; исключения для очищенных хранителей, истощённого/очищенного Горыныча и союзных воронов. NPC, животные и богатыри сохраняются. Удаление через discard, без die/loot/victory. Морозко/Карачун получают Cancelled и доступный повтор; сюжетные финалы и прошлые награды не очищаются. Земляной дух открывает арену и возвращает её в SEALED без выдачи награды, сохраняя потраченные колонны. Картáус, Калин, Маринка и Ским используют свои процедуры неуспешного завершения. Загруженные принадлежащие им атаки очищаются; чанки ради очистки не загружаются.
++- Creative/Spectator исключены общей политикой, событием смены цели, кандидатами Горыныча и обоих испытаний (включая владельца). Отложенный прямой урон блокируется. При смене режима очищаются страх/контроль, цели и захваты; проверки выполняются и в контроллерах. generic_kill оставлен для намеренного администрирования. Проверки не запрещают атаковать обычных существ из Creative и не запрещают богатырям владельца Creative сражаться в отладочных сценах.
++- Полоз: 3000 HP сохранены. Root и все 24 бронированных сегмента не принимают обычный урон во всех фазах. Только три действительных scar PartEntity: контакт стрелы проверяется геометрически, ближний удар — по лучу/дальности/видимости, взрыв и косвенная splash-подмена отклоняются. rewardFissure остаётся явным отдельным исключением сюжетной способности. Удалены ложные декоративные шрамы фазы II/III; верхний шрам смещён внутрь своего hitbox. Рикошет и рана различаются звуком и частицами.
++- Полоз атакует ближайших допустимых живых существ по расстоянию до multipart, включая животных и защитников, с локальным поиском раз в 20 тиков, LOS и радиусом 48 блоков от тела. Исключены собственные призванные существа, Creative/Spectator, стойки брони. Недоступные по LOS цели отбрасываются. Серый Волк получает отдельный ограниченный AI goal защиты против Полоза в IDLE_UNMET/POST_TRIAL_NPC; испытание и его переходы имеют приоритет.
++- Входящий урон обычных мобов по шраму ограничен 4 raw за контакт и 12 raw суммарно за 20 тиков на босса, дополнительно к интервалу 6 тиков на атакующего. После множителя шрама максимум 18 HP/сек для всей обычной группы. Богатыри, GreyWolf, WolfSupport и распознанные сюжетные участники исключены из этого ограничения. Игроки и собственные механики союзников не получают этот cap.
++- Страж Чуди: настоящий существующий железный топор при создании, setup и загрузке старого пустого mainhand; ненулевое существующее оружие сохраняется, dropChance=0. Отложенный удар использует doHurtTarget, дальность, LOS и общую допустимость цели. База стража 2 плюс реальный модификатор оружия. Роли рабочих/жителей не изменены. Уже существующий ItemInHandLayer рисует предмет; добавлена поза ITEM. Рука модели заканчивается на тех же 10 px относительно плеча, что и vanilla, поэтому произвольный hand offset не добавлялся.
++- Карачун: страх накапливается от устойчивого нахождения в опасной зоне во всех боевых фазах, а не только от редкой атаки/особой ночи. Прибавка rate/5×0.6 плюс прежняя надбавка; Tier 25/50/75, понижение после ухода ниже границы на 8 и выдержки 40 тиков. Отход запускает существующий decay после 40 тиков без воздействия, успешный удар уменьшает страх на 6 с cooldown 40; source-local снятие сохраняет другие источники. Клиент получает стабилизированное отображаемое значение для 0/2/3 фантомов. Постоянная слепота не добавлена.
++- Горыныч: общий GorynychPose вычисляет серверные положения голов из тех же ModelPart offsets и углов, что клиент. Исправлены знак боковых корней и направление yaw/луча. Внешние головы ограничены своими внешними секторами 0…40 / −40…0, средняя −12…12; свой корень остаётся у каждой шеи. Поворот/наклон интерполируется по четырёхтиковым снимкам; время действия экстраполируется максимум на 4 тика. Хищная голова: подготовка до 24, выпад 24–30, контакт 30–34 (серверный удар на 32), возврат до 52. Hold обозначен отдельным внутренним action=3, recovery=4. Захват запускается только после пересечения AABB головы с жертвой, LOS и принятого hurt. Сопротивление, лимит времени и cooldown освобождения сохранены.
++- Локализация: 13 доказанно повреждённых значений ru_ru исправлены пятью точными обратимыми заменами; смешанные русские абзацы целиком не перекодировались. Список before/after: LOCALIZATION_FIXES.json. Подправлены порождающие подписи яиц/knockdown в underground_mob_resources.py; генераторы ресурсов не запускались. en_us сохранён побайтно. Новые записи параллельного патча рун сохранены.
++
++## Урон Полоза
++
++База VIII = 26. Коэффициенты A1 .65, A2 .8, A3 .7, A4 1, A5 1.15, A6 1.35, A7 1.5; blanket-множителя фаз нет. Ниже raw до брони/эффектов; фактический net зависит от защиты жертвы.
++
++| Действие | Категория | Бюджет на жертву |
++|---|---|---:|
++| Таран головы | A4 | 26, один hit UUID за действие |
++| Выход из земли/воды | A6 | 35.1, один hit UUID |
++| Дождь | A2 | 20.8 на UUID залпа, контакт 5.2 / splash 2.6 |
++| Хвост | A3 | 18.2, вторичная волна 9.1, общий dedup UUID |
++| Воронка | A1 | 16.9 за три импульса по 5.6333 |
++| Призыв | SUMMON | Без прямого урона |
++
++A5/A7 в текущем наборе Полоза не назначены искусственно. Существующий интервал и поведение отдельных minions сохранены. Дождевой cap хранится у жертвы с отдельным UUID залпа, а не UUID босса.
++
++## HP и сохранения
++
++Предыдущая HP-реализация и её Entity NBT/SavedData migration markers сохранены. Контрольный набор снова проходит 1545 assertions, включая NBT/атрибуты/правила и ограниченный lifecycle stub Жар-птицы. Это не 1545 игровых тестов.
++
++| Существо | Логическое HP / пороги |
++|---|---|
++| Проклятый Оборотень | 700; относительные фазы .625 / .25 |
++| Лихо | 350; моровое состояние того же EntityType 700 |
++| Морозко | default 1400; собственный IceDouble не мигрируется как босс |
++| Карачун | default 1600; намеренный custom NightMax сохраняется |
++| Горыныч | 2800; трансформация 1500, истощение 75; три головы очищения |
++| Калин | 1800 |
++| Полоз | 3000; фазы 2100 / 900 |
++| Жар-птица | 3000, прежняя сюжетная неубиваемость и ответная реакция |
++
++Старый установленный JAR: `{manifest['installed_sha256']}`. В нём не было CreatureHealthBalance.class и маркера GorynychBalance1982, поэтому HP старого игрового теста не является доказательством дефекта актуальной миграции. Реальный перезаход с переносом мира не выполнялся.
++
++## Проверки
++
++- Финальная clean build + creatureHealthOfflineChecks: PASS, Java 21; 1545 assertions. Gradle test штатно NO-SOURCE; специализированные проверки запущены отдельно, не скрыты под этим статусом.
++- GameTest: **4 запуска изолированного сервера**, клиентских запусков **0**. Первый выявил случай стрелы внутри AABB и завершился FAIL; исправление внесено. Второй PASS (43), третий PASS (104), финальный PASS (**{checks} адресных assertions**, один последовательный GameTest-сценарий). Финальная матрица отклоняет {hostiles} зарегистрированных враждебных EntityType при spawn в Peaceful. Логи всех запусков сохранены.
++- Runtime-проверки: броня root во всех фазах, реальные scar projectile contacts/cap, Creative/Spectator targeting/damage/control, реальный серверный bite до grab, отсутствие grab вне контакта и release Creative, экипировка/старый NBT стража, страх/гистерезис/снятие своего источника, отмена обоих испытаний без победы и сохранение гражданского NPC.
++- 15 проверок конечности координат голов и проверки коэффициентов — математические/статические утверждения внутри GameTest; они не доказывают качество рендера. NBT roundtrip — не настоящий перезаход.
++- Artifact gates PASS: {gates['gates']} проверок, {gates['packaged_json']} UTF-8 JSON; все {gates['resources']} production ресурсов и скомпилированные main-классы совпадают с JAR. Тестовых fixture в JAR нет. SHA256: `{gates['sha256']}`.
++- git diff --check PASS. WORKSPACE_DIFF_STAT.txt включает параллельные изменения и не является списком этого задания. FILES.md / OWN_FILES.json / OWN_PATCH.patch выделяют собственную работу, включая untracked. Регистрации ID и production-version не изменялись.
++- SHA256-файлы параллельного rune-patch сохранены; единственное осознанное отличие — 13 значений общего ru_ru, остальные ключи доказанно равны исходному состоянию. Код/модели оружия, брони, rune logic, рецепты и иконки не редактировались этим заданием.
++
++## PolyMC
++
++{('PASS: установлен свежий JAR, SHA256 совпадает с gates. Резервная копия старого JAR: `'+str(receipt['backup'])+'`. Остальные '+str(receipt['other_files_preserved'])+' файлов профиля сохранены побайтно. Имя профиля дополнено «Исправления существ» с сохранением «Патч оружия». Миры/config и профиль 1.16.5 не перезаписывались; клиент не запускался.') if receipt else 'Кандидат проверен; установка ещё не выполнена.'}
++
++## Ограничения / ручная проверка
++
++1. НЕ ПРОВЕРЕНО В КЛИЕНТЕ: визуальное совпадение шрамов/хитбоксов при интерполяции multipart, рикошет/рана на слух и по частицам; групповая битва Полоза и физическая доступность всех трёх шрамов на неровном рельефе. MSPT и производительность не измерялись.
++2. НЕ ПРОВЕРЕНО: длительная самостоятельная защита Серого Волка, разные сюжетные состояния и восстановление после реальной выгрузки/перезахода; реальные сохранённые арены всех боссов и прогресс нескольких игроков. Серверный тест отмены испытаний не равен прохождению повторного ритуала игроком.
++3. НЕ ПРОВЕРЕНО: плавность трёх шей во всех yaw/duck/fly/cleansing позах и при сетевой задержке; читаемость укуса и удержания. Проверены серверный контакт и запрет преждевременного grab, а не качество клиентской анимации.
++4. НЕ ПРОВЕРЕНО: субъективная интенсивность страха и фантомов на клиенте, длительная игра в опасной зоне, retreat/resist с разной экипировкой; корректность видимых кириллических глифов после запуска. Encoding/source/JAR проверены отдельно.
++5. BLOCKED_VISUAL: для точного исправления положения конкретного посоха/оружия у игрока нужны корректные исходные скриншоты с предметом, видом камеры и рукой. Скриншоты к заданию не приложены; произвольные player hand transforms и параллельные модели оружия не заменялись. Для Чуди использован фактический собственный renderer.
++6. SEPARATE_SYSTEM_PATCH: FurnitureBlock implements EntityBlock для firewood_bundle/wooden_crate/pine_shelf/pine_stool/pine_bench, но newBlockEntity возвращает null для всех кроме weapon_rack. RackTile зарегистрирован только для двух weapon_rack; перечисленная мебель не имеет соответствующей block entity. Это объясняет конкретное предупреждение создания, но не устанавливает причину выхода -805306369. Последний лог от 14 октября заканчивается штатным сохранением всех измерений; соответствующего свежего crash-report нет. Фабрики/старый NBT мебели требуют отдельного системного исправления, миры не переписывались.
++7. Параллельная разработка: полный запуск старого underground_mob_resources.py всё ещё может перезаписать исторические тексты рун. Он здесь не запускался; его rune-раздел требуется согласовать с владельцем rune-patch. Будущие балансовые/визуальные изменения оружия и следующий этап 1.9.8.2 не начинались.
++
++Краткий ручной маршрут: новый тестовый мир/копия → Survival, шрамы/группа/Волк → Creative/Spectator посреди grab/AoE → Peaceful и повтор испытаний после возврата Normal → страх/отход/успешный удар → Чудь и кириллица. Существующий пользовательский мир ради проверки не заменять.
++
++Ветка audit: собственные файлы перенесены в D:/slavic-myths-audit; подробности и границы состава — AUDIT_SYNC.md / AUDIT_SYNC.json. Полный staged diff --check там PASS. OWN_PATCH.patch оставлен как untracked диагностический артефакт, его содержимое включено в папку отчёта. Копии логов нормализованы по LF/концевым пробелам; исходные логи остались в .tools основного checkout. Общий установленный JAR собран из основного checkout вместе с сохранёнными параллельными правками, а не из изолированной ветки audit.
++'''
++(O/'REPORT.md').write_text(report,encoding='utf-8')
++summary={'status':status,'runtime_servers':4,'client_starts':0,'runtime_assertions_final':checks,'peaceful_types':hostiles,'hp_assertions':1545,'jar_sha256':gates['sha256'],'owned_files':len(paths),'production_java':sum(r['kind']=='production Java' for r in rows),'install':bool(receipt)}
++(O/'SUMMARY.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
++print(json.dumps(summary,ensure_ascii=False))
+--- /dev/null
++++ b/tools/install_creature_feedback.ps1
+@@ -0,0 +1,90 @@
++$ErrorActionPreference='Stop'
++$taskRoot=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
++$instance=(Resolve-Path -LiteralPath 'C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing').Path
++$mods=(Resolve-Path -LiteralPath (Join-Path $instance '.minecraft/mods')).Path
++$report=Join-Path $taskRoot 'docs/implementation/creature-feedback'
++function Digest([string]$path){(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()}
++$gate=Get-Content -LiteralPath (Join-Path $report 'ARTIFACT_GATES.json') -Raw | ConvertFrom-Json
++$source=Join-Path $taskRoot 'build/libs/slavicmyths-1.9.7.jar'
++if($gate.status -ne 'PASS' -or (Digest $source) -ne $gate.sha256){throw 'Production candidate differs from passed gates'}
++if((Get-Content -LiteralPath (Join-Path $taskRoot '.tools/creature-feedback-clean-build.log') -Raw) -notmatch 'BUILD SUCCESSFUL'){throw 'Clean build PASS missing'}
++$pack=Get-Content -LiteralPath (Join-Path $instance 'mmc-pack.json') -Raw | ConvertFrom-Json
++if(($pack.components | Where-Object uid -eq 'net.minecraft').version -ne '1.21.1' -or ($pack.components | Where-Object uid -eq 'net.neoforged.neoforge').version -ne '21.1.255'){throw 'Wrong target platform'}
++$minecraft=@(Get-CimInstance Win32_Process | Where-Object {$_.Name -in @('java.exe','javaw.exe') -and $_.CommandLine -match 'net.minecraft.client.main.Main|--gameDir|cpw.mods.bootstraplauncher.BootstrapLauncher|org.multimc|org.polymc'})
++if($minecraft.Count -ne 0){throw 'Minecraft process still running: close the game before installing'}
++$prior=@(Get-ChildItem -LiteralPath $mods -Filter 'slavicmyths-*.jar' -File)
++if($prior.Count -eq 0){throw 'Existing installed Slavic Myths JAR not found'}
++$target=[IO.Path]::GetFullPath((Join-Path $mods 'slavicmyths-1.9.7.jar'))
++$staged=$target+'.new'
++foreach($path in @($target,$staged)+@($prior.FullName)){if([IO.Path]::GetDirectoryName([IO.Path]::GetFullPath($path)) -ne $mods){throw 'Unsafe file operation outside selected mods directory'}}
++$oldPaths=@($prior.FullName);$oldHashes=@{};foreach($p in $prior){$oldHashes[$p.FullName]=Digest $p.FullName}
++$before=@{}
++Get-ChildItem -LiteralPath $instance -Recurse -File | Where-Object {$_.FullName -notin $oldPaths} | ForEach-Object {$before[$_.FullName]=Digest $_.FullName}
++$backupPath=$null
++if(-not ($prior.Count -eq 1 -and $prior[0].FullName -eq $target -and $oldHashes[$target] -eq $gate.sha256)){
++ if(Test-Path -LiteralPath $staged){throw 'Existing staging file: preserve it and inspect before installation'}
++ $stamp=[TimeZoneInfo]::ConvertTimeBySystemTimeZoneId([DateTime]::UtcNow,'Russian Standard Time').ToString('yyyyMMdd-HHmmss')
++ $backupPath=[IO.Path]::GetFullPath((Join-Path $instance ('.slavicmyths-backups/pre-creature-feedback-'+$stamp)))
++ if(-not $backupPath.StartsWith($instance+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)){throw 'Unsafe backup directory'}
++ New-Item -ItemType Directory -Path $backupPath | Out-Null
++ foreach($p in $prior){$saved=Join-Path $backupPath $p.Name;Copy-Item -LiteralPath $p.FullName -Destination $saved;if((Digest $saved) -ne $oldHashes[$p.FullName]){throw 'Backup checksum mismatch'}}
++ Copy-Item -LiteralPath $source -Destination $staged
++ if((Digest $staged) -ne $gate.sha256){throw 'Staging checksum mismatch'}
++ try {
++  foreach($p in $prior){Remove-Item -LiteralPath $p.FullName}
++  Move-Item -LiteralPath $staged -Destination $target
++  if((Digest $target) -ne $gate.sha256 -or @(Get-ChildItem -LiteralPath $mods -Filter 'slavicmyths-*.jar' -File).Count -ne 1){throw 'Installed checksum/duplicate check failed'}
++  foreach($entry in $before.GetEnumerator()){if((Digest $entry.Key) -ne $entry.Value){throw ('Unrelated profile file changed: '+$entry.Key)}}
++ }catch{
++  if(Test-Path -LiteralPath $target){Remove-Item -LiteralPath $target}
++  foreach($p in $prior){Copy-Item -LiteralPath (Join-Path $backupPath $p.Name) -Destination $p.FullName -Force}
++  if(Test-Path -LiteralPath $staged){Remove-Item -LiteralPath $staged}
++  throw
++ }
++}
++foreach($entry in $before.GetEnumerator()){if((Digest $entry.Key) -ne $entry.Value){throw ('Profile preservation mismatch: '+$entry.Key)}}
++$receipt=[ordered]@{patch='Исправления существ';version='1.9.7';status='PASS';instance=$instance;installed_jar=$target;sha256=(Digest $target);source=$source;previous_hashes=$oldHashes;backup=$backupPath;other_files_preserved=$before.Count;configuration_changes=0;client_starts=0;installer_server_starts=0;worlds='NOT_TOUCHED';old_1_16_5='NOT_TOUCHED'}
++$receipt | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $report 'polymc-installation.json') -Encoding utf8
++$markdown=@"
++# PolyMC — Исправления существ поверх 1.9.7
++
++Результат: **PASS**. Профиль: ``$instance``.
++
++Установлен ``$target``. SHA256: ``$($receipt.sha256)``.
++
++Предыдущие JAR сохранены в ``$backupPath`` с проверкой SHA256. Сохранены побайтно $($before.Count) остальных файлов профиля, включая конфигурации и миры. Дубликатов мода нет. Настройки Jade не менялись. Профиль/клиент/сервер установщиком не запускались; старый 1.16.5 не затронут.
++
++Подробная квитанция: [polymc-installation.json](polymc-installation.json).
++"@
++[IO.File]::WriteAllText((Join-Path $report 'POLYMC_INSTALLATION.md'),$markdown,[Text.UTF8Encoding]::new($false))
++$receipt | ConvertTo-Json -Depth 5
++
++$cfg=Join-Path $instance 'instance.cfg'
++$cfgBefore=[IO.File]::ReadAllText($cfg)
++if(-not $backupPath){$backupPath=Join-Path $instance ('.slavicmyths-backups/creature-feedback-name-'+[DateTime]::UtcNow.ToString('yyyyMMdd-HHmmss'));New-Item -ItemType Directory -Path $backupPath | Out-Null}
++if(-not (Test-Path -LiteralPath (Join-Path $backupPath 'instance.cfg'))){Copy-Item -LiteralPath $cfg -Destination (Join-Path $backupPath 'instance.cfg')}
++$cfgAfter=if($cfgBefore -match 'Исправления существ'){$cfgBefore}else{[regex]::Replace($cfgBefore,'(?m)^name=(.*?)(\r?)$',{param($m) 'name='+$m.Groups[1].Value+' — Исправления существ'+$m.Groups[2].Value})}
++[IO.File]::WriteAllText($cfg,$cfgAfter,[Text.UTF8Encoding]::new($false))
++$receipt.configuration_changes=1
++$receipt | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $report 'polymc-installation.json') -Encoding utf8
++
++$receipt.backup=$backupPath
++$receipt | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $report 'polymc-installation.json') -Encoding utf8
++Write-Output ('INSTALLED_CREATURE_FEEDBACK '+$receipt.sha256)
++
++# The name edit happens after the byte-preservation gate; exclude that explicit edit from the count.
++$cfgChanged=$cfgAfter -ne $cfgBefore
++$receipt.configuration_changes=[int]$cfgChanged
++$receipt.other_files_preserved=$before.Count-[int]$cfgChanged
++$receipt['instance_cfg_before_sha256']=Digest (Join-Path $backupPath 'instance.cfg')
++$receipt['instance_cfg_after_sha256']=Digest $cfg
++foreach($entry in $before.GetEnumerator()){if($entry.Key -ne $cfg -and (Digest $entry.Key) -ne $entry.Value){throw ('Post-name preservation mismatch: '+$entry.Key)}}
++$receipt | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $report 'polymc-installation.json') -Encoding utf8
++$markdown=@"
++# PolyMC — Исправления существ поверх 1.9.7
++
++PASS: ``$target``. SHA256: ``$($receipt.sha256)``.
++
++Старый JAR и instance.cfg сохранены в ``$backupPath``. Остальные $($receipt.other_files_preserved) файлов профиля сохранены побайтно, включая миры и игровые конфигурации. Одно намеренное изменение instance.cfg: к прежнему имени добавлено «Исправления существ», прежний «Патч оружия» сохранён. Клиент/сервер установщиком не запускались, профиль 1.16.5 не затронут. Подробности: polymc-installation.json.
++"@
++[IO.File]::WriteAllText((Join-Path $report 'POLYMC_INSTALLATION.md'),$markdown,[Text.UTF8Encoding]::new($false))
+--- a/tools/underground_mob_resources.py
++++ b/tools/underground_mob_resources.py
+@@ -66,11 +66,11 @@
+ loot('large_podzemnik',[pool('diamond',(2,4)),pool('slavicmyths:purified_iron_ingot',(1,2),.4),pool('netherite_scrap',(1,1),.15),pool('slavicmyths:mining_rune_2',(1,1),.2),pool('slavicmyths:rune_ominous_aura',(1,1),.3)])
+ for lang in ('ru_ru','en_us'):
+  p=R/f'assets/slavicmyths/lang/{lang}.json';data=json.loads(p.read_text(encoding='utf-8'));ru=lang=='ru_ru'
+- for name,russian,english in [('podzemnik','РџРѕРґР·РµРјРЅРёРє','Podzemnik'),('podzemnik_miner','РџРѕРґР·РµРјРЅРёРє-С€Р°С…С‚С‘СЂ','Podzemnik Miner'),('kladovik','РљР»Р°РґРѕРІРёРє','Kladovik'),('large_podzemnik','РљСЂСѓРїРЅС‹Р№ РџРѕРґР·РµРјРЅРёРє','Large Podzemnik')]:
++ for name,russian,english in [('podzemnik','Подземник','Podzemnik'),('podzemnik_miner','Подземник-шахтёр','Podzemnik Miner'),('kladovik','Кладовик','Kladovik'),('large_podzemnik','Крупный Подземник','Large Podzemnik')]:
+   data['entity.slavicmyths.'+name]=russian if ru else english
+-  if name!='podzemnik_miner':data['item.slavicmyths.'+name+'_spawn_egg']=('РЇР№С†Рѕ РїСЂРёР·С‹РІР°: '+russian) if ru else english+' Spawn Egg'
++  if name!='podzemnik_miner':data['item.slavicmyths.'+name+'_spawn_egg']=('Яйцо призыва: '+russian) if ru else english+' Spawn Egg'
+  data['item.slavicmyths.rune_ominous_aura']='Р СѓРЅР° Р—Р»РѕРІРµС‰РµР№ Р°СѓСЂС‹' if ru else 'Rune of Ominous Aura'
+- data['effect.slavicmyths.underground_knockdown']='РЎР±РёС‚ СЃ РЅРѕРі' if ru else 'Knocked Down'
++ data['effect.slavicmyths.underground_knockdown']='Сбит с ног' if ru else 'Knocked Down'
+  data['industry.slavicmyths.hint.rune_ominous_aura']='РўСЂРѕС„РµР№ РљСЂСѓРїРЅРѕРіРѕ РџРѕРґР·РµРјРЅРёРєР°. РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ С‡РµСЂРµР· СЂСѓРЅРёС‡РµСЃРєСѓСЋ РЅР°РєРѕРІР°Р»СЊРЅСЋ.' if ru else 'Large Podzemnik trophy. Install through the runic anvil.'
+  data['rpg.slavicmyths.effect_ominous_aura']='Р”РІРµ Р°РєС‚РёРІРЅС‹Рµ СЂСѓРЅС‹: РѕР±С‹С‡РЅР°СЏ РІСЂР°Р¶РґРµР±РЅР°СЏ РЅРµС‡РёСЃС‚СЊ РґРѕ 50 РјР°РєСЃ. HP РЅРµ РЅР°РїР°РґР°РµС‚ РїРµСЂРІРѕР№. РЎРёР»СЊРЅС‹Рµ, РѕСЃРѕР±С‹Рµ СЃСѓС‰РµСЃС‚РІР° Рё РїСЂРѕРІРѕС†РёСЂРѕРІР°РЅРЅС‹Рµ РІСЂР°РіРё РЅРµ РїРѕРґС‡РёРЅСЏСЋС‚СЃСЏ.' if ru else 'Two active runes: unprovoked ordinary hostile creatures with up to 50 max HP do not attack first. Strong, special and provoked enemies are unaffected.'
+  data['rpg.slavicmyths.rune_hint_ominous_aura_1']='РћРґРЅР° СЂСѓРЅР°: РїРµС‡Р°С‚СЊ РЅРµ Р·Р°РІРµСЂС€РµРЅР°' if ru else 'One rune: the seal is incomplete'
+--- /dev/null
++++ b/tools/verify_creature_feedback.py
+@@ -0,0 +1,52 @@
++"""Focused artifact/preservation gates; runtime mechanics are tested separately by GameTest."""
++from pathlib import Path
++import hashlib,json,zipfile,re,subprocess
++R=Path(__file__).resolve().parents[1];O=R/'docs/implementation/creature-feedback';O.mkdir(parents=True,exist_ok=True)
++def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
++checks=[]
++def require(ok,name):
++ if not ok:raise AssertionError(name)
++ checks.append(name)
++jar=R/'build/libs/slavicmyths-1.9.7.jar'
++with zipfile.ZipFile(jar) as z:
++ require(z.testzip() is None,'JAR ZIP CRC')
++ names=z.namelist();require('META-INF/neoforge.mods.toml' in names,'NeoForge metadata')
++ require('org/slavicmyths/combat/CreatureHealthBalance.class' in names,'previous HP migration helper included')
++ require('org/slavicmyths/combat/CreatureSafety.class' in names,'new safety events included')
++ require('org/slavicmyths/gorynych/GorynychPose.class' in names,'shared head kinematics included')
++ require(not any('CreatureFeedbackTests' in n or 'CreatureHealthChecks' in n or n.startswith(('tools/','smoke/')) for n in names),'test fixtures excluded')
++ count=0
++ for name in names:
++  if name.endswith('.json'):
++   json.loads(z.read(name).decode('utf-8-sig'));count+=1
++ require(count>1000,'all packaged JSON parses as UTF-8')
++ for lang in ['ru_ru','en_us']:
++  path=f'assets/slavicmyths/lang/{lang}.json';require(z.read(path)==(R/'src/main/resources'/path).read_bytes(),lang+' matches source byte for byte')
++  data=json.loads(z.read(path));require(not any('\ufffd' in v for v in data.values() if isinstance(v,str)),lang+' no replacement characters')
++  require(not any(re.search(r'(?:Р[џђќЃљњ]|С[‚ѓљќ])',v) for v in data.values() if isinstance(v,str)),lang+' no common CP1251 mojibake markers')
++  (O/(lang+'-samples.json')).write_text(json.dumps({k:v for k,v in data.items() if k in ['entity.slavicmyths.great_poloz','entity.slavicmyths.zmey_gorynych','entity.slavicmyths.chud_guard','entity.slavicmyths.karachun','entity.slavicmyths.morozko','entity.slavicmyths.firebird']},ensure_ascii=False,indent=2),encoding='utf-8')
++ # Keep every production resource in this shared checkout, including the parallel rune patch.
++ files=list((R/'src/main/resources').rglob('*'));verified=0
++ for f in files:
++  if not f.is_file():continue
++  rel=f.relative_to(R/'src/main/resources').as_posix()
++  if rel=='META-INF/neoforge.mods.toml':continue # Gradle expands the mod version.
++  require(rel in names and z.read(rel)==f.read_bytes(),'resource '+rel);verified+=1
++ # Every compiled production class, not just tracked paths, must reach the JAR.
++ for f in (R/'build/classes/java/main').rglob('*.class'):
++  rel=f.relative_to(R/'build/classes/java/main').as_posix();require(rel in names and z.read(rel)==f.read_bytes(),'class '+rel)
++ require(b'GorynychBalance1982' in z.read('org/slavicmyths/gorynych/GorynychRules.class'),'Gorynych migration marker retained')
++ require(b'AdvancedRuneRules' in z.read('org/slavicmyths/rpg/AdvancedRunes.class'),'parallel rune implementation included')
++owned=json.loads((R/'docs/implementation/runes-patch/OWNED_HASHES.json').read_text(encoding='utf-8-sig'))
++preserved={p:digest(R/p)==h for p,h in owned.items() if not p.startswith('docs/') and p!='src/main/resources/assets/slavicmyths/lang/ru_ru.json'}
++locale_path='src/main/resources/assets/slavicmyths/lang/ru_ru.json'
++before=R/'.tools/creature-feedback-before'/locale_path
++require(digest(before)==owned[locale_path],'Russian locale baseline matches parallel rune patch')
++old=json.loads(before.read_text(encoding='utf-8'));new=json.loads((R/locale_path).read_text(encoding='utf-8'));fixes=json.loads((O/'LOCALIZATION_FIXES.json').read_text(encoding='utf-8'))
++require(old.keys()==new.keys() and {k for k in old if old[k]!=new[k]}==set(fixes),'only documented 13 localization values changed')
++require(all(old[k]==v['before'] and new[k]==v['after'] for k,v in fixes.items()),'localization changes exactly match reversible repairs')
++require(all(preserved.values()),'parallel rune production/tests hashes unchanged')
++result={'status':'PASS','sha256':digest(jar),'jar':str(jar),'gates':len(checks),'packaged_json':count,'resources':verified,'parallel_hashes':preserved,'client_starts':0}
++(O/'ARTIFACT_GATES.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
++(O/'GATE_NAMES.txt').write_text('\n'.join(checks)+'\n',encoding='utf-8')
++print(json.dumps({k:v for k,v in result.items() if k!='parallel_hashes'},ensure_ascii=False))

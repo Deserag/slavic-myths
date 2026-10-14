@@ -13,13 +13,13 @@ public record RuneBase(int tier, String material) {
         return switch (tier) {
             case 1 -> material.equals("iron") || material.equals("gold");
             case 2 -> material.equals("diamond") || material.equals("perunite");
-            case 3 -> material.equals("perunite");
+            case 3, 4 -> material.equals("perunite");
             default -> false;
         };
     }
     private record Stored(int tier, String material) { }
     public static final Codec<RuneBase> CODEC = RecordCodecBuilder.<Stored>create(i -> i.group(
-        Codec.intRange(1,3).fieldOf("tier").forGetter(Stored::tier),
+        Codec.intRange(1,4).fieldOf("tier").forGetter(Stored::tier),
         Codec.STRING.fieldOf("material").forGetter(Stored::material)
     ).apply(i, Stored::new)).comapFlatMap(s -> valid(s.tier,s.material)
         ? DataResult.success(new RuneBase(s.tier,s.material))

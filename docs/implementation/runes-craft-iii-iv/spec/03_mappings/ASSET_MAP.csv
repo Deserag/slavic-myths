@@ -1,0 +1,10 @@
+﻿concept_id,name_ru,tier,placement,texture_name_suggestion,illustration_reference,implemented_status,note
+counterstrike_iii,Руна ответного удара III,III,Щит / контратака,rune_counterstrike_iii,02_blueprints/concept_icons/tier_III/rune_counterstrike_iii_REFERENCE_512.png,Проверить локальную ветку: III возможно уже реализованы,REF ONLY. Не считать готовым production-спрайтом.
+hunter_iii,Руна охотника III,III,Лук / арбалет,rune_hunter_iii,02_blueprints/concept_icons/tier_III/rune_hunter_iii_REFERENCE_512.png,Проверить локальную ветку: III возможно уже реализованы,REF ONLY. Не считать готовым production-спрайтом.
+last_stand_iii,Руна последнего рубежа III,III,Нагрудник / защита,rune_last_stand_iii,02_blueprints/concept_icons/tier_III/rune_last_stand_iii_REFERENCE_512.png,Проверить локальную ветку: III возможно уже реализованы,REF ONLY. Не считать готовым production-спрайтом.
+depths_iii,Руна глубин III,III,Кирка / подземелья,rune_depths_iii,02_blueprints/concept_icons/tier_III/rune_depths_iii_REFERENCE_512.png,Проверить локальную ветку: III возможно уже реализованы,REF ONLY. Не считать готовым production-спрайтом.
+unbreakable_iv,Руна несокрушимости IV,IV,Нагрудник / щит,rune_unbreakable_iv,02_blueprints/concept_icons/tier_IV/rune_unbreakable_iv_REFERENCE_512.png,Новое,REF ONLY. Не считать готовым production-спрайтом.
+perun_rage_iv,Руна Перуновой ярости IV,IV,Ближний бой,rune_perun_rage_iv,02_blueprints/concept_icons/tier_IV/rune_perun_rage_iv_REFERENCE_512.png,Новое,REF ONLY. Не считать готовым production-спрайтом.
+forest_spirit_iv,Руна Духа леса IV,IV,Броня / лечение,rune_forest_spirit_iv,02_blueprints/concept_icons/tier_IV/rune_forest_spirit_iv_REFERENCE_512.png,Новое,REF ONLY. Не считать готовым production-спрайтом.
+mastery_iv,Руна мастерства IV,IV,Кирка / добыча,rune_mastery_iv,02_blueprints/concept_icons/tier_IV/rune_mastery_iv_REFERENCE_512.png,Новое,REF ONLY. Не считать готовым production-спрайтом.
+blank_rune_4,Заготовка руны IV,IV,Руническая основа,blank_rune_4,02_blueprints/concept_icons/tier_IV/blank_rune_4_REFERENCE_512.png,Новая основа,REF ONLY. Не считать готовым production-спрайтом.

@@ -68,7 +68,7 @@ public final class RareRuneRuntime {
     @SubscribeEvent public static void hit(LivingDamageEvent.Post e){if(e.getEntity().level().isClientSide||e.getNewDamage()<=0)return;
         if(e.getEntity() instanceof ServerPlayer p){if(direct(e.getSource())){data(p).putLong("HitUntil",now(p)+8);}refresh(p);}
         if(!e.getSource().is(DamageTypes.PLAYER_ATTACK)||!(e.getSource().getDirectEntity() instanceof ServerPlayer p))return;data(p).putLong("HitUntil",now(p)+8);if(tier(p)>0)RpgNetwork.sync(p);
-        var target=e.getEntity();if(!RareRunes.equipped(p,"death")||!RuneRework.melee(p.getMainHandItem())||!ready(p,"death")||!target.isAlive()||!org.slavicmyths.combat.CombatTargeting.canAttack(p,target)||!p.hasLineOfSight(target)||!RareRuneRules.execute(target.getHealth(),target.getMaxHealth(),p.getHealth(),target.getType().is(IMMUNE)))return;
+        var target=e.getEntity();if(!RareRunes.equipped(p,"death")||!RuneRework.melee(p.getMainHandItem())||!ready(p,"death")||!target.isAlive()||!org.slavicmyths.combat.CombatTargeting.canAttack(p,target)||!p.hasLineOfSight(target)||!RareRuneRules.execute(target.getHealth(),target.getMaxHealth(),p.getHealth(),(target.getType().is(IMMUNE)||AdvancedRunes.boss(target))))return;
         var source=MythDamageSources.periodic("rune_execute",p);if(target.isInvulnerableTo(source))return;
         if(target.hurt(source,Math.max(100,target.getMaxHealth()*4))&&!target.isAlive()){pay(p,12);cooldown(p,"death");p.serverLevel().sendParticles(ParticleTypes.SOUL,target.getX(),target.getY()+.7,target.getZ(),4,.2,.3,.2,.01);refresh(p);}
     }

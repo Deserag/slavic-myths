@@ -1,0 +1,74 @@
+[
+  {
+    "rune": "miner_iii",
+    "item": "slavicmyths:rune_miner_iii",
+    "reference": "spec/blueprints/individual_previews/miner_iii_REFERENCE.png",
+    "generated_source": "C:\\Users\\pavel\\.codex\\generated_images\\01a13a9d-4b10-76c3-81eb-c7be415c5107\\exec-4c1832b7-91c8-4184-8ef8-e62cc27d9f14.png",
+    "curated_source": "tools/tool-runes-art/rune_miner_iii.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_miner_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_miner_iii.json"
+  },
+  {
+    "rune": "excavator_iii",
+    "item": "slavicmyths:rune_excavator_iii",
+    "reference": "spec/blueprints/individual_previews/excavator_iii_REFERENCE.png",
+    "generated_source": "C:\\Users\\pavel\\.codex\\generated_images\\01a13a9d-4b10-76c3-81eb-c7be415c5107\\exec-54731dd9-ee10-4014-aeab-ba68b226eb7e.png",
+    "curated_source": "tools/tool-runes-art/rune_excavator_iii.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_excavator_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_excavator_iii.json"
+  },
+  {
+    "rune": "farmer_iii",
+    "item": "slavicmyths:rune_farmer_iii",
+    "reference": "spec/blueprints/individual_previews/farmer_iii_REFERENCE.png",
+    "generated_source": "C:\\Users\\pavel\\.codex\\generated_images\\01a13a9d-4b10-76c3-81eb-c7be415c5107\\exec-a3e0edd2-b4b4-46a3-a356-d3b683907463.png",
+    "curated_source": "tools/tool-runes-art/rune_farmer_iii.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_farmer_iii.json"
+  },
+  {
+    "rune": "lumberjack_iii",
+    "item": "slavicmyths:rune_lumberjack_iii",
+    "reference": "spec/blueprints/individual_previews/lumberjack_iii_REFERENCE.png",
+    "generated_source": "C:\\Users\\pavel\\.codex\\generated_images\\01a13a9d-4b10-76c3-81eb-c7be415c5107\\exec-687587fd-183f-4c8b-a60f-918f3efe7347.png",
+    "curated_source": "tools/tool-runes-art/rune_lumberjack_iii.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_lumberjack_iii.json"
+  },
+  {
+    "rune": "miner_iv",
+    "item": "slavicmyths:rune_miner_iv",
+    "reference": "spec/blueprints/individual_previews/miner_iv_REFERENCE.png",
+    "generated_source": "C:\\Users\\pavel\\.codex\\generated_images\\01a13a9d-4b10-76c3-81eb-c7be415c5107\\exec-3719272b-5070-4d42-b1fe-ea717de0bdd3.png",
+    "curated_source": "tools/tool-runes-art/rune_miner_iv.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_miner_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_miner_iv.json"
+  },
+  {
+    "rune": "excavator_iv",
+    "item": "slavicmyths:rune_excavator_iv",
+    "reference": "spec/blueprints/individual_previews/excavator_iv_REFERENCE.png",
+    "generated_source": "C:\\Users\\pavel\\.codex\\generated_images\\01a13a9d-4b10-76c3-81eb-c7be415c5107\\exec-6802da88-bd91-4e6c-9983-07980c7a4452.png",
+    "curated_source": "tools/tool-runes-art/rune_excavator_iv.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_excavator_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_excavator_iv.json"
+  },
+  {
+    "rune": "farmer_iv",
+    "item": "slavicmyths:rune_farmer_iv",
+    "reference": "spec/blueprints/individual_previews/farmer_iv_REFERENCE.png",
+    "generated_source": "C:\\Users\\pavel\\.codex\\generated_images\\01a13a9d-4b10-76c3-81eb-c7be415c5107\\exec-015af071-6ea4-4a2a-9494-d5ab82469869.png",
+    "curated_source": "tools/tool-runes-art/rune_farmer_iv.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_farmer_iv.json"
+  },
+  {
+    "rune": "lumberjack_iv",
+    "item": "slavicmyths:rune_lumberjack_iv",
+    "reference": "spec/blueprints/individual_previews/lumberjack_iv_REFERENCE.png",
+    "generated_source": "C:\\Users\\pavel\\.codex\\generated_images\\01a13a9d-4b10-76c3-81eb-c7be415c5107\\exec-d1e3f024-a215-4a09-a59b-ec4d643c1886.png",
+    "curated_source": "tools/tool-runes-art/rune_lumberjack_iv.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_lumberjack_iv.json"
+  }
+]

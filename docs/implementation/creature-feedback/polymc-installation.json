@@ -1,0 +1,21 @@
+{
+  "patch": "Исправления существ",
+  "version": "1.9.7",
+  "status": "PASS",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.jar",
+  "sha256": "2108e49ad917af013792b21c43a20ade131bd8d606d40d5ae57eca229b0ab180",
+  "source": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.jar",
+  "previous_hashes": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.jar": "f73888579014ed8b297bdb943ca2e742a2947d533369c85d7fc4c310ac6cf7ef"
+  },
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-creature-feedback-20261014-093513",
+  "other_files_preserved": 325,
+  "configuration_changes": 1,
+  "client_starts": 0,
+  "installer_server_starts": 0,
+  "worlds": "NOT_TOUCHED",
+  "old_1_16_5": "NOT_TOUCHED",
+  "instance_cfg_before_sha256": "85e3e1dabbdb22f033f51ac3ff856c119e5d6fcdb53acf0c5b35298e3aec3fd6",
+  "instance_cfg_after_sha256": "07009df5809bb4b91140ed10ce2e0477a1314f8b61bd983c03b7fa6ed763c997"
+}

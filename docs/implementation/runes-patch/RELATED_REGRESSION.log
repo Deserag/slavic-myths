@@ -1,0 +1,47 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+
+> Task :compileEarthOffline
+Note: D:\slavic-myths\tools\earth-tests\EarthChecks.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :earthOfflineChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+raw=20.0 iron=16.0 diamond=7.9999995 netherite=7.2000003
+raw=27.416573 iron=24.126583 diamond=12.999999 netherite=11.496662
+raw=20.0 iron=16.0 diamond=7.9999995 netherite=7.2000003
+raw=14.494898 iron=10.0 diamond=4.9999995 netherite=4.579796
+raw=23.911648 iron=20.999996 diamond=10.499998 netherite=9.356464
+raw=21.622776 iron=18.0 diamond=9.0 netherite=8.064911
+raw=3.2287564 iron=1.4999999 diamond=0.75000006 netherite=0.7291503
+Boss height=6.6875 boxes=95
+EARTH OFFLINE PASS: 6186 checks. Minecraft launches: 0. Codec roundtrip is not game relog.
+
+> Task :compileRewardsOffline
+
+> Task :rewardsOfflineChecks FAILED
+REWARD_MODEL kind=0 cubes=8
+REWARD_MODEL kind=1 cubes=8
+REWARD_MODEL kind=2 cubes=7
+Exception in thread "main" java.lang.AssertionError: Invalid baked reward mesh
+	at org.slavicmyths.client.RewardModelChecks.check(RewardModelChecks.java:8)
+	at org.slavicmyths.client.RewardModelChecks.main(RewardModelChecks.java:10)
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':rewardsOfflineChecks'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 12s
+6 actionable tasks: 4 executed, 2 up-to-date

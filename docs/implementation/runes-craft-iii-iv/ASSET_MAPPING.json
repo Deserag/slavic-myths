@@ -1,0 +1,57 @@
+[
+  {
+    "concept_id": "blank_rune_4",
+    "item_id": "slavicmyths:blank_rune_4",
+    "reference": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/blank_rune_4_REFERENCE_512.png",
+    "reference_sha256": "fdd5aec16e210a480dd58a3b97c7c774ace50304eae52a95d3dd8154e8941ee5",
+    "curated_source": "tools/runes-craft-art/blank_rune_4.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/blank_rune_4.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/blank_rune_4.json",
+    "texture_sha256": "0b1906f19775568b9dc496546ee4ff09a1b1883b4d2d36e1b67b3f117a96e23c",
+    "adaptation": "Imagegen pixel-art reinterpretation of the supplied blueprint; isolated alpha; nearest-neighbor export, hard alpha threshold; inspected at 64 and 32 px."
+  },
+  {
+    "concept_id": "unbreakable_iv",
+    "item_id": "slavicmyths:rune_unbreakable_iv",
+    "reference": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_unbreakable_iv_REFERENCE_512.png",
+    "reference_sha256": "9251edb553e014ca5887d633fd51761d1b3bfb37fd9511e5fd7e41b836abd243",
+    "curated_source": "tools/runes-craft-art/rune_unbreakable_iv.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_unbreakable_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_unbreakable_iv.json",
+    "texture_sha256": "5f1dc6276e616b306bb7ba003704570cef4b956a3dbd175527dd7d235fdaa2cf",
+    "adaptation": "Imagegen pixel-art reinterpretation of the supplied blueprint; isolated alpha; nearest-neighbor export, hard alpha threshold; inspected at 64 and 32 px."
+  },
+  {
+    "concept_id": "perun_rage_iv",
+    "item_id": "slavicmyths:rune_perun_rage_iv",
+    "reference": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_perun_rage_iv_REFERENCE_512.png",
+    "reference_sha256": "7f2b0f7def53f3cfe6078ed48735e7db8b97fbc123d22097b65e3397d8b9127d",
+    "curated_source": "tools/runes-craft-art/rune_perun_rage_iv.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_perun_rage_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_perun_rage_iv.json",
+    "texture_sha256": "244b7a36342ab05e64e7caf56d2d179e7b45e8eb54a2c62b8a2a6b5aac98d5d1",
+    "adaptation": "Imagegen pixel-art reinterpretation of the supplied blueprint; isolated alpha; nearest-neighbor export, hard alpha threshold; inspected at 64 and 32 px."
+  },
+  {
+    "concept_id": "forest_spirit_iv",
+    "item_id": "slavicmyths:rune_forest_spirit_iv",
+    "reference": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_forest_spirit_iv_REFERENCE_512.png",
+    "reference_sha256": "7dbebd783bfb82eb9f0aa9f716498bb6d393fb5caf7ca9b9a4951b2eda32a734",
+    "curated_source": "tools/runes-craft-art/rune_forest_spirit_iv.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_forest_spirit_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_forest_spirit_iv.json",
+    "texture_sha256": "b01b2b1c170fa40915908eb69324a471fbeab8cac698bf7e092d712f64a9fd1f",
+    "adaptation": "Imagegen pixel-art reinterpretation of the supplied blueprint; isolated alpha; nearest-neighbor export, hard alpha threshold; inspected at 64 and 32 px."
+  },
+  {
+    "concept_id": "mastery_iv",
+    "item_id": "slavicmyths:rune_mastery_iv",
+    "reference": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_mastery_iv_REFERENCE_512.png",
+    "reference_sha256": "89fdfffd7284f030faf9e37304cd0260d50d4bf627e671f460d00ef4787d4699",
+    "curated_source": "tools/runes-craft-art/rune_mastery_iv.png",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_mastery_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_mastery_iv.json",
+    "texture_sha256": "f9476c29a198bbd32e1e0c548b2dc6dcd70580d9a4e2079464e3da15a3faf1ba",
+    "adaptation": "Imagegen pixel-art reinterpretation of the supplied blueprint; isolated alpha; nearest-neighbor export, hard alpha threshold; inspected at 64 and 32 px."
+  }
+]

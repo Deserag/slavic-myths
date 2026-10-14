@@ -9,6 +9,8 @@ config="slavicmyths.equipment.mixins.json"
 config="slavicmyths.industry.mixins.json"
 [[mixins]]
 config="slavicmyths.underground.mixins.json"
+[[mixins]]
+config="slavicmyths.tool_runes.mixins.json"
 [[mods]]
 modId="slavicmyths"
 version="${mod_version}"

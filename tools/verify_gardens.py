@@ -41,7 +41,7 @@ for lang in ['ru_ru','en_us']:
  data=read(A/f'lang/{lang}.json')
  for id in B+[b+'_sapling' for b in B]:check('item.slavicmyths.'+id in data,'translation '+lang+id)
  for id in W:check('block.slavicmyths.'+id in data,'translation '+lang+id)
- for id in ['slavicmyths','resources','farming','food','tools','armor','decor','magic','mobs']:check('itemGroup.slavicmyths.'+id in data,'tab translation '+lang+id)
+ for id in ['slavicmyths','resources','farming','food','weapons','tools','armor','decor','magic','mobs']:check('itemGroup.slavicmyths.'+id in data,'tab translation '+lang+id)
 packaged(D/'recipe/apple_planks.json');check(read(D/'recipe/apple_planks.json')['result']['count']==4,'four planks from log family')
 
 # All model/texture links; no broad code/repository audit.

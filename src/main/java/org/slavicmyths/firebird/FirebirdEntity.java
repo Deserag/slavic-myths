@@ -65,8 +65,16 @@ public final class FirebirdEntity extends PathfinderMob {
         var direction=Vec3.directionFromRotation(0,getYRot());var drop=new ItemEntity(w,getX()-direction.x*.9,getY()+1.3,getZ()-direction.z*.9,new ItemStack(FirebirdContent.ITEMS.get(d.outcomes[slot]).get()));drop.setDeltaMovement(direction.scale(.025).add(0,-.025,0));drop.setDefaultPickUpDelay();drop.getPersistentData().putUUID("FirebirdVisit",visit);drop.getPersistentData().putInt("FirebirdSlot",slot);
         if(w.addFreshEntity(drop)){d.issued|=1<<slot;d.remaining=FirebirdRules.delay(false,random);d.setDirty();cue("drop",.5F);w.sendParticles(net.minecraft.core.particles.ParticleTypes.GLOW,drop.getX(),drop.getY(),drop.getZ(),7,.15,.15,.15,.02);}
     }
-    @Override public boolean hurt(DamageSource s,float amount){boolean result=super.hurt(s,amount);if(result&&!level().isClientSide){if(hurtCue==0){cue("hurt",.55F);hurtCue=12;}if(s.getEntity() instanceof LivingEntity a&&a.isAlive()&&!(a instanceof net.minecraft.world.entity.player.Player p&&(p.isCreative()||p.isSpectator()))&&cooldown==0&&state()!=5&&state()!=6&&state()!=7){aggressor=a;state(5);cue("warning",.85F);}}return result;}
-    @Override public void die(DamageSource s){if(!level().isClientSide){cue("death",.85F);var d=FirebirdEncounter.get((ServerLevel)level());if(d.owns(this))d.close((ServerLevel)level());}super.die(s);}
+    @Override public boolean hurt(DamageSource s,float amount){
+        if(level().isClientSide||!Float.isFinite(amount)||amount<=0)return false;
+        // Prevent damage, but keep the existing aggression response independent of accepted HP loss.
+        if(hurtCue==0){cue("hurt",.55F);hurtCue=12;}
+        if(s.getEntity() instanceof LivingEntity a&&a.isAlive()&&!(a instanceof net.minecraft.world.entity.player.Player p&&(p.isCreative()||p.isSpectator()))&&cooldown==0&&state()!=5&&state()!=6&&state()!=7){aggressor=a;state(5);cue("warning",.85F);}
+        return false;
+    }
+    @Override public void setHealth(float hp){super.setHealth(Float.isFinite(hp)?Math.clamp(hp,1,3000):3000);}
+    @Override public void die(DamageSource s){} // Narrative depart/discard remains the only normal encounter exit.
+    @Override public void kill(){}
     @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);if(visit!=null)n.putUUID("Visit",visit);n.putLong("Anchor",anchor.asLong());n.putInt("FirebirdState",state());n.putInt("FirebirdAge",age());}
     @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);visit=n.hasUUID("Visit")?n.getUUID("Visit"):null;anchor=BlockPos.of(n.getLong("Anchor"));int s=n.getInt("FirebirdState");state(s==7?7:s==1?1:2);entityData.set(AGE,Math.clamp(n.getInt("FirebirdAge"),0,1000));setNoGravity(true);}
 }

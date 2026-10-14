@@ -66,11 +66,11 @@ loot('kladovik',[pool('slavicmyths:ancient_coin',(4,8)),pool('gold_ingot',(2,5))
 loot('large_podzemnik',[pool('diamond',(2,4)),pool('slavicmyths:purified_iron_ingot',(1,2),.4),pool('netherite_scrap',(1,1),.15),pool('slavicmyths:mining_rune_2',(1,1),.2),pool('slavicmyths:rune_ominous_aura',(1,1),.3)])
 for lang in ('ru_ru','en_us'):
  p=R/f'assets/slavicmyths/lang/{lang}.json';data=json.loads(p.read_text(encoding='utf-8'));ru=lang=='ru_ru'
- for name,russian,english in [('podzemnik','РџРѕРґР·РµРјРЅРёРє','Podzemnik'),('podzemnik_miner','РџРѕРґР·РµРјРЅРёРє-С€Р°С…С‚С‘СЂ','Podzemnik Miner'),('kladovik','РљР»Р°РґРѕРІРёРє','Kladovik'),('large_podzemnik','РљСЂСѓРїРЅС‹Р№ РџРѕРґР·РµРјРЅРёРє','Large Podzemnik')]:
+ for name,russian,english in [('podzemnik','Подземник','Podzemnik'),('podzemnik_miner','Подземник-шахтёр','Podzemnik Miner'),('kladovik','Кладовик','Kladovik'),('large_podzemnik','Крупный Подземник','Large Podzemnik')]:
   data['entity.slavicmyths.'+name]=russian if ru else english
-  if name!='podzemnik_miner':data['item.slavicmyths.'+name+'_spawn_egg']=('РЇР№С†Рѕ РїСЂРёР·С‹РІР°: '+russian) if ru else english+' Spawn Egg'
+  if name!='podzemnik_miner':data['item.slavicmyths.'+name+'_spawn_egg']=('Яйцо призыва: '+russian) if ru else english+' Spawn Egg'
  data['item.slavicmyths.rune_ominous_aura']='Р СѓРЅР° Р—Р»РѕРІРµС‰РµР№ Р°СѓСЂС‹' if ru else 'Rune of Ominous Aura'
- data['effect.slavicmyths.underground_knockdown']='РЎР±РёС‚ СЃ РЅРѕРі' if ru else 'Knocked Down'
+ data['effect.slavicmyths.underground_knockdown']='Сбит с ног' if ru else 'Knocked Down'
  data['industry.slavicmyths.hint.rune_ominous_aura']='РўСЂРѕС„РµР№ РљСЂСѓРїРЅРѕРіРѕ РџРѕРґР·РµРјРЅРёРєР°. РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ С‡РµСЂРµР· СЂСѓРЅРёС‡РµСЃРєСѓСЋ РЅР°РєРѕРІР°Р»СЊРЅСЋ.' if ru else 'Large Podzemnik trophy. Install through the runic anvil.'
  data['rpg.slavicmyths.effect_ominous_aura']='Р”РІРµ Р°РєС‚РёРІРЅС‹Рµ СЂСѓРЅС‹: РѕР±С‹С‡РЅР°СЏ РІСЂР°Р¶РґРµР±РЅР°СЏ РЅРµС‡РёСЃС‚СЊ РґРѕ 50 РјР°РєСЃ. HP РЅРµ РЅР°РїР°РґР°РµС‚ РїРµСЂРІРѕР№. РЎРёР»СЊРЅС‹Рµ, РѕСЃРѕР±С‹Рµ СЃСѓС‰РµСЃС‚РІР° Рё РїСЂРѕРІРѕС†РёСЂРѕРІР°РЅРЅС‹Рµ РІСЂР°РіРё РЅРµ РїРѕРґС‡РёРЅСЏСЋС‚СЃСЏ.' if ru else 'Two active runes: unprovoked ordinary hostile creatures with up to 50 max HP do not attack first. Strong, special and provoked enemies are unaffected.'
  data['rpg.slavicmyths.rune_hint_ominous_aura_1']='РћРґРЅР° СЂСѓРЅР°: РїРµС‡Р°С‚СЊ РЅРµ Р·Р°РІРµСЂС€РµРЅР°' if ru else 'One rune: the seal is incomplete'

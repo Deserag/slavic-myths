@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "source_contracts": "static only; not runtime reachability",
+  "checks": 13459,
+  "resources": 6718,
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.jar",
+  "sha256": "8a66c7b51dbc377c7ee331d9dc8598e7dca42f0adb66727c59621a8fc73bd2c5",
+  "runtime_runs": 0,
+  "historical_resource_validator": "NOT_REPEATED; known historical FAIL retained",
+  "clean_build": "PASS",
+  "native_offline_checks": 1545,
+  "first_combined_invocation": "production build tasks completed; fixture FAIL, fixed",
+  "final_build_log": "BUILD.txt",
+  "commit_push": "NOT_RUN",
+  "polymc": "NOT_INSTALLED",
+  "git_branch": "audit",
+  "git_delivery": "staged changes in isolated worktree; no commit"
+}

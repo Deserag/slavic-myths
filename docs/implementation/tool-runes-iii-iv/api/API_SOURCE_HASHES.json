@@ -1,0 +1,9 @@
+{
+  "dependency": "NeoForge 21.1.255 / Minecraft 1.21.1 sourcesWithNeoForge cache",
+  "examined_classes": {
+    "ServerPlayerGameMode.java": "52b777c8d9cff08187b3681091fa500801c125dc4fc2a5876693afe38d2a514d",
+    "HoeItem.java": "8d9bfcd16bcb6e9f9189f3901bb0dfa203b38755a5a300364946d4a226fe5e4b",
+    "ItemStack.java": "b35770a757f0c62a88276a38c36763d26e204d1a6210ea3fcac71a53526bc389"
+  },
+  "note": "Full dependency source copies were transient inspection inputs; native ABI tests read installed class bytes."
+}

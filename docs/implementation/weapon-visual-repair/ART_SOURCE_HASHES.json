@@ -1,0 +1,18 @@
+{
+  "src/main/java/org/slavicmyths/client/NightClient.java": "328a9cba0bca1ee6cd04c44e28832a98c437beadbaecc000e23c69b56a0c2cdc",
+  "src/main/java/org/slavicmyths/client/NightSwingPose.java": "325d0e245ea6a0aaa563026acdc1351d6126b83d52d91426383fddaee6dca45e",
+  "src/main/java/org/slavicmyths/client/WeaponHands.java": "244c334a320359b281b98582304bf10225368a0baaa15f98d35c32cb7b4e5d5a",
+  "src/main/java/org/slavicmyths/gorynych/SerpentCrossbow.java": "8b2b112579e2c3111fdc9105b9fd30bdd94ef7344e19e53b96c542608b4b1d95",
+  "src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java": "9b68dbc9fc4e5443c2816b32c31d45fabdd0290a47f48381929ed78adc34c531",
+  "src/main/java/org/slavicmyths/gorynych/BreathCloud.java": "965be35068d440ec4f43780486dcf701842d90407ccb374518255901abe4191a",
+  "tools/weapon_visual_repair_assets.py": "8d4b0eb3c3e908616748d68900adfe41ef0b6696a0694ef2d23297b41060fa4a",
+  "tools/weapon_patch_assets.py": "cbffc199f24e1db29bc5bb3e730a93234b21ee39170f2ef0375e05b83bd2b292",
+  "tools/weapon_feedback_assets.py": "acd8e5e7973311f455649d591bea46d87b1787012d95cef09a4d6d1a4d767925",
+  "src/main/resources/assets/minecraft/atlases/blocks.json": "25fd3e2b42809c1de3442ed7e5702e1e9fde17f7d57f74a5c0804d7d500096a6",
+  "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow.json": "f652c513397d1164a8fde9d50969bb7c956e7212d2d1f3cf65c15237d679917e",
+  "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_arrow.json": "99f5897b083140c664d4720c74d04528f37d4ce4d8006002537996f5acf98961",
+  "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_firework.json": "99f5897b083140c664d4720c74d04528f37d4ce4d8006002537996f5acf98961",
+  "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_0.json": "086249a539f49709bd1907cb71291c8af7538bc7d9754d38698634a33b360547",
+  "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_1.json": "d314ebdbdfe4f8c1672c1c99cf10db306f1ea5af96656205e1323fbd2de9e2ad",
+  "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_2.json": "32c073e78c4316355c4a55e39f2985c9de885c68cf73369b3827d9421747d7ab"
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "version": "1.9.7.2",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.2.jar",
+  "sha256": "b24727af8d8a016a4f12e258e0b31373eec09688bc4d3fa47a78d9c7a1bf1b3d",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-creative-inventory-20261014-141633",
+  "previous_hashes": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.2.jar": "b24727af8d8a016a4f12e258e0b31373eec09688bc4d3fa47a78d9c7a1bf1b3d"
+  },
+  "other_files_preserved": 457,
+  "configuration_changes": 0,
+  "name_before": "Slavic Myths 1.9.7.2 - NeoForge 1.21.1 TEST — Патч оружия — Исправления существ — Творческий инвентарь — Исправления оружия",
+  "name_after": "Slavic Myths 1.9.7.2 - NeoForge 1.21.1 TEST — Патч оружия — Исправления существ — Творческий инвентарь — Исправления оружия",
+  "client_starts": 0,
+  "server_starts": 0,
+  "worlds": "NOT_TOUCHED",
+  "old_1_16_5": "NOT_TOUCHED",
+  "initial_backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-creative-inventory-20261014-140758",
+  "initial_installed_version": "1.9.7"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "version": "1.9.7.2",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.2.jar",
+  "sha256": "b24727af8d8a016a4f12e258e0b31373eec09688bc4d3fa47a78d9c7a1bf1b3d",
+  "checks": 13606,
+  "event_subscribers": 213,
+  "weapon_models_corrected": 12,
+  "native_tests": "state writes/copies, body damage policy, continuous motion, native transform directions",
+  "gameplay": "NOT_RUN",
+  "visual_acceptance": "MANUAL",
+  "client_starts": 0,
+  "server_starts": 0,
+  "gametest_starts": 0
+}

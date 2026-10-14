@@ -1,0 +1,175 @@
+{
+  "files": [
+    "src/main/java/org/slavicmyths/client/NightClient.java",
+    "src/main/java/org/slavicmyths/client/NightSwingPose.java",
+    "src/main/java/org/slavicmyths/client/WeaponHands.java",
+    "src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java",
+    "src/main/java/org/slavicmyths/gorynych/SerpentCrossbow.java",
+    "src/main/java/org/slavicmyths/poloz/GreatPoloz.java",
+    "src/main/java/org/slavicmyths/poloz/PolozRules.java",
+    "src/main/resources/assets/slavicmyths/models/item/ancient_carolingian_sword_held.json",
+    "src/main/resources/assets/slavicmyths/models/item/ancient_chekan_held.json",
+    "src/main/resources/assets/slavicmyths/models/item/ancient_spear_held.json",
+    "src/main/resources/assets/slavicmyths/models/item/ataman_flail.json",
+    "src/main/resources/assets/slavicmyths/models/item/chekan_held.json",
+    "src/main/resources/assets/slavicmyths/models/item/karachun_scythe_held.json",
+    "src/main/resources/assets/slavicmyths/models/item/likho_staff.json",
+    "src/main/resources/assets/slavicmyths/models/item/nightingale_dagger.json",
+    "src/main/resources/assets/slavicmyths/models/item/restored_carolingian_sword_held.json",
+    "src/main/resources/assets/slavicmyths/models/item/restored_spear_held.json",
+    "src/main/resources/assets/slavicmyths/models/item/trophy_kalin_sabre.json",
+    "src/main/resources/assets/slavicmyths/models/item/victor_spear.json",
+    "tools/install_weapon_feedback.ps1",
+    "tools/poloz-tests/PolozChecks.java",
+    "tools/poloz_full_assets.py",
+    "tools/poloz_text_finish.py",
+    "tools/verify_weapon_feedback.py",
+    "tools/weapon-feedback-offline.gradle",
+    "tools/weapon-feedback-tests/WeaponFeedbackChecks.java",
+    "tools/weapon_feedback_assets.py",
+    "tools/weapon_patch_assets.py"
+  ],
+  "localization": {
+    "ru_ru": {
+      "gorynych196.mode_0": {
+        "before": "Мор — %s зарядов",
+        "after": "Мор"
+      },
+      "gorynych196.mode_1": {
+        "before": "Огонь — %s зарядов",
+        "after": "Пламя"
+      },
+      "gorynych196.mode_2": {
+        "before": "Буря — %s зарядов",
+        "after": "Буря"
+      },
+      "gorynych196.volley_burst": {
+        "before": null,
+        "after": "Тройной выстрел: очередь"
+      },
+      "gorynych196.volley_fan": {
+        "before": null,
+        "after": "Тройной выстрел: веер"
+      },
+      "item.slavicmyths.gorynych_flame_breath_bottle.desc": {
+        "before": "Остаток огненной атаки. Даёт 3 огненных заряда арбалету трёх дыханий.",
+        "after": "Собранное дыхание пламени. Компонент улучшения арбалета; для стрельбы не требуется."
+      },
+      "item.slavicmyths.gorynych_mor_breath_bottle.desc": {
+        "before": "Собранное дыхание Мора. Даёт 3 моровых заряда арбалету трёх дыханий.",
+        "after": "Собранное дыхание Мора. Компонент улучшения арбалета; для стрельбы не требуется."
+      },
+      "item.slavicmyths.gorynych_storm_breath_bottle.desc": {
+        "before": "Дыхание крыльев. Даёт 3 буревых заряда арбалету трёх дыханий.",
+        "after": "Собранное дыхание бури. Компонент улучшения арбалета; для стрельбы не требуется."
+      },
+      "item.slavicmyths.three_breath_crossbow.desc": {
+        "before": "Shift+ПКМ разряженным: режим. Бутылка при зарядке даёт 3 особых выстрела; без неё обычные стрелы.",
+        "after": "Всегда три стрелы. Shift+ПКМ: Мор / Пламя / Буря, без бутылочек. Shift+ЛКМ: веер / очередь по направлению взгляда."
+      },
+      "poloz.armor": {
+        "before": "Чешуя непробиваема — бейте по шрамам, голове и хвосту",
+        "after": "Полоз уязвим по всему телу."
+      },
+      "tales.entry.great_poloz.discovered": {
+        "before": "Пробуждение: ищите Полоза по рогу. Сначала уязвимы голова, кончик хвоста и три шрама. На 70% здоровья чешуя раскалывается; уязвимо всё тело. После падения остаются руины и поражённые блоки. Голова, сердце, 8–12 чешуй и плеть — гарантированные трофеи. Руна IV выпадает редко; чешуя укрепляет незеритовую броню. Уральский сказовый образ хранителя земли; мор и бой — игровая интерпретация.",
+        "after": "Полоз получает урон по любой части тела с первой фазы. Сражение проходит в три фазы; руины и порча остаются после победы. Ядро и чешуя — трофеи. Образ вдохновлён уральскими сказами; порча и бой — игровая интерпретация."
+      },
+      "tales.entry.great_poloz.known": {
+        "before": "Пробуждение: ищите Полоза по рогу. Сначала уязвимы голова, кончик хвоста и три шрама. На 70% здоровья чешуя раскалывается; уязвимо всё тело. После падения остаются руины и поражённые блоки. Голова, сердце, 8–12 чешуй и плеть — гарантированные трофеи. Руна IV выпадает редко; чешуя укрепляет незеритовую броню. Уральский сказовый образ хранителя земли; мор и бой — игровая интерпретация.",
+        "after": "Полоз получает урон по любой части тела с первой фазы. Сражение проходит в три фазы; руины и порча остаются после победы. Ядро и чешуя — трофеи. Образ вдохновлён уральскими сказами; порча и бой — игровая интерпретация."
+      },
+      "tales.entry.great_poloz.rumor": {
+        "before": "Пробуждение: ищите Полоза по рогу. Сначала уязвимы голова, кончик хвоста и три шрама. На 70% здоровья чешуя раскалывается; уязвимо всё тело. После падения остаются руины и поражённые блоки. Голова, сердце, 8–12 чешуй и плеть — гарантированные трофеи. Руна IV выпадает редко; чешуя укрепляет незеритовую броню. Уральский сказовый образ хранителя земли; мор и бой — игровая интерпретация.",
+        "after": "Полоз получает урон по любой части тела с первой фазы. Сражение проходит в три фазы; руины и порча остаются после победы. Ядро и чешуя — трофеи. Образ вдохновлён уральскими сказами; порча и бой — игровая интерпретация."
+      },
+      "tales.entry.great_poloz.seen": {
+        "before": "Пробуждение: ищите Полоза по рогу. Сначала уязвимы голова, кончик хвоста и три шрама. На 70% здоровья чешуя раскалывается; уязвимо всё тело. После падения остаются руины и поражённые блоки. Голова, сердце, 8–12 чешуй и плеть — гарантированные трофеи. Руна IV выпадает редко; чешуя укрепляет незеритовую броню. Уральский сказовый образ хранителя земли; мор и бой — игровая интерпретация.",
+        "after": "Полоз получает урон по любой части тела с первой фазы. Сражение проходит в три фазы; руины и порча остаются после победы. Ядро и чешуя — трофеи. Образ вдохновлён уральскими сказами; порча и бой — игровая интерпретация."
+      },
+      "tales.entry.great_poloz.studied": {
+        "before": "Пробуждение: ищите Полоза по рогу. Сначала уязвимы голова, кончик хвоста и три шрама. На 70% здоровья чешуя раскалывается; уязвимо всё тело. После падения остаются руины и поражённые блоки. Голова, сердце, 8–12 чешуй и плеть — гарантированные трофеи. Руна IV выпадает редко; чешуя укрепляет незеритовую броню. Уральский сказовый образ хранителя земли; мор и бой — игровая интерпретация.",
+        "after": "Полоз получает урон по любой части тела с первой фазы. Сражение проходит в три фазы; руины и порча остаются после победы. Ядро и чешуя — трофеи. Образ вдохновлён уральскими сказами; порча и бой — игровая интерпретация."
+      },
+      "tales.entry.great_poloz.title": {
+        "before": "Великий Полоз",
+        "after": "Полоз получает урон по любой части тела с первой фазы. Сражение проходит в три фазы; руины и порча остаются после победы. Ядро и чешуя — трофеи. Образ вдохновлён уральскими сказами; порча и бой — игровая интерпретация."
+      },
+      "tales.entry.great_poloz.verified": {
+        "before": "Пробуждение: ищите Полоза по рогу. Сначала уязвимы голова, кончик хвоста и три шрама. На 70% здоровья чешуя раскалывается; уязвимо всё тело. После падения остаются руины и поражённые блоки. Голова, сердце, 8–12 чешуй и плеть — гарантированные трофеи. Руна IV выпадает редко; чешуя укрепляет незеритовую броню. Уральский сказовый образ хранителя земли; мор и бой — игровая интерпретация.",
+        "after": "Полоз получает урон по любой части тела с первой фазы. Сражение проходит в три фазы; руины и порча остаются после победы. Ядро и чешуя — трофеи. Образ вдохновлён уральскими сказами; порча и бой — игровая интерпретация."
+      }
+    },
+    "en_us": {
+      "gorynych196.mode_0": {
+        "before": "Mor — %s charges",
+        "after": "Mor"
+      },
+      "gorynych196.mode_1": {
+        "before": "Flame — %s charges",
+        "after": "Flame"
+      },
+      "gorynych196.mode_2": {
+        "before": "Storm — %s charges",
+        "after": "Storm"
+      },
+      "gorynych196.volley_burst": {
+        "before": null,
+        "after": "Triple shot: burst"
+      },
+      "gorynych196.volley_fan": {
+        "before": null,
+        "after": "Triple shot: fan"
+      },
+      "item.slavicmyths.gorynych_flame_breath_bottle.desc": {
+        "before": "Collected flame essence. Loads 3 flame shots into a Three Breath Crossbow.",
+        "after": "Collected flame breath. Crossbow upgrade ingredient; not required for shooting."
+      },
+      "item.slavicmyths.gorynych_mor_breath_bottle.desc": {
+        "before": "Collected Mor essence. Loads 3 Mor shots into a Three Breath Crossbow.",
+        "after": "Collected Mor breath. Crossbow upgrade ingredient; not required for shooting."
+      },
+      "item.slavicmyths.gorynych_storm_breath_bottle.desc": {
+        "before": "Collected wing storm essence. Loads 3 storm shots into a Three Breath Crossbow.",
+        "after": "Collected storm breath. Crossbow upgrade ingredient; not required for shooting."
+      },
+      "item.slavicmyths.three_breath_crossbow.desc": {
+        "before": "Sneak-use unloaded: mode. One breath bottle loads 3 special shots; ordinary arrows work without essence.",
+        "after": "Always three arrows. Sneak-use: Mor / Flame / Storm, no bottles. Sneak-attack: fan / burst along your aim."
+      },
+      "poloz.armor": {
+        "before": "Armor is impenetrable: strike the scars, head and tail",
+        "after": "Poloz is vulnerable across his whole body."
+      },
+      "tales.entry.great_poloz.discovered": {
+        "before": "Awakening: follow the horn compass. Initially attack the head, tail tip and three scars. At 70% health armor cracks and the whole body becomes vulnerable. Ruins and corruption remain after victory. The core and scales are trophies. Inspired by the Ural tale guardian; corruption and combat are game interpretations.",
+        "after": "Poloz takes damage on every body part from phase one. The fight has three phases; ruins and corruption remain after victory. The core and scales are trophies. Inspired by Ural tales; corruption and combat are game interpretations."
+      },
+      "tales.entry.great_poloz.known": {
+        "before": "Awakening: follow the horn compass. Initially attack the head, tail tip and three scars. At 70% health armor cracks and the whole body becomes vulnerable. Ruins and corruption remain after victory. The core and scales are trophies. Inspired by the Ural tale guardian; corruption and combat are game interpretations.",
+        "after": "Poloz takes damage on every body part from phase one. The fight has three phases; ruins and corruption remain after victory. The core and scales are trophies. Inspired by Ural tales; corruption and combat are game interpretations."
+      },
+      "tales.entry.great_poloz.rumor": {
+        "before": "Awakening: follow the horn compass. Initially attack the head, tail tip and three scars. At 70% health armor cracks and the whole body becomes vulnerable. Ruins and corruption remain after victory. The core and scales are trophies. Inspired by the Ural tale guardian; corruption and combat are game interpretations.",
+        "after": "Poloz takes damage on every body part from phase one. The fight has three phases; ruins and corruption remain after victory. The core and scales are trophies. Inspired by Ural tales; corruption and combat are game interpretations."
+      },
+      "tales.entry.great_poloz.seen": {
+        "before": "Awakening: follow the horn compass. Initially attack the head, tail tip and three scars. At 70% health armor cracks and the whole body becomes vulnerable. Ruins and corruption remain after victory. The core and scales are trophies. Inspired by the Ural tale guardian; corruption and combat are game interpretations.",
+        "after": "Poloz takes damage on every body part from phase one. The fight has three phases; ruins and corruption remain after victory. The core and scales are trophies. Inspired by Ural tales; corruption and combat are game interpretations."
+      },
+      "tales.entry.great_poloz.studied": {
+        "before": "Awakening: follow the horn compass. Initially attack the head, tail tip and three scars. At 70% health armor cracks and the whole body becomes vulnerable. Ruins and corruption remain after victory. The core and scales are trophies. Inspired by the Ural tale guardian; corruption and combat are game interpretations.",
+        "after": "Poloz takes damage on every body part from phase one. The fight has three phases; ruins and corruption remain after victory. The core and scales are trophies. Inspired by Ural tales; corruption and combat are game interpretations."
+      },
+      "tales.entry.great_poloz.title": {
+        "before": "Great Poloz",
+        "after": "Poloz takes damage on every body part from phase one. The fight has three phases; ruins and corruption remain after victory. The core and scales are trophies. Inspired by Ural tales; corruption and combat are game interpretations."
+      },
+      "tales.entry.great_poloz.verified": {
+        "before": "Awakening: follow the horn compass. Initially attack the head, tail tip and three scars. At 70% health armor cracks and the whole body becomes vulnerable. Ruins and corruption remain after victory. The core and scales are trophies. Inspired by the Ural tale guardian; corruption and combat are game interpretations.",
+        "after": "Poloz takes damage on every body part from phase one. The fight has three phases; ruins and corruption remain after victory. The core and scales are trophies. Inspired by Ural tales; corruption and combat are game interpretations."
+      }
+    }
+  },
+  "note": "Observed edits by the separate active weapon-fix chat, preserved in the shared checkout. Not creative-inventory changes."
+}

@@ -1,0 +1,38 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:blank_rune_3"
+      },
+      "count": 1,
+      "base": {
+        "tier": 3,
+        "material": "perunite"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:empowered_soul"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:perunite_dust"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:blank_rune_4",
+    "count": 1,
+    "components": {
+      "slavicmyths:rune_base": {
+        "tier": 4,
+        "material": "perunite"
+      }
+    }
+  },
+  "chisel": false
+}

@@ -19,10 +19,10 @@ public final class GuardianWorld {
  public static BlockPos healingSource(CompoundTag n){return at(n,79,1,21);}
  public static boolean loaded(ServerLevel w,AABB box){for(int x=((int)box.minX)>>4;x<=((int)box.maxX)>>4;x++)for(int z=((int)box.minZ)>>4;z<=((int)box.maxZ)>>4;z++)if(w.getChunkSource().getChunkNow(x,z)==null)return false;return true;}
  public static void visit(ServerPlayer p,UUID id,BlockPos origin,Rotation r,boolean spring){var s=SanctuaryRecords.get(p.serverLevel());s.ensure(id,origin,r,spring);ensure(p.serverLevel(),id);}
- public static void ensure(ServerLevel w,UUID id){var d=GuardianLedger.get(w);d.ensure(id,SanctuaryRecords.get(w).row(id));var n=d.row(id);if(!n.contains("Origin")||n.getBoolean("Standalone"))return;long now=w.getGameTime();if(n.contains("PopulationCheckAt")&&now<n.getLong("PopulationCheckAt"))return;n.putLong("PopulationCheckAt",now+20);populate(w,id,n);}
+ public static void ensure(ServerLevel w,UUID id){var d=GuardianLedger.get(w);d.ensure(id,SanctuaryRecords.get(w).row(id));var n=d.row(id);if(w.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL&&!n.getString("Stage").equals("CLEARED")&&!n.getString("Stage").equals("PURIFICATION"))return;if(!n.contains("Origin")||n.getBoolean("Standalone"))return;long now=w.getGameTime();if(n.contains("PopulationCheckAt")&&now<n.getLong("PopulationCheckAt"))return;n.putLong("PopulationCheckAt",now+20);populate(w,id,n);}
  public static void generated(ServerLevel w,UUID id,BlockPos origin,Rotation r,boolean spring){SanctuaryRecords.get(w).ensure(id,origin,r,spring);ensure(w,id);}
  /** Chunk-local population; never loads chunks and does not depend on arena entry. */
- private static void populate(ServerLevel w,UUID id,CompoundTag n){var d=GuardianLedger.get(w);if(!loaded(w,chamber(n)))return;
+ private static void populate(ServerLevel w,UUID id,CompoundTag n){var d=GuardianLedger.get(w);if(w.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL&&!n.getString("Stage").equals("CLEARED")&&!n.getString("Stage").equals("PURIFICATION"))return;if(!loaded(w,chamber(n)))return;
   // UUID and last loaded position prevent treating an unloaded guardian as missing.
   var found=w.getEntitiesOfClass(GuardianEntity.class,chamber(n).inflate(2),e->id.equals(e.instance));
   if(!found.isEmpty()){var keeper=found.stream().filter(e->n.hasUUID("Boss")&&n.getUUID("Boss").equals(e.getUUID())).findFirst().orElse(found.getFirst());for(var e:found)if(e!=keeper)e.discard();n.putUUID("Boss",keeper.getUUID());n.remove("MissingSince");return;}

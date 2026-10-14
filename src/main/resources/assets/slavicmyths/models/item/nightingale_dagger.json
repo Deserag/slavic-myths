@@ -443,12 +443,46 @@
     },
     "thirdperson_righthand": {
       "rotation": [
-        0,
         90,
+        0,
         0
       ],
       "translation": [
         0,
+        0,
+        4.800000000000001
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        90,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        4.800000000000001
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        12
+      ],
+      "translation": [
+        1,
         2,
         0
       ],

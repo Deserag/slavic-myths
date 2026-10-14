@@ -25,6 +25,7 @@ import org.slavicmyths.rpg.Runes;
 public final class PolozRewardEvents {
  @SubscribeEvent public static void attack(AttackEntityEvent e){if(e.getEntity() instanceof ServerPlayer p&&p.getMainHandItem().is(PolozRewards.WHIP.get())){p.getPersistentData().putLong("PolozPrimaryAt",p.server.overworld().getGameTime());p.getPersistentData().putBoolean("PolozPrimaryCharged",p.getAttackStrengthScale(.5f)>.85f);}}
  @SubscribeEvent public static void tooltip(ItemTooltipEvent e){if(PolozRewards.upgrade(e.getItemStack())!=null)e.getToolTip().add(Component.translatable("poloz.upgrade_help"));}
+ public static boolean secondary(ServerPlayer p){return EFFECT.contains(p.getUUID());}
  private static final Set<UUID> EFFECT=new HashSet<>();
  public static void refresh(LivingEntity e){if(e.level().isClientSide)return;apply(e,Attributes.MAX_HEALTH,"poloz_set_health",PolozRewards.full(e)?2:0);apply(e,Attributes.KNOCKBACK_RESISTANCE,"poloz_set_knockback",PolozRewards.knockback(e));if(e.getHealth()>e.getMaxHealth())e.setHealth(e.getMaxHealth());}
  private static void apply(LivingEntity e,net.minecraft.core.Holder<Attribute> attr,String name,double value){var a=e.getAttribute(attr);if(a==null)return;var id=PolozContent.id(name);a.removeModifier(id);if(value>0)a.addTransientModifier(new AttributeModifier(id,value,AttributeModifier.Operation.ADD_VALUE));}
@@ -50,7 +51,7 @@ public final class PolozRewardEvents {
   if(target==p||target.isAlliedTo(p)||p.getUUID().equals(org.slavicmyths.kalin.KalinParty.owner(target)))return;
   if(s.is(PolozRewards.WHIP.get()))s.hurtAndBreak(1,p,EquipmentSlot.MAINHAND);
   if(s.is(PolozRewards.WHIP.get())&&data.getLong("PolozPrimaryAt")==now&&data.getBoolean("PolozPrimaryCharged")&&now>=data.getLong("PolozSweepAt")){data.putLong("PolozSweepAt",now+20);var look=p.getLookAngle().multiply(1,0,1).normalize();EFFECT.add(p.getUUID());try{int hits=0;for(var t:p.serverLevel().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(6,2,6),t->t!=target&&eligible(p,t))){var delta=t.position().subtract(p.position()).multiply(1,0,1);if(delta.lengthSqr()>36||delta.normalize().dot(look)<.25||!sight(p,t))continue;if(hits++>=3)break;t.hurt(p.damageSources().playerAttack(p),13);}}finally{EFFECT.remove(p.getUUID());}p.serverLevel().playSound(null,p.blockPosition(),SoundEvents.PLAYER_ATTACK_SWEEP,SoundSource.PLAYERS,.8f,.65f);}
-  if(!Runes.has(s,"earth_lord_iv"))return;
+  if(!org.slavicmyths.rpg.AdvancedRunes.active(s,"earth_lord_iv"))return;
   // Only one accepted primary strike per tick, including multipart or broad attacks.
   if(data.getLong("PolozRuneHitAt")==now&&data.contains("PolozRuneHitAt"))return;data.putLong("PolozRuneHitAt",now);
   int count=(data.getInt("PolozRuneHits")+1)%4;data.putInt("PolozRuneHits",count);if(count!=0||now<data.getLong("PolozRuneReady"))return;data.putLong("PolozRuneReady",now+400);

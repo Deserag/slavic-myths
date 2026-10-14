@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "version": "1.9.7.3",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.3.jar",
+  "sha256": "df40d262c03c40159a3d8d232dc18ea7795ad4ddac91cd5120bf4100f6e52952",
+  "checks": 17873,
+  "subscribers": 213,
+  "scythe": "original 60 parts and original 32px icon",
+  "crossbow_uv": "all 12 models normalized to 0..16",
+  "dragon_heads": 3,
+  "mouth_lanes": [
+    0,
+    1,
+    2
+  ],
+  "test_fixtures_in_production": false,
+  "real_client_starts": 6,
+  "integrated_server_starts": 6,
+  "gametest_server_starts": 0,
+  "final_runtime_cases": [
+    {
+      "case": 0,
+      "arrow_count": 3,
+      "entity_hits": 3,
+      "weakness": true,
+      "flame_or_storm": false,
+      "clouds": 3,
+      "ammo_spent": 1,
+      "durability_spent": 3,
+      "target_healths": "[184.716, 189.556, 188.588]"
+    },
+    {
+      "case": 1,
+      "arrow_count": 3,
+      "entity_hits": 3,
+      "weakness": true,
+      "flame_or_storm": false,
+      "clouds": 3,
+      "ammo_spent": 1,
+      "durability_spent": 3,
+      "target_healths": "[197.3, 185.684, 197.3]"
+    },
+    {
+      "case": 2,
+      "arrow_count": 3,
+      "entity_hits": 3,
+      "weakness": false,
+      "flame_or_storm": true,
+      "clouds": 0,
+      "ammo_spent": 1,
+      "durability_spent": 3,
+      "target_healths": "[191.6, 189.6, 191.6]"
+    },
+    {
+      "case": 3,
+      "arrow_count": 3,
+      "entity_hits": 3,
+      "weakness": false,
+      "flame_or_storm": true,
+      "clouds": 0,
+      "ammo_spent": 1,
+      "durability_spent": 3,
+      "target_healths": "[194.3, 189.88, 194.3]"
+    },
+    {
+      "case": 4,
+      "arrow_count": 3,
+      "entity_hits": 3,
+      "weakness": false,
+      "flame_or_storm": true,
+      "clouds": 0,
+      "ammo_spent": 1,
+      "durability_spent": 3,
+      "target_healths": "[190.32, 189.352, 188.384]"
+    },
+    {
+      "case": 5,
+      "arrow_count": 3,
+      "entity_hits": 3,
+      "weakness": false,
+      "flame_or_storm": true,
+      "clouds": 0,
+      "ammo_spent": 1,
+      "durability_spent": 3,
+      "target_healths": "[200.0, 188.588, 200.0]"
+    }
+  ],
+  "multiplayer_relog_mspt": "NOT_TESTED"
+}

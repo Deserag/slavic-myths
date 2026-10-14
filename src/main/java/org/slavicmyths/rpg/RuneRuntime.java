@@ -30,6 +30,7 @@ public final class RuneRuntime {
         int strength=count(weapon,"strength"),speed=count(weapon,"speed"),crush=count(weapon,"crushing"),bootSpeed=count(boots,"speed"),wind=count(boots,"wind"),res=armorCount(e,"resilience"),fort=armorCount(e,"fortitude");
         modifier(e,Attributes.ATTACK_DAMAGE,DAMAGE,Math.min(RuneBalance.DAMAGE_CAP,RuneBalance.STRENGTH*RuneBalance.effective(strength)+RuneBalance.CRUSHING_DAMAGE*RuneBalance.effective(crush)),AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
         double attack=RuneBalance.attackFactor(speed,crush)-1;var a=e.getAttribute(Attributes.ATTACK_SPEED);if(a!=null){a.removeModifier(ATTACK);attack=RuneBalance.safeAttackFactor(a.getValue(),speed,crush)-1;}
+        attack=CraftRuneRules.attackFactor(1+attack,e instanceof ServerPlayer p&&CraftRunes.rage(p))-1;
         modifier(e,Attributes.ATTACK_SPEED,ATTACK,attack,AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
         modifier(e,Attributes.MOVEMENT_SPEED,MOVE,RuneBalance.movement(bootSpeed,wind,fort),AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
         modifier(e,Attributes.ARMOR_TOUGHNESS,TOUGH,RuneBalance.toughness(res,fort),AttributeModifier.Operation.ADD_VALUE);

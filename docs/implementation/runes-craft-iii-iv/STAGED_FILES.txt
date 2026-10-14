@@ -1,0 +1,7 @@
+docs/implementation/runes-patch/FILES.md
+docs/implementation/runes-patch/MANUAL_CHECKS.md
+docs/implementation/runes-patch/OWNED_HASHES.json
+docs/implementation/runes-patch/REGRESSION_LIMITATIONS.md
+docs/implementation/runes-patch/REPORT.md
+docs/implementation/runes-patch/RESOURCE_JAR_CHECKS.json
+docs/implementation/runes-patch/SOURCE_CHECKS.json

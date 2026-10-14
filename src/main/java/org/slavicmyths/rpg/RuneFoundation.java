@@ -13,7 +13,7 @@ public final class RuneFoundation {
         ITEMS.put("rune_chisel",ModItems.ITEMS.register("rune_chisel",()->new FoundationItem("rune_chisel",new Item.Properties().durability(192))));
         for(String id:List.of("iron_dust","gold_dust","coal_dust","lapis_dust","diamond_dust","perunite_dust","soul_fragment","soul","empowered_soul","bound_soul"))
             ITEMS.put(id,ModItems.ITEMS.register(id,()->new FoundationItem(id,new Item.Properties())));
-        for(int tier=1;tier<=3;tier++) {
+        for(int tier=1;tier<=4;tier++) {
             int t=tier;
             ITEMS.put("blank_rune_"+t,ModItems.ITEMS.register("blank_rune_"+t,()->new BlankItem(t)));
         }
@@ -35,7 +35,7 @@ public final class RuneFoundation {
         BlankItem(int tier) {super(new Item.Properties().component(ItemState.RUNE_BASE.get(),new RuneBase(tier,tier==1?"iron":tier==2?"diamond":"perunite")));}
         @Override public void appendHoverText(ItemStack s,TooltipContext context,List<Component> lines,TooltipFlag flag) {
             RuneBase b=s.get(ItemState.RUNE_BASE.get());
-            if(b!=null){lines.add(Component.translatable("rune_foundation.slavicmyths.tier",new String[]{"","I","II","III"}[b.tier()]));
+            if(b!=null){lines.add(Component.translatable("rune_foundation.slavicmyths.tier",new String[]{"","I","II","III","IV"}[b.tier()]));
                 lines.add(Component.translatable("rune_foundation.slavicmyths.base",Component.translatable("rune_foundation.slavicmyths.material."+b.material())));}
             lines.add(Component.translatable("rune_foundation.slavicmyths.no_effect"));
         }

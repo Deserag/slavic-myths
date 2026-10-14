@@ -15,7 +15,9 @@ public final class RuneRework {
     public static final TagKey<Item> MELEE=ItemTags.create(ResourceLocation.fromNamespaceAndPath("slavicmyths","rune_melee_weapons"));
     public static final TagKey<Item> HEAVY=ItemTags.create(ResourceLocation.fromNamespaceAndPath("slavicmyths","rune_heavy"));
     public static final Map<String,DeferredHolder<Item,Item>> NEW_ITEMS=new LinkedHashMap<>();
+    static {for(String id:AdvancedRuneRules.IDS)NEW_ITEMS.put(id,ModItems.ITEMS.register("rune_"+id,()->new Item(new Item.Properties().rarity(id.endsWith("_iv")?Rarity.EPIC:Rarity.RARE))));}
     static {for(var d:RuneBalance.DEFINITIONS)if(!Set.of("heat","wind").contains(d.id()))NEW_ITEMS.put(d.id(),ModItems.ITEMS.register("rune_"+d.id(),()->new Item(new Item.Properties())));}
+    static {for(String id:org.slavicmyths.rpg.tools.ToolRuneRules.IDS)NEW_ITEMS.put(id,ModItems.ITEMS.register("rune_"+id,()->new Item(new Item.Properties().rarity(id.endsWith("_iv")?Rarity.EPIC:Rarity.RARE))));}
     public static void init(){}
     public static boolean boots(ItemStack s){return s.getItem() instanceof ArmorItem a&&a.getType()==ArmorItem.Type.BOOTS;}
     public static boolean melee(ItemStack s){return s.is(MELEE)&&!(s.getItem() instanceof BowItem||s.getItem() instanceof CrossbowItem||s.getItem() instanceof ShieldItem||s.getItem() instanceof ArmorItem);}
@@ -47,13 +49,17 @@ public final class RuneRework {
     }
     public static List<Component> runeTooltip(String id){var d=RuneBalance.definition(id);var out=new ArrayList<Component>();out.add(Component.translatable("rune_foundation.slavicmyths.tier",d.tier()==1?"I":"II"));out.add(Component.translatable("rune_foundation.slavicmyths.base",Component.translatable("rune_foundation.slavicmyths.material."+d.base())));out.addAll(effects(id,1,null));return out;}
     public static List<Component> equipmentTooltip(ItemStack s){var out=new ArrayList<Component>();var ids=new LinkedHashSet<>(Runes.list(s));for(String id:ids){int count=copies(s,id);Component name=RuneDefinition.ALL.get(id).name();out.add(count>1?name.copy().append(" Г—"+count):name);
-        if(org.slavicmyths.industry.MiningRunes.mining(id))out.addAll(org.slavicmyths.industry.MiningRunes.tooltip(id));
+        if(org.slavicmyths.rpg.tools.ToolRuneRules.tool(id))out.addAll(org.slavicmyths.rpg.tools.ToolRuneContent.equipped(s,id));
+        else if(AdvancedRunes.newRune(id)){out.add(AdvancedRunes.description(id));if(!AdvancedRunes.supports(s,id)||AdvancedRunes.iv(id)&&!AdvancedRunes.active(s,id))out.add(Component.translatable("rpg.slavicmyths.armor_runes_inactive"));}
+        else if(org.slavicmyths.industry.MiningRunes.mining(id))out.addAll(org.slavicmyths.industry.MiningRunes.tooltip(id));
         else if(id.equals("ominous_aura")||id.equals("earth_heart_iii"))out.addAll(RuneDefinition.ALL.get(id).tooltip());
           else if(RareRunes.rare(id))out.addAll(RareRunes.tooltip(id));
         else if(id.equals("wind")&&ranged(s)){out.add(line("projectile",RuneRuntime.projectileBonus(s)*100));if(legacyCopies(s,id)>0){out.add(Component.translatable("rune2.slavicmyths.legacy_special"));out.add(RuneDefinition.ALL.get(id).legacyEffect());}}
         else if(id.equals("heat")&&melee(s)&&legacyCopies(s,id)>0){out.add(Component.translatable("rune2.slavicmyths.legacy_special"));out.add(RuneDefinition.ALL.get(id).legacyEffect());if(count>1)out.add(line("fire",Math.min(RuneBalance.PROC_CAP,RuneBalance.FIRE_CHANCE*(RuneBalance.effective(count)-1))*100,RuneBalance.FIRE_SECONDS));}
-        else if(RuneBalance.modern(id)&&supports(s,id))out.addAll(effects(id,count,s));else if(RuneBalance.modern(id)){out.add(Component.translatable("rune2.slavicmyths.legacy_special"));out.add(RuneDefinition.ALL.get(id).legacyEffect());}
+        else if(RuneBalance.modern(id)&&supports(s,id))out.addAll(effects(id,count,s));else if(RuneBalance.modern(id)){if(legacyCopies(s,id)>0&&RuneDefinition.ALL.get(id).categories().contains(Runes.category(s))){out.add(Component.translatable("rune2.slavicmyths.legacy_special"));out.add(RuneDefinition.ALL.get(id).legacyEffect());}else out.add(Component.translatable("rpg.slavicmyths.armor_runes_inactive"));}
         else if(Runes.armor(s))out.add(Component.translatable("rpg.slavicmyths.armor_runes_inactive"));
+        if(AdvancedRunes.iv(id)&&!AdvancedRunes.active(s,id))out.add(Component.translatable("rpg.slavicmyths.armor_runes_inactive"));
+        if(!RuneBalance.modern(id)&&count>1)out.add(Component.translatable("runes_patch.extra_inactive"));
     }return out;}
     private RuneRework(){}
 }

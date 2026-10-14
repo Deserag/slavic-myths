@@ -23,7 +23,7 @@ public final class JeiRunes implements IModPlugin {
     private static final RecipeType<RecipeHolder<RuneCraftRecipe>> TYPE=RecipeType.createRecipeHolderType(ID);
     public ResourceLocation getPluginUid(){return ID;}
     public void registerItemSubtypes(ISubtypeRegistration r){
-        for(int tier=1;tier<=3;tier++)r.registerSubtypeInterpreter(RuneFoundation.item("blank_rune_"+tier),new mezz.jei.api.ingredients.subtypes.ISubtypeInterpreter<ItemStack>(){
+        for(int tier=1;tier<=4;tier++)r.registerSubtypeInterpreter(RuneFoundation.item("blank_rune_"+tier),new mezz.jei.api.ingredients.subtypes.ISubtypeInterpreter<ItemStack>(){
             public Object getSubtypeData(ItemStack s,mezz.jei.api.ingredients.subtypes.UidContext c){return s.get(org.slavicmyths.item.ItemState.RUNE_BASE.get());}
             public String getLegacyStringSubtypeInfo(ItemStack s,mezz.jei.api.ingredients.subtypes.UidContext c){var b=s.get(org.slavicmyths.item.ItemState.RUNE_BASE.get());return b==null?"":b.tier()+":"+b.material();}
         });

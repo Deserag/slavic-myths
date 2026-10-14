@@ -1,0 +1,6 @@
+warning: in the working copy of 'docs/ARCHITECTURE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/PROJECT_STATUS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/ROADMAP.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/audit/creatures-1.9.8.1/CHECKS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/gorynych/GorynychRules.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/registry/ModItemGroup.java', LF will be replaced by CRLF the next time Git touches it

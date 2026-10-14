@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "entity_types": 111,
+  "creatures": 69,
+  "attack_rows": 265,
+  "references_exist": 499,
+  "source_files_referenced": 130,
+  "citation_semantics": "line existence only; not full interpretation",
+  "runtime_runs": 0,
+  "build": "NOT_REPEATED: documentation only",
+  "production_sha256": "470bee79a459721a5b4080bf5098e4b77b8ea2f1ee06553bb6e18574f5281fc2",
+  "audit_status": "COMPLETE_WITH_LIMITATIONS",
+  "blocking_decision_groups": 4,
+  "all_primary_classification_fields_present": true,
+  "all_known_action_rows_processed": true,
+  "reachability_semantics": "static selectable/candidate/unverified producer/unreachable are separate; no runtime certification",
+  "historical_sha256": "0f1e76dd6bef952350a67d83da5357cc26bcc8dcb290b7eb281c8e46d2290e0e",
+  "production_changed_by_this_audit": false
+}

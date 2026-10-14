@@ -1,0 +1,92 @@
+[
+  {
+    "concept_id": "counterstrike_iii",
+    "name_ru": "Руна ответного удара III",
+    "tier": "III",
+    "placement": "Щит / контратака",
+    "texture_name_suggestion": "rune_counterstrike_iii",
+    "illustration_reference": "02_blueprints/concept_icons/tier_III/rune_counterstrike_iii_REFERENCE_512.png",
+    "implemented_status": "Проверить локальную ветку: III возможно уже реализованы",
+    "note": "REF ONLY. Не считать готовым production-спрайтом."
+  },
+  {
+    "concept_id": "hunter_iii",
+    "name_ru": "Руна охотника III",
+    "tier": "III",
+    "placement": "Лук / арбалет",
+    "texture_name_suggestion": "rune_hunter_iii",
+    "illustration_reference": "02_blueprints/concept_icons/tier_III/rune_hunter_iii_REFERENCE_512.png",
+    "implemented_status": "Проверить локальную ветку: III возможно уже реализованы",
+    "note": "REF ONLY. Не считать готовым production-спрайтом."
+  },
+  {
+    "concept_id": "last_stand_iii",
+    "name_ru": "Руна последнего рубежа III",
+    "tier": "III",
+    "placement": "Нагрудник / защита",
+    "texture_name_suggestion": "rune_last_stand_iii",
+    "illustration_reference": "02_blueprints/concept_icons/tier_III/rune_last_stand_iii_REFERENCE_512.png",
+    "implemented_status": "Проверить локальную ветку: III возможно уже реализованы",
+    "note": "REF ONLY. Не считать готовым production-спрайтом."
+  },
+  {
+    "concept_id": "depths_iii",
+    "name_ru": "Руна глубин III",
+    "tier": "III",
+    "placement": "Кирка / подземелья",
+    "texture_name_suggestion": "rune_depths_iii",
+    "illustration_reference": "02_blueprints/concept_icons/tier_III/rune_depths_iii_REFERENCE_512.png",
+    "implemented_status": "Проверить локальную ветку: III возможно уже реализованы",
+    "note": "REF ONLY. Не считать готовым production-спрайтом."
+  },
+  {
+    "concept_id": "unbreakable_iv",
+    "name_ru": "Руна несокрушимости IV",
+    "tier": "IV",
+    "placement": "Нагрудник / щит",
+    "texture_name_suggestion": "rune_unbreakable_iv",
+    "illustration_reference": "02_blueprints/concept_icons/tier_IV/rune_unbreakable_iv_REFERENCE_512.png",
+    "implemented_status": "Новое",
+    "note": "REF ONLY. Не считать готовым production-спрайтом."
+  },
+  {
+    "concept_id": "perun_rage_iv",
+    "name_ru": "Руна Перуновой ярости IV",
+    "tier": "IV",
+    "placement": "Ближний бой",
+    "texture_name_suggestion": "rune_perun_rage_iv",
+    "illustration_reference": "02_blueprints/concept_icons/tier_IV/rune_perun_rage_iv_REFERENCE_512.png",
+    "implemented_status": "Новое",
+    "note": "REF ONLY. Не считать готовым production-спрайтом."
+  },
+  {
+    "concept_id": "forest_spirit_iv",
+    "name_ru": "Руна Духа леса IV",
+    "tier": "IV",
+    "placement": "Броня / лечение",
+    "texture_name_suggestion": "rune_forest_spirit_iv",
+    "illustration_reference": "02_blueprints/concept_icons/tier_IV/rune_forest_spirit_iv_REFERENCE_512.png",
+    "implemented_status": "Новое",
+    "note": "REF ONLY. Не считать готовым production-спрайтом."
+  },
+  {
+    "concept_id": "mastery_iv",
+    "name_ru": "Руна мастерства IV",
+    "tier": "IV",
+    "placement": "Кирка / добыча",
+    "texture_name_suggestion": "rune_mastery_iv",
+    "illustration_reference": "02_blueprints/concept_icons/tier_IV/rune_mastery_iv_REFERENCE_512.png",
+    "implemented_status": "Новое",
+    "note": "REF ONLY. Не считать готовым production-спрайтом."
+  },
+  {
+    "concept_id": "blank_rune_4",
+    "name_ru": "Заготовка руны IV",
+    "tier": "IV",
+    "placement": "Руническая основа",
+    "texture_name_suggestion": "blank_rune_4",
+    "illustration_reference": "02_blueprints/concept_icons/tier_IV/blank_rune_4_REFERENCE_512.png",
+    "implemented_status": "Новая основа",
+    "note": "REF ONLY. Не считать готовым production-спрайтом."
+  }
+]

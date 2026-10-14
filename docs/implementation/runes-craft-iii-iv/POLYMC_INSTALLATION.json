@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "version": "1.9.7.3",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.3.jar",
+  "sha256": "1da8fff39146a1070b4340ea1332ab6c54c8736cbcb85ea5b6263e08d77cbdf8",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-runes-craft-iii-iv-20261014-172547",
+  "previous_hashes": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.3.jar": "df40d262c03c40159a3d8d232dc18ea7795ad4ddac91cd5120bf4100f6e52952"
+  },
+  "other_files_preserved": 461,
+  "configuration_changes": 1,
+  "name_before": "Slavic Myths 1.9.7.3 - NeoForge 1.21.1 TEST — Патч оружия — Исправления существ — Творческий инвентарь — Исправления оружия — Восстановление оружия",
+  "name_after": "Slavic Myths 1.9.7.3 - NeoForge 1.21.1 TEST — Патч оружия — Исправления существ — Творческий инвентарь — Исправления оружия — Восстановление оружия — Руны III–IV",
+  "client_starts": 0,
+  "server_starts": 0,
+  "worlds": "NOT_TOUCHED",
+  "old_1_16_5": "NOT_TOUCHED"
+}

@@ -1,0 +1,414 @@
+[
+  {
+    "path": "docs/ARCHITECTURE.md",
+    "sha256": "8ede5057490be6a0710cdab60e268a7d522877d6a6d2e687d2c3dbe943283b47"
+  },
+  {
+    "path": "docs/PROJECT_STATUS.md",
+    "sha256": "351e493a86b0c766bbdea873c1acfc414edcbeb7972595d16b2281f7cee39412"
+  },
+  {
+    "path": "docs/ROADMAP.md",
+    "sha256": "bb2e93c53fb6fdc2f9a461e3108d84da2ac1e800fd165d0561f5958ce6bc3a4c"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/ASSET_MAPPING.json",
+    "sha256": "dfede4993d950e5b111e9772370406e5ff9401f6b3931e60676157e78dc56485"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/BASELINE_HASHES.json",
+    "sha256": "3c50d1b8bd325b8e34dca2a9af76d47ec9255393eb178949ebdb8267dfccb7af"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/BUILD.log",
+    "sha256": "d791232af885853e8c26514a56817b86401966bfe15daab3a0cc287681bcd75b"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/BUILD_CHECKS.md",
+    "sha256": "fe6578b752cb7223abb9f3cff94a21a5f655db96e0ac1e4720748faa462290b5"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/BUILD_DELIVERY.log",
+    "sha256": "446542fedcc65deae9156fe44c05f3337779ee71535441d338a6907133d1a666"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/BUILD_FINAL.log",
+    "sha256": "debd1688a3f7ccba8d488ec9e7d956c40601535974c28e3ecc8d4594b1f8397f"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/BUILD_FINAL_DELIVERY.log",
+    "sha256": "71d7104403da95649b4ac939be92b939a473dc9be6bcc05845313c7dda2e65f3"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/BUILD_RELEASE.log",
+    "sha256": "c325de86e4579f567a1b19375b07ae0dc15d4e8cd25e0e0be01d024184fdda8c"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/BUILD_VERIFIED.log",
+    "sha256": "2cc45cf1441a667b9abdf40719ded1f32e4118a94486ea6d002ec9c16c09b87a"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/COMPILE.log",
+    "sha256": "e8eebe97efbb41cda8d21ce93fc55990d496c414573bdc464f659c90ac63d4ed"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/DIFF_CHECK.log",
+    "sha256": "6da161e33d728223a338f6746c1d8a89ca488da3fb590915bcd1344795609322"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/DIFF_CHECK_FINAL.log",
+    "sha256": "6bd89a265d0c1bd977f06c008642fe62453d66f01c0b4a06374be1a56171ad5c"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/FILES.md",
+    "sha256": "c98c73394934f28785d67daa1ea82281210d3a99bcde72f5a66fbcf2267a8949"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/ICONS.png",
+    "sha256": "6a31022b15504820d0d60c960cc5cbcb4b024278dd992819e08b928d11e1d787"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/MANUAL_CHECKS.md",
+    "sha256": "54f5a4f64712244c77680d995cc7e445565bf8b1730d720831eeffa39ce11e5c"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/OFFLINE.log",
+    "sha256": "fd6a56eb703ae4b6b205e919c5279761092908cde254644332e4845771707193"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/OWNED_HASHES.json",
+    "sha256": "d086d577b74cdd506acb1d2fcb7d75556d2d04a5647063ccf5857b928187f0a7"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/POLYMC_INSTALLATION.json",
+    "sha256": "b77a861264ab955a096ca82b0798920cf230d583c152847b40d3c1340a8b11eb"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/POLYMC_INSTALLATION.md",
+    "sha256": "da56f5eff186d08c73b6b47041efa89b88d5ebeae04d2ae5e90955be1c06f06e"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/REPORT.md",
+    "sha256": "5fe411a48eea058961c989e0daab14bb94374311218b3d4fecc91add5069dc67"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/RESOURCE.log",
+    "sha256": "3327dbd97a223d75d7e4a666447ad4e8c0af9cc2cd9770b02996978e7e0a75d3"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/RESOURCE_DELIVERY.log",
+    "sha256": "960ac70ad50d5d488bc239665c429c262448832db0a8bcc8a1f61dfe1f38be60"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/RESOURCE_FINAL.log",
+    "sha256": "1eb28adc6f9911f60719896ed1e2358d61373d695521993c81a7672712ac6a7c"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/RESOURCE_FIRST.log",
+    "sha256": "a37e32df2a1acfe7500b7e3647d2018f9699244119b13cac40091c84e7e691c6"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/RESOURCE_JAR_CHECKS.json",
+    "sha256": "5006276444ddae08493503c8f1fa7c3f579805511daa432a2b0f0136cf32e041"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/RESOURCE_PASS.log",
+    "sha256": "f945898160bc6e97a154260e5c8a1d971d96f9ef2c5f1584b88a76874f8c4f06"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/RESOURCE_RELEASE.log",
+    "sha256": "268562bb26aa89a345145870d41b2d66216a43bba35d739b9cb1c85a0bc93337"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/RESOURCE_VERIFIED.log",
+    "sha256": "d2e6000025a3552635cdb243cc022b3459b065f97f5549cb6714b38d7a56ea68"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/RUNS_BRANCH.txt",
+    "sha256": "052ef2d3b258a73d8a9070e97d58ca29cc2b413a80451e57958337510a60683e"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/STAGED_FILES.txt",
+    "sha256": "1cb188f40a598dbb8fa7ecd214907e0164206312c66fe2bbde87780941af7fe8"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/START_STATUS.txt",
+    "sha256": "a607c5211160ee67e701662e5a5dde6cf57d861f6170a38520f458dabaab93f6"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/WORKTREES.txt",
+    "sha256": "004de0876813fef2b3e82877b999ed1fb6833ebbccf1d2ae076a5695c4356b7a"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/01_docs/00_START.md",
+    "sha256": "e094752adac1124c4b537f1f77f63cd47513816b28554344fa3e09ec2e276293"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/01_docs/01_IMPLEMENTATION.md",
+    "sha256": "90eb72dc4f91069d3d2d2f230b6d23f278122efb9946f469619fc8ec512de551"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/01_docs/02_VISUAL.md",
+    "sha256": "e0098e37def789ebebb3300318f73e504bb0f059754c7dbffc0cedd8b0c8bb34"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/01_docs/03_ASSETS_AND_INTEGRATION.md",
+    "sha256": "4db1680a44e62406446bd48ef0ccf198d41555265cea5e478526b6ffba297d72"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/01_docs/04_ACCEPTANCE.md",
+    "sha256": "ba4677fba410bb0d418d8f35f9331b35d5879417c648d7a45e209f539002f0f6"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/01_docs/05_PROMPT_FOR_CODEX.md",
+    "sha256": "98c6e54c08013adc7aebbdd8725049110e9cac7c498cd4f5649ab4ca81da3d74"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_III/rune_counterstrike_iii_PREVIEW_ONLY_64.png",
+    "sha256": "1be24e62e63928617f0c7f516aac1cf3230882235e643262ba5d0d6c38d7d488"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_III/rune_counterstrike_iii_REFERENCE_512.png",
+    "sha256": "b967257eb2f361779259aca3c2314cd89f4c4d891fb919bba15ed63eca278c7e"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_III/rune_depths_iii_PREVIEW_ONLY_64.png",
+    "sha256": "9637b0ea6490a2724e5010ed209cf418e27f4eeb4fbc0657b25f78ba8e13e9e8"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_III/rune_depths_iii_REFERENCE_512.png",
+    "sha256": "5240ae20d5cc336899e43ef63fb9d5b47b807a6eaa764fc3e9587d7103e3765a"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_III/rune_hunter_iii_PREVIEW_ONLY_64.png",
+    "sha256": "6cfd499d854472ac2a816c28165b5819be7d361f0547dfd6e6acfa7f5df84ff3"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_III/rune_hunter_iii_REFERENCE_512.png",
+    "sha256": "770e6de6d0a464c9acfd4f856926baac31de581c59f43e4c91f39d9367df5d73"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_III/rune_last_stand_iii_PREVIEW_ONLY_64.png",
+    "sha256": "6f9859ef4309b6c17393e66be3e88a7020af02a53508446820687f91af11157e"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_III/rune_last_stand_iii_REFERENCE_512.png",
+    "sha256": "b0e601d9ebc5f25c61c896ebb4b6de0df940a16ffd75679fbd6ed59956bc772c"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/blank_rune_4_PREVIEW_ONLY_64.png",
+    "sha256": "417655c6c7738335b9f372224cc20069c19c074eaf17189839bbbac6b5a85d49"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/blank_rune_4_REFERENCE_512.png",
+    "sha256": "fdd5aec16e210a480dd58a3b97c7c774ace50304eae52a95d3dd8154e8941ee5"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_forest_spirit_iv_PREVIEW_ONLY_64.png",
+    "sha256": "54beb34d9fb0b6f9ba5d55492e24a5be7cec04e2c4b496c39ea7734b5240dc61"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_forest_spirit_iv_REFERENCE_512.png",
+    "sha256": "7dbebd783bfb82eb9f0aa9f716498bb6d393fb5caf7ca9b9a4951b2eda32a734"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_mastery_iv_PREVIEW_ONLY_64.png",
+    "sha256": "483b9e989522cd663c6432ad8fa0d51184c1040d5bdae1d3d33b04c18459cd61"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_mastery_iv_REFERENCE_512.png",
+    "sha256": "89fdfffd7284f030faf9e37304cd0260d50d4bf627e671f460d00ef4787d4699"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_perun_rage_iv_PREVIEW_ONLY_64.png",
+    "sha256": "e60359b12e3c3a37de625e1abcf804c8f14e7684422ad32b463a69ab7d45b8cc"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_perun_rage_iv_REFERENCE_512.png",
+    "sha256": "7f2b0f7def53f3cfe6078ed48735e7db8b97fbc123d22097b65e3397d8b9127d"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_unbreakable_iv_PREVIEW_ONLY_64.png",
+    "sha256": "5eec8b234c5dd826dbc85b3d439a72bfe30a7db0c18c78f599960c98d44b1ea9"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/concept_icons/tier_IV/rune_unbreakable_iv_REFERENCE_512.png",
+    "sha256": "9251edb553e014ca5887d633fd51761d1b3bfb37fd9511e5fd7e41b836abd243"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/sheets/01_ALL_RUNES_REFERENCE.png",
+    "sha256": "e6642b025e39f3a178ec508720984b7488e91c1da3857b67225ed8b8407b24a5"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/sheets/02_TECHNICAL_BLUEPRINTS.png",
+    "sha256": "b8945eed45ccc8a03fa9b136fea08bb0b98cb173f51b11a9d21c5afaa6d18a5c"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/02_blueprints/sheets/03_CONCEPT_PENCIL_SKETCHES.png",
+    "sha256": "691c917b8d512e9f434c0433aa4acaadea477b67d4f6d574e21f7e2138e05f88"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/03_mappings/ASSET_MAP.csv",
+    "sha256": "cfe07d4583d14ff3c7f5e54ab5cd6e0ef91a99a645f792616b4a745997d1d397"
+  },
+  {
+    "path": "docs/implementation/runes-craft-iii-iv/spec/03_mappings/CONCEPT_ASSET_MAP.json",
+    "sha256": "4db617115e2c69a1981bfeb2c69f7639fa0a247165a9047e99eb396d4563fe4e"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/compat/JeiRunes.java",
+    "sha256": "582792b2814c162d4e405f797afe81248a6f512eed31a2d918dd7d084c15a684"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
+    "sha256": "1cf55474e4d66864258bb96ed0be9ca84f754f15cc121e3025330d8ee67f5daf"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/AdvancedRuneRules.java",
+    "sha256": "7a717d5c7705ea27be1c500ed9facf8130e1933d1cc4168fa0cfa42868b3f877"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/AdvancedRunes.java",
+    "sha256": "15deb8c690a7cb27677430404b6be238565dc968a53c9f28242dd905c88e235f"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/CraftRuneRules.java",
+    "sha256": "3a847621de97fdfda068722b941e0635ee2c86811a74ae63c5276f8ecb9007c9"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/CraftRunes.java",
+    "sha256": "4306f3c3dcc1ec85f83aae71672f1af3b12df312d24ad4053ff399dbcdc65ed7"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+    "sha256": "3572d101d50aa8aa25118b5a6e5fe7cef6238c1332f6e32ab86cd027d3561bcb"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/RuneBase.java",
+    "sha256": "d01a5052d336a4b9b7fef7e5802ac60dea8c506c7fbc3eafda8db3165fce189e"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/RuneFoundation.java",
+    "sha256": "cb141c6d5d006356888cc2f419296a28c5d2b2d08b5d5921352f74754899b304"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/RuneRuntime.java",
+    "sha256": "7031c83df6ee767dc2168f0d66e4b8168b70225ff76eb263bba226c88f810306"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/Runes.java",
+    "sha256": "7ecc6bff06df9c42509d0e9924251171962290395634adb67ff29af9d9a54286"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/creative_catalog.tsv",
+    "sha256": "4db0be152dceb7cdc819267589d3660edded18b5a1f7e16a2d356080e91129c2"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "sha256": "cc49a1c9e34f20626e010d8a03ada80bb87f89c645aceff9147245bfcfff827d"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "sha256": "13645fc0b4a8217333cc6b861563c50ec80529d03dae2591ff217bbc123513cb"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/blank_rune_4.json",
+    "sha256": "92b56dbc1f8a2fb8de040065047601dd95a0e0537956b25f4c7205059b900c24"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_forest_spirit_iv.json",
+    "sha256": "621f36742d05571780151a3056a9b2f000ba609e42689153689c6b92795bcf2c"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_mastery_iv.json",
+    "sha256": "a8066971b091d6d4dcef6d9e6af4cb9e4b979ecff71629443d63f6eb5fc21acd"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_perun_rage_iv.json",
+    "sha256": "31bbc940cb81b3191b741d6c41163e6d17911e9b513d60bb53daf8f19feb3c2f"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_unbreakable_iv.json",
+    "sha256": "e39521fb2852f63b671fb8d3c1bacfd8f3b3aeacf1bf65985edc9179fe95fb73"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/blank_rune_4.png",
+    "sha256": "0b1906f19775568b9dc496546ee4ff09a1b1883b4d2d36e1b67b3f117a96e23c"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_forest_spirit_iv.png",
+    "sha256": "b01b2b1c170fa40915908eb69324a471fbeab8cac698bf7e092d712f64a9fd1f"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_mastery_iv.png",
+    "sha256": "f9476c29a198bbd32e1e0c548b2dc6dcd70580d9a4e2079464e3da15a3faf1ba"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_perun_rage_iv.png",
+    "sha256": "244b7a36342ab05e64e7caf56d2d179e7b45e8eb54a2c62b8a2a6b5aac98d5d1"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_unbreakable_iv.png",
+    "sha256": "5f1dc6276e616b306bb7ba003704570cef4b956a3dbd175527dd7d235fdaa2cf"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/rune_foundation_blank_4.json",
+    "sha256": "72f995be4f2833a804618e7d027c206acd863d52562fbbfde3add5b2162e1565"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_forest_spirit_iv.json",
+    "sha256": "eddd523034cf73388368f8b85555a1bb4dfa8eb06f781d4d1affdf4807929094"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_mastery_iv.json",
+    "sha256": "dab7547f7ac1c3c3ebee3120715ff06d6feea3863f5ae86b94a634c655f375b7"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_perun_rage_iv.json",
+    "sha256": "55d901e687f0a40aca14e9596748321035527a787950fca421c0ba10040dd935"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_unbreakable_iv.json",
+    "sha256": "c9c5b1bb90bbc4650f4148f5eab29085d921188dfecff79587ec6915ee4a478d"
+  },
+  {
+    "path": "tools/install_runes_craft.ps1",
+    "sha256": "a74953490b0e2b38e508145b94530f5b4865b9eb9b1ff0427ea34aaa5638b5c7"
+  },
+  {
+    "path": "tools/runes-craft-art/blank_rune_4.png",
+    "sha256": "0b1906f19775568b9dc496546ee4ff09a1b1883b4d2d36e1b67b3f117a96e23c"
+  },
+  {
+    "path": "tools/runes-craft-art/rune_forest_spirit_iv.png",
+    "sha256": "b01b2b1c170fa40915908eb69324a471fbeab8cac698bf7e092d712f64a9fd1f"
+  },
+  {
+    "path": "tools/runes-craft-art/rune_mastery_iv.png",
+    "sha256": "f9476c29a198bbd32e1e0c548b2dc6dcd70580d9a4e2079464e3da15a3faf1ba"
+  },
+  {
+    "path": "tools/runes-craft-art/rune_perun_rage_iv.png",
+    "sha256": "244b7a36342ab05e64e7caf56d2d179e7b45e8eb54a2c62b8a2a6b5aac98d5d1"
+  },
+  {
+    "path": "tools/runes-craft-art/rune_unbreakable_iv.png",
+    "sha256": "5f1dc6276e616b306bb7ba003704570cef4b956a3dbd175527dd7d235fdaa2cf"
+  },
+  {
+    "path": "tools/runes-craft-offline.gradle",
+    "sha256": "6e42d6b3648fdc8a505072d352ebb38fd8bdaeaff7fd0041f4b333651e48a153"
+  },
+  {
+    "path": "tools/runes-craft-tests/RunesCraftOffline.java",
+    "sha256": "4c4b00c73ff9821bf418ba462886e83d01d591323b670eb3184b6ed9d5d65dbb"
+  },
+  {
+    "path": "tools/runes_craft_resources.py",
+    "sha256": "eafca08476b5767c417ac405a596282130cddb9ec69c79f15b7cee82a55477ec"
+  },
+  {
+    "path": "tools/verify_runes_craft.py",
+    "sha256": "7d186eb881692b7b6a3d5e1a9ea4611ec64e91aff925f2b77cedc7d26c173585"
+  }
+]

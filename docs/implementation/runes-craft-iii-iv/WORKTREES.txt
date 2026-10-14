@@ -1,0 +1,8 @@
+worktree D:/slavic-myths
+HEAD b76160800223267abc04e7c6d46812dfba8976dc
+branch refs/heads/pred-relise
+
+worktree D:/slavic-myths-audit
+HEAD b76160800223267abc04e7c6d46812dfba8976dc
+branch refs/heads/audit
+

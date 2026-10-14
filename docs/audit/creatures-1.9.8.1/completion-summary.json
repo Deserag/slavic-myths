@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE_WITH_LIMITATIONS",
+  "entity_types": 111,
+  "creatures": 69,
+  "auxiliary": 42,
+  "attack_rows": 265,
+  "processed_known_action_rows": 265,
+  "blocking_questions": 4,
+  "runtime_runs": 0,
+  "scope": "existing inventory; not proof of exhaustive runtime reachability"
+}

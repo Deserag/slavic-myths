@@ -1,0 +1,15 @@
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ def compile=p.tasks.register('compileRunesCraftOffline',JavaCompile){
+  dependsOn p.tasks.named('classes')
+  source p.fileTree('tools/runes-craft-tests'){include '*.java'}
+  classpath=p.sourceSets.main.compileClasspath+p.files(p.sourceSets.main.output.classesDirs)
+  destinationDirectory.set(p.file('work/runes-craft-offline'))
+  options.release.set(21);options.encoding='UTF-8'
+ }
+ p.tasks.register('runesCraftOfflineChecks',JavaExec){
+  dependsOn compile
+  classpath=p.sourceSets.main.runtimeClasspath+p.files(p.file('work/runes-craft-offline'))
+  mainClass.set('RunesCraftOffline')
+ }
+}

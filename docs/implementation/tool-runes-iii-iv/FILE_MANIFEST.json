@@ -1,0 +1,378 @@
+[
+  {
+    "path": "docs/ARCHITECTURE.md",
+    "sha256": "b3f09abb8f9af95cc961e838a4613f491b26f7daaaa48a6b440b4b3493119b33"
+  },
+  {
+    "path": "docs/PROJECT_STATUS.md",
+    "sha256": "a1a739c640253406afd7f49ab5f039367bda8a71302e6d1e3279537122ed1c6c"
+  },
+  {
+    "path": "docs/ROADMAP.md",
+    "sha256": "e30c1f0fef3e8e681ef754e646d13b51ee985b78af8810dd09149c34781fbd6a"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/ASSET_MAPPING.json",
+    "sha256": "db8fc7a6030267b5d4b7e0b7457937e509aa9f2646b2dd3f32062f8f6d30760d"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/BASELINE_HASHES.json",
+    "sha256": "8c157ad5275a4094b89de7f9ba57ddf5be855c0d0fafdb8dfdbcdc355d3f81aa"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/BUILD.log",
+    "sha256": "9e782858e90349100c68ef0c3aaf2f1ea9a820bbb6803126f5e1e2f9240f3eb4"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/BUILD_CHECKS.md",
+    "sha256": "716470010c8417753648234fff0672b9feb5256b294fd0c17942a30ccdff9a39"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/BUILD_DELIVERY.log",
+    "sha256": "bc1fcb744127f05419ca8dfdfa846d37abc39bf0749813a8fb96e30bc1cf9d52"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/BUILD_FINAL.log",
+    "sha256": "676352d9530ffcf8eaebddccc7b345fc57ad1cbabab1a9ff32b05860ccbed2af"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/COMPILE.log",
+    "sha256": "482c3476cab2a0108991c9c92af2c4c663dfd0efa6ced39b1769555d95d617b5"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/COMPILE_SECOND.log",
+    "sha256": "67b23ab8ebbb7c8d74509672ed949bcd180ad03664bdd4234303f09795681348"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/DIFF_CHECK.log",
+    "sha256": "6bd89a265d0c1bd977f06c008642fe62453d66f01c0b4a06374be1a56171ad5c"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/DIFF_CHECK_FINAL.log",
+    "sha256": "6bd89a265d0c1bd977f06c008642fe62453d66f01c0b4a06374be1a56171ad5c"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/FILES.md",
+    "sha256": "58c271ce9c2d82e05ae1ba1ba35a843be23fa0a856fb10780c6a4a4649b13ff9"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/ICONS.png",
+    "sha256": "6d068de1b9058e04bc1fc3438bbdaad987a416227176fc324e5571ac59300d1b"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/MANUAL_CHECKS.md",
+    "sha256": "8624a35f8b05461517591b7dc8f8f296e43ced0b0a2240f8d4116df1a6733317"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/OFFLINE_FIRST.log",
+    "sha256": "52d6bae7fa58d76f2629d67d024ed110c5171b63defc9f6841615b7b307135dd"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/OWNED_HASHES.json",
+    "sha256": "2de0babd2be142d7660d94f07a57659293acc85ea6ee59e2f102c72dcf0b6666"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/REPORT.md",
+    "sha256": "34102f24e9b174e82d6dc7e40d727d6bbd426bb0632f9a9f213098d68d994340"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/RESOURCE.log",
+    "sha256": "27119d5127b62e0274e6d61c4c56b8eae3b9604fd53de399327358e51c2d26a9"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/RESOURCE_JAR_CHECKS.json",
+    "sha256": "c9db698b4c98f13feec63c1d8bcafde28e9dd67a86b301043334ad2e11a82655"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/STAGED_START.txt",
+    "sha256": "1cb188f40a598dbb8fa7ecd214907e0164206312c66fe2bbde87780941af7fe8"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/START_STATUS.txt",
+    "sha256": "bfb7f3482260d880452d7ae68eebf0aa26777f498980a20350b267a36d2969f1"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/api/API_SOURCE_HASHES.json",
+    "sha256": "22996938442dc87faaf4fbfa26e19799f3aea1e08ff447911903b91967ea6695"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/BUNDLE_MANIFEST.json",
+    "sha256": "75d5cdd2eb204ad55d7fd88ee92b6218f5dbcc3b82045dacdb14e3f2cf5903fb"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/blueprints/III_TOOL_RUNES_BLUEPRINT.png",
+    "sha256": "ec8916561375adac937907d63df620c52d6b322260f1d9b40498527a8678f7a2"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/blueprints/IV_TOOL_RUNES_BLUEPRINT.png",
+    "sha256": "c3fe220005f07c4914f17b8cb3ec4201b072dc637492ebe2844bb9c4bcc4ecea"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/blueprints/individual_previews/excavator_iii_REFERENCE.png",
+    "sha256": "625f5b49d91094edc691f64d92290ef860de64e5eeea681581787872320d2b93"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/blueprints/individual_previews/excavator_iv_REFERENCE.png",
+    "sha256": "2f281c7077581995da625cceaa73f3a3375f10c557b928488d5681f0801fe07d"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/blueprints/individual_previews/farmer_iii_REFERENCE.png",
+    "sha256": "7174cb59b47692b598eda67f5e4fbf8e0211a83ab7f4efc598be91e4c4f02aa6"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/blueprints/individual_previews/farmer_iv_REFERENCE.png",
+    "sha256": "43463556e3d5d9475ca73e44e4fad14c303aa508898244f86b8aaf3f737139b3"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/blueprints/individual_previews/lumberjack_iii_REFERENCE.png",
+    "sha256": "7a06067e52de0d3ba3f8f08873adee49a90235f76be3ecbb94920a15f2e85a7d"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/blueprints/individual_previews/lumberjack_iv_REFERENCE.png",
+    "sha256": "bbe583d10cafd779da502e9d46d9e65058c1ab4ae87b0aded597bc9b0d452f83"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/blueprints/individual_previews/miner_iii_REFERENCE.png",
+    "sha256": "3dd12b24a7c9f5a4c34f316d057ff813b52c8d761742df088b5c8b7d56181dd2"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/blueprints/individual_previews/miner_iv_REFERENCE.png",
+    "sha256": "f921e2d8b2081575153d33f3331feeb6465dfa571d36d6b8ec9c2303cde09ee5"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/docs/00_READY_PROMPT_FOR_CODEX.md",
+    "sha256": "754d6b2824fa3393dc4b32b8a6e0ca8b8994a79bd172edd3ea079c72df1ff001"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/docs/01_GAMEPLAY_SPEC.md",
+    "sha256": "b5c289b07b7bf767228c41d1471079ae169e11f2f27f004fbaa40d9ecda5ceb9"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/docs/02_RECIPES_AND_PROGRESS.md",
+    "sha256": "1a91ec92ad4af29fe0bfd26943b33aa70f86dc064028205e3c94148eef0cddde"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/docs/03_VISUAL_BLUEPRINTS.md",
+    "sha256": "4cd3207773d333d4ac7521815fd16ff690273211e82f5794690391a9e65c964f"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/docs/04_INTEGRATION_TESTS_AND_ACCEPTANCE.md",
+    "sha256": "06b51da9535561693d5f7926f665bfcc2cec08280eefd9ee5097d5ac4a0a73f0"
+  },
+  {
+    "path": "docs/implementation/tool-runes-iii-iv/spec/docs/05_README_WHAT_IS_NEW.md",
+    "sha256": "a82223319cff6b74152364295041514278826acbb79241dcfda29c7fe8a89bae"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/AdvancedRunes.java",
+    "sha256": "8ea3772a6948824a7d1e9821e4294e05729ad1aff831f30bba633b92567e0832"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+    "sha256": "ec2b45684366ef971fc987992e0eba1473bc0d4548075fe03813f7c7dfd16d8d"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/RuneDefinition.java",
+    "sha256": "b0c06dc4a567fe81278d44d0ef4e5f3954225d5f65ce3cefaee8492d413159bb"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "sha256": "063f36e6ef022188bcfcbf91268b8c776ad4a5cd19767825bec4ed9f313307d4"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/Runes.java",
+    "sha256": "d8ce10e48018ffe9efc9427c712481fe9c6670e68fa3c20c00170b7804ef10be"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/tools/ToolLogOrigins.java",
+    "sha256": "e0ff9ca03c164fb26c29418a59de8ff4b3780cfc582ec0ddfea1fd1600be525b"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/tools/ToolRuneContent.java",
+    "sha256": "d654dda2cb311a42948bc5af12b0e03b33e8d0a20d18fde8860eaac81e5c432f"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/tools/ToolRuneRules.java",
+    "sha256": "a6d1a7eeca8a49f99c843062fd210a714f282f92af2c96b8e4c67dc67a9ac010"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/tools/ToolRuneRuntime.java",
+    "sha256": "71c1ffec5a7659004c83ac4048cd1107e81ceb53fe984db2002212d2e8a1b970"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/tools/ToolRuneTrees.java",
+    "sha256": "2331600a577e8be15d9a231d4a5d7f3056107e2bfe7cb6c832b09e8891b958d6"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/tools/mixin/ToolRuneBreakMixin.java",
+    "sha256": "32b298d7f434119e1ffc5b2f9ac3281219a875aec65618ee3c68f9bf4174e1b5"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/tools/mixin/ToolRuneUseMixin.java",
+    "sha256": "a29e98e08366e22f06ae2ee61057cd20d142f2a6f6022b51369bb2581d9da896"
+  },
+  {
+    "path": "src/main/resources/META-INF/neoforge.mods.toml",
+    "sha256": "f132b17c35e000284a956cd925da588f7390c4e09b414342074bac92cdd5a137"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/creative_catalog.tsv",
+    "sha256": "4a27f85e9c7bba83077ef972d8384ae5d94c71a1b99f10ef6d88d385857fa813"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "sha256": "4819a10215fe4f245edc1355f1acf1db1d410f7a292311038675282fb168a846"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "sha256": "23e7ad5db34350884d6120a752f00b4f3e5af664b2433c8a8b31830f7d3fd997"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_excavator_iii.json",
+    "sha256": "87e494edffd1401c49610825af29230ee776ad1214f0e86091e3dee194fdf3ad"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_excavator_iv.json",
+    "sha256": "d5e0c8746061bf280328fc2759e4899c9965bfdec45ad3840c46298f456b5fda"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_farmer_iii.json",
+    "sha256": "5cb818e3b3e7990b3b66fa1432cff81d1d75fc1a9bd799eaea19a6ca85cb2417"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_farmer_iv.json",
+    "sha256": "542c994e12fe23118124300451fe6dc438b60b20696671b017d6deb4b1878808"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_lumberjack_iii.json",
+    "sha256": "2a3b555fdeeb605b211caf0204d7400247f2ff29da03ca6244876be2ca26b25c"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_lumberjack_iv.json",
+    "sha256": "4a5ac64e66d56aa07a3b1a1e1463420bd308520fe2e3b3f4db4baedfd785dd11"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_miner_iii.json",
+    "sha256": "a5c31441c435052444238d7f83bb3ec530529f401441d9bada0c0b57ab9b6898"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/rune_miner_iv.json",
+    "sha256": "de5df0cb3d9a752227cd1bc50c184986b87d581b6bae430ffdb9e6931939c170"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_excavator_iii.png",
+    "sha256": "1d10e6543b8b87f8cf42a770ccdf2363321bffe1aea0f2f6c1e53699019560eb"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_excavator_iv.png",
+    "sha256": "83359206f037f3f5604c60d9b84d5904384aee596c4f53600f0ffe6a1ee26b06"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iii.png",
+    "sha256": "35d4ed618ad44ce5e32fdabb9eaea24d8104b3aefa4761246c11ad4f0b3138cf"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iv.png",
+    "sha256": "12fb4bcc6a65279d90e804c4292faeeff615991116d6003735cfc81bd3446419"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iii.png",
+    "sha256": "3ff5a93df33167f2804a8a387df701d666ed09ed68073fe8b2afbcf34e1d2608"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iv.png",
+    "sha256": "27eb25222fa4b0816d1605586771cc2d7762c661bb701c6d541644c9b97fe21a"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_miner_iii.png",
+    "sha256": "871c57a8d6f0989f1e2d10dcf10bc1357a58bdd1d6ca576b15ea5f1bce0c7cfb"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/rune_miner_iv.png",
+    "sha256": "d04aa940ecd51e1e1fe1fb2a172af15380c23bc88d3f90f10e199d0a35045916"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_excavator_iii.json",
+    "sha256": "17b24f88b979d6037a65daeea14c80206daf3d2eb1897dd0570488fddfbeb9cc"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_excavator_iv.json",
+    "sha256": "8883468c9197052ac7e025cb65269ce8e4d87b2b1dba4df9a4f06b87d26284f1"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_farmer_iii.json",
+    "sha256": "1b2a0c615995b5cec052787beb6c626610b902bea63ef787bde02404408a5f83"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_farmer_iv.json",
+    "sha256": "000bc5548096928ff1cee046bb824dc6744083d31afb2d268d4ac192a17d1b4a"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_lumberjack_iii.json",
+    "sha256": "2038c09b31cf4d4883e67c653710bad0548ff3552e37524f85f35e842f3c8257"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_lumberjack_iv.json",
+    "sha256": "87e4e0fe319780b08c0ecbbdc0e0e38e93c7240b1dd116df7906c7dcd5c9b15b"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_miner_iii.json",
+    "sha256": "b1f97163ec4d2c9e756151f7205453f808a7a55ecf3e831e101b9809e6eafed8"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_miner_iv.json",
+    "sha256": "796867dd4335d7fe30322dc1db3e5fc98f12deb8f222b31daa05e280d14cc002"
+  },
+  {
+    "path": "src/main/resources/slavicmyths.tool_runes.mixins.json",
+    "sha256": "18dac82be558291e08d2643ed6d4976b3f7fe7cf4271071ee4b0d1d8293948df"
+  },
+  {
+    "path": "tools/tool-rune-tests/ToolRunesOffline.java",
+    "sha256": "e34b255ade3b1726ce359b2f20108a6bd7eca68898d73f8451dbfad21f6f3034"
+  },
+  {
+    "path": "tools/tool-runes-art/rune_excavator_iii.png",
+    "sha256": "1d10e6543b8b87f8cf42a770ccdf2363321bffe1aea0f2f6c1e53699019560eb"
+  },
+  {
+    "path": "tools/tool-runes-art/rune_excavator_iv.png",
+    "sha256": "83359206f037f3f5604c60d9b84d5904384aee596c4f53600f0ffe6a1ee26b06"
+  },
+  {
+    "path": "tools/tool-runes-art/rune_farmer_iii.png",
+    "sha256": "35d4ed618ad44ce5e32fdabb9eaea24d8104b3aefa4761246c11ad4f0b3138cf"
+  },
+  {
+    "path": "tools/tool-runes-art/rune_farmer_iv.png",
+    "sha256": "12fb4bcc6a65279d90e804c4292faeeff615991116d6003735cfc81bd3446419"
+  },
+  {
+    "path": "tools/tool-runes-art/rune_lumberjack_iii.png",
+    "sha256": "3ff5a93df33167f2804a8a387df701d666ed09ed68073fe8b2afbcf34e1d2608"
+  },
+  {
+    "path": "tools/tool-runes-art/rune_lumberjack_iv.png",
+    "sha256": "27eb25222fa4b0816d1605586771cc2d7762c661bb701c6d541644c9b97fe21a"
+  },
+  {
+    "path": "tools/tool-runes-art/rune_miner_iii.png",
+    "sha256": "871c57a8d6f0989f1e2d10dcf10bc1357a58bdd1d6ca576b15ea5f1bce0c7cfb"
+  },
+  {
+    "path": "tools/tool-runes-art/rune_miner_iv.png",
+    "sha256": "d04aa940ecd51e1e1fe1fb2a172af15380c23bc88d3f90f10e199d0a35045916"
+  },
+  {
+    "path": "tools/tool-runes-offline.gradle",
+    "sha256": "b7adc083de5f86dfcbab3e4f8fab86f97139d149cd48b04179438f5daa9a32c8"
+  },
+  {
+    "path": "tools/tool_runes_resources.py",
+    "sha256": "3c492f8f8aa87c57417513dff88d74f47bf52a525022301c408775ff52289ae8"
+  },
+  {
+    "path": "tools/verify_tool_runes.py",
+    "sha256": "f255ad8c343d280abb50600dbf17316351cf4d83e90b335aafcbb15a3f07c7a7"
+  }
+]
