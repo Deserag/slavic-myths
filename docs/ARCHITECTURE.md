@@ -1,3 +1,7 @@
+## Issues #3–#10: начало — 2026-10-14
+
+Изолированный PR #3: причина отклонения равных стрел подтверждена нативным серверным тестом; локальное исключение только для продолжения одного owner/volley. Два GameTest server, четыре итоговых проверки PASS; HP100→82 для трёх контактов, физический залп100→76. Clean build PASS. Клиент/подключённый dedicated и интеграция всех актуальных обновлений ещё PENDING. См. docs/reward-issues/ISSUE_3.md. Остальные Issues пока не реализованы.
+
 ## Патч оружия — визуальная ревизия брони (2026-10-13)
 
 Runtime changes только в4 существующих Dist.CLIENT armor model implementations: выделенные UV islands, солнечная застёжка, передние драконьи вставки, приталенный robe/split pointed tails и широкий воинский стяг. Generated item models используются для3 прежних cuboid items. armor_revision_assets — детерминированный финальный overlay, legacy hooks сохраняют weapon overlay. Никаких common/server зависимостей от клиента или новых gameplay систем. Native bake/UV fixture и software projection — tools-only, исключены из production. [Аудит/проверки](armor-revision/REPORT.md).
