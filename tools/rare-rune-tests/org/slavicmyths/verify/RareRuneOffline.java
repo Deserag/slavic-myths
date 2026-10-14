@@ -21,7 +21,7 @@ public final class RareRuneOffline {
             var json=RuneState.CODEC.encodeStart(JsonOps.INSTANCE,value).getOrThrow();check(RuneState.CODEC.parse(JsonOps.INSTANCE,json).getOrThrow().equals(value),"JSON rare + ordinary duplicates");
             var nbt=RuneState.CODEC.encodeStart(NbtOps.INSTANCE,value).getOrThrow();check(RuneState.CODEC.parse(NbtOps.INSTANCE,nbt).getOrThrow().equals(value),"NBT rare");
             var b=Unpooled.buffer();try{var codec=ByteBufCodecs.fromCodec(RuneState.CODEC);codec.encode(b,value);check(codec.decode(b).equals(value)&&!b.isReadable(),"packet rare");}finally{b.release();}
-            try{new RuneState(2,List.of(id,id));throw new AssertionError("rare duplicate accepted");}catch(IllegalArgumentException expected){checks++;}
+            var historical=new RuneState(2,List.of(id,id));check(RuneState.CODEC.parse(NbtOps.INSTANCE,RuneState.CODEC.encodeStart(NbtOps.INSTANCE,historical).getOrThrow()).getOrThrow().equals(historical),"Historical rare duplicates retained");
             check(Runes.installationReason(1,3,3,List.of(id),id,true).equals("duplicate_rune"),"server admission rejects duplicate");check(Runes.installationReason(1,3,3,List.of(),id,false).equals("incompatible_rune"),"wrong equipment");
         }
         for(int max=1;max<=100;max++)for(int quarter=0;quarter<=max*4;quarter++){double hp=quarter/4.0;int expected=hp<=0?0:hp<=max*.15?3:hp<=max*.30?2:hp<=max*.5?1:0;check(RareRuneRules.tier(hp,max)==expected,"health thresholds");}

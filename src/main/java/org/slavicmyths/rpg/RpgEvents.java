@@ -43,7 +43,7 @@ public final class RpgEvents {
  @SubscribeEvent public static void arrow(EntityJoinLevelEvent e){
   if(e.getLevel().isClientSide||!(e.getEntity() instanceof AbstractArrow))return;AbstractArrow arrow=(AbstractArrow)e.getEntity();if(arrow.getPersistentData().getBoolean("SlavicBowChecked"))return;
   arrow.getPersistentData().putBoolean("SlavicBowChecked",true);if(!(arrow.getOwner() instanceof Player))return;Player p=(Player)arrow.getOwner();ItemStack bow=arrow.getWeaponItem();if(bow==null||bow.isEmpty())bow=p.getUseItem();if(!(bow.getItem() instanceof BowItem||bow.getItem() instanceof CrossbowItem))return;
-  arrow.getPersistentData().put("SlavicBow",bow.saveOptional(p.registryAccess()));
+  arrow.getPersistentData().put("SlavicBow",bow.saveOptional(p.registryAccess()));AdvancedRunes.shot(arrow,p,bow);
   double damage=arrow.getBaseDamage(),speed=1;
   if(arrow.isCritArrow()&&PathData.has(p,"aim"))damage*=1.1;
   if(arrow.isCritArrow()&&PathData.has(p,"precision")&&PathData.ready(p,"precision",400))damage*=1.2;
@@ -76,7 +76,7 @@ public final class RpgEvents {
   }
   RuneEffects.hit(p,target,item,e,arrow,first);
  }
- @SubscribeEvent public static void death(LivingDeathEvent e){if(e.getEntity().level().isClientSide||!(e.getSource().getEntity() instanceof Player))return;Player p=(Player)e.getSource().getEntity();if(e.getSource().getDirectEntity()==p&&!Runes.armor(p.getMainHandItem())&&Runes.has(p.getMainHandItem(),"life")&&PathData.ready(p,"rune_life",RuneDefinition.i("life","kill_cooldown")))p.heal(RuneDefinition.i("life","kill_healing"));}
+ @SubscribeEvent(priority=EventPriority.LOWEST) public static void death(LivingDeathEvent e){if(e.isCanceled()||e.getEntity().level().isClientSide||!(e.getSource().getEntity() instanceof Player))return;Player p=(Player)e.getSource().getEntity();if(e.getSource().is(net.minecraft.world.damagesource.DamageTypes.PLAYER_ATTACK)&&RuneEffects.killTarget(p,e.getEntity())&&e.getSource().getDirectEntity()==p&&!Runes.armor(p.getMainHandItem())&&Runes.has(p.getMainHandItem(),"life")&&PathData.ready(p,"rune_life",RuneDefinition.i("life","kill_cooldown")))p.heal(RuneDefinition.i("life","kill_healing"));}
  @SubscribeEvent public static void food(LivingEntityUseItemEvent.Finish e){if(!(e.getEntity() instanceof Player)||e.getEntity().level().isClientSide)return;Player p=(Player)e.getEntity();Item item=e.getItem().getItem();if(item!=ModItems.BERRY_MORS.get()&&item!=ModItems.FOREST_MIX.get())return;if(PathData.has(p,"herbs"))p.addEffect(new MobEffectInstance(MobEffects.REGENERATION,60,0));if(item==ModItems.BERRY_MORS.get()&&PathData.has(p,"healing_brew")&&PathData.ready(p,"brew",200))p.heal(2);}
  @SubscribeEvent public static void sense(PlayerInteractEvent.EntityInteract e){Player p=e.getEntity();Entity entity=e.getTarget();if(p.level().isClientSide||!PathData.has(p,"spirit_sense")||!(entity instanceof LandSpiritEntity||entity instanceof DomovoyEntity||entity instanceof LeshyEntity)||!PathData.ready(p,"sense",40))return;
   if(entity instanceof DomovoyEntity){int rep=((DomovoyEntity)entity).reputation(p);PathData.message(p,rep<0?"favor_low":rep>=40?"favor_high":"favor_medium");}else PathData.message(p,entity instanceof Mob&&((Mob)entity).getTarget()!=null?"hostile":entity instanceof LandSpiritEntity&&((LandSpiritEntity)entity).state()==1?"wary":"calm");}

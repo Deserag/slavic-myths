@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "checks": 251,
+  "source_json_count": 3890,
+  "runtime_runs": 0,
+  "scope": "static source/resource contracts; not gameplay or data-loader acceptance"
+}

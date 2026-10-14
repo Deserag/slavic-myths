@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checks": 15333,
+  "source_json_count": 3890,
+  "runtime_runs": 0,
+  "scope": "static source/resource contracts; not gameplay or data-loader acceptance",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.jar",
+  "sha256": "c3fcf89854924b88f75dade4421f3a1c97a8b1b589708c8580c64547fbda9698"
+}

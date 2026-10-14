@@ -31,7 +31,7 @@ public final class IndustryAccessories {
     static DeferredHolder<Item,Item> register(String id,String slot){return ModItems.ITEMS.register(id,()->new Accessory(id,slot));}
     public static boolean wearing(LivingEntity e,Item item){return CuriosApi.getCuriosInventory(e).map(h->h.findCurios(s->s.getItem()==item).stream().anyMatch(r->r.slotContext().identifier().equals(((Accessory)item).slot))).orElse(false);}
     public static boolean ore(BlockState state){return state.is(ORES);}
-    @SubscribeEvent public static void speed(PlayerEvent.BreakSpeed e){var p=e.getEntity();var tool=p.getMainHandItem();if(tool.getItem() instanceof PickaxeItem&&ore(e.getState())&&tool.isCorrectToolForDrops(e.getState()))e.setNewSpeed((float)(e.getNewSpeed()*MiningRunes.speed(Runes.list(tool),wearing(p,RING.get()))));}
+    @SubscribeEvent public static void speed(PlayerEvent.BreakSpeed e){var p=e.getEntity();var tool=p.getMainHandItem();if(tool.getItem() instanceof PickaxeItem&&ore(e.getState())&&tool.isCorrectToolForDrops(e.getState()))e.setNewSpeed((float)(e.getNewSpeed()*org.slavicmyths.rpg.AdvancedRunes.mining(e,wearing(p,RING.get()))));}
     @SubscribeEvent public static void fall(LivingDamageEvent.Pre e){if(!e.getEntity().level().isClientSide&&e.getSource().is(net.minecraft.world.damagesource.DamageTypes.FALL)&&wearing(e.getEntity(),AMULET.get()))e.setNewDamage(e.getNewDamage()*.75F);}
     public static int effectiveFortune(net.minecraft.core.Holder<Enchantment> enchant,ItemStack tool,net.minecraft.world.level.storage.loot.LootContext context){
         int base=EnchantmentHelper.getItemEnchantmentLevel(enchant,tool);var state=context.getParamOrNull(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_STATE);

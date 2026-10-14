@@ -40,7 +40,7 @@ public final class ItemState {
         public static List<String> retainedProvenance(List<String> installed,List<String> prior){return prior.stream().filter(installed::contains).toList();}
         public RuneState {
             runes = List.copyOf(runes);
-            if (slots < 0 || slots > 3 || runes.size() > slots || runes.stream().filter(id->!org.slavicmyths.rpg.RuneBalance.modern(id)).distinct().count()!=runes.stream().filter(id->!org.slavicmyths.rpg.RuneBalance.modern(id)).count())
+            if (slots < 0 || slots > 3 || runes.size() > slots)
                 throw new IllegalArgumentException("Invalid sockets");
         }
         private record Stored(int slots,List<String> runes) { }
@@ -96,7 +96,7 @@ public final class ItemState {
         CompoundTag old = legacy(stack).getCompound("SlavicRunes");
         int slots = Math.clamp(old.getInt("Slots"),0,3);
         List<String> ids = new ArrayList<>(); ListTag list = old.getList("Runes",Tag.TAG_STRING);
-        for (int i=0;i<list.size() && ids.size()<slots;i++) if (java.util.Arrays.asList(org.slavicmyths.rpg.Runes.IDS).contains(list.getString(i)) && (org.slavicmyths.rpg.RuneBalance.modern(list.getString(i)) || !ids.contains(list.getString(i)))) ids.add(list.getString(i));
+        for (int i=0;i<list.size() && ids.size()<slots;i++) if (java.util.Arrays.asList(org.slavicmyths.rpg.Runes.IDS).contains(list.getString(i))) ids.add(list.getString(i));
         return new RuneState(slots,ids);
     }
     public static void runes(ItemStack stack, int slots, List<String> ids) {

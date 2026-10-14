@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.progression.Knowledge;
 public final class Runes {
- public static final String[] IDS={"thunder","heat","forest","midday","shadow","protection","life","wind","strength","speed","resilience","crushing","blood","fortitude","floating_weapon","flight","rare_protection","death","berserker","sacrifice","mining_1","mining_2","fortune_1","ominous_aura","earth_heart_iii","stomp","dispelling","pursuit","suppression","battle_line","earth_lord_iv","frost_resistance","frost","waning","mor_breath","dragon_flame","storm_strike"};
+ public static final String[] IDS={"thunder","heat","forest","midday","shadow","protection","life","wind","strength","speed","resilience","crushing","blood","fortitude","floating_weapon","flight","rare_protection","death","berserker","sacrifice","mining_1","mining_2","fortune_1","ominous_aura","earth_heart_iii","stomp","dispelling","pursuit","suppression","battle_line","earth_lord_iv","frost_resistance","frost","waning","mor_breath","dragon_flame","storm_strike","counterstrike_iii","hunter_iii","last_stand_iii","depths_iii","veles_oath_iv"};
  private static final java.util.Map<String,net.minecraft.tags.TagKey<Item>> TAGS=new java.util.HashMap<>();
  static {for(String key:new String[]{"rune_staff","rune_dagger","rune_spear","rune_heavy","rune_capacity_1","rune_capacity_3","no_reforging"})TAGS.put(key,ItemTags.create(ResourceLocation.fromNamespaceAndPath("slavicmyths",key)));}
  public static boolean tagged(ItemStack s,String tag){return s.is(TAGS.get(tag));}
@@ -39,7 +39,7 @@ public final class Runes {
   if(category(s).isEmpty()||tagged(s,"no_reforging"))return 0;if(tagged(s,"rune_capacity_3")||s.getItem() instanceof org.slavicmyths.artifact.VelesStaffItem)return 3;if(tagged(s,"rune_capacity_1"))return 1;
   if(s.getItem() instanceof TieredItem item){Tier t=item.getTier();if(t==org.slavicmyths.item.ModGear.PERUNITE)return 3;if(t==Tiers.DIAMOND||t==Tiers.NETHERITE)return 2;return 1;}return 2;}
  /** Nominal capacity is centralized; previously earned sockets are grandfathered, never erased. */
- public static int max(ItemStack s){int cap=capacity(s);return cap==0||armor(s)?cap:Math.max(cap,org.slavicmyths.item.ItemState.runes(s).slots());}
+ public static int max(ItemStack s){return Math.max(capacity(s),org.slavicmyths.item.ItemState.runes(s).slots());}
  /** Explicit material progression; unknown/decorative materials never gain sockets implicitly. */
  public static int armorCapacity(ResourceLocation material){return switch(material.toString()){
   case "minecraft:chainmail","minecraft:gold","minecraft:iron","minecraft:turtle","slavicmyths:gambeson","slavicmyths:plate"->1;
@@ -47,21 +47,22 @@ public final class Runes {
   case "slavicmyths:perunite","slavicmyths:dragon"->3;
   default->0;
  };}
- public static boolean compatible(ItemStack equipment,String id){var rune=RuneDefinition.ALL.get(id);return rune!=null&&capacity(equipment)>0&&(org.slavicmyths.gorynych.GorynychContent.RUNES.contains(id)?org.slavicmyths.gorynych.GorynychEquipment.supports(equipment,id):id.equals("frost_resistance")?armor(equipment):(id.equals("frost")||id.equals("waning"))?Set.of("sword","dagger","spear","heavy","staff","bow","whip").contains(category(equipment)):org.slavicmyths.rewards.RewardContent.RUNES.contains(id)?org.slavicmyths.rewards.RewardRunes.supports(equipment,id):id.equals("earth_heart_iii")?armor(equipment):org.slavicmyths.industry.MiningRunes.mining(id)?equipment.getItem() instanceof PickaxeItem:RareRunes.rare(id)?RareRunes.supports(equipment,id):RuneBalance.modern(id)?RuneRework.supports(equipment,id):(id.equals("earth_lord_iv")?rune.categories().contains(category(equipment)):(armor(equipment)||rune.categories().contains(category(equipment)))));}
+ public static boolean compatible(ItemStack equipment,String id){var rune=RuneDefinition.ALL.get(id);return rune!=null&&capacity(equipment)>0&&(AdvancedRunes.newRune(id)?AdvancedRunes.supports(equipment,id):(org.slavicmyths.gorynych.GorynychContent.RUNES.contains(id)?org.slavicmyths.gorynych.GorynychEquipment.supports(equipment,id):id.equals("frost_resistance")?armor(equipment):(id.equals("frost")||id.equals("waning"))?Set.of("sword","dagger","spear","heavy","staff","bow","whip").contains(category(equipment)):org.slavicmyths.rewards.RewardContent.RUNES.contains(id)?org.slavicmyths.rewards.RewardRunes.supports(equipment,id):id.equals("earth_heart_iii")?armor(equipment):org.slavicmyths.industry.MiningRunes.mining(id)?equipment.getItem() instanceof PickaxeItem:RareRunes.rare(id)?RareRunes.supports(equipment,id):RuneBalance.modern(id)?RuneRework.supports(equipment,id):(id.equals("earth_lord_iv")?rune.categories().contains(category(equipment)):(id.equals("ominous_aura")&&armor(equipment)||rune.categories().contains(category(equipment))))));}
  /** Equipment-only validation shared by preview and the authoritative operation. */
  public static net.minecraft.network.chat.Component installationBlocker(ItemStack equipment,ItemStack material){
-  String id=rune(material),reason=installationReason(equipment.getCount(),max(equipment),slots(equipment),list(equipment),id,compatible(equipment,id));
+  String id=rune(material);boolean legacy=material.getOrDefault(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),List.of()).contains(id);String reason=installationReason(equipment.getCount(),max(equipment),slots(equipment),list(equipment),id,compatible(equipment,id)||legacy&&(id.equals("heat")||id.equals("wind"))&&RuneDefinition.ALL.get(id).categories().contains(category(equipment)));
   return reason.isEmpty()?null:reason.equals("incompatible_rune")&&RuneBalance.modern(id)?net.minecraft.network.chat.Component.translatable("rune2.slavicmyths.incompatible",RuneRework.compatibility(id)):text(reason);
  }
  /** Pure admission rule, also checkable without a loader or a world. */
  public static String installationReason(int count,int capacity,int sockets,List<String> installed,String id,boolean compatible){
   if(count!=1||capacity<=0)return "unsupported";
   if(!Arrays.asList(IDS).contains(id))return "need_rune";if(!compatible)return "incompatible_rune";
+  if(AdvancedRunes.iv(id)&&installed.stream().anyMatch(AdvancedRunes::iv))return "iv_occupied";
   if(installed.contains(id)&&!RuneBalance.modern(id))return "duplicate_rune";
   return installed.size()>=Math.max(0,Math.min(sockets,capacity))?"socket_full":"";
  }
  public static int slots(ItemStack s){return Math.max(0,Math.min(max(s),org.slavicmyths.item.ItemState.runes(s).slots()));}
- public static List<String> list(ItemStack s){List<String> out=new ArrayList<>();for(String id:org.slavicmyths.item.ItemState.runes(s).runes())if(out.size()<slots(s)&&Arrays.asList(IDS).contains(id)&&(RuneBalance.modern(id)||!out.contains(id)))out.add(id);return out;}
+ public static List<String> list(ItemStack s){List<String> out=new ArrayList<>();for(String id:org.slavicmyths.item.ItemState.runes(s).runes())if(out.size()<slots(s)&&Arrays.asList(IDS).contains(id))out.add(id);return out;}
  public static boolean has(ItemStack s,String rune){return list(s).contains(rune);}
  public static int occupied(ItemStack s){return list(s).size();}
  public static void write(ItemStack s,int slots,List<String> runes){org.slavicmyths.item.ItemState.runes(s,slots,runes);}
@@ -84,7 +85,7 @@ public final class Runes {
  /** A copy for presentation only. Never inserted into a menu slot or player inventory. */
  public static ItemStack preview(Container inv,int action){ItemStack result=inv.getItem(0).copy();if(result.getCount()!=1||max(result)==0)return ItemStack.EMPTY;int sockets=slots(result);var installed=list(result);
   if(action==0){if(sockets>=max(result))return ItemStack.EMPTY;sockets++;}
-  else if(action==1){if(installationBlocker(result,inv.getItem(1))!=null)return ItemStack.EMPTY;installed.add(rune(inv.getItem(1)));}
+  else if(action==1){if(installationBlocker(result,inv.getItem(1))!=null)return ItemStack.EMPTY;String added=rune(inv.getItem(1));installed.add(added);if(inv.getItem(1).getOrDefault(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),List.of()).contains(added)){var provenance=new ArrayList<>(org.slavicmyths.item.ItemState.legacyRuneSpecials(result));if(!provenance.contains(added))provenance.add(added);result.set(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),List.copyOf(provenance));}}
   else {int i=action-2;if(action>4||i<0||i>=installed.size())return ItemStack.EMPTY;String removed=installed.get(i);boolean first=installed.subList(0,i).stream().noneMatch(removed::equals);if(first&&org.slavicmyths.item.ItemState.legacyRuneSpecials(result).contains(removed))result.set(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),org.slavicmyths.item.ItemState.legacyRuneSpecials(result).stream().filter(id->!id.equals(removed)).toList());installed.remove(i);}
   write(result,sockets,installed);return result;
  }
@@ -93,7 +94,8 @@ public final class Runes {
   ItemStack weapon=inv.getItem(0),material=inv.getItem(1),result=preview(inv,action);if(result.isEmpty()||!PathData.pay(p,operationCost(p,weapon,action)))return;
   if(action==0){Item extra=extra(weapon);material.shrink(forgeCount(weapon));if(extra!=null){for(int i=0;i<p.getInventory().getContainerSize();i++){ItemStack stack=p.getInventory().getItem(i);if(stack.is(extra)){stack.shrink(1);p.getInventory().setChanged();break;}}}if(slots(result)>=2)Knowledge.award(p,"reforged");}
   else if(action==1){material.shrink(1);if(org.slavicmyths.rewards.RewardContent.RUNES.contains(rune(inv.getItem(1))))org.slavicmyths.rewards.RewardEvents.fx(p,"rune_anvil_socket");Knowledge.award(p,"rune_installed");}
-  write(weapon,slots(result),list(result));weapon.set(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),org.slavicmyths.item.ItemState.legacyRuneSpecials(result));if(list(result).size()==3)Knowledge.award(p,"three_signs");inv.setChanged();org.slavicmyths.earth.EarthRune.refresh(p);PathData.message(p,"operation_done");
+  if(action>=2){String removed=list(weapon).get(action-2);ItemStack returned=new ItemStack(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("slavicmyths",itemId(removed))));returned.set(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),org.slavicmyths.item.ItemState.legacyRuneSpecials(weapon).contains(removed)&&list(weapon).subList(0,action-2).stream().noneMatch(removed::equals)?List.of(removed):List.of());if(!p.getInventory().add(returned))p.drop(returned,false);}
+  write(weapon,slots(result),list(result));weapon.set(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),org.slavicmyths.item.ItemState.legacyRuneSpecials(result));if(list(result).size()==3)Knowledge.award(p,"three_signs");inv.setChanged();RuneRuntime.refresh(p);RareRuneRuntime.refresh(p);AdvancedRunes.reset(p);org.slavicmyths.earth.EarthRune.refresh(p);PathData.message(p,"operation_done");
  }
  private Runes(){}
 }
