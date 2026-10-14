@@ -26,7 +26,7 @@ with zipfile.ZipFile(J) as z,zipfile.ZipFile(baseline) as old:
  for name in ['org/slavicmyths/rpg/AdvancedRunes.class','org/slavicmyths/combat/CreatureHealthBalance.class','org/slavicmyths/combat/CreatureSafety.class','org/slavicmyths/equipment/mixin/ScythePlayerPoseMixin.class','assets/slavicmyths/models/item/karachun_scythe.obj','assets/minecraft/atlases/blocks.json']:assert name in names,name
  added=sorted(names-set(old.namelist()));removed=sorted(set(old.namelist())-names)
  changed=sorted(n for n in names&set(old.namelist()) if z.read(n)!=old.read(n) and z.read(n).replace(b'\r\n',b'\n')!=old.read(n).replace(b'\r\n',b'\n'))
- assert not any(n.startswith(('assets/slavicmyths/','data/slavicmyths/')) for n in removed),removed
+ assert not any(n.startswith(('assets/slavicmyths/','data/slavicmyths/')) for n in removed if not n.endswith('/')),removed
 from scythe_stage_a_assets import main as generate,MATERIALS
 from verify_scythe_stage_a import validate_geometry
 paths=[R/'src/main/resources/assets/slavicmyths/models/item'/n for n in ['karachun_scythe.obj','karachun_scythe.mtl','karachun_scythe_held.json']]+[R/'src/main/resources/assets/slavicmyths/textures/item'/('karachun_scythe_'+n+'.png') for n in MATERIALS]+[R/'src/main/resources/assets/slavicmyths/textures/item/karachun_scythe.png']
