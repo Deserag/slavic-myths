@@ -1,3 +1,7 @@
+## Issue #7: нативный baseline — 2026-10-14
+
+Без ребаланса: физический FrostShard снимает7HP при armor0/toughness0 и1.8900146HP при armor20/toughness8. Шесть server tests PASS с регрессией потока. Это не boss/DPS/client test. Полный ребаланс #7, управление #8, аудит #9 и единая интеграция #10 ещё PENDING; пользовательская PolyMC сборка сохранена. docs/reward-issues/ISSUE_7_BASELINE.md.
+
 ## Issue #6: поток Морозка — 2026-10-14
 
 Изолированное исправление lifecycle: server deadline60, heartbeat grace20, неизменные урон/CD200, серверный HUD remaining/ready и причины остановки. Четыре нативных server checks PASS, включая реальные60 тиков; это не сетевой lag-тест. Clean build PASS; client/dedicated connection PENDING. Отчёт: docs/reward-issues/ISSUE_6.md. Интеграция всей актуальной сборки выполняется отдельно по #10.
