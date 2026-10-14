@@ -1,3 +1,7 @@
+## Issue #4: огненный VFX — 2026-10-14
+
+Одно impact-сообщение, bounded client emitter40 тиков, затухание/вода/очистка; урон и горение сохранены. Clean build и2 native server checks PASS: HP100→95, burn40, resistance100, без damaging cloud. Клиентская видимость/сетевая доставка/FPS PENDING, этап не завершён. Отчёт docs/reward-issues/ISSUE_4.md.
+
 ## Патч оружия — визуальная ревизия брони (2026-10-13)
 
 Runtime changes только в4 существующих Dist.CLIENT armor model implementations: выделенные UV islands, солнечная застёжка, передние драконьи вставки, приталенный robe/split pointed tails и широкий воинский стяг. Generated item models используются для3 прежних cuboid items. armor_revision_assets — детерминированный финальный overlay, legacy hooks сохраняют weapon overlay. Никаких common/server зависимостей от клиента или новых gameplay систем. Native bake/UV fixture и software projection — tools-only, исключены из production. [Аудит/проверки](armor-revision/REPORT.md).
