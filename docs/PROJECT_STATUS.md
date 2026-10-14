@@ -1,3 +1,7 @@
+## Issue #6: поток Морозка — 2026-10-14
+
+Изолированное исправление lifecycle: server deadline60, heartbeat grace20, неизменные урон/CD200, серверный HUD remaining/ready и причины остановки. Четыре нативных server checks PASS, включая реальные60 тиков; это не сетевой lag-тест. Clean build PASS; client/dedicated connection PENDING. Отчёт: docs/reward-issues/ISSUE_6.md. Интеграция всей актуальной сборки выполняется отдельно по #10.
+
 ## Патч оружия — ревизия брони поверх 1.9.7 (2026-10-13)
 
 Переработаны22 иконки и worn textures существующей экипировки;3 item model переведены на generated,4 client armor classes уточняют UV/декор/различимость плащей. Gameplay/ID/версия сохранены,7 предметов одежды без изменений. Параллельный опубликованный патч оружия f53447cc включён. Clean build PASS;8771 native geometry/UV и39061 production/resource checks PASS. PolyMC Testing обновлён с backup;381 прочий файл сохранён. Реальных запусков клиента/сервера/GameTest0. [Аудит, файлы, before/after и границы проверки](armor-revision/REPORT.md).
