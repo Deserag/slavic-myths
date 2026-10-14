@@ -13,16 +13,16 @@ import net.neoforged.fml.common.EventBusSubscriber;
 /** At most two pending rounds per player; no world scans or persistent delayed shots. */
 @EventBusSubscriber(modid="slavicmyths")
 public final class CrossbowVolley {
- private record Round(ItemStack weapon,InteractionHand hand,ItemStack ammo,int mode,int lane,float speed,long due,net.minecraft.server.level.ServerLevel level){}
+ private record Round(ItemStack weapon,InteractionHand hand,ItemStack ammo,int mode,int lane,float speed,long due,net.minecraft.server.level.ServerLevel level,UUID volley){}
  private static final Map<ServerPlayer,List<Round>> PENDING=new WeakHashMap<>();
  public static boolean active(ServerPlayer p){return PENDING.containsKey(p);}
- static void enqueue(ServerPlayer p,ItemStack weapon,InteractionHand hand,ItemStack ammo,int mode,float speed,int delay,int lane){PENDING.computeIfAbsent(p,k->new ArrayList<>(2)).add(new Round(weapon,hand,ammo,mode,lane,speed,p.level().getGameTime()+delay,p.serverLevel()));}
+ static void enqueue(ServerPlayer p,ItemStack weapon,InteractionHand hand,ItemStack ammo,int mode,float speed,int delay,int lane,UUID volley){PENDING.computeIfAbsent(p,k->new ArrayList<>(2)).add(new Round(weapon,hand,ammo,mode,lane,speed,p.level().getGameTime()+delay,p.serverLevel(),volley));}
  @SubscribeEvent public static void tick(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post e){
   if(!(e.getEntity() instanceof ServerPlayer p))return;var rounds=PENDING.get(p);if(rounds==null)return;
   var it=rounds.iterator();while(it.hasNext()){
    var r=it.next();if(!p.isAlive()||p.isSpectator()||p.serverLevel()!=r.level||p.getItemInHand(r.hand)!=r.weapon||r.weapon.isEmpty()){it.remove();continue;}
    if(p.level().getGameTime()<r.due)continue;it.remove();
-   if(r.weapon.getItem() instanceof SerpentCrossbow bow)bow.fireRound(p.serverLevel(),p,r.hand,r.weapon,r.ammo,r.mode,r.speed,0,null,r.lane);
+   if(r.weapon.getItem() instanceof SerpentCrossbow bow)bow.fireRound(p.serverLevel(),p,r.hand,r.weapon,r.ammo,r.mode,r.speed,0,null,r.lane,r.volley);
   }if(rounds.isEmpty())PENDING.remove(p);
  }
  @SubscribeEvent public static void logout(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent e){PENDING.remove(e.getEntity());}

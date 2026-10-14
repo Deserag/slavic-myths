@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "version": "1.9.7.5",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.5.jar",
+  "sha256": "75d00b6ee28d2991e2a76175d1d17158955928763e7c46ef6a788480aa59914c",
+  "checks": 13731,
+  "game_tests": 13,
+  "client_starts": 0,
+  "game_test_server_starts": 1
+}

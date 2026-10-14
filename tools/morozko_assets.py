@@ -193,3 +193,7 @@ def add_tag(path,item):
 def main():
  O.mkdir(parents=True,exist_ok=True);r=boss();emit(r);icons();audio();resources();from summon_access_policy import apply;apply();print('Morozko:',len(r.bones),'bones;',len(r.boxes),'boxes; 6 icons; 21 original OGG')
 if __name__=='__main__':main()
+
+if __name__=="__main__":
+ from reward_weapon_texts import apply as apply_reward_texts
+ apply_reward_texts()

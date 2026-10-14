@@ -1,0 +1,11 @@
+from pathlib import Path
+p=Path('src/main/java/org/slavicmyths/client/ClassMasteryScreen.java')
+s=p.read_text(encoding='utf-8')
+s=s.replace('x+w-170,height-31,170','x+w-170,height-(w<470?57:31),170')
+s=s.replace('var lines=new ArrayList<Component>();','var lines=new ArrayList<Component>();var icons=new IdentityHashMap<Component,String>();')
+s=s.replace('var next=ClassUltimates.next(d);if(next!=null){lines.add(', 'var next=ClassUltimates.next(d);if(next==null||d.getInt("Level")<40)lines.add(tr("ultimate_locked"));if(next!=null){lines.add(')
+s=s.replace('lines.add(Component.translatable("class.slavicmyths."+u.id()).copy().append(" · ").append(ClassClient.label(u.skill())));','var header=Component.translatable("class.slavicmyths."+u.id()).copy().append(" · ").append(ClassClient.label(u.skill()));icons.put(header,u.id());lines.add(header);')
+s=s.replace('var wrapped=new ArrayList<net.minecraft.util.FormattedCharSequence>();for(var line:lines){wrapped.addAll(', 'var rowIcons=new HashMap<Integer,String>();var wrapped=new ArrayList<net.minecraft.util.FormattedCharSequence>();for(var line:lines){if(icons.containsKey(line))rowIcons.put(wrapped.size(),icons.get(line));wrapped.addAll(')
+s=s.replace('int capacity=Math.max(1,(height-62)/11);','int footer=w<470?66:36;int capacity=Math.max(1,(height-26-footer)/11);')
+s=s.replace('g.enableScissor(x,25,x+w,height-36);for(int i=0;', 'g.enableScissor(x,25,x+w,height-footer);for(var row:rowIcons.entrySet()){int sy=25+(row.getKey()-scroll)*11;if(sy+24>=25&&sy<height-footer){g.fill(x,sy-2,x+w,sy+20,0xFF3A3023);ClassTheme.icon(g,row.getValue(),x+4,sy,24);}}for(int i=0;')
+p.write_text(s,encoding='utf-8')

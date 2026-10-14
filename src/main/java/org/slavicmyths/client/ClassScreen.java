@@ -35,6 +35,7 @@ public final class ClassScreen extends Screen {
   button(left+panel-26,top+5,20,Component.literal("×"),b->onClose());var d=ClassClient.data();String base=d.getString("Base");
   if(base.isEmpty()){contentTop=top+66;initChoice();return;}
   for(int i=0;i<2;i++){int target=i;var b=button(left+8+i*154,top+37,150,tr(i==0?"paths":"controls"),click->{tab=target;binding=-1;infoOffset=0;refresh();});b.selected=tab==i;}
+  button(left+Math.min(318,panel-88),top+62,80,tr("mastery"),b->minecraft.setScreen(new ClassMasteryScreen(this)));
   if(tab==0){
    var choices=skills();if(choices.stream().noneMatch(v->v.id().equals(selected)))selected=choices.getFirst().id();
    button(left+8,top+62,Math.min(130,panel/3),tr(directions?"show_skills":"show_directions"),b->{directions=!directions;infoOffset=0;refresh();});
@@ -48,19 +49,19 @@ public final class ClassScreen extends Screen {
    var b=addRenderableWidget(new ClassTheme.WoodButton(left+10,contentTop+row*28,right-left-18,26,ClassClient.label(skill.id()).copy().append(" · "+rank+"/"+skill.maxRank()),v->{selected=skill.id();infoOffset=0;refresh();}));b.selected=selected.equals(skill.id());
    b.setTooltip(net.minecraft.client.gui.components.Tooltip.create(skillDescription(d,skill)));
   }
-  var skill=ClassDefinitions.SKILLS.get(selected);int x=right+10,w=left+panel-x-10,rank=d.getCompound("Ranks").getInt(selected),count=skill.kind()==ClassDefinitions.Kind.ACTIVE?3:skill.kind()==ClassDefinitions.Kind.PASSIVE?1:0;
+  var skill=ClassDefinitions.SKILLS.get(selected);int x=right+10,w=left+panel-x-10,rank=d.getCompound("Ranks").getInt(selected),count=skill.kind()==ClassDefinitions.Kind.ACTIVE?3:skill.kind()==ClassDefinitions.Kind.PASSIVE?2:0;
   int assignTop=contentBottom-count*32,learnY=assignTop-28;
   var learn=button(x,learnY,w,tr(rank==0?"study":"upgrade"),b->ClassNetwork.send(1,selected,0));String blocker=ClassState.blocker(d,selected,creative());learn.active=blocker.isEmpty();if(!blocker.isEmpty())learn.setTooltip(net.minecraft.client.gui.components.Tooltip.create(reason(d,skill,blocker)));
   for(int i=0;i<count;i++){
-   int slot=skill.kind()==ClassDefinitions.Kind.PASSIVE?3:i;String occupied=d.getString(slot==3?"Passive":"Active"+slot);Component key=slot==3?tr("passive_short"):ClassClient.ACTIVE[slot].getTranslatedKeyMessage();
-   var label=tr("assign_to",key).copy().append("\n").append(occupied.isEmpty()?tr("empty"):ClassClient.label(occupied));var b=addRenderableWidget(new ClassTheme.WoodButton(x,assignTop+i*32,w-26,30,label,v->ClassNetwork.send(2,selected,slot)));b.active=rank>0;b.selected=occupied.equals(selected);
+   int slot=skill.kind()==ClassDefinitions.Kind.PASSIVE?3+i:i;String occupied=d.getString(slot==4?"Passive2":slot==3?"Passive":"Active"+slot);Component key=slot>=3?tr(slot==4?"passive_second":"passive_short"):ClassClient.ACTIVE[slot].getTranslatedKeyMessage();
+   var label=tr("assign_to",key).copy().append("\n").append(occupied.isEmpty()?tr("empty"):ClassClient.label(occupied));var b=addRenderableWidget(new ClassTheme.WoodButton(x,assignTop+i*32,w-26,30,label,v->ClassNetwork.send(2,selected,slot)));b.active=rank>0&&(slot!=4||ClassState.secondPassive(d));b.selected=occupied.equals(selected);if(slot==4&&!ClassState.secondPassive(d))b.setTooltip(net.minecraft.client.gui.components.Tooltip.create(tr("passive_locked")));
    var tip=tr("slot_occupied",key,occupied.isEmpty()?tr("empty"):ClassClient.label(occupied));if(slot<3&&!ClassClient.conflicts(ClassClient.ACTIVE[slot]).isEmpty())tip=tip.copy().append("\n").append(tr("conflict_named",joined(ClassClient.conflicts(ClassClient.ACTIVE[slot]))));b.setTooltip(net.minecraft.client.gui.components.Tooltip.create(tip));
    var clear=button(x+w-22,assignTop+i*32+4,22,Component.literal("×"),v->ClassNetwork.send(2,"",slot));clear.active=!occupied.isEmpty();clear.setTooltip(net.minecraft.client.gui.components.Tooltip.create(tr("clear_slot",key)));
   }
  }
  private Component skillDescription(CompoundTag d,ClassDefinitions.Skill skill){var out=ClassClient.label(skill.id()).copy().append("\n").append(Component.translatable(skill.key()+".description"));String blocker=ClassState.blocker(d,skill.id(),creative());if(!blocker.isEmpty())out.append("\n").append(reason(d,skill,blocker));return out;}
  private void renderSkills(GuiGraphics g,CompoundTag d){
-  ClassTheme.panel(g,left+6,contentTop-1,right-left-8,contentBottom-contentTop+2);var skill=ClassDefinitions.SKILLS.get(selected);int x=right+10,w=left+panel-x-10,rank=d.getCompound("Ranks").getInt(selected),count=skill.kind()==ClassDefinitions.Kind.ACTIVE?3:skill.kind()==ClassDefinitions.Kind.PASSIVE?1:0;
+  ClassTheme.panel(g,left+6,contentTop-1,right-left-8,contentBottom-contentTop+2);var skill=ClassDefinitions.SKILLS.get(selected);int x=right+10,w=left+panel-x-10,rank=d.getCompound("Ranks").getInt(selected),count=skill.kind()==ClassDefinitions.Kind.ACTIVE?3:skill.kind()==ClassDefinitions.Kind.PASSIVE?2:0;
   var lines=new ArrayList<Component>();lines.add(ClassClient.label(selected));lines.add(tr("kind_"+skill.kind().name().toLowerCase(Locale.ROOT)).copy().append(" · ").append(tr("rank",rank,skill.maxRank())));lines.add(Component.translatable(skill.key()+".description"));stats(lines,d,skill,Math.max(1,rank),Math.min(skill.maxRank(),rank+1),rank>0&&rank<skill.maxRank());
   String blocker=ClassState.blocker(d,selected,creative());if(!blocker.isEmpty())lines.add(reason(d,skill,blocker));
   if(skill.kind()==ClassDefinitions.Kind.TRIGGER||skill.kind()==ClassDefinitions.Kind.EVOLUTION)lines.add(tr("automatic_skill"));

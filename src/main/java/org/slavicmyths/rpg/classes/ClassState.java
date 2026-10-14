@@ -15,7 +15,7 @@ public final class ClassState {
     private static final Map<String,String> LEGACY=Map.ofEntries(Map.entry("drill","steadfast"),Map.entry("heavy_hand","lunge"),Map.entry("riposte","riposte"),Map.entry("shield_bash","shield_ram"),Map.entry("stance","temper"),Map.entry("sweep","flurry"),Map.entry("herbs","herbalism"),Map.entry("spirit_sense","spirit_sense"),Map.entry("charm_power","ward_power"),Map.entry("offering","binding_sign"),Map.entry("healing_brew","cleanse"),Map.entry("quiet_step","smoke"),Map.entry("light_step","light_step"),Map.entry("ambush","dirty_strike"),Map.entry("aim","steady_aim"),Map.entry("dodge","dash"),Map.entry("hunter","cold_blood"),Map.entry("precision","hunters_fervor"),Map.entry("sign_sense","spirit_sense"),Map.entry("rune_knowledge","herbalism"),Map.entry("spark","binding_sign"),Map.entry("staff_power","ward_power"),Map.entry("resonance","ward"),Map.entry("storm_sign","hex"));
     public static ResourceLocation id(String s){return ResourceLocation.fromNamespaceAndPath("slavicmyths",s);}
     public static long now(Player p){return p.getServer()==null?p.level().getGameTime():p.getServer().overworld().getGameTime();}
-    public static CompoundTag data(Player p){var old=PathData.data(p);if(!old.contains(KEY,10))old.put(KEY,migrate(old,now(p)));return old.getCompound(KEY);}
+    public static CompoundTag data(Player p){var old=PathData.data(p);if(!old.contains(KEY,10))old.put(KEY,migrate(old,now(p)));var d=old.getCompound(KEY);if(d.getInt("Version")<3)d.putInt("Version",3);return d;}
     public static CompoundTag migrate(CompoundTag old,long now){
         var d=new CompoundTag();d.putInt("Version",2);d.putInt("Level",1);d.putInt("Points",1);d.putBoolean("Hud",true);d.put("Ranks",new CompoundTag());d.put("Cooldowns",new CompoundTag());d.put("LegacyPaths",old.copy());
         String original=old.getString("Main"),base=original.equals("koldun")?"vedun":original;if(ClassDefinitions.BASES.contains(base))d.putString("Base",base);
@@ -31,7 +31,9 @@ public final class ClassState {
     }
     public static int rank(Player p,String id){var def=ClassDefinitions.SKILLS.get(id);var d=data(p);return def!=null&&def.base().equals(d.getString("Base"))?Math.max(0,Math.min(def.maxRank(),d.getCompound("Ranks").getInt(id))):0;}
     public static boolean trained(Player p,String id){return rank(p,id)>0;}
-    public static int passive(Player p,String id){return data(p).getString("Passive").equals(id)?rank(p,id):0;}
+    public static boolean secondPassive(CompoundTag d){var b=ClassDefinitions.BRANCHES.get(d.getString("Second"));return d.getInt("Level")>=25&&b!=null&&b.level()==25&&b.base().equals(d.getString("Base"))&&b.parent().equals(d.getString("First"));}
+    public static int passiveRank(CompoundTag d,String id){var s=ClassDefinitions.SKILLS.get(id);return s!=null&&s.kind()==ClassDefinitions.Kind.PASSIVE&&s.base().equals(d.getString("Base"))&&(d.getString("Passive").equals(id)||secondPassive(d)&&d.getString("Passive2").equals(id))?Math.clamp(d.getCompound("Ranks").getInt(id),0,s.maxRank()):0;}
+    public static int passive(Player p,String id){return passiveRank(data(p),id);}
     public static long remaining(Player p,String id){return Math.max(0,data(p).getCompound("Cooldowns").getLong(id)-now(p));}
     public static void cooldown(Player p,String id,int ticks){data(p).getCompound("Cooldowns").putLong(id,now(p)+Math.max(0,ticks));}
     public static double branchMultiplier(Player p,String skill){var d=data(p);double result=1;for(String key:List.of("First","Second")){var b=ClassDefinitions.BRANCHES.get(d.getString(key));if(b!=null&&b.enhancedSkill().equals(skill))result*=b.multiplier();}return result;}
@@ -44,17 +46,26 @@ public final class ClassState {
     }
     public static boolean choose(ServerPlayer p,String base){var d=data(p);if(!ClassDefinitions.BASES.contains(base)||!d.getString("Base").isEmpty())return false;d.putString("Base",base);org.slavicmyths.progression.Knowledge.award(p,"own_path");sync(p);return true;}
     public static boolean learn(ServerPlayer p,String id){var d=data(p);if(!blocker(d,id,p.isCreative()).isEmpty())return false;d.getCompound("Ranks").putInt(id,d.getCompound("Ranks").getInt(id)+1);d.putInt("Points",ClassLearningRules.pointsAfterLearning(d.getInt("Points"),p.isCreative()));restore(p);sync(p);return true;}
-    public static boolean equip(ServerPlayer p,String id,int slot){var def=ClassDefinitions.SKILLS.get(id);var d=data(p);if(id.isEmpty()&&slot>=0&&slot<=3){d.remove(slot==3?"Passive":"Active"+slot);restore(p);sync(p);return true;}
-        if(def==null||rank(p,id)==0||slot<0||slot>3||slot==3&&def.kind()!=ClassDefinitions.Kind.PASSIVE||slot<3&&def.kind()!=ClassDefinitions.Kind.ACTIVE)return false;
-        if(slot<3)for(int i=0;i<3;i++)if(d.getString("Active"+i).equals(id))d.remove("Active"+i);d.putString(slot==3?"Passive":"Active"+slot,id);restore(p);sync(p);return true;}
-    public static boolean advance(ServerPlayer p,String id){var b=ClassDefinitions.BRANCHES.get(id);var d=data(p);if(b==null||!b.base().equals(d.getString("Base"))||!p.isCreative()&&d.getInt("Level")<b.level())return false;
+    public static boolean equip(ServerPlayer p,String id,int slot){
+        var d=data(p);if(slot<0||slot>4||slot==4&&!secondPassive(d))return false;
+        String key=slot==4?"Passive2":slot==3?"Passive":"Active"+slot;
+        if(id.isEmpty()){d.remove(key);restore(p);sync(p);return true;}
+        var def=ClassDefinitions.SKILLS.get(id);
+        if(def==null||rank(p,id)==0||(slot>=3?def.kind()!=ClassDefinitions.Kind.PASSIVE:def.kind()!=ClassDefinitions.Kind.ACTIVE))return false;
+        if(slot>=3&&d.getString(slot==3?"Passive2":"Passive").equals(id))return false;
+        if(slot<3)for(int i=0;i<3;i++)if(d.getString("Active"+i).equals(id))d.remove("Active"+i);
+        d.putString(key,id);restore(p);sync(p);return true;
+    }
+    public static boolean advance(ServerPlayer p,String id){
+        var ultimate=ClassUltimates.ALL.get(id);if(ultimate!=null){var d=data(p);if(!p.isAlive()||p.isSpectator()||!d.getString("Third").isEmpty()||d.getInt("Level")<40||ClassUltimates.next(d)!=ultimate||!ClassTrialService.completed(d,ultimate.parent()))return false;d.putString("Third",id);d.putString("Ultimate",ultimate.skill());sync(p);return true;}
+        var b=ClassDefinitions.BRANCHES.get(id);var d=data(p);if(b==null||!b.base().equals(d.getString("Base"))||!p.isCreative()&&d.getInt("Level")<b.level())return false;
         String key=b.level()==ClassDefinitions.FIRST_LEVEL?"First":"Second",parent=b.level()==ClassDefinitions.FIRST_LEVEL?d.getString("Base"):d.getString("First");if(!d.getString(key).isEmpty()||!b.parent().equals(parent))return false;d.putString(key,id);restore(p);sync(p);return true;}
     public static void awardXp(ServerPlayer p,int amount){if(amount<=0||amount>ClassDefinitions.MAX_XP_GRANT||data(p).getString("Base").isEmpty())return;var d=data(p);long xp=d.getLong("Xp")+amount;int level=d.getInt("Level");while(level<ClassDefinitions.MAX_LEVEL&&xp>=ClassDefinitions.xpForLevel(level)){xp-=ClassDefinitions.xpForLevel(level++);d.putInt("Points",Math.min(10_000,d.getInt("Points")+1));}d.putInt("Level",level);d.putLong("Xp",Math.min(xp,ClassDefinitions.xpForLevel(level)));sync(p);}
     public static void restore(ServerPlayer p){
         modifier(p,Attributes.MAX_HEALTH,HEALTH,passive(p,"temper")==0?0:ClassDefinitions.SKILLS.get("temper").power(passive(p,"temper")),AttributeModifier.Operation.ADD_VALUE);
         modifier(p,Attributes.KNOCKBACK_RESISTANCE,RESIST,passive(p,"steadfast")==0?0:ClassDefinitions.SKILLS.get("steadfast").power(passive(p,"steadfast")),AttributeModifier.Operation.ADD_VALUE);
         modifier(p,Attributes.MOVEMENT_SPEED,SPEED,passive(p,"light_step")==0?0:ClassDefinitions.SKILLS.get("light_step").power(passive(p,"light_step")),AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
-        p.setHealth(Math.min(p.getHealth(),p.getMaxHealth()));
+        ClassPassiveEvents.tick(p);p.setHealth(Math.min(p.getHealth(),p.getMaxHealth()));
     }
     private static void modifier(ServerPlayer p,net.minecraft.core.Holder<Attribute> attr,ResourceLocation id,double amount,AttributeModifier.Operation op){var instance=p.getAttribute(attr);if(instance==null)return;instance.removeModifier(id);if(amount>0)instance.addPermanentModifier(new AttributeModifier(id,amount,op));}
     public static void sync(ServerPlayer p){RpgNetwork.sync(p);}

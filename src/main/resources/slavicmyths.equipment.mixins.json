@@ -13,7 +13,9 @@
     "Quest185CrafterMixin",
     "Quest185BlockChangeMixin",
     "GorynychEffectDuration",
-    "WintersInventoryMixin"
+    "WintersInventoryMixin",
+    "GorynychArrowDamageMixin",
+    "GorynychStormArrowMixin"
   ],
   "client": [
     "ClearSightMixin",

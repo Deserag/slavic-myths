@@ -1,0 +1,13 @@
+class,skill,cooldown_seconds,duration_seconds,range,power,balance_status
+gromoboy,earth_thunder,100,5,4,9,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED
+master_sechi,unyielding_flurry,85,6,2.5,.4,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED
+nesokrushimy,living_wall,100,6,4,.30,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED
+verkhovny_voevoda,banner_of_druzhina,150,12,10,.10,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED
+khranitel_kruga,sacred_circle,110,10,5,.20,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED
+zhivotvorets,living_water,120,0,8,6,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED
+povelitel_mora,plague_seal,110,8,12,1,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED
+tainoved,shadow_pact,105,0,12,10,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED
+vikhrevoy_naletchik,piercing_breakthrough,80,3,3,3,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED
+sokoliny_glaz,vulnerable_point,90,6,32,6,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED
+tenevoy_ataman,false_ambush,125,6,8,.10,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED
+krovnik,blood_mark,100,10,12,8,INITIAL_SPEC_NOT_GAMEPLAY_CALIBRATED

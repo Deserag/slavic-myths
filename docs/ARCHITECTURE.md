@@ -1,3 +1,31 @@
+## Арбалет Горыныча — 1.9.7.5 (2026-10-14)
+
+Арбалет трёх дыханий: каждая стрела наносит минимум14 базового урона до брони;
+обычный змеиный арбалет сохраняет прежний множитель. Режим сохраняется отдельно
+на projectile, включая отложенные стрелы: прямой Мор немедленно даёт Weakness40,
+Пламя ignite40. Существующее моровое облако80ticks сохранено. Пламя и Буря
+получили видимые кольца radius3 на40ticks, с client-only emitters≤32,
+очисткой при logout/смене мира и без нового server tick polling. Буря сохраняет
++3HP/SlowII40/отбрасывание/LOS/targetCD30. RU/EN tooltip объясняет три силы;
+генератор соответствующего описания обновлён. ID, модели и пользовательские
+изменения в остальных системах сохранены.
+
+Java21 clean build PASS;13/13 native GameTests PASS (1 реальный GameTest server,
+0 клиентов). Финальная повторная clean build PASS;13731 resource/JAR checks PASS.
+Ранняя проверка JAR обнаружила старое описание, финальная пересборка исправила.
+Production1.9.7.5 установлен в PolyMC1.21.1 Testing: SHA256/backup PASS,
+607 прочих файлов сохранены, миры/старый1.16.5 не тронуты. Client visual/MP/ручная
+игровая приёмка NOT_RUN. Commit/push не выполнялись.
+[Отчёт](implementation/crossbow-1.9.7.5/REPORT.md).
+
+## PolyMC: исправления урона и навыков — 1.9.7.4 (2026-10-14)
+
+Установлена единая версия поверх полного snapshot2389b876: исправления #3/#6/#4/#5, прежние модели/тройная стрельба без бутылок, существа и все руны сохранены. Clean build PASS,12/12 native tests (1 GameTest server,0 clients), регрессии Tool/Craft/Weapon/Night/Poloz PASS,21432 gates PASS. SHA256588d1f21841868baedbd71ebaea03dff0d45004213247a24bbb0c4c1e4b68528. PolyMC Testing обновлён с backup;598 прочих файлов/миры сохранены. Клиент/connected dedicated NOT_RUN; #7–#9 и полная приёмка #10 не завершены. docs/implementation/reward-polymc-update/REPORT.md. Commit/push интеграции не выполнялись.
+
+## PolyMC: инструментальные руны III–IV — 2026-10-14
+
+По запросу пользователя установлен последний production JAR 1.9.7.3 в существующий PolyMC Testing (Minecraft 1.21.1 / NeoForge 21.1.255). SHA256 1ade97e48ee8f8a12348b377e22f4f8edcb8f00cf4927894917d3974a95871f7 совпадает с gates: clean build PASS (GIT_PUBLICATION_BUILD_2026-10-14.log), 21993 resource/JAR checks PASS; повторная сборка при копировании не выполнялась. Backup прежнего JAR и instance.cfg проверен, 472 прочих файла сохранены побайтно. Миры и старый 1.16.5 не менялись. Клиент/сервер: 0 запусков; игровая приёмка остаётся открытой. Установщик tools/install_tool_runes.ps1; квитанция docs/implementation/tool-runes-iii-iv/POLYMC_INSTALLATION.json. Commit/push не выполнялись.
+
 ## Общая публикация GitHub — 2026-10-14
 
 По запросу пользователя подготовлен полный текущий snapshot для main и codex/tool-runes-iii-iv: production исходники/ресурсы, поддерживаемые tools и доказательные отчёты. Версия1.9.7.3; новые механики этим шагом не добавляются. Исторические записи «commit/push не делались» описывают предыдущие задачи. [Актуальная сводка для ChatGPT](CHATGPT_HANDOFF_2026-10-14.md). Повторный clean build и проверка production JAR фиксируются в GIT_PUBLICATION_BUILD_2026-10-14.log и последнем RESOURCE_JAR_CHECKS.json. Игровых запусков этой публикации0; PolyMC/миры не менялись.

@@ -1,0 +1,25 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileRuneReworkOfflineJava
+> Task :processRuneReworkOfflineResources NO-SOURCE
+> Task :runeReworkOfflineClasses
+
+> Task :verifyRuneRework
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+RUNE_REWORK_OFFLINE_CHECKS=398
+
+> Task :compileRareRuneOfflineJava
+> Task :processRareRuneOfflineResources NO-SOURCE
+> Task :rareRuneOfflineClasses
+
+> Task :verifyRareRunes
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+RARE_RUNE_OFFLINE_CHECKS=20491
+
+BUILD SUCCESSFUL in 13s
+7 actionable tasks: 4 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

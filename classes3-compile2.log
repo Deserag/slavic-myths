@@ -1,0 +1,58 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClassClient.java:22: error: cannot find symbol
+    public static void synced(){var mc=Minecraft.getInstance();receivedTick=mc.level==null?0:mc.level.getGameTime();if(mc.screen instanceof ClassScreen s)s.refresh();if(mc.screen instanceof ClassMasteryScreen s)s.refresh();}
+                                                                                                                                                                                              ^
+  symbol:   class ClassMasteryScreen
+  location: class ClassClient
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClassScreen.java:38: error: cannot find symbol
+  button(left+318,top+37,Math.max(48,Math.min(150,panel-356)),tr("mastery"),b->minecraft.setScreen(new ClassMasteryScreen(this)));
+                                                                                                       ^
+  symbol:   class ClassMasteryScreen
+  location: class ClassScreen
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClassScreen.java:91: error: cannot find symbol
+  if(base.isEmpty())renderChoice(g,mx,my);else button(left+318,top+37,Math.max(48,Math.min(150,panel-356)),tr("mastery"),b->minecraft.setScreen(new ClassMasteryScreen(this)));
+                                                                                                                                                    ^
+  symbol:   class ClassMasteryScreen
+  location: class ClassScreen
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 errors
+
+> Task :compileJava FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  Note: Recompile with -Xlint:deprecation for details.
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\ClassClient.java:22: error: cannot find symbol
+      public static void synced(){var mc=Minecraft.getInstance();receivedTick=mc.level==null?0:mc.level.getGameTime();if(mc.screen instanceof ClassScreen s)s.refresh();if(mc.screen instanceof ClassMasteryScreen s)s.refresh();}
+                                                                                                                                                                                                ^
+    symbol:   class ClassMasteryScreen
+    location: class ClassClient
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\ClassScreen.java:38: error: cannot find symbol
+    button(left+318,top+37,Math.max(48,Math.min(150,panel-356)),tr("mastery"),b->minecraft.setScreen(new ClassMasteryScreen(this)));
+                                                                                                         ^
+    symbol:   class ClassMasteryScreen
+    location: class ClassScreen
+  D:\slavic-myths\src\main\java\org\slavicmyths\client\ClassScreen.java:91: error: cannot find symbol
+    if(base.isEmpty())renderChoice(g,mx,my);else button(left+318,top+37,Math.max(48,Math.min(150,panel-356)),tr("mastery"),b->minecraft.setScreen(new ClassMasteryScreen(this)));
+                                                                                                                                                      ^
+    symbol:   class ClassMasteryScreen
+    location: class ClassScreen
+  Note: Some input files use or override a deprecated API.
+  3 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 11s
+2 actionable tasks: 1 executed, 1 up-to-date
