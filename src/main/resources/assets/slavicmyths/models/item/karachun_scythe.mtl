@@ -1,0 +1,32 @@
+newmtl wood
+Kd 1 1 1
+Ka 0 0 0
+map_Kd #wood
+newmtl leather
+Kd 1 1 1
+Ka 0 0 0
+map_Kd #leather
+newmtl iron
+Kd 1 1 1
+Ka 0 0 0
+map_Kd #iron
+newmtl steel
+Kd 1 1 1
+Ka 0 0 0
+map_Kd #steel
+newmtl silver
+Kd 1 1 1
+Ka 0 0 0
+map_Kd #silver
+newmtl bone
+Kd 1 1 1
+Ka 0 0 0
+map_Kd #bone
+newmtl waning
+Kd 1 1 1
+Ka 0 0 0
+map_Kd #waning
+newmtl ice
+Kd 1 1 1
+Ka 0 0 0
+map_Kd #ice

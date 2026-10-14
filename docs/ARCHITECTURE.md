@@ -1,3 +1,11 @@
+## Коса по образцу Карачуна — 2026-10-14
+
+Адаптированы силуэт/палитры босса, закрытая OBJ, native first-person хват и двуручная активная поза без замены PlayerRenderer. clean build/40 offline/37 server assertions PASS;5 реальных клиентов, финальные15 игровых кадров. [Актуальная ревизия](weapon-stage-a/boss-adaptation.md). PR№2 только оружие; сводная сборка отдельной веткой, main не слит. Независимая и авторская приёмка ожидаются.
+
+## Этап A оружейного патча — коса Карачуна (2026-10-14)
+
+В отдельной ветке переработаны только коса, её материалы/иконка/held transforms и непрерывная временная поза; баланс12HP и сохранённые способности проверены реальным GameTest-сервером. Финальные37 сценарных проверок/clean build PASS; всего8 серверов (3 PASS,5 ошибки стенда),0 клиентов. Software previews не являются игровыми кадрами; авторская и независимая приёмка PENDING. PolyMC не обновлялся, версия1.9.7 сохранена. Этап B не начат. [Материалы и границы](weapon-stage-a/README.md).
+
 ## Патч оружия — визуальная ревизия брони (2026-10-13)
 
 Runtime changes только в4 существующих Dist.CLIENT armor model implementations: выделенные UV islands, солнечная застёжка, передние драконьи вставки, приталенный robe/split pointed tails и широкий воинский стяг. Generated item models используются для3 прежних cuboid items. armor_revision_assets — детерминированный финальный overlay, legacy hooks сохраняют weapon overlay. Никаких common/server зависимостей от клиента или новых gameplay систем. Native bake/UV fixture и software projection — tools-only, исключены из production. [Аудит/проверки](armor-revision/REPORT.md).

@@ -17,7 +17,8 @@
   ],
   "client": [
     "ClearSightMixin",
-    "Quest185ColorMixin"
+    "Quest185ColorMixin",
+    "ScythePlayerPoseMixin"
   ],
   "injectors": {
     "defaultRequire": 1

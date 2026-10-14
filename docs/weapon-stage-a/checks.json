@@ -1,0 +1,73 @@
+{
+  "geometry": {
+    "triangles": 1266,
+    "closed_components": 26,
+    "blade": "closed, consistent winding, no 2D outline self intersections",
+    "uv": "finite [0,1]",
+    "mounted_parts": "collars/grip deliberately surround haft; no coplanar exposed surfaces",
+    "contexts": 8
+  },
+  "reproduction": "PASS",
+  "camera_projection": [
+    {
+      "hand": "righthand",
+      "fov": 70,
+      "central_60px_box_occupied": false,
+      "scope": "idle mathematical projection only"
+    },
+    {
+      "hand": "righthand",
+      "fov": 90,
+      "central_60px_box_occupied": false,
+      "scope": "idle mathematical projection only"
+    },
+    {
+      "hand": "righthand",
+      "fov": 110,
+      "central_60px_box_occupied": false,
+      "scope": "idle mathematical projection only"
+    },
+    {
+      "hand": "lefthand",
+      "fov": 70,
+      "central_60px_box_occupied": false,
+      "scope": "idle mathematical projection only"
+    },
+    {
+      "hand": "lefthand",
+      "fov": 90,
+      "central_60px_box_occupied": false,
+      "scope": "idle mathematical projection only"
+    },
+    {
+      "hand": "lefthand",
+      "fov": 110,
+      "central_60px_box_occupied": false,
+      "scope": "idle mathematical projection only"
+    }
+  ],
+  "visual_acceptance": "PENDING_AUTHOR; previews are not game tests",
+  "parallel_content_preservation": {
+    "baseline_sha256": "f73888579014ed8b297bdb943ca2e742a2947d533369c85d7fc4c310ac6cf7ef",
+    "byte_unchanged_files": 7862,
+    "line_endings_only_files": 463,
+    "changed_entries": [
+      "assets/slavicmyths/models/item/karachun_scythe_held.json",
+      "assets/slavicmyths/textures/item/karachun_scythe.png",
+      "org/slavicmyths/client/NightClient$Registration$1.class",
+      "org/slavicmyths/client/NightClient$Registration.class",
+      "org/slavicmyths/client/NightClient.class",
+      "org/slavicmyths/karachun/NightCombat.class",
+      "slavicmyths.equipment.mixins.json"
+    ],
+    "preexisting_base_git_omissions": [
+      "assets/slavicmyths/textures/models/armor/gambeson_layer_2.png",
+      "assets/slavicmyths/textures/models/armor/plate_layer_2.png",
+      "org/slavicmyths/client/NightClient$Reaper$1.class",
+      "org/slavicmyths/client/NightClient$Reaper.class"
+    ],
+    "newly_removed_entries": [],
+    "deployment": "weapon branch only; integration and installed baseline have separate gates. Two layer_2 omissions unused: both registered armor items are CHESTPLATE"
+  },
+  "production_sha256": "7575bd74422d054e207cf656e155ecdbd526f8669eb9db0d46480857a28e774a"
+}

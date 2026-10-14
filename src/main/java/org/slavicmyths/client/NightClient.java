@@ -21,7 +21,7 @@ import org.slavicmyths.karachun.*;
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class NightClient {
  public static final KeyMapping BREATH=new KeyMapping("key.slavicmyths.night_breath",71,"key.categories.slavicmyths.night"),HARVEST=new KeyMapping("key.slavicmyths.night_harvest",86,"key.categories.slavicmyths.night"),WING=new KeyMapping("key.slavicmyths.night_wing",66,"key.categories.slavicmyths.night"),REDUCED=new KeyMapping("key.slavicmyths.night_reduced",297,"key.categories.slavicmyths.night");
- private static CompoundTag view=new CompoundTag();private static long received,lastPacket;private static boolean reduced,rendering;private static PlayerRenderer normal,slim;private static NightPhantomRenderer phantomRenderer;
+ private static CompoundTag view=new CompoundTag();private static long received,lastPacket;private static boolean reduced;private static NightPhantomRenderer phantomRenderer;
  private record Swing(int mode,int combo,long at,int duration){}private static final Map<Integer,Swing> SWINGS=new HashMap<>();
  private record Illusion(LivingEntity actor,long at){}private static final List<Illusion> PHANTOMS=new ArrayList<>();private static long nextPhantom;private static net.minecraft.client.multiplayer.ClientLevel world;
  private static void send(int a){PacketDistributor.sendToServer(new NightNetwork.Action(a));}
@@ -36,11 +36,44 @@ public final class NightClient {
  @SubscribeEvent public static void hud(RenderGuiEvent.Post e){var mc=Minecraft.getInstance();if(mc.player==null||mc.level==null||mc.screen!=null||mc.options.hideGui)return;var g=e.getGuiGraphics();int x=12,y=g.guiHeight()-120;double waning=view.getDouble("Waning"),fear=view.getDouble("Fear");if(waning>0){g.fill(x,y,x+112,y+15,0xAA10121B);g.fill(x+1,y+12,x+1+(int)waning,y+14,0xFF8C91B5);g.drawString(mc.font,NightContent.text("waning",(int)waning,new String[]{"—","I","II","III"}[NightRules.tier(waning)]),x+3,y+1,0xD9D7E8,false);}if(fear>0){g.fill(x,y+17,x+112,y+32,0xAA16111F);g.fill(x+1,y+29,x+1+(int)fear,y+31,0xFF9866DC);g.drawString(mc.font,NightContent.text("fear",(int)fear),x+3,y+18,0xCDA9EF,false);}long now=view.getLong("Now")+Math.max(0,mc.level.getGameTime()-received);if(mc.player.getMainHandItem().is(NightContent.SCYTHE.get())||view.getBoolean("WingEquipped"))g.drawString(mc.font,NightContent.text("cooldowns",seconds("BreathReady",now),seconds("HarvestReady",now),seconds("WingReady",now)),x,y-14,0xC4AFDF,false);}
  private static long seconds(String key,long now){return Math.max(0,(view.getLong(key)-now+19)/20);}
  @SubscribeEvent public static void tooltip(net.neoforged.neoforge.event.entity.player.ItemTooltipEvent e){if(e.getItemStack().is(NightContent.SCYTHE.get())||e.getItemStack().is(NightContent.WING.get()))e.getToolTip().add(NightContent.text("bindings",BREATH.getTranslatedKeyMessage(),HARVEST.getTranslatedKeyMessage(),WING.getTranslatedKeyMessage()));}
- private static float swing(AbstractClientPlayer p,float partial){var s=SWINGS.get(p.getId());if(s==null)return 0;float age=p.level().getGameTime()-s.at+partial,hit=s.mode==0?(s.combo==2?7:5):10;return age<hit?-age/hit:Math.max(0,1-(age-hit)/(s.duration-hit));}
- @SubscribeEvent public static void player(RenderPlayerEvent.Pre e){if(!(e.getEntity() instanceof AbstractClientPlayer p))return;if(rendering||normal==null||!p.getMainHandItem().is(NightContent.SCYTHE.get())||p.isInvisible())return;e.setCanceled(true);rendering=true;try{(p.getSkin().model()==net.minecraft.client.resources.PlayerSkin.Model.SLIM?slim:normal).render(p,p.getYRot(),e.getPartialTick(),e.getPoseStack(),e.getMultiBufferSource(),e.getPackedLight());}finally{rendering=false;}}
- private static final class Reaper extends PlayerRenderer {Reaper(EntityRendererProvider.Context c,boolean slim){super(c,slim);model=new PlayerModel<AbstractClientPlayer>(c.bakeLayer(slim?net.minecraft.client.model.geom.ModelLayers.PLAYER_SLIM:net.minecraft.client.model.geom.ModelLayers.PLAYER),slim){@Override public void setupAnim(AbstractClientPlayer p,float a,float b,float age,float yaw,float pitch){super.setupAnim(p,a,b,age,yaw,pitch);var sw=SWINGS.get(p.getId());if(sw==null)return;float f=swing(p,age-(int)age);float sign=sw!=null&&sw.combo==1?-1:1;boolean left=p.getMainArm()==HumanoidArm.LEFT;var main=left?leftArm:rightArm;var support=left?rightArm:leftArm;body.yRot=f*.28f*sign;main.xRot=-.95f+(sw!=null&&sw.combo==2?f*1.2f:0);main.yRot=-.35f+f*1.15f*sign;main.zRot=left?.25f:-.25f;support.xRot=-1.15f;support.yRot=left?-.55f:.55f;support.zRot=left?-.1f:.1f;rightSleeve.copyFrom(rightArm);leftSleeve.copyFrom(leftArm);}};addLayer(new FolkEquipmentLayer(this));}}
- @SubscribeEvent public static void hand(RenderHandEvent e){var mc=Minecraft.getInstance();var p=mc.player;if(p==null)return;if(e.getHand()==net.minecraft.world.InteractionHand.OFF_HAND&&NightRules.tier(view.getDouble("Waning"))>=3){e.setCanceled(true);var lowered=e.getPoseStack();lowered.pushPose();boolean offLeft=p.getMainArm()==HumanoidArm.RIGHT;lowered.translate(offLeft?-.4:.4,-.9,-.6);lowered.mulPose(Axis.XP.rotationDegrees(-20));var arms=(PlayerRenderer)mc.getEntityRenderDispatcher().getRenderer(p);if(offLeft)arms.renderLeftHand(lowered,e.getMultiBufferSource(),e.getPackedLight(),p);else arms.renderRightHand(lowered,e.getMultiBufferSource(),e.getPackedLight(),p);lowered.popPose();return;}if(e.getHand()!=net.minecraft.world.InteractionHand.MAIN_HAND||!p.getMainHandItem().is(NightContent.SCYTHE.get()))return;var sw=SWINGS.get(p.getId());if(sw==null)return;float motion=swing(p,e.getPartialTick());int sign=p.getMainArm()==HumanoidArm.LEFT?-1:1;float dir=sw.combo==1?-1:1;var pose=e.getPoseStack();pose.mulPose(Axis.YP.rotationDegrees(sign*motion*30*dir));pose.mulPose(Axis.XP.rotationDegrees(motion*(sw.combo==2?35:12)));}
+ private static float swing(AbstractClientPlayer p,float partial){var s=SWINGS.get(p.getId());if(s==null)return 0;return ScytheSwingPose.motion(p.level().getGameTime()-s.at+partial,s.mode==0?(s.combo==2?7:5):10,s.duration);}
+ private static float influence(AbstractClientPlayer p,float partial){var s=SWINGS.get(p.getId());return s==null?0:ScytheSwingPose.influence(p.level().getGameTime()-s.at+partial,s.duration);}
 
+ /** Applied to the original player model, preserving every registered armor/accessory layer. */
+ public static void poseModel(PlayerModel<?> model,LivingEntity entity,float age){
+  if(!(entity instanceof AbstractClientPlayer p)||!p.getMainHandItem().is(NightContent.SCYTHE.get()))return;
+  var sw=SWINGS.get(p.getId());if(sw==null)return;
+  float partial=age-p.tickCount,f=swing(p,partial),blend=influence(p,partial),sign=sw.combo==1?-1:1;
+  boolean left=p.getMainArm()==HumanoidArm.LEFT;var main=left?model.leftArm:model.rightArm;var support=left?model.rightArm:model.leftArm;
+  model.body.yRot+=f*.2f*sign;
+  main.xRot=net.minecraft.util.Mth.lerp(blend,main.xRot,-.8f+(sw.combo==2?f*.65f:0));
+  main.yRot+=blend*(-.18f+f*.7f*sign);main.zRot+=blend*(left?.18f:-.18f);
+  support.xRot=net.minecraft.util.Mth.lerp(blend,support.xRot,-1.05f);
+  support.yRot+=blend*(left?-1.1f:1.1f);support.zRot=net.minecraft.util.Mth.lerp(blend,support.zRot,0);
+  model.rightSleeve.copyFrom(model.rightArm);model.leftSleeve.copyFrom(model.leftArm);
+ }
+ @SubscribeEvent public static void hand(RenderHandEvent e){var mc=Minecraft.getInstance();var p=mc.player;if(p==null)return;
+ if(e.getHand()==net.minecraft.world.InteractionHand.MAIN_HAND&&p.getMainHandItem().is(NightContent.SCYTHE.get())&&!p.isInvisible()){
+  var pose=e.getPoseStack();pose.pushPose();int sign=p.getMainArm()==HumanoidArm.LEFT?-1:1;
+  pose.translate(sign*.56,-.52-e.getEquipProgress()*.6,-.72);
+  scytheMotion(pose,p,p.getMainArm(),e.getPartialTick());
+  pose.translate(sign*.43,-.12,0);
+  pose.mulPose(Axis.YP.rotationDegrees(sign*45));pose.translate(sign*-1,3.6,3.5);
+  pose.mulPose(Axis.ZP.rotationDegrees(sign*120));pose.mulPose(Axis.XP.rotationDegrees(200));
+  pose.mulPose(Axis.YP.rotationDegrees(sign*-135));pose.translate(sign*5.6,0,0);
+  var renderer=(PlayerRenderer)mc.getEntityRenderDispatcher().getRenderer(p);
+  if(sign<0)renderer.renderLeftHand(pose,e.getMultiBufferSource(),e.getPackedLight(),p);else renderer.renderRightHand(pose,e.getMultiBufferSource(),e.getPackedLight(),p);
+  pose.popPose();
+ }
+ if(e.getHand()==net.minecraft.world.InteractionHand.OFF_HAND&&NightRules.tier(view.getDouble("Waning"))>=3){e.setCanceled(true);var lowered=e.getPoseStack();lowered.pushPose();boolean offLeft=p.getMainArm()==HumanoidArm.RIGHT;lowered.translate(offLeft?-.4:.4,-.9,-.6);lowered.mulPose(Axis.XP.rotationDegrees(-20));var arms=(PlayerRenderer)mc.getEntityRenderDispatcher().getRenderer(p);if(offLeft)arms.renderLeftHand(lowered,e.getMultiBufferSource(),e.getPackedLight(),p);else arms.renderRightHand(lowered,e.getMultiBufferSource(),e.getPackedLight(),p);lowered.popPose();return;}}
+
+
+ private static void scytheMotion(PoseStack pose,AbstractClientPlayer p,HumanoidArm arm,float partial){
+  var sw=SWINGS.get(p.getId());if(sw==null||arm!=p.getMainArm())return;
+  int sign=arm==HumanoidArm.LEFT?-1:1;float f=swing(p,partial),dir=sw.combo==1?-1:1;
+  pose.mulPose(Axis.YP.rotationDegrees(sign*f*(sw.combo==2?12:42)*dir));
+  pose.mulPose(Axis.XP.rotationDegrees(f*(sw.combo==2?48:10)));pose.mulPose(Axis.ZP.rotationDegrees(sign*f*8*dir));
+ }
  private static void local(String name,float volume){var mc=Minecraft.getInstance();if(mc.player!=null)mc.player.playSound(NightContent.SOUNDS.get(name).get(),volume,1);}
  private static void clear(){view=new CompoundTag();SWINGS.clear();PHANTOMS.clear();nextPhantom=0;received=lastPacket=0;}
  private static void saveOptions(){try{java.nio.file.Files.writeString(Minecraft.getInstance().gameDirectory.toPath().resolve("config/slavicmyths-night192-client.txt"),Boolean.toString(reduced));}catch(java.io.IOException ignored){}}
@@ -49,9 +82,10 @@ public final class NightClient {
  public static final class Registration {
   @SubscribeEvent public static void keys(RegisterKeyMappingsEvent e){for(var k:List.of(BREATH,HARVEST,WING,REDUCED))e.register(k);try{var p=Minecraft.getInstance().gameDirectory.toPath().resolve("config/slavicmyths-night192-client.txt");if(java.nio.file.Files.exists(p))reduced=Boolean.parseBoolean(java.nio.file.Files.readString(p));}catch(java.io.IOException ignored){}}
   @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(NightContent.BOSS.get(),KarachunRenderer::new);e.registerEntityRenderer(NightContent.RAVEN.get(),NightRavenRenderer::new);e.registerEntityRenderer(NightContent.BLADE.get(),NightBladeRenderer::new);}
-  @SubscribeEvent public static void layers(EntityRenderersEvent.AddLayers e){normal=new Reaper(e.getContext(),false);slim=new Reaper(e.getContext(),true);phantomRenderer=new NightPhantomRenderer(e.getContext());}
+  @SubscribeEvent public static void layers(EntityRenderersEvent.AddLayers e){phantomRenderer=new NightPhantomRenderer(e.getContext());}
   @SubscribeEvent public static void models(ModelEvent.RegisterAdditional e){for(String s:List.of("_icon","_held"))e.register(net.minecraft.client.resources.model.ModelResourceLocation.standalone(NightContent.id("item/karachun_scythe"+s)));}
-  @SubscribeEvent public static void extension(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new net.neoforged.neoforge.client.extensions.common.IClientItemExtensions(){private final Quest185ItemRenderer renderer=new Quest185ItemRenderer();@Override public BlockEntityWithoutLevelRenderer getCustomRenderer(){return renderer;}},NightContent.SCYTHE.get());}
+  @SubscribeEvent public static void extension(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new net.neoforged.neoforge.client.extensions.common.IClientItemExtensions(){private final Quest185ItemRenderer renderer=new Quest185ItemRenderer();@Override public BlockEntityWithoutLevelRenderer getCustomRenderer(){return renderer;}
+   @Override public boolean applyForgeHandTransform(PoseStack pose,net.minecraft.client.player.LocalPlayer p,HumanoidArm arm,ItemStack item,float partial,float equip,float vanillaSwing){int sign=arm==HumanoidArm.LEFT?-1:1;pose.translate(sign*.56,-.52-equip*.6,-.72);scytheMotion(pose,p,arm,partial);return true;}},NightContent.SCYTHE.get());}
  }
  private NightClient(){}
 }

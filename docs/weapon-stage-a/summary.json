@@ -1,0 +1,22 @@
+{
+  "stage": "A",
+  "status": "READY_FOR_INDEPENDENT_REVIEW_NOT_ACCEPTED",
+  "base": "b7616080",
+  "previous_weapon_patch": "f53447ccb083cb6018ca67e3627ff6181e6200e2",
+  "version": "1.9.7",
+  "clean_build": "PASS (34s)",
+  "night_offline": "PASS: native UV / boss rules; not a game test",
+  "server_starts": 8,
+  "successful_server_starts": 3,
+  "fixture_failed_server_starts": 5,
+  "final_server_checks": 37,
+  "client_starts": 0,
+  "real_client_render": "NOT_RUN",
+  "two_client_mp": "NOT_RUN",
+  "real_relog": "NOT_RUN",
+  "FPS_MSPT": "NOT_MEASURED",
+  "production_sha256": "35e360cf3d2702ec68c0593b60e6459989466e2af817ae2cbe9b2a4db5e19294",
+  "polymc_installation": "NOT_PERFORMED",
+  "independent_review": "PENDING_AUTHOR_AND_CHATGPT",
+  "next_stage": "B requires Stage A approval"
+}
