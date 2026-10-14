@@ -33,7 +33,7 @@ public final class ScytheClientProbe {
   if(mc.screen instanceof net.minecraft.client.gui.screens.PauseScreen)mc.setScreen(null);
   time++;if(time<100)return;int selected=(time-100)/60;
   if(selected>=NAMES.length){done=true;System.out.println("SCYTHE_NATIVE_CLIENT_COMPLETE="+NAMES.length+"; skin="+mc.player.getSkin().model());mc.stop();return;}
-  if(selected!=stage){if(mc.screen instanceof net.minecraft.client.gui.screens.inventory.AbstractContainerScreen<?>)mc.setScreen(null);stage=selected;mc.options.keyUp.setDown(false);mc.options.keySprint.setDown(false);mc.options.keyJump.setDown(false);mc.options.keyShift.setDown(false);
+  if(selected!=stage){if(mc.screen instanceof net.minecraft.client.gui.screens.inventory.AbstractContainerScreen<?>)mc.screen.onClose();stage=selected;mc.options.keyUp.setDown(false);mc.options.keySprint.setDown(false);mc.options.keyJump.setDown(false);mc.options.keyShift.setDown(false);
    mc.options.hideGui=stage==0;mc.options.fov().set(stage==8?90:stage==9?110:70);mc.options.mainHand().set(stage==7||stage==19?HumanoidArm.LEFT:HumanoidArm.RIGHT);
    mc.options.setCameraType((stage>=4&&stage<=6)||(stage>=15&&stage<=24)?CameraType.THIRD_PERSON_FRONT:CameraType.FIRST_PERSON);
    mc.player.setYRot(0);mc.player.setXRot(stage==0?-4:0);
@@ -56,7 +56,7 @@ public final class ScytheClientProbe {
     String name=stage==22?"victor_spear":stage==23?"likho_staff":stage==24?"ataman_flail":"karachun_scythe";
     p.getInventory().setItem(0,new net.minecraft.world.item.ItemStack(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(NightContent.id(name))));
     if(stage==25){String[] items={"victor_spear","likho_staff","ataman_flail","trophy_kalin_sabre","serpent_crossbow","three_breath_crossbow","rune_counterstrike_iii","rune_veles_oath_iv"};for(int i=0;i<items.length;i++)p.getInventory().setItem(i+1,new net.minecraft.world.item.ItemStack(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(NightContent.id(items[i]))));}
-    p.inventoryMenu.broadcastChanges();
+    p.inventoryMenu.sendAllDataToRemote();
    });
    if(stage==15||stage==16)mc.options.keyUp.setDown(true);if(stage==16){mc.options.keySprint.setDown(true);mc.player.setSprinting(true);}if(stage==18)mc.options.keyShift.setDown(true);
    System.out.println("SCYTHE_NATIVE_SCENE="+NAMES[stage]);
