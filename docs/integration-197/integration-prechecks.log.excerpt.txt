@@ -1,0 +1,7 @@
+RUNE_REWORK_OFFLINE_CHECKS=390
+RARE_RUNE_OFFLINE_CHECKS=20491
+RUNE_OFFLINE_CHECKS=75064 PLANS=3000 UPYR_MIN=[3, 4, 6] UPYR_MAX=[5, 6, 9]
+CREATURE_HEALTH_OFFLINE_PASS checks=1545; native NBT/attributes/rules + limited firebird lifecycle stub; game/server/client launches=0; not a real relog or AI/audio test
+NIGHT_OFFLINE_PASS checks=40 simulations=10000 nativeUvVertices=8352; no game launches; NBT is not relog
+ARMOR_MESH_PASS checks=8771 models=22
+BUILD SUCCESSFUL in 1m 34s

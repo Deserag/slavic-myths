@@ -1,0 +1,1 @@
+AssertionError: foreign source / old rune asset unchanged: src/main/resources/assets/slavicmyths/models/item/rune_battle_line.json

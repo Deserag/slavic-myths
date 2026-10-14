@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "version": "1.9.7",
+  "source_commit": "61d98910a1654743f75ef521167af9d225af44f7",
+  "sha256": "26eb2b714527d0573d039457da5f2b474c6c09e286ef059450b56dbfb23b6fc5",
+  "baseline_sha256": "2108e49ad917af013792b21c43a20ade131bd8d606d40d5ae57eca229b0ab180",
+  "checks": 8366,
+  "components": {
+    "weapons_base": "f53447ccb083cb6018ca67e3627ff6181e6200e2",
+    "armor": "b76160800223267abc04e7c6d46812dfba8976dc",
+    "scythe": "34a827b3ab6a8ef854807cd615ee0eda4d4870cc",
+    "runes": "3dbc28e3f703c1f03f970173476bf8c1fe4b80a2",
+    "creature_health_stage1": "50622af9e8eeb3b0968c1e52019bd9e1ca602ec5",
+    "creature_feedback": "6bd9836054280e77689cd989187d61d1457bb9d6"
+  },
+  "scythe_geometry": {
+    "triangles": 1266,
+    "closed_components": 26,
+    "blade": "closed, consistent winding, no 2D outline self intersections",
+    "uv": "finite [0,1]",
+    "mounted_parts": "collars/grip deliberately surround haft; no coplanar exposed surfaces",
+    "contexts": 8
+  },
+  "scythe_generator": "byte reproducible",
+  "client_scenes": 26,
+  "jar_added": [
+    "assets/minecraft/atlases/",
+    "assets/minecraft/atlases/blocks.json",
+    "assets/slavicmyths/atlases/",
+    "assets/slavicmyths/models/item/karachun_scythe.mtl",
+    "assets/slavicmyths/models/item/karachun_scythe.obj",
+    "assets/slavicmyths/textures/item/karachun_scythe_bone.png",
+    "assets/slavicmyths/textures/item/karachun_scythe_ice.png",
+    "assets/slavicmyths/textures/item/karachun_scythe_iron.png",
+    "assets/slavicmyths/textures/item/karachun_scythe_leather.png",
+    "assets/slavicmyths/textures/item/karachun_scythe_silver.png",
+    "assets/slavicmyths/textures/item/karachun_scythe_steel.png",
+    "assets/slavicmyths/textures/item/karachun_scythe_waning.png",
+    "assets/slavicmyths/textures/item/karachun_scythe_wood.png",
+    "org/slavicmyths/equipment/mixin/ScythePlayerPoseMixin.class",
+    "org/slavicmyths/karachun/ScytheSwingPose.class"
+  ],
+  "jar_removed": [
+    "assets/slavicmyths/sounds/kuzya/voice_draft/",
+    "org/slavicmyths/client/NightClient$Reaper$1.class",
+    "org/slavicmyths/client/NightClient$Reaper.class"
+  ],
+  "jar_changed": [
+    "assets/slavicmyths/models/item/karachun_scythe_held.json",
+    "assets/slavicmyths/textures/item/karachun_scythe.png",
+    "org/slavicmyths/client/NightClient$Registration$1.class",
+    "org/slavicmyths/client/NightClient$Registration.class",
+    "org/slavicmyths/client/NightClient.class",
+    "org/slavicmyths/karachun/NightCombat.class",
+    "slavicmyths.equipment.mixins.json"
+  ],
+  "unused_armor_layer2": "gambeson and plate both CHESTPLATE; not needed, no placeholders",
+  "independent_acceptance": "PENDING_AUTHOR_AND_CHATGPT"
+}

@@ -1,0 +1,37 @@
+{
+  "status": "TECHNICALLY_PREPARED_FOR_AUTHOR_QA",
+  "source_commit": "61d98910a1654743f75ef521167af9d225af44f7",
+  "sha256": "26eb2b714527d0573d039457da5f2b474c6c09e286ef059450b56dbfb23b6fc5",
+  "clean_build_final": "PASS 24s",
+  "clean_build_with_offline": "PASS 58s, identical production JAR SHA256",
+  "scythe_server_assertions": 37,
+  "creature_feedback_server_assertions": 107,
+  "gameTest_server_runs_this_task": 3,
+  "dev_client_runs_this_task": 7,
+  "weapon_dev_runs": 5,
+  "integrated_dev_runs": 2,
+  "final_native_scenes": 26,
+  "native_client_missing_mod_textures": 0,
+  "native_client_errors": 0,
+  "offline": {
+    "rune_rework": 390,
+    "rare_runes": 20491,
+    "rune_foundation": 75064,
+    "creature_health": 1545,
+    "karachun": 40,
+    "karachun_reward_simulations": 10000,
+    "karachun_uv_vertices": 8352,
+    "armor_native_mesh": 8771,
+    "armor_models": 22
+  },
+  "resource_gates": {
+    "integration": 8366,
+    "creature_feedback": 8384,
+    "creature_health": 13509
+  },
+  "rune_historical_byte_gate": "FAIL: five unchanged model CRLF/LF differences and five explicitly integrated newer boss sources; original baseline retained. Rune production hashes preserved except documented13 ru_ru value repairs; native rune regressions PASS",
+  "production_client_PolyMC": "NOT_RUN: user pressed Escape to stop Computer Use; no further UI tools or alternative launcher actions",
+  "MSPT": "NOT_MEASURED",
+  "survival_multiplayer_real_relog": "NOT_RUN",
+  "independent_author_ChatGPT_acceptance": "PENDING"
+}

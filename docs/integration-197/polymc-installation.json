@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "label": "1.9.7 + патч оружия — коса, броня, руны, HP этап1, исправления существ",
+  "version": "1.9.7",
+  "source_commit": "61d98910a1654743f75ef521167af9d225af44f7",
+  "instance": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.jar",
+  "sha256": "26eb2b714527d0573d039457da5f2b474c6c09e286ef059450b56dbfb23b6fc5",
+  "previous_sha256": "2108e49ad917af013792b21c43a20ade131bd8d606d40d5ae57eca229b0ab180",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-integrated-197-20261014-101525\\slavicmyths-1.9.7.jar",
+  "preserved_profile_files": 328,
+  "client_launch": "NOT_RUN_USER_STOPPED_COMPUTER_USE",
+  "rollback": "Close Minecraft; copy verified backup over installed_jar; verify previous_sha256",
+  "components": {
+    "weapons_base": "f53447ccb083cb6018ca67e3627ff6181e6200e2",
+    "armor": "b76160800223267abc04e7c6d46812dfba8976dc",
+    "scythe": "34a827b3ab6a8ef854807cd615ee0eda4d4870cc",
+    "runes": "3dbc28e3f703c1f03f970173476bf8c1fe4b80a2",
+    "creature_health_stage1": "50622af9e8eeb3b0968c1e52019bd9e1ca602ec5",
+    "creature_feedback": "6bd9836054280e77689cd989187d61d1457bb9d6"
+  },
+  "dev_client_runs_this_task": 7,
+  "integrated_dev_client_runs": 2,
+  "latest_integrated_frames": 26
+}

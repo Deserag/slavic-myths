@@ -1,3 +1,7 @@
+## Актуальная тестовая интеграция — 2026-10-14
+
+1.9.7 + патч оружия: коса по образцу Карачуна, main-броня, руныA–C, HP stage1 и завершённые creature-feedback fixes. Источники зафиксированы в отдельных snapshot commits. clean build/37+107 server/основные offline/resource gates PASS;7 dev-client запусков, финальные26 настоящих кадров с бронёй. JAR установлен в PolyMC Testing с проверенным backup и328 сохранёнными файлами; UI-запуск PolyMC NOT_RUN после пользовательского Escape. [Итог/состав/SHA256](integration-197/REPORT.md). main не слит; авторская и ChatGPT приёмка ожидаются. Будущий этапB/HP stage2 не реализованы.
+
 ## Коса по образцу Карачуна — 2026-10-14
 
 Адаптированы силуэт/палитры босса, закрытая OBJ, native first-person хват и двуручная активная поза без замены PlayerRenderer. clean build/40 offline/37 server assertions PASS;5 реальных клиентов, финальные15 игровых кадров. [Актуальная ревизия](weapon-stage-a/boss-adaptation.md). PR№2 только оружие; сводная сборка отдельной веткой, main не слит. Независимая и авторская приёмка ожидаются.
