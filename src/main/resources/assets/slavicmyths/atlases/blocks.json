@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/morozko"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/morozko_crystal"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/great_poloz_head"
+    }
+  ]
+}
