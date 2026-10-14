@@ -26,3 +26,7 @@ newmtl waning
 Kd 1 1 1
 Ka 0 0 0
 map_Kd #waning
+newmtl ice
+Kd 1 1 1
+Ka 0 0 0
+map_Kd #ice

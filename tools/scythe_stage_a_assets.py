@@ -1,24 +1,27 @@
 """Stage A only: continuous crescent mesh, discrete pixel materials and GUI icon.
 
-Silhouette: a slim 34-unit irregular wooden haft, 25-unit lateral crescent,
+Silhouette: a slim 34-unit irregular wooden haft, 19.3-unit descending boss-inspired blade,
 wide reinforced heel tapering to a downward point. Leather grip, aged iron
-ferrules, silver bevel, one muted waning mark. Not the boss's mesh.
+ferrules, bone bands, purple seam, ice teeth and two bone pendants. Human-scaled mesh.
 NeoForge's installed 21.1.255 OBJ loader owns baking; no new renderer/registry.
 """
 from pathlib import Path
 import json, math, random
 from PIL import Image, ImageDraw
+from karachun_assets import PAL as BOSS_PALETTE
 
 R=Path(__file__).resolve().parents[1]
 A=R/'src/main/resources/assets/slavicmyths'
 MATERIALS={
-    'wood':('#30241d','#413027','#514032'),
-    'leather':('#342b29','#493a34','#605044'),
-    'iron':('#3b3f43','#51585e','#73797e'),
-    'steel':('#323b46','#46515f','#5e6976'),
-    'silver':('#9faeba','#bcc8cf','#dce3e5'),
-    'bone':('#817f75','#a6a393','#c6c3b3'),
-    'waning':('#43384e','#615070','#847295')}
+    'wood':tuple('#'+c for c in BOSS_PALETTE['wood']),
+    'leather':('#30242f','#49363d','#614951'),
+    'iron':tuple('#'+c for c in BOSS_PALETTE['metal']),
+    'steel':('#242331','#34313f','#464255'),
+    'silver':('#7b8291','#bac4d8','#d0d3de'),
+    'bone':tuple('#'+c for c in BOSS_PALETTE['bone']),
+    'waning':('#49375f','#6f49bc','#8e68dc'),
+    'ice':tuple('#'+c for c in BOSS_PALETTE['ice'])}
+
 
 def texture(name):
     rng=random.Random(197+list(MATERIALS).index(name))
@@ -59,10 +62,10 @@ class Mesh:
             inside=tuple(sum(p[j] for p in rings[i]+rings[i+1])/(2*n) for j in range(3))
             for j in range(n):
                 k=(j+1)%n;u=i/last;v=(i+1)/last
-                self.face([ids[i][j],ids[i+1][j],ids[i+1][k],ids[i][k]],[(u,j/n),(v,j/n),(v,(j+1)/n),(u,(j+1)/n)],materials[j%len(materials)],group,inside)
+                self.face([ids[i][j],ids[i+1][j],ids[i+1][k],ids[i][k]],[(u,j/n),(v,j/n),(v,(j+1)/n),(u,(j+1)/n)],(materials(i,j) if callable(materials) else materials[j%len(materials)]),group,inside)
         for i,neighbor in [(0,1),(last,last-1)]:
             interior=tuple(sum(p[j] for p in rings[neighbor])/n for j in range(3))
-            self.face(ids[i],[(.5+.45*math.cos(j*math.tau/n),.5+.45*math.sin(j*math.tau/n)) for j in range(n)],materials[0],group,interior)
+            self.face(ids[i],[(.5+.45*math.cos(j*math.tau/n),.5+.45*math.sin(j*math.tau/n)) for j in range(n)],(materials(i,0) if callable(materials) else materials[0]),group,interior)
     def shaft(self,y0,y1,radius,material,group,offset=0):
         rings=[]
         for y in [y0,(y0+y1)/2,y1]:
@@ -74,34 +77,46 @@ class Mesh:
         self.tube(rings,[mat],group)
 
 def curve(t):
-    points=[(8,24),(-1,30),(-13,28),(-16,13)]
-    x=sum(points[i][0]*math.comb(3,i)*t**i*(1-t)**(3-i) for i in range(4))
-    y=sum(points[i][1]*math.comb(3,i)*t**i*(1-t)**(3-i) for i in range(4))
-    dx=sum(3*(points[i+1][0]-points[i][0])*math.comb(2,i)*t**i*(1-t)**(2-i) for i in range(3))
-    dy=sum(3*(points[i+1][1]-points[i][1])*math.comb(2,i)*t**i*(1-t)**(2-i) for i in range(3))
-    length=math.hypot(dx,dy)
+    # Boss: lateral span 23.4, haft 42, descending parabola 11. Human form
+    # keeps that ratio, not the tall boss transform or its bulky decorations.
+    x=8-19.3*t;y=27.8-8.4*t*t-1.1*t
+    dx=-19.3;dy=-16.8*t-1.1;length=math.hypot(dx,dy)
     return x,y,dy/length,-dx/length
 
+def blade_width(t):
+    base=3.6-2.2*t
+    if t>.9:base=.1+(base-.1)*(1-t)/.1
+    tooth=max(max(0,1-abs(t-c)/.055)*(0.65+c*.55) for c in [.15,.35,.55,.75,.9])
+    return base,tooth
+
 def build():
-    m=Mesh();m.shaft(-7,27,.67,'wood','haft')
-    m.shaft(-7.5,-5.4,.77,'iron','butt')
-    m.shaft(3,10,.82,'leather','grip')
-    for index,y in enumerate([2.7,10,20.5]):m.shaft(y,y+.5,.89,'iron','band_'+str(index))
-    m.shaft(22,26,1.05,'iron','socket')
-    # Reinforced heel has its own bone plate and small non-emissive rune inlay.
-    m.block([7.05,23,6.82],[8.95,25,7.1],'bone','heel_plate')
-    m.block([7.45,23.3,6.68],[8.55,24.8,6.82],'waning','waning_inlay')
-    m.block([7.05,23,9],[8.95,25,9.22],'bone','heel_plate_back')
-    m.block([7.45,23.3,9.22],[8.55,24.8,9.36],'waning','waning_inlay_back')
+    m=Mesh();m.shaft(-7,27,.65,'wood','haft')
+    m.shaft(-7.4,-5.6,.79,'bone','butt')
+    m.shaft(3,10,.79,'leather','grip')
+    for index,y in enumerate([-6.2,-.6,5.8,12.2,18.6,24.2]):m.shaft(y,y+.65,.86,'bone' if index in (0,3) else 'iron','band_'+str(index))
+    m.shaft(24,28,1.02,'iron','socket')
+    for y in [1,12,20]:m.block([7.82,y,7.22],[8.2,y+1.6,7.35],'waning','haft_mark_'+str(y))
+    m.block([7.05,25,6.85],[8.95,27,7.12],'bone','heel_plate')
+    m.block([7.45,25.3,6.72],[8.55,26.8,6.85],'waning','waning_inlay')
+    m.block([7.05,25,8.9],[8.95,27,9.18],'bone','heel_plate_back')
+    m.block([7.45,25.3,9.18],[8.55,26.8,9.32],'waning','waning_inlay_back')
+    # Two shortened bone/ice pendants echo the boss without dangling curtains.
+    for index,off in enumerate([2.5,6]):
+        for j in range(3):m.block([8-off-.15,23-j*.8,7.7],[8-off+.15,23.5-j*.8,8.3],'bone',f'pendant_{index}_{j}')
+        m.block([8-off-.35,20.6,7.65],[8-off+.35,21.5,8.35],'ice',f'pendant_tip_{index}')
     rings=[]
-    for j in range(33):
-        t=j/32;x,y,nx,ny=curve(t);w=3.9*(1-t)**.75+.10;thick=.78*(1-t)+.12
+    for j in range(65):
+        t=j/64;x,y,nx,ny=curve(t);w,tooth=blade_width(t);thick=.78*(1-t)+.16
         outer=(x+nx*w*.45,y+ny*w*.45)
         shoulder=(x-nx*w*.32,y-ny*w*.32)
-        edge=(x-nx*w*.55,y-ny*w*.55)
+        edge=(x-nx*(w*.55+tooth),y-ny*(w*.55+tooth))
         rings.append([(outer[0],outer[1],8-thick/2),(shoulder[0],shoulder[1],8-thick*.36),(edge[0],edge[1],8),
                       (shoulder[0],shoulder[1],8+thick*.36),(outer[0],outer[1],8+thick/2)])
-    m.tube(rings,['steel','silver','silver','steel','iron'],'crescent')
+    def blade_material(i,j):
+        t=min(i,63)/64
+        if j in [1,2] and blade_width(t)[1]>.3:return 'ice'
+        return ['steel','waning' if t<.93 else 'silver','waning' if t<.93 else 'silver','steel','iron'][j]
+    m.tube(rings,blade_material,'crescent')
     return m
 
 def emit(m):
@@ -138,12 +153,12 @@ def icon():
     d.rectangle((23,16,25,22),fill='#4c3d35')
     for y in [16,19,22]:d.line((23,y,25,y),fill='#70604f')
     for y in [9,23,29]:d.rectangle((23,y,25,y+1),fill='#626b72')
-    # Broad heel -> long crescent -> fine downward tip, silver edge below spine.
-    d.polygon([(25,5),(21,2),(15,1),(10,2),(6,5),(3,9),(2,14),(3,12),(5,9),(9,6),(15,5),(21,7),(24,8)],fill='#303943')
-    d.line([(24,4),(20,2),(15,2),(10,3),(6,6),(3,10)],fill='#566574',width=1)
-    d.line([(24,8),(20,6),(15,5),(10,6),(6,8),(3,12),(2,14)],fill='#becad2',width=1)
-    d.rectangle((23,4,25,7),fill='#535a62');d.point((24,5),fill='#8b719b')
-    d.point((12,3),fill='#9bb5c1');d.point((17,3),fill='#7e97a3')
+    d.polygon([(25,2),(20,3),(15,4),(10,6),(6,9),(2,13),(6,11),(10,9),(15,7),(20,6),(25,5)],fill='#242331')
+    d.line([(25,2),(20,3),(15,4),(10,6),(6,9)],fill='#464255',width=1)
+    d.line([(24,5),(20,6),(15,7),(10,9),(6,11),(2,13)],fill='#7956b1',width=1)
+    for x,y in [(20,6),(15,7),(10,9),(6,11)]:d.polygon([(x,y),(x+1,y),(x,y+3)],fill='#a9c6ee')
+    d.rectangle((23,3,25,6),fill='#34313f');d.point((24,4),fill='#8e68dc')
+    for y in [10,17,24,29]:d.line((23,y,25,y),fill='#bac4d8' if y in [17,29] else '#464255')
     im.save(A/'textures/item/karachun_scythe.png')
 
 def main():

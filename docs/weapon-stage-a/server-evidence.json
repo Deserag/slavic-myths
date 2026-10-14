@@ -43,368 +43,368 @@
   "client_starts": 0,
   "pose_samples": [
     {
-      "duration": 14,
       "motion": 0.0,
-      "combo": 0,
+      "duration": 14,
+      "influence": 0.0,
       "age": 0,
-      "influence": 0.0
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": -0.116666675,
-      "combo": 0,
+      "duration": 14,
+      "influence": 0.5,
       "age": 1,
-      "influence": 0.5
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": -0.33333334,
-      "combo": 0,
+      "duration": 14,
+      "influence": 1.0,
       "age": 2,
-      "influence": 1.0
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": -0.45,
-      "combo": 0,
+      "duration": 14,
+      "influence": 1.0,
       "age": 3,
-      "influence": 1.0
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": -0.3148,
-      "combo": 0,
+      "duration": 14,
+      "influence": 1.0,
       "age": 4,
-      "influence": 1.0
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": 0.0076000392,
-      "combo": 0,
+      "duration": 14,
+      "influence": 1.0,
       "age": 5,
-      "influence": 1.0
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": 0.39239997,
-      "combo": 0,
+      "duration": 14,
+      "influence": 1.0,
       "age": 6,
-      "influence": 1.0
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": 0.71480006,
-      "combo": 0,
+      "duration": 14,
+      "influence": 1.0,
       "age": 7,
-      "influence": 1.0
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": 0.85,
-      "combo": 0,
+      "duration": 14,
+      "influence": 1.0,
       "age": 8,
-      "influence": 1.0
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": 0.7870371,
-      "combo": 0,
+      "duration": 14,
+      "influence": 1.0,
       "age": 9,
-      "influence": 1.0
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": 0.6296296,
-      "combo": 0,
+      "duration": 14,
+      "influence": 1.0,
       "age": 10,
-      "influence": 1.0
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": 0.425,
-      "combo": 0,
+      "duration": 14,
+      "influence": 0.84375,
       "age": 11,
-      "influence": 0.84375
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": 0.22037035,
-      "combo": 0,
+      "duration": 14,
+      "influence": 0.5,
       "age": 12,
-      "influence": 0.5
+      "combo": 0
     },
     {
-      "duration": 14,
       "motion": 0.06296298,
-      "combo": 0,
-      "age": 13,
-      "influence": 0.15625
-    },
-    {
       "duration": 14,
+      "influence": 0.15625,
+      "age": 13,
+      "combo": 0
+    },
+    {
       "motion": 0.0,
-      "combo": 0,
+      "duration": 14,
+      "influence": 0.0,
       "age": 14,
-      "influence": 0.0
+      "combo": 0
     },
     {
-      "duration": 15,
       "motion": 0.0,
-      "combo": 1,
+      "duration": 15,
+      "influence": 0.0,
       "age": 0,
-      "influence": 0.0
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": -0.116666675,
-      "combo": 1,
+      "duration": 15,
+      "influence": 0.5,
       "age": 1,
-      "influence": 0.5
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": -0.33333334,
-      "combo": 1,
+      "duration": 15,
+      "influence": 1.0,
       "age": 2,
-      "influence": 1.0
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": -0.45,
-      "combo": 1,
+      "duration": 15,
+      "influence": 1.0,
       "age": 3,
-      "influence": 1.0
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": -0.3148,
-      "combo": 1,
+      "duration": 15,
+      "influence": 1.0,
       "age": 4,
-      "influence": 1.0
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": 0.0076000392,
-      "combo": 1,
+      "duration": 15,
+      "influence": 1.0,
       "age": 5,
-      "influence": 1.0
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": 0.39239997,
-      "combo": 1,
+      "duration": 15,
+      "influence": 1.0,
       "age": 6,
-      "influence": 1.0
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": 0.71480006,
-      "combo": 1,
+      "duration": 15,
+      "influence": 1.0,
       "age": 7,
-      "influence": 1.0
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": 0.85,
-      "combo": 1,
+      "duration": 15,
+      "influence": 1.0,
       "age": 8,
-      "influence": 1.0
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": 0.80291545,
-      "combo": 1,
+      "duration": 15,
+      "influence": 1.0,
       "age": 9,
-      "influence": 1.0
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": 0.68148685,
-      "combo": 1,
+      "duration": 15,
+      "influence": 1.0,
       "age": 10,
-      "influence": 1.0
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": 0.5154519,
-      "combo": 1,
+      "duration": 15,
+      "influence": 1.0,
       "age": 11,
-      "influence": 1.0
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": 0.3345481,
-      "combo": 1,
+      "duration": 15,
+      "influence": 0.84375,
       "age": 12,
-      "influence": 0.84375
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": 0.16851316,
-      "combo": 1,
+      "duration": 15,
+      "influence": 0.5,
       "age": 13,
-      "influence": 0.5
+      "combo": 1
     },
     {
-      "duration": 15,
       "motion": 0.04708454,
-      "combo": 1,
-      "age": 14,
-      "influence": 0.15625
-    },
-    {
       "duration": 15,
-      "motion": 0.0,
-      "combo": 1,
-      "age": 15,
-      "influence": 0.0
-    },
-    {
-      "duration": 20,
-      "motion": 0.0,
-      "combo": 2,
-      "age": 0,
-      "influence": 0.0
-    },
-    {
-      "duration": 20,
-      "motion": -0.0468,
-      "combo": 2,
-      "age": 1,
-      "influence": 0.5
-    },
-    {
-      "duration": 20,
-      "motion": -0.15840001,
-      "combo": 2,
-      "age": 2,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": -0.2916,
-      "combo": 2,
-      "age": 3,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": -0.4032,
-      "combo": 2,
-      "age": 4,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": -0.45,
-      "combo": 2,
-      "age": 5,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": -0.3148,
-      "combo": 2,
-      "age": 6,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": 0.0076000392,
-      "combo": 2,
-      "age": 7,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": 0.39239997,
-      "combo": 2,
-      "age": 8,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": 0.71480006,
-      "combo": 2,
-      "age": 9,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": 0.85,
-      "combo": 2,
-      "age": 10,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": 0.8262,
-      "combo": 2,
-      "age": 11,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": 0.7616,
-      "combo": 2,
-      "age": 12,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": 0.6664,
-      "combo": 2,
-      "age": 13,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": 0.5508,
-      "combo": 2,
+      "influence": 0.15625,
       "age": 14,
-      "influence": 1.0
+      "combo": 1
     },
     {
-      "duration": 20,
-      "motion": 0.425,
-      "combo": 2,
-      "age": 15,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": 0.2992,
-      "combo": 2,
-      "age": 16,
-      "influence": 1.0
-    },
-    {
-      "duration": 20,
-      "motion": 0.18360002,
-      "combo": 2,
-      "age": 17,
-      "influence": 0.84375
-    },
-    {
-      "duration": 20,
-      "motion": 0.08839998,
-      "combo": 2,
-      "age": 18,
-      "influence": 0.5
-    },
-    {
-      "duration": 20,
-      "motion": 0.023800049,
-      "combo": 2,
-      "age": 19,
-      "influence": 0.15625
-    },
-    {
-      "duration": 20,
       "motion": 0.0,
-      "combo": 2,
+      "duration": 15,
+      "influence": 0.0,
+      "age": 15,
+      "combo": 1
+    },
+    {
+      "motion": 0.0,
+      "duration": 20,
+      "influence": 0.0,
+      "age": 0,
+      "combo": 2
+    },
+    {
+      "motion": -0.0468,
+      "duration": 20,
+      "influence": 0.5,
+      "age": 1,
+      "combo": 2
+    },
+    {
+      "motion": -0.15840001,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 2,
+      "combo": 2
+    },
+    {
+      "motion": -0.2916,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 3,
+      "combo": 2
+    },
+    {
+      "motion": -0.4032,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 4,
+      "combo": 2
+    },
+    {
+      "motion": -0.45,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 5,
+      "combo": 2
+    },
+    {
+      "motion": -0.3148,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 6,
+      "combo": 2
+    },
+    {
+      "motion": 0.0076000392,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 7,
+      "combo": 2
+    },
+    {
+      "motion": 0.39239997,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 8,
+      "combo": 2
+    },
+    {
+      "motion": 0.71480006,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 9,
+      "combo": 2
+    },
+    {
+      "motion": 0.85,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 10,
+      "combo": 2
+    },
+    {
+      "motion": 0.8262,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 11,
+      "combo": 2
+    },
+    {
+      "motion": 0.7616,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 12,
+      "combo": 2
+    },
+    {
+      "motion": 0.6664,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 13,
+      "combo": 2
+    },
+    {
+      "motion": 0.5508,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 14,
+      "combo": 2
+    },
+    {
+      "motion": 0.425,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 15,
+      "combo": 2
+    },
+    {
+      "motion": 0.2992,
+      "duration": 20,
+      "influence": 1.0,
+      "age": 16,
+      "combo": 2
+    },
+    {
+      "motion": 0.18360002,
+      "duration": 20,
+      "influence": 0.84375,
+      "age": 17,
+      "combo": 2
+    },
+    {
+      "motion": 0.08839998,
+      "duration": 20,
+      "influence": 0.5,
+      "age": 18,
+      "combo": 2
+    },
+    {
+      "motion": 0.023800049,
+      "duration": 20,
+      "influence": 0.15625,
+      "age": 19,
+      "combo": 2
+    },
+    {
+      "motion": 0.0,
+      "duration": 20,
+      "influence": 0.0,
       "age": 20,
-      "influence": 0.0
+      "combo": 2
     }
   ]
 }
