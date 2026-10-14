@@ -1,0 +1,271 @@
+{
+  "branch": "audit",
+  "worktree": "D:/slavic-myths-audit",
+  "base_commit": "b76160800223267abc04e7c6d46812dfba8976dc",
+  "commit_push": "NOT_RUN",
+  "scope": "stage1 health implementation plus owned preceding audit artifacts; inherited weapon/armor base not part of staged diff",
+  "files": [
+    {
+      "path": "src/main/java/org/slavicmyths/gorynych/Gorynych.java",
+      "sha256": "738292df43f0f417ce18595cd2f05844f84aac0d7e53bf4076edf946c85bf007",
+      "before_sha256": "074fbf9aaf00b5388edfb0cabfd0f992c9a774cdea54974495ee0a8153f830b7"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/gorynych/GorynychRules.java",
+      "sha256": "e1ee84d26c04705b44c2c480ad0d0010299ea8cfb126f0326eb6050b13af46c7",
+      "before_sha256": "7a043dd70f871b9df36f80a14aac3cd9180450add8248aeff2355d1da7550ebb"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/gorynych/GorynychLedger.java",
+      "sha256": "5e5e3742c45cab7ccf92d37a2ff83542a723b122367a0a2ba8a3db97e59d6ffa",
+      "before_sha256": "88c4ecd8fdb45ec54ece990907c63446b6c4d3dc88ba8756289a72ed9cb5f958"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/hunt/BossKind.java",
+      "sha256": "8e70c8a59c968c3d5077d6d025aa0056498699165d0b3b724b905e112f8a7f4b",
+      "before_sha256": "5347434c0d5c14c8adfa308fe555c76c68e00994dc02d2c8e0503a3db56c3047"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/hunt/WorldBoss.java",
+      "sha256": "a0c65d77d7b101579cf02b556bf5d61f5bfe23043072ba98830a366db730d93f",
+      "before_sha256": "9f54b8caea6713c36e6c1481dca5ddd84fa895ead18449f83f4e5b0af6a5caa2"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/bandit/BanditEntity.java",
+      "sha256": "72db60c6d6687f368d722d65f1f4560379a5fdd1563766663ff5acdd5e8f16d7",
+      "before_sha256": "9bca3c3a33705d7db07c4feaf663e8fed788b28520d8a12429fc79d5f6f42089"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/bandit/LargeCampPiece.java",
+      "sha256": "49a0ae35c9f009b4c9ccf2c549582c0653989d951330da692c4f829deccd4298",
+      "before_sha256": "d4b56a5976c35c6a92a1d92714eef1f3d071cb30563afdb89b46393517c71865"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/bandit/NightingaleEntity.java",
+      "sha256": "104b4c26a3ef3d53a69a138f38f69f6fa8c4fb6ff508816a3ddf0980ae5a3d36",
+      "before_sha256": "57e0f3095ab7d08c135d859aa19bf5db6afda88b9600889a7bce9b0124dd839c"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/volkolak/CursedVolkolak.java",
+      "sha256": "153054ba7ad9b2cec9697b5c29c3643d2203d5e20a735e153f23dc82dfde4f36",
+      "before_sha256": "d98a1874b30eef11646556eb10eb04409cabbcb732198d42b2c48b64f01cc587"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/guardians/GuardianRules.java",
+      "sha256": "c910d7669d694af269b9d060b724a099a29c1dc6564f51439871fd9ab621f392",
+      "before_sha256": "db4fdf31c80f4f94a5e99d59461250744f2e6a9b30227806db7ac3ba125cd24d"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/guardians/GuardianEntity.java",
+      "sha256": "4bc8f3c8160961f32c0afcc95d7b32a82674522d6145859033b62d6e42b100f9",
+      "before_sha256": "1cae8f303895a215f64eaa6901791f55342212284521f55943a1ce1a8e1481bf"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/guardians/GuardianLedger.java",
+      "sha256": "27c2134761bbb3356d91b88c8e716d8b889b6966194b40ba3620423fd8be3e20",
+      "before_sha256": "8f2cdb4241a20c15f02cd62856003df379d3ab63581e9fcc0b43b6a3100c2eea"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/morozko/FrostRules.java",
+      "sha256": "9594a1476520ac7fc11e17dace33bf67dd749e3428b6c7d155cd64d229bce333",
+      "before_sha256": "bb411801fe3523ba2c70d775457a8eec34070ba006cea6f8862ec71ad7df1fef"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/morozko/FrostConfig.java",
+      "sha256": "ee0a310a73199fc1eadd833f31dede1f2e766f227b70c852f9523ed92fe99015",
+      "before_sha256": "aa7a21f04804177599e6f35625f6ef083f021f72253b5fad8096bcbc6286b658"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/morozko/Morozko.java",
+      "sha256": "cc087bc495bd1e188a37ace9cf31503fbdd4de2b897bbbdb35d5e3b5e4c5e6ab",
+      "before_sha256": "8e64643dc92f38f4037daa3010d040bca9bbf1112ba83c7f2d4dba22144f6491"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/karachun/NightConfig.java",
+      "sha256": "602dbe3450632b05a622e7f7db7a1d23a2a53e50433c9d81ffc81e66c27e839d",
+      "before_sha256": "e68d0e535e8b4e196d21352b6bb9ca33809a671929cd5729766e62f3fb7d64b2"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/karachun/Karachun.java",
+      "sha256": "8376a3738e8481b15bc7cdbeb9677c7f974849eee3fde79232d17d08921230d0",
+      "before_sha256": "604bca08cdbb34d804e9f8a13cd037aa40817680e8990f27f0e34c97dffd899e"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/firebird/FirebirdEntity.java",
+      "sha256": "547821c2c6dc6959e94c2ecae962897a2eef15243e0fbfeaea6f3340c0f47365",
+      "before_sha256": "1e7f5e39e4382dd8ad531988ba49686ec3e5d7c8a7e951895bd30b4f116f702e"
+    },
+    {
+      "path": "docs/PROJECT_STATUS.md",
+      "sha256": "2612f947f54e1b9a7e05d00afe71e0860eec88f3351de1888207a4d1a5fcaf07",
+      "before_sha256": "ba856cec9eb264cebfaf15a2f56b5aa0ddc8996582abb474b7ef18a290c61ce6"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "sha256": "577ea9acbf292e25f7d3c23f3ed80c4848461f155be541dcf8eace88a5a9433f",
+      "before_sha256": "b8836a4abd783f0d348c4b361b1154aff3e52b53422cd3272e4d612a3850f8e9"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "51f7b709e2c978805f3139c963af337fc0a29ae008a9774813903368cd6075c5",
+      "before_sha256": "5c8f37917267deabcb0143b5063a8545c2f1fd47843393c472912be2f25f16f6"
+    },
+    {
+      "path": "docs/audit/creatures-1.9.8.1/POST_IMPLEMENTATION_REQUIREMENTS.md",
+      "sha256": "8da430201286e2437918cf64302fcc637330cb2de48832dc226c3fe0585984c0",
+      "before_sha256": "be4f701b5a49dffacd72509e8034b76277d4e115f41f7c31ecfa98ada6b5ed5e"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/combat/CreatureHealthBalance.java",
+      "sha256": "e98c970e00e0c5ad9ecc306ce374ff8e19faaad29ae4db0453d774f2293e2e28",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "tools/creature-health-offline.gradle",
+      "sha256": "ff5aa2cddd699b9dbaf8231355f3c0c7462a7c70b0a7fbe13ac2138640a87b9e",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "tools/creature-health-tests/CreatureHealthChecks.java",
+      "sha256": "fcec0b75be79279f6b8d6d59b8bc5cd6da37072a6b2e724c4e710e8724f69506",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "tools/verify_creature_health_1982.py",
+      "sha256": "fe074bfd4d0c9e28298a373d52864c003c10ab980096325ade612a223d01e3c4",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/implementation/creatures-1.9.8.2/REPORT.md",
+      "sha256": "0d146b735910d2522601d9436f9ae0125f872cbef4c23ef4ec3be5de1ef8af61",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/implementation/creatures-1.9.8.2/SPEC.md",
+      "sha256": "a5d5c8394d60469c1de837fe521453b9381951a7cec2834399b393bac9c1fcc5",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/implementation/creatures-1.9.8.2/CHECKS.json",
+      "sha256": "563a03f626f8c614c3a411fc50bc1b0d706e65705925d30bd994b3dd1e241fc1",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/implementation/creatures-1.9.8.2/BUILD.txt",
+      "sha256": "de962368d7761ad1b23432bc50ede595c71f775f7d886e5e0d8b336763f17078",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/audit/creatures-1.9.8.1/CHECKS.md",
+      "sha256": "1fdddb826f2824e2114b69441931879ea9d678e772f204ede083b3507b063596",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/audit/creatures-1.9.8.1/REPORT.md",
+      "sha256": "59f1de41390c05646138560378ade2d07d55846e5c06c4e3361f865880ed915f",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/audit/creatures-1.9.8.1/ATTACKS.csv",
+      "sha256": "e0207e5ef28f5371ecdd615f624a088790d8432bef1cf8993a4bc30f7bbee1d5",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/audit/creatures-1.9.8.1/CREATURES.csv",
+      "sha256": "11dfa926d58f480e30bb22185f131491bdd1953d0dfa144778f19074aab5ac6e",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/audit/creatures-1.9.8.1/FORMS.md",
+      "sha256": "4ccb9050c5b84ff941f9ffef4b4184eb2ac036267b5bb020105eed036c228bcf",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/audit/creatures-1.9.8.1/TECHNICAL_RISKS.md",
+      "sha256": "00c8906c03baa398db25dd7ef5d60a012a0e0abf9bf8b350731405a2796863b9",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/audit/creatures-1.9.8.1/UNVERIFIED.csv",
+      "sha256": "ff29eb1673b656cf628e52f7e9b1abe7d6e6ab18eab341bdc55f4f281b7b5175",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/audit/creatures-1.9.8.1/REPORT_BEFORE_FINALIZATION.md",
+      "sha256": "f01aa55d9b58275ff192e2df0e849c4a3b7ca601ea67a77561006349a801c803",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/audit/creatures-1.9.8.1/completion-summary.json",
+      "sha256": "a1cba7c586e03bc47ddb3199d3e3cb9d14a1a148f1509d022ac5d79cf6d405d6",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "docs/audit/creatures-1.9.8.1/table-checks.json",
+      "sha256": "5c1b7a13785cda3c8594f0f9135d17f6fc2088db5a92a3fda88b707ff0094bc2",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "tools/check_creature_audit_tables_1981.py",
+      "sha256": "48f0dbba05fb2d5517e7e7417b076ef9eb82f522e5bd48aa656365902aa7f878",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "tools/finalize_creature_audit_1981.py",
+      "sha256": "5a229c59b62b5146b5d2d37e071d818f40f48b411ea1d36952e98bca2bd2b841",
+      "before_sha256": "owned new/preceding audit file"
+    },
+    {
+      "path": "tools/finalize_creature_audit_docs_1981.py",
+      "sha256": "c135d1c5fad51d9e5d15e58707283d9145c8a91db01f7d2b07574137fdac2fad",
+      "before_sha256": "owned new/preceding audit file"
+    }
+  ],
+  "manifest_path": "docs/implementation/creatures-1.9.8.2/FILES.json",
+  "manifest_self_checksum": "omitted to avoid self-reference",
+  "total_files": 44,
+  "categories": {
+    "production_java": 19,
+    "test_and_audit_tools": 6,
+    "resources": 0,
+    "documentation": 19
+  },
+  "review_date": "2026-10-14",
+  "checks_provenance": "historical stage run; this review did not rerun build/tests",
+  "native_assertion_classification": {
+    "helper_nbt_attribute_behaviour": 1515,
+    "limited_firebird_behaviour": 9,
+    "fixed_values_and_arithmetic": 21,
+    "total": 1545
+  },
+  "review_observations": {
+    "recorded_jar_sha256": "8a66c7b51dbc377c7ee331d9dc8598e7dca42f0adb66727c59621a8fc73bd2c5",
+    "observed_jar_sha256": "8a66c7b51dbc377c7ee331d9dc8598e7dca42f0adb66727c59621a8fc73bd2c5",
+    "jar_matches_recorded": true,
+    "root_diff_check_exit": 0,
+    "audit_cached_diff_check_exit": 0,
+    "parallel_source_paths_observed": [
+      "src/main/java/org/slavicmyths/client/YagaScreen.java",
+      "src/main/java/org/slavicmyths/equipment/mixin/WardBlockMixin.java",
+      "src/main/java/org/slavicmyths/gorynych/GorynychRewards.java",
+      "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
+      "src/main/java/org/slavicmyths/item/ItemState.java",
+      "src/main/java/org/slavicmyths/morozko/FrostCold.java",
+      "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java",
+      "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java",
+      "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "src/main/java/org/slavicmyths/rpg/RuneDefinition.java",
+      "src/main/java/org/slavicmyths/rpg/RuneEffects.java",
+      "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+      "src/main/java/org/slavicmyths/rpg/Runes.java",
+      "src/main/java/org/slavicmyths/yaga/YagaMenu.java",
+      "src/main/java/org/slavicmyths/yaga/YagaServices.java",
+      "src/main/resources/assets/slavicmyths/lang/en_us.json",
+      "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+      "src/main/resources/data/slavicmyths/tags/entity_type/rune_death_immune.json"
+    ]
+  },
+  "checksum_scope": "canonical audit worktree; shared root documentation can contain separate parallel edits"
+}

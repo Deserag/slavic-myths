@@ -4,7 +4,7 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public final class FrostConfig {
  public static final ModConfigSpec SPEC;
  public static final ModConfigSpec.DoubleValue HEALTH;
- static{var b=new ModConfigSpec.Builder();HEALTH=b.comment("Morozko maximum HP; trial ends at 5%.").defineInRange("maxHealth",1000d,100d,1024d);SPEC=b.build();}
+ static{var b=new ModConfigSpec.Builder();HEALTH=b.comment("Morozko maximum HP; trial ends at 5%.").defineInRange("maxHealth",1400d,100d,10000d);SPEC=b.build();}
  public static float health(){return HEALTH.get().floatValue();}
  private FrostConfig(){}
 }

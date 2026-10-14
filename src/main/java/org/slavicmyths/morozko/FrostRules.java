@@ -2,7 +2,7 @@ package org.slavicmyths.morozko;
 
 /** Pure policy: HP, timers and admission shared by the server and offline tests. */
 public final class FrostRules {
- public static final float BOSS_HP=1000,DOUBLE_HP=50,MIRROR_HP=15,MELEE=10,BOLT=8;
+ public static final float BOSS_HP=1400,DOUBLE_HP=50,MIRROR_HP=15,MELEE=10,BOLT=8;
  public static final int MIRROR_LIFE=600,MIRROR_CD=3600,TRIAL_CD=2400,WIN_CD=3600;
  public static final int STREAM_CD=200,ICICLE_CD=400,WAVE_CD=320;
  public static final double BOUNDARY=40,AURA=8;

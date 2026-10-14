@@ -18,9 +18,9 @@ public final class Karachun extends PathfinderMob implements Enemy {
  public Karachun(EntityType<? extends Karachun> t,net.minecraft.world.level.Level w){super(t,w);setPersistenceRequired();xpReward=0;}
  public static AttributeSupplier.Builder attributes(){return createMobAttributes().add(Attributes.MAX_HEALTH,1024).add(Attributes.MOVEMENT_SPEED,.2).add(Attributes.ARMOR,10).add(Attributes.ATTACK_DAMAGE,12).add(Attributes.FOLLOW_RANGE,40).add(Attributes.KNOCKBACK_RESISTANCE,.9);}
  @Override protected void registerGoals(){goalSelector.addGoal(0,new net.minecraft.world.entity.ai.goal.FloatGoal(this));}
- @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(PHASE,0);b.define(ACTION,0);b.define(AGE,0);b.define(MAX,1200f);}
+ @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(PHASE,0);b.define(ACTION,0);b.define(AGE,0);b.define(MAX,1600f);}
  /** Like the existing Poloz, own health ceiling avoids vanilla's 1024 attribute clamp. */
- @Override public float getMaxHealth(){return entityData==null?1200:entityData.get(MAX);}
+ @Override public float getMaxHealth(){return entityData==null?1600:entityData.get(MAX);}
  public void configureHealth(float health){entityData.set(MAX,health);setHealth(health);}
  public int phase(){return entityData.get(PHASE);}public int action(){return entityData.get(ACTION);}public int age(){return entityData.get(AGE);}public boolean fighting(){return session!=null&&phase()>=1&&phase()<=3;}
  public boolean candidate(LivingEntity e){return fighting()&&e.isAlive()&&NightOwners.owner(e)!=null&&e.position().distanceToSqr(anchor)<=Math.pow(NightConfig.value("arena"),2)&&(!(e instanceof ServerPlayer p)||!p.isSpectator()&&(!p.isCreative()||p.getUUID().equals(owner)))&&(!(e instanceof Mob)||e instanceof org.slavicmyths.morozko.PlayerDouble||e instanceof org.slavicmyths.quest185.WolfSupport||e instanceof net.minecraft.world.entity.TamableAnimal||org.slavicmyths.bogatyr.HeroThreats.availableHero(e));}
@@ -65,6 +65,14 @@ public final class Karachun extends PathfinderMob implements Enemy {
  @Override public void die(DamageSource s){if(!level().isClientSide)yieldTrial();}
  @Override protected void dropAllDeathLoot(ServerLevel w,DamageSource s){}
  @Override public void remove(RemovalReason r){if(!level().isClientSide){cleanup();bar.removeAllPlayers();if(session!=null&&phase()<4){var d=NightLedger.get((ServerLevel)level());d.session(session).putBoolean("Cancelled",true);d.setDirty();}}super.remove(r);}
- @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);n.putFloat("NightMax",getMaxHealth());if(session!=null)n.putUUID("NightSession",session);}
- @Override public void readAdditionalSaveData(CompoundTag n){if(n.contains("NightMax"))entityData.set(MAX,n.getFloat("NightMax"));super.readAdditionalSaveData(n);if(n.hasUUID("NightSession")){session=n.getUUID("NightSession");if(level() instanceof ServerLevel w){NightLedger.get(w).session(session).putBoolean("Cancelled",true);NightLedger.get(w).setDirty();}}}
+ @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);org.slavicmyths.combat.CreatureHealthBalance.mark(n);n.putFloat("NightMax",getMaxHealth());if(session!=null)n.putUUID("NightSession",session);}
+ @Override public void readAdditionalSaveData(CompoundTag n){float oldMax=n.contains("NightMax")?n.getFloat("NightMax"):1200;
+  if(!Float.isFinite(oldMax)||oldMax<=0)oldMax=1200;
+  float newMax=oldMax;
+  if(n.getInt(org.slavicmyths.combat.CreatureHealthBalance.KEY)<1){
+   newMax=oldMax==1200?(float)Math.max(100,NightConfig.value("health")):oldMax;
+   var migrated=n.copy();if(n.contains("Health"))migrated.putFloat("Health",org.slavicmyths.combat.CreatureHealthBalance.proportional(n.getFloat("Health"),oldMax,newMax));
+   org.slavicmyths.combat.CreatureHealthBalance.mark(migrated);n=migrated;
+  }
+  session=null;entityData.set(MAX,newMax);super.readAdditionalSaveData(n);if(n.hasUUID("NightSession")){session=n.getUUID("NightSession");if(level() instanceof ServerLevel w){NightLedger.get(w).session(session).putBoolean("Cancelled",true);NightLedger.get(w).setDirty();}}}
 }
