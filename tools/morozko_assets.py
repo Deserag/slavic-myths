@@ -192,4 +192,7 @@ def add_tag(path,item):
  old=json.loads(path.read_text()) if path.exists() else {'replace':False,'values':[]};old['values']=list(dict.fromkeys(old['values']+[item]));return old
 def main():
  O.mkdir(parents=True,exist_ok=True);r=boss();emit(r);icons();audio();resources();from summon_access_policy import apply;apply();print('Morozko:',len(r.bones),'bones;',len(r.boxes),'boxes; 6 icons; 21 original OGG')
-if __name__=='__main__':main()
+if __name__=='__main__':
+ main()
+ from reward_weapon_texts import apply
+ apply()

@@ -1,3 +1,7 @@
+## Issue #6: поток Морозка — 2026-10-14
+
+Изолированное исправление lifecycle: server deadline60, heartbeat grace20, неизменные урон/CD200, серверный HUD remaining/ready и причины остановки. Четыре нативных server checks PASS, включая реальные60 тиков; это не сетевой lag-тест. Clean build PASS; client/dedicated connection PENDING. Отчёт: docs/reward-issues/ISSUE_6.md. Интеграция всей актуальной сборки выполняется отдельно по #10.
+
 ## Патч оружия — визуальная ревизия брони (2026-10-13)
 
 Runtime changes только в4 существующих Dist.CLIENT armor model implementations: выделенные UV islands, солнечная застёжка, передние драконьи вставки, приталенный robe/split pointed tails и широкий воинский стяг. Generated item models используются для3 прежних cuboid items. armor_revision_assets — детерминированный финальный overlay, legacy hooks сохраняют weapon overlay. Никаких common/server зависимостей от клиента или новых gameplay систем. Native bake/UV fixture и software projection — tools-only, исключены из production. [Аудит/проверки](armor-revision/REPORT.md).
