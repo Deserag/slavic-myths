@@ -1,3 +1,7 @@
+## Issue #5: Буря арбалета — 2026-10-14
+
+Crossbow-only damage3/SlowII40/radius3/max8/targetCD30/LOS; native arrow затем разряд, bounded electrical VFX, vanilla sound. Руна storm_strike/Мор сохранены. Clean build и3 native server checks PASS, client/network/boss audit PENDING. Отчёт docs/reward-issues/ISSUE_5.md.
+
 ## Патч оружия — визуальная ревизия брони (2026-10-13)
 
 Runtime changes только в4 существующих Dist.CLIENT armor model implementations: выделенные UV islands, солнечная застёжка, передние драконьи вставки, приталенный robe/split pointed tails и широкий воинский стяг. Generated item models используются для3 прежних cuboid items. armor_revision_assets — детерминированный финальный overlay, legacy hooks сохраняют weapon overlay. Никаких common/server зависимостей от клиента или новых gameplay систем. Native bake/UV fixture и software projection — tools-only, исключены из production. [Аудит/проверки](armor-revision/REPORT.md).

@@ -13,6 +13,7 @@
     "Quest185CrafterMixin",
     "Quest185BlockChangeMixin",
     "GorynychEffectDuration",
+    "GorynychStormArrowMixin",
     "WintersInventoryMixin"
   ],
   "client": [

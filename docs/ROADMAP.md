@@ -1,3 +1,7 @@
+## Issue #5: Буря арбалета — 2026-10-14
+
+Crossbow-only damage3/SlowII40/radius3/max8/targetCD30/LOS; native arrow затем разряд, bounded electrical VFX, vanilla sound. Руна storm_strike/Мор сохранены. Clean build и3 native server checks PASS, client/network/boss audit PENDING. Отчёт docs/reward-issues/ISSUE_5.md.
+
 ## Патч оружия — ревизия брони (2026-10-13)
 
 Ревизия существующей брони по заданию1.9.10 выполнена поверх текущей1.9.7:22 иконки/надетые текстуры,3 item model,4 client classes. Новые комплекты/баланс не добавлены. Остались ручная визуальная приёмка Steve/Alex, позы/смешанные комплекты/trim. Аудит существ и его решения не реализовывались. Clean build/resources PASS; игровые запуски0. [Отчёт](armor-revision/REPORT.md).
