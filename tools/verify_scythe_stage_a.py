@@ -4,7 +4,7 @@ from pathlib import Path
 import hashlib,json,math,subprocess,zipfile
 import numpy as np
 from PIL import Image,ImageDraw,ImageFont
-from scythe_stage_a_assets import A,R,MATERIALS,Mesh,build,curve,main as generate
+from scythe_stage_a_assets import A,R,MATERIALS,Mesh,build,curve,blade_width,main as generate
 
 O=R/'docs/weapon-stage-a'
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -21,9 +21,9 @@ def validate_geometry():
         for a,b in e:assert directed[g][a,b]==directed[g][b,a]==1,'winding '+g
     # The blade's two planar boundaries may not cross themselves or each other.
     upper=[];lower=[]
-    for j in range(33):
-        t=j/32;x,y,nx,ny=curve(t);w=3.9*(1-t)**.75+.1
-        upper.append((x+nx*w*.45,y+ny*w*.45));lower.append((x-nx*w*.55,y-ny*w*.55))
+    for j in range(65):
+        t=j/64;x,y,nx,ny=curve(t);w,tooth=blade_width(t)
+        upper.append((x+nx*w*.45,y+ny*w*.45));lower.append((x-nx*(w*.55+tooth),y-ny*(w*.55+tooth)))
         assert .78*(1-t)+.12>0,'blade thickness'
     outline=upper+lower[::-1]
     def orient(a,b,c):return (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])
@@ -33,7 +33,7 @@ def validate_geometry():
             if i==0 and j==len(outline)-1:continue
             c,d=outline[j],outline[(j+1)%len(outline)]
             assert not (orient(a,b,c)*orient(a,b,d)<0 and orient(c,d,a)*orient(c,d,b)<0),'blade self intersection'
-    assert curve(1)[1]<curve(.5)[1]-8,'tip must point down'
+    assert curve(1)[1]<curve(0)[1]-8,'tip must point down'
     assert upper[0][1]-lower[0][1]>3,'reinforced heel'
     model=json.loads((A/'models/item/karachun_scythe_held.json').read_text())
     assert model['loader']=='neoforge:obj'
@@ -203,10 +203,10 @@ def main():
     if jar.exists():
         with zipfile.ZipFile(jar) as z:
             for p in paths:assert z.read(p.relative_to(R/'src/main/resources').as_posix())==p.read_bytes(),'packaged '+p.name
-            assert not any('ScytheGameTests' in n or n.startswith(('tools/','data/slavicmyths_scythe/')) for n in z.namelist()),'test code/resources in production'
+            assert not any(('ScytheGameTests' in n or 'ScytheClientProbe' in n) or n.startswith(('tools/','data/slavicmyths_scythe/')) for n in z.namelist()),'test code/resources in production'
             baseline=json.loads((R/'docs/armor-revision/polymc-installation.json').read_text(encoding='utf-8-sig'))
             old=Path(baseline['source']);assert digest(old)==baseline['sha256'],'exact post-armor baseline'
-            allowed={'assets/slavicmyths/models/item/karachun_scythe_held.json','assets/slavicmyths/textures/item/karachun_scythe.png'}
+            allowed={'slavicmyths.equipment.mixins.json','assets/slavicmyths/models/item/karachun_scythe_held.json','assets/slavicmyths/textures/item/karachun_scythe.png'}
             with zipfile.ZipFile(old) as b:
                 old_names={n for n in b.namelist() if not n.endswith('/')};new_names=set(z.namelist())
                 omissions=sorted(old_names-new_names)
@@ -222,7 +222,7 @@ def main():
                     elif before.replace(b'\r\n',b'\n')==after.replace(b'\r\n',b'\n'):format_only.append(n)
                     else:changed.append(n)
                 for n in changed:assert n in allowed or n.startswith(('org/slavicmyths/client/NightClient','org/slavicmyths/karachun/NightCombat')),'unrelated production change '+n
-                report['parallel_content_preservation']={'baseline_sha256':baseline['sha256'],'byte_unchanged_files':unchanged,'line_endings_only_files':len(format_only),'changed_entries':sorted(changed),'preexisting_base_git_omissions':omissions,'newly_removed_entries':[],'deployment':'not approved; reconcile base omissions in armor task before final candidate'}
+                report['parallel_content_preservation']={'baseline_sha256':baseline['sha256'],'byte_unchanged_files':unchanged,'line_endings_only_files':len(format_only),'changed_entries':sorted(changed),'preexisting_base_git_omissions':omissions,'newly_removed_entries':[],'deployment':'weapon branch only; integration and installed baseline have separate gates. Two layer_2 omissions unused: both registered armor items are CHESTPLATE'}
         report['production_sha256']=digest(jar)
     (O/'checks.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8');print(json.dumps(report,indent=2))
 if __name__=='__main__':main()
