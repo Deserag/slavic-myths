@@ -44,8 +44,9 @@ def main():
                 im=Image.open(io.BytesIO(z.read(n)));im.verify();need(True,'PNG '+n)
         base='assets/slavicmyths/models/item/'
         held=json.loads(z.read(base+'karachun_scythe_held.json'))
-        need(len(held['elements'])==8,'compact scythe')
-        need(all(e['to'][2]>e['from'][2] for e in held['elements']),'solid blade thickness')
+        from verify_scythe_stage_a import validate_geometry
+        validate_geometry()
+        need(held.get('loader') == 'neoforge:obj', 'continuous crescent loader')
         for name in ['karachun_scythe_held','victor_spear','likho_staff','ataman_flail','trophy_kalin_sabre','serpent_crossbow','three_breath_crossbow']:
             m=json.loads(z.read(base+name+'.json'))
             for context in ['firstperson_righthand','firstperson_lefthand','thirdperson_righthand','thirdperson_lefthand','gui','ground','fixed','head']:

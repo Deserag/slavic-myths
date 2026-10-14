@@ -19,23 +19,8 @@ def main():
     for i, color in enumerate(palette):
         ImageDraw.Draw(atlas).rectangle((i,0,i,15),fill=color)
     atlas.save(A/'textures/item/weapon_scythe_surface.png')
-    es = [box([8,-6,7],[9.5,24,8.5],0), box([7.7,5,6.7],[9.8,7,8.8],2),
-          box([7.7,21,6.7],[9.8,23,8.8],2), box([2,23,7.25],[9.5,26,8.25],2),
-          box([-3,22,7.25],[2,25,8.25],3), box([-7,19,7.25],[-3,23,8.25],3),
-          box([-9,15,7.25],[-7,20,8.25],4), box([-10,12,7.25],[-9,17,8.25],4)]
-    display = {'gui': {'rotation':[0,0,0],'scale':[.5]*3},
-        'ground': {'translation':[0,3,0],'scale':[.35]*3},
-        'fixed': {'scale':[.45]*3}, 'head': {'translation':[0,8,0],'scale':[.4]*3}}
-    for side, sign in [('righthand',1),('lefthand',-1)]:
-        display['firstperson_'+side] = {'rotation':[0,sign*-65,sign*12], 'translation':[sign*3,-2,-3], 'scale':[.52]*3}
-        display['thirdperson_'+side] = {'rotation':[0,sign*90,0], 'translation':[0,1,0], 'scale':[.75]*3}
-    write(A/'models/item/karachun_scythe_held.json', {'textures':{'surface':'slavicmyths:item/weapon_scythe_surface','particle':'slavicmyths:item/weapon_scythe_surface'},'elements':es,'display':display})
-    icon=Image.new('RGBA',(16,16));d=ImageDraw.Draw(icon)
-    d.line((12,3,12,15),fill=palette[1],width=1)
-    d.line([(12,3),(10,1),(6,1),(3,3),(1,7)],fill=palette[3],width=2)
-    d.line([(10,2),(6,2),(3,4),(1,8)],fill=palette[4],width=1)
-    for y in [5,11]:d.line((11,y,13,y),fill=palette[2])
-    icon.save(A/'textures/item/karachun_scythe.png')
+    from scythe_stage_a_assets import main as scythe_stage_a
+    scythe_stage_a()
     # Distinct silhouettes specified before construction:
     # Victor: 26-unit oak shaft + narrow 6-unit steel point, brass collar.
     # Likho: crooked 24-unit dark staff + asymmetric 5-unit iron eye socket.

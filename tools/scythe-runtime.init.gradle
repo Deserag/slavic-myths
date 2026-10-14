@@ -1,0 +1,13 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { scytheRuntime { java.srcDir 'tools/smoke/scythe-stage-a'; resources.srcDir 'tools/smoke/scythe-stage-a-resources' } }
+ p.sourceSets.scytheRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.scytheRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileScytheRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.scytheRuntime)
+ p.neoForge.runs { scytheChecks {
+  type = 'gameTestServer'
+  gameDirectory = p.file('work/scythe-stage-a/runtime-'+(p.findProperty('scytheRun') ?: 'checks'))
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_scythe'
+  systemProperty 'slavicmyths.scytheRoot', p.projectDir.absolutePath
+ } }
+} }

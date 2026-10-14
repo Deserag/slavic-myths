@@ -46,7 +46,9 @@ def main():
    for e in v['sounds']:need(jar.read('assets/slavicmyths/sounds/'+e['name'].split(':')[1]+'.ogg').startswith(b'OggS'),'ogg '+key)
   for name,minimum in [('karachun',250),('karachun_raven',50)]:
    rig=json.loads((O/f'{name}-rig.json').read_text());need(len(rig['boxes'])>=minimum,'own geometry '+name);atlas=Image.open(A/f'textures/entity/{name}.png');need(atlas.size==(rig['atlas'],rig['atlas']),'atlas');need(all(b['uv'][0]+b['uv'][2]<=rig['atlas'] and b['uv'][1]+b['uv'][3]<=rig['atlas'] for b in rig['boxes']),'UV rectangle')
-  held=json.loads((A/'models/item/karachun_scythe_held.json').read_text());rig=json.loads((O/'karachun-rig.json').read_text());need(len(held['elements'])==sum(b['bone']=='scythe' for b in rig['boxes']),'shared scythe mesh');need(all(e['to'][2]>e['from'][2] for e in held['elements']),'physical blade thickness');need(all(-16<=n<=32 for e in held['elements'] for k in ['from','to'] for n in e[k]),'vanilla JSON coordinate limits')
+  # Player scythe is deliberately independent of the boss's larger mesh.
+  from verify_scythe_stage_a import validate_geometry
+  validate_geometry();need(True,'closed tapered player scythe / UV / contexts')
   poloz=(R/'src/main/java/org/slavicmyths/client/PolozRenderer.java').read_text();need(poloz.index('var buffer=b.getBuffer')>poloz.index('RenderType.eyes'),'Poloz buffer crash regression')
   nsub=subscribers(J);need(nsub>0,'event subscriber audit')
  result={'status':'PASS','checks':checks,'version':'1.9.2','sha256':hashlib.sha256(J.read_bytes()).hexdigest(),'baseline':oldsha,'event_subscribers':nsub,'changed_existing_resources':changed,'original_sound_events':24,'client_starts':0,'server_starts':0,'gameplay':'NOT_RUN','MSPT':'NOT_MEASURED'};O.mkdir(parents=True,exist_ok=True);(O/'resource-gates.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print(json.dumps(result,ensure_ascii=False))
