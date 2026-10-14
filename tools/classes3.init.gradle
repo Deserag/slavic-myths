@@ -1,0 +1,22 @@
+allprojects {
+    afterEvaluate {
+        sourceSets {
+            classes3Check {
+                java.srcDirs = ['tools/classes3-tests','tools/class-tests']
+                resources.srcDirs = ['tools/class-test-resources']
+                compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+                runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+            }
+        }
+        tasks.named('compileClasses3CheckJava') { dependsOn 'classes' }
+        neoForge.mods.slavicmyths.sourceSet(sourceSets.classes3Check)
+        neoForge.runs {
+            classes3Checks {
+                type = 'gameTestServer'
+                gameDirectory = file('run-classes3-qa')
+                systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_classes'
+                systemProperty 'slavicmyths.classes3Phase', project.findProperty('classes3Phase') ?: 'both'
+            }
+        }
+    }
+}

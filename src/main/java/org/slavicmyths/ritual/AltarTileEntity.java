@@ -42,6 +42,7 @@ public final class AltarTileEntity extends BlockEntity {
             ItemStack result = Rituals.result(rite);
             if (!player.getInventory().add(result)) player.drop(result, false);
             if (rite == Rituals.FIRST) Knowledge.award(player, "first_ritual");
+            if(player instanceof net.minecraft.server.level.ServerPlayer server&&org.slavicmyths.rpg.classes.ClassState.data(server).getString("Base").equals("vedun"))org.slavicmyths.rpg.classes.ClassXpService.once(server,org.slavicmyths.rpg.classes.ClassXpService.AwardSource.ROLE,"ritual/"+rite,8);
         }
         setChanged();
         level.playSound(null, worldPosition, complete ? SoundEvents.ENCHANTMENT_TABLE_USE : SoundEvents.EXPERIENCE_ORB_PICKUP,

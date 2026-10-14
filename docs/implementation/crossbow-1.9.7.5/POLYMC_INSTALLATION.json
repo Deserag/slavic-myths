@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "version": "1.9.7.5",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.5.jar",
+  "sha256": "75d00b6ee28d2991e2a76175d1d17158955928763e7c46ef6a788480aa59914c",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-crossbow-1975-20261014-211940",
+  "previous_hashes": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.4.jar": "588d1f21841868baedbd71ebaea03dff0d45004213247a24bbb0c4c1e4b68528"
+  },
+  "other_files_preserved": 607,
+  "configuration_changes": 1,
+  "name_before": "Slavic Myths 1.9.7.4 - NeoForge 1.21.1 TEST — Патч оружия — Исправления существ — Творческий инвентарь — Исправления оружия — Восстановление оружия — Руны III–IV — Исправления урона и навыков",
+  "name_after": "Slavic Myths 1.9.7.5 - NeoForge 1.21.1 TEST — Патч оружия — Исправления существ — Творческий инвентарь — Исправления оружия — Восстановление оружия — Руны III–IV — Исправления урона и навыков — Арбалет: три силы",
+  "client_starts": 0,
+  "server_starts": 0,
+  "worlds": "NOT_TOUCHED",
+  "old_1_16_5": "NOT_TOUCHED"
+}

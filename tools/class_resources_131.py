@@ -139,6 +139,9 @@ def main():
     (ROOT/'work').mkdir(exist_ok=True);sheet.save(ROOT/'work/class-icons-131.png')
     import class_ui_resources_1323
     class_ui_resources_1323.main()
+    # Latest class assets must be restored after the historical UI layer.
+    import runpy
+    runpy.run_path(str(ROOT/'tools/classes3_assets.py'),run_name='__main__')
     print(f'Generated {len(SKILLS)} skill icons, 3 class icons, bilingual text and class tags.')
 
 if __name__=='__main__':main()

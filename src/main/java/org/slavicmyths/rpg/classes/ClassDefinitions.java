@@ -55,6 +55,12 @@ public final class ClassDefinitions {
         evolution(s,"greater_hex","vedun","hex","koldun",10);
         evolution(s,"true_shot","razboinik","keen_eye","strelok",25);
         evolution(s,"raider_dash","razboinik","dash","naletchik",25);
+        add(s,"battle_discipline","druzhinnik",Kind.PASSIVE,10,"steadfast",1,"",ints(0,0,0),ints(0,0,0),nums(0,0,0),nums(.03,.05,.07));
+        add(s,"iron_will","druzhinnik",Kind.PASSIVE,15,"temper",1,"",ints(400,400,400),ints(40,40,40),nums(0,0,0),nums(.06,.09,.12));
+        add(s,"spiritual_fortitude","vedun",Kind.PASSIVE,10,"herbalism",1,"",ints(0,0,0),ints(0,0,0),nums(0,0,0),nums(.10,.15,.20));
+        add(s,"sign_mastery","vedun",Kind.PASSIVE,15,"ward_power",1,"",ints(0,0,0),ints(0,0,0),nums(0,0,0),nums(.08,.12,.16));
+        add(s,"ambush_master","razboinik",Kind.PASSIVE,10,"steady_aim",1,"",ints(0,0,0),ints(0,0,0),nums(0,0,0),nums(.08,.12,.16));
+        add(s,"survival_instinct","razboinik",Kind.PASSIVE,15,"light_step",1,"",ints(1200,1200,1200),ints(60,60,60),nums(0,0,0),nums(.10,.15,.20));
         SKILLS=Collections.unmodifiableMap(s);
         var b=new LinkedHashMap<String,Branch>();
         branch(b,"vityaz","druzhinnik","druzhinnik",10,"lunge",1.1);branch(b,"griden","druzhinnik","druzhinnik",10,"shield_ram",1.1);

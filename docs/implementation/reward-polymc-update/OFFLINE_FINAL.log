@@ -1,0 +1,39 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileToolRunesOffline
+
+> Task :toolRunesOfflineChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+TOOL_RUNES_OFFLINE_CHECKS=11731 DETECTOR_SCENES=40 GAME_STARTS=0
+
+> Task :compileRunesCraftOffline
+
+> Task :runesCraftOfflineChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+RUNES_CRAFT_OFFLINE_CHECKS=3518
+
+> Task :compileWeaponFeedbackOffline
+
+> Task :weaponFeedbackOffline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[20:56:03] [main/WARN] [minecraft/DetectedVersion]: Missing version information!
+WEAPON_FEEDBACK_OFFLINE_PASS checks=41260; no Minecraft launches; gameplay and visual QA not run
+
+> Task :compileNightOffline
+
+> Task :nightOfflineChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+NIGHT_OFFLINE_PASS checks=40 simulations=10000 nativeUvVertices=8352; no game launches; NBT is not relog
+
+> Task :compilePolozOffline
+
+> Task :polozOfflineChecks
+POLOZ_OFFLINE_PASS checks=4215 nativeModels=8; no game launch
+
+BUILD SUCCESSFUL in 22s
+13 actionable tasks: 10 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

@@ -21,12 +21,12 @@ public final class ClassNetwork {
         public Type<Open> type(){return TYPE;}
     }
     public static final class OpenEvent extends Event {}
-    public static void register(RegisterPayloadHandlersEvent event){var r=event.registrar("1.3.2.1");
+    public static void register(RegisterPayloadHandlersEvent event){var r=event.registrar("classes-3");
         r.playToClient(Open.TYPE,Open.CODEC,(p,c)->NeoForge.EVENT_BUS.post(new OpenEvent()));
         r.playToServer(Intent.TYPE,Intent.CODEC,(i,c)->{if(c.player() instanceof ServerPlayer p)handle(p,i);});
     }
     public static boolean handle(ServerPlayer p,Intent i){
-        if(!p.isAlive()||p.isSpectator()||i.id().length()>64||i.action()<0||i.action()>6||i.action()==4&&(i.slot()<0||i.slot()>2))return false;
+        if(!p.isAlive()||p.isSpectator()||i.id().length()>64||i.action()<0||i.action()>7||i.action()==4&&(i.slot()<0||i.slot()>2))return false;
         long now=ClassState.now(p);var temp=p.getPersistentData();String gate=i.action()==4?"ClassSkillRequest"+i.slot()+"Until":"ClassRequestUntil";if(temp.getLong(gate)>now)return false;temp.putLong(gate,now+2);
         return switch(i.action()){
             case 0 -> ClassState.choose(p,i.id());
@@ -36,6 +36,7 @@ public final class ClassNetwork {
             case 4 -> ClassRuntime.activate(p,i.slot());
             case 5 -> {ClassState.data(p).putBoolean("Hud",i.slot()!=0);ClassState.sync(p);yield true;}
             case 6 -> {open(p);yield true;}
+            case 7 -> ClassUltimateRuntime.activate(p);
             default -> false;
         };
     }

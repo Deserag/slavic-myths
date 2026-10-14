@@ -33,6 +33,6 @@ public final class GorynychContent {
  public static Item bottle(int type){return item(type==0?"gorynych_mor_breath_bottle":type==1?"gorynych_flame_breath_bottle":"gorynych_storm_breath_bottle");}
  public static net.minecraft.network.chat.MutableComponent text(String key,Object...args){return net.minecraft.network.chat.Component.translatable("gorynych196."+key,args);}
  public static void sound(net.minecraft.world.level.Level w,net.minecraft.core.BlockPos p,String key){w.playSound(null,p,SOUNDS.get(key).get(),SoundSource.HOSTILE,key.equals("ambient_low")?.15f:.65f,1);}
- public static void init(net.neoforged.bus.api.IEventBus bus){GorynychUpgrade.SERIALIZERS.register(bus);bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent e)->e.put(BOSS.get(),Gorynych.attributes().build()));}
+ public static void init(net.neoforged.bus.api.IEventBus bus){GorynychUpgrade.SERIALIZERS.register(bus);bus.addListener(FlameVfx::register);bus.addListener(StormVfx::register);bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent e)->e.put(BOSS.get(),Gorynych.attributes().build()));}
  private GorynychContent(){}
 }
