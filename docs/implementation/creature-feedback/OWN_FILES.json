@@ -1,0 +1,212 @@
+[
+  {
+    "path": "docs/ARCHITECTURE.md",
+    "kind": "documentation",
+    "sha256": "7bd5c01fd947635e2120973f5ee77fee8b6736fd88122fa3baac1184dfdb9fc9",
+    "new": false
+  },
+  {
+    "path": "docs/PROJECT_STATUS.md",
+    "kind": "documentation",
+    "sha256": "846e0926cd8f4c0aeeb4527d799b92d2aa8f3ddd899197ee3dd34705dd656049",
+    "new": false
+  },
+  {
+    "path": "docs/ROADMAP.md",
+    "kind": "documentation",
+    "sha256": "8e9accd5d0dbda92f970d44d6b1b6041ecae95296ce87339b7f25a059317fa08",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/ChudPeopleClient.java",
+    "kind": "production Java",
+    "sha256": "5d26a23b4cd997bebe733aba30a440933a861834904039aac7d994e2b13677c9",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/GorynychModel.java",
+    "kind": "production Java",
+    "sha256": "34c8aa4e6504ec76f82a886c560f305753a0f09868ae304046c38337f08908db",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/PolozRenderer.java",
+    "kind": "production Java",
+    "sha256": "855652cb408a0c03cc09059957b928169fd50e9fd9dae7b76d273575c45a9a30",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/CombatTargeting.java",
+    "kind": "production Java",
+    "sha256": "e36d2a778f431e0e2e2cb451497a9ec9667fda8edebcfc6082eb3bed86b05bf5",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/CreatureSafety.java",
+    "kind": "production Java",
+    "sha256": "785ee146e7e7dedbfd6c1434dc04ba8f6085accc69a2167e2071788c20a43555",
+    "new": true
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/earth/EarthSpirit.java",
+    "kind": "production Java",
+    "sha256": "22211beebeb91ea364a1c3f22943b1df9a29fcb53d3e71dd8873de55330aae1f",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/finist/KartausEntity.java",
+    "kind": "production Java",
+    "sha256": "164cbb0c424d9b2f1ca55865d4249613423984830dc0a1ce2c3db46849b6b9f5",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/gorynych/Gorynych.java",
+    "kind": "production Java",
+    "sha256": "9011efbfa9a8ba4adea1b58debcce6e95750872fef9a952ad7d630948e6848a8",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/gorynych/GorynychPose.java",
+    "kind": "production Java",
+    "sha256": "c2d6ab20e4709ef3da8dc27d1aaeac0c0f565caa2f74af1eb344c4c7aba6b206",
+    "new": true
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/gorynych/GorynychWorld.java",
+    "kind": "production Java",
+    "sha256": "33ba9d32dae3d4672eeca52e50af45da63c475aadb69c94f52eeb5917872ff20",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/guardians/GuardianEntity.java",
+    "kind": "production Java",
+    "sha256": "2f5de4cfde2c919f61d2ae8c010161b5ea867d89847620494135f32a7f29e002",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/guardians/GuardianWorld.java",
+    "kind": "production Java",
+    "sha256": "0b352e4c50c32306b22ffcf45b3b1a07eedaa08e4b28117afa0c2dc7e231f49b",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/hunt/WorldBoss.java",
+    "kind": "production Java",
+    "sha256": "1e06b1db406510ec8b142fb6e8cd02ea8423824fb502b6394f800549d4a364ba",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/industry/ChudPerson.java",
+    "kind": "production Java",
+    "sha256": "2e5c6da3d077a84c332e2791ea8facd93e75e978a89684583b2e17d91849451d",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/kalin/KalinEntity.java",
+    "kind": "production Java",
+    "sha256": "87d041e6ab0d0e0ac529db0bce6a793c4b7a45aeca49df0262b4fc3651efadcb",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/Karachun.java",
+    "kind": "production Java",
+    "sha256": "c1ad460e0de617ece04d24ee92473e32631b83d98779c0bc7bb238f9f819c5ad",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightNetwork.java",
+    "kind": "production Java",
+    "sha256": "941e05adc99dd9ca4ae3380c47ddacddc4e7647e62c55f370b85de44b5c1b10e",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightStatus.java",
+    "kind": "production Java",
+    "sha256": "630f6beea473a885cbe4dcbbfed6a7663e00657ceba36fbc7c2898278e508b84",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/marinka/MarinkaEntity.java",
+    "kind": "production Java",
+    "sha256": "1d948b65ad008e737658ad0209b2335be641a6d0b28c85e5e289d42d7c81c898",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/morozko/Morozko.java",
+    "kind": "production Java",
+    "sha256": "8b4dbc4f4f5322fdaaa1a6d4d991bdfb73b78787d928520dbe5d0ed77f432bb7",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/poloz/GreatPoloz.java",
+    "kind": "production Java",
+    "sha256": "d5b5547247b60e84459b006ff4a3031a800a8a13ff17429bc84d4c48819ee2ef",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/poloz/PolozGlob.java",
+    "kind": "production Java",
+    "sha256": "68393d2d67fe876cb5496c62a1f2f0497978b8f7a01da88bc884e86aa70de943",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/poloz/PolozRules.java",
+    "kind": "production Java",
+    "sha256": "0e501e5385a7610e223bb243366ccdce882a5a4842b9ffab0c79ff2f1d3e05ff",
+    "new": false
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/wolf/GreyWolf.java",
+    "kind": "production Java",
+    "sha256": "d71b1c1c139b6a69427ef6df03b7197c5a3aac2fd70f26953843e41c55ebddb2",
+    "new": false
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "kind": "resource",
+    "sha256": "d5c33726be535a669b2f3d4b078574a2710e820e99abd239586aca55cf2edbba",
+    "new": false
+  },
+  {
+    "path": "tools/creature-feedback-runtime-resources/data/slavicmyths_creature_feedback/structure/empty.nbt",
+    "kind": "test/tool",
+    "sha256": "8dbe752cc736ccf83bf1379e9c9519d8c8fdfc767468a9507829cea1e68d41a7",
+    "new": true
+  },
+  {
+    "path": "tools/creature-feedback-runtime.init.gradle",
+    "kind": "test/tool",
+    "sha256": "d1be4c73dfcc3abcd5abe6bffe300377f67d7f7f4a379a7a7f5bda73eb1486ce",
+    "new": true
+  },
+  {
+    "path": "tools/creature-feedback-runtime/CreatureFeedbackTests.java",
+    "kind": "test/tool",
+    "sha256": "a21b1c7eb42f6e1127dc850e2156e742293f04d74dc4d44a589a4f5568253256",
+    "new": true
+  },
+  {
+    "path": "tools/creature_feedback_report.py",
+    "kind": "test/tool",
+    "sha256": "9fc82c4a8121a7ffff0b3248a7129d5d36adf22e086a43fee074178fa230c7e0",
+    "new": true
+  },
+  {
+    "path": "tools/install_creature_feedback.ps1",
+    "kind": "test/tool",
+    "sha256": "24130aa36d332c7de37a21aa28b0ab700a1dc63797a69e755d72470fcbea5591",
+    "new": true
+  },
+  {
+    "path": "tools/underground_mob_resources.py",
+    "kind": "test/tool",
+    "sha256": "925f62681b5e359041bffa6f99117e85125fc6b3288336c1d190dad6630f6339",
+    "new": false
+  },
+  {
+    "path": "tools/verify_creature_feedback.py",
+    "kind": "test/tool",
+    "sha256": "ce15b711ed34d1e02e4a74640824c837007cb6ae4065a7b1ed4f16b5b81b5a0d",
+    "new": true
+  }
+]

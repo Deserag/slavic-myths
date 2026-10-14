@@ -28,7 +28,7 @@ public class GreyWolf extends PathfinderMob {
  public GreyWolf(EntityType<? extends GreyWolf> type,Level level){super(type,level);setPersistenceRequired();bar.setVisible(false);}
  public static AttributeSupplier.Builder attributes(){return createMobAttributes().add(Attributes.MAX_HEALTH,500).add(Attributes.MOVEMENT_SPEED,.28).add(Attributes.ATTACK_DAMAGE,13).add(Attributes.FOLLOW_RANGE,40).add(Attributes.KNOCKBACK_RESISTANCE,.85).add(Attributes.STEP_HEIGHT,1);}
  @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(STATE,0);b.define(MOVE,0);b.define(CLOCK,0L);}
- @Override protected void registerGoals(){goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new TrialGoal());goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,10));goalSelector.addGoal(7,new RandomLookAroundGoal(this));}
+ @Override protected void registerGoals(){goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new TrialGoal());goalSelector.addGoal(2,new DefendPolozGoal());goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,10));goalSelector.addGoal(7,new RandomLookAroundGoal(this));}
  public UUID encounterId(){return encounter;}public BlockPos home(){return home==null?blockPosition():home;}public UUID participant(){return participant;}public boolean debug(){return debug;}public void debug(boolean value){debug=value;}
  public State state(){return State.values()[entityData.get(STATE)];}public Move move(){return Move.values()[entityData.get(MOVE)];}public float animationTicks(float partial){return Math.max(0,level().getGameTime()-entityData.get(CLOCK)+partial);}
  private int elapsed(){return (int)animationTicks(0);}private void state(State state){entityData.set(STATE,state.ordinal());entityData.set(MOVE,0);entityData.set(CLOCK,level().getGameTime());getNavigation().stop();}
@@ -53,7 +53,7 @@ public class GreyWolf extends PathfinderMob {
   return start(p);
  }
  public boolean start(ServerPlayer p){
-  if(busy()||WolfProgress.passed(p)||p.isSpectator()||!p.isAlive()||p.level()!=level()||distanceToSqr(p)>100||!hasLineOfSight(p)||level().dimension()!=Level.OVERWORLD||level().getDifficulty()==Difficulty.PEACEFUL)return false;
+  if(busy()||WolfProgress.passed(p)||p.isSpectator()||p.isCreative()||!p.isAlive()||p.level()!=level()||distanceToSqr(p)>100||!hasLineOfSight(p)||level().dimension()!=Level.OVERWORLD||level().getDifficulty()==Difficulty.PEACEFUL)return false;
   participant=p.getUUID();pending=token=null;setHealth(500);summons=0;outsideSince=-1;trialStart=level().getGameTime()+PREPARE;howlReady=trialStart+HOWL_DELAY;dashReady=trialStart;nextAttack=trialStart+25;state(State.TRIAL_PREPARE);say(p,"accepted");voice("growl",1);return true;
  }
  public void abort(){
@@ -86,6 +86,15 @@ public class GreyWolf extends PathfinderMob {
    velocity=velocity.multiply(i==0?.546:.91,1,i==0?.546:.91);velocity=new Vec3(velocity.x,(velocity.y-.08)*.98,velocity.z);
   }
   return false;
+ }
+ private final class DefendPolozGoal extends Goal {
+  private org.slavicmyths.poloz.GreatPoloz threat;private long nextScan,nextHit;
+  DefendPolozGoal(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
+  private boolean available(){return state()==State.IDLE_UNMET||state()==State.POST_TRIAL_NPC;}
+  public boolean canUse(){if(!available()||level().getDifficulty()==Difficulty.PEACEFUL||level().getGameTime()<nextScan)return false;nextScan=level().getGameTime()+20;threat=level().getEntitiesOfClass(org.slavicmyths.poloz.GreatPoloz.class,getBoundingBox().inflate(64),p->p.isAlive()&&p.nearestDistance(position())<40*40).stream().min(Comparator.comparingDouble(p->p.nearestDistance(position()))).orElse(null);return threat!=null;}
+  public boolean canContinueToUse(){return available()&&threat!=null&&threat.isAlive()&&threat.nearestDistance(position())<48*48&&level().getDifficulty()!=Difficulty.PEACEFUL;}
+  public void stop(){threat=null;getNavigation().stop();}
+  public void tick(){var scar=java.util.Arrays.stream(threat.parts).filter(p->p.scar).min(Comparator.comparingDouble(p->p.getBoundingBox().distanceToSqr(position()))).orElseThrow();getLookControl().setLookAt(scar.getX(),scar.getY()+.3,scar.getZ());if(tickCount%10==0)getNavigation().moveTo(scar.getX(),scar.getY(),scar.getZ(),1.15);if(level().getGameTime()>=nextHit&&getBoundingBox().inflate(.6).intersects(scar.getBoundingBox())){nextHit=level().getGameTime()+30;threat.hitPart(scar,damageSources().mobAttack(GreyWolf.this),(float)getAttributeValue(Attributes.ATTACK_DAMAGE));}}
  }
  private void stopWalking(){getNavigation().stop();getMoveControl().setWantedPosition(getX(),getY(),getZ(),0);setSpeed(0);setXxa(0);setZza(0);}
  private void face(Vec3 heading){if(heading.horizontalDistanceSqr()<1.0E-6)return;float yaw=(float)(Math.toDegrees(Math.atan2(heading.z,heading.x))-90);setYRot(yaw);yBodyRot=yaw;setYHeadRot(yaw);}

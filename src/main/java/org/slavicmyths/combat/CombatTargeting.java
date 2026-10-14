@@ -13,7 +13,7 @@ public final class CombatTargeting {
     private static TagKey<EntityType<?>> tag(String id){return TagKey.create(Registries.ENTITY_TYPE,ResourceLocation.fromNamespaceAndPath("slavicmyths",id));}
     public static final TagKey<EntityType<?>> HOSTILE=tag("village_hostiles"),PROTECTED=tag("combat_protected"),CONTROL_IMMUNE=tag("control_immune");
     public static boolean canAttack(LivingEntity owner,LivingEntity target){
-        if(owner==null||target==null||owner==target||owner.isSpectator()||target instanceof net.minecraft.world.entity.decoration.ArmorStand||!owner.isAlive()||!target.isAlive()||target.isRemoved()||target.isSpectator()||target.isInvulnerable()||target.getType().is(PROTECTED)||owner.isAlliedTo(target)||target.isAlliedTo(owner))return false;
+        if(owner==null||target==null||owner==target||owner.isSpectator()||target instanceof net.minecraft.world.entity.decoration.ArmorStand||!owner.isAlive()||!target.isAlive()||target.isRemoved()||target.isSpectator()||CreatureSafety.protectedPlayer(target)||target.isInvulnerable()||target.getType().is(PROTECTED)||owner.isAlliedTo(target)||target.isAlliedTo(owner))return false;
         if(target instanceof TamableAnimal pet&&pet.getOwnerUUID()!=null&&pet.getOwnerUUID().equals(owner.getUUID()))return false;
         if(owner instanceof Player player){
             if(target instanceof Player other&&!player.canHarmPlayer(other))return false;

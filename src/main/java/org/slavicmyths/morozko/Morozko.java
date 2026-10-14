@@ -26,10 +26,13 @@ public class Morozko extends PathfinderMob implements Enemy {
  public int phase(){return entityData.get(PHASE);}public int action(){return entityData.get(ACTION);}public int age(){return entityData.get(AGE);}
  protected void action(int a){entityData.set(ACTION,a);entityData.set(AGE,0);getNavigation().stop();if(a>0){String cue=switch(a){case 1,2->null;case 3->"blizzard_start";case 4->"spike_telegraph";case 5->"breath";case 6->"wave";case 7->"clone_spawn";case 8->"blizzard_start";default->"yield";};if(cue!=null)FrostContent.sound(this,cue);}}
  public boolean fighting(){return phase()>=1&&phase()<=3&&session!=null;}
- public boolean candidate(LivingEntity e){return fighting()&&e.isAlive()&&!(e instanceof Morozko)&&FrostWorld.owner(e)!=null&&e.position().distanceToSqr(anchor)<=1600&&(!(e instanceof ServerPlayer p)||!p.isSpectator()&&(!p.isCreative()||p.getUUID().equals(owner)))&&(!(e instanceof Mob)||e instanceof PlayerDouble||org.slavicmyths.bogatyr.HeroThreats.availableHero(e));}
+ public boolean candidate(LivingEntity e){return fighting()&&e.isAlive()&&!(e instanceof Morozko)&&FrostWorld.owner(e)!=null&&e.position().distanceToSqr(anchor)<=1600&&(!(e instanceof ServerPlayer p)||!p.isSpectator()&&!p.isCreative())&&(!(e instanceof Mob)||e instanceof PlayerDouble||org.slavicmyths.bogatyr.HeroThreats.availableHero(e));}
  public void credit(UUID id,float damage){if(id==null||!(level() instanceof ServerLevel w)||session==null)return;var d=FrostLedger.get(w);var s=d.session(session);var n=s.getCompound("Participants");var row=n.getCompound(id.toString());row.putDouble("Damage",row.getDouble("Damage")+damage);n.put(id.toString(),row);s.put("Participants",n);d.setDirty();}
  public void attacked(LivingEntity e){UUID id=FrostWorld.owner(e);if(id==null||session==null)return;var d=FrostLedger.get((ServerLevel)level());var s=d.session(session);var n=s.getCompound("Participants");var row=n.getCompound(id.toString());row.putBoolean("Attacked",true);n.put(id.toString(),row);s.put("Participants",n);d.setDirty();}
  protected List<LivingEntity> targets(){return level().getEntitiesOfClass(LivingEntity.class,new net.minecraft.world.phys.AABB(anchor,anchor).inflate(40),this::candidate);}
+ public void cancelPeacefully(){
+  if(level() instanceof ServerLevel w){if(session!=null){var d=FrostLedger.get(w);var row=d.session(session);if(!row.getBoolean("Complete")){row.putBoolean("Cancelled",true);if(row.hasUUID("Owner"))d.player(row.getUUID("Owner")).putLong("TrialReady",d.now(w));d.setDirty();}}cleanup();bar.removeAllPlayers();discard();}
+ }
  @Override public void tick(){super.tick();if(level().isClientSide)return;var w=(ServerLevel)level();if(session==null||FrostLedger.get(w).session(session).getBoolean("Cancelled")){cleanup();discard();return;}
  if(this instanceof IceDouble){doubleTick();return;}
  if(tickCount%12==0&&getDeltaMovement().horizontalDistanceSqr()>.0005&&onGround())FrostContent.sound(this,"step");

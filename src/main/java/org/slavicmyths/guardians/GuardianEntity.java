@@ -61,6 +61,7 @@ public abstract class GuardianEntity extends PathfinderMob implements Enemy {
  /** Spawn eggs and /summon get a real local encounter rather than disappearing. */
  private void standalone(ServerLevel w){configure(getUUID(),GuardianLedger.get(w).standalone(getUUID(),blockPosition(),water));}
  @Override protected net.minecraft.world.InteractionResult mobInteract(net.minecraft.world.entity.player.Player p,net.minecraft.world.InteractionHand hand){if(instance!=null&&layout.getBoolean("Standalone")&&state()==GuardianRules.PURIFY){if(p instanceof ServerPlayer server)finishPurification(server);return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);}return super.mobInteract(p,hand);}
+ public void cancelPeacefully(){if(level() instanceof ServerLevel w&&instance!=null){var d=GuardianLedger.get(w);var n=d.row(instance);n.putFloat("Health",getHealth());if(state()>GuardianRules.IDLE&&state()<GuardianRules.PURIFY)d.stage(instance,"READY");d.setDirty();}clearHazards();bar.removeAllPlayers();discard();}
  protected abstract void combat();
  protected void clearHazards(){}
  protected boolean melee(){var t=getTarget();if(t==null||distanceToSqr(t)>12.25||!hasLineOfSight(t))return false;if(state()==GuardianRules.COMBAT&&level().getGameTime()>=meleeReady){hitArm=1-hitArm;pattern(hitArm);state(GuardianRules.MELEE);sound(water?"spring_whip_windup":"fire_guardian_swing");return true;}return false;}

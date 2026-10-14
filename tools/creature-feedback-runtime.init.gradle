@@ -1,0 +1,11 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { creatureFeedbackRuntime { java.srcDir 'tools/creature-feedback-runtime'; resources.srcDir 'tools/creature-feedback-runtime-resources' } }
+ p.sourceSets.creatureFeedbackRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.creatureFeedbackRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileCreatureFeedbackRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.creatureFeedbackRuntime)
+ p.neoForge.runs { creatureFeedbackChecks {
+  type='gameTestServer';gameDirectory=p.file('work/creature-feedback/runtime-'+(p.findProperty('creatureRun') ?: 'checks'))
+  systemProperty 'neoforge.enabledGameTestNamespaces','slavicmyths_creature_feedback'
+ } }
+} }
