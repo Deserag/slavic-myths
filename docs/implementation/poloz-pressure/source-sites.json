@@ -1,0 +1,26 @@
+[
+  {
+    "path": "src/main/java/org/slavicmyths/poloz/PolozWorldImpact.java",
+    "sha256": "758019bf5e1ce6d8984e2b76008efb4c9bc47f726b126f5b27231c19529e1f82"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/poloz/GreatPoloz.java",
+    "sha256": "d17feb0a40a18509bc787fadf7880c274ba095cbce29d18d3c82be3a800c2fce"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/poloz/PolozEvent.java",
+    "sha256": "52ebbe064587f606cac50521a1ba553eab582c1a91e66b4139ded330e2fa04fb"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/PolozRenderer.java",
+    "sha256": "855652cb408a0c03cc09059957b928169fd50e9fd9dae7b76d273575c45a9a30"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/mor/MorZone.java",
+    "sha256": "435e5892e562def1d6d725c0a4747e9e571603ea445a6f0b7ef90ef91bf3d4cd"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/mor/MorBlocks.java",
+    "sha256": "636e13bd5c396b4f047ab32ec4218b5d59467d58e6947407f4711f138f489bfa"
+  }
+]

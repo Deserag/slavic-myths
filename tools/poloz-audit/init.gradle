@@ -1,0 +1,13 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { polozAudit { java.srcDir 'tools/poloz-audit/java'; resources.srcDir 'tools/poloz-audit/resources' } }
+ p.sourceSets.polozAudit.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.polozAudit.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compilePolozAuditJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('polozaudit').sourceSet(p.sourceSets.polozAudit)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject
+ p.neoForge.runs.client.gameDirectory=p.file('work/poloz-audit-client')
+ p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720')
+ p.neoForge.runs.client.systemProperty('poloz.output',p.file('docs/implementation/poloz-pressure/native').absolutePath)
+ p.neoForge.runs.client.jvmArguments.addAll('-Xms2G','-Xmx4G')
+}
