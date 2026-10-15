@@ -1,0 +1,2260 @@
+events	1499818
+duration_seconds	591.444
+gc_count	169
+gc_sum_pause_ms	745.7958
+gc_max_pause_ms	80.0687
+
+Execution samples by thread	value
+Render thread	17903
+Server thread	3443
+Netty Server IO #1	106
+Sound engine	91
+Worker-Main-5	56
+Worker-Main-7	42
+Worker-Main-2	39
+Worker-Main-9	38
+Netty Local Client IO #0	38
+Worker-Main-4	37
+Worker-Main-10	30
+Worker-Main-3	27
+Worker-Main-6	24
+Worker-Main-1	22
+Worker-Main-8	22
+Worker-Main-12	20
+Worker-Main-11	11
+config-file-watcher-0-0	9
+Download-8	5
+Download-3	5
+Download-11	5
+pool-2-thread-1	5
+IO-Worker-3	4
+Download-6	3
+JEI Delayed Executor 0	2
+IO-Worker-1	2
+JEI Config File Watcher	1
+IO-Worker-6	1
+IO-Worker-5	1
+IO-Worker-2	1
+
+Top leaf CPU samples (not calls or milliseconds)	value
+D_poloz_128pillagers/0 | Render thread | com.mojang.blaze3d.vertex.BufferBuilder.addVertex	1524
+B_128pillagers/0 | Render thread | com.mojang.blaze3d.vertex.BufferBuilder.addVertex	1322
+C_poloz/0 | Render thread | com.mojang.blaze3d.vertex.BufferBuilder.addVertex	1311
+A_32zombies/0 | Render thread | com.mojang.blaze3d.vertex.BufferBuilder.addVertex	692
+B_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.ints.IntArrays.mergeSort	472
+D_poloz_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.ints.IntArrays.mergeSort	384
+D_poloz_128pillagers/0 | Server thread | java.util.function.Predicate.lambda$and$0	294
+A_idle/0 | Render thread | net.minecraft.world.level.LevelReader.getNoiseBiome	218
+A_32zombies/0 | Render thread | net.minecraft.world.level.LevelReader.getNoiseBiome	152
+A_idle/0 | Render thread | net.minecraft.world.level.chunk.SingleValuePalette.valueFor	126
+B_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.ints.IntArrays.insertionSort	115
+D_poloz_128pillagers/0 | Render thread | java.lang.ThreadLocal$ThreadLocalMap.getEntry	111
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getCollisionShape	107
+B_128pillagers/0 | Render thread | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	105
+A_32zombies/0 | Render thread | net.minecraft.world.level.chunk.SingleValuePalette.valueFor	105
+E_expiry/0 | Render thread | net.minecraft.world.level.LevelReader.getNoiseBiome	103
+B_128pillagers/0 | Render thread | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData	98
+C_poloz/0 | Render thread | net.minecraft.client.renderer.culling.Frustum.cubeInFrustum	97
+C_poloz/0 | Render thread | net.minecraft.client.model.geom.ModelPart.compile	96
+B_128pillagers/0 | Server thread | net.minecraft.world.level.EntityGetter$$Lambda+0x000001e71a6ad420.572863723.test	96
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.level.Level.getChunk	95
+D_poloz_128pillagers/0 | Render thread | java.util.IdentityHashMap.get	94
+B_128pillagers/0 | Render thread | java.lang.ThreadLocal$ThreadLocalMap.getEntry	93
+C_poloz/0 | Render thread | net.minecraft.world.level.Level.getChunk	90
+C_poloz/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.renderLevel	87
+D_poloz_128pillagers/0 | Render thread | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	84
+B_128pillagers/0 | Render thread | com.mojang.blaze3d.vertex.PoseStack$Pose.transformNormal	84
+C_poloz/0 | Render thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getCollisionShape	81
+D_poloz_128pillagers/0 | Render thread | com.mojang.blaze3d.vertex.PoseStack$Pose.transformNormal	80
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.renderLevel	79
+C_poloz/0 | Render thread | com.mojang.blaze3d.vertex.PoseStack$Pose.transformNormal	79
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getCollisionShape	78
+C_poloz/0 | Render thread | java.lang.Double.isNaN	77
+D_poloz_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get	77
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.renderLevel	75
+E_expiry/0 | Render thread | com.mojang.blaze3d.vertex.PoseStack$Pose.transformNormal	75
+D_poloz_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.ints.IntArrays.insertionSort	75
+D_poloz_128pillagers/0 | Render thread | net.minecraft.network.syncher.SynchedEntityData.getItem	74
+D_poloz_128pillagers/0 | Render thread | java.util.function.Predicate.lambda$and$0	74
+B_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get	73
+A_32zombies/0 | Render thread | net.minecraft.client.model.geom.ModelPart.compile	72
+B_128pillagers/0 | Render thread | net.minecraft.network.syncher.SynchedEntityData.getItem	71
+C_poloz/0 | Render thread | net.minecraft.world.level.LevelReader.getNoiseBiome	71
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.culling.Frustum.cubeInFrustum	71
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.culling.Frustum.cubeInFrustum	69
+B_128pillagers/0 | Render thread | java.lang.Float.compare	67
+C_poloz/0 | Render thread | org.joml.Matrix4f.rotate	67
+A_32zombies/0 | Render thread | net.minecraft.world.level.Level.getChunk	66
+E_expiry/0 | Render thread | net.minecraft.world.level.chunk.SingleValuePalette.valueFor	65
+A_idle/0 | Render thread | com.mojang.blaze3d.vertex.BufferBuilder.addVertex	63
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.model.geom.ModelPart.compile	63
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.LivingEntityRenderer.render	62
+A_idle/0 | Render thread | net.minecraft.client.renderer.culling.Frustum.cubeInFrustum	62
+A_32zombies/0 | Render thread | net.minecraft.client.renderer.entity.LivingEntityRenderer.render	61
+D_poloz_128pillagers/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.find	61
+A_32zombies/0 | Render thread | net.minecraft.client.renderer.culling.Frustum.cubeInFrustum	59
+B_128pillagers/0 | Render thread | net.minecraft.world.level.Level.getChunk	59
+C_poloz/0 | Render thread | net.minecraft.client.particle.ParticleEngine.render	59
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.LivingEntityRenderer.render	59
+C_poloz/0 | Render thread | net.minecraft.world.entity.Entity.shouldRender	58
+D_poloz_128pillagers/0 | Render thread | java.util.HashMap.getNode	57
+C_poloz/0 | Render thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get	57
+B_128pillagers/0 | Server thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getCollisionShape	57
+C_poloz/0 | Render thread | net.minecraft.world.level.chunk.SingleValuePalette.valueFor	55
+A_idle/0 | Render thread | net.minecraft.world.level.Level.getChunk	55
+D_poloz_128pillagers/0 | Server thread | com.google.common.collect.Iterators$1.hasNext	54
+D_poloz_128pillagers/0 | Render thread | org.joml.Matrix4f.rotate	54
+D_poloz_128pillagers/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap.get	52
+B_128pillagers/0 | Render thread | net.minecraft.core.component.DataComponentMap$Builder$SimpleMap.get	52
+C_poloz/0 | Render thread | net.minecraft.network.syncher.SynchedEntityData.getItem	51
+C_poloz/0 | Server thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getCollisionShape	51
+E_expiry/0 | Render thread | net.minecraft.client.renderer.culling.Frustum.cubeInFrustum	51
+A_32zombies/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.renderLevel	51
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.entity.Entity.shouldRender	50
+B_128pillagers/0 | Server thread | net.minecraft.server.level.ChunkTracker.getComputedLevel	50
+A_32zombies/0 | Render thread | it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get	49
+B_128pillagers/0 | Render thread | net.minecraft.client.model.geom.ModelPart.compile	49
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.shouldRender	48
+C_poloz/0 | Render thread | com.mojang.blaze3d.vertex.ByteBufferBuilder.ensureCapacity	47
+B_128pillagers/0 | Render thread | java.util.IdentityHashMap.get	46
+D_poloz_128pillagers/0 | Render thread | java.lang.Float.compare	46
+B_128pillagers/0 | Render thread | java.util.HashMap.getNode	45
+E_expiry/0 | Render thread | net.minecraft.world.level.Level.getChunk	44
+E_expiry/0 | Render thread | com.mojang.blaze3d.vertex.BufferBuilder.addVertex	44
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.model.geom.ModelPart.render	44
+D_poloz_128pillagers/0 | Render thread | net.minecraft.core.component.DataComponentMap$Builder$SimpleMap.get	43
+C_poloz/0 | Render thread | java.util.IdentityHashMap.get	43
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.render	43
+D_poloz_128pillagers/0 | Render thread | com.google.common.collect.Iterators$1.hasNext	43
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.particle.ParticleEngine.render	43
+C_poloz/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.find	42
+D_poloz_128pillagers/0 | Server thread | java.util.ArrayList$Itr.next	42
+C_poloz/0 | Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.shouldRender	40
+B_128pillagers/0 | Render thread | org.joml.Matrix4f.rotate	39
+D_poloz_128pillagers/0 | Render thread | org.joml.Matrix4f.rotateAffine	39
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.entity.LivingEntity.isCurrentlyGlowing	38
+D_poloz_128pillagers/0 | Render thread | java.lang.Double.isNaN	38
+B_128pillagers/0 | Render thread | net.minecraft.client.model.IllagerModel.setupAnim	37
+C_poloz/0 | Render thread | net.minecraft.client.model.geom.ModelPart.render	37
+C_poloz/0 | Server thread | net.minecraft.world.level.EntityGetter$$Lambda+0x000001e71a6ad420.572863723.test	37
+C_poloz/0 | Render thread | java.lang.ThreadLocal$ThreadLocalMap.getEntry	37
+C_poloz/0 | Server thread | net.minecraft.server.level.ChunkTracker.getComputedLevel	36
+D_poloz_128pillagers/0 | Server thread | net.minecraft.server.level.ChunkTracker.getComputedLevel	36
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.model.IllagerModel.setupAnim	36
+C_poloz/0 | Render thread | net.minecraft.client.renderer.block.model.ItemOverrides.resolve	36
+C_poloz/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.compileSections	35
+D_poloz_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get	35
+B_128pillagers/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap.get	35
+C_poloz/0 | Render thread | org.joml.Matrix4f.rotateAffine	35
+C_poloz/0 | Render thread | net.minecraft.client.renderer.chunk.SectionRenderDispatcher$RenderSection.getCompiled	34
+A_idle/0 | Render thread | java.util.IdentityHashMap.hash	34
+D_poloz_128pillagers/0 | Render thread | org.joml.Matrix3f.rotate	34
+D_poloz_128pillagers/0 | Render thread | net.neoforged.bus.LockHelper.get	33
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.LevelReader.getChunk	33
+C_poloz/0 | Server thread | com.google.common.collect.Iterators$1.hasNext	33
+B_128pillagers/0 | Render thread | net.minecraft.world.entity.LivingEntity.isCurrentlyGlowing	32
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.render	32
+C_poloz/0 | Render thread | com.google.common.collect.RegularImmutableMap.get	32
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.chunk.SectionRenderDispatcher$RenderSection.getCompiled	32
+A_32zombies/0 | Render thread | net.minecraft.world.entity.LivingEntity.isCurrentlyGlowing	31
+C_poloz/0 | Render thread | net.minecraft.client.renderer.entity.ItemEntityRenderer.renderMultipleFromCount	31
+C_poloz/0 | Render thread | org.joml.FrustumIntersection.testAab	31
+B_128pillagers/0 | Render thread | org.joml.Matrix4f.rotateAffine	30
+B_128pillagers/0 | Server thread | net.minecraft.util.SortedArraySet.removeInternal	30
+C_poloz/0 | Render thread | java.util.HashMap.getNode	30
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.chunk.SingleValuePalette.valueFor	30
+B_128pillagers/0 | Render thread | net.minecraft.world.entity.Mob.getItemBySlot	30
+A_32zombies/0 | Server thread | net.minecraft.server.level.ChunkTracker.getComputedLevel	30
+C_poloz/0 | Render thread | it.unimi.dsi.fastutil.longs.Long2IntOpenHashMap.get	29
+A_32zombies/0 | Render thread | net.minecraft.network.syncher.SynchedEntityData.getItem	29
+B_128pillagers/0 | Render thread | net.minecraft.world.level.LevelReader.getNoiseBiome	29
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.entity.Mob.getItemBySlot	29
+D_poloz_128pillagers/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap.get	28
+C_poloz/0 | Render thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getRenderShape	28
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.block.model.ItemOverrides.resolve	27
+A_32zombies/0 | Render thread | com.google.common.collect.RegularImmutableMap.get	27
+D_poloz_128pillagers/0 | Render thread | com.google.common.collect.RegularImmutableMap.get	27
+C_poloz/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap.get	27
+B_128pillagers/0 | Render thread | org.joml.Matrix3f.rotate	26
+C_poloz/0 | Render thread | net.neoforged.bus.LockHelper.get	26
+B_128pillagers/0 | Render thread | net.neoforged.bus.LockHelper.get	26
+A_idle/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.compileSections	26
+C_poloz/0 | Render thread | org.joml.Matrix3f.rotate	26
+D_poloz_128pillagers/0 | Render thread | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData	26
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.chunk.SectionRenderDispatcher$RenderSection.getCompiled	25
+A_32zombies/0 | Render thread | net.minecraft.client.model.HumanoidModel.setupAnim	25
+A_idle/0 | Render thread | java.util.HashMap.getNode	25
+A_idle/0 | Render thread | it.unimi.dsi.fastutil.ints.IntArrays.mergeSort	25
+C_poloz/0 | Render thread | net.minecraft.core.component.DataComponentMap$Builder$SimpleMap.get	25
+A_idle/0 | Render thread | java.util.IdentityHashMap.get	24
+C_poloz/0 | Render thread | net.minecraft.world.item.ItemStack.is	24
+B_128pillagers/0 | Render thread | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2	24
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.level.chunk.SingleValuePalette.valueFor	24
+B_128pillagers/0 | Server thread | com.google.common.collect.Iterators$1.hasNext	24
+A_32zombies/0 | Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.render	24
+D_poloz_128pillagers/0 | Render thread | com.mojang.blaze3d.vertex.ByteBufferBuilder.ensureCapacity	24
+B_128pillagers/0 | Render thread | net.minecraft.world.entity.Entity.shouldRender	24
+A_32zombies/0 | Render thread | java.util.HashMap.getNode	24
+B_128pillagers/0 | Render thread | com.google.common.collect.RegularImmutableMap.get	23
+D_poloz_128pillagers/0 | Server thread | it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get	23
+D_poloz_128pillagers/0 | Render thread | net.neoforged.bus.EventBus.post	23
+C_poloz/0 | Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.render	23
+C_poloz/0 | Render thread | java.util.HashMap.get	23
+C_poloz/0 | Render thread | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData	23
+E_expiry/0 | Render thread | net.minecraft.util.CrudeIncrementalIntIdentityHashBiMap.getId	22
+C_poloz/0 | Render thread | it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get	22
+C_poloz/0 | Render thread | net.minecraft.world.level.EntityGetter$$Lambda+0x000001e71a6ad420.572863723.test	22
+C_poloz/0 | Render thread | net.minecraft.client.renderer.entity.ItemRenderer.renderModelLists	22
+B_128pillagers/0 | Render thread | java.util.HashMap.get	22
+C_poloz/0 | Render thread | net.minecraft.util.CrudeIncrementalIntIdentityHashBiMap.getId	22
+B_128pillagers/0 | Render thread | com.google.common.collect.Iterators$1.hasNext	22
+A_idle/0 | Render thread | jdk.internal.misc.Unsafe.allocateUninitializedArray	22
+D_poloz_128pillagers/0 | Render thread | java.util.HashMap.get	22
+A_32zombies/0 | Render thread | net.neoforged.bus.EventBus.post	21
+A_32zombies/0 | Server thread | net.minecraft.util.SortedArraySet.removeInternal	21
+B_128pillagers/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap.get	21
+A_32zombies/0 | Render thread | java.util.IdentityHashMap.get	21
+D_poloz_128pillagers/0 | Server thread | java.util.HashMap.containsKey	21
+C_poloz/0 | Render thread | it.unimi.dsi.fastutil.ints.Int2ObjectLinkedOpenHashMap$MapIterator.nextEntry	20
+D_poloz_128pillagers/0 | Server thread | java.util.ImmutableCollections$SetN.probe	20
+A_32zombies/0 | Render thread | org.joml.Matrix4f.rotateAffine	20
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.level.lighting.DataLayerStorageMap.getLayer	20
+D_poloz_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.ints.Int2ObjectLinkedOpenHashMap$MapIterator.nextEntry	20
+A_idle/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.renderLevel	20
+E_expiry/0 | Render thread | java.util.IdentityHashMap.get	20
+C_poloz/0 | Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.renderBlockShadow	20
+B_128pillagers/0 | Render thread | java.util.Objects.equals	20
+E_expiry/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.compileSections	20
+C_poloz/0 | Render thread | net.neoforged.neoforge.client.ClientHooks.handleCameraTransforms	19
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.entity.ai.goal.GoalSelector.tick	19
+A_32zombies/0 | Server thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getCollisionShape	19
+E_expiry/0 | Render thread | java.util.HashMap.getNode	19
+C_poloz/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.getLightColor	19
+D_poloz_128pillagers/0 | Render thread | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2	19
+E_expiry/0 | Render thread | net.minecraft.world.level.levelgen.BitRandomSource.nextInt	19
+C_poloz/0 | Render thread | net.minecraft.world.level.lighting.DataLayerStorageMap.getLayer	19
+B_128pillagers/0 | Render thread | net.minecraft.world.item.enchantment.EnchantmentHelper.modifyCrossbowChargingTime	19
+A_32zombies/0 | Render thread | com.mojang.blaze3d.vertex.PoseStack$Pose.transformNormal	19
+C_poloz/0 | Render thread | net.neoforged.bus.EventBus.post	18
+D_poloz_128pillagers/0 | Render thread | com.mojang.blaze3d.vertex.MeshData$SortState.buildSortedIndexBuffer	18
+B_128pillagers/0 | Render thread | net.minecraft.world.level.chunk.SingleValuePalette.valueFor	18
+B_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap.get	18
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.compileSections	18
+B_128pillagers/0 | Server thread | java.util.HashMap.containsKey	18
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.entity.projectile.AbstractArrow.shouldRenderAtSqrDistance	18
+B_128pillagers/0 | Render thread | net.neoforged.bus.EventBus.post	18
+D_poloz_128pillagers/0 | Render thread | java.util.Objects.equals	18
+E_expiry/0 | Render thread | org.joml.Matrix4f.rotateAffine	18
+B_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get	18
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.item.ItemStack.is	18
+E_expiry/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.find	18
+D_poloz_128pillagers/0 | Render thread | java.util.HashMap.containsKey	18
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.level.LevelReader.getNoiseBiome	17
+A_32zombies/0 | Render thread | com.mojang.blaze3d.vertex.PoseStack.popPose	17
+C_poloz/0 | Render thread | java.util.IdentityHashMap.hash	17
+B_128pillagers/0 | Server thread | java.lang.invoke.LambdaForm$DMH+0x000001e719003000.598446861.invokeStatic	17
+B_128pillagers/0 | Render thread | java.util.Arrays.copyOf	17
+D_poloz_128pillagers/0 | Server thread | net.neoforged.bus.LockHelper.get	17
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.pathfinder.WalkNodeEvaluator.checkNeighbourBlocks	17
+C_poloz/0 | Render thread | net.minecraft.client.particle.SingleQuadParticle.getRenderBoundingBox	17
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.Level.getEntities	17
+E_expiry/0 | Render thread | java.util.HashMap.containsKey	17
+A_idle/0 | Server thread | net.minecraft.server.level.ChunkTracker.getComputedLevel	17
+C_poloz/0 | Render thread | com.google.common.collect.Iterators$1.hasNext	17
+A_32zombies/0 | Render thread | org.joml.Matrix3f.rotate	17
+C_poloz/0 | Render thread | java.util.HashMap.containsKey	17
+A_32zombies/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap.get	17
+A_idle/0 | Render thread | java.util.concurrent.ConcurrentLinkedQueue.poll	16
+C_poloz/0 | Server thread | java.util.function.Predicate.lambda$and$0	16
+A_32zombies/0 | Render thread | java.util.concurrent.ConcurrentHashMap.computeIfAbsent	16
+A_32zombies/0 | Render thread | net.minecraft.world.entity.Entity.getCustomName	16
+E_expiry/0 | Render thread | org.joml.Matrix4f.rotate	16
+C_poloz/0 | Render thread | net.minecraft.client.renderer.entity.LivingEntityRenderer.render	16
+A_idle/0 | Render thread | java.util.Objects.equals	16
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.entity.Mob.getItemBySlot	16
+D_poloz_128pillagers/0 | Render thread | java.util.Arrays.copyOf	16
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.ItemRenderer.renderModelLists	16
+B_128pillagers/0 | Render thread | net.minecraft.world.entity.projectile.AbstractArrow.shouldRenderAtSqrDistance	16
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.level.LevelReader.getChunk	16
+C_poloz/0 | Render thread | java.util.Arrays.copyOf	16
+D_poloz_128pillagers/0 | Render thread | java.util.concurrent.ConcurrentHashMap.computeIfAbsent	15
+A_32zombies/0 | Render thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get	15
+D_poloz_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.longs.Long2IntOpenHashMap.get	15
+E_expiry/0 | Render thread | net.neoforged.bus.LockHelper.get	15
+B_128pillagers/0 | Render thread | net.minecraft.world.level.EntityGetter$$Lambda+0x000001e71a6ad420.572863723.test	15
+B_128pillagers/0 | Server thread | it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get	15
+C_poloz/0 | Render thread | net.minecraft.world.level.LevelReader.getChunk	15
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.particle.SingleQuadParticle.getRenderBoundingBox	15
+A_idle/0 | Render thread | java.util.HashMap.containsKey	15
+A_idle/0 | Render thread | net.minecraft.client.renderer.entity.LivingEntityRenderer.render	14
+E_expiry/0 | Server thread | net.minecraft.server.level.ChunkTracker.getComputedLevel	14
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.getLightColor	14
+C_poloz/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap.get	14
+C_poloz/0 | Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.renderShadow	14
+C_poloz/0 | Render thread | net.minecraft.client.multiplayer.ClientLevel.doAnimateTick	14
+B_128pillagers/0 | Server thread | net.minecraft.world.level.LevelReader.getChunk	14
+A_idle/0 | Render thread | java.lang.invoke.DirectMethodHandle.allocateInstance	14
+A_32zombies/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap.get	14
+E_expiry/0 | Render thread | java.util.Objects.equals	14
+A_idle/0 | Render thread | java.util.concurrent.ConcurrentLinkedQueue.offer	14
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.block.model.ItemOverrides.resolve	14
+C_poloz/0 | Render thread | java.util.concurrent.ConcurrentLinkedQueue.offer	13
+A_idle/0 | Render thread | net.minecraft.client.renderer.chunk.SectionRenderDispatcher$RenderSection.getCompiled	13
+B_128pillagers/0 | Render thread | java.util.HashMap.containsKey	13
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.BlockCollisions.computeNext	13
+D_poloz_128pillagers/0 | Server thread | net.minecraft.core.component.DataComponentMap$Builder$SimpleMap.get	13
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.ItemRenderer.renderModelLists	13
+B_128pillagers/0 | Render thread | net.minecraft.world.level.LevelReader.getChunk	13
+A_32zombies/0 | Render thread | net.minecraft.client.renderer.entity.layers.ItemInHandLayer.render	13
+D_poloz_128pillagers/0 | Server thread | java.util.ArrayList$Itr.hasNext	13
+D_poloz_128pillagers/0 | Server thread | java.util.HashMap.getNode	13
+A_32zombies/0 | Render thread | net.neoforged.bus.LockHelper.get	13
+D_poloz_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap.get	13
+B_128pillagers/0 | Render thread | net.minecraft.client.multiplayer.ClientLevel.doAnimateTick	13
+C_poloz/0 | Render thread | it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.isEmpty	13
+B_128pillagers/0 | Server thread | net.minecraft.network.syncher.SynchedEntityData.getItem	13
+A_idle/0 | Sound engine | com.jcraft.jorbis.Mdct.mdct_kernel	13
+E_expiry/0 | Render thread | org.joml.Matrix3f.rotate	13
+C_poloz/0 | Render thread | net.neoforged.neoforge.client.extensions.IBakedModelExtension.applyTransform	12
+E_expiry/0 | Render thread | java.util.HashMap.get	12
+A_32zombies/0 | Render thread | it.unimi.dsi.fastutil.longs.Long2IntOpenHashMap.get	12
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.item.ItemProperties.getProperty	12
+B_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.isEmpty	12
+C_poloz/0 | Render thread | it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap.get	12
+E_expiry/0 | Render thread | java.util.Arrays.copyOf	12
+C_poloz/0 | Render thread | java.lang.invoke.DirectMethodHandle.allocateInstance	12
+D_poloz_128pillagers/0 | Server thread | java.util.HashMap.get	12
+C_poloz/0 | Render thread | java.util.concurrent.CompletableFuture.reportJoin	12
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.compileSections	12
+C_poloz/0 | Render thread | net.minecraft.client.multiplayer.ClientChunkCache.isValidChunk	12
+A_32zombies/0 | Render thread | net.minecraft.world.entity.Mob.getItemBySlot	12
+A_idle/0 | Render thread | java.util.HashMap.get	12
+A_idle/0 | Render thread | java.lang.String.hashCode	12
+E_expiry/0 | Render thread | net.minecraft.client.renderer.entity.LivingEntityRenderer.render	12
+D_poloz_128pillagers/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get	12
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.is	12
+A_idle/0 | Render thread | it.unimi.dsi.fastutil.ints.IntArrays.insertionSort	12
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.shouldRender	12
+A_idle/0 | Render thread | java.util.Arrays.copyOf	12
+B_128pillagers/0 | Server thread | net.minecraft.world.entity.ai.goal.GoalSelector.tickRunningGoals	12
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.LivingEntityRenderer.isEntityUpsideDown	12
+D_poloz_128pillagers/0 | Server thread | java.util.Arrays.fill	11
+A_idle/0 | Render thread | net.minecraft.core.component.DataComponentMap$Builder$SimpleMap.size	11
+A_32zombies/0 | Render thread | net.minecraft.client.renderer.entity.layers.CustomHeadLayer.render	11
+A_32zombies/0 | Render thread | net.minecraft.client.model.HumanoidModel.getAttackArm	11
+D_poloz_128pillagers/0 | Server thread | java.lang.invoke.LambdaForm$DMH+0x000001e719003000.598446861.invokeStatic	11
+D_poloz_128pillagers/0 | Server thread | net.minecraft.server.level.ServerEntity.sendChanges	11
+A_32zombies/0 | Render thread | net.minecraft.client.model.geom.ModelPart.translateAndRotate	11
+D_poloz_128pillagers/0 | Render thread | net.neoforged.neoforge.client.ClientHooks.handleCameraTransforms	11
+A_idle/0 | Render thread | net.neoforged.bus.EventBus.post	11
+E_expiry/0 | Render thread | java.util.concurrent.ConcurrentLinkedQueue.offer	11
+E_expiry/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.renderLevel	11
+D_poloz_128pillagers/0 | Server thread | java.util.ArrayList.add	11
+D_poloz_128pillagers/0 | Render thread | net.neoforged.neoforge.client.extensions.IBakedModelExtension.applyTransform	11
+B_128pillagers/0 | Render thread | com.mojang.blaze3d.vertex.MeshData$SortState.buildSortedIndexBuffer	11
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.level.levelgen.BitRandomSource.nextInt	11
+E_expiry/0 | Render thread | it.unimi.dsi.fastutil.ints.IntArrays.mergeSort	11
+B_128pillagers/0 | Server thread | java.util.ImmutableCollections$SetN.probe	11
+A_idle/0 | Server thread | net.minecraft.util.SortedArraySet.removeInternal	11
+B_128pillagers/0 | Render thread | java.util.ArrayDeque.addLast	11
+D_poloz_128pillagers/0 | Render thread | java.lang.String.equals	11
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.item.ItemProperties.getProperty	11
+C_poloz/0 | Server thread | java.util.HashMap.containsKey	11
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.LivingEntityRenderer.isEntityUpsideDown	11
+D_poloz_128pillagers/0 | Render thread | org.joml.FrustumIntersection.testAab	10
+A_32zombies/0 | Render thread | net.minecraft.client.renderer.LevelRenderer.compileSections	10
+B_128pillagers/0 | Server thread | net.minecraft.world.entity.ai.goal.GoalSelector.tick	10
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.multiplayer.ClientLevel.doAnimateTick	10
+B_128pillagers/0 | Render thread | net.minecraft.world.level.levelgen.BitRandomSource.nextInt	10
+B_128pillagers/0 | Render thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getCollisionShape	10
+A_idle/0 | Render thread | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	10
+A_idle/0 | Render thread | java.util.LinkedHashMap.get	10
+B_128pillagers/0 | Server thread | net.neoforged.bus.LockHelper.get	10
+B_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.longs.Long2IntOpenHashMap.get	10
+E_expiry/0 | Render thread | java.util.IdentityHashMap.hash	10
+C_poloz/0 | Server thread | net.minecraft.world.entity.Entity.tick	10
+A_32zombies/0 | Render thread | java.util.Arrays.copyOf	10
+B_128pillagers/0 | Server thread | net.minecraft.core.component.DataComponentMap$Builder$SimpleMap.get	10
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.entity.LivingEntity.baseTick	10
+C_poloz/0 | Server thread | java.util.ArrayList$Itr.next	10
+E_expiry/0 | Render thread | net.minecraft.client.renderer.chunk.SectionRenderDispatcher$RenderSection.getCompiled	10
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.entity.Entity.tick	10
+D_poloz_128pillagers/0 | Server thread | com.google.common.collect.Iterators$1.next	10
+A_idle/0 | Render thread | net.minecraft.client.multiplayer.ClientLevel.doAnimateTick	10
+B_128pillagers/0 | Render thread | org.joml.FrustumIntersection.testAab	10
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.BlockCollisions.getChunk	9
+C_poloz/0 | Render thread | java.util.ImmutableCollections$Set12.contains	9
+E_expiry/0 | Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.render	9
+D_poloz_128pillagers/0 | Server thread | java.util.IdentityHashMap$IdentityHashMapIterator.hasNext	9
+C_poloz/0 | Server thread | net.minecraft.world.entity.item.ItemEntity.tick	9
+C_poloz/0 | Render thread | java.util.concurrent.ConcurrentLinkedQueue.poll	9
+D_poloz_128pillagers/0 | Server thread | net.minecraft.server.level.ServerLevel.lambda$tick$2	9
+C_poloz/0 | Render thread | com.google.common.collect.ImmutableList$Builder.addAll	9
+B_128pillagers/0 | Render thread | java.util.concurrent.ConcurrentHashMap.computeIfAbsent	9
+A_32zombies/0 | Render thread | java.util.HashMap.containsKey	9
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.level.CollisionGetter.lambda$getBlockCollisions$1	9
+startup | Worker-Main-5 | it.unimi.dsi.fastutil.Arrays.quickSort	9
+D_poloz_128pillagers/0 | Render thread | net.neoforged.neoforge.registries.DeferredRegister.addEntries	9
+C_poloz/0 | Render thread | java.util.HashMap.remove	9
+E_expiry/0 | Render thread | net.neoforged.bus.EventBus.post	9
+A_idle/0 | Sound engine | com.jcraft.jorbis.CodeBook.decode	9
+C_poloz/0 | Render thread | java.util.concurrent.ConcurrentHashMap.computeIfAbsent	9
+B_128pillagers/0 | Render thread | java.util.ImmutableCollections$SetN.probe	9
+C_poloz/0 | Render thread | java.util.function.Predicate.lambda$and$0	9
+A_idle/0 | Server thread | net.minecraft.world.level.chunk.LevelChunkSection.isRandomlyTickingFluids	9
+D_poloz_128pillagers/0 | Server thread | it.unimi.dsi.fastutil.longs.LongAVLTreeSet.locateKey	9
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.RenderType$CompositeRenderType$$Lambda+0x000001e71a54e470.1312749373.accept	8
+C_poloz/0 | Render thread | org.slavicmyths.client.PolozRenderer.render	8
+C_poloz/0 | Render thread | net.minecraft.world.level.levelgen.BitRandomSource.nextInt	8
+A_32zombies/0 | Server thread | com.google.common.collect.Iterators$1.hasNext	8
+A_idle/0 | Render thread | java.lang.AbstractStringBuilder.ensureCapacityInternal	8
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.LivingEntityRenderer.setupRotations	8
+B_128pillagers/0 | Server thread | java.util.IdentityHashMap.get	8
+A_idle/0 | Server thread | it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap.get	8
+B_128pillagers/0 | Render thread | java.util.IdentityHashMap.hash	8
+D_poloz_128pillagers/0 | Render thread | java.util.concurrent.CompletableFuture.reportJoin	8
+A_32zombies/0 | Render thread | net.minecraft.client.multiplayer.ClientLevel.doAnimateTick	8
+C_poloz/0 | Render thread | java.util.Objects.equals	8
+B_128pillagers/0 | Server thread | java.util.ArrayList$Itr.next	8
+C_poloz/0 | Render thread | java.util.EnumMap.isValidKey	8
+B_128pillagers/0 | Render thread | net.minecraft.client.model.geom.ModelPart.translateAndRotate	8
+B_128pillagers/0 | Server thread | java.util.HashMap.getNode	8
+A_32zombies/0 | Render thread | org.joml.Matrix4f.rotate	8
+C_poloz/0 | Render thread | net.minecraft.world.level.Level.getGameTime	8
+A_idle/0 | Render thread | net.minecraft.client.model.geom.ModelPart.compile	8
+A_32zombies/0 | Render thread | org.joml.FrustumIntersection.testAab	8
+D_poloz_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap.getOrDefault	8
+D_poloz_128pillagers/0 | Render thread | java.util.ArrayList$Itr.next	8
+C_poloz/0 | Render thread | net.minecraft.client.model.geom.ModelPart.translateAndRotate	8
+A_32zombies/0 | Render thread | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData	8
+C_poloz/0 | Render thread | net.minecraft.world.entity.Entity.tick	8
+E_expiry/0 | Server thread | com.google.common.collect.Iterators$1.hasNext	8
+A_32zombies/0 | Render thread | net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.renderArmorPiece	8
+A_32zombies/0 | Sound engine | com.jcraft.jorbis.Mdct.mdct_kernel	8
+A_32zombies/0 | Render thread | java.util.IdentityHashMap.hash	8
+B_128pillagers/0 | Server thread | net.minecraft.world.entity.LivingEntity.baseTick	8
+B_128pillagers/0 | Server thread | java.util.ArrayList.elementData	8
+A_32zombies/0 | Render thread | net.minecraft.world.entity.Entity.shouldRender	8
+B_128pillagers/0 | Server thread | net.neoforged.bus.EventBus.post	8
+E_expiry/0 | Render thread | java.lang.FdLibm$Atan.compute	8
+C_poloz/0 | Render thread | java.lang.FdLibm$Atan.compute	8
+A_32zombies/0 | Render thread | java.util.HashMap.get	8
+E_expiry/0 | Render thread | it.unimi.dsi.fastutil.ints.IntArrays.insertionSort	8
+B_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap.get	7
+C_poloz/0 | Render thread | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap.getInt	7
+A_32zombies/0 | Render thread | net.minecraft.client.model.AgeableListModel.lambda$renderToBuffer$3	7
+D_poloz_128pillagers/0 | Server thread | net.neoforged.neoforge.registries.DeferredHolder.getRegistry	7
+C_poloz/0 | Render thread | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	7
+A_idle/0 | Render thread | java.lang.String.equals	7
+E_expiry/0 | Render thread | jdk.internal.misc.Unsafe.allocateUninitializedArray	7
+A_32zombies/0 | Render thread | net.minecraft.client.renderer.chunk.SectionRenderDispatcher$RenderSection.getCompiled	7
+C_poloz/0 | Render thread | net.minecraft.core.component.DataComponentMap$Builder$SimpleMap.size	7
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.chunk.LevelChunkSection.isRandomlyTickingFluids	7
+E_expiry/0 | Server thread | net.minecraft.world.level.chunk.LevelChunkSection.isRandomlyTickingFluids	7
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.particle.ParticleEngine.tickParticleList	7
+E_expiry/0 | Render thread | net.minecraft.client.model.geom.ModelPart.compile	7
+C_poloz/0 | Server thread | net.minecraft.world.level.chunk.LevelChunkSection.isRandomlyTickingFluids	7
+D_poloz_128pillagers/0 | Render thread | com.google.common.collect.ImmutableList$Builder.addAll	7
+C_poloz/0 | Render thread | net.minecraft.world.level.levelgen.BitRandomSource.nextLong	7
+A_idle/0 | Render thread | java.util.stream.AbstractPipeline.wrapSink	7
+B_128pillagers/0 | Server thread | net.minecraft.world.level.BlockGetter$$Lambda+0x000001e71a6eecd8.1546374325.apply	7
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.item.enchantment.EnchantmentHelper.modifyCrossbowChargingTime	7
+A_32zombies/0 | Render thread | net.minecraft.client.model.AgeableListModel.renderToBuffer	7
+C_poloz/0 | Render thread | java.lang.AbstractStringBuilder.ensureCapacityInternal	7
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.entity.Entity.tick	7
+D_poloz_128pillagers/0 | Netty Server IO #1 | io.netty.buffer.AbstractByteBuf.ensureWritable0	7
+A_32zombies/0 | Render thread | net.minecraft.world.entity.Entity.hasPose	7
+B_128pillagers/0 | Render thread | net.minecraft.client.model.geom.ModelPart.render	7
+A_32zombies/0 | Server thread | net.minecraft.world.level.chunk.SingleValuePalette.valueFor	7
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.Level.getChunk	7
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.entity.ai.goal.GoalSelector.tickRunningGoals	7
+D_poloz_128pillagers/0 | Render thread | java.util.EnumMap.isValidKey	7
+E_expiry/0 | Render thread | java.lang.AbstractStringBuilder.ensureCapacityInternal	7
+E_expiry/0 | Render thread | net.minecraft.core.component.DataComponentMap$Builder$SimpleMap.size	7
+A_32zombies/0 | Sound engine | com.jcraft.jorbis.CodeBook.decode	7
+E_expiry/0 | Render thread | net.minecraft.world.level.levelgen.LegacyRandomSource.next	7
+A_32zombies/0 | Render thread | java.util.Objects.equals	7
+A_idle/0 | Render thread | net.minecraft.client.renderer.FogRenderer.setupColor	7
+C_poloz/0 | Render thread | net.minecraft.world.phys.Vec3.lerp	7
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.ItemEntityRenderer.renderMultipleFromCount	7
+D_poloz_128pillagers/0 | Server thread | net.minecraft.network.syncher.SynchedEntityData.getItem	7
+A_idle/0 | Render thread | net.minecraft.client.renderer.FogRenderer$$Lambda+0x000001e71a700448.991060461.fetch	7
+A_32zombies/0 | Render thread | net.minecraft.network.chat.Style.withInsertion	7
+D_poloz_128pillagers/0 | Server thread | com.google.common.collect.Lists.equalsImpl	7
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.renderBlockShadow	7
+B_128pillagers/0 | Render thread | java.lang.String.equals	7
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.layers.CustomHeadLayer.render	6
+E_expiry/0 | Render thread | net.minecraft.client.multiplayer.ClientLevel.doAnimateTick	6
+B_128pillagers/0 | Render thread | java.util.IdentityHashMap.capacity	6
+C_poloz/0 | Render thread | net.minecraft.world.entity.Entity.setPosRaw	6
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.entity.Entity.isPassenger	6
+D_poloz_128pillagers/0 | Render thread | net.minecraft.util.CrudeIncrementalIntIdentityHashBiMap.getId	6
+A_32zombies/0 | Server thread | java.util.function.Predicate$$Lambda+0x000001e7191bd858.200616121.test	6
+A_32zombies/0 | Render thread | java.lang.AbstractStringBuilder.ensureCapacityInternal	6
+D_poloz_128pillagers/0 | Render thread | net.minecraft.Util$8.apply	6
+A_idle/0 | Server thread | net.minecraft.server.level.ServerChunkCache.runDistanceManagerUpdates	6
+E_expiry/0 | Render thread | net.minecraft.client.renderer.MultiBufferSource$BufferSource.endBatch	6
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.entity.LivingEntity.isInWall	6
+A_32zombies/0 | Server thread | java.util.HashMap.containsKey	6
+E_expiry/0 | Render thread | java.lang.invoke.DirectMethodHandle.allocateInstance	6
+A_idle/0 | Sound engine | com.jcraft.jorbis.Mdct.backward	6
+B_128pillagers/0 | Render thread | net.minecraft.world.entity.Entity.createHoverEvent	6
+A_32zombies/0 | Render thread | net.minecraft.client.renderer.entity.MobRenderer.shouldShowName	6
+E_expiry/0 | Render thread | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap.getInt	6
+A_idle/0 | Render thread | com.ibm.icu.text.Bidi.getDirProps	6
+A_idle/0 | Render thread | java.util.stream.FindOps$FindOp.evaluateSequential	6
+A_idle/0 | Render thread | net.neoforged.neoforge.registries.DeferredRegister.addEntries	6
+B_128pillagers/0 | Render thread | net.minecraft.world.entity.Entity.getName	6
+A_32zombies/0 | Render thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getCollisionShape	6
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.entity.Entity.getName	6
+C_poloz/0 | Render thread | it.unimi.dsi.fastutil.ints.IntArrays.insertionSort	6
+D_poloz_128pillagers/0 | Render thread | net.minecraft.world.phys.Vec3.lerp	6
+C_poloz/0 | Render thread | it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap$EntrySet$2.next	6
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.model.geom.ModelPart.translateAndRotate	6
+A_idle/0 | Render thread | com.google.common.cache.LocalCache$Segment.get	6
+A_idle/0 | Render thread | net.minecraft.client.gui.Font$StringRenderOutput.accept	6
+B_128pillagers/0 | Server thread | net.minecraft.world.entity.Mob.getItemBySlot	6
+B_128pillagers/0 | Render thread | net.minecraft.client.renderer.entity.LivingEntityRenderer.setupRotations	6
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.material.FluidState.is	6
+A_32zombies/0 | Render thread | java.util.Objects.checkIndex	6
+C_poloz/0 | Render thread | net.minecraft.client.particle.SingleQuadParticle.render	6
+A_idle/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.render	6
+A_32zombies/0 | Render thread | net.minecraft.Util$9.apply	6
+A_idle/0 | Server thread | com.google.common.collect.Iterators$1.hasNext	6
+D_poloz_128pillagers/0 | Render thread | it.unimi.dsi.fastutil.doubles.DoubleArrayList.wrap	6
+C_poloz/0 | Render thread | net.minecraft.world.entity.Leashable.getLeashHolder	6
+D_poloz_128pillagers/0 | Render thread | net.minecraft.client.renderer.RenderType$CompositeRenderType$$Lambda+0x000001e71a54e470.1312749373.accept	6
+A_32zombies/0 | Server thread | java.lang.invoke.LambdaForm$DMH+0x000001e719003000.598446861.invokeStatic	6
+D_poloz_128pillagers/0 | Server thread | com.google.common.collect.RegularImmutableMap.get	6
+A_32zombies/0 | Render thread | net.minecraft.client.model.AbstractZombieModel.setupAnim	6
+A_idle/0 | Render thread | net.neoforged.bus.LockHelper.get	6
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.ClipContext$Block.get	6
+D_poloz_128pillagers/0 | Render thread | net.neoforged.neoforge.registries.DeferredHolder.getRegistry	6
+D_poloz_128pillagers/0 | Server thread | it.unimi.dsi.fastutil.longs.LongAVLTreeSet$Entry.next	6
+D_poloz_128pillagers/0 | Server thread | java.util.Objects.hashCode	6
+C_poloz/0 | Server thread | net.minecraft.world.level.Level.getEntities	6
+E_expiry/0 | Render thread | net.minecraft.Util$8.apply	6
+startup | Render thread | net.minecraft.world.phys.shapes.IndirectMerger.<init>	6
+E_expiry/0 | Render thread | it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get	6
+D_poloz_128pillagers/0 | Server thread | net.minecraft.world.level.CollisionGetter.lambda$getBlockCollisions$1	6
+
+Inclusive mod samples (overlapping, includes startup/transitions)	value
+C_poloz/0 | Render thread | org.slavicmyths.client.PolozRenderer.render	928
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.PolozRenderer.render	310
+A_idle/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.equipped	186
+A_idle/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	180
+A_idle/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	180
+A_idle/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.render	160
+C_poloz/0 | Render thread | org.slavicmyths.client.PoludnitsaRenderer.render	158
+C_poloz/0 | Render thread | org.slavicmyths.client.KikimoraRenderer.render	153
+C_poloz/0 | Render thread | org.slavicmyths.client.PoludnitsaModel.renderToBuffer	146
+C_poloz/0 | Render thread | org.slavicmyths.client.KikimoraModel.renderToBuffer	142
+A_idle/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.show	141
+C_poloz/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.equipped	92
+C_poloz/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	90
+C_poloz/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	90
+E_expiry/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.equipped	85
+E_expiry/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	83
+E_expiry/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	83
+E_expiry/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.render	71
+E_expiry/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.show	65
+C_poloz/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.render	59
+C_poloz/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.show	54
+A_32zombies/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.equipped	53
+A_32zombies/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	51
+A_32zombies/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	51
+A_idle/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.hidden	46
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.KikimoraRenderer.render	45
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.KikimoraModel.renderToBuffer	43
+B_128pillagers/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.equipped	42
+A_32zombies/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.render	41
+B_128pillagers/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	38
+B_128pillagers/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	38
+C_poloz/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.hidden	38
+A_32zombies/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.show	37
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.aiStep	35
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.equipped	31
+startup | Render thread | org.slavicmyths.polozaudit.PolozProbe.client	31
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	29
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	29
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.PolozWorldImpact.tick	29
+B_128pillagers/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.hidden	29
+C_poloz/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.aiStep	24
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.HeroHud.render	20
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.GuardianClient.scene	20
+E_expiry/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.hidden	20
+B_128pillagers/0 | Render thread | org.slavicmyths.client.HeroHud.render	18
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.hidden	18
+B_128pillagers/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.render	17
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.render	17
+A_32zombies/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.hidden	16
+A_idle/0 | Render thread | org.slavicmyths.client.TextileClothingLayer.render	16
+C_poloz/0 | Render thread | org.slavicmyths.client.HeroHud.render	15
+B_128pillagers/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.show	13
+C_poloz/0 | Server thread | org.slavicmyths.polozaudit.PolozProbe.after	13
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.FolkEquipmentLayer.show	13
+C_poloz/0 | Render thread | org.slavicmyths.client.RareRuneClient.render	13
+A_idle/0 | Render thread | org.slavicmyths.rewards.RewardContent.item	11
+C_poloz/0 | Server thread | org.slavicmyths.poloz.PolozWorldImpact.tick	11
+C_poloz/0 | Render thread | org.slavicmyths.client.EarthCamera.camera	11
+C_poloz/0 | Server thread | org.slavicmyths.poloz.PolozWorldImpact.add	9
+C_poloz/0 | Render thread | org.slavicmyths.polozaudit.PolozProbe.client	9
+C_poloz/0 | Server thread | org.slavicmyths.poloz.PolozWorldImpact.sample	9
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.RareRuneClient.render	9
+C_poloz/0 | Render thread | org.slavicmyths.polozaudit.PressureObserver.snapshot	9
+E_expiry/0 | Render thread | org.slavicmyths.client.TextileClothingLayer.render	9
+A_idle/0 | Render thread | org.slavicmyths.client.RareRuneClient.render	9
+C_poloz/0 | Render thread | org.slavicmyths.rpg.RareRunes.equipped	8
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.rpg.RareRunes.active	7
+C_poloz/0 | Render thread | org.slavicmyths.client.PolozRenderer.at	7
+A_32zombies/0 | Render thread | org.slavicmyths.client.Quest185Client.outlined	7
+C_poloz/0 | Server thread | org.slavicmyths.entity.LandSpiritEntity.aiStep	7
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.entity.LandSpiritEntity.aiStep	6
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.PolozEvents$PolozTarget.tick	6
+A_idle/0 | Render thread | org.slavicmyths.textile.Textiles.item	6
+transition/0 | Server thread | org.slavicmyths.polozaudit.PolozProbe.setup	6
+transition/0 | Server thread | org.slavicmyths.polozaudit.PolozProbe.after	6
+B_128pillagers/0 | Render thread | org.slavicmyths.client.TextileClothingLayer.render	6
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.PolozRenderer.at	6
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.Quest185Client.outlined	6
+C_poloz/0 | Render thread | org.slavicmyths.rpg.RareRunes.active	6
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.EarthCamera.camera	6
+A_idle/0 | Render thread | org.slavicmyths.navigation.client.NavigationClient.hud	5
+B_128pillagers/0 | Render thread | org.slavicmyths.client.Quest185Client.outlined	5
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.TextileClothingLayer.render	5
+C_poloz/0 | Render thread | org.slavicmyths.client.TextileClothingLayer.render	5
+B_128pillagers/0 | Render thread | org.slavicmyths.client.RareRuneClient.render	5
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.artifact.ArtifactEvents.calm	5
+C_poloz/0 | Render thread | org.slavicmyths.rpg.Runes.list	5
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.mor.MorBlocks.convert	5
+B_128pillagers/0 | Render thread | org.slavicmyths.textile.Textiles.item	5
+C_poloz/0 | Render thread | org.slavicmyths.rpg.Runes.has	5
+B_128pillagers/0 | Render thread | org.slavicmyths.client.EarthCamera.camera	4
+C_poloz/0 | Render thread | org.slavicmyths.rpg.RareRunes$$Lambda+0x000001e71a7e1c50.1313602523.test	4
+startup | Server thread | org.slavicmyths.item.FolkAccessoryItem.equipped	4
+A_idle/0 | Render thread | org.slavicmyths.rpg.Runes.has	4
+C_poloz/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.actionAge	4
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.polozaudit.PolozProbe.after	4
+C_poloz/0 | Render thread | org.slavicmyths.client.PoludnitsaModel.setupAnim	4
+C_poloz/0 | Render thread | org.slavicmyths.textile.Textiles.item	4
+startup | Server thread | org.slavicmyths.item.FolkEquipmentEffects.wears	4
+B_128pillagers/0 | Render thread | org.slavicmyths.client.GuardianClient.scene	4
+A_idle/0 | Render thread | org.slavicmyths.item.ItemState.runes	4
+C_poloz/0 | Render thread | org.slavicmyths.item.ItemState.runes	4
+A_32zombies/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem.equipped	4
+C_poloz/0 | Render thread | org.slavicmyths.rpg.RareRunes.lambda$active$2	4
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.mor.MorBlocks.index	4
+B_128pillagers/0 | Render thread | org.slavicmyths.client.FrostClient.hud	4
+C_poloz/0 | Server thread | org.slavicmyths.mor.MorBlocks.convert	4
+B_128pillagers/0 | Render thread | org.slavicmyths.rpg.RareRunes.equipped	4
+A_32zombies/0 | Render thread | org.slavicmyths.client.FrostClient.hud	4
+B_128pillagers/0 | Server thread | org.slavicmyths.underground.OminousAura.ignores	4
+A_idle/0 | Render thread | org.slavicmyths.rpg.Runes.list	4
+C_poloz/0 | Render thread | org.slavicmyths.client.PolozCamera.camera	4
+C_poloz/0 | Render thread | org.slavicmyths.rpg.RareRuneRuntime.tier	4
+A_idle/0 | Render thread | org.slavicmyths.rpg.RareRunes.equipped	4
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.artifact.ArtifactEvents.target	4
+C_poloz/0 | Render thread | org.slavicmyths.client.FrostClient.hud	4
+A_32zombies/0 | Server thread | org.slavicmyths.item.FolkEquipmentEffects.wears	3
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.rpg.RuneRuntime.equipment	3
+E_expiry/0 | Render thread | org.slavicmyths.client.NightClient.hud	3
+B_128pillagers/0 | Render thread | org.slavicmyths.client.NightClient.hud	3
+E_expiry/0 | Render thread | org.slavicmyths.combat.TugarinPair.held	3
+A_idle/0 | Server thread | org.slavicmyths.karachun.NightEvents.tick	3
+A_idle/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	3
+A_32zombies/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	3
+B_128pillagers/0 | Render thread | org.slavicmyths.rpg.RareRunes.active	3
+E_expiry/0 | Render thread | org.slavicmyths.textile.Textiles.item	3
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.PolozCamera.camera	3
+A_32zombies/0 | Render thread | org.slavicmyths.client.TextileClothingLayer.render	3
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.PolozWorldImpact.sample	3
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.polozaudit.PolozProbe.client	3
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.Quest185Client.render	3
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.PolozEvents.mob	3
+B_128pillagers/0 | Render thread | org.slavicmyths.rewards.RewardContent.item	3
+A_idle/0 | Render thread | org.slavicmyths.combat.TugarinPair.held	3
+C_poloz/0 | Render thread | org.slavicmyths.client.KikimoraModel.setupAnim	3
+A_idle/0 | Render thread | org.slavicmyths.client.UndergroundClient$KnockdownVisual.pose	3
+B_128pillagers/0 | Server thread | org.slavicmyths.poloz.PolozRewardEvents.equip	3
+C_poloz/0 | Render thread | org.slavicmyths.client.NightClient.hud	3
+startup | Server thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	3
+C_poloz/0 | Server thread | org.slavicmyths.client.RusalkaSound.living	3
+B_128pillagers/0 | Render thread | org.slavicmyths.rpg.Runes.has	3
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.actionAge	3
+A_32zombies/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	3
+C_poloz/0 | Render thread | org.slavicmyths.item.ItemState.legacy	3
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.polozaudit.PressureObserver.snapshot	3
+A_idle/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	3
+C_poloz/0 | Server thread | org.slavicmyths.mor.MorController.tick	3
+A_idle/0 | Render thread | org.slavicmyths.rpg.RareRuneRuntime.tier	3
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.morozko.FrostCold.tick	3
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.classes.ClassUltimateRuntime.incoming	3
+A_idle/0 | Render thread | org.slavicmyths.underground.OminousAura.knocked	3
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.morozko.FrostEvents.tick	3
+E_expiry/0 | Render thread | org.slavicmyths.client.FrostClient.hud	3
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.MorParticle.tick	3
+A_idle/0 | Server thread | org.slavicmyths.polozaudit.PolozProbe.after	3
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.rpg.RuneRuntime.refresh	3
+A_32zombies/0 | Render thread | org.slavicmyths.client.HeroHud.render	3
+startup | Server thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	3
+B_128pillagers/0 | Render thread | org.slavicmyths.item.ItemState.runes	3
+C_poloz/0 | Render thread | org.slavicmyths.rpg.RareRunes.equipment	3
+B_128pillagers/0 | Server thread | org.slavicmyths.combat.RareCombat.shield	3
+A_idle/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem.equipped	3
+B_128pillagers/0 | Render thread | org.slavicmyths.rpg.Runes.list	3
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.polozaudit.PressureObserver.sound	3
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.PolozWorldImpact.add	3
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.artifact.ArtifactEvents.embers	3
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.underground.OminousAura.ignores	2
+C_poloz/0 | Render thread | org.slavicmyths.client.Quest185Client.outlined	2
+A_32zombies/0 | Render thread | org.slavicmyths.client.Quest185Client.hud	2
+A_32zombies/0 | Render thread | org.slavicmyths.client.EarthCamera.camera	2
+C_poloz/0 | Server thread | org.slavicmyths.military.GreyWolfStoryEvents.tick	2
+C_poloz/0 | Server thread | org.slavicmyths.mor.MorAudio.tick	2
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.classes.ClassUltimateRuntime.defense	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.earth.EarthRune.refresh	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	2
+B_128pillagers/0 | Server thread | org.slavicmyths.tales.TaleEvents.seen	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.PolozEvents.tick	2
+C_poloz/0 | Render thread | org.slavicmyths.client.MorParticle.tick	2
+A_32zombies/0 | Server thread | org.slavicmyths.rpg.RareRuneRuntime.tick	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.GreatPoloz$$Lambda+0x000001e71a8832e8.973997641.test	2
+B_128pillagers/0 | Server thread | org.slavicmyths.military.GreyWolfStoryEvents.tick	2
+A_32zombies/0 | Server thread | org.slavicmyths.rpg.RareRuneRuntime.incoming	2
+E_expiry/0 | Render thread | org.slavicmyths.client.TugarinPairClient.beforePlayer	2
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.onSyncedDataUpdated	2
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.rpg.Runes.has	2
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.RuneRuntime.equipment	2
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.FrostClient.hud	2
+B_128pillagers/0 | Render thread | org.slavicmyths.rpg.RareRunes.lambda$active$2	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.PolozEvent.tick	2
+E_expiry/0 | Render thread | org.slavicmyths.client.EarthCamera.camera	2
+C_poloz/0 | Render thread | org.slavicmyths.client.GuardianClient.scene	2
+A_idle/0 | Render thread | org.slavicmyths.client.NightClient.tick	2
+A_idle/0 | Server thread | org.slavicmyths.skim.SkimEvents.tick	2
+C_poloz/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.headLift	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.rpg.RuneRuntime.armorCount	2
+C_poloz/0 | Server thread | org.slavicmyths.serpenthill.HillCommands.tick	2
+A_32zombies/0 | Render thread | org.slavicmyths.polozaudit.PolozProbe.frame	2
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.RpgEvents.arrow	2
+A_32zombies/0 | Server thread | org.slavicmyths.rpg.classes.ClassState.now	2
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.rpg.RareRunes.equipped	2
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.rpg.Runes.list	2
+startup | Render thread | org.slavicmyths.client.RareRuneClient.render	2
+A_32zombies/0 | Server thread | org.slavicmyths.tales.TaleEvents.seen	2
+startup | Server thread | org.slavicmyths.hunt.StarCharmEffects.tick	2
+startup | Server thread | org.slavicmyths.hunt.BossEffects.tick	2
+B_128pillagers/0 | Server thread | org.slavicmyths.underground.OminousAura.target	2
+C_poloz/0 | Server thread | org.slavicmyths.finist.GreyPackRing.tick	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.rpg.RuneRuntime.count	2
+B_128pillagers/0 | Server thread | org.slavicmyths.combat.RareCombat.now	2
+B_128pillagers/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	2
+A_32zombies/0 | Render thread | org.slavicmyths.polozaudit.PressureObserver.snapshot	2
+A_32zombies/0 | Server thread | org.slavicmyths.navigation.NavigationEvents.tick	2
+B_128pillagers/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	2
+B_128pillagers/0 | Render thread | org.slavicmyths.rpg.RareRuneRuntime.tier	2
+A_32zombies/0 | Server thread | org.slavicmyths.hunt.BossEffects.tick	2
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.item.ItemState.runes	2
+C_poloz/0 | Render thread | org.slavicmyths.client.GusliClient.playing	2
+A_32zombies/0 | Render thread | org.slavicmyths.polozaudit.PolozProbe.client	2
+C_poloz/0 | Render thread | org.slavicmyths.rewards.RewardContent.item	2
+A_idle/0 | Server thread | org.slavicmyths.hunt.BossEffects.tick	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.artifact.ArtifactEvents.attack	2
+A_32zombies/0 | Render thread | org.slavicmyths.polozaudit.PressureObserver.field	2
+C_poloz/0 | Server thread | org.slavicmyths.rpg.RareRuneRuntime.equipment	2
+A_32zombies/0 | Render thread | org.slavicmyths.textile.Textiles.item	2
+C_poloz/0 | Server thread | org.slavicmyths.mor.MorAudio.play	2
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.morozko.FrostEvents.tick	2
+B_128pillagers/0 | Server thread | org.slavicmyths.poloz.PolozRewardEvents.refresh	2
+startup | Render thread | org.slavicmyths.furniture.FurnitureBlock.getShape	2
+A_32zombies/0 | Server thread | org.slavicmyths.rpg.classes.ClassEvents.tick	2
+B_128pillagers/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem.equipped	2
+C_poloz/0 | Server thread | org.slavicmyths.serpenthill.HillWorld.get	2
+A_idle/0 | Render thread | org.slavicmyths.client.FrostClient.hud	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem.equipped	2
+A_idle/0 | Render thread | org.slavicmyths.client.TugarinPairClient$SecondBladeLayer.render	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.pickTarget	2
+E_expiry/0 | Render thread | org.slavicmyths.client.RareRuneClient.render	2
+C_poloz/0 | Render thread | org.slavicmyths.client.GusliClient.render	2
+B_128pillagers/0 | Render thread | org.slavicmyths.polozaudit.PressureObserver.sound	2
+B_128pillagers/0 | Server thread | org.slavicmyths.client.RusalkaSound.living	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.earth.EarthRune.equip	2
+A_idle/0 | Server thread | org.slavicmyths.item.FolkEquipmentEffects.wears	2
+A_idle/0 | Render thread | org.slavicmyths.rpg.RareRunes.active	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.lambda$pickTarget$2	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	2
+transition/0 | Server thread | org.slavicmyths.mor.MorBlocks.index	2
+C_poloz/0 | Render thread | org.slavicmyths.entity.LandSpiritEntity.morElapsed	2
+B_128pillagers/0 | Server thread | org.slavicmyths.karachun.NightEvents.tick	2
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.item.FolkEquipmentEffects.wears	2
+A_32zombies/0 | Server thread | org.slavicmyths.polozaudit.PolozProbe.after	2
+C_poloz/0 | Server thread | org.slavicmyths.mor.MorController.cast	2
+B_128pillagers/0 | Server thread | org.slavicmyths.artifact.ArtifactEvents.calm	2
+B_128pillagers/0 | Render thread | org.slavicmyths.rpg.RareRunes$$Lambda+0x000001e71a7e1c50.1313602523.test	2
+A_32zombies/0 | Render thread | org.slavicmyths.combat.TugarinPair.held	2
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.RuneRuntime.refresh	2
+A_32zombies/0 | Server thread | org.slavicmyths.kurgan.BurialAccessories.hurt	2
+E_expiry/0 | Render thread | org.slavicmyths.client.HeroHud.render	2
+B_128pillagers/0 | Server thread | org.slavicmyths.combat.CreatureSafety.damage	1
+B_128pillagers/0 | Server thread | org.slavicmyths.artifact.ArtifactEvents$CalmGoal.canUse	1
+A_idle/0 | Server thread | org.slavicmyths.tales.TaleEvents.seen	1
+B_128pillagers/0 | Server thread | org.slavicmyths.finist.GreyPackRing.tick	1
+B_128pillagers/0 | Render thread | org.slavicmyths.client.NightClient.fog	1
+A_32zombies/0 | Server thread | org.slavicmyths.worldgen.ManualStructureJobs.tick	1
+A_idle/0 | Render thread | org.slavicmyths.rpg.RareRunes$$Lambda+0x000001e71a7e1c50.1313602523.test	1
+C_poloz/0 | Server thread | org.slavicmyths.rpg.RareRuneRuntime.endFlight	1
+C_poloz/0 | Server thread | org.slavicmyths.mor.MorController.lambda$tick$2	1
+B_128pillagers/0 | Server thread | org.slavicmyths.marinka.WitchYard.get	1
+startup | Server thread | org.slavicmyths.poloz.PolozRewards.full	1
+C_poloz/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.updateBar	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.combat.TugarinPair.held	1
+C_poloz/0 | Server thread | org.slavicmyths.rewards.RewardEvents.tick	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.surfaceWater	1
+A_idle/0 | Render thread | org.slavicmyths.quest185.Quest185Events.tick	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.RusalkaSound.living	1
+C_poloz/0 | Server thread | org.slavicmyths.rpg.classes.ClassPassiveEvents.tick	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.finist.FinistEffects.multiplier	1
+B_128pillagers/0 | Server thread | org.slavicmyths.nochnitsa.NochnitsaHorde.leave	1
+A_32zombies/0 | Server thread | org.slavicmyths.navigation.NavigationRecords.get	1
+A_32zombies/0 | Render thread | org.slavicmyths.underground.OminousAura.knocked	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.quest185.CleansedLand.protectedAt	1
+A_idle/0 | Server thread | org.slavicmyths.hunt.StarCharmEffects.tick	1
+C_poloz/0 | Server thread | org.slavicmyths.item.FolkEquipmentEffects.wears	1
+A_idle/0 | Render thread | org.slavicmyths.polozaudit.PolozProbe.client	1
+A_idle/0 | Server thread | org.slavicmyths.morozko.FrostCold.tick	1
+B_128pillagers/0 | Server thread | org.slavicmyths.artifact.ArtifactEvents.embers	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.earth.EarthRune.count	1
+startup | Render thread | org.slavicmyths.serpenthill.HillBlock.getShape	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.rpg.RareRunes.lambda$active$2	1
+B_128pillagers/0 | Server thread | org.slavicmyths.hunt.HuntEffects.fire	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.nearestDistance	1
+C_poloz/0 | Render thread | org.slavicmyths.client.NightClient.hand	1
+A_32zombies/0 | Server thread | org.slavicmyths.finist.FinistEvents.incoming	1
+A_idle/0 | Server thread | org.slavicmyths.skim.SkimValley.tick	1
+B_128pillagers/0 | Server thread | org.slavicmyths.gorynych.GorynychEquipment.worn	1
+B_128pillagers/0 | Server thread | org.slavicmyths.worldgen.ManualStructureJobs.tick	1
+E_expiry/0 | Render thread | org.slavicmyths.client.ClassClient.tick	1
+A_32zombies/0 | Render thread | org.slavicmyths.client.ClothingHeadLayer.render	1
+B_128pillagers/0 | Render thread | org.slavicmyths.volkolak.VolkolakEvents.tick	1
+B_128pillagers/0 | Server thread | org.slavicmyths.hunt.BossEffects.knock	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.hunt.HuntEffects.fire	1
+C_poloz/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.surfaceWater	1
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.Runes.list	1
+C_poloz/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.action	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.attack	1
+B_128pillagers/0 | Server thread | org.slavicmyths.marinka.WitchYard.tick	1
+B_128pillagers/0 | Render thread | org.slavicmyths.item.ItemState.legacy	1
+C_poloz/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.onSyncedDataUpdated	1
+B_128pillagers/0 | Render thread | org.slavicmyths.client.UndergroundClient$KnockdownVisual.pose	1
+A_idle/0 | Server thread | org.slavicmyths.yaga.YagaHut.tick	1
+C_poloz/0 | Render thread | org.slavicmyths.client.Quest185Client.render	1
+B_128pillagers/0 | Render thread | org.slavicmyths.client.ClothingHeadLayer.render	1
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.RareRunes.equipped	1
+A_32zombies/0 | Server thread | org.slavicmyths.depths.DepthsService.tick	1
+startup | Worker-Main-5 | org.slavicmyths.client.RpgClient.tooltip	1
+B_128pillagers/0 | Server thread | org.slavicmyths.earth.EarthRune.refresh	1
+A_32zombies/0 | Render thread | org.slavicmyths.sivka.SivkaBonds.tick	1
+B_128pillagers/0 | Server thread | org.slavicmyths.gorynych.BreathCloud.allowed	1
+A_32zombies/0 | Render thread | org.slavicmyths.rpg.RareRunes.lambda$active$2	1
+C_poloz/0 | Server thread | org.slavicmyths.rpg.classes.ClassEvents.tick	1
+C_poloz/0 | Server thread | org.slavicmyths.poloz.PolozEvents.mob	1
+A_32zombies/0 | Render thread | org.slavicmyths.client.RareRuneClient.render	1
+C_poloz/0 | Render thread | org.slavicmyths.client.NightClient.player	1
+startup | Worker-Main-5 | org.slavicmyths.rpg.Runes.list	1
+B_128pillagers/0 | Render thread | org.slavicmyths.client.RusalkaSound.living	1
+A_idle/0 | Render thread | org.slavicmyths.client.GusliClient.playing	1
+startup | Server thread | org.slavicmyths.pesigolovtsy.DogheadContent.clearLargestBody	1
+A_32zombies/0 | Server thread | org.slavicmyths.quest185.Quest185Events.level	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.hurt	1
+B_128pillagers/0 | Render thread | org.slavicmyths.rpg.classes.ClassState.now	1
+startup | Render thread | org.slavicmyths.client.TaleScreen.receive	1
+A_32zombies/0 | Render thread | org.slavicmyths.client.ClassClient.data	1
+C_poloz/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001e71a6dce78.1368259318.apply	1
+C_poloz/0 | Render thread | org.slavicmyths.client.TaleClientEvents.overlay	1
+A_32zombies/0 | Server thread | org.slavicmyths.quest185.Quest185Story.status	1
+C_poloz/0 | Server thread | org.slavicmyths.mor.MorBlocks.index	1
+B_128pillagers/0 | Render thread | org.slavicmyths.rewards.RewardEvents.expireSuppression	1
+startup | Server thread | org.slavicmyths.poloz.PolozRewardEvents.refresh	1
+A_32zombies/0 | Server thread | org.slavicmyths.rpg.classes.ClassPassiveEvents.tick	1
+B_128pillagers/0 | Render thread | org.slavicmyths.client.TugarinPairClient.beforePlayer	1
+C_poloz/0 | Render thread | org.slavicmyths.client.ClassClient.hud	1
+startup | Netty Local Client IO #0 | org.slavicmyths.tales.TaleNetwork$Snapshot.<init>	1
+E_expiry/0 | Render thread | org.slavicmyths.client.TugarinPairClient$SecondBladeLayer.render	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.item.ItemState.runes	1
+E_expiry/0 | Render thread | org.slavicmyths.client.Quest185Client.outlined	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.rewards.RewardContent.item	1
+startup | Server thread | org.slavicmyths.poloz.PolozRewardEvents.join	1
+B_128pillagers/0 | Render thread | org.slavicmyths.client.GusliClient.render	1
+C_poloz/0 | Render thread | org.slavicmyths.entity.LandSpiritEntity.getTypeName	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.rpg.RareRuneRuntime.tick	1
+A_32zombies/0 | Render thread | org.slavicmyths.rpg.RareRunes.active	1
+B_128pillagers/0 | Server thread | org.slavicmyths.item.StormProtection.onHurt	1
+startup | Server thread | org.slavicmyths.underground.OminousAura.ignores	1
+B_128pillagers/0 | Server thread | org.slavicmyths.finist.KartausEncounter.get	1
+startup | Render thread | org.slavicmyths.tales.TaleNetwork.lambda$register$0	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.WolfStoryClient.hud	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.rpg.RareRuneRuntime.tier	1
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.classes.ClassState.passive	1
+C_poloz/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.surfaceWater	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.rpg.RuneRework.supports	1
+B_128pillagers/0 | Server thread | org.slavicmyths.kurgan.BurialAccessories.hurt	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.earth.EarthRune.apply	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.rpg.RpgEvents.arrow	1
+C_poloz/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.ally	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.marinka.WitchYard.tick	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.quest185.CleansedLand.remaining	1
+A_idle/0 | Server thread | org.slavicmyths.skim.HeroCalls.get	1
+C_poloz/0 | Render thread | org.slavicmyths.combat.TugarinPair.held	1
+B_128pillagers/0 | Render thread | org.slavicmyths.client.NightClient.tick	1
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.classes.ClassState.passiveRank	1
+B_128pillagers/0 | Render thread | org.slavicmyths.combat.TugarinPair.held	1
+startup | Worker-Main-5 | org.slavicmyths.rpg.RuneRework.equipmentTooltip	1
+B_128pillagers/0 | Render thread | org.slavicmyths.rpg.RareRuneRuntime.now	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.gorynych.GorynychEquipment.damage	1
+C_poloz/0 | Render thread | org.slavicmyths.client.NightClient.fog	1
+B_128pillagers/0 | Server thread | org.slavicmyths.tales.TaleEvents$$Lambda+0x000001e71a767b40.1340866516.accept	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.navigation.client.NavigationClient.hud	1
+C_poloz/0 | Server thread | org.slavicmyths.rewards.RewardContent.item	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.gorynych.GorynychEquipment.hit	1
+C_poloz/0 | Server thread | org.slavicmyths.poloz.PolozEvent.get	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.headLift	1
+A_32zombies/0 | Server thread | org.slavicmyths.finist.FinistEvents.tick	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.morozko.FrostCold.tick	1
+C_poloz/0 | Server thread | org.slavicmyths.rpg.PathData.data	1
+startup | Render thread | org.slavicmyths.client.TaleScreen$$Lambda+0x000001e71a7cc220.81619916.accept	1
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.RuneRuntime.count	1
+startup | Server thread | org.slavicmyths.rpg.Runes.list	1
+B_128pillagers/0 | Server thread | org.slavicmyths.combat.CreatureSafety.hostile	1
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.classes.ClassEvents.tick	1
+startup | Netty Local Client IO #0 | org.slavicmyths.tales.TaleNetwork$Snapshot.lambda$static$1	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.rpg.Runes.has	1
+A_32zombies/0 | Server thread | org.slavicmyths.hunt.HuntEffects.tick	1
+A_32zombies/0 | Server thread | org.slavicmyths.combat.CombatEquipment.hurt	1
+A_idle/0 | Server thread | org.slavicmyths.rewards.RewardEvents.tick	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.gorynych.GorynychWorld.player	1
+A_idle/0 | Render thread | org.slavicmyths.client.EarthCamera.camera	1
+startup | Server thread | org.slavicmyths.underground.OminousAura.active	1
+C_poloz/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	1
+B_128pillagers/0 | Server thread | org.slavicmyths.item.ItemState$RuneState.<init>	1
+A_32zombies/0 | Render thread | org.slavicmyths.client.TugarinPairClient.beforePlayer	1
+startup | Render thread | org.slavicmyths.furniture.FurnitureBlock$$Lambda+0x000001e71a186818.743643313.consume	1
+C_poloz/0 | Render thread | org.slavicmyths.client.TugarinPairClient$SecondBladeLayer.render	1
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.RuneRuntime.modifier	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.NightClient.tick	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.textile.Textiles.item	1
+C_poloz/0 | Server thread | org.slavicmyths.poloz.PolozEvents.tick	1
+A_32zombies/0 | Server thread | org.slavicmyths.underground.OminousAura.ignores	1
+B_128pillagers/0 | Render thread | org.slavicmyths.client.NightClient.camera	1
+C_poloz/0 | Render thread | org.slavicmyths.polozaudit.PressureObserver.row	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.rpg.Runes.list	1
+C_poloz/0 | Server thread | org.slavicmyths.client.GusliClient.update	1
+B_128pillagers/0 | Server thread | org.slavicmyths.karachun.NightEvents.damage	1
+A_idle/0 | Render thread | org.slavicmyths.client.FlightClient.rider	1
+startup | Render thread | org.slavicmyths.village.VillageTrades.trades	1
+C_poloz/0 | Server thread | org.slavicmyths.marinka.WitchYard.tick	1
+C_poloz/0 | Server thread | org.slavicmyths.rpg.RareRuneRuntime.refresh	1
+B_128pillagers/0 | Server thread | org.slavicmyths.poloz.PolozRewards.full	1
+C_poloz/0 | Render thread | org.slavicmyths.client.RareRuneClient.now	1
+B_128pillagers/0 | Server thread | org.slavicmyths.mor.MorBlockExposure.tick	1
+A_idle/0 | Server thread | org.slavicmyths.quest185.Quest185Events.level	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.item.SilverCombat.onHurt	1
+A_idle/0 | Server thread | org.slavicmyths.equipment.WindBootsMomentum.tick	1
+B_128pillagers/0 | Render thread | org.slavicmyths.polozaudit.PolozProbe.client	1
+A_32zombies/0 | Render thread | org.slavicmyths.client.WolfStoryClient.hud	1
+B_128pillagers/0 | Server thread | org.slavicmyths.poloz.PolozRewardEvents.apply	1
+A_32zombies/0 | Render thread | org.slavicmyths.rewards.RewardContent.item	1
+A_32zombies/0 | Server thread | org.slavicmyths.quest185.Quest185Events.tick	1
+startup | Render thread | org.slavicmyths.rpg.Runes.has	1
+A_idle/0 | Server thread | org.slavicmyths.mor.MorBlocks.index	1
+A_idle/0 | Render thread | org.slavicmyths.kurgan.KurganEncounters.player	1
+A_idle/0 | Render thread | org.slavicmyths.client.Quest185Client.outlined	1
+B_128pillagers/0 | Server thread | org.slavicmyths.rewards.RewardEvents.wears	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.gorynych.BreathCloud.allowed	1
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.RareRuneRuntime.tick	1
+C_poloz/0 | Server thread | org.slavicmyths.tales.TaleEvents$$Lambda+0x000001e71a767b40.1340866516.accept	1
+C_poloz/0 | Render thread | org.slavicmyths.client.KikimoraRenderer.getTextureLocation	1
+startup | Render thread | org.slavicmyths.item.ItemState.runes	1
+startup | Server thread | org.slavicmyths.pesigolovtsy.DogheadContent$$Lambda+0x000001e71a17e950.1982534957.test	1
+A_32zombies/0 | Render thread | org.slavicmyths.client.ClassClient.hud	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.kurgan.BurialAccessories.hurt	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.hunt.BossEffects.clearBelt	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.military.MilitaryEvents.damage	1
+B_128pillagers/0 | Server thread | org.slavicmyths.kurgan.KurganEncounters.leaving	1
+B_128pillagers/0 | Server thread | org.slavicmyths.gorynych.GorynychEquipment.damage	1
+A_32zombies/0 | Server thread | org.slavicmyths.rpg.RareRuneRuntime.now	1
+B_128pillagers/0 | Server thread | org.slavicmyths.artifact.ArtifactEvents.target	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.acceptHit	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.hunt.BossEffects.tick	1
+B_128pillagers/0 | Render thread | org.slavicmyths.rpg.RareRuneRuntime.tick	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.hunt.StarCharmEffects.tick	1
+A_idle/0 | Render thread | org.slavicmyths.client.ClothingHeadLayer.render	1
+B_128pillagers/0 | Server thread | org.slavicmyths.item.ItemState.runes	1
+A_32zombies/0 | Server thread | org.slavicmyths.poloz.PolozEvent.hold	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.GusliClient.render	1
+startup | Render thread | org.slavicmyths.rpg.Runes.list	1
+C_poloz/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.pickTarget	1
+A_idle/0 | Server thread | org.slavicmyths.serpenthill.HillEvents.player	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.rpg.RareRunes.equipped	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.aiStep	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.poloz.PolozPart.isPickable	1
+B_128pillagers/0 | Server thread | org.slavicmyths.earth.EarthRune.equip	1
+A_32zombies/0 | Server thread | org.slavicmyths.item.FolkEquipmentEffects.hurt	1
+A_32zombies/0 | Server thread | org.slavicmyths.rpg.RareRunes.equipped	1
+B_128pillagers/0 | Render thread | org.slavicmyths.polozaudit.PressureObserver.snapshot	1
+E_expiry/0 | Render thread | org.slavicmyths.client.TaleClientEvents.overlay	1
+A_idle/0 | Render thread | org.slavicmyths.client.TugarinPairClient.beforePlayer	1
+startup | Render thread | org.slavicmyths.tales.TaleNetwork$$Lambda+0x000001e71a3c57c0.1790748582.handle	1
+startup | Render thread | org.slavicmyths.rpg.RareRunes.equipped	1
+C_poloz/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.validVictim	1
+E_expiry/0 | Render thread | org.slavicmyths.client.ClassClient.data	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.strike	1
+B_128pillagers/0 | Render thread | org.slavicmyths.morozko.FrostEvents.tick	1
+C_poloz/0 | Server thread | org.slavicmyths.item.FolkAccessoryItem.equipped	1
+startup | Render thread | org.slavicmyths.furniture.FurnitureBlock.lambda$getShape$2	1
+A_idle/0 | Server thread | org.slavicmyths.karachun.NightCombat.tick	1
+B_128pillagers/0 | Server thread | org.slavicmyths.rewards.RewardEvents.tick	1
+B_128pillagers/0 | Server thread | org.slavicmyths.mor.MorBlocks.index	1
+C_poloz/0 | Server thread | org.slavicmyths.tales.TaleEvents.seen	1
+C_poloz/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.trackAlpha	1
+A_32zombies/0 | Server thread | org.slavicmyths.bogatyr.BogatyrArena.tick	1
+A_idle/0 | Render thread | org.slavicmyths.client.Quest185Client.hud	1
+A_32zombies/0 | Render thread | org.slavicmyths.rpg.RareRunes.equipment	1
+A_idle/0 | Server thread | org.slavicmyths.mor.MorBlockExposure.tick	1
+startup | Render thread | org.slavicmyths.item.ItemState$RuneState.<init>	1
+C_poloz/0 | Server thread | org.slavicmyths.kalin.KalinEncounter.tick	1
+A_idle/0 | Render thread | org.slavicmyths.client.GusliClient.hand	1
+startup | Netty Local Client IO #0 | org.slavicmyths.tales.TaleNetwork$Snapshot$$Lambda+0x000001e71a3c55b0.1436731998.decode	1
+A_32zombies/0 | Server thread | org.slavicmyths.rpg.Runes.has	1
+A_32zombies/0 | Render thread | org.slavicmyths.client.NightClient.fog	1
+D_poloz_128pillagers/0 | Server thread | org.slavicmyths.skim.SkimEvents.join	1
+C_poloz/0 | Server thread | org.slavicmyths.karachun.NightEvents.tick	1
+A_32zombies/0 | Render thread | org.slavicmyths.rpg.RareRunes.equipped	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.client.GusliClient.playing	1
+C_poloz/0 | Render thread | org.slavicmyths.poloz.PolozContent.id	1
+startup | Server thread | org.slavicmyths.item.ItemState.runes	1
+B_128pillagers/0 | Server thread | org.slavicmyths.rpg.Runes.has	1
+C_poloz/0 | Server thread | org.slavicmyths.mor.MorController$$Lambda+0x000001e71a89b000.1690600112.test	1
+A_32zombies/0 | Render thread | org.slavicmyths.rpg.RareRunes$$Lambda+0x000001e71a7e1c50.1313602523.test	1
+A_idle/0 | Server thread | org.slavicmyths.water.RusalkaSong.tick	1
+A_32zombies/0 | Server thread | org.slavicmyths.progression.Knowledge.knows	1
+A_idle/0 | Render thread | org.slavicmyths.client.NightClient.player	1
+D_poloz_128pillagers/0 | Render thread | org.slavicmyths.poloz.GreatPoloz.trackAlpha	1
+
+Estimated allocation weights by class (bytes, not retained heap)	value
+A_idle/0 | net.minecraft.world.phys.Vec3	10569175288
+A_32zombies/0 | net.minecraft.world.phys.Vec3	9169178344
+B_128pillagers/0 | org.joml.Vector3f	7994443128
+D_poloz_128pillagers/0 | org.joml.Vector3f	7189433680
+A_idle/0 | [B	6285062024
+B_128pillagers/0 | [I	6202389088
+D_poloz_128pillagers/0 | [I	5181037288
+A_32zombies/0 | org.joml.Matrix4f	4704944256
+B_128pillagers/0 | [F	4617836328
+C_poloz/0 | net.minecraft.world.phys.Vec3	4513431904
+E_expiry/0 | net.minecraft.world.phys.Vec3	4321620936
+C_poloz/0 | org.joml.Matrix4f	4275526744
+D_poloz_128pillagers/0 | [F	3804374112
+D_poloz_128pillagers/0 | org.joml.Matrix4f	3803793904
+B_128pillagers/0 | org.joml.Matrix4f	3415946608
+A_32zombies/0 | [B	2864566584
+C_poloz/0 | [B	2700193000
+A_32zombies/0 | org.joml.Matrix3f	2611934008
+A_idle/0 | net.minecraft.core.SectionPos	2545110696
+C_poloz/0 | org.joml.Vector3f	2538159952
+E_expiry/0 | [B	2536728328
+C_poloz/0 | org.joml.Matrix3f	2456103128
+C_poloz/0 | net.minecraft.world.phys.AABB	2296510608
+D_poloz_128pillagers/0 | org.joml.Matrix3f	2147038616
+A_idle/0 | java.lang.String	1949087000
+B_128pillagers/0 | org.joml.Matrix3f	1909065600
+A_32zombies/0 | net.minecraft.core.SectionPos	1793438808
+A_32zombies/0 | java.lang.String	1751764408
+C_poloz/0 | org.joml.Quaternionf	1557357320
+D_poloz_128pillagers/0 | net.minecraft.world.phys.Vec3	1542044776
+D_poloz_128pillagers/0 | org.joml.Quaternionf	1522000640
+D_poloz_128pillagers/0 | net.minecraft.world.phys.AABB	1512874584
+C_poloz/0 | [I	1454200560
+B_128pillagers/0 | [B	1443445376
+B_128pillagers/0 | net.minecraft.world.phys.Vec3	1416078496
+A_32zombies/0 | org.joml.Vector3f	1388432696
+B_128pillagers/0 | [Ljava.lang.Object;	1385521992
+A_32zombies/0 | org.joml.Quaternionf	1376661680
+B_128pillagers/0 | org.joml.Quaternionf	1305032112
+C_poloz/0 | [F	1283552800
+startup | [B	1220983304
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.PoseStack$Pose	1208777880
+D_poloz_128pillagers/0 | [B	1193094048
+A_32zombies/0 | com.mojang.blaze3d.vertex.PoseStack$Pose	1177893424
+D_poloz_128pillagers/0 | [Ljava.lang.Object;	1152216176
+E_expiry/0 | org.joml.Vector3f	1144192616
+startup | jdk.internal.org.objectweb.asm.SymbolTable$Entry	1140168080
+C_poloz/0 | com.mojang.blaze3d.vertex.PoseStack$Pose	1128013312
+C_poloz/0 | net.minecraft.core.SectionPos	1058144112
+B_128pillagers/0 | com.mojang.blaze3d.vertex.PoseStack$Pose	1031326904
+C_poloz/0 | java.lang.String	1010022608
+E_expiry/0 | net.minecraft.core.SectionPos	960462816
+A_idle/0 | org.joml.Matrix4f	906443384
+A_32zombies/0 | com.google.common.collect.Iterators$9	903089368
+A_32zombies/0 | [Ljava.lang.Object;	791712136
+C_poloz/0 | net.minecraft.core.BlockPos	783158640
+D_poloz_128pillagers/0 | java.lang.String	764247048
+E_expiry/0 | java.lang.String	750910808
+B_128pillagers/0 | java.lang.String	729343008
+D_poloz_128pillagers/0 | net.minecraft.network.chat.Style	693648432
+E_expiry/0 | org.joml.Matrix4f	692352504
+startup | net.minecraft.tags.TagManager$LoadResult	651096480
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap$ValuesCollection$1	647229776
+E_expiry/0 | net.minecraft.network.syncher.SynchedEntityData$DataItem	635108392
+C_poloz/0 | net.minecraft.network.chat.Style	630997528
+E_expiry/0 | org.joml.Quaternionf	593902216
+D_poloz_128pillagers/0 | net.minecraft.core.BlockPos	588227824
+B_128pillagers/0 | java.util.Optional	581896952
+C_poloz/0 | net.minecraft.world.phys.shapes.CubePointRange	578569000
+A_32zombies/0 | net.minecraft.core.BlockPos	577464488
+A_32zombies/0 | net.minecraft.network.chat.Style	565122880
+D_poloz_128pillagers/0 | com.google.common.collect.Iterators$9	562976232
+A_idle/0 | org.joml.Vector3f	555410656
+E_expiry/0 | net.minecraft.world.entity.projectile.Arrow	554619968
+C_poloz/0 | net.minecraft.network.syncher.SynchedEntityData$DataItem	494903728
+B_128pillagers/0 | [Lorg.joml.Vector3f;	491354592
+B_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap	480601496
+startup | [I	452685448
+C_poloz/0 | net.minecraft.world.entity.projectile.Arrow	450361904
+A_idle/0 | [Ljava.lang.Object;	443034440
+A_idle/0 | org.joml.Matrix3f	431696440
+C_poloz/0 | [Ljava.lang.Object;	413232328
+C_poloz/0 | java.util.ArrayList	405295032
+B_128pillagers/0 | net.minecraft.network.chat.Style	402692656
+C_poloz/0 | net.minecraft.world.level.levelgen.MarsagliaPolarGaussian	395760968
+B_128pillagers/0 | net.minecraft.core.BlockPos	378198880
+C_poloz/0 | com.google.common.collect.Iterators$9	376128176
+E_expiry/0 | org.joml.Matrix3f	375492912
+D_poloz_128pillagers/0 | net.minecraft.world.phys.shapes.CubePointRange	366359288
+B_128pillagers/0 | com.google.common.collect.Iterators$9	361898304
+D_poloz_128pillagers/0 | [D	361714560
+C_poloz/0 | net.neoforged.neoforge.client.event.RenderNameTagEvent	360197872
+D_poloz_128pillagers/0 | net.minecraft.network.chat.MutableComponent	353161104
+D_poloz_128pillagers/0 | [Lorg.joml.Vector3f;	337207096
+E_expiry/0 | net.minecraft.world.phys.AABB	336821912
+B_128pillagers/0 | net.minecraft.core.SectionPos	333684424
+D_poloz_128pillagers/0 | net.neoforged.neoforge.client.event.RenderNameTagEvent	331239488
+B_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap$EntryIterator	327287096
+A_32zombies/0 | [F	326136872
+D_poloz_128pillagers/0 | java.util.Optional	324974312
+A_idle/0 | [I	320226000
+A_32zombies/0 | [I	318756600
+A_32zombies/0 | net.neoforged.neoforge.client.event.RenderNameTagEvent	309677288
+C_poloz/0 | [D	306171752
+D_poloz_128pillagers/0 | net.minecraft.core.SectionPos	303672488
+C_poloz/0 | net.minecraft.world.level.levelgen.LegacyRandomSource	303382152
+C_poloz/0 | java.util.concurrent.atomic.AtomicLong	297391704
+C_poloz/0 | net.minecraft.network.chat.MutableComponent	287741648
+D_poloz_128pillagers/0 | net.minecraft.world.phys.shapes.OffsetDoubleList	286704584
+E_expiry/0 | [Ljava.lang.Object;	284948616
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.doubles.DoubleArrayList	284295344
+D_poloz_128pillagers/0 | java.util.ArrayList$Itr	279010424
+B_128pillagers/0 | net.neoforged.neoforge.event.enchanting.GetEnchantmentLevelEvent	278387888
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap$EntryIterator	265043384
+A_idle/0 | net.minecraft.core.BlockPos	260866688
+E_expiry/0 | com.mojang.blaze3d.vertex.PoseStack$Pose	253432048
+C_poloz/0 | it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap$ValuesCollection$1	247220176
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap	244071424
+C_poloz/0 | java.util.ArrayList$Itr	242451024
+D_poloz_128pillagers/0 | java.util.ArrayList	239085904
+A_32zombies/0 | java.util.ArrayList	226640648
+B_128pillagers/0 | net.neoforged.neoforge.client.event.RenderNameTagEvent	218998824
+E_expiry/0 | net.minecraft.network.chat.Style	218874976
+A_32zombies/0 | net.neoforged.neoforge.client.event.RenderLivingEvent$Pre	218794856
+B_128pillagers/0 | net.minecraft.world.phys.AABB	216765608
+A_32zombies/0 | net.minecraft.network.chat.MutableComponent	216474216
+A_32zombies/0 | net.neoforged.neoforge.client.event.RenderLivingEvent$Post	214644256
+C_poloz/0 | [Lnet.minecraft.core.Direction;	211037856
+A_idle/0 | com.mojang.blaze3d.vertex.PoseStack$Pose	209788200
+D_poloz_128pillagers/0 | net.minecraft.core.BlockPos$MutableBlockPos	209076936
+C_poloz/0 | net.minecraft.network.chat.contents.TranslatableContents	206622760
+C_poloz/0 | net.minecraft.network.chat.HoverEvent$EntityTooltipInfo	203024200
+E_expiry/0 | java.util.HashMap	200989400
+E_expiry/0 | [D	196479560
+B_128pillagers/0 | java.util.ImmutableCollections$ListItr	195808456
+A_idle/0 | net.minecraft.core.component.TypedDataComponent	194454320
+A_32zombies/0 | com.mojang.blaze3d.vertex.BufferBuilder	193656056
+C_poloz/0 | [J	191922104
+C_poloz/0 | [Lnet.minecraft.network.syncher.SynchedEntityData$DataItem;	190576536
+B_128pillagers/0 | net.minecraft.network.chat.HoverEvent$EntityTooltipInfo	188248456
+B_128pillagers/0 | net.minecraft.network.chat.MutableComponent	186160024
+A_idle/0 | org.joml.Quaternionf	185526136
+D_poloz_128pillagers/0 | net.minecraft.world.phys.shapes.ArrayVoxelShape	183843408
+D_poloz_128pillagers/0 | [J	182406040
+A_32zombies/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder$Result	178739312
+D_poloz_128pillagers/0 | net.minecraft.world.item.enchantment.ItemEnchantments	173522448
+A_idle/0 | java.util.stream.ReferencePipeline$Head	173212144
+C_poloz/0 | it.unimi.dsi.fastutil.doubles.DoubleArrayList	170667800
+B_128pillagers/0 | net.minecraft.network.syncher.SynchedEntityData$DataItem	168747152
+D_poloz_128pillagers/0 | net.minecraft.core.Cursor3D	167651352
+D_poloz_128pillagers/0 | net.minecraft.world.level.BlockCollisions	165826280
+A_idle/0 | net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Post	164716376
+C_poloz/0 | java.util.HashMap	163801984
+B_128pillagers/0 | net.minecraft.network.chat.HoverEvent$TypedHoverEvent	157597000
+B_128pillagers/0 | [D	157262360
+B_128pillagers/0 | net.minecraft.world.entity.projectile.Arrow	153467712
+A_idle/0 | net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Pre	153300312
+startup | [Ljava.lang.Object;	152513752
+C_poloz/0 | java.util.Optional	151064472
+C_poloz/0 | net.minecraft.world.phys.shapes.ArrayVoxelShape	150920696
+A_idle/0 | java.util.ImmutableCollections$ListItr	149946328
+D_poloz_128pillagers/0 | com.mojang.datafixers.util.Pair	147312320
+A_32zombies/0 | net.minecraft.network.chat.HoverEvent$EntityTooltipInfo	144776952
+D_poloz_128pillagers/0 | java.util.concurrent.atomic.AtomicLong	144739928
+A_idle/0 | com.mojang.blaze3d.vertex.MeshData$DrawState	144711472
+E_expiry/0 | it.unimi.dsi.fastutil.objects.Object2DoubleArrayMap	142619152
+A_32zombies/0 | com.mojang.blaze3d.vertex.MeshData$DrawState	142590048
+B_128pillagers/0 | java.util.ArrayList	140150440
+B_128pillagers/0 | net.minecraft.world.phys.shapes.OffsetDoubleList	139011664
+B_128pillagers/0 | net.minecraft.world.level.levelgen.LegacyRandomSource	137842880
+B_128pillagers/0 | net.minecraft.world.item.enchantment.ItemEnchantments$Mutable	137603688
+A_32zombies/0 | net.minecraft.network.chat.HoverEvent$TypedHoverEvent	134757536
+A_idle/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder$Result	134287512
+B_128pillagers/0 | [Lnet.minecraft.core.Direction;	131844568
+A_idle/0 | net.neoforged.neoforge.client.event.RenderLevelStageEvent	129370440
+B_128pillagers/0 | com.mojang.blaze3d.vertex.BufferBuilder	129150392
+D_poloz_128pillagers/0 | com.google.common.collect.Iterators$ArrayItr	128512616
+D_poloz_128pillagers/0 | net.minecraft.network.chat.HoverEvent$EntityTooltipInfo	126168784
+A_32zombies/0 | [J	126108408
+B_128pillagers/0 | net.minecraft.world.level.levelgen.MarsagliaPolarGaussian	124360520
+C_poloz/0 | java.util.stream.ReferencePipeline$Head	123981992
+C_poloz/0 | com.google.common.collect.Iterators$ArrayItr	121128520
+A_32zombies/0 | net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Pre	120935048
+B_128pillagers/0 | net.minecraft.world.item.enchantment.ItemEnchantments	119900912
+startup | [C	119580592
+E_expiry/0 | net.minecraft.core.BlockPos	119496360
+D_poloz_128pillagers/0 | net.minecraft.world.level.levelgen.LegacyRandomSource	117433456
+D_poloz_128pillagers/0 | net.minecraft.world.level.levelgen.MarsagliaPolarGaussian	116607672
+B_128pillagers/0 | java.util.HashMap$Node	114649168
+B_128pillagers/0 | net.minecraft.world.item.enchantment.EnchantmentHelper$$Lambda+0x000001e71a84f298.714619354	113636776
+C_poloz/0 | it.unimi.dsi.fastutil.objects.Object2DoubleArrayMap	112055768
+A_32zombies/0 | com.mojang.datafixers.util.Pair	111769584
+A_32zombies/0 | net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Post	111573192
+D_poloz_128pillagers/0 | net.minecraft.world.item.enchantment.ItemEnchantments$Mutable	110909216
+B_128pillagers/0 | net.minecraft.world.entity.Entity$$Lambda+0x000001e71a7e35b0.571719827	109703744
+C_poloz/0 | net.minecraft.world.level.BlockCollisions	109226824
+A_idle/0 | java.util.ArrayList	108770408
+B_128pillagers/0 | net.neoforged.neoforge.client.event.RenderLivingEvent$Pre	107659784
+B_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap$MapEntrySet	106225552
+C_poloz/0 | net.minecraft.core.Cursor3D	105603432
+D_poloz_128pillagers/0 | [Lnet.minecraft.core.Direction;	105419912
+D_poloz_128pillagers/0 | net.minecraft.world.entity.projectile.Arrow	104815536
+D_poloz_128pillagers/0 | java.util.Collections$UnmodifiableCollection$1	104435224
+B_128pillagers/0 | com.mojang.blaze3d.vertex.MeshData	104154608
+C_poloz/0 | net.minecraft.core.BlockPos$MutableBlockPos	103775696
+E_expiry/0 | [I	103588632
+A_32zombies/0 | net.minecraft.network.chat.HoverEvent	102866536
+D_poloz_128pillagers/0 | net.minecraft.network.syncher.SynchedEntityData$DataItem	102432880
+A_32zombies/0 | com.mojang.blaze3d.vertex.MeshData	100488680
+C_poloz/0 | java.util.LinkedHashMap$LinkedValueIterator	99724912
+D_poloz_128pillagers/0 | net.neoforged.neoforge.event.enchanting.GetEnchantmentLevelEvent	99088744
+C_poloz/0 | net.minecraft.world.phys.shapes.OffsetDoubleList	98124856
+startup | java.lang.String	97180608
+B_128pillagers/0 | com.google.common.collect.Iterators$ArrayItr	96366056
+D_poloz_128pillagers/0 | net.minecraft.world.phys.shapes.EntityCollisionContext	96240208
+D_poloz_128pillagers/0 | net.minecraft.world.entity.Entity$$Lambda+0x000001e71a7e35b0.571719827	95707904
+A_32zombies/0 | net.neoforged.neoforge.client.event.RenderLevelStageEvent	95557280
+A_idle/0 | java.nio.DirectByteBuffer	94337608
+D_poloz_128pillagers/0 | java.util.ImmutableCollections$ListItr	93517128
+C_poloz/0 | net.minecraft.world.level.Level$$Lambda+0x000001e71a6ad668.1550537455	93006856
+A_32zombies/0 | net.minecraft.Util$9$$Lambda+0x000001e71a1cb668.1244242406	92727616
+A_32zombies/0 | java.util.Optional	92261368
+B_128pillagers/0 | it.unimi.dsi.fastutil.doubles.DoubleArrayList	92070128
+B_128pillagers/0 | java.util.ArrayList$Itr	91542576
+E_expiry/0 | net.minecraft.network.chat.MutableComponent	90219032
+A_idle/0 | com.mojang.blaze3d.vertex.BufferBuilder	89631400
+B_128pillagers/0 | com.mojang.blaze3d.vertex.MeshData$DrawState	88768120
+B_128pillagers/0 | java.util.ImmutableCollections$List12	88620320
+E_expiry/0 | java.util.ArrayList	88293432
+D_poloz_128pillagers/0 | net.minecraft.world.item.enchantment.EnchantmentHelper$$Lambda+0x000001e71a84f298.714619354	87288144
+C_poloz/0 | net.neoforged.neoforge.event.entity.EntityEvent$Size	87024216
+D_poloz_128pillagers/0 | net.neoforged.neoforge.client.event.RenderLivingEvent$Pre	86790728
+B_128pillagers/0 | net.minecraft.world.phys.shapes.ArrayVoxelShape	86607024
+C_poloz/0 | net.minecraft.network.chat.HoverEvent$TypedHoverEvent	85977560
+D_poloz_128pillagers/0 | java.util.HashMap	85251616
+E_expiry/0 | net.neoforged.neoforge.client.event.RenderNameTagEvent	84878952
+B_128pillagers/0 | net.neoforged.neoforge.client.event.RenderLivingEvent$Post	84785968
+B_128pillagers/0 | net.minecraft.world.phys.shapes.CubePointRange	84156048
+A_idle/0 | java.util.stream.ReferencePipeline$2	83384032
+D_poloz_128pillagers/0 | net.minecraft.network.chat.HoverEvent	83167024
+C_poloz/0 | net.minecraft.client.gui.font.FontSet$$Lambda+0x000001e71a54fa38.672795686	82728136
+A_idle/0 | [Lnet.minecraft.world.phys.Vec3;	82188992
+D_poloz_128pillagers/0 | [Ljava.util.HashMap$Node;	82010424
+D_poloz_128pillagers/0 | net.minecraft.network.chat.HoverEvent$TypedHoverEvent	80553776
+A_idle/0 | [Lorg.joml.Vector3f;	80532816
+B_128pillagers/0 | net.minecraft.network.chat.HoverEvent	80053160
+E_expiry/0 | [Lnet.minecraft.network.syncher.SynchedEntityData$DataItem;	79480984
+A_idle/0 | [F	78889528
+D_poloz_128pillagers/0 | java.util.Spliterators$IteratorSpliterator	77974168
+C_poloz/0 | it.unimi.dsi.fastutil.objects.AbstractReference2ObjectMap$BasicEntry	77939376
+B_128pillagers/0 | java.util.HashMap	76897320
+A_idle/0 | java.nio.DirectFloatBufferU	74899264
+A_32zombies/0 | java.util.stream.ReferencePipeline$Head	74711328
+D_poloz_128pillagers/0 | net.minecraft.client.multiplayer.ClientLevel$$Lambda+0x000001e71a6f5668.1804136324	73254912
+E_expiry/0 | net.minecraft.world.level.levelgen.LegacyRandomSource	72296816
+B_128pillagers/0 | org.apache.commons.lang3.mutable.MutableFloat	71790776
+startup | net.minecraft.world.phys.Vec3	70910912
+E_expiry/0 | net.neoforged.neoforge.event.entity.EntityEvent$Size	69873864
+A_idle/0 | java.util.HashMap	69861768
+D_poloz_128pillagers/0 | java.util.stream.ReferencePipeline$Head	69412256
+startup | java.util.HashMap$ValueSpliterator	69331536
+A_32zombies/0 | net.minecraft.world.phys.AABB	68606856
+A_32zombies/0 | com.google.common.collect.RegularImmutableList	68516128
+A_idle/0 | com.mojang.blaze3d.vertex.MeshData	68497456
+C_poloz/0 | net.minecraft.world.level.block.Block$BlockStatePairKey	68220432
+E_expiry/0 | java.util.concurrent.atomic.AtomicLong	67608776
+A_idle/0 | java.lang.StringBuilder	66690872
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder$Result	66383296
+C_poloz/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder$Result	65235176
+E_expiry/0 | net.minecraft.network.chat.HoverEvent$EntityTooltipInfo	64963552
+C_poloz/0 | com.google.common.collect.RegularImmutableList	64806808
+A_32zombies/0 | [Lorg.joml.Vector3f;	64596632
+C_poloz/0 | net.minecraft.world.phys.shapes.EntityCollisionContext	64550976
+E_expiry/0 | java.util.ImmutableCollections$ListItr	64352256
+C_poloz/0 | top.theillusivec4.curios.common.capability.CurioInventoryCapability	64177448
+C_poloz/0 | net.minecraft.network.chat.HoverEvent	63834536
+D_poloz_128pillagers/0 | java.util.function.Predicate$$Lambda+0x000001e7191bd858.200616121	63712240
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap$MapEntrySet	63637424
+D_poloz_128pillagers/0 | net.neoforged.neoforge.event.entity.EntityEvent$Size	63504432
+A_32zombies/0 | [Lnet.minecraft.world.phys.Vec3;	63444272
+E_expiry/0 | java.util.HashSet	62869216
+B_128pillagers/0 | net.minecraft.client.multiplayer.ClientLevel$$Lambda+0x000001e71a6f5668.1804136324	61819784
+C_poloz/0 | net.minecraft.client.gui.font.FontSet$$Lambda+0x000001e71a2f7578.428035767	60500048
+A_32zombies/0 | java.util.stream.ReferencePipeline$2	60011472
+B_128pillagers/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder$Result	58732192
+B_128pillagers/0 | [J	58729944
+A_idle/0 | net.minecraft.client.multiplayer.ClientLevel$$Lambda+0x000001e71a6f5668.1804136324	58652216
+E_expiry/0 | java.util.stream.ReferencePipeline$Head	58506896
+A_32zombies/0 | net.minecraft.core.component.TypedDataComponent	58501744
+C_poloz/0 | net.neoforged.neoforge.client.event.ViewportEvent$ComputeFov	58432264
+D_poloz_128pillagers/0 | net.minecraft.world.level.CollisionGetter$$Lambda+0x000001e71a6ac908.1380543786	58032832
+A_idle/0 | java.util.Optional	57938304
+D_poloz_128pillagers/0 | org.apache.commons.lang3.mutable.MutableFloat	57754592
+A_idle/0 | it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap$EntrySet$2	57306360
+A_idle/0 | net.minecraft.world.item.ItemStack	56868528
+A_idle/0 | com.google.common.collect.Iterators$9	56865912
+A_32zombies/0 | com.google.common.collect.SingletonImmutableList	56830048
+C_poloz/0 | java.util.HashSet	56809424
+D_poloz_128pillagers/0 | java.util.HashMap$Node	56643880
+C_poloz/0 | com.mojang.blaze3d.vertex.BufferBuilder	56589944
+E_expiry/0 | net.minecraft.core.component.TypedDataComponent	56441256
+E_expiry/0 | net.minecraft.world.level.levelgen.MarsagliaPolarGaussian	56391328
+C_poloz/0 | net.minecraft.world.item.ItemStack	55862576
+B_128pillagers/0 | net.minecraft.world.level.BlockCollisions	55643448
+A_32zombies/0 | java.util.HashMap$Node	55140848
+A_idle/0 | java.util.stream.ReferencePipeline$3	54248856
+B_128pillagers/0 | net.minecraft.core.Cursor3D	54122808
+C_poloz/0 | net.minecraft.core.component.TypedDataComponent	53764232
+E_expiry/0 | net.minecraft.world.item.ItemStack	53392320
+D_poloz_128pillagers/0 | net.neoforged.neoforge.client.event.RenderLivingEvent$Post	52892192
+B_128pillagers/0 | net.minecraft.core.BlockPos$MutableBlockPos	52385616
+A_idle/0 | java.util.ArrayDeque	52241952
+E_expiry/0 | net.minecraft.core.component.PatchedDataComponentMap	51510896
+A_idle/0 | java.util.Spliterators$IteratorSpliterator	51210832
+A_idle/0 | java.util.stream.FindOps$FindSink$OfRef	51162064
+D_poloz_128pillagers/0 | net.neoforged.neoforge.event.tick.EntityTickEvent$Pre	50758144
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.BufferBuilder	50609088
+A_idle/0 | net.neoforged.neoforge.client.event.ViewportEvent$RenderFog	50291928
+C_poloz/0 | net.minecraft.world.entity.Entity$$Lambda+0x000001e71a7e35b0.571719827	50200888
+D_poloz_128pillagers/0 | net.minecraft.world.level.Level$$Lambda+0x000001e71a6ad668.1550537455	50200240
+D_poloz_128pillagers/0 | net.minecraft.network.RegistryFriendlyByteBuf	49482728
+C_poloz/0 | net.neoforged.neoforge.client.event.RenderLevelStageEvent	49446768
+startup | net.minecraft.world.level.biome.Climate$Parameter	49255528
+E_expiry/0 | net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Post	49109136
+E_expiry/0 | com.mojang.blaze3d.vertex.MeshData$DrawState	48843904
+D_poloz_128pillagers/0 | java.util.Collections$UnmodifiableSet	48707216
+B_128pillagers/0 | com.mojang.datafixers.util.Pair	48405840
+E_expiry/0 | java.util.Optional	48051288
+E_expiry/0 | net.neoforged.neoforge.client.event.RenderLevelStageEvent	47908408
+D_poloz_128pillagers/0 | java.util.stream.ReferencePipeline$3	47594864
+B_128pillagers/0 | java.util.UUID	46946680
+A_idle/0 | java.util.ArrayList$Itr	46901768
+C_poloz/0 | net.minecraft.client.multiplayer.ClientLevel$$Lambda+0x000001e71a6f5668.1804136324	46861552
+A_idle/0 | java.util.stream.ReferencePipeline$3$1	46758024
+A_32zombies/0 | java.nio.DirectByteBuffer	46350560
+B_128pillagers/0 | java.util.concurrent.atomic.AtomicLong	46316688
+E_expiry/0 | net.neoforged.neoforge.event.entity.EntityEvent$EntityConstructing	46160408
+A_idle/0 | [J	45470576
+D_poloz_128pillagers/0 | net.neoforged.neoforge.event.tick.EntityTickEvent$Post	45385096
+C_poloz/0 | net.neoforged.neoforge.event.tick.EntityTickEvent$Post	45099880
+startup | [J	45064608
+A_idle/0 | net.minecraft.core.component.PatchedDataComponentMap	44369216
+C_poloz/0 | net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Post	43871104
+D_poloz_128pillagers/0 | net.minecraft.world.level.block.Block$BlockStatePairKey	43642088
+transition/0 | net.minecraft.network.chat.Style	43550368
+A_32zombies/0 | java.util.ArrayDeque	42978752
+A_32zombies/0 | net.minecraft.core.BlockPos$MutableBlockPos	42971768
+A_idle/0 | org.joml.Vector4f	42964720
+C_poloz/0 | net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Pre	42937840
+A_32zombies/0 | java.util.HashMap	42914992
+E_expiry/0 | net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Pre	42872856
+E_expiry/0 | [F	42863680
+E_expiry/0 | java.lang.StringBuilder	42783984
+B_128pillagers/0 | net.neoforged.neoforge.event.tick.EntityTickEvent$Pre	42363600
+E_expiry/0 | net.minecraft.network.chat.HoverEvent$TypedHoverEvent	41914080
+A_32zombies/0 | java.util.stream.ReferencePipeline$2$1	41544224
+E_expiry/0 | java.util.stream.ReferencePipeline$2	40870840
+E_expiry/0 | java.util.UUID	40868280
+A_32zombies/0 | net.minecraft.client.multiplayer.ClientLevel$$Lambda+0x000001e71a6f5668.1804136324	40712480
+A_idle/0 | net.minecraft.client.gui.font.FontSet$$Lambda+0x000001e71a2f7578.428035767	40710864
+E_expiry/0 | com.mojang.blaze3d.vertex.BufferBuilder	40521976
+A_idle/0 | com.mojang.blaze3d.vertex.PoseStack	40434296
+B_128pillagers/0 | net.minecraft.network.RegistryFriendlyByteBuf	40034688
+A_idle/0 | top.theillusivec4.curios.common.capability.CurioInventoryCapability	39981328
+B_128pillagers/0 | java.util.stream.ReferencePipeline$Head	39911832
+A_idle/0 | java.util.stream.ReduceOps$2ReducingSink	39028960
+C_poloz/0 | [Lorg.joml.Vector3f;	38833304
+startup | net.minecraft.world.phys.shapes.CubePointRange	38605816
+C_poloz/0 | java.util.Spliterators$IteratorSpliterator	38587064
+B_128pillagers/0 | net.minecraft.Util$9$$Lambda+0x000001e71a1cb668.1244242406	38571624
+D_poloz_128pillagers/0 | java.nio.DirectFloatBufferU	38566200
+A_idle/0 | net.minecraft.network.chat.MutableComponent	38436696
+startup | java.util.Optional	38365512
+A_32zombies/0 | net.minecraft.world.phys.shapes.OffsetDoubleList	38193328
+startup | net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape$$Lambda+0x000001e719659620.1331434885	37727008
+A_idle/0 | com.google.common.collect.Iterators$6	37696504
+D_poloz_128pillagers/0 | net.minecraft.core.BlockPos$4	37314800
+B_128pillagers/0 | java.util.function.Predicate$$Lambda+0x000001e7191bd858.200616121	37050344
+D_poloz_128pillagers/0 | [Lnet.minecraft.world.entity.EquipmentSlot;	37035408
+B_128pillagers/0 | net.minecraft.server.level.ServerChunkCache$ChunkAndHolder	36780648
+C_poloz/0 | java.util.stream.ReferencePipeline$3	36678376
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2DoubleArrayMap	36626128
+E_expiry/0 | net.minecraft.network.syncher.SynchedEntityData	36504320
+A_idle/0 | com.google.common.collect.Lists$TransformingRandomAccessList$1	36465504
+D_poloz_128pillagers/0 | java.util.stream.FindOps$FindSink$OfRef	36105760
+E_expiry/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder$Result	35973416
+C_poloz/0 | net.minecraft.core.component.PatchedDataComponentMap	35953072
+D_poloz_128pillagers/0 | io.netty.channel.DefaultChannelPromise	35865544
+C_poloz/0 | java.nio.DirectByteBuffer	35847968
+startup | com.mojang.serialization.DataResult$Success	35714128
+C_poloz/0 | net.minecraft.client.renderer.entity.layers.ParrotOnShoulderLayer$$Lambda+0x000001e71a80ce78.1389235501	35687320
+E_expiry/0 | java.nio.DirectByteBuffer	35637608
+startup | net.minecraft.world.phys.shapes.Shapes$$Lambda+0x000001e7197139d0.1194923953	35631328
+D_poloz_128pillagers/0 | org.slavicmyths.item.ItemState$RuneState	35280472
+B_128pillagers/0 | java.util.Spliterators$IteratorSpliterator	34995056
+A_idle/0 | net.minecraft.world.phys.AABB	34693584
+A_idle/0 | it.unimi.dsi.fastutil.objects.AbstractReference2ObjectMap$BasicEntry	34583648
+C_poloz/0 | com.mojang.blaze3d.vertex.MeshData	34580960
+B_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2DoubleArrayMap	34371624
+C_poloz/0 | net.neoforged.neoforge.event.entity.EntityEvent$EntityConstructing	33814504
+D_poloz_128pillagers/0 | java.util.stream.ReferencePipeline$3$1	33795704
+A_idle/0 | net.minecraft.client.gui.font.FontSet$$Lambda+0x000001e71a54fa38.672795686	33412376
+B_128pillagers/0 | net.minecraft.client.gui.GuiGraphics	33406544
+C_poloz/0 | java.util.UUID	33155184
+C_poloz/0 | net.minecraft.world.level.CollisionGetter$$Lambda+0x000001e71a6ac908.1380543786	33039536
+B_128pillagers/0 | java.util.concurrent.ConcurrentLinkedQueue$Node	32895072
+C_poloz/0 | net.minecraft.network.syncher.SynchedEntityData	32749136
+startup | java.util.ArrayList$Itr	32462784
+C_poloz/0 | com.google.common.collect.Iterators$6	32433152
+D_poloz_128pillagers/0 | net.minecraft.world.level.entity.EntitySectionStorage$$Lambda+0x000001e71a6adc98.617561830	32376408
+A_idle/0 | java.util.ArrayList$ArrayListSpliterator	32297176
+B_128pillagers/0 | java.util.stream.ReferencePipeline$3	32238368
+E_expiry/0 | net.minecraft.world.level.ChunkPos	31941576
+C_poloz/0 | java.util.ImmutableCollections$ListItr	31773328
+A_32zombies/0 | net.minecraft.world.level.Level$$Lambda+0x000001e71a6d7708.1159136001	31601072
+E_expiry/0 | net.minecraft.network.syncher.SynchedEntityData$Builder	31432120
+D_poloz_128pillagers/0 | io.netty.buffer.UnpooledByteBufAllocator$InstrumentedUnpooledUnsafeHeapByteBuf	31291848
+A_idle/0 | it.unimi.dsi.fastutil.longs.LongOpenHashSet$SetIterator	31287552
+D_poloz_128pillagers/0 | java.util.concurrent.ConcurrentLinkedQueue$Node	30565208
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.MeshData	30441280
+B_128pillagers/0 | net.neoforged.neoforge.client.event.RenderHandEvent	30389744
+A_idle/0 | com.mojang.datafixers.util.Pair	30385616
+D_poloz_128pillagers/0 | net.minecraft.network.chat.contents.TranslatableContents	30283432
+C_poloz/0 | net.minecraft.world.level.EntityGetter$$Lambda+0x000001e71a6ad420.572863723	30279688
+E_expiry/0 | net.minecraft.network.chat.HoverEvent	30132664
+A_idle/0 | net.minecraft.network.chat.Style	29343240
+startup | [D	29343104
+C_poloz/0 | java.util.stream.ReferencePipeline$2	29334960
+E_expiry/0 | com.mojang.blaze3d.vertex.MeshData	29186784
+A_idle/0 | java.util.HashMap$Node	29117664
+D_poloz_128pillagers/0 | org.joml.Vector4f	28986520
+A_32zombies/0 | com.mojang.blaze3d.vertex.PoseStack	28830464
+C_poloz/0 | java.lang.StringBuilder	28447544
+A_32zombies/0 | org.joml.FrustumIntersection	28355448
+E_expiry/0 | it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap$ValuesCollection$1	28290672
+E_expiry/0 | java.lang.Integer	28146432
+C_poloz/0 | net.minecraft.world.level.entity.EntityTypeTest$1	28144776
+D_poloz_128pillagers/0 | net.minecraft.world.phys.shapes.EntityCollisionContext$$Lambda+0x000001e71a6acfb8.836225276	28103424
+A_32zombies/0 | net.neoforged.neoforge.client.event.ViewportEvent$RenderFog	28036064
+B_128pillagers/0 | [Lnet.minecraft.world.entity.EquipmentSlot;	28030304
+C_poloz/0 | java.util.function.Predicate$$Lambda+0x000001e7191bd858.200616121	27878440
+D_poloz_128pillagers/0 | java.util.stream.MatchOps$MatchOp	27684528
+B_128pillagers/0 | io.netty.buffer.UnpooledByteBufAllocator$InstrumentedUnpooledUnsafeHeapByteBuf	27314416
+A_idle/0 | com.google.common.collect.Maps$TransformedEntriesMap	27240032
+B_128pillagers/0 | net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Post	27151600
+A_idle/0 | java.util.stream.ReduceOps$2	27078416
+D_poloz_128pillagers/0 | net.minecraft.Util$9$$Lambda+0x000001e71a1cb668.1244242406	27057088
+D_poloz_128pillagers/0 | com.google.common.collect.ImmutableList$Builder	26901568
+D_poloz_128pillagers/0 | net.minecraft.world.level.entity.EntitySectionStorage$$Lambda+0x000001e71a6d7920.688433564	26670416
+startup | [Z	26199760
+A_32zombies/0 | org.joml.Vector4f	26197080
+E_expiry/0 | [Lorg.joml.Vector3f;	26191904
+A_idle/0 | net.minecraft.world.level.entity.EntitySectionStorage$$Lambda+0x000001e71a6d7920.688433564	26173432
+C_poloz/0 | net.minecraft.util.AbortableIterationConsumer$$Lambda+0x000001e71a6ada80.1158654191	25985168
+B_128pillagers/0 | net.minecraft.client.renderer.chunk.SectionRenderDispatcher$$Lambda+0x000001e71a7d2088.1814451081	25914760
+D_poloz_128pillagers/0 | java.util.HashSet	25618168
+E_expiry/0 | java.util.stream.ReferencePipeline$3	25419904
+D_poloz_128pillagers/0 | net.minecraft.client.renderer.SpriteCoordinateExpander	25188784
+A_idle/0 | java.util.concurrent.ConcurrentLinkedQueue$Node	25151168
+E_expiry/0 | net.minecraft.network.protocol.game.VecDeltaCodec	25146504
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.MeshData$DrawState	25116488
+C_poloz/0 | org.joml.Vector4f	25075544
+D_poloz_128pillagers/0 | net.minecraft.world.entity.EntitySelector$$Lambda+0x000001e71a6f2ee0.1578486078	24792696
+D_poloz_128pillagers/0 | net.neoforged.neoforge.event.entity.living.MobDespawnEvent	24463224
+A_idle/0 | com.google.common.collect.Iterators$ArrayItr	24326720
+A_idle/0 | com.mojang.blaze3d.vertex.MeshData$SortState	24103832
+startup | net.minecraft.world.phys.shapes.Shapes$$Lambda+0x000001e7197137b8.1771226818	24103616
+E_expiry/0 | com.google.common.collect.Iterators$9	24098472
+D_poloz_128pillagers/0 | [Lnet.minecraft.network.syncher.SynchedEntityData$DataItem;	24049408
+C_poloz/0 | com.ibm.icu.text.Bidi	24036792
+E_expiry/0 | net.minecraft.client.multiplayer.ClientLevel$$Lambda+0x000001e71a6f5668.1804136324	23952576
+C_poloz/0 | com.google.common.collect.ImmutableList$Builder	23797432
+B_128pillagers/0 | net.minecraft.core.component.TypedDataComponent	23797280
+C_poloz/0 | com.mojang.blaze3d.vertex.MeshData$DrawState	23311072
+C_poloz/0 | net.neoforged.neoforge.client.event.RenderLivingEvent$Post	23090592
+E_expiry/0 | java.util.stream.ReduceOps$2ReducingSink	23055664
+A_idle/0 | net.minecraft.client.gui.Font$StringRenderOutput	23055360
+A_32zombies/0 | java.util.IdentityHashMap$KeyIterator	23031408
+A_idle/0 | net.minecraft.client.renderer.FogRenderer$$Lambda+0x000001e71a700cc8.1839119752	22920664
+A_idle/0 | java.util.stream.ReferencePipeline$2$1	22879272
+A_idle/0 | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap$EntryIterator	22874256
+D_poloz_128pillagers/0 | java.util.stream.MatchOps$1MatchSink	22695480
+B_128pillagers/0 | net.minecraft.world.phys.shapes.EntityCollisionContext	22640272
+A_32zombies/0 | java.util.ArrayList$Itr	22447368
+A_idle/0 | it.unimi.dsi.fastutil.ints.Int2ObjectLinkedOpenHashMap$ValueIterator	22240696
+A_32zombies/0 | net.minecraft.world.phys.shapes.EntityCollisionContext	22126624
+B_128pillagers/0 | net.minecraft.client.renderer.SpriteCoordinateExpander	22066784
+E_expiry/0 | net.minecraft.world.entity.Entity$$Lambda+0x000001e71a7e35b0.571719827	22007880
+A_idle/0 | java.util.regex.Matcher	21996616
+A_idle/0 | org.joml.FrustumIntersection	21938968
+A_32zombies/0 | java.util.regex.Matcher	21735304
+D_poloz_128pillagers/0 | net.minecraft.world.level.pathfinder.Node	21733408
+startup | org.joml.Vector3f	21662408
+D_poloz_128pillagers/0 | net.minecraft.util.AbortableIterationConsumer$$Lambda+0x000001e71a6ada80.1158654191	21570760
+C_poloz/0 | java.util.HashMap$Node	21566856
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap	21500544
+C_poloz/0 | net.minecraft.network.syncher.SynchedEntityData$Builder	21373752
+C_poloz/0 | java.util.stream.ReferencePipeline$3$1	21305984
+C_poloz/0 | net.minecraft.core.BlockPos$4	21187720
+C_poloz/0 | it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap$EntrySet$2	21134816
+
+Estimated allocation weights by leaf site	value
+B_128pillagers/0 | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData	8107606952
+D_poloz_128pillagers/0 | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData	6878932168
+A_32zombies/0 | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>	6697270416
+C_poloz/0 | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>	6457747992
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>	5835070200
+A_idle/0 | net.minecraft.world.phys.Vec3.add	5331935256
+B_128pillagers/0 | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>	5154032080
+A_idle/0 | jdk.internal.misc.Unsafe.allocateUninitializedArray	4305328080
+A_32zombies/0 | net.minecraft.world.phys.Vec3.add	4301116328
+B_128pillagers/0 | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	3825922216
+A_idle/0 | net.minecraft.world.phys.Vec3.fromRGB24	3387727904
+A_32zombies/0 | net.minecraft.world.phys.Vec3.fromRGB24	3108263728
+B_128pillagers/0 | com.mojang.blaze3d.vertex.VertexConsumer.putBulkData	2934296136
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.VertexConsumer.putBulkData	2795523400
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	2710944824
+A_idle/0 | net.minecraft.core.SectionPos.of	2545110696
+C_poloz/0 | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData	2443628392
+A_32zombies/0 | jdk.internal.misc.Unsafe.allocateUninitializedArray	2295176880
+C_poloz/0 | net.minecraft.world.phys.Vec3.add	2135585712
+E_expiry/0 | net.minecraft.world.phys.Vec3.add	2125871888
+B_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap.<init>	1955173904
+A_idle/0 | java.lang.StringConcatHelper.newString	1813268320
+C_poloz/0 | jdk.internal.misc.Unsafe.allocateUninitializedArray	1796875080
+A_32zombies/0 | net.minecraft.core.SectionPos.of	1793438808
+A_idle/0 | net.minecraft.world.phys.Vec3.multiply	1774655296
+A_32zombies/0 | java.lang.StringConcatHelper.newString	1725529920
+E_expiry/0 | jdk.internal.misc.Unsafe.allocateUninitializedArray	1713174968
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap.<init>	1415427768
+A_32zombies/0 | net.minecraft.world.phys.Vec3.multiply	1397038952
+E_expiry/0 | net.minecraft.world.phys.Vec3.fromRGB24	1357109120
+A_idle/0 | java.util.Arrays.copyOf	1349404816
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.VertexConsumer.setNormal	1333409976
+C_poloz/0 | net.minecraft.client.particle.SingleQuadParticle.getRenderBoundingBox	1294797608
+C_poloz/0 | net.minecraft.world.phys.Vec3.fromRGB24	1279033168
+B_128pillagers/0 | com.mojang.blaze3d.vertex.VertexConsumer.setNormal	1236136344
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.PoseStack.pushPose	1197180776
+A_32zombies/0 | net.minecraft.client.model.geom.ModelPart.translateAndRotate	1158620184
+startup | jdk.internal.org.objectweb.asm.SymbolTable.addConstantUtf8	1135986224
+A_32zombies/0 | com.mojang.blaze3d.vertex.PoseStack.pushPose	1132673656
+C_poloz/0 | com.mojang.blaze3d.vertex.PoseStack.pushPose	1119630184
+B_128pillagers/0 | jdk.internal.misc.Unsafe.allocateUninitializedArray	1094034296
+C_poloz/0 | net.minecraft.core.SectionPos.of	1058144112
+B_128pillagers/0 | com.mojang.blaze3d.vertex.PoseStack.pushPose	1021745056
+B_128pillagers/0 | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2	1018528680
+E_expiry/0 | com.mojang.blaze3d.vertex.VertexConsumer.setNormal	966632536
+E_expiry/0 | net.minecraft.core.SectionPos.of	960462816
+C_poloz/0 | com.mojang.blaze3d.vertex.VertexConsumer.putBulkData	924010528
+A_32zombies/0 | net.minecraft.client.model.geom.ModelPart$Cube.compile	916568656
+C_poloz/0 | java.lang.StringConcatHelper.newString	910904336
+A_32zombies/0 | com.google.common.collect.Iterators.singletonIterator	903089368
+E_expiry/0 | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>	863159832
+D_poloz_128pillagers/0 | java.lang.invoke.DirectMethodHandle.allocateInstance	839540032
+D_poloz_128pillagers/0 | jdk.internal.misc.Unsafe.allocateUninitializedArray	818034656
+B_128pillagers/0 | java.util.Arrays.copyOf	770143104
+C_poloz/0 | net.minecraft.client.model.geom.ModelPart$Cube.compile	763639632
+startup | jdk.nio.zipfs.ZipPath.getName	757809960
+D_poloz_128pillagers/0 | java.lang.StringConcatHelper.newString	751720440
+E_expiry/0 | net.minecraft.world.phys.Vec3.multiply	749856736
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2	742694416
+D_poloz_128pillagers/0 | net.minecraft.client.particle.SingleQuadParticle.getRenderBoundingBox	739402712
+A_idle/0 | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>	736709016
+startup | net.minecraft.tags.TagManager.lambda$createLoader$3	710937624
+D_poloz_128pillagers/0 | java.util.Arrays.copyOf	703126168
+B_128pillagers/0 | java.lang.StringConcatHelper.newString	698638696
+D_poloz_128pillagers/0 | net.minecraft.world.phys.Vec3.add	698003208
+C_poloz/0 | net.minecraft.world.level.levelgen.LegacyRandomSource.<init>	693152672
+C_poloz/0 | com.mojang.blaze3d.vertex.VertexConsumer.setNormal	689550840
+D_poloz_128pillagers/0 | net.minecraft.client.model.geom.ModelPart$Cube.compile	686762576
+E_expiry/0 | java.lang.StringConcatHelper.newString	679359072
+C_poloz/0 | java.lang.invoke.DirectMethodHandle.allocateInstance	673182536
+C_poloz/0 | net.minecraft.world.phys.Vec3.multiply	663387152
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap$ValuesCollection.iterator	647229776
+B_128pillagers/0 | java.lang.invoke.DirectMethodHandle.allocateInstance	638832048
+E_expiry/0 | net.minecraft.network.syncher.SynchedEntityData$Builder.define	635108392
+C_poloz/0 | java.util.Arrays.copyOf	610119888
+C_poloz/0 | net.minecraft.world.phys.shapes.CubeVoxelShape.getCoords	578569000
+B_128pillagers/0 | net.minecraft.world.phys.Vec3.add	575099880
+B_128pillagers/0 | java.util.Optional.ofNullable	572016672
+D_poloz_128pillagers/0 | com.google.common.collect.Iterators.singletonIterator	562976232
+E_expiry/0 | net.minecraft.client.renderer.entity.layers.ArrowLayer.renderStuckItem	554619968
+E_expiry/0 | java.util.Arrays.copyOf	525535040
+B_128pillagers/0 | net.minecraft.client.model.geom.ModelPart.translateAndRotate	521856752
+A_idle/0 | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	509787968
+C_poloz/0 | net.minecraft.network.syncher.SynchedEntityData$Builder.define	494903728
+B_128pillagers/0 | net.minecraft.client.model.geom.ModelPart$Cube.compile	484127832
+B_128pillagers/0 | net.minecraft.world.item.enchantment.ItemEnchantments$Mutable.<init>	480601496
+A_32zombies/0 | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData	462249392
+A_idle/0 | java.util.Arrays.copyOfRangeByte	456848968
+D_poloz_128pillagers/0 | net.minecraft.client.model.geom.ModelPart.translateAndRotate	455016712
+C_poloz/0 | net.minecraft.client.renderer.entity.layers.ArrowLayer.renderStuckItem	450361904
+A_32zombies/0 | java.util.Arrays.copyOf	445947944
+A_32zombies/0 | net.minecraft.client.renderer.entity.LivingEntityRenderer.render	433439112
+D_poloz_128pillagers/0 | com.mojang.math.Axis.lambda$static$1	433424560
+D_poloz_128pillagers/0 | net.minecraft.network.chat.Component.copy	428276768
+B_128pillagers/0 | net.neoforged.neoforge.event.EventHooks.getAllEnchantmentLevels	415991576
+C_poloz/0 | net.minecraft.core.BlockPos.containing	413650536
+C_poloz/0 | net.minecraft.world.phys.shapes.VoxelShape.bounds	403615368
+D_poloz_128pillagers/0 | net.minecraft.world.phys.shapes.VoxelShape.move	399649472
+D_poloz_128pillagers/0 | net.minecraft.network.chat.Style.withInsertion	396131808
+D_poloz_128pillagers/0 | net.minecraft.world.phys.shapes.Shapes.create	393305432
+C_poloz/0 | net.minecraft.client.model.geom.ModelPart.translateAndRotate	392169568
+B_128pillagers/0 | com.mojang.math.Axis.lambda$static$1	384153776
+C_poloz/0 | com.google.common.collect.Iterators.singletonIterator	376128176
+A_idle/0 | java.lang.invoke.DirectMethodHandle.allocateInstance	367369368
+D_poloz_128pillagers/0 | net.minecraft.world.phys.shapes.CubeVoxelShape.getCoords	366359288
+A_32zombies/0 | net.minecraft.network.chat.Component.copy	363891264
+A_32zombies/0 | java.lang.invoke.DirectMethodHandle.allocateInstance	363677240
+B_128pillagers/0 | com.google.common.collect.Iterators.singletonIterator	361898304
+C_poloz/0 | net.minecraft.client.renderer.entity.EntityRenderer.render	360197872
+E_expiry/0 | com.mojang.math.Axis.lambda$static$1	354465176
+A_32zombies/0 | net.minecraft.core.BlockPos.containing	349946216
+A_idle/0 | com.mojang.blaze3d.vertex.PoseStack.lambda$new$0	347837664
+E_expiry/0 | net.minecraft.world.entity.Entity.<init>	344246464
+B_128pillagers/0 | net.minecraft.core.SectionPos.of	333684424
+D_poloz_128pillagers/0 | net.minecraft.client.renderer.entity.EntityRenderer.render	331239488
+B_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap$MapEntrySet.iterator	327287096
+D_poloz_128pillagers/0 | java.util.Optional.ofNullable	319685992
+C_poloz/0 | net.minecraft.network.chat.Style.withInsertion	318865016
+A_idle/0 | net.neoforged.neoforge.client.gui.GuiLayerManager.renderInner	318016688
+A_32zombies/0 | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	314863656
+C_poloz/0 | net.minecraft.network.chat.Style.withHoverEvent	312132512
+A_32zombies/0 | net.minecraft.client.renderer.entity.EntityRenderer.render	309677288
+A_32zombies/0 | net.minecraft.network.chat.Style.withInsertion	307643520
+D_poloz_128pillagers/0 | net.minecraft.core.SectionPos.of	303672488
+C_poloz/0 | net.minecraft.util.RandomSource.create	303382152
+A_32zombies/0 | com.mojang.blaze3d.vertex.PoseStack.lambda$new$0	299820992
+E_expiry/0 | net.minecraft.world.entity.EntityDimensions.makeBoundingBox	295809360
+D_poloz_128pillagers/0 | net.minecraft.network.chat.Style.withHoverEvent	295420632
+C_poloz/0 | net.minecraft.world.entity.Entity.<init>	291984424
+B_128pillagers/0 | net.minecraft.world.phys.Vec3.fromRGB24	291201248
+A_32zombies/0 | com.google.common.collect.ImmutableList.of	289670888
+C_poloz/0 | net.minecraft.client.particle.SingleQuadParticle.render	289342816
+A_32zombies/0 | net.minecraft.world.entity.Entity.getEyePosition	286785256
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.doubles.DoubleArrayList.wrap	284295344
+C_poloz/0 | net.neoforged.neoforge.common.util.TransformationHelper.quatFromXYZ	279262552
+D_poloz_128pillagers/0 | java.util.ArrayList.iterator	279010424
+B_128pillagers/0 | net.minecraft.network.chat.Component.copy	278716200
+C_poloz/0 | net.minecraft.network.chat.Component.copy	276233976
+C_poloz/0 | net.minecraft.world.phys.shapes.Shapes.create	271112200
+B_128pillagers/0 | net.minecraft.world.entity.Entity.createHoverEvent	268301616
+C_poloz/0 | net.minecraft.world.entity.Entity.createHoverEvent	266858736
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap$MapEntrySet.iterator	265043384
+D_poloz_128pillagers/0 | net.minecraft.world.level.levelgen.LegacyRandomSource.<init>	261347600
+A_32zombies/0 | net.minecraft.network.chat.Style.withHoverEvent	256835536
+C_poloz/0 | net.minecraft.core.BlockPos.relative	249464304
+A_32zombies/0 | net.minecraft.world.entity.Entity.createHoverEvent	247643488
+C_poloz/0 | it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap$ValuesCollection.iterator	247220176
+D_poloz_128pillagers/0 | net.minecraft.world.phys.Vec3.fromRGB24	245387760
+D_poloz_128pillagers/0 | net.minecraft.core.BlockPos.containing	245236264
+D_poloz_128pillagers/0 | net.minecraft.world.item.enchantment.ItemEnchantments$Mutable.<init>	244071424
+A_32zombies/0 | com.mojang.blaze3d.vertex.BufferBuilder.storeMesh	243078728
+C_poloz/0 | java.util.ArrayList.iterator	242451024
+A_idle/0 | java.util.ArrayDeque.<init>	239152256
+E_expiry/0 | it.unimi.dsi.fastutil.objects.Object2DoubleArrayMap.<init>	233583728
+D_poloz_128pillagers/0 | net.minecraft.world.level.BlockCollisions.<init>	233336040
+C_poloz/0 | com.google.common.collect.Lists.newArrayList	232859384
+A_idle/0 | net.minecraft.core.BlockPos.containing	232610128
+D_poloz_128pillagers/0 | net.minecraft.world.phys.AABB.inflate	232521776
+A_32zombies/0 | net.neoforged.neoforge.client.gui.GuiLayerManager.renderInner	232508240
+E_expiry/0 | com.mojang.blaze3d.vertex.PoseStack.pushPose	229328192
+B_128pillagers/0 | net.minecraft.client.renderer.entity.EntityRenderer.render	218998824
+startup | net.minecraft.world.level.chunk.PalettedContainer.pack	217622088
+C_poloz/0 | java.util.Arrays.copyOfRangeByte	214570776
+startup | net.minecraft.world.phys.shapes.IndirectMerger.<init>	214530808
+A_idle/0 | com.mojang.blaze3d.vertex.BufferBuilder.storeMesh	213208928
+D_poloz_128pillagers/0 | com.mojang.math.Axis.lambda$static$3	213160776
+C_poloz/0 | net.minecraft.core.Direction.values	211037856
+B_128pillagers/0 | com.mojang.math.Axis.lambda$static$3	210073112
+D_poloz_128pillagers/0 | net.neoforged.neoforge.event.EventHooks.getAllEnchantmentLevels	209997960
+A_32zombies/0 | java.util.ArrayDeque.<init>	209782144
+C_poloz/0 | com.mojang.math.Axis.lambda$static$1	209719912
+D_poloz_128pillagers/0 | net.minecraft.world.entity.Entity.createHoverEvent	209335808
+B_128pillagers/0 | net.minecraft.network.chat.Style.withHoverEvent	207471456
+C_poloz/0 | net.minecraft.network.chat.Component.translatable	206622760
+D_poloz_128pillagers/0 | net.minecraft.world.phys.Vec3.multiply	205428640
+A_32zombies/0 | com.mojang.blaze3d.vertex.VertexConsumer.putBulkData	205428056
+D_poloz_128pillagers/0 | net.minecraft.core.BlockPos.relative	205292376
+C_poloz/0 | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	197569928
+B_128pillagers/0 | net.minecraft.world.phys.shapes.VoxelShape.move	196784920
+A_idle/0 | net.minecraft.core.component.TypedDataComponent.createUnchecked	194454320
+B_128pillagers/0 | net.minecraft.network.chat.Style.withInsertion	194173208
+B_128pillagers/0 | com.mojang.blaze3d.vertex.BufferBuilder.storeMesh	192922728
+B_128pillagers/0 | java.util.ImmutableCollections$AbstractImmutableList.iterator	192808128
+B_128pillagers/0 | net.minecraft.client.renderer.entity.LivingEntityRenderer.render	192445752
+B_128pillagers/0 | net.minecraft.world.phys.Vec3.multiply	191004800
+C_poloz/0 | net.minecraft.network.syncher.SynchedEntityData$Builder.<init>	190576536
+A_32zombies/0 | net.minecraft.core.BlockPos.relative	189112328
+A_idle/0 | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2	189026584
+A_32zombies/0 | com.mojang.math.Axis.lambda$static$3	186750040
+C_poloz/0 | net.minecraft.world.entity.EntityDimensions.makeBoundingBox	186283472
+A_32zombies/0 | com.mojang.blaze3d.systems.RenderSystem.applyModelViewMatrix	182120872
+C_poloz/0 | com.mojang.math.Axis.lambda$static$3	179010576
+C_poloz/0 | net.minecraft.world.entity.Entity.getEyePosition	178741688
+A_32zombies/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder.build	178739312
+C_poloz/0 | net.minecraft.network.chat.MutableComponent.create	177299816
+C_poloz/0 | net.minecraft.client.renderer.block.model.ItemTransform.apply	176441736
+E_expiry/0 | java.util.Arrays.copyOfRangeByte	174592424
+D_poloz_128pillagers/0 | net.minecraft.world.item.enchantment.ItemEnchantments$Mutable.toImmutable	173522448
+A_idle/0 | java.util.stream.StreamSupport.stream	173212144
+B_128pillagers/0 | net.minecraft.world.level.levelgen.LegacyRandomSource.<init>	170677208
+C_poloz/0 | it.unimi.dsi.fastutil.doubles.DoubleArrayList.wrap	170667800
+D_poloz_128pillagers/0 | net.minecraft.world.entity.Entity.getEyePosition	169309760
+D_poloz_128pillagers/0 | io.netty.util.internal.PlatformDependent.allocateUninitializedArray	168923744
+E_expiry/0 | java.util.HashSet.<init>	168909584
+D_poloz_128pillagers/0 | net.minecraft.world.phys.shapes.VoxelShape.bounds	168823000
+C_poloz/0 | net.minecraft.world.phys.AABB.move	168767328
+B_128pillagers/0 | net.minecraft.network.syncher.SynchedEntityData$Builder.define	168747152
+C_poloz/0 | it.unimi.dsi.fastutil.objects.Object2DoubleArrayMap.<init>	168712552
+D_poloz_128pillagers/0 | net.minecraft.client.particle.SingleQuadParticle.render	164574720
+B_128pillagers/0 | net.minecraft.network.chat.HoverEvent.<init>	157597000
+C_poloz/0 | com.mojang.blaze3d.vertex.PoseStack.lambda$new$0	154876928
+A_32zombies/0 | java.util.Arrays.copyOfRangeByte	151627776
+B_128pillagers/0 | net.minecraft.client.renderer.entity.layers.ArrowLayer.renderStuckItem	151525160
+B_128pillagers/0 | net.minecraft.world.entity.Entity.getEyePosition	149368936
+A_32zombies/0 | net.minecraft.client.renderer.MultiBufferSource$BufferSource.getBuffer	149161848
+E_expiry/0 | java.lang.invoke.DirectMethodHandle.allocateInstance	148273560
+D_poloz_128pillagers/0 | com.mojang.datafixers.util.Pair.of	147312320
+A_idle/0 | com.mojang.blaze3d.vertex.PoseStack.pushPose	145336960
+B_128pillagers/0 | net.minecraft.world.phys.shapes.Shapes.create	141284552
+D_poloz_128pillagers/0 | net.minecraft.client.renderer.entity.LivingEntityRenderer.render	139682920
+E_expiry/0 | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	139029216
+B_128pillagers/0 | net.minecraft.util.RandomSource.create	137842880
+E_expiry/0 | com.mojang.blaze3d.vertex.PoseStack.lambda$new$0	136225960
+A_32zombies/0 | com.mojang.datafixers.util.Pair.hashCode	136087680
+C_poloz/0 | java.util.Optional.ofNullable	135827752
+A_32zombies/0 | net.minecraft.network.chat.HoverEvent.<init>	134757536
+A_idle/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder.build	134287512
+startup | java.lang.invoke.DirectMethodHandle.allocateInstance	133888264
+A_idle/0 | java.lang.AbstractStringBuilder.<init>	132860824
+B_128pillagers/0 | net.minecraft.core.Direction.values	131844568
+startup | java.io.InputStream.readNBytes	131117408
+C_poloz/0 | net.minecraft.world.level.BlockCollisions.<init>	131069072
+B_128pillagers/0 | net.minecraft.core.BlockPos.relative	130124968
+A_idle/0 | net.neoforged.neoforge.client.ClientHooks.dispatchRenderStage	129370440
+D_poloz_128pillagers/0 | com.google.common.collect.Iterators.forArray	128512616
+C_poloz/0 | net.minecraft.world.phys.shapes.VoxelShape.move	128115152
+E_expiry/0 | java.lang.Long.fastUUID	127198216
+D_poloz_128pillagers/0 | net.minecraft.world.level.CollisionGetter.lambda$getBlockCollisions$1	126909352
+C_poloz/0 | java.util.HashSet.<init>	126366200
+D_poloz_128pillagers/0 | net.minecraft.util.SimpleBitStorage.copy	124868512
+E_expiry/0 | net.minecraft.world.level.levelgen.LegacyRandomSource.<init>	124000104
+C_poloz/0 | java.util.stream.StreamSupport.stream	123981992
+B_128pillagers/0 | net.minecraft.client.renderer.MultiBufferSource$BufferSource.getBuffer	123910496
+B_128pillagers/0 | net.minecraft.core.BlockPos.containing	122563456
+A_idle/0 | com.ibm.icu.text.Bidi.getDirProps	122470784
+C_poloz/0 | com.google.common.collect.Iterators.forArray	121128520
+A_idle/0 | java.lang.Integer.toString	120417760
+B_128pillagers/0 | net.minecraft.world.item.enchantment.ItemEnchantments$Mutable.toImmutable	119900912
+C_poloz/0 | net.minecraft.world.phys.AABB.inflate	119092712
+C_poloz/0 | net.minecraft.client.particle.Particle.move	119063664
+E_expiry/0 | net.minecraft.network.chat.Component.copy	118512224
+C_poloz/0 | net.minecraft.util.SimpleBitStorage.copy	117953912
+D_poloz_128pillagers/0 | net.minecraft.util.RandomSource.create	117433456
+E_expiry/0 | net.minecraft.network.chat.Style.withInsertion	117365864
+E_expiry/0 | net.minecraft.world.entity.Entity.setPosRaw	117205968
+B_128pillagers/0 | io.netty.util.internal.PlatformDependent.allocateUninitializedArray	115146816
+A_idle/0 | java.util.ImmutableCollections$AbstractImmutableList.iterator	114662048
+B_128pillagers/0 | java.util.HashMap.newNode	114649168
+A_32zombies/0 | com.mojang.datafixers.util.Pair.of	111769584
+D_poloz_128pillagers/0 | net.minecraft.world.phys.AABB.expandTowards	111539952
+B_128pillagers/0 | com.mojang.blaze3d.systems.RenderSystem.applyModelViewMatrix	111266848
+A_32zombies/0 | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2	109931608
+D_poloz_128pillagers/0 | com.google.common.collect.Lists.newArrayList	108552104
+D_poloz_128pillagers/0 | net.neoforged.neoforge.common.util.TransformationHelper.quatFromXYZ	107998944
+B_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap.object2IntEntrySet	106225552
+A_idle/0 | com.mojang.blaze3d.systems.RenderSystem.applyModelViewMatrix	105604424
+D_poloz_128pillagers/0 | net.minecraft.core.Direction.values	105419912
+D_poloz_128pillagers/0 | java.util.Collections$UnmodifiableCollection.iterator	104435224
+D_poloz_128pillagers/0 | net.minecraft.network.syncher.SynchedEntityData$Builder.define	102432880
+D_poloz_128pillagers/0 | net.minecraft.client.renderer.entity.layers.ArrowLayer.renderStuckItem	101671992
+C_poloz/0 | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2	101438296
+C_poloz/0 | net.minecraft.world.entity.Entity.setPosRaw	100828496
+B_128pillagers/0 | com.mojang.datafixers.util.Pair.hashCode	100742616
+C_poloz/0 | java.util.LinkedHashMap$LinkedValues.iterator	99724912
+E_expiry/0 | net.minecraft.network.chat.Style.withHoverEvent	98365168
+D_poloz_128pillagers/0 | net.minecraft.client.renderer.block.model.ItemTransform.apply	97684728
+C_poloz/0 | java.lang.Long.fastUUID	97232856
+B_128pillagers/0 | com.google.common.collect.Iterators.forArray	96366056
+D_poloz_128pillagers/0 | net.minecraft.world.phys.shapes.CollisionContext.of	96240208
+startup | java.nio.HeapByteBuffer.<init>	95865840
+A_32zombies/0 | net.neoforged.neoforge.client.ClientHooks.dispatchRenderStage	95557280
+startup | java.io.BufferedReader.<init>	95465904
+E_expiry/0 | net.minecraft.world.entity.Entity.createHoverEvent	95096216
+C_poloz/0 | net.minecraft.world.level.CollisionGetter.lambda$getBlockCollisions$1	94591912
+A_idle/0 | sun.misc.Unsafe.allocateInstance	94588592
+A_idle/0 | net.minecraft.client.model.geom.ModelPart.translateAndRotate	92345416
+B_128pillagers/0 | it.unimi.dsi.fastutil.doubles.DoubleArrayList.wrap	92070128
+E_expiry/0 | net.neoforged.neoforge.client.gui.GuiLayerManager.renderInner	91981992
+B_128pillagers/0 | java.util.ArrayList.iterator	91542576
+A_32zombies/0 | net.minecraft.util.SimpleBitStorage.copy	89312024
+B_128pillagers/0 | java.util.List.of	88620320
+A_idle/0 | net.minecraft.client.model.geom.ModelPart$Cube.compile	87843608
+C_poloz/0 | net.neoforged.neoforge.event.EventHooks.getEntitySizeForge	87024216
+D_poloz_128pillagers/0 | net.minecraft.world.entity.EntityDimensions.makeBoundingBox	86995880
+C_poloz/0 | net.neoforged.neoforge.client.gui.GuiLayerManager.renderInner	86808944
+A_32zombies/0 | java.util.Optional.ofNullable	86730136
+startup | jdk.internal.misc.Unsafe.allocateInstance	86524088
+A_idle/0 | com.google.common.collect.Lists.newArrayList	86137088
+C_poloz/0 | net.minecraft.network.chat.HoverEvent.<init>	85977560
+E_expiry/0 | java.util.ArrayDeque.<init>	85795376
+E_expiry/0 | com.mojang.math.Axis.lambda$static$5	85751400
+D_poloz_128pillagers/0 | net.minecraft.world.entity.Entity.<init>	84982016
+E_expiry/0 | net.minecraft.client.renderer.entity.EntityRenderer.render	84878952
+B_128pillagers/0 | net.minecraft.world.phys.shapes.CubeVoxelShape.getCoords	84156048
+D_poloz_128pillagers/0 | java.util.ImmutableCollections$AbstractImmutableList.iterator	84085288
+A_idle/0 | java.util.stream.ReferencePipeline.filter	83384032
+B_128pillagers/0 | net.minecraft.client.renderer.block.model.ItemOverrides.resolve	82629224
+A_idle/0 | net.minecraft.client.Camera.getFluidInCamera	82188992
+D_poloz_128pillagers/0 | java.util.HashMap.resize	82010424
+D_poloz_128pillagers/0 | com.google.common.collect.ImmutableList$Builder.<init>	80644840
+D_poloz_128pillagers/0 | net.minecraft.network.chat.HoverEvent.<init>	80553776
+C_poloz/0 | net.minecraft.world.phys.AABB.expandTowards	80063680
+startup | jdk.internal.misc.Unsafe.allocateUninitializedArray	80032200
+D_poloz_128pillagers/0 | java.util.HashSet.<init>	80011760
+B_128pillagers/0 | net.minecraft.world.level.BlockCollisions.<init>	79581936
+E_expiry/0 | net.minecraft.network.syncher.SynchedEntityData$Builder.<init>	79480984
+B_128pillagers/0 | java.util.Calendar.<init>	78458560
+E_expiry/0 | com.mojang.blaze3d.vertex.BufferBuilder.storeMesh	78030688
+D_poloz_128pillagers/0 | java.util.Spliterators.spliteratorUnknownSize	77974168
+C_poloz/0 | it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap$EntrySet$2.<init>	77601352
+B_128pillagers/0 | net.minecraft.world.entity.Entity.<init>	77175120
+B_128pillagers/0 | net.minecraft.world.phys.AABB.inflate	75961624
+A_idle/0 | java.nio.DirectByteBuffer.asFloatBuffer	74899264
+A_32zombies/0 | java.util.stream.StreamSupport.stream	74711328
+E_expiry/0 | net.minecraft.util.RandomSource.create	72296816
+E_expiry/0 | com.mojang.math.Axis.lambda$static$3	72156592
+E_expiry/0 | net.minecraft.core.BlockPos.containing	71263504
+B_128pillagers/0 | net.minecraft.client.renderer.block.model.ItemTransform.apply	70381992
+E_expiry/0 | net.neoforged.neoforge.event.EventHooks.getEntitySizeForge	69873864
+B_128pillagers/0 | net.neoforged.neoforge.common.util.TransformationHelper.quatFromXYZ	69589120
+D_poloz_128pillagers/0 | java.util.stream.StreamSupport.stream	69412256
+startup | java.util.HashMap$ValueSpliterator.trySplit	69331536
+B_128pillagers/0 | net.minecraft.world.item.enchantment.EnchantmentHelper.modifyCrossbowChargingTime	68646784
+A_32zombies/0 | com.google.common.collect.ImmutableList.asImmutableList	68516128
+D_poloz_128pillagers/0 | net.minecraft.client.renderer.block.model.ItemOverrides.resolve	68380280
+C_poloz/0 | net.minecraft.world.level.block.Block.shouldRenderFace	68220432
+A_idle/0 | com.google.common.collect.Maps.newHashMap	67598280
+A_idle/0 | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.<init>	67449608
+B_128pillagers/0 | java.util.IdentityHashMap.init	66404272
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder.build	66383296
+B_128pillagers/0 | net.minecraft.world.entity.EntityDimensions.makeBoundingBox	66119080
+E_expiry/0 | net.minecraft.client.model.geom.ModelPart.translateAndRotate	65809160
+C_poloz/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder.build	65235176
+D_poloz_128pillagers/0 | net.minecraft.core.BlockPos.atY	64983824
+E_expiry/0 | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2	64951608
+C_poloz/0 | com.google.common.collect.ImmutableList.asImmutableList	64806808
+C_poloz/0 | net.minecraft.world.phys.shapes.CollisionContext.of	64550976
+C_poloz/0 | top.theillusivec4.curios.Curios.lambda$registerCaps$1	64177448
+D_poloz_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap.object2IntEntrySet	63637424
+D_poloz_128pillagers/0 | net.neoforged.neoforge.event.EventHooks.getEntitySizeForge	63504432
+A_32zombies/0 | net.minecraft.client.Camera.getFluidInCamera	63444272
+C_poloz/0 | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.<init>	63016472
+D_poloz_128pillagers/0 | com.mojang.datafixers.util.Pair.hashCode	63016032
+C_poloz/0 | java.util.ArrayDeque.<init>	62159312
+D_poloz_128pillagers/0 | net.minecraft.world.entity.Entity.checkSupportingBlock	62021584
+A_idle/0 | java.lang.StringBuilder.toString	61693792
+A_32zombies/0 | com.google.common.collect.Lists.newArrayList	61263976
+C_poloz/0 | net.minecraft.client.gui.Font.drawInternal	60963864
+B_128pillagers/0 | java.util.HashSet.<init>	60512808
+A_idle/0 | net.minecraft.client.renderer.MultiBufferSource$BufferSource.getBuffer	60295592
+A_32zombies/0 | java.util.stream.ReferencePipeline.filter	60011472
+B_128pillagers/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder.build	58732192
+E_expiry/0 | java.util.stream.StreamSupport.stream	58506896
+A_32zombies/0 | net.minecraft.core.component.TypedDataComponent.createUnchecked	58501744
+C_poloz/0 | net.neoforged.neoforge.client.ClientHooks.getFieldOfView	58432264
+D_poloz_128pillagers/0 | net.minecraft.world.phys.AABB.move	57940176
+C_poloz/0 | com.mojang.blaze3d.vertex.BufferBuilder.storeMesh	57892032
+A_idle/0 | it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap$EntrySet.fastIterator	57306360
+A_idle/0 | net.minecraft.world.item.Item.getDefaultInstance	56868528
+A_idle/0 | com.google.common.collect.Iterators.singletonIterator	56865912
+D_poloz_128pillagers/0 | net.minecraft.world.item.enchantment.EnchantmentHelper.modifyCrossbowChargingTime	56781552
+D_poloz_128pillagers/0 | java.util.HashMap.newNode	56643880
+C_poloz/0 | net.minecraft.world.phys.Vec3.lerp	56453904
+E_expiry/0 | net.minecraft.core.component.TypedDataComponent.createUnchecked	56441256
+B_128pillagers/0 | net.minecraft.world.entity.LivingEntity.aiStep	56328408
+startup | net.minecraft.world.level.chunk.ChunkGeneratorStructureState.lambda$generateRingPositions$5	56027800
+D_poloz_128pillagers/0 | java.lang.Object.clone	55734632
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.BufferBuilder.storeMesh	55557768
+E_expiry/0 | net.minecraft.client.model.geom.ModelPart$Cube.compile	55290856
+A_32zombies/0 | java.util.HashMap.newNode	55140848
+D_poloz_128pillagers/0 | com.mojang.blaze3d.vertex.PoseStack.lambda$new$0	54714336
+A_idle/0 | java.util.stream.ReferencePipeline.map	54248856
+C_poloz/0 | net.minecraft.core.component.TypedDataComponent.createUnchecked	53764232
+D_poloz_128pillagers/0 | net.minecraft.world.entity.Entity.checkInsideBlocks	53498736
+A_idle/0 | java.util.ArrayList.grow	53395744
+startup | java.lang.Object.clone	53134840
+A_32zombies/0 | net.minecraft.world.phys.shapes.VoxelShape.move	52822968
+D_poloz_128pillagers/0 | net.minecraft.network.chat.MutableComponent.create	52725600
+A_32zombies/0 | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.<init>	52579368
+C_poloz/0 | com.ibm.icu.text.Bidi.<init>	52381176
+A_idle/0 | java.util.regex.Matcher.<init>	52184432
+E_expiry/0 | com.ibm.icu.text.Bidi.getDirProps	52178520
+D_poloz_128pillagers/0 | com.mojang.blaze3d.systems.RenderSystem.applyModelViewMatrix	51610392
+E_expiry/0 | net.minecraft.world.item.ItemStack.<init>	51510896
+A_idle/0 | java.util.Spliterators.spliterator	51210832
+A_idle/0 | java.util.stream.FindOps$FindSink$OfRef$$Lambda+0x80000004d.746292446.get	51162064
+B_128pillagers/0 | net.minecraft.util.SimpleBitStorage.copy	51136232
+D_poloz_128pillagers/0 | net.neoforged.neoforge.event.EventHooks.fireEntityTickPre	50758144
+D_poloz_128pillagers/0 | net.minecraft.world.entity.Entity.setDeltaMovement	50657504
+C_poloz/0 | net.minecraft.client.renderer.entity.EntityRenderDispatcher.renderShadow	50461456
+C_poloz/0 | net.minecraft.world.entity.projectile.Arrow.getDefaultPickupItem	50412064
+A_idle/0 | net.neoforged.neoforge.client.ClientHooks.onFogRender	50291928
+A_32zombies/0 | net.minecraft.client.renderer.GameRenderer.renderLevel	50244160
+D_poloz_128pillagers/0 | com.mojang.math.Axis.lambda$static$5	50140200
+D_poloz_128pillagers/0 | net.minecraft.network.RegistryFriendlyByteBuf.lambda$decorator$0	49482728
+C_poloz/0 | net.neoforged.neoforge.client.ClientHooks.dispatchRenderStage	49446768
+startup | net.minecraft.world.level.biome.Climate$Parameter.span	49255528
+A_idle/0 | com.ibm.icu.text.Bidi.<init>	49255416
+B_128pillagers/0 | net.minecraft.core.BlockPos$MutableBlockPos.immutable	49239176
+D_poloz_128pillagers/0 | java.util.Collections.unmodifiableSet	48707216
+B_128pillagers/0 | com.mojang.datafixers.util.Pair.of	48405840
+A_idle/0 | com.google.common.collect.Queues.newArrayDeque	48059400
+E_expiry/0 | net.neoforged.neoforge.client.ClientHooks.dispatchRenderStage	47908408
+D_poloz_128pillagers/0 | java.util.stream.ReferencePipeline.map	47594864
+B_128pillagers/0 | net.minecraft.world.entity.Entity.setDeltaMovement	47467208
+E_expiry/0 | java.lang.Integer.toString	47310736
+A_32zombies/0 | io.netty.util.internal.PlatformDependent.allocateUninitializedArray	47107480
+A_idle/0 | com.mojang.blaze3d.systems.RenderSystem.setProjectionMatrix	47005312
+A_idle/0 | java.util.ArrayList.iterator	46901768
+B_128pillagers/0 | com.mojang.math.Axis.lambda$static$5	46881384
+A_idle/0 | java.util.stream.ReferencePipeline$3.opWrapSink	46758024
+B_128pillagers/0 | net.minecraft.util.Mth.createInsecureUUID	46757552
+A_32zombies/0 | net.minecraft.client.renderer.culling.Frustum.<init>	46707688
+C_poloz/0 | java.util.ArrayList.<init>	46440688
+A_32zombies/0 | sun.misc.Unsafe.allocateInstance	46425408
+D_poloz_128pillagers/0 | net.minecraft.client.renderer.MultiBufferSource$BufferSource.getBuffer	46299720
+C_poloz/0 | net.minecraft.client.renderer.MultiBufferSource$BufferSource.getBuffer	46115552
+A_idle/0 | org.joml.FrustumIntersection.<init>	46103952
+E_expiry/0 | java.util.ImmutableCollections$AbstractImmutableList.iterator	45491184
+D_poloz_128pillagers/0 | net.neoforged.neoforge.event.EventHooks.fireEntityTickPost	45385096
+C_poloz/0 | net.neoforged.neoforge.event.EventHooks.fireEntityTickPost	45099880
+B_128pillagers/0 | it.unimi.dsi.fastutil.objects.Object2DoubleArrayMap.<init>	44711160
+E_expiry/0 | java.lang.AbstractStringBuilder.<init>	44674384
+B_128pillagers/0 | java.util.ArrayDeque.<init>	44565072
+A_32zombies/0 | com.mojang.blaze3d.vertex.Tesselator.begin	44494208
+B_128pillagers/0 | net.minecraft.world.entity.Entity.setPosRaw	44377352
+A_idle/0 | net.minecraft.world.item.ItemStack.<init>	44369216
+D_poloz_128pillagers/0 | net.minecraft.client.renderer.block.ModelBlockRenderer.tesselateWithAO	44314160
+D_poloz_128pillagers/0 | net.minecraft.world.level.block.Block.shouldRenderFace	43642088
+transition/0 | net.minecraft.network.chat.Style.withInsertion	43550368
+C_poloz/0 | net.minecraft.client.renderer.block.ModelBlockRenderer.tesselateWithAO	43258040
+D_poloz_128pillagers/0 | net.minecraft.world.entity.Entity.setPosRaw	43249600
+C_poloz/0 | com.google.common.collect.Sets.newHashSet	43134536
+B_128pillagers/0 | net.neoforged.neoforge.event.EventHooks.fireEntityTickPre	42363600
+A_32zombies/0 | java.lang.AbstractStringBuilder.<init>	42253696
+E_expiry/0 | net.minecraft.network.chat.HoverEvent.<init>	41914080
+B_128pillagers/0 | net.neoforged.neoforge.client.gui.GuiLayerManager.renderInner	41830568
+E_expiry/0 | java.util.Optional.ofNullable	41775168
+A_idle/0 | java.util.stream.ReduceOps.makeRef	41750232
+A_idle/0 | com.mojang.math.Axis.lambda$static$3	41597136
+A_32zombies/0 | java.util.stream.ReferencePipeline$2.opWrapSink	41544224
+E_expiry/0 | java.util.stream.ReferencePipeline.filter	40870840
+E_expiry/0 | net.minecraft.util.Mth.createInsecureUUID	40868280
+B_128pillagers/0 | net.minecraft.network.RegistryFriendlyByteBuf.lambda$decorator$0	40034688
+D_poloz_128pillagers/0 | net.minecraft.world.phys.AABB.ofSize	39983920
+A_idle/0 | top.theillusivec4.curios.Curios.lambda$registerCaps$1	39981328
+B_128pillagers/0 | java.util.stream.StreamSupport.stream	39911832
+A_32zombies/0 | com.mojang.blaze3d.vertex.PoseStack.mulPose	39269656
+A_32zombies/0 | com.google.common.collect.Maps.newHashMap	39080960
+A_idle/0 | java.util.stream.ReduceOps$2.makeSink	39028960
+D_poloz_128pillagers/0 | net.minecraft.world.level.CollisionGetter.findSupportingBlock	38916928
+D_poloz_128pillagers/0 | java.nio.DirectByteBuffer.asFloatBuffer	38566200
+D_poloz_128pillagers/0 | java.util.Arrays.copyOfRangeByte	38487520
+B_128pillagers/0 | java.util.Arrays.copyOfRangeByte	38407984
+C_poloz/0 | com.google.common.collect.ImmutableList$Builder.<init>	38361344
+A_32zombies/0 | com.google.common.collect.Queues.newArrayDeque	37738768
+A_idle/0 | com.google.common.collect.Iterators.transform	37696504
+D_poloz_128pillagers/0 | net.minecraft.client.particle.Particle.move	37683832
+A_idle/0 | java.util.Optional.ofNullable	37592792
+A_idle/0 | net.minecraft.client.renderer.culling.Frustum.<init>	37531016
+D_poloz_128pillagers/0 | net.minecraft.core.BlockPos.lambda$betweenClosed$5	37314800
+D_poloz_128pillagers/0 | net.minecraft.world.entity.EquipmentSlot.values	37035408
+B_128pillagers/0 | net.minecraft.server.level.ServerChunkCache.tickChunks	36780648
+C_poloz/0 | java.util.stream.ReferencePipeline.map	36678376
+E_expiry/0 | net.minecraft.network.syncher.SynchedEntityData$Builder.build	36504320
+A_idle/0 | com.google.common.collect.Lists$TransformingRandomAccessList.listIterator	36465504
+A_idle/0 | com.mojang.blaze3d.vertex.PoseStack.mulPose	36462912
+A_idle/0 | net.minecraft.network.chat.MutableComponent.create	36340888
+C_poloz/0 | com.google.common.collect.Maps.newHashMap	36332784
+D_poloz_128pillagers/0 | org.slavicmyths.item.ItemState.runes	36328472
+D_poloz_128pillagers/0 | java.util.stream.FindOps$FindSink$OfRef$$Lambda+0x80000004d.746292446.get	36105760
+E_expiry/0 | com.mojang.blaze3d.vertex.ByteBufferBuilder.build	35973416
+C_poloz/0 | net.minecraft.world.item.ItemStack.<init>	35914080
+D_poloz_128pillagers/0 | io.netty.channel.AbstractChannelHandlerContext.newPromise	35865544
+B_128pillagers/0 | com.mojang.blaze3d.vertex.PoseStack.lambda$new$0	35806800
+C_poloz/0 | sun.misc.Unsafe.allocateInstance	35797168
+E_expiry/0 | sun.misc.Unsafe.allocateInstance	35631128
+C_poloz/0 | java.lang.StringBuilder.toString	35621688
+A_idle/0 | org.slavicmyths.item.ItemState.runes	35432440
+B_128pillagers/0 | net.minecraft.core.BlockPos.atY	35417432
+B_128pillagers/0 | net.minecraft.world.level.CollisionGetter.lambda$getBlockCollisions$1	35366072
+E_expiry/0 | com.google.common.collect.Lists.newArrayList	35305928
+A_idle/0 | java.util.ImmutableCollections$AbstractImmutableList.listIterator	35284280
+startup | java.util.Arrays.copyOfRangeByte	35006216
+C_poloz/0 | java.lang.AbstractStringBuilder.<init>	34985032
+C_poloz/0 | java.lang.Integer.toString	34860840
+A_idle/0 | it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap$EntrySet$2.<init>	34583648
+C_poloz/0 | net.minecraft.core.BlockPos$MutableBlockPos.immutable	34105944
+D_poloz_128pillagers/0 | java.util.ArrayList.<init>	33913984
+D_poloz_128pillagers/0 | java.util.stream.ReferencePipeline$3.opWrapSink	33795704
+
+Estimated allocation by first mod frame (includes audit instrumentation)	value
+A_idle/0 | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	6627452624
+C_poloz/0 | org.slavicmyths.client.PolozRenderer.render	5281266128
+E_expiry/0 | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	2525658856
+C_poloz/0 | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	2486411496
+D_poloz_128pillagers/0 | org.slavicmyths.client.PolozRenderer.render	1901213792
+A_32zombies/0 | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	1678359464
+startup | org.slavicmyths.polozaudit.PolozProbe.init	1132745672
+D_poloz_128pillagers/0 | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	735395160
+B_128pillagers/0 | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	647972760
+startup | org.slavicmyths.polozaudit.PolozProbe.client	495558872
+C_poloz/0 | org.slavicmyths.client.PoludnitsaModel.renderToBuffer	468229984
+C_poloz/0 | org.slavicmyths.client.KikimoraModel.renderToBuffer	330050464
+A_idle/0 | org.slavicmyths.item.ItemState.runes	135349632
+startup | org.slavicmyths.furniture.FurnitureBlock.lambda$getShape$2	128704584
+A_32zombies/0 | org.slavicmyths.item.ItemState.runes	81772552
+A_idle/0 | org.slavicmyths.item.ItemState.legacy	72295856
+A_idle/0 | org.slavicmyths.client.EarthCamera.camera	72284872
+A_32zombies/0 | org.slavicmyths.client.EarthCamera.camera	68815232
+C_poloz/0 | org.slavicmyths.item.FolkAccessoryItem.equipped	67287136
+C_poloz/0 | org.slavicmyths.rpg.RareRunes.active	66282568
+A_32zombies/0 | org.slavicmyths.rpg.RareRunes.active	63506960
+A_32zombies/0 | org.slavicmyths.client.HeroHud.render	59178584
+D_poloz_128pillagers/0 | org.slavicmyths.client.KikimoraModel.renderToBuffer	57963520
+C_poloz/0 | org.slavicmyths.client.KikimoraRenderer.render	57642152
+A_idle/0 | org.slavicmyths.rpg.RareRunes.active	54057928
+A_idle/0 | org.slavicmyths.item.FolkAccessoryItem.equipped	53597936
+C_poloz/0 | org.slavicmyths.client.PolozRenderer.at	53310000
+C_poloz/0 | org.slavicmyths.client.EarthCamera.camera	49151920
+A_idle/0 | org.slavicmyths.client.HeroHud.render	49114912
+A_32zombies/0 | org.slavicmyths.item.ItemState.legacy	44203264
+C_poloz/0 | org.slavicmyths.item.ItemState.runes	42998168
+E_expiry/0 | org.slavicmyths.item.ItemState.runes	42805264
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.PolozWorldImpact.tick	42740136
+D_poloz_128pillagers/0 | org.slavicmyths.item.ItemState.runes	41370152
+startup | org.slavicmyths.block.KitchenTableBlock.lambda$getShape$2	37727288
+C_poloz/0 | org.slavicmyths.client.PoludnitsaRenderer.render	36876008
+C_poloz/0 | org.slavicmyths.poloz.PolozWorldImpact.add	36465792
+E_expiry/0 | org.slavicmyths.client.EarthCamera.camera	32478824
+E_expiry/0 | org.slavicmyths.item.ItemState.legacy	29482232
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.PolozWorldImpact.sample	24570472
+E_expiry/0 | org.slavicmyths.rpg.RareRunes.active	24295680
+A_idle/0 | org.slavicmyths.polozaudit.PolozProbe.frame	19903936
+C_poloz/0 | org.slavicmyths.entity.LandSpiritEntity.aiStep	18725096
+A_32zombies/0 | org.slavicmyths.polozaudit.PolozProbe.frame	17290472
+C_poloz/0 | org.slavicmyths.item.ItemState.legacy	16713368
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.PolozWorldImpact.add	16712672
+A_32zombies/0 | org.slavicmyths.item.FolkAccessoryItem.equipped	16046008
+C_poloz/0 | org.slavicmyths.poloz.PolozWorldImpact.sample	15123144
+A_32zombies/0 | org.slavicmyths.polozaudit.PolozProbe.after	14849600
+B_128pillagers/0 | org.slavicmyths.item.ItemState.runes	14634696
+startup | org.slavicmyths.block.KitchenTableBlock.getShape	13623720
+transition/0 | org.slavicmyths.polozaudit.PolozProbe.setup	13105952
+A_32zombies/0 | org.slavicmyths.client.GuardianClient.scene	12996048
+C_poloz/0 | org.slavicmyths.entity.LandSpiritEntity.getTypeName	12682712
+C_poloz/0 | org.slavicmyths.polozaudit.PolozProbe.after	12667808
+startup | org.slavicmyths.furniture.FurnitureBlock.getShape	12575904
+C_poloz/0 | org.slavicmyths.client.MorParticle.tick	12543184
+B_128pillagers/0 | org.slavicmyths.polozaudit.PressureObserver.sound	12365688
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.GreatPoloz.syncTrack	11561752
+D_poloz_128pillagers/0 | org.slavicmyths.client.PolozRenderer.at	11333280
+C_poloz/0 | org.slavicmyths.client.HeroHud.render	10593904
+E_expiry/0 | org.slavicmyths.item.FolkAccessoryItem.equipped	10479944
+C_poloz/0 | org.slavicmyths.polozaudit.PolozProbe.frame	10479880
+C_poloz/0 | org.slavicmyths.polozaudit.PressureObserver.born	10296472
+startup | org.slavicmyths.furniture.TableBlock.getShape	9431912
+E_expiry/0 | org.slavicmyths.client.HeroHud.render	9431704
+C_poloz/0 | org.slavicmyths.poloz.PolozWorldImpact.tick	9346104
+B_128pillagers/0 | org.slavicmyths.item.ItemState.legacy	9280944
+A_idle/0 | org.slavicmyths.polozaudit.PolozProbe.after	9118184
+D_poloz_128pillagers/0 | org.slavicmyths.polozaudit.PressureObserver.sound	8994208
+D_poloz_128pillagers/0 | org.slavicmyths.polozaudit.PressureObserver.born	8858304
+E_expiry/0 | org.slavicmyths.client.GuardianClient.scene	8383880
+startup | org.slavicmyths.tales.TaleService.advancements	8331688
+D_poloz_128pillagers/0 | org.slavicmyths.polozaudit.PressureObserver.snapshot	7368672
+B_128pillagers/0 | org.slavicmyths.client.EarthCamera.camera	7333312
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.GreatPoloz.onSyncedDataUpdated	7249112
+B_128pillagers/0 | org.slavicmyths.polozaudit.PolozProbe.after	6861216
+C_poloz/0 | org.slavicmyths.polozaudit.PressureObserver.snapshot	6353448
+E_expiry/0 | org.slavicmyths.polozaudit.PolozProbe.frame	6287928
+A_idle/0 | org.slavicmyths.client.TextileClothingLayer.render	6287888
+C_poloz/0 | org.slavicmyths.client.PolozRenderer$GlobRenderer.render	6287848
+startup | org.slavicmyths.client.RpgClient.tooltip	6022336
+C_poloz/0 | org.slavicmyths.client.GuardianClient.scene	5438656
+C_poloz/0 | org.slavicmyths.rpg.Runes.inventoryCount	5325120
+D_poloz_128pillagers/0 | org.slavicmyths.rpg.classes.ClassUltimateRuntime.defense	5239936
+C_poloz/0 | org.slavicmyths.client.MorVisual.texture	5239904
+A_idle/0 | org.slavicmyths.client.GuardianClient.scene	5239896
+D_poloz_128pillagers/0 | org.slavicmyths.polozaudit.PolozProbe.after	5239864
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.GreatPoloz.acceptHit	5239840
+B_128pillagers/0 | org.slavicmyths.polozaudit.PolozProbe.frame	5214872
+B_128pillagers/0 | org.slavicmyths.item.FolkAccessoryItem.equipped	5067552
+C_poloz/0 | org.slavicmyths.quest185.CleansedLand.remaining	4974248
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.GreatPoloz.updateParts	4962432
+C_poloz/0 | org.slavicmyths.poloz.GreatPoloz.updateParts	4928128
+E_expiry/0 | org.slavicmyths.polozaudit.PolozProbe.after	4556240
+startup | org.slavicmyths.item.ItemState.legacy	4191992
+startup | org.slavicmyths.storage.StorageBlock.getShape	4191960
+D_poloz_128pillagers/0 | org.slavicmyths.item.FolkAccessoryItem.equipped	4191952
+D_poloz_128pillagers/0 | org.slavicmyths.client.KikimoraRenderer.render	4191952
+E_expiry/0 | org.slavicmyths.client.TextileClothingLayer.render	4191928
+D_poloz_128pillagers/0 | org.slavicmyths.item.ItemState.legacy	4143072
+D_poloz_128pillagers/0 | org.slavicmyths.polozaudit.PressureObserver$$Lambda+0x000001e71a7ef770.948751535.apply	4100616
+B_128pillagers/0 | org.slavicmyths.gorynych.GorynychEquipment.impact	4092640
+B_128pillagers/0 | org.slavicmyths.rpg.classes.ClassUltimateRuntime.incoming	4049224
+D_poloz_128pillagers/0 | org.slavicmyths.entity.LandSpiritEntity.aiStep	4008304
+C_poloz/0 | org.slavicmyths.quest185.Quest185Origins.remember	3885720
+C_poloz/0 | org.slavicmyths.poloz.PolozContent.id	3143984
+D_poloz_128pillagers/0 | org.slavicmyths.polozaudit.PressureObserver.trace	3143952
+startup | org.slavicmyths.storage.StorageBlock.lambda$getShape$5	3143944
+C_poloz/0 | org.slavicmyths.tales.TaleService.advancements	3143936
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.PolozContent.id	3143936
+B_128pillagers/0 | org.slavicmyths.navigation.NavigationRecords.get	3143936
+B_128pillagers/0 | org.slavicmyths.polozaudit.PressureObserver.soundEnd	3143912
+D_poloz_128pillagers/0 | org.slavicmyths.polozaudit.PolozProbe.frame	3088992
+D_poloz_128pillagers/0 | org.slavicmyths.polozaudit.PressureObserver.soundEnd	3088928
+B_128pillagers/0 | org.slavicmyths.polozaudit.PressureObserver$1.append	2977408
+D_poloz_128pillagers/0 | org.slavicmyths.client.EarthCamera.camera	2953624
+C_poloz/0 | org.slavicmyths.poloz.PolozRewards.full	2681776
+E_expiry/0 | org.slavicmyths.rpg.Runes.inventoryCount	2406456
+D_poloz_128pillagers/0 | org.slavicmyths.client.MorParticle.tick	2095992
+C_poloz/0 | org.slavicmyths.client.TextileClothingLayer.render	2095992
+startup | org.slavicmyths.registry.ModItemGroup.stacks	2095976
+C_poloz/0 | org.slavicmyths.poloz.GreatPoloz.onSyncedDataUpdated	2095976
+B_128pillagers/0 | org.slavicmyths.polozaudit.PressureObserver.snapshot	2095960
+startup | org.slavicmyths.tales.TaleEvents.reload	2095600
+B_128pillagers/0 | org.slavicmyths.rpg.RareRunes.active	2093288
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.GreatPoloz.headBox	1844560
+B_128pillagers/0 | org.slavicmyths.poloz.PolozRewards.full	1727920
+A_32zombies/0 | org.slavicmyths.marinka.WitchYard.tick	1723856
+transition/0 | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	1697720
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.PolozPart.<init>	1483360
+D_poloz_128pillagers/0 | org.slavicmyths.polozaudit.PressureObserver$1.append	1330776
+startup | org.slavicmyths.client.EarthCamera.camera	1054312
+startup | org.slavicmyths.kitchen.KitchenRecipe$Serializer$1.decode	1054272
+startup | org.slavicmyths.item.ItemState.runes	1054272
+C_poloz/0 | org.slavicmyths.polozaudit.PressureObserver.sound	1048000
+B_128pillagers/0 | org.slavicmyths.item.FolkEquipmentEffects.hurt	1048000
+startup | org.slavicmyths.hunt.HuntCommands.register	1048000
+D_poloz_128pillagers/0 | org.slavicmyths.rpg.RpgEvents.arrow	1048000
+A_idle/0 | org.slavicmyths.progression.Knowledge.knows	1048000
+A_idle/0 | org.slavicmyths.polozaudit.PressureObserver.snapshot	1048000
+B_128pillagers/0 | org.slavicmyths.earth.EarthRune.apply	1048000
+D_poloz_128pillagers/0 | org.slavicmyths.quest185.CleansedLand.remaining	1048000
+A_idle/0 | org.slavicmyths.client.NightClient.tick	1048000
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.PolozEvents$PolozTarget.tick	1048000
+startup | org.slavicmyths.rpg.Runes.category	1047992
+startup | org.slavicmyths.compat.JeiRunes.registerRecipes	1047992
+startup | org.slavicmyths.guardians.GuardianWorld.player	1047992
+startup | org.slavicmyths.compat.JeiRituals.registerCategories	1047992
+B_128pillagers/0 | org.slavicmyths.client.GuardianClient.scene	1047992
+startup | org.slavicmyths.gorodishche.GorodishcheStructures.lambda$static$0	1047984
+A_32zombies/0 | org.slavicmyths.client.TextileClothingLayer.render	1047984
+startup | org.slavicmyths.item.ModGear.lambda$static$1	1047984
+D_poloz_128pillagers/0 | org.slavicmyths.poloz.GreatPoloz.lambda$pickTarget$2	1047984
+D_poloz_128pillagers/0 | org.slavicmyths.entity.LandSpiritEntity.getTypeName	1047984
+A_32zombies/0 | org.slavicmyths.client.GorynychStormVfx.tick	1047984
+D_poloz_128pillagers/0 | org.slavicmyths.rpg.RareRunes.active	1047984
+A_idle/0 | org.slavicmyths.client.TaleClientEvents.tick	1047984
+startup | org.slavicmyths.wolf.WolfCommands.register	1047976
+D_poloz_128pillagers/0 | org.slavicmyths.mor.MorController.tick	1047976
+D_poloz_128pillagers/0 | org.slavicmyths.client.GuardianClient.scene	1047976
+startup | org.slavicmyths.compat.JeiArmorer.registerRecipes	1047976
+startup | org.slavicmyths.rpg.classes.ClassState.migrate	1047968
+transition/0 | org.slavicmyths.polozaudit.PressureObserver.snapshot	1047968
+startup | org.slavicmyths.compat.JeiKitchen.registerRecipes	1047968
+A_idle/0 | org.slavicmyths.military.MilitaryEvents.level	1047960
+startup | org.slavicmyths.gorodishche.CityCatalog.read	1047952
+startup | org.slavicmyths.tales.TaleCatalog.apply	1047952
+startup | org.slavicmyths.bandit.CampStructures.lambda$static$4	1047888
+startup | org.slavicmyths.gorodishche.CityCatalog.reload	1047880
+startup | org.slavicmyths.morozko.FrostEvents.login	1046616
+B_128pillagers/0 | org.slavicmyths.rpg.RpgEvents.arrow	1045280
+startup | org.slavicmyths.skim.SkimEvents.tick	1041104
+startup | org.slavicmyths.tales.TaleService.lambda$advancements$0	1041096
+startup | org.slavicmyths.quest185.Quest185Events.level	1041088
+startup | org.slavicmyths.quest185.Quest185Events.tick	1041080
+startup | org.slavicmyths.rpg.RpgEvents.blockConfirmation	1033280
+C_poloz/0 | org.slavicmyths.mor.MorBlocks.convert	1030392
+C_poloz/0 | org.slavicmyths.poloz.GreatPoloz.syncTrack	977696
+C_poloz/0 | org.slavicmyths.yaga.YagaData.get	935096
+C_poloz/0 | org.slavicmyths.mor.MorController.tick	916832
+C_poloz/0 | org.slavicmyths.karachun.NightCombat.tick	916824
+C_poloz/0 | org.slavicmyths.entity.LandSpiritEntity.<init>	916824
+B_128pillagers/0 | org.slavicmyths.quest185.CleansingTasks.get	884304
+D_poloz_128pillagers/0 | org.slavicmyths.quest185.Quest185Origins.remove	864512
+A_32zombies/0 | org.slavicmyths.item.FolkEquipmentEffects.tick	849352
+A_32zombies/0 | org.slavicmyths.rewards.RewardEvents.wears	841608
+A_idle/0 | org.slavicmyths.skim.HeroCalls.departures	802488
+A_32zombies/0 | org.slavicmyths.karachun.NightCombat.tick	750960
+A_idle/0 | org.slavicmyths.marinka.WitchYard.get	682640
+A_idle/0 | org.slavicmyths.rpg.Runes.inventoryCount	613456
+A_32zombies/0 | org.slavicmyths.rpg.Runes.inventoryCount	591504
+A_idle/0 | org.slavicmyths.marinka.WitchYard.tick	587632
+C_poloz/0 | org.slavicmyths.poloz.PolozEvent.tick	518920
+A_32zombies/0 | org.slavicmyths.sivka.SivkaBonds.get	442232
+E_expiry/0 | org.slavicmyths.serpenthill.HillWorld.near	440896
+A_32zombies/0 | org.slavicmyths.progression.Knowledge.knows	427560
+A_32zombies/0 | org.slavicmyths.quest185.Quest185Events.tick	424680
+A_idle/0 | org.slavicmyths.polozaudit.PressureObserver.end	395656
+A_idle/0 | org.slavicmyths.quest185.CleansingTasks.tick	378544
+A_32zombies/0 | org.slavicmyths.bogatyr.BogatyrArena.tick	375496
+E_expiry/0 | org.slavicmyths.skim.SkimValley.tick	313392
+C_poloz/0 | org.slavicmyths.network.MythPayloads$RpgSync.lambda$static$1	238224
+A_idle/0 | org.slavicmyths.hunt.BossAnchors.key	173256
+A_idle/0 | org.slavicmyths.poloz.PolozEvent.hold	168776
+A_idle/0 | org.slavicmyths.karachun.NightCombat.tick	157528
+E_expiry/0 | org.slavicmyths.karachun.NightCombat.tick	156408
+A_idle/0 | org.slavicmyths.kalin.KalinEncounter.tick	137744
+transition/0 | org.slavicmyths.polozaudit.PolozProbe.after	132256
+C_poloz/0 | org.slavicmyths.network.MythPayloads$RpgSync.<init>	96168
+E_expiry/0 | org.slavicmyths.network.MythPayloads$RpgSync.lambda$static$1	47840
+C_poloz/0 | org.slavicmyths.tales.TaleNetwork$Snapshot.<init>	17768
+C_poloz/0 | org.slavicmyths.polozaudit.PressureObserver$1.append	8336

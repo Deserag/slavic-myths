@@ -308,6 +308,10 @@ Clean build, семь offline наборов и 23304 production/resource про
 
 Финальная чистая сборка и пять offline наборов — PASS; production/resource gates 21918 — PASS. SHA256 `75f1cec8b4af7fe2f566765328ec2a0108617a85921a169e6b84f709a511ea70`. PolyMC Testing обновлён после gates; 297 остальных файлов сохранены побайтно. Предыдущий JAR сохранён в `C:\Users\pavel\AppData\Roaming\PolyMC\instances\Slavic-Myths-1.21.1-Testing\.slavicmyths-backups\pre-karachun-1.9.2-20261013-113133`. Агент не запускал клиент/сервер/PolyMC/GameTest: 0 запусков. Игровые бой, MP, relog, визуал/звук/анимации — NOT_RUN; MSPT/FPS — NOT_MEASURED. Не реализованы 1.9.3, новые структуры/измерения/порталы и будущий рецепт оберега. [Отчёт](verification/karachun-1.9.2/REPORT.md).
 
+## Исследование нагрузки Полоза — #34
+
+Нативное исследование звука/частиц #34 (2026-10-15): отдельный baseline main fb2994e9, production неизменён. 1 dev client/integrated server, A/B/C/D/E:128 native pillagers без Полоза воспроизвели34489 sound-handle failures; один Полоз —259 native block-break failures. 2178 разрушений →139392 TerrainParticle (ровно64/блок), duplicate-add0; все3 native фазы, DEFEATED/tickets0. Исчезновение специфических частиц/каналов наблюдалось; no-mod/MP/restart/retained heap NOT_RUN. Неподтверждённых фиксов и упрощений эффектов нет. [Отчёт и данные](implementation/poloz-pressure/REPORT.md).
+
 ## Исправление краша Полоза — 2026-10-13
 
 Пользовательский crash-report crash-2026-10-13_10.21.57-client.txt фиксирует IllegalStateException: Not building! в PolozRenderer.render, строка 34, при отрисовке тела. Буфер тела получался до переключений на текстуры головы и глаз; MultiBufferSource.BufferSource в установленном Minecraft 1.21.1 завершает общий буфер при смене RenderType. Теперь буфер тела получается после головы/глаз и используется для непрерывного прохода тела и шрамов. Геометрия, текстуры, свечение, gameplay и registry IDs сохранены. Генераторы tools не содержат шаблона этого renderer.

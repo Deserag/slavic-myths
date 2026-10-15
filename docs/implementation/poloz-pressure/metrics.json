@@ -1,0 +1,1211 @@
+{
+  "A_idle": {
+    "observed_rate_window_ticks": [
+      300,
+      2080
+    ],
+    "seconds": 89.0,
+    "tick": {
+      "n": 1800,
+      "mean": 1.4849829444444445,
+      "p95": 2.1436,
+      "p99": 2.515,
+      "max": 12.2269
+    },
+    "frame": {
+      "n": 176808,
+      "mean": 0.5087770898375639,
+      "p95": 0.9281,
+      "p99": 1.9757,
+      "max": 70.1274
+    },
+    "fps": 1965.4973071198385,
+    "tps": 20,
+    "peak_particles_all": 9,
+    "peak_channels_all": 1,
+    "pool_warning_difference": 0,
+    "handle_failure_difference": 0,
+    "engine_last": [
+      2,
+      1,
+      0,
+      0
+    ],
+    "phases": [],
+    "alive_action_ticks": 0,
+    "alive_target_ticks": 0,
+    "particles": [
+      {
+        "key": "minecraft:entity_effect",
+        "created_or_play_requests_per_second": 5.157303370786517,
+        "peak_tracked": 9,
+        "created_total": 523,
+        "removed_or_explicit_stop_total": 521,
+        "last_tracked": 2,
+        "observed_residence_mean_ticks": 26.247600767754317
+      },
+      {
+        "key": "preexisting:BreakingItemParticle",
+        "created_or_play_requests_per_second": 0.0,
+        "peak_tracked": 0,
+        "created_total": 0,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": null
+      }
+    ],
+    "sounds": []
+  },
+  "A_32zombies": {
+    "observed_rate_window_ticks": [
+      300,
+      2080
+    ],
+    "seconds": 89.0,
+    "tick": {
+      "n": 1800,
+      "mean": 2.5340726661111113,
+      "p95": 3.729,
+      "p99": 4.6033,
+      "max": 8.8555
+    },
+    "frame": {
+      "n": 146071,
+      "mean": 0.6158045847498819,
+      "p95": 1.059,
+      "p99": 1.8785,
+      "max": 68.8702
+    },
+    "fps": 1623.891774703439,
+    "tps": 19.99980926848561,
+    "peak_particles_all": 9,
+    "peak_channels_all": 75,
+    "pool_warning_difference": 0,
+    "handle_failure_difference": 0,
+    "engine_last": [
+      0,
+      43,
+      0,
+      0
+    ],
+    "phases": [],
+    "alive_action_ticks": 0,
+    "alive_target_ticks": 0,
+    "particles": [
+      {
+        "key": "minecraft:entity_effect",
+        "created_or_play_requests_per_second": 3.4157303370786516,
+        "peak_tracked": 9,
+        "created_total": 383,
+        "removed_or_explicit_stop_total": 383,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 27.234986945169712
+      },
+      {
+        "key": "preexisting:SpellParticle",
+        "created_or_play_requests_per_second": 0.0,
+        "peak_tracked": 0,
+        "created_total": 0,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": null
+      }
+    ],
+    "sounds": [
+      {
+        "key": "minecraft:entity.zombie.step",
+        "created_or_play_requests_per_second": 24.719101123595507,
+        "peak_tracked": 38,
+        "created_total": 2603,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 30,
+        "native_channel_removals_total": 2573
+      },
+      {
+        "key": "minecraft:entity.zombie.ambient",
+        "created_or_play_requests_per_second": 5.359550561797753,
+        "peak_tracked": 13,
+        "created_total": 565,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 10,
+        "native_channel_removals_total": 555
+      },
+      {
+        "key": "minecraft:entity.player.hurt",
+        "created_or_play_requests_per_second": 1.9775280898876404,
+        "peak_tracked": 2,
+        "created_total": 200,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 2,
+        "native_channel_removals_total": 198
+      },
+      {
+        "key": "minecraft:block.grass.step",
+        "created_or_play_requests_per_second": 1.146067415730337,
+        "peak_tracked": 2,
+        "created_total": 114,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 1,
+        "native_channel_removals_total": 113
+      }
+    ]
+  },
+  "B_128pillagers": {
+    "observed_rate_window_ticks": [
+      300,
+      2080
+    ],
+    "seconds": 89.0,
+    "tick": {
+      "n": 1800,
+      "mean": 5.951046957777778,
+      "p95": 8.371799,
+      "p99": 9.929999,
+      "max": 85.642999
+    },
+    "frame": {
+      "n": 17501,
+      "mean": 5.139737523570082,
+      "p95": 8.0929,
+      "p99": 10.582101,
+      "max": 81.0237
+    },
+    "fps": 194.56246460332787,
+    "tps": 19.99983957928675,
+    "peak_particles_all": 10,
+    "peak_channels_all": 342,
+    "pool_warning_difference": 30575,
+    "handle_failure_difference": 30575,
+    "engine_last": [
+      3,
+      267,
+      34132,
+      34132
+    ],
+    "phases": [],
+    "alive_action_ticks": 0,
+    "alive_target_ticks": 0,
+    "particles": [
+      {
+        "key": "minecraft:entity_effect",
+        "created_or_play_requests_per_second": 4.786516853932584,
+        "peak_tracked": 10,
+        "created_total": 505,
+        "removed_or_explicit_stop_total": 502,
+        "last_tracked": 3,
+        "observed_residence_mean_ticks": 28.03784860557769
+      },
+      {
+        "key": "preexisting:SpellParticle",
+        "created_or_play_requests_per_second": 0.0,
+        "peak_tracked": 0,
+        "created_total": 0,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": null
+      }
+    ],
+    "sounds": [
+      {
+        "key": "minecraft:item.crossbow.loading_start",
+        "created_or_play_requests_per_second": 181.79775280898878,
+        "peak_tracked": 115,
+        "created_total": 18263,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 98,
+        "native_channel_removals_total": 9572
+      },
+      {
+        "key": "minecraft:item.crossbow.loading_middle",
+        "created_or_play_requests_per_second": 159.24719101123594,
+        "peak_tracked": 98,
+        "created_total": 15820,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 89,
+        "native_channel_removals_total": 7720
+      },
+      {
+        "key": "minecraft:block.grass.step",
+        "created_or_play_requests_per_second": 71.49438202247191,
+        "peak_tracked": 44,
+        "created_total": 7806,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 26,
+        "native_channel_removals_total": 3578
+      },
+      {
+        "key": "minecraft:item.crossbow.loading_end",
+        "created_or_play_requests_per_second": 45.247191011235955,
+        "peak_tracked": 32,
+        "created_total": 4548,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 29,
+        "native_channel_removals_total": 2246
+      },
+      {
+        "key": "minecraft:item.crossbow.shoot",
+        "created_or_play_requests_per_second": 45.19101123595506,
+        "peak_tracked": 31,
+        "created_total": 4472,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 21,
+        "native_channel_removals_total": 2311
+      },
+      {
+        "key": "minecraft:item.crossbow.hit",
+        "created_or_play_requests_per_second": 45.146067415730336,
+        "peak_tracked": 3,
+        "created_total": 4467,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 31
+      },
+      {
+        "key": "minecraft:entity.pillager.hurt",
+        "created_or_play_requests_per_second": 41.93258426966292,
+        "peak_tracked": 4,
+        "created_total": 4149,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 39
+      },
+      {
+        "key": "minecraft:entity.pillager.ambient",
+        "created_or_play_requests_per_second": 6.921348314606742,
+        "peak_tracked": 11,
+        "created_total": 778,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 4,
+        "native_channel_removals_total": 488
+      },
+      {
+        "key": "minecraft:entity.player.hurt",
+        "created_or_play_requests_per_second": 0.8314606741573034,
+        "peak_tracked": 0,
+        "created_total": 83,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 4
+      }
+    ]
+  },
+  "C_poloz": {
+    "observed_rate_window_ticks": [
+      300,
+      2080
+    ],
+    "seconds": 89.0,
+    "tick": {
+      "n": 1800,
+      "mean": 4.1061225,
+      "p95": 6.98,
+      "p99": 15.5844,
+      "max": 31.2475
+    },
+    "frame": {
+      "n": 59327,
+      "mean": 1.5162025064473175,
+      "p95": 3.2824,
+      "p99": 5.2716,
+      "max": 216.0943
+    },
+    "fps": 659.5425055345312,
+    "tps": 20,
+    "peak_particles_all": 14790,
+    "peak_channels_all": 342,
+    "pool_warning_difference": 259,
+    "handle_failure_difference": 259,
+    "engine_last": [
+      7,
+      0,
+      259,
+      259
+    ],
+    "phases": [
+      1,
+      2,
+      3
+    ],
+    "alive_action_ticks": 709,
+    "alive_target_ticks": 1380,
+    "particles": [
+      {
+        "key": "class:TerrainParticle",
+        "created_or_play_requests_per_second": 1566.2022471910113,
+        "peak_tracked": 14778,
+        "created_total": 139392,
+        "removed_or_explicit_stop_total": 139392,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 20.929694674012858
+      },
+      {
+        "key": "slavicmyths:mor_spark",
+        "created_or_play_requests_per_second": 12.752808988764045,
+        "peak_tracked": 80,
+        "created_total": 2071,
+        "removed_or_explicit_stop_total": 2071,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 24.539352969579912
+      },
+      {
+        "key": "minecraft:entity_effect",
+        "created_or_play_requests_per_second": 4.921348314606742,
+        "peak_tracked": 9,
+        "created_total": 512,
+        "removed_or_explicit_stop_total": 505,
+        "last_tracked": 7,
+        "observed_residence_mean_ticks": 26.86930693069307
+      },
+      {
+        "key": "minecraft:dust",
+        "created_or_play_requests_per_second": 4.943820224719101,
+        "peak_tracked": 14,
+        "created_total": 440,
+        "removed_or_explicit_stop_total": 440,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 21.990909090909092
+      },
+      {
+        "key": "minecraft:damage_indicator",
+        "created_or_play_requests_per_second": 1.6853932584269662,
+        "peak_tracked": 5,
+        "created_total": 150,
+        "removed_or_explicit_stop_total": 150,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 39.96666666666667
+      },
+      {
+        "key": "class:ItemPickupParticle",
+        "created_or_play_requests_per_second": 0.2247191011235955,
+        "peak_tracked": 3,
+        "created_total": 20,
+        "removed_or_explicit_stop_total": 20,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 15.25
+      },
+      {
+        "key": "preexisting:SpellParticle",
+        "created_or_play_requests_per_second": 0.0,
+        "peak_tracked": 0,
+        "created_total": 0,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": null
+      }
+    ],
+    "sounds": [
+      {
+        "key": "minecraft:block.gravel.break",
+        "created_or_play_requests_per_second": 15.764044943820224,
+        "peak_tracked": 228,
+        "created_total": 1403,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1235
+      },
+      {
+        "key": "minecraft:block.grass.break",
+        "created_or_play_requests_per_second": 8.707865168539326,
+        "peak_tracked": 113,
+        "created_total": 775,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 684
+      },
+      {
+        "key": "slavicmyths:poloz_weakspot_hit",
+        "created_or_play_requests_per_second": 0.30337078651685395,
+        "peak_tracked": 1,
+        "created_total": 27,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 27
+      },
+      {
+        "key": "minecraft:entity.generic.hurt",
+        "created_or_play_requests_per_second": 0.29213483146067415,
+        "peak_tracked": 0,
+        "created_total": 26,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 26
+      },
+      {
+        "key": "minecraft:entity.item.pickup",
+        "created_or_play_requests_per_second": 0.2247191011235955,
+        "peak_tracked": 4,
+        "created_total": 20,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 20
+      },
+      {
+        "key": "minecraft:block.wool.step",
+        "created_or_play_requests_per_second": 0.20224719101123595,
+        "peak_tracked": 6,
+        "created_total": 18,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 18
+      },
+      {
+        "key": "minecraft:entity.player.hurt",
+        "created_or_play_requests_per_second": 0.1348314606741573,
+        "peak_tracked": 1,
+        "created_total": 13,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 13
+      },
+      {
+        "key": "minecraft:block.grass.step",
+        "created_or_play_requests_per_second": 0.11235955056179775,
+        "peak_tracked": 2,
+        "created_total": 12,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 33
+      },
+      {
+        "key": "slavicmyths:kikimora_step",
+        "created_or_play_requests_per_second": 0.12359550561797752,
+        "peak_tracked": 2,
+        "created_total": 11,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 11
+      },
+      {
+        "key": "minecraft:block.stone.step",
+        "created_or_play_requests_per_second": 0.10112359550561797,
+        "peak_tracked": 3,
+        "created_total": 9,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 9
+      },
+      {
+        "key": "minecraft:entity.witch.celebrate",
+        "created_or_play_requests_per_second": 0.06741573033707865,
+        "peak_tracked": 2,
+        "created_total": 6,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 6
+      },
+      {
+        "key": "minecraft:item.crossbow.loading_middle",
+        "created_or_play_requests_per_second": 0.06741573033707865,
+        "peak_tracked": 2,
+        "created_total": 6,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 101
+      },
+      {
+        "key": "minecraft:block.tripwire.attach",
+        "created_or_play_requests_per_second": 0.06741573033707865,
+        "peak_tracked": 2,
+        "created_total": 6,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 6
+      },
+      {
+        "key": "minecraft:entity.silverfish.ambient",
+        "created_or_play_requests_per_second": 0.06741573033707865,
+        "peak_tracked": 2,
+        "created_total": 6,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 6
+      },
+      {
+        "key": "slavicmyths:bayun.book.discovery",
+        "created_or_play_requests_per_second": 0.033707865168539325,
+        "peak_tracked": 1,
+        "created_total": 4,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 4
+      },
+      {
+        "key": "slavicmyths:poloz_ambient_rumble",
+        "created_or_play_requests_per_second": 0.033707865168539325,
+        "peak_tracked": 1,
+        "created_total": 4,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 4
+      },
+      {
+        "key": "minecraft:block.beacon.power_select",
+        "created_or_play_requests_per_second": 0.0449438202247191,
+        "peak_tracked": 2,
+        "created_total": 4,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 4
+      },
+      {
+        "key": "minecraft:entity.breeze.wind_burst",
+        "created_or_play_requests_per_second": 0.0449438202247191,
+        "peak_tracked": 2,
+        "created_total": 4,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 4
+      },
+      {
+        "key": "minecraft:entity.player.attack.sweep",
+        "created_or_play_requests_per_second": 0.0449438202247191,
+        "peak_tracked": 2,
+        "created_total": 4,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 4
+      },
+      {
+        "key": "slavicmyths:poloz_surface_roar",
+        "created_or_play_requests_per_second": 0.033707865168539325,
+        "peak_tracked": 1,
+        "created_total": 3,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 3
+      },
+      {
+        "key": "slavicmyths:poloz_mor_rain",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 2,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 2
+      },
+      {
+        "key": "slavicmyths:poloz_burrow",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 2,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 2
+      },
+      {
+        "key": "slavicmyths:poloz_emerge",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 2,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 2
+      },
+      {
+        "key": "slavicmyths:poloz_tail_slam",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 2,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 2
+      },
+      {
+        "key": "minecraft:entity.player.attack.strong",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 2,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 2
+      },
+      {
+        "key": "minecraft:block.deepslate.step",
+        "created_or_play_requests_per_second": 0.0,
+        "peak_tracked": 0,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "slavicmyths:poloz_phase2_cracks",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "slavicmyths:poloz_minion_call",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "minecraft:block.gravel.step",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "slavicmyths:poloz_phase3_roar",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "minecraft:entity.generic.death",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 0,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "minecraft:ui.toast.in",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "minecraft:ui.toast.challenge_complete",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "slavicmyths:poloz_death",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "minecraft:ui.toast.out",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      }
+    ]
+  },
+  "D_poloz_128pillagers": {
+    "observed_rate_window_ticks": [
+      300,
+      2080
+    ],
+    "seconds": 89.0,
+    "tick": {
+      "n": 1800,
+      "mean": 9.705765777777778,
+      "p95": 13.8871,
+      "p99": 17.7167,
+      "max": 31.3084
+    },
+    "frame": {
+      "n": 17154,
+      "mean": 5.24383191675411,
+      "p95": 8.9969,
+      "p99": 12.2076,
+      "max": 94.5676
+    },
+    "fps": 190.70023903798045,
+    "tps": 19.99987244525796,
+    "peak_particles_all": 11818,
+    "peak_channels_all": 352,
+    "pool_warning_difference": 17293,
+    "handle_failure_difference": 17293,
+    "engine_last": [
+      0,
+      262,
+      19469,
+      19469
+    ],
+    "phases": [
+      1,
+      2,
+      3
+    ],
+    "alive_action_ticks": 608,
+    "alive_target_ticks": 1208,
+    "particles": [
+      {
+        "key": "class:TerrainParticle",
+        "created_or_play_requests_per_second": 762.2471910112359,
+        "peak_tracked": 3347,
+        "created_total": 124288,
+        "removed_or_explicit_stop_total": 124288,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 21.324504376931
+      },
+      {
+        "key": "slavicmyths:mor_spark",
+        "created_or_play_requests_per_second": 9.01123595505618,
+        "peak_tracked": 74,
+        "created_total": 1667,
+        "removed_or_explicit_stop_total": 1667,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 23.683263347330534
+      },
+      {
+        "key": "minecraft:damage_indicator",
+        "created_or_play_requests_per_second": 9.831460674157304,
+        "peak_tracked": 30,
+        "created_total": 970,
+        "removed_or_explicit_stop_total": 970,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 32.45876288659794
+      },
+      {
+        "key": "minecraft:entity_effect",
+        "created_or_play_requests_per_second": 4.269662921348314,
+        "peak_tracked": 7,
+        "created_total": 460,
+        "removed_or_explicit_stop_total": 460,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 27.75
+      },
+      {
+        "key": "minecraft:dust",
+        "created_or_play_requests_per_second": 3.651685393258427,
+        "peak_tracked": 8,
+        "created_total": 325,
+        "removed_or_explicit_stop_total": 325,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 21.341538461538462
+      },
+      {
+        "key": "minecraft:block",
+        "created_or_play_requests_per_second": 0.449438202247191,
+        "peak_tracked": 21,
+        "created_total": 240,
+        "removed_or_explicit_stop_total": 240,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 21.25
+      },
+      {
+        "key": "class:ItemPickupParticle",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 0,
+        "created_total": 12,
+        "removed_or_explicit_stop_total": 12,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": 16.5
+      },
+      {
+        "key": "preexisting:SpellParticle",
+        "created_or_play_requests_per_second": 0.0,
+        "peak_tracked": 0,
+        "created_total": 0,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": null
+      }
+    ],
+    "sounds": [
+      {
+        "key": "minecraft:item.crossbow.loading_start",
+        "created_or_play_requests_per_second": 112.08988764044943,
+        "peak_tracked": 124,
+        "created_total": 10851,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 98,
+        "native_channel_removals_total": 6195
+      },
+      {
+        "key": "minecraft:item.crossbow.loading_middle",
+        "created_or_play_requests_per_second": 96.28089887640449,
+        "peak_tracked": 100,
+        "created_total": 9185,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 86,
+        "native_channel_removals_total": 4967
+      },
+      {
+        "key": "minecraft:block.stone.step",
+        "created_or_play_requests_per_second": 69.42696629213484,
+        "peak_tracked": 162,
+        "created_total": 7044,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 29,
+        "native_channel_removals_total": 4431
+      },
+      {
+        "key": "minecraft:item.crossbow.loading_end",
+        "created_or_play_requests_per_second": 27.8876404494382,
+        "peak_tracked": 52,
+        "created_total": 2785,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 20,
+        "native_channel_removals_total": 1640
+      },
+      {
+        "key": "minecraft:item.crossbow.hit",
+        "created_or_play_requests_per_second": 27.53932584269663,
+        "peak_tracked": 50,
+        "created_total": 2764,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 424
+      },
+      {
+        "key": "minecraft:item.crossbow.shoot",
+        "created_or_play_requests_per_second": 26.910112359550563,
+        "peak_tracked": 50,
+        "created_total": 2711,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 27,
+        "native_channel_removals_total": 1606
+      },
+      {
+        "key": "minecraft:entity.pillager.hurt",
+        "created_or_play_requests_per_second": 23.471910112359552,
+        "peak_tracked": 36,
+        "created_total": 2403,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 367
+      },
+      {
+        "key": "minecraft:block.gravel.break",
+        "created_or_play_requests_per_second": 7.865168539325842,
+        "peak_tracked": 46,
+        "created_total": 1267,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 571
+      },
+      {
+        "key": "minecraft:block.grass.step",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 932,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 751
+      },
+      {
+        "key": "minecraft:entity.pillager.ambient",
+        "created_or_play_requests_per_second": 6.224719101123595,
+        "peak_tracked": 25,
+        "created_total": 732,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 2,
+        "native_channel_removals_total": 486
+      },
+      {
+        "key": "minecraft:block.grass.break",
+        "created_or_play_requests_per_second": 4.044943820224719,
+        "peak_tracked": 37,
+        "created_total": 675,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 329
+      },
+      {
+        "key": "minecraft:block.gravel.step",
+        "created_or_play_requests_per_second": 0.6741573033707865,
+        "peak_tracked": 9,
+        "created_total": 60,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 60
+      },
+      {
+        "key": "minecraft:entity.player.hurt",
+        "created_or_play_requests_per_second": 0.6404494382022472,
+        "peak_tracked": 1,
+        "created_total": 59,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 5
+      },
+      {
+        "key": "slavicmyths:poloz_weakspot_hit",
+        "created_or_play_requests_per_second": 0.449438202247191,
+        "peak_tracked": 4,
+        "created_total": 53,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 17
+      },
+      {
+        "key": "minecraft:entity.generic.hurt",
+        "created_or_play_requests_per_second": 0.449438202247191,
+        "peak_tracked": 4,
+        "created_total": 53,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 17
+      },
+      {
+        "key": "minecraft:entity.item.pickup",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 12,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "minecraft:entity.hostile.small_fall",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 6,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 3
+      },
+      {
+        "key": "minecraft:block.stone.fall",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 6,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 3
+      },
+      {
+        "key": "minecraft:block.wool.step",
+        "created_or_play_requests_per_second": 0.06741573033707865,
+        "peak_tracked": 3,
+        "created_total": 6,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 6
+      },
+      {
+        "key": "slavicmyths:kikimora_step",
+        "created_or_play_requests_per_second": 0.056179775280898875,
+        "peak_tracked": 1,
+        "created_total": 5,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 5
+      },
+      {
+        "key": "slavicmyths:poloz_ambient_rumble",
+        "created_or_play_requests_per_second": 0.033707865168539325,
+        "peak_tracked": 1,
+        "created_total": 4,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 3
+      },
+      {
+        "key": "minecraft:entity.arrow.hit",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 3,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 2
+      },
+      {
+        "key": "slavicmyths:poloz_surface_roar",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 3,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 2
+      },
+      {
+        "key": "slavicmyths:poloz_tail_slam",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 2,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "slavicmyths:poloz_mor_rain",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 2,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "minecraft:entity.silverfish.hurt",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 2,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 2
+      },
+      {
+        "key": "minecraft:entity.witch.celebrate",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 2,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 2
+      },
+      {
+        "key": "minecraft:block.tripwire.attach",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 2,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 2
+      },
+      {
+        "key": "minecraft:entity.silverfish.ambient",
+        "created_or_play_requests_per_second": 0.02247191011235955,
+        "peak_tracked": 1,
+        "created_total": 2,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 2
+      },
+      {
+        "key": "slavicmyths:poloz_burrow",
+        "created_or_play_requests_per_second": 0.0,
+        "peak_tracked": 0,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "slavicmyths:poloz_emerge",
+        "created_or_play_requests_per_second": 0.0,
+        "peak_tracked": 0,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "slavicmyths:poloz_phase2_cracks",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "slavicmyths:poloz_minion_call",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 0,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 0
+      },
+      {
+        "key": "slavicmyths:poloz_phase3_roar",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "slavicmyths:poloz_death",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      },
+      {
+        "key": "slavicmyths:kikimora_attack",
+        "created_or_play_requests_per_second": 0.011235955056179775,
+        "peak_tracked": 1,
+        "created_total": 1,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "native_channel_removals_total": 1
+      }
+    ]
+  },
+  "E_expiry": {
+    "observed_rate_window_ticks": [
+      300,
+      1080
+    ],
+    "seconds": 39.0,
+    "tick": {
+      "n": 800,
+      "mean": 1.406279875,
+      "p95": 2.1577,
+      "p99": 2.8772,
+      "max": 4.2858
+    },
+    "frame": {
+      "n": 56478,
+      "mean": 0.7073611406211268,
+      "p95": 1.5148,
+      "p99": 2.7128,
+      "max": 110.6764
+    },
+    "fps": 1413.7050264337533,
+    "tps": 20,
+    "peak_particles_all": 9,
+    "peak_channels_all": 259,
+    "pool_warning_difference": 0,
+    "handle_failure_difference": 0,
+    "engine_last": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "phases": [],
+    "alive_action_ticks": 0,
+    "alive_target_ticks": 0,
+    "particles": [
+      {
+        "key": "minecraft:entity_effect",
+        "created_or_play_requests_per_second": 5.384615384615385,
+        "peak_tracked": 9,
+        "created_total": 277,
+        "removed_or_explicit_stop_total": 271,
+        "last_tracked": 6,
+        "observed_residence_mean_ticks": 27.918819188191883
+      },
+      {
+        "key": "preexisting:SpellParticle",
+        "created_or_play_requests_per_second": 0.0,
+        "peak_tracked": 0,
+        "created_total": 0,
+        "removed_or_explicit_stop_total": 0,
+        "last_tracked": 0,
+        "observed_residence_mean_ticks": null
+      }
+    ],
+    "sounds": []
+  }
+}
