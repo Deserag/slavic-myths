@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "version": "1.9.7.6",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.6.jar",
+  "sha256": "7e0f9f634bbdbe733642fd0cd7c9ba2d468e0917e8211f817e1d9113c47cc210",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-weapon-balance-1976-20261015-091046",
+  "previous_hashes": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.5.jar": "75d00b6ee28d2991e2a76175d1d17158955928763e7c46ef6a788480aa59914c"
+  },
+  "other_files_preserved": 609,
+  "configuration_changes": 1,
+  "name_before": "Slavic Myths 1.9.7.5 - NeoForge 1.21.1 TEST — Патч оружия — Исправления существ — Творческий инвентарь — Исправления оружия — Восстановление оружия — Руны III–IV — Исправления урона и навыков — Арбалет: три силы",
+  "name_after": "Slavic Myths 1.9.7.6 - NeoForge 1.21.1 TEST — Патч оружия — Исправления существ — Творческий инвентарь — Исправления оружия — Восстановление оружия — Руны III–IV — Исправления урона и навыков — Арбалет: три силы — Ребаланс оружия I–V",
+  "client_starts": 0,
+  "server_starts": 0,
+  "worlds": "NOT_TOUCHED",
+  "old_1_16_5": "NOT_TOUCHED"
+}

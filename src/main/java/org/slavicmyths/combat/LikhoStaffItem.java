@@ -15,7 +15,7 @@ import org.slavicmyths.rpg.*;
 public final class LikhoStaffItem extends SwordItem {
     public static final int HEAL_INTERVAL = 180, COOLDOWN = 560, STUN = 25, MOROK = 120;
     public static final double RANGE = 12;
-    public LikhoStaffItem() { super(Tiers.DIAMOND, new Properties().rarity(Rarity.RARE).attributes(SwordItem.createAttributes(Tiers.DIAMOND, 6, -2.8F))); }
+    public LikhoStaffItem() { super(Tiers.DIAMOND, new Properties().rarity(Rarity.RARE).attributes(SwordItem.createAttributes(Tiers.DIAMOND, RewardWeaponBalance.swordParameter(Tiers.DIAMOND,RewardWeaponBalance.LIKHO), -2.8F))); }
     @Override public void inventoryTick(ItemStack stack,Level world,Entity entity,int slot,boolean selected) {
         if(entity instanceof ServerPlayer p && (selected || p.getOffhandItem()==stack) && p.getHealth()<p.getMaxHealth()
             && PathData.ready(p,"rare_likho_heal",HEAL_INTERVAL)) p.heal(1);

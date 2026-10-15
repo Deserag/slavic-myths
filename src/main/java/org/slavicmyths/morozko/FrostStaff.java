@@ -13,5 +13,5 @@ public final class FrostStaff extends Item {
  @Override public void onUseTick(Level w,LivingEntity e,ItemStack s,int left){if(e instanceof ServerPlayer p){if(p.getPersistentData().contains("FrostStaffPose")){if(FrostSkills.now(p)>=p.getPersistentData().getLong("FrostStaffPose")){p.getPersistentData().remove("FrostStaffPose");p.stopUsingItem();}return;}FrostSkills.streamTick(p,left);}}
  @Override public void releaseUsing(ItemStack s,Level w,LivingEntity e,int left){if(e instanceof ServerPlayer p)FrostSkills.stopStream(p,"stream_released");}
  @Override public ItemStack finishUsingItem(ItemStack s,Level w,LivingEntity e){if(e instanceof ServerPlayer p)FrostSkills.stopStream(p,"stream_finished");return s;}
- @Override public void appendHoverText(ItemStack s,TooltipContext c,java.util.List<net.minecraft.network.chat.Component> l,TooltipFlag f){l.add(FrostContent.text("staff_hint"));l.add(FrostContent.text("staff_stats"));}
+ @Override public void appendHoverText(ItemStack s,TooltipContext c,java.util.List<net.minecraft.network.chat.Component> l,TooltipFlag f){l.add(FrostContent.text("staff_hint"));l.add(FrostContent.text("staff_stats",org.slavicmyths.combat.RewardWeaponBalance.FROST_BOLT,org.slavicmyths.combat.RewardWeaponBalance.FROST_PULSE));}
 }

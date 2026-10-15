@@ -1,0 +1,65 @@
+[
+  {
+    "id": "ataman_flail",
+    "server_ticks": 200,
+    "attack_interval_ticks": 29,
+    "hp_damage": 88.20001,
+    "dps_10_seconds": 8.820002
+  },
+  {
+    "id": "nightingale_dagger",
+    "server_ticks": 200,
+    "attack_interval_ticks": 10,
+    "hp_damage": 200.0,
+    "dps_10_seconds": 20.0
+  },
+  {
+    "id": "likho_staff",
+    "server_ticks": 200,
+    "attack_interval_ticks": 17,
+    "hp_damage": 120.0,
+    "dps_10_seconds": 12.0
+  },
+  {
+    "id": "tugarin_sword",
+    "server_ticks": 200,
+    "attack_interval_ticks": 12,
+    "hp_damage": 238.0,
+    "dps_10_seconds": 23.8
+  },
+  {
+    "id": "victor_spear",
+    "server_ticks": 200,
+    "attack_interval_ticks": 17,
+    "hp_damage": 144.0,
+    "dps_10_seconds": 14.4
+  },
+  {
+    "id": "morozko_staff",
+    "server_ticks": 200,
+    "attack_interval_ticks": 16,
+    "hp_damage": 91.0,
+    "dps_10_seconds": 9.1
+  },
+  {
+    "id": "karachun_scythe",
+    "server_ticks": 200,
+    "attack_interval_ticks": 20,
+    "hp_damage": 120.0,
+    "dps_10_seconds": 12.0
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "server_ticks": 200,
+    "attack_interval_ticks": 16,
+    "hp_damage": 117.0,
+    "dps_10_seconds": 11.7
+  },
+  {
+    "id": "poloz_whip",
+    "server_ticks": 200,
+    "attack_interval_ticks": 20,
+    "hp_damage": 130.0,
+    "dps_10_seconds": 13.0
+  }
+]

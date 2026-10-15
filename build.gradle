@@ -481,3 +481,18 @@ if (project.hasProperty('bossReworkClientCheck')) {
  tasks.named('compileBossReworkClientCheckJava') { dependsOn 'classes' }
  neoForge.mods.slavicmyths.sourceSet(sourceSets.bossReworkClientCheck)
 }
+// Opt-in reward balance measurements; fixtures never enter production.
+if (project.hasProperty('balanceCheck')) {
+ sourceSets { balanceCheck { java.srcDirs = ['tools/balance-tests','tools/reward-issues-tests']; resources.srcDir 'tools/balance-test-resources' } }
+ sourceSets.balanceCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.balanceCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+ tasks.named('compileBalanceCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.balanceCheck)
+ neoForge.runs { balanceChecks {
+  type = 'gameTestServer'
+  gameDirectory = file('run-balance-checks')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_balance'
+  systemProperty 'slavicmyths.balanceRoot', project.projectDir.absolutePath
+  systemProperty 'slavicmyths.balancePhase', project.findProperty('balancePhase') ?: 'after'
+ } }
+}
