@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "Static design, source API and current unchanged production resource/JAR checks; no redesign runtime implementation",
+  "checks": 20605,
+  "base": "fb2994e958911169317523e1066b8a1ca7a155af",
+  "gameplay": 129,
+  "recipes": 77,
+  "tales": 234,
+  "visible_proposal": 55,
+  "new_proposal": 11,
+  "decisions": {
+    "RELOCATE": 24,
+    "MERGE": 77,
+    "KEEP": 13,
+    "RETIRE": 8,
+    "REWORK": 7
+  },
+  "current_resources": {
+    ".json": 3919,
+    ".nbt": 768,
+    ".ogg": 788,
+    ".png": 1325
+  },
+  "jar": "slavicmyths-1.9.7.5.jar",
+  "jar_sha256": "77b79947b0c0df4ae2157410d7fa25c5ec225ecc9700fd603b04d3bf4cda887f",
+  "java_classes": 1685,
+  "native_source": [
+    {
+      "jar": "sourcesAndCompiledWithNeoForge_414bd7305056e2232c1ba590755f2e3084f76e3b_output.jar",
+      "sha256": "74e80fae75380280890d4c6876341d258bf727e741eb80c71ae1bf7b971eb952",
+      "advancement_source_sha256": "b80c5baca08a091535da06253852d049571d89289b19c0990f6d254fa9656c68",
+      "player_advancements_sha256": "a692ce6eb5c64f116b3ab5fed4de16ee0522e0bf20a7df8899a14dc031d0d725",
+      "client_advancements_sha256": "42e193ab0dc9f46ed0373f33707bedafcfee2372c0e7c190bff96192d8327e59"
+    }
+  ],
+  "server_launches": 0,
+  "client_launches": 0,
+  "gui": "NOT_RUN",
+  "migration_runtime": "NOT_RUN",
+  "coop": "NOT_RUN",
+  "real_relog": "NOT_RUN",
+  "mspt": "NOT_MEASURED"
+}
