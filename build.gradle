@@ -481,3 +481,18 @@ if (project.hasProperty('bossReworkClientCheck')) {
  tasks.named('compileBossReworkClientCheckJava') { dependsOn 'classes' }
  neoForge.mods.slavicmyths.sourceSet(sourceSets.bossReworkClientCheck)
 }
+// Issue #22 checks are opt-in and excluded from production.
+if (project.hasProperty('advancementCheck')) {
+    sourceSets { advancementCheck { java.srcDir 'tools/advancement-tests'; resources.srcDir 'tools/advancement-test-resources' } }
+    sourceSets.advancementCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.advancementCheck.runtimeClasspath += sourceSets.main.runtimeClasspath
+    tasks.named('compileAdvancementCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.advancementCheck)
+    neoForge.runs { advancementChecks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-advancement-checks')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_advancements'
+        systemProperty 'slavicmyths.advancementRoot', project.projectDir.absolutePath
+        systemProperty 'slavicmyths.advancementPhase', project.findProperty('advancementPhase') ?: 'write'
+    } }
+}

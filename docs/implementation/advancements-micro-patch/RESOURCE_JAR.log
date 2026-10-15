@@ -1,0 +1,1 @@
+{"status": "PASS", "total": 206, "gameplay": 129, "hidden": ["slavicmyths:black_feather", "slavicmyths:great_poloz_fall"], "tales": 234, "scope": "Static wiring; runtime tests reported separately", "production": {"checks": 8489, "sha256": "c819ad10ad3aa3d0c578326f0950b9d21641d487966b2ca28c78f69361e66ae3", "subscribers": 221}}
