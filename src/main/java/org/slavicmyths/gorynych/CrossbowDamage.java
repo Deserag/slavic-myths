@@ -13,11 +13,16 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 /** A follow-up can bypass only the damage cooldown of its own successful volley. */
 @EventBusSubscriber(modid="slavicmyths")
 public final class CrossbowDamage {
-    public static final float MIN_SPECIAL_DAMAGE=14;
-    public static float impactDamage(AbstractArrow arrow,float vanilla) {
+    /** Normalize the ordinary arrow before vanilla enchantments, crits and target defenses. */
+    public static double baseDamage(AbstractArrow arrow,double vanilla) {
         var weapon=arrow.getWeaponItem();
-        return weapon!=null&&weapon.getItem() instanceof SerpentCrossbow crossbow&&crossbow.special
-            ?Math.max(MIN_SPECIAL_DAMAGE,vanilla):vanilla;
+        if(weapon==null||!(weapon.getItem() instanceof SerpentCrossbow crossbow)||!crossbow.special)return vanilla;
+        float speed=(float)arrow.getDeltaMovement().length();
+        if(speed<=0)return vanilla;
+        // Native Arrow base is 2, with this weapon's existing 1.18 multiplier.
+        // A custom ammo base remains a relative bonus; potion/post-hit effects remain native.
+        return (org.slavicmyths.combat.RewardWeaponBalance.CROSSBOW-1.0e-5)
+            *(vanilla/(2*1.18))/speed;
     }
     public static final String VOLLEY="GorynychVolley";
     private record Key(UUID owner, UUID volley) {}

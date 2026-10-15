@@ -36,7 +36,8 @@ public final class SerpentCrossbow extends CrossbowItem {
   if(e instanceof net.minecraft.server.level.ServerPlayer p){net.minecraft.advancements.CriteriaTriggers.SHOT_CROSSBOW.trigger(p,s);p.awardStat(net.minecraft.stats.Stats.ITEM_USED.get(this));}
  }
  void fireRound(net.minecraft.server.level.ServerLevel w,LivingEntity owner,InteractionHand hand,ItemStack weapon,ItemStack ammo,int mode,float speed,float angle,LivingEntity target,int lane,UUID volley){
-  var shot=createProjectile(w,owner,weapon,ammo,owner instanceof Player);
+  // The special weapon's ordinary shot is deterministic; explicit later crit modifiers remain native.
+  var shot=createProjectile(w,owner,weapon,ammo,false);
   var eye=owner.getEyePosition();var forward=owner.getLookAngle();var right=forward.cross(owner.getUpVector(1)).normalize();
   double handed=((hand==InteractionHand.MAIN_HAND)==(owner.getMainArm()==HumanoidArm.LEFT))?-1:1;
   var muzzle=eye.add(forward.scale(.45)).add(right.scale(handed*.20+(lane==1?.24:lane==2?-.24:0))).add(owner.getUpVector(1).scale(-.25));
@@ -61,5 +62,5 @@ public final class SerpentCrossbow extends CrossbowItem {
   GorynychContent.sound(w,owner.blockPosition(),mode==0?"crossbow_special_mor":mode==1?"crossbow_special_fire":"crossbow_special_storm");
  }
  @Override protected void shootProjectile(LivingEntity owner,Projectile shot,int index,float velocity,float inaccuracy,float angle,LivingEntity target){super.shootProjectile(owner,shot,index,velocity,inaccuracy,angle,target);if(!owner.level().isClientSide){if(regularVolley!=null)shot.getPersistentData().putUUID(CrossbowDamage.VOLLEY,regularVolley);if(shot instanceof AbstractArrow arrow)arrow.setBaseDamage(arrow.getBaseDamage()*1.18);}}
- @Override public void appendHoverText(ItemStack s,TooltipContext c,List<net.minecraft.network.chat.Component> lines,TooltipFlag flag){super.appendHoverText(s,c,lines,flag);lines.add(net.minecraft.network.chat.Component.translatable(getDescriptionId()+".desc"));if(special){var n=state(s);lines.add(GorynychContent.text("mode_"+Math.floorMod(n.getInt("Mode"),3),0));lines.add(GorynychContent.text(n.getBoolean("Burst")?"volley_burst":"volley_fan"));if(Math.floorMod(n.getInt("Mode"),3)==2)lines.add(GorynychContent.text("storm_stats",StormCrossbow.DAMAGE,StormCrossbow.RADIUS,StormCrossbow.CONTROL_TICKS/20,StormCrossbow.MAX_TARGETS,StormCrossbow.TARGET_COOLDOWN/20.0));}}
+ @Override public void appendHoverText(ItemStack s,TooltipContext c,List<net.minecraft.network.chat.Component> lines,TooltipFlag flag){super.appendHoverText(s,c,lines,flag);lines.add(net.minecraft.network.chat.Component.translatable(getDescriptionId()+".desc",org.slavicmyths.combat.RewardWeaponBalance.CROSSBOW));if(special){var n=state(s);lines.add(GorynychContent.text("mode_"+Math.floorMod(n.getInt("Mode"),3),0));lines.add(GorynychContent.text(n.getBoolean("Burst")?"volley_burst":"volley_fan"));if(Math.floorMod(n.getInt("Mode"),3)==2)lines.add(GorynychContent.text("storm_stats",StormCrossbow.DAMAGE,StormCrossbow.RADIUS,StormCrossbow.CONTROL_TICKS/20,StormCrossbow.MAX_TARGETS,StormCrossbow.TARGET_COOLDOWN/20.0));}}
 }

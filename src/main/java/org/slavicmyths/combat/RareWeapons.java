@@ -7,10 +7,10 @@ import org.slavicmyths.registry.ModItems;
 /** Special weapons reuse the ordinary melee attributes and saved item components. */
 public final class RareWeapons {
     public static final DeferredHolder<Item, Item> TUGARIN = ModItems.ITEMS.register("tugarin_sword", () -> new SwordItem(Tiers.DIAMOND,
-        new Item.Properties().rarity(Rarity.RARE).attributes(SwordItem.createAttributes(Tiers.DIAMOND, 6, -2.2F))));
+        new Item.Properties().rarity(Rarity.RARE).attributes(SwordItem.createAttributes(Tiers.DIAMOND, RewardWeaponBalance.swordParameter(Tiers.DIAMOND,RewardWeaponBalance.TUGARIN), -2.2F))));
     public static final DeferredHolder<Item, Item> LIKHO = ModItems.ITEMS.register("likho_staff", LikhoStaffItem::new);
-    public static final DeferredHolder<Item, Item> ATAMAN = ModItems.ITEMS.register("ataman_flail", () -> new MaceItem(Tiers.DIAMOND, 12, .7F, .22F, .65F, new Item.Properties().rarity(Rarity.RARE)));
-    public static final DeferredHolder<Item, Item> VICTOR = ModItems.ITEMS.register("victor_spear", () -> new org.slavicmyths.item.SpearItem(Tiers.DIAMOND, 12, new Item.Properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> ATAMAN = ModItems.ITEMS.register("ataman_flail", () -> new MaceItem(Tiers.DIAMOND, RewardWeaponBalance.ATAMAN, .7F, .22F, .65F, new Item.Properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> VICTOR = ModItems.ITEMS.register("victor_spear", () -> new org.slavicmyths.item.SpearItem(Tiers.DIAMOND, RewardWeaponBalance.VICTOR, new Item.Properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> SIGN = ModItems.ITEMS.register("ataman_sign", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static void init() { }
     private RareWeapons() { }

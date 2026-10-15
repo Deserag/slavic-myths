@@ -1,3 +1,24 @@
+## Issue #26 — наградное оружие I–V,1.9.7.6 (2026-10-15)
+
+Реализована утверждённая база:12/12/13/14/15/16/20/18/16/24 для десяти наград;
+поток Морозко4×6 за60т/CD200. Тугарин сохраняет×1.4 (14база→19.6HP).
+Арбалет даёт ровно16 обычной стрелой; огненный impact идёт после direct hit,
+чтобы preceding5 не вычитались из первых16 через vanilla i-frames. Режимы и art сохранены.
+Clean Java21 build PASS;20/20 final native cases,12 mode×volley×hand физических залпов,
+37/37 Classes3,398+20491 rune offline PASS.9 native DPS before/after, raw всех10;
+сосульки25/волна4 не усилены.8491 resource/JAR gates PASS; registry ID предметов сохранены,
+версия мода обновлена1.9.7.6 с разрешения пользователя.16 GameTest servers,0 clients;
+integrated/2-client/GUI/Survival reward route/real relog/MSPT NOT_RUN.
+PolyMC1.21.1 Testing обновлён с backup/SHA256,609 других файлов и миры сохранены.
+Issue26 открыт до игровой приёмки; PR без auto-merge. [Отчёт](implementation/legendary-weapon-balance/REPORT.md).
+
+RewardWeaponBalance — небольшая общая политика атрибутов/primary projectiles/tooltips;
+server damage остаётся native. Arrow base нормализован до enchant/crit/armor, стандартный
+special volley без случайного crit; явные crit/спецбоеприпасы/modifiers проходят vanilla.
+Старый NightConfig12 остаётся offset-базой, чтобы прежние конфиги не откатывали новый20.
+Нет новых player/world tick scans или packet types. Опциональный balanceCheck и source CI,
+fixtures не входят в production. Модели/анимации/руны/классы/loot/recipes не переписаны.
+
 ## Арбалет Горыныча — 1.9.7.5 (2026-10-14)
 
 Арбалет трёх дыханий: каждая стрела наносит минимум14 базового урона до брони;

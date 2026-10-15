@@ -873,7 +873,7 @@
   "subtitles.slavicmyths.nightingale_horn": "Bandit's horn sounds",
   "entity.slavicmyths.nightingale": "Nightingale the Robber",
   "tooltip.slavicmyths.nightingale_whistle": "Radial gust: 6 blocks, 16 s cooldown.",
-  "tooltip.slavicmyths.nightingale_dagger": "10 attack damage. Wind slash: 8 blocks, 7 damage, 0.4 s charge, 7 s cooldown.",
+  "tooltip.slavicmyths.nightingale_dagger": "%s attack damage. Wind slash: 8 blocks, 7 damage, 0.4 s charge, 7 s cooldown.",
   "tooltip.slavicmyths.bandit_horn": "A horn from the forest robber’s platform. Hold use to sound it.",
   "advancement.slavicmyths.defeat_nightingale.title": "Whistling Your Fortune Away",
   "advancement.slavicmyths.defeat_nightingale.description": "Defeat Nightingale the Robber",
@@ -4839,7 +4839,7 @@
   "frost191.npc_offer": "Morozko’s trial: Yaga trust II or Bayun’s first gift. Offer 8 snow blocks and 1 blue ice. A lost totem can be recovered.",
   "frost191.totem_given": "The ice totem is available. Summon Morozko in an open Overworld location.",
   "frost191.staff_hint": "Attack: ice bolt. Hold use: frost stream. Rebind icicles and wave in Controls.",
-  "frost191.staff_stats": "Bolt 7 HP / 0.8s; stream 1 HP per 0.5s for 3s / 10s; 5 icicles at the last target within 8s / 20s; wave 4 HP / 16s.",
+  "frost191.staff_stats": "Bolt %s HP / 0.8s; stream %s HP per 0.5s for 3s / 10s; 5 icicles at the last target within 8s / 20s; wave 4 HP / 16s.",
   "frost191.bindings": "%s: five icicles at last target; %s: frost wave",
   "frost191.cold": "❄ Cold: %s / 100",
   "frost191.cooldowns": "%s: %ss  ·  %s: %ss",
@@ -5232,7 +5232,7 @@
   "item.slavicmyths.gorynych_scale.desc": "Ivory scale of the rescued dragon.",
   "item.slavicmyths.ancient_serpent_steel.desc": "Rare metal from the serpent fortress.",
   "item.slavicmyths.serpent_crossbow.desc": "+18% bolt damage, slower loading.",
-  "item.slavicmyths.three_breath_crossbow.desc": "Always three arrows: each deals at least 14 damage before armor. Shift+right-click: Mor (cloud and weakness), Flame (2 s burning), Storm (+3 damage, knockback and Slowness II for 2 s). Shift+left-click: fan / burst. No bottles.",
+  "item.slavicmyths.three_breath_crossbow.desc": "Always three arrows: each deals %s base damage before armor. Shift+right-click: Mor (cloud and weakness), Flame (2 s burning), Storm (+3 damage, knockback and Slowness II for 2 s). Shift+left-click: fan / burst. No bottles.",
   "item.slavicmyths.rune_mor_breath.desc": "Every fifth direct hit: a 4-second weakness cloud. Melee weapons and staves.",
   "item.slavicmyths.rune_dragon_flame.desc": "Every fourth melee hit: a small flame burst against nearby enemies.",
   "item.slavicmyths.rune_storm_strike.desc": "Every fourth bow/crossbow hit: a knockback wave.",
@@ -5451,5 +5451,6 @@
   "classtrial.slavicmyths.naletchik": "Dash away from an actual melee threat in 10 encounters.",
   "classtrial.slavicmyths.strelok": "Hit 15 distinct foes with arrows from at least 16 blocks.",
   "classtrial.slavicmyths.ataman": "Break pursuit of at least 2 foes using smoke in 5 encounters.",
-  "classtrial.slavicmyths.reznik": "Land a dirty strike from flank or rear in 15 encounters."
+  "classtrial.slavicmyths.reznik": "Land a dirty strike from flank or rear in 15 encounters.",
+  "tooltip.slavicmyths.reward_raw": "Base damage: %s HP (before crits and modifiers; abilities separate)."
 }

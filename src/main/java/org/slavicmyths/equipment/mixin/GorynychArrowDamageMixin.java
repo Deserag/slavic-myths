@@ -12,6 +12,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AbstractArrow.class)
 public abstract class GorynychArrowDamageMixin {
+    @ModifyVariable(method="onHitEntity",at=@At(value="STORE",ordinal=0),ordinal=0)
+    private double slavicmyths$base(double damage) {
+        return CrossbowDamage.baseDamage((AbstractArrow)(Object)this,damage);
+    }
     @Inject(method="onHitEntity",at=@At("HEAD"),cancellable=true)
     private void slavicmyths$duplicate(EntityHitResult hit,CallbackInfo ci) {
         if(hit.getEntity() instanceof LivingEntity target&&CrossbowDamage.repeated((AbstractArrow)(Object)this,target))ci.cancel();
@@ -19,6 +23,6 @@ public abstract class GorynychArrowDamageMixin {
     @Redirect(method="onHitEntity",at=@At(value="INVOKE",target="Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
     private boolean slavicmyths$volley(Entity entity,DamageSource source,float amount) {
         var arrow=(AbstractArrow)(Object)this;
-        return entity.hurt(entity instanceof LivingEntity target?CrossbowDamage.source(arrow,target,source):source,CrossbowDamage.impactDamage(arrow,amount));
+        return entity.hurt(entity instanceof LivingEntity target?CrossbowDamage.source(arrow,target,source):source,amount);
     }
 }

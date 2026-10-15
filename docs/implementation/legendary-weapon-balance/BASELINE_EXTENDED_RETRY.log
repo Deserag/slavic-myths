@@ -1,0 +1,94 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileBalanceCheckJava
+> Task :processBalanceCheckResources
+> Task :balanceCheckClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeBalanceChecksLegacyClasspath UP-TO-DATE
+> Task :prepareBalanceChecksRun UP-TO-DATE
+
+> Task :runBalanceChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[09:06:39] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[09:06:39] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[09:06:39] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[09:06:39] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[09:06:39] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[09:06:40] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[09:06:40] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]:
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.9.7.5 (slavicmyths)
+[09:06:41] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09:06:41] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[09:06:41] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:06:41] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:06:43] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[09:06:44] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09:06:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:06:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:06:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:06:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:06:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:06:52] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[09:06:54] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09:06:54] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths-balance-baseline/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[09:06:54] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths-balance-baseline/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[09:06:54] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_balance]
+[09:06:59] [main/INFO] [minecraft/RecipeManager]: Loaded 1829 recipes
+[09:06:59] [main/INFO] [minecraft/AdvancementTree]: Loaded 1606 advancements
+[09:06:59] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[09:06:59] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[09:07:00] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[09:07:00] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[09:07:00] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 135 ms
+[09:07:00] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[09:07:00] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[09:07:00] [Server thread/INFO] [minecraft/GameTestServer]: 18 tests are now running at position 5675575, -59, 9032999!
+[09:07:01] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (18 tests)...
+[09:07:02] [Server thread/INFO] [minecraft/GameTestServer]: [                  ]
+FIRE_AFTER HP100->95 burnTicks40 resistantHP100 no damaging cloud
+STORM_AFTER targets3 HP100->97 each, repeated volley burst0, slowII40
+[09:07:02] [Server thread/INFO] [minecraft/MinecraftServer]: BalanceQA has made the advancement [Take Aim]
+BALANCE_NATIVE_MEASURED_10_BEFORE_PASS [{"id":"ataman_flail","hp_before":1000,"hp_after":988.0,"raw":12.0,"attack_speed":0.7000000476837158},{"id":"nightingale_dagger","hp_before":1000,"hp_after":990.0,"raw":10.0,"attack_speed":2.0},{"id":"likho_staff","hp_before":1000,"hp_after":990.0,"raw":10.0,"attack_speed":1.2000000476837158},{"id":"tugarin_sword","hp_before":1000,"hp_after":986.0,"raw":14.0,"attack_speed":1.7999999523162842},{"id":"victor_spear","hp_before":1000,"hp_after":988.0,"raw":12.0,"attack_speed":1.2000000476837158},{"id":"morozko_staff","hp_before":1000,"hp_after":993.0,"raw":7.0,"attack_speed":4.0},{"id":"karachun_scythe","hp_before":1000,"hp_after":988.0,"raw":12.0,"attack_speed":1.0},{"id":"trophy_kalin_sabre","hp_before":1000,"hp_after":991.0,"raw":9.0,"attack_speed":1.2999999523162842},{"id":"three_breath_crossbow","hp_before":1000,"hp_after":986.0,"raw":14.0,"attack_speed":4.0},{"id":"poloz_whip","hp_before":1000,"hp_after":987.0,"raw":13.0,"attack_speed":1.0}]
+FROST_AFTER gap8=active gap20=active gap21=stopped cooldown=200
+[09:07:02] [Server thread/INFO] [minecraft/GameTestServer]: [+++_++            ]
+[09:07:03] [Server thread/INFO] [minecraft/GameTestServer]: [+++_++++++++_+++++]
+[09:07:03] [Server thread/INFO] [minecraft/GameTestServer]: [+++_++++++++_+++++]
+[09:07:03] [Server thread/INFO] [minecraft/GameTestServer]: [+++_++++++++_+++++]
+[09:07:03] [Server thread/INFO] [minecraft/GameTestServer]: [+++_++++++++_+++++]
+BALANCE_FROST_ABILITIES phase=before bolt=7 stream=1 wave=4 icicles5_per_lane actualSingleTarget=25.0
+[09:07:03] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++_+++++]
+[09:07:03] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++_+++++]
+[09:07:04] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++_+++++]
+[09:07:04] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++_+++++]
+[09:07:04] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++_+++++]
+[09:07:04] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++_+++++]
+BALANCE_NATIVE_DAMAGE_CLOCK [{"id":"ataman_flail","server_ticks":200,"attack_interval_ticks":29,"hp_damage":88.20001,"dps_10_seconds":8.820002},{"id":"nightingale_dagger","server_ticks":200,"attack_interval_ticks":10,"hp_damage":200.0,"dps_10_seconds":20.0},{"id":"likho_staff","server_ticks":200,"attack_interval_ticks":17,"hp_damage":120.0,"dps_10_seconds":12.0},{"id":"tugarin_sword","server_ticks":200,"attack_interval_ticks":12,"hp_damage":238.0,"dps_10_seconds":23.8},{"id":"victor_spear","server_ticks":200,"attack_interval_ticks":17,"hp_damage":144.0,"dps_10_seconds":14.4},{"id":"morozko_staff","server_ticks":200,"attack_interval_ticks":16,"hp_damage":91.0,"dps_10_seconds":9.1},{"id":"karachun_scythe","server_ticks":200,"attack_interval_ticks":20,"hp_damage":120.0,"dps_10_seconds":12.0},{"id":"trophy_kalin_sabre","server_ticks":200,"attack_interval_ticks":16,"hp_damage":117.0,"dps_10_seconds":11.7},{"id":"poloz_whip","server_ticks":200,"attack_interval_ticks":20,"hp_damage":130.0,"dps_10_seconds":13.0}]
+[09:07:04] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++]
+[09:07:04] [Server thread/INFO] [minecraft/GameTestServer]: ========= 18 GAME TESTS COMPLETE IN 3.695 s ======================
+[09:07:04] [Server thread/INFO] [minecraft/GameTestServer]: All 18 required tests passed :)
+[09:07:04] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[09:07:04] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[09:07:04] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[09:07:04] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[09:07:04] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[09:07:05] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[09:07:05] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[09:07:05] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:07:05] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:07:05] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:07:05] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09:07:05] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+BUILD SUCCESSFUL in 46s
+9 actionable tasks: 3 executed, 6 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

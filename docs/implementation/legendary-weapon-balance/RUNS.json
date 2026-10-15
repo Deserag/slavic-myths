@@ -1,0 +1,23 @@
+{
+  "game_test_servers": 16,
+  "client_starts": 0,
+  "integrated_client_starts": 0,
+  "polymc_starts": 0,
+  "logs": {
+    "ACCEPTANCE_RUNTIME.log": 1,
+    "AFTER_RETRY.log": 1,
+    "AFTER_RUNTIME.log": 1,
+    "BASELINE.log": 1,
+    "BASELINE_EXTENDED.log": 1,
+    "BASELINE_EXTENDED_RETRY.log": 1,
+    "BASELINE_RETRY.log": 1,
+    "CLEAN_RUNTIME_ATTEMPT.log": 1,
+    "DIAGNOSTIC_RETRY.log": 1,
+    "DIAGNOSTIC_RUNTIME.log": 1,
+    "EXTENDED_RETRY.log": 1,
+    "EXTENDED_RUNTIME.log": 1,
+    "FINAL_RUNTIME_RETRY.log": 1,
+    "PHYSICS_FINAL.log": 1,
+    "REGRESSIONS.log": 2
+  }
+}
