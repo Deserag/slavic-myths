@@ -1082,3 +1082,7 @@ Completed current request: correct Russian entity name and owned strings, faster
 Текущий утверждённый пакет реализован и установлен для ручной приёмки: автономный постоянный Баюн, честная личная прогрессия книги, все current registry entries/recipes, server advancement graph; прежние Яга/Кузя сохранены. Следующие milestones (богатыри, совместные quests/rewards и новые измерения) не реализовывались. Clean build/native/resource/audio/dedicated15tests + actual disk restart PASS.
 
 Оставшаяся приёмка по TEST_MATRIX: реальные русский GUI1366×768 scale2/3/4, анимации/прослушивание/контроллер, ordinary-world natural seed, relog/death/chest/keepInventory, два клиента, существующее поручение Яги и измеренный MSPT/FPS. Эти пункты НЕ приняты по static audit. Пользователь отказался от автоматического клиента; 19 servers/0clients. [Границы проверки](verification/bayun-book-final/TEST_RESULTS.md).
+
+## Advancements 2.0 — review gate, 2026-10-15
+
+Этап A issue #30: аудит129, проект55 отображаемых узлов/6 ветвей и data-only совместимость подготовлены отдельно от runtime. [NEW_TREE](implementation/advancements-redesign/NEW_TREE.md) и [полные решения](implementation/advancements-redesign/AUDIT.md) ожидают рассмотрения владельцем. После принятия — отдельный implementation PR с сохранением контрактов #25, точными server victory adapters, native migration/co-op/restart тестами и настоящим UI QA. Не считать эти запланированные проверки выполненными; не менять соседние AI/оружейные/performance задачи. Этап A: clean build/static resource-JAR PASS,0 игровых запусков.
