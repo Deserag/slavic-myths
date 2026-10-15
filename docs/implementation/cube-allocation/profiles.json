@@ -1,0 +1,38 @@
+[
+  {
+    "path": "after/micro.jfr",
+    "bytes": 3033339,
+    "sha256": "5cb437a5796f3b9d5009b66052da870cf62644bd9e75a335d2c3c8fd14c0e411",
+    "publication": "LOCAL_ONLY system/process metadata"
+  },
+  {
+    "path": "after/profile.jfr",
+    "bytes": 14365069,
+    "sha256": "eecfa7be5855663202985467e5ce2ab17ce9818d45a1af07f2f2a47ff72eddbe",
+    "publication": "LOCAL_ONLY system/process metadata"
+  },
+  {
+    "path": "before/micro.jfr",
+    "bytes": 3327367,
+    "sha256": "3510171c1d266a90ab2a17169523cd5cfd2a1521f4c5eedbcf47da5bd9024576",
+    "publication": "LOCAL_ONLY system/process metadata"
+  },
+  {
+    "path": "before/profile.jfr",
+    "bytes": 12567424,
+    "sha256": "2a17f0a6e091f941cad5c3591dc287a9e73fbd86d0e994fbcaf23f3ff03a7e4f",
+    "publication": "LOCAL_ONLY system/process metadata"
+  },
+  {
+    "path": "crossover/micro.jfr",
+    "bytes": 3010611,
+    "sha256": "aba9b533f287ce32ba81bfe11903fb903368b18616c395109a0af880b8ad2123",
+    "publication": "LOCAL_ONLY system/process metadata"
+  },
+  {
+    "path": "crossover/profile.jfr",
+    "bytes": 36427361,
+    "sha256": "a951781ffdf3484c94016bf21c441fbd5dec8cae9a3d94057591b4b8bd779e95",
+    "publication": "LOCAL_ONLY system/process metadata"
+  }
+]

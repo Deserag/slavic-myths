@@ -1,0 +1,13 @@
+{
+  "before": {
+    "anewarray": 8,
+    "newarray": 30,
+    "multianewarray": 0
+  },
+  "final": {
+    "anewarray": 0,
+    "newarray": 0,
+    "multianewarray": 0
+  },
+  "status": "PASS"
+}

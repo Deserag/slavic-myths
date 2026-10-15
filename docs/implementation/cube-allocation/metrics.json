@@ -1,0 +1,218 @@
+{
+  "before": {
+    "server_tick": {
+      "n": 1500,
+      "mean": 1.3390020693333333,
+      "p95": 1.8774,
+      "p99": 2.4423,
+      "max": 8.5422
+    },
+    "frame": {
+      "n": 149464,
+      "mean": 0.5017755794037361,
+      "p95": 0.8796,
+      "p99": 2.0922,
+      "max": 13.306
+    },
+    "fps": 1992.9228145943412,
+    "tps": 20,
+    "over50_percent": 0.0,
+    "heap_min": 475156816,
+    "heap_max": 1757460848,
+    "micro": [
+      {
+        "round": 0,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 249431300,
+        "allocated_bytes": 452000160
+      },
+      {
+        "round": 0,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 242856200,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 1,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 254519700,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 1,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 256994600,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 2,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 258303500,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 2,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 220516200,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 3,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 180677700,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 3,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 203772700,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 4,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 215030400,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 4,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 192105500,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 5,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 199862600,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 5,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 223101300,
+        "allocated_bytes": 452000000
+      }
+    ],
+    "parity": true
+  },
+  "after": {
+    "server_tick": {
+      "n": 1500,
+      "mean": 1.3168346666666666,
+      "p95": 1.8464,
+      "p99": 2.3122,
+      "max": 3.151
+    },
+    "frame": {
+      "n": 72428,
+      "mean": 1.0355002954658419,
+      "p95": 1.7841,
+      "p99": 2.4161,
+      "max": 6.5548
+    },
+    "fps": 965.7167693516965,
+    "tps": 20,
+    "over50_percent": 0.0,
+    "heap_min": 477693984,
+    "heap_max": 1759055904,
+    "micro": [
+      {
+        "round": 0,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 168850700,
+        "allocated_bytes": 452000160
+      },
+      {
+        "round": 0,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 119845900,
+        "allocated_bytes": 144000000
+      },
+      {
+        "round": 1,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 172719200,
+        "allocated_bytes": 144000000
+      },
+      {
+        "round": 1,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 159520100,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 2,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 162075400,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 2,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 127861400,
+        "allocated_bytes": 144000000
+      },
+      {
+        "round": 3,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 128813000,
+        "allocated_bytes": 144000000
+      },
+      {
+        "round": 3,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 162055900,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 4,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 163400200,
+        "allocated_bytes": 452000000
+      },
+      {
+        "round": 4,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 132217300,
+        "allocated_bytes": 144000000
+      },
+      {
+        "round": 5,
+        "kind": "production",
+        "calls": 250000,
+        "ns": 130891700,
+        "allocated_bytes": 144000000
+      },
+      {
+        "round": 5,
+        "kind": "reference",
+        "calls": 250000,
+        "ns": 168070300,
+        "allocated_bytes": 452000000
+      }
+    ],
+    "parity": true
+  }
+}

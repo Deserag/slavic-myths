@@ -1,0 +1,20 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { cubeAudit { java.srcDir 'tools/cube-audit/java';if(p.hasProperty('cubeCrossover')){java.srcDir 'tools/cube-audit/crossover';java.exclude 'CubeProbe.java'} } }
+ p.sourceSets.cubeAudit.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.cubeAudit.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileCubeAuditJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.cubeAudit)
+ if(p.hasProperty('cubeCrossover')){
+  p.sourceSets { cubeMixins { java.srcDir 'tools/cube-audit/mixins';resources.srcDir 'tools/cube-audit/cross-resources' } }
+  p.sourceSets.cubeMixins.compileClasspath += p.sourceSets.cubeAudit.output+p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+  p.sourceSets.cubeMixins.runtimeClasspath += p.sourceSets.cubeAudit.runtimeClasspath
+  p.tasks.named('compileCubeMixinsJava') {dependsOn p.tasks.named('cubeAuditClasses')}
+  p.neoForge.mods.maybeCreate('cubecross').sourceSet(p.sourceSets.cubeMixins)
+ }
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject
+ p.neoForge.runs.client.gameDirectory=p.file('work/cube-audit-client')
+ p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720')
+ p.neoForge.runs.client.systemProperty('cube.output',p.file(p.findProperty('cubeOutput') ?: 'docs/implementation/cube-allocation/before').absolutePath)
+ p.neoForge.runs.client.jvmArguments.addAll('-Xms2G','-Xmx4G')
+}

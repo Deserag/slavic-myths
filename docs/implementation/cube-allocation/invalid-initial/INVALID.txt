@@ -1,0 +1,1 @@
+INVALID: no world or measurement scene entered; initial-screen gate did not reach TitleScreen. Own process stopped. Not a gameplay performance result.

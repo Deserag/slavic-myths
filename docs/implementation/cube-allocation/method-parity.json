@@ -1,0 +1,5 @@
+{
+  "helper_methods_identical_to_crossover_fixture": true,
+  "sha256": "22055dcc27f3f3c4b24345a3cdd1aa7ec9c62bf2426ba86bbe82611f6a67718d",
+  "note": "Production source helpers exactly match the frozen helper executed in crossover block4; final JAR differs from first after in line numbers only or source formatting, not helper algorithm."
+}

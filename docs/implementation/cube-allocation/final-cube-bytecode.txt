@@ -1,0 +1,647 @@
+Compiled from "GuardianClient.java"
+public final class org.slavicmyths.client.GuardianClient {
+  private static final net.minecraft.resources.ResourceLocation WATER;
+
+  public static void cube(com.mojang.blaze3d.vertex.PoseStack, com.mojang.blaze3d.vertex.VertexConsumer, double, double, double, double, double, double, int);
+    Code:
+       0: aload_0
+       1: invokevirtual #1                  // Method com/mojang/blaze3d/vertex/PoseStack.last:()Lcom/mojang/blaze3d/vertex/PoseStack$Pose;
+       4: astore        15
+       6: dload_2
+       7: d2f
+       8: fstore        16
+      10: dload         4
+      12: d2f
+      13: fstore        17
+      15: dload         6
+      17: d2f
+      18: fstore        18
+      20: dload_2
+      21: dload         8
+      23: dadd
+      24: d2f
+      25: fstore        19
+      27: dload         4
+      29: dload         10
+      31: dadd
+      32: d2f
+      33: fstore        20
+      35: dload         6
+      37: dload         12
+      39: dadd
+      40: d2f
+      41: fstore        21
+      43: aload         15
+      45: aload_1
+      46: iload         14
+      48: fconst_0
+      49: fconst_0
+      50: ldc           #7                  // float -1.0f
+      52: fload         16
+      54: fload         17
+      56: fload         18
+      58: fload         16
+      60: fload         20
+      62: fload         18
+      64: fload         19
+      66: fload         20
+      68: fload         18
+      70: fload         19
+      72: fload         17
+      74: fload         18
+      76: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+      79: aload         15
+      81: aload_1
+      82: iload         14
+      84: fconst_0
+      85: fconst_0
+      86: fconst_1
+      87: fload         19
+      89: fload         17
+      91: fload         21
+      93: fload         19
+      95: fload         20
+      97: fload         21
+      99: fload         16
+     101: fload         20
+     103: fload         21
+     105: fload         16
+     107: fload         17
+     109: fload         21
+     111: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+     114: aload         15
+     116: aload_1
+     117: iload         14
+     119: ldc           #7                  // float -1.0f
+     121: fconst_0
+     122: fconst_0
+     123: fload         16
+     125: fload         17
+     127: fload         21
+     129: fload         16
+     131: fload         20
+     133: fload         21
+     135: fload         16
+     137: fload         20
+     139: fload         18
+     141: fload         16
+     143: fload         17
+     145: fload         18
+     147: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+     150: aload         15
+     152: aload_1
+     153: iload         14
+     155: fconst_1
+     156: fconst_0
+     157: fconst_0
+     158: fload         19
+     160: fload         17
+     162: fload         18
+     164: fload         19
+     166: fload         20
+     168: fload         18
+     170: fload         19
+     172: fload         20
+     174: fload         21
+     176: fload         19
+     178: fload         17
+     180: fload         21
+     182: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+     185: aload         15
+     187: aload_1
+     188: iload         14
+     190: fconst_0
+     191: fconst_1
+     192: fconst_0
+     193: fload         16
+     195: fload         20
+     197: fload         18
+     199: fload         16
+     201: fload         20
+     203: fload         21
+     205: fload         19
+     207: fload         20
+     209: fload         21
+     211: fload         19
+     213: fload         20
+     215: fload         18
+     217: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+     220: aload         15
+     222: aload_1
+     223: iload         14
+     225: fconst_0
+     226: ldc           #7                  // float -1.0f
+     228: fconst_0
+     229: fload         16
+     231: fload         17
+     233: fload         21
+     235: fload         16
+     237: fload         17
+     239: fload         18
+     241: fload         19
+     243: fload         17
+     245: fload         18
+     247: fload         19
+     249: fload         17
+     251: fload         21
+     253: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+     256: return
+
+  private static void face(com.mojang.blaze3d.vertex.PoseStack$Pose, com.mojang.blaze3d.vertex.VertexConsumer, int, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: fload         6
+       5: fload         7
+       7: fload         8
+       9: fconst_0
+      10: fconst_1
+      11: fload_3
+      12: fload         4
+      14: fload         5
+      16: invokestatic  #14                 // Method vertex:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFF)V
+      19: aload_0
+      20: aload_1
+      21: iload_2
+      22: fload         9
+      24: fload         10
+      26: fload         11
+      28: fconst_0
+      29: fconst_0
+      30: fload_3
+      31: fload         4
+      33: fload         5
+      35: invokestatic  #14                 // Method vertex:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFF)V
+      38: aload_0
+      39: aload_1
+      40: iload_2
+      41: fload         12
+      43: fload         13
+      45: fload         14
+      47: fconst_1
+      48: fconst_0
+      49: fload_3
+      50: fload         4
+      52: fload         5
+      54: invokestatic  #14                 // Method vertex:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFF)V
+      57: aload_0
+      58: aload_1
+      59: iload_2
+      60: fload         15
+      62: fload         16
+      64: fload         17
+      66: fconst_1
+      67: fconst_1
+      68: fload_3
+      69: fload         4
+      71: fload         5
+      73: invokestatic  #14                 // Method vertex:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFF)V
+      76: return
+
+  private static void vertex(com.mojang.blaze3d.vertex.PoseStack$Pose, com.mojang.blaze3d.vertex.VertexConsumer, int, float, float, float, float, float, float, float, float);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: fload_3
+       3: fload         4
+       5: fload         5
+       7: invokeinterface #18,  5           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.addVertex:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      12: iload_2
+      13: invokeinterface #24,  2           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setColor:(I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      18: fload         6
+      20: fload         7
+      22: invokeinterface #28,  3           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setUv:(FF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      27: getstatic     #32                 // Field net/minecraft/client/renderer/texture/OverlayTexture.NO_OVERLAY:I
+      30: invokeinterface #38,  2           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setOverlay:(I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      35: ldc           #41                 // int 15728880
+      37: invokeinterface #42,  2           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setLight:(I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      42: aload_0
+      43: fload         8
+      45: fload         9
+      47: fload         10
+      49: invokeinterface #45,  5           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setNormal:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      54: pop
+      55: return
+
+  public static void scene(net.neoforged.neoforge.client.event.RenderLevelStageEvent);
+    Code:
+       0: aload_0
+       1: invokevirtual #48                 // Method net/neoforged/neoforge/client/event/RenderLevelStageEvent.getStage:()Lnet/neoforged/neoforge/client/event/RenderLevelStageEvent$Stage;
+       4: getstatic     #54                 // Field net/neoforged/neoforge/client/event/RenderLevelStageEvent$Stage.AFTER_ENTITIES:Lnet/neoforged/neoforge/client/event/RenderLevelStageEvent$Stage;
+       7: if_acmpeq     11
+      10: return
+      11: invokestatic  #60                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+      14: astore_1
+      15: aload_1
+      16: getfield      #66                 // Field net/minecraft/client/Minecraft.level:Lnet/minecraft/client/multiplayer/ClientLevel;
+      19: ifnonnull     23
+      22: return
+      23: aload_0
+      24: invokevirtual #70                 // Method net/neoforged/neoforge/client/event/RenderLevelStageEvent.getCamera:()Lnet/minecraft/client/Camera;
+      27: invokevirtual #74                 // Method net/minecraft/client/Camera.getPosition:()Lnet/minecraft/world/phys/Vec3;
+      30: astore_2
+      31: aload_0
+      32: invokevirtual #80                 // Method net/neoforged/neoforge/client/event/RenderLevelStageEvent.getPoseStack:()Lcom/mojang/blaze3d/vertex/PoseStack;
+      35: astore_3
+      36: aload_1
+      37: invokevirtual #84                 // Method net/minecraft/client/Minecraft.renderBuffers:()Lnet/minecraft/client/renderer/RenderBuffers;
+      40: invokevirtual #88                 // Method net/minecraft/client/renderer/RenderBuffers.bufferSource:()Lnet/minecraft/client/renderer/MultiBufferSource$BufferSource;
+      43: astore        4
+      45: aload_1
+      46: getfield      #66                 // Field net/minecraft/client/Minecraft.level:Lnet/minecraft/client/multiplayer/ClientLevel;
+      49: invokevirtual #94                 // Method net/minecraft/client/multiplayer/ClientLevel.entitiesForRendering:()Ljava/lang/Iterable;
+      52: invokeinterface #100,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+      57: astore        5
+      59: aload         5
+      61: invokeinterface #106,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      66: ifeq          891
+      69: aload         5
+      71: invokeinterface #112,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      76: checkcast     #116                // class net/minecraft/world/entity/Entity
+      79: astore        6
+      81: aload         6
+      83: instanceof    #118                // class org/slavicmyths/guardians/GuardianEntity
+      86: ifeq          888
+      89: aload         6
+      91: checkcast     #118                // class org/slavicmyths/guardians/GuardianEntity
+      94: astore        7
+      96: aload         7
+      98: aload_2
+      99: invokevirtual #120                // Method org/slavicmyths/guardians/GuardianEntity.distanceToSqr:(Lnet/minecraft/world/phys/Vec3;)D
+     102: ldc2_w        #124                // double 6400.0d
+     105: dcmpg
+     106: ifge          888
+     109: aload         7
+     111: instanceof    #126                // class org/slavicmyths/guardians/FireGuardian
+     114: ifeq          440
+     117: aload         7
+     119: checkcast     #126                // class org/slavicmyths/guardians/FireGuardian
+     122: astore        8
+     124: aload         7
+     126: invokevirtual #128                // Method org/slavicmyths/guardians/GuardianEntity.state:()I
+     129: iconst_5
+     130: if_icmpne     440
+     133: aload_3
+     134: invokevirtual #134                // Method com/mojang/blaze3d/vertex/PoseStack.pushPose:()V
+     137: aload_3
+     138: aload_2
+     139: getfield      #138                // Field net/minecraft/world/phys/Vec3.x:D
+     142: dneg
+     143: aload_2
+     144: getfield      #144                // Field net/minecraft/world/phys/Vec3.y:D
+     147: dneg
+     148: aload_2
+     149: getfield      #147                // Field net/minecraft/world/phys/Vec3.z:D
+     152: dneg
+     153: invokevirtual #150                // Method com/mojang/blaze3d/vertex/PoseStack.translate:(DDD)V
+     156: aload         4
+     158: getstatic     #154                // Field WATER:Lnet/minecraft/resources/ResourceLocation;
+     161: invokestatic  #158                // Method net/minecraft/client/renderer/RenderType.entityTranslucent:(Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
+     164: invokevirtual #164                // Method net/minecraft/client/renderer/MultiBufferSource$BufferSource.getBuffer:(Lnet/minecraft/client/renderer/RenderType;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     167: astore        9
+     169: aload         8
+     171: invokevirtual #170                // Method org/slavicmyths/guardians/FireGuardian.lastEmbers:()Z
+     174: invokestatic  #173                // Method org/slavicmyths/guardians/GuardianRules.lockWarning:(Z)I
+     177: istore        10
+     179: iload         10
+     181: bipush        40
+     183: iadd
+     184: istore        11
+     186: iconst_2
+     187: iconst_0
+     188: aload         7
+     190: invokevirtual #177                // Method org/slavicmyths/guardians/GuardianEntity.age:()I
+     193: iconst_1
+     194: isub
+     195: invokestatic  #180                // Method java/lang/Math.max:(II)I
+     198: iload         11
+     200: idiv
+     201: invokestatic  #186                // Method java/lang/Math.min:(II)I
+     204: istore        12
+     206: iconst_0
+     207: aload         7
+     209: invokevirtual #177                // Method org/slavicmyths/guardians/GuardianEntity.age:()I
+     212: iconst_1
+     213: isub
+     214: invokestatic  #180                // Method java/lang/Math.max:(II)I
+     217: iload         11
+     219: irem
+     220: istore        13
+     222: aload         7
+     224: invokevirtual #189                // Method org/slavicmyths/guardians/GuardianEntity.arena:()Lnet/minecraft/world/phys/AABB;
+     227: astore        14
+     229: iconst_0
+     230: istore        15
+     232: iload         15
+     234: iconst_3
+     235: if_icmpge     342
+     238: aload         14
+     240: getfield      #193                // Field net/minecraft/world/phys/AABB.minX:D
+     243: iload         15
+     245: i2d
+     246: aload         14
+     248: invokevirtual #198                // Method net/minecraft/world/phys/AABB.getXsize:()D
+     251: dmul
+     252: ldc2_w        #202                // double 3.0d
+     255: ddiv
+     256: dadd
+     257: dstore        16
+     259: iload         15
+     261: aload         7
+     263: invokevirtual #204                // Method org/slavicmyths/guardians/GuardianEntity.pattern:()I
+     266: iload         12
+     268: invokestatic  #207                // Method org/slavicmyths/guardians/GuardianRules.safeStrip:(II)I
+     271: if_icmpne     279
+     274: ldc           #210                // int 1144895873
+     276: goto          293
+     279: iload         13
+     281: iload         10
+     283: if_icmpge     291
+     286: ldc           #211                // int 1717968425
+     288: goto          293
+     291: ldc           #212                // int -2002963166
+     293: istore        18
+     295: aload_3
+     296: aload         9
+     298: dload         16
+     300: aload         14
+     302: getfield      #213                // Field net/minecraft/world/phys/AABB.minY:D
+     305: ldc2_w        #216                // double 0.025d
+     308: dadd
+     309: aload         14
+     311: getfield      #218                // Field net/minecraft/world/phys/AABB.minZ:D
+     314: aload         14
+     316: invokevirtual #198                // Method net/minecraft/world/phys/AABB.getXsize:()D
+     319: ldc2_w        #202                // double 3.0d
+     322: ddiv
+     323: ldc2_w        #221                // double 0.03d
+     326: aload         14
+     328: invokevirtual #223                // Method net/minecraft/world/phys/AABB.getZsize:()D
+     331: iload         18
+     333: invokestatic  #226                // Method cube:(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;DDDDDDI)V
+     336: iinc          15, 1
+     339: goto          232
+     342: iconst_0
+     343: istore        15
+     345: iload         15
+     347: bipush        12
+     349: if_icmpge     436
+     352: iload         15
+     354: i2d
+     355: ldc2_w        #230                // double 3.141592653589793d
+     358: dmul
+     359: ldc2_w        #232                // double 6.0d
+     362: ddiv
+     363: dstore        16
+     365: aload_3
+     366: aload         9
+     368: aload         7
+     370: invokevirtual #234                // Method org/slavicmyths/guardians/GuardianEntity.getX:()D
+     373: dload         16
+     375: invokestatic  #237                // Method java/lang/Math.cos:(D)D
+     378: ldc2_w        #241                // double 1.5d
+     381: dmul
+     382: dadd
+     383: ldc2_w        #243                // double 0.1d
+     386: dsub
+     387: aload         7
+     389: invokevirtual #245                // Method org/slavicmyths/guardians/GuardianEntity.getY:()D
+     392: ldc2_w        #248                // double 0.3d
+     395: dadd
+     396: aload         7
+     398: invokevirtual #250                // Method org/slavicmyths/guardians/GuardianEntity.getZ:()D
+     401: dload         16
+     403: invokestatic  #253                // Method java/lang/Math.sin:(D)D
+     406: ldc2_w        #241                // double 1.5d
+     409: dmul
+     410: dadd
+     411: ldc2_w        #243                // double 0.1d
+     414: dsub
+     415: ldc2_w        #256                // double 0.2d
+     418: ldc2_w        #241                // double 1.5d
+     421: ldc2_w        #256                // double 0.2d
+     424: ldc_w         #258                // int -1426430158
+     427: invokestatic  #226                // Method cube:(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;DDDDDDI)V
+     430: iinc          15, 1
+     433: goto          345
+     436: aload_3
+     437: invokevirtual #259                // Method com/mojang/blaze3d/vertex/PoseStack.popPose:()V
+     440: aload         7
+     442: instanceof    #262                // class org/slavicmyths/guardians/SpringKeeper
+     445: ifeq          656
+     448: aload         7
+     450: checkcast     #262                // class org/slavicmyths/guardians/SpringKeeper
+     453: astore        8
+     455: aload         7
+     457: invokevirtual #128                // Method org/slavicmyths/guardians/GuardianEntity.state:()I
+     460: bipush        11
+     462: if_icmpne     656
+     465: aload_3
+     466: invokevirtual #134                // Method com/mojang/blaze3d/vertex/PoseStack.pushPose:()V
+     469: aload_3
+     470: aload_2
+     471: getfield      #138                // Field net/minecraft/world/phys/Vec3.x:D
+     474: dneg
+     475: aload_2
+     476: getfield      #144                // Field net/minecraft/world/phys/Vec3.y:D
+     479: dneg
+     480: aload_2
+     481: getfield      #147                // Field net/minecraft/world/phys/Vec3.z:D
+     484: dneg
+     485: invokevirtual #150                // Method com/mojang/blaze3d/vertex/PoseStack.translate:(DDD)V
+     488: aload         4
+     490: getstatic     #154                // Field WATER:Lnet/minecraft/resources/ResourceLocation;
+     493: invokestatic  #158                // Method net/minecraft/client/renderer/RenderType.entityTranslucent:(Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
+     496: invokevirtual #164                // Method net/minecraft/client/renderer/MultiBufferSource$BufferSource.getBuffer:(Lnet/minecraft/client/renderer/RenderType;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     499: astore        9
+     501: aload         8
+     503: invokevirtual #264                // Method org/slavicmyths/guardians/SpringKeeper.floodRegions:()[Lnet/minecraft/world/phys/AABB;
+     506: astore        10
+     508: iconst_0
+     509: istore        11
+     511: iload         11
+     513: aload         10
+     515: arraylength
+     516: if_icmpge     652
+     519: aload         10
+     521: iload         11
+     523: aaload
+     524: astore        12
+     526: aload         7
+     528: invokevirtual #177                // Method org/slavicmyths/guardians/GuardianEntity.age:()I
+     531: iload         11
+     533: invokestatic  #268                // Method org/slavicmyths/guardians/GuardianRules.floodDelay:(I)I
+     536: isub
+     537: istore        13
+     539: iload         13
+     541: bipush        24
+     543: if_icmpge     552
+     546: ldc2_w        #272                // double 0.04d
+     549: goto          568
+     552: ldc2_w        #274                // double 0.8d
+     555: iload         13
+     557: bipush        24
+     559: isub
+     560: i2d
+     561: ldc2_w        #276                // double 25.0d
+     564: ddiv
+     565: invokestatic  #278                // Method java/lang/Math.min:(DD)D
+     568: dstore        14
+     570: dload         14
+     572: ldc2_w        #272                // double 0.04d
+     575: sipush        164
+     578: aload         7
+     580: invokevirtual #177                // Method org/slavicmyths/guardians/GuardianEntity.age:()I
+     583: isub
+     584: i2d
+     585: ldc2_w        #281                // double 30.0d
+     588: ddiv
+     589: invokestatic  #283                // Method java/lang/Math.max:(DD)D
+     592: invokestatic  #278                // Method java/lang/Math.min:(DD)D
+     595: dstore        14
+     597: aload_3
+     598: aload         9
+     600: aload         12
+     602: getfield      #193                // Field net/minecraft/world/phys/AABB.minX:D
+     605: aload         12
+     607: getfield      #213                // Field net/minecraft/world/phys/AABB.minY:D
+     610: aload         12
+     612: getfield      #218                // Field net/minecraft/world/phys/AABB.minZ:D
+     615: aload         12
+     617: invokevirtual #198                // Method net/minecraft/world/phys/AABB.getXsize:()D
+     620: dload         14
+     622: aload         12
+     624: invokevirtual #223                // Method net/minecraft/world/phys/AABB.getZsize:()D
+     627: iload         13
+     629: bipush        24
+     631: if_icmpge     640
+     634: ldc_w         #285                // int 1144633052
+     637: goto          643
+     640: ldc_w         #286                // int 2000271068
+     643: invokestatic  #226                // Method cube:(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;DDDDDDI)V
+     646: iinc          11, 1
+     649: goto          511
+     652: aload_3
+     653: invokevirtual #259                // Method com/mojang/blaze3d/vertex/PoseStack.popPose:()V
+     656: aload         7
+     658: instanceof    #262                // class org/slavicmyths/guardians/SpringKeeper
+     661: ifeq          888
+     664: aload         7
+     666: checkcast     #262                // class org/slavicmyths/guardians/SpringKeeper
+     669: astore        8
+     671: aload         7
+     673: invokevirtual #128                // Method org/slavicmyths/guardians/GuardianEntity.state:()I
+     676: bipush        9
+     678: if_icmpne     888
+     681: aload_3
+     682: invokevirtual #134                // Method com/mojang/blaze3d/vertex/PoseStack.pushPose:()V
+     685: aload_3
+     686: aload_2
+     687: getfield      #138                // Field net/minecraft/world/phys/Vec3.x:D
+     690: dneg
+     691: aload_2
+     692: getfield      #144                // Field net/minecraft/world/phys/Vec3.y:D
+     695: dneg
+     696: aload_2
+     697: getfield      #147                // Field net/minecraft/world/phys/Vec3.z:D
+     700: dneg
+     701: invokevirtual #150                // Method com/mojang/blaze3d/vertex/PoseStack.translate:(DDD)V
+     704: aload         4
+     706: getstatic     #154                // Field WATER:Lnet/minecraft/resources/ResourceLocation;
+     709: invokestatic  #158                // Method net/minecraft/client/renderer/RenderType.entityTranslucent:(Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
+     712: invokevirtual #164                // Method net/minecraft/client/renderer/MultiBufferSource$BufferSource.getBuffer:(Lnet/minecraft/client/renderer/RenderType;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     715: astore        9
+     717: aload         8
+     719: invokevirtual #287                // Method org/slavicmyths/guardians/SpringKeeper.whirlCenter:()Lnet/minecraft/world/phys/Vec3;
+     722: astore        10
+     724: iconst_0
+     725: istore        11
+     727: iload         11
+     729: bipush        20
+     731: if_icmpge     884
+     734: iload         11
+     736: i2d
+     737: ldc2_w        #230                // double 3.141592653589793d
+     740: dmul
+     741: ldc2_w        #290                // double 10.0d
+     744: ddiv
+     745: aload         7
+     747: invokevirtual #177                // Method org/slavicmyths/guardians/GuardianEntity.age:()I
+     750: i2d
+     751: ldc2_w        #292                // double 0.06d
+     754: dmul
+     755: dadd
+     756: dstore        12
+     758: aload         10
+     760: getfield      #138                // Field net/minecraft/world/phys/Vec3.x:D
+     763: dload         12
+     765: invokestatic  #237                // Method java/lang/Math.cos:(D)D
+     768: ldc2_w        #294                // double 2.5d
+     771: dmul
+     772: dadd
+     773: dstore        14
+     775: aload         10
+     777: getfield      #147                // Field net/minecraft/world/phys/Vec3.z:D
+     780: dload         12
+     782: invokestatic  #253                // Method java/lang/Math.sin:(D)D
+     785: ldc2_w        #294                // double 2.5d
+     788: dmul
+     789: dadd
+     790: dstore        16
+     792: aload         7
+     794: invokevirtual #189                // Method org/slavicmyths/guardians/GuardianEntity.arena:()Lnet/minecraft/world/phys/AABB;
+     797: new           #139                // class net/minecraft/world/phys/Vec3
+     800: dup
+     801: dload         14
+     803: aload         10
+     805: getfield      #144                // Field net/minecraft/world/phys/Vec3.y:D
+     808: ldc2_w        #243                // double 0.1d
+     811: dadd
+     812: dload         16
+     814: invokespecial #296                // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+     817: invokevirtual #299                // Method net/minecraft/world/phys/AABB.contains:(Lnet/minecraft/world/phys/Vec3;)Z
+     820: ifeq          878
+     823: aload_3
+     824: aload         9
+     826: dload         14
+     828: ldc2_w        #243                // double 0.1d
+     831: dsub
+     832: aload         10
+     834: getfield      #144                // Field net/minecraft/world/phys/Vec3.y:D
+     837: ldc2_w        #221                // double 0.03d
+     840: dadd
+     841: dload         16
+     843: ldc2_w        #243                // double 0.1d
+     846: dsub
+     847: ldc2_w        #256                // double 0.2d
+     850: aload         7
+     852: invokevirtual #177                // Method org/slavicmyths/guardians/GuardianEntity.age:()I
+     855: bipush        24
+     857: if_icmpge     866
+     860: ldc2_w        #303                // double 0.08d
+     863: goto          869
+     866: ldc2_w        #248                // double 0.3d
+     869: ldc2_w        #256                // double 0.2d
+     872: ldc_w         #305                // int -2009483556
+     875: invokestatic  #226                // Method cube:(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;DDDDDDI)V
+     878: iinc          11, 1
+     881: goto          727
+     884: aload_3
+     885: invokevirtual #259                // Method com/mojang/blaze3d/vertex/PoseStack.popPose:()V
+     888: goto          59
+     891: return
+
+  private org.slavicmyths.client.GuardianClient();
+    Code:
+       0: aload_0
+       1: invokespecial #306                // Method java/lang/Object."<init>":()V
+       4: return
+
+  static {};
+    Code:
+       0: ldc_w         #310                // String textures/entity/guardian_water_surface.png
+       3: invokestatic  #312                // Method org/slavicmyths/guardians/GuardianContent.id:(Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       6: putstatic     #154                // Field WATER:Lnet/minecraft/resources/ResourceLocation;
+       9: return
+}

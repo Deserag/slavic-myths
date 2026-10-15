@@ -1,0 +1,12 @@
+{
+  "reason": "Integrated server paused at 14:33:40 MSK; window observed minimized; capture recovery failed FrameArrived timed out. Human asked to resume.",
+  "last_observed_frame_age": 7200,
+  "invalid_block": 1,
+  "physical_visibility_not_recorded": true,
+  "likely_paused_age": [
+    2852,
+    262159
+  ],
+  "completed": true,
+  "note": "Client later resumed and completed; exclude whole block1, no input was sent through failed capture."
+}

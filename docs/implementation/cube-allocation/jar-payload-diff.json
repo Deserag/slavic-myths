@@ -1,0 +1,14 @@
+{
+  "changed_entries": [
+    "org/slavicmyths/client/GuardianClient$EchoRenderer.class",
+    "org/slavicmyths/client/GuardianClient$PrisonRenderer.class",
+    "org/slavicmyths/client/GuardianClient.class"
+  ],
+  "nested_renderer_disassembly_identical": [
+    "org/slavicmyths/client/GuardianClient$EchoRenderer.class",
+    "org/slavicmyths/client/GuardianClient$PrisonRenderer.class"
+  ],
+  "all_other_payloads_identical": true,
+  "final_array_creation_instructions": 0,
+  "final_sha256": "049c7e2dd9aca1a1ec07ffcc60d997dea80eb0b0098caf9af266c19e9fbe50fc"
+}

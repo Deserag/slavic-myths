@@ -227,6 +227,10 @@ Native mesh: 40 bones, 292 cuboids, 7008 проверенных UV vertices; 9 �
 
 BUILD SUCCESSFUL in 1m 32s. Девять offline наборов — PASS; 17065 production/resource gates — PASS. PolyMC Testing установлен на 1.9.6, SHA256 `e197311398f3634c3e2303dce37535d6dd457f1cf88e52e503452d32125a37aa`; 311 остальных файлов профиля сохранены побайтно. Реальных запусков клиента/сервера/PolyMC/GameTest: **0**. Gameplay/MP/перезаход, seed QA, runtime visuals/audio, MSPT/FPS: **NOT_RUN / NOT_MEASURED**. NBT roundtrip и offline projection не являются игровым тестом. [Отчёт](verification/gorynych-1.9.6/REPORT.md).
 
+## Guardian cube allocations — #33, 2026-10-15
+
+PR DRAFT до независимого frame/CPU контроля. Из main fb2994e9 в отдельной ветке: прежние24 вершины без38 временных массивов, private helpers без кешей. Native vertex parity1024 PASS, ThreadMXBean1808→576B/call (остаток — native normals), scene JFR без прежних float-array sites. Независимые before/after завершены; FPS1993/966 имеет неустранённый window/JIT confounding. Дополнительный crossover: пауза исключена, post-resume helper/reference2288/2215FPS без наблюдаемой крупной регрессии; ускорение/строгая frame приёмка не заявлены. Clean build/resource/JAR gates и ограничения в [отчёте](implementation/cube-allocation/REPORT.md).4 реальных клиента/3 integrated,1 ранний invalid; PolyMC/миры/main не менялись. Полоз отдельно #36. Следующее: visibility-controlled independent repeats, MP/Survival NOT_RUN.
+
 ## Яйца стражей и население святилищ — 1.9.5.1, 2026-10-13
 
 По запросу игрока добавлены яйца Стража угасшего пламени и Хранителя осквернённого родника в существующую вкладку «Мобы». Vanilla-модель яйца с индивидуальными цветами, ru_ru/en_us; генератор guardian_assets включает воспроизводимое создание новых ресурсов. Остальные существующие яйца, рог Полоза и тотемы Морозко/Карачуна сохранены. Горыныч отсутствует в текущем реестре: ТЗ 1.9.5 предусматривает гору и заблокированный путь к будущему логову, полноценного босса откладывает на 1.9.6.
