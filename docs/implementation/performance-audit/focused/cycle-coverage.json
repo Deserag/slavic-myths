@@ -1,0 +1,80 @@
+{
+  "poloz_cycle": {
+    "phases": [
+      1,
+      2,
+      3
+    ],
+    "alive_target_ticks": 699,
+    "alive_action_ticks": 435,
+    "alive_ticks": 1400,
+    "sampled_fighting_ticks": 1200,
+    "fighting_tick_ms": {
+      "mean": 3.8435411316666666,
+      "p95": 5.7975,
+      "p99": 8.449,
+      "max": 40.9843
+    }
+  },
+  "gorynych_cycle": {
+    "phases": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "alive_target_ticks": 1864,
+    "alive_action_ticks": 404,
+    "alive_ticks": 2000,
+    "sampled_fighting_ticks": 1320,
+    "fighting_tick_ms": {
+      "mean": 2.0654729537878787,
+      "p95": 2.8724,
+      "p99": 3.786,
+      "max": 33.641
+    }
+  },
+  "karachun_cycle": {
+    "phases": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "alive_target_ticks": 960,
+    "alive_action_ticks": 555,
+    "alive_ticks": 960,
+    "sampled_fighting_ticks": 680,
+    "fighting_tick_ms": {
+      "mean": 1.7675264705882352,
+      "p95": 2.4625,
+      "p99": 3.2938,
+      "max": 7.0523
+    }
+  },
+  "morozko_cycle": {
+    "phases": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "alive_target_ticks": 801,
+    "alive_action_ticks": 702,
+    "alive_ticks": 937,
+    "sampled_fighting_ticks": 600,
+    "fighting_tick_ms": {
+      "mean": 1.6888498333333333,
+      "p95": 2.547,
+      "p99": 3.3015,
+      "max": 8.7069
+    }
+  }
+}

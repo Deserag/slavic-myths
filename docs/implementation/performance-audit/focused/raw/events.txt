@@ -1,0 +1,891 @@
+ACTIVE_OPTIONS rd=8 sim=5 vsync=false fpsLimit=260 WINDOW=1280x720 GPU=AMD Radeon RX 6600M
+SCENE poloz_cycle repeat=0 time=1792049684405
+BOSS_STATE poloz_cycle age=20 target=true phase=1 action=2 hp=3000.0
+BOSS_STATE poloz_cycle age=40 target=true phase=1 action=2 hp=3000.0
+BOSS_STATE poloz_cycle age=60 target=false phase=1 action=2 hp=3000.0
+BOSS_STATE poloz_cycle age=80 target=false phase=1 action=2 hp=3000.0
+BOSS_STATE poloz_cycle age=100 target=false phase=1 action=2 hp=3000.0
+BOSS_STATE poloz_cycle age=120 target=true phase=1 action=0 hp=3000.0
+BOSS_STATE poloz_cycle age=140 target=true phase=1 action=0 hp=3000.0
+BOSS_STATE poloz_cycle age=160 target=true phase=1 action=0 hp=3000.0
+BOSS_STATE poloz_cycle age=180 target=true phase=1 action=0 hp=3000.0
+BOSS_STATE poloz_cycle age=200 target=true phase=1 action=0 hp=3000.0
+BOSS_STATE poloz_cycle age=220 target=true phase=1 action=3 hp=3000.0
+BOSS_STATE poloz_cycle age=240 target=true phase=1 action=3 hp=3000.0
+HIT poloz_cycle age=240 accepted=true before=3000.0 after=2900.0
+BOSS_STATE poloz_cycle age=260 target=true phase=1 action=3 hp=2900.0
+BOSS_STATE poloz_cycle age=280 target=true phase=1 action=3 hp=2900.0
+HIT poloz_cycle age=280 accepted=true before=2900.0 after=2800.0
+BOSS_STATE poloz_cycle age=300 target=true phase=1 action=3 hp=2800.0
+BOSS_STATE poloz_cycle age=320 target=true phase=1 action=0 hp=2800.0
+HIT poloz_cycle age=320 accepted=true before=2800.0 after=2700.0
+BOSS_STATE poloz_cycle age=340 target=true phase=1 action=0 hp=2700.0
+BOSS_STATE poloz_cycle age=360 target=true phase=1 action=0 hp=2700.0
+HIT poloz_cycle age=360 accepted=true before=2700.0 after=2600.0
+BOSS_STATE poloz_cycle age=380 target=true phase=1 action=0 hp=2600.0
+BOSS_STATE poloz_cycle age=400 target=true phase=1 action=0 hp=2600.0
+HIT poloz_cycle age=400 accepted=true before=2600.0 after=2500.0
+BOSS_STATE poloz_cycle age=420 target=true phase=1 action=4 hp=2500.0
+BOSS_STATE poloz_cycle age=440 target=true phase=1 action=4 hp=2500.0
+HIT poloz_cycle age=440 accepted=true before=2500.0 after=2400.0
+BOSS_STATE poloz_cycle age=460 target=true phase=1 action=0 hp=2400.0
+BOSS_STATE poloz_cycle age=480 target=true phase=1 action=0 hp=2400.0
+HIT poloz_cycle age=480 accepted=true before=2400.0 after=2300.0
+BOSS_STATE poloz_cycle age=500 target=true phase=1 action=0 hp=2300.0
+BOSS_STATE poloz_cycle age=520 target=true phase=1 action=0 hp=2300.0
+HIT poloz_cycle age=520 accepted=true before=2300.0 after=2200.0
+BOSS_STATE poloz_cycle age=540 target=true phase=1 action=0 hp=2200.0
+BOSS_STATE poloz_cycle age=560 target=true phase=1 action=1 hp=2200.0
+HIT poloz_cycle age=560 accepted=true before=2200.0 after=2100.0
+BOSS_STATE poloz_cycle age=580 target=true phase=2 action=1 hp=2100.0
+BOSS_STATE poloz_cycle age=600 target=true phase=2 action=1 hp=2100.0
+HIT poloz_cycle age=600 accepted=true before=2100.0 after=2000.0
+BOSS_STATE poloz_cycle age=620 target=true phase=2 action=1 hp=2000.0
+BOSS_STATE poloz_cycle age=640 target=true phase=2 action=0 hp=2000.0
+HIT poloz_cycle age=640 accepted=true before=2000.0 after=1900.0
+BOSS_STATE poloz_cycle age=660 target=true phase=2 action=0 hp=1900.0
+BOSS_STATE poloz_cycle age=680 target=true phase=2 action=0 hp=1900.0
+HIT poloz_cycle age=680 accepted=true before=1900.0 after=1800.0
+BOSS_STATE poloz_cycle age=700 target=true phase=2 action=0 hp=1800.0
+BOSS_STATE poloz_cycle age=720 target=true phase=2 action=2 hp=1800.0
+HIT poloz_cycle age=720 accepted=true before=1800.0 after=1700.0
+BOSS_STATE poloz_cycle age=740 target=true phase=2 action=2 hp=1700.0
+BOSS_STATE poloz_cycle age=760 target=false phase=2 action=2 hp=1700.0
+HIT poloz_cycle age=760 accepted=true before=1700.0 after=1600.0
+BOSS_STATE poloz_cycle age=780 target=false phase=2 action=2 hp=1600.0
+BOSS_STATE poloz_cycle age=800 target=false phase=2 action=2 hp=1600.0
+HIT poloz_cycle age=800 accepted=true before=1600.0 after=1500.0
+BOSS_STATE poloz_cycle age=820 target=false phase=2 action=0 hp=1500.0
+BOSS_STATE poloz_cycle age=840 target=false phase=2 action=0 hp=1500.0
+HIT poloz_cycle age=840 accepted=true before=1500.0 after=1400.0
+BOSS_STATE poloz_cycle age=860 target=false phase=2 action=0 hp=1400.0
+BOSS_STATE poloz_cycle age=880 target=false phase=2 action=0 hp=1400.0
+HIT poloz_cycle age=880 accepted=true before=1400.0 after=1300.0
+BOSS_STATE poloz_cycle age=900 target=false phase=2 action=0 hp=1300.0
+BOSS_STATE poloz_cycle age=920 target=false phase=2 action=0 hp=1300.0
+HIT poloz_cycle age=920 accepted=true before=1300.0 after=1200.0
+BOSS_STATE poloz_cycle age=940 target=false phase=2 action=0 hp=1200.0
+BOSS_STATE poloz_cycle age=960 target=false phase=2 action=0 hp=1200.0
+HIT poloz_cycle age=960 accepted=true before=1200.0 after=1100.0
+BOSS_STATE poloz_cycle age=980 target=false phase=2 action=0 hp=1100.0
+BOSS_STATE poloz_cycle age=1000 target=false phase=2 action=0 hp=1100.0
+HIT poloz_cycle age=1000 accepted=true before=1100.0 after=1000.0
+BOSS_STATE poloz_cycle age=1020 target=false phase=2 action=0 hp=1000.0
+BOSS_STATE poloz_cycle age=1040 target=false phase=2 action=0 hp=1000.0
+HIT poloz_cycle age=1040 accepted=true before=1000.0 after=900.0
+BOSS_STATE poloz_cycle age=1060 target=false phase=3 action=0 hp=900.0
+BOSS_STATE poloz_cycle age=1080 target=false phase=3 action=0 hp=900.0
+HIT poloz_cycle age=1080 accepted=true before=900.0 after=800.0
+BOSS_STATE poloz_cycle age=1100 target=false phase=3 action=0 hp=800.0
+BOSS_STATE poloz_cycle age=1120 target=false phase=3 action=0 hp=800.0
+HIT poloz_cycle age=1120 accepted=true before=800.0 after=700.0
+BOSS_STATE poloz_cycle age=1140 target=false phase=3 action=0 hp=700.0
+BOSS_STATE poloz_cycle age=1160 target=false phase=3 action=0 hp=700.0
+HIT poloz_cycle age=1160 accepted=true before=700.0 after=600.0
+BOSS_STATE poloz_cycle age=1180 target=false phase=3 action=0 hp=600.0
+BOSS_STATE poloz_cycle age=1200 target=false phase=3 action=0 hp=600.0
+HIT poloz_cycle age=1200 accepted=true before=600.0 after=500.0
+BOSS_STATE poloz_cycle age=1220 target=false phase=3 action=0 hp=500.0
+BOSS_STATE poloz_cycle age=1240 target=false phase=3 action=0 hp=500.0
+HIT poloz_cycle age=1240 accepted=true before=500.0 after=400.0
+BOSS_STATE poloz_cycle age=1260 target=false phase=3 action=0 hp=400.0
+BOSS_STATE poloz_cycle age=1280 target=false phase=3 action=0 hp=400.0
+HIT poloz_cycle age=1280 accepted=true before=400.0 after=300.0
+BOSS_STATE poloz_cycle age=1300 target=false phase=3 action=0 hp=300.0
+BOSS_STATE poloz_cycle age=1320 target=false phase=3 action=0 hp=300.0
+HIT poloz_cycle age=1320 accepted=true before=300.0 after=200.0
+BOSS_STATE poloz_cycle age=1340 target=false phase=3 action=0 hp=200.0
+BOSS_STATE poloz_cycle age=1360 target=false phase=3 action=0 hp=200.0
+HIT poloz_cycle age=1360 accepted=true before=200.0 after=100.0
+BOSS_STATE poloz_cycle age=1380 target=false phase=3 action=0 hp=100.0
+BOSS_STATE poloz_cycle age=1400 target=false phase=3 action=0 hp=100.0
+HIT poloz_cycle age=1400 accepted=true before=100.0 after=0.0
+BOSS_STATE poloz_cycle age=1420 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1440 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1460 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1480 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1500 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1520 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1540 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1560 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1580 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1600 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1620 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1640 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1660 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1680 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1700 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1720 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1740 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1760 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1780 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1800 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1820 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1840 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1860 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1880 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1900 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1920 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1940 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1960 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=1980 target=false phase=3 action=0 hp=0.0
+BOSS_STATE poloz_cycle age=2000 target=false phase=3 action=0 hp=0.0
+END_CYCLE poloz_cycle alive=false removed=false phase=3 hp=0.0
+INVENTORY poloz_cycle minecraft:dirt x64
+INVENTORY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x15
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x10
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x15
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x13
+LOOT_ENTITY poloz_cycle minecraft:dirt x11
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x13
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x13
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x11
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x10
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x12
+LOOT_ENTITY poloz_cycle minecraft:dirt x11
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x11
+LOOT_ENTITY poloz_cycle minecraft:dirt x10
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x12
+LOOT_ENTITY poloz_cycle minecraft:dirt x11
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x11
+LOOT_ENTITY poloz_cycle minecraft:dirt x14
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x11
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x12
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x10
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x11
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x6
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x11
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x13
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x16
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x12
+LOOT_ENTITY poloz_cycle minecraft:dirt x14
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x9
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x7
+LOOT_ENTITY poloz_cycle minecraft:dirt x12
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x11
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x8
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x10
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x5
+LOOT_ENTITY poloz_cycle minecraft:dirt x4
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x3
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x2
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle minecraft:dirt x1
+LOOT_ENTITY poloz_cycle slavicmyths:poloz_core x1
+LOOT_ENTITY poloz_cycle slavicmyths:poloz_whip x1
+LOOT_ENTITY poloz_cycle slavicmyths:poloz_head x1
+LOOT_ENTITY poloz_cycle slavicmyths:poloz_scale x12
+LOOT_ENTITY poloz_cycle minecraft:gold_ingot x19
+SCENE gorynych_cycle repeat=0 time=1792049784376
+BOSS_STATE gorynych_cycle age=20 target=false phase=1 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=40 target=true phase=1 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=60 target=true phase=1 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=80 target=true phase=1 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=100 target=true phase=1 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=120 target=true phase=1 action=1 hp=2800.0
+BOSS_STATE gorynych_cycle age=140 target=true phase=1 action=1 hp=2800.0
+BOSS_STATE gorynych_cycle age=160 target=true phase=1 action=1 hp=2800.0
+BOSS_STATE gorynych_cycle age=180 target=true phase=1 action=1 hp=2800.0
+BOSS_STATE gorynych_cycle age=200 target=true phase=1 action=1 hp=2800.0
+BOSS_STATE gorynych_cycle age=220 target=true phase=1 action=1 hp=2800.0
+BOSS_STATE gorynych_cycle age=240 target=true phase=1 action=0 hp=2800.0
+HIT gorynych_cycle age=240 accepted=true before=2800.0 after=2709.6
+BOSS_STATE gorynych_cycle age=260 target=true phase=1 action=0 hp=2709.6
+BOSS_STATE gorynych_cycle age=280 target=true phase=1 action=0 hp=2709.6
+HIT gorynych_cycle age=280 accepted=true before=2709.6 after=2619.2002
+BOSS_STATE gorynych_cycle age=300 target=true phase=1 action=0 hp=2619.2002
+BOSS_STATE gorynych_cycle age=320 target=true phase=1 action=0 hp=2619.2002
+HIT gorynych_cycle age=320 accepted=true before=2619.2002 after=2528.8003
+BOSS_STATE gorynych_cycle age=340 target=true phase=1 action=0 hp=2528.8003
+BOSS_STATE gorynych_cycle age=360 target=true phase=1 action=0 hp=2528.8003
+HIT gorynych_cycle age=360 accepted=true before=2528.8003 after=2438.4004
+BOSS_STATE gorynych_cycle age=380 target=true phase=1 action=0 hp=2438.4004
+BOSS_STATE gorynych_cycle age=400 target=true phase=1 action=0 hp=2438.4004
+HIT gorynych_cycle age=400 accepted=true before=2438.4004 after=2348.0005
+BOSS_STATE gorynych_cycle age=420 target=true phase=1 action=0 hp=2348.0005
+BOSS_STATE gorynych_cycle age=440 target=true phase=1 action=0 hp=2348.0005
+HIT gorynych_cycle age=440 accepted=true before=2348.0005 after=2257.6006
+BOSS_STATE gorynych_cycle age=460 target=true phase=1 action=0 hp=2257.6006
+BOSS_STATE gorynych_cycle age=480 target=true phase=1 action=0 hp=2257.6006
+HIT gorynych_cycle age=480 accepted=true before=2257.6006 after=2167.2007
+BOSS_STATE gorynych_cycle age=500 target=true phase=1 action=0 hp=2167.2007
+BOSS_STATE gorynych_cycle age=520 target=true phase=1 action=0 hp=2167.2007
+HIT gorynych_cycle age=520 accepted=true before=2167.2007 after=2076.8008
+BOSS_STATE gorynych_cycle age=540 target=true phase=1 action=1 hp=2076.8008
+BOSS_STATE gorynych_cycle age=560 target=true phase=1 action=1 hp=2076.8008
+HIT gorynych_cycle age=560 accepted=true before=2076.8008 after=1986.4008
+BOSS_STATE gorynych_cycle age=580 target=true phase=1 action=1 hp=1986.4008
+BOSS_STATE gorynych_cycle age=600 target=true phase=1 action=1 hp=1986.4008
+HIT gorynych_cycle age=600 accepted=true before=1986.4008 after=1896.0007
+BOSS_STATE gorynych_cycle age=620 target=true phase=1 action=1 hp=1896.0007
+BOSS_STATE gorynych_cycle age=640 target=true phase=1 action=0 hp=1896.0007
+HIT gorynych_cycle age=640 accepted=true before=1896.0007 after=1805.6007
+BOSS_STATE gorynych_cycle age=660 target=true phase=1 action=0 hp=1805.6007
+BOSS_STATE gorynych_cycle age=680 target=true phase=1 action=0 hp=1805.6007
+HIT gorynych_cycle age=680 accepted=true before=1805.6007 after=1715.2007
+BOSS_STATE gorynych_cycle age=700 target=true phase=1 action=0 hp=1715.2007
+BOSS_STATE gorynych_cycle age=720 target=true phase=1 action=0 hp=1715.2007
+HIT gorynych_cycle age=720 accepted=true before=1715.2007 after=1624.8007
+BOSS_STATE gorynych_cycle age=740 target=true phase=1 action=0 hp=1624.8007
+BOSS_STATE gorynych_cycle age=760 target=true phase=1 action=0 hp=1624.8007
+HIT gorynych_cycle age=760 accepted=true before=1624.8007 after=1534.4006
+BOSS_STATE gorynych_cycle age=780 target=true phase=1 action=0 hp=1534.4006
+BOSS_STATE gorynych_cycle age=800 target=true phase=1 action=0 hp=1534.4006
+HIT gorynych_cycle age=800 accepted=true before=1534.4006 after=1444.0006
+BOSS_STATE gorynych_cycle age=820 target=true phase=2 action=0 hp=1444.0006
+BOSS_STATE gorynych_cycle age=840 target=true phase=2 action=0 hp=1444.0006
+HIT gorynych_cycle age=840 accepted=false before=1444.0006 after=1444.0006
+BOSS_STATE gorynych_cycle age=860 target=true phase=2 action=0 hp=1444.0006
+BOSS_STATE gorynych_cycle age=880 target=true phase=2 action=0 hp=1444.0006
+HIT gorynych_cycle age=880 accepted=false before=1444.0006 after=1444.0006
+BOSS_STATE gorynych_cycle age=900 target=true phase=2 action=0 hp=1444.0006
+BOSS_STATE gorynych_cycle age=920 target=false phase=3 action=0 hp=1444.0006
+HIT gorynych_cycle age=920 accepted=true before=1444.0006 after=1353.6006
+BOSS_STATE gorynych_cycle age=940 target=true phase=3 action=0 hp=1353.6006
+BOSS_STATE gorynych_cycle age=960 target=true phase=3 action=0 hp=1353.6006
+HIT gorynych_cycle age=960 accepted=true before=1353.6006 after=1263.2006
+BOSS_STATE gorynych_cycle age=980 target=true phase=3 action=0 hp=1263.2006
+BOSS_STATE gorynych_cycle age=1000 target=true phase=3 action=0 hp=1263.2006
+HIT gorynych_cycle age=1000 accepted=true before=1263.2006 after=1172.8005
+BOSS_STATE gorynych_cycle age=1020 target=true phase=3 action=0 hp=1172.8005
+BOSS_STATE gorynych_cycle age=1040 target=true phase=3 action=0 hp=1172.8005
+HIT gorynych_cycle age=1040 accepted=true before=1172.8005 after=1082.4005
+BOSS_STATE gorynych_cycle age=1060 target=true phase=3 action=1 hp=1082.4005
+BOSS_STATE gorynych_cycle age=1080 target=true phase=3 action=1 hp=1082.4005
+HIT gorynych_cycle age=1080 accepted=true before=1082.4005 after=992.0005
+BOSS_STATE gorynych_cycle age=1100 target=true phase=3 action=1 hp=992.0005
+BOSS_STATE gorynych_cycle age=1120 target=true phase=3 action=1 hp=992.0005
+HIT gorynych_cycle age=1120 accepted=true before=992.0005 after=901.60046
+BOSS_STATE gorynych_cycle age=1140 target=true phase=3 action=1 hp=901.60046
+BOSS_STATE gorynych_cycle age=1160 target=true phase=3 action=0 hp=901.60046
+HIT gorynych_cycle age=1160 accepted=true before=901.60046 after=811.20044
+BOSS_STATE gorynych_cycle age=1180 target=true phase=3 action=0 hp=811.20044
+BOSS_STATE gorynych_cycle age=1200 target=true phase=3 action=0 hp=811.20044
+HIT gorynych_cycle age=1200 accepted=true before=811.20044 after=720.8004
+BOSS_STATE gorynych_cycle age=1220 target=true phase=3 action=0 hp=720.8004
+BOSS_STATE gorynych_cycle age=1240 target=true phase=3 action=0 hp=720.8004
+HIT gorynych_cycle age=1240 accepted=true before=720.8004 after=630.4004
+BOSS_STATE gorynych_cycle age=1260 target=true phase=3 action=0 hp=630.4004
+BOSS_STATE gorynych_cycle age=1280 target=true phase=3 action=0 hp=630.4004
+HIT gorynych_cycle age=1280 accepted=true before=630.4004 after=540.00037
+BOSS_STATE gorynych_cycle age=1300 target=true phase=3 action=0 hp=540.00037
+BOSS_STATE gorynych_cycle age=1320 target=true phase=3 action=5 hp=540.00037
+HIT gorynych_cycle age=1320 accepted=true before=540.00037 after=449.60034
+BOSS_STATE gorynych_cycle age=1340 target=true phase=3 action=5 hp=439.60034
+BOSS_STATE gorynych_cycle age=1360 target=true phase=3 action=5 hp=439.60034
+HIT gorynych_cycle age=1360 accepted=true before=439.60034 after=349.20032
+BOSS_STATE gorynych_cycle age=1380 target=true phase=3 action=5 hp=349.20032
+BOSS_STATE gorynych_cycle age=1400 target=true phase=3 action=5 hp=349.20032
+HIT gorynych_cycle age=1400 accepted=true before=349.20032 after=258.8003
+BOSS_STATE gorynych_cycle age=1420 target=true phase=3 action=0 hp=258.8003
+BOSS_STATE gorynych_cycle age=1440 target=true phase=3 action=0 hp=258.8003
+HIT gorynych_cycle age=1440 accepted=true before=258.8003 after=168.40027
+BOSS_STATE gorynych_cycle age=1460 target=true phase=3 action=0 hp=168.40027
+BOSS_STATE gorynych_cycle age=1480 target=true phase=3 action=0 hp=168.40027
+HIT gorynych_cycle age=1480 accepted=true before=168.40027 after=78.000244
+BOSS_STATE gorynych_cycle age=1500 target=true phase=3 action=0 hp=78.000244
+BOSS_STATE gorynych_cycle age=1520 target=true phase=3 action=0 hp=78.000244
+HIT gorynych_cycle age=1520 accepted=true before=78.000244 after=75.0
+BOSS_STATE gorynych_cycle age=1540 target=true phase=4 action=0 hp=75.0
+BOSS_STATE gorynych_cycle age=1560 target=true phase=4 action=0 hp=75.0
+CLEANSE head=0 result=SUCCESS mask=1
+CLEANSE head=1 result=SUCCESS mask=3
+CLEANSE head=2 result=SUCCESS mask=7
+BOSS_STATE gorynych_cycle age=1580 target=true phase=5 action=0 hp=75.0
+BOSS_STATE gorynych_cycle age=1600 target=true phase=5 action=0 hp=75.0
+BOSS_STATE gorynych_cycle age=1620 target=true phase=5 action=0 hp=75.0
+BOSS_STATE gorynych_cycle age=1640 target=true phase=5 action=0 hp=75.0
+BOSS_STATE gorynych_cycle age=1660 target=true phase=5 action=0 hp=75.0
+BOSS_STATE gorynych_cycle age=1680 target=true phase=5 action=0 hp=75.0
+BOSS_STATE gorynych_cycle age=1700 target=true phase=5 action=0 hp=75.0
+BOSS_STATE gorynych_cycle age=1720 target=false phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1740 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1760 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1780 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1800 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1820 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1840 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1860 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1880 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1900 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1920 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1940 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1960 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=1980 target=true phase=6 action=0 hp=2800.0
+BOSS_STATE gorynych_cycle age=2000 target=true phase=6 action=0 hp=2800.0
+END_CYCLE gorynych_cycle alive=true removed=false phase=6 hp=2800.0
+INVENTORY gorynych_cycle minecraft:glass_bottle x1
+INVENTORY gorynych_cycle minecraft:dirt x1
+SCENE karachun_cycle repeat=0 time=1792049884367
+BOSS_STATE karachun_cycle age=20 target=true phase=0 action=0 hp=1600.0
+BOSS_STATE karachun_cycle age=40 target=true phase=0 action=0 hp=1600.0
+BOSS_STATE karachun_cycle age=60 target=true phase=1 action=0 hp=1600.0
+BOSS_STATE karachun_cycle age=80 target=true phase=1 action=4 hp=1600.0
+BOSS_STATE karachun_cycle age=100 target=true phase=1 action=5 hp=1600.0
+BOSS_STATE karachun_cycle age=120 target=true phase=1 action=5 hp=1600.0
+BOSS_STATE karachun_cycle age=140 target=true phase=1 action=0 hp=1600.0
+BOSS_STATE karachun_cycle age=160 target=true phase=1 action=7 hp=1600.0
+BOSS_STATE karachun_cycle age=180 target=true phase=1 action=7 hp=1600.0
+BOSS_STATE karachun_cycle age=200 target=true phase=1 action=9 hp=1600.0
+BOSS_STATE karachun_cycle age=220 target=true phase=1 action=0 hp=1600.0
+BOSS_STATE karachun_cycle age=240 target=true phase=1 action=0 hp=1600.0
+HIT karachun_cycle age=240 accepted=true before=1600.0 after=1508.0
+BOSS_STATE karachun_cycle age=260 target=true phase=1 action=8 hp=1508.0
+BOSS_STATE karachun_cycle age=280 target=true phase=1 action=8 hp=1508.0
+HIT karachun_cycle age=280 accepted=true before=1508.0 after=1416.0
+BOSS_STATE karachun_cycle age=300 target=true phase=1 action=0 hp=1416.0
+BOSS_STATE karachun_cycle age=320 target=true phase=1 action=0 hp=1416.0
+HIT karachun_cycle age=320 accepted=true before=1416.0 after=1324.0
+BOSS_STATE karachun_cycle age=340 target=true phase=1 action=4 hp=1324.0
+BOSS_STATE karachun_cycle age=360 target=true phase=1 action=0 hp=1324.0
+HIT karachun_cycle age=360 accepted=true before=1324.0 after=1232.0
+BOSS_STATE karachun_cycle age=380 target=true phase=1 action=0 hp=1232.0
+BOSS_STATE karachun_cycle age=400 target=true phase=1 action=5 hp=1232.0
+HIT karachun_cycle age=400 accepted=true before=1232.0 after=1140.0
+BOSS_STATE karachun_cycle age=420 target=true phase=1 action=5 hp=1140.0
+BOSS_STATE karachun_cycle age=440 target=true phase=1 action=0 hp=1140.0
+HIT karachun_cycle age=440 accepted=true before=1140.0 after=1048.0
+BOSS_STATE karachun_cycle age=460 target=true phase=2 action=0 hp=1048.0
+BOSS_STATE karachun_cycle age=480 target=true phase=2 action=0 hp=1048.0
+HIT karachun_cycle age=480 accepted=true before=1048.0 after=956.0
+BOSS_STATE karachun_cycle age=500 target=true phase=2 action=0 hp=956.0
+BOSS_STATE karachun_cycle age=520 target=true phase=2 action=1 hp=956.0
+HIT karachun_cycle age=520 accepted=true before=956.0 after=864.0
+BOSS_STATE karachun_cycle age=540 target=true phase=2 action=1 hp=864.0
+BOSS_STATE karachun_cycle age=560 target=true phase=2 action=0 hp=864.0
+HIT karachun_cycle age=560 accepted=true before=864.0 after=772.0
+BOSS_STATE karachun_cycle age=580 target=true phase=2 action=6 hp=772.0
+BOSS_STATE karachun_cycle age=600 target=true phase=2 action=6 hp=772.0
+HIT karachun_cycle age=600 accepted=true before=772.0 after=680.0
+BOSS_STATE karachun_cycle age=620 target=true phase=2 action=4 hp=680.0
+BOSS_STATE karachun_cycle age=640 target=true phase=2 action=0 hp=680.0
+HIT karachun_cycle age=640 accepted=true before=680.0 after=588.0
+BOSS_STATE karachun_cycle age=660 target=true phase=2 action=0 hp=588.0
+BOSS_STATE karachun_cycle age=680 target=true phase=2 action=0 hp=588.0
+HIT karachun_cycle age=680 accepted=true before=588.0 after=496.0
+BOSS_STATE karachun_cycle age=700 target=true phase=2 action=8 hp=496.0
+BOSS_STATE karachun_cycle age=720 target=true phase=2 action=8 hp=496.0
+HIT karachun_cycle age=720 accepted=true before=496.0 after=404.0
+BOSS_STATE karachun_cycle age=740 target=true phase=2 action=5 hp=404.0
+BOSS_STATE karachun_cycle age=760 target=true phase=2 action=5 hp=404.0
+HIT karachun_cycle age=760 accepted=true before=404.0 after=312.0
+BOSS_STATE karachun_cycle age=780 target=true phase=3 action=2 hp=312.0
+BOSS_STATE karachun_cycle age=800 target=true phase=3 action=0 hp=312.0
+HIT karachun_cycle age=800 accepted=true before=312.0 after=220.0
+BOSS_STATE karachun_cycle age=820 target=true phase=3 action=0 hp=220.0
+BOSS_STATE karachun_cycle age=840 target=true phase=3 action=0 hp=220.0
+HIT karachun_cycle age=840 accepted=true before=220.0 after=128.0
+BOSS_STATE karachun_cycle age=860 target=true phase=3 action=7 hp=128.0
+BOSS_STATE karachun_cycle age=880 target=true phase=3 action=7 hp=128.0
+HIT karachun_cycle age=880 accepted=true before=128.0 after=80.0
+BOSS_STATE karachun_cycle age=900 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=920 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=940 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=960 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=980 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1000 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1020 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1040 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1060 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1080 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1100 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1120 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1140 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1160 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1180 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1200 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1220 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1240 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1260 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1280 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1300 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1320 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1340 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1360 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1380 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1400 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1420 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1440 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1460 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1480 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1500 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1520 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1540 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1560 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1580 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1600 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1620 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1640 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1660 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1680 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1700 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1720 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1740 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1760 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1780 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1800 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1820 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1840 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1860 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1880 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1900 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1920 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1940 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1960 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=1980 target=true phase=4 action=10 hp=80.0
+BOSS_STATE karachun_cycle age=2000 target=true phase=4 action=10 hp=80.0
+END_CYCLE karachun_cycle alive=false removed=true phase=4 hp=80.0
+INVENTORY karachun_cycle minecraft:glass_bottle x1
+INVENTORY karachun_cycle minecraft:dirt x1
+INVENTORY karachun_cycle slavicmyths:black_wing_amulet x1
+INVENTORY karachun_cycle slavicmyths:rune_of_waning x1
+INVENTORY karachun_cycle slavicmyths:shard_of_last_night x1
+SCENE morozko_cycle repeat=0 time=1792049984372
+BOSS_STATE morozko_cycle age=20 target=true phase=0 action=0 hp=1400.0
+BOSS_STATE morozko_cycle age=40 target=true phase=0 action=0 hp=1400.0
+BOSS_STATE morozko_cycle age=60 target=true phase=1 action=0 hp=1400.0
+BOSS_STATE morozko_cycle age=80 target=true phase=1 action=2 hp=1400.0
+BOSS_STATE morozko_cycle age=100 target=true phase=1 action=0 hp=1400.0
+BOSS_STATE morozko_cycle age=120 target=true phase=1 action=2 hp=1400.0
+BOSS_STATE morozko_cycle age=140 target=true phase=1 action=0 hp=1400.0
+BOSS_STATE morozko_cycle age=160 target=true phase=1 action=5 hp=1400.0
+BOSS_STATE morozko_cycle age=180 target=true phase=1 action=5 hp=1400.0
+BOSS_STATE morozko_cycle age=200 target=true phase=1 action=5 hp=1400.0
+BOSS_STATE morozko_cycle age=220 target=true phase=1 action=5 hp=1400.0
+BOSS_STATE morozko_cycle age=240 target=true phase=1 action=4 hp=1400.0
+HIT morozko_cycle age=240 accepted=true before=1400.0 after=1306.4
+BOSS_STATE morozko_cycle age=260 target=true phase=1 action=2 hp=1306.4
+BOSS_STATE morozko_cycle age=280 target=true phase=1 action=6 hp=1306.4
+HIT morozko_cycle age=280 accepted=true before=1306.4 after=1212.8
+BOSS_STATE morozko_cycle age=300 target=true phase=1 action=6 hp=1212.8
+BOSS_STATE morozko_cycle age=320 target=true phase=1 action=3 hp=1212.8
+HIT morozko_cycle age=320 accepted=true before=1212.8 after=1119.2001
+BOSS_STATE morozko_cycle age=340 target=true phase=1 action=3 hp=1119.2001
+BOSS_STATE morozko_cycle age=360 target=true phase=1 action=3 hp=1119.2001
+HIT morozko_cycle age=360 accepted=true before=1119.2001 after=1025.6001
+BOSS_STATE morozko_cycle age=380 target=true phase=1 action=2 hp=1025.6001
+BOSS_STATE morozko_cycle age=400 target=true phase=1 action=0 hp=1025.6001
+HIT morozko_cycle age=400 accepted=true before=1025.6001 after=932.0001
+BOSS_STATE morozko_cycle age=420 target=true phase=1 action=2 hp=932.0001
+BOSS_STATE morozko_cycle age=440 target=true phase=1 action=2 hp=932.0001
+HIT morozko_cycle age=440 accepted=true before=932.0001 after=838.40015
+BOSS_STATE morozko_cycle age=460 target=true phase=2 action=7 hp=838.40015
+BOSS_STATE morozko_cycle age=480 target=true phase=2 action=7 hp=838.40015
+HIT morozko_cycle age=480 accepted=true before=838.40015 after=744.8002
+BOSS_STATE morozko_cycle age=500 target=true phase=2 action=0 hp=744.8002
+BOSS_STATE morozko_cycle age=520 target=true phase=2 action=2 hp=744.8002
+HIT morozko_cycle age=520 accepted=true before=744.8002 after=651.2002
+BOSS_STATE morozko_cycle age=540 target=true phase=2 action=4 hp=651.2002
+BOSS_STATE morozko_cycle age=560 target=true phase=2 action=2 hp=651.2002
+HIT morozko_cycle age=560 accepted=true before=651.2002 after=557.6002
+BOSS_STATE morozko_cycle age=580 target=true phase=2 action=0 hp=557.6002
+BOSS_STATE morozko_cycle age=600 target=true phase=2 action=5 hp=557.6002
+HIT morozko_cycle age=600 accepted=true before=557.6002 after=464.0002
+BOSS_STATE morozko_cycle age=620 target=true phase=2 action=5 hp=464.0002
+BOSS_STATE morozko_cycle age=640 target=true phase=2 action=5 hp=464.0002
+HIT morozko_cycle age=640 accepted=true before=464.0002 after=370.4002
+BOSS_STATE morozko_cycle age=660 target=true phase=3 action=8 hp=370.4002
+BOSS_STATE morozko_cycle age=680 target=true phase=3 action=8 hp=370.4002
+HIT morozko_cycle age=680 accepted=true before=370.4002 after=276.8002
+BOSS_STATE morozko_cycle age=700 target=true phase=3 action=2 hp=276.8002
+BOSS_STATE morozko_cycle age=720 target=true phase=3 action=2 hp=276.8002
+HIT morozko_cycle age=720 accepted=true before=276.8002 after=183.2002
+BOSS_STATE morozko_cycle age=740 target=true phase=3 action=0 hp=183.2002
+BOSS_STATE morozko_cycle age=760 target=true phase=3 action=2 hp=183.2002
+HIT morozko_cycle age=760 accepted=true before=183.2002 after=89.6002
+BOSS_STATE morozko_cycle age=780 target=true phase=3 action=4 hp=89.6002
+BOSS_STATE morozko_cycle age=800 target=true phase=3 action=6 hp=89.6002
+HIT morozko_cycle age=800 accepted=true before=89.6002 after=70.0
+BOSS_STATE morozko_cycle age=820 target=false phase=4 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=840 target=false phase=4 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=860 target=false phase=4 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=880 target=false phase=4 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=900 target=false phase=4 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=920 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=940 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=960 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=980 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1000 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1020 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1040 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1060 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1080 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1100 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1120 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1140 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1160 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1180 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1200 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1220 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1240 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1260 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1280 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1300 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1320 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1340 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1360 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1380 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1400 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1420 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1440 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1460 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1480 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1500 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1520 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1540 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1560 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1580 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1600 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1620 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1640 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1660 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1680 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1700 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1720 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1740 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1760 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1780 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1800 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1820 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1840 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1860 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1880 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1900 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1920 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1940 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1960 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=1980 target=false phase=6 action=9 hp=70.0
+BOSS_STATE morozko_cycle age=2000 target=false phase=6 action=9 hp=70.0
+END_CYCLE morozko_cycle alive=false removed=true phase=6 hp=70.0
+INVENTORY morozko_cycle minecraft:glass_bottle x1
+INVENTORY morozko_cycle minecraft:dirt x1
+INVENTORY morozko_cycle slavicmyths:frost_mirror x1
+INVENTORY morozko_cycle slavicmyths:rune_of_waning x1
+INVENTORY morozko_cycle slavicmyths:shard_of_last_night x1
+INVENTORY morozko_cycle slavicmyths:frost_rune x1
+INVENTORY morozko_cycle slavicmyths:heart_of_eternal_cold x1
+SCENE post_cleanup repeat=0 time=1792050084365
+END_CYCLE post_cleanup alive=false removed=false phase=-1 hp=0.0
+INVENTORY post_cleanup minecraft:glass_bottle x1
+INVENTORY post_cleanup minecraft:dirt x1
+INVENTORY post_cleanup slavicmyths:rune_of_waning x1
+INVENTORY post_cleanup slavicmyths:shard_of_last_night x1
+INVENTORY post_cleanup slavicmyths:frost_rune x1
+INVENTORY post_cleanup slavicmyths:heart_of_eternal_cold x1
+COMPLETE

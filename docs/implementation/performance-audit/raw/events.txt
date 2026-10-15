@@ -1,0 +1,446 @@
+WINDOW=1280x720 GPU=AMD Radeon RX 6600M
+SCENE idle repeat=0 time=1792045927728 entities=1
+SCENE idle repeat=1 time=1792045942310 entities=1
+SCENE idle repeat=2 time=1792045957311 entities=1
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=0 id=minecraft:zombie added=true
+SCENE vanilla_32 repeat=0 time=1792045972353 entities=33
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.82063941308213, -60.0, -19.470230081512756) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-2.567042240589165, -60.0, -20.56284645657163) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.1469600059868403, -60.0, -20.07990095698717) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-2.450308545119216, -60.0, -18.741950487049873) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-2.434339574192298, -60.0, -19.847358746760037) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-0.34350609894312045, -60.0, -19.76691753922633) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.0355679408557037, -60.0, -19.96752104542885) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-0.3772557725315724, -60.0, -19.113048043151785) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-2.4555224322514175, -60.0, -17.43730620514643) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-3.0719260418572634, -60.0, -18.093009544515613) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.7469091571267945, -60.0, -18.793346799158385) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-0.9223909971977969, -60.0, -19.354212133790544) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-2.458649025612729, -60.0, -19.268961475334383) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.8724666383380284, -60.0, -20.07050302554474) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.235221144112029, -60.0, -19.461933746040344) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.1635074133957366, -60.0, -18.565784468420734) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.8218983990854498, -60.0, -16.92914065791089) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.7432195615120945, -60.0, -17.510528430437777) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-2.461778015307298, -60.0, -18.137368903643097) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-0.5461652199666667, -60.0, -17.88740374241341) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.2183546005067931, -60.0, -18.882352273570056) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(0.25162182290263163, -60.0, -16.704301265646134) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-0.0013259000767148685, -60.0, -18.59681893561371) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(0.14819971764837847, -60.0, -17.856514945376485) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.630241761015125, -60.0, -16.28844520788809) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-0.2803083610882415, -60.0, -15.626059774404945) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.0256557222441869, -60.0, -16.21084850809367) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.6352554652267592, -60.0, -18.101836716223318) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.1397870120521918, -60.0, -17.557383508786753) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-1.0445116857831438, -60.0, -16.890716126105737) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-0.3753209626306246, -60.0, -17.304621274433046) hp=20.0
+END_ACTOR vanilla_32 repeat=0 type=minecraft:zombie pos=(-0.3794438547818518, -60.0, -16.366069424648835) hp=20.0
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=1 id=minecraft:zombie added=true
+SCENE vanilla_32 repeat=1 time=1792045987328 entities=33
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.585974682251801, -60.0, -17.888808918120425) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-4.643820902375621, -60.0, -17.833281284276623) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-4.242425756056941, -60.0, -18.531041073078885) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.5689852480398634, -60.0, -19.15106115674821) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-4.766642939240508, -60.0, -18.54590138749683) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.8347843511646276, -60.0, -19.726126649366687) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.0151928651865365, -60.0, -19.81406933953791) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.2429476225326725, -60.0, -19.751692236586802) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.643866155469893, -60.0, -17.386345764916015) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.0163176277581774, -60.0, -17.443422356398976) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.50753359280766, -60.0, -18.481408324175817) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.8767468160979055, -60.0, -19.15164644801869) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.2425218930010375, -60.0, -19.13918271415068) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.099896563476775, -60.0, -18.555550512070926) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.4819318000916684, -60.0, -18.642795230149186) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.446085216469654, -60.0, -18.046001876962926) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.655569549748004, -60.0, -16.148447537818203) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-4.223728501361264, -60.0, -17.21374546799559) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.969069250250019, -60.0, -16.86102449793924) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.8888940400728553, -60.0, -18.005025080555576) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.3158797772870328, -60.0, -17.456916687043243) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-1.7413862712267962, -60.0, -18.65652396062209) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-1.729522484842523, -60.0, -18.036445379855827) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-1.7458275149539393, -60.0, -17.3270342754109) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.0446771801644488, -60.0, -15.560840862757471) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.965219196034743, -60.0, -16.23767490073227) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-3.5785550970836844, -60.0, -16.707824424391415) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.336301332832814, -60.0, -16.285090548052025) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.430694858953702, -60.0, -16.858585076893945) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-1.6792641290730534, -60.0, -16.792649568847853) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.146911293967668, -60.0, -15.681662985277265) hp=20.0
+END_ACTOR vanilla_32 repeat=1 type=minecraft:zombie pos=(-2.4216990568404406, -60.0, -15.118219675385824) hp=20.0
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SPAWN vanilla_32 repeat=2 id=minecraft:zombie added=true
+SCENE vanilla_32 repeat=2 time=1792046002320 entities=33
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-2.456045939519858, -60.0, -17.980987506788587) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-3.2784105619027804, -60.0, -18.82289742971438) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-3.746011927192616, -60.0, -18.266756053142593) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-3.097826981984606, -60.0, -18.21819557013894) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.3722202574884823, -60.0, -19.856261241472993) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-0.648216974066975, -60.0, -18.1158798857906) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.3631687191065287, -60.0, -19.283859160368273) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-2.0200903472855902, -60.0, -19.32965329046804) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-3.104931667772295, -60.0, -16.958182752877683) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-2.4850012145043023, -60.0, -17.661341231168457) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-3.1059701947588536, -60.0, -17.662988692441036) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-2.7530017356946943, -60.0, -19.075296485894192) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.2990838603793928, -60.0, -18.756169815449027) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-2.5134136811039354, -60.0, -18.60004293152818) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.9302155486672967, -60.0, -18.72959313585066) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.3062819340522611, -60.0, -18.06596033330507) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-2.628962494239655, -60.0, -16.37343433166809) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.7834556751020687, -60.0, -16.71345294310478) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-2.4567340256068744, -60.0, -17.058851465906123) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.7981921264289558, -60.0, -17.326210001840277) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.8754049461586864, -60.0, -18.108938318806242) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.285022679290892, -60.0, -17.377154973679513) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-0.6629628831141972, -60.0, -17.487282838173417) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-0.17860061720984638, -60.0, -16.040909303437925) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-2.0638499798561085, -60.0, -15.419407460415407) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.9816776021951854, -60.0, -16.08255463515382) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.3614047526754747, -60.0, -16.110313411864432) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.166561014017924, -60.0, -16.816213411848583) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-0.6135877324265138, -60.0, -16.821040463226957) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-0.8092778220022292, -60.0, -16.09647402187515) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-0.8862863898658769, -60.0, -15.483824077245453) hp=20.0
+END_ACTOR vanilla_32 repeat=2 type=minecraft:zombie pos=(-1.4714143481892445, -60.0, -14.918847047758723) hp=20.0
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=0 id=slavicmyths:volkolak added=true
+SCENE mod_32 repeat=0 time=1792046017329 entities=33
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-3.6102381714405722, -60.0, -13.348809980876489) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-0.42676324801623733, -60.0, -15.601631499002936) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-2.603138130128539, -60.0, -14.509540788432698) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(2.9259210624526895, -60.0, -13.534253415185724) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(2.9412827577471736, -60.0, -12.521029801499584) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-1.3459883839434716, -60.0, -14.437457582093987) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(4.232841619683545, -60.0, -14.2723357751852) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(4.229562371484642, -60.0, -9.95308181928603) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-1.615748994569758, -60.0, -12.775029545878335) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(1.9271323778074179, -60.0, -11.22578362766449) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-1.669687822827259, -58.7477965848987, -9.593202856450633) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(3.5828775027690356, -60.0, -11.465026629411085) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(0.0028144860668505023, -60.0, -17.06088301276677) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(2.011996374258403, -60.0, -18.255925544174968) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(1.0641671203871128, -58.975575813938924, -15.739298688465139) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(0.16082382686667168, -60.0, -12.981223691546685) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-0.004781706440631398, -60.0, -8.604964696131907) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-3.497912063593797, -60.0, -15.625989278669376) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-2.3362198408293473, -60.0, -15.650125242335202) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-0.28525677436815905, -59.87870302881009, -14.641094701559993) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(0.7395486747329025, -60.0, -11.770849080526936) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(1.6045739921757132, -60.0, -17.03559560480609) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-1.1521296601501896, -60.0, -10.637933443550427) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-4.984563779515398, -60.0, -14.106458603933364) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(1.0464951464959287, -60.0, -14.727269168258006) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-0.08643872903246247, -60.0, -10.652286045462134) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-2.8855855414243226, -60.0, -12.514515342547412) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-3.969580264888471, -60.0, -14.451058885253463) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-2.626443369747724, -59.58, -9.341583646683606) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(-1.1467777229961125, -60.0, -9.896285431427362) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(1.289047335985658, -60.0, -9.784179457684022) hp=165.0
+END_ACTOR mod_32 repeat=0 type=slavicmyths:volkolak pos=(1.5843160336440782, -60.0, -12.813208398625529) hp=165.0
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=1 id=slavicmyths:volkolak added=true
+SCENE mod_32 repeat=1 time=1792046032320 entities=33
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-4.471044858081643, -60.0, -8.004735283639391) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(1.221547054884567, -60.0, -13.310200678157393) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-0.6974120368222397, -60.0, -12.171605839706894) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-0.48606830884078756, -60.0, -15.280179913700593) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-3.1535821847670245, -60.0, -5.722169366207087) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(1.201897411910126, -60.0, -14.3723413570984) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(0.36428870360843074, -60.0, -13.858340200957677) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-0.4913666419965608, -60.0, -4.995447558371599) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-1.0320677142258123, -60.0, -9.909861984967955) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(0.8250606946701965, -60.0, -9.394997849783893) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-4.706913747794238, -60.0, -9.952652442042767) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(0.32089152485381406, -60.0, -11.553982006515747) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(1.7975552271689506, -60.0, -9.351983487408898) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(2.7825480337203015, -60.0, -13.721402567011639) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(1.1174874215485227, -60.0, -11.798019209409276) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-0.31958874256706227, -60.0, -8.325584245687716) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-3.3248252528041102, -60.0, -7.221540802908849) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-2.107763926544927, -60.0, -10.073859384937691) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-1.4884579965764213, -59.87870302881009, -8.804057540958125) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-2.768436269402407, -60.0, -12.951172670868202) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-1.6448215671741009, -60.0, -13.258795153281032) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(1.2908369857257733, -59.87870302881009, -7.3962179311793586) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-3.980274538930674, -60.0, -12.227532331601571) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(3.8410303241100747, -60.0, -10.1562486691995) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(0.6286198034106465, -60.0, -12.732791311611862) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-1.2134476233357032, -60.0, -6.743014291756317) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(3.9907930269023537, -60.0, -8.384591044644777) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-3.1997826450561706, -60.0, -9.121620937800532) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-0.008353185353343173, -60.0, -10.56280692511934) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(3.3816323192684647, -60.0, -7.197073511745657) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(-1.1016161143413299, -60.0, -11.046361955549624) hp=165.0
+END_ACTOR mod_32 repeat=1 type=slavicmyths:volkolak pos=(1.0927135707646023, -60.0, -5.18163480793839) hp=165.0
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SPAWN mod_32 repeat=2 id=slavicmyths:volkolak added=true
+SCENE mod_32 repeat=2 time=1792046047323 entities=33
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(0.15022473351239257, -60.0, -9.650683247805773) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(0.6034664627697357, -60.0, -14.045769126521124) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(1.8866344669469814, -60.0, -11.51480339476675) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-4.207856926202697, -60.0, -16.134150343613275) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-0.36928691930193813, -60.0, -15.131783913929423) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-1.186721826312776, -60.0, -13.649116278677946) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(0.9037901531527631, -60.0, -16.87639463337048) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-1.1847506507996102, -60.0, -11.073847019244536) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-0.571893237438301, -60.0, -10.496832669003805) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-3.4766359469661254, -60.0, -10.297155882510374) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-1.7454307630728585, -58.7477965848987, -8.861261680696309) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-0.9087261854536219, -60.0, -16.280431036530807) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-4.509066712108472, -60.0, -11.869295905897765) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(0.6175492376328369, -60.0, -15.240724203812217) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-1.1627769963932075, -60.0, -17.40426759832092) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(0.622550250315958, -60.0, -12.155323281369535) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-2.4779953038014475, -60.0, -7.614893797050733) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(3.2011224305940904, -60.0, -9.540804203945797) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-4.672942904994162, -60.0, -9.766166110233677) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-2.326641659153738, -59.87870302881009, -9.911702927862953) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-4.306874606514461, -60.0, -12.721202034729977) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-3.2253900462817624, -60.0, -9.246075614422509) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-2.69045488839819, -60.0, -11.974450086139813) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(1.7044568100205157, -60.0, -10.451700118042563) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-0.7548415262260391, -60.0, -12.526947276813933) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(0.6010796425043009, -60.0, -11.021480894478954) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(1.1451394430515558, -60.0, -9.248232456228589) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-0.9597641576076009, -60.0, -9.545551514380621) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-2.923927750030068, -60.0, -15.726890197813724) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(1.932589796638798, -60.0, -13.157671425257192) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(3.054330625630631, -60.0, -11.604270580872086) hp=165.0
+END_ACTOR mod_32 repeat=2 type=slavicmyths:volkolak pos=(-3.0226104397779405, -60.0, -13.516154370456318) hp=165.0
+SPAWN gorynych repeat=0 id=slavicmyths:zmey_gorynych added=true
+SCENE gorynych repeat=0 time=1792046062317 entities=2
+END_ACTOR gorynych repeat=0 type=slavicmyths:zmey_gorynych pos=(-8.0, -60.0, 4.0) hp=1024.0
+SPAWN gorynych repeat=1 id=slavicmyths:zmey_gorynych added=true
+SCENE gorynych repeat=1 time=1792046077311 entities=2
+END_ACTOR gorynych repeat=1 type=slavicmyths:zmey_gorynych pos=(-8.0, -60.0, 4.0) hp=1024.0
+SPAWN gorynych repeat=2 id=slavicmyths:zmey_gorynych added=true
+SCENE gorynych repeat=2 time=1792046092311 entities=2
+END_ACTOR gorynych repeat=2 type=slavicmyths:zmey_gorynych pos=(-8.0, -60.0, 4.0) hp=1024.0
+SPAWN great_poloz repeat=0 id=slavicmyths:great_poloz added=true
+SCENE great_poloz repeat=0 time=1792046107312 entities=2
+END_ACTOR great_poloz repeat=0 type=slavicmyths:great_poloz pos=(-16.99080277225875, -60.0, 71.78031570911412) hp=3000.0
+SPAWN great_poloz repeat=1 id=slavicmyths:great_poloz added=true
+SCENE great_poloz repeat=1 time=1792046122312 entities=2
+END_ACTOR great_poloz repeat=1 type=slavicmyths:great_poloz pos=(-13.116400839154965, -60.0, 72.56328821122652) hp=3000.0
+SPAWN great_poloz repeat=2 id=slavicmyths:great_poloz added=true
+SCENE great_poloz repeat=2 time=1792046137311 entities=2
+END_ACTOR great_poloz repeat=2 type=slavicmyths:great_poloz pos=(-23.31319553366805, -60.0, 69.36288047134879) hp=3000.0
+SPAWN karachun repeat=0 id=slavicmyths:karachun added=true
+SCENE karachun repeat=0 time=1792046152311 entities=2
+END_ACTOR karachun repeat=0 type=slavicmyths:karachun pos=(-4.0408850301601555, -60.0, -0.0011965299593234835) hp=1440.0
+END_ACTOR karachun repeat=0 type=slavicmyths:karachun_raven pos=(-1.6848181873694166, -58.86711949624198, -15.29049843611898) hp=20.0
+END_ACTOR karachun repeat=0 type=slavicmyths:karachun_raven pos=(-0.6592665577663894, -57.6205265908461, -6.13985014655921) hp=20.0
+END_ACTOR karachun repeat=0 type=slavicmyths:karachun_raven pos=(-5.566991406094461, -56.152818770774125, -4.881404097655312) hp=20.0
+END_ACTOR karachun repeat=0 type=slavicmyths:karachun_raven pos=(-1.2790743594824743, -58.78196892593088, -7.826589592690199) hp=20.0
+SPAWN karachun repeat=1 id=slavicmyths:karachun added=true
+SCENE karachun repeat=1 time=1792046167310 entities=2
+END_ACTOR karachun repeat=1 type=slavicmyths:karachun pos=(-4.043803736710653, -60.0, -0.009236788785267763) hp=800.0
+END_ACTOR karachun repeat=1 type=slavicmyths:karachun_raven pos=(-2.277912031597289, -58.68537708900368, -14.089395116503344) hp=20.0
+END_ACTOR karachun repeat=1 type=slavicmyths:karachun_raven pos=(-1.6512558112998053, -59.36125517586627, -12.42106410542926) hp=20.0
+END_ACTOR karachun repeat=1 type=slavicmyths:karachun_raven pos=(-3.2725885709246527, -55.14537710704299, -5.561946845493741) hp=20.0
+END_ACTOR karachun repeat=1 type=slavicmyths:karachun_raven pos=(1.6032994189028957, -58.148134893263325, -5.310189317374119) hp=20.0
+SPAWN karachun repeat=2 id=slavicmyths:karachun added=true
+SCENE karachun repeat=2 time=1792046182310 entities=2
+END_ACTOR karachun repeat=2 type=slavicmyths:karachun pos=(-1.3809201184725546, -60.0, 1.3517597238379824) hp=320.0
+END_ACTOR karachun repeat=2 type=slavicmyths:karachun_raven pos=(1.0396907763392393, -57.1342792406623, -13.437901961152658) hp=20.0
+END_ACTOR karachun repeat=2 type=slavicmyths:karachun_raven pos=(-0.5470561825717994, -58.12449609826898, -9.286472291789549) hp=20.0
+END_ACTOR karachun repeat=2 type=slavicmyths:karachun_raven pos=(0.5416527510427586, -55.2326515647002, -3.8610922172300284) hp=20.0
+END_ACTOR karachun repeat=2 type=slavicmyths:karachun_raven pos=(2.5235914668980546, -56.448670867042495, -5.884769815716039) hp=20.0
+SPAWN morozko repeat=0 id=slavicmyths:morozko added=true
+SCENE morozko repeat=0 time=1792046197313 entities=2
+END_ACTOR morozko repeat=0 type=slavicmyths:morozko pos=(-3.681090606702596, -60.0, 2.5138697299839468) hp=1260.0
+SPAWN morozko repeat=1 id=slavicmyths:morozko added=true
+SCENE morozko repeat=1 time=1792046212310 entities=2
+END_ACTOR morozko repeat=1 type=slavicmyths:morozko pos=(-3.681090606702596, -60.0, 2.5138697299839468) hp=700.0
+SPAWN morozko repeat=2 id=slavicmyths:morozko added=true
+SCENE morozko repeat=2 time=1792046227311 entities=2
+END_ACTOR morozko repeat=2 type=slavicmyths:morozko pos=(-5.860091428577974, -60.0, 3.6466893097085715) hp=280.0
+SCENE post_cleanup repeat=0 time=1792046242309 entities=1
+SCENE post_cleanup repeat=1 time=1792046257308 entities=1
+SCENE post_cleanup repeat=2 time=1792046272309 entities=1
+COMPLETE

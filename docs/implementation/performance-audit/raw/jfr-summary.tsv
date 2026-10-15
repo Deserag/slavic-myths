@@ -1,0 +1,285 @@
+events	812013
+duration_seconds	366.208
+gc_count	88
+gc_sum_pause_ms	469.8071
+gc_max_pause_ms	68.6479
+
+Execution samples by thread	value
+Render thread	7438
+Server thread	862
+Sound engine	51
+Worker-Main-4	46
+Worker-Main-9	46
+Worker-Main-2	42
+Worker-Main-5	38
+Worker-Main-6	33
+Worker-Main-10	29
+Worker-Main-1	29
+Netty Server IO #1	29
+Worker-Main-11	28
+Worker-Main-8	28
+Worker-Main-7	28
+Worker-Main-3	27
+Netty Local Client IO #0	21
+config-file-watcher-0-0	8
+Download-3	4
+IO-Worker-2	4
+JEI Config File Watcher	3
+Download-5	3
+IO-Worker-3	3
+JFR Periodic Tasks	3
+Download-6	2
+Download-1	2
+IO-Worker-4	2
+Download-4	2
+IO-Worker-1	1
+
+Top leaf CPU samples (not calls or milliseconds)	value
+Render thread | com.mojang.blaze3d.vertex.BufferBuilder.addVertex	3311
+Render thread | it.unimi.dsi.fastutil.ints.IntArrays.mergeSort	718
+Render thread | net.minecraft.world.level.LevelReader.getNoiseBiome	236
+Render thread | net.minecraft.world.level.chunk.SingleValuePalette.valueFor	230
+Render thread | org.joml.Matrix4f.rotate	204
+Render thread | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	179
+Render thread | net.minecraft.world.level.chunk.ImposterProtoChunk.getNoiseBiome	170
+Render thread | java.lang.Math.floorMod	156
+Render thread | net.minecraft.client.renderer.FogRenderer$$Lambda+0x000002a94a71c6a8.1730121290.fetch	156
+Render thread | it.unimi.dsi.fastutil.ints.IntArrays.insertionSort	154
+Render thread | java.util.Arrays.copyOf	151
+Server thread | it.unimi.dsi.fastutil.longs.LongOpenHashSet.contains	114
+Render thread | net.minecraft.client.model.geom.ModelPart.render	83
+Render thread | net.minecraft.client.model.geom.ModelPart.compile	73
+Render thread | net.minecraft.client.renderer.LevelRenderer.renderLevel	73
+Render thread | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2	66
+Render thread | net.minecraft.client.renderer.LevelRenderer.compileSections	64
+Server thread | net.minecraft.server.level.DistanceManager.purgeStaleTickets	58
+Server thread | it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap.get	52
+Render thread | com.mojang.blaze3d.vertex.PoseStack$Pose.transformNormal	43
+Render thread | java.lang.Float.compare	41
+Render thread | java.util.Objects.equals	35
+Render thread | net.minecraft.client.multiplayer.ClientLevel.doAnimateTick	33
+Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap.get	33
+Render thread | java.util.HashMap.getNode	33
+Server thread | net.minecraft.world.level.chunk.LevelChunkSection.isRandomlyTickingFluids	30
+Render thread | net.minecraft.client.renderer.chunk.SectionRenderDispatcher$RenderSection.getCompiled	30
+Render thread | java.util.HashMap.putVal	30
+Render thread | com.mojang.blaze3d.vertex.MeshData$SortState.buildSortedIndexBuffer	29
+Render thread | net.neoforged.bus.EventBus.post	27
+Render thread | java.util.HashMap.get	27
+Render thread | org.joml.Matrix4f.rotateAffine	26
+Render thread | java.lang.String.equals	24
+Sound engine | com.jcraft.jorbis.Mdct.mdct_kernel	22
+Render thread | org.joml.Matrix3f.rotate	21
+Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.insert	20
+Server thread | com.google.common.collect.Iterators$1.hasNext	20
+Render thread | it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.get	19
+Render thread | net.minecraft.client.renderer.culling.Frustum.cubeInFrustum	18
+Render thread | java.util.HashMap.containsKey	17
+Render thread | java.util.IdentityHashMap.get	17
+Render thread | net.minecraft.world.level.LevelReader.getChunk	16
+Render thread | java.lang.invoke.LambdaForm$DMH+0x000002a949003000.598446861.invokeStatic	16
+Render thread | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData	16
+Server thread | net.minecraft.world.level.chunk.SingleValuePalette.valueFor	15
+Render thread | net.minecraft.client.renderer.entity.LivingEntityRenderer.render	15
+Server thread | net.minecraft.util.SortedArraySet.remove	15
+Render thread | net.minecraft.client.model.geom.ModelPart.getAllParts	14
+Render thread | net.minecraft.world.phys.Vec3.multiply	14
+Server thread | net.minecraft.server.level.ChunkHolder.broadcastChanges	13
+
+Inclusive mod samples (overlapping, includes startup/transitions)	value
+great_poloz/1 | Render thread | org.slavicmyths.client.PolozRenderer.render	336
+great_poloz/0 | Render thread | org.slavicmyths.client.PolozRenderer.render	328
+great_poloz/2 | Render thread | org.slavicmyths.client.PolozRenderer.render	324
+gorynych/1 | Render thread | org.slavicmyths.client.GorynychRenderer.render	274
+gorynych/2 | Render thread | org.slavicmyths.client.GorynychRenderer.render	273
+gorynych/0 | Render thread | org.slavicmyths.client.GorynychRenderer.render	263
+gorynych/2 | Render thread | org.slavicmyths.client.GorynychModel.renderToBuffer	252
+gorynych/0 | Render thread | org.slavicmyths.client.GorynychModel.renderToBuffer	250
+karachun/2 | Render thread | org.slavicmyths.client.KarachunModel.renderToBuffer	236
+morozko/2 | Render thread | org.slavicmyths.client.MorozkoModel.renderToBuffer	228
+morozko/1 | Render thread | org.slavicmyths.client.MorozkoModel.renderToBuffer	225
+morozko/0 | Render thread | org.slavicmyths.client.MorozkoModel.renderToBuffer	224
+gorynych/1 | Render thread | org.slavicmyths.client.GorynychModel.renderToBuffer	224
+karachun/0 | Render thread | org.slavicmyths.client.KarachunModel.renderToBuffer	224
+karachun/1 | Render thread | org.slavicmyths.client.KarachunModel.renderToBuffer	220
+mod_32/1 | Render thread | org.slavicmyths.client.HuntRenderer.render	158
+mod_32/2 | Render thread | org.slavicmyths.client.HuntRenderer.render	155
+mod_32/1 | Render thread | org.slavicmyths.client.HuntModel.renderToBuffer	147
+mod_32/2 | Render thread | org.slavicmyths.client.HuntModel.renderToBuffer	146
+mod_32/0 | Render thread | org.slavicmyths.client.HuntRenderer.render	145
+mod_32/0 | Render thread | org.slavicmyths.client.HuntModel.renderToBuffer	138
+karachun/2 | Render thread | org.slavicmyths.client.KarachunRenderer$1.render	118
+karachun/1 | Render thread | org.slavicmyths.client.KarachunRenderer$1.render	116
+gorynych/2 | Render thread | org.slavicmyths.client.GorynychRenderer$1.render	115
+morozko/2 | Render thread | org.slavicmyths.client.MorozkoRenderer$Glow.render	112
+gorynych/0 | Render thread | org.slavicmyths.client.GorynychRenderer$1.render	111
+karachun/0 | Render thread | org.slavicmyths.client.KarachunRenderer$1.render	111
+morozko/0 | Render thread | org.slavicmyths.client.MorozkoRenderer$Glow.render	111
+gorynych/1 | Render thread | org.slavicmyths.client.GorynychRenderer$1.render	102
+gorynych/1 | Render thread | org.slavicmyths.client.GorynychClient$Effects.render	96
+morozko/1 | Render thread | org.slavicmyths.client.MorozkoRenderer$Glow.render	93
+gorynych/2 | Render thread | org.slavicmyths.client.GorynychClient$Effects.render	91
+gorynych/0 | Render thread | org.slavicmyths.client.GorynychClient$Effects.render	88
+karachun/2 | Render thread | org.slavicmyths.client.NightRavenRenderer$Model.renderToBuffer	60
+karachun/1 | Render thread | org.slavicmyths.client.NightRavenRenderer$Model.renderToBuffer	58
+karachun/0 | Render thread | org.slavicmyths.client.NightRavenRenderer$Model.renderToBuffer	54
+startup | Render thread | org.slavicmyths.audit.PerformanceProbe.client	35
+karachun/2 | Render thread | org.slavicmyths.client.NightRavenRenderer$1.render	31
+karachun/1 | Render thread | org.slavicmyths.client.NightRavenRenderer$1.render	27
+karachun/0 | Render thread | org.slavicmyths.client.NightRavenRenderer$1.render	24
+morozko/2 | Render thread | org.slavicmyths.client.FrostGeometryRenderer.render	23
+mod_32/0 | Server thread | org.slavicmyths.hunt.HuntMob.tick	19
+mod_32/0 | Server thread | org.slavicmyths.entity.LandSpiritEntity.aiStep	19
+morozko/1 | Render thread | org.slavicmyths.client.FrostGeometryRenderer.render	17
+mod_32/1 | Server thread | org.slavicmyths.hunt.HuntMob.tick	15
+mod_32/1 | Server thread | org.slavicmyths.entity.LandSpiritEntity.aiStep	13
+morozko/0 | Render thread | org.slavicmyths.client.FrostGeometryRenderer.render	13
+gorynych/1 | Render thread | org.slavicmyths.client.GorynychModel.setupAnim	12
+gorynych/2 | Render thread | org.slavicmyths.client.GorynychModel.setupAnim	12
+great_poloz/0 | Server thread | org.slavicmyths.poloz.GreatPoloz.aiStep	10
+morozko/0 | Render thread | org.slavicmyths.client.MorozkoModel.setupAnim	10
+mod_32/2 | Server thread | org.slavicmyths.hunt.HuntMob.tick	9
+mod_32/2 | Server thread | org.slavicmyths.entity.LandSpiritEntity.aiStep	9
+mod_32/1 | Render thread | org.slavicmyths.client.HuntRenderer$1.render	9
+gorynych/0 | Render thread | org.slavicmyths.client.GorynychModel.setupAnim	8
+karachun/0 | Render thread | org.slavicmyths.client.NightRavenRenderer$Model.setupAnim	7
+gorynych/1 | Server thread | org.slavicmyths.gorynych.Gorynych.tick	6
+karachun/0 | Render thread | org.slavicmyths.client.NightBladeRenderer.render	6
+gorynych/0 | Server thread | org.slavicmyths.gorynych.Gorynych.tick	6
+morozko/2 | Render thread | org.slavicmyths.client.MorozkoModel.setupAnim	6
+mod_32/2 | Render thread | org.slavicmyths.client.HuntRenderer$1.render	5
+great_poloz/1 | Server thread | org.slavicmyths.poloz.GreatPoloz.aiStep	5
+great_poloz/2 | Render thread | org.slavicmyths.client.RareRuneClient.render	5
+vanilla_32/0 | Render thread | org.slavicmyths.client.EarthCamera.camera	5
+karachun/1 | Render thread | org.slavicmyths.client.KarachunModel.setupAnim	5
+gorynych/0 | Render thread | org.slavicmyths.client.GuardianClient.cube	4
+morozko/1 | Render thread | org.slavicmyths.client.MorozkoModel.setupAnim	4
+mod_32/0 | Server thread | org.slavicmyths.hunt.HuntMob$Fight.tick	4
+mod_32/1 | Render thread | org.slavicmyths.hunt.HuntMob.tick	4
+vanilla_32/0 | Render thread | org.slavicmyths.rpg.RareRunes.equipped	4
+great_poloz/1 | Server thread | org.slavicmyths.poloz.PolozWorldImpact.tick	4
+mod_32/2 | Server thread | org.slavicmyths.hunt.HuntMob$Fight.tick	4
+morozko/1 | Render thread | org.slavicmyths.client.RareRuneClient.render	4
+morozko/1 | Server thread | org.slavicmyths.morozko.Morozko.tick	4
+vanilla_32/0 | Render thread | org.slavicmyths.client.RareRuneClient.render	4
+karachun/0 | Render thread | org.slavicmyths.client.KarachunModel.setupAnim	4
+karachun/1 | Server thread | org.slavicmyths.karachun.Karachun.tick	4
+karachun/2 | Server thread | org.slavicmyths.karachun.Karachun.tick	4
+mod_32/0 | Render thread | org.slavicmyths.client.HuntRenderer$1.render	4
+mod_32/1 | Server thread | org.slavicmyths.hunt.HuntMob$Fight.tick	4
+morozko/1 | Render thread | org.slavicmyths.rpg.RareRunes.active	3
+vanilla_32/0 | Render thread | org.slavicmyths.rpg.RareRunes$$Lambda+0x000002a94a7fe440.278853255.test	3
+great_poloz/2 | Render thread | org.slavicmyths.poloz.GreatPoloz.action	3
+idle/1 | Render thread | org.slavicmyths.client.RareRuneClient.render	3
+vanilla_32/0 | Render thread | org.slavicmyths.rpg.RareRunes.lambda$active$2	3
+gorynych/1 | Render thread | org.slavicmyths.client.GuardianClient.cube	3
+morozko/1 | Render thread | org.slavicmyths.rpg.RareRunes.equipped	3
+morozko/2 | Server thread | org.slavicmyths.morozko.Morozko.tick	3
+gorynych/2 | Render thread | org.slavicmyths.client.GuardianClient.cube	3
+great_poloz/0 | Server thread | org.slavicmyths.poloz.PolozWorldImpact.sample	3
+great_poloz/2 | Render thread | org.slavicmyths.rpg.Runes.has	3
+gorynych/2 | Server thread | org.slavicmyths.gorynych.Gorynych.tick	3
+karachun/2 | Render thread | org.slavicmyths.client.NightRavenRenderer$Model.setupAnim	3
+great_poloz/2 | Render thread | org.slavicmyths.rpg.RareRunes.equipped	3
+great_poloz/2 | Render thread | org.slavicmyths.item.ItemState.runes	3
+great_poloz/2 | Server thread | org.slavicmyths.poloz.GreatPoloz.aiStep	3
+great_poloz/1 | Render thread | org.slavicmyths.client.RareRuneClient.render	3
+karachun/0 | Render thread | org.slavicmyths.karachun.NightContent.id	3
+morozko/0 | Render thread | org.slavicmyths.client.RareRuneClient.render	3
+great_poloz/2 | Render thread | org.slavicmyths.rpg.RareRuneRuntime.tier	3
+
+Estimated allocation weights by class (bytes, not retained heap)	value
+net.minecraft.world.phys.Vec3	22373668728
+[B	11405387304
+java.lang.String	8978958360
+org.joml.Vector3f	8880142952
+org.joml.Matrix4f	8751193496
+net.minecraft.core.SectionPos	5401601904
+org.joml.Matrix3f	4956008336
+[I	4213380024
+[F	3284759752
+com.mojang.blaze3d.vertex.PoseStack$Pose	2226068224
+java.util.ArrayList$Itr	2045746000
+org.joml.Quaternionf	1980208504
+[Ljava.lang.Object;	1648159736
+[Lorg.joml.Vector3f;	1085081192
+java.util.LinkedHashMap$LinkedValueIterator	976067904
+java.util.stream.ReferencePipeline$Head	962197984
+com.mojang.blaze3d.vertex.ByteBufferBuilder$Result	934922424
+com.mojang.blaze3d.vertex.MeshData$DrawState	845908504
+it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap$ValuesCollection$1	780112864
+net.minecraft.core.BlockPos	740424768
+com.mojang.blaze3d.vertex.MeshData	676331960
+net.minecraft.tags.TagManager$LoadResult	624826592
+com.google.common.collect.Iterators$9	591343440
+com.google.common.collect.Iterators$ArrayItr	459902800
+com.mojang.blaze3d.vertex.BufferBuilder	400724216
+net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Pre	341177960
+java.nio.DirectByteBuffer	315924776
+net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Post	280552944
+java.util.concurrent.ForkJoinTask$RunnableExecuteAction	261133504
+java.util.stream.StreamSpliterators$WrappingSpliterator	254006016
+
+Estimated allocation weights by leaf site	value
+com.mojang.blaze3d.vertex.PoseStack$Pose.<init>	12183546456
+net.minecraft.world.phys.Vec3.add	11271501416
+jdk.internal.misc.Unsafe.allocateUninitializedArray	9652655128
+java.lang.StringConcatHelper.newString	8863563264
+com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	7833842624
+net.minecraft.world.phys.Vec3.fromRGB24	6918986816
+net.minecraft.core.SectionPos.of	5401601904
+net.minecraft.world.phys.Vec3.multiply	3745838064
+net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData	2539209600
+com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2	2258549768
+com.mojang.blaze3d.vertex.PoseStack.pushPose	2112692656
+net.minecraft.client.model.geom.ModelPart$Cube.compile	2046866640
+java.util.ArrayList.iterator	2045746000
+com.mojang.blaze3d.vertex.BufferBuilder.storeMesh	1522240464
+net.minecraft.client.model.geom.ModelPart.translateAndRotate	1472639264
+net.minecraft.tags.TagManager.lambda$createLoader$3	1389793048
+java.lang.invoke.DirectMethodHandle.allocateInstance	1318493904
+java.util.Arrays.copyOf	1268619504
+jdk.internal.org.objectweb.asm.ByteVector.<init>	1152511064
+org.slavicmyths.client.GuardianClient.cube	1113019400
+java.util.LinkedHashMap$LinkedValues.iterator	976067904
+java.util.stream.StreamSupport.stream	962197984
+com.mojang.blaze3d.vertex.ByteBufferBuilder.build	934922424
+it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap$ValuesCollection.iterator	780112864
+com.mojang.blaze3d.vertex.PoseStack.lambda$new$0	748169216
+net.neoforged.neoforge.client.gui.GuiLayerManager.renderInner	621730904
+com.google.common.collect.Iterators.singletonIterator	591343440
+com.google.common.collect.Iterators.forArray	459902800
+com.mojang.blaze3d.systems.RenderSystem.applyModelViewMatrix	422111432
+net.minecraft.core.BlockPos.relative	420733304
+
+Estimated allocation by first mod frame (includes audit instrumentation)	value
+org.slavicmyths.client.HuntModel.renderToBuffer	7099872472
+org.slavicmyths.client.PolozRenderer.render	6767896328
+org.slavicmyths.client.GorynychClient$Effects.render	2055331296
+org.slavicmyths.client.MorozkoModel.renderToBuffer	1354964976
+org.slavicmyths.audit.PerformanceProbe.init	1146224656
+org.slavicmyths.client.GuardianClient.cube	1113019400
+org.slavicmyths.client.HuntRenderer.render	1084945008
+org.slavicmyths.client.KarachunModel.renderToBuffer	1002338720
+org.slavicmyths.client.MorozkoModel.setupAnim	767356248
+org.slavicmyths.client.GorynychModel.renderToBuffer	758616048
+org.slavicmyths.client.GorynychModel.setupAnim	729179112
+org.slavicmyths.client.HuntModel.glow	650874008
+org.slavicmyths.audit.PerformanceProbe.client	576965664
+org.slavicmyths.client.HuntRenderer$1.render	551591560
+org.slavicmyths.client.NightRavenRenderer$Model.renderToBuffer	525553448
+org.slavicmyths.client.FrostGeometryRenderer.render	419007912
+org.slavicmyths.client.KarachunModel.setupAnim	413972328
+org.slavicmyths.item.ItemState.runes	284076640
+org.slavicmyths.client.NightRavenRenderer$Model.setupAnim	271900056
+org.slavicmyths.client.GorynychRenderer.render	185186568
+org.slavicmyths.client.EarthCamera.camera	157015000
+org.slavicmyths.entity.LandSpiritEntity.aiStep	148151640
+org.slavicmyths.client.PolozRenderer.at	142125856
+org.slavicmyths.item.ItemState.legacy	134952000
+org.slavicmyths.client.HeroHud.render	132003816
+org.slavicmyths.client.NightClient.hud	123895984
+org.slavicmyths.furniture.FurnitureBlock.lambda$getShape$2	116325912
+org.slavicmyths.rpg.RareRunes.active	112915424
+org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	83195472
+org.slavicmyths.hunt.HuntRules$Move.values	68606504

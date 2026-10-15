@@ -1,0 +1,866 @@
+[
+  {
+    "scene": "idle",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 3.1304415,
+      "p95": 5.1987,
+      "p99": 6.7094,
+      "max": 10.1917
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9870275,
+      "p95": 51.9236,
+      "p99": 54.0157,
+      "max": 64.951
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 12004,
+      "mean": 0.8286515828057314,
+      "p95": 2.1706,
+      "p99": 3.4553,
+      "max": 11.6568
+    },
+    "fps": 1206.7798104169426,
+    "heap_min": 481256368,
+    "heap_max": 1752170496,
+    "entities_min": 1,
+    "entities_max": 1,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 1,
+    "gc_ms_delta": 2
+  },
+  {
+    "scene": "idle",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.923368,
+      "p95": 2.6487,
+      "p99": 3.4941,
+      "max": 4.2992
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.0082795,
+      "p95": 51.7284,
+      "p99": 52.3784,
+      "max": 52.8067
+    },
+    "tps_observed": 19.996688748310167,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 17533,
+      "mean": 0.5675664860548679,
+      "p95": 1.1735,
+      "p99": 2.7218,
+      "max": 10.9938
+    },
+    "fps": 1761.9081192601068,
+    "heap_min": 476213280,
+    "heap_max": 1753180144,
+    "entities_min": 1,
+    "entities_max": 1,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 4,
+    "gc_ms_delta": 14
+  },
+  {
+    "scene": "idle",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.7695235,
+      "p95": 2.5193,
+      "p99": 2.9115,
+      "max": 3.1056
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.992871,
+      "p95": 51.7542,
+      "p99": 52.2576,
+      "max": 53.2638
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 16296,
+      "mean": 0.6105110579283259,
+      "p95": 1.3837,
+      "p99": 2.7429,
+      "max": 6.2919
+    },
+    "fps": 1637.971969571434,
+    "heap_min": 468354920,
+    "heap_max": 1746768104,
+    "entities_min": 1,
+    "entities_max": 1,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 1,
+    "gc_ms_delta": 2
+  },
+  {
+    "scene": "vanilla_32",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 4.736194,
+      "p95": 7.0184,
+      "p99": 20.1583,
+      "max": 37.0394
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.996104,
+      "p95": 52.5478,
+      "p99": 62.4981,
+      "max": 83.3546
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 8132,
+      "mean": 1.223876180521397,
+      "p95": 2.3803,
+      "p99": 3.4311,
+      "max": 18.5125
+    },
+    "fps": 817.07611923126,
+    "heap_min": 473743712,
+    "heap_max": 1748804328,
+    "entities_min": 33,
+    "entities_max": 33,
+    "chunks_min": 1849,
+    "chunks_max": 1892,
+    "gc_count_delta": 4,
+    "gc_ms_delta": 17
+  },
+  {
+    "scene": "vanilla_32",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 2.8729495,
+      "p95": 4.0198,
+      "p99": 4.6121,
+      "max": 7.4033
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.0027625,
+      "p95": 51.5795,
+      "p99": 52.2524,
+      "max": 54.2529
+    },
+    "tps_observed": 19.998895061047875,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 10293,
+      "mean": 0.966891023025357,
+      "p95": 1.703,
+      "p99": 2.8317,
+      "max": 10.2496
+    },
+    "fps": 1034.2427183479754,
+    "heap_min": 469524040,
+    "heap_max": 1745671688,
+    "entities_min": 33,
+    "entities_max": 33,
+    "chunks_min": 1849,
+    "chunks_max": 1892,
+    "gc_count_delta": 5,
+    "gc_ms_delta": 18
+  },
+  {
+    "scene": "vanilla_32",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 2.406999,
+      "p95": 3.1612,
+      "p99": 3.4162,
+      "max": 3.5106
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.0041065,
+      "p95": 51.6797,
+      "p99": 52.3463,
+      "max": 52.4739
+    },
+    "tps_observed": 19.99835753489566,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 10558,
+      "mean": 0.9426498010986929,
+      "p95": 1.6227,
+      "p99": 2.7081,
+      "max": 7.4094
+    },
+    "fps": 1060.8393475864136,
+    "heap_min": 466385752,
+    "heap_max": 1746061864,
+    "entities_min": 33,
+    "entities_max": 33,
+    "chunks_min": 1849,
+    "chunks_max": 1892,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 5
+  },
+  {
+    "scene": "mod_32",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 3.270334,
+      "p95": 5.01,
+      "p99": 6.8303,
+      "max": 7.5595
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9888975,
+      "p95": 52.3507,
+      "p99": 53.2408,
+      "max": 55.3044
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 5079,
+      "mean": 1.9588416420555228,
+      "p95": 2.9884,
+      "p99": 3.6152,
+      "max": 6.7433
+    },
+    "fps": 510.5057900191685,
+    "heap_min": 466559648,
+    "heap_max": 1739036224,
+    "entities_min": 33,
+    "entities_max": 33,
+    "chunks_min": 1849,
+    "chunks_max": 1892,
+    "gc_count_delta": 3,
+    "gc_ms_delta": 9
+  },
+  {
+    "scene": "mod_32",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 3.169086,
+      "p95": 4.9912,
+      "p99": 5.9616,
+      "max": 6.5189
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.0050135,
+      "p95": 52.4822,
+      "p99": 52.9403,
+      "max": 53.6384
+    },
+    "tps_observed": 19.9979948010613,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 6282,
+      "mean": 1.5841982012098057,
+      "p95": 2.4515,
+      "p99": 3.1408,
+      "max": 5.8691
+    },
+    "fps": 631.2341468613771,
+    "heap_min": 468727608,
+    "heap_max": 1744403024,
+    "entities_min": 33,
+    "entities_max": 33,
+    "chunks_min": 1849,
+    "chunks_max": 1892,
+    "gc_count_delta": 3,
+    "gc_ms_delta": 9
+  },
+  {
+    "scene": "mod_32",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 2.879542,
+      "p95": 4.2606,
+      "p99": 4.6912,
+      "max": 4.8013
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.998779,
+      "p95": 51.8799,
+      "p99": 53.0276,
+      "max": 53.3295
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 5396,
+      "mean": 1.8442892883617494,
+      "p95": 2.9301,
+      "p99": 4.08,
+      "max": 7.1987
+    },
+    "fps": 542.2142861808209,
+    "heap_min": 472313744,
+    "heap_max": 1740026240,
+    "entities_min": 33,
+    "entities_max": 33,
+    "chunks_min": 1849,
+    "chunks_max": 1892,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 5
+  },
+  {
+    "scene": "gorynych",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.8740245,
+      "p95": 2.4464,
+      "p99": 2.6018,
+      "max": 3.1833
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.004841,
+      "p95": 51.3921,
+      "p99": 51.662,
+      "max": 52.8079
+    },
+    "tps_observed": 19.998063787464098,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 8439,
+      "mean": 1.1791075482877118,
+      "p95": 2.1875,
+      "p99": 3.1886,
+      "max": 7.6924
+    },
+    "fps": 848.0990571658964,
+    "heap_min": 467616824,
+    "heap_max": 1747507480,
+    "entities_min": 3,
+    "entities_max": 4,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 5
+  },
+  {
+    "scene": "gorynych",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.7431655,
+      "p95": 2.3398,
+      "p99": 2.5909,
+      "max": 2.7317
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.997987,
+      "p95": 51.2456,
+      "p99": 51.7339,
+      "max": 52.0549
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 10421,
+      "mean": 0.9550104212647539,
+      "p95": 1.6719,
+      "p99": 3.1565,
+      "max": 8.3469
+    },
+    "fps": 1047.1089924606947,
+    "heap_min": 465186088,
+    "heap_max": 1748891800,
+    "entities_min": 3,
+    "entities_max": 4,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 3
+  },
+  {
+    "scene": "gorynych",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.915746,
+      "p95": 2.5917,
+      "p99": 2.8463,
+      "max": 3.3663
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.99422,
+      "p95": 51.5209,
+      "p99": 51.9493,
+      "max": 52.069
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 10251,
+      "mean": 0.9706276558384548,
+      "p95": 1.7734,
+      "p99": 2.4105,
+      "max": 6.8846
+    },
+    "fps": 1030.2611861354524,
+    "heap_min": 465275528,
+    "heap_max": 1739342360,
+    "entities_min": 2,
+    "entities_max": 4,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 3,
+    "gc_ms_delta": 5
+  },
+  {
+    "scene": "great_poloz",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.7833955,
+      "p95": 2.613,
+      "p99": 3.076,
+      "max": 3.2195
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.002316,
+      "p95": 51.4837,
+      "p99": 52.0928,
+      "max": 52.4244
+    },
+    "tps_observed": 19.99907364290886,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 11233,
+      "mean": 0.8858149381287278,
+      "p95": 1.5052,
+      "p99": 2.387,
+      "max": 7.2935
+    },
+    "fps": 1128.903969617499,
+    "heap_min": 473909424,
+    "heap_max": 1748370336,
+    "entities_min": 2,
+    "entities_max": 2,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 4
+  },
+  {
+    "scene": "great_poloz",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.5286025,
+      "p95": 1.9972,
+      "p99": 2.5397,
+      "max": 3.2962
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.0049735,
+      "p95": 51.5353,
+      "p99": 51.9809,
+      "max": 52.2822
+    },
+    "tps_observed": 19.998010797865938,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 11562,
+      "mean": 0.8606758432797094,
+      "p95": 1.3776,
+      "p99": 2.1666,
+      "max": 3.813
+    },
+    "fps": 1161.8776195569508,
+    "heap_min": 475782840,
+    "heap_max": 1744935752,
+    "entities_min": 2,
+    "entities_max": 2,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 3,
+    "gc_ms_delta": 6
+  },
+  {
+    "scene": "great_poloz",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.720802,
+      "p95": 2.3729,
+      "p99": 2.8139,
+      "max": 3.1525
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9984745,
+      "p95": 51.4667,
+      "p99": 52.4214,
+      "max": 52.8586
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 10993,
+      "mean": 0.9052144910397526,
+      "p95": 1.5114,
+      "p99": 2.0652,
+      "max": 4.1794
+    },
+    "fps": 1104.7105519172305,
+    "heap_min": 470037168,
+    "heap_max": 1745973640,
+    "entities_min": 2,
+    "entities_max": 2,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 3,
+    "gc_ms_delta": 5
+  },
+  {
+    "scene": "karachun",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 2.152559,
+      "p95": 2.9124,
+      "p99": 3.8369,
+      "max": 3.9984
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.988168,
+      "p95": 51.6631,
+      "p99": 52.1055,
+      "max": 53.03
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 6985,
+      "mean": 1.424263135289907,
+      "p95": 2.4342,
+      "p99": 3.2514,
+      "max": 6.3135
+    },
+    "fps": 702.1174495234346,
+    "heap_min": 468553880,
+    "heap_max": 1744984736,
+    "entities_min": 6,
+    "entities_max": 7,
+    "chunks_min": 1849,
+    "chunks_max": 1892,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 4
+  },
+  {
+    "scene": "karachun",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.6770845,
+      "p95": 2.2767,
+      "p99": 2.5993,
+      "max": 3.7675
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.998357,
+      "p95": 51.383,
+      "p99": 51.8137,
+      "max": 52.2657
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 8167,
+      "mean": 1.218042304395739,
+      "p95": 1.968,
+      "p99": 2.9049,
+      "max": 4.3282
+    },
+    "fps": 820.9895472358754,
+    "heap_min": 467969896,
+    "heap_max": 1749053168,
+    "entities_min": 6,
+    "entities_max": 7,
+    "chunks_min": 1849,
+    "chunks_max": 1892,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 4
+  },
+  {
+    "scene": "karachun",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.5623305,
+      "p95": 2.0151,
+      "p99": 2.3273,
+      "max": 2.9902
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.003194,
+      "p95": 51.3419,
+      "p99": 51.7702,
+      "max": 51.8324
+    },
+    "tps_observed": 19.998722481607874,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 7350,
+      "mean": 1.353948544217687,
+      "p95": 2.143,
+      "p99": 2.9296,
+      "max": 4.9618
+    },
+    "fps": 738.5805053454236,
+    "heap_min": 468996376,
+    "heap_max": 1743900360,
+    "entities_min": 6,
+    "entities_max": 7,
+    "chunks_min": 1849,
+    "chunks_max": 1892,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 4
+  },
+  {
+    "scene": "morozko",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.572644,
+      "p95": 2.1004,
+      "p99": 2.504,
+      "max": 3.0163
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.993438,
+      "p95": 51.4336,
+      "p99": 52.0051,
+      "max": 52.2179
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 12487,
+      "mean": 0.7967826059101466,
+      "p95": 1.3928,
+      "p99": 1.9273,
+      "max": 3.6414
+    },
+    "fps": 1255.0474779224414,
+    "heap_min": 472060280,
+    "heap_max": 1749213104,
+    "entities_min": 2,
+    "entities_max": 6,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 3
+  },
+  {
+    "scene": "morozko",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.848661,
+      "p95": 2.0637,
+      "p99": 2.6198,
+      "max": 48.6895
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.006656,
+      "p95": 51.4746,
+      "p99": 52.0123,
+      "max": 96.2472
+    },
+    "tps_observed": 19.997337954371513,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 13342,
+      "mean": 0.7458309773647129,
+      "p95": 1.2785,
+      "p99": 1.9184,
+      "max": 4.1111
+    },
+    "fps": 1340.7863582354234,
+    "heap_min": 470979160,
+    "heap_max": 1751129680,
+    "entities_min": 2,
+    "entities_max": 6,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 3,
+    "gc_ms_delta": 5
+  },
+  {
+    "scene": "morozko",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.452825,
+      "p95": 1.9058,
+      "p99": 2.3926,
+      "max": 3.4495
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9947775,
+      "p95": 51.2655,
+      "p99": 51.579,
+      "max": 51.69
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 12851,
+      "mean": 0.77423591160221,
+      "p95": 1.2803,
+      "p99": 2.3039,
+      "max": 4.3499
+    },
+    "fps": 1291.5959916281745,
+    "heap_min": 468061016,
+    "heap_max": 1741842648,
+    "entities_min": 2,
+    "entities_max": 6,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 4
+  },
+  {
+    "scene": "post_cleanup",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.081777,
+      "p95": 1.3823,
+      "p99": 2.0052,
+      "max": 3.4303
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.996557,
+      "p95": 51.6963,
+      "p99": 52.1582,
+      "max": 52.318
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 20734,
+      "mean": 0.47991002700877783,
+      "p95": 0.8813,
+      "p99": 2.2741,
+      "max": 6.7368
+    },
+    "fps": 2083.7239143196925,
+    "heap_min": 467962808,
+    "heap_max": 1746170888,
+    "entities_min": 1,
+    "entities_max": 1,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 3,
+    "gc_ms_delta": 6
+  },
+  {
+    "scene": "post_cleanup",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.3762295,
+      "p95": 1.9845,
+      "p99": 2.0943,
+      "max": 2.2901
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.993937,
+      "p95": 51.7229,
+      "p99": 52.2392,
+      "max": 54.8738
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 17910,
+      "mean": 0.555499441652708,
+      "p95": 1.1742,
+      "p99": 2.4414,
+      "max": 6.5733
+    },
+    "fps": 1800.1818274107081,
+    "heap_min": 475196152,
+    "heap_max": 1752389216,
+    "entities_min": 1,
+    "entities_max": 1,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 1,
+    "gc_ms_delta": 2
+  },
+  {
+    "scene": "post_cleanup",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 1.259797,
+      "p95": 1.7199,
+      "p99": 2.0791,
+      "max": 2.326
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.99893,
+      "p95": 51.4554,
+      "p99": 52.0726,
+      "max": 52.471
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 21164,
+      "mean": 0.47014757607257607,
+      "p95": 0.8973,
+      "p99": 2.0293,
+      "max": 11.6183
+    },
+    "fps": 2126.9917168426095,
+    "heap_min": 468028768,
+    "heap_max": 1751472552,
+    "entities_min": 1,
+    "entities_max": 1,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 4
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "production_commit": "fb2994e958911169317523e1066b8a1ca7a155af",
+  "files": [
+    {
+      "path": "tools/performance-audit/java/PerformanceProbe.java",
+      "sha256": "10360c7580076daf0fb87cf23ee3abe8e20bbd943e0275c3e71e4cd96b9fb794",
+      "bytes": 16100
+    },
+    {
+      "path": "tools/performance-audit/init.gradle",
+      "sha256": "8296e1a2fe1e2fb32996dc638c929219ca2ba49ae00bc41937e94be7a01d622a",
+      "bytes": 1158
+    },
+    {
+      "path": "tools/performance-audit/run.ps1",
+      "sha256": "b3adf6d12632b8d2f7944458a176d6373e93cbee0261a2b57dba48ee34cfe823",
+      "bytes": 1499
+    },
+    {
+      "path": "build/classes/java/performanceAudit/org/slavicmyths/audit/PerformanceProbe.class",
+      "sha256": "b4d949922e5ca8056e3afaa740f2419469fd8b598ae4bfe73b4bcf1662523687",
+      "bytes": 32314
+    },
+    {
+      "path": "build/libs/slavicmyths-1.9.7.5.jar",
+      "sha256": "77b79947b0c0df4ae2157410d7fa25c5ec225ecc9700fd603b04d3bf4cda887f",
+      "bytes": 19696852
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :clean UP-TO-DATE
+
+> Task :createMinecraftArtifacts
+Loaded 145 artifacts from <AUDIT_ROOT>\build\tmp\createMinecraftArtifacts\nfrt_artifact_manifest.properties
+*** Started working on downloadJson
+ DONE  Completed downloadJson in 0.03s
+*** Started working on downloadClientMappings
+*** Started working on downloadClient
+*** Started working on downloadServer
+ DONE  Completed downloadClient in 0.03s
+ DONE  Completed downloadClientMappings in 0.03s
+ DONE  Completed downloadServer in 0.03s
+*** Started working on stripClient
+*** Started working on mergeMappings
+ REUSE Used cache of stripClient in 0.00s
+ REUSE Used cache of mergeMappings in 0.00s
+*** Started working on extractServer
+ REUSE Used cache of extractServer in 0.00s
+*** Started working on stripServer
+ REUSE Used cache of stripServer in 0.00s
+*** Started working on merge
+ REUSE Used cache of merge in 0.00s
+*** Started working on rename
+ REUSE Used cache of rename in 0.00s
+*** Started working on decompile
+ REUSE Used cache of decompile in 0.00s
+*** Started working on inject
+ REUSE Used cache of inject in 0.00s
+*** Started working on patch
+ REUSE Used cache of patch in 0.00s
+*** Started working on applyNeoforgePatches
+ REUSE Used cache of applyNeoforgePatches in 0.00s
+*** Started working on transformSources
+ REUSE Used cache of transformSources in 0.00s
+*** Started working on recompile
+ REUSE Used cache of recompile in 0.01s
+*** Started working on sourcesWithNeoForge
+ REUSE Used cache of sourcesWithNeoForge in 0.00s
+*** Started working on compiledWithNeoForge
+ REUSE Used cache of compiledWithNeoForge in 0.00s
+*** Started working on sourcesAndCompiledWithNeoForge
+ REUSE Used cache of sourcesAndCompiledWithNeoForge in 0.00s
+Total runtime: 1.17s
+
+
+> Task :compileJava FROM-CACHE
+> Task :processResources
+> Task :classes
+> Task :jarJar NO-SOURCE
+> Task :jar
+> Task :assemble
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+
+> Task :compilePerformanceAuditJava
+<AUDIT_ROOT>\tools\performance-audit\java\PerformanceProbe.java:32: error: cannot find symbol
+   mc.createWorldOpenFlows().createFreshLevel("PerfAudit-"+System.currentTimeMillis(),new LevelSettings("Perf audit",GameType.SURVIVAL,false,Difficulty.NORMAL,true,new GameRules(),WorldDataConfiguration.DEFAULT),new WorldOptions(280015,false,false),r->r.registryOrThrow(Registries.WORLD_PRESET).getHolderOrThrow(WorldPresets.FLAT).value().createWorldDimensions(),mc.screen);
+                                                                                                                                             ^
+  symbol:   variable Difficulty
+  location: class PerformanceProbe
+<AUDIT_ROOT>\tools\performance-audit\java\PerformanceProbe.java:44: error: cannot find symbol
+  if(++age>100){long gc=0,gcms=0;for(var b:ManagementFactory.getGarbageCollectorMXBeans()){gc+=b.getCollectionCount();gcms+=b.getCollectionTime();}var rt=Runtime.getRuntime();ticks.println(SCENES[scene]+","+repeat+","+age+","+elapsed/1e6+","+interval+","+(rt.totalMemory()-rt.freeMemory())+","+w.getEntityCount()+","+w.getChunkSource().getLoadedChunksCount()+","+gc+","+gcms);}
+                                                                                                                                                                                                                                                                                                       ^
+  symbol:   method getEntityCount()
+  location: variable w of type ServerLevel
+<AUDIT_ROOT>\tools\performance-audit\java\PerformanceProbe.java:55: error: cannot find symbol
+  events.println("SCENE "+name+" repeat="+repeat+" time="+System.currentTimeMillis()+" entities="+w.getEntityCount());events.flush();
+                                                                                                   ^
+  symbol:   method getEntityCount()
+  location: variable w of type ServerLevel
+3 errors
+
+> Task :compilePerformanceAuditJava FAILED
+
+[Incubating] Problems report is available at: file:///<AUDIT_ROOT>/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compilePerformanceAuditJava'.
+> Compilation failed; see the compiler output below.
+  <AUDIT_ROOT>\tools\performance-audit\java\PerformanceProbe.java:32: error: cannot find symbol
+     mc.createWorldOpenFlows().createFreshLevel("PerfAudit-"+System.currentTimeMillis(),new LevelSettings("Perf audit",GameType.SURVIVAL,false,Difficulty.NORMAL,true,new GameRules(),WorldDataConfiguration.DEFAULT),new WorldOptions(280015,false,false),r->r.registryOrThrow(Registries.WORLD_PRESET).getHolderOrThrow(WorldPresets.FLAT).value().createWorldDimensions(),mc.screen);
+                                                                                                                                               ^
+    symbol:   variable Difficulty
+    location: class PerformanceProbe
+  <AUDIT_ROOT>\tools\performance-audit\java\PerformanceProbe.java:44: error: cannot find symbol
+    if(++age>100){long gc=0,gcms=0;for(var b:ManagementFactory.getGarbageCollectorMXBeans()){gc+=b.getCollectionCount();gcms+=b.getCollectionTime();}var rt=Runtime.getRuntime();ticks.println(SCENES[scene]+","+repeat+","+age+","+elapsed/1e6+","+interval+","+(rt.totalMemory()-rt.freeMemory())+","+w.getEntityCount()+","+w.getChunkSource().getLoadedChunksCount()+","+gc+","+gcms);}
+                                                                                                                                                                                                                                                                                                         ^
+    symbol:   method getEntityCount()
+    location: variable w of type ServerLevel
+  <AUDIT_ROOT>\tools\performance-audit\java\PerformanceProbe.java:55: error: cannot find symbol
+    events.println("SCENE "+name+" repeat="+repeat+" time="+System.currentTimeMillis()+" entities="+w.getEntityCount());events.flush();
+                                                                                                     ^
+    symbol:   method getEntityCount()
+    location: variable w of type ServerLevel
+  3 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1m 54s
+6 actionable tasks: 4 executed, 1 from cache, 1 up-to-date

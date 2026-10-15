@@ -1,0 +1,366 @@
+ACTIVE_OPTIONS rd=8 sim=5 vsync=false fpsLimit=260
+WINDOW=1280x720 GPU=AMD Radeon RX 6600M
+SCENE idle repeat=0 time=1792046866297 entities=24
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1441 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=2
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=1007 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=780 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=780 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=780 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=780 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=780 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=780 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=780 particles=1
+CLIENT_FPS idle repeat=0 age=0 fps=780 particles=1
+CLIENT_FPS idle repeat=0 age=40 fps=979 particles=3
+CLIENT_FPS idle repeat=0 age=80 fps=1088 particles=17
+CLIENT_FPS idle repeat=0 age=140 fps=644 particles=17
+CLIENT_FPS idle repeat=0 age=220 fps=926 particles=27
+CLIENT_FPS idle repeat=0 age=240 fps=1099 particles=44
+CLIENT_FPS idle repeat=0 age=260 fps=906 particles=56
+CLIENT_FPS idle repeat=0 age=280 fps=1703 particles=66
+SCENE idle repeat=1 time=1792046881257 entities=0
+CLIENT_FPS idle repeat=1 age=0 fps=2075 particles=77
+CLIENT_FPS idle repeat=1 age=20 fps=1365 particles=79
+CLIENT_FPS idle repeat=1 age=40 fps=1704 particles=83
+CLIENT_FPS idle repeat=1 age=60 fps=1830 particles=73
+CLIENT_FPS idle repeat=1 age=80 fps=1915 particles=56
+CLIENT_FPS idle repeat=1 age=100 fps=1795 particles=50
+CLIENT_FPS idle repeat=1 age=120 fps=1807 particles=49
+CLIENT_FPS idle repeat=1 age=140 fps=2193 particles=49
+CLIENT_FPS idle repeat=1 age=160 fps=1967 particles=48
+CLIENT_FPS idle repeat=1 age=180 fps=2177 particles=58
+CLIENT_FPS idle repeat=1 age=200 fps=2248 particles=51
+CLIENT_FPS idle repeat=1 age=220 fps=2368 particles=72
+CLIENT_FPS idle repeat=1 age=240 fps=2167 particles=73
+CLIENT_FPS idle repeat=1 age=260 fps=2197 particles=69
+CLIENT_FPS idle repeat=1 age=280 fps=2586 particles=65
+SCENE idle repeat=2 time=1792046896255 entities=0
+CLIENT_FPS idle repeat=2 age=0 fps=1989 particles=56
+CLIENT_FPS idle repeat=2 age=20 fps=1892 particles=43
+CLIENT_FPS idle repeat=2 age=40 fps=2066 particles=39
+CLIENT_FPS idle repeat=2 age=60 fps=2479 particles=45
+CLIENT_FPS idle repeat=2 age=80 fps=2114 particles=46
+CLIENT_FPS idle repeat=2 age=100 fps=2251 particles=57
+CLIENT_FPS idle repeat=2 age=120 fps=2029 particles=59
+CLIENT_FPS idle repeat=2 age=140 fps=2170 particles=69
+CLIENT_FPS idle repeat=2 age=160 fps=2549 particles=62
+CLIENT_FPS idle repeat=2 age=180 fps=2029 particles=63
+CLIENT_FPS idle repeat=2 age=200 fps=2160 particles=57
+CLIENT_FPS idle repeat=2 age=220 fps=1994 particles=56
+CLIENT_FPS idle repeat=2 age=240 fps=1676 particles=50
+CLIENT_FPS idle repeat=2 age=260 fps=1611 particles=47
+CLIENT_FPS idle repeat=2 age=280 fps=2161 particles=47
+CLIENT_FPS poloz_combat repeat=0 age=0 fps=2645 particles=53
+SPAWN poloz_combat repeat=0 id=slavicmyths:great_poloz added=true
+SCENE poloz_combat repeat=0 time=1792046911267 entities=0
+CLIENT_FPS poloz_combat repeat=0 age=20 fps=1757 particles=59
+BOSS_STATE poloz_combat age=20 target=true action=0
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+BOSS_STATE poloz_combat age=20 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=40 fps=1210 particles=59
+BOSS_STATE poloz_combat age=40 target=true action=0
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+BOSS_STATE poloz_combat age=40 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=60 fps=2015 particles=68
+BOSS_STATE poloz_combat age=60 target=true action=0
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+BOSS_STATE poloz_combat age=60 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=80 fps=2143 particles=70
+BOSS_STATE poloz_combat age=80 target=true action=0
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+BOSS_STATE poloz_combat age=80 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=100 fps=2313 particles=72
+BOSS_STATE poloz_combat age=100 target=true action=0
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+BOSS_STATE poloz_combat age=100 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=120 fps=1759 particles=62
+BOSS_STATE poloz_combat age=120 target=true action=0
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+BOSS_STATE poloz_combat age=120 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=140 fps=2189 particles=66
+BOSS_STATE poloz_combat age=140 target=true action=0
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+BOSS_STATE poloz_combat age=140 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=160 fps=2341 particles=70
+BOSS_STATE poloz_combat age=160 target=true action=0
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+BOSS_STATE poloz_combat age=160 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=180 fps=2379 particles=81
+BOSS_STATE poloz_combat age=180 target=true action=0
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+BOSS_STATE poloz_combat age=180 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=200 fps=1831 particles=72
+BOSS_STATE poloz_combat age=200 target=true action=0
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+BOSS_STATE poloz_combat age=200 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=220 fps=1842 particles=61
+BOSS_STATE poloz_combat age=220 target=true action=0
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+BOSS_STATE poloz_combat age=220 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=240 fps=2037 particles=48
+BOSS_STATE poloz_combat age=240 target=true action=0
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+BOSS_STATE poloz_combat age=240 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=260 fps=1909 particles=43
+BOSS_STATE poloz_combat age=260 target=true action=0
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+BOSS_STATE poloz_combat age=260 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=280 fps=1864 particles=45
+BOSS_STATE poloz_combat age=280 target=true action=0
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+BOSS_STATE poloz_combat age=280 target=false action=-1
+CLIENT_FPS poloz_combat repeat=0 age=300 fps=1902 particles=38
+END_ACTOR poloz_combat repeat=0 type=slavicmyths:great_poloz pos=(-6.0, -64.0, -8.0) hp=3000.0
+END_ACTOR poloz_combat repeat=0 type=minecraft:rabbit pos=(1.0, 139.0, -19.0) hp=3.0
+END_ACTOR poloz_combat repeat=0 type=minecraft:rabbit pos=(1.0, 138.0, -22.0) hp=3.0
+END_ACTOR poloz_combat repeat=0 type=minecraft:rabbit pos=(2.0, 139.0, -25.0) hp=3.0
+END_ACTOR poloz_combat repeat=0 type=minecraft:rabbit pos=(-7.590795755392101, 152.312159058895, 20.488077031486895) hp=3.0
+END_ACTOR poloz_combat repeat=0 type=minecraft:rabbit pos=(-6.0, 154.0, 20.0) hp=3.0
+END_ACTOR poloz_combat repeat=0 type=slavicmyths:bandit_fighter pos=(5.5, 160.0, 24.5) hp=30.0
+END_ACTOR poloz_combat repeat=0 type=slavicmyths:bandit_fighter pos=(5.5, 160.0, 26.5) hp=30.0
+END_ACTOR poloz_combat repeat=0 type=slavicmyths:ataman pos=(22.5, 160.0, 21.5) hp=100.0
+END_ACTOR poloz_combat repeat=0 type=slavicmyths:bandit_archer pos=(31.5, 160.0, 25.5) hp=36.0
+END_ACTOR poloz_combat repeat=0 type=slavicmyths:bandit_senior pos=(30.5, 160.0, 46.5) hp=44.0
+END_ACTOR poloz_combat repeat=0 type=slavicmyths:bandit_fighter pos=(7.5, 160.0, 43.5) hp=30.0
+END_ACTOR poloz_combat repeat=0 type=slavicmyths:bandit_fighter pos=(7.5, 160.0, 45.5) hp=30.0
+END_ACTOR poloz_combat repeat=0 type=slavicmyths:bandit_archer pos=(4.5, 164.0, 35.5) hp=36.0
+END_ACTOR poloz_combat repeat=0 type=slavicmyths:bandit_heavy pos=(30.5, 160.0, 48.5) hp=50.0
+SPAWN poloz_combat repeat=1 id=slavicmyths:great_poloz added=true
+SCENE poloz_combat repeat=1 time=1792046926263 entities=1
+BOSS_STATE poloz_combat age=0 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=20 fps=2073 particles=40
+BOSS_STATE poloz_combat age=20 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=40 fps=2250 particles=47
+BOSS_STATE poloz_combat age=40 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=60 fps=2117 particles=50
+BOSS_STATE poloz_combat age=60 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=80 fps=1696 particles=56
+BOSS_STATE poloz_combat age=80 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=100 fps=2163 particles=60
+BOSS_STATE poloz_combat age=100 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=120 fps=1809 particles=59
+BOSS_STATE poloz_combat age=120 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=140 fps=1804 particles=50
+BOSS_STATE poloz_combat age=140 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=160 fps=2379 particles=40
+BOSS_STATE poloz_combat age=160 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=180 fps=2479 particles=43
+BOSS_STATE poloz_combat age=180 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=200 fps=2510 particles=46
+BOSS_STATE poloz_combat age=200 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=220 fps=2459 particles=51
+BOSS_STATE poloz_combat age=220 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=240 fps=2257 particles=58
+BOSS_STATE poloz_combat age=240 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=260 fps=2189 particles=61
+BOSS_STATE poloz_combat age=260 target=true action=0
+CLIENT_FPS poloz_combat repeat=1 age=280 fps=2126 particles=69
+BOSS_STATE poloz_combat age=280 target=true action=0
+END_ACTOR poloz_combat repeat=1 type=slavicmyths:great_poloz pos=(-6.0, -64.0, -8.0) hp=1800.0
+SPAWN poloz_combat repeat=2 id=slavicmyths:great_poloz added=true
+SCENE poloz_combat repeat=2 time=1792046941257 entities=1
+CLIENT_FPS poloz_combat repeat=2 age=0 fps=2431 particles=73
+BOSS_STATE poloz_combat age=0 target=true action=0

@@ -1,0 +1,14 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { performanceAudit { java.srcDir (p.hasProperty('auditFocused')?'tools/performance-audit/focused':'tools/performance-audit/java') } }
+ p.sourceSets.performanceAudit.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.performanceAudit.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compilePerformanceAuditJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.performanceAudit)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject
+ p.neoForge.runs.client.gameDirectory=p.file('work/performance-audit-client')
+ p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720')
+ p.neoForge.runs.client.systemProperty('audit.output',p.file(p.findProperty('auditOutput') ?: (p.hasProperty('auditExtended')?'docs/implementation/performance-audit/extended/raw':'docs/implementation/performance-audit/raw')).absolutePath)
+ p.neoForge.runs.client.systemProperty('audit.extended',p.hasProperty('auditExtended')?'true':'false')
+ p.neoForge.runs.client.jvmArguments.addAll('-Xms2G','-Xmx4G')
+}
