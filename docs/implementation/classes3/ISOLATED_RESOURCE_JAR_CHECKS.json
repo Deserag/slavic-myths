@@ -1,0 +1,22 @@
+{
+  "checks": 20739,
+  "version": "1.9.7.3",
+  "jar": "C:\\Users\\pavel\\.codex\\worktrees\\classes-3-review\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.3.jar",
+  "sha256": "46a8bf27e647fe5b80488db11d9dc0320ec5b652776e79b3bb0749ac8a32d1f8",
+  "size": 19665589,
+  "new_icons": 30,
+  "new_passives": 6,
+  "ultimates": 12,
+  "trials": 12,
+  "xp_thresholds": {
+    "10": 2700,
+    "25": 16200,
+    "40": 40950,
+    "50": 63700
+  },
+  "finite_mod_story_budget": 118,
+  "finite_structure_type_budget": 20,
+  "client_launches": 0,
+  "gameplay_pacing_measured": false,
+  "mspt_measured": false
+}

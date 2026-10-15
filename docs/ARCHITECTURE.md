@@ -1,3 +1,9 @@
+## Classes 3.0 — implementation candidate (2026-10-14)
+
+Реализованы Survival Class XP/anti-abuse, v2→v3 без сброса, второй пассивный слот и6×3 пассивки,12 trial-gated IV с отдельным U/HUD,12 server-event испытаний, RU/EN и30 эмблем. Clean builds Java21 PASS; final integrated37/37 native cases, final isolated36/36 и реальная native .dat загрузка новым процессом PASS; RuneRework398/RareRune20491 offline PASS. Всего15 GameTest servers,0 clients. Issue19 PARTIAL: полный Survival/GUI/2-client MP/claims/DPS-TTK/MSPT/FPS/настоящий client relog NOT_RUN; initial balance не назван игровым замером. Версия/registry ID/PolyMC/миры не менялись этой задачей. Код уже включён пользователем в main через PR#23/hot-fix b57771e4; эта задача main не merge-ила. QA followup основан на обновлённом main. [Отчёт и ограничения](implementation/classes3/REPORT.md).
+
+ClassState сохраняет прежний Class2 compound и ключ Passive; Passive2 включается только валидным First→Second. ClassUltimates — отдельные immutable definitions, Third/Ultimate не занимают Active0..2. ClassTrialService слушает подтверждённые события, Trials/ledger/cooldowns остаются persisted, transient actions чистятся отдельно. ClassUltimateRuntime: один конечный action/owner, bounded local queries/target limits, логический swept shadow projectile и помеченный vanilla decoy. Старый player tick обслуживает только конкретные активные действия; GuardBehavior использует свой прежний40-tick decision cadence. Payload Classes3 отделён версией; server/Common не импортирует client. Presentation не отправляет XpLedger. Генератор classes3_assets воспроизводит30 иконок/RU-EN и bloodless tag, исторический class resource generator вызывает его последним.
+
 ## Арбалет Горыныча — 1.9.7.5 (2026-10-14)
 
 Арбалет трёх дыханий: каждая стрела наносит минимум14 базового урона до брони;
