@@ -1,0 +1,27 @@
+[
+  {
+    "path": "tools/performance-audit/focused/FocusedProbe.java",
+    "exists": true,
+    "sha256": "268c416a840f0a9daea66d95f091d54e311da1b65cda108f4b01f1acd0ca7cf6"
+  },
+  {
+    "path": "tools/performance-audit/init.gradle",
+    "exists": true,
+    "sha256": "76cb9f2b4d09fbb8b59da5ffa257b4157430ef2210db39ca4665e8996a40c16e"
+  },
+  {
+    "path": "tools/performance-audit/run.ps1",
+    "exists": true,
+    "sha256": "48e3512030b04fd3f4c97b15d5ce4f3f56ae30a3483c0421203311e50f8ff256"
+  },
+  {
+    "path": "build/classes/java/performanceAudit/org/slavicmyths/audit/FocusedProbe.class",
+    "exists": true,
+    "sha256": "bf5f048cdc887671f75ea855d264c3d7bfe80aa743ed6a4de9051c24596d882d"
+  },
+  {
+    "path": "build/libs/slavicmyths-1.9.7.5.jar",
+    "exists": true,
+    "sha256": "77b79947b0c0df4ae2157410d7fa25c5ec225ecc9700fd603b04d3bf4cda887f"
+  }
+]

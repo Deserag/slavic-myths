@@ -1,0 +1,182 @@
+[
+  {
+    "scene": "poloz_cycle",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 1800,
+      "mean": 3.8292853088888887,
+      "p95": 5.614099,
+      "p99": 8.148199,
+      "max": 52.914401
+    },
+    "tick_interval_ms": {
+      "n": 1800,
+      "mean": 49.99925105611111,
+      "p95": 52.127301,
+      "p99": 53.1978,
+      "max": 100.043601
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.05555555555555555,
+    "frame_ms": {
+      "n": 87058,
+      "mean": 1.033279386144869,
+      "p95": 1.9797,
+      "p99": 3.2894,
+      "max": 97.2494
+    },
+    "fps": 967.7924609828584,
+    "heap_min": 480476912,
+    "heap_max": 1761607680,
+    "entities_min": 143,
+    "entities_max": 587,
+    "chunks_min": 1849,
+    "chunks_max": 1934,
+    "gc_count_delta": 31,
+    "gc_ms_delta": 101
+  },
+  {
+    "scene": "gorynych_cycle",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 1800,
+      "mean": 2.0272151105555554,
+      "p95": 2.8007,
+      "p99": 3.736199,
+      "max": 73.5863
+    },
+    "tick_interval_ms": {
+      "n": 1800,
+      "mean": 49.99977166666667,
+      "p95": 51.6736,
+      "p99": 52.3381,
+      "max": 121.4867
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.05555555555555555,
+    "frame_ms": {
+      "n": 90569,
+      "mean": 0.9931691075312745,
+      "p95": 1.8538,
+      "p99": 2.8116,
+      "max": 80.4613
+    },
+    "fps": 1006.8778744897785,
+    "heap_min": 483675328,
+    "heap_max": 1767102576,
+    "entities_min": 2,
+    "entities_max": 5,
+    "chunks_min": 1840,
+    "chunks_max": 1892,
+    "gc_count_delta": 19,
+    "gc_ms_delta": 45
+  },
+  {
+    "scene": "karachun_cycle",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 1800,
+      "mean": 1.5210781111111111,
+      "p95": 2.2221,
+      "p99": 2.975,
+      "max": 44.0697
+    },
+    "tick_interval_ms": {
+      "n": 1800,
+      "mean": 49.99828,
+      "p95": 51.4468,
+      "p99": 52.1317,
+      "max": 92.1491
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 128487,
+      "mean": 0.7000681298497125,
+      "p95": 1.6165,
+      "p99": 2.5864,
+      "max": 77.0552
+    },
+    "fps": 1428.4324015930786,
+    "heap_min": 490224408,
+    "heap_max": 1771441640,
+    "entities_min": 1,
+    "entities_max": 7,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 21,
+    "gc_ms_delta": 49
+  },
+  {
+    "scene": "morozko_cycle",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 1800,
+      "mean": 1.436329,
+      "p95": 2.177,
+      "p99": 2.8749,
+      "max": 20.9896
+    },
+    "tick_interval_ms": {
+      "n": 1800,
+      "mean": 49.99844922222222,
+      "p95": 51.5223,
+      "p99": 52.0997,
+      "max": 70.0162
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 123707,
+      "mean": 0.7271122426378459,
+      "p95": 1.9011,
+      "p99": 2.7598,
+      "max": 72.7127
+    },
+    "fps": 1375.3034832313665,
+    "heap_min": 485115800,
+    "heap_max": 1775080864,
+    "entities_min": 1,
+    "entities_max": 9,
+    "chunks_min": 1849,
+    "chunks_max": 1892,
+    "gc_count_delta": 27,
+    "gc_ms_delta": 63
+  },
+  {
+    "scene": "post_cleanup",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 400,
+      "mean": 1.1205285,
+      "p95": 1.5393,
+      "p99": 1.8558,
+      "max": 3.6284
+    },
+    "tick_interval_ms": {
+      "n": 400,
+      "mean": 49.999227,
+      "p95": 51.4402,
+      "p99": 51.9728,
+      "max": 52.2803
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 40762,
+      "mean": 0.48943254256415286,
+      "p95": 0.777,
+      "p99": 1.8616,
+      "max": 3.669
+    },
+    "fps": 2043.1824879501632,
+    "heap_min": 486561120,
+    "heap_max": 1770870224,
+    "entities_min": 1,
+    "entities_max": 1,
+    "chunks_min": 1849,
+    "chunks_max": 1849,
+    "gc_count_delta": 6,
+    "gc_ms_delta": 9
+  }
+]

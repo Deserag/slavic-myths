@@ -1,0 +1,224 @@
+{
+  "commit": "fb2994e958911169317523e1066b8a1ca7a155af",
+  "tracked_files": 19546,
+  "groups": {
+    ".gitignore": [
+      1,
+      538
+    ],
+    "1.9.7.1.txt": [
+      1,
+      15358
+    ],
+    "AGENTS.md": [
+      1,
+      5556
+    ],
+    "CHANGELOG.md": [
+      1,
+      16961
+    ],
+    "CHANGELOG_1.9.2.md": [
+      1,
+      2658
+    ],
+    "README.md": [
+      1,
+      11462
+    ],
+    "RELEASE_NOTES_1.2.5.md": [
+      1,
+      2092
+    ],
+    "STATUS_HANDOFF.md": [
+      1,
+      9984
+    ],
+    "art": [
+      41,
+      34718063
+    ],
+    "build.gradle": [
+      1,
+      26650
+    ],
+    "classes3-compile.log": [
+      1,
+      34388
+    ],
+    "classes3-compile2.log": [
+      1,
+      4089
+    ],
+    "classes3-compile3.log": [
+      1,
+      846
+    ],
+    "classes3-compile4.log": [
+      1,
+      777
+    ],
+    "crossbow-1975-build.log": [
+      1,
+      43083
+    ],
+    "docs": [
+      10140,
+      426600919
+    ],
+    "\"docs": [
+      70,
+      11394839
+    ],
+    "future": [
+      9,
+      16018
+    ],
+    "\"future": [
+      1,
+      13434083
+    ],
+    "gradle.properties": [
+      1,
+      244
+    ],
+    "gradle": [
+      2,
+      44016
+    ],
+    "gradlew": [
+      1,
+      8733
+    ],
+    "gradlew.bat": [
+      1,
+      2843
+    ],
+    "packaging": [
+      1,
+      15162
+    ],
+    "release": [
+      34,
+      271851981
+    ],
+    "settings.gradle": [
+      1,
+      153
+    ],
+    "src": [
+      7830,
+      27826419
+    ],
+    "tools": [
+      734,
+      4972280
+    ],
+    "work": [
+      666,
+      179959562
+    ]
+  },
+  "largest": [
+    [
+      19378018,
+      "release/slavicmyths-1.9.7-patch-weapons-armor.jar"
+    ],
+    [
+      18788134,
+      "release/slavicmyths-1.9.4.jar"
+    ],
+    [
+      17272983,
+      "release/slavicmyths-1.7.6.jar"
+    ],
+    [
+      17252582,
+      "release/slavicmyths-1.7.8.jar"
+    ],
+    [
+      17246242,
+      "release/slavicmyths-1.7.7.jar"
+    ],
+    [
+      17093464,
+      "release/slavicmyths-1.7.5.jar"
+    ],
+    [
+      16914274,
+      "release/slavicmyths-1.7.4.jar"
+    ],
+    [
+      16148442,
+      "release/slavicmyths-1.7.3.jar"
+    ],
+    [
+      15901173,
+      "release/slavicmyths-1.8.1.jar"
+    ],
+    [
+      15783117,
+      "release/slavicmyths-1.7.9.jar"
+    ],
+    [
+      15524295,
+      "release/slavicmyths-1.7.2.jar"
+    ],
+    [
+      14822853,
+      "release/slavicmyths-1.7.1.jar"
+    ],
+    [
+      14364773,
+      "release/slavicmyths-1.6.9.jar"
+    ],
+    [
+      14099009,
+      "release/slavicmyths-1.6.6.jar"
+    ],
+    [
+      13883229,
+      "release/slavicmyths-1.6.8.jar"
+    ],
+    [
+      13881580,
+      "release/slavicmyths-1.6.7.jar"
+    ],
+    [
+      13472572,
+      "release/slavicmyths-1.6.5.jar"
+    ],
+    [
+      13434083,
+      "\"future/1.3.0/Slavic_Myths_1.3.1_\\320\\272\\320\\276\\320\\275\\321\\206\\320\\265\\320\\277\\321\\206\\320\\270\\321\\217_\\320\\272\\320\\273\\320\\260\\321\\201\\321\\201\\320\\276\\320\\262_\\320\\270_\\320\\275\\320\\260\\320\\262\\321\\213\\320\\272\\320\\276\\320\\262.docx\""
+    ],
+    [
+      5880306,
+      "docs/verification/sanctuaries-1.9.3/spring-blocks.json"
+    ],
+    [
+      4443329,
+      "docs/verification/sanctuaries-1.9.3/fire-blocks.json"
+    ],
+    [
+      3317176,
+      "docs/specs/1.9.6/references/05_hill_interior_context.png"
+    ],
+    [
+      3317176,
+      "docs/specs/1.9.5/references/03_serpent_hill_blueprint.png"
+    ],
+    [
+      3304725,
+      "work/equipment-0.9.10-spec/slavic_myths_0_9_10_equipment_art_overhaul_final/references/ref_01_equipment_armor_concepts.png"
+    ],
+    [
+      3263308,
+      "docs/bayun/spec/Slavic_Myths_1.6_Final_Bayun_Book_Codex_TZ/09_ASSETS/references/02_bayun_character.png"
+    ],
+    [
+      3232422,
+      "docs/specs/1.9.6/references/04_castle_context.png"
+    ]
+  ]
+}

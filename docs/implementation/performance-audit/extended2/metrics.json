@@ -1,0 +1,1082 @@
+[
+  {
+    "observed_seconds": 9.7784302,
+    "new_chunk_load_events": 88,
+    "chunk_load_events": 88,
+    "new_chunk_load_events_per_second": 8.999399515067356,
+    "scene": "idle",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 47.3366165,
+      "p95": 52.0668,
+      "p99": 64.6563,
+      "max": 71.4982
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 48.892151,
+      "p95": 52.7869,
+      "p99": 66.695,
+      "max": 78.347
+    },
+    "tps_observed": 20,
+    "over50_pct": 22.5,
+    "frame_ms": {
+      "n": 10442,
+      "mean": 0.9366478452403754,
+      "p95": 2.5709,
+      "p99": 4.9946,
+      "max": 38.5384
+    },
+    "fps": 1067.6371115158722,
+    "heap_min": 677526976,
+    "heap_max": 1937865144,
+    "entities_min": 33,
+    "entities_max": 53,
+    "chunks_min": 1759,
+    "chunks_max": 1981,
+    "gc_count_delta": 26,
+    "gc_ms_delta": 304
+  },
+  {
+    "observed_seconds": 9.9512929,
+    "new_chunk_load_events": 91,
+    "chunk_load_events": 91,
+    "new_chunk_load_events_per_second": 9.144540404393082,
+    "scene": "idle",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 23.420826,
+      "p95": 49.9465,
+      "p99": 51.1119,
+      "max": 53.5173
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.7564645,
+      "p95": 53.036,
+      "p99": 69.3039,
+      "max": 72.8507
+    },
+    "tps_observed": 20,
+    "over50_pct": 4.5,
+    "frame_ms": {
+      "n": 11595,
+      "mean": 0.8540250884001724,
+      "p95": 2.1131,
+      "p99": 3.9769,
+      "max": 126.1225
+    },
+    "fps": 1170.9257884604765,
+    "heap_min": 704449328,
+    "heap_max": 2031693024,
+    "entities_min": 4,
+    "entities_max": 19,
+    "chunks_min": 2013,
+    "chunks_max": 2229,
+    "gc_count_delta": 14,
+    "gc_ms_delta": 120
+  },
+  {
+    "observed_seconds": 10.0012301,
+    "new_chunk_load_events": 80,
+    "chunk_load_events": 80,
+    "new_chunk_load_events_per_second": 7.999016041036792,
+    "scene": "idle",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 5.5652355,
+      "p95": 20.466,
+      "p99": 29.0573,
+      "max": 33.3537
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.0061505,
+      "p95": 57.3072,
+      "p99": 78.6279,
+      "max": 95.3373
+    },
+    "tps_observed": 19.99754010259198,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 14678,
+      "mean": 0.6750761888540673,
+      "p95": 1.5722,
+      "p99": 3.3492,
+      "max": 27.2189
+    },
+    "fps": 1481.314282018281,
+    "heap_min": 774053440,
+    "heap_max": 2031047888,
+    "entities_min": 158,
+    "entities_max": 171,
+    "chunks_min": 2327,
+    "chunks_max": 2393,
+    "gc_count_delta": 6,
+    "gc_ms_delta": 69
+  },
+  {
+    "observed_seconds": 9.990713,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "poloz_combat",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 6.843901,
+      "p95": 12.1102,
+      "p99": 17.2252,
+      "max": 22.6757
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.953565,
+      "p95": 53.8242,
+      "p99": 58.442,
+      "max": 65.0538
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 4608,
+      "mean": 2.1607441840277777,
+      "p95": 5.1962,
+      "p99": 9.8301,
+      "max": 31.2507
+    },
+    "fps": 462.8035134339366,
+    "heap_min": 775660528,
+    "heap_max": 2052224536,
+    "entities_min": 430,
+    "entities_max": 566,
+    "chunks_min": 2393,
+    "chunks_max": 2393,
+    "gc_count_delta": 6,
+    "gc_ms_delta": 81
+  },
+  {
+    "observed_seconds": 10.0003294,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "poloz_combat",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 6.114071,
+      "p95": 9.4347,
+      "p99": 11.1434,
+      "max": 14.2655
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.001647,
+      "p95": 53.3917,
+      "p99": 55.4575,
+      "max": 63.337
+    },
+    "tps_observed": 19.999341221700156,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 6565,
+      "mean": 1.5146201523229246,
+      "p95": 2.8903,
+      "p99": 7.402,
+      "max": 21.2881
+    },
+    "fps": 660.2315428500881,
+    "heap_min": 778086176,
+    "heap_max": 2062361168,
+    "entities_min": 93,
+    "entities_max": 618,
+    "chunks_min": 2393,
+    "chunks_max": 2393,
+    "gc_count_delta": 6,
+    "gc_ms_delta": 69
+  },
+  {
+    "observed_seconds": 10.0022347,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "poloz_combat",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 6.603972,
+      "p95": 9.6887,
+      "p99": 14.94,
+      "max": 18.0318
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.0111735,
+      "p95": 53.0457,
+      "p99": 58.7643,
+      "max": 63.9469
+    },
+    "tps_observed": 19.995531598553672,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 6195,
+      "mean": 1.6064184826472963,
+      "p95": 3.2056,
+      "p99": 9.1437,
+      "max": 24.4683
+    },
+    "fps": 622.5027978712313,
+    "heap_min": 771707088,
+    "heap_max": 2104865664,
+    "entities_min": 41,
+    "entities_max": 491,
+    "chunks_min": 2393,
+    "chunks_max": 2393,
+    "gc_count_delta": 5,
+    "gc_ms_delta": 36
+  },
+  {
+    "observed_seconds": 10.00153,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "gorynych_combat",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 3.5664975,
+      "p95": 5.0823,
+      "p99": 6.4335,
+      "max": 10.6584
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.00765,
+      "p95": 51.9207,
+      "p99": 54.7009,
+      "max": 57.4314
+    },
+    "tps_observed": 19.99694046810838,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 8711,
+      "mean": 1.1423690965445987,
+      "p95": 1.9025,
+      "p99": 3.4284,
+      "max": 10.8379
+    },
+    "fps": 875.3738200943703,
+    "heap_min": 767293552,
+    "heap_max": 2116677552,
+    "entities_min": 2,
+    "entities_max": 8,
+    "chunks_min": 2366,
+    "chunks_max": 2409,
+    "gc_count_delta": 4,
+    "gc_ms_delta": 18
+  },
+  {
+    "observed_seconds": 9.9875053,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "gorynych_combat",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 3.379817,
+      "p95": 4.6485,
+      "p99": 16.4958,
+      "max": 18.5678
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9375265,
+      "p95": 51.8217,
+      "p99": 63.1274,
+      "max": 65.4812
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 8327,
+      "mean": 1.1950046355229975,
+      "p95": 1.9607,
+      "p99": 3.0241,
+      "max": 12.298
+    },
+    "fps": 836.8168375868659,
+    "heap_min": 762601672,
+    "heap_max": 2110799304,
+    "entities_min": 6,
+    "entities_max": 8,
+    "chunks_min": 2366,
+    "chunks_max": 2366,
+    "gc_count_delta": 4,
+    "gc_ms_delta": 19
+  },
+  {
+    "observed_seconds": 9.9992185,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "gorynych_combat",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 3.2255025,
+      "p95": 4.648,
+      "p99": 5.2087,
+      "max": 7.4454
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9960925,
+      "p95": 52.1198,
+      "p99": 52.8715,
+      "max": 55.487
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 7825,
+      "mean": 1.2716242172523962,
+      "p95": 2.3029,
+      "p99": 2.907,
+      "max": 10.0396
+    },
+    "fps": 786.395844332616,
+    "heap_min": 759406568,
+    "heap_max": 2105330560,
+    "entities_min": 21,
+    "entities_max": 23,
+    "chunks_min": 2366,
+    "chunks_max": 2366,
+    "gc_count_delta": 4,
+    "gc_ms_delta": 19
+  },
+  {
+    "observed_seconds": 7.7273511,
+    "new_chunk_load_events": 172,
+    "chunk_load_events": 172,
+    "new_chunk_load_events_per_second": 22.258597774857158,
+    "scene": "worldgen_new",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 18.746929,
+      "p95": 21.5241,
+      "p99": 582.9231,
+      "max": 888.8514
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 38.6367555,
+      "p95": 65.2775,
+      "p99": 630.0046,
+      "max": 937.1754
+    },
+    "tps_observed": 20,
+    "over50_pct": 2.5,
+    "frame_ms": {
+      "n": 8320,
+      "mean": 0.9273865625,
+      "p95": 2.1602,
+      "p99": 4.0315,
+      "max": 29.4692
+    },
+    "fps": 1078.2989968112677,
+    "heap_min": 831491840,
+    "heap_max": 2176625944,
+    "entities_min": 8,
+    "entities_max": 53,
+    "chunks_min": 1983,
+    "chunks_max": 2258,
+    "gc_count_delta": 9,
+    "gc_ms_delta": 119
+  },
+  {
+    "observed_seconds": 13.9840499,
+    "new_chunk_load_events": 166,
+    "chunk_load_events": 166,
+    "new_chunk_load_events_per_second": 11.870667023292015,
+    "scene": "worldgen_new",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 64.6223275,
+      "p95": 4.3407,
+      "p99": 1450.6658,
+      "max": 5013.184
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 69.9202495,
+      "p95": 50.6611,
+      "p99": 1450.7209,
+      "max": 5058.5005
+    },
+    "tps_observed": 14.302008461797609,
+    "over50_pct": 2.5,
+    "frame_ms": {
+      "n": 26909,
+      "mean": 0.5178910067263741,
+      "p95": 1.0129,
+      "p99": 2.0228,
+      "max": 30.6178
+    },
+    "fps": 1930.9082162308073,
+    "heap_min": 893191672,
+    "heap_max": 1782916112,
+    "entities_min": 10,
+    "entities_max": 24,
+    "chunks_min": 1857,
+    "chunks_max": 2187,
+    "gc_count_delta": 11,
+    "gc_ms_delta": 137
+  },
+  {
+    "observed_seconds": 12.2955291,
+    "new_chunk_load_events": 121,
+    "chunk_load_events": 121,
+    "new_chunk_load_events_per_second": 9.840975448547391,
+    "scene": "worldgen_new",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 58.4870315,
+      "p95": 28.5291,
+      "p99": 1322.2684,
+      "max": 5674.0311
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 61.4776455,
+      "p95": 50.9258,
+      "p99": 1375.547,
+      "max": 5674.1818
+    },
+    "tps_observed": 16.266075121565937,
+    "over50_pct": 3.5,
+    "frame_ms": {
+      "n": 16465,
+      "mean": 0.7436694382022472,
+      "p95": 1.669,
+      "p99": 3.1318,
+      "max": 40.4441
+    },
+    "fps": 1344.6834690657834,
+    "heap_min": 1237059720,
+    "heap_max": 2098922280,
+    "entities_min": 9,
+    "entities_max": 106,
+    "chunks_min": 1831,
+    "chunks_max": 2091,
+    "gc_count_delta": 9,
+    "gc_ms_delta": 128
+  },
+  {
+    "observed_seconds": 9.9972757,
+    "new_chunk_load_events": 136,
+    "chunk_load_events": 278,
+    "new_chunk_load_events_per_second": 13.603706057641284,
+    "scene": "worldgen_old",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 5.135217,
+      "p95": 17.7887,
+      "p99": 31.996,
+      "max": 38.5275
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9863785,
+      "p95": 63.4937,
+      "p99": 76.5224,
+      "max": 79.6993
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 9082,
+      "mean": 1.0949747963003744,
+      "p95": 2.6304,
+      "p99": 4.2386,
+      "max": 27.6269
+    },
+    "fps": 913.2630297781568,
+    "heap_min": 803576488,
+    "heap_max": 2293235712,
+    "entities_min": 11,
+    "entities_max": 21,
+    "chunks_min": 2353,
+    "chunks_max": 2632,
+    "gc_count_delta": 8,
+    "gc_ms_delta": 130
+  },
+  {
+    "observed_seconds": 10.001306,
+    "new_chunk_load_events": 193,
+    "chunk_load_events": 317,
+    "new_chunk_load_events_per_second": 19.297479749144763,
+    "scene": "worldgen_old",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 8.884819,
+      "p95": 17.1868,
+      "p99": 36.5354,
+      "max": 866.5325
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.00653,
+      "p95": 61.8948,
+      "p99": 78.6314,
+      "max": 913.3775
+    },
+    "tps_observed": 19.997388341082655,
+    "over50_pct": 0.5,
+    "frame_ms": {
+      "n": 17347,
+      "mean": 0.5736541131031302,
+      "p95": 1.1532,
+      "p99": 2.2292,
+      "max": 27.8433
+    },
+    "fps": 1743.2107208132618,
+    "heap_min": 832393496,
+    "heap_max": 2293467272,
+    "entities_min": 9,
+    "entities_max": 34,
+    "chunks_min": 2189,
+    "chunks_max": 2656,
+    "gc_count_delta": 5,
+    "gc_ms_delta": 106
+  },
+  {
+    "observed_seconds": 9.9979964,
+    "new_chunk_load_events": 180,
+    "chunk_load_events": 249,
+    "new_chunk_load_events_per_second": 18.00360720273914,
+    "scene": "worldgen_old",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 5.747512,
+      "p95": 18.1605,
+      "p99": 28.3566,
+      "max": 43.6993
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.989982,
+      "p95": 63.1775,
+      "p99": 72.6639,
+      "max": 89.0361
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 10716,
+      "mean": 0.928479805897723,
+      "p95": 2.3097,
+      "p99": 3.8739,
+      "max": 29.743
+    },
+    "fps": 1077.0293480245657,
+    "heap_min": 878091856,
+    "heap_max": 2345917856,
+    "entities_min": 86,
+    "entities_max": 111,
+    "chunks_min": 2376,
+    "chunks_max": 2646,
+    "gc_count_delta": 8,
+    "gc_ms_delta": 137
+  },
+  {
+    "observed_seconds": 9.9906052,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "classes_iv",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 10.523419,
+      "p95": 17.0541,
+      "p99": 18.5213,
+      "max": 36.8848
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.953026,
+      "p95": 56.7107,
+      "p99": 60.1289,
+      "max": 67.6
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 2969,
+      "mean": 3.34931010441226,
+      "p95": 6.6349,
+      "p99": 9.1006,
+      "max": 28.9581
+    },
+    "fps": 298.5689496719447,
+    "heap_min": 910554816,
+    "heap_max": 2369025800,
+    "entities_min": 134,
+    "entities_max": 143,
+    "chunks_min": 2366,
+    "chunks_max": 2366,
+    "gc_count_delta": 4,
+    "gc_ms_delta": 45
+  },
+  {
+    "observed_seconds": 10.0026077,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "classes_iv",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 8.6198775,
+      "p95": 13.5886,
+      "p99": 15.6977,
+      "max": 20.0434
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.0130385,
+      "p95": 55.8542,
+      "p99": 59.2621,
+      "max": 62.634
+    },
+    "tps_observed": 19.994785959665297,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 3399,
+      "mean": 2.927264754339512,
+      "p95": 5.3659,
+      "p99": 7.7383,
+      "max": 22.524
+    },
+    "fps": 341.615837282075,
+    "heap_min": 879898760,
+    "heap_max": 2326933640,
+    "entities_min": 134,
+    "entities_max": 147,
+    "chunks_min": 2366,
+    "chunks_max": 2366,
+    "gc_count_delta": 3,
+    "gc_ms_delta": 54
+  },
+  {
+    "observed_seconds": 10.0001663,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "classes_iv",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 10.6576505,
+      "p95": 16.3204,
+      "p99": 22.1661,
+      "max": 27.7998
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.0008315,
+      "p95": 55.3168,
+      "p99": 60.7457,
+      "max": 63.9645
+    },
+    "tps_observed": 19.999667405531046,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 5307,
+      "mean": 1.8740031844733371,
+      "p95": 3.6864,
+      "p99": 6.0551,
+      "max": 22.8492
+    },
+    "fps": 533.6170227912586,
+    "heap_min": 884314664,
+    "heap_max": 2348126760,
+    "entities_min": 143,
+    "entities_max": 160,
+    "chunks_min": 2366,
+    "chunks_max": 2409,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 34
+  },
+  {
+    "observed_seconds": 10.0002944,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "runes",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 8.3717065,
+      "p95": 11.3487,
+      "p99": 14.7747,
+      "max": 27.4028
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.001472,
+      "p95": 53.4775,
+      "p99": 56.7615,
+      "max": 65.9455
+    },
+    "tps_observed": 19.999411217333762,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 3736,
+      "mean": 2.6634309689507494,
+      "p95": 4.9747,
+      "p99": 7.2816,
+      "max": 19.7422
+    },
+    "fps": 375.4555727772239,
+    "heap_min": 881168936,
+    "heap_max": 2340786728,
+    "entities_min": 136,
+    "entities_max": 150,
+    "chunks_min": 2366,
+    "chunks_max": 2409,
+    "gc_count_delta": 3,
+    "gc_ms_delta": 45
+  },
+  {
+    "observed_seconds": 10.0063144,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "runes",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 8.0659425,
+      "p95": 12.3639,
+      "p99": 16.0556,
+      "max": 70.1766
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.031572,
+      "p95": 55.1448,
+      "p99": 61.134,
+      "max": 112.9397
+    },
+    "tps_observed": 19.98737916929734,
+    "over50_pct": 0.5,
+    "frame_ms": {
+      "n": 3867,
+      "mean": 2.5740199637962244,
+      "p95": 4.9611,
+      "p99": 7.4306,
+      "max": 27.2612
+    },
+    "fps": 388.49737533704933,
+    "heap_min": 889889456,
+    "heap_max": 2403695736,
+    "entities_min": 134,
+    "entities_max": 149,
+    "chunks_min": 2366,
+    "chunks_max": 2409,
+    "gc_count_delta": 4,
+    "gc_ms_delta": 32
+  },
+  {
+    "observed_seconds": 9.9985323,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "runes",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 7.2033195,
+      "p95": 10.552,
+      "p99": 13.8238,
+      "max": 16.8313
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9926615,
+      "p95": 54.3438,
+      "p99": 56.1749,
+      "max": 60.6464
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 3880,
+      "mean": 2.563736804123711,
+      "p95": 4.6096,
+      "p99": 6.7502,
+      "max": 9.2541
+    },
+    "fps": 390.05564002963297,
+    "heap_min": 826730696,
+    "heap_max": 2360503792,
+    "entities_min": 137,
+    "entities_max": 161,
+    "chunks_min": 2366,
+    "chunks_max": 2409,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 10
+  },
+  {
+    "observed_seconds": 9.9960059,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "crossbow",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 8.655189,
+      "p95": 12.4609,
+      "p99": 15.1846,
+      "max": 17.2365
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9800295,
+      "p95": 53.9566,
+      "p99": 56.5272,
+      "max": 57.4146
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 2888,
+      "mean": 3.4443333448753464,
+      "p95": 5.8913,
+      "p99": 7.7235,
+      "max": 11.8873
+    },
+    "fps": 290.3319452189059,
+    "heap_min": 826775224,
+    "heap_max": 2350106976,
+    "entities_min": 145,
+    "entities_max": 165,
+    "chunks_min": 2366,
+    "chunks_max": 2409,
+    "gc_count_delta": 3,
+    "gc_ms_delta": 13
+  },
+  {
+    "observed_seconds": 9.995456,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "crossbow",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 10.223048,
+      "p95": 16.2957,
+      "p99": 20.3958,
+      "max": 29.5083
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.97728,
+      "p95": 54.5725,
+      "p99": 58.4954,
+      "max": 66.4993
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 2170,
+      "mean": 4.602444746543779,
+      "p95": 7.9173,
+      "p99": 10.4566,
+      "max": 129.449
+    },
+    "fps": 217.27582949278278,
+    "heap_min": 829126944,
+    "heap_max": 2362071896,
+    "entities_min": 140,
+    "entities_max": 172,
+    "chunks_min": 2366,
+    "chunks_max": 2366,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 10
+  },
+  {
+    "observed_seconds": 9.9985235,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "crossbow",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 7.014589,
+      "p95": 10.4383,
+      "p99": 14.0691,
+      "max": 17.5442
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9926175,
+      "p95": 53.5208,
+      "p99": 58.013,
+      "max": 58.3356
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 2891,
+      "mean": 3.439639398132134,
+      "p95": 6.0368,
+      "p99": 8.2236,
+      "max": 15.3292
+    },
+    "fps": 290.72815032385114,
+    "heap_min": 827780504,
+    "heap_max": 2363891080,
+    "entities_min": 139,
+    "entities_max": 160,
+    "chunks_min": 2393,
+    "chunks_max": 2393,
+    "gc_count_delta": 2,
+    "gc_ms_delta": 8
+  },
+  {
+    "observed_seconds": 10.0001865,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "post_cleanup",
+    "repeat": 0,
+    "tick_ms": {
+      "n": 200,
+      "mean": 2.132269,
+      "p95": 2.6414,
+      "p99": 2.871,
+      "max": 3.0116
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 50.0009325,
+      "p95": 51.3623,
+      "p99": 51.641,
+      "max": 52.1345
+    },
+    "tps_observed": 19.99962700695632,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 9260,
+      "mean": 1.0747128941684665,
+      "p95": 2.421,
+      "p99": 3.9863,
+      "max": 8.8943
+    },
+    "fps": 930.4810665491515,
+    "heap_min": 826787792,
+    "heap_max": 2366219064,
+    "entities_min": 1,
+    "entities_max": 1,
+    "chunks_min": 2393,
+    "chunks_max": 2393,
+    "gc_count_delta": 1,
+    "gc_ms_delta": 5
+  },
+  {
+    "observed_seconds": 9.9998639,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "post_cleanup",
+    "repeat": 1,
+    "tick_ms": {
+      "n": 200,
+      "mean": 2.2816865,
+      "p95": 3.2266,
+      "p99": 3.4476,
+      "max": 4.2167
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9993195,
+      "p95": 51.8221,
+      "p99": 52.117,
+      "max": 52.6572
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 10174,
+      "mean": 0.9780775997641046,
+      "p95": 2.1744,
+      "p99": 3.5123,
+      "max": 14.6777
+    },
+    "fps": 1022.4137637352933,
+    "heap_min": 824690520,
+    "heap_max": 2362951632,
+    "entities_min": 1,
+    "entities_max": 1,
+    "chunks_min": 2393,
+    "chunks_max": 2393,
+    "gc_count_delta": 1,
+    "gc_ms_delta": 3
+  },
+  {
+    "observed_seconds": 9.9997223,
+    "new_chunk_load_events": 0,
+    "chunk_load_events": 0,
+    "new_chunk_load_events_per_second": 0.0,
+    "scene": "post_cleanup",
+    "repeat": 2,
+    "tick_ms": {
+      "n": 200,
+      "mean": 2.459607,
+      "p95": 3.1255,
+      "p99": 3.4454,
+      "max": 4.2525
+    },
+    "tick_interval_ms": {
+      "n": 200,
+      "mean": 49.9986115,
+      "p95": 51.7411,
+      "p99": 51.9333,
+      "max": 52.688
+    },
+    "tps_observed": 20,
+    "over50_pct": 0.0,
+    "frame_ms": {
+      "n": 11142,
+      "mean": 0.89296464728056,
+      "p95": 2.0453,
+      "p99": 3.5758,
+      "max": 5.9579
+    },
+    "fps": 1119.8651626863461,
+    "heap_min": 826798952,
+    "heap_max": 2362660104,
+    "entities_min": 1,
+    "entities_max": 1,
+    "chunks_min": 2393,
+    "chunks_max": 2393,
+    "gc_count_delta": 1,
+    "gc_ms_delta": 4
+  }
+]

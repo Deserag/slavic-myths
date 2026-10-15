@@ -1,0 +1,7 @@
+{
+  "profile": "raw/profile.jfr (local, intentionally excluded)",
+  "bytes": 24197670,
+  "sha256": "e3c00e7f609360d024c4004b772689fa0e8396cac6bc39b1b2950867c383ca2d",
+  "summary": "raw/jfr-summary.tsv",
+  "method": "Java 21 jdk.jfr.consumer.RecordingFile streaming; samples are not exact calls, allocation weights are estimates; no retained heap claim"
+}

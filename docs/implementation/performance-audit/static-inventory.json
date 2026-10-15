@@ -1,0 +1,4757 @@
+{
+  "warning": "Regex inventory, not call graph or runtime counts; fully qualified annotations may be missed. No costs or leaks inferred.",
+  "handlers": [
+    {
+      "file": "src/main/java/org/slavicmyths/artifact/ArtifactEvents.java",
+      "line": 33,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/artifact/ArtifactEvents.java",
+      "line": 34,
+      "method": "target",
+      "argument": "LivingChangeTargetEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/artifact/ArtifactEvents.java",
+      "line": 35,
+      "method": "attack",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/artifact/ArtifactEvents.java",
+      "line": 36,
+      "method": "embers",
+      "argument": "net.neoforged.neoforge.event.tick.EntityTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/artifact/ArtifactEvents.java",
+      "line": 37,
+      "method": "drops",
+      "argument": "LivingDropsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/artifact/ArtifactEvents.java",
+      "line": 38,
+      "method": "xp",
+      "argument": "LivingExperienceDropEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bandit/BossWeaponSounds.java",
+      "line": 14,
+      "method": "changed",
+      "argument": "LivingEquipmentChangeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bandit/CampCommands.java",
+      "line": 30,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bandit/CampEvents.java",
+      "line": 9,
+      "method": "open",
+      "argument": "PlayerInteractEvent.RightClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bandit/CampRecordLifecycle.java",
+      "line": 9,
+      "method": "load",
+      "argument": "LevelEvent.Load"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bandit/CampRecordLifecycle.java",
+      "line": 10,
+      "method": "unload",
+      "argument": "LevelEvent.Unload"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bayun/BayunCommands.java",
+      "line": 12,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bayun/BayunContent.java",
+      "line": 26,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bayun/BayunHomes.java",
+      "line": 17,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bogatyr/BogatyrArena.java",
+      "line": 27,
+      "method": "tick",
+      "argument": "ServerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bogatyr/BogatyrCommands.java",
+      "line": 12,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bogatyr/BogatyrContent.java",
+      "line": 25,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bogatyr/BogatyrEvents.java",
+      "line": 13,
+      "method": "incoming",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bogatyr/BogatyrEvents.java",
+      "line": 14,
+      "method": "pre",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bogatyr/BogatyrEvents.java",
+      "line": 16,
+      "method": "post",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bogatyr/BogatyrEvents.java",
+      "line": 17,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/bogatyr/BogatyrEvents.java",
+      "line": 20,
+      "method": "landing",
+      "argument": "LivingFallEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/brewing/BrewEvents.java",
+      "line": 7,
+      "method": "pickup",
+      "argument": "ItemEntityPickupEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/chud/AbandonedCommands.java",
+      "line": 17,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/chud/ChudCommands.java",
+      "line": 22,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/chud/ChudGenerateCommands.java",
+      "line": 21,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/chud/ChudSearchCommands.java",
+      "line": 44,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/BayunClient.java",
+      "line": 18,
+      "method": "register",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/BogatyrClient.java",
+      "line": 32,
+      "method": "keys",
+      "argument": "RegisterKeyMappingsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/BogatyrClient.java",
+      "line": 33,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/BogatyrClient.java",
+      "line": 35,
+      "method": "tick",
+      "argument": "ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/BrightFalconClient.java",
+      "line": 5,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ChudPeopleClient.java",
+      "line": 15,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClassClient.java",
+      "line": 24,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.client.event.ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClassClient.java",
+      "line": 25,
+      "method": "open",
+      "argument": "ClassNetwork.OpenEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClassClient.java",
+      "line": 30,
+      "method": "hud",
+      "argument": "RenderGuiEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClearSightClient.java",
+      "line": 18,
+      "method": "received",
+      "argument": "ClearSightNetwork.Received"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClearSightClient.java",
+      "line": 19,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.client.event.ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClearSightClient.java",
+      "line": 21,
+      "method": "tooltip",
+      "argument": "net.neoforged.neoforge.event.entity.player.ItemTooltipEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientNetworkEvents.java",
+      "line": 10,
+      "method": "lore",
+      "argument": "ClientPayloadEvents.LoreOpened"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientNetworkEvents.java",
+      "line": 13,
+      "method": "rpg",
+      "argument": "ClientPayloadEvents.RpgSynced"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "line": 16,
+      "method": "navigationKeys",
+      "argument": "net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "line": 20,
+      "method": "tugarinModels",
+      "argument": "net.neoforged.neoforge.client.event.ModelEvent.RegisterAdditional"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "line": 21,
+      "method": "tugarinBake",
+      "argument": "net.neoforged.neoforge.client.event.ModelEvent.ModifyBakingResult"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "line": 22,
+      "method": "tugarinLayers",
+      "argument": "EntityRenderersEvent.AddLayers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "line": 23,
+      "method": "setup",
+      "argument": "FMLClientSetupEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "line": 61,
+      "method": "morParticles",
+      "argument": "net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "line": 62,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "line": 130,
+      "method": "screens",
+      "argument": "net.neoforged.neoforge.client.event.RegisterMenuScreensEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "line": 142,
+      "method": "extensions",
+      "argument": "net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "line": 144,
+      "method": "keys",
+      "argument": "net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+      "line": 145,
+      "method": "layers",
+      "argument": "net.neoforged.neoforge.client.event.EntityRenderersEvent.AddLayers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/CuriosAccessories.java",
+      "line": 21,
+      "method": "setup",
+      "argument": "FMLClientSetupEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/DogheadClient.java",
+      "line": 20,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/EarthCamera.java",
+      "line": 10,
+      "method": "camera",
+      "argument": "ViewportEvent.ComputeCameraAngles"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/EarthClient.java",
+      "line": 24,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FieldBowClient.java",
+      "line": 20,
+      "method": "movement",
+      "argument": "MovementInputUpdateEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FirebirdClient.java",
+      "line": 20,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FlightClient.java",
+      "line": 25,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.client.event.ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FlightClient.java",
+      "line": 30,
+      "method": "rider",
+      "argument": "RenderPlayerEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FlightClient.java",
+      "line": 34,
+      "method": "hand",
+      "argument": "RenderHandEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java",
+      "line": 23,
+      "method": "hidden",
+      "argument": "RenderPlayerEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "line": 17,
+      "method": "streamSound",
+      "argument": "FrostNetwork.StreamReceived"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "line": 18,
+      "method": "receive",
+      "argument": "FrostNetwork.Received"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "line": 19,
+      "method": "tick",
+      "argument": "ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "line": 20,
+      "method": "click",
+      "argument": "InputEvent.InteractionKeyMappingTriggered"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "line": 21,
+      "method": "tooltip",
+      "argument": "net.neoforged.neoforge.event.entity.player.ItemTooltipEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "line": 22,
+      "method": "hud",
+      "argument": "RenderGuiEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "line": 26,
+      "method": "logout",
+      "argument": "ClientPlayerNetworkEvent.LoggingOut"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "line": 29,
+      "method": "keys",
+      "argument": "RegisterKeyMappingsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "line": 30,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "line": 31,
+      "method": "models",
+      "argument": "ModelEvent.RegisterAdditional"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "line": 32,
+      "method": "extension",
+      "argument": "net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GorynychClient.java",
+      "line": 12,
+      "method": "renderers",
+      "argument": "net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GorynychClient.java",
+      "line": 13,
+      "method": "extensions",
+      "argument": "net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GorynychClient.java",
+      "line": 14,
+      "method": "setup",
+      "argument": "net.neoforged.fml.event.lifecycle.FMLClientSetupEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GorynychFlameVfx.java",
+      "line": 21,
+      "method": "received",
+      "argument": "FlameVfx.Received"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GorynychFlameVfx.java",
+      "line": 28,
+      "method": "tick",
+      "argument": "ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GorynychFlameVfx.java",
+      "line": 44,
+      "method": "logout",
+      "argument": "ClientPlayerNetworkEvent.LoggingOut"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GorynychStormVfx.java",
+      "line": 14,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.client.event.ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GorynychStormVfx.java",
+      "line": 26,
+      "method": "logout",
+      "argument": "net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GorynychStormVfx.java",
+      "line": 27,
+      "method": "received",
+      "argument": "StormVfx.Received"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GreyWolfEffectTooltip.java",
+      "line": 8,
+      "method": "tooltip",
+      "argument": "GatherEffectScreenTooltipsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GuardianClient.java",
+      "line": 17,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GuardianClient.java",
+      "line": 30,
+      "method": "scene",
+      "argument": "RenderLevelStageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GusliClient.java",
+      "line": 24,
+      "method": "update",
+      "argument": "net.neoforged.neoforge.event.tick.EntityTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GusliClient.java",
+      "line": 29,
+      "method": "render",
+      "argument": "RenderPlayerEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/GusliClient.java",
+      "line": 34,
+      "method": "hand",
+      "argument": "RenderHandEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/HeroHud.java",
+      "line": 19,
+      "method": "render",
+      "argument": "RenderGuiEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/IndustryClient.java",
+      "line": 14,
+      "method": "screens",
+      "argument": "RegisterMenuScreensEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/IndustryTooltips.java",
+      "line": 9,
+      "method": "tooltip",
+      "argument": "ItemTooltipEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/KalinClient.java",
+      "line": 5,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/KitchenDisplay.java",
+      "line": 23,
+      "method": "models",
+      "argument": "ModelEvent.RegisterAdditional"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/KuzyaClient.java",
+      "line": 18,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/MarinkaClient.java",
+      "line": 23,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/MilitaryScreen.java",
+      "line": 19,
+      "method": "synced",
+      "argument": "MilitaryNetwork.Synced"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/MiningGogglesRenderer.java",
+      "line": 30,
+      "method": "setup",
+      "argument": "FMLClientSetupEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/MorBlockParticles.java",
+      "line": 9,
+      "method": "tick",
+      "argument": "ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 28,
+      "method": "receive",
+      "argument": "NightNetwork.Received"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 29,
+      "method": "pose",
+      "argument": "NightNetwork.PoseReceived"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 30,
+      "method": "tick",
+      "argument": "ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 31,
+      "method": "click",
+      "argument": "InputEvent.InteractionKeyMappingTriggered"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 32,
+      "method": "scene",
+      "argument": "RenderLevelStageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 33,
+      "method": "fog",
+      "argument": "ViewportEvent.ComputeFogColor"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 34,
+      "method": "fogDistance",
+      "argument": "ViewportEvent.RenderFog"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 35,
+      "method": "camera",
+      "argument": "ViewportEvent.ComputeCameraAngles"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 36,
+      "method": "hud",
+      "argument": "RenderGuiEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 38,
+      "method": "tooltip",
+      "argument": "net.neoforged.neoforge.event.entity.player.ItemTooltipEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 40,
+      "method": "player",
+      "argument": "RenderPlayerEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 50,
+      "method": "hand",
+      "argument": "RenderHandEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 57,
+      "method": "logout",
+      "argument": "ClientPlayerNetworkEvent.LoggingOut"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 60,
+      "method": "keys",
+      "argument": "RegisterKeyMappingsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 61,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 62,
+      "method": "layers",
+      "argument": "EntityRenderersEvent.AddLayers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 63,
+      "method": "models",
+      "argument": "ModelEvent.RegisterAdditional"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightClient.java",
+      "line": 64,
+      "method": "extension",
+      "argument": "net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NochnitsaClient.java",
+      "line": 21,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/PolozCamera.java",
+      "line": 10,
+      "method": "tick",
+      "argument": "ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/PolozCamera.java",
+      "line": 11,
+      "method": "camera",
+      "argument": "ViewportEvent.ComputeCameraAngles"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/PolozClient.java",
+      "line": 9,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/PolozClient.java",
+      "line": 10,
+      "method": "extensions",
+      "argument": "net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/PolozClient.java",
+      "line": 11,
+      "method": "setup",
+      "argument": "net.neoforged.fml.event.lifecycle.FMLClientSetupEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+      "line": 20,
+      "method": "receive",
+      "argument": "Quest185Network.Received"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+      "line": 22,
+      "method": "render",
+      "argument": "net.neoforged.neoforge.client.event.RenderLevelStageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+      "line": 28,
+      "method": "hud",
+      "argument": "net.neoforged.neoforge.client.event.RenderGuiEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+      "line": 31,
+      "method": "particles",
+      "argument": "net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+      "line": 32,
+      "method": "models",
+      "argument": "net.neoforged.neoforge.client.event.ModelEvent.RegisterAdditional"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+      "line": 33,
+      "method": "extensions",
+      "argument": "net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+      "line": 34,
+      "method": "renderers",
+      "argument": "net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+      "line": 36,
+      "method": "logout",
+      "argument": "net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/RareRuneClient.java",
+      "line": 19,
+      "method": "tick",
+      "argument": "ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/RareRuneClient.java",
+      "line": 20,
+      "method": "render",
+      "argument": "RenderGuiEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/RpgClient.java",
+      "line": 18,
+      "method": "movement",
+      "argument": "MovementInputUpdateEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/RpgClient.java",
+      "line": 19,
+      "method": "tooltip",
+      "argument": "ItemTooltipEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/RusalkaSound.java",
+      "line": 16,
+      "method": "living",
+      "argument": "net.neoforged.neoforge.event.tick.EntityTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/SanctuaryClient.java",
+      "line": 9,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/SivkaClient.java",
+      "line": 24,
+      "method": "tick",
+      "argument": "ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/SivkaClient.java",
+      "line": 31,
+      "method": "keys",
+      "argument": "RegisterKeyMappingsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/SivkaClient.java",
+      "line": 32,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/SkimClient.java",
+      "line": 15,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/TaleClientEvents.java",
+      "line": 15,
+      "method": "book",
+      "argument": "TaleNetwork.Received"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/TaleClientEvents.java",
+      "line": 16,
+      "method": "dialogue",
+      "argument": "BayunNetwork.DialogReceived"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/TaleClientEvents.java",
+      "line": 17,
+      "method": "charm",
+      "argument": "BayunNetwork.CharmReceived"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/TaleClientEvents.java",
+      "line": 18,
+      "method": "logout",
+      "argument": "ClientPlayerNetworkEvent.LoggingOut"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/TaleClientEvents.java",
+      "line": 19,
+      "method": "tick",
+      "argument": "ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/TaleClientEvents.java",
+      "line": 20,
+      "method": "overlay",
+      "argument": "RenderGuiEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/TextileClient.java",
+      "line": 10,
+      "method": "empty",
+      "argument": "PlayerInteractEvent.RightClickEmpty"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/TugarinPairClient.java",
+      "line": 31,
+      "method": "beforePlayer",
+      "argument": "RenderPlayerEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/TugarinPairClient.java",
+      "line": 32,
+      "method": "afterPlayer",
+      "argument": "RenderPlayerEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/TugarinPairClient.java",
+      "line": 33,
+      "method": "hand",
+      "argument": "RenderHandEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/UndergroundClient.java",
+      "line": 19,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/UndergroundClient.java",
+      "line": 65,
+      "method": "pose",
+      "argument": "RenderPlayerEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+      "line": 19,
+      "method": "register",
+      "argument": "RegisterClientExtensionsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/VillageVisuals.java",
+      "line": 39,
+      "method": "renderers",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/VillageVisuals.java",
+      "line": 63,
+      "method": "layers",
+      "argument": "EntityRenderersEvent.AddLayers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/VolkolakTooltip.java",
+      "line": 10,
+      "method": "skull",
+      "argument": "net.neoforged.neoforge.event.entity.player.ItemTooltipEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/VolkolakTooltip.java",
+      "line": 11,
+      "method": "blood",
+      "argument": "net.neoforged.neoforge.client.event.GatherEffectScreenTooltipsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/WeaponHands.java",
+      "line": 18,
+      "method": "click",
+      "argument": "InputEvent.InteractionKeyMappingTriggered"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/WeaponHands.java",
+      "line": 22,
+      "method": "hand",
+      "argument": "RenderHandEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/WeaponTooltips.java",
+      "line": 15,
+      "method": "tooltip",
+      "argument": "ItemTooltipEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/WintersClient.java",
+      "line": 10,
+      "method": "tooltip",
+      "argument": "net.neoforged.neoforge.event.entity.player.ItemTooltipEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/WintersClient.java",
+      "line": 15,
+      "method": "ready",
+      "argument": "net.neoforged.fml.event.lifecycle.FMLClientSetupEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/WolfStoryClient.java",
+      "line": 10,
+      "method": "view",
+      "argument": "WolfStoryNetwork.Viewed"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/WolfStoryClient.java",
+      "line": 11,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.client.event.ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/WolfStoryClient.java",
+      "line": 12,
+      "method": "hud",
+      "argument": "RenderGuiEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/CombatEquipment.java",
+      "line": 23,
+      "method": "hurt",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/CreatureSafety.java",
+      "line": 59,
+      "method": "difficulty",
+      "argument": "DifficultyChangeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/CreatureSafety.java",
+      "line": 74,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/CreatureSafety.java",
+      "line": 79,
+      "method": "target",
+      "argument": "LivingChangeTargetEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/CreatureSafety.java",
+      "line": 82,
+      "method": "damage",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/CreatureSafety.java",
+      "line": 94,
+      "method": "mode",
+      "argument": "PlayerEvent.PlayerChangeGameModeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/CutEffect.java",
+      "line": 30,
+      "method": "hit",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/MobMaceCombat.java",
+      "line": 12,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/RareCombat.java",
+      "line": 23,
+      "method": "attack",
+      "argument": "AttackEntityEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/RareCombat.java",
+      "line": 36,
+      "method": "incoming",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/RareCombat.java",
+      "line": 47,
+      "method": "shield",
+      "argument": "LivingShieldBlockEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/RareCombat.java",
+      "line": 56,
+      "method": "hit",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/RareCombat.java",
+      "line": 76,
+      "method": "target",
+      "argument": "LivingChangeTargetEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/RareCombat.java",
+      "line": 80,
+      "method": "join",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/RareCombat.java",
+      "line": 81,
+      "method": "dimension",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/RareCombat.java",
+      "line": 82,
+      "method": "respawn",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/TugarinPair.java",
+      "line": 26,
+      "method": "equipment",
+      "argument": "LivingEquipmentChangeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/TugarinPair.java",
+      "line": 27,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/TugarinPair.java",
+      "line": 28,
+      "method": "logout",
+      "argument": "PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/combat/TugarinPair.java",
+      "line": 29,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/depth/DepthProgress.java",
+      "line": 8,
+      "method": "crafted",
+      "argument": "PlayerEvent.ItemCraftedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/depths/DepthsCommands.java",
+      "line": 15,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/depths/DepthsService.java",
+      "line": 56,
+      "method": "tick",
+      "argument": "ServerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/depths/DepthsService.java",
+      "line": 57,
+      "method": "started",
+      "argument": "ServerStartedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/depths/DepthsService.java",
+      "line": 64,
+      "method": "stopping",
+      "argument": "ServerStoppingEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/depths/DepthsService.java",
+      "line": 65,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthArena.java",
+      "line": 63,
+      "method": "seal",
+      "argument": "BlockEvent.BreakEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthArena.java",
+      "line": 93,
+      "method": "spawning",
+      "argument": "MobSpawnEvent.PositionCheck"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthCombatEvents.java",
+      "line": 7,
+      "method": "pre",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthCombatEvents.java",
+      "line": 8,
+      "method": "post",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthCommands.java",
+      "line": 9,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthConfig.java",
+      "line": 31,
+      "method": "load",
+      "argument": "ModConfigEvent.Loading"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthContent.java",
+      "line": 40,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthRune.java",
+      "line": 21,
+      "method": "equip",
+      "argument": "LivingEquipmentChangeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthRune.java",
+      "line": 22,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthRune.java",
+      "line": 23,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthRune.java",
+      "line": 24,
+      "method": "respawn",
+      "argument": "PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthRune.java",
+      "line": 25,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/earth/EarthRune.java",
+      "line": 26,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+      "line": 26,
+      "method": "login",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+      "line": 27,
+      "method": "respawn",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+      "line": 28,
+      "method": "dimension",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+      "line": 39,
+      "method": "equipment",
+      "argument": "LivingEquipmentChangeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+      "line": 43,
+      "method": "fall",
+      "argument": "LivingFallEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+      "line": 46,
+      "method": "jump",
+      "argument": "LivingEvent.LivingJumpEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+      "line": 51,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+      "line": 55,
+      "method": "knock",
+      "argument": "LivingKnockBackEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+      "line": 62,
+      "method": "timer",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+      "line": 66,
+      "method": "control",
+      "argument": "MobEffectEvent.Applicable"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/WindBootsMomentum.java",
+      "line": 35,
+      "method": "tick",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/WindBootsMomentum.java",
+      "line": 50,
+      "method": "jump",
+      "argument": "LivingEvent.LivingJumpEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/WindBootsMomentum.java",
+      "line": 56,
+      "method": "fall",
+      "argument": "LivingFallEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/WindBootsMomentum.java",
+      "line": 63,
+      "method": "equipment",
+      "argument": "LivingEquipmentChangeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/WindBootsMomentum.java",
+      "line": 64,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/WindBootsMomentum.java",
+      "line": 65,
+      "method": "logout",
+      "argument": "PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/WindBootsMomentum.java",
+      "line": 66,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/WindBootsMomentum.java",
+      "line": 67,
+      "method": "respawn",
+      "argument": "PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/WindBootsMomentum.java",
+      "line": 68,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/finist/FinistContent.java",
+      "line": 24,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/finist/FinistEffects.java",
+      "line": 9,
+      "method": "multiplier",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/finist/FinistEffects.java",
+      "line": 10,
+      "method": "landed",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/finist/FinistEvents.java",
+      "line": 5,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.ServerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/finist/FinistEvents.java",
+      "line": 6,
+      "method": "commands",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/finist/FinistEvents.java",
+      "line": 7,
+      "method": "incoming",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/finist/FinistEvents.java",
+      "line": 9,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/finist/FinistEvents.java",
+      "line": 11,
+      "method": "after",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/finist/FinistEvents.java",
+      "line": 12,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/finist/FinistEvents.java",
+      "line": 14,
+      "method": "drops",
+      "argument": "LivingDropsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/finist/FinistEvents.java",
+      "line": 15,
+      "method": "xp",
+      "argument": "LivingExperienceDropEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/firebird/FirebirdCommands.java",
+      "line": 11,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/firebird/FirebirdContent.java",
+      "line": 27,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/firebird/FirebirdEncounter.java",
+      "line": 30,
+      "method": "tick",
+      "argument": "LevelTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/furniture/FurnitureClient.java",
+      "line": 18,
+      "method": "setup",
+      "argument": "EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorodishche/CityCatalog.java",
+      "line": 30,
+      "method": "listeners",
+      "argument": "AddReloadListenerEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorodishche/CityCommands.java",
+      "line": 18,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/CrossbowDamage.java",
+      "line": 55,
+      "method": "hit",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java",
+      "line": 20,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java",
+      "line": 28,
+      "method": "logout",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java",
+      "line": 29,
+      "method": "stop",
+      "argument": "net.neoforged.neoforge.event.server.ServerStoppedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java",
+      "line": 37,
+      "method": "register",
+      "argument": "net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java",
+      "line": 19,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java",
+      "line": 20,
+      "method": "knock",
+      "argument": "LivingKnockBackEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java",
+      "line": 21,
+      "method": "effect",
+      "argument": "MobEffectEvent.Added"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java",
+      "line": 22,
+      "method": "player",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java",
+      "line": 23,
+      "method": "hit",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java",
+      "line": 24,
+      "method": "impact",
+      "argument": "net.neoforged.neoforge.event.entity.ProjectileImpactEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java",
+      "line": 27,
+      "method": "struggle",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickItem"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java",
+      "line": 28,
+      "method": "block",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java",
+      "line": 29,
+      "method": "left",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.LeftClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java",
+      "line": 30,
+      "method": "attack",
+      "argument": "net.neoforged.neoforge.event.entity.player.AttackEntityEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychWorld.java",
+      "line": 16,
+      "method": "chunk",
+      "argument": "net.neoforged.neoforge.event.level.ChunkEvent.Load"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/gorynych/GorynychWorld.java",
+      "line": 17,
+      "method": "player",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/guardians/GuardianWorld.java",
+      "line": 32,
+      "method": "player",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/guardians/GuardianWorld.java",
+      "line": 48,
+      "method": "leftBlock",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.LeftClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/guardians/GuardianWorld.java",
+      "line": 49,
+      "method": "right",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickItem"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/guardians/GuardianWorld.java",
+      "line": 50,
+      "method": "rightBlock",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/guardians/GuardianWorld.java",
+      "line": 51,
+      "method": "attack",
+      "argument": "net.neoforged.neoforge.event.entity.player.AttackEntityEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/BossAnchors.java",
+      "line": 35,
+      "method": "chunk",
+      "argument": "ChunkEvent.Load"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/BossAnchors.java",
+      "line": 47,
+      "method": "player",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/BossCommands.java",
+      "line": 12,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+      "line": 35,
+      "method": "healing",
+      "argument": "LivingHealEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+      "line": 36,
+      "method": "knock",
+      "argument": "LivingKnockBackEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+      "line": 37,
+      "method": "melee",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+      "line": 38,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+      "line": 39,
+      "method": "eye",
+      "argument": "MobEffectEvent.Applicable"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/BossEffects.java",
+      "line": 42,
+      "method": "clone",
+      "argument": "PlayerEvent.Clone"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/HuntCommands.java",
+      "line": 12,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/HuntEffects.java",
+      "line": 23,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/HuntEffects.java",
+      "line": 27,
+      "method": "fire",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/HuntEffects.java",
+      "line": 28,
+      "method": "silver",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/StarCharmEffects.java",
+      "line": 21,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/hunt/StarCharmEffects.java",
+      "line": 24,
+      "method": "clone",
+      "argument": "PlayerEvent.Clone"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/husbandry/YardFeeding.java",
+      "line": 25,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/husbandry/YardFeeding.java",
+      "line": 31,
+      "method": "interact",
+      "argument": "PlayerInteractEvent.EntityInteract"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/industry/ChudPeople.java",
+      "line": 16,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/industry/ChudThreats.java",
+      "line": 10,
+      "method": "joined",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
+      "line": 34,
+      "method": "speed",
+      "argument": "PlayerEvent.BreakSpeed"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
+      "line": 35,
+      "method": "fall",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
+      "line": 48,
+      "method": "externalAdded",
+      "argument": "MobEffectEvent.Added"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
+      "line": 51,
+      "method": "externalRemoved",
+      "argument": "MobEffectEvent.Remove"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/industry/MachineTile.java",
+      "line": 65,
+      "method": "register",
+      "argument": "RegisterCapabilitiesEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java",
+      "line": 24,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java",
+      "line": 37,
+      "method": "hurt",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java",
+      "line": 52,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/item/SilverCombat.java",
+      "line": 18,
+      "method": "onHurt",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/item/StormProtection.java",
+      "line": 18,
+      "method": "onHurt",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/item/ThunderSpearCombat.java",
+      "line": 17,
+      "method": "onHurt",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kalin/KalinContent.java",
+      "line": 26,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kalin/KalinEvents.java",
+      "line": 5,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.ServerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kalin/KalinEvents.java",
+      "line": 6,
+      "method": "commands",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kalin/KalinEvents.java",
+      "line": 7,
+      "method": "incoming",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kalin/KalinEvents.java",
+      "line": 8,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kalin/KalinEvents.java",
+      "line": 9,
+      "method": "drops",
+      "argument": "LivingDropsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kalin/KalinEvents.java",
+      "line": 10,
+      "method": "xp",
+      "argument": "LivingExperienceDropEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kalin/KalinEvents.java",
+      "line": 11,
+      "method": "clone",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.Clone"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 11,
+      "method": "clamp",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 12,
+      "method": "friendly",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 13,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 14,
+      "method": "attack",
+      "argument": "AttackEntityEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 15,
+      "method": "offhand",
+      "argument": "PlayerInteractEvent.RightClickItem"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 16,
+      "method": "block",
+      "argument": "PlayerInteractEvent.RightClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 17,
+      "method": "entity",
+      "argument": "PlayerInteractEvent.EntityInteract"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 18,
+      "method": "specific",
+      "argument": "PlayerInteractEvent.EntityInteractSpecific"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 19,
+      "method": "use",
+      "argument": "LivingEntityUseItemEvent.Start"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 21,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.EntityTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 22,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 24,
+      "method": "logout",
+      "argument": "PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 25,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "line": 26,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java",
+      "line": 14,
+      "method": "hurt",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java",
+      "line": 19,
+      "method": "tooltip",
+      "argument": "ItemTooltipEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/KurganCommands.java",
+      "line": 35,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/KurganCurse.java",
+      "line": 28,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/KurganCurse.java",
+      "line": 29,
+      "method": "respawn",
+      "argument": "PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/KurganCurse.java",
+      "line": 31,
+      "method": "safety",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/KurganDisturbance.java",
+      "line": 27,
+      "method": "use",
+      "argument": "PlayerInteractEvent.RightClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/KurganDisturbance.java",
+      "line": 28,
+      "method": "breakBlock",
+      "argument": "BlockEvent.BreakEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/KurganEncounters.java",
+      "line": 30,
+      "method": "player",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/KurganEncounters.java",
+      "line": 69,
+      "method": "leaving",
+      "argument": "net.neoforged.neoforge.event.entity.EntityLeaveLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/KurganEncounters.java",
+      "line": 75,
+      "method": "crossing",
+      "argument": "net.neoforged.neoforge.event.entity.EntityEvent.EnteringSection"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/KurganEncounters.java",
+      "line": 81,
+      "method": "joining",
+      "argument": "net.neoforged.neoforge.event.entity.EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/KurganEncounters.java",
+      "line": 104,
+      "method": "healing",
+      "argument": "LivingHealEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/SmokeAging.java",
+      "line": 37,
+      "method": "placed",
+      "argument": "BlockEvent.EntityPlaceEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/SmokeAging.java",
+      "line": 38,
+      "method": "broken",
+      "argument": "BlockEvent.BreakEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/SmokeAging.java",
+      "line": 39,
+      "method": "interact",
+      "argument": "PlayerInteractEvent.RightClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/SmokeAging.java",
+      "line": 40,
+      "method": "load",
+      "argument": "ChunkEvent.Load"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kurgan/SmokeAging.java",
+      "line": 41,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.LevelTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kuzya/KuzyaContent.java",
+      "line": 21,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kuzya/KuzyaResidence.java",
+      "line": 17,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/kuzya/KuzyaResidence.java",
+      "line": 18,
+      "method": "commands",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/marinka/MarinkaCommands.java",
+      "line": 10,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+      "line": 25,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/marinka/MarinkaEvents.java",
+      "line": 9,
+      "method": "incoming",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/marinka/MarinkaEvents.java",
+      "line": 10,
+      "method": "pre",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/marinka/MarinkaEvents.java",
+      "line": 11,
+      "method": "post",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/marinka/WitchYard.java",
+      "line": 109,
+      "method": "tick",
+      "argument": "ServerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/marinka/WitchYard.java",
+      "line": 115,
+      "method": "discover",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/GreyWolfStoryEvents.java",
+      "line": 10,
+      "method": "damaged",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/GreyWolfStoryEvents.java",
+      "line": 11,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/GreyWolfStoryEvents.java",
+      "line": 12,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/GreyWolfStoryEvents.java",
+      "line": 13,
+      "method": "logout",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/GreyWolfStoryEvents.java",
+      "line": 14,
+      "method": "drops",
+      "argument": "LivingDropsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/GreyWolfStoryEvents.java",
+      "line": 15,
+      "method": "xp",
+      "argument": "LivingExperienceDropEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/GreyWolfStoryEvents.java",
+      "line": 16,
+      "method": "removed",
+      "argument": "net.neoforged.neoforge.event.entity.EntityLeaveLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/MilitaryCommands.java",
+      "line": 17,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/MilitaryEvents.java",
+      "line": 15,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/MilitaryEvents.java",
+      "line": 17,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/MilitaryEvents.java",
+      "line": 18,
+      "method": "damage",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/MilitaryEvents.java",
+      "line": 21,
+      "method": "entity",
+      "argument": "EntityTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/MilitaryEvents.java",
+      "line": 22,
+      "method": "player",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/MilitaryEvents.java",
+      "line": 23,
+      "method": "level",
+      "argument": "LevelTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/MilitaryEvents.java",
+      "line": 24,
+      "method": "conversion",
+      "argument": "LivingConversionEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/military/MilitaryNetwork.java",
+      "line": 19,
+      "method": "register",
+      "argument": "RegisterPayloadHandlersEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/mor/MorBlockCommands.java",
+      "line": 11,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/mor/MorBlockExposure.java",
+      "line": 24,
+      "method": "tick",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/mor/MorEvents.java",
+      "line": 12,
+      "method": "spawn",
+      "argument": "FinalizeSpawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/mor/MorEvents.java",
+      "line": 16,
+      "method": "drops",
+      "argument": "LivingDropsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/mor/MorEvents.java",
+      "line": 17,
+      "method": "xp",
+      "argument": "LivingExperienceDropEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/mor/MorEvents.java",
+      "line": 18,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/mor/MorRejection.java",
+      "line": 15,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "line": 12,
+      "method": "mirrorFriendly",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "line": 13,
+      "method": "clamp",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "line": 14,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "line": 16,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.EntityTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "line": 17,
+      "method": "attack",
+      "argument": "AttackEntityEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "line": 18,
+      "method": "projectile",
+      "argument": "net.neoforged.neoforge.event.entity.EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "line": 19,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "line": 21,
+      "method": "logout",
+      "argument": "PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "line": 22,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "line": 23,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/NavigationCommands.java",
+      "line": 13,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/NavigationEvents.java",
+      "line": 30,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/NavigationEvents.java",
+      "line": 31,
+      "method": "logout",
+      "argument": "PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/NavigationEvents.java",
+      "line": 32,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/NavigationEvents.java",
+      "line": 33,
+      "method": "respawn",
+      "argument": "PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/NavigationEvents.java",
+      "line": 34,
+      "method": "joined",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/NavigationEvents.java",
+      "line": 43,
+      "method": "left",
+      "argument": "EntityLeaveLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/NavigationEvents.java",
+      "line": 48,
+      "method": "died",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/NavigationEvents.java",
+      "line": 52,
+      "method": "attacked",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/NavigationEvents.java",
+      "line": 87,
+      "method": "tick",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/NavigationEvents.java",
+      "line": 171,
+      "method": "blockRemoved",
+      "argument": "BlockEvent.BreakEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/nochnitsa/NochnitsaConfig.java",
+      "line": 11,
+      "method": "loading",
+      "argument": "ModConfigEvent.Loading"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/nochnitsa/NochnitsaConfig.java",
+      "line": 12,
+      "method": "reloading",
+      "argument": "ModConfigEvent.Reloading"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/nochnitsa/NochnitsaContent.java",
+      "line": 38,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/nochnitsa/NochnitsaContent.java",
+      "line": 39,
+      "method": "placements",
+      "argument": "RegisterSpawnPlacementsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/nochnitsa/NochnitsaHorde.java",
+      "line": 29,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/nochnitsa/NochnitsaHorde.java",
+      "line": 30,
+      "method": "leave",
+      "argument": "EntityLeaveLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/pesigolovtsy/DogheadConfig.java",
+      "line": 12,
+      "method": "loading",
+      "argument": "ModConfigEvent.Loading"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/pesigolovtsy/DogheadConfig.java",
+      "line": 12,
+      "method": "reloading",
+      "argument": "ModConfigEvent.Reloading"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/pesigolovtsy/DogheadContent.java",
+      "line": 43,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/pesigolovtsy/DogheadContent.java",
+      "line": 44,
+      "method": "placements",
+      "argument": "RegisterSpawnPlacementsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/pesigolovtsy/DogheadPacks.java",
+      "line": 15,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/pesigolovtsy/DogheadPacks.java",
+      "line": 16,
+      "method": "leave",
+      "argument": "EntityLeaveLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozCommands.java",
+      "line": 10,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozEvents.java",
+      "line": 18,
+      "method": "single",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozEvents.java",
+      "line": 20,
+      "method": "tick",
+      "argument": "ServerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozEvents.java",
+      "line": 21,
+      "method": "mob",
+      "argument": "EntityTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozEvents.java",
+      "line": 22,
+      "method": "loot",
+      "argument": "LivingDropsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozEvents.java",
+      "line": 27,
+      "method": "xp",
+      "argument": "LivingExperienceDropEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozEvents.java",
+      "line": 28,
+      "method": "craft",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.ItemCraftedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozEvents.java",
+      "line": 29,
+      "method": "damaged",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozEvents.java",
+      "line": 30,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozRegistration.java",
+      "line": 7,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java",
+      "line": 26,
+      "method": "attack",
+      "argument": "AttackEntityEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java",
+      "line": 27,
+      "method": "tooltip",
+      "argument": "ItemTooltipEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java",
+      "line": 32,
+      "method": "equip",
+      "argument": "LivingEquipmentChangeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java",
+      "line": 33,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java",
+      "line": 34,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java",
+      "line": 35,
+      "method": "respawn",
+      "argument": "PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java",
+      "line": 36,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java",
+      "line": 37,
+      "method": "mitigate",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java",
+      "line": 39,
+      "method": "smith",
+      "argument": "PlayerInteractEvent.RightClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java",
+      "line": 48,
+      "method": "hit",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Commands.java",
+      "line": 12,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 15,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 18,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 19,
+      "method": "logout",
+      "argument": "PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 20,
+      "method": "clone",
+      "argument": "PlayerEvent.Clone"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 21,
+      "method": "craft",
+      "argument": "PlayerEvent.ItemCraftedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 22,
+      "method": "mitigation",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 23,
+      "method": "fall",
+      "argument": "LivingFallEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 24,
+      "method": "tick",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 30,
+      "method": "level",
+      "argument": "LevelTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 31,
+      "method": "damaged",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 32,
+      "method": "broken",
+      "argument": "net.neoforged.neoforge.event.level.BlockDropsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 33,
+      "method": "placed",
+      "argument": "net.neoforged.neoforge.event.level.BlockEvent.EntityPlaceEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 34,
+      "method": "added",
+      "argument": "MobEffectEvent.Added"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/quest185/Quest185Events.java",
+      "line": 35,
+      "method": "chunk",
+      "argument": "net.neoforged.neoforge.event.level.ChunkEvent.Load"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+      "line": 49,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 40,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 41,
+      "method": "clone",
+      "argument": "PlayerEvent.Clone"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 42,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 43,
+      "method": "gift",
+      "argument": "PlayerInteractEvent.EntityInteract"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 62,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 78,
+      "method": "expireSuppression",
+      "argument": "net.neoforged.neoforge.event.tick.EntityTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 82,
+      "method": "after",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 86,
+      "method": "fall",
+      "argument": "LivingFallEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 87,
+      "method": "knockback",
+      "argument": "LivingKnockBackEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 88,
+      "method": "equipment",
+      "argument": "LivingEquipmentChangeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 89,
+      "method": "tick",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 96,
+      "method": "attack",
+      "argument": "AttackEntityEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 98,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 100,
+      "method": "applied",
+      "argument": "MobEffectEvent.Applicable"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+      "line": 101,
+      "method": "tooltip",
+      "argument": "net.neoforged.neoforge.event.entity.player.ItemTooltipEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/AdvancedRunes.java",
+      "line": 76,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/AdvancedRunes.java",
+      "line": 94,
+      "method": "hit",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/AdvancedRunes.java",
+      "line": 110,
+      "method": "equip",
+      "argument": "LivingEquipmentChangeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/AdvancedRunes.java",
+      "line": 111,
+      "method": "logout",
+      "argument": "PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/AdvancedRunes.java",
+      "line": 112,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/AdvancedRunes.java",
+      "line": 113,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/AdvancedRunes.java",
+      "line": 114,
+      "method": "respawn",
+      "argument": "PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/AdvancedRunes.java",
+      "line": 115,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java",
+      "line": 56,
+      "method": "equipment",
+      "argument": "LivingEquipmentChangeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java",
+      "line": 57,
+      "method": "incoming",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java",
+      "line": 67,
+      "method": "defense",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java",
+      "line": 68,
+      "method": "hit",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java",
+      "line": 75,
+      "method": "tick",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java",
+      "line": 90,
+      "method": "logout",
+      "argument": "PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java",
+      "line": 91,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java",
+      "line": 92,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java",
+      "line": 93,
+      "method": "respawn",
+      "argument": "PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RareRuneRuntime.java",
+      "line": 94,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 21,
+      "method": "clone",
+      "argument": "PlayerEvent.Clone"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 22,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 23,
+      "method": "respawn",
+      "argument": "PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 24,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 25,
+      "method": "knockback",
+      "argument": "LivingKnockBackEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 27,
+      "method": "attack",
+      "argument": "LivingShieldBlockEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 36,
+      "method": "blockConfirmation",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 43,
+      "method": "craftRuneAttack",
+      "argument": "AttackEntityEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 44,
+      "method": "arrow",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 57,
+      "method": "hurt",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 80,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 81,
+      "method": "food",
+      "argument": "LivingEntityUseItemEvent.Finish"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RpgEvents.java",
+      "line": 82,
+      "method": "sense",
+      "argument": "PlayerInteractEvent.EntityInteract"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneFoundationLoot.java",
+      "line": 13,
+      "method": "drops",
+      "argument": "LivingDropsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneRepair.java",
+      "line": 42,
+      "method": "anvil",
+      "argument": "AnvilUpdateEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneRepair.java",
+      "line": 46,
+      "method": "grindstone",
+      "argument": "GrindstoneEvent.OnPlaceItem"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneRuntime.java",
+      "line": 40,
+      "method": "equipment",
+      "argument": "LivingEquipmentChangeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneRuntime.java",
+      "line": 41,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneRuntime.java",
+      "line": 42,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneRuntime.java",
+      "line": 43,
+      "method": "respawn",
+      "argument": "PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneRuntime.java",
+      "line": 44,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneRuntime.java",
+      "line": 45,
+      "method": "fireDefense",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneRuntime.java",
+      "line": 48,
+      "method": "hit",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneRuntime.java",
+      "line": 63,
+      "method": "shield",
+      "argument": "LivingShieldBlockEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/RuneRuntime.java",
+      "line": 66,
+      "method": "jump",
+      "argument": "LivingEvent.LivingJumpEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/sanctuary/SanctuaryCommands.java",
+      "line": 25,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/sanctuary/SanctuaryEvents.java",
+      "line": 8,
+      "method": "damage",
+      "argument": "net.neoforged.neoforge.event.entity.living.LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/sanctuary/SanctuaryEvents.java",
+      "line": 9,
+      "method": "breakNode",
+      "argument": "net.neoforged.neoforge.event.level.BlockEvent.BreakEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/sanctuary/SanctuaryEvents.java",
+      "line": 11,
+      "method": "discover",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/serpenthill/HillCommands.java",
+      "line": 18,
+      "method": "register",
+      "argument": "net.neoforged.neoforge.event.RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/serpenthill/HillCommands.java",
+      "line": 20,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.ServerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/serpenthill/HillEvents.java",
+      "line": 13,
+      "method": "player",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/sivka/SivkaBonds.java",
+      "line": 66,
+      "method": "tick",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/sivka/SivkaBonds.java",
+      "line": 72,
+      "method": "logout",
+      "argument": "PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/sivka/SivkaCommands.java",
+      "line": 10,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/sivka/SivkaContent.java",
+      "line": 27,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/sivka/SivkaContent.java",
+      "line": 28,
+      "method": "placements",
+      "argument": "RegisterSpawnPlacementsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/skim/SkimContent.java",
+      "line": 27,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/skim/SkimEvents.java",
+      "line": 10,
+      "method": "tick",
+      "argument": "ServerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/skim/SkimEvents.java",
+      "line": 11,
+      "method": "incoming",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/skim/SkimEvents.java",
+      "line": 12,
+      "method": "post",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/skim/SkimEvents.java",
+      "line": 13,
+      "method": "pre",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/skim/SkimEvents.java",
+      "line": 14,
+      "method": "join",
+      "argument": "net.neoforged.neoforge.event.entity.EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/skim/SkimEvents.java",
+      "line": 15,
+      "method": "commands",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/swamp/SwampCommands.java",
+      "line": 35,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 18,
+      "method": "reload",
+      "argument": "AddReloadListenerEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 19,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 20,
+      "method": "pickup",
+      "argument": "ItemEntityPickupEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 21,
+      "method": "crafted",
+      "argument": "PlayerEvent.ItemCraftedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 22,
+      "method": "smelted",
+      "argument": "PlayerEvent.ItemSmeltedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 23,
+      "method": "container",
+      "argument": "PlayerContainerEvent.Close"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 24,
+      "method": "interact",
+      "argument": "PlayerInteractEvent.EntityInteract"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 25,
+      "method": "block",
+      "argument": "PlayerInteractEvent.RightClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 26,
+      "method": "earned",
+      "argument": "AdvancementEvent.AdvancementEarnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 27,
+      "method": "killed",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 28,
+      "method": "revoked",
+      "argument": "AdvancementEvent.AdvancementProgressEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/tales/TaleEvents.java",
+      "line": 29,
+      "method": "seen",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/textile/BeltData.java",
+      "line": 31,
+      "method": "block",
+      "argument": "PlayerInteractEvent.RightClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/textile/BeltData.java",
+      "line": 33,
+      "method": "entity",
+      "argument": "PlayerInteractEvent.EntityInteract"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/textile/TextileEvents.java",
+      "line": 16,
+      "method": "drops",
+      "argument": "LivingDropsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/textile/TextileEvents.java",
+      "line": 38,
+      "method": "sleep",
+      "argument": "PlayerWakeUpEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/EncounterPopulation.java",
+      "line": 31,
+      "method": "chunk",
+      "argument": "ChunkEvent.Load"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/EncounterPopulation.java",
+      "line": 32,
+      "method": "tick",
+      "argument": "LevelTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/OminousAura.java",
+      "line": 21,
+      "method": "target",
+      "argument": "LivingChangeTargetEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/OminousAura.java",
+      "line": 22,
+      "method": "provoke",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/OminousAura.java",
+      "line": 26,
+      "method": "tick",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/OminousAura.java",
+      "line": 27,
+      "method": "attack",
+      "argument": "AttackEntityEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/OminousAura.java",
+      "line": 28,
+      "method": "mine",
+      "argument": "PlayerInteractEvent.LeftClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/OminousAura.java",
+      "line": 29,
+      "method": "item",
+      "argument": "PlayerInteractEvent.RightClickItem"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/OminousAura.java",
+      "line": 30,
+      "method": "directAttack",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/OminousAura.java",
+      "line": 31,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/OminousAura.java",
+      "line": 32,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/OminousAura.java",
+      "line": 33,
+      "method": "respawn",
+      "argument": "PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/UndergroundCommands.java",
+      "line": 10,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+      "line": 27,
+      "method": "attributes",
+      "argument": "EntityAttributeCreationEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/village/VillageCommands.java",
+      "line": 20,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/village/VillageEvents.java",
+      "line": 12,
+      "method": "join",
+      "argument": "EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/village/VillageEvents.java",
+      "line": 17,
+      "method": "converted",
+      "argument": "LivingConversionEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/village/VillageShowcase.java",
+      "line": 43,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/village/VillageTrades.java",
+      "line": 17,
+      "method": "trades",
+      "argument": "VillagerTradesEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/BadBlood.java",
+      "line": 18,
+      "method": "heal",
+      "argument": "LivingHealEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/BadBlood.java",
+      "line": 26,
+      "method": "expired",
+      "argument": "net.neoforged.neoforge.event.entity.living.MobEffectEvent.Expired"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/BadBlood.java",
+      "line": 27,
+      "method": "removed",
+      "argument": "net.neoforged.neoforge.event.entity.living.MobEffectEvent.Remove"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java",
+      "line": 12,
+      "method": "lethal",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java",
+      "line": 13,
+      "method": "damaged",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java",
+      "line": 14,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java",
+      "line": 15,
+      "method": "logout",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java",
+      "line": 16,
+      "method": "login",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java",
+      "line": 17,
+      "method": "dimension",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java",
+      "line": 18,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java",
+      "line": 22,
+      "method": "expired",
+      "argument": "net.neoforged.neoforge.event.entity.item.ItemExpireEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java",
+      "line": 23,
+      "method": "removed",
+      "argument": "net.neoforged.neoforge.event.entity.EntityLeaveLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java",
+      "line": 25,
+      "method": "placed",
+      "argument": "net.neoforged.neoforge.event.level.BlockEvent.EntityPlaceEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java",
+      "line": 26,
+      "method": "pickup",
+      "argument": "net.neoforged.neoforge.event.entity.player.ItemEntityPickupEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/water/RusalkaSong.java",
+      "line": 14,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/water/WaterFishing.java",
+      "line": 16,
+      "method": "fishKilled",
+      "argument": "net.neoforged.neoforge.event.entity.living.LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/water/WaterFishing.java",
+      "line": 17,
+      "method": "catchFish",
+      "argument": "ItemFishedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/winters/WintersEvents.java",
+      "line": 77,
+      "method": "player",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/winters/WintersEvents.java",
+      "line": 97,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/winters/WintersEvents.java",
+      "line": 108,
+      "method": "hit",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/winters/WintersEvents.java",
+      "line": 112,
+      "method": "effect",
+      "argument": "MobEffectEvent.Added"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/winters/WintersEvents.java",
+      "line": 113,
+      "method": "crafted",
+      "argument": "PlayerEvent.ItemCraftedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/winters/WintersEvents.java",
+      "line": 119,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/winters/WintersEvents.java",
+      "line": 120,
+      "method": "clone",
+      "argument": "PlayerEvent.Clone"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/winters/WintersEvents.java",
+      "line": 121,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/winters/WintersEvents.java",
+      "line": 122,
+      "method": "logout",
+      "argument": "PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/winters/WintersEvents.java",
+      "line": 123,
+      "method": "dimension",
+      "argument": "PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/wolf/WolfCommands.java",
+      "line": 13,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/wolf/WolfEncounter.java",
+      "line": 45,
+      "method": "player",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/wolf/WolfEvents.java",
+      "line": 6,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/wolf/WolfEvents.java",
+      "line": 7,
+      "method": "drops",
+      "argument": "LivingDropsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/wolf/WolfEvents.java",
+      "line": 8,
+      "method": "xp",
+      "argument": "LivingExperienceDropEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/wolf/WolfEvents.java",
+      "line": 9,
+      "method": "expired",
+      "argument": "MobEffectEvent.Expired"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/wolf/WolfStoryNetwork.java",
+      "line": 23,
+      "method": "register",
+      "argument": "RegisterPayloadHandlersEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/wood/WoodlandClient.java",
+      "line": 11,
+      "method": "setup",
+      "argument": "FMLClientSetupEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/wood/WoodlandClient.java",
+      "line": 18,
+      "method": "renderers",
+      "argument": "net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/wood/WoodlandCommands.java",
+      "line": 12,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/wood/WoodlandFuel.java",
+      "line": 14,
+      "method": "fuel",
+      "argument": "FurnaceFuelBurnTimeEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/world/LandEncounters.java",
+      "line": 38,
+      "method": "open",
+      "argument": "PlayerInteractEvent.RightClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/world/LandEncounters.java",
+      "line": 42,
+      "method": "broken",
+      "argument": "BlockEvent.BreakEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/worldgen/BoundedStructureSearch.java",
+      "line": 37,
+      "method": "tick",
+      "argument": "ServerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/worldgen/BoundedStructureSearch.java",
+      "line": 38,
+      "method": "unload",
+      "argument": "LevelEvent.Unload"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/worldgen/FootprintCacheLifecycle.java",
+      "line": 8,
+      "method": "unload",
+      "argument": "LevelEvent.Unload"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/worldgen/FootprintCacheLifecycle.java",
+      "line": 9,
+      "method": "reload",
+      "argument": "OnDatapackSyncEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/worldgen/ManualStructureCommands.java",
+      "line": 10,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/worldgen/ManualStructureJobs.java",
+      "line": 43,
+      "method": "tick",
+      "argument": "ServerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/worldgen/ManualStructureJobs.java",
+      "line": 44,
+      "method": "unload",
+      "argument": "LevelEvent.Unload"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/yaga/YagaCommands.java",
+      "line": 12,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/yaga/YagaHut.java",
+      "line": 23,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.event.tick.PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassCommands.java",
+      "line": 12,
+      "method": "register",
+      "argument": "RegisterCommandsEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 19,
+      "method": "shield",
+      "argument": "LivingShieldBlockEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 23,
+      "method": "logout",
+      "argument": "PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 24,
+      "method": "stopped",
+      "argument": "net.neoforged.neoforge.event.server.ServerStoppedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 25,
+      "method": "login",
+      "argument": "PlayerEvent.PlayerLoggedInEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 26,
+      "method": "respawn",
+      "argument": "PlayerEvent.PlayerRespawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 28,
+      "method": "tick",
+      "argument": "PlayerTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 35,
+      "method": "damage",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 47,
+      "method": "projectile",
+      "argument": "net.neoforged.neoforge.event.entity.EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 52,
+      "method": "jump",
+      "argument": "LivingEvent.LivingJumpEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 53,
+      "method": "food",
+      "argument": "LivingEntityUseItemEvent.Finish"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 55,
+      "method": "fall",
+      "argument": "LivingFallEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java",
+      "line": 58,
+      "method": "afterDamage",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassPassiveEvents.java",
+      "line": 14,
+      "method": "effect",
+      "argument": "MobEffectEvent.Added"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassPassiveEvents.java",
+      "line": 20,
+      "method": "incoming",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassPassiveEvents.java",
+      "line": 32,
+      "method": "damaged",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassTrialService.java",
+      "line": 39,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassTrialService.java",
+      "line": 52,
+      "method": "healed",
+      "argument": "LivingHealEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassTrialService.java",
+      "line": 56,
+      "method": "killed",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+      "line": 85,
+      "method": "logout",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+      "line": 86,
+      "method": "dimension",
+      "argument": "net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerChangedDimensionEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+      "line": 87,
+      "method": "stopped",
+      "argument": "net.neoforged.neoforge.event.server.ServerStoppedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+      "line": 88,
+      "method": "joined",
+      "argument": "net.neoforged.neoforge.event.entity.EntityJoinLevelEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+      "line": 89,
+      "method": "defense",
+      "argument": "LivingDamageEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+      "line": 100,
+      "method": "incoming",
+      "argument": "LivingIncomingDamageEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+      "line": 109,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassXpEvents.java",
+      "line": 12,
+      "method": "spawn",
+      "argument": "FinalizeSpawnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassXpEvents.java",
+      "line": 16,
+      "method": "death",
+      "argument": "LivingDeathEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassXpEvents.java",
+      "line": 22,
+      "method": "advancement",
+      "argument": "AdvancementEvent.AdvancementEarnEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/classes/ClassXpEvents.java",
+      "line": 27,
+      "method": "damage",
+      "argument": "LivingDamageEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/tools/ToolRuneRuntime.java",
+      "line": 54,
+      "method": "click",
+      "argument": "PlayerInteractEvent.LeftClickBlock"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/tools/ToolRuneRuntime.java",
+      "line": 154,
+      "method": "clone",
+      "argument": "PlayerEvent.Clone"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/tools/ToolRuneRuntime.java",
+      "line": 155,
+      "method": "placed",
+      "argument": "BlockEvent.EntityPlaceEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/tools/ToolRuneRuntime.java",
+      "line": 156,
+      "method": "piston",
+      "argument": "PistonEvent.Pre"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/rpg/tools/ToolRuneRuntime.java",
+      "line": 167,
+      "method": "stopped",
+      "argument": "net.neoforged.neoforge.event.server.ServerStoppedEvent"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/client/NavigationClient.java",
+      "line": 32,
+      "method": "synced",
+      "argument": "NavigationNetwork.Synced"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/client/NavigationClient.java",
+      "line": 41,
+      "method": "tick",
+      "argument": "net.neoforged.neoforge.client.event.ClientTickEvent.Post"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/client/NavigationClient.java",
+      "line": 47,
+      "method": "loggedOut",
+      "argument": "ClientPlayerNetworkEvent.LoggingOut"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/navigation/client/NavigationClient.java",
+      "line": 48,
+      "method": "hud",
+      "argument": "RenderGuiEvent.Post"
+    }
+  ],
+  "files_with_queries_dirty_or_chunk_calls": {
+    "src/main/java/org/slavicmyths/artifact/ArtifactEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bandit/BanditEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bandit/CampRecords.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bandit/NightingaleEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 6,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bandit/StrongholdRecords.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 11,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bandit/WindAttack.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bayun/BayunEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bayun/BayunHomes.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/block/BathStoveBlock.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/block/HearthBlock.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bogatyr/BogatyrCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bogatyr/BogatyrLedger.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bogatyr/BogatyrNetwork.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bogatyr/HeroThreats.java": {
+      "getEntitiesOfClass_text_occurrences": 3,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bogatyr/IdolishcheEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 7,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/bogatyr/IlyaEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 5,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/chud/ChudGenerateCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 3
+    },
+    "src/main/java/org/slavicmyths/client/EarthCamera.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/client/PolozCamera.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/client/TaleClientEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/combat/CreatureSafety.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/combat/DisorientationEffect.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/combat/FlailItem.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/combat/LikhoStaffItem.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/depth/ElderVodyanoy.java": {
+      "getEntitiesOfClass_text_occurrences": 4,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/depth/PoolIndex.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/depth/PoolSpear.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/depths/DepthsService.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 13,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/earth/EarthActor.java": {
+      "getEntitiesOfClass_text_occurrences": 4,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/earth/EarthArena.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 9,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/earth/EarthCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/earth/EarthServant.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/earth/EarthSpirit.java": {
+      "getEntitiesOfClass_text_occurrences": 5,
+      "setDirty_text_occurrences": 4,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/entity/BannikEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/entity/PolevikEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/entity/PoludnitsaEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/entity/WildlifeEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 8,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/equipment/ClearSightNetwork.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/finist/FinistEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/finist/KartausEncounter.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/finist/KartausEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/firebird/FirebirdEncounter.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 5,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/firebird/FirebirdEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 5,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/furniture/FurnitureBlock.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/furniture/SeatEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/gorodishche/CityCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 2
+    },
+    "src/main/java/org/slavicmyths/gorodishche/CityPlacement.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 1
+    },
+    "src/main/java/org/slavicmyths/gorynych/BreathCloud.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/gorynych/BreathShot.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/gorynych/Gorynych.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/gorynych/GorynychLedger.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 4,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/gorynych/GorynychRewards.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/gorynych/GorynychWorld.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 1
+    },
+    "src/main/java/org/slavicmyths/gorynych/StormCrossbow.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/guardians/GuardianEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/guardians/GuardianLedger.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 6,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/guardians/GuardianWorld.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 4,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/guardians/SpringKeeper.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/BossAnchors.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 4,
+      "getChunk_text_occurrences": 1
+    },
+    "src/main/java/org/slavicmyths/hunt/BossCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/BossRitualItem.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/ElementHuntMob.java": {
+      "getEntitiesOfClass_text_occurrences": 3,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/EmberClump.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/HuntCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/HuntItems.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/HuntMob.java": {
+      "getEntitiesOfClass_text_occurrences": 4,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/HuntRecords.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/HuntSpawns.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/TugarinCombat.java": {
+      "getEntitiesOfClass_text_occurrences": 3,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/WindKnotItem.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/hunt/WorldBoss.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/husbandry/GooseDefence.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/husbandry/YardAnimal.java": {
+      "getEntitiesOfClass_text_occurrences": 3,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/husbandry/YardParentGoal.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/industry/ChudPerson.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/item/StormStaffItem.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/kalin/KalinEncounter.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 7,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/kalin/KalinEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/karachun/Karachun.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 7,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/karachun/NightCombat.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/karachun/NightEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/karachun/NightLedger.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 6,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/karachun/NightRaven.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/karachun/NightTotem.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/kurgan/BurialRecords.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/kurgan/KurganCreature.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/kurgan/KurganCurse.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/kurgan/KurganDisturbance.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/kurgan/KurganDungeonPiece.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/kurgan/KurganEncounters.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 6,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/kurgan/SmokeAging.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 2
+    },
+    "src/main/java/org/slavicmyths/kuzya/KuzyaEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 5,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/kuzya/KuzyaResidence.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/marinka/DobrynyaEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 4,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/marinka/MarinkaEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/marinka/WitchBolt.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/marinka/WitchRune.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/marinka/WitchYard.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 9,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/military/BanditRaids.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 5,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/military/GreyWolfStory.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/military/GreyWolfStoryEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/military/GuardBehavior.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/military/MilitaryBoards.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/military/MilitaryCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/military/MilitaryEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/military/MilitaryQuests.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/military/StoryLikho.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/mor/HigherMor.java": {
+      "getEntitiesOfClass_text_occurrences": 3,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/mor/MorController.java": {
+      "getEntitiesOfClass_text_occurrences": 4,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/mor/MorEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/mor/MorFlaskProjectile.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/mor/MorZone.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/morozko/FrostEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/morozko/FrostHazard.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/morozko/FrostLedger.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 6,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/morozko/FrostSkills.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/morozko/Morozko.java": {
+      "getEntitiesOfClass_text_occurrences": 3,
+      "setDirty_text_occurrences": 7,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/morozko/TrialTotem.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/navigation/NavigationEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 5,
+      "getChunk_text_occurrences": 2
+    },
+    "src/main/java/org/slavicmyths/navigation/NavigationManager.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 5,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/nochnitsa/NochnitsaContent.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/nochnitsa/NochnitsaHorde.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/pesigolovtsy/DogheadEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 3,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/poloz/GreatPoloz.java": {
+      "getEntitiesOfClass_text_occurrences": 5,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/poloz/MorHorn.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/poloz/PolozCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/poloz/PolozEvent.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 9,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/poloz/PolozEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/poloz/PolozGlob.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 3,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/quest185/CleansingLessons.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 13,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/quest185/CleansingTasks.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 4,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/quest185/Quest185Events.java": {
+      "getEntitiesOfClass_text_occurrences": 3,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 1
+    },
+    "src/main/java/org/slavicmyths/quest185/Quest185Sessions.java": {
+      "getEntitiesOfClass_text_occurrences": 3,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/quest185/WolfSupport.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/rewards/RewardEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 6,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/rewards/RewardLedger.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 5,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/rpg/Abilities.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/rpg/RpgEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/rpg/RuneEffects.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/rpg/RuneVisual.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/sanctuary/FlameVial.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/sanctuary/SanctuaryCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 3
+    },
+    "src/main/java/org/slavicmyths/sanctuary/SanctuaryHeart.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/sanctuary/SanctuaryRecords.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 5,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/serpenthill/HillCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 3
+    },
+    "src/main/java/org/slavicmyths/serpenthill/HillEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/serpenthill/HillWorld.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/sivka/SivkaBonds.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/sivka/SivkaCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/sivka/SivkaEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 5,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/sivka/SivkaWhistle.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/skim/AlyoshaEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/skim/HeroCalls.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 10,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/skim/SkimBeastEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 5,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/skim/SkimEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/skim/SkimValley.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 7,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/swamp/SwampCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 1
+    },
+    "src/main/java/org/slavicmyths/tales/TaleData.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 2,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/tales/TaleService.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 6,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/underground/EncounterMob.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/underground/EncounterPopulation.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 5,
+      "getChunk_text_occurrences": 1
+    },
+    "src/main/java/org/slavicmyths/underground/Kladovik.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/underground/OminousAura.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/village/VillageCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/village/VillageShowcase.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 3
+    },
+    "src/main/java/org/slavicmyths/village/VillageWork.java": {
+      "getEntitiesOfClass_text_occurrences": 4,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/volkolak/VolkolakEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 4,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/volkolak/VolkolakStory.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 11,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/water/RiverFish.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/water/RusalkaEntity.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/water/WaterFishing.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/winters/WintersEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 1,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/winters/WintersTemplates.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/wolf/GreyWolf.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/wolf/WolfCommands.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/wolf/WolfEncounter.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/world/LandEncounters.java": {
+      "getEntitiesOfClass_text_occurrences": 6,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/worldgen/ManualStructureRecords.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/yaga/BabaYaga.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 3,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/yaga/YagaData.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/yaga/YagaHut.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 4,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/yaga/YagaMenu.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 1,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java": {
+      "getEntitiesOfClass_text_occurrences": 2,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/rpg/classes/ClassRuntime.java": {
+      "getEntitiesOfClass_text_occurrences": 3,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java": {
+      "getEntitiesOfClass_text_occurrences": 6,
+      "setDirty_text_occurrences": 0,
+      "getChunk_text_occurrences": 0
+    },
+    "src/main/java/org/slavicmyths/rpg/tools/ToolLogOrigins.java": {
+      "getEntitiesOfClass_text_occurrences": 0,
+      "setDirty_text_occurrences": 4,
+      "getChunk_text_occurrences": 0
+    }
+  }
+}

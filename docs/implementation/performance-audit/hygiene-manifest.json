@@ -1,0 +1,1315 @@
+{
+  "warning": "Logical repeated bytes are not Git pack savings or runtime memory. No files removed.",
+  "manifest": [
+    {
+      "path": "release/0.9.10-rc1/CHANGELOG_0.9.10-RC1.md",
+      "bytes": 1873,
+      "git_blob": "92403310389d1c23e46449a91ae2a5f642f93778",
+      "sha256": "34d6ec9a26c8f5a0a2a7f0c3ab55f2579adac99fbac9f108fb9f0c9630734007",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc1/CHANGELOG_0.9.10-RC1.md",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc1/DEPENDENCIES.md",
+      "bytes": 1352,
+      "git_blob": "6850396062eb9bfba2bdeb7a9604ec2511ca4b89",
+      "sha256": "8d3c01125d7939a343112633c75c0bed7525ef54cafe2262150c89b726189c56",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc1/DEPENDENCIES.md",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc1/KNOWN_ISSUES.md",
+      "bytes": 3014,
+      "git_blob": "092d8a210983330084f93101a9a486d14376d61e",
+      "sha256": "9bdab3272817f5ca75a6b83e63f9f4bd9adae049b8ec143c313653ddcfd598eb",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc1/KNOWN_ISSUES.md",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc1/README_PLAYTEST.md",
+      "bytes": 1634,
+      "git_blob": "616ff86f8b3c7ec784eb4ecf056e92a55bcad5b2",
+      "sha256": "d911fb41c2f543102245841266f9fd97c2be878d123c0a85113dd5a0064f25b1",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc1/README_PLAYTEST.md",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc1/SHA256SUMS.txt",
+      "bytes": 93,
+      "git_blob": "66131f3cf55db89438fe08ed3554959935fccfc3",
+      "sha256": "e7c46504f934a9e280eca18a3844eca45a089afe416e889b7520fb4aa867c43d",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc1/SHA256SUMS.txt",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc2-ui-fix/CHANGELOG_AND_TESTS.md",
+      "bytes": 6806,
+      "git_blob": "31deb4ac4b8b8d6a62232ee15980566b69fb5470",
+      "sha256": "f2190d1574af19f317b21fae91f6aa59ebb2818b6f6073882e6377317e38f0b2",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc2-ui-fix/CHANGELOG_AND_TESTS.md",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc2-ui-fix/README_PLAYTEST.md",
+      "bytes": 1040,
+      "git_blob": "69488e08fdf014059f86eb360f04185ad4daa92d",
+      "sha256": "e2175185761d5e4bd2db845a77dbf15be5a9af59e0910726ba0d6f3b24d156eb",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc2-ui-fix/README_PLAYTEST.md",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc2-ui-fix/SHA256SUMS.txt",
+      "bytes": 93,
+      "git_blob": "6e93089bf79ca674f8ac6625404dee30388566ae",
+      "sha256": "8c64724651a1bf14508d6d1ed806703f0ad831569abd412e52732689a9144381",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc2-ui-fix/SHA256SUMS.txt",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc2/CHANGELOG_0.9.10-RC2.md",
+      "bytes": 1281,
+      "git_blob": "d86c831bb63c0d61c7029402ff8172032b917238",
+      "sha256": "5b342046820e9af861e48dad79c0fdeea663b6d651ee1f7c68932c6e469a6391",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc2/CHANGELOG_0.9.10-RC2.md",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc2/DEPENDENCIES.md",
+      "bytes": 1352,
+      "git_blob": "6850396062eb9bfba2bdeb7a9604ec2511ca4b89",
+      "sha256": "8d3c01125d7939a343112633c75c0bed7525ef54cafe2262150c89b726189c56",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc2/DEPENDENCIES.md",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc2/KNOWN_ISSUES.md",
+      "bytes": 1916,
+      "git_blob": "6ab595a782bec1dcfd196c7395d7f05454fe543c",
+      "sha256": "6227378364e34bd872f2369cd6568cf0eb4099bad6c2a2dae08bdcd26d9fe397",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc2/KNOWN_ISSUES.md",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc2/README_PLAYTEST.md",
+      "bytes": 1634,
+      "git_blob": "b32f86c5f88cee4c49a9c0608a78c730e0efe378",
+      "sha256": "d74439728673cd9d429f34a398339e185b273cdc3c5477ae7084a20f5ac7eef7",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc2/README_PLAYTEST.md",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc2/REMAINING_WORK.md",
+      "bytes": 2776,
+      "git_blob": "c3cb306ebca836f9cf15e3b74b768d7339b54edf",
+      "sha256": "1ee8567dce18483a91c607d0fdeb46008431f66d28f5fb6a3216d74aa808c843",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc2/REMAINING_WORK.md",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/0.9.10-rc2/SHA256SUMS.txt",
+      "bytes": 93,
+      "git_blob": "7a8992205754e3c436cb4e30e66e65c4d4651251",
+      "sha256": "e8414f15943824022b5ab3883b18021660f0408c3de8a5fa1cc7014280fc460e",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/0.9.10-rc2/SHA256SUMS.txt",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/1.9.4-commands/SHA256SUMS.txt",
+      "bytes": 88,
+      "git_blob": "dae54791cda48a256258b118f2b75c552ce68dcb",
+      "sha256": "8a61cfe01cda687b2e7f60226efe80a8589edce6cfa196714cd013ba7523934a",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/1.9.4-commands/SHA256SUMS.txt",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.6.5.jar",
+      "bytes": 13472572,
+      "git_blob": "b7498922ffa001a397cdebb8e6b3d786bfd3ea23",
+      "sha256": "e04e28685efbd058e3c41d5c73cf101c3a75d1a196ebd170ae7fef8bb3ae58ae",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.6.5.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.6.6.jar",
+      "bytes": 14099009,
+      "git_blob": "617943fb0ac28716dc7b2a1e8168c72b7a35b394",
+      "sha256": "c52b25c10a730a021eda7ff849eda2b736453b0221510850ec92e2912d29ba26",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.6.6.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.6.7.jar",
+      "bytes": 13881580,
+      "git_blob": "56a0c89ca57b53eca9f5c27b367c696f9bc690b8",
+      "sha256": "67cf72cc5b2a147741501355875fc5609ec789c5135099c4c77eee0ce727a084",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.6.7.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.6.8.jar",
+      "bytes": 13883229,
+      "git_blob": "5f56d493c1b74d474f987437b40abcfc4ddf255f",
+      "sha256": "0462212c2b18df1e75afa5f37ad60bd6dce5242dfe7f3a31d4af20d7a707aa2b",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.6.8.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.6.9.jar",
+      "bytes": 14364773,
+      "git_blob": "b1e147d6243ef2bed2049ea4c633761795b50306",
+      "sha256": "56e73c2e6581bfa795c1ce81531ced65b8e9d163641c95bf94e49cb6fba84643",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.6.9.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.7.1.jar",
+      "bytes": 14822853,
+      "git_blob": "911d9e9e1d86d91cacb4146fcc7aa9470de83216",
+      "sha256": "ffe114374fbd43b3e57c2e0ce088bd1c0d7749f3bf5755c439d696d464de2ab0",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.7.1.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.7.2.jar",
+      "bytes": 15524295,
+      "git_blob": "1a4d89d9ab924dd247b8af4acaf2b6432dd358d9",
+      "sha256": "98942b2a4c3f07e056f92f46fa8bf026a35b3ba6c18ca2265cac8d904b2ff33b",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.7.2.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.7.3.jar",
+      "bytes": 16148442,
+      "git_blob": "967c9bdba36d3a3a74e13bf4bff69cfc9d500c37",
+      "sha256": "6496e20b1d1dfc39ae3c05eead9e45126991c0ef10db33ad158676cb601133e6",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.7.3.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.7.4.jar",
+      "bytes": 16914274,
+      "git_blob": "0bded92522774bd445b229994a2f206a79380b43",
+      "sha256": "d5539688425f79b1a9d93e1cf11d21f14ebc3827d030999e52b046198958f4fc",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.7.4.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.7.5.jar",
+      "bytes": 17093464,
+      "git_blob": "da708c951da1dd8556d6dd55ec302bda3d37e72a",
+      "sha256": "03c52508b6ae5332f201259895df3e6f7fad085e35d41d8b8fc34704eac93cf4",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.7.5.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.7.6.jar",
+      "bytes": 17272983,
+      "git_blob": "f99c9b5fc842cf5940510e49e5dde9b494726355",
+      "sha256": "301a72abab2940ced97ffcbea4579726bd3b9a14e60d5344f3aa766b40d8da98",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.7.6.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.7.7.jar",
+      "bytes": 17246242,
+      "git_blob": "46a06ff5db4c6b4622d5e6d8eaeccce6fefa7e67",
+      "sha256": "094c787a6de026e4e817fc702310e6542221b976d9b32f9a888ddd3b6a9ca3cd",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.7.7.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.7.8.jar",
+      "bytes": 17252582,
+      "git_blob": "8149400583cdcad151d9756515dca3faf57704fa",
+      "sha256": "5d23385a3aa3d609372677fb422a68b02cad88612aec3c53dc77cc39ea6ef535",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.7.8.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.7.9.jar",
+      "bytes": 15783117,
+      "git_blob": "8092e9cbb3af5059986f398c78ddbc2811ddb2f1",
+      "sha256": "de4539bd70e33b8ecb0e321fd2a042244a126c50e1d795a40cf6f6b1d68b5880",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.7.9.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.8.1.jar",
+      "bytes": 15901173,
+      "git_blob": "77daf2268379c532d7d4cfbee8eb3cafb5c4210b",
+      "sha256": "eefe22556d5ff83d6dfafd15a56be00d81a30b4898d0af2a4b30eb7739595f68",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.8.1.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.9.4.jar",
+      "bytes": 18788134,
+      "git_blob": "c6b402608eea627def0986b838f2caa286b24b46",
+      "sha256": "0142494a6445e325c48194949f7d1a957110942357b232e20155346f8334b1b8",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.9.4.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.9.4.sha256",
+      "bytes": 88,
+      "git_blob": "dae54791cda48a256258b118f2b75c552ce68dcb",
+      "sha256": "8a61cfe01cda687b2e7f60226efe80a8589edce6cfa196714cd013ba7523934a",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.9.4.sha256",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.9.7-patch-weapons-armor.jar",
+      "bytes": 19378018,
+      "git_blob": "887a35a4baf9e0b4d5084a57d5736ef79a0ca6e1",
+      "sha256": "f73888579014ed8b297bdb943ca2e742a2947d533369c85d7fc4c310ac6cf7ef",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.9.7-patch-weapons-armor.jar",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "release/slavicmyths-1.9.7-patch-weapons-armor.sha256",
+      "bytes": 108,
+      "git_blob": "3d73a4185bc048bb06d45cfaca97de3d02d52bf7",
+      "sha256": "6a49fa7650b71b0bc94737cef2effed4a1e16d85f6ae16f089baa14b47f60ce4",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:release/slavicmyths-1.9.7-patch-weapons-armor.sha256",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/equipment-0.9.10-spec/slavic_myths_0_9_10_equipment_art_overhaul_final/references/ref_01_equipment_armor_concepts.png",
+      "bytes": 3304725,
+      "git_blob": "a4ef0cbf683d2e0cc6d98d4e017a351a5e7093c7",
+      "sha256": "19593af5ee9b7201ed08e73a5b268a143725e3642713003faea843d7113a2d48",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/equipment-0.9.10-spec/slavic_myths_0_9_10_equipment_art_overhaul_final/references/ref_01_equipment_armor_concepts.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/hunt090_reference/slavic_myths_0_9_0_codex_package_v2/references/REF_00_ITEMS_FULL.png",
+      "bytes": 2894544,
+      "git_blob": "9f59ca9f261246d5d951336c397a2238b7649765",
+      "sha256": "7e860c5c6d7475ad35a388ce9778e757efc8db0f583ec0fa56be581e6ceecc69",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/hunt090_reference/slavic_myths_0_9_0_codex_package_v2/references/REF_00_ITEMS_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/hunt090_reference/slavic_myths_0_9_0_codex_package_v2/references/REF_01_CHARACTERS_FULL.png",
+      "bytes": 2920113,
+      "git_blob": "ac8e9040652a48d5be67454e0e5a83b9c099e3e3",
+      "sha256": "af9fffb9ba99c06909f492cc3b73be92fc4e5c4a20fbc5393178f422cdecd2ab",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/hunt090_reference/slavic_myths_0_9_0_codex_package_v2/references/REF_01_CHARACTERS_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/hunt090_reference/slavic_myths_0_9_0_codex_package_v2/references/REF_02_ROADMAP_FULL.png",
+      "bytes": 3016686,
+      "git_blob": "3d733e8e8eebc5e7494dbcfbc9a98567255b54a3",
+      "sha256": "c9cf7b48ddaf20621fc96b906041f8d79f7e9c095785fb6e7c61ed1c1cdd0c5a",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/hunt090_reference/slavic_myths_0_9_0_codex_package_v2/references/REF_02_ROADMAP_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/hunt091_reference/slavic_myths_0_9_1_codex_package/references/REF_00_MINIBOSSES_FULL.png",
+      "bytes": 2799359,
+      "git_blob": "993644b883e5e605b065f3cecf284d570afc0ebb",
+      "sha256": "6f1d0b8573e8d88283266dd6cdd308b21046c07c7314ef68fff940856b31e94c",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/hunt091_reference/slavic_myths_0_9_1_codex_package/references/REF_00_MINIBOSSES_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/hunt091_reference/slavic_myths_0_9_1_codex_package/references/REF_01_ITEMS_FULL.png",
+      "bytes": 2845231,
+      "git_blob": "e8bca59bf54ee6b84c9c1c814d5cc5ef06ce3c5a",
+      "sha256": "ba2e1799ad24d4ef2f80bf6a8009b15c8d3f2db45cb6f93e94c75a0c6a6ea2f3",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/hunt091_reference/slavic_myths_0_9_1_codex_package/references/REF_01_ITEMS_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/hunt091_reference/slavic_myths_0_9_1_codex_package/references/REF_MOB_FIRE_SERPENT_FULL.png",
+      "bytes": 1751438,
+      "git_blob": "71b8b2f104ae1b407afb078f05e3c2c790696288",
+      "sha256": "9a45c5185c9feede44599063284298ef8f75abb0b3de39e226286a986b90b43a",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/hunt091_reference/slavic_myths_0_9_1_codex_package/references/REF_MOB_FIRE_SERPENT_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/hunt091_reference/slavic_myths_0_9_1_codex_package/references/REF_MOB_PODVEY_FULL.png",
+      "bytes": 1793084,
+      "git_blob": "62a52f3100d1590a76f2e5071ac1c548b914d22f",
+      "sha256": "c70569f081804445550b0e2812ea17823bfa48279d0491e2fa7029866fe0a1aa",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/hunt091_reference/slavic_myths_0_9_1_codex_package/references/REF_MOB_PODVEY_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/hunt092_reference/slavic_myths_0_9_2_codex_package_v2_visual_exact/references/REF_00_BOSSES_FULL.png",
+      "bytes": 2777543,
+      "git_blob": "954c4dc9b5ed0f0bf407b15f1048bd0c80ea2dc3",
+      "sha256": "048228f58b566569d0c58597fda2604fc8da97ed33efb17e3e295826bc673d7e",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/hunt092_reference/slavic_myths_0_9_2_codex_package_v2_visual_exact/references/REF_00_BOSSES_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/hunt092_reference/slavic_myths_0_9_2_codex_package_v2_visual_exact/references/REF_LIKHO_FULL.png",
+      "bytes": 1806204,
+      "git_blob": "3eeab54070e5912ddd877e81163e220e624230c3",
+      "sha256": "2ebc0d30fc33bdbc2df60e304b9ecc6e7042c05dc47a41d709008bc952faa2db",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/hunt092_reference/slavic_myths_0_9_2_codex_package_v2_visual_exact/references/REF_LIKHO_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/hunt092_reference/slavic_myths_0_9_2_codex_package_v2_visual_exact/references/REF_TUGARIN_FULL.png",
+      "bytes": 1823739,
+      "git_blob": "c0afa8cb72437664034748780c40ffb6d460c9f3",
+      "sha256": "d5281f043505d44b0504eedee005c630c61011ecaa9d1db8df7c9c847b358871",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/hunt092_reference/slavic_myths_0_9_2_codex_package_v2_visual_exact/references/REF_TUGARIN_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-0.9.6-spec/references/ref_01_blocks_and_decor.png",
+      "bytes": 2667300,
+      "git_blob": "29273fd4c427abcfca83625604a086558fdbb729",
+      "sha256": "be41270eccb702ca0cd295dac075ad05e73878ec9536af6944b0300d91ddc799",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-0.9.6-spec/references/ref_01_blocks_and_decor.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-0.9.6-spec/references/ref_02_dungeon_cutaway.png",
+      "bytes": 2920028,
+      "git_blob": "1e733b4cb9616eb51ff12964721b78ad25a52cb0",
+      "sha256": "2f89577a417b62c578a64132f7fbc754cffcd6c3990c22e395b8cfa7b05d7251",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-0.9.6-spec/references/ref_02_dungeon_cutaway.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-0.9.6-spec/references/ref_03_rooms_and_halls.png",
+      "bytes": 2798939,
+      "git_blob": "dddb00bb7cfcd67f798ee4d5ba82dcb28067c648",
+      "sha256": "8abcfd0e7f24de5ecffe0ad8e0f4aeb03fe43769fca9746f52e8aa47046a64ba",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-0.9.6-spec/references/ref_03_rooms_and_halls.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-0.9.6-spec/references/ref_04_corridors_and_labyrinth.png",
+      "bytes": 2822836,
+      "git_blob": "920b4bb1aa631d347d25e1dc2fb411577cc533b4",
+      "sha256": "acff35aa72d85200a2f9d46cf4d02a386d2f119a54dbb9de1a41db89af5534e4",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-0.9.6-spec/references/ref_04_corridors_and_labyrinth.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_01_kurgan_blocks_and_decor.png",
+      "bytes": 2667300,
+      "git_blob": "29273fd4c427abcfca83625604a086558fdbb729",
+      "sha256": "be41270eccb702ca0cd295dac075ad05e73878ec9536af6944b0300d91ddc799",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_01_kurgan_blocks_and_decor.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_02_kurgan_dungeon_cutaway.png",
+      "bytes": 2920028,
+      "git_blob": "1e733b4cb9616eb51ff12964721b78ad25a52cb0",
+      "sha256": "2f89577a417b62c578a64132f7fbc754cffcd6c3990c22e395b8cfa7b05d7251",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_02_kurgan_dungeon_cutaway.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_03_kurgan_rooms_and_halls.png",
+      "bytes": 2798939,
+      "git_blob": "dddb00bb7cfcd67f798ee4d5ba82dcb28067c648",
+      "sha256": "8abcfd0e7f24de5ecffe0ad8e0f4aeb03fe43769fca9746f52e8aa47046a64ba",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_03_kurgan_rooms_and_halls.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_04_kurgan_corridors.png",
+      "bytes": 2822836,
+      "git_blob": "920b4bb1aa631d347d25e1dc2fb411577cc533b4",
+      "sha256": "acff35aa72d85200a2f9d46cf4d02a386d2f119a54dbb9de1a41db89af5534e4",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_04_kurgan_corridors.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_05_kurgan_bestiary.png",
+      "bytes": 2370153,
+      "git_blob": "6b774202f0ed6e119d943ab67041e9e9db726045",
+      "sha256": "7c98718270517b020563abeac047870c6835e61277f162bb0b1cd90a76e42df2",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_05_kurgan_bestiary.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_06_upyr.png",
+      "bytes": 2008569,
+      "git_blob": "816f2e1727664bae0086395d7d8d827de6f87c3c",
+      "sha256": "9e5dd5135a4ca9775479b5da5f92a4904dd45177eec5311f60f5ed62622ea0ad",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_06_upyr.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_07_nav.png",
+      "bytes": 1923175,
+      "git_blob": "b5cb34da59142a96f81d4c04dff90242547c8456",
+      "sha256": "bcee2129a7c6f24b2007cc115a8b2db51253894f282cbc07a507d3dab13483de",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_07_nav.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_08_kurgan_druzhinnik.png",
+      "bytes": 1922715,
+      "git_blob": "68bc2da1d1e608f95526ee0037afdb6007ebd364",
+      "sha256": "99fc3278188c5e94d0b32c3c2c9d584b2a292bf9a42c881341d59786e61df3a1",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_08_kurgan_druzhinnik.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_09_kurgan_voevoda.png",
+      "bytes": 2069021,
+      "git_blob": "90dbdbd15f526c637b2f6bdbd48494ca1543ead8",
+      "sha256": "8ddc44b666adbd0b23c9efd8931bc57190b1f871b00cc4a8013a258790088e24",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_09_kurgan_voevoda.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_10_buried_volkhv.png",
+      "bytes": 1937263,
+      "git_blob": "ac975bc6028e5bba15c685cac282961610cfcb55",
+      "sha256": "fe8a5161d5d1d30c03cdffdd8aa792678fad44eb614846ec0b89878b5b36fbcc",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_10_buried_volkhv.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_11_unresting_prince.png",
+      "bytes": 2153223,
+      "git_blob": "e60c4a171eeb027dbc906ad80883ecad1e7a095d",
+      "sha256": "81991dca5c3f45ae531aefe3bd017c4f416fe864aa1bb61b1a95b40d1b099ef7",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_11_unresting_prince.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan085_reference/kurgan_0_8_5_codex_package/references/REF_00_FULL_KURGAN_VISUAL_BOARD.png",
+      "bytes": 2428546,
+      "git_blob": "73d8d5dfa8cf76f2183af190c5f160725d5b0702",
+      "sha256": "ee3b24cd315b41c95956797d933a6c9dc4cb9f8db5cff3347a77c23a0369da5e",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan085_reference/kurgan_0_8_5_codex_package/references/REF_00_FULL_KURGAN_VISUAL_BOARD.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/BESTIARY_FULL.png",
+      "bytes": 2370153,
+      "git_blob": "6b774202f0ed6e119d943ab67041e9e9db726045",
+      "sha256": "7c98718270517b020563abeac047870c6835e61277f162bb0b1cd90a76e42df2",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/BESTIARY_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/DRUZHINNIK_FULL.png",
+      "bytes": 1922715,
+      "git_blob": "68bc2da1d1e608f95526ee0037afdb6007ebd364",
+      "sha256": "99fc3278188c5e94d0b32c3c2c9d584b2a292bf9a42c881341d59786e61df3a1",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/DRUZHINNIK_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/NAV_FULL.png",
+      "bytes": 1923175,
+      "git_blob": "b5cb34da59142a96f81d4c04dff90242547c8456",
+      "sha256": "bcee2129a7c6f24b2007cc115a8b2db51253894f282cbc07a507d3dab13483de",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/NAV_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/PRINCE_FULL.png",
+      "bytes": 2153223,
+      "git_blob": "e60c4a171eeb027dbc906ad80883ecad1e7a095d",
+      "sha256": "81991dca5c3f45ae531aefe3bd017c4f416fe864aa1bb61b1a95b40d1b099ef7",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/PRINCE_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/PRINCE_HERO_HERO.png",
+      "bytes": 1123761,
+      "git_blob": "be4c2e90e0ab20d1f749df3ff31171d55d98e71f",
+      "sha256": "bd60336147de48ab54426ac80f1cc9076fb3c6a494ec6a899ede9172bbc06887",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/PRINCE_HERO_HERO.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/UPYR_FULL.png",
+      "bytes": 2008569,
+      "git_blob": "816f2e1727664bae0086395d7d8d827de6f87c3c",
+      "sha256": "9e5dd5135a4ca9775479b5da5f92a4904dd45177eec5311f60f5ed62622ea0ad",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/UPYR_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/UPYR_HERO_HERO.png",
+      "bytes": 1053900,
+      "git_blob": "06801a869f277d1b7b5b30a81818e5f39b0289f8",
+      "sha256": "5c7d76608a187c424de65baf81b3b4d40ed609067de38f322f21e2384fe23b50",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/UPYR_HERO_HERO.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/VOEVODA_FULL.png",
+      "bytes": 2069021,
+      "git_blob": "90dbdbd15f526c637b2f6bdbd48494ca1543ead8",
+      "sha256": "8ddc44b666adbd0b23c9efd8931bc57190b1f871b00cc4a8013a258790088e24",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/VOEVODA_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/VOEVODA_HERO_HERO.png",
+      "bytes": 1097097,
+      "git_blob": "bceb66c098ac6c812bf60e67cbe22df56dca1f78",
+      "sha256": "31c2a71b2a7199e038b9d3df76487753a6b46fa803976503a11d51194bccf4b5",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/VOEVODA_HERO_HERO.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/VOLKHV_FULL.png",
+      "bytes": 1937263,
+      "git_blob": "ac975bc6028e5bba15c685cac282961610cfcb55",
+      "sha256": "fe8a5161d5d1d30c03cdffdd8aa792678fad44eb614846ec0b89878b5b36fbcc",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/VOLKHV_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/rc2-ui-visual-spec/slavic_myths_0_9_10_rc2_ui_visual_final/references/current_problems/ref_problem_07_broken_club_battleaxe.png",
+      "bytes": 1181216,
+      "git_blob": "a87e35b3f842b84ed24b219bbcd91cc77bcd2535",
+      "sha256": "cb6b28c0ebac8e5a5f53ca4822ff1cccf0023f811a78d1eeb3519ab8f5cc2588",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/rc2-ui-visual-spec/slavic_myths_0_9_10_rc2_ui_visual_final/references/current_problems/ref_problem_07_broken_club_battleaxe.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/rc2-ui-visual-spec/slavic_myths_0_9_10_rc2_ui_visual_final/references/target/ref_target_01_rune_anvil_final.png",
+      "bytes": 2048856,
+      "git_blob": "4bcf86b5093ebd94ca79b2fa07b79893ed2830a4",
+      "sha256": "63a0a82933714e134e13f4f294d4d1942ea0d6897c9966cedd3ed2452ae3f934",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/rc2-ui-visual-spec/slavic_myths_0_9_10_rc2_ui_visual_final/references/target/ref_target_01_rune_anvil_final.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/rc2-ui-visual-spec/slavic_myths_0_9_10_rc2_ui_visual_final/references/target/ref_target_02_path_stone_final.png",
+      "bytes": 2032695,
+      "git_blob": "fc9d85f4f99d0e646977ce60e9c10d0b53faeb57",
+      "sha256": "32233834a42717aad7b4a2dccc59ee3fa197eb9026496e21dee2383f85d90742",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/rc2-ui-visual-spec/slavic_myths_0_9_10_rc2_ui_visual_final/references/target/ref_target_02_path_stone_final.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/rc2-ui-visual-spec/slavic_myths_0_9_10_rc2_ui_visual_final/references/target/ref_target_03_kitchen_table_final.png",
+      "bytes": 1944294,
+      "git_blob": "3ba35824775a1cf9b01891493d1df49021ce8dd3",
+      "sha256": "e240089119b4ccbd769f70d4de086bb43f3852d0747dbd8d143cac436bbca1b5",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/rc2-ui-visual-spec/slavic_myths_0_9_10_rc2_ui_visual_final/references/target/ref_target_03_kitchen_table_final.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/rc2-ui-visual-spec/slavic_myths_0_9_10_rc2_ui_visual_final/references/target/ref_target_04_wood_shield_club_battleaxe.png",
+      "bytes": 2375760,
+      "git_blob": "028afd6be4fa8a92ba9b339b4e136b6b4d0ac35c",
+      "sha256": "d3b082a0e7bca552af513bbe5fa6c7ad55e8e8a27e6bc917ed6a2e4fd25b2929",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/rc2-ui-visual-spec/slavic_myths_0_9_10_rc2_ui_visual_final/references/target/ref_target_04_wood_shield_club_battleaxe.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/spec-1.1.0/slavic_myths_1.1.0_codex_package/references/01_farming_overview.png",
+      "bytes": 2327089,
+      "git_blob": "32a6496247f776684782f3d46a41cbbbb125068d",
+      "sha256": "5a111adc58478a49e760dbf25e5072653b4e79befc663abeb5db327473e3fe18",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/spec-1.1.0/slavic_myths_1.1.0_codex_package/references/01_farming_overview.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/spec-1.1.2/slavic_myths_1.1.2_codex_package/references/01_gardens_items_and_plants.png",
+      "bytes": 2071588,
+      "git_blob": "9a408be92fea892dd45fa760c4b4aea4460193b6",
+      "sha256": "28834bf84bfd687e2b4a9fcd3a3fba244d5605a0e9c9a4ccf472993b21d9ce13",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/spec-1.1.2/slavic_myths_1.1.2_codex_package/references/01_gardens_items_and_plants.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/spec-1.1.2/slavic_myths_1.1.2_codex_package/references/02_creative_tabs_concept.png",
+      "bytes": 2204129,
+      "git_blob": "d71e4a5de7aad33450ad4503fc7717c28ce03c3a",
+      "sha256": "31bc81ece68334d4a60bc5cbc07069b7acdcdf30c2b66656e6bc89cd1d466381",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/spec-1.1.2/slavic_myths_1.1.2_codex_package/references/02_creative_tabs_concept.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/spec-1.1.3/slavic_myths_1.1.3_codex_package/references/01_animal_husbandry_design.png",
+      "bytes": 2729908,
+      "git_blob": "f88a00cd9fd1c025ddfb7e8bca00b7b44e3bda7f",
+      "sha256": "00d9f9ae7551a8b67b2fb3f39cd8804e8f02d25991b8749430c2c174a750b251",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/spec-1.1.3/slavic_myths_1.1.3_codex_package/references/01_animal_husbandry_design.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/spec-1.1.4/slavic_myths_1.1.4_codex_package/references/01_clothing_design.png",
+      "bytes": 2662816,
+      "git_blob": "2a7ba109d7cda685042d54a2ae2bd58acba74173",
+      "sha256": "86fcb28c09d17e3650abf50b4cd7a5409edc56b822c9354d67d10ea21ab36f0e",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/spec-1.1.4/slavic_myths_1.1.4_codex_package/references/01_clothing_design.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/spec-1.1.5/slavic_myths_1.1.5_codex_package/references/01_kitchen_ingredients_and_simple_foods.png",
+      "bytes": 2440917,
+      "git_blob": "65b5938c3e2fa65555652dd0b49831127943eb4c",
+      "sha256": "561e1e12473a35d45fdd96576e35f3ba6c8c11edfac7796664a778fabd6e35e9",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/spec-1.1.5/slavic_myths_1.1.5_codex_package/references/01_kitchen_ingredients_and_simple_foods.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/spec-1.1.5/slavic_myths_1.1.5_codex_package/references/02_kitchen_soups_bliny_pies.png",
+      "bytes": 2547205,
+      "git_blob": "2dc621fa146d96934be4ee7a51cad77651a34e5c",
+      "sha256": "79a29d26c08e73bc2c2d86aeb42cc6f9e0f5ef47b809208a64e9a79bef3b1451",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/spec-1.1.5/slavic_myths_1.1.5_codex_package/references/02_kitchen_soups_bliny_pies.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/spec-1.1.6/slavic_myths_1.1.6_codex_package/references/01_storage_and_household.png",
+      "bytes": 2845539,
+      "git_blob": "91baa74ac0cf2d86a780c2a8a5500b5ff58b7554",
+      "sha256": "bf2c6987257f2b352d48aaba3eed9630c8d03e8371d9377557c6af5db1e8cf96",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/spec-1.1.6/slavic_myths_1.1.6_codex_package/references/01_storage_and_household.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/spec-1.1.6/slavic_myths_1.1.6_codex_package/references/02_drying_sheaves_haystack.png",
+      "bytes": 2745233,
+      "git_blob": "17dfd82eb9a51eff86a6c5545a8576c7cd781fda",
+      "sha256": "45fb07c6e5ce54f843b8b42f7bdc53d11b9ec1467a678396b5fd78c7ab305ecf",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/spec-1.1.6/slavic_myths_1.1.6_codex_package/references/02_drying_sheaves_haystack.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/spec-1.1.7/slavic_myths_1.1.7_codex_package/references/01_brewing_items_and_equipment.png",
+      "bytes": 2520358,
+      "git_blob": "b2df8871164833d31090838677012b7e28069ca5",
+      "sha256": "ddffe83172137142a7d46134b2f6d0807f990b312feb5bcf98aa7c7a4ed53730",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/spec-1.1.7/slavic_myths_1.1.7_codex_package/references/01_brewing_items_and_equipment.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/spec-1.1.7/slavic_myths_1.1.7_codex_package/references/02_beers_and_other_drinks.png",
+      "bytes": 2459263,
+      "git_blob": "25fa7aeaeee0dce4c4b1c1499082e4e0fdf86139",
+      "sha256": "f5b7ffb07e14055c02ecdd173b005144475ff596ba03f9a205538842f5a063b2",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/spec-1.1.7/slavic_myths_1.1.7_codex_package/references/02_beers_and_other_drinks.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/swamp-0.9.7-spec/slavic_myths_0_9_7_swamp_rework_codex_package/references/ref_01_swamp_structures_sheet.png",
+      "bytes": 2908647,
+      "git_blob": "6e0f13265f6d1788cba83ec0d9a3908c66302e74",
+      "sha256": "ec69d4ef75f1347e4b2e704c9710d4b31a75f4410ba15c488c2a7920be3462fc",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/swamp-0.9.7-spec/slavic_myths_0_9_7_swamp_rework_codex_package/references/ref_01_swamp_structures_sheet.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/swamp-0.9.7-spec/slavic_myths_0_9_7_swamp_rework_codex_package/references/ref_02_swamp_rework_overview.png",
+      "bytes": 2948133,
+      "git_blob": "d3b1596a4773672d97f55bcf479456b43a64fa86",
+      "sha256": "8b65ef9095f9865291149557508376b751d869ed9389d079d437af8630d78c09",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/swamp-0.9.7-spec/slavic_myths_0_9_7_swamp_rework_codex_package/references/ref_02_swamp_rework_overview.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/swamp-0.9.7-spec/slavic_myths_0_9_7_swamp_rework_codex_package/references/ref_03_swamp_trees_sheet.png",
+      "bytes": 3045453,
+      "git_blob": "ae9ec6aa37642530e8b28a2fb16e8485c2132639",
+      "sha256": "85b5e0389925e3ef0cc7f187dd56bc0feeb4dfdeb7bb1da0134150a274708675",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/swamp-0.9.7-spec/slavic_myths_0_9_7_swamp_rework_codex_package/references/ref_03_swamp_trees_sheet.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/swamp-0.9.7-spec/slavic_myths_0_9_7_swamp_rework_codex_package/references/ref_04_swamp_structures_alt_sheet.png",
+      "bytes": 3045563,
+      "git_blob": "122f99935cde2f675ac26976b683bb09c29ab2fe",
+      "sha256": "90527914dfe69fbcda5f2b4ef7d4409547924803f99eafebc58d76293dc6d48f",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/swamp-0.9.7-spec/slavic_myths_0_9_7_swamp_rework_codex_package/references/ref_04_swamp_structures_alt_sheet.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/yaga093_reference/slavic_myths_0_9_3_baba_yaga_codex_package/references/REF_00_YAGA_ITEMS_BOARD.png",
+      "bytes": 2929729,
+      "git_blob": "9bd80646f4b93f3cd3289cbbcafe8317ea2c1341",
+      "sha256": "b1ddd27230e41388a4df6b1dce36ea4b6e03ecb96adfe67e759eafe4dc68b5ce",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/yaga093_reference/slavic_myths_0_9_3_baba_yaga_codex_package/references/REF_00_YAGA_ITEMS_BOARD.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/yaga093_reference/slavic_myths_0_9_3_baba_yaga_codex_package/references/REF_01_YAGA_UI_FULL.png",
+      "bytes": 2741297,
+      "git_blob": "60a3adcd2fe4eb4d7dd39185e0ef4ee9dd6472ab",
+      "sha256": "41e2ba4ef14965a8e64e91bdfee64957429429fb8f0a6cdabd00d67ae4a64402",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/yaga093_reference/slavic_myths_0_9_3_baba_yaga_codex_package/references/REF_01_YAGA_UI_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    },
+    {
+      "path": "work/yaga093_reference/slavic_myths_0_9_3_baba_yaga_codex_package/references/REF_02_YAGA_HUT_FULL.png",
+      "bytes": 3074396,
+      "git_blob": "3a046ba7e402fdfc6fa428b56b6b8e3f06dc05f4",
+      "sha256": "c334ffe905201bc7abb341db9f5c2c4147d5f277bf326032d964e21332241b3c",
+      "decision": "KEEP; REVIEW archive/release-asset candidate only",
+      "restore": "git show fb2994e958911169317523e1066b8a1ca7a155af:work/yaga093_reference/slavic_myths_0_9_3_baba_yaga_codex_package/references/REF_02_YAGA_HUT_FULL.png",
+      "external_archive_verified": false,
+      "references_audited": false,
+      "source_commit_for_binary": "NOT_ESTABLISHED",
+      "delete_authorized": false
+    }
+  ],
+  "large_identical_blobs": [
+    {
+      "blob": "4f2172835aa8925cb96909cc0c7ef1fa6946297e",
+      "bytes_per_copy": 3317176,
+      "copies": 2,
+      "paths": [
+        "docs/specs/1.9.5/references/03_serpent_hill_blueprint.png",
+        "docs/specs/1.9.6/references/05_hill_interior_context.png"
+      ],
+      "logical_duplicate_bytes": 3317176
+    },
+    {
+      "blob": "0347967937b4cb7fb98120167c93ce5f22755fd7",
+      "bytes_per_copy": 3232422,
+      "copies": 2,
+      "paths": [
+        "docs/specs/1.9.5/references/02_serpent_fortress_blueprint.png",
+        "docs/specs/1.9.6/references/04_castle_context.png"
+      ],
+      "logical_duplicate_bytes": 3232422
+    },
+    {
+      "blob": "5f1e5b855302a329ba77dcacc13200f716830e47",
+      "bytes_per_copy": 3181025,
+      "copies": 2,
+      "paths": [
+        "docs/specs/1.9.3/02_REFERENCES/approved_full/02_ABODE_PURE_SPRING_APPROVED.png",
+        "docs/specs/1.9.4/refs/locations/06_water_sanctuary_approved.png"
+      ],
+      "logical_duplicate_bytes": 3181025
+    },
+    {
+      "blob": "13d1bfc12cb36220c6ad731acb94630d4ddabafe",
+      "bytes_per_copy": 3082603,
+      "copies": 2,
+      "paths": [
+        "docs/specs/1.9.3/02_REFERENCES/approved_full/01_SANCTUARY_UNFADING_FIRE_APPROVED.png",
+        "docs/specs/1.9.4/refs/locations/05_fire_sanctuary_approved.png"
+      ],
+      "logical_duplicate_bytes": 3082603
+    },
+    {
+      "blob": "1e733b4cb9616eb51ff12964721b78ad25a52cb0",
+      "bytes_per_copy": 2920028,
+      "copies": 2,
+      "paths": [
+        "work/kurgan-0.9.6-spec/references/ref_02_dungeon_cutaway.png",
+        "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_02_kurgan_dungeon_cutaway.png"
+      ],
+      "logical_duplicate_bytes": 2920028
+    },
+    {
+      "blob": "920b4bb1aa631d347d25e1dc2fb411577cc533b4",
+      "bytes_per_copy": 2822836,
+      "copies": 2,
+      "paths": [
+        "work/kurgan-0.9.6-spec/references/ref_04_corridors_and_labyrinth.png",
+        "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_04_kurgan_corridors.png"
+      ],
+      "logical_duplicate_bytes": 2822836
+    },
+    {
+      "blob": "dddb00bb7cfcd67f798ee4d5ba82dcb28067c648",
+      "bytes_per_copy": 2798939,
+      "copies": 2,
+      "paths": [
+        "work/kurgan-0.9.6-spec/references/ref_03_rooms_and_halls.png",
+        "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_03_kurgan_rooms_and_halls.png"
+      ],
+      "logical_duplicate_bytes": 2798939
+    },
+    {
+      "blob": "29273fd4c427abcfca83625604a086558fdbb729",
+      "bytes_per_copy": 2667300,
+      "copies": 2,
+      "paths": [
+        "work/kurgan-0.9.6-spec/references/ref_01_blocks_and_decor.png",
+        "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_01_kurgan_blocks_and_decor.png"
+      ],
+      "logical_duplicate_bytes": 2667300
+    },
+    {
+      "blob": "effe9632450013cf085037b8b9a74cfcfbaf01cc",
+      "bytes_per_copy": 2513124,
+      "copies": 2,
+      "paths": [
+        "docs/spec-1.8.3/refs/01_approved_corrupted_vanilla_blocks.png",
+        "docs/spec-poloz-full-1.8.3.2/refs/blocks_infected_reference.png"
+      ],
+      "logical_duplicate_bytes": 2513124
+    },
+    {
+      "blob": "2283b723d22bb3d6776e3a8560d5ef2608d7b4f9",
+      "bytes_per_copy": 2408059,
+      "copies": 2,
+      "paths": [
+        "docs/spec-1.8.3/refs/02_approved_morovoy_horn_recipe_and_use.png",
+        "docs/spec-poloz-full-1.8.3.2/refs/morovoy_horn_reference.png"
+      ],
+      "logical_duplicate_bytes": 2408059
+    },
+    {
+      "blob": "823c548c3ef92253c588e4f0a3eee911820e96b7",
+      "bytes_per_copy": 2404507,
+      "copies": 2,
+      "paths": [
+        "docs/spec-1.8.5-final/refs/01_APPROVED_1_8_5_QUEST_REWARDS_AND_DIALOG.png",
+        "docs/spec-1.8.5/refs/01_APPROVED_1_8_5_QUEST_REWARDS_AND_DIALOG.png"
+      ],
+      "logical_duplicate_bytes": 2404507
+    },
+    {
+      "blob": "6b774202f0ed6e119d943ab67041e9e9db726045",
+      "bytes_per_copy": 2370153,
+      "copies": 2,
+      "paths": [
+        "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_05_kurgan_bestiary.png",
+        "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/BESTIARY_FULL.png"
+      ],
+      "logical_duplicate_bytes": 2370153
+    },
+    {
+      "blob": "e60c4a171eeb027dbc906ad80883ecad1e7a095d",
+      "bytes_per_copy": 2153223,
+      "copies": 2,
+      "paths": [
+        "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_11_unresting_prince.png",
+        "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/PRINCE_FULL.png"
+      ],
+      "logical_duplicate_bytes": 2153223
+    },
+    {
+      "blob": "90dbdbd15f526c637b2f6bdbd48494ca1543ead8",
+      "bytes_per_copy": 2069021,
+      "copies": 2,
+      "paths": [
+        "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_09_kurgan_voevoda.png",
+        "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/VOEVODA_FULL.png"
+      ],
+      "logical_duplicate_bytes": 2069021
+    },
+    {
+      "blob": "816f2e1727664bae0086395d7d8d827de6f87c3c",
+      "bytes_per_copy": 2008569,
+      "copies": 2,
+      "paths": [
+        "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_06_upyr.png",
+        "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/UPYR_FULL.png"
+      ],
+      "logical_duplicate_bytes": 2008569
+    },
+    {
+      "blob": "ac975bc6028e5bba15c685cac282961610cfcb55",
+      "bytes_per_copy": 1937263,
+      "copies": 2,
+      "paths": [
+        "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_10_buried_volkhv.png",
+        "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/VOLKHV_FULL.png"
+      ],
+      "logical_duplicate_bytes": 1937263
+    },
+    {
+      "blob": "b5cb34da59142a96f81d4c04dff90242547c8456",
+      "bytes_per_copy": 1923175,
+      "copies": 2,
+      "paths": [
+        "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_07_nav.png",
+        "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/NAV_FULL.png"
+      ],
+      "logical_duplicate_bytes": 1923175
+    },
+    {
+      "blob": "68bc2da1d1e608f95526ee0037afdb6007ebd364",
+      "bytes_per_copy": 1922715,
+      "copies": 2,
+      "paths": [
+        "work/kurgan-hotfix-spec/slavic_myths_kurgan_enemies_surface_bleed_hotfix/references/ref_08_kurgan_druzhinnik.png",
+        "work/kurgan086_reference/kurgan_0_8_6_creatures_codex_package/references/DRUZHINNIK_FULL.png"
+      ],
+      "logical_duplicate_bytes": 1922715
+    }
+  ]
+}

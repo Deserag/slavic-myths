@@ -1,0 +1,292 @@
+events	1804753
+duration_seconds	473.43
+gc_count	232
+gc_sum_pause_ms	4098.7638
+gc_max_pause_ms	199.3114
+
+Execution samples by thread	value
+Render thread	8854
+Server thread	3873
+Worker-Main-1	2365
+Worker-Main-8	2074
+Worker-Main-6	2036
+Worker-Main-5	1986
+Worker-Main-10	1883
+Worker-Main-3	1874
+Worker-Main-7	1856
+Worker-Main-9	1841
+Worker-Main-11	1806
+Worker-Main-2	1725
+Worker-Main-4	1447
+Netty Server IO #1	101
+IO-Worker-7	56
+IO-Worker-5	52
+Sound engine	45
+IO-Worker-3	38
+IO-Worker-8	37
+Netty Local Client IO #0	32
+IO-Worker-6	22
+Download-1	10
+Download-3	9
+config-file-watcher-0-0	8
+Download-6	7
+IO-Worker-4	6
+JEI Config File Watcher	4
+Download-7	3
+IO-Worker-2	3
+JFR Periodic Tasks	3
+Download-4	2
+pool-2-thread-1	2
+JNA Cleaner	2
+pool-14-thread-1	1
+Download-5	1
+
+Top leaf CPU samples (not calls or milliseconds)	value
+Render thread | com.mojang.blaze3d.vertex.BufferBuilder.endLastVertex	1200
+Render thread | net.minecraft.client.model.geom.ModelPart$Cube.compile	787
+Render thread | it.unimi.dsi.fastutil.ints.IntArrays.mergeSort	606
+Render thread | net.minecraft.world.level.chunk.PalettedContainer.get	594
+Render thread | net.minecraft.client.particle.ParticleEngine.render	360
+Server thread | net.minecraft.world.level.chunk.PalettedContainer.get	279
+Server thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.randomTick	236
+Worker-Main-1 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue	235
+Render thread | net.minecraft.client.renderer.FogRenderer$$Lambda+0x0000024882763258.1777365519.fetch	231
+Render thread | net.minecraft.server.level.ServerChunkCache.getChunk	225
+Worker-Main-1 | net.minecraft.world.level.levelgen.synth.ImprovedNoise.p	223
+Render thread | net.minecraft.world.level.BlockCollisions.computeNext	207
+Server thread | net.minecraft.world.ticks.LevelTicks.sortContainersToTick	201
+Worker-Main-5 | net.minecraft.world.level.levelgen.synth.ImprovedNoise.p	194
+Render thread | net.minecraft.client.renderer.LevelRenderer.renderLevel	193
+Worker-Main-8 | net.minecraft.world.level.levelgen.synth.ImprovedNoise.p	191
+Worker-Main-2 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance	188
+Worker-Main-5 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance	186
+Worker-Main-8 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance	183
+Worker-Main-7 | net.minecraft.world.level.levelgen.synth.ImprovedNoise.p	183
+Worker-Main-1 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance	183
+Worker-Main-3 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance	182
+Worker-Main-7 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance	176
+Worker-Main-6 | net.minecraft.world.level.levelgen.synth.ImprovedNoise.p	176
+Worker-Main-9 | net.minecraft.world.level.levelgen.synth.ImprovedNoise.p	175
+Worker-Main-10 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance	175
+Worker-Main-6 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance	174
+Worker-Main-10 | net.minecraft.world.level.levelgen.synth.ImprovedNoise.p	172
+Worker-Main-4 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance	171
+Worker-Main-5 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue	168
+Worker-Main-9 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance	168
+Worker-Main-3 | net.minecraft.world.level.levelgen.synth.ImprovedNoise.p	167
+Worker-Main-11 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance	166
+Render thread | java.util.Arrays.copyOf	165
+Worker-Main-6 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue	161
+Worker-Main-11 | net.minecraft.world.level.levelgen.synth.ImprovedNoise.p	156
+Worker-Main-10 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue	153
+Server thread | net.minecraft.world.level.chunk.PalettedContainer.lambda$pack$11	145
+Worker-Main-3 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue	144
+Render thread | java.util.HashMap$TreeNode.getTreeNode	141
+Worker-Main-11 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue	140
+Worker-Main-8 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue	138
+Render thread | it.unimi.dsi.fastutil.ints.IntArrays.insertionSort	137
+Worker-Main-7 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue	135
+Server thread | it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap.get	129
+Render thread | org.joml.Matrix4f.rotate	129
+Worker-Main-9 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue	126
+Worker-Main-2 | net.minecraft.world.level.levelgen.synth.ImprovedNoise.p	119
+Worker-Main-5 | java.util.Objects.hashCode	117
+Render thread | net.minecraft.world.phys.Vec3.multiply	117
+
+Inclusive mod samples (overlapping, includes startup/transitions)	value
+startup | Worker-Main-1 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	297
+worldgen_new/2 | Worker-Main-5 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	262
+startup | Worker-Main-1 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext	225
+worldgen_new/2 | Worker-Main-5 | org.slavicmyths.bandit.CampStructure.findGenerationPoint	213
+gorynych_combat/1 | Render thread | org.slavicmyths.client.GorynychRenderer.render	208
+gorynych_combat/2 | Render thread | org.slavicmyths.client.GorynychRenderer.render	206
+startup | Worker-Main-1 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	199
+worldgen_new/2 | Worker-Main-5 | org.slavicmyths.worldgen.StructureCoverageService.neighborPlan	188
+gorynych_combat/2 | Render thread | org.slavicmyths.client.GorynychModel.renderToBuffer	188
+worldgen_new/2 | Worker-Main-5 | org.slavicmyths.worldgen.StructureCoverageService.neighborFootprints	185
+worldgen_new/2 | Worker-Main-5 | org.slavicmyths.worldgen.StructureCandidates.clearAccepted	184
+worldgen_new/2 | Worker-Main-5 | org.slavicmyths.bandit.CampStructure.candidate	183
+gorynych_combat/1 | Render thread | org.slavicmyths.client.GorynychModel.renderToBuffer	178
+gorynych_combat/0 | Render thread | org.slavicmyths.client.GorynychRenderer.render	176
+worldgen_new/2 | Worker-Main-5 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	164
+worldgen_new/1 | Worker-Main-7 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	161
+poloz_combat/2 | Render thread | org.slavicmyths.client.PolozRenderer.render	160
+startup | Worker-Main-1 | org.slavicmyths.worldgen.StructureCoverageService.neighborPlan	154
+startup | Worker-Main-1 | org.slavicmyths.bandit.CampStructure.findGenerationPoint	152
+gorynych_combat/0 | Render thread | org.slavicmyths.client.GorynychModel.renderToBuffer	150
+poloz_combat/1 | Render thread | org.slavicmyths.client.PolozRenderer.render	150
+worldgen_new/2 | Worker-Main-5 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext	145
+worldgen_new/1 | Worker-Main-6 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	133
+worldgen_new/1 | Worker-Main-6 | org.slavicmyths.bandit.CampStructure.findGenerationPoint	131
+worldgen_new/1 | Worker-Main-6 | org.slavicmyths.worldgen.StructureCoverageService.neighborPlan	122
+worldgen_new/1 | Worker-Main-6 | org.slavicmyths.worldgen.StructureCoverageService.neighborFootprints	121
+worldgen_new/1 | Worker-Main-6 | org.slavicmyths.bandit.CampStructure.candidate	121
+worldgen_new/1 | Worker-Main-6 | org.slavicmyths.worldgen.StructureCandidates.clearAccepted	121
+worldgen_new/1 | Worker-Main-7 | org.slavicmyths.bandit.CampStructure.findGenerationPoint	107
+idle/1 | Worker-Main-8 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	105
+poloz_combat/0 | Render thread | org.slavicmyths.client.PolozRenderer.render	100
+worldgen_new/2 | Worker-Main-5 | org.slavicmyths.bandit.CampStructure.plan	99
+worldgen_new/1 | Worker-Main-6 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	97
+worldgen_new/1 | Worker-Main-6 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext	96
+startup | Worker-Main-1 | org.slavicmyths.bandit.CampStructure.candidate	95
+startup | Worker-Main-1 | org.slavicmyths.worldgen.StructureCandidates.clearAccepted	95
+startup | Worker-Main-1 | org.slavicmyths.worldgen.StructureCoverageService.neighborFootprints	95
+worldgen_old/2 | Worker-Main-9 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	89
+gorynych_combat/2 | Render thread | org.slavicmyths.client.GorynychClient$Effects.render	86
+worldgen_old/1 | Worker-Main-10 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	85
+startup | Render thread | org.slavicmyths.audit.PerformanceProbe.client	84
+worldgen_old/2 | Worker-Main-3 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	81
+startup | Worker-Main-1 | org.slavicmyths.bandit.CampStructure.plan	79
+idle/1 | Worker-Main-8 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext	79
+idle/2 | Worker-Main-3 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	79
+worldgen_new/1 | Worker-Main-7 | org.slavicmyths.bandit.CampStructure.plan	77
+gorynych_combat/1 | Render thread | org.slavicmyths.client.GorynychRenderer$1.render	76
+worldgen_new/0 | Worker-Main-8 | org.slavicmyths.bandit.CampStructure.findGenerationPoint	76
+worldgen_old/2 | Worker-Main-3 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	75
+idle/0 | Worker-Main-11 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	75
+worldgen_old/2 | Worker-Main-1 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	74
+worldgen_old/2 | Worker-Main-9 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	73
+worldgen_old/1 | Worker-Main-10 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	73
+worldgen_old/1 | Worker-Main-10 | org.slavicmyths.bandit.CampStructure.findGenerationPoint	73
+idle/0 | Worker-Main-11 | org.slavicmyths.bandit.CampStructure.findGenerationPoint	71
+gorynych_combat/2 | Render thread | org.slavicmyths.client.GorynychRenderer$1.render	71
+idle/2 | Worker-Main-3 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext	69
+worldgen_old/2 | Worker-Main-3 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext	69
+idle/2 | Worker-Main-3 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	69
+worldgen_new/1 | Worker-Main-7 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext	68
+worldgen_new/0 | Worker-Main-8 | org.slavicmyths.worldgen.StructureCandidates.clearAccepted	66
+worldgen_new/0 | Worker-Main-8 | org.slavicmyths.worldgen.StructureCoverageService.neighborPlan	66
+worldgen_new/0 | Worker-Main-8 | org.slavicmyths.worldgen.StructureCoverageService.neighborFootprints	66
+worldgen_old/2 | Worker-Main-6 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	66
+worldgen_new/0 | Worker-Main-8 | org.slavicmyths.bandit.CampStructure.candidate	65
+worldgen_new/0 | Worker-Main-8 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	65
+worldgen_new/0 | Worker-Main-3 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	63
+worldgen_old/0 | Worker-Main-10 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	63
+idle/1 | Worker-Main-9 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext	63
+idle/0 | Worker-Main-11 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	62
+worldgen_old/2 | Worker-Main-1 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	62
+worldgen_old/2 | Worker-Main-6 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	62
+worldgen_new/1 | Worker-Main-7 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	62
+startup | Worker-Main-1 | org.slavicmyths.chud.AbandonedStructure.findGenerationPoint	61
+idle/1 | Worker-Main-9 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	61
+worldgen_old/1 | Worker-Main-11 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	61
+worldgen_old/1 | Worker-Main-10 | org.slavicmyths.worldgen.StructureCoverageService.neighborFootprints	60
+worldgen_old/1 | Worker-Main-10 | org.slavicmyths.worldgen.StructureCandidates.clearAccepted	60
+worldgen_old/1 | Worker-Main-10 | org.slavicmyths.worldgen.StructureCoverageService.neighborPlan	60
+worldgen_old/1 | Worker-Main-10 | org.slavicmyths.bandit.CampStructure.candidate	60
+startup | Worker-Main-1 | org.slavicmyths.chud.ChudSimplePlacement.abandoned	59
+gorynych_combat/0 | Render thread | org.slavicmyths.client.GorynychRenderer$1.render	59
+startup | Worker-Main-1 | org.slavicmyths.chud.ChudRegionPlanner.find	59
+startup | Worker-Main-1 | org.slavicmyths.chud.ChudRegionPlanner.select	59
+idle/2 | Worker-Main-3 | org.slavicmyths.bandit.CampStructure.findGenerationPoint	59
+idle/1 | Worker-Main-8 | org.slavicmyths.bandit.CampStructure.findGenerationPoint	59
+worldgen_old/2 | Worker-Main-9 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext	58
+worldgen_new/0 | Worker-Main-3 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext	58
+idle/0 | Worker-Main-11 | org.slavicmyths.worldgen.StructureCoverageService.neighborPlan	57
+idle/0 | Worker-Main-11 | org.slavicmyths.bandit.CampStructure.candidate	57
+idle/0 | Worker-Main-11 | org.slavicmyths.worldgen.StructureCandidates.clearAccepted	57
+idle/0 | Worker-Main-11 | org.slavicmyths.worldgen.StructureCoverageService.neighborFootprints	57
+worldgen_new/1 | Worker-Main-2 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight	57
+worldgen_old/1 | Worker-Main-6 | org.slavicmyths.bandit.CampStructure.findGenerationPoint	56
+worldgen_old/1 | Worker-Main-11 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	56
+worldgen_new/0 | Worker-Main-8 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	55
+worldgen_old/0 | Worker-Main-10 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	55
+worldgen_old/2 | Worker-Main-1 | org.slavicmyths.bandit.CampStructure.findGenerationPoint	55
+worldgen_new/1 | Worker-Main-2 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint	55
+worldgen_old/1 | Worker-Main-11 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext	55
+
+Estimated allocation weights by class (bytes, not retained heap)	value
+net.minecraft.world.phys.Vec3	23145336752
+com.google.common.collect.Iterators$ArrayItr	14589940816
+[I	14407192672
+[B	13352126080
+java.lang.String	9245190536
+net.minecraft.world.phys.AABB	8421561152
+[F	7642131624
+net.minecraft.world.level.levelgen.NoiseChunk$$Lambda+0x000002488259a228.988154846	7146284768
+[J	7064499600
+[Ljava.lang.Object;	6847083240
+net.minecraft.server.level.ChunkMap$$Lambda+0x00000248828be218.101276978	6651572080
+org.joml.Matrix4f	6496113480
+java.util.concurrent.CompletableFuture$UniRun	6384169088
+net.minecraft.core.BlockPos	5890786144
+org.joml.Vector3f	5489457032
+[D	5302916504
+java.util.concurrent.CompletableFuture$UniWhenComplete	4882232560
+net.minecraft.server.level.ChunkMap$$Lambda+0x00000248828bbdc8.663275031	4866407400
+net.minecraft.server.level.ChunkMap$$Lambda+0x00000248828be000.1635851445	4498655760
+net.minecraft.world.level.levelgen.SurfaceRules$Context$$Lambda+0x00000248825cca78.1615954195	3799613000
+org.joml.Matrix3f	3654948888
+net.minecraft.core.Holder$Direct	3334214296
+java.util.Optional	3247859896
+net.minecraft.world.level.levelgen.DensityFunctions$Marker	2843845152
+net.minecraft.world.level.levelgen.DensityFunctions$HolderHolder	2817113088
+java.util.stream.ReferencePipeline$Head	2750034888
+com.google.common.base.Suppliers$NonSerializableMemoizingSupplier	2502716056
+java.util.concurrent.ConcurrentLinkedQueue$Node	2472132928
+org.joml.Quaternionf	2402123944
+net.minecraft.world.level.block.Block$BlockStatePairKey	2073634896
+
+Estimated allocation weights by leaf site	value
+java.lang.invoke.DirectMethodHandle.allocateInstance	33058200264
+com.google.common.collect.Iterators.forArray	14589940816
+net.minecraft.world.phys.Vec3.add	11286411456
+jdk.internal.misc.Unsafe.allocateUninitializedArray	10103874096
+java.lang.StringConcatHelper.newString	8966451560
+net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData	8614464536
+com.mojang.blaze3d.vertex.PoseStack$Pose.<init>	8564507368
+net.minecraft.world.phys.Vec3.fromRGB24	7043300392
+net.minecraft.client.particle.SingleQuadParticle.getRenderBoundingBox	6797486640
+java.util.concurrent.CompletableFuture.uniRunNow	6372739120
+com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids	5898628448
+net.minecraft.world.level.levelgen.DensityFunctions$HolderHolder.mapAll	5853542264
+net.minecraft.world.level.chunk.PalettedContainer.pack	5140206944
+java.util.concurrent.CompletableFuture.uniWhenCompleteStage	4882232560
+it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.clone	4608236008
+net.minecraft.world.phys.Vec3.multiply	3944066288
+net.minecraft.world.level.levelgen.DensityFunctions$Ap2.fillArray	3596035296
+net.minecraft.core.BlockPos.relative	3227663104
+net.minecraft.world.level.levelgen.DensityFunctions$MarkerOrMarked.mapAll	2843845152
+java.util.stream.StreamSupport.stream	2750034888
+java.util.Optional.ofNullable	2740331432
+com.google.common.base.Suppliers.memoize	2502716056
+java.lang.Object.clone	2497938552
+java.util.concurrent.ConcurrentLinkedQueue.offer	2472132928
+java.util.concurrent.CompletableFuture.newIncompleteFuture	1878988344
+com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2	1776990256
+it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap.<init>	1659040704
+com.mojang.blaze3d.vertex.PoseStack.pushPose	1642830440
+com.mojang.blaze3d.vertex.BufferBuilder.storeMesh	1543618488
+java.util.ImmutableCollections$AbstractImmutableList.iterator	1476205080
+
+Estimated allocation by first mod frame (includes audit instrumentation)	value
+org.slavicmyths.worldgen.StructureCoverageService.baseHeight	7989123696
+org.slavicmyths.client.PolozRenderer.render	3214994536
+org.slavicmyths.client.GuardianClient.cube	1435793696
+org.slavicmyths.client.ClassClient.hud	1345141768
+org.slavicmyths.audit.PerformanceProbe.init	1118592608
+org.slavicmyths.navigation.NavigationEvents.discoverStructures	932277712
+org.slavicmyths.client.GorynychClient$Effects.render	780915544
+org.slavicmyths.client.GorynychModel.setupAnim	668445240
+org.slavicmyths.worldgen.StructureCoverageService.neighborPlan	614992376
+org.slavicmyths.client.GorynychModel.renderToBuffer	596492664
+org.slavicmyths.audit.PerformanceProbe.client	557692584
+org.slavicmyths.audit.PerformanceProbe.setup	391388352
+org.slavicmyths.client.ClassTheme.image	386303264
+org.slavicmyths.client.WeaponHands.drawGeometry	336085000
+org.slavicmyths.item.ItemState.runes	301067896
+org.slavicmyths.item.ItemState.legacy	205228952
+org.slavicmyths.rpg.RareRunes.active	169747400
+org.slavicmyths.client.GorynychRenderer.render	150321312
+org.slavicmyths.client.EarthCamera.camera	132036160
+org.slavicmyths.client.ClassClient.conflicts	123871496
+org.slavicmyths.chud.ChudRegionPlanner.column	111673072
+org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0	110918576
+org.slavicmyths.chud.AbandonedGeometry.emitCorridor	109189072
+org.slavicmyths.audit.PerformanceProbe.after	79190400
+org.slavicmyths.furniture.FurnitureBlock.lambda$getShape$2	75454704
+org.slavicmyths.audit.PerformanceProbe.stimulus	57225880
+org.slavicmyths.gorynych.BreathCloud.tick	55740360
+org.slavicmyths.client.HeroHud.render	53092840
+org.slavicmyths.gorynych.Gorynych.tick	42425112
+org.slavicmyths.block.KitchenTableBlock.lambda$getShape$2	40871104

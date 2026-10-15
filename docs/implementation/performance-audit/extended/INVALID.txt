@@ -1,0 +1,1 @@
+INVALID_FIXTURE: height query before full chunk readiness; void death. Run aborted by audit, not a production crash. No extended gameplay metrics accepted.

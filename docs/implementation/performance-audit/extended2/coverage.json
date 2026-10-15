@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "invalid": false,
+  "casts": [
+    {
+      "skill": "earth_thunder",
+      "success": true,
+      "age": 10
+    },
+    {
+      "skill": "unyielding_flurry",
+      "success": true,
+      "age": 80
+    },
+    {
+      "skill": "living_wall",
+      "success": false,
+      "age": 150
+    },
+    {
+      "skill": "banner_of_druzhina",
+      "success": true,
+      "age": 220
+    },
+    {
+      "skill": "sacred_circle",
+      "success": true,
+      "age": 10
+    },
+    {
+      "skill": "living_water",
+      "success": true,
+      "age": 80
+    },
+    {
+      "skill": "plague_seal",
+      "success": true,
+      "age": 150
+    },
+    {
+      "skill": "shadow_pact",
+      "success": true,
+      "age": 220
+    },
+    {
+      "skill": "piercing_breakthrough",
+      "success": true,
+      "age": 10
+    },
+    {
+      "skill": "vulnerable_point",
+      "success": true,
+      "age": 80
+    },
+    {
+      "skill": "false_ambush",
+      "success": false,
+      "age": 150
+    },
+    {
+      "skill": "blood_mark",
+      "success": true,
+      "age": 220
+    }
+  ],
+  "boss_sampled_observations": {
+    "poloz_combat": {
+      "target_true": 0,
+      "active_action": 0,
+      "phases": [
+        1,
+        2,
+        3
+      ]
+    },
+    "gorynych_combat": {
+      "target_true": 27,
+      "active_action": 13,
+      "phases": [
+        -1,
+        1,
+        3
+      ]
+    }
+  },
+  "rune_attack_targets_present": 45,
+  "rune_attack_attempts": 45,
+  "client_fps_range": [
+    83,
+    2340
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "main": "fb2994e958911169317523e1066b8a1ca7a155af",
+  "open_prs": [
+    31,
+    27,
+    25,
+    24,
+    21,
+    14,
+    13,
+    12,
+    11,
+    2
+  ],
+  "focus": [
+    {
+      "number": 27,
+      "head": "8b75b7fbeea3ef9d2b3f9fd04795c5aff47a1157",
+      "merged": false
+    },
+    {
+      "number": 25,
+      "head": "e2ca8a8f998bb390cd6538f8979a2df13da006cc",
+      "merged": false
+    },
+    {
+      "number": 24,
+      "head": "40566fb2e212f02c3bd08e99a42ba010da572288",
+      "merged": false,
+      "draft": true
+    }
+  ],
+  "final_main_fetch": "fb2994e958911169317523e1066b8a1ca7a155af",
+  "pr31": "Documentation-only Advancements 2.0 design; not integrated"
+}
