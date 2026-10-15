@@ -1,0 +1,649 @@
+public static void cube(com.mojang.blaze3d.vertex.PoseStack, com.mojang.blaze3d.vertex.VertexConsumer, double, double, double, double, double, double, int);
+    Code:
+       0: aload_0
+       1: invokevirtual #1                  // Method com/mojang/blaze3d/vertex/PoseStack.last:()Lcom/mojang/blaze3d/vertex/PoseStack$Pose;
+       4: astore        15
+       6: dload_2
+       7: d2f
+       8: fstore        16
+      10: dload         4
+      12: d2f
+      13: fstore        17
+      15: dload         6
+      17: d2f
+      18: fstore        18
+      20: dload_2
+      21: dload         8
+      23: dadd
+      24: d2f
+      25: fstore        19
+      27: dload         4
+      29: dload         10
+      31: dadd
+      32: d2f
+      33: fstore        20
+      35: dload         6
+      37: dload         12
+      39: dadd
+      40: d2f
+      41: fstore        21
+      43: bipush        6
+      45: anewarray     #7                  // class "[[F"
+      48: dup
+      49: iconst_0
+      50: iconst_4
+      51: anewarray     #9                  // class "[F"
+      54: dup
+      55: iconst_0
+      56: iconst_3
+      57: newarray       float
+      59: dup
+      60: iconst_0
+      61: fload         16
+      63: fastore
+      64: dup
+      65: iconst_1
+      66: fload         17
+      68: fastore
+      69: dup
+      70: iconst_2
+      71: fload         18
+      73: fastore
+      74: aastore
+      75: dup
+      76: iconst_1
+      77: iconst_3
+      78: newarray       float
+      80: dup
+      81: iconst_0
+      82: fload         16
+      84: fastore
+      85: dup
+      86: iconst_1
+      87: fload         20
+      89: fastore
+      90: dup
+      91: iconst_2
+      92: fload         18
+      94: fastore
+      95: aastore
+      96: dup
+      97: iconst_2
+      98: iconst_3
+      99: newarray       float
+     101: dup
+     102: iconst_0
+     103: fload         19
+     105: fastore
+     106: dup
+     107: iconst_1
+     108: fload         20
+     110: fastore
+     111: dup
+     112: iconst_2
+     113: fload         18
+     115: fastore
+     116: aastore
+     117: dup
+     118: iconst_3
+     119: iconst_3
+     120: newarray       float
+     122: dup
+     123: iconst_0
+     124: fload         19
+     126: fastore
+     127: dup
+     128: iconst_1
+     129: fload         17
+     131: fastore
+     132: dup
+     133: iconst_2
+     134: fload         18
+     136: fastore
+     137: aastore
+     138: aastore
+     139: dup
+     140: iconst_1
+     141: iconst_4
+     142: anewarray     #9                  // class "[F"
+     145: dup
+     146: iconst_0
+     147: iconst_3
+     148: newarray       float
+     150: dup
+     151: iconst_0
+     152: fload         19
+     154: fastore
+     155: dup
+     156: iconst_1
+     157: fload         17
+     159: fastore
+     160: dup
+     161: iconst_2
+     162: fload         21
+     164: fastore
+     165: aastore
+     166: dup
+     167: iconst_1
+     168: iconst_3
+     169: newarray       float
+     171: dup
+     172: iconst_0
+     173: fload         19
+     175: fastore
+     176: dup
+     177: iconst_1
+     178: fload         20
+     180: fastore
+     181: dup
+     182: iconst_2
+     183: fload         21
+     185: fastore
+     186: aastore
+     187: dup
+     188: iconst_2
+     189: iconst_3
+     190: newarray       float
+     192: dup
+     193: iconst_0
+     194: fload         16
+     196: fastore
+     197: dup
+     198: iconst_1
+     199: fload         20
+     201: fastore
+     202: dup
+     203: iconst_2
+     204: fload         21
+     206: fastore
+     207: aastore
+     208: dup
+     209: iconst_3
+     210: iconst_3
+     211: newarray       float
+     213: dup
+     214: iconst_0
+     215: fload         16
+     217: fastore
+     218: dup
+     219: iconst_1
+     220: fload         17
+     222: fastore
+     223: dup
+     224: iconst_2
+     225: fload         21
+     227: fastore
+     228: aastore
+     229: aastore
+     230: dup
+     231: iconst_2
+     232: iconst_4
+     233: anewarray     #9                  // class "[F"
+     236: dup
+     237: iconst_0
+     238: iconst_3
+     239: newarray       float
+     241: dup
+     242: iconst_0
+     243: fload         16
+     245: fastore
+     246: dup
+     247: iconst_1
+     248: fload         17
+     250: fastore
+     251: dup
+     252: iconst_2
+     253: fload         21
+     255: fastore
+     256: aastore
+     257: dup
+     258: iconst_1
+     259: iconst_3
+     260: newarray       float
+     262: dup
+     263: iconst_0
+     264: fload         16
+     266: fastore
+     267: dup
+     268: iconst_1
+     269: fload         20
+     271: fastore
+     272: dup
+     273: iconst_2
+     274: fload         21
+     276: fastore
+     277: aastore
+     278: dup
+     279: iconst_2
+     280: iconst_3
+     281: newarray       float
+     283: dup
+     284: iconst_0
+     285: fload         16
+     287: fastore
+     288: dup
+     289: iconst_1
+     290: fload         20
+     292: fastore
+     293: dup
+     294: iconst_2
+     295: fload         18
+     297: fastore
+     298: aastore
+     299: dup
+     300: iconst_3
+     301: iconst_3
+     302: newarray       float
+     304: dup
+     305: iconst_0
+     306: fload         16
+     308: fastore
+     309: dup
+     310: iconst_1
+     311: fload         17
+     313: fastore
+     314: dup
+     315: iconst_2
+     316: fload         18
+     318: fastore
+     319: aastore
+     320: aastore
+     321: dup
+     322: iconst_3
+     323: iconst_4
+     324: anewarray     #9                  // class "[F"
+     327: dup
+     328: iconst_0
+     329: iconst_3
+     330: newarray       float
+     332: dup
+     333: iconst_0
+     334: fload         19
+     336: fastore
+     337: dup
+     338: iconst_1
+     339: fload         17
+     341: fastore
+     342: dup
+     343: iconst_2
+     344: fload         18
+     346: fastore
+     347: aastore
+     348: dup
+     349: iconst_1
+     350: iconst_3
+     351: newarray       float
+     353: dup
+     354: iconst_0
+     355: fload         19
+     357: fastore
+     358: dup
+     359: iconst_1
+     360: fload         20
+     362: fastore
+     363: dup
+     364: iconst_2
+     365: fload         18
+     367: fastore
+     368: aastore
+     369: dup
+     370: iconst_2
+     371: iconst_3
+     372: newarray       float
+     374: dup
+     375: iconst_0
+     376: fload         19
+     378: fastore
+     379: dup
+     380: iconst_1
+     381: fload         20
+     383: fastore
+     384: dup
+     385: iconst_2
+     386: fload         21
+     388: fastore
+     389: aastore
+     390: dup
+     391: iconst_3
+     392: iconst_3
+     393: newarray       float
+     395: dup
+     396: iconst_0
+     397: fload         19
+     399: fastore
+     400: dup
+     401: iconst_1
+     402: fload         17
+     404: fastore
+     405: dup
+     406: iconst_2
+     407: fload         21
+     409: fastore
+     410: aastore
+     411: aastore
+     412: dup
+     413: iconst_4
+     414: iconst_4
+     415: anewarray     #9                  // class "[F"
+     418: dup
+     419: iconst_0
+     420: iconst_3
+     421: newarray       float
+     423: dup
+     424: iconst_0
+     425: fload         16
+     427: fastore
+     428: dup
+     429: iconst_1
+     430: fload         20
+     432: fastore
+     433: dup
+     434: iconst_2
+     435: fload         18
+     437: fastore
+     438: aastore
+     439: dup
+     440: iconst_1
+     441: iconst_3
+     442: newarray       float
+     444: dup
+     445: iconst_0
+     446: fload         16
+     448: fastore
+     449: dup
+     450: iconst_1
+     451: fload         20
+     453: fastore
+     454: dup
+     455: iconst_2
+     456: fload         21
+     458: fastore
+     459: aastore
+     460: dup
+     461: iconst_2
+     462: iconst_3
+     463: newarray       float
+     465: dup
+     466: iconst_0
+     467: fload         19
+     469: fastore
+     470: dup
+     471: iconst_1
+     472: fload         20
+     474: fastore
+     475: dup
+     476: iconst_2
+     477: fload         21
+     479: fastore
+     480: aastore
+     481: dup
+     482: iconst_3
+     483: iconst_3
+     484: newarray       float
+     486: dup
+     487: iconst_0
+     488: fload         19
+     490: fastore
+     491: dup
+     492: iconst_1
+     493: fload         20
+     495: fastore
+     496: dup
+     497: iconst_2
+     498: fload         18
+     500: fastore
+     501: aastore
+     502: aastore
+     503: dup
+     504: iconst_5
+     505: iconst_4
+     506: anewarray     #9                  // class "[F"
+     509: dup
+     510: iconst_0
+     511: iconst_3
+     512: newarray       float
+     514: dup
+     515: iconst_0
+     516: fload         16
+     518: fastore
+     519: dup
+     520: iconst_1
+     521: fload         17
+     523: fastore
+     524: dup
+     525: iconst_2
+     526: fload         21
+     528: fastore
+     529: aastore
+     530: dup
+     531: iconst_1
+     532: iconst_3
+     533: newarray       float
+     535: dup
+     536: iconst_0
+     537: fload         16
+     539: fastore
+     540: dup
+     541: iconst_1
+     542: fload         17
+     544: fastore
+     545: dup
+     546: iconst_2
+     547: fload         18
+     549: fastore
+     550: aastore
+     551: dup
+     552: iconst_2
+     553: iconst_3
+     554: newarray       float
+     556: dup
+     557: iconst_0
+     558: fload         19
+     560: fastore
+     561: dup
+     562: iconst_1
+     563: fload         17
+     565: fastore
+     566: dup
+     567: iconst_2
+     568: fload         18
+     570: fastore
+     571: aastore
+     572: dup
+     573: iconst_3
+     574: iconst_3
+     575: newarray       float
+     577: dup
+     578: iconst_0
+     579: fload         19
+     581: fastore
+     582: dup
+     583: iconst_1
+     584: fload         17
+     586: fastore
+     587: dup
+     588: iconst_2
+     589: fload         21
+     591: fastore
+     592: aastore
+     593: aastore
+     594: astore        22
+     596: bipush        6
+     598: anewarray     #9                  // class "[F"
+     601: dup
+     602: iconst_0
+     603: iconst_3
+     604: newarray       float
+     606: dup
+     607: iconst_0
+     608: fconst_0
+     609: fastore
+     610: dup
+     611: iconst_1
+     612: fconst_0
+     613: fastore
+     614: dup
+     615: iconst_2
+     616: ldc           #11                 // float -1.0f
+     618: fastore
+     619: aastore
+     620: dup
+     621: iconst_1
+     622: iconst_3
+     623: newarray       float
+     625: dup
+     626: iconst_0
+     627: fconst_0
+     628: fastore
+     629: dup
+     630: iconst_1
+     631: fconst_0
+     632: fastore
+     633: dup
+     634: iconst_2
+     635: fconst_1
+     636: fastore
+     637: aastore
+     638: dup
+     639: iconst_2
+     640: iconst_3
+     641: newarray       float
+     643: dup
+     644: iconst_0
+     645: ldc           #11                 // float -1.0f
+     647: fastore
+     648: dup
+     649: iconst_1
+     650: fconst_0
+     651: fastore
+     652: dup
+     653: iconst_2
+     654: fconst_0
+     655: fastore
+     656: aastore
+     657: dup
+     658: iconst_3
+     659: iconst_3
+     660: newarray       float
+     662: dup
+     663: iconst_0
+     664: fconst_1
+     665: fastore
+     666: dup
+     667: iconst_1
+     668: fconst_0
+     669: fastore
+     670: dup
+     671: iconst_2
+     672: fconst_0
+     673: fastore
+     674: aastore
+     675: dup
+     676: iconst_4
+     677: iconst_3
+     678: newarray       float
+     680: dup
+     681: iconst_0
+     682: fconst_0
+     683: fastore
+     684: dup
+     685: iconst_1
+     686: fconst_1
+     687: fastore
+     688: dup
+     689: iconst_2
+     690: fconst_0
+     691: fastore
+     692: aastore
+     693: dup
+     694: iconst_5
+     695: iconst_3
+     696: newarray       float
+     698: dup
+     699: iconst_0
+     700: fconst_0
+     701: fastore
+     702: dup
+     703: iconst_1
+     704: ldc           #11                 // float -1.0f
+     706: fastore
+     707: dup
+     708: iconst_2
+     709: fconst_0
+     710: fastore
+     711: aastore
+     712: astore        23
+     714: iconst_0
+     715: istore        24
+     717: iload         24
+     719: bipush        6
+     721: if_icmpge     863
+     724: iconst_0
+     725: istore        25
+     727: iload         25
+     729: iconst_4
+     730: if_icmpge     857
+     733: aload         22
+     735: iload         24
+     737: aaload
+     738: iload         25
+     740: aaload
+     741: astore        26
+     743: aload_1
+     744: aload         15
+     746: aload         26
+     748: iconst_0
+     749: faload
+     750: aload         26
+     752: iconst_1
+     753: faload
+     754: aload         26
+     756: iconst_2
+     757: faload
+     758: invokeinterface #12,  5           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.addVertex:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     763: iload         14
+     765: invokeinterface #18,  2           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setColor:(I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     770: iload         25
+     772: ifeq          781
+     775: iload         25
+     777: iconst_1
+     778: if_icmpne     785
+     781: fconst_0
+     782: goto          786
+     785: fconst_1
+     786: iload         25
+     788: ifeq          797
+     791: iload         25
+     793: iconst_3
+     794: if_icmpne     801
+     797: fconst_1
+     798: goto          802
+     801: fconst_0
+     802: invokeinterface #22,  3           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setUv:(FF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     807: getstatic     #26                 // Field net/minecraft/client/renderer/texture/OverlayTexture.NO_OVERLAY:I
+     810: invokeinterface #32,  2           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setOverlay:(I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     815: ldc           #35                 // int 15728880
+     817: invokeinterface #36,  2           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setLight:(I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     822: aload         15
+     824: aload         23
+     826: iload         24
+     828: aaload
+     829: iconst_0
+     830: faload
+     831: aload         23
+     833: iload         24
+     835: aaload
+     836: iconst_1
+     837: faload
+     838: aload         23
+     840: iload         24
+     842: aaload
+     843: iconst_2
+     844: faload
+     845: invokeinterface #39,  5           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setNormal:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     850: pop
+     851: iinc          25, 1
+     854: goto          727
+     857: iinc          24, 1
+     860: goto          717
+     863: return

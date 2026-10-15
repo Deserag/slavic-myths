@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checks": {
+    "json": 3919,
+    "png": 1325,
+    "resource_parity": 6804,
+    "class_parity_java21": 1685
+  },
+  "jar": "slavicmyths-1.9.7.5.jar",
+  "bytes": 19696896,
+  "sha256": "049c7e2dd9aca1a1ec07ffcc60d997dea80eb0b0098caf9af266c19e9fbe50fc",
+  "fixture_in_production": false
+}

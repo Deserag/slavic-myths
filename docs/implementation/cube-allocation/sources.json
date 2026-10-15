@@ -1,0 +1,89 @@
+{
+  "note": "Publication-time source hashes, not a retroactive per-launch snapshot. Historical constant candidate reproduced by the saved patch on main. Frozen helper method source matches final production exactly.",
+  "files": [
+    {
+      "path": "tools/cube-audit/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "tools/cube-audit/constant-candidate.patch",
+      "sha256": "e89501053f417517f90c18142f576fdc7f6f41c4d1f423a301dc3e9d14343d41"
+    },
+    {
+      "path": "tools/cube-audit/crossover_summary.py",
+      "sha256": "462ea4976b827b328899055ae1e9808f0d56a61600039a3e9fbd1056a806a501"
+    },
+    {
+      "path": "tools/cube-audit/gates.py",
+      "sha256": "b2131c5b38f4c18311ed84f2840c213dbcd3dcd37f562c88df8e56cd0834110d"
+    },
+    {
+      "path": "tools/cube-audit/init.gradle",
+      "sha256": "27aa2bb9434b0e23b8dc6d346fe82ea3998ea3d04d5c0d14510d45b6d0945185"
+    },
+    {
+      "path": "tools/cube-audit/package.py",
+      "sha256": "aae5bae8797b5c567de787b7ba7bbd170ba65d58aba6385302a68971e2e2275e"
+    },
+    {
+      "path": "tools/cube-audit/ProfileSummary.java",
+      "sha256": "6caccfd5ae4b053eb75b60b33ee0ae2986501e49b27ceb2d8fce42d773b75cb7"
+    },
+    {
+      "path": "tools/cube-audit/README.md",
+      "sha256": "37390e15cdd2065fb73525a2e3d91a457b4e7e029e443102a20af7124d47cd04"
+    },
+    {
+      "path": "tools/cube-audit/run.ps1",
+      "sha256": "c7bf9cdfd472b004a5ae45ab4a92027752c05d2d41b01bbdcd2de1196857e7eb"
+    },
+    {
+      "path": "tools/cube-audit/summarize.py",
+      "sha256": "74abbed09668b19dd42999727dd402dd1cfe4dbb633c59eb0d0a8fbed930b05f"
+    },
+    {
+      "path": "tools/cube-audit/cross-resources/cubecross.mixins.json",
+      "sha256": "4a952ae5369266284ccf81ba723c80e5b5ee1e4ee64c403b2bd9710275f111d8"
+    },
+    {
+      "path": "tools/cube-audit/crossover/CrossControl.java",
+      "sha256": "75435de6c9a0932ec0c4081ab76325a694a3eff83938e17a93a4cb1d87dcbb17"
+    },
+    {
+      "path": "tools/cube-audit/crossover/CrossoverProbe.java",
+      "sha256": "05dc77094004b30b7ffb39531042cff7325a1892ead1c266eadaec5fc2781878"
+    },
+    {
+      "path": "tools/cube-audit/java/CubeProbe.java",
+      "sha256": "4e23da33e86aefc22d9618dc8205df8a17c5446a8c67c0b1f1e83c720bc1fd9c"
+    },
+    {
+      "path": "tools/cube-audit/java/HelperCube.java",
+      "sha256": "b55f362568c4ada7a211cea3baedce2f93b84da48e4a4790cbc52cd417b1027c"
+    },
+    {
+      "path": "tools/cube-audit/java/ReferenceCube.java",
+      "sha256": "d36c271ed53ec1d4f22df3dec0f176985e2285da771b34275f16b7075922ba86"
+    },
+    {
+      "path": "tools/cube-audit/java/VertexAudit.java",
+      "sha256": "1e4b8646ed3c8ce80e82c73d4207d3aa9f397c0bfce15162657f0df4b823618d"
+    },
+    {
+      "path": "tools/cube-audit/mixins/CrossMod.java",
+      "sha256": "fcf84fddbffa3eb76dc6baedab9b9e8be777edcba332358f89c94af4f04c167c"
+    },
+    {
+      "path": "tools/cube-audit/mixins/CubeSwitch.java",
+      "sha256": "3e9f2a8d26a02bdd79505629b5d2454bb7ca6c0321772543ef298ee80f178661"
+    },
+    {
+      "path": "tools/cube-audit/cross-resources/META-INF/neoforge.mods.toml",
+      "sha256": "60032524583204dd2b0e5a5a2b8fdfae0bc17fd893a3b2ac5a217527f40e1990"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/client/GuardianClient.java",
+      "sha256": "a1d3722585eeebe765b2194924cd6c8a59de00c6b703b0b87f983ff68f21e5d3"
+    }
+  ]
+}

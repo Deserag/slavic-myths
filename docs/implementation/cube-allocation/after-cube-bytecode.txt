@@ -1,0 +1,221 @@
+public static void cube(com.mojang.blaze3d.vertex.PoseStack, com.mojang.blaze3d.vertex.VertexConsumer, double, double, double, double, double, double, int);
+    Code:
+       0: aload_0
+       1: invokevirtual #1                  // Method com/mojang/blaze3d/vertex/PoseStack.last:()Lcom/mojang/blaze3d/vertex/PoseStack$Pose;
+       4: astore        15
+       6: dload_2
+       7: d2f
+       8: fstore        16
+      10: dload         4
+      12: d2f
+      13: fstore        17
+      15: dload         6
+      17: d2f
+      18: fstore        18
+      20: dload_2
+      21: dload         8
+      23: dadd
+      24: d2f
+      25: fstore        19
+      27: dload         4
+      29: dload         10
+      31: dadd
+      32: d2f
+      33: fstore        20
+      35: dload         6
+      37: dload         12
+      39: dadd
+      40: d2f
+      41: fstore        21
+      43: aload         15
+      45: aload_1
+      46: iload         14
+      48: fconst_0
+      49: fconst_0
+      50: ldc           #7                  // float -1.0f
+      52: fload         16
+      54: fload         17
+      56: fload         18
+      58: fload         16
+      60: fload         20
+      62: fload         18
+      64: fload         19
+      66: fload         20
+      68: fload         18
+      70: fload         19
+      72: fload         17
+      74: fload         18
+      76: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+      79: aload         15
+      81: aload_1
+      82: iload         14
+      84: fconst_0
+      85: fconst_0
+      86: fconst_1
+      87: fload         19
+      89: fload         17
+      91: fload         21
+      93: fload         19
+      95: fload         20
+      97: fload         21
+      99: fload         16
+     101: fload         20
+     103: fload         21
+     105: fload         16
+     107: fload         17
+     109: fload         21
+     111: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+     114: aload         15
+     116: aload_1
+     117: iload         14
+     119: ldc           #7                  // float -1.0f
+     121: fconst_0
+     122: fconst_0
+     123: fload         16
+     125: fload         17
+     127: fload         21
+     129: fload         16
+     131: fload         20
+     133: fload         21
+     135: fload         16
+     137: fload         20
+     139: fload         18
+     141: fload         16
+     143: fload         17
+     145: fload         18
+     147: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+     150: aload         15
+     152: aload_1
+     153: iload         14
+     155: fconst_1
+     156: fconst_0
+     157: fconst_0
+     158: fload         19
+     160: fload         17
+     162: fload         18
+     164: fload         19
+     166: fload         20
+     168: fload         18
+     170: fload         19
+     172: fload         20
+     174: fload         21
+     176: fload         19
+     178: fload         17
+     180: fload         21
+     182: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+     185: aload         15
+     187: aload_1
+     188: iload         14
+     190: fconst_0
+     191: fconst_1
+     192: fconst_0
+     193: fload         16
+     195: fload         20
+     197: fload         18
+     199: fload         16
+     201: fload         20
+     203: fload         21
+     205: fload         19
+     207: fload         20
+     209: fload         21
+     211: fload         19
+     213: fload         20
+     215: fload         18
+     217: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+     220: aload         15
+     222: aload_1
+     223: iload         14
+     225: fconst_0
+     226: ldc           #7                  // float -1.0f
+     228: fconst_0
+     229: fload         16
+     231: fload         17
+     233: fload         21
+     235: fload         16
+     237: fload         17
+     239: fload         18
+     241: fload         19
+     243: fload         17
+     245: fload         18
+     247: fload         19
+     249: fload         17
+     251: fload         21
+     253: invokestatic  #8                  // Method face:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFFFFFFFFF)V
+     256: return
+
+  private static void face(com.mojang.blaze3d.vertex.PoseStack$Pose, com.mojang.blaze3d.vertex.VertexConsumer, int, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: fload         6
+       5: fload         7
+       7: fload         8
+       9: fconst_0
+      10: fconst_1
+      11: fload_3
+      12: fload         4
+      14: fload         5
+      16: invokestatic  #14                 // Method vertex:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFF)V
+      19: aload_0
+      20: aload_1
+      21: iload_2
+      22: fload         9
+      24: fload         10
+      26: fload         11
+      28: fconst_0
+      29: fconst_0
+      30: fload_3
+      31: fload         4
+      33: fload         5
+      35: invokestatic  #14                 // Method vertex:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFF)V
+      38: aload_0
+      39: aload_1
+      40: iload_2
+      41: fload         12
+      43: fload         13
+      45: fload         14
+      47: fconst_1
+      48: fconst_0
+      49: fload_3
+      50: fload         4
+      52: fload         5
+      54: invokestatic  #14                 // Method vertex:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFF)V
+      57: aload_0
+      58: aload_1
+      59: iload_2
+      60: fload         15
+      62: fload         16
+      64: fload         17
+      66: fconst_1
+      67: fconst_1
+      68: fload_3
+      69: fload         4
+      71: fload         5
+      73: invokestatic  #14                 // Method vertex:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lcom/mojang/blaze3d/vertex/VertexConsumer;IFFFFFFFF)V
+      76: return
+
+  private static void vertex(com.mojang.blaze3d.vertex.PoseStack$Pose, com.mojang.blaze3d.vertex.VertexConsumer, int, float, float, float, float, float, float, float, float);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: fload_3
+       3: fload         4
+       5: fload         5
+       7: invokeinterface #18,  5           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.addVertex:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      12: iload_2
+      13: invokeinterface #24,  2           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setColor:(I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      18: fload         6
+      20: fload         7
+      22: invokeinterface #28,  3           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setUv:(FF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      27: getstatic     #32                 // Field net/minecraft/client/renderer/texture/OverlayTexture.NO_OVERLAY:I
+      30: invokeinterface #38,  2           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setOverlay:(I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      35: ldc           #41                 // int 15728880
+      37: invokeinterface #42,  2           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setLight:(I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      42: aload_0
+      43: fload         8
+      45: fload         9
+      47: fload         10
+      49: invokeinterface #45,  5           // InterfaceMethod com/mojang/blaze3d/vertex/VertexConsumer.setNormal:(Lcom/mojang/blaze3d/vertex/PoseStack$Pose;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      54: pop
+      55: return

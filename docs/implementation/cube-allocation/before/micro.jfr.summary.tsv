@@ -1,0 +1,70 @@
+events	72531
+duration_seconds	16.44
+gc_count	11
+gc_sum_pause_ms	550.5575
+gc_max_pause_ms	245.5639
+ALLOCATION_ESTIMATES_BYTES (sampled, not retained)
+1029094376	frozen_reference | [F | org.slavicmyths.cubeaudit.ReferenceCube.cube
+5237000	frozen_reference | [Ljava.lang.Object; | java.util.Arrays.copyOf
+135191360	frozen_reference | [[F | org.slavicmyths.cubeaudit.ReferenceCube.cube
+9431904	frozen_reference | [[[F | org.slavicmyths.cubeaudit.ReferenceCube.cube
+6287960	frozen_reference | java.lang.Integer | java.lang.Integer.valueOf
+1583292640	frozen_reference | org.joml.Vector3f | com.mojang.blaze3d.vertex.VertexConsumer.setNormal
+1776501576	production_cube | [F | org.slavicmyths.client.GuardianClient.cube
+4190672	production_cube | [Ljava.lang.Object; | java.util.Arrays.copyOf
+141479304	production_cube | [[F | org.slavicmyths.client.GuardianClient.cube
+19911824	production_cube | [[[F | org.slavicmyths.client.GuardianClient.cube
+5239976	production_cube | java.lang.Integer | java.lang.Integer.valueOf
+2095968	production_cube | org.joml.Vector3f | com.mojang.blaze3d.vertex.VertexConsumer.addVertex
+1096044944	production_cube | org.joml.Vector3f | com.mojang.blaze3d.vertex.VertexConsumer.setNormal
+INCLUSIVE_CPU_SAMPLES (overlap, not time)
+1	Render thread | org.slavicmyths.block.KitchenTableBlock.getShape
+126	Render thread | org.slavicmyths.client.GuardianClient.cube
+304	Render thread | org.slavicmyths.cubeaudit.CubeProbe.client
+131	Render thread | org.slavicmyths.cubeaudit.ReferenceCube.cube
+42	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.addVertex
+117	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.f
+125	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.put
+13	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.setColor
+41	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.setNormal
+34	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.setUv
+259	Render thread | org.slavicmyths.cubeaudit.VertexAudit.run
+5	Render thread | org.slavicmyths.furniture.FurnitureBlock$$Lambda+0x00000231a2170a18.1757475122.consume
+5	Render thread | org.slavicmyths.furniture.FurnitureBlock.getShape
+5	Render thread | org.slavicmyths.furniture.FurnitureBlock.lambda$getShape$2
+2	Render thread | org.slavicmyths.furniture.TableBlock.getShape
+1	Render thread | org.slavicmyths.gorodishche.CityCatalog$$Lambda+0x00000231a24c5258.1050562183.onResourceManagerReload
+1	Render thread | org.slavicmyths.gorodishche.CityCatalog.reload
+1	Render thread | org.slavicmyths.navigation.client.NavigationClient.hud
+2	Render thread | org.slavicmyths.registry.ModItemGroup$$Lambda+0x00000231a2137a40.56554786.accept
+1	Render thread | org.slavicmyths.registry.ModItemGroup$$Lambda+0x00000231a27320d8.1455657212.test
+1	Render thread | org.slavicmyths.registry.ModItemGroup$$Lambda+0x00000231a2732318.1770757399.test
+1	Render thread | org.slavicmyths.registry.ModItemGroup.category
+2	Render thread | org.slavicmyths.registry.ModItemGroup.items
+1	Render thread | org.slavicmyths.registry.ModItemGroup.lambda$items$4
+1	Render thread | org.slavicmyths.registry.ModItemGroup.lambda$items$5
+2	Render thread | org.slavicmyths.registry.ModItemGroup.lambda$static$2
+2	Render thread | org.slavicmyths.registry.ModItemGroup.stacks
+1	Server thread | org.slavicmyths.cubeaudit.CubeProbe.after
+1	Server thread | org.slavicmyths.hunt.BossEffects.tick
+1	Server thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x00000231a26db198.325080692.apply
+1	Server thread | org.slavicmyths.item.FolkAccessoryItem.equipped
+1	Server thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0
+1	Server thread | org.slavicmyths.item.FolkEquipmentEffects.wears
+1	Server thread | org.slavicmyths.kalin.KalinEncounter.get
+2	Server thread | org.slavicmyths.kalin.KalinEvents.tick
+1	Server thread | org.slavicmyths.quest185.Quest185Events.tick
+1	Server thread | org.slavicmyths.quest185.Quest185Story.oldWolfDone
+1	Server thread | org.slavicmyths.quest185.Quest185Story.status
+1	Server thread | org.slavicmyths.rpg.RpgEvents.blockConfirmation
+1	Server thread | org.slavicmyths.sivka.SivkaBonds.get
+1	Server thread | org.slavicmyths.sivka.SivkaBonds.tick
+3	Server thread | org.slavicmyths.tales.TaleEvents.earned
+3	Server thread | org.slavicmyths.tales.TaleService.advancements
+6	Worker-Main-9 | org.slavicmyths.client.RpgClient.tooltip
+1	Worker-Main-9 | org.slavicmyths.item.ItemState.legacy
+2	Worker-Main-9 | org.slavicmyths.item.ItemState.runes
+2	Worker-Main-9 | org.slavicmyths.rpg.Runes.capacity
+2	Worker-Main-9 | org.slavicmyths.rpg.Runes.category
+4	Worker-Main-9 | org.slavicmyths.rpg.Runes.max
+1	Worker-Main-9 | org.slavicmyths.rpg.Runes.tagged

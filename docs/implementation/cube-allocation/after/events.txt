@@ -1,0 +1,16 @@
+ACTIVE_OPTIONS window=1280x720 rd8 sim5 vsyncfalse uncapped GPU=AMD Radeon RX 6600M
+VERTEX_PARITY PASS cases=1024 bitwise all attributes 24 vertices, identity+translated/rotated/nonuniform negative scale
+MICRO round=0 kind=reference calls=250000 ns=168850700 allocated_bytes=452000160
+MICRO round=0 kind=production calls=250000 ns=119845900 allocated_bytes=144000000
+MICRO round=1 kind=production calls=250000 ns=172719200 allocated_bytes=144000000
+MICRO round=1 kind=reference calls=250000 ns=159520100 allocated_bytes=452000000
+MICRO round=2 kind=reference calls=250000 ns=162075400 allocated_bytes=452000000
+MICRO round=2 kind=production calls=250000 ns=127861400 allocated_bytes=144000000
+MICRO round=3 kind=production calls=250000 ns=128813000 allocated_bytes=144000000
+MICRO round=3 kind=reference calls=250000 ns=162055900 allocated_bytes=452000000
+MICRO round=4 kind=reference calls=250000 ns=163400200 allocated_bytes=452000000
+MICRO round=4 kind=production calls=250000 ns=132217300 allocated_bytes=144000000
+MICRO round=5 kind=production calls=250000 ns=130891700 allocated_bytes=144000000
+MICRO round=5 kind=reference calls=250000 ns=168070300 allocated_bytes=452000000
+STAGED 1 Fire LOCKDOWN +1 Spring FLOOD +1 Spring WHIRL +1 Prison +1 Echo; client-only native render objects; no server AI claim
+COMPLETE sampled 3600 server ticks /180s after15s scene warmup

@@ -1,0 +1,1 @@
+{"required":true,"minVersion":"0.8","package":"org.slavicmyths.cubecross.mixin","compatibilityLevel":"JAVA_21","client":["CubeSwitch"],"injectors":{"defaultRequire":1}}

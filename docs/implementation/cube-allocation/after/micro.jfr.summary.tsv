@@ -1,0 +1,54 @@
+events	63335
+duration_seconds	12.974
+gc_count	9
+gc_sum_pause_ms	262.1286
+gc_max_pause_ms	69.8137
+ALLOCATION_ESTIMATES_BYTES (sampled, not retained)
+1708122264	frozen_reference | [F | org.slavicmyths.cubeaudit.ReferenceCube.cube
+7331760	frozen_reference | [Ljava.lang.Object; | java.util.Arrays.copyOf
+105847352	frozen_reference | [[F | org.slavicmyths.cubeaudit.ReferenceCube.cube
+17815864	frozen_reference | [[[F | org.slavicmyths.cubeaudit.ReferenceCube.cube
+6287960	frozen_reference | java.lang.Integer | java.lang.Integer.valueOf
+1083428904	frozen_reference | org.joml.Vector3f | com.mojang.blaze3d.vertex.VertexConsumer.setNormal
+6283400	production_cube | [Ljava.lang.Object; | java.util.Arrays.copyOf
+1047992	production_cube | java.lang.Integer | java.lang.Integer.valueOf
+900964528	production_cube | org.joml.Vector3f | com.mojang.blaze3d.vertex.VertexConsumer.setNormal
+INCLUSIVE_CPU_SAMPLES (overlap, not time)
+75	Render thread | org.slavicmyths.client.GuardianClient.cube
+75	Render thread | org.slavicmyths.client.GuardianClient.face
+75	Render thread | org.slavicmyths.client.GuardianClient.vertex
+1	Render thread | org.slavicmyths.client.HeroHud.render
+1	Render thread | org.slavicmyths.client.RareRuneClient.render
+1	Render thread | org.slavicmyths.client.RpgClient.tooltip
+198	Render thread | org.slavicmyths.cubeaudit.CubeProbe.client
+91	Render thread | org.slavicmyths.cubeaudit.ReferenceCube.cube
+100	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.addVertex
+100	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.f
+100	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.put
+169	Render thread | org.slavicmyths.cubeaudit.VertexAudit.run
+2	Render thread | org.slavicmyths.furniture.FurnitureBlock$$Lambda+0x000002791c17d100.942502572.consume
+3	Render thread | org.slavicmyths.furniture.FurnitureBlock.getShape
+2	Render thread | org.slavicmyths.furniture.FurnitureBlock.lambda$getShape$2
+2	Render thread | org.slavicmyths.furniture.TableBlock.getShape
+1	Render thread | org.slavicmyths.kurgan.KurganStructures$$Lambda+0x000002791c13c660.1051724222.codec
+1	Render thread | org.slavicmyths.kurgan.KurganStructures.lambda$static$4
+1	Render thread | org.slavicmyths.rpg.RareRunes.active
+1	Render thread | org.slavicmyths.rpg.Runes.capacity
+1	Render thread | org.slavicmyths.rpg.Runes.category
+1	Render thread | org.slavicmyths.rpg.Runes.max
+1	Render thread | org.slavicmyths.rpg.Runes.tagged
+1	Render thread | org.slavicmyths.sanctuary.SanctuaryContent$$Lambda+0x000002791c13ca80.1466964336.codec
+1	Render thread | org.slavicmyths.sanctuary.SanctuaryContent.lambda$static$2
+1	Render thread | org.slavicmyths.underground.EncounterPopulation.tick
+1	Server thread | org.slavicmyths.hunt.BossAnchors$$Lambda+0x000002791c597260.1615441004.run
+1	Server thread | org.slavicmyths.hunt.BossAnchors.chunk
+1	Server thread | org.slavicmyths.hunt.BossAnchors.key
+1	Server thread | org.slavicmyths.hunt.BossAnchors.lambda$chunk$0
+1	Server thread | org.slavicmyths.hunt.BossAnchors.prepare
+1	Server thread | org.slavicmyths.hunt.BossEffects.tick
+1	Server thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000002791c6d8000.1135002693.apply
+1	Server thread | org.slavicmyths.item.FolkAccessoryItem.equipped
+1	Server thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0
+1	Server thread | org.slavicmyths.item.FolkEquipmentEffects.wears
+1	Server thread | org.slavicmyths.mor.MorBlockExposure.tick
+1	Server thread | org.slavicmyths.quest185.Quest185Events.level
