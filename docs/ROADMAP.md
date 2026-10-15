@@ -1,3 +1,13 @@
+## Issue #22 — микропатч достижений (2026-10-15)
+
+Исправлены недостижимые lore_keeper (принятое открытие книги, три distinct прежних открытия)
+и kitchen_meal (основной результат/порция), исправлен event→claim dispatch двух осколков; уточнены RU/EN shrine и условия этих двух узлов.
+Все206 ID/criteria/requirements/rewards и JSON дерева сохранены; Classes3 не менялись.
+Аудит129 игровых +77 recipe узлов и234 tales,10 mutation tests PASS; три реальных
+GameTest сервера:6/6,7/7 и8/8 PASS,37 inventory criteria positive/negative PASS,
+реальный vanilla advancement JSON прочитан новым процессом. Клиентов0; GUI/MP/client relog NOT_RUN.
+Финальная clean build PASS,8489 production JAR gates PASS: [отчёт](implementation/advancements-micro-patch/REPORT.md).
+
 ## Арбалет Горыныча — 1.9.7.5 (2026-10-14)
 
 Арбалет трёх дыханий: каждая стрела наносит минимум14 базового урона до брони;

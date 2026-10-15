@@ -19,12 +19,12 @@ public final class KitchenMenu extends AbstractContainerMenu {
   addSlot(new Slot(c,0,18,40){public boolean mayPlace(ItemStack s){return s.is(KitchenII.item("rolling_pin"));}public boolean mayPickup(Player p){return tile==null||!tile.toolLocked(0);}});
   addSlot(new Slot(c,1,40,40){public boolean mayPlace(ItemStack s){return s.is(KitchenII.item("metal_pot"));}public boolean mayPickup(Player p){return tile==null||!tile.toolLocked(1);}});
   for(int i=0;i<4;i++)addSlot(new Slot(c,i+2,104+i%2*20,40+i/2*20));
-  for(int i=0;i<3;i++)addSlot(new Slot(c,i+6,206+(i==2?20:0),i==0?40:78){public boolean mayPlace(ItemStack s){return false;}});
+  for(int i=0;i<3;i++)addSlot(new Slot(c,i+6,206+(i==2?20:0),i==0?40:78){public boolean mayPlace(ItemStack s){return false;}public void onTake(Player p,ItemStack s){super.onTake(p,s);if(getContainerSlot()==6&&!s.isEmpty())org.slavicmyths.progression.Knowledge.award(p,"kitchen_meal");}});
   for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inv,9+row*9+col,58+col*18,151+row*18));for(int col=0;col<9;col++)addSlot(new Slot(inv,col,58+col*18,209));
  }
 
  @Override public boolean stillValid(Player p){BlockState s=p.level().getBlockState(pos);return p.isAlive()&&p.distanceToSqr(pos.getCenter())<=64&&s.is(ModBlocks.KITCHEN_TABLE.get());}
- @Override public ItemStack quickMoveStack(Player p,int i){Slot slot=slots.get(i);if(!slot.hasItem()||!slot.mayPickup(p))return ItemStack.EMPTY;ItemStack s=slot.getItem(),copy=s.copy();boolean ok;if(i<9)ok=moveItemStackTo(s,9,slots.size(),true);else if(s.is(KitchenII.item("rolling_pin")))ok=moveItemStackTo(s,0,1,false);else if(s.is(KitchenII.item("metal_pot")))ok=moveItemStackTo(s,1,2,false);else ok=moveItemStackTo(s,2,6,false);if(!ok)return ItemStack.EMPTY;if(s.isEmpty())slot.set(ItemStack.EMPTY);else slot.setChanged();slot.onTake(p,s);return copy;}
+ @Override public ItemStack quickMoveStack(Player p,int i){Slot slot=slots.get(i);if(!slot.hasItem()||!slot.mayPickup(p))return ItemStack.EMPTY;ItemStack s=slot.getItem(),copy=s.copy();boolean ok;if(i<9)ok=moveItemStackTo(s,9,slots.size(),true);else if(s.is(KitchenII.item("rolling_pin")))ok=moveItemStackTo(s,0,1,false);else if(s.is(KitchenII.item("metal_pot")))ok=moveItemStackTo(s,1,2,false);else ok=moveItemStackTo(s,2,6,false);if(!ok)return ItemStack.EMPTY;if(s.isEmpty())slot.set(ItemStack.EMPTY);else slot.setChanged();slot.onTake(p,copy);return copy;}
  /** One serving button: bowl on cursor or in inventory; server owns the transaction. */
  @Override public boolean clickMenuButton(Player p,int id){if(id!=0||tile==null||p.level().isClientSide||!stillValid(p))return false;if(getCarried().is(Items.BOWL))return tile.serve(p,getCarried());for(int i=0;i<p.getInventory().getContainerSize();i++){ItemStack s=p.getInventory().getItem(i);if(s.is(Items.BOWL)&&tile.serve(p,s)){p.getInventory().setChanged();return true;}}return false;}
 }
