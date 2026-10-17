@@ -1,0 +1,63 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compilePerf2WorldJava FAILED
+<WORKSPACE>\tools\performance-2.0\world\java\WorldProbe.java:25: error: no suitable method found for getEntities(no arguments)
+  if(age%20==0&&age!=obsAge){obsAge=age;obs.println(n+","+age+","+System.currentTimeMillis()+","+m.particleEngine.countParticles()+","+m.getSoundManager().getDebugString().replace(',',';')+","+m.level.getEntities().getAll().spliterator().getExactSizeIfKnown()+","+m.player.getX()+","+m.player.getY()+","+m.player.getZ());obs.flush();}
+                                                                                                                                                                                                        ^
+    method Level.<T#1>getEntities(EntityTypeTest<Entity,T#1>,AABB,Predicate<? super T#1>) is not applicable
+      (cannot infer type-variable(s) T#1
+        (actual and formal argument lists differ in length))
+    method Level.<T#2>getEntities(EntityTypeTest<Entity,T#2>,AABB,Predicate<? super T#2>,List<? super T#2>) is not applicable
+      (cannot infer type-variable(s) T#2
+        (actual and formal argument lists differ in length))
+    method ClientLevel.getEntities() is not applicable
+      (getEntities() has protected access in ClientLevel)
+    method Level.<T#3>getEntities(EntityTypeTest<Entity,T#3>,AABB,Predicate<? super T#3>,List<? super T#3>,int) is not applicable
+      (cannot infer type-variable(s) T#3
+        (actual and formal argument lists differ in length))
+  where T#1,T#2,T#3 are type-variables:
+    T#1 extends Entity declared in method <T#1>getEntities(EntityTypeTest<Entity,T#1>,AABB,Predicate<? super T#1>)
+    T#2 extends Entity declared in method <T#2>getEntities(EntityTypeTest<Entity,T#2>,AABB,Predicate<? super T#2>,List<? super T#2>)
+    T#3 extends Entity declared in method <T#3>getEntities(EntityTypeTest<Entity,T#3>,AABB,Predicate<? super T#3>,List<? super T#3>,int)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error
+
+
+[Incubating] Problems report is available at: file:///<USER_HOME>/build/reports/problems/problems-report.html
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compilePerf2WorldJava'.
+> Compilation failed; see the compiler output below.
+  <WORKSPACE>\tools\performance-2.0\world\java\WorldProbe.java:25: error: no suitable method found for getEntities(no arguments)
+    if(age%20==0&&age!=obsAge){obsAge=age;obs.println(n+","+age+","+System.currentTimeMillis()+","+m.particleEngine.countParticles()+","+m.getSoundManager().getDebugString().replace(',',';')+","+m.level.getEntities().getAll().spliterator().getExactSizeIfKnown()+","+m.player.getX()+","+m.player.getY()+","+m.player.getZ());obs.flush();}
+                                                                                                                                                                                                          ^
+      method Level.<T#1>getEntities(EntityTypeTest<Entity,T#1>,AABB,Predicate<? super T#1>) is not applicable
+        (cannot infer type-variable(s) T#1
+          (actual and formal argument lists differ in length))
+      method Level.<T#2>getEntities(EntityTypeTest<Entity,T#2>,AABB,Predicate<? super T#2>,List<? super T#2>) is not applicable
+        (cannot infer type-variable(s) T#2
+          (actual and formal argument lists differ in length))
+      method ClientLevel.getEntities() is not applicable
+        (getEntities() has protected access in ClientLevel)
+      method Level.<T#3>getEntities(EntityTypeTest<Entity,T#3>,AABB,Predicate<? super T#3>,List<? super T#3>,int) is not applicable
+        (cannot infer type-variable(s) T#3
+          (actual and formal argument lists differ in length))
+    where T#1,T#2,T#3 are type-variables:
+      T#1 extends Entity declared in method <T#1>getEntities(EntityTypeTest<Entity,T#1>,AABB,Predicate<? super T#1>)
+      T#2 extends Entity declared in method <T#2>getEntities(EntityTypeTest<Entity,T#2>,AABB,Predicate<? super T#2>,List<? super T#2>)
+      T#3 extends Entity declared in method <T#3>getEntities(EntityTypeTest<Entity,T#3>,AABB,Predicate<? super T#3>,List<? super T#3>,int)
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 11s
+4 actionable tasks: 1 executed, 3 up-to-date

@@ -1,0 +1,21 @@
+{
+  "note": "Actual compiled opt-in probe classes identical between main and PR37 worktrees; production GuardianClient differs by the intended patch.",
+  "compiled_classes": [
+    {
+      "path": "org/slavicmyths/cubeaudit/CubeProbe.class",
+      "sha256": "9536cae1ae4eb8556544dc7623ed016a45021a2840649ba5615715a0dd246e96"
+    },
+    {
+      "path": "org/slavicmyths/cubeaudit/ReferenceCube.class",
+      "sha256": "05b7b86ab65d0d240fe589bf7faf74f1601f2c38f5ef8a51bcf273c60b6801d4"
+    },
+    {
+      "path": "org/slavicmyths/cubeaudit/VertexAudit$Sink.class",
+      "sha256": "ea2b630cfc5715478ed393965d25d8c45c73a6a639a896634c02edee952515a3"
+    },
+    {
+      "path": "org/slavicmyths/cubeaudit/VertexAudit.class",
+      "sha256": "ddac82e0d0a9ddce75cc79eb08a1aa48c21d4ec47c373841b0147169d594a86d"
+    }
+  ]
+}

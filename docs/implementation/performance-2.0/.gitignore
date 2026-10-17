@@ -1,0 +1,4 @@
+**/*.jfr
+**/client.log
+**/frames.csv
+**/*.dat

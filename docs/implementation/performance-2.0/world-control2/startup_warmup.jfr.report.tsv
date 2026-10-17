@@ -1,0 +1,214 @@
+profile_event_span_seconds	123.551
+gc_count	32
+gc_sum_pause_ms	561.8284
+gc_max_pause_ms	26.8149
+render_thread_jfr_cpu_load_mean_raw_fraction	0.022551951774706442
+server_thread_jfr_cpu_load_mean_raw_fraction	0.01411670275653402
+machine_cpu_total_mean_fraction	0.2420777245114247
+jvm_cpu_mean_fraction	0.19087910195812582
+EVENT_COUNTS
+163557	jdk.GCPhaseParallel
+65217	minecraft.PacketReceived
+65195	minecraft.PacketSent
+19082	jdk.ModuleRequire
+14963	jdk.ObjectAllocationSample
+14414	jdk.ThreadPark
+10424	minecraft.ChunkGeneration
+5807	jdk.NativeMethodSample
+4842	jdk.ExecutionSample
+3776	jdk.ModuleExport
+3742	jdk.PromoteObjectInNewPLAB
+3335	jdk.Deoptimization
+990	jdk.BooleanFlag
+762	jdk.ActiveSetting
+572	jdk.SystemProcess
+476	jdk.NativeLibrary
+360	jdk.TenuringDistribution
+322	jdk.LongFlag
+264	jdk.UnsignedLongFlag
+242	jdk.ThreadCPULoad
+227	jdk.ThreadAllocationStatistics
+219	jdk.ExecuteVMOperation
+210	jdk.SafepointBegin
+188	jdk.PromoteObjectOutsidePLAB
+154	jdk.InitialEnvironmentVariable
+152	jdk.GCPhasePauseLevel1
+128	jdk.Compilation
+128	jdk.GCReferenceStatistics
+128	jdk.MetaspaceChunkFreeListSummary
+120	jdk.CPULoad
+120	jdk.ClassLoadingStatistics
+120	jdk.CompilerStatistics
+120	jdk.ExceptionStatistics
+120	jdk.JavaThreadStatistics
+120	jdk.ResidentSetSize
+120	minecraft.ServerTickTime
+100	jdk.InitialSecurityProperty
+88	jdk.GCPhasePauseLevel2
+70	jdk.FileWrite
+64	jdk.G1HeapSummary
+64	jdk.GCHeapSummary
+64	jdk.MetaspaceSummary
+56	jdk.InitialSystemProperty
+52	jdk.StringFlag
+50	jdk.IntFlag
+49	jdk.OldObjectSample
+48	jdk.GCPhaseConcurrent
+40	jdk.G1MMU
+40	jdk.GCCPUTime
+40	jdk.GCPhasePause
+37	jdk.JavaErrorThrow
+35	jdk.ThreadEnd
+32	jdk.GCPhaseConcurrentLevel1
+32	jdk.GarbageCollection
+30	jdk.DoubleFlag
+30	jdk.NetworkUtilization
+26	jdk.UnsignedIntFlag
+24	jdk.DirectBufferStatistics
+24	jdk.EvacuationInformation
+24	jdk.G1AdaptiveIHOP
+24	jdk.G1BasicIHOP
+24	jdk.G1EvacuationOldStatistics
+24	jdk.G1EvacuationYoungStatistics
+24	jdk.G1GarbageCollection
+24	jdk.ThreadStart
+24	jdk.YoungGarbageCollection
+24	minecraft.NetworkSummary
+21	jdk.ClassRedefinition
+19	jdk.CompilationFailure
+18	jdk.ClassLoaderStatistics
+12	jdk.CodeCacheStatistics
+12	jdk.FinalizerStatistics
+12	jdk.GCHeapMemoryPoolUsage
+12	jdk.StringTableStatistics
+12	jdk.SymbolTableStatistics
+12	jdk.ThreadContextSwitchRate
+8	jdk.OldGarbageCollection
+6	jdk.MetaspaceGCThreshold
+4	jdk.FileRead
+4	jdk.GCConfiguration
+4	jdk.GCHeapMemoryUsage
+4	jdk.PhysicalMemory
+2	jdk.ActiveRecording
+2	jdk.CPUInformation
+2	jdk.CPUTimeStampCounter
+2	jdk.CodeCacheConfiguration
+2	jdk.CompilerConfiguration
+2	jdk.GCHeapConfiguration
+2	jdk.GCSurvivorConfiguration
+2	jdk.GCTLABConfiguration
+2	jdk.JVMInformation
+2	jdk.OSInformation
+2	jdk.ThreadDump
+2	jdk.VirtualizationInformation
+2	jdk.YoungGenerationConfiguration
+1	jdk.JavaMonitorEnter
+1	jdk.RetransformClasses
+CPU_LEAF_SAMPLES (counts, not exact method milliseconds)
+251	Server thread | net.minecraft.world.level.chunk.PalettedContainer.get
+82	Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get
+48	Worker-Main-11 | net.minecraft.world.level.chunk.PalettedContainer.get
+43	Worker-Main-4 | net.minecraft.world.level.chunk.PalettedContainer.get
+42	Render thread | net.minecraft.world.level.chunk.PalettedContainer.get
+41	Render thread | net.minecraft.client.renderer.LevelRenderer.compileSections
+41	Worker-Main-6 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+36	Worker-Main-9 | net.minecraft.world.level.chunk.PalettedContainer.get
+34	worldgen | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+33	Worker-Main-4 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+33	Worker-Main-2 | net.minecraft.world.level.chunk.PalettedContainer.get
+32	Worker-Main-8 | net.minecraft.world.level.chunk.PalettedContainer.get
+31	Worker-Main-7 | net.minecraft.world.level.chunk.PalettedContainer.get
+31	Render thread | net.minecraft.client.renderer.LevelRenderer.renderLevel
+31	Server thread | it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap.get
+29	Worker-Main-2 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+29	worldgen | net.minecraft.world.level.chunk.PalettedContainer.get
+27	Worker-Main-10 | net.minecraft.world.level.chunk.PalettedContainer.get
+27	Worker-Main-10 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+26	Worker-Main-8 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+26	Worker-Main-1 | net.minecraft.world.level.chunk.PalettedContainer.get
+25	Worker-Main-4 | net.minecraft.server.level.GenerationChunkHolder.getChunkIfPresentUnchecked
+25	Worker-Main-3 | net.minecraft.world.level.chunk.PalettedContainer.get
+24	Worker-Main-3 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+24	worldgen | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue
+24	Worker-Main-1 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+23	Worker-Main-8 | net.minecraft.server.level.GenerationChunkHolder.getChunkIfPresentUnchecked
+23	Worker-Main-9 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+22	Worker-Main-2 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue
+22	Worker-Main-11 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+22	Worker-Main-7 | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+21	Worker-Main-3 | net.minecraft.server.level.GenerationChunkHolder.getChunkIfPresentUnchecked
+21	Render thread | java.util.Objects.equals
+21	Server thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.randomTick
+21	Worker-Main-1 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue
+21	Render thread | net.minecraft.client.renderer.chunk.SectionRenderDispatcher$RenderSection.getCompiled
+21	Render thread | net.minecraft.server.level.GenerationChunkHolder.getChunkIfPresentUnchecked
+21	Server thread | net.minecraft.server.level.ServerChunkCache.getChunk
+20	Worker-Main-8 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue
+20	Worker-Main-11 | net.minecraft.server.level.GenerationChunkHolder.getChunkIfPresentUnchecked
+20	Worker-Main-1 | net.minecraft.server.level.GenerationChunkHolder.getChunkIfPresentUnchecked
+19	Server thread | net.minecraft.util.CrudeIncrementalIntIdentityHashBiMap.byId
+19	Worker-Main-7 | net.minecraft.server.level.GenerationChunkHolder.getChunkIfPresentUnchecked
+19	Worker-Main-4 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue
+19	Worker-Main-7 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue
+18	Worker-Main-3 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue
+18	Worker-Main-6 | net.minecraft.world.level.chunk.PalettedContainer.get
+18	worldgen | net.minecraft.server.level.GenerationChunkHolder.getChunkIfPresentUnchecked
+18	Server thread | net.minecraft.server.level.GenerationChunkHolder.getChunkIfPresentUnchecked
+18	Worker-Main-6 | net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue
+MOD_INCLUSIVE_CPU_SAMPLES (overlap)
+ALLOCATION_ESTIMATES_BYTES (sampling, not retained)
+4612600400	com.google.common.collect.Iterators$ArrayItr | com.google.common.collect.Iterators.forArray
+1801271896	[I | jdk.internal.org.objectweb.asm.Frame.push
+876636064	[I | net.minecraft.world.level.chunk.PalettedContainer.pack
+865929480	net.minecraft.world.level.levelgen.feature.FeaturePlaceContext | net.minecraft.world.level.levelgen.feature.Feature.place
+864899632	net.minecraft.world.level.levelgen.SurfaceRules$Context$$Lambda+0x000002432f278410.913663288 | java.lang.invoke.DirectMethodHandle.allocateInstance
+802938624	java.util.ArrayList$Itr | java.util.ArrayList.iterator
+762563776	[D | net.minecraft.world.level.levelgen.DensityFunctions$Ap2.fillArray
+700263720	net.minecraft.world.level.levelgen.NoiseChunk$$Lambda+0x000002432f252190.347867786 | jdk.internal.misc.Unsafe.allocateInstance
+681986960	net.minecraft.core.BlockPos | net.minecraft.core.BlockPos.relative
+630095136	com.google.common.base.Suppliers$NonSerializableMemoizingSupplier | com.google.common.base.Suppliers.memoize
+627303544	[J | it.unimi.dsi.fastutil.objects.Object2ByteLinkedOpenHashMap.<init>
+621517960	net.minecraft.core.SectionPos | net.minecraft.core.SectionPos.of
+558231168	net.minecraft.world.phys.Vec3 | net.minecraft.world.phys.Vec3.add
+550268384	[J | java.lang.Object.clone
+486393448	java.util.stream.ReferencePipeline$Head | java.util.stream.StreamSupport.stream
+446981184	net.minecraft.world.level.levelgen.NoiseChunk$$Lambda+0x000002432f252190.347867786 | java.lang.invoke.DirectMethodHandle.allocateInstance
+428601640	org.apache.commons.lang3.mutable.MutableDouble | net.minecraft.world.level.levelgen.Aquifer$NoiseBasedAquifer.computeSubstance
+421785728	[B | java.lang.Object.clone
+410969920	java.lang.String | java.lang.StringConcatHelper.newString
+350124288	net.minecraft.world.level.block.Block$BlockStatePairKey | net.minecraft.world.level.block.Block.shouldRenderFace
+334177040	[B | jdk.internal.misc.Unsafe.allocateUninitializedArray
+294348784	[I | java.lang.Object.clone
+286481120	net.minecraft.world.level.levelgen.NoiseChunk$$Lambda+0x000002432f256a68.2044766149 | jdk.internal.misc.Unsafe.allocateInstance
+285488432	java.util.Optional | java.util.Optional.ofNullable
+283798592	net.minecraft.world.phys.Vec3 | net.minecraft.world.phys.Vec3.fromRGB24
+244266392	[Ljava.lang.Object; | java.lang.Object.clone
+239191296	org.joml.Matrix4f | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>
+234511384	net.minecraft.world.level.lighting.LayerLightSectionStorage$$Lambda+0x000002432f29a260.1831747995 | jdk.internal.misc.Unsafe.allocateInstance
+232634952	net.neoforged.neoforge.event.level.block.CreateFluidSourceEvent | net.neoforged.neoforge.event.EventHooks.canCreateFluidSource
+218910640	net.minecraft.world.phys.Vec3 | net.minecraft.world.phys.Vec3.multiply
+215200664	net.minecraft.core.BlockPos | net.minecraft.world.level.Level.getBlockRandomPos
+206648248	[F | net.minecraft.client.renderer.block.ModelBlockRenderer.putQuadData
+205400192	java.util.Collections$UnmodifiableMap | java.util.Collections.unmodifiableMap
+199383912	net.minecraft.world.level.levelgen.DensityFunctions$HolderHolder | net.minecraft.world.level.levelgen.DensityFunctions$HolderHolder.mapAll
+183354840	net.minecraft.world.level.levelgen.MarsagliaPolarGaussian | net.minecraft.world.level.levelgen.XoroshiroRandomSource.<init>
+169923728	net.minecraft.core.Holder$Direct | net.minecraft.world.level.levelgen.DensityFunctions$HolderHolder.mapAll
+166703736	net.minecraft.world.level.block.Block$BlockStatePairKey | net.minecraft.world.level.material.FlowingFluid.canPassThroughWall
+159436008	java.util.Optional | java.util.Optional.of
+157262088	com.mojang.serialization.DataResult$Success | com.mojang.serialization.DataResult.success
+156913720	net.minecraft.world.level.levelgen.DensityFunctions$Marker | net.minecraft.world.level.levelgen.DensityFunctions$MarkerOrMarked.mapAll
+150951112	java.lang.Integer | java.lang.Integer.valueOf
+148142136	org.joml.Matrix3f | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>
+139709936	net.minecraft.world.level.levelgen.DensityFunction$SinglePointContext | net.minecraft.world.level.levelgen.NoiseChunk.computePreliminarySurfaceLevel
+139411552	[F | net.minecraft.client.renderer.block.ModelBlockRenderer.tesselateWithAO
+138559800	net.minecraft.world.level.levelgen.DensityFunctions$Mapped | net.minecraft.world.level.levelgen.DensityFunctions$Mapped.create
+131172768	[I | net.minecraft.client.renderer.block.ModelBlockRenderer.putQuadData
+128927000	java.util.HashMap$Node | java.util.HashMap.newNode
+117477632	java.util.Spliterators$ArraySpliterator | java.util.Spliterators.spliterator
+116501312	net.minecraft.world.level.biome.Climate$TargetPoint | net.minecraft.world.level.biome.Climate.target
+115934600	net.minecraft.core.BlockPos | net.minecraft.core.BlockPos$MutableBlockPos.immutable
+CHUNK_EVENT_SUM_DURATION_NS (overlapping tasks, not wall throughput)
+102163945900	minecraft.ChunkGeneration
+RECORDED_NATIVE_PACKET_BYTES (integrated codec events, not wire traffic)
+26005680	minecraft.PacketReceived serialized_bytes
+26005119	minecraft.PacketSent serialized_bytes

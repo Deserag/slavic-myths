@@ -1,0 +1,1787 @@
+[
+  {
+    "path": ".gitattributes",
+    "bytes": 29,
+    "sha256": "730a35ae3d558080083c3103d9ac8100c3f6561678092abe341701dfa331eb1d"
+  },
+  {
+    "path": ".gitignore",
+    "bytes": 46,
+    "sha256": "f11f0c4393cdfc2cc59645ad7bcf1c929b77b169e44f031a5523d9d1aa9ff2c1"
+  },
+  {
+    "path": "bosses-flat-compile.log",
+    "bytes": 1054,
+    "sha256": "74dab81d219ed3c2b1ccc4f680b7d6aefab23b28a8818e6820ea9e4ece04db48"
+  },
+  {
+    "path": "build-baseline-final.log",
+    "bytes": 2560,
+    "sha256": "5b414ddd87f9d56f7e103543c9ef9ae0ac83f66f2f98ac24a15614fd8cdc8e39"
+  },
+  {
+    "path": "build-baseline.log",
+    "bytes": 722,
+    "sha256": "b272fb4fbf42d70b813f1dc16ffe9eb8f488f77ba6f971183f94c86b360afbc9"
+  },
+  {
+    "path": "build-final.log",
+    "bytes": 2747,
+    "sha256": "8bb89562dca76f4cf66c2f1801c13cb35d578f4c6b806539cb10c0469edad727"
+  },
+  {
+    "path": "city-compile.log",
+    "bytes": 1008,
+    "sha256": "83486a614367e0e8be60e1b9181f4ea371847ca000a8d5caa0c92b4398335d8d"
+  },
+  {
+    "path": "compile-world-control-final.log",
+    "bytes": 921,
+    "sha256": "2311b97310c1017bd1c1a46cb31f7e4b4b7550da8ccf89fceb2b54aa16f1bdd5"
+  },
+  {
+    "path": "compile-world-control.log",
+    "bytes": 4927,
+    "sha256": "3647cb96e571fe48dad26f55f3fc8f464b12ac2a47410cb38bf9813644a60ce0"
+  },
+  {
+    "path": "compile-world-final.log",
+    "bytes": 921,
+    "sha256": "5d6bdc022fdcd55f7c47dfeb98802ee7cc464ae277e400456bbb6e20feda0eef"
+  },
+  {
+    "path": "compile-world-mod-final.log",
+    "bytes": 875,
+    "sha256": "5d40005db6aedaf9e8e00ab21232441ccb6988f3c777ef199a041e81573561ba"
+  },
+  {
+    "path": "compile-world-mod.log",
+    "bytes": 653,
+    "sha256": "cad3bfbdb157251d39819dd05eacca39ceef09824374818dd323176e8c95b763"
+  },
+  {
+    "path": "compile-world-native-mspt.log",
+    "bytes": 921,
+    "sha256": "3fa0fa17ad92268e2a3fabd6f70ad52a857f938360f770d0f3d5a6f31d82a529"
+  },
+  {
+    "path": "compile-world-observer-final.log",
+    "bytes": 971,
+    "sha256": "a66d6c34afe9ac2e8ae79f3764b580d654898095e5d91850b18c9b37c8958aeb"
+  },
+  {
+    "path": "compile-world-pinned.log",
+    "bytes": 922,
+    "sha256": "9a3d16a4083ad4f436be254507083a06511aa3659ee7e87fed4385e41c151270"
+  },
+  {
+    "path": "compile-world-routing.log",
+    "bytes": 875,
+    "sha256": "f62cb5a0a207a3cd41b99eaaa0126f7c71ec444d050e2e8cf6596218d6c7f443"
+  },
+  {
+    "path": "compile-world-settings-final.log",
+    "bytes": 922,
+    "sha256": "12ff82ea8830c9a4413ba8b2a9f07e6c2c63a4d35514f9623cd8ca38a6a8daee"
+  },
+  {
+    "path": "control-registration-final.log",
+    "bytes": 684,
+    "sha256": "c95715f2ea24a4f7dbee73ffe55f464b0bad76b8f0aa34a9da9c4a4908e6b277"
+  },
+  {
+    "path": "control-registration.log",
+    "bytes": 685,
+    "sha256": "f25ed1c3d89bca39b9d2ac452d946b2fcc2f403e21d4eaf9e30c59682f0eb314"
+  },
+  {
+    "path": "control-runtime-preflight.log",
+    "bytes": 656,
+    "sha256": "fcb59140262da7a2c250d0b592d94be1f5cd69feadc4256c136c54d5e5da47e4"
+  },
+  {
+    "path": "cube-comparison.png",
+    "bytes": 34898,
+    "sha256": "08fc9be71e58b43449a051f36eb47daf711d4aac5707eb891ea33162ab2cedd5"
+  },
+  {
+    "path": "cube-metrics.json",
+    "bytes": 12666,
+    "sha256": "6226439e27bb939276cede0d02dd6844163a5c303268d238d5b015dcd617b91f"
+  },
+  {
+    "path": "cube-probe-parity.json",
+    "bytes": 814,
+    "sha256": "154a7149b65f9177717f01061cc81f574c4e04a1e52bdd0da96b571f7659787a"
+  },
+  {
+    "path": "CUBE_PROTOCOL.md",
+    "bytes": 4407,
+    "sha256": "59d8852f61d6c6260b3ac39a9656811fbf172fb5ade42a2560ada7082c773f41"
+  },
+  {
+    "path": "CUBE_RESULTS.md",
+    "bytes": 5036,
+    "sha256": "ef5f92575e51adbbfa361d370f88c31058d3b27d5849a45edb87cb5915b2f61a"
+  },
+  {
+    "path": "fix-jar-parity.json",
+    "bytes": 636,
+    "sha256": "922148a8e92a747f4bffb0e804261bc34aaf3ce9c21c4f9698fd87b2d2f22482"
+  },
+  {
+    "path": "fixture-history.json",
+    "bytes": 461,
+    "sha256": "679c36ade547fb8c6e1f752be03c01de7c75e38bdf64ea959c8ed33d664f3a3d"
+  },
+  {
+    "path": "gates.json",
+    "bytes": 309,
+    "sha256": "2b10da4e88f72706d9aa5b0b008d98510fe226fb323178008fcc56ed9bf7c0e4"
+  },
+  {
+    "path": "hardware.json",
+    "bytes": 780,
+    "sha256": "bdf7bca1924d0a230a1af638fdd32117a70cdf328f31cace11b2edac820b1770"
+  },
+  {
+    "path": "HOTSPOTS.md",
+    "bytes": 6045,
+    "sha256": "79fee905535643a9d84fa0fb5aab9e121dea871128b49de961f49227a5e1c8ef"
+  },
+  {
+    "path": "METRICS.md",
+    "bytes": 17124,
+    "sha256": "9fb2de5e081afc550159d2d41d296174d1eaa19223521656b4d80f582c8e10ae"
+  },
+  {
+    "path": "PLAN.md",
+    "bytes": 2700,
+    "sha256": "3d4ebf1c48291f24e23a3aab057bf289e84d314277340ccdddd0f35a0bb52163"
+  },
+  {
+    "path": "prepare-control.log",
+    "bytes": 857,
+    "sha256": "2c345e5f41a31eb03c3c8731ec5c6fe6c2c119d6bab8e8f1d077b67dae40b902"
+  },
+  {
+    "path": "profiles.json",
+    "bytes": 12892,
+    "sha256": "b1ed105babc4a7ec9387833370440c19e9d7dc921e6ab1d425c4ac50f5eeb382"
+  },
+  {
+    "path": "PUBLICATION_CHECKS.json",
+    "bytes": 422,
+    "sha256": "acc25c7db1eea71d884de86911b89cfd967b7ab728e0bb5c358fde1abbc3b9a2"
+  },
+  {
+    "path": "README.md",
+    "bytes": 1346,
+    "sha256": "29bbf9d7dda048415c8aba71ff3e613e47c6a1a2f8f7c5ab4e86f06ec7c88ce9"
+  },
+  {
+    "path": "REPORT.md",
+    "bytes": 23222,
+    "sha256": "743339a1984f78c1fd03446faa8ea2172fda47bf766f25af5fe74028eedf5e1a"
+  },
+  {
+    "path": "resume-build.log",
+    "bytes": 2860,
+    "sha256": "68ed3ffdb12e95f2afab142b3f2e19c13f1ba0f9f5cab664d83cf630ebf26b05"
+  },
+  {
+    "path": "resume-cube-compile.log",
+    "bytes": 665,
+    "sha256": "aebf111441d0b97e137f4be0941e355d7227fbd46317724e502acc3464e0f1fa"
+  },
+  {
+    "path": "RUNS.md",
+    "bytes": 3023,
+    "sha256": "4dedec5c7344a01a1f8dce9942bf00e53c2e53f050bf269be528a58f47b6f2f3"
+  },
+  {
+    "path": "SCENARIO_NOTES.md",
+    "bytes": 8522,
+    "sha256": "2b9fc14c1f837463aa43546578acf82d020478d8b09a53c5e1944fdf59765632"
+  },
+  {
+    "path": "signals.json",
+    "bytes": 6100,
+    "sha256": "7c07b268679e028e49c94cdc2a63863a1649596985825d15ecd492cfe3e92ca7"
+  },
+  {
+    "path": "TIMING_DEFINITION.md",
+    "bytes": 3224,
+    "sha256": "cce401c608499d5e9ddf2724b8ea533fca1e5fca33ded1f41a5e7de977595c03"
+  },
+  {
+    "path": "world-input-quality.json",
+    "bytes": 2760,
+    "sha256": "f420699b483ef84be1d60499a3790c5d51ebe59c703f8e57f9edbb519d52887a"
+  },
+  {
+    "path": "world-metrics.json",
+    "bytes": 184453,
+    "sha256": "259a5fef6a5ad36fd7b28f57ae5e6b017e8883c4e37f7cc6acd2d164a6e2c557"
+  },
+  {
+    "path": "world-probe-parity.json",
+    "bytes": 941,
+    "sha256": "75302301d3a00ce8d1b8f38a750b6af97c0a5f2ac81a31111958373185b73a89"
+  },
+  {
+    "path": "cube-A1/client.sanitized.log.gz",
+    "bytes": 4293,
+    "sha256": "131f92b270bf845381789e6766a24320a78f246c2ae9ed201f5a3862ba9d0461"
+  },
+  {
+    "path": "cube-A1/CONDITION_NOTE.md",
+    "bytes": 586,
+    "sha256": "3ff56432559cac90fc726db73d89f32299912fe7fec9d6270711e697557897e3"
+  },
+  {
+    "path": "cube-A1/events.txt",
+    "bytes": 1415,
+    "sha256": "daf92657ec719001a2277e2bf26a089d048a042972f8c49cfcea30cc05880b5a"
+  },
+  {
+    "path": "cube-A1/frames.csv.gz",
+    "bytes": 1234088,
+    "sha256": "f03b2c46ab672edbaa4ac5840d7a84266ffe624d30696a8721da1a19cfef131d"
+  },
+  {
+    "path": "cube-A1/guardian-source.json",
+    "bytes": 81,
+    "sha256": "e1f37e3c9557330e78d0344b43607a03db5fa30535207f113d7f9f29b1956811"
+  },
+  {
+    "path": "cube-A1/head.txt",
+    "bytes": 41,
+    "sha256": "dea499f6b6aa5f509e2772ab338adc400f18b1133b7aa5d3a3636d44fa7dfe64"
+  },
+  {
+    "path": "cube-A1/launch.txt",
+    "bytes": 34,
+    "sha256": "06ac8e50f66a2fe3f009c0f2de3454176ddfd8f4e2f3aa6aa61ca3f3c78f3a20"
+  },
+  {
+    "path": "cube-A1/probe-sources.json",
+    "bytes": 616,
+    "sha256": "53230bff0dbd1bd2e18497f3abaf5844bef130deebf9208896a7b3837290b923"
+  },
+  {
+    "path": "cube-A1/profile.jfr.report.tsv",
+    "bytes": 14076,
+    "sha256": "6d4687cb4177ef5e619f5d9eeaf03053aa8aa607730144d479b3bdb6cea018c8"
+  },
+  {
+    "path": "cube-A1/scene-2400.png",
+    "bytes": 200320,
+    "sha256": "fb5747ea1389fa32d61b315fb8f6d869266e3c62788801bd5988eebe8d18afd1"
+  },
+  {
+    "path": "cube-A1/scene-4800.png",
+    "bytes": 257047,
+    "sha256": "e6805d48f5da817fc0b51fdaa6a0c29059aa08dfd2d29bccf0307cba3cee4eee"
+  },
+  {
+    "path": "cube-A1/scene-6600.png",
+    "bytes": 257047,
+    "sha256": "e6805d48f5da817fc0b51fdaa6a0c29059aa08dfd2d29bccf0307cba3cee4eee"
+  },
+  {
+    "path": "cube-A1/ticks.csv",
+    "bytes": 241820,
+    "sha256": "a9c3e0331881fd9f0399e16d2679ec4977aec5f18a86cee7094831e48effb864"
+  },
+  {
+    "path": "cube-A2/client.sanitized.log.gz",
+    "bytes": 4288,
+    "sha256": "428e7304159ac0b4b9e2add9cc613e806c00060b04eba70f1f72543d573fa56a"
+  },
+  {
+    "path": "cube-A2/events.txt",
+    "bytes": 1415,
+    "sha256": "2f0d13cb3952ff35af216f65661f5908ba7631e4a40fbcabecddb58106b5707b"
+  },
+  {
+    "path": "cube-A2/frames.csv.gz",
+    "bytes": 1291815,
+    "sha256": "67ed8b88f6c72e53d900b45d5e6e1ca3130c2b26ea846bbf0f046d6b7fe58185"
+  },
+  {
+    "path": "cube-A2/guardian-source.json",
+    "bytes": 81,
+    "sha256": "e1f37e3c9557330e78d0344b43607a03db5fa30535207f113d7f9f29b1956811"
+  },
+  {
+    "path": "cube-A2/head.txt",
+    "bytes": 41,
+    "sha256": "dea499f6b6aa5f509e2772ab338adc400f18b1133b7aa5d3a3636d44fa7dfe64"
+  },
+  {
+    "path": "cube-A2/launch.txt",
+    "bytes": 34,
+    "sha256": "bf393459f2c1e65c1910ed3b2a7bd86f8bd0d6b769131cdee0ec2bcf9a748a90"
+  },
+  {
+    "path": "cube-A2/probe-sources.json",
+    "bytes": 616,
+    "sha256": "53230bff0dbd1bd2e18497f3abaf5844bef130deebf9208896a7b3837290b923"
+  },
+  {
+    "path": "cube-A2/profile.jfr.report.tsv",
+    "bytes": 14338,
+    "sha256": "f7347cf7e3121030eb4bc3f082b31dd23fbe6ff602964adff6deee8a8022daa0"
+  },
+  {
+    "path": "cube-A2/profile.jfr.summary.tsv",
+    "bytes": 6887,
+    "sha256": "580368b706e284ad6c48a2028f991c7469e2b03032fb80e72da56b547c220694"
+  },
+  {
+    "path": "cube-A2/runtime-start.json",
+    "bytes": 76,
+    "sha256": "e55e0870bbc79bab651675d39fb2bcbaed86a47cac96109d85efa01b0efeb045"
+  },
+  {
+    "path": "cube-A2/scene-2401.png",
+    "bytes": 200433,
+    "sha256": "1a12013ac55dd40ae6c9ec545c82c124512210fe88690eb1000049cbe5cf188b"
+  },
+  {
+    "path": "cube-A2/scene-4801.png",
+    "bytes": 200483,
+    "sha256": "987d09941add7bf897de1ac6b4064595f69aee1ac5d4fca8f4d077652682e40d"
+  },
+  {
+    "path": "cube-A2/scene-6600.png",
+    "bytes": 200433,
+    "sha256": "1a12013ac55dd40ae6c9ec545c82c124512210fe88690eb1000049cbe5cf188b"
+  },
+  {
+    "path": "cube-A2/ticks.csv",
+    "bytes": 246611,
+    "sha256": "403823d83863dd87c51c1e5d722385407e1352b44dd37d0340e843e6ec63a315"
+  },
+  {
+    "path": "cube-A3/client.sanitized.log.gz",
+    "bytes": 4308,
+    "sha256": "4def501aa75b91341f5d767416251c00baed5a03e0ad6fe4e7e9427a0b0307cc"
+  },
+  {
+    "path": "cube-A3/CONDITION_NOTE.md",
+    "bytes": 759,
+    "sha256": "9da37aa698750f7911e5dd394a10d61b1bcb5f184afe87775ce9048aa662bb4b"
+  },
+  {
+    "path": "cube-A3/events.txt",
+    "bytes": 1415,
+    "sha256": "af361f379a71e918a2c08d59c4c722488d998c4970f693d98eda55a1d58ccac6"
+  },
+  {
+    "path": "cube-A3/frames.csv.gz",
+    "bytes": 1174674,
+    "sha256": "c3e8a01d71e2ce338156cff25ca8ddc897619b90ffbb2887f8968dadc527bdd0"
+  },
+  {
+    "path": "cube-A3/guardian-source.json",
+    "bytes": 81,
+    "sha256": "e1f37e3c9557330e78d0344b43607a03db5fa30535207f113d7f9f29b1956811"
+  },
+  {
+    "path": "cube-A3/head.txt",
+    "bytes": 41,
+    "sha256": "dea499f6b6aa5f509e2772ab338adc400f18b1133b7aa5d3a3636d44fa7dfe64"
+  },
+  {
+    "path": "cube-A3/launch.txt",
+    "bytes": 34,
+    "sha256": "673aaf2a2399e0a824a689bd51043d5f6c311f454634258bafaae8ca19676ef8"
+  },
+  {
+    "path": "cube-A3/probe-sources.json",
+    "bytes": 616,
+    "sha256": "53230bff0dbd1bd2e18497f3abaf5844bef130deebf9208896a7b3837290b923"
+  },
+  {
+    "path": "cube-A3/profile.jfr.report.tsv",
+    "bytes": 14004,
+    "sha256": "423233d22a85409f801ef7744732b0c9b0b93a6f649fcd74bbc9e8057e7e17af"
+  },
+  {
+    "path": "cube-A3/runtime-start.json",
+    "bytes": 76,
+    "sha256": "9479512eecf6a939c7f6d27792bab2ba56f3d0afbc222027509b2bc721264fa8"
+  },
+  {
+    "path": "cube-A3/scene-2400.png",
+    "bytes": 290694,
+    "sha256": "110f6d9463abc381553961e73e45b95f206fcdb6579d64657ba2346b16296725"
+  },
+  {
+    "path": "cube-A3/scene-4800.png",
+    "bytes": 275618,
+    "sha256": "e842eb2ed7526307d463a818dc579af30f856b6584d68362aaa645cb28ed9ad4"
+  },
+  {
+    "path": "cube-A3/scene-6600.png",
+    "bytes": 275800,
+    "sha256": "0ba1be6fdf8f0356976664c96f2670e3bded2d3a13f87eea7ffffd643bc83ded"
+  },
+  {
+    "path": "cube-A3/ticks.csv",
+    "bytes": 241821,
+    "sha256": "ff0870160502923b47885564ea65272b0c958ad4c3033df7cdd245e457fa04d5"
+  },
+  {
+    "path": "cube-A4/client.sanitized.log.gz",
+    "bytes": 4486,
+    "sha256": "20b3960d98e6133c1bcb6df2307e0cc8706a4997a474b1c9d2597d818038cae4"
+  },
+  {
+    "path": "cube-A4/CONDITION_NOTE.md",
+    "bytes": 1630,
+    "sha256": "552d8b11e60f56051f49dc527bedf52e70f3b6d258952acae912231fd6e00ac9"
+  },
+  {
+    "path": "cube-A4/events.txt",
+    "bytes": 1416,
+    "sha256": "b9779ed68a129ba692a693f04d82ae14ab28beeb076ec4f48d18b06ee68e7c00"
+  },
+  {
+    "path": "cube-A4/frames.csv.gz",
+    "bytes": 996033,
+    "sha256": "51fb66e4787a00e11081de540dd9e726545b9680caa1456eb6ce7a56a5e0ea1f"
+  },
+  {
+    "path": "cube-A4/guardian-source.json",
+    "bytes": 81,
+    "sha256": "e1f37e3c9557330e78d0344b43607a03db5fa30535207f113d7f9f29b1956811"
+  },
+  {
+    "path": "cube-A4/head.txt",
+    "bytes": 41,
+    "sha256": "dea499f6b6aa5f509e2772ab338adc400f18b1133b7aa5d3a3636d44fa7dfe64"
+  },
+  {
+    "path": "cube-A4/launch.txt",
+    "bytes": 34,
+    "sha256": "3baee0e76818858f9e186606c35e7ae0f0c9b10a9ce2ceb9118672efe89b953a"
+  },
+  {
+    "path": "cube-A4/probe-sources.json",
+    "bytes": 616,
+    "sha256": "53230bff0dbd1bd2e18497f3abaf5844bef130deebf9208896a7b3837290b923"
+  },
+  {
+    "path": "cube-A4/profile.jfr.summary.tsv",
+    "bytes": 7662,
+    "sha256": "6f6ec7b0616add34b29d5f7d6dd854ff720d17a451da44c5c5c592fc1011ce2d"
+  },
+  {
+    "path": "cube-A4/runtime-start.json",
+    "bytes": 75,
+    "sha256": "f6a66ae5d043077f995edae55bf10db9a1285d9ef4af7bfa0a8ec2a9fe8d0ec5"
+  },
+  {
+    "path": "cube-A4/scene-2401.png",
+    "bytes": 252152,
+    "sha256": "461629b195a1ce4a58874dbac45ad9608d52f6989ec942a19bc43a8c4afb14ca"
+  },
+  {
+    "path": "cube-A4/scene-4801.png",
+    "bytes": 251730,
+    "sha256": "1306bdbb3b9c00bca8443aed5c88ca7b7ad28bca87c1af7ea6c325a4987e08ed"
+  },
+  {
+    "path": "cube-A4/scene-6600.png",
+    "bytes": 265361,
+    "sha256": "de7f12238e8fc3e418baee44299344cd496941af2e620fb21259430016bd7e5c"
+  },
+  {
+    "path": "cube-A4/ticks.csv",
+    "bytes": 249206,
+    "sha256": "5fe88000941a8cc27353c7f84d76c42a6be236ea22fdf32c621c046abb8906b8"
+  },
+  {
+    "path": "cube-A5/client.sanitized.log.gz",
+    "bytes": 4454,
+    "sha256": "38ebb80dc2b894334b597c5611869e8817a45557f74aa441a64f0f3b709f74fe"
+  },
+  {
+    "path": "cube-A5/CONDITION_NOTE.md",
+    "bytes": 1057,
+    "sha256": "a048d44561384c3b731b169a8e9bef486e72e221d9c05f8d0c53696bbb204ced"
+  },
+  {
+    "path": "cube-A5/events.txt",
+    "bytes": 1415,
+    "sha256": "a45ffb8d2924b8ffeb04003aebdb917c2a8f21887000906fb6c1dd5ca542007d"
+  },
+  {
+    "path": "cube-A5/frames.csv.gz",
+    "bytes": 1208424,
+    "sha256": "282ca16fee4010b750b1762f2fed5951440065796000aadb98008da07f1e2065"
+  },
+  {
+    "path": "cube-A5/guardian-source.json",
+    "bytes": 81,
+    "sha256": "e1f37e3c9557330e78d0344b43607a03db5fa30535207f113d7f9f29b1956811"
+  },
+  {
+    "path": "cube-A5/head.txt",
+    "bytes": 41,
+    "sha256": "dea499f6b6aa5f509e2772ab338adc400f18b1133b7aa5d3a3636d44fa7dfe64"
+  },
+  {
+    "path": "cube-A5/launch-policy.json",
+    "bytes": 134,
+    "sha256": "ddedd3d04227204f92c492ca36bc1bd1ae7d2d300c84fcbe28c9725429b350cc"
+  },
+  {
+    "path": "cube-A5/launch.txt",
+    "bytes": 34,
+    "sha256": "23462f94d1ce504b565de5886a51b5f7250294d42805aa0fdc88505d3fa06dd5"
+  },
+  {
+    "path": "cube-A5/probe-sources.json",
+    "bytes": 616,
+    "sha256": "53230bff0dbd1bd2e18497f3abaf5844bef130deebf9208896a7b3837290b923"
+  },
+  {
+    "path": "cube-A5/profile.jfr.summary.tsv",
+    "bytes": 7587,
+    "sha256": "610ef4e6b2b3b0b9162157ecbd1dc46c4fa47beb96d8197e33a9bab6469e0e8c"
+  },
+  {
+    "path": "cube-A5/runtime-start.json",
+    "bytes": 77,
+    "sha256": "aeecfc66d96cb7fb49d2071c53f2a6bd4d7e4c62a27fe1dbf896be8ebbabd8d9"
+  },
+  {
+    "path": "cube-A5/scene-2400.png",
+    "bytes": 200363,
+    "sha256": "3b99a4cc29b780789da15935558b540fd44b30a7f75d6d5d07bf201db16d0058"
+  },
+  {
+    "path": "cube-A5/scene-4800.png",
+    "bytes": 200354,
+    "sha256": "f3aaca6d3035d2e2a761362c3b820ad149c06b35694769a06f0ca0d6fded0195"
+  },
+  {
+    "path": "cube-A5/scene-6600.png",
+    "bytes": 200417,
+    "sha256": "ab307c28808c594230d223336c848cc525ddaa185b84576958fcca206ec592f5"
+  },
+  {
+    "path": "cube-A5/ticks.csv",
+    "bytes": 241918,
+    "sha256": "761da7fb7a9f53388b22ebce89dd90d55b627daf82e68cffc86374e81b970a5f"
+  },
+  {
+    "path": "cube-B1/client.sanitized.log.gz",
+    "bytes": 4479,
+    "sha256": "79dd94201e52c303d6c8ab92e0b850f04448d4ecaecbb4c1083483e5aa7cb73d"
+  },
+  {
+    "path": "cube-B1/events.txt",
+    "bytes": 1416,
+    "sha256": "bad30f2ae439428827eaedf239135d4aba44d09eb6b270d7fc87743c27746d03"
+  },
+  {
+    "path": "cube-B1/frames.csv.gz",
+    "bytes": 1262659,
+    "sha256": "01c20e04d44825fb6594ff84778173874c8ef4fb44930565de37b7530cc56133"
+  },
+  {
+    "path": "cube-B1/guardian-source.json",
+    "bytes": 81,
+    "sha256": "8106581b9c2af364bb4344687ca0145c3bcfa856bd85057173be813410ed20a0"
+  },
+  {
+    "path": "cube-B1/head.txt",
+    "bytes": 41,
+    "sha256": "7586e7c1bc63de1709b80595840d5cc79440aa43b14e769a2ea5b5bbaaf999c7"
+  },
+  {
+    "path": "cube-B1/launch.txt",
+    "bytes": 34,
+    "sha256": "28a849c48ce59e6118c5180b9bfd6cd2de87f29b9ca6d31ff030bff5c46b6e2b"
+  },
+  {
+    "path": "cube-B1/profile.jfr.report.tsv",
+    "bytes": 14193,
+    "sha256": "3ee73b1f4f9e43f0924cb689f37ff78b9e7c4d91a482e5810c04b792dc05958f"
+  },
+  {
+    "path": "cube-B1/profile.jfr.summary.tsv",
+    "bytes": 8264,
+    "sha256": "ebb3433ed862042ab422c019350a1fa48481b9cd5fd26c34e0ce7ce677a1e157"
+  },
+  {
+    "path": "cube-B1/scene-2400.png",
+    "bytes": 200481,
+    "sha256": "7503896b3a795a31f1563d965d669a7ec01fbf49ea17adc5212b61b0717fac0b"
+  },
+  {
+    "path": "cube-B1/scene-4800.png",
+    "bytes": 200400,
+    "sha256": "0b8a74166890b6700fe4717bfd322a5afadd0516bc8019cf9d576ca78f4c06cb"
+  },
+  {
+    "path": "cube-B1/scene-6600.png",
+    "bytes": 200400,
+    "sha256": "23aba86c8b54534f73265beb3e7dda5b670f61e40edd8387d9d8d4ef38e86b0f"
+  },
+  {
+    "path": "cube-B1/ticks.csv",
+    "bytes": 248069,
+    "sha256": "1bb8730cc52b69de9e5a4b4a6e5946d4d085a8862fdec03d2d951399c3ff02e9"
+  },
+  {
+    "path": "cube-B2/client.sanitized.log.gz",
+    "bytes": 4325,
+    "sha256": "89fab1d719638f1ef776d5b82ffbe1a92a9c1a9e9bdb3f0ebbd893d4c4d276a0"
+  },
+  {
+    "path": "cube-B2/CONDITION_NOTE.md",
+    "bytes": 926,
+    "sha256": "3cf53250c1fefbd1bacc1420826ce039b067b44c8e8eacae33fb74ef3a938e48"
+  },
+  {
+    "path": "cube-B2/events.txt",
+    "bytes": 1415,
+    "sha256": "751022c3aeef81d4829e9a5187415720a708d5dcbe6076ec00db12e17498032f"
+  },
+  {
+    "path": "cube-B2/frames.csv.gz",
+    "bytes": 1278713,
+    "sha256": "49e3aa41d2cd7ed9a9c6467ca82f94f9fe5b2473378ec7b621ce736c506d6c85"
+  },
+  {
+    "path": "cube-B2/guardian-source.json",
+    "bytes": 81,
+    "sha256": "8106581b9c2af364bb4344687ca0145c3bcfa856bd85057173be813410ed20a0"
+  },
+  {
+    "path": "cube-B2/head.txt",
+    "bytes": 41,
+    "sha256": "7586e7c1bc63de1709b80595840d5cc79440aa43b14e769a2ea5b5bbaaf999c7"
+  },
+  {
+    "path": "cube-B2/launch-policy.json",
+    "bytes": 134,
+    "sha256": "ddedd3d04227204f92c492ca36bc1bd1ae7d2d300c84fcbe28c9725429b350cc"
+  },
+  {
+    "path": "cube-B2/launch.txt",
+    "bytes": 34,
+    "sha256": "129543eb3bba4fdd70e0239b5966b373431424f63fb2447dfdae227f628e1869"
+  },
+  {
+    "path": "cube-B2/probe-sources.json",
+    "bytes": 616,
+    "sha256": "53230bff0dbd1bd2e18497f3abaf5844bef130deebf9208896a7b3837290b923"
+  },
+  {
+    "path": "cube-B2/profile.jfr.summary.tsv",
+    "bytes": 7247,
+    "sha256": "0ab5f833a30fe48ef39934ceff0db189a3bc4a6213ca9bcb3c32d90d098a85b5"
+  },
+  {
+    "path": "cube-B2/runtime-start.json",
+    "bytes": 77,
+    "sha256": "ecc91a3cdb4fb44f106ddf5f450fe1b96ea9e435425cf15c1f550e43711fc3cd"
+  },
+  {
+    "path": "cube-B2/scene-2400.png",
+    "bytes": 200439,
+    "sha256": "9d2b428b71677889ac753e013f3ceb35c55896ff8977bc79b28e526f84cc4610"
+  },
+  {
+    "path": "cube-B2/scene-4800.png",
+    "bytes": 200369,
+    "sha256": "44de937408b663c8958d9d49e4d98f7c7e853424729df40ee2aca0ec8eb7d47d"
+  },
+  {
+    "path": "cube-B2/scene-6600.png",
+    "bytes": 200369,
+    "sha256": "44de937408b663c8958d9d49e4d98f7c7e853424729df40ee2aca0ec8eb7d47d"
+  },
+  {
+    "path": "cube-B2/ticks.csv",
+    "bytes": 241737,
+    "sha256": "cd6fdfd814d96c2c539a46bd944cb066e1a431b18a53841df75d2bef2fe91f5c"
+  },
+  {
+    "path": "world-bosses-flat/boss-ticks.csv",
+    "bytes": 768614,
+    "sha256": "c9d9010e469df9886d5bb86ddce082c84df4be193449b1d599989b37c15cc8f5"
+  },
+  {
+    "path": "world-bosses-flat/chunks.csv",
+    "bytes": 81046,
+    "sha256": "14bee290736d5e9128a9da593282311adba0dd472dde6eda96e474f1e224d71f"
+  },
+  {
+    "path": "world-bosses-flat/cleanup.png",
+    "bytes": 82498,
+    "sha256": "0363b2f0c782359f2eba79809b830c050eb367432a5d1c6778ddf5659e0f1430"
+  },
+  {
+    "path": "world-bosses-flat/client.sanitized.log.gz",
+    "bytes": 4426,
+    "sha256": "ed05c2135d7dfc9b6fccbfb09734c3b7de46262adf3a2766e5ec59a5c13ca1d5"
+  },
+  {
+    "path": "world-bosses-flat/entities.csv",
+    "bytes": 95776,
+    "sha256": "ed915c5013bd0e1119546342ad995ec91393df2d868a3078a242176482f46510"
+  },
+  {
+    "path": "world-bosses-flat/events.txt",
+    "bytes": 82878,
+    "sha256": "84c937bcc7ead962bcbe76b51e517a8f52cab6d77e3da4648fa387c1759e2723"
+  },
+  {
+    "path": "world-bosses-flat/final.jfr.heap.csv",
+    "bytes": 407,
+    "sha256": "1cf846bce06cff870a5f4ec710936458bc95d3f92b476a352978a8bf7718731a"
+  },
+  {
+    "path": "world-bosses-flat/final.jfr.report.tsv",
+    "bytes": 13475,
+    "sha256": "d1cf4d53556a416f77212aed8f2e03e09b8862e7f1458967bd86994252041829"
+  },
+  {
+    "path": "world-bosses-flat/frames.csv.gz",
+    "bytes": 2978631,
+    "sha256": "a71fa71d4bc9653bf4a4347e85acf021d9c5b893ae9c03809dbc5f4bebf2213e"
+  },
+  {
+    "path": "world-bosses-flat/gorynych.jfr.heap.csv",
+    "bytes": 1505,
+    "sha256": "c9ff2919a46cee1652757cf1ace5dcb113c759bdd2ebd9cebd51011c62841591"
+  },
+  {
+    "path": "world-bosses-flat/gorynych.jfr.report.tsv",
+    "bytes": 14175,
+    "sha256": "656b7d0650cea4728ffa4803e4250b48cb0c83060ca2b37b92a3a1b621ab2f58"
+  },
+  {
+    "path": "world-bosses-flat/gorynych.png",
+    "bytes": 294654,
+    "sha256": "28b3428279ae980619d4bb75699a57edce7781e0e7af8ec71ed0aa2fae0f66fa"
+  },
+  {
+    "path": "world-bosses-flat/gpu.csv",
+    "bytes": 53972,
+    "sha256": "faae83eec3720dea45aff8fd3fe0b21e83425f0bdd87279c55be899555d396c5"
+  },
+  {
+    "path": "world-bosses-flat/gpu.csv.process.csv",
+    "bytes": 14396,
+    "sha256": "9c7e0e2f774349b2162303ba4ede5a006c1b045c9d1749268ced0c76bb28a5b2"
+  },
+  {
+    "path": "world-bosses-flat/guardian-source.json",
+    "bytes": 81,
+    "sha256": "e1f37e3c9557330e78d0344b43607a03db5fa30535207f113d7f9f29b1956811"
+  },
+  {
+    "path": "world-bosses-flat/head.txt",
+    "bytes": 41,
+    "sha256": "8575705cde5c691f2e8d3545fe127b9ac4c51f896edb1fff024fda519d642b5b"
+  },
+  {
+    "path": "world-bosses-flat/heap-mspt.png",
+    "bytes": 233650,
+    "sha256": "dd46ff1aaca57f9b60a3f292dab222109708b2e90468d49004fb41d75183f080"
+  },
+  {
+    "path": "world-bosses-flat/karachun.jfr.heap.csv",
+    "bytes": 1358,
+    "sha256": "bf17ee57fcb1c8c23b4874f861206353216945a8bec792efc4f2d498be2bba83"
+  },
+  {
+    "path": "world-bosses-flat/karachun.jfr.report.tsv",
+    "bytes": 14380,
+    "sha256": "7c11dcce15e6af0800eed81c8189c5aafc2d018a8bbc990e19f37759ed3d49de"
+  },
+  {
+    "path": "world-bosses-flat/karachun.png",
+    "bytes": 491939,
+    "sha256": "7521493d450f6be0ecdaf86044a56890cf2e08574caf2cea5150722dd0d01cbf"
+  },
+  {
+    "path": "world-bosses-flat/launch-mode.json",
+    "bytes": 87,
+    "sha256": "b6847265b3db15759c047539db0e9a2af6e890ada061d1d013eeaec1bc632d99"
+  },
+  {
+    "path": "world-bosses-flat/launch-policy.json",
+    "bytes": 134,
+    "sha256": "17ae786bc5ec731b7cdf65d3f4b9e9f063a47ea11ee61f7d830dfbc0a3e9abcd"
+  },
+  {
+    "path": "world-bosses-flat/launch.txt",
+    "bytes": 34,
+    "sha256": "a48bd7d26f66821b8d191585a32925388d3061e32c37d0c7656324463084000e"
+  },
+  {
+    "path": "world-bosses-flat/morozko.jfr.heap.csv",
+    "bytes": 2021,
+    "sha256": "3ce5fd53e9a131fc42185c218063b37a59fbb8aa883b6471c6d29ce8b00dca14"
+  },
+  {
+    "path": "world-bosses-flat/morozko.jfr.report.tsv",
+    "bytes": 14337,
+    "sha256": "15f488cf4b9c03269f990df40bffc5310975fb29d15d36cd380a318c834fdf1b"
+  },
+  {
+    "path": "world-bosses-flat/morozko.png",
+    "bytes": 405668,
+    "sha256": "339662f620369c89207f2dea2bfc44218f3b3a45a7ac1153f5feefa633dd8376"
+  },
+  {
+    "path": "world-bosses-flat/observations.csv",
+    "bytes": 73631,
+    "sha256": "a3704753deb5633d763c04bc34af2f53cd6c97922e2229937d03295251dbf4e0"
+  },
+  {
+    "path": "world-bosses-flat/probe-sources.json",
+    "bytes": 1864,
+    "sha256": "33323f949805096c883499236a81d0508d291eefc0e8524e68706803784ae2d9"
+  },
+  {
+    "path": "world-bosses-flat/runtime-start.json",
+    "bytes": 78,
+    "sha256": "fb502bcc7535b247f9f0f30336ad8a7df1d97baf9a80aac2c7ac301faa5eeb78"
+  },
+  {
+    "path": "world-bosses-flat/startup_warmup.jfr.heap.csv",
+    "bytes": 914,
+    "sha256": "ff85399fe15323a9bff651c57f8755837591e2c2207155c476ee94f32b45ed46"
+  },
+  {
+    "path": "world-bosses-flat/startup_warmup.jfr.report.tsv",
+    "bytes": 14410,
+    "sha256": "44d4433b9c73236e278e128c6004fc884caa91ac0bb59e696b0565e2f93a95d5"
+  },
+  {
+    "path": "world-bosses-flat/startup_warmup.png",
+    "bytes": 860515,
+    "sha256": "7ecb4fe8485c0167af338929bd61c9dd6613c3dcb727e6f79ea7e5cf938a7be8"
+  },
+  {
+    "path": "world-bosses-flat/ticks.csv",
+    "bytes": 2354340,
+    "sha256": "30a27a87080b35c215413b1be06594ffc5507585bd18ece383142bc9e54fecba"
+  },
+  {
+    "path": "world-control/client.sanitized.log.gz",
+    "bytes": 3347,
+    "sha256": "4fec799bb0e6428d03f94c2bdd575a73a9b96b4225f1c10903da106acc44fd9e"
+  },
+  {
+    "path": "world-control/guardian-source.json",
+    "bytes": 81,
+    "sha256": "e1f37e3c9557330e78d0344b43607a03db5fa30535207f113d7f9f29b1956811"
+  },
+  {
+    "path": "world-control/head.txt",
+    "bytes": 41,
+    "sha256": "dea499f6b6aa5f509e2772ab338adc400f18b1133b7aa5d3a3636d44fa7dfe64"
+  },
+  {
+    "path": "world-control/launch-mode.json",
+    "bytes": 88,
+    "sha256": "3551aba83eefa8aa5f484e58e30de85a887e11dc6094209cbc45a8ae54fb2137"
+  },
+  {
+    "path": "world-control/launch-policy.json",
+    "bytes": 134,
+    "sha256": "ddedd3d04227204f92c492ca36bc1bd1ae7d2d300c84fcbe28c9725429b350cc"
+  },
+  {
+    "path": "world-control/launch.txt",
+    "bytes": 34,
+    "sha256": "5dd12d6b6122f718a2dcf4045bbfcf9eb26f59da55aa67d5e0e72408a5f19b48"
+  },
+  {
+    "path": "world-control/probe-sources.json",
+    "bytes": 1411,
+    "sha256": "44041e080233cbb8b26c9f70035bfe771afd25efefd94f70b0d849065026dee5"
+  },
+  {
+    "path": "world-control2/chunks.csv",
+    "bytes": 118214,
+    "sha256": "1e0edb569eb1aaf1faccb0271d452857b4bbf6b151cce81903953f97a27ebd3b"
+  },
+  {
+    "path": "world-control2/cleanup.png",
+    "bytes": 485901,
+    "sha256": "f1ab806e4ae7af1e871f660ca34ef259db6a2bc4ac15f0da8b30aecad8a4c765"
+  },
+  {
+    "path": "world-control2/client.sanitized.log.gz",
+    "bytes": 4480,
+    "sha256": "62c4ed995d1e18adf1c82a1b0d3f35dc42fb125cf82b13a2ca7621d4d0f5640d"
+  },
+  {
+    "path": "world-control2/combat_16.jfr.heap.csv",
+    "bytes": 1394,
+    "sha256": "ba978d273f4afd49af27e217f7c17c00d16addd973e39319f0228c90bf7cfcf1"
+  },
+  {
+    "path": "world-control2/combat_16.jfr.report.tsv",
+    "bytes": 11861,
+    "sha256": "c317208f8a8e10322bede32310341c3799391a38e0b39c355e62d77e70defdcd"
+  },
+  {
+    "path": "world-control2/combat_16.png",
+    "bytes": 714977,
+    "sha256": "aef0b9e7ba9eb7ff416c6c161ea15cab6f82c5fd619fa4dede85f2e2568874d3"
+  },
+  {
+    "path": "world-control2/combat_6.jfr.heap.csv",
+    "bytes": 1015,
+    "sha256": "508483eae8a22bade5cf5c0b1bbaa642f1d3f5ac43125b6e37324be9b8603e03"
+  },
+  {
+    "path": "world-control2/combat_6.jfr.report.tsv",
+    "bytes": 11824,
+    "sha256": "924415eb1a90c89ef971332f4d1b0f1da04bc27093fdbedc8b0fa2056202407d"
+  },
+  {
+    "path": "world-control2/combat_6.png",
+    "bytes": 940491,
+    "sha256": "1ac95d325dd279de03248cefd1dc8d81d5aa02ee6bf05bac49dfe8afb4282cd7"
+  },
+  {
+    "path": "world-control2/entities.csv",
+    "bytes": 299118,
+    "sha256": "73a5bca2f7cba18cb53324d432652005f68854c723eee6cdf9ff820ec2dd1e1c"
+  },
+  {
+    "path": "world-control2/events.txt",
+    "bytes": 2728,
+    "sha256": "058ec5220653b5ee8847db41030b598e97febd41951b7912356fa02d3e60e65a"
+  },
+  {
+    "path": "world-control2/final.jfr.heap.csv",
+    "bytes": 409,
+    "sha256": "3943895976c7fa1c14c9904d3da16076d790d9290c641de989240595733f87ef"
+  },
+  {
+    "path": "world-control2/final.jfr.report.tsv",
+    "bytes": 11567,
+    "sha256": "66b2081fb9cc0c704a5311bb075239bfd6c6232481c802e9988690bb8cdb7c50"
+  },
+  {
+    "path": "world-control2/frames.csv.gz",
+    "bytes": 2470230,
+    "sha256": "de529c462decbe17507092ec45a61f0b2847c9a98f2a72d10eeb2dec9af2d261"
+  },
+  {
+    "path": "world-control2/gpu.csv",
+    "bytes": 82637,
+    "sha256": "07a5bf1a5b7b42d74ab6cb9ca1b7c30e9f316389aa18cea9ed6bdbe4ff3bcbd0"
+  },
+  {
+    "path": "world-control2/gpu.csv.process.csv",
+    "bytes": 22260,
+    "sha256": "f3077392e482a2299f42bd2e31bd5b00227f29d0e01b176d317528b7dd070373"
+  },
+  {
+    "path": "world-control2/guardian-source.json",
+    "bytes": 81,
+    "sha256": "e1f37e3c9557330e78d0344b43607a03db5fa30535207f113d7f9f29b1956811"
+  },
+  {
+    "path": "world-control2/head.txt",
+    "bytes": 41,
+    "sha256": "dea499f6b6aa5f509e2772ab338adc400f18b1133b7aa5d3a3636d44fa7dfe64"
+  },
+  {
+    "path": "world-control2/heap-mspt.png",
+    "bytes": 230589,
+    "sha256": "648c60033cb60a25ce08b72c0575efac4a6e9e09777ab90a703dba0de10609af"
+  },
+  {
+    "path": "world-control2/idle.jfr.heap.csv",
+    "bytes": 473,
+    "sha256": "3e6eb47cefbf5118bee9aaa041421146f35d3734b6697143b9352ac372a9be1c"
+  },
+  {
+    "path": "world-control2/idle.jfr.report.tsv",
+    "bytes": 11079,
+    "sha256": "6a84f46dcb9a14fa7f3c7497f8f00ea3e59513c2f99255a6516de7c011858212"
+  },
+  {
+    "path": "world-control2/idle.png",
+    "bytes": 573260,
+    "sha256": "2e16d0b29118f8434bf283781597797d46a4d85f9ac26c84fe6b30fd74844b72"
+  },
+  {
+    "path": "world-control2/launch-mode.json",
+    "bytes": 88,
+    "sha256": "16faf8e9c38e592c72f62a66db71513e92a1a1c30c9ac8f64bbe7a4b9e63f8cd"
+  },
+  {
+    "path": "world-control2/launch-policy.json",
+    "bytes": 134,
+    "sha256": "ddedd3d04227204f92c492ca36bc1bd1ae7d2d300c84fcbe28c9725429b350cc"
+  },
+  {
+    "path": "world-control2/launch.txt",
+    "bytes": 34,
+    "sha256": "56380660996df51b43d000202f25aa2e5466cf9b946b0aeb430fd87443cc26a2"
+  },
+  {
+    "path": "world-control2/observations.csv",
+    "bytes": 109821,
+    "sha256": "cfe111e829f917d92bdbd810985b46ed9da66e3eed93d704bb3c91a95d9cb34a"
+  },
+  {
+    "path": "world-control2/probe-sources.json",
+    "bytes": 1411,
+    "sha256": "8cff7f16d39d97081eebbe29e8180bf78dd3b16e3560c7810a64c6bb701e751f"
+  },
+  {
+    "path": "world-control2/runtime-start.json",
+    "bytes": 78,
+    "sha256": "32ac57cfa33b32d4d8f4bedbda9a11b55ff0fd8752431a89db3c260398e9dec4"
+  },
+  {
+    "path": "world-control2/startup_warmup.jfr.heap.csv",
+    "bytes": 2390,
+    "sha256": "a911bc47e7dbf71a6f0dd6b04ae5ac47760dfbf2d7a44cbfaa76b750ec3bd64f"
+  },
+  {
+    "path": "world-control2/startup_warmup.jfr.report.tsv",
+    "bytes": 12229,
+    "sha256": "10b4574a7c1d5cc15503e8c83ab7121ec42780d1a97c387feb454afb4f71ae12"
+  },
+  {
+    "path": "world-control2/startup_warmup.png",
+    "bytes": 891379,
+    "sha256": "b2c3fa893e1d4520394b01b603e8861f8c291918a5053e2c47337dd19a1d4174"
+  },
+  {
+    "path": "world-control2/ticks.csv",
+    "bytes": 3639329,
+    "sha256": "3fbc7bf8bce91e0c88667aadd24f4afab530ca52dae29dc3ba43ba1bbe0fbc21"
+  },
+  {
+    "path": "world-control2/travel_new.jfr.heap.csv",
+    "bytes": 1727,
+    "sha256": "06ca0eb888ec23c6fef127595b9540e5f15fb76000074d1882c8635e83ed2625"
+  },
+  {
+    "path": "world-control2/travel_new.jfr.report.tsv",
+    "bytes": 11739,
+    "sha256": "3de4da694547d6b29e807123ca32339c99e6feda1e2622d27f24618edb6d8488"
+  },
+  {
+    "path": "world-control2/travel_new.png",
+    "bytes": 573103,
+    "sha256": "34bdbd39143103c1049c16cb4543fd639d4f6cd9bff899396de52fa55bd35822"
+  },
+  {
+    "path": "world-control2/travel_return.jfr.heap.csv",
+    "bytes": 1136,
+    "sha256": "580300294ede432979c473affcf537653f91d583679e0dd2a2e4a0cb8b5f3a2e"
+  },
+  {
+    "path": "world-control2/travel_return.jfr.report.tsv",
+    "bytes": 11082,
+    "sha256": "e429e5cabf2330da59d199c973f07a2c7452defa08501d48ca8702adf50a53a4"
+  },
+  {
+    "path": "world-control2/travel_return.png",
+    "bytes": 168557,
+    "sha256": "d28fe5f3bd6eca757a819e6f542a663e1a325aa474127b405727d996369456b5"
+  },
+  {
+    "path": "world-control2/travel_settle.jfr.heap.csv",
+    "bytes": 180,
+    "sha256": "6037e3c65f5be906b13e2d2d13c83242f828325aa7bb0cf6d0ae2f6e8b137082"
+  },
+  {
+    "path": "world-control2/travel_settle.jfr.report.tsv",
+    "bytes": 11056,
+    "sha256": "ff77c52b1f430586e38917d6600a044c0a21e2cb08b4fb2114660e544e5f716b"
+  },
+  {
+    "path": "world-control2/travel_settle.png",
+    "bytes": 547186,
+    "sha256": "a80b9dd5f2a4963829f1d086318cd95564d70bcec97e1a43ae1e0aaa9279222a"
+  },
+  {
+    "path": "world-control2/vanilla_village.jfr.heap.csv",
+    "bytes": 2987,
+    "sha256": "db7e5ff69b30e61a96e8fecd33a2c35d531e11c991813f2be05da37d53dcbd3c"
+  },
+  {
+    "path": "world-control2/vanilla_village.jfr.report.tsv",
+    "bytes": 12515,
+    "sha256": "6de8e95ee80aa0cb2a4f8ecfb3d0acdf756cf3942991f291e90c302b9fcb878a"
+  },
+  {
+    "path": "world-control2/vanilla_village.png",
+    "bytes": 534158,
+    "sha256": "09b5af0b10c01b504dd6274e0a6cc5f6ef8bfdc0e38a01063deed58c5fce54ef"
+  },
+  {
+    "path": "world-fixed/chunks.csv",
+    "bytes": 113307,
+    "sha256": "9c728712741f14071b0618618ed5dbc427d7d4e7f5eef98d732ea278411f89ac"
+  },
+  {
+    "path": "world-fixed/client.sanitized.log.gz",
+    "bytes": 6478,
+    "sha256": "3b42b9c272fd0a14f7a7ae83247b11c408cf0cb1be6163c4da022a6974ddb084"
+  },
+  {
+    "path": "world-fixed/combat_16.jfr.heap.csv",
+    "bytes": 1168,
+    "sha256": "0630c00d872af6eb38f64f45659d952fa8a24a6503cfa1c8760bc122c1287f83"
+  },
+  {
+    "path": "world-fixed/combat_16.jfr.report.tsv",
+    "bytes": 14733,
+    "sha256": "b02b87e6d1b3cf1f20907f30511271878a6f1c5e9fcbbfe74de56c725c057b50"
+  },
+  {
+    "path": "world-fixed/combat_16.png",
+    "bytes": 649166,
+    "sha256": "d23e5dcbce9004ed465fe778725e4c06dae60147698b6ccdf96f33df5d4004b8"
+  },
+  {
+    "path": "world-fixed/combat_6.jfr.heap.csv",
+    "bytes": 941,
+    "sha256": "3a669787d892f3852e53c4c4e6c846172f60041bc45261213b88850594c4764a"
+  },
+  {
+    "path": "world-fixed/combat_6.jfr.report.tsv",
+    "bytes": 14576,
+    "sha256": "52352138f94a13ec8a6184902f2b5e7feb91705143e14d3fa686c22f8a5ba81e"
+  },
+  {
+    "path": "world-fixed/combat_6.png",
+    "bytes": 594287,
+    "sha256": "680808061ed657bd1ac5701dadfa5b06413788bcbd0d9cba700d4169daae12c0"
+  },
+  {
+    "path": "world-fixed/entities.csv",
+    "bytes": 1222285,
+    "sha256": "7af30c653c2929ce07caf7cbc1e78ce0aa90deb8b6508b3042dafaab79917ca3"
+  },
+  {
+    "path": "world-fixed/events.txt",
+    "bytes": 273115,
+    "sha256": "b2cb7d88bb3335ce70e90811e83aa1edb309b7084924eaf4250e312420a275e2"
+  },
+  {
+    "path": "world-fixed/forced-stop.json",
+    "bytes": 226,
+    "sha256": "4105ba1b2f23b8ecbf0e9f0e6b98cd65243071394d149cf7b8c2bb1b00974016"
+  },
+  {
+    "path": "world-fixed/frames.csv.gz",
+    "bytes": 7222313,
+    "sha256": "a803382abd7c347db0072dc4751b7952d7d439ae0a8e10981528a3d2116ebc35"
+  },
+  {
+    "path": "world-fixed/gorynych.jfr.heap.csv",
+    "bytes": 3906,
+    "sha256": "995d8ceaee11252121114f4f19a938f76ab6e3a9f5bf161f16d1b04833e5d7ea"
+  },
+  {
+    "path": "world-fixed/gorynych.jfr.report.tsv",
+    "bytes": 14776,
+    "sha256": "13f35feb6826ef81c660cafa62c07e6395dca44eaac799101332229ef9b78da2"
+  },
+  {
+    "path": "world-fixed/gorynych.png",
+    "bytes": 469933,
+    "sha256": "ed0d8a46afad7b40b1f6a1ec0d0ea31b36f71cd2fdd0ca53a88dffe7ea1fd4b5"
+  },
+  {
+    "path": "world-fixed/gpu.csv",
+    "bytes": 250077,
+    "sha256": "f05b061339255f3cd209fe2b17cb1b99f2b4e70a8aa4ba586dea26c3a2519f66"
+  },
+  {
+    "path": "world-fixed/gpu.csv.process.csv",
+    "bytes": 67744,
+    "sha256": "4785de36a6de1f3d0f5fda825127a9434a4c974f36b4fac6784b0d1a0d0e3dfe"
+  },
+  {
+    "path": "world-fixed/guardian-source.json",
+    "bytes": 81,
+    "sha256": "e1f37e3c9557330e78d0344b43607a03db5fa30535207f113d7f9f29b1956811"
+  },
+  {
+    "path": "world-fixed/hang-threads.txt",
+    "bytes": 41441,
+    "sha256": "e4cf5e4ebe4dc6d5862cf1366c3cf86b6efaf1a3d268c922ef7b08ea141c46a3"
+  },
+  {
+    "path": "world-fixed/head.txt",
+    "bytes": 41,
+    "sha256": "8575705cde5c691f2e8d3545fe127b9ac4c51f896edb1fff024fda519d642b5b"
+  },
+  {
+    "path": "world-fixed/heap-mspt.png",
+    "bytes": 316880,
+    "sha256": "a9dc4c93fbd095a339332bfa6583353f41028c9f8acc5b067df374dab01d7cbd"
+  },
+  {
+    "path": "world-fixed/idle.jfr.heap.csv",
+    "bytes": 915,
+    "sha256": "ffe74e4273b949a7efb9ad39403587d74183537bc765d0467cfb45a0a9dae026"
+  },
+  {
+    "path": "world-fixed/idle.jfr.report.tsv",
+    "bytes": 14180,
+    "sha256": "b0aaba6043133cd8ab91c48ed26c4ca95759a8b12aa5e849917b7e59f86d0d77"
+  },
+  {
+    "path": "world-fixed/idle.png",
+    "bytes": 651600,
+    "sha256": "7da437117213ba134170cfc88eba08582b4d8831c923483d335dbdd8fdee29c0"
+  },
+  {
+    "path": "world-fixed/jfr-rescue.txt",
+    "bytes": 122,
+    "sha256": "8aadf705d87186a06ea5b2e347cdb30f95bf0da84b2ec202084e3aaa445020c2"
+  },
+  {
+    "path": "world-fixed/karachun.jfr.heap.csv",
+    "bytes": 2154,
+    "sha256": "d654583b2e1bfc29e0fcc9cc780d174aab8febc5ce2cbf139f9948278b5d51f6"
+  },
+  {
+    "path": "world-fixed/karachun.jfr.report.tsv",
+    "bytes": 14339,
+    "sha256": "2c1a6a25716aaa37dff5fa5232c0878546c21dcd92e4df06297a93018f0af25e"
+  },
+  {
+    "path": "world-fixed/karachun.png",
+    "bytes": 107606,
+    "sha256": "f9e7c00d7d41d2ea50ff8d103e25a44a3a69701c02297924dc1242ce62a73832"
+  },
+  {
+    "path": "world-fixed/launch-policy.json",
+    "bytes": 134,
+    "sha256": "17ae786bc5ec731b7cdf65d3f4b9e9f063a47ea11ee61f7d830dfbc0a3e9abcd"
+  },
+  {
+    "path": "world-fixed/launch.txt",
+    "bytes": 34,
+    "sha256": "22c7ff05e7fb94ceaec0d5e8b5db277e9fa4b2d49e4a5969549118a27b5aaf2b"
+  },
+  {
+    "path": "world-fixed/lifecycle_1.jfr.heap.csv",
+    "bytes": 560,
+    "sha256": "0a0bdcf0907dfbb2fb6bca3f787d71938dfdc062f045033ada04a910764c8aae"
+  },
+  {
+    "path": "world-fixed/lifecycle_1.jfr.report.tsv",
+    "bytes": 14412,
+    "sha256": "f44a5b202dbff766c5d82c6b75b8ff422bb82aeb258331b5c2a6654d4dd5114e"
+  },
+  {
+    "path": "world-fixed/lifecycle_1.png",
+    "bytes": 90933,
+    "sha256": "5bdb93f0e697c957738d670d97eec76a6e4a3733ce83d0a0bb270996d6dd81b3"
+  },
+  {
+    "path": "world-fixed/lifecycle_2.jfr.heap.csv",
+    "bytes": 409,
+    "sha256": "0873288def2934702108f7e81873ab780fe5aa6b708579e10122e01abf19d424"
+  },
+  {
+    "path": "world-fixed/lifecycle_2.jfr.report.tsv",
+    "bytes": 14438,
+    "sha256": "541cd0b839a57d2fbb375e87d5c4428fea5f7eb1d476e4cfd4068816dfe7161c"
+  },
+  {
+    "path": "world-fixed/lifecycle_2.png",
+    "bytes": 140518,
+    "sha256": "280c39152c48a222ddb050bf00d861dbd8b693adfaa68e849aedf8b82db34b0e"
+  },
+  {
+    "path": "world-fixed/lifecycle_3.jfr.heap.csv",
+    "bytes": 484,
+    "sha256": "16ee2edd7e97d99286cbe9df5c5063eea2f1a3891fe23decc44e0eed731b85ee"
+  },
+  {
+    "path": "world-fixed/lifecycle_3.jfr.report.tsv",
+    "bytes": 14307,
+    "sha256": "c4fc71d71b7fc6116ba561471b27bf09f3045c68c430ab592de1a03d29e3e4ca"
+  },
+  {
+    "path": "world-fixed/lifecycle_3.png",
+    "bytes": 109219,
+    "sha256": "7c589b049057bfe13ae45f03ed5a2ac3e24bbed2de6dd76ba40f52841981b0a6"
+  },
+  {
+    "path": "world-fixed/lifecycle_4.jfr.heap.csv",
+    "bytes": 409,
+    "sha256": "1150a420fc23090464a79e81b3020074bac95c394a38fe1bff8e266604065a97"
+  },
+  {
+    "path": "world-fixed/lifecycle_4.jfr.report.tsv",
+    "bytes": 14357,
+    "sha256": "90229561807ce1b58389c5a9164caa7164ed9aa28d8976aa8c34fe493144b436"
+  },
+  {
+    "path": "world-fixed/lifecycle_4.png",
+    "bytes": 120159,
+    "sha256": "f1ed18c2f3d027212b690336c80f79508028d632aac184fbfafe59afd4cfa65e"
+  },
+  {
+    "path": "world-fixed/lifecycle_5.jfr.heap.csv",
+    "bytes": 560,
+    "sha256": "5b66b5705d9379b9a90a591ca0c9cbb4ed5cc62ecfe42ca2f33aff743f719fc7"
+  },
+  {
+    "path": "world-fixed/lifecycle_5.jfr.report.tsv",
+    "bytes": 14555,
+    "sha256": "d03167a00d3a2bd1e8af8e8e46ab1905930b4c7bc16eaee0f5c7614200470fe9"
+  },
+  {
+    "path": "world-fixed/lifecycle_5.png",
+    "bytes": 108321,
+    "sha256": "86fb4484931c7fbe1ac01a0543e11f573016eb55487b80ea5d71be35530cde9b"
+  },
+  {
+    "path": "world-fixed/long_idle.jfr.heap.csv",
+    "bytes": 3818,
+    "sha256": "0dcc12cca66cd21ba5aca2e092121bfe2f3064fa00c521d896bc1962b91e5f49"
+  },
+  {
+    "path": "world-fixed/long_idle.jfr.report.tsv",
+    "bytes": 14759,
+    "sha256": "41f268fae34f588464ad052b5dfb8aa179e454b3446edb1c57f08b3678ed3bdc"
+  },
+  {
+    "path": "world-fixed/long_idle.png",
+    "bytes": 868064,
+    "sha256": "ea2fd9d325e68d28a63796f5d01fc30cdcc1e0a689438c28a4a61ac41acac441"
+  },
+  {
+    "path": "world-fixed/morozko.jfr.heap.csv",
+    "bytes": 1394,
+    "sha256": "54e3d19602c2f4d33f695c58d3341ee00109c88bfdc249a7741c996aaef74b5b"
+  },
+  {
+    "path": "world-fixed/morozko.jfr.report.tsv",
+    "bytes": 14327,
+    "sha256": "3455fc6e5443f65a5844fe5849683bad7a8a727db269ddcb397ebc1f6138f5f2"
+  },
+  {
+    "path": "world-fixed/morozko.png",
+    "bytes": 91177,
+    "sha256": "57f8e873108510c3a0025196bdb9709818ac83723b36be24dc88a5909af6a137"
+  },
+  {
+    "path": "world-fixed/mythic_combat.jfr.heap.csv",
+    "bytes": 939,
+    "sha256": "c035b3f63cc5975b20398d5e64cf62e5e3ffa6f634077b3c856d3f64b700248f"
+  },
+  {
+    "path": "world-fixed/mythic_combat.jfr.report.tsv",
+    "bytes": 14600,
+    "sha256": "0fae69482726372fc0a8721de3ea8bc307e92458eae2ed2cd8cca454705fa345"
+  },
+  {
+    "path": "world-fixed/mythic_combat.png",
+    "bytes": 315923,
+    "sha256": "ce03ae650277e229b28e5c39a2f5c7769566cb3bcff6f3dff3db71d1e0ea38e1"
+  },
+  {
+    "path": "world-fixed/observations.csv",
+    "bytes": 312783,
+    "sha256": "f8b3a3dc5a4cdf26aadb6000834edd92b6d1d96c2ae9d108b93ac1f4a468f3df"
+  },
+  {
+    "path": "world-fixed/poloz.jfr.heap.csv",
+    "bytes": 3753,
+    "sha256": "52a6b7dde8a5dba86ee3cb54e55f80de83b65d265cba94adb66a9eda2f6d4a64"
+  },
+  {
+    "path": "world-fixed/poloz.jfr.report.tsv",
+    "bytes": 14512,
+    "sha256": "e5c85e7f19e911e407a3c0209ae2650166f7c6ac3b02b92342de47c99c5f68c9"
+  },
+  {
+    "path": "world-fixed/poloz.png",
+    "bytes": 373799,
+    "sha256": "74d462fd2382524fa86ccab49cdfb43fa26c45dc5e278e2bcaaad9200a7759ad"
+  },
+  {
+    "path": "world-fixed/probe-sources.json",
+    "bytes": 947,
+    "sha256": "89f2fb3db8c2008ae9db7026bdb785d7d2cf3ad271a188b89adf777eaa978bac"
+  },
+  {
+    "path": "world-fixed/reload-hung.jfr.heap.csv",
+    "bytes": 939,
+    "sha256": "2a77f1d52f240668331efe75f40fa123b0323d56a683d4adddfd95ed73bfdb0c"
+  },
+  {
+    "path": "world-fixed/reload-hung.jfr.report.tsv",
+    "bytes": 14733,
+    "sha256": "02542f01761181f32627c0763875a995f0717ffc368102b2a01c3f756faba829"
+  },
+  {
+    "path": "world-fixed/reload_idle.png",
+    "bytes": 795074,
+    "sha256": "3ff973fd79ea32432997b012b7f64556aecd4966bbb6b68f92ae110bf404d1b9"
+  },
+  {
+    "path": "world-fixed/runtime-start.json",
+    "bytes": 78,
+    "sha256": "1058c8cbc1de28ae6a648d7fbeb72ce981dda5b2196a759ca9b3967c879beed3"
+  },
+  {
+    "path": "world-fixed/startup_warmup.jfr.heap.csv",
+    "bytes": 3576,
+    "sha256": "0531d01efd30bcf19176ab3a9beeacb133976b3028c89fa4767bbbc53eb8c9a9"
+  },
+  {
+    "path": "world-fixed/startup_warmup.jfr.report.tsv",
+    "bytes": 16009,
+    "sha256": "df060112ec7d1353513723bf34976a75ee0cf1eb6c327d0804536d763e3dfceb"
+  },
+  {
+    "path": "world-fixed/startup_warmup.png",
+    "bytes": 960541,
+    "sha256": "0b64eba2c685894aed441dd68e5bfa65a6dfc878e8e3ce1ecf8d0e7d89fa3904"
+  },
+  {
+    "path": "world-fixed/ticks.csv",
+    "bytes": 10519760,
+    "sha256": "b6f2f93bb1deaf93092aff6be3e5e8650d4ac681afca50e07480cefe8786de61"
+  },
+  {
+    "path": "world-fixed/travel_new.jfr.heap.csv",
+    "bytes": 1444,
+    "sha256": "96e70a910418830df787889628cac387168d7beff4e6839f0b52617ebdec8aab"
+  },
+  {
+    "path": "world-fixed/travel_new.jfr.report.tsv",
+    "bytes": 14275,
+    "sha256": "7afd493535561246c269489cf9a30366dd8111cf794ee68bab112357ceeaf992"
+  },
+  {
+    "path": "world-fixed/travel_new.png",
+    "bytes": 630796,
+    "sha256": "8fdf931cb0df119b02b975cda734d6af5d49ca90769bfbeb4bb0c0ef1e795aa1"
+  },
+  {
+    "path": "world-fixed/travel_return.jfr.heap.csv",
+    "bytes": 1015,
+    "sha256": "8620052ce603b15944f8739de03473817ef904a49f22da28980b6063c5cf8ccc"
+  },
+  {
+    "path": "world-fixed/travel_return.jfr.report.tsv",
+    "bytes": 14142,
+    "sha256": "0166f33c9eb95840ef2615bf509d7376d396b6d3f48f34de78befdeade9eac59"
+  },
+  {
+    "path": "world-fixed/travel_return.png",
+    "bytes": 1042278,
+    "sha256": "40475f1963ac0b1f08fc8dea3b296e06a74df90fa7940d7525444a514c4d89aa"
+  },
+  {
+    "path": "world-fixed/travel_settle.jfr.heap.csv",
+    "bytes": 333,
+    "sha256": "d30f036d60bb0a22b579b1fcec01ee2418c0eafff8f4aeadede9ce2c57d024fb"
+  },
+  {
+    "path": "world-fixed/travel_settle.jfr.report.tsv",
+    "bytes": 13480,
+    "sha256": "a8b263e9a30d3cb42ca9dad7c17cf5b6fd13e92e75b640b8bcd3989228f1a61e"
+  },
+  {
+    "path": "world-fixed/travel_settle.png",
+    "bytes": 91443,
+    "sha256": "f1adb14a3d501a603f311b821b25015a56ead5ef6c90f65fa12a0c36f43ad945"
+  },
+  {
+    "path": "world-fixed/vanilla_village.jfr.heap.csv",
+    "bytes": 4132,
+    "sha256": "56995ae82bd0140f897abb26a834dbbffe87c54635af2d5a7a9ec3384146adda"
+  },
+  {
+    "path": "world-fixed/vanilla_village.jfr.report.tsv",
+    "bytes": 16251,
+    "sha256": "e1682190bc57f54fa6aadecb27b6ac9436c7983ce2bb45cc882ff432efbaae57"
+  },
+  {
+    "path": "world-fixed/vanilla_village.png",
+    "bytes": 93293,
+    "sha256": "ad616cdb54e30b56ae3d91e200da496b8451bf4d2066c82c538a63ff8f1015ea"
+  },
+  {
+    "path": "world-fixed/village.jfr.heap.csv",
+    "bytes": 1469,
+    "sha256": "9715a9234d4c478438fa8864cb3cbb127eb9269793d790ebb3440c8873c24745"
+  },
+  {
+    "path": "world-fixed/village.jfr.report.tsv",
+    "bytes": 14759,
+    "sha256": "07d333193ce0bd11fbe5e34b7027b32b61a9419f603cf4e3fcafae21f884b2d7"
+  },
+  {
+    "path": "world-fixed/village.png",
+    "bytes": 375101,
+    "sha256": "2ad370cd275357153b1a10720da0991145cb231d775fffc043761b12fde8ec25"
+  },
+  {
+    "path": "world-mod/chunks.csv",
+    "bytes": 122597,
+    "sha256": "615473d3488c0575d629063d69f061c5fe5ecb5abc62b767f4522762f598c617"
+  },
+  {
+    "path": "world-mod/client.sanitized.log.gz",
+    "bytes": 10112,
+    "sha256": "d13f54a1b75deb73e3e66b2132e0c72c1750955fdc6b6b8d7edabcaa9d5cfb05"
+  },
+  {
+    "path": "world-mod/combat_16.jfr.heap.csv",
+    "bytes": 1167,
+    "sha256": "0ff8cf2eb216e5cf6bf3ae1e4ec91a94b7b677ac6707964f5ef333f47164dfd0"
+  },
+  {
+    "path": "world-mod/combat_16.jfr.report.tsv",
+    "bytes": 14787,
+    "sha256": "9a719cd1df9309f38d6dc4620524d82598d3d135e741f266216947e1eb3805f9"
+  },
+  {
+    "path": "world-mod/combat_16.png",
+    "bytes": 746790,
+    "sha256": "c5128a19cae3380a9f41b4b09537a5f41057037f750989cd20103c6516c7cac1"
+  },
+  {
+    "path": "world-mod/combat_6.jfr.heap.csv",
+    "bytes": 1018,
+    "sha256": "f87ca275edac2fa01c7c5569c521d8d8b9a0c7dc87d1f7a33ad612b290eea420"
+  },
+  {
+    "path": "world-mod/combat_6.jfr.report.tsv",
+    "bytes": 14722,
+    "sha256": "bf1d33f4549c46e2a94f8ef0abec56b611c3aa1d8f034ff9028220a8176b34ef"
+  },
+  {
+    "path": "world-mod/combat_6.png",
+    "bytes": 840526,
+    "sha256": "e5f32dc5b92a6c811ad0f0ccc0706eda463498b8c82395d374202cb01c2709c2"
+  },
+  {
+    "path": "world-mod/crash-server.txt",
+    "bytes": 17740,
+    "sha256": "1e8d2870145cddc47b4688540bd1d761b909816a2a4faf9c014cddab9aed75e1"
+  },
+  {
+    "path": "world-mod/entities.csv",
+    "bytes": 569529,
+    "sha256": "3af1c9105621ee3a4058eafeee83d9418d7cea24fecc2283a9426e32d14e4621"
+  },
+  {
+    "path": "world-mod/events.txt",
+    "bytes": 122537,
+    "sha256": "3ee601cb7b8b71d608b34162ab7faad2a0d5495d607a474e470a995637ef3aae"
+  },
+  {
+    "path": "world-mod/frames.csv.gz",
+    "bytes": 3393206,
+    "sha256": "a9b3d526c5df7c86cfbe10f2f2cc591a86aea77978326a35e9925b8e164d81cb"
+  },
+  {
+    "path": "world-mod/gpu.csv",
+    "bytes": 115993,
+    "sha256": "81917bbfeb2152a7b79c9824e2b9c266f12457cb0faf8887dc5d7c43a2705bba"
+  },
+  {
+    "path": "world-mod/gpu.csv.process.csv",
+    "bytes": 31307,
+    "sha256": "783861893d12b0ecd44d353f22c41daaab8527a784f9ebc70bcab0d7dcf49520"
+  },
+  {
+    "path": "world-mod/guardian-source.json",
+    "bytes": 81,
+    "sha256": "e1f37e3c9557330e78d0344b43607a03db5fa30535207f113d7f9f29b1956811"
+  },
+  {
+    "path": "world-mod/head.txt",
+    "bytes": 41,
+    "sha256": "dea499f6b6aa5f509e2772ab338adc400f18b1133b7aa5d3a3636d44fa7dfe64"
+  },
+  {
+    "path": "world-mod/heap-mspt.png",
+    "bytes": 268757,
+    "sha256": "b7185e337cd432f4db02697393b462689b56fb989842347a0e5c14cbe6a2799c"
+  },
+  {
+    "path": "world-mod/idle.jfr.heap.csv",
+    "bytes": 841,
+    "sha256": "8e0754df1f2302b20e6c31ece7593c53ec9a089cabe8c037db5c84c03cdb0711"
+  },
+  {
+    "path": "world-mod/idle.jfr.report.tsv",
+    "bytes": 14250,
+    "sha256": "4bf4aed68827cc0fd4a97acea6286e687a0056f2a4aaf44e486ca8b9d5f95592"
+  },
+  {
+    "path": "world-mod/idle.png",
+    "bytes": 915949,
+    "sha256": "374b5685e5f121d494304473ea588ec160b27a8efb067e2818cd8d05b8ae9c6b"
+  },
+  {
+    "path": "world-mod/launch-policy.json",
+    "bytes": 134,
+    "sha256": "17ae786bc5ec731b7cdf65d3f4b9e9f063a47ea11ee61f7d830dfbc0a3e9abcd"
+  },
+  {
+    "path": "world-mod/launch.txt",
+    "bytes": 34,
+    "sha256": "f9f73feaa8c1152f4a5fb3d9b94294f8210bc17244c7a43ebcd52778a5900967"
+  },
+  {
+    "path": "world-mod/mythic_combat.jfr.heap.csv",
+    "bytes": 1093,
+    "sha256": "b8b64f1fc6906c416a65b97e965b75419bb00968c09eb3cbf32663d3674639db"
+  },
+  {
+    "path": "world-mod/mythic_combat.jfr.report.tsv",
+    "bytes": 14598,
+    "sha256": "7c89b3f8a3cb78b746a063bfd31d47c3a246e31b7b080a6ad328f87f92686672"
+  },
+  {
+    "path": "world-mod/mythic_combat.png",
+    "bytes": 766990,
+    "sha256": "0c20d06e3403ffa040ad7daf1f72e9ac2502a29527c27a1ae9ead1009fe3be04"
+  },
+  {
+    "path": "world-mod/observations.csv",
+    "bytes": 149090,
+    "sha256": "4de617b613285482686cb01120e05060467f0c621cd65e0deb2b64b818bafdc8"
+  },
+  {
+    "path": "world-mod/poloz.png",
+    "bytes": 1004120,
+    "sha256": "5be826062d43ec838928a8f0a5fe31f09f608f65748c0bd682cc4deb541ce691"
+  },
+  {
+    "path": "world-mod/probe-sources.json",
+    "bytes": 947,
+    "sha256": "89f2fb3db8c2008ae9db7026bdb785d7d2cf3ad271a188b89adf777eaa978bac"
+  },
+  {
+    "path": "world-mod/runtime-start.json",
+    "bytes": 78,
+    "sha256": "301cc81407c0e2f3e0b30905b28f82fbeed84cb1559003c9f8968ececcc6990b"
+  },
+  {
+    "path": "world-mod/startup_warmup.jfr.heap.csv",
+    "bytes": 3427,
+    "sha256": "172a1587235ac694e29f998eef631c86f48411a94316a96d5549904464c33618"
+  },
+  {
+    "path": "world-mod/startup_warmup.jfr.report.tsv",
+    "bytes": 16163,
+    "sha256": "11dd535098f2757f2b3dfd8346e5a707f1be6c601707e016a143089fac24aef3"
+  },
+  {
+    "path": "world-mod/startup_warmup.png",
+    "bytes": 960386,
+    "sha256": "d5bfb123e56bc19c30577161f9b1bad0e419bbae67240b63624b08834857e6a9"
+  },
+  {
+    "path": "world-mod/ticks.csv",
+    "bytes": 4918643,
+    "sha256": "f8cba62a3fb5b780a0a235615c605418c1573e8cb2a57f057ab66c2c6e07eabc"
+  },
+  {
+    "path": "world-mod/travel_new.jfr.heap.csv",
+    "bytes": 1817,
+    "sha256": "8b88f2e4aa25647a0c387ea3860b27d69330d3050e1c627d84cda9ae4dc2f0d8"
+  },
+  {
+    "path": "world-mod/travel_new.jfr.report.tsv",
+    "bytes": 14632,
+    "sha256": "3a2196e7460a16d435ec1d3dc19d34bc341d0171ece2e167b82985aa502811e4"
+  },
+  {
+    "path": "world-mod/travel_new.png",
+    "bytes": 405862,
+    "sha256": "5d1e38fdb6ea59eef8dcfd80531b2ba91e69b8dbdc6055402cefe9aacb24f9d5"
+  },
+  {
+    "path": "world-mod/travel_return.jfr.heap.csv",
+    "bytes": 939,
+    "sha256": "ae04a97ae0fde983bb9e6e3bc38ee3d8707be8de949116d2f0be4076893fa44d"
+  },
+  {
+    "path": "world-mod/travel_return.jfr.report.tsv",
+    "bytes": 14143,
+    "sha256": "81f91dafec942feef37441209b0176d2dde132ae94b8e64ff00bb59888d9ebdd"
+  },
+  {
+    "path": "world-mod/travel_return.png",
+    "bytes": 179278,
+    "sha256": "dc31526b1964356f4ad8971df3b997062ff7e6693e5b1530425511edbcdd3c10"
+  },
+  {
+    "path": "world-mod/travel_settle.jfr.heap.csv",
+    "bytes": 333,
+    "sha256": "095a5247c5c21ad40b56086ec99fdb7baedd6ec489a9e96df82cfe409c7b8df8"
+  },
+  {
+    "path": "world-mod/travel_settle.jfr.report.tsv",
+    "bytes": 13533,
+    "sha256": "3ef2261edbe3cec2ad583dda251ff36e8894aa529ef9cb0092fc28c82f8d2797"
+  },
+  {
+    "path": "world-mod/travel_settle.png",
+    "bytes": 164583,
+    "sha256": "8f71f71c14c561d248a5f3c5d3481e89251a27b03043df2815cdfa846753fd21"
+  },
+  {
+    "path": "world-mod/vanilla_village.jfr.heap.csv",
+    "bytes": 4589,
+    "sha256": "3e348df04a692366596960c94c551f01800a74be32539f690895f19369757420"
+  },
+  {
+    "path": "world-mod/vanilla_village.jfr.report.tsv",
+    "bytes": 16091,
+    "sha256": "1af2dd4c0b1f6355792731d8f7b5dfc867be43c1f20a775de7977e06bf172b69"
+  },
+  {
+    "path": "world-mod/vanilla_village.png",
+    "bytes": 159301,
+    "sha256": "49c00a41050af17bbf9fac48cca40f4a9989b188968ba4c10cebeb62b38a3175"
+  },
+  {
+    "path": "world-mod/village.jfr.heap.csv",
+    "bytes": 1470,
+    "sha256": "561bdee1aa9b184edc96743593534afb344dd192d0ce0b20787d68b9c3958f0d"
+  },
+  {
+    "path": "world-mod/village.jfr.report.tsv",
+    "bytes": 14684,
+    "sha256": "543526a164719e40ba33f55abb4eaaf491a8bd14b6f95985eb524e6a2f9c1d75"
+  },
+  {
+    "path": "world-mod/village.png",
+    "bytes": 1003671,
+    "sha256": "b443e10540677ee10ea0a6a74cfe102f035deebf719d4bd582b257ce9097036b"
+  }
+]

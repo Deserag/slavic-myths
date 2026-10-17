@@ -1,0 +1,5 @@
+{
+  "reason": "Fixture omitted ClientLevel.disconnect; native disconnect wait loop. Native save completed; only owned audit JVM terminated after JFR/thread dump.",
+  "at": "2026-10-17T16:49:36.6714419+03:00",
+  "pid": 20552
+}

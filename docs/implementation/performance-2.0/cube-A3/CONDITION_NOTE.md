@@ -1,0 +1,3 @@
+# INVALID_CONDITIONS — A3
+
+Focus=false observed during warmup atage1333, originalcamera0/12. One Computer Use activation attempted before sample (age~2178); focus brieflytrue butcamera changed to-3.4500005/9.450001. Capture failed `no screenshot targets found`; one refreshed-selection capture retry failed `FrameArrived timed out: timed out waiting on channel`. No clicks/keys/typing were sent. Later focusfalse andcamera26.55001/6.9; cause of further movements not attributed. The entire strict fixed-camera comparison is ineligible. Raw JFR/frames/screenshots retained; not a production regression claim. Automatic retries stopped pending confirmation that the computer/window can remain dedicated to measurements. No user process/world/PolyMC modified.

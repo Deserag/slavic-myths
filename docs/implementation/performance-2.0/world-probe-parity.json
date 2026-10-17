@@ -1,0 +1,25 @@
+{
+  "note": "Original main vs crash-fix world suite: same compiled observer/scenario classes. Production PolozEvents differs by guarded target access.",
+  "classes": [
+    {
+      "class": "org/slavicmyths/perf2/AuditMod.class",
+      "sha256": "02bdfba1cf7d5068d6dd060812c01ab16d42a925caf711639888f56d545dccc1"
+    },
+    {
+      "class": "org/slavicmyths/perf2/ModScenes.class",
+      "sha256": "76e42c653d46b4fd82fd0ef68c5a76c716249e6a8e0e8c5d37db151cd7ab7eb2"
+    },
+    {
+      "class": "org/slavicmyths/perf2/ScenarioBridge.class",
+      "sha256": "5b91039a087e177ed2905ef13c8fd31aeaf2e2afa5ed5f640a510269518db700"
+    },
+    {
+      "class": "org/slavicmyths/perf2/WorldProbe$1.class",
+      "sha256": "e0c2edbc9ab9a32c6e479bc134c45494612bf492ae8bbabc664bb531696f8902"
+    },
+    {
+      "class": "org/slavicmyths/perf2/WorldProbe.class",
+      "sha256": "1c918e7fc4eb6795e90d3652372d7726df6f7a708a89ca81c48556fdb7ffe061"
+    }
+  ]
+}

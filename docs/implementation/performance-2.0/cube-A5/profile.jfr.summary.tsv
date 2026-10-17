@@ -1,0 +1,124 @@
+events	422786
+event_span_seconds	336.129
+gc_count	47
+gc_sum_pause_ms	82.7476
+gc_max_pause_ms	2.4372
+ALLOCATION_ESTIMATES_BYTES (sampled, not retained)
+6987375608	production_cube | [F | org.slavicmyths.client.GuardianClient.cube
+2178619512	production_cube | [[F | org.slavicmyths.client.GuardianClient.cube
+163299400	production_cube | [[[F | org.slavicmyths.client.GuardianClient.cube
+4097343736	production_cube | org.joml.Vector3f | com.mojang.blaze3d.vertex.VertexConsumer.setNormal
+INCLUSIVE_CPU_SAMPLES (overlap, not time)
+8	Render thread | org.slavicmyths.client.FrostClient.hud
+42	Render thread | org.slavicmyths.client.GuardianClient$EchoRenderer.render
+352	Render thread | org.slavicmyths.client.GuardianClient$PrisonRenderer.render
+316	Render thread | org.slavicmyths.client.GuardianClient.cube
+265	Render thread | org.slavicmyths.client.GuardianClient.scene
+5	Render thread | org.slavicmyths.client.GuardianModel$$Lambda+0x000001f4be80da98.447652648.accept
+2060	Render thread | org.slavicmyths.client.GuardianModel.renderToBuffer
+128	Render thread | org.slavicmyths.client.GuardianModel.setupAnim
+1617	Render thread | org.slavicmyths.client.GuardianRenderer$1.render
+20	Render thread | org.slavicmyths.client.GuardianRenderer.getRenderType
+11	Render thread | org.slavicmyths.client.GuardianRenderer.getTextureLocation
+1	Render thread | org.slavicmyths.client.GusliClient.playing
+1	Render thread | org.slavicmyths.client.GusliClient.update
+4	Render thread | org.slavicmyths.client.HeroHud.render
+1	Render thread | org.slavicmyths.client.MorBlockParticles.tick
+3	Render thread | org.slavicmyths.client.NightClient.hand
+1	Render thread | org.slavicmyths.client.NightClient.hud
+4	Render thread | org.slavicmyths.client.NightClient.scene
+3	Render thread | org.slavicmyths.client.Quest185Client.outlined
+8	Render thread | org.slavicmyths.client.Quest185Client.render
+6	Render thread | org.slavicmyths.client.RareRuneClient.render
+2	Render thread | org.slavicmyths.client.WeaponHands.hand
+4	Render thread | org.slavicmyths.client.WolfStoryClient.hud
+1	Render thread | org.slavicmyths.cubeaudit.CubeProbe.client
+7	Render thread | org.slavicmyths.cubeaudit.CubeProbe.frame
+1	Render thread | org.slavicmyths.cubeaudit.CubeProbe.set
+10	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.addVertex
+10	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.f
+10	Render thread | org.slavicmyths.cubeaudit.VertexAudit$Sink.put
+21	Render thread | org.slavicmyths.guardians.GuardianContent.id
+5	Render thread | org.slavicmyths.guardians.GuardianEntity.rotation
+9	Render thread | org.slavicmyths.guardians.GuardianEntity.tick
+5	Render thread | org.slavicmyths.guardians.SpringKeeper.floodRegions
+2	Render thread | org.slavicmyths.guardians.SpringKeeper.whirlCenter
+1	Render thread | org.slavicmyths.guardians.WaterPrison.tick
+1	Render thread | org.slavicmyths.item.ItemState.legacy
+2	Render thread | org.slavicmyths.item.ItemState.runes
+1	Render thread | org.slavicmyths.mor.MorBlocks.index
+2	Render thread | org.slavicmyths.rpg.RareRuneRuntime.tier
+1	Render thread | org.slavicmyths.rpg.RareRunes$$Lambda+0x000001f4be7dddd0.536571297.test
+3	Render thread | org.slavicmyths.rpg.RareRunes.active
+1	Render thread | org.slavicmyths.rpg.RareRunes.equipment
+3	Render thread | org.slavicmyths.rpg.RareRunes.equipped
+1	Render thread | org.slavicmyths.rpg.RareRunes.lambda$active$2
+2	Render thread | org.slavicmyths.rpg.Runes.has
+2	Render thread | org.slavicmyths.rpg.Runes.list
+1	Render thread | org.slavicmyths.rpg.classes.ClassEvents.tick
+1	Render thread | org.slavicmyths.rpg.classes.ClassState.data
+1	Render thread | org.slavicmyths.rpg.classes.ClassState.passive
+1	Server thread | org.slavicmyths.bogatyr.BogatyrArena.tick
+5	Server thread | org.slavicmyths.cubeaudit.CubeProbe.after
+1	Server thread | org.slavicmyths.depths.DepthsService.tick
+2	Server thread | org.slavicmyths.equipment.UniqueEquipmentEvents.timer
+3	Server thread | org.slavicmyths.equipment.WindBootsMomentum.eligible
+3	Server thread | org.slavicmyths.equipment.WindBootsMomentum.tick
+2	Server thread | org.slavicmyths.finist.GreyPackRing.tick
+1	Server thread | org.slavicmyths.gorynych.GorynychLedger.part
+1	Server thread | org.slavicmyths.guardians.GuardianLedger.get
+1	Server thread | org.slavicmyths.guardians.GuardianWorld.player
+1	Server thread | org.slavicmyths.hunt.BossAnchors.player
+3	Server thread | org.slavicmyths.hunt.BossEffects.clearBelt
+27	Server thread | org.slavicmyths.hunt.BossEffects.tick
+1	Server thread | org.slavicmyths.hunt.HuntRecords.get
+2	Server thread | org.slavicmyths.hunt.StarCharmEffects.tick
+25	Server thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x000001f4be6eebc0.550803774.apply
+25	Server thread | org.slavicmyths.item.FolkAccessoryItem.equipped
+25	Server thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0
+22	Server thread | org.slavicmyths.item.FolkEquipmentEffects.wears
+1	Server thread | org.slavicmyths.item.ItemState.legacy
+1	Server thread | org.slavicmyths.item.ItemState.runes
+1	Server thread | org.slavicmyths.kalin.KalinEvents.tick
+1	Server thread | org.slavicmyths.karachun.NightCombat.tick
+3	Server thread | org.slavicmyths.karachun.NightEvents.tick
+2	Server thread | org.slavicmyths.marinka.WitchYard.get
+2	Server thread | org.slavicmyths.marinka.WitchYard.tick
+2	Server thread | org.slavicmyths.military.GreyWolfStoryEvents.tick
+1	Server thread | org.slavicmyths.military.MilitaryEvents.player
+2	Server thread | org.slavicmyths.mor.MorBlockExposure.tick
+2	Server thread | org.slavicmyths.mor.MorBlocks.index
+2	Server thread | org.slavicmyths.morozko.FrostEvents.tick
+1	Server thread | org.slavicmyths.poloz.PolozEvent.get
+3	Server thread | org.slavicmyths.poloz.PolozEvents.tick
+1	Server thread | org.slavicmyths.progression.Knowledge.knows
+4	Server thread | org.slavicmyths.quest185.Quest185Events.tick
+2	Server thread | org.slavicmyths.quest185.Quest185Story.migrate
+2	Server thread | org.slavicmyths.quest185.Quest185Story.status
+1	Server thread | org.slavicmyths.rewards.RewardEvents.tick
+1	Server thread | org.slavicmyths.rewards.RewardEvents.wears
+1	Server thread | org.slavicmyths.rpg.CraftRunes.tick
+1	Server thread | org.slavicmyths.rpg.PathData.data
+1	Server thread | org.slavicmyths.rpg.RareRuneRuntime.now
+2	Server thread | org.slavicmyths.rpg.RareRuneRuntime.tick
+1	Server thread | org.slavicmyths.rpg.RareRunes.equipped
+1	Server thread | org.slavicmyths.rpg.RpgEvents.blockConfirmation
+1	Server thread | org.slavicmyths.rpg.Runes.has
+1	Server thread | org.slavicmyths.rpg.Runes.list
+3	Server thread | org.slavicmyths.rpg.classes.ClassEvents.tick
+1	Server thread | org.slavicmyths.rpg.classes.ClassPassiveEvents.tick
+4	Server thread | org.slavicmyths.rpg.classes.ClassState.now
+1	Server thread | org.slavicmyths.serpenthill.HillCommands.tick
+3	Server thread | org.slavicmyths.serpenthill.HillEvents.player
+1	Server thread | org.slavicmyths.serpenthill.HillWorld.get
+1	Server thread | org.slavicmyths.sivka.SivkaBonds.get
+1	Server thread | org.slavicmyths.sivka.SivkaBonds.tick
+2	Server thread | org.slavicmyths.skim.HeroCalls.departures
+5	Server thread | org.slavicmyths.skim.SkimEvents.tick
+4	Server thread | org.slavicmyths.skim.SkimValley.get
+2	Server thread | org.slavicmyths.tales.TaleEvents.loadedStructure
+3	Server thread | org.slavicmyths.tales.TaleEvents.seen
+1	Server thread | org.slavicmyths.underground.OminousAura.tick
+1	Server thread | org.slavicmyths.winters.WintersEvents.data
+1	Server thread | org.slavicmyths.winters.WintersEvents.player
+1	Server thread | org.slavicmyths.worldgen.BoundedStructureSearch.tick

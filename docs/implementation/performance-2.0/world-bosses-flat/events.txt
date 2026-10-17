@@ -1,0 +1,812 @@
+PROCESS_ID=13772
+CONTROL=false mods=[perf2audit:1, minecraft:1.21.1, curios:9.5.1+1.21.1, neoforge:21.1.255, jei:19.51.0.418, slavicmyths:1.9.7.5]
+GPU=AMD Radeon RX 6600M window=1600x900 rd12 sim8 cap=140 vsyncfalse
+SCREEN LevelLoadingScreen epoch=1792247015897
+SCREEN ReceivingLevelScreen epoch=1792247017924
+CLIENT_SCENE startup_warmup epoch=1792247018322 cap=140
+SCREEN none epoch=1792247019273
+ORIGIN (1.5, -60.0, 1.5)
+SERVER_SCENE startup_warmup epoch=1792247021320 position=(1.5, -60.0, 1.5)
+NATIVE_STATUS startup_warmup age=20 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=40 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=60 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=80 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2400 spawned_alive=0 boss=none ability=0/0
+END startup_warmup epoch=1792247141245 position=(-140.4424489722709, -59.21391876842546, 19.721483230021033) status=spawned_alive=0 boss=none ability=0/0
+LEARN lunge=true
+LEARN flurry=true
+LEARN trip=true
+EQUIP true
+EQUIP true
+EQUIP true
+RUNE_WEAPON heat=true thunder=true installed=[heat, thunder]
+NATIVE_BOSS_START gorynych hp=1024.0 ground=BlockPos{x=-141, y=-60, z=31} no scripted boss damage or phase forcing
+SERVER_SCENE gorynych epoch=1792247141322 position=(-140.56639413859278, -59.417690388744795, 19.718033849219704)
+CLIENT_SCENE gorynych epoch=1792247141367 cap=140
+NATIVE_STATUS gorynych age=20 spawned_alive=1 boss=true hp=1024.0 target=false state=0 action=0 logicalHp=2800.0 ability=0/0
+NATIVE_STATUS gorynych age=40 spawned_alive=1 boss=true hp=1024.0 target=false state=1 action=0 logicalHp=2800.0 ability=0/0
+NATIVE_STATUS gorynych age=60 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=0/0
+NATIVE_STATUS gorynych age=80 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=0/0
+NATIVE_STATUS gorynych age=100 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=2 logicalHp=2800.0 ability=0/0
+NATIVE_STATUS gorynych age=120 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=2 logicalHp=2800.0 ability=0/0
+NATIVE_STATUS gorynych age=140 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=2 logicalHp=2800.0 ability=0/0
+NATIVE_STATUS gorynych age=160 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=2 logicalHp=2800.0 ability=0/0
+NATIVE_STATUS gorynych age=180 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=2 logicalHp=2800.0 ability=0/0
+ABILITY gorynych age=200 slot=1 accepted=true
+NATIVE_STATUS gorynych age=200 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=2 logicalHp=2800.0 ability=1/1
+NATIVE_STATUS gorynych age=220 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=1/1
+NATIVE_STATUS gorynych age=240 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=1/1
+NATIVE_STATUS gorynych age=260 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=1/1
+NATIVE_STATUS gorynych age=280 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=1/1
+NATIVE_STATUS gorynych age=300 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=1/1
+NATIVE_STATUS gorynych age=320 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=1/1
+NATIVE_STATUS gorynych age=340 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=1/1
+NATIVE_STATUS gorynych age=360 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=1/1
+NATIVE_STATUS gorynych age=380 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=1/1
+ABILITY gorynych age=400 slot=2 accepted=true
+NATIVE_STATUS gorynych age=400 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=2/2
+NATIVE_STATUS gorynych age=420 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=2/2
+NATIVE_STATUS gorynych age=440 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=2/2
+NATIVE_STATUS gorynych age=460 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=2/2
+NATIVE_STATUS gorynych age=480 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=2/2
+NATIVE_STATUS gorynych age=500 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=2/2
+NATIVE_STATUS gorynych age=520 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=2 logicalHp=2800.0 ability=2/2
+NATIVE_STATUS gorynych age=540 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=2 logicalHp=2800.0 ability=2/2
+NATIVE_STATUS gorynych age=560 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=2 logicalHp=2800.0 ability=2/2
+NATIVE_STATUS gorynych age=580 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=2 logicalHp=2800.0 ability=2/2
+ABILITY gorynych age=600 slot=0 accepted=true
+NATIVE_STATUS gorynych age=600 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=2 logicalHp=2800.0 ability=3/3
+NATIVE_STATUS gorynych age=620 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=3/3
+NATIVE_STATUS gorynych age=640 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=3/3
+NATIVE_STATUS gorynych age=660 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=3/3
+NATIVE_STATUS gorynych age=680 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=3/3
+NATIVE_STATUS gorynych age=700 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=3/3
+NATIVE_STATUS gorynych age=720 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=3/3
+NATIVE_STATUS gorynych age=740 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=3/3
+NATIVE_STATUS gorynych age=760 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=3/3
+NATIVE_STATUS gorynych age=780 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=3/3
+ABILITY gorynych age=800 slot=1 accepted=true
+NATIVE_STATUS gorynych age=800 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=4/4
+NATIVE_STATUS gorynych age=820 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=4/4
+NATIVE_STATUS gorynych age=840 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=4/4
+NATIVE_STATUS gorynych age=860 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=4/4
+NATIVE_STATUS gorynych age=880 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=4/4
+NATIVE_STATUS gorynych age=900 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=0 logicalHp=2800.0 ability=4/4
+NATIVE_STATUS gorynych age=920 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=1 logicalHp=2800.0 ability=4/4
+NATIVE_STATUS gorynych age=940 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=1 logicalHp=2800.0 ability=4/4
+NATIVE_STATUS gorynych age=960 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=1 logicalHp=2800.0 ability=4/4
+NATIVE_STATUS gorynych age=980 spawned_alive=1 boss=true hp=1024.0 target=true state=1 action=1 logicalHp=2800.0 ability=4/4
+ABILITY gorynych age=1000 slot=2 accepted=true
+NATIVE_STATUS gorynych age=1000 spawned_alive=1 boss=true hp=1022.464 target=true state=1 action=1 logicalHp=2795.8 ability=5/5
+NATIVE_STATUS gorynych age=1020 spawned_alive=1 boss=true hp=1021.91547 target=true state=1 action=0 logicalHp=2794.3 ability=5/5
+NATIVE_STATUS gorynych age=1040 spawned_alive=1 boss=true hp=1021.91547 target=true state=1 action=0 logicalHp=2794.3 ability=5/5
+NATIVE_STATUS gorynych age=1060 spawned_alive=1 boss=true hp=1021.91547 target=true state=1 action=0 logicalHp=2794.3 ability=5/5
+NATIVE_STATUS gorynych age=1080 spawned_alive=1 boss=true hp=1020.6992 target=true state=1 action=0 logicalHp=2790.9744 ability=5/5
+NATIVE_STATUS gorynych age=1100 spawned_alive=1 boss=true hp=1020.09106 target=true state=1 action=0 logicalHp=2789.3115 ability=5/5
+NATIVE_STATUS gorynych age=1120 spawned_alive=1 boss=true hp=1018.8748 target=true state=1 action=0 logicalHp=2785.9858 ability=5/5
+NATIVE_STATUS gorynych age=1140 spawned_alive=1 boss=true hp=1016.7307 target=true state=1 action=0 logicalHp=2780.123 ability=5/5
+NATIVE_STATUS gorynych age=1160 spawned_alive=1 boss=true hp=1014.6462 target=true state=1 action=0 logicalHp=2774.423 ability=5/5
+NATIVE_STATUS gorynych age=1180 spawned_alive=1 boss=true hp=1011.5742 target=true state=1 action=0 logicalHp=2766.0232 ability=5/5
+ABILITY gorynych age=1200 slot=0 accepted=true
+NATIVE_STATUS gorynych age=1200 spawned_alive=1 boss=true hp=1008.50226 target=true state=1 action=0 logicalHp=2757.6233 ability=6/6
+NATIVE_STATUS gorynych age=1220 spawned_alive=1 boss=true hp=1007.53107 target=true state=1 action=0 logicalHp=2754.9678 ability=6/6
+NATIVE_STATUS gorynych age=1240 spawned_alive=1 boss=true hp=1004.4591 target=true state=1 action=0 logicalHp=2746.5679 ability=6/6
+NATIVE_STATUS gorynych age=1260 spawned_alive=1 boss=true hp=1001.38715 target=true state=1 action=0 logicalHp=2738.168 ability=6/6
+NATIVE_STATUS gorynych age=1280 spawned_alive=1 boss=true hp=999.85114 target=true state=1 action=0 logicalHp=2733.968 ability=6/6
+NATIVE_STATUS gorynych age=1300 spawned_alive=1 boss=true hp=996.23065 target=true state=1 action=0 logicalHp=2724.068 ability=6/6
+NATIVE_STATUS gorynych age=1320 spawned_alive=1 boss=true hp=993.1586 target=true state=1 action=1 logicalHp=2715.6682 ability=6/6
+NATIVE_STATUS gorynych age=1340 spawned_alive=1 boss=true hp=991.6227 target=true state=1 action=1 logicalHp=2711.4683 ability=6/6
+NATIVE_STATUS gorynych age=1360 spawned_alive=1 boss=true hp=988.5507 target=true state=1 action=1 logicalHp=2703.0684 ability=6/6
+NATIVE_STATUS gorynych age=1380 spawned_alive=1 boss=true hp=985.47876 target=true state=1 action=1 logicalHp=2694.6685 ability=6/6
+ABILITY gorynych age=1400 slot=1 accepted=true
+NATIVE_STATUS gorynych age=1400 spawned_alive=1 boss=true hp=983.94275 target=true state=1 action=1 logicalHp=2690.4685 ability=7/7
+NATIVE_STATUS gorynych age=1420 spawned_alive=1 boss=true hp=983.94275 target=true state=1 action=0 logicalHp=2690.4685 ability=7/7
+NATIVE_STATUS gorynych age=1440 spawned_alive=1 boss=true hp=983.577 target=true state=1 action=0 logicalHp=2689.4685 ability=7/7
+NATIVE_STATUS gorynych age=1460 spawned_alive=1 boss=true hp=982.0411 target=true state=1 action=0 logicalHp=2685.2686 ability=7/7
+NATIVE_STATUS gorynych age=1480 spawned_alive=1 boss=true hp=980.50507 target=true state=1 action=0 logicalHp=2681.0686 ability=7/7
+NATIVE_STATUS gorynych age=1500 spawned_alive=1 boss=true hp=979.2888 target=true state=1 action=0 logicalHp=2677.743 ability=7/7
+NATIVE_STATUS gorynych age=1520 spawned_alive=1 boss=true hp=979.2888 target=true state=1 action=0 logicalHp=2677.743 ability=7/7
+NATIVE_STATUS gorynych age=1540 spawned_alive=1 boss=true hp=979.2888 target=true state=1 action=0 logicalHp=2677.743 ability=7/7
+NATIVE_STATUS gorynych age=1560 spawned_alive=1 boss=true hp=979.2888 target=true state=1 action=0 logicalHp=2677.743 ability=7/7
+NATIVE_STATUS gorynych age=1580 spawned_alive=1 boss=true hp=979.2888 target=true state=1 action=0 logicalHp=2677.743 ability=7/7
+ABILITY gorynych age=1600 slot=2 accepted=false
+NATIVE_STATUS gorynych age=1600 spawned_alive=1 boss=true hp=978.13214 target=true state=1 action=0 logicalHp=2674.58 ability=7/8
+NATIVE_STATUS gorynych age=1620 spawned_alive=1 boss=true hp=978.13214 target=true state=1 action=0 logicalHp=2674.58 ability=7/8
+NATIVE_STATUS gorynych age=1640 spawned_alive=1 boss=true hp=978.13214 target=true state=1 action=0 logicalHp=2674.58 ability=7/8
+NATIVE_STATUS gorynych age=1660 spawned_alive=1 boss=true hp=978.13214 target=true state=1 action=0 logicalHp=2674.58 ability=7/8
+NATIVE_STATUS gorynych age=1680 spawned_alive=1 boss=true hp=978.13214 target=false state=1 action=0 logicalHp=2674.58 ability=7/8
+NATIVE_STATUS gorynych age=1700 spawned_alive=1 boss=true hp=978.13214 target=false state=1 action=0 logicalHp=2674.58 ability=7/8
+NATIVE_STATUS gorynych age=1720 spawned_alive=1 boss=true hp=978.13214 target=true state=1 action=1 logicalHp=2674.58 ability=7/8
+NATIVE_STATUS gorynych age=1740 spawned_alive=1 boss=true hp=977.7664 target=true state=1 action=1 logicalHp=2673.58 ability=7/8
+NATIVE_STATUS gorynych age=1760 spawned_alive=1 boss=true hp=977.7664 target=false state=1 action=1 logicalHp=2673.58 ability=7/8
+NATIVE_STATUS gorynych age=1780 spawned_alive=1 boss=true hp=977.7664 target=false state=1 action=1 logicalHp=2673.58 ability=7/8
+ABILITY gorynych age=1800 slot=0 accepted=true
+NATIVE_STATUS gorynych age=1800 spawned_alive=1 boss=true hp=975.59607 target=false state=1 action=1 logicalHp=2667.6455 ability=8/9
+NATIVE_STATUS gorynych age=1820 spawned_alive=1 boss=true hp=975.59607 target=true state=1 action=0 logicalHp=2667.6455 ability=8/9
+NATIVE_STATUS gorynych age=1840 spawned_alive=1 boss=true hp=972.5241 target=true state=1 action=0 logicalHp=2659.2456 ability=8/9
+NATIVE_STATUS gorynych age=1860 spawned_alive=1 boss=true hp=969.45215 target=true state=1 action=0 logicalHp=2650.8457 ability=8/9
+NATIVE_STATUS gorynych age=1880 spawned_alive=1 boss=true hp=967.91614 target=true state=1 action=0 logicalHp=2646.6458 ability=8/9
+NATIVE_STATUS gorynych age=1900 spawned_alive=1 boss=true hp=964.29565 target=true state=1 action=0 logicalHp=2636.7458 ability=8/9
+NATIVE_STATUS gorynych age=1920 spawned_alive=1 boss=true hp=961.22363 target=true state=1 action=0 logicalHp=2628.346 ability=8/9
+NATIVE_STATUS gorynych age=1940 spawned_alive=1 boss=true hp=959.6877 target=true state=1 action=0 logicalHp=2624.146 ability=8/9
+NATIVE_STATUS gorynych age=1960 spawned_alive=1 boss=true hp=956.6157 target=true state=1 action=0 logicalHp=2615.746 ability=8/9
+NATIVE_STATUS gorynych age=1980 spawned_alive=1 boss=true hp=953.54376 target=true state=1 action=0 logicalHp=2607.3462 ability=8/9
+ABILITY gorynych age=2000 slot=1 accepted=true
+NATIVE_STATUS gorynych age=2000 spawned_alive=1 boss=true hp=952.00775 target=true state=1 action=0 logicalHp=2603.1462 ability=9/10
+NATIVE_STATUS gorynych age=2020 spawned_alive=1 boss=true hp=950.1719 target=true state=1 action=0 logicalHp=2598.1262 ability=9/10
+NATIVE_STATUS gorynych age=2040 spawned_alive=1 boss=true hp=946.55133 target=true state=1 action=0 logicalHp=2588.2263 ability=9/10
+NATIVE_STATUS gorynych age=2060 spawned_alive=1 boss=true hp=945.0154 target=true state=1 action=0 logicalHp=2584.0264 ability=9/10
+NATIVE_STATUS gorynych age=2080 spawned_alive=1 boss=true hp=941.9434 target=true state=1 action=0 logicalHp=2575.6265 ability=9/10
+NATIVE_STATUS gorynych age=2100 spawned_alive=1 boss=true hp=938.8714 target=true state=1 action=0 logicalHp=2567.2266 ability=9/10
+NATIVE_STATUS gorynych age=2120 spawned_alive=1 boss=true hp=937.33545 target=true state=1 action=2 logicalHp=2563.0266 ability=9/10
+NATIVE_STATUS gorynych age=2140 spawned_alive=1 boss=true hp=934.2635 target=true state=1 action=2 logicalHp=2554.6267 ability=9/10
+NATIVE_STATUS gorynych age=2160 spawned_alive=1 boss=true hp=934.2635 target=true state=1 action=2 logicalHp=2554.6267 ability=9/10
+NATIVE_STATUS gorynych age=2180 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=2 logicalHp=2553.6267 ability=9/10
+ABILITY gorynych age=2200 slot=2 accepted=true
+NATIVE_STATUS gorynych age=2200 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=2 logicalHp=2553.6267 ability=10/11
+NATIVE_STATUS gorynych age=2220 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/11
+NATIVE_STATUS gorynych age=2240 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/11
+NATIVE_STATUS gorynych age=2260 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/11
+NATIVE_STATUS gorynych age=2280 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/11
+NATIVE_STATUS gorynych age=2300 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/11
+NATIVE_STATUS gorynych age=2320 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/11
+NATIVE_STATUS gorynych age=2340 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/11
+NATIVE_STATUS gorynych age=2360 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/11
+NATIVE_STATUS gorynych age=2380 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/11
+ABILITY gorynych age=2400 slot=0 accepted=false
+NATIVE_STATUS gorynych age=2400 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/12
+NATIVE_STATUS gorynych age=2420 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/12
+NATIVE_STATUS gorynych age=2440 spawned_alive=1 boss=true hp=933.89777 target=true state=1 action=0 logicalHp=2553.6267 ability=10/12
+NATIVE_STATUS gorynych age=2460 spawned_alive=1 boss=true hp=933.53204 target=true state=1 action=0 logicalHp=2552.6267 ability=10/12
+NATIVE_STATUS gorynych age=2480 spawned_alive=1 boss=true hp=933.53204 target=true state=1 action=0 logicalHp=2552.6267 ability=10/12
+NATIVE_STATUS gorynych age=2500 spawned_alive=1 boss=true hp=933.53204 target=true state=1 action=0 logicalHp=2552.6267 ability=10/12
+NATIVE_STATUS gorynych age=2520 spawned_alive=1 boss=true hp=930.4601 target=true state=1 action=2 logicalHp=2544.2268 ability=10/12
+NATIVE_STATUS gorynych age=2540 spawned_alive=1 boss=true hp=928.92413 target=true state=1 action=2 logicalHp=2540.0269 ability=10/12
+NATIVE_STATUS gorynych age=2560 spawned_alive=1 boss=true hp=927.3881 target=true state=1 action=2 logicalHp=2535.827 ability=10/12
+NATIVE_STATUS gorynych age=2580 spawned_alive=1 boss=true hp=924.31616 target=true state=1 action=2 logicalHp=2527.427 ability=10/12
+ABILITY gorynych age=2600 slot=1 accepted=true
+NATIVE_STATUS gorynych age=2600 spawned_alive=1 boss=true hp=922.78015 target=true state=1 action=2 logicalHp=2523.227 ability=11/13
+NATIVE_STATUS gorynych age=2620 spawned_alive=1 boss=true hp=920.3957 target=true state=1 action=0 logicalHp=2516.707 ability=11/13
+NATIVE_STATUS gorynych age=2640 spawned_alive=1 boss=true hp=917.3237 target=true state=1 action=0 logicalHp=2508.3071 ability=11/13
+NATIVE_STATUS gorynych age=2660 spawned_alive=1 boss=true hp=915.7878 target=true state=1 action=0 logicalHp=2504.1072 ability=11/13
+NATIVE_STATUS gorynych age=2680 spawned_alive=1 boss=true hp=912.7158 target=true state=1 action=0 logicalHp=2495.7073 ability=11/13
+NATIVE_STATUS gorynych age=2700 spawned_alive=1 boss=true hp=909.64386 target=true state=1 action=0 logicalHp=2487.3074 ability=11/13
+NATIVE_STATUS gorynych age=2720 spawned_alive=1 boss=true hp=908.10785 target=true state=1 action=0 logicalHp=2483.1074 ability=11/13
+NATIVE_STATUS gorynych age=2740 spawned_alive=1 boss=true hp=905.0359 target=true state=1 action=0 logicalHp=2474.7075 ability=11/13
+NATIVE_STATUS gorynych age=2760 spawned_alive=1 boss=true hp=901.41534 target=true state=1 action=0 logicalHp=2464.8076 ability=11/13
+NATIVE_STATUS gorynych age=2780 spawned_alive=1 boss=true hp=899.8794 target=true state=1 action=0 logicalHp=2460.6077 ability=11/13
+ABILITY gorynych age=2800 slot=2 accepted=true
+NATIVE_STATUS gorynych age=2800 spawned_alive=1 boss=true hp=896.80743 target=true state=1 action=0 logicalHp=2452.2078 ability=12/14
+NATIVE_STATUS gorynych age=2820 spawned_alive=1 boss=true hp=894.7732 target=true state=1 action=0 logicalHp=2446.6455 ability=12/14
+NATIVE_STATUS gorynych age=2840 spawned_alive=1 boss=true hp=893.23724 target=true state=1 action=0 logicalHp=2442.4456 ability=12/14
+NATIVE_STATUS gorynych age=2860 spawned_alive=1 boss=true hp=890.1653 target=true state=1 action=0 logicalHp=2434.0457 ability=12/14
+NATIVE_STATUS gorynych age=2880 spawned_alive=1 boss=true hp=888.6293 target=true state=1 action=0 logicalHp=2429.8457 ability=12/14
+NATIVE_STATUS gorynych age=2900 spawned_alive=1 boss=true hp=887.4726 target=true state=1 action=0 logicalHp=2426.6829 ability=12/14
+NATIVE_STATUS gorynych age=2920 spawned_alive=1 boss=true hp=886.25635 target=true state=1 action=0 logicalHp=2423.3572 ability=12/14
+NATIVE_STATUS gorynych age=2940 spawned_alive=1 boss=true hp=885.0401 target=true state=1 action=1 logicalHp=2420.0315 ability=12/14
+NATIVE_STATUS gorynych age=2960 spawned_alive=1 boss=true hp=884.43195 target=true state=1 action=1 logicalHp=2418.3687 ability=12/14
+NATIVE_STATUS gorynych age=2980 spawned_alive=1 boss=true hp=882.896 target=true state=1 action=1 logicalHp=2414.1687 ability=12/14
+ABILITY gorynych age=3000 slot=0 accepted=true
+NATIVE_STATUS gorynych age=3000 spawned_alive=1 boss=true hp=879.82404 target=true state=1 action=1 logicalHp=2405.7688 ability=13/15
+NATIVE_STATUS gorynych age=3020 spawned_alive=1 boss=true hp=878.85284 target=true state=1 action=1 logicalHp=2403.1133 ability=13/15
+NATIVE_STATUS gorynych age=3040 spawned_alive=1 boss=true hp=875.2323 target=true state=1 action=0 logicalHp=2393.2134 ability=13/15
+NATIVE_STATUS gorynych age=3060 spawned_alive=1 boss=true hp=872.16034 target=true state=1 action=0 logicalHp=2384.8135 ability=13/15
+NATIVE_STATUS gorynych age=3080 spawned_alive=1 boss=true hp=870.6244 target=true state=1 action=0 logicalHp=2380.6135 ability=13/15
+NATIVE_STATUS gorynych age=3100 spawned_alive=1 boss=true hp=867.5524 target=true state=1 action=0 logicalHp=2372.2136 ability=13/15
+NATIVE_STATUS gorynych age=3120 spawned_alive=1 boss=true hp=864.48047 target=true state=1 action=0 logicalHp=2363.8137 ability=13/15
+NATIVE_STATUS gorynych age=3140 spawned_alive=1 boss=true hp=862.94446 target=true state=1 action=0 logicalHp=2359.6138 ability=13/15
+NATIVE_STATUS gorynych age=3160 spawned_alive=1 boss=true hp=859.8725 target=true state=1 action=0 logicalHp=2351.2139 ability=13/15
+NATIVE_STATUS gorynych age=3180 spawned_alive=1 boss=true hp=855.3304 target=true state=1 action=0 logicalHp=2338.794 ability=13/15
+ABILITY gorynych age=3200 slot=1 accepted=true
+NATIVE_STATUS gorynych age=3200 spawned_alive=1 boss=true hp=853.7944 target=true state=1 action=0 logicalHp=2334.594 ability=14/16
+NATIVE_STATUS gorynych age=3220 spawned_alive=1 boss=true hp=853.49445 target=true state=1 action=0 logicalHp=2333.774 ability=14/16
+NATIVE_STATUS gorynych age=3240 spawned_alive=1 boss=true hp=853.49445 target=true state=1 action=0 logicalHp=2333.774 ability=14/16
+NATIVE_STATUS gorynych age=3260 spawned_alive=1 boss=true hp=853.49445 target=true state=1 action=0 logicalHp=2333.774 ability=14/16
+NATIVE_STATUS gorynych age=3280 spawned_alive=1 boss=true hp=851.9585 target=true state=1 action=0 logicalHp=2329.574 ability=14/16
+NATIVE_STATUS gorynych age=3300 spawned_alive=1 boss=true hp=848.88654 target=true state=1 action=0 logicalHp=2321.174 ability=14/16
+NATIVE_STATUS gorynych age=3320 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=14/16
+NATIVE_STATUS gorynych age=3340 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=1 logicalHp=2316.974 ability=14/16
+NATIVE_STATUS gorynych age=3360 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=1 logicalHp=2316.974 ability=14/16
+NATIVE_STATUS gorynych age=3380 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=1 logicalHp=2316.974 ability=14/16
+ABILITY gorynych age=3400 slot=2 accepted=false
+NATIVE_STATUS gorynych age=3400 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=1 logicalHp=2316.974 ability=14/17
+NATIVE_STATUS gorynych age=3420 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=1 logicalHp=2316.974 ability=14/17
+NATIVE_STATUS gorynych age=3440 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=14/17
+NATIVE_STATUS gorynych age=3460 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=14/17
+NATIVE_STATUS gorynych age=3480 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=14/17
+NATIVE_STATUS gorynych age=3500 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=14/17
+NATIVE_STATUS gorynych age=3520 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=14/17
+NATIVE_STATUS gorynych age=3540 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=14/17
+NATIVE_STATUS gorynych age=3560 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=14/17
+NATIVE_STATUS gorynych age=3580 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=14/17
+ABILITY gorynych age=3600 slot=0 accepted=true
+NATIVE_STATUS gorynych age=3600 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=15/18
+END gorynych epoch=1792247321245 position=(-110.95276449085682, -60.0, 1.0277875775550538) status=spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=15/18
+BEFORE_FIXTURE_CLEANUP gorynych alive=1 spawned_alive=1 boss=true hp=847.3505 target=true state=1 action=0 logicalHp=2316.974 ability=15/18
+RUNE_WEAPON heat=true thunder=true installed=[heat, thunder]
+NATIVE_BOSS_START karachun hp=1600.0 ground=BlockPos{x=-111, y=-60, z=12} no scripted boss damage or phase forcing
+SERVER_SCENE karachun epoch=1792247321304 position=(-110.89528017670473, -60.0, 0.9484178435205703)
+CLIENT_SCENE karachun epoch=1792247321348 cap=140
+NATIVE_STATUS karachun age=20 spawned_alive=1 boss=true hp=1600.0 target=true phase=0 action=0 ability=15/18
+NATIVE_STATUS karachun age=40 spawned_alive=1 boss=true hp=1600.0 target=true phase=0 action=0 ability=15/18
+NATIVE_STATUS karachun age=60 spawned_alive=1 boss=true hp=1600.0 target=true phase=0 action=0 ability=15/18
+NATIVE_STATUS karachun age=80 spawned_alive=1 boss=true hp=1600.0 target=true phase=1 action=4 ability=15/18
+NATIVE_STATUS karachun age=100 spawned_alive=1 boss=true hp=1600.0 target=true phase=1 action=0 ability=15/18
+NATIVE_STATUS karachun age=120 spawned_alive=1 boss=true hp=1600.0 target=true phase=1 action=5 ability=15/18
+NATIVE_STATUS karachun age=140 spawned_alive=1 boss=true hp=1600.0 target=true phase=1 action=0 ability=15/18
+NATIVE_STATUS karachun age=160 spawned_alive=1 boss=true hp=1588.1399 target=true phase=1 action=6 ability=15/18
+NATIVE_STATUS karachun age=180 spawned_alive=1 boss=true hp=1577.7798 target=true phase=1 action=7 ability=15/18
+ABILITY karachun age=200 slot=1 accepted=true
+NATIVE_STATUS karachun age=200 spawned_alive=1 boss=true hp=1572.5997 target=true phase=1 action=7 ability=16/19
+NATIVE_STATUS karachun age=220 spawned_alive=1 boss=true hp=1566.4575 target=true phase=1 action=0 ability=16/19
+NATIVE_STATUS karachun age=240 spawned_alive=1 boss=true hp=1556.0974 target=true phase=1 action=9 ability=16/19
+NATIVE_STATUS karachun age=260 spawned_alive=1 boss=true hp=1550.9174 target=true phase=1 action=8 ability=16/19
+NATIVE_STATUS karachun age=280 spawned_alive=1 boss=true hp=1540.5573 target=true phase=1 action=8 ability=16/19
+NATIVE_STATUS karachun age=300 spawned_alive=1 boss=true hp=1528.6971 target=true phase=1 action=1 ability=16/19
+NATIVE_STATUS karachun age=320 spawned_alive=1 boss=true hp=1523.5171 target=true phase=1 action=1 ability=16/19
+NATIVE_STATUS karachun age=340 spawned_alive=1 boss=true hp=1513.157 target=true phase=1 action=0 ability=16/19
+NATIVE_STATUS karachun age=360 spawned_alive=1 boss=true hp=1502.7969 target=true phase=1 action=0 ability=16/19
+NATIVE_STATUS karachun age=380 spawned_alive=1 boss=true hp=1497.6168 target=true phase=1 action=0 ability=16/19
+ABILITY karachun age=400 slot=2 accepted=true
+NATIVE_STATUS karachun age=400 spawned_alive=1 boss=true hp=1487.2567 target=true phase=1 action=0 ability=17/20
+NATIVE_STATUS karachun age=420 spawned_alive=1 boss=true hp=1480.4628 target=true phase=1 action=5 ability=17/20
+NATIVE_STATUS karachun age=440 spawned_alive=1 boss=true hp=1475.2827 target=true phase=1 action=0 ability=17/20
+NATIVE_STATUS karachun age=460 spawned_alive=1 boss=true hp=1463.4226 target=true phase=1 action=0 ability=17/20
+NATIVE_STATUS karachun age=480 spawned_alive=1 boss=true hp=1453.0625 target=true phase=1 action=0 ability=17/20
+NATIVE_STATUS karachun age=500 spawned_alive=1 boss=true hp=1447.8824 target=true phase=1 action=0 ability=17/20
+NATIVE_STATUS karachun age=520 spawned_alive=1 boss=true hp=1437.5223 target=true phase=1 action=6 ability=17/20
+NATIVE_STATUS karachun age=540 spawned_alive=1 boss=true hp=1427.1622 target=true phase=1 action=2 ability=17/20
+NATIVE_STATUS karachun age=560 spawned_alive=1 boss=true hp=1421.9822 target=true phase=1 action=2 ability=17/20
+NATIVE_STATUS karachun age=580 spawned_alive=1 boss=true hp=1411.6221 target=true phase=1 action=0 ability=17/20
+ABILITY karachun age=600 slot=0 accepted=false
+NATIVE_STATUS karachun age=600 spawned_alive=1 boss=true hp=1399.762 target=true phase=1 action=0 ability=17/21
+NATIVE_STATUS karachun age=620 spawned_alive=1 boss=true hp=1394.5819 target=true phase=1 action=0 ability=17/21
+NATIVE_STATUS karachun age=640 spawned_alive=1 boss=true hp=1384.2218 target=true phase=1 action=0 ability=17/21
+NATIVE_STATUS karachun age=660 spawned_alive=1 boss=true hp=1373.8617 target=true phase=1 action=0 ability=17/21
+NATIVE_STATUS karachun age=680 spawned_alive=1 boss=true hp=1368.6816 target=true phase=1 action=0 ability=17/21
+NATIVE_STATUS karachun age=700 spawned_alive=1 boss=true hp=1358.3215 target=true phase=1 action=8 ability=17/21
+NATIVE_STATUS karachun age=720 spawned_alive=1 boss=true hp=1347.9614 target=true phase=1 action=8 ability=17/21
+NATIVE_STATUS karachun age=740 spawned_alive=1 boss=true hp=1341.2814 target=true phase=1 action=5 ability=17/21
+NATIVE_STATUS karachun age=760 spawned_alive=1 boss=true hp=1330.9213 target=true phase=1 action=5 ability=17/21
+NATIVE_STATUS karachun age=780 spawned_alive=1 boss=true hp=1320.5612 target=true phase=1 action=3 ability=17/21
+ABILITY karachun age=800 slot=1 accepted=true
+NATIVE_STATUS karachun age=800 spawned_alive=1 boss=true hp=1315.3811 target=true phase=1 action=3 ability=18/22
+NATIVE_STATUS karachun age=820 spawned_alive=1 boss=true hp=1309.2389 target=true phase=1 action=0 ability=18/22
+NATIVE_STATUS karachun age=840 spawned_alive=1 boss=true hp=1298.8788 target=true phase=1 action=0 ability=18/22
+NATIVE_STATUS karachun age=860 spawned_alive=1 boss=true hp=1293.6987 target=true phase=1 action=0 ability=18/22
+NATIVE_STATUS karachun age=880 spawned_alive=1 boss=true hp=1281.8386 target=true phase=1 action=6 ability=18/22
+NATIVE_STATUS karachun age=900 spawned_alive=1 boss=true hp=1271.4785 target=true phase=1 action=7 ability=18/22
+NATIVE_STATUS karachun age=920 spawned_alive=1 boss=true hp=1266.2985 target=true phase=1 action=7 ability=18/22
+NATIVE_STATUS karachun age=940 spawned_alive=1 boss=true hp=1255.9384 target=true phase=1 action=0 ability=18/22
+NATIVE_STATUS karachun age=960 spawned_alive=1 boss=true hp=1245.5782 target=true phase=1 action=0 ability=18/22
+NATIVE_STATUS karachun age=980 spawned_alive=1 boss=true hp=1240.3982 target=true phase=1 action=0 ability=18/22
+ABILITY karachun age=1000 slot=2 accepted=true
+NATIVE_STATUS karachun age=1000 spawned_alive=1 boss=true hp=1230.0381 target=true phase=1 action=0 ability=19/23
+NATIVE_STATUS karachun age=1020 spawned_alive=1 boss=true hp=1221.7441 target=true phase=1 action=1 ability=19/23
+NATIVE_STATUS karachun age=1040 spawned_alive=1 boss=true hp=1216.5641 target=true phase=1 action=1 ability=19/23
+NATIVE_STATUS karachun age=1060 spawned_alive=1 boss=true hp=1206.204 target=true phase=1 action=9 ability=19/23
+NATIVE_STATUS karachun age=1080 spawned_alive=1 boss=true hp=1195.8439 target=true phase=1 action=5 ability=19/23
+NATIVE_STATUS karachun age=1100 spawned_alive=1 boss=true hp=1190.6638 target=true phase=1 action=5 ability=19/23
+NATIVE_STATUS karachun age=1120 spawned_alive=1 boss=true hp=1180.3037 target=true phase=1 action=0 ability=19/23
+NATIVE_STATUS karachun age=1140 spawned_alive=1 boss=true hp=1169.9436 target=true phase=1 action=8 ability=19/23
+NATIVE_STATUS karachun age=1160 spawned_alive=1 boss=true hp=1164.7635 target=true phase=1 action=8 ability=19/23
+NATIVE_STATUS karachun age=1180 spawned_alive=1 boss=true hp=1152.9034 target=true phase=1 action=0 ability=19/23
+ABILITY karachun age=1200 slot=0 accepted=false
+NATIVE_STATUS karachun age=1200 spawned_alive=1 boss=true hp=1142.5433 target=true phase=1 action=0 ability=19/24
+NATIVE_STATUS karachun age=1220 spawned_alive=1 boss=true hp=1137.3633 target=true phase=1 action=0 ability=19/24
+NATIVE_STATUS karachun age=1240 spawned_alive=1 boss=true hp=1127.0032 target=true phase=1 action=6 ability=19/24
+NATIVE_STATUS karachun age=1260 spawned_alive=1 boss=true hp=1116.6431 target=true phase=2 action=2 ability=19/24
+NATIVE_STATUS karachun age=1280 spawned_alive=1 boss=true hp=1111.463 target=true phase=2 action=2 ability=19/24
+NATIVE_STATUS karachun age=1300 spawned_alive=1 boss=true hp=1101.1029 target=true phase=2 action=0 ability=19/24
+NATIVE_STATUS karachun age=1320 spawned_alive=1 boss=true hp=1089.2428 target=true phase=2 action=0 ability=19/24
+NATIVE_STATUS karachun age=1340 spawned_alive=1 boss=true hp=1084.0627 target=true phase=2 action=0 ability=19/24
+NATIVE_STATUS karachun age=1360 spawned_alive=1 boss=true hp=1073.7026 target=true phase=2 action=0 ability=19/24
+NATIVE_STATUS karachun age=1380 spawned_alive=1 boss=true hp=1063.3425 target=true phase=2 action=5 ability=19/24
+ABILITY karachun age=1400 slot=1 accepted=true
+NATIVE_STATUS karachun age=1400 spawned_alive=1 boss=true hp=1058.1625 target=true phase=2 action=5 ability=20/25
+NATIVE_STATUS karachun age=1420 spawned_alive=1 boss=true hp=1052.0203 target=true phase=2 action=0 ability=20/25
+NATIVE_STATUS karachun age=1440 spawned_alive=1 boss=true hp=1041.6602 target=true phase=2 action=0 ability=20/25
+NATIVE_STATUS karachun age=1460 spawned_alive=1 boss=true hp=1034.9801 target=true phase=2 action=0 ability=20/25
+NATIVE_STATUS karachun age=1480 spawned_alive=1 boss=true hp=1024.62 target=true phase=2 action=0 ability=20/25
+NATIVE_STATUS karachun age=1500 spawned_alive=1 boss=true hp=1014.26 target=true phase=2 action=3 ability=20/25
+NATIVE_STATUS karachun age=1520 spawned_alive=1 boss=true hp=1009.08 target=true phase=2 action=3 ability=20/25
+NATIVE_STATUS karachun age=1540 spawned_alive=1 boss=true hp=998.72003 target=true phase=2 action=0 ability=20/25
+NATIVE_STATUS karachun age=1560 spawned_alive=1 boss=true hp=988.36005 target=true phase=2 action=0 ability=20/25
+NATIVE_STATUS karachun age=1580 spawned_alive=1 boss=true hp=983.18005 target=true phase=2 action=8 ability=20/25
+ABILITY karachun age=1600 slot=2 accepted=true
+NATIVE_STATUS karachun age=1600 spawned_alive=1 boss=true hp=970.09705 target=true phase=2 action=8 ability=21/26
+NATIVE_STATUS karachun age=1620 spawned_alive=1 boss=true hp=963.30316 target=true phase=2 action=7 ability=21/26
+NATIVE_STATUS karachun age=1640 spawned_alive=1 boss=true hp=958.12317 target=true phase=2 action=7 ability=21/26
+NATIVE_STATUS karachun age=1660 spawned_alive=1 boss=true hp=947.62317 target=true phase=2 action=6 ability=21/26
+NATIVE_STATUS karachun age=1680 spawned_alive=1 boss=true hp=933.9382 target=true phase=2 action=6 ability=21/26
+NATIVE_STATUS karachun age=1700 spawned_alive=1 boss=true hp=928.7582 target=true phase=2 action=5 ability=21/26
+NATIVE_STATUS karachun age=1720 spawned_alive=1 boss=true hp=918.3982 target=true phase=2 action=5 ability=21/26
+NATIVE_STATUS karachun age=1740 spawned_alive=1 boss=true hp=906.5382 target=true phase=2 action=1 ability=21/26
+NATIVE_STATUS karachun age=1760 spawned_alive=1 boss=true hp=901.3582 target=true phase=2 action=1 ability=21/26
+NATIVE_STATUS karachun age=1780 spawned_alive=1 boss=true hp=890.9982 target=true phase=2 action=0 ability=21/26
+ABILITY karachun age=1800 slot=0 accepted=true
+NATIVE_STATUS karachun age=1800 spawned_alive=1 boss=true hp=880.63824 target=true phase=2 action=0 ability=22/27
+NATIVE_STATUS karachun age=1820 spawned_alive=1 boss=true hp=877.4279 target=true phase=2 action=0 ability=22/27
+NATIVE_STATUS karachun age=1840 spawned_alive=1 boss=true hp=863.7429 target=true phase=2 action=0 ability=22/27
+NATIVE_STATUS karachun age=1860 spawned_alive=1 boss=true hp=853.38293 target=true phase=2 action=9 ability=22/27
+NATIVE_STATUS karachun age=1880 spawned_alive=1 boss=true hp=848.20294 target=true phase=2 action=0 ability=22/27
+NATIVE_STATUS karachun age=1900 spawned_alive=1 boss=true hp=833.01794 target=true phase=2 action=0 ability=22/27
+NATIVE_STATUS karachun age=1920 spawned_alive=1 boss=true hp=822.65796 target=true phase=2 action=0 ability=22/27
+NATIVE_STATUS karachun age=1940 spawned_alive=1 boss=true hp=817.47797 target=true phase=2 action=0 ability=22/27
+NATIVE_STATUS karachun age=1960 spawned_alive=1 boss=true hp=807.118 target=true phase=2 action=0 ability=22/27
+NATIVE_STATUS karachun age=1980 spawned_alive=1 boss=true hp=796.758 target=true phase=2 action=2 ability=22/27
+ABILITY karachun age=2000 slot=1 accepted=true
+NATIVE_STATUS karachun age=2000 spawned_alive=1 boss=true hp=791.578 target=true phase=2 action=2 ability=23/28
+NATIVE_STATUS karachun age=2020 spawned_alive=1 boss=true hp=785.43585 target=true phase=2 action=8 ability=23/28
+NATIVE_STATUS karachun age=2040 spawned_alive=1 boss=true hp=770.25085 target=true phase=2 action=8 ability=23/28
+NATIVE_STATUS karachun age=2060 spawned_alive=1 boss=true hp=761.74585 target=true phase=2 action=5 ability=23/28
+NATIVE_STATUS karachun age=2080 spawned_alive=1 boss=true hp=751.38586 target=true phase=2 action=5 ability=23/28
+NATIVE_STATUS karachun age=2100 spawned_alive=1 boss=true hp=741.0259 target=true phase=2 action=6 ability=23/28
+NATIVE_STATUS karachun age=2120 spawned_alive=1 boss=true hp=735.8459 target=true phase=2 action=6 ability=23/28
+NATIVE_STATUS karachun age=2140 spawned_alive=1 boss=true hp=722.1609 target=true phase=2 action=0 ability=23/28
+NATIVE_STATUS karachun age=2160 spawned_alive=1 boss=true hp=711.8009 target=true phase=2 action=0 ability=23/28
+NATIVE_STATUS karachun age=2180 spawned_alive=1 boss=true hp=705.1209 target=true phase=2 action=0 ability=23/28
+ABILITY karachun age=2200 slot=2 accepted=true
+NATIVE_STATUS karachun age=2200 spawned_alive=1 boss=true hp=691.4359 target=true phase=2 action=0 ability=24/29
+NATIVE_STATUS karachun age=2220 spawned_alive=1 boss=true hp=684.642 target=true phase=2 action=3 ability=24/29
+NATIVE_STATUS karachun age=2240 spawned_alive=1 boss=true hp=679.46204 target=true phase=2 action=3 ability=24/29
+NATIVE_STATUS karachun age=2260 spawned_alive=1 boss=true hp=674.28204 target=true phase=2 action=0 ability=24/29
+NATIVE_STATUS karachun age=2280 spawned_alive=1 boss=true hp=663.92206 target=true phase=2 action=0 ability=24/29
+NATIVE_STATUS karachun age=2300 spawned_alive=1 boss=true hp=655.41705 target=true phase=2 action=0 ability=24/29
+NATIVE_STATUS karachun age=2320 spawned_alive=1 boss=true hp=643.55707 target=true phase=2 action=7 ability=24/29
+NATIVE_STATUS karachun age=2340 spawned_alive=1 boss=true hp=633.1971 target=true phase=2 action=7 ability=24/29
+NATIVE_STATUS karachun age=2360 spawned_alive=1 boss=true hp=628.0171 target=true phase=2 action=5 ability=24/29
+NATIVE_STATUS karachun age=2380 spawned_alive=1 boss=true hp=617.6571 target=true phase=2 action=5 ability=24/29
+ABILITY karachun age=2400 slot=0 accepted=true
+NATIVE_STATUS karachun age=2400 spawned_alive=1 boss=true hp=607.2971 target=true phase=2 action=0 ability=25/30
+NATIVE_STATUS karachun age=2420 spawned_alive=1 boss=true hp=604.0868 target=true phase=2 action=0 ability=25/30
+NATIVE_STATUS karachun age=2440 spawned_alive=1 boss=true hp=593.7268 target=true phase=2 action=0 ability=25/30
+NATIVE_STATUS karachun age=2460 spawned_alive=1 boss=true hp=578.5418 target=true phase=2 action=8 ability=25/30
+NATIVE_STATUS karachun age=2480 spawned_alive=1 boss=true hp=573.3618 target=true phase=2 action=8 ability=25/30
+NATIVE_STATUS karachun age=2500 spawned_alive=1 boss=true hp=563.00183 target=true phase=2 action=6 ability=25/30
+NATIVE_STATUS karachun age=2520 spawned_alive=1 boss=true hp=552.64185 target=true phase=2 action=6 ability=25/30
+NATIVE_STATUS karachun age=2540 spawned_alive=1 boss=true hp=547.46185 target=true phase=2 action=1 ability=25/30
+NATIVE_STATUS karachun age=2560 spawned_alive=1 boss=true hp=537.10187 target=true phase=2 action=0 ability=25/30
+NATIVE_STATUS karachun age=2580 spawned_alive=1 boss=true hp=526.7419 target=true phase=2 action=0 ability=25/30
+ABILITY karachun age=2600 slot=1 accepted=true
+NATIVE_STATUS karachun age=2600 spawned_alive=1 boss=true hp=521.5619 target=true phase=2 action=0 ability=26/31
+NATIVE_STATUS karachun age=2620 spawned_alive=1 boss=true hp=513.91974 target=true phase=2 action=0 ability=26/31
+NATIVE_STATUS karachun age=2640 spawned_alive=1 boss=true hp=503.55975 target=true phase=2 action=0 ability=26/31
+NATIVE_STATUS karachun age=2660 spawned_alive=1 boss=true hp=498.37976 target=true phase=2 action=9 ability=26/31
+NATIVE_STATUS karachun age=2680 spawned_alive=1 boss=true hp=488.01978 target=true phase=2 action=5 ability=26/31
+NATIVE_STATUS karachun age=2700 spawned_alive=1 boss=true hp=477.6598 target=true phase=2 action=5 ability=26/31
+NATIVE_STATUS karachun age=2720 spawned_alive=1 boss=true hp=472.4798 target=true phase=2 action=0 ability=26/31
+NATIVE_STATUS karachun age=2740 spawned_alive=1 boss=true hp=462.1198 target=true phase=2 action=0 ability=26/31
+NATIVE_STATUS karachun age=2760 spawned_alive=1 boss=true hp=446.9348 target=true phase=2 action=0 ability=26/31
+NATIVE_STATUS karachun age=2780 spawned_alive=1 boss=true hp=441.75482 target=true phase=2 action=2 ability=26/31
+ABILITY karachun age=2800 slot=2 accepted=true
+NATIVE_STATUS karachun age=2800 spawned_alive=1 boss=true hp=436.57483 target=true phase=2 action=0 ability=27/32
+NATIVE_STATUS karachun age=2820 spawned_alive=1 boss=true hp=429.7809 target=true phase=2 action=0 ability=27/32
+NATIVE_STATUS karachun age=2840 spawned_alive=1 boss=true hp=424.60092 target=true phase=2 action=0 ability=27/32
+NATIVE_STATUS karachun age=2860 spawned_alive=1 boss=true hp=414.24094 target=true phase=2 action=6 ability=27/32
+NATIVE_STATUS karachun age=2880 spawned_alive=1 boss=true hp=403.88095 target=true phase=2 action=6 ability=27/32
+NATIVE_STATUS karachun age=2900 spawned_alive=1 boss=true hp=397.20096 target=true phase=3 action=8 ability=27/32
+NATIVE_STATUS karachun age=2920 spawned_alive=1 boss=true hp=386.84097 target=true phase=3 action=8 ability=27/32
+NATIVE_STATUS karachun age=2940 spawned_alive=1 boss=true hp=376.481 target=true phase=3 action=0 ability=27/32
+NATIVE_STATUS karachun age=2960 spawned_alive=1 boss=true hp=371.301 target=true phase=3 action=0 ability=27/32
+NATIVE_STATUS karachun age=2980 spawned_alive=1 boss=true hp=360.941 target=true phase=3 action=5 ability=27/32
+ABILITY karachun age=3000 slot=0 accepted=true
+NATIVE_STATUS karachun age=3000 spawned_alive=1 boss=true hp=350.58102 target=true phase=3 action=5 ability=28/33
+NATIVE_STATUS karachun age=3020 spawned_alive=1 boss=true hp=347.3707 target=true phase=3 action=7 ability=28/33
+NATIVE_STATUS karachun age=3040 spawned_alive=1 boss=true hp=335.5107 target=true phase=3 action=7 ability=28/33
+NATIVE_STATUS karachun age=3060 spawned_alive=1 boss=true hp=325.15073 target=true phase=3 action=0 ability=28/33
+NATIVE_STATUS karachun age=3080 spawned_alive=1 boss=true hp=319.97073 target=true phase=3 action=3 ability=28/33
+NATIVE_STATUS karachun age=3100 spawned_alive=1 boss=true hp=309.61075 target=true phase=3 action=3 ability=28/33
+NATIVE_STATUS karachun age=3120 spawned_alive=1 boss=true hp=299.25076 target=true phase=3 action=0 ability=28/33
+NATIVE_STATUS karachun age=3140 spawned_alive=1 boss=true hp=294.07077 target=true phase=3 action=0 ability=28/33
+NATIVE_STATUS karachun age=3160 spawned_alive=1 boss=true hp=283.7108 target=true phase=3 action=0 ability=28/33
+NATIVE_STATUS karachun age=3180 spawned_alive=1 boss=true hp=271.8508 target=true phase=3 action=0 ability=28/33
+ABILITY karachun age=3200 slot=1 accepted=true
+NATIVE_STATUS karachun age=3200 spawned_alive=1 boss=true hp=266.6708 target=true phase=3 action=1 ability=29/34
+NATIVE_STATUS karachun age=3220 spawned_alive=1 boss=true hp=260.52863 target=true phase=3 action=6 ability=29/34
+NATIVE_STATUS karachun age=3240 spawned_alive=1 boss=true hp=250.16864 target=true phase=3 action=6 ability=29/34
+NATIVE_STATUS karachun age=3260 spawned_alive=1 boss=true hp=244.98865 target=true phase=3 action=0 ability=29/34
+NATIVE_STATUS karachun age=3280 spawned_alive=1 boss=true hp=231.30365 target=true phase=3 action=5 ability=29/34
+NATIVE_STATUS karachun age=3300 spawned_alive=1 boss=true hp=225.98364 target=true phase=3 action=5 ability=29/34
+NATIVE_STATUS karachun age=3320 spawned_alive=1 boss=true hp=220.80365 target=true phase=3 action=2 ability=29/34
+NATIVE_STATUS karachun age=3340 spawned_alive=1 boss=true hp=214.12366 target=true phase=3 action=2 ability=29/34
+NATIVE_STATUS karachun age=3360 spawned_alive=1 boss=true hp=203.76367 target=true phase=3 action=8 ability=29/34
+NATIVE_STATUS karachun age=3380 spawned_alive=1 boss=true hp=198.58368 target=true phase=3 action=8 ability=29/34
+ABILITY karachun age=3400 slot=2 accepted=true
+NATIVE_STATUS karachun age=3400 spawned_alive=1 boss=true hp=192.78369 target=true phase=3 action=0 ability=30/35
+NATIVE_STATUS karachun age=3420 spawned_alive=1 boss=true hp=185.98978 target=true phase=3 action=0 ability=30/35
+NATIVE_STATUS karachun age=3440 spawned_alive=1 boss=true hp=180.80978 target=true phase=3 action=3 ability=30/35
+NATIVE_STATUS karachun age=3460 spawned_alive=1 boss=true hp=170.4498 target=true phase=3 action=3 ability=30/35
+NATIVE_STATUS karachun age=3480 spawned_alive=1 boss=true hp=158.58981 target=true phase=3 action=0 ability=30/35
+NATIVE_STATUS karachun age=3500 spawned_alive=1 boss=true hp=153.40982 target=true phase=3 action=9 ability=30/35
+NATIVE_STATUS karachun age=3520 spawned_alive=1 boss=true hp=143.04984 target=true phase=3 action=0 ability=30/35
+NATIVE_STATUS karachun age=3540 spawned_alive=1 boss=true hp=137.86984 target=true phase=3 action=0 ability=30/35
+NATIVE_STATUS karachun age=3560 spawned_alive=1 boss=true hp=137.86984 target=true phase=3 action=1 ability=30/35
+NATIVE_STATUS karachun age=3580 spawned_alive=1 boss=true hp=127.50985 target=true phase=3 action=1 ability=30/35
+ABILITY karachun age=3600 slot=0 accepted=false
+NATIVE_STATUS karachun age=3600 spawned_alive=1 boss=true hp=117.14985 target=true phase=3 action=5 ability=30/36
+END karachun epoch=1792247501245 position=(-99.275594207802, -60.0, 28.732161047070722) status=spawned_alive=1 boss=true hp=117.14985 target=true phase=3 action=5 ability=30/36
+BEFORE_FIXTURE_CLEANUP karachun alive=1 spawned_alive=1 boss=true hp=117.14985 target=true phase=3 action=5 ability=30/36
+RUNE_WEAPON heat=true thunder=true installed=[heat, thunder]
+NATIVE_BOSS_START morozko hp=1400.0 ground=BlockPos{x=-100, y=-60, z=40} no scripted boss damage or phase forcing
+SERVER_SCENE morozko epoch=1792247501299 position=(-99.404219207802, -59.724875, 28.555786047070722)
+CLIENT_SCENE morozko epoch=1792247501369 cap=140
+NATIVE_STATUS morozko age=20 spawned_alive=1 boss=true hp=1400.0 target=true phase=0 action=0 ability=30/36
+NATIVE_STATUS morozko age=40 spawned_alive=1 boss=true hp=1400.0 target=true phase=0 action=0 ability=30/36
+NATIVE_STATUS morozko age=60 spawned_alive=1 boss=true hp=1400.0 target=true phase=0 action=0 ability=30/36
+NATIVE_STATUS morozko age=80 spawned_alive=1 boss=true hp=1400.0 target=true phase=1 action=2 ability=30/36
+NATIVE_STATUS morozko age=100 spawned_alive=1 boss=true hp=1400.0 target=true phase=1 action=0 ability=30/36
+NATIVE_STATUS morozko age=120 spawned_alive=1 boss=true hp=1400.0 target=true phase=1 action=2 ability=30/36
+NATIVE_STATUS morozko age=140 spawned_alive=1 boss=true hp=1400.0 target=true phase=1 action=0 ability=30/36
+NATIVE_STATUS morozko age=160 spawned_alive=1 boss=true hp=1400.0 target=true phase=1 action=0 ability=30/36
+NATIVE_STATUS morozko age=180 spawned_alive=1 boss=true hp=1400.0 target=true phase=1 action=5 ability=30/36
+ABILITY morozko age=200 slot=1 accepted=true
+NATIVE_STATUS morozko age=200 spawned_alive=1 boss=true hp=1400.0 target=true phase=1 action=5 ability=31/37
+NATIVE_STATUS morozko age=220 spawned_alive=1 boss=true hp=1394.26 target=true phase=1 action=5 ability=31/37
+NATIVE_STATUS morozko age=240 spawned_alive=1 boss=true hp=1382.78 target=true phase=1 action=4 ability=31/37
+NATIVE_STATUS morozko age=260 spawned_alive=1 boss=true hp=1377.04 target=true phase=1 action=1 ability=31/37
+NATIVE_STATUS morozko age=280 spawned_alive=1 boss=true hp=1365.56 target=true phase=1 action=6 ability=31/37
+NATIVE_STATUS morozko age=300 spawned_alive=1 boss=true hp=1359.8201 target=true phase=1 action=6 ability=31/37
+NATIVE_STATUS morozko age=320 spawned_alive=1 boss=true hp=1356.1001 target=true phase=1 action=3 ability=31/37
+NATIVE_STATUS morozko age=340 spawned_alive=1 boss=true hp=1351.6602 target=true phase=1 action=3 ability=31/37
+NATIVE_STATUS morozko age=360 spawned_alive=1 boss=true hp=1347.2202 target=true phase=1 action=3 ability=31/37
+NATIVE_STATUS morozko age=380 spawned_alive=1 boss=true hp=1346.2202 target=true phase=1 action=1 ability=31/37
+ABILITY morozko age=400 slot=2 accepted=true
+NATIVE_STATUS morozko age=400 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=32/38
+NATIVE_STATUS morozko age=420 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=1 ability=32/38
+NATIVE_STATUS morozko age=440 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=32/38
+NATIVE_STATUS morozko age=460 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=32/38
+NATIVE_STATUS morozko age=480 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=7 ability=32/38
+NATIVE_STATUS morozko age=500 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=7 ability=32/38
+NATIVE_STATUS morozko age=520 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=32/38
+NATIVE_STATUS morozko age=540 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=4 ability=32/38
+NATIVE_STATUS morozko age=560 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=32/38
+NATIVE_STATUS morozko age=580 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=32/38
+ABILITY morozko age=600 slot=0 accepted=false
+NATIVE_STATUS morozko age=600 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=32/39
+NATIVE_STATUS morozko age=620 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=32/39
+NATIVE_STATUS morozko age=640 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=32/39
+NATIVE_STATUS morozko age=660 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=32/39
+NATIVE_STATUS morozko age=680 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=32/39
+NATIVE_STATUS morozko age=700 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=32/39
+NATIVE_STATUS morozko age=720 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=32/39
+NATIVE_STATUS morozko age=740 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=32/39
+NATIVE_STATUS morozko age=760 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=32/39
+NATIVE_STATUS morozko age=780 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=32/39
+ABILITY morozko age=800 slot=1 accepted=true
+NATIVE_STATUS morozko age=800 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=33/40
+NATIVE_STATUS morozko age=820 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=4 ability=33/40
+NATIVE_STATUS morozko age=840 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=33/40
+NATIVE_STATUS morozko age=860 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=33/40
+NATIVE_STATUS morozko age=880 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=33/40
+NATIVE_STATUS morozko age=900 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=33/40
+NATIVE_STATUS morozko age=920 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=33/40
+NATIVE_STATUS morozko age=940 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=33/40
+NATIVE_STATUS morozko age=960 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=33/40
+NATIVE_STATUS morozko age=980 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=33/40
+ABILITY morozko age=1000 slot=2 accepted=true
+NATIVE_STATUS morozko age=1000 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=34/41
+NATIVE_STATUS morozko age=1020 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=34/41
+NATIVE_STATUS morozko age=1040 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=34/41
+NATIVE_STATUS morozko age=1060 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=34/41
+NATIVE_STATUS morozko age=1080 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=34/41
+NATIVE_STATUS morozko age=1100 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=4 ability=34/41
+NATIVE_STATUS morozko age=1120 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=34/41
+NATIVE_STATUS morozko age=1140 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=34/41
+NATIVE_STATUS morozko age=1160 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=34/41
+NATIVE_STATUS morozko age=1180 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=3 ability=34/41
+ABILITY morozko age=1200 slot=0 accepted=false
+NATIVE_STATUS morozko age=1200 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=3 ability=34/42
+NATIVE_STATUS morozko age=1220 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=1 ability=34/42
+NATIVE_STATUS morozko age=1240 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=34/42
+NATIVE_STATUS morozko age=1260 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=34/42
+NATIVE_STATUS morozko age=1280 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=34/42
+NATIVE_STATUS morozko age=1300 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=34/42
+NATIVE_STATUS morozko age=1320 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=34/42
+NATIVE_STATUS morozko age=1340 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=34/42
+NATIVE_STATUS morozko age=1360 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=34/42
+NATIVE_STATUS morozko age=1380 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=34/42
+ABILITY morozko age=1400 slot=1 accepted=true
+NATIVE_STATUS morozko age=1400 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=4 ability=35/43
+NATIVE_STATUS morozko age=1420 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=35/43
+NATIVE_STATUS morozko age=1440 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=35/43
+NATIVE_STATUS morozko age=1460 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=35/43
+NATIVE_STATUS morozko age=1480 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=35/43
+NATIVE_STATUS morozko age=1500 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=35/43
+NATIVE_STATUS morozko age=1520 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=35/43
+NATIVE_STATUS morozko age=1540 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=35/43
+NATIVE_STATUS morozko age=1560 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=35/43
+NATIVE_STATUS morozko age=1580 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=35/43
+ABILITY morozko age=1600 slot=2 accepted=true
+NATIVE_STATUS morozko age=1600 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=36/44
+NATIVE_STATUS morozko age=1620 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=36/44
+NATIVE_STATUS morozko age=1640 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=36/44
+NATIVE_STATUS morozko age=1660 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=36/44
+NATIVE_STATUS morozko age=1680 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=4 ability=36/44
+NATIVE_STATUS morozko age=1700 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=36/44
+NATIVE_STATUS morozko age=1720 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=36/44
+NATIVE_STATUS morozko age=1740 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=36/44
+NATIVE_STATUS morozko age=1760 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=36/44
+NATIVE_STATUS morozko age=1780 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=36/44
+ABILITY morozko age=1800 slot=0 accepted=false
+NATIVE_STATUS morozko age=1800 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=36/45
+NATIVE_STATUS morozko age=1820 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=36/45
+NATIVE_STATUS morozko age=1840 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=36/45
+NATIVE_STATUS morozko age=1860 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=36/45
+NATIVE_STATUS morozko age=1880 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=36/45
+NATIVE_STATUS morozko age=1900 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=36/45
+NATIVE_STATUS morozko age=1920 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=36/45
+NATIVE_STATUS morozko age=1940 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=36/45
+NATIVE_STATUS morozko age=1960 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=36/45
+NATIVE_STATUS morozko age=1980 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=4 ability=36/45
+ABILITY morozko age=2000 slot=1 accepted=true
+NATIVE_STATUS morozko age=2000 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=37/46
+NATIVE_STATUS morozko age=2020 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=3 ability=37/46
+NATIVE_STATUS morozko age=2040 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=3 ability=37/46
+NATIVE_STATUS morozko age=2060 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=3 ability=37/46
+NATIVE_STATUS morozko age=2080 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=37/46
+NATIVE_STATUS morozko age=2100 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=37/46
+NATIVE_STATUS morozko age=2120 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=37/46
+NATIVE_STATUS morozko age=2140 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=37/46
+NATIVE_STATUS morozko age=2160 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=37/46
+NATIVE_STATUS morozko age=2180 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=37/46
+ABILITY morozko age=2200 slot=2 accepted=true
+NATIVE_STATUS morozko age=2200 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=38/47
+NATIVE_STATUS morozko age=2220 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=38/47
+NATIVE_STATUS morozko age=2240 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=38/47
+NATIVE_STATUS morozko age=2260 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=4 ability=38/47
+NATIVE_STATUS morozko age=2280 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=38/47
+NATIVE_STATUS morozko age=2300 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=38/47
+NATIVE_STATUS morozko age=2320 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=38/47
+NATIVE_STATUS morozko age=2340 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=38/47
+NATIVE_STATUS morozko age=2360 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=38/47
+NATIVE_STATUS morozko age=2380 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=38/47
+ABILITY morozko age=2400 slot=0 accepted=false
+NATIVE_STATUS morozko age=2400 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=38/48
+NATIVE_STATUS morozko age=2420 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=38/48
+NATIVE_STATUS morozko age=2440 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=38/48
+NATIVE_STATUS morozko age=2460 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=38/48
+NATIVE_STATUS morozko age=2480 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=38/48
+NATIVE_STATUS morozko age=2500 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=38/48
+NATIVE_STATUS morozko age=2520 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=38/48
+NATIVE_STATUS morozko age=2540 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=38/48
+NATIVE_STATUS morozko age=2560 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=4 ability=38/48
+NATIVE_STATUS morozko age=2580 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=38/48
+ABILITY morozko age=2600 slot=1 accepted=true
+NATIVE_STATUS morozko age=2600 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=39/49
+NATIVE_STATUS morozko age=2620 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=39/49
+NATIVE_STATUS morozko age=2640 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=39/49
+NATIVE_STATUS morozko age=2660 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=39/49
+NATIVE_STATUS morozko age=2680 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=39/49
+NATIVE_STATUS morozko age=2700 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=39/49
+NATIVE_STATUS morozko age=2720 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=39/49
+NATIVE_STATUS morozko age=2740 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=39/49
+NATIVE_STATUS morozko age=2760 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=39/49
+NATIVE_STATUS morozko age=2780 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=39/49
+ABILITY morozko age=2800 slot=2 accepted=true
+NATIVE_STATUS morozko age=2800 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=40/50
+NATIVE_STATUS morozko age=2820 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=40/50
+NATIVE_STATUS morozko age=2840 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=4 ability=40/50
+NATIVE_STATUS morozko age=2860 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=40/50
+NATIVE_STATUS morozko age=2880 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=3 ability=40/50
+NATIVE_STATUS morozko age=2900 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=3 ability=40/50
+NATIVE_STATUS morozko age=2920 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=40/50
+NATIVE_STATUS morozko age=2940 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=40/50
+NATIVE_STATUS morozko age=2960 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=40/50
+NATIVE_STATUS morozko age=2980 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=40/50
+ABILITY morozko age=3000 slot=0 accepted=false
+NATIVE_STATUS morozko age=3000 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=40/51
+NATIVE_STATUS morozko age=3020 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=40/51
+NATIVE_STATUS morozko age=3040 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=40/51
+NATIVE_STATUS morozko age=3060 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=40/51
+NATIVE_STATUS morozko age=3080 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=40/51
+NATIVE_STATUS morozko age=3100 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=40/51
+NATIVE_STATUS morozko age=3120 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=40/51
+NATIVE_STATUS morozko age=3140 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=4 ability=40/51
+NATIVE_STATUS morozko age=3160 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=40/51
+NATIVE_STATUS morozko age=3180 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=40/51
+ABILITY morozko age=3200 slot=1 accepted=true
+NATIVE_STATUS morozko age=3200 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=41/52
+NATIVE_STATUS morozko age=3220 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=5 ability=41/52
+NATIVE_STATUS morozko age=3240 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=41/52
+NATIVE_STATUS morozko age=3260 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=6 ability=41/52
+NATIVE_STATUS morozko age=3280 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=41/52
+NATIVE_STATUS morozko age=3300 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=41/52
+NATIVE_STATUS morozko age=3320 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=41/52
+NATIVE_STATUS morozko age=3340 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=41/52
+NATIVE_STATUS morozko age=3360 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=41/52
+NATIVE_STATUS morozko age=3380 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=41/52
+ABILITY morozko age=3400 slot=2 accepted=true
+NATIVE_STATUS morozko age=3400 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=42/53
+NATIVE_STATUS morozko age=3420 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=4 ability=42/53
+NATIVE_STATUS morozko age=3440 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=2 ability=42/53
+NATIVE_STATUS morozko age=3460 spawned_alive=1 boss=true hp=1345.2202 target=true phase=1 action=0 ability=42/53
+NATIVE_STATUS morozko age=3480 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=42/53
+NATIVE_STATUS morozko age=3500 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=42/53
+NATIVE_STATUS morozko age=3520 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=42/53
+NATIVE_STATUS morozko age=3540 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=42/53
+NATIVE_STATUS morozko age=3560 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=42/53
+NATIVE_STATUS morozko age=3580 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=42/53
+ABILITY morozko age=3600 slot=0 accepted=true
+NATIVE_STATUS morozko age=3600 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=43/54
+END morozko epoch=1792247681244 position=(-102.6871040575783, -60.0, 70.99644013173202) status=spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=43/54
+BEFORE_FIXTURE_CLEANUP morozko alive=1 spawned_alive=1 boss=true hp=1345.2202 target=false phase=1 action=0 ability=43/54
+SERVER_SCENE cleanup epoch=1792247681299 position=(-102.66467585855376, -60.0, 70.93161007629256)
+CLIENT_SCENE cleanup epoch=1792247681356 cap=140
+NATIVE_STATUS cleanup age=20 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=40 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=60 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=80 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=100 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=120 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=140 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=160 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=180 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=200 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=220 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=240 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=260 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=280 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=300 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=320 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=340 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=360 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=380 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=400 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=420 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=440 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=460 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=480 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=500 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=520 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=540 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=560 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=580 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=600 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=620 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=640 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=660 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=680 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=700 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=720 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=740 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=760 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=780 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=800 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=820 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=840 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=860 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=880 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=900 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=920 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=940 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=960 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=980 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=1000 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=1020 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=1040 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=1060 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=1080 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=1100 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=1120 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=1140 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=1160 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=1180 spawned_alive=0 boss=none ability=43/54
+NATIVE_STATUS cleanup age=1200 spawned_alive=0 boss=none ability=43/54
+END cleanup epoch=1792247741244 position=(-158.17777407629188, -59.06387502076354, 13.565523703431559) status=spawned_alive=0 boss=none ability=43/54
+COMPLETE elapsed_ms=728472

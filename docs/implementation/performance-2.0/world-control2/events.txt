@@ -1,0 +1,38 @@
+PROCESS_ID=17208
+CONTROL=true mods=[perf2audit:1, minecraft:1.21.1, curios:9.5.1+1.21.1, neoforge:21.1.255, jei:19.51.0.418]
+GPU=AMD Radeon RX 6600M window=1600x900 rd12 sim8 cap=140 vsyncfalse
+SCREEN LevelLoadingScreen epoch=1792245594070
+SCREEN ReceivingLevelScreen epoch=1792245595569
+CLIENT_SCENE startup_warmup epoch=1792245596012 cap=140
+SCREEN none epoch=1792245597170
+ORIGIN (5.5, 111.0, -1.5)
+SERVER_SCENE startup_warmup epoch=1792245599449 position=(5.5, 111.0, -1.5)
+END startup_warmup epoch=1792245719384 position=(5.5, 111.0, -1.5) status=control
+SERVER_SCENE idle epoch=1792245719439 position=(5.5, 111.0, -1.5)
+CLIENT_SCENE idle epoch=1792245719499 cap=140
+END idle epoch=1792245839384 position=(5.5, 111.0, -1.5) status=control
+SERVER_SCENE travel_new epoch=1792245839438 position=(5.5, 111.0, -1.5)
+CLIENT_SCENE travel_new epoch=1792245839471 cap=140
+END travel_new epoch=1792246019384 position=(-0.699999988079071, 103.00133597911214, -19.30000001192093) status=control
+SERVER_SCENE travel_return epoch=1792246019439 position=(-0.699999988079071, 103.16610926093821, -19.30000001192093)
+CLIENT_SCENE travel_return epoch=1792246019491 cap=140
+END travel_return epoch=1792246199384 position=(-0.6919655734685968, 104.0, -13.300000011920929) status=control
+SERVER_SCENE travel_settle epoch=1792246199433 position=(-0.7720102818401223, 104.0, -13.300000011920929)
+CLIENT_SCENE travel_settle epoch=1792246199490 cap=140
+END travel_settle epoch=1792246259386 position=(-0.8636042796945901, 104.0, -13.300000011920929) status=control
+CLIENT_SCENE vanilla_village epoch=1792246259475 cap=140
+NATIVE_VILLAGE_FOUND BlockPos{x=-304, y=0, z=-880} setup_ms=2033.9844
+SERVER_SCENE vanilla_village epoch=1792246261469 position=(-303.5, 64.0, -879.5)
+END vanilla_village epoch=1792246441385 position=(-303.6589008599161, 64.0, -879.3310956692997) status=control
+SERVER_SCENE combat_6 epoch=1792246441436 position=(-303.6589008599161, 64.0, -879.3310956692997)
+CLIENT_SCENE combat_6 epoch=1792246441532 cap=140
+END combat_6 epoch=1792246561389 position=(-303.563860879899, 63.0, -868.0594878759097) status=control
+BEFORE_COMMON_CLEANUP combat_6 alive=0
+SERVER_SCENE combat_16 epoch=1792246561438 position=(-303.563860879899, 63.0, -868.0594878759097)
+CLIENT_SCENE combat_16 epoch=1792246561492 cap=140
+END combat_16 epoch=1792246681386 position=(-308.30000001192093, 62.0, -862.6999999880791) status=control
+BEFORE_COMMON_CLEANUP combat_16 alive=0
+SERVER_SCENE cleanup epoch=1792246681434 position=(-308.30000001192093, 62.0, -862.6999999880791)
+CLIENT_SCENE cleanup epoch=1792246681484 cap=140
+END cleanup epoch=1792246741387 position=(-308.30000001192093, 62.0, -862.6999999880791) status=control
+COMPLETE elapsed_ms=1153956

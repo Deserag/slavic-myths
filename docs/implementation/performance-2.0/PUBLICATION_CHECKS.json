@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "privacy_check": "PASS text/gzip paths+UUID",
+  "gzip_crc": "PASS",
+  "local_markdown_targets": "PASS",
+  "production_diff": "NONE",
+  "deleted_files": 0,
+  "new_game_launches_this_publication": 0,
+  "main": "fb2994e958911169317523e1066b8a1ca7a155af",
+  "fix_pr": "https://github.com/Deserag/slavic-myths/pull/38",
+  "pre_receipt_manifest_files": 355,
+  "pre_receipt_publication_bytes": 83281015
+}

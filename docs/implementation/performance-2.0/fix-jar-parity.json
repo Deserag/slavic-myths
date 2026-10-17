@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "jar_entry_sets_equal": true,
+  "byte_differences": [
+    "org/slavicmyths/poloz/PolozEvents$BodyFlee.class",
+    "org/slavicmyths/poloz/PolozEvents$BodyMelee.class",
+    "org/slavicmyths/poloz/PolozEvents$PolozTarget.class",
+    "org/slavicmyths/poloz/PolozEvents.class"
+  ],
+  "javap_code_differences": [
+    "org/slavicmyths/poloz/PolozEvents$BodyMelee.class"
+  ],
+  "resources_identical": true,
+  "note": "Other enclosing/nested class differences are debug metadata after source line shifts; javap -c -p unchanged. Initial one-binary-class-only expectation failed and was replaced by this explicit check."
+}

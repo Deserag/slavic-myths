@@ -1,0 +1,1618 @@
+PROCESS_ID=20644
+CONTROL=false mods=[perf2audit:1, minecraft:1.21.1, curios:9.5.1+1.21.1, neoforge:21.1.255, jei:19.51.0.418, slavicmyths:1.9.7.5]
+GPU=AMD Radeon RX 6600M window=1600x900 rd12 sim8 cap=140 vsyncfalse
+SCREEN LevelLoadingScreen epoch=1792239130334
+SCREEN ReceivingLevelScreen epoch=1792239132117
+CLIENT_SCENE startup_warmup epoch=1792239132530 cap=140
+SCREEN none epoch=1792239133344
+ORIGIN (6.5, 117.0, -5.5)
+SERVER_SCENE startup_warmup epoch=1792239146544 position=(6.5, 117.0, -5.5)
+NATIVE_STATUS startup_warmup age=20 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=40 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=60 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=80 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=1980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS startup_warmup age=2400 spawned_alive=0 boss=none ability=0/0
+END startup_warmup epoch=1792239266483 position=(6.5, 117.0, -5.5) status=spawned_alive=0 boss=none ability=0/0
+SERVER_SCENE idle epoch=1792239266536 position=(6.5, 117.0, -5.5)
+CLIENT_SCENE idle epoch=1792239266601 cap=140
+NATIVE_STATUS idle age=20 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=40 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=60 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=80 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=1980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS idle age=2400 spawned_alive=0 boss=none ability=0/0
+END idle epoch=1792239386484 position=(6.4640258953855625, 115.0, -7.567795909745379) status=spawned_alive=0 boss=none ability=0/0
+SERVER_SCENE travel_new epoch=1792239386533 position=(6.4640258953855625, 115.0, -7.567795909745379)
+CLIENT_SCENE travel_new epoch=1792239386583 cap=140
+NATIVE_STATUS travel_new age=20 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=40 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=60 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=80 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=1980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=2980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_new age=3600 spawned_alive=0 boss=none ability=0/0
+END travel_new epoch=1792239566484 position=(-27.69999998807907, 85.0, -37.69999998807907) status=spawned_alive=0 boss=none ability=0/0
+SERVER_SCENE travel_return epoch=1792239566538 position=(-27.69999998807907, 85.0, -37.69999998807907)
+CLIENT_SCENE travel_return epoch=1792239566596 cap=140
+NATIVE_STATUS travel_return age=20 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=40 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=60 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=80 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=1980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=2980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_return age=3600 spawned_alive=0 boss=none ability=0/0
+END travel_return epoch=1792239746486 position=(-28.69999998807907, 85.16610926093821, -32.69999998807907) status=spawned_alive=0 boss=none ability=0/0
+SERVER_SCENE travel_settle epoch=1792239746532 position=(-28.69999998807907, 85.24918707874468, -32.69999998807907)
+CLIENT_SCENE travel_settle epoch=1792239746591 cap=140
+NATIVE_STATUS travel_settle age=20 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=40 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=60 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=80 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=1000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=1020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=1040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=1060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=1080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=1100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=1120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=1140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=1160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=1180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS travel_settle age=1200 spawned_alive=0 boss=none ability=0/0
+END travel_settle epoch=1792239806483 position=(-28.69999998807907, 84.0, -32.69999998807907) status=spawned_alive=0 boss=none ability=0/0
+CLIENT_SCENE vanilla_village epoch=1792239806577 cap=140
+NATIVE_VILLAGE_FOUND BlockPos{x=-304, y=0, z=-880} setup_ms=4466.218
+SERVER_SCENE vanilla_village epoch=1792239811000 position=(-303.5, 64.0, -879.5)
+NATIVE_STATUS vanilla_village age=20 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=40 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=60 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=80 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=1980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=2980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS vanilla_village age=3600 spawned_alive=0 boss=none ability=0/0
+END vanilla_village epoch=1792239990885 position=(-303.5, 64.0, -879.5) status=spawned_alive=0 boss=none ability=0/0
+SERVER_SCENE combat_6 epoch=1792239990948 position=(-303.5, 64.0, -879.5)
+CLIENT_SCENE combat_6 epoch=1792239991034 cap=140
+NATIVE_STATUS combat_6 age=20 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=40 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=60 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=80 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=1980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_6 age=2400 spawned_alive=0 boss=none ability=0/0
+END combat_6 epoch=1792240110888 position=(-303.7923389448201, 63.0, -863.6904953018635) status=spawned_alive=0 boss=none ability=0/0
+BEFORE_COMMON_CLEANUP combat_6 alive=0
+SERVER_SCENE combat_16 epoch=1792240110949 position=(-303.7923389448201, 63.0, -863.6904953018635)
+CLIENT_SCENE combat_16 epoch=1792240110993 cap=140
+NATIVE_STATUS combat_16 age=20 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=40 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=60 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=80 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1400 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1420 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1440 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1460 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1480 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1500 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1520 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1540 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1560 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1580 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1600 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1620 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1640 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1660 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1680 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1700 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1720 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1740 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1760 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1780 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1800 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1820 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1840 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1860 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1880 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1900 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1920 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1940 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1960 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=1980 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2000 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2020 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2040 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2060 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2080 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2100 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2120 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2140 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2160 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2180 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2200 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2220 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2240 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2260 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2280 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2300 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2320 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2340 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2360 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2380 spawned_alive=0 boss=none ability=0/0
+NATIVE_STATUS combat_16 age=2400 spawned_alive=0 boss=none ability=0/0
+END combat_16 epoch=1792240230888 position=(-303.2088449171084, 63.0, -859.6299740740475) status=spawned_alive=0 boss=none ability=0/0
+BEFORE_COMMON_CLEANUP combat_16 alive=0
+LEARN lunge=true
+LEARN flurry=true
+LEARN trip=true
+EQUIP true
+EQUIP true
+EQUIP true
+RUNE_WEAPON heat=true thunder=true installed=[heat, thunder]
+SERVER_SCENE mythic_combat epoch=1792240230957 position=(-303.2088449171084, 63.0, -859.6299740740475)
+CLIENT_SCENE mythic_combat epoch=1792240230983 cap=140
+NATIVE_STATUS mythic_combat age=20 spawned_alive=6 boss=none ability=0/0
+NATIVE_STATUS mythic_combat age=40 spawned_alive=6 boss=none ability=0/0
+NATIVE_STATUS mythic_combat age=60 spawned_alive=6 boss=none ability=0/0
+NATIVE_STATUS mythic_combat age=80 spawned_alive=6 boss=none ability=0/0
+NATIVE_STATUS mythic_combat age=100 spawned_alive=5 boss=none ability=0/0
+NATIVE_STATUS mythic_combat age=120 spawned_alive=5 boss=none ability=0/0
+NATIVE_STATUS mythic_combat age=140 spawned_alive=4 boss=none ability=0/0
+NATIVE_STATUS mythic_combat age=160 spawned_alive=4 boss=none ability=0/0
+NATIVE_STATUS mythic_combat age=180 spawned_alive=4 boss=none ability=0/0
+ABILITY mythic_combat age=200 slot=1 accepted=true
+NATIVE_STATUS mythic_combat age=200 spawned_alive=4 boss=none ability=1/1
+NATIVE_STATUS mythic_combat age=220 spawned_alive=4 boss=none ability=1/1
+NATIVE_STATUS mythic_combat age=240 spawned_alive=4 boss=none ability=1/1
+NATIVE_STATUS mythic_combat age=260 spawned_alive=4 boss=none ability=1/1
+NATIVE_STATUS mythic_combat age=280 spawned_alive=4 boss=none ability=1/1
+NATIVE_STATUS mythic_combat age=300 spawned_alive=4 boss=none ability=1/1
+NATIVE_STATUS mythic_combat age=320 spawned_alive=4 boss=none ability=1/1
+NATIVE_STATUS mythic_combat age=340 spawned_alive=4 boss=none ability=1/1
+NATIVE_STATUS mythic_combat age=360 spawned_alive=4 boss=none ability=1/1
+NATIVE_STATUS mythic_combat age=380 spawned_alive=3 boss=none ability=1/1
+ABILITY mythic_combat age=400 slot=2 accepted=false
+NATIVE_STATUS mythic_combat age=400 spawned_alive=3 boss=none ability=1/2
+NATIVE_STATUS mythic_combat age=420 spawned_alive=3 boss=none ability=1/2
+NATIVE_STATUS mythic_combat age=440 spawned_alive=3 boss=none ability=1/2
+NATIVE_STATUS mythic_combat age=460 spawned_alive=3 boss=none ability=1/2
+NATIVE_STATUS mythic_combat age=480 spawned_alive=3 boss=none ability=1/2
+NATIVE_STATUS mythic_combat age=500 spawned_alive=3 boss=none ability=1/2
+NATIVE_STATUS mythic_combat age=520 spawned_alive=3 boss=none ability=1/2
+NATIVE_STATUS mythic_combat age=540 spawned_alive=3 boss=none ability=1/2
+NATIVE_STATUS mythic_combat age=560 spawned_alive=3 boss=none ability=1/2
+NATIVE_STATUS mythic_combat age=580 spawned_alive=3 boss=none ability=1/2
+ABILITY mythic_combat age=600 slot=0 accepted=false
+NATIVE_STATUS mythic_combat age=600 spawned_alive=3 boss=none ability=1/3
+NATIVE_STATUS mythic_combat age=620 spawned_alive=3 boss=none ability=1/3
+NATIVE_STATUS mythic_combat age=640 spawned_alive=3 boss=none ability=1/3
+NATIVE_STATUS mythic_combat age=660 spawned_alive=3 boss=none ability=1/3
+NATIVE_STATUS mythic_combat age=680 spawned_alive=3 boss=none ability=1/3
+NATIVE_STATUS mythic_combat age=700 spawned_alive=3 boss=none ability=1/3
+NATIVE_STATUS mythic_combat age=720 spawned_alive=3 boss=none ability=1/3
+NATIVE_STATUS mythic_combat age=740 spawned_alive=3 boss=none ability=1/3
+NATIVE_STATUS mythic_combat age=760 spawned_alive=2 boss=none ability=1/3
+NATIVE_STATUS mythic_combat age=780 spawned_alive=2 boss=none ability=1/3
+ABILITY mythic_combat age=800 slot=1 accepted=true
+NATIVE_STATUS mythic_combat age=800 spawned_alive=2 boss=none ability=2/4
+NATIVE_STATUS mythic_combat age=820 spawned_alive=2 boss=none ability=2/4
+NATIVE_STATUS mythic_combat age=840 spawned_alive=2 boss=none ability=2/4
+NATIVE_STATUS mythic_combat age=860 spawned_alive=2 boss=none ability=2/4
+NATIVE_STATUS mythic_combat age=880 spawned_alive=2 boss=none ability=2/4
+NATIVE_STATUS mythic_combat age=900 spawned_alive=2 boss=none ability=2/4
+NATIVE_STATUS mythic_combat age=920 spawned_alive=2 boss=none ability=2/4
+NATIVE_STATUS mythic_combat age=940 spawned_alive=2 boss=none ability=2/4
+NATIVE_STATUS mythic_combat age=960 spawned_alive=2 boss=none ability=2/4
+NATIVE_STATUS mythic_combat age=980 spawned_alive=2 boss=none ability=2/4
+ABILITY mythic_combat age=1000 slot=2 accepted=false
+NATIVE_STATUS mythic_combat age=1000 spawned_alive=2 boss=none ability=2/5
+NATIVE_STATUS mythic_combat age=1020 spawned_alive=2 boss=none ability=2/5
+NATIVE_STATUS mythic_combat age=1040 spawned_alive=2 boss=none ability=2/5
+NATIVE_STATUS mythic_combat age=1060 spawned_alive=2 boss=none ability=2/5
+NATIVE_STATUS mythic_combat age=1080 spawned_alive=2 boss=none ability=2/5
+NATIVE_STATUS mythic_combat age=1100 spawned_alive=2 boss=none ability=2/5
+NATIVE_STATUS mythic_combat age=1120 spawned_alive=2 boss=none ability=2/5
+NATIVE_STATUS mythic_combat age=1140 spawned_alive=2 boss=none ability=2/5
+NATIVE_STATUS mythic_combat age=1160 spawned_alive=2 boss=none ability=2/5
+NATIVE_STATUS mythic_combat age=1180 spawned_alive=2 boss=none ability=2/5
+ABILITY mythic_combat age=1200 slot=0 accepted=true
+NATIVE_STATUS mythic_combat age=1200 spawned_alive=2 boss=none ability=3/6
+NATIVE_STATUS mythic_combat age=1220 spawned_alive=2 boss=none ability=3/6
+NATIVE_STATUS mythic_combat age=1240 spawned_alive=2 boss=none ability=3/6
+NATIVE_STATUS mythic_combat age=1260 spawned_alive=2 boss=none ability=3/6
+NATIVE_STATUS mythic_combat age=1280 spawned_alive=2 boss=none ability=3/6
+NATIVE_STATUS mythic_combat age=1300 spawned_alive=2 boss=none ability=3/6
+NATIVE_STATUS mythic_combat age=1320 spawned_alive=2 boss=none ability=3/6
+NATIVE_STATUS mythic_combat age=1340 spawned_alive=2 boss=none ability=3/6
+NATIVE_STATUS mythic_combat age=1360 spawned_alive=2 boss=none ability=3/6
+NATIVE_STATUS mythic_combat age=1380 spawned_alive=2 boss=none ability=3/6
+ABILITY mythic_combat age=1400 slot=1 accepted=true
+NATIVE_STATUS mythic_combat age=1400 spawned_alive=2 boss=none ability=4/7
+NATIVE_STATUS mythic_combat age=1420 spawned_alive=2 boss=none ability=4/7
+NATIVE_STATUS mythic_combat age=1440 spawned_alive=2 boss=none ability=4/7
+NATIVE_STATUS mythic_combat age=1460 spawned_alive=2 boss=none ability=4/7
+NATIVE_STATUS mythic_combat age=1480 spawned_alive=2 boss=none ability=4/7
+NATIVE_STATUS mythic_combat age=1500 spawned_alive=2 boss=none ability=4/7
+NATIVE_STATUS mythic_combat age=1520 spawned_alive=2 boss=none ability=4/7
+NATIVE_STATUS mythic_combat age=1540 spawned_alive=2 boss=none ability=4/7
+NATIVE_STATUS mythic_combat age=1560 spawned_alive=2 boss=none ability=4/7
+NATIVE_STATUS mythic_combat age=1580 spawned_alive=2 boss=none ability=4/7
+ABILITY mythic_combat age=1600 slot=2 accepted=false
+NATIVE_STATUS mythic_combat age=1600 spawned_alive=2 boss=none ability=4/8
+NATIVE_STATUS mythic_combat age=1620 spawned_alive=2 boss=none ability=4/8
+NATIVE_STATUS mythic_combat age=1640 spawned_alive=2 boss=none ability=4/8
+NATIVE_STATUS mythic_combat age=1660 spawned_alive=2 boss=none ability=4/8
+NATIVE_STATUS mythic_combat age=1680 spawned_alive=2 boss=none ability=4/8
+NATIVE_STATUS mythic_combat age=1700 spawned_alive=2 boss=none ability=4/8
+NATIVE_STATUS mythic_combat age=1720 spawned_alive=2 boss=none ability=4/8
+NATIVE_STATUS mythic_combat age=1740 spawned_alive=2 boss=none ability=4/8
+NATIVE_STATUS mythic_combat age=1760 spawned_alive=2 boss=none ability=4/8
+NATIVE_STATUS mythic_combat age=1780 spawned_alive=2 boss=none ability=4/8
+ABILITY mythic_combat age=1800 slot=0 accepted=true
+NATIVE_STATUS mythic_combat age=1800 spawned_alive=2 boss=none ability=5/9
+NATIVE_STATUS mythic_combat age=1820 spawned_alive=2 boss=none ability=5/9
+NATIVE_STATUS mythic_combat age=1840 spawned_alive=2 boss=none ability=5/9
+NATIVE_STATUS mythic_combat age=1860 spawned_alive=2 boss=none ability=5/9
+NATIVE_STATUS mythic_combat age=1880 spawned_alive=2 boss=none ability=5/9
+NATIVE_STATUS mythic_combat age=1900 spawned_alive=2 boss=none ability=5/9
+NATIVE_STATUS mythic_combat age=1920 spawned_alive=2 boss=none ability=5/9
+NATIVE_STATUS mythic_combat age=1940 spawned_alive=2 boss=none ability=5/9
+NATIVE_STATUS mythic_combat age=1960 spawned_alive=2 boss=none ability=5/9
+NATIVE_STATUS mythic_combat age=1980 spawned_alive=2 boss=none ability=5/9
+ABILITY mythic_combat age=2000 slot=1 accepted=true
+NATIVE_STATUS mythic_combat age=2000 spawned_alive=2 boss=none ability=6/10
+NATIVE_STATUS mythic_combat age=2020 spawned_alive=2 boss=none ability=6/10
+NATIVE_STATUS mythic_combat age=2040 spawned_alive=2 boss=none ability=6/10
+NATIVE_STATUS mythic_combat age=2060 spawned_alive=2 boss=none ability=6/10
+NATIVE_STATUS mythic_combat age=2080 spawned_alive=2 boss=none ability=6/10
+NATIVE_STATUS mythic_combat age=2100 spawned_alive=2 boss=none ability=6/10
+NATIVE_STATUS mythic_combat age=2120 spawned_alive=2 boss=none ability=6/10
+NATIVE_STATUS mythic_combat age=2140 spawned_alive=2 boss=none ability=6/10
+NATIVE_STATUS mythic_combat age=2160 spawned_alive=2 boss=none ability=6/10
+NATIVE_STATUS mythic_combat age=2180 spawned_alive=2 boss=none ability=6/10
+ABILITY mythic_combat age=2200 slot=2 accepted=false
+NATIVE_STATUS mythic_combat age=2200 spawned_alive=2 boss=none ability=6/11
+NATIVE_STATUS mythic_combat age=2220 spawned_alive=2 boss=none ability=6/11
+NATIVE_STATUS mythic_combat age=2240 spawned_alive=2 boss=none ability=6/11
+NATIVE_STATUS mythic_combat age=2260 spawned_alive=2 boss=none ability=6/11
+NATIVE_STATUS mythic_combat age=2280 spawned_alive=2 boss=none ability=6/11
+NATIVE_STATUS mythic_combat age=2300 spawned_alive=2 boss=none ability=6/11
+NATIVE_STATUS mythic_combat age=2320 spawned_alive=2 boss=none ability=6/11
+NATIVE_STATUS mythic_combat age=2340 spawned_alive=2 boss=none ability=6/11
+NATIVE_STATUS mythic_combat age=2360 spawned_alive=2 boss=none ability=6/11
+NATIVE_STATUS mythic_combat age=2380 spawned_alive=2 boss=none ability=6/11
+ABILITY mythic_combat age=2400 slot=0 accepted=true
+NATIVE_STATUS mythic_combat age=2400 spawned_alive=2 boss=none ability=7/12
+END mythic_combat epoch=1792240350887 position=(-308.33927959582024, 63.0, -869.3347620442743) status=spawned_alive=2 boss=none ability=7/12
+BEFORE_FIXTURE_CLEANUP mythic_combat alive=2 spawned_alive=2 boss=none ability=7/12
+CLIENT_SCENE village epoch=1792240350996 cap=140
+NATIVE_CITY_NOT_FOUND bounded_radius1 setup_ms=2553.1398; scene remains local terrain, no city acceptance
+SERVER_SCENE village epoch=1792240353493 position=(-308.33927959582024, 63.0, -869.3347620442743)
+NATIVE_STATUS village age=20 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=40 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=60 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=80 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=100 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=120 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=140 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=160 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=180 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=200 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=220 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=240 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=260 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=280 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=300 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=320 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=340 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=360 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=380 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=400 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=420 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=440 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=460 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=480 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=500 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=520 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=540 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=560 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=580 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=600 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=620 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=640 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=660 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=680 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=700 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=720 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=740 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=760 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=780 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=800 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=820 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=840 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=860 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=880 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=900 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=920 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=940 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=960 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=980 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1000 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1020 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1040 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1060 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1080 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1100 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1120 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1140 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1160 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1180 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1200 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1220 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1240 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1260 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1280 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1300 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1320 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1340 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1360 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1380 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1400 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1420 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1440 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1460 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1480 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1500 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1520 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1540 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1560 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1580 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1600 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1620 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1640 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1660 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1680 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1700 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1720 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1740 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1760 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1780 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1800 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1820 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1840 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1860 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1880 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1900 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1920 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1940 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1960 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=1980 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2000 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2020 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2040 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2060 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2080 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2100 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2120 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2140 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2160 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2180 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2200 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2220 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2240 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2260 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2280 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2300 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2320 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2340 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2360 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2380 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2400 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2420 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2440 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2460 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2480 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2500 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2520 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2540 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2560 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2580 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2600 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2620 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2640 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2660 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2680 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2700 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2720 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2740 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2760 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2780 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2800 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2820 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2840 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2860 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2880 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2900 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2920 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2940 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2960 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=2980 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3000 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3020 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3040 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3060 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3080 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3100 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3120 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3140 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3160 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3180 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3200 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3220 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3240 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3260 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3280 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3300 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3320 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3340 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3360 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3380 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3400 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3420 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3440 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3460 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3480 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3500 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3520 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3540 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3560 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3580 spawned_alive=0 boss=none ability=7/12
+NATIVE_STATUS village age=3600 spawned_alive=0 boss=none ability=7/12
+END village epoch=1792240533384 position=(-308.33927959582024, 63.0, -869.3347620442743) status=spawned_alive=0 boss=none ability=7/12
+RUNE_WEAPON heat=true thunder=true installed=[heat, thunder]
+NATIVE_BOSS_START poloz hp=3000.0 ground=BlockPos{x=-309, y=63, z=-858} no scripted boss damage or phase forcing
+SERVER_SCENE poloz epoch=1792240533455 position=(-308.33927959582024, 63.0, -869.3347620442743)
+CLIENT_SCENE poloz epoch=1792240533493 cap=140
+NATIVE_STATUS poloz age=20 spawned_alive=1 boss=true hp=3000.0 target=true phase=1 action=3 ability=7/12
+NATIVE_STATUS poloz age=40 spawned_alive=1 boss=true hp=3000.0 target=true phase=1 action=3 ability=7/12
+NATIVE_STATUS poloz age=60 spawned_alive=1 boss=true hp=2993.0 target=true phase=1 action=3 ability=7/12
+NATIVE_STATUS poloz age=80 spawned_alive=1 boss=true hp=2979.0 target=true phase=1 action=3 ability=7/12
+NATIVE_STATUS poloz age=100 spawned_alive=1 boss=true hp=2972.0 target=true phase=1 action=0 ability=7/12
+NATIVE_STATUS poloz age=120 spawned_alive=1 boss=true hp=2954.5 target=true phase=1 action=0 ability=7/12
+NATIVE_STATUS poloz age=140 spawned_alive=1 boss=true hp=2940.5 target=true phase=1 action=0 ability=7/12
+NATIVE_STATUS poloz age=160 spawned_alive=1 boss=true hp=2933.5 target=true phase=1 action=0 ability=7/12
+NATIVE_STATUS poloz age=180 spawned_alive=1 boss=true hp=2919.5 target=true phase=1 action=0 ability=7/12
+ABILITY poloz age=200 slot=1 accepted=true
+NATIVE_STATUS poloz age=200 spawned_alive=1 boss=true hp=2902.0 target=true phase=1 action=2 ability=8/13
+NATIVE_STATUS poloz age=220 spawned_alive=1 boss=true hp=2891.0 target=true phase=1 action=2 ability=8/13
+NATIVE_STATUS poloz age=240 spawned_alive=1 boss=true hp=2873.0 target=true phase=1 action=2 ability=8/13
+NATIVE_STATUS poloz age=260 spawned_alive=1 boss=true hp=2862.0 target=true phase=1 action=2 ability=8/13
+NATIVE_STATUS poloz age=280 spawned_alive=1 boss=true hp=2858.0 target=false phase=1 action=2 ability=8/13
+NATIVE_STATUS poloz age=300 spawned_alive=1 boss=true hp=2854.0 target=false phase=1 action=2 ability=8/13
+NATIVE_STATUS poloz age=320 spawned_alive=1 boss=true hp=2850.0 target=false phase=1 action=0 ability=8/13
+NATIVE_STATUS poloz age=340 spawned_alive=1 boss=true hp=2850.0 target=false phase=1 action=0 ability=8/13
+NATIVE_STATUS poloz age=360 spawned_alive=1 boss=true hp=2850.0 target=false phase=1 action=0 ability=8/13
+NATIVE_STATUS poloz age=380 spawned_alive=1 boss=true hp=2850.0 target=false phase=1 action=0 ability=8/13
+ABILITY poloz age=400 slot=2 accepted=false
+NATIVE_STATUS poloz age=400 spawned_alive=1 boss=true hp=2850.0 target=false phase=1 action=0 ability=8/14
+NATIVE_STATUS poloz age=420 spawned_alive=1 boss=true hp=2850.0 target=false phase=1 action=1 ability=8/14
+NATIVE_STATUS poloz age=440 spawned_alive=1 boss=true hp=2850.0 target=false phase=1 action=0 ability=8/14
+NATIVE_STATUS poloz age=460 spawned_alive=1 boss=true hp=2846.0 target=true phase=1 action=0 ability=8/14
+NATIVE_STATUS poloz age=480 spawned_alive=1 boss=true hp=2842.0 target=false phase=1 action=0 ability=8/14
+NATIVE_STATUS poloz age=500 spawned_alive=1 boss=true hp=2838.0 target=false phase=1 action=4 ability=8/14
+NATIVE_STATUS poloz age=520 spawned_alive=1 boss=true hp=2834.0 target=true phase=1 action=4 ability=8/14
+NATIVE_STATUS poloz age=540 spawned_alive=1 boss=true hp=2816.0 target=true phase=1 action=0 ability=8/14
+NATIVE_STATUS poloz age=560 spawned_alive=1 boss=true hp=2798.0 target=true phase=1 action=0 ability=8/14
+NATIVE_STATUS poloz age=580 spawned_alive=1 boss=true hp=2787.0 target=true phase=1 action=0 ability=8/14
+ABILITY poloz age=600 slot=0 accepted=true
+NATIVE_STATUS poloz age=600 spawned_alive=1 boss=true hp=2769.0 target=true phase=1 action=0 ability=9/15
+NATIVE_STATUS poloz age=620 spawned_alive=1 boss=true hp=2755.5159 target=false phase=1 action=0 ability=9/15
+NATIVE_STATUS poloz age=640 spawned_alive=1 boss=true hp=2744.5159 target=false phase=1 action=3 ability=9/15
+NATIVE_STATUS poloz age=660 spawned_alive=1 boss=true hp=2726.5159 target=false phase=1 action=3 ability=9/15
+NATIVE_STATUS poloz age=680 spawned_alive=1 boss=true hp=2708.5159 target=true phase=1 action=3 ability=9/15
+NATIVE_STATUS poloz age=700 spawned_alive=1 boss=true hp=2697.5159 target=true phase=1 action=3 ability=9/15
+NATIVE_STATUS poloz age=720 spawned_alive=1 boss=true hp=2679.5159 target=true phase=1 action=3 ability=9/15
+NATIVE_STATUS poloz age=740 spawned_alive=1 boss=true hp=2661.5159 target=true phase=1 action=0 ability=9/15
+NATIVE_STATUS poloz age=760 spawned_alive=1 boss=true hp=2650.5159 target=true phase=1 action=0 ability=9/15
+NATIVE_STATUS poloz age=780 spawned_alive=1 boss=true hp=2632.5159 target=true phase=1 action=0 ability=9/15
+ABILITY poloz age=800 slot=1 accepted=true
+NATIVE_STATUS poloz age=800 spawned_alive=1 boss=true hp=2614.5159 target=true phase=1 action=0 ability=10/16
+NATIVE_STATUS poloz age=820 spawned_alive=1 boss=true hp=2603.5159 target=true phase=1 action=0 ability=10/16
+NATIVE_STATUS poloz age=840 spawned_alive=1 boss=true hp=2585.5159 target=true phase=1 action=2 ability=10/16
+NATIVE_STATUS poloz age=860 spawned_alive=1 boss=true hp=2567.5159 target=true phase=1 action=2 ability=10/16
+NATIVE_STATUS poloz age=880 spawned_alive=1 boss=true hp=2556.5159 target=true phase=1 action=2 ability=10/16
+NATIVE_STATUS poloz age=900 spawned_alive=1 boss=true hp=2552.5159 target=false phase=1 action=2 ability=10/16
+NATIVE_STATUS poloz age=920 spawned_alive=1 boss=true hp=2548.5159 target=false phase=1 action=2 ability=10/16
+NATIVE_STATUS poloz age=940 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=0 ability=10/16
+NATIVE_STATUS poloz age=960 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=0 ability=10/16
+NATIVE_STATUS poloz age=980 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=0 ability=10/16
+ABILITY poloz age=1000 slot=2 accepted=false
+NATIVE_STATUS poloz age=1000 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=0 ability=10/17
+NATIVE_STATUS poloz age=1020 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=0 ability=10/17
+NATIVE_STATUS poloz age=1040 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=0 ability=10/17
+NATIVE_STATUS poloz age=1060 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=0 ability=10/17
+NATIVE_STATUS poloz age=1080 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=1 ability=10/17
+NATIVE_STATUS poloz age=1100 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=1 ability=10/17
+NATIVE_STATUS poloz age=1120 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=1 ability=10/17
+NATIVE_STATUS poloz age=1140 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=0 ability=10/17
+NATIVE_STATUS poloz age=1160 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=0 ability=10/17
+NATIVE_STATUS poloz age=1180 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=0 ability=10/17
+ABILITY poloz age=1200 slot=0 accepted=false
+NATIVE_STATUS poloz age=1200 spawned_alive=1 boss=true hp=2544.5159 target=false phase=1 action=0 ability=10/18
+NATIVE_STATUS poloz age=1220 spawned_alive=1 boss=true hp=2540.5159 target=false phase=1 action=0 ability=10/18
+NATIVE_STATUS poloz age=1240 spawned_alive=1 boss=true hp=2536.5159 target=false phase=1 action=3 ability=10/18
+NATIVE_STATUS poloz age=1260 spawned_alive=1 boss=true hp=2532.5159 target=false phase=1 action=3 ability=10/18
+NATIVE_STATUS poloz age=1280 spawned_alive=1 boss=true hp=2528.5159 target=false phase=1 action=3 ability=10/18
+NATIVE_STATUS poloz age=1300 spawned_alive=1 boss=true hp=2524.5159 target=false phase=1 action=3 ability=10/18
+NATIVE_STATUS poloz age=1320 spawned_alive=1 boss=true hp=2520.5159 target=false phase=1 action=3 ability=10/18
+NATIVE_STATUS poloz age=1340 spawned_alive=1 boss=true hp=2516.5159 target=false phase=1 action=0 ability=10/18
+NATIVE_STATUS poloz age=1360 spawned_alive=1 boss=true hp=2512.5159 target=false phase=1 action=0 ability=10/18
+NATIVE_STATUS poloz age=1380 spawned_alive=1 boss=true hp=2508.5159 target=false phase=1 action=0 ability=10/18
+ABILITY poloz age=1400 slot=1 accepted=true
+NATIVE_STATUS poloz age=1400 spawned_alive=1 boss=true hp=2504.5159 target=false phase=1 action=0 ability=11/19
+NATIVE_STATUS poloz age=1420 spawned_alive=1 boss=true hp=2500.5159 target=false phase=1 action=0 ability=11/19
+NATIVE_STATUS poloz age=1440 spawned_alive=1 boss=true hp=2496.5159 target=false phase=1 action=4 ability=11/19
+NATIVE_STATUS poloz age=1460 spawned_alive=1 boss=true hp=2492.5159 target=false phase=1 action=4 ability=11/19
+NATIVE_STATUS poloz age=1480 spawned_alive=1 boss=true hp=2488.5159 target=false phase=1 action=0 ability=11/19
+NATIVE_STATUS poloz age=1500 spawned_alive=1 boss=true hp=2484.5159 target=false phase=1 action=0 ability=11/19
+NATIVE_STATUS poloz age=1520 spawned_alive=1 boss=true hp=2480.5159 target=false phase=1 action=0 ability=11/19
+NATIVE_STATUS poloz age=1540 spawned_alive=1 boss=true hp=2476.5159 target=false phase=1 action=0 ability=11/19
+NATIVE_STATUS poloz age=1560 spawned_alive=1 boss=true hp=2472.5159 target=false phase=1 action=0 ability=11/19
+NATIVE_STATUS poloz age=1580 spawned_alive=1 boss=true hp=2468.5159 target=false phase=1 action=2 ability=11/19
+ABILITY poloz age=1600 slot=2 accepted=false
+NATIVE_STATUS poloz age=1600 spawned_alive=1 boss=true hp=2464.5159 target=false phase=1 action=2 ability=11/20
+NATIVE_STATUS poloz age=1620 spawned_alive=1 boss=true hp=2460.5159 target=false phase=1 action=2 ability=11/20
+NATIVE_STATUS poloz age=1640 spawned_alive=1 boss=true hp=2456.5159 target=false phase=1 action=2 ability=11/20
+NATIVE_STATUS poloz age=1660 spawned_alive=1 boss=true hp=2452.5159 target=false phase=1 action=2 ability=11/20
+NATIVE_STATUS poloz age=1680 spawned_alive=1 boss=true hp=2448.5159 target=false phase=1 action=2 ability=11/20
+NATIVE_STATUS poloz age=1700 spawned_alive=1 boss=true hp=2444.5159 target=false phase=1 action=0 ability=11/20
+NATIVE_STATUS poloz age=1720 spawned_alive=1 boss=true hp=2440.5159 target=false phase=1 action=0 ability=11/20
+NATIVE_STATUS poloz age=1740 spawned_alive=1 boss=true hp=2436.5159 target=false phase=1 action=0 ability=11/20
+NATIVE_STATUS poloz age=1760 spawned_alive=1 boss=true hp=2432.5159 target=false phase=1 action=0 ability=11/20
+NATIVE_STATUS poloz age=1780 spawned_alive=1 boss=true hp=2428.5159 target=false phase=1 action=0 ability=11/20
+ABILITY poloz age=1800 slot=0 accepted=false
+NATIVE_STATUS poloz age=1800 spawned_alive=1 boss=true hp=2424.5159 target=false phase=1 action=1 ability=11/21
+NATIVE_STATUS poloz age=1820 spawned_alive=1 boss=true hp=2420.5159 target=false phase=1 action=1 ability=11/21
+NATIVE_STATUS poloz age=1840 spawned_alive=1 boss=true hp=2416.5159 target=false phase=1 action=1 ability=11/21
+NATIVE_STATUS poloz age=1860 spawned_alive=1 boss=true hp=2405.5159 target=true phase=1 action=1 ability=11/21
+NATIVE_STATUS poloz age=1880 spawned_alive=1 boss=true hp=2387.5159 target=true phase=1 action=0 ability=11/21
+NATIVE_STATUS poloz age=1900 spawned_alive=1 boss=true hp=2380.5159 target=true phase=1 action=0 ability=11/21
+NATIVE_STATUS poloz age=1920 spawned_alive=1 boss=true hp=2370.5159 target=true phase=1 action=0 ability=11/21
+NATIVE_STATUS poloz age=1940 spawned_alive=1 boss=true hp=2360.5159 target=true phase=1 action=0 ability=11/21
+NATIVE_STATUS poloz age=1960 spawned_alive=1 boss=true hp=2357.5159 target=true phase=1 action=0 ability=11/21
+NATIVE_STATUS poloz age=1980 spawned_alive=1 boss=true hp=2351.5159 target=true phase=1 action=3 ability=11/21
+ABILITY poloz age=2000 slot=1 accepted=true
+NATIVE_STATUS poloz age=2000 spawned_alive=1 boss=true hp=2341.5159 target=true phase=1 action=3 ability=12/22
+NATIVE_STATUS poloz age=2020 spawned_alive=1 boss=true hp=2334.5159 target=true phase=1 action=3 ability=12/22
+NATIVE_STATUS poloz age=2040 spawned_alive=1 boss=true hp=2328.5159 target=true phase=1 action=3 ability=12/22
+NATIVE_STATUS poloz age=2060 spawned_alive=1 boss=true hp=2318.5159 target=true phase=1 action=0 ability=12/22
+NATIVE_STATUS poloz age=2080 spawned_alive=1 boss=true hp=2311.5159 target=true phase=1 action=0 ability=12/22
+NATIVE_STATUS poloz age=2100 spawned_alive=1 boss=true hp=2301.5159 target=true phase=1 action=0 ability=12/22
+NATIVE_STATUS poloz age=2120 spawned_alive=1 boss=true hp=2291.5159 target=true phase=1 action=0 ability=12/22
+NATIVE_STATUS poloz age=2140 spawned_alive=1 boss=true hp=2284.5159 target=true phase=1 action=0 ability=12/22
+NATIVE_STATUS poloz age=2160 spawned_alive=1 boss=true hp=2274.5159 target=true phase=1 action=4 ability=12/22
+NATIVE_STATUS poloz age=2180 spawned_alive=1 boss=true hp=2264.5159 target=true phase=1 action=4 ability=12/22
+ABILITY poloz age=2200 slot=2 accepted=false
+NATIVE_STATUS poloz age=2200 spawned_alive=1 boss=true hp=2256.0159 target=true phase=1 action=4 ability=12/23
+NATIVE_STATUS poloz age=2220 spawned_alive=1 boss=true hp=2246.0159 target=true phase=1 action=0 ability=12/23
+NATIVE_STATUS poloz age=2240 spawned_alive=1 boss=true hp=2236.0159 target=true phase=1 action=0 ability=12/23
+NATIVE_STATUS poloz age=2260 spawned_alive=1 boss=true hp=2229.0159 target=true phase=1 action=0 ability=12/23
+NATIVE_STATUS poloz age=2280 spawned_alive=1 boss=true hp=2219.0159 target=true phase=1 action=0 ability=12/23
+NATIVE_STATUS poloz age=2300 spawned_alive=1 boss=true hp=2209.0159 target=true phase=1 action=0 ability=12/23
+NATIVE_STATUS poloz age=2320 spawned_alive=1 boss=true hp=2202.0159 target=true phase=1 action=1 ability=12/23
+NATIVE_STATUS poloz age=2340 spawned_alive=1 boss=true hp=2192.0159 target=true phase=1 action=1 ability=12/23
+NATIVE_STATUS poloz age=2360 spawned_alive=1 boss=true hp=2188.0159 target=true phase=1 action=1 ability=12/23
+NATIVE_STATUS poloz age=2380 spawned_alive=1 boss=true hp=2184.0159 target=true phase=1 action=0 ability=12/23
+ABILITY poloz age=2400 slot=0 accepted=true
+NATIVE_STATUS poloz age=2400 spawned_alive=1 boss=true hp=2180.0159 target=true phase=1 action=0 ability=13/24
+NATIVE_STATUS poloz age=2420 spawned_alive=1 boss=true hp=2166.5317 target=true phase=1 action=0 ability=13/24
+NATIVE_STATUS poloz age=2440 spawned_alive=1 boss=true hp=2155.5317 target=true phase=1 action=0 ability=13/24
+NATIVE_STATUS poloz age=2460 spawned_alive=1 boss=true hp=2137.5317 target=true phase=1 action=0 ability=13/24
+NATIVE_STATUS poloz age=2480 spawned_alive=1 boss=true hp=2123.5317 target=true phase=1 action=2 ability=13/24
+NATIVE_STATUS poloz age=2500 spawned_alive=1 boss=true hp=2112.5317 target=true phase=1 action=2 ability=13/24
+NATIVE_STATUS poloz age=2520 spawned_alive=1 boss=true hp=2094.5317 target=true phase=2 action=2 ability=13/24
+NATIVE_STATUS poloz age=2540 spawned_alive=1 boss=true hp=2083.5317 target=true phase=2 action=2 ability=13/24
+NATIVE_STATUS poloz age=2560 spawned_alive=1 boss=true hp=2079.5317 target=false phase=2 action=2 ability=13/24
+NATIVE_STATUS poloz age=2580 spawned_alive=1 boss=true hp=2075.5317 target=false phase=2 action=2 ability=13/24
+ABILITY poloz age=2600 slot=1 accepted=true
+NATIVE_STATUS poloz age=2600 spawned_alive=1 boss=true hp=2075.5317 target=true phase=2 action=0 ability=14/25
+NATIVE_STATUS poloz age=2620 spawned_alive=1 boss=true hp=2070.0857 target=true phase=2 action=0 ability=14/25
+NATIVE_STATUS poloz age=2640 spawned_alive=1 boss=true hp=2056.0857 target=true phase=2 action=0 ability=14/25
+NATIVE_STATUS poloz age=2660 spawned_alive=1 boss=true hp=2038.0857 target=true phase=2 action=0 ability=14/25
+NATIVE_STATUS poloz age=2680 spawned_alive=1 boss=true hp=2027.0857 target=true phase=2 action=4 ability=14/25
+NATIVE_STATUS poloz age=2700 spawned_alive=1 boss=true hp=2009.0857 target=true phase=2 action=4 ability=14/25
+NATIVE_STATUS poloz age=2720 spawned_alive=1 boss=true hp=1991.0857 target=true phase=2 action=0 ability=14/25
+NATIVE_STATUS poloz age=2740 spawned_alive=1 boss=true hp=1980.0857 target=true phase=2 action=0 ability=14/25
+NATIVE_STATUS poloz age=2760 spawned_alive=1 boss=true hp=1958.5857 target=true phase=2 action=0 ability=14/25
+NATIVE_STATUS poloz age=2780 spawned_alive=1 boss=true hp=1940.5857 target=true phase=2 action=0 ability=14/25
+ABILITY poloz age=2800 slot=2 accepted=true
+NATIVE_STATUS poloz age=2800 spawned_alive=1 boss=true hp=1929.5857 target=true phase=2 action=1 ability=15/26
+NATIVE_STATUS poloz age=2820 spawned_alive=1 boss=true hp=1917.1051 target=true phase=2 action=1 ability=15/26
+NATIVE_STATUS poloz age=2840 spawned_alive=1 boss=true hp=1910.1051 target=true phase=2 action=1 ability=15/26
+NATIVE_STATUS poloz age=2860 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=1 ability=15/26
+NATIVE_STATUS poloz age=2880 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=0 ability=15/26
+NATIVE_STATUS poloz age=2900 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=0 ability=15/26
+NATIVE_STATUS poloz age=2920 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=0 ability=15/26
+NATIVE_STATUS poloz age=2940 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=0 ability=15/26
+NATIVE_STATUS poloz age=2960 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=6 ability=15/26
+NATIVE_STATUS poloz age=2980 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=6 ability=15/26
+ABILITY poloz age=3000 slot=0 accepted=false
+NATIVE_STATUS poloz age=3000 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=6 ability=15/27
+NATIVE_STATUS poloz age=3020 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=0 ability=15/27
+NATIVE_STATUS poloz age=3040 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=0 ability=15/27
+NATIVE_STATUS poloz age=3060 spawned_alive=1 boss=true hp=1910.1051 target=true phase=2 action=0 ability=15/27
+NATIVE_STATUS poloz age=3080 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=0 ability=15/27
+NATIVE_STATUS poloz age=3100 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=2 ability=15/27
+NATIVE_STATUS poloz age=3120 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=2 ability=15/27
+NATIVE_STATUS poloz age=3140 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=2 ability=15/27
+NATIVE_STATUS poloz age=3160 spawned_alive=1 boss=true hp=1910.1051 target=false phase=2 action=2 ability=15/27
