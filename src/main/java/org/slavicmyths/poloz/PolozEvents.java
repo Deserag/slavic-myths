@@ -37,7 +37,10 @@ public final class PolozEvents {
   BodyMelee(PathfinderMob m){actor=m;setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
   @Override public boolean canUse(){return actor.getTarget() instanceof GreatPoloz p&&p.isAlive()&&(!(actor instanceof LandSpiritEntity s)||s.morState()==0);}
   @Override public boolean canContinueToUse(){return canUse();}
-  @Override public void tick(){var boss=(GreatPoloz)actor.getTarget();Entity nearest=boss;double best=boss.getBoundingBox().distanceToSqr(actor.getEyePosition());for(var part:boss.parts)if(!part.scar){double d=part.getBoundingBox().distanceToSqr(actor.getEyePosition());if(d<best){best=d;nearest=part;}}actor.getLookControl().setLookAt(nearest.getX(),nearest.getY()+1,nearest.getZ());if(best<9&&actor.tickCount>=swingAt){actor.swing(net.minecraft.world.InteractionHand.MAIN_HAND);actor.doHurtTarget(boss);swingAt=actor.tickCount+20;}else if(actor.tickCount%20==0){Vec3 at=nearest.position();Vec3 away=actor.position().subtract(at).multiply(1,0,1).normalize().scale(nearest.getBbWidth()/2+.8);at=at.add(away);actor.getNavigation().moveTo(at.x,at.y,at.z,1);}}
+  @Override public void tick(){
+   // Another goal can clear or replace the target after selector validation (e.g. CombatGoal.stop).
+   if(!(actor.getTarget() instanceof GreatPoloz boss)||!boss.isAlive())return;
+   Entity nearest=boss;double best=boss.getBoundingBox().distanceToSqr(actor.getEyePosition());for(var part:boss.parts)if(!part.scar){double d=part.getBoundingBox().distanceToSqr(actor.getEyePosition());if(d<best){best=d;nearest=part;}}actor.getLookControl().setLookAt(nearest.getX(),nearest.getY()+1,nearest.getZ());if(best<9&&actor.tickCount>=swingAt){actor.swing(net.minecraft.world.InteractionHand.MAIN_HAND);actor.doHurtTarget(boss);swingAt=actor.tickCount+20;}else if(actor.tickCount%20==0){Vec3 at=nearest.position();Vec3 away=actor.position().subtract(at).multiply(1,0,1).normalize().scale(nearest.getBbWidth()/2+.8);at=at.add(away);actor.getNavigation().moveTo(at.x,at.y,at.z,1);}}
  }
  private static final class BodyFlee extends Goal {
   private final PathfinderMob actor;private GreatPoloz boss;private int next;
