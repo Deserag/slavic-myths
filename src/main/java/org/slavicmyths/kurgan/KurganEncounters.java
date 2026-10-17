@@ -98,8 +98,9 @@ public final class KurganEncounters {
             Vec3 desired=owner.position().add((n-1)*3,0,3);if(i!=null&&owner.kind==Kind.PRINCE&&n<i.plan.niches.size()){KurganPlan.Box niche=i.plan.niches.get(n);BlockPos p=i.origin.offset((niche.x0+niche.x1)/2,niche.y0,(niche.z0+niche.z1)/2);desired=new Vec3(p.getX()+.5,p.getY(),p.getZ()+.5);}
             BlockPos p=safePosition(mob,desired,false);if(p==null)continue;mob.moveTo(p.getX()+.5,p.getY(),p.getZ()+.5,0,0);mob.setTarget(owner.getTarget());mob.setPersistenceRequired();if(world.addFreshEntity(mob)&&state!=null){state.alive.add(mob.getUUID());BurialRecords.get(world).setDirty();}}
     }
-    public static void died(KurganCreature mob){if(mob.kurgan==null)return;ServerLevel world=(ServerLevel)mob.level();BurialRecords data=BurialRecords.get(world);KurganInstance i=data.instances.get(mob.kurgan);if(i==null)return;KurganEncounterState state=i.encounters.get(mob.room);if(state!=null&&state.death(mob.getUUID()))data.setDirty();
-        if((mob.kind==Kind.PRINCE||i.plan.tier==1&&mob.kind==Kind.VOEVODA)&&!i.bossDefeated){i.bossDefeated=true;data.setDirty();KurganCurse.sourceDefeated(world,i.id);}
+    public static void died(KurganCreature mob){died(mob,null);}
+    public static void died(KurganCreature mob,net.minecraft.world.damagesource.DamageSource source){if(mob.kurgan==null)return;ServerLevel world=(ServerLevel)mob.level();BurialRecords data=BurialRecords.get(world);KurganInstance i=data.instances.get(mob.kurgan);if(i==null)return;KurganEncounterState state=i.encounters.get(mob.room);boolean accepted=state!=null&&state.death(mob.getUUID());if(accepted)data.setDirty();
+        if((mob.kind==Kind.PRINCE||i.plan.tier==1&&mob.kind==Kind.VOEVODA)&&!i.bossDefeated){i.bossDefeated=true;data.setDirty();KurganCurse.sourceDefeated(world,i.id);if(accepted)org.slavicmyths.progression.EncounterMilestoneCredit.victory(mob,source,"kurgan_rest");}
     }
     @SubscribeEvent public static void healing(LivingHealEvent e){if(!e.getEntity().level().isClientSide&&e.getEntity() instanceof Player&&e.getEntity().getPersistentData().getLong("SlavicUpyrBiteUntil")>e.getEntity().level().getGameTime())e.setAmount(e.getAmount()*.5F);}
 }

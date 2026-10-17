@@ -1,20 +1,5 @@
 {
   "parent": "slavicmyths:defeat_leshy",
-  "display": {
-    "icon": {
-      "id": "slavicmyths:leshy_heart"
-    },
-    "title": {
-      "translate": "advancements.slavicmyths.leshy_heart.title"
-    },
-    "description": {
-      "translate": "advancements.slavicmyths.leshy_heart.description"
-    },
-    "frame": "task",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "obtained": {
       "trigger": "minecraft:inventory_changed",

@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "victory": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "victory"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:group_burial",
+  "display": {
+    "icon": {
+      "id": "minecraft:bone"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "title": {
+      "translate": "advancement.slavicmyths.kurgan_rest.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.kurgan_rest.description"
+    }
+  }
+}

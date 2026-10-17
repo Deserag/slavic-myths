@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "victory": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "victory"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:group_roads",
+  "display": {
+    "icon": {
+      "id": "minecraft:bow"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "title": {
+      "translate": "advancement.slavicmyths.defeat_skim.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.defeat_skim.description"
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "parent": "slavicmyths:root",
+  "parent": "slavicmyths:group_legends",
   "display": {
     "icon": {
-      "id": "slavicmyths:heart_of_eternal_cold"
+      "id": "minecraft:blue_ice"
     },
     "title": {
       "translate": "advancement.slavicmyths.endured_frost"

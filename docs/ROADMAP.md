@@ -1,3 +1,19 @@
+## Достижения 2.0 — реализация55 карточек (2026-10-17)
+
+Ветка `codex/advancements-2-implementation`, main fb2994e9/1.9.7.5; проект PR31
+реализован, исправления неслитого PR25 включены явно.55 visible =root+6 разделов+
+48 вех;44 старых display переработаны,85 data-only без display,11 новых native
+milestones. Все206 прежних ID/criteria/requirements/rewards,77 recipes и234 tales
+сохранены. Новые boss medals используют принятые native события; pre-death
+callbacks откладывают только медаль до accepted death. Бой/loot/AI/IDs/модели
+не менялись; локальный damage credit только там, где персонального ledger нет.
+Исторический import не активен: нет проверенного pre-reset/save/toast lifecycle,
+старые pre-death flags не доказывают принятую смерть. Java21 clean build,
+compile-only native fixtures,19 mutation и314 pure-Java cases, resource/JAR gates
+PASS. Клиентов/серверов/GameTest/worlds0 по запрету владельца; old-save/awards/
+co-op/GUI/полный Survival IV NOT_RUN. Не объявлено релизной приёмкой.
+[Реализация, матрица206 ID и схема](implementation/advancements-2-implementation/REPORT.md).
+
 ## Арбалет Горыныча — 1.9.7.5 (2026-10-14)
 
 Арбалет трёх дыханий: каждая стрела наносит минимум14 базового урона до брони;

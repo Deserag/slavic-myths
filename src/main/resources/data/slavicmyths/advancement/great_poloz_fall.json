@@ -1,13 +1,23 @@
 {
   "parent": "slavicmyths:group_legends",
   "display": {
-    "icon": {"id": "slavicmyths:poloz_core"},
-    "title": {"translate": "advancement.slavicmyths.great_poloz_fall.title"},
-    "description": {"translate": "advancement.slavicmyths.great_poloz_fall.description"},
+    "icon": {
+      "id": "minecraft:gold_ingot"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.great_poloz_fall.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.great_poloz_fall.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
-    "hidden": true
+    "hidden": false
   },
-  "criteria": {"victory": {"trigger": "minecraft:impossible"}}
+  "criteria": {
+    "victory": {
+      "trigger": "minecraft:impossible"
+    }
+  }
 }

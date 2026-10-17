@@ -135,4 +135,8 @@ def generate(root):
     loot=[('minecraft:bread',10,1,3),('minecraft:coal',8,1,3),('minecraft:iron_nugget',8,2,6),('minecraft:bone',8,1,3),('minecraft:string',8,1,3),('slavicmyths:wormwood',8,1,2),('slavicmyths:flax',8,1,2),('slavicmyths:birch_bark',8,1,3),('slavicmyths:birch_bark_scroll',4,1,1),('slavicmyths:ancient_coin',3,1,2),('slavicmyths:idol_fragment',3,1,1),('slavicmyths:thunder_stone',1,1,1)]
     js('data/slavicmyths/loot_tables/chests/ancient_shrine.json',{'type':'minecraft:chest','pools':[{'rolls':{'min':3,'max':5},'entries':[{'type':'minecraft:item','name':name,'weight':weight,'functions':[{'function':'minecraft:set_count','count':{'min':lo,'max':hi}}]} for name,weight,lo,hi in loot]}]})
 
+    # Preserve the approved tree even when this historical generator is imported.
+    import runpy
+    runpy.run_path(str(Path(__file__).with_name('advancements2_resources.py')))['apply'](root)
+
 if __name__ == '__main__': generate(Path(__file__).resolve().parents[1])

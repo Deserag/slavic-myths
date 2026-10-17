@@ -1,8 +1,8 @@
 {
-  "parent": "slavicmyths:hunt_begins",
+  "parent": "slavicmyths:group_legends",
   "display": {
     "icon": {
-      "id": "slavicmyths:us_tugarina"
+      "id": "slavicmyths:poyas_tugarina"
     },
     "title": {
       "translate": "advancements.slavicmyths.steppe_champion.title"

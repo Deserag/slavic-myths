@@ -1,5 +1,5 @@
 {
-  "parent": "slavicmyths:found_ancient_sanctuary",
+  "parent": "slavicmyths:found_two_sanctuaries",
   "display": {
     "icon": {
       "id": "slavicmyths:mor_fire_amulet_fragment"
@@ -10,9 +10,9 @@
     "description": {
       "translate": "advancements.slavicmyths.claimed_fire_fragment.description"
     },
-    "frame": "goal",
+    "frame": "challenge",
     "show_toast": true,
-    "announce_to_chat": false,
+    "announce_to_chat": true,
     "hidden": false
   },
   "criteria": {

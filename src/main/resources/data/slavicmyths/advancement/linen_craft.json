@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:husbandry/root",
+  "parent": "slavicmyths:group_home",
   "display": {
     "icon": {
       "id": "slavicmyths:linen_cloth"
@@ -13,7 +13,7 @@
     "frame": "task",
     "hidden": false,
     "show_toast": true,
-    "announce_to_chat": true
+    "announce_to_chat": false
   },
   "criteria": {
     "cloth": {

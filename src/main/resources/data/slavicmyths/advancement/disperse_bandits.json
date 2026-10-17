@@ -9,20 +9,5 @@
     [
       "done"
     ]
-  ],
-  "display": {
-    "icon": {
-      "id": "minecraft:iron_sword"
-    },
-    "title": {
-      "translate": "advancement.slavicmyths.disperse_bandits.title"
-    },
-    "description": {
-      "translate": "advancement.slavicmyths.disperse_bandits.description"
-    },
-    "frame": "challenge",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  }
+  ]
 }

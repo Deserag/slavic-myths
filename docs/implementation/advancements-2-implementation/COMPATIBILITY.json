@@ -1,0 +1,1444 @@
+[
+  {
+    "id": "slavicmyths:all_timber",
+    "policy": "M0",
+    "successor": "all_timber",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:altar",
+    "policy": "M1",
+    "successor": "first_ritual",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:amber",
+    "policy": "M1",
+    "successor": "ancient_find",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:ancient_find",
+    "policy": "M0",
+    "successor": "ancient_find",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:ancient_sign",
+    "policy": "M1",
+    "successor": "first_ritual",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:armorer_craft",
+    "policy": "M1",
+    "successor": "three_signs",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:bad_people",
+    "policy": "M0",
+    "successor": "bad_people",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:berry_garden",
+    "policy": "M1",
+    "successor": "kitchen_meal",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:bind_hearth",
+    "policy": "M0",
+    "successor": "bind_hearth",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:birch_bark",
+    "policy": "M1",
+    "successor": "first_book_entry",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:birch_bark_scroll",
+    "policy": "M1",
+    "successor": "first_book_entry",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:black_feather",
+    "policy": "M1",
+    "successor": "bad_people",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:boar_charge_block",
+    "policy": "M1",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:bog_explorer",
+    "policy": "M0",
+    "successor": "bog_explorer",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:bookkeeper",
+    "policy": "M0",
+    "successor": "bookkeeper",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:bottled_elements",
+    "policy": "M1",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:break_water_call",
+    "policy": "M0",
+    "successor": "break_water_call",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:catch_the_wind",
+    "policy": "M1",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:cauldron_service",
+    "policy": "M1",
+    "successor": "trusted_by_yaga",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:claimed_fire_fragment",
+    "policy": "M0",
+    "successor": "claimed_fire_fragment",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:claimed_water_fragment",
+    "policy": "M0",
+    "successor": "claimed_water_fragment",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:cleansed_sanctuary_pool",
+    "policy": "M1",
+    "successor": "claimed_water_fragment",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:clear_large_camp",
+    "policy": "M0",
+    "successor": "clear_large_camp",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:defeat_depth_master",
+    "policy": "M0",
+    "successor": "defeat_depth_master",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:defeat_leshy",
+    "policy": "M0",
+    "successor": "defeat_leshy",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:defeat_nightingale",
+    "policy": "M0",
+    "successor": "defeat_nightingale",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:depth_clue",
+    "policy": "M1",
+    "successor": "defeat_depth_master",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:depth_gift",
+    "policy": "M1",
+    "successor": "defeat_depth_master",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:disperse_bandits",
+    "policy": "M1",
+    "successor": "bad_people",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:earth_heart",
+    "policy": "M0",
+    "successor": "earth_heart",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:endured_frost",
+    "policy": "M0",
+    "successor": "endured_frost",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:endured_last_night",
+    "policy": "M0",
+    "successor": "endured_last_night",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:explore_abandoned_settlement",
+    "policy": "M1",
+    "successor": "traces_of_past",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:explore_bog_causeway",
+    "policy": "M1",
+    "successor": "traces_of_past",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:explore_fishing_camp",
+    "policy": "M1",
+    "successor": "traces_of_past",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:explore_flooded_shrine",
+    "policy": "M1",
+    "successor": "traces_of_past",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:explore_swamp_hut",
+    "policy": "M1",
+    "successor": "traces_of_past",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:explore_underwater_ruins",
+    "policy": "M1",
+    "successor": "traces_of_past",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:extinguish_the_barn",
+    "policy": "M0",
+    "successor": "extinguish_the_barn",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:falling_star",
+    "policy": "M0",
+    "successor": "falling_star",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:fern_flower",
+    "policy": "M0",
+    "successor": "fern_flower",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:find_deep_pool",
+    "policy": "M1",
+    "successor": "defeat_depth_master",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:find_large_camp",
+    "policy": "M1",
+    "successor": "bad_people",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:find_medium_camp",
+    "policy": "M1",
+    "successor": "bad_people",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:find_small_camp",
+    "policy": "M1",
+    "successor": "bad_people",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:find_the_hut",
+    "policy": "M1",
+    "successor": "trusted_by_yaga",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:fire_in_the_sky",
+    "policy": "M1",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:first_accessory",
+    "policy": "M1",
+    "successor": "rare_accessory",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:first_book_entry",
+    "policy": "M0",
+    "successor": "first_book_entry",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:first_brew",
+    "policy": "M1",
+    "successor": "kitchen_meal",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:first_flight",
+    "policy": "M0",
+    "successor": "first_flight",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:first_hunt",
+    "policy": "M1",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:first_ritual",
+    "policy": "M0",
+    "successor": "first_ritual",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:flax",
+    "policy": "M1",
+    "successor": "linen_craft",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:follow_the_thread",
+    "policy": "M1",
+    "successor": "trusted_by_yaga",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:forest_guardian",
+    "policy": "M1",
+    "successor": "rare_accessory",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:found_ancient_sanctuary",
+    "policy": "M1",
+    "successor": "found_two_sanctuaries",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:found_two_sanctuaries",
+    "policy": "M0",
+    "successor": "found_two_sanctuaries",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:friend_domovoy",
+    "policy": "M1",
+    "successor": "bind_hearth",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:friend_of_bayun",
+    "policy": "M0",
+    "successor": "friend_of_bayun",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:full_speed_ahead",
+    "policy": "M1",
+    "successor": "rare_accessory",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:full_yard",
+    "policy": "M0",
+    "successor": "full_yard",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:garden_harvest",
+    "policy": "M1",
+    "successor": "kitchen_meal",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:generous_table",
+    "policy": "M1",
+    "successor": "kitchen_meal",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:great_poloz_fall",
+    "policy": "M0",
+    "successor": "great_poloz_fall",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:group_burial",
+    "policy": "M0",
+    "successor": "group_burial",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:group_depths",
+    "policy": "M1",
+    "successor": "group_burial",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:group_forest",
+    "policy": "M1",
+    "successor": "group_water",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:group_home",
+    "policy": "M0",
+    "successor": "group_home",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:group_knowledge",
+    "policy": "M0",
+    "successor": "group_knowledge",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:group_legends",
+    "policy": "M0",
+    "successor": "group_legends",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:group_night",
+    "policy": "M1",
+    "successor": "group_legends",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:group_roads",
+    "policy": "M0",
+    "successor": "group_roads",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:group_water",
+    "policy": "M0",
+    "successor": "group_water",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:guest_of_yaga",
+    "policy": "M1",
+    "successor": "trusted_by_yaga",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:hunt_begins",
+    "policy": "M1",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:ill_fate_broken",
+    "policy": "M1",
+    "successor": "rare_accessory",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:kitchen_meal",
+    "policy": "M0",
+    "successor": "kitchen_meal",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:learn_armorer",
+    "policy": "M1",
+    "successor": "three_signs",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:leshy_heart",
+    "policy": "M1",
+    "successor": "defeat_leshy",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:linen_craft",
+    "policy": "M0",
+    "successor": "linen_craft",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:linen_thread",
+    "policy": "M1",
+    "successor": "linen_craft",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:lore_book",
+    "policy": "M1",
+    "successor": "first_book_entry",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:lore_keeper",
+    "policy": "M1",
+    "successor": "first_book_entry",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:meet_bayun",
+    "policy": "M1",
+    "successor": "friend_of_bayun",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:meet_domovoy",
+    "policy": "M1",
+    "successor": "bind_hearth",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:meet_leshy",
+    "policy": "M1",
+    "successor": "defeat_leshy",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:meet_nightingale",
+    "policy": "M1",
+    "successor": "bad_people",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:meet_rusalka",
+    "policy": "M1",
+    "successor": "defeat_depth_master",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:meet_vodyanoy",
+    "policy": "M1",
+    "successor": "defeat_depth_master",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:name_your_misfortune",
+    "policy": "M0",
+    "successor": "name_your_misfortune",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:net_catch",
+    "policy": "M1",
+    "successor": "defeat_depth_master",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:new_catch",
+    "policy": "M1",
+    "successor": "defeat_depth_master",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:new_seeds",
+    "policy": "M1",
+    "successor": "kitchen_meal",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:not_empty_handed",
+    "policy": "M1",
+    "successor": "trusted_by_yaga",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:not_today",
+    "policy": "M1",
+    "successor": "rare_accessory",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:offer_domovoy",
+    "policy": "M1",
+    "successor": "bind_hearth",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:old_weapons",
+    "policy": "M1",
+    "successor": "first_ritual",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:own_path",
+    "policy": "M0",
+    "successor": "own_path",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:perunite",
+    "policy": "M1",
+    "successor": "first_ritual",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:rare_accessory",
+    "policy": "M0",
+    "successor": "rare_accessory",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:recipes/alyosha_call_whistle",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/armorer_table",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/beast_challenge_horn",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/birch_bark",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/birch_bark_scroll",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/dobrynya_call_emblem",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/hearth",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/ilya_call_token",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_button",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_door",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_fence",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_fence_gate",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_planks",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_pressure_plate",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_sign",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_slab",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_stairs",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_stripped_wood",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_trapdoor",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/linden_wood",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/lore_book",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_button",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_door",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_fence",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_fence_gate",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_planks",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_pressure_plate",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_sign",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_slab",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_stairs",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_stripped_wood",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_trapdoor",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/pine_wood",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_button",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_door",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_fence",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_fence_gate",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_planks",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_pressure_plate",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_sign",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_slab",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_stairs",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_stripped_wood",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_trapdoor",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/rowan_wood",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/sanctuaries/blank_rune_1_from_ancient",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/sanctuaries/cleansing_powder_from_ash",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/sanctuaries/fading_flame_charm",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/sanctuaries/flame_vial",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/sanctuaries/purified_water_bottle",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/sanctuaries/purifying_ash",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/sanctuaries/spring_tear",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/serpent_hill/ancient_hanging_lamp",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/serpent_hill/ancient_ritual_slab",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/serpent_hill/cracked_serpent_masonry",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/serpent_hill/defiled_ritual_brazier",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/serpent_hill/defiled_ritual_slab",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/serpent_hill/mor_crystal",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/serpent_hill/ritual_brazier",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/serpent_hill/ruined_serpent_masonry",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/serpent_hill/serpent_bas_relief",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/serpent_hill/serpent_masonry",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/serpent_hill/serpent_torch",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/thunder_stone",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/warding_charm",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_button",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_door",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_fence",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_fence_gate",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_planks",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_pressure_plate",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_sign",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_slab",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_stairs",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_stripped_wood",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_trapdoor",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:recipes/willow_wood",
+    "policy": "M2",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:reforged",
+    "policy": "M1",
+    "successor": "three_signs",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:restored_sanctuary_fire",
+    "policy": "M1",
+    "successor": "claimed_fire_fragment",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:root",
+    "policy": "M0",
+    "successor": "root",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:rune_installed",
+    "policy": "M1",
+    "successor": "three_signs",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:self_playing_music",
+    "policy": "M1",
+    "successor": "rare_accessory",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:shrine",
+    "policy": "M1",
+    "successor": "first_ritual",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:silver_remedy",
+    "policy": "M0",
+    "successor": "silver_remedy",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:steppe_champion",
+    "policy": "M0",
+    "successor": "steppe_champion",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:stolen_goods",
+    "policy": "M1",
+    "successor": "bad_people",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:storm_staff",
+    "policy": "M1",
+    "successor": "first_ritual",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:table_is_set",
+    "policy": "M1",
+    "successor": "rare_accessory",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:three_signs",
+    "policy": "M0",
+    "successor": "three_signs",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:thunder_axe",
+    "policy": "M1",
+    "successor": "first_ritual",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:thunder_stone",
+    "policy": "M1",
+    "successor": "first_ritual",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:too_much",
+    "policy": "M1",
+    "successor": "kitchen_meal",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:traces_of_past",
+    "policy": "M0",
+    "successor": "traces_of_past",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:trophy_keeper",
+    "policy": "M1",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:trusted_by_yaga",
+    "policy": "M0",
+    "successor": "trusted_by_yaga",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:two_rings",
+    "policy": "M1",
+    "successor": "rare_accessory",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:village_feast",
+    "policy": "M1",
+    "successor": "kitchen_meal",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:wake_depth_master",
+    "policy": "M1",
+    "successor": "defeat_depth_master",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:warding_charm",
+    "policy": "M1",
+    "successor": "rare_accessory",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:water_call",
+    "policy": "M1",
+    "successor": "defeat_depth_master",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:wildlife_encounter",
+    "policy": "M1",
+    "successor": null,
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:winter_stores",
+    "policy": "M1",
+    "successor": "kitchen_meal",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:without_ataman",
+    "policy": "M0",
+    "successor": "without_ataman",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": true
+  },
+  {
+    "id": "slavicmyths:woodlands",
+    "policy": "M1",
+    "successor": "all_timber",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  },
+  {
+    "id": "slavicmyths:wormwood",
+    "policy": "M1",
+    "successor": "kitchen_meal",
+    "criteria_requirements_rewards": "UNCHANGED",
+    "visible": false
+  }
+]

@@ -86,9 +86,17 @@ def transport():
   names[f'advancements.slavicmyths.{id}.title']=(ru,en);names[f'advancements.slavicmyths.{id}.description']=(rd,ed)
  for lang,index in [('ru_ru',0),('en_us',1)]:
   p=A/f'lang/{lang}.json';d=json.loads(p.read_text(encoding='utf-8'));d.update({k:v[index] for k,v in names.items()});write(p,d)
-def all_resources():generate();transport()
+def all_resources():
+ generate();transport()
+ import runpy
+ runpy.run_path(str(__import__("pathlib").Path(__file__).with_name("advancements2_resources.py")))["apply"]()
 if __name__=='__main__':all_resources()
 
 # Keep Kitchen II canonical resources/recipes after this legacy generation pass.
 import runpy
 runpy.run_path(str(__import__("pathlib").Path(__file__).with_name("kitchen_resources.py")), run_name="__main__")
+
+# Approved Advancements2 presentation must be the final advancement pass.
+if __name__ == "__main__":
+    from advancements2_resources import apply as apply_advancements2
+    apply_advancements2()

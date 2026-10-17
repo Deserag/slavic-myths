@@ -2,7 +2,7 @@
   "parent": "slavicmyths:root",
   "display": {
     "icon": {
-      "id": "slavicmyths:iron_spear"
+      "id": "minecraft:compass"
     },
     "title": {
       "translate": "advancements.slavicmyths.group_roads.title"

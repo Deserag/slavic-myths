@@ -1,0 +1,1 @@
+{"status": "PASS", "total": 217, "gameplay": 140, "hidden": [], "tales": 234, "visible": 55, "data_only": 85, "legacy_contract": 206, "scope": "Static wiring; runtime tests reported separately", "production": {"checks": 8508, "sha256": "c2a32c4c75b79da1232f598eb5752b92261f0f34d69ca4683277e3efd230503e", "subscribers": 222}}

@@ -2,7 +2,7 @@
   "parent": "slavicmyths:group_home",
   "display": {
     "icon": {
-      "id": "slavicmyths:kitchen_table"
+      "id": "minecraft:bowl"
     },
     "title": {
       "translate": "advancements.slavicmyths.kitchen_meal.title"

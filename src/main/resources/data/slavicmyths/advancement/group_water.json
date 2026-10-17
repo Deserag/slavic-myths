@@ -2,7 +2,7 @@
   "parent": "slavicmyths:root",
   "display": {
     "icon": {
-      "id": "slavicmyths:fishing_net"
+      "id": "minecraft:oak_sapling"
     },
     "title": {
       "translate": "advancements.slavicmyths.group_water.title"

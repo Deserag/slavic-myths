@@ -2,7 +2,7 @@
   "parent": "slavicmyths:group_knowledge",
   "display": {
     "icon": {
-      "id": "slavicmyths:path_stone"
+      "id": "minecraft:iron_sword"
     },
     "title": {
       "translate": "advancements.slavicmyths.own_path.title"
