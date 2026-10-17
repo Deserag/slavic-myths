@@ -1,0 +1,25 @@
+{
+  "status": "PASS_BUILD_ONLY",
+  "tasks": [
+    "clean",
+    "createMinecraftArtifacts",
+    "compileJava",
+    "processResources",
+    "classes",
+    "jarJar",
+    "jar",
+    "assemble",
+    "compileTestJava",
+    "processTestResources",
+    "testClasses",
+    "test",
+    "check",
+    "build",
+    "compileAdvancementCheckJava"
+  ],
+  "game_launches": 0,
+  "gametest_execution": "NOT_RUN",
+  "fixture_compile": "PASS",
+  "build_duration_seconds": 98,
+  "final_resource_build": "PASS36s; source compile up-to-date; processResources+jar only"
+}

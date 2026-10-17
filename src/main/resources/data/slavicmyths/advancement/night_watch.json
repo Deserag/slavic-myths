@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "victory": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "victory"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:group_water",
+  "display": {
+    "icon": {
+      "id": "minecraft:clock"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false,
+    "title": {
+      "translate": "advancement.slavicmyths.night_watch.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.night_watch.description"
+    }
+  }
+}

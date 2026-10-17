@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "id": "slavicmyths:birch_bark"
+      "id": "minecraft:book"
     },
     "title": {
       "translate": "advancements.slavicmyths.root.title"

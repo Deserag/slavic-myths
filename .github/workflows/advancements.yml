@@ -1,0 +1,26 @@
+name: Advancement integrity
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python tools/verify_advancement_tree.py
+      - run: python tools/test_advancement_audit.py
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Pure Java historical policy (no Minecraft classes)
+        run: |
+          mkdir -p work/advancements2-offline
+          javac -d work/advancements2-offline src/main/java/org/slavicmyths/progression/HistoricalMilestonePolicy.java tools/advancements2-offline/HistoricalPolicyChecks.java
+          java -cp work/advancements2-offline HistoricalPolicyChecks

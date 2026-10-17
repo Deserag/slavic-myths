@@ -1,0 +1,462 @@
+{
+  "status": "PASS_STATIC_REGISTRATION",
+  "icons": [
+    {
+      "icon": "minecraft:amethyst_shard",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 936
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:black_banner",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1752
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:blue_ice",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 721
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:bone",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1319
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:book",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1281
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:bow",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 928
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:bowl",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 926
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:campfire",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1926
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:clock",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1290
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:coal",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 930
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:cod",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1293
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:compass",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1284
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:crossbow",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1871
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:emerald",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 933
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:ender_eye",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1379
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:feather",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1041
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:glowstone_dust",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1292
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:gold_ingot",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 942
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:iron_axe",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 999
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:iron_helmet",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1076
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:iron_sword",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 990
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:lily_pad",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 409
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:mossy_stone_bricks",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 385
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:nautilus_shell",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1869
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:nether_star",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1588
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:oak_log",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 170
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:oak_sapling",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:raw_gold",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 941
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:shield",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1781
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:trident",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1858
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:wheat",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1044
+        }
+      ]
+    },
+    {
+      "icon": "minecraft:writable_book",
+      "registration_source": [
+        {
+          "path": "installed/net/minecraft/world/item/Items.java",
+          "line": 1540
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:ancient_coin",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:ancient_sign",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:cursed_volkolak_skull",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:fern_flower",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 55
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModLoot.java",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:hearth",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModBlocks.java",
+          "line": 65
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 69
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:leshy_heart",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 59
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:linen_cloth",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 93
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:lore_book",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 75
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:mor_fire_amulet_fragment",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:mor_water_amulet_fragment",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:mysterious_black_feather",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/furniture/Furniture.java",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:odnoglazyy_obereg",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 313
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:poyas_tugarina",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 314
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:serpent_seal",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:spear",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/combat/WeaponCatalog.java",
+          "line": 39
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/combat/WeaponCatalog.java",
+          "line": 43
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 118
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+          "line": 26
+        }
+      ]
+    },
+    {
+      "icon": "slavicmyths:warding_charm",
+      "registration_source": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 50
+        }
+      ]
+    }
+  ],
+  "runtime_registry": "NOT_RUN"
+}

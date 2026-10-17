@@ -9,9 +9,9 @@
     "description": {
       "translate": "advancements.slavicmyths.fern_flower.description"
     },
-    "frame": "challenge",
+    "frame": "goal",
     "show_toast": true,
-    "announce_to_chat": true,
+    "announce_to_chat": false,
     "hidden": false
   },
   "criteria": {
@@ -28,5 +28,5 @@
       }
     }
   },
-  "parent": "slavicmyths:group_knowledge"
+  "parent": "slavicmyths:group_legends"
 }

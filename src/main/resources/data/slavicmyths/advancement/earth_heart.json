@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "id": "slavicmyths:rune_earth_heart_iii"
+      "id": "minecraft:emerald"
     },
     "title": {
       "translate": "advancement.slavicmyths.earth_heart.title"
@@ -14,7 +14,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "slavicmyths:group_depths",
+  "parent": "slavicmyths:group_burial",
   "criteria": {
     "victory": {
       "trigger": "minecraft:impossible"

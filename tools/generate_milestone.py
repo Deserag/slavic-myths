@@ -67,12 +67,12 @@ def generate(root):
       'bind_hearth': ('friend_domovoy','slavicmyths:hearth','Тепло родного дома','Warmth of home','Привяжите дружелюбного Домового к очагу.','Bind a friendly Domovoy to a hearth.'),
       'defeat_leshy': ('meet_leshy','slavicmyths:leshy_heart','Лес помнит','The forest remembers','Победите Лешего в столкновении.','Defeat a Leshy in combat.'),
       'ancient_find': ('root','slavicmyths:ancient_coin','Отголосок старины','An ancient echo','Найдите древнюю монету или осколок идола.','Find an ancient coin or idol fragment.'),
-      'shrine': ('ancient_find','slavicmyths:ancient_idol','Камни помнят','Stones remember','Коснитесь идола или прочтите книгу с древней находкой.','Touch an idol or read the book after an ancient find.'),
+      'shrine': ('ancient_find','slavicmyths:ancient_idol','Камни помнят','Stones remember','Взаимодействуйте с древним идолом.','Interact with an ancient idol.'),
       'altar': ('shrine','slavicmyths:altar','Место для дара','A place for offerings','Используйте жертвенник: полынь, свиток, оберег.','Use an altar: wormwood, scroll, charm.'),
       'first_ritual': ('altar','slavicmyths:ancient_sign','Первый обряд','The first rite','Завершите последовательность трёх даров.','Complete the three offerings in order.'),
       'ancient_sign': ('first_ritual','slavicmyths:ancient_sign','Память обряда','Memory of a rite','Получите Древний знак.','Obtain an Ancient Sign.'),
       'lore_book': ('birch_bark_scroll','slavicmyths:lore_book','Сказания оживают','Tales awaken','Создайте или откройте Книгу сказаний.','Craft or open the Book of Tales.'),
-      'lore_keeper': ('lore_book','slavicmyths:lore_book','Хранитель сказаний','Keeper of tales','Откройте книгу, узнав не менее трёх записей.','Open the book after discovering at least three entries.')}
+      'lore_keeper': ('lore_book','slavicmyths:lore_book','Хранитель сказаний','Keeper of tales','Откройте книгу после трёх разных открытий о духах, обрядах, воде, лесах или разбойниках.','Open the book after three distinct discoveries about spirits, rituals, waters, woodlands or bandits.')}
     for aid,(parent,icon,ru,en,rud,end) in advances.items():
         tr('advancements.slavicmyths.'+aid+'.title',ru,en); tr('advancements.slavicmyths.'+aid+'.description',rud,end)
         criteria = {'done': {'trigger':'minecraft:impossible'}}
@@ -134,5 +134,9 @@ def generate(root):
         js(f'data/slavicmyths/advancements/recipes/{name}.json',{'parent':'minecraft:recipes/root','criteria':{'has_bark':{'trigger':'minecraft:inventory_changed','conditions':{'items':[{'item':'slavicmyths:birch_bark'}]}},'unlocked':{'trigger':'minecraft:recipe_unlocked','conditions':{'recipe':'slavicmyths:'+name}}},'requirements':[['has_bark','unlocked']],'rewards':{'recipes':['slavicmyths:'+name]}})
     loot=[('minecraft:bread',10,1,3),('minecraft:coal',8,1,3),('minecraft:iron_nugget',8,2,6),('minecraft:bone',8,1,3),('minecraft:string',8,1,3),('slavicmyths:wormwood',8,1,2),('slavicmyths:flax',8,1,2),('slavicmyths:birch_bark',8,1,3),('slavicmyths:birch_bark_scroll',4,1,1),('slavicmyths:ancient_coin',3,1,2),('slavicmyths:idol_fragment',3,1,1),('slavicmyths:thunder_stone',1,1,1)]
     js('data/slavicmyths/loot_tables/chests/ancient_shrine.json',{'type':'minecraft:chest','pools':[{'rolls':{'min':3,'max':5},'entries':[{'type':'minecraft:item','name':name,'weight':weight,'functions':[{'function':'minecraft:set_count','count':{'min':lo,'max':hi}}]} for name,weight,lo,hi in loot]}]})
+
+    # Preserve the approved tree even when this historical generator is imported.
+    import runpy
+    runpy.run_path(str(Path(__file__).with_name('advancements2_resources.py')))['apply'](root)
 
 if __name__ == '__main__': generate(Path(__file__).resolve().parents[1])

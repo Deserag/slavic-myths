@@ -1,5 +1,5 @@
 {
-  "parent": "slavicmyths:friend_domovoy",
+  "parent": "slavicmyths:group_home",
   "display": {
     "icon": {
       "id": "slavicmyths:hearth"
@@ -10,7 +10,7 @@
     "description": {
       "translate": "advancements.slavicmyths.bind_hearth.description"
     },
-    "frame": "task",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": false,
     "hidden": false

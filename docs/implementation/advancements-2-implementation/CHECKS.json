@@ -1,0 +1,32 @@
+{
+  "status": "PASS_OFFLINE",
+  "base": "fb2994e958911169317523e1066b8a1ca7a155af",
+  "visible": 55,
+  "root": 1,
+  "sections": 6,
+  "milestones": 48,
+  "old_visible": 44,
+  "legacy_data_only": 85,
+  "new": 11,
+  "old_criteria_requirements_rewards": 206,
+  "technical_recipe_blobs": 77,
+  "tales_blobs": 234,
+  "mutation_tests": 19,
+  "pure_java_policy_cases": 314,
+  "production_checks": {
+    "checks": 8508,
+    "sha256": "c2a32c4c75b79da1232f598eb5752b92261f0f34d69ca4683277e3efd230503e",
+    "subscribers": 222
+  },
+  "jar_bytes": 19708639,
+  "json_resources": 3930,
+  "png_resources": 1325,
+  "class_files_java21": 1693,
+  "native_fixture_compilation": "PASS_ONLY",
+  "clients": 0,
+  "servers": 0,
+  "gametest_servers": 0,
+  "worlds": 0,
+  "historical_import": "INACTIVE_NO_RUNTIME_CALLERS",
+  "runtime_acceptance": "NOT_RUN"
+}

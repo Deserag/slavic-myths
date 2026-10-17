@@ -25,20 +25,5 @@
     [
       "medium"
     ]
-  ],
-  "display": {
-    "icon": {
-      "id": "slavicmyths:lore_book"
-    },
-    "title": {
-      "translate": "advancements.slavicmyths.find_medium_camp.title"
-    },
-    "description": {
-      "translate": "advancements.slavicmyths.find_medium_camp.description"
-    },
-    "frame": "task",
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": false
-  }
+  ]
 }

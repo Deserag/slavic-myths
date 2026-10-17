@@ -80,15 +80,23 @@ def transport():
  e=[cube([7,1,7],[9,20,9],'light'),cube([6.5,10,6.5],[9.5,14,9.5],'wrap'),cube([5,-4,5],[11,1,11],'twig'),cube([4.5,-3,5.5],[11.5,0,10.5],'twig'),cube([5.5,-5,5.5],[10.5,-4,10.5],'light')]
  model('item/pestle',e,textures,{**display,'firstperson_righthand':{'rotation':[0,-10,-15],'translation':[1,2,0],'scale':[1,1,1]},'thirdperson_righthand':{'rotation':[0,0,0],'translation':[0,2,0],'scale':[1,1,1]}})
  names={'item.slavicmyths.flying_broom':('Метла Бабы-Яги','Baba Yaga\'s broom'),'item.slavicmyths.flying_mortar':('Летающая ступа','Flying mortar'),'item.slavicmyths.pestle':('Пест','Pestle'),'entity.slavicmyths.flying_broom':('Метла Бабы-Яги','Flying broom'),'entity.slavicmyths.flying_mortar':('Летающая ступа','Flying mortar'),'enchantment.slavicmyths.tailwind':('Попутный ветер','Tailwind'),'flight.slavicmyths.cargo':('Груз Ступы','Mortar cargo'),'flight.slavicmyths.controls':('WASD — движение; %s / %s — вверх / вниз; %s — тормоз; %s — груз; %s — сойти.','WASD: move; %s / %s: up / down; %s: brake; %s: cargo; %s: dismount.'),'flight.slavicmyths.need_pestle':('Для управления Ступой возьмите Пест в руку.','Hold a pestle to steer the mortar.'),'key.slavicmyths.flight_down':('Снижение транспорта','Descend'),'key.slavicmyths.flight_brake':('Тормоз транспорта','Flight brake'),'key.slavicmyths.flight_cargo':('Груз Ступы','Open mortar cargo')}
- advancements=[('berry_garden','raspberry','Ягодная делянка','Berry patch','Посадите ягодный куст.','Plant a berry bush.'),('kitchen_meal','kitchen_table','У деревенского стола','Country kitchen','Приготовьте блюдо на кухонном столе.','Prepare a meal at the kitchen table.'),('first_flight','flying_broom','Над лесом','Above the forest','Взлетите на сказочном транспорте.','Take off on a folk flying vessel.')]
+ advancements=[('berry_garden','raspberry','Ягодная делянка','Berry patch','Посадите ягодный куст.','Plant a berry bush.'),('kitchen_meal','kitchen_table','У деревенского стола','Country kitchen','Заберите готовое блюдо из кухонного стола или налейте порцию в миску.','Collect a prepared meal from the kitchen table or serve a bowl from its pot.'),('first_flight','flying_broom','Над лесом','Above the forest','Взлетите на сказочном транспорте.','Take off on a folk flying vessel.')]
  for id,icon,ru,en,rd,ed in advancements:
   write(D/f'advancements/{id}.json',{'parent':'slavicmyths:root','display':{'icon':{'item':'slavicmyths:'+icon},'title':{'translate':f'advancements.slavicmyths.{id}.title'},'description':{'translate':f'advancements.slavicmyths.{id}.description'},'frame':'task','show_toast':True,'announce_to_chat':False,'hidden':False},'criteria':{'done':{'trigger':'minecraft:impossible'}}})
   names[f'advancements.slavicmyths.{id}.title']=(ru,en);names[f'advancements.slavicmyths.{id}.description']=(rd,ed)
  for lang,index in [('ru_ru',0),('en_us',1)]:
   p=A/f'lang/{lang}.json';d=json.loads(p.read_text(encoding='utf-8'));d.update({k:v[index] for k,v in names.items()});write(p,d)
-def all_resources():generate();transport()
+def all_resources():
+ generate();transport()
+ import runpy
+ runpy.run_path(str(__import__("pathlib").Path(__file__).with_name("advancements2_resources.py")))["apply"]()
 if __name__=='__main__':all_resources()
 
 # Keep Kitchen II canonical resources/recipes after this legacy generation pass.
 import runpy
 runpy.run_path(str(__import__("pathlib").Path(__file__).with_name("kitchen_resources.py")), run_name="__main__")
+
+# Approved Advancements2 presentation must be the final advancement pass.
+if __name__ == "__main__":
+    from advancements2_resources import apply as apply_advancements2
+    apply_advancements2()

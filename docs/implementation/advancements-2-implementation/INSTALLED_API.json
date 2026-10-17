@@ -1,0 +1,18 @@
+{
+  "status": "STATIC_SOURCE_REVIEW",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.255",
+  "sources_sha256": {
+    "net/minecraft/advancements/Advancement.java": "b80c5baca08a091535da06253852d049571d89289b19c0990f6d254fa9656c68",
+    "net/minecraft/server/PlayerAdvancements.java": "a692ce6eb5c64f116b3ab5fed4de16ee0522e0bf20a7df8899a14dc031d0d725",
+    "net/minecraft/client/multiplayer/ClientAdvancements.java": "42e193ab0dc9f46ed0373f33707bedafcfee2372c0e7c190bff96192d8327e59",
+    "net/minecraft/world/entity/LivingEntity.java": "555f0eaebc49dfc553942f1dcf7402ae58925751edb99d1c9ce2ca3b564506f3"
+  },
+  "facts": [
+    "DisplayInfo optional in Advancement.CODEC",
+    "PlayerAdvancements persists progress independently of display",
+    "Native CommonHooks.onLivingDeath cancellation returns before dead=true",
+    "Initial reset is distinct from incremental advancement toast packets"
+  ],
+  "runtime": "NOT_RUN"
+}

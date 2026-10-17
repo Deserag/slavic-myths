@@ -2,7 +2,7 @@
   "parent": "slavicmyths:root",
   "display": {
     "icon": {
-      "id": "slavicmyths:birch_bark"
+      "id": "slavicmyths:fern_flower"
     },
     "title": {
       "translate": "advancements.slavicmyths.group_legends.title"

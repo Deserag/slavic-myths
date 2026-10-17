@@ -1,20 +1,5 @@
 {
   "parent": "slavicmyths:group_forest",
-  "display": {
-    "icon": {
-      "id": "slavicmyths:linden_log"
-    },
-    "title": {
-      "translate": "advancement.slavicmyths.woodlands.title"
-    },
-    "description": {
-      "translate": "advancement.slavicmyths.woodlands.description"
-    },
-    "frame": "task",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "linden": {
       "trigger": "minecraft:inventory_changed",

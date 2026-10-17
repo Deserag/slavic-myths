@@ -2,7 +2,7 @@
   "parent": "slavicmyths:group_knowledge",
   "display": {
     "icon": {
-      "id": "slavicmyths:rune_protection"
+      "id": "slavicmyths:ancient_sign"
     },
     "title": {
       "translate": "advancements.slavicmyths.three_signs.title"
@@ -10,7 +10,7 @@
     "description": {
       "translate": "advancements.slavicmyths.three_signs.description"
     },
-    "frame": "task",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": false,
     "hidden": false

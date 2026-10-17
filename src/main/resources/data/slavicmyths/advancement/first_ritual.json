@@ -1,5 +1,5 @@
 {
-  "parent": "slavicmyths:altar",
+  "parent": "slavicmyths:group_knowledge",
   "display": {
     "icon": {
       "id": "slavicmyths:ancient_sign"
@@ -10,7 +10,7 @@
     "description": {
       "translate": "advancements.slavicmyths.first_ritual.description"
     },
-    "frame": "task",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": false,
     "hidden": false

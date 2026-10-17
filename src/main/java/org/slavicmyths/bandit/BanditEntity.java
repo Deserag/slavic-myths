@@ -86,12 +86,12 @@ public final class BanditEntity extends Monster {
     @Override public int getAmbientSoundInterval(){return 420;}
     @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);if(role==ATAMAN)org.slavicmyths.combat.CreatureHealthBalance.mark(tag);tag.putInt("CampZone",zone);tag.putInt("CampDuty",duty());tag.putInt("HumanFace",face());tag.putLong("ShieldReady",shieldUntil);if(camp!=null){tag.putUUID("BanditCamp",camp);tag.putInt("CampMember",campMember);tag.putInt("CampTotal",campTotal);}if(home!=null)tag.putLong("BanditHome",home.asLong());}
     @Override public void readAdditionalSaveData(CompoundTag tag){if(role==ATAMAN)tag=org.slavicmyths.combat.CreatureHealthBalance.prepare(tag,100,150,false);super.readAdditionalSaveData(tag);zone=Math.max(0,Math.min(4,tag.getInt("CampZone")));duty(tag.getInt("CampDuty"));entityData.set(FACE,Math.floorMod(tag.getInt("HumanFace"),4));shieldUntil=tag.getLong("ShieldReady");if(tag.hasUUID("BanditCamp")){camp=tag.getUUID("BanditCamp");campMember=tag.getInt("CampMember");campTotal=tag.getInt("CampTotal");}if(tag.contains("BanditHome")){home=BlockPos.of(tag.getLong("BanditHome"));restrictTo(home,32);}}
-    @Override public void die(DamageSource source){
+    @Override public void die(DamageSource source){boolean advancementWasDead=dead;
         if(!level().isClientSide){
             if(camp!=null){if(campTotal==StrongholdRecords.TOTAL)StrongholdRecords.get((ServerLevel)level()).killed(this,source.getEntity());else CampRecords.get((ServerLevel)level()).killed(this,source.getEntity());}
-            if(role==ATAMAN){if(source.getEntity() instanceof Player)org.slavicmyths.progression.Knowledge.award((Player)source.getEntity(),"without_ataman");
+            if(role==ATAMAN){
                 for(BanditEntity b:level().getEntitiesOfClass(BanditEntity.class,getBoundingBox().inflate(24),e->Objects.equals(e.camp,camp)))b.commandUntil=0;}
-        }super.die(source);
+        }super.die(source);if(!advancementWasDead&&dead&&role==ATAMAN&&org.slavicmyths.progression.AdvancementMilestones.combatDeath(source)&&source.getEntity() instanceof net.minecraft.server.level.ServerPlayer p)org.slavicmyths.progression.AdvancementMilestones.award(p,"without_ataman");
     }
     private final class CombatGoal extends Goal {
         private int timer,cooldown,repath,shots;private boolean heavy;
