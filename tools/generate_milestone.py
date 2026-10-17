@@ -67,12 +67,12 @@ def generate(root):
       'bind_hearth': ('friend_domovoy','slavicmyths:hearth','Тепло родного дома','Warmth of home','Привяжите дружелюбного Домового к очагу.','Bind a friendly Domovoy to a hearth.'),
       'defeat_leshy': ('meet_leshy','slavicmyths:leshy_heart','Лес помнит','The forest remembers','Победите Лешего в столкновении.','Defeat a Leshy in combat.'),
       'ancient_find': ('root','slavicmyths:ancient_coin','Отголосок старины','An ancient echo','Найдите древнюю монету или осколок идола.','Find an ancient coin or idol fragment.'),
-      'shrine': ('ancient_find','slavicmyths:ancient_idol','Камни помнят','Stones remember','Коснитесь идола или прочтите книгу с древней находкой.','Touch an idol or read the book after an ancient find.'),
+      'shrine': ('ancient_find','slavicmyths:ancient_idol','Камни помнят','Stones remember','Взаимодействуйте с древним идолом.','Interact with an ancient idol.'),
       'altar': ('shrine','slavicmyths:altar','Место для дара','A place for offerings','Используйте жертвенник: полынь, свиток, оберег.','Use an altar: wormwood, scroll, charm.'),
       'first_ritual': ('altar','slavicmyths:ancient_sign','Первый обряд','The first rite','Завершите последовательность трёх даров.','Complete the three offerings in order.'),
       'ancient_sign': ('first_ritual','slavicmyths:ancient_sign','Память обряда','Memory of a rite','Получите Древний знак.','Obtain an Ancient Sign.'),
       'lore_book': ('birch_bark_scroll','slavicmyths:lore_book','Сказания оживают','Tales awaken','Создайте или откройте Книгу сказаний.','Craft or open the Book of Tales.'),
-      'lore_keeper': ('lore_book','slavicmyths:lore_book','Хранитель сказаний','Keeper of tales','Откройте книгу, узнав не менее трёх записей.','Open the book after discovering at least three entries.')}
+      'lore_keeper': ('lore_book','slavicmyths:lore_book','Хранитель сказаний','Keeper of tales','Откройте книгу после трёх разных открытий о духах, обрядах, воде, лесах или разбойниках.','Open the book after three distinct discoveries about spirits, rituals, waters, woodlands or bandits.')}
     for aid,(parent,icon,ru,en,rud,end) in advances.items():
         tr('advancements.slavicmyths.'+aid+'.title',ru,en); tr('advancements.slavicmyths.'+aid+'.description',rud,end)
         criteria = {'done': {'trigger':'minecraft:impossible'}}
