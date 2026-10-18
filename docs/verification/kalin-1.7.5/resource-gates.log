@@ -1,5 +1,0 @@
-kalin_tsar 15 bones 69 cuboids atlas 256
-kalin_common_soldier 15 bones 64 cuboids atlas 256
-kalin_elite_soldier 16 bones 72 cuboids atlas 256
-kalin_war_horse 14 bones 43 cuboids atlas 256
-{"saveddata_disk_readback": "PASS", "status": "PASS", "version": "1.7.5", "checks": 50122, "sha256": "03c52508b6ae5332f201259895df3e6f7fad085e35d41d8b8fc34704eac93cf4", "clean_build": "PASS", "dedicated_cases": 1, "scenario_assertions": 101, "old_jar_entries_identical": 7426, "changed_prior_entries": ["META-INF/MANIFEST.MF", "META-INF/neoforge.mods.toml", "assets/slavicmyths/lang/en_us.json", "assets/slavicmyths/lang/ru_ru.json", "assets/slavicmyths/sounds.json", "org/slavicmyths/SlavicMyths.class", "org/slavicmyths/bogatyr/IlyaEntity$1.class", "org/slavicmyths/bogatyr/IlyaEntity.class", "org/slavicmyths/finist/FinistEntity.class", "org/slavicmyths/marinka/DobrynyaEntity.class", "org/slavicmyths/marinka/StoryPolicy.class", "org/slavicmyths/skim/AlyoshaEntity$1.class", "org/slavicmyths/skim/AlyoshaEntity.class", "org/slavicmyths/skim/HeroCalls.class"], "original_audio": 23, "client_launches": 0}

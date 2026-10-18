@@ -1,3 +1,0 @@
-allprojects {
- tasks.withType(JavaCompile).configureEach { options.compilerArgs += ['-Xmaxerrs', '4000'] }
-}

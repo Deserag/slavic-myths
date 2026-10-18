@@ -2,6 +2,10 @@
 
 Never starts Minecraft; aborts if a client is running or the installed JAR changed.
 """
+
+if __name__ == "__main__":
+    raise SystemExit('ARCHIVED historical tool. See docs/maintenance/issue-43/HISTORICAL_ARTIFACTS.md; restore its original revision and verified inputs in a separate historical checkout. Current source is not its baseline.')
+
 from pathlib import Path
 import datetime,hashlib,json,shutil,subprocess
 R=Path(__file__).resolve().parents[1];O=R/'docs/verification/bayun-book-final'

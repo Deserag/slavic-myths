@@ -1,3 +1,5 @@
+> Исторический снимок до фактической очистки. Условия «не удалено», «ожидает согласования» и состояния PR ниже заменены новой инструкцией владельца. Актуальный результат: [REPORT.md](REPORT.md), последняя доставка: [PR #44](https://github.com/Deserag/slavic-myths/pull/44).
+
 # master: один источник истины
 
 Проверено: main fb2994e958911169317523e1066b8a1ca7a155af; master e64b24b8c2f27ed3e4f93353feec913a88d7fd9e. `main...master`:26 слева /0 справа, master предок main, unique commits0. Default branch main.

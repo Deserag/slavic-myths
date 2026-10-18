@@ -13,11 +13,19 @@
   },
   "archive_clone_bytes": 1547367832,
   "D_reclaim_with_archive": 3241390921,
-  "actual_freed_bytes": 0,
   "backup_dir": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018",
   "backup_archives_bytes": 4484918374,
   "free_bytes_after_backups": {
     "C": 154744217600,
     "D": 6151217152
-  }
+  },
+  "previous_plan_actual_freed_bytes": 0,
+  "actual_safe_removed_bytes": 2381687605,
+  "actual_worktrees_removed": 10,
+  "actual_net_free_bytes_before_final_checkout": {
+    "C": 7700844544,
+    "D": 7114883072
+  },
+  "new_unique_archives_bytes": 855418639,
+  "publish_clone_removed": false
 }

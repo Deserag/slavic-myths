@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "D:\slavic-myths\tools\verify_runes_craft.py", line 82, in <module>
-    for path,h in after.items():require(path in names and hashlib.sha256(z.read(path)).hexdigest()==h,'packaged exact resource '+path)
-                                ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\slavic-myths\tools\verify_runes_craft.py", line 8, in require
-    if not ok:raise AssertionError(label)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: packaged exact resource META-INF/neoforge.mods.toml

@@ -1,52 +1,58 @@
-# Issue43 — конкретная интеграция main и безопасная очистка
+# Issue #43 — фактическая очистка и доставка в main
 
-## Итог
+## Изменения и публикация
 
-Подготовлен один integration PR `codex/main-consolidation-43 → main`, base fb2994e958911169317523e1066b8a1ca7a155af.
-Новый worktree не создавался: переиспользован чистый D:/slavic-myths-advancements; прежняя PR25 branch сохранена.
-GitHub main пока не обновлён: требуется review/merge. master пока не менялся. Никаких удалений, перемещений, gc/prune/reset/force-push или запусков Minecraft.
+Использован существующий [PR #44](https://github.com/Deserag/slavic-myths/pull/44), ветка `codex/main-consolidation-43`. Новых клонов, PR и рабочих копий не создано. Начальный main — `fb2994e958911169317523e1066b8a1ca7a155af`. Итоговый merge SHA и завершение последнего шага доставки проверяются в PR и финальном ответе; commit не может содержать собственный будущий merge SHA.
 
-13 worktrees занимали 23.559 GiB; основная папка 9.106 GiB.
-SAFE55 каталогов: 2.218 GiB. Дополнительно 1.441 GiB можно перенести с D на C полным архивированием старого clone.
-Освобождение D при этих действиях — 3.019 GiB; C SAFE — 0.640 GiB. Реально удалено0 bytes.
-Полные backup zip на C занимают 4.177 GiB: архивация — отдельные затраты, не free-space claim.
+Production diff — ровно два Java-файла: живой корректный target тела Полоза из #38 и cube без временных массивов из #37. Поведение вершин проверено 10000 случаями. Ресурсы, art, баланс, ID и версия 1.9.7.5 не менялись. Подробный README, CONTENT_CATALOG, VERSIONING и пересобранный CHANGELOG включены в этот же PR. Локальные classes3 reports/tools сохранены; сырые логи восстановимы из архива, а итоговые JSON/отчёты остаются в source-tree.
 
-## Что реально включено относительно main
+## Физическая очистка
 
-- Production: только `src/main/java/org/slavicmyths/poloz/PolozEvents.java` из PR38 и `src/main/java/org/slavicmyths/client/GuardianClient.java` из PR37.
-- Guard проверяет фактическую target instance и alive перед обращением; остальной melee path/тайминги/урон сохранены.
-- Cube сохраняет24 вершины, UV/normals/цвет/light/overlay и порядок, удаляет собственные временные массивы. Не доказательство роста FPS.
-- README #41 и точный план recovery вместо пустого обещания уборки.
--16 локально изменённых файлов основного checkout сохранены в ZIP;13 local-only classes3 reports/tools включены в integration, три status docs объединены вручную без перезаписи пользовательских файлов.
-- Три актуальных status docs обновлены; инвентаризация/manifest/матрица всех17 прежних PR и61 refs с ahead/behind/common ancestor.
-- Версия1.9.7.5, Minecraft1.21.1, NeoForge21.1.255, Java21; production resources/generators/registry IDs/баланс/модели/звук не менялись. Issue42 не решена этой интеграцией.
+- **Все 55 SAFE-каталогов удалены:** 2381687605 bytes (2.218 GiB), из них C:687664516 и D:1694023089. Перед удалением сверены архив и каждый текущий файл; пропусков нет.
+- **10 неактивных worktree удалены штатным `git worktree remove`, без `--force`.** Список ниже. Данные и refs сохранены до удаления.
+- В момент подготовки PR остались основная копия, V3 и временно используемая интеграционная копия с проверенным JAR. После доставки интеграционная копия снимается тем же штатным способом; итоговый список и показания free-space фиксируются в PR #44 и финальном локальном receipt.
+- Новые архивы уникальных ignored/untracked данных, исторических tracked артефактов и archive-commits занимают около 815.8 MiB на C. Прежние проверенные backup занимали 4.177 GiB ещё до начала фактического удаления и оставлены.
+- На контрольном замере после 10 worktree с учётом новых архивов свободное место увеличилось примерно C:+7.17 GiB, D:+6.63 GiB. Последний замер делается после checkout основного проекта и снятия интеграционной копии; логические размеры каталогов не выдаются за точное изменение свободного места тома.
 
-## Проверки
+Все перечисленные SAFE пути и фактическое существование — [CSV](LOCAL_SIZES_BEFORE_AFTER.csv). Он содержит исторические размеры до очистки; parent rows нельзя повторно суммировать с удалёнными descendants.
 
-Java21 clean build PASS (BUILD.log); предварительный dry task graph не содержит Minecraft runs.
-3919 JSON,1325 PNG,6804 resource и1685 Java21 class parity с production JAR PASS.
-10000 source-extracted cube parity cases PASS: pure stubs, не native rendering/GL/FPS.221 subscribers PASS.
-JAR `build/libs/slavicmyths-1.9.7.5.jar`, SHA256 aee4b68b26010cdef3f9a67b7a35f3c0d53178195d01f77752a18111b60e49ca.
-Нет test/verify/smoke/audit classes в production. Runtime/GUI/MP/FPS/MSPT NOT_RUN; Minecraft0 запусков.
-Исторические #37/#38 logs находятся в prior-evidence, их launches не считаются новыми запусками.
+Удалены рабочие копии:
 
-Shared Git и независимый publish clone: fsck --full exit0, reachable corruption не выявлена. Сохранены raw Git metadata/reflogs/orphans; обслуживания storage не было.
-Все9 грязных рабочих копий защищены архивами с проверкой file SHA256. Большие ignored worlds/audio/JFR не объявлены мусором; остаются KEEP/owner decision.
+| Каталог | Сохранение |
+|---|---|
+| Codex advancements-2-implementation | archive/local-01-20261018 + уникальные данные |
+| Codex guardian-cube | archive/local-02-20261018 + JFR/инструменты |
+| Codex performance-2-release | исходная ветка + профили |
+| Codex poloz-body-melee | archive/local-04-20261018 + fixtures/тестовые сохранения |
+| Codex poloz-effects | archive/local-05-20261018 + профили/сохранения |
+| slavic-myths-audit | archive/local-08-20261018 |
+| slavic-myths-balance | исходная ветка PR #27 + тестовые данные |
+| slavic-myths-balance-baseline | archive/local-10-20261018 |
+| slavic-myths-integrated | archive/local-11-20261018 |
+| slavic-myths-performance | исходная ветка PR #32 + профили |
 
-## Что merge-ить и в каком порядке
+Основной незакоммиченный результат отдельно сохранён обычным commit `26782e06ae63d0046db8de6b391432c7c5c3d2cf`, ветка `archive/local-primary-20261018`. Все восемь новых archive-refs дополнительно в проверенном `retired-local-work.bundle`; bundle опирается на сохранённую исходную Git-историю. Основные пользовательские миры и PolyMC не тронуты. Уникальные вторичные тестовые данные сохранены, а не отброшены вместе с копией. Активная V3 с 144 изменёнными файлами не коммитится и не снимается.
 
-[PR_MATRIX.md](PR_MATRIX.md): один текущий integration PR включает нужные части #38/#37/#41; их отдельный merge сначала не требуется.
-После review merge этого PR → проверить post-merge main HEAD и production blobs → main источник истины.
-Затем, отдельно: reviewed V3 на обновлённый main (включает зависимость #40/#25), баланс #27 отдельно.55-card #40/#31 не подменяют V3.
-#11–14/#2 — superseded current main и реальные конфликты; #21 implemented; #24 требует согласования отчётов; #32/#36/#39 сохранены как исследования без production fixes.
-Ни один чужой PR не закрывался, не переписывался и не merge-ился автоматически.
-Rollback принятого PR — обычный revert через PR, без force/reset.
+## Конкретный блокер
 
-## master и финальные решения
+`D:/slavic-myths/.tools/publish-1.9.4` **не удалён**. Его SHA256-архив и все 26535 текущих файлов (1547367832 bytes) проверены, отличий нет. Автоматическая проверка отклонила рекурсивное удаление с причиной `blocked by policy`. Запрет не обходился. Эти 1.441 GiB не включены в освобождённое место. Архив `historical-publish-1.9.4.zip` остаётся у владельца. Дополнительное согласование/разрешённый механизм нужен только для этого фактически заблокированного удаления, а не для уже выполненных SAFE и штатных worktree removals.
 
-[MASTER_PLAN.md](MASTER_PLAN.md): master26 behind/0 unique, предок main. После принятия integration сохранить archive tag старой вершины и только normal FF master на проверенный post-merge main; не поддерживать вторую актуальную линию.
-Требуют окончательного согласования: merge integration PR; применение точных SAFE/ARCHIVE путей manifest; archive tag + FF master.
-Не требуют диагностики от владельца: все размеры, статусы, backup, конфликты и команды уже подготовлены.
+## Очистка текущего Git-дерева
 
-[LOCAL_CLEANUP_MANIFEST.md](LOCAL_CLEANUP_MANIFEST.md) · [точные пути/команды/bytes CSV](LOCAL_SIZES_BEFORE_AFTER.csv) · [WORKTREES.csv](WORKTREES.csv) · [GATES.json](GATES.json).
-.gitignore не освобождает диск. PR/merge не обновляет другие checkout. Ни local main checkout, ни GitHub main не объявляются обновлёнными до фактического принятия и сверки SHA.
+Из индекса сняты **1243 файла**: 17 исторических JAR (271826740 bytes), 560 логов, 666 legacy scratch-файлов `work/`. Все сохранены с per-file SHA256; уникальные WAV, рисунки, спецификации и инструменты не потеряны. Текущее Git-дерево стало меньше; старые packs/history не переписаны и их уменьшение не заявляется. Notes/checksums в release сохранены, реальные src/art/assets не удалялись.
+
+31 исторический install/verify инструмент остановлен до IO явным архивным сообщением. Старые проверки зависят от конкретных baseline и не могут выдавать PASS для новой версии. Восстановление оригиналов и входов: [HISTORICAL_ARTIFACTS](HISTORICAL_ARTIFACTS.md), [per-file manifest](TRACKED_ARTIFACTS.json).
+
+## GitHub и master
+
+PR #44 доставляет нужные части #37/#38 и документацию #41. После проверки результата полностью устаревшие #2/#11/#12/#13/#14/#21/#31 и включённые #37/#38/#41 закрываются без слияния конфликтующих старых версий. Их старые вершины заранее сохранены опубликованными тегами `archive/pr-N-before-consolidation-20261018`. Ветки не удаляются: это сохраняет прежние зависимости и соответствует приоритетному требованию issue.
+
+Остаются отдельно: #40/#25 как контекст и зависимости V3; #27 как неподтверждённый баланс; #24 как согласование исторических QA docs; #32/#36/#39 как исследования, не production patches. Их нельзя автоматически считать исправлениями или готовыми релизами. V3 нужно переносить отдельным review поверх принятого main, не предварительным merge отвергнутого 55-card дерева.
+
+У master было 0 уникальных коммитов,26 behind main. Старый tip `e64b24b8c2f27ed3e4f93353feec913a88d7fd9e` сохранён удалённым tag `archive/master-before-consolidation-20261018`. После принятия #44 выполняется только обычный FF на проверенный main с повторной проверкой ancestry. Default branch остаётся main; force/history rewrite не используются.
+
+## Проверки и границы
+
+Java21 `gradlew.bat clean build` **PASS**; compileJava FROM-CACHE честно отмечен, clean выполнен, итоговый production JAR проверен повторно. 3919 JSON,1325 PNG,6804 resource parity,1685 Java21 production classes и2352 локальные Markdown-ссылки PASS;31 archive stops и PS syntax PASS. Чистая офлайн-проба 10000 cube cases PASS.
+
+JAR: `slavicmyths-1.9.7.5.jar`, SHA256 `aee4b68b26010cdef3f9a67b7a35f3c0d53178195d01f77752a18111b60e49ca`. [FINAL_GATES.json](FINAL_GATES.json). Игра/сервер/GameTest: **0 запусков**. Новая приёмка моделей, звука, GUI, истории, MP, FPS/MSPT не выполнялась. Никакой 2.0 или новой GitHub Release не опубликовано.

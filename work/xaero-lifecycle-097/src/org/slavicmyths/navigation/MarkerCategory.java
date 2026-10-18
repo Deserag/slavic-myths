@@ -1,1 +1,0 @@
-package org.slavicmyths.navigation;public enum MarkerCategory{YAGA,WAYSTONE,KURGAN,BANDIT,BOSS,QUEST,SPECIAL_LOCATION,EVENT;public String symbol="X";}

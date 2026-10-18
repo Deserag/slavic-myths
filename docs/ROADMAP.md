@@ -1,15 +1,19 @@
-## Консолидация main — issue #43 (2026-10-18)
+## Консолидация и очистка main — issue #43 (2026-10-18)
 
-Подготовлен один integration PR поверх main fb2994e9: минимальный target-lifecycle guard
-Полоза из #38 и allocation-only GuardianClient.cube из #37. Production diff —2 Java files;
-ресурсы, версия1.9.7.5, баланс/лут/AI-тайминги, art и registry IDs сохранены. README #41
-включён; локальные classes3 reports/tools основного checkout сохранены и добавлены.
-Java21 clean build PASS;3919 JSON/1325 PNG/6804 resources/1685 Java21 classes и production
-JAR parity PASS;10000 extracted-production cube cases PASS. Minecraft:0 запусков;
-новые gameplay/GUI/MP/FPS/MSPT NOT_RUN, улучшение FPS не заявлено.
-Main ещё не обновлён: нужен review/merge единственного PR. Достижения V3 и баланс #27
-сохранены отдельно;55-card #40 не подменяет V3. Удалений/перемещений каталогов не было.
-[Результат, план main/master и адресная очистка](maintenance/issue-43/REPORT.md).
+PR #44 объединяет target-lifecycle guard Полоза из #38, allocation-only cube из #37,
+подробный README, каталог текущего содержимого, CHANGELOG и VERSIONING. Версия
+исходников остаётся 1.9.7.5; gameplay, баланс, registry ID, src resources и art сохранены.
+17 старых JAR, 560 логов и 666 legacy work-файлов сняты с индекса с проверенным архивом;
+31 зависимый исторический install/verify инструмент остановлен явным архивным режимом.
+Реально удалены 55 временных каталогов (2381687605 bytes) и 10 неактивных worktree;
+unique/ignored данные, старые refs и незакоммиченные изменения сохранены. V3 активна.
+Независимый publish clone сохранён: автоматическая проверка запретила его удаление.
+Java21 clean build PASS (compileJava FROM-CACHE), 3919 JSON/1325 PNG/6804 resources/
+1685 classes, production JAR parity и 10000 offline cube cases PASS. Minecraft/сервер/
+GameTest:0 запусков. Визуальная, звуковая, полная игровая и MP приёмка NOT_RUN.
+Merge доставляется через PR #44; master только FF после архивирования старой вершины.
+V3/75 карточек и баланс #27 в интеграцию не включены;55-card #40 не подменяет V3.
+[Фактические результаты, архивы, ограничения и путь main/master](maintenance/issue-43/REPORT.md).
 
 ## Арбалет Горыныча — 1.9.7.5 (2026-10-14)
 

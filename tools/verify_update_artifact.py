@@ -1,4 +1,8 @@
 """Current production artifact integrity; deliberately no gameplay claims."""
+
+if __name__ == "__main__":
+    raise SystemExit('ARCHIVED historical tool. See docs/maintenance/issue-43/HISTORICAL_ARTIFACTS.md; restore its original revision and verified inputs in a separate historical checkout. Current source is not its baseline.')
+
 from pathlib import Path
 import hashlib, json, struct, zipfile
 from check_event_subscribers import check as subscribers

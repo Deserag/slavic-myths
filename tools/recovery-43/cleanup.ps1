@@ -1,5 +1,5 @@
 [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='High')]
-param([string[]]$ApprovedPath = @(), [switch]$Execute)
+param([string[]]$ApprovedPath = @(), [switch]$Execute, [switch]$ContinueOnError)
 $ErrorActionPreference = 'Stop'
 $cleanupManifestPath = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../../docs/maintenance/issue-43/LOCAL_SIZES_BEFORE_AFTER.csv'))
 $cleanupRows = Import-Csv -LiteralPath $cleanupManifestPath
@@ -7,6 +7,7 @@ if ($ApprovedPath.Count -eq 0) { $cleanupRows | Where-Object decision -eq 'SAFE_
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $checkedArchives = @{}
 foreach ($requestedPath in $ApprovedPath) {
+  try {
     $resolvedCleanupPath = (Resolve-Path -LiteralPath $requestedPath).Path
     $cleanupRow = $cleanupRows | Where-Object { $_.path -eq $resolvedCleanupPath -and $_.decision -eq 'SAFE_TO_REMOVE' }
     if (@($cleanupRow).Count -ne 1) { throw "Path is not an exact SAFE_TO_REMOVE manifest entry: $resolvedCleanupPath" }
@@ -37,4 +38,8 @@ foreach ($requestedPath in $ApprovedPath) {
     if ($PSCmdlet.ShouldProcess($resolvedCleanupPath, 'Remove only this owner-approved backed-up generated directory')) {
         Remove-Item -LiteralPath $resolvedCleanupPath -Recurse -Force
     }
+  } catch {
+    if (-not $ContinueOnError) { throw }
+    Write-Warning "KEPT $requestedPath : $($_.Exception.Message)"
+  }
 }

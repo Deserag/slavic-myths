@@ -1,4 +1,8 @@
 """Production/UI gates against the installed 1.7.7 release; no historical claims reused."""
+
+if __name__ == "__main__":
+    raise SystemExit('ARCHIVED historical tool. See docs/maintenance/issue-43/HISTORICAL_ARTIFACTS.md; restore its original revision and verified inputs in a separate historical checkout. Current source is not its baseline.')
+
 from pathlib import Path
 import json,zipfile,hashlib,struct,re
 from PIL import Image

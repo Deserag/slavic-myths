@@ -1,14 +1,17 @@
+# Gradle outputs and local tooling caches (rebuildable).
 .gradle/
 build/
 .tools/
+# Isolated runtime directories; user saves are never cleanup candidates by rule alone.
 run/
 run-server/
 run-village-checks/
+# Editor and Python cache files.
 .idea/
 *.iml
 __pycache__/
 
-# Local playtest binaries are distributed as GitHub Release assets.
+# Local playtest packages; ignore does not imply these versions are published.
 release/*/*.jar
 release/*/*.zip
 release/*/*.mrpack
@@ -21,7 +24,7 @@ run-village-buildings-checks/
 /out/
 /.cache/
 /.vscode/
-# Local scratch work and export packages; maintained tooling belongs in tools/.
+# Historical scratch restored locally from verified archives; maintained tools belong in tools/.
 /work/
 
 # Agent scratch copies; authoritative specifications and tooling are in docs/tools.

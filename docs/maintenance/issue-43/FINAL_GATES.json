@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "source_version": "1.9.7.5",
+  "checks": {
+    "json": 3919,
+    "png": 1325,
+    "resources": 6804,
+    "classes": 1685,
+    "links": 2352,
+    "archived_tools": 31
+  },
+  "jar_sha256": "aee4b68b26010cdef3f9a67b7a35f3c0d53178195d01f77752a18111b60e49ca",
+  "jar_bytes": 19696924,
+  "minecraft_launches": 0,
+  "server_launches": 0,
+  "gametest_launches": 0,
+  "runtime_acceptance": "NOT_RUN",
+  "build_compileJava": "FROM-CACHE"
+}
