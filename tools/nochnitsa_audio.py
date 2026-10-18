@@ -1,4 +1,8 @@
 """Original seeded formant/breath DSP. No recordings, third-party voices or borrowed cues."""
+
+# Rejected synthetic/formant creature vocals. Generate new OGG only from owner-approved sources.
+raise RuntimeError("REJECTED_SYNTHETIC_VOICE (#60): legacy audio generator disabled pending owner acceptance")
+
 from pathlib import Path
 import numpy as np
 import json,csv,subprocess,wave,hashlib
