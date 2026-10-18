@@ -1,0 +1,17 @@
+{
+  "status": "IN_PROGRESS",
+  "checks": 1947809,
+  "source_poses": {
+    "karachun": 169,
+    "morozko": 153
+  },
+  "grip_and_torso_sweep_ticks_per_action": 65,
+  "server_unchanged": true,
+  "held_and_icon_unchanged": true,
+  "texture_and_glow_unchanged": true,
+  "audio": "FAIL: real new foley/listening not completed; no replacements",
+  "owner_accepted": false,
+  "runtime_launches": 0,
+  "poly_mc": "NOT_INSTALLED",
+  "jar_sha256": "65894e8c63812201bd50ee17da29fe19d8ffe1a8d56fc1a66cfd70d22a03a7ba"
+}

@@ -569,3 +569,12 @@ if (project.hasProperty('tugarinModelOfflineCheck')) {
   if(project.hasProperty('nightingale57Baseline')) systemProperty 'slavicmyths.nightingale57Baseline', 'true'
  }
 }
+
+if (project.hasProperty('tugarinModelOfflineCheck')) {
+ tasks.register('verifyGrip58', JavaExec) {
+  dependsOn 'tugarinModelOfflineClasses'
+  classpath = sourceSets.tugarinModelOffline.runtimeClasspath
+  mainClass = 'org.slavicmyths.verify.Grip58Offline'
+  if(project.hasProperty('grip58Baseline')) systemProperty 'slavicmyths.grip58Baseline', 'true'
+ }
+}

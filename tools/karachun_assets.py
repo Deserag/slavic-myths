@@ -81,6 +81,8 @@ def emit(r,name,cls,size=512):
    cx,cy,cz=b['center'];w,h,d=b['size'];u,v,_,_=b['uv'];c+=f'.texOffs({u},{v}).addBox('+','.join(map(f,[cx-w/2-pos[0],pos[1]-cy-h/2,cz-d/2-pos[2],w,h,d]))+')'
   offset=[pos[0]-pp[0],pp[1]-pos[1],pos[2]-pp[2]];lines.append(f'var {n}={(parent or "root")}.addOrReplaceChild("{n}",{c},PartPose.offset('+','.join(map(f,offset))+'));')
  lines.append(f'return LayerDefinition.create(mesh,{size},{size}).bakeRoot();}}private {cls}(){{}}}}');(R/f'src/main/java/org/slavicmyths/client/{cls}.java').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+ from weapon_grip_58_mesh import apply_mesh
+ apply_mesh(cls)
  (A/'textures/entity').mkdir(parents=True,exist_ok=True);im.save(A/f'textures/entity/{name}.png');glow=Image.new('RGBA',(size,size))
  for b in r.boxes:
   if b['material']!='glow':continue

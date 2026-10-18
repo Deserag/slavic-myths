@@ -80,6 +80,8 @@ def emit(r):
    cx,cy,cz=b['center'];w,h,d=b['size'];u,v,_,_=b['uv'];coords=[cx-w/2-pos[0],pos[1]-cy-h/2,cz-d/2-pos[2],w,h,d];c+=f'.texOffs({u},{v}).addBox('+','.join(map(f,coords))+')'
   offset=[pos[0]-pp[0],pp[1]-pos[1],pos[2]-pp[2]];lines.append(f'var {n}={(parent or "root")}.addOrReplaceChild("{n}",{c},PartPose.offset('+','.join(map(f,offset))+'));')
  lines.append('return LayerDefinition.create(mesh,512,512).bakeRoot();}private MorozkoMesh(){}}');(R/'src/main/java/org/slavicmyths/client/MorozkoMesh.java').write_text('\n'.join(lines)+'\n',encoding='utf8')
+ from weapon_grip_58_mesh import apply_mesh
+ apply_mesh('MorozkoMesh')
  (A/'textures/entity').mkdir(parents=True,exist_ok=True);im.save(A/'textures/entity/morozko.png');glow=Image.new('RGBA',(size,size))
  for b in r.boxes:
   if b['material'] not in ['eye','ice']:continue

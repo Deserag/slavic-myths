@@ -1,3 +1,8 @@
+## Хват оружия #58 — IN_PROGRESS — 2026-10-18
+
+KarachunModel/MorozkoModel.sample сохраняют прежние server clocks и yield/IceDouble adapter. Client-only WeaponGrip58 компенсирует ориентацию реальной hand→weapon цепочки; левая рука Карачуна решает 14+10 сегменты к точке древка только в 1..3. Оба генератора вызывают идемпотентный mesh-only post-emit без перезаписи atlas/предметов.
+[Матрица и native сравнения](implementation/weapon-grip-58/README.md).
+
 ## Соловей #57 — IN_PROGRESS — 2026-10-18
 
 NightingaleModel.sample полностью сбрасывает transforms/scales/visibility и делегирует client-only NightingalePoses. Сервер владеет всеми action clocks/прыжками/попаданиями. Генератор --nightingale-model-only изолирует presentation от звуков/предметов/Tugarin.
