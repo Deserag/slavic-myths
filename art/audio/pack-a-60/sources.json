@@ -1,0 +1,90 @@
+[
+  {
+    "file": "sources/hearth.flac",
+    "author": "PagDev",
+    "page": "https://opengameart.org/content/fireplace-sound-loop",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "download_url": "https://opengameart.org/sites/default/files/fire.wav",
+    "download_sha256": "85ca0cc60d0c037fff8b185e31ad1fcdbda6ce45eee17c3ee1318d1b8f59e330",
+    "archive_member": null,
+    "sha256": "4c7bfeae361a6a892d2b3b155328c2d7574d0f6034e8b5eb8169efc0e684fbde"
+  },
+  {
+    "file": "sources/ignition.flac",
+    "author": "qubodup",
+    "page": "https://opengameart.org/content/flare-ignition",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "download_url": "https://opengameart.org/sites/default/files/ignition.flac",
+    "download_sha256": "bd8281bcee65bc705755fd36bdf40d04fadddd474f52fd481233523e178b4ea1",
+    "archive_member": null,
+    "sha256": "bd8281bcee65bc705755fd36bdf40d04fadddd474f52fd481233523e178b4ea1"
+  },
+  {
+    "file": "sources/swosh-01.flac",
+    "author": "qubodup",
+    "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "download_url": "https://opengameart.org/sites/default/files/swoshes.7z",
+    "download_sha256": "2d55b26f918a4d8042e2c97a4db81392757195f5aaac9039f5ec2c557b6f11f2",
+    "archive_member": "swosh-01.flac",
+    "sha256": "6bacb655b1b6e6669f5b1eb44e7eaea1219b185539486c08e11240193391ebd5"
+  },
+  {
+    "file": "sources/swosh-02.flac",
+    "author": "qubodup",
+    "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "download_url": "https://opengameart.org/sites/default/files/swoshes.7z",
+    "download_sha256": "2d55b26f918a4d8042e2c97a4db81392757195f5aaac9039f5ec2c557b6f11f2",
+    "archive_member": "swosh-02.flac",
+    "sha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26"
+  },
+  {
+    "file": "sources/swosh-03.flac",
+    "author": "qubodup",
+    "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "download_url": "https://opengameart.org/sites/default/files/swoshes.7z",
+    "download_sha256": "2d55b26f918a4d8042e2c97a4db81392757195f5aaac9039f5ec2c557b6f11f2",
+    "archive_member": "swosh-03.flac",
+    "sha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09"
+  },
+  {
+    "file": "sources/cloth-01.flac",
+    "author": "OwlishMedia",
+    "page": "https://opengameart.org/content/202-more-sound-effects",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "download_url": "https://opengameart.org/sites/default/files/MoreSounds.zip",
+    "download_sha256": "9428c1437137d9ea06ba94e13da12488d4c57990a1c32d83db9e7707e69fb3af",
+    "archive_member": "Cloth/Cloth_01.wav",
+    "sha256": "831561cad51e015267d697c417cc1f9c2913c20837b369a68ba396fe52118f66"
+  },
+  {
+    "file": "sources/cloth-03.flac",
+    "author": "OwlishMedia",
+    "page": "https://opengameart.org/content/202-more-sound-effects",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "download_url": "https://opengameart.org/sites/default/files/MoreSounds.zip",
+    "download_sha256": "9428c1437137d9ea06ba94e13da12488d4c57990a1c32d83db9e7707e69fb3af",
+    "archive_member": "Cloth/Cloth_03.wav",
+    "sha256": "f3e01f1e6ed54748b1351163e373c1d6270d63e7c1338155f9b3d03427d25c23"
+  },
+  {
+    "file": "sources/cloth-05.flac",
+    "author": "OwlishMedia",
+    "page": "https://opengameart.org/content/202-more-sound-effects",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "download_url": "https://opengameart.org/sites/default/files/MoreSounds.zip",
+    "download_sha256": "9428c1437137d9ea06ba94e13da12488d4c57990a1c32d83db9e7707e69fb3af",
+    "archive_member": "Cloth/Cloth_05.wav",
+    "sha256": "6a71812510e0843fc28264239a8f1d2a5ea06044f850cae0c8094ffc83838706"
+  }
+]

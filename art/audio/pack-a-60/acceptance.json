@@ -1,0 +1,10 @@
+{
+  "owner_accepted": false,
+  "package_a_complete": false,
+  "production_events": [
+    "tugarin_spin_blade_1",
+    "tugarin_spin_blade_2",
+    "tugarin_spin_blade_3"
+  ],
+  "remaining_previews_not_wired": true
+}

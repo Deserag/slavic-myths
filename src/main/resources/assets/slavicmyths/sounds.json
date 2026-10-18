@@ -7895,5 +7895,32 @@
   "rusalka_grab": {
     "subtitle": "subtitles.slavicmyths.rusalka_grab",
     "sounds": []
+  },
+  "tugarin_spin_blade_1": {
+    "subtitle": "subtitles.slavicmyths.tugarin_spin_blade",
+    "sounds": [
+      {
+        "name": "boss/tugarin/foley/spin_1",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "tugarin_spin_blade_2": {
+    "subtitle": "subtitles.slavicmyths.tugarin_spin_blade",
+    "sounds": [
+      {
+        "name": "boss/tugarin/foley/spin_2",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "tugarin_spin_blade_3": {
+    "subtitle": "subtitles.slavicmyths.tugarin_spin_blade",
+    "sounds": [
+      {
+        "name": "boss/tugarin/foley/spin_3",
+        "attenuation_distance": 24
+      }
+    ]
   }
 }

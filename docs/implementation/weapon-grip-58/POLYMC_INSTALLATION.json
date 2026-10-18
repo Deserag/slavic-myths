@@ -1,0 +1,16 @@
+{
+  "status": "INSTALLED_FOR_OWNER_TEST_NOT_ACCEPTED",
+  "version": "1.9.7.8",
+  "source_commit": "956f4645295d31cc1d6eb206a604d88395aee2c0",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.8.jar",
+  "sha256": "65894e8c63812201bd50ee17da29fe19d8ffe1a8d56fc1a66cfd70d22a03a7ba",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-956f4645-20261018-211451\\slavicmyths-1.9.7.8.jar",
+  "previous_sha256": "244ffe8e98c846991a1f24971494d233763537c3583522dbdd8eeb40e3762a4d",
+  "other_files_preserved": 241,
+  "active_slavic_jars": 1,
+  "runtime_launches": 0,
+  "worlds": "NOT_MODIFIED",
+  "audio_quarantine": "PRESERVED",
+  "authorization": "Explicit owner request in chat to update PolyMC before continuing",
+  "duplicate_scan": "All active JAR NeoForge/Forge manifests scanned: exactly one modId=slavicmyths"
+}

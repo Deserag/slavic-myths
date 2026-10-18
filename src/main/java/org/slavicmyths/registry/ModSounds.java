@@ -186,6 +186,9 @@ public final class ModSounds {
     }
     public static final java.util.Map<String,DeferredHolder<SoundEvent,SoundEvent>> BOSS_REIMPLEMENTATION_PROFILES=registerReimplementationProfiles();
     private static java.util.Map<String,DeferredHolder<SoundEvent,SoundEvent>> registerReimplementationProfiles(){var map=new java.util.LinkedHashMap<String,DeferredHolder<SoundEvent,SoundEvent>>();
+        map.put("tugarin_spin_blade_1",sound("tugarin_spin_blade_1"));
+        map.put("tugarin_spin_blade_2",sound("tugarin_spin_blade_2"));
+        map.put("tugarin_spin_blade_3",sound("tugarin_spin_blade_3"));
         map.put("tugarin_phase1_idle",sound("tugarin_phase1_idle"));
         map.put("tugarin_phase1_aggro",sound("tugarin_phase1_aggro"));
         map.put("tugarin_phase1_attack",sound("tugarin_phase1_attack"));

@@ -79,7 +79,7 @@ final class TugarinCombat {
             // Three revolutions, one damage pulse per revolution; native hurt immunity remains intact.
             if(time==16||time==28||time==40){
                 hits.clear();area(16,5.2,-1,.8F,0,true);
-                boss.playSound(SoundEvents.PLAYER_ATTACK_SWEEP,1,.55F);
+                boss.playSound(ModSounds.boss(time==16?"tugarin_spin_blade_1":time==28?"tugarin_spin_blade_2":"tugarin_spin_blade_3"),.8F,1);
                 for(int i=0;i<24;i++){
                     double a=i*Math.PI/12;Vec3 point=boss.position().add(5.2*Math.cos(a),1.8,5.2*Math.sin(a));
                     if(level().hasChunkAt(net.minecraft.core.BlockPos.containing(point)))level().sendParticles(ParticleTypes.CLOUD,point.x,point.y,point.z,1,.12,.1,.12,.01);

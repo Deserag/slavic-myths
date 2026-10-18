@@ -1,0 +1,14 @@
+{
+  "status": "IN_PROGRESS",
+  "checks": 7731,
+  "production_foley_events": 3,
+  "preview_clips": 8,
+  "game_launches": 0,
+  "owner_accepted": false,
+  "package_a_complete": false,
+  "remaining": "Ovinnik voice, Tugarin voice/step/transform, wolf distinct reactions, undead/Skim/Idolishche categories not completed",
+  "jar_sha256": "c7850539726a1ef1b97a917cb9e8d2f7c43d6bfc1e4e7d4736ebbb95f08b969b",
+  "installed_model_source": "956f4645295d31cc1d6eb206a604d88395aee2c0",
+  "installed_model_sha256": "65894e8c63812201bd50ee17da29fe19d8ffe1a8d56fc1a66cfd70d22a03a7ba",
+  "new_audio_installed": false
+}

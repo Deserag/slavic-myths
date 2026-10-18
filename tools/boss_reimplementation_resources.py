@@ -351,4 +351,6 @@ def apply(tugarin_only=False,nightingale_only=False):
         data['tooltip.slavicmyths.nightingale_dagger']='10 \u0443\u0440\u043e\u043d\u0430. \u0412\u0435\u0442\u0440\u043e\u0432\u043e\u0439 \u0432\u0437\u043c\u0430\u0445: 8 \u0431\u043b\u043e\u043a\u043e\u0432, 7 \u0443\u0440\u043e\u043d\u0430, \u0437\u0430\u0440\u044f\u0434 0,4 \u0441, \u043f\u0435\u0440\u0435\u0437\u0430\u0440\u044f\u0434\u043a\u0430 7 \u0441.' if lang=='ru_ru' else '10 attack damage. Wind slash: 8 blocks, 7 damage, 0.4 s charge, 7 s cooldown.'
         data['tooltip.slavicmyths.nightingale_whistle']='\u0420\u0430\u0434\u0438\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u043e\u0440\u044b\u0432: 6 \u0431\u043b\u043e\u043a\u043e\u0432, \u043f\u0435\u0440\u0435\u0437\u0430\u0440\u044f\u0434\u043a\u0430 16 \u0441.' if lang=='ru_ru' else 'Radial gust: 6 blocks, 16 s cooldown.'
         path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    from audio_60_foley import restore_events
+    restore_events()
 if __name__=='__main__':apply('--tugarin-model-only' in sys.argv,'--nightingale-model-only' in sys.argv)
