@@ -1,0 +1,46 @@
+{
+  "status": "IN_PROGRESS",
+  "checks": 179115,
+  "native_poses_per_form": 44,
+  "additional_fire_release_samples": 3,
+  "forms": 4,
+  "likho_and_mor_likho_native_parity": true,
+  "warrior_idle_armed_bounds_blocks": [
+    [
+      -1.748473625,
+      1.748473625
+    ],
+    [
+      -3.34079,
+      1.49999875
+    ],
+    [
+      -1.469690625,
+      0.744035
+    ]
+  ],
+  "physical_hitbox": [
+    3.5,
+    4.85
+  ],
+  "serpent_idle_bounds_blocks": [
+    [
+      -2.1024029375,
+      2.9511654375
+    ],
+    [
+      -2.863752375,
+      1.5
+    ],
+    [
+      -2.985344625,
+      4.62509375
+    ]
+  ],
+  "serpent_full_silhouette_inside_hitbox": false,
+  "jar_sha256": "dc7571e5eb3ec6dc4de32146206f7bbfe6485befc1066054caf05b68431129c0",
+  "audio": "BLOCKED_NEEDS_AUDIO_SOURCE: recorded candidates not retrieved; canonical preview URLs unverified, HTTP403/player blocked; no fake replacement",
+  "runtime_launches": 0,
+  "owner_accepted": false,
+  "poly_mc": "NOT_INSTALLED"
+}

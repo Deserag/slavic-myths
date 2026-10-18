@@ -1,3 +1,11 @@
+## 2026-10-18 — #56 source iteration (IN_PROGRESS)
+
+- Tugarin: pelvis/knee/ankle/wrist rig, asymmetric three-turn spin, planted steps,
+  overlapping combo recovery, charge/transform/wing choreography.
+- Preserve server hit clocks/AI/NBT/escrow and native Likho/Mor Likho poses.
+- Actual native before/after pose sheets and offline checks; audio, runtime,
+  owner acceptance and final PolyMC delivery remain unfinished.
+
 ## 2026-10-18 — #55 source iteration (IN_PROGRESS)
 
 - Cursed Volkolak: shorter mask, tapered torso/tail, revised limbs and coal/grey fur.

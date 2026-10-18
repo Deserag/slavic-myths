@@ -1,3 +1,14 @@
+## Изоляция поз Тугарина #56 — 2026-10-18
+
+WorldBossModel.sample делегирует только Tugarin в client-only TugarinPoses;
+ветка Лиха/Мор-Лиха и poseHigher сохранены. Таз, локти, колени, голеностопы,
+кисти раздельные; actual boot transforms проверяют опоры, grip points — контакт
+рукоятей с рукавицами. Серверный TugarinCombat/WorldBoss/BossRules/renderer без
+изменений. Генератор --tugarin-model-only воспроизводит только свои ресурсы,
+не трогает sounds/lang/Nightingale; одинаковые PNG не переписываются.
+Статус IN_PROGRESS, никаких runtime/owner acceptance/PolyMC delivery.
+[Native данные и матрица](implementation/tugarin-56/README.md).
+
 ## Native pose contract Проклятого Волколака #55 — 2026-10-18
 
 CursedVolkolakModel.sample получает существующие synced move/stance/held и часы;

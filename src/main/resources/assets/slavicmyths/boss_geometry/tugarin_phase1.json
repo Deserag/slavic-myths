@@ -18,11 +18,27 @@
       ]
     },
     {
-      "name": "body",
+      "name": "pelvis",
       "parent": "root",
       "pivot": [
         0,
         -24,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "body",
+      "parent": "pelvis",
+      "pivot": [
+        0,
+        0,
         0
       ],
       "box": null,
@@ -35,10 +51,10 @@
     },
     {
       "name": "legL",
-      "parent": "root",
+      "parent": "pelvis",
       "pivot": [
         10,
-        -24,
+        0,
         0
       ],
       "box": null,
@@ -51,10 +67,10 @@
     },
     {
       "name": "legR",
-      "parent": "root",
+      "parent": "pelvis",
       "pivot": [
         -10,
-        -24,
+        0,
         0
       ],
       "box": null,
@@ -201,7 +217,7 @@
       "parent": "body",
       "pivot": [
         0,
-        -40,
+        -39.5,
         0
       ],
       "box": null,
@@ -216,7 +232,7 @@
       "name": "armL",
       "parent": "body",
       "pivot": [
-        25,
+        22.4,
         -28,
         0
       ],
@@ -225,7 +241,7 @@
       "rotation": [
         0,
         0,
-        -0.1
+        0.04
       ]
     },
     {
@@ -241,7 +257,7 @@
         0,
         -7,
         16,
-        19,
+        13,
         14
       ],
       "material": 1,
@@ -252,33 +268,10 @@
       ]
     },
     {
-      "name": "bootL",
-      "parent": "legL",
-      "pivot": [
-        0,
-        0,
-        0
-      ],
-      "box": [
-        -8.4,
-        15,
-        -10,
-        16.8,
-        9,
-        19
-      ],
-      "material": 2,
-      "rotation": [
-        0,
-        0,
-        0
-      ]
-    },
-    {
       "name": "armR",
       "parent": "body",
       "pivot": [
-        -25,
+        -22.4,
         -28,
         0
       ],
@@ -287,7 +280,7 @@
       "rotation": [
         0,
         0,
-        0.1
+        -0.04
       ]
     },
     {
@@ -303,33 +296,10 @@
         0,
         -7,
         16,
-        19,
+        13,
         14
       ],
       "material": 1,
-      "rotation": [
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "name": "bootR",
-      "parent": "legR",
-      "pivot": [
-        0,
-        0,
-        0
-      ],
-      "box": [
-        -8.4,
-        15,
-        -10,
-        16.8,
-        9,
-        19
-      ],
-      "material": 2,
       "rotation": [
         0,
         0,
@@ -352,6 +322,38 @@
         15,
         14
       ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "kneeL",
+      "parent": "legL",
+      "pivot": [
+        0,
+        13,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "kneeR",
+      "parent": "legR",
+      "pivot": [
+        0,
+        13,
+        0
+      ],
+      "box": null,
       "material": 0,
       "rotation": [
         0,
@@ -706,12 +708,12 @@
         0
       ],
       "box": [
-        -8,
+        -5.5,
         -2,
-        -8,
+        -5.5,
+        11,
         16,
-        16,
-        16
+        11
       ],
       "material": 0,
       "rotation": [
@@ -830,12 +832,12 @@
         0
       ],
       "box": [
-        -8,
+        -5.5,
         -2,
-        -8,
+        -5.5,
+        11,
         16,
-        16,
-        16
+        11
       ],
       "material": 0,
       "rotation": [
@@ -1114,6 +1116,84 @@
       ]
     },
     {
+      "name": "shinShellL",
+      "parent": "kneeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -7.6,
+        0,
+        -6.8,
+        15.2,
+        7,
+        13.6
+      ],
+      "material": 1,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "ankleL",
+      "parent": "kneeL",
+      "pivot": [
+        0,
+        7,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "shinShellR",
+      "parent": "kneeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -7.6,
+        0,
+        -6.8,
+        15.2,
+        7,
+        13.6
+      ],
+      "material": 1,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "ankleR",
+      "parent": "kneeR",
+      "pivot": [
+        0,
+        7,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
       "name": "whiskerL",
       "parent": "moustacheL",
       "pivot": [
@@ -1145,12 +1225,12 @@
         0
       ],
       "box": [
-        -7,
+        -5,
         0,
-        -7,
-        14,
+        -5,
+        10,
         15,
-        14
+        10
       ],
       "material": 0,
       "rotation": [
@@ -1168,12 +1248,12 @@
         0
       ],
       "box": [
-        -7.3,
+        -5.3,
         10,
-        -7.3,
-        14.6,
+        -5.3,
+        10.6,
         4,
-        14.6
+        10.6
       ],
       "material": 4,
       "rotation": [
@@ -1183,19 +1263,26 @@
       ]
     },
     {
-      "name": "bladeL",
-      "parent": "foreL",
+      "name": "bootL",
+      "parent": "ankleL",
       "pivot": [
         0,
-        14,
-        -3
-      ],
-      "box": null,
-      "material": 0,
-      "rotation": [
-        -0.45,
         0,
-        0.3
+        0
+      ],
+      "box": [
+        -8.4,
+        -5,
+        -10,
+        16.8,
+        9,
+        19
+      ],
+      "material": 2,
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
@@ -1230,12 +1317,12 @@
         0
       ],
       "box": [
-        -7,
+        -5,
         0,
-        -7,
-        14,
+        -5,
+        10,
         15,
-        14
+        10
       ],
       "material": 0,
       "rotation": [
@@ -1253,12 +1340,12 @@
         0
       ],
       "box": [
-        -7.3,
+        -5.3,
         10,
-        -7.3,
-        14.6,
+        -5.3,
+        10.6,
         4,
-        14.6
+        10.6
       ],
       "material": 4,
       "rotation": [
@@ -1268,7 +1355,46 @@
       ]
     },
     {
-      "name": "bladeR",
+      "name": "bootR",
+      "parent": "ankleR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -8.4,
+        -5,
+        -10,
+        16.8,
+        9,
+        19
+      ],
+      "material": 2,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "wristL",
+      "parent": "foreL",
+      "pivot": [
+        0,
+        14,
+        -3
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "wristR",
       "parent": "foreR",
       "pivot": [
         0,
@@ -1278,9 +1404,87 @@
       "box": null,
       "material": 0,
       "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeL",
+      "parent": "wristL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        -0.45,
+        0,
+        0.3
+      ]
+    },
+    {
+      "name": "bladeR",
+      "parent": "wristR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
         -0.45,
         0,
         -0.3
+      ]
+    },
+    {
+      "name": "gauntletL",
+      "parent": "wristL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -4.5,
+        -2,
+        -3.5,
+        9,
+        6,
+        7
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "gauntletR",
+      "parent": "wristR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -4.5,
+        -2,
+        -3.5,
+        9,
+        6,
+        7
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {

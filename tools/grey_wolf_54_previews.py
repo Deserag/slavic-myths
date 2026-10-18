@@ -3,8 +3,8 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 import gzip,json,math,io,subprocess
 R=Path(__file__).resolve().parents[1];OUT=R/'docs/implementation/grey-wolf-54'
-def draw(faces,texture,yaw,size=(500,420),silhouette=False):
- im=Image.new('RGB',size,'#202B30');d=ImageDraw.Draw(im);scale=4;w,h=size;angle=math.radians(yaw);pitch=math.radians(7)
+def draw(faces,texture,yaw,size=(500,420),silhouette=False,scale=4,view_pitch=7):
+ im=Image.new('RGB',size,'#202B30');d=ImageDraw.Draw(im);w,h=size;angle=math.radians(yaw);pitch=math.radians(view_pitch)
  def project(v):
   x,y,z=v[:3];y+=4;a=x*math.cos(angle)+z*math.sin(angle);b=z*math.cos(angle)-x*math.sin(angle)
   return [215+a*scale,185+(y*math.cos(pitch)-b*math.sin(pitch))*scale,b*math.cos(pitch)+y*math.sin(pitch)]
