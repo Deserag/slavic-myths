@@ -22,7 +22,7 @@ public final class TugarinModelsOffline {
         for(boolean second:new boolean[]{false,true}){
             var model=new org.slavicmyths.client.NightingaleModel(second);Map<?,?> parts=(Map<?,?>)field(model,"parts");
             for(String name:List.of("root","body","head","armL","armR","foreL","foreR","legL","legR","bladeL","bladeR")){if(!parts.containsKey(name))throw new AssertionError(name);checks++;}
-            for(String name:second?List.of("topknot","moustacheL","moustacheR"):List.of("cloakStrip0","cloakStrip6","beard")){if(!parts.containsKey(name))throw new AssertionError(name);checks++;}
+            for(String name:second?List.of("topknot","moustacheL","moustacheR"):List.of("cloakStrip0","cloakStrip2","beard")){if(!parts.containsKey(name))throw new AssertionError(name);checks++;}
             for(var part:parts.values())for(Object cube:(List<?>)field(part,"cubes"))for(Object polygon:(Object[])field(cube,"polygons"))for(Object vertex:(Object[])field(polygon,"vertices")){
                 float u=(float)field(vertex,"u"),v=(float)field(vertex,"v");if(!Float.isFinite(u)||!Float.isFinite(v)||u<0||u>1||v<0||v>1)throw new AssertionError("Nightingale UV outside atlas");checks++;
             }

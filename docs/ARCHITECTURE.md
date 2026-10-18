@@ -1,3 +1,8 @@
+## Соловей #57 — IN_PROGRESS — 2026-10-18
+
+NightingaleModel.sample полностью сбрасывает transforms/scales/visibility и делегирует client-only NightingalePoses. Сервер владеет всеми action clocks/прыжками/попаданиями. Генератор --nightingale-model-only изолирует presentation от звуков/предметов/Tugarin.
+[Матрица и native сравнения](implementation/nightingale-57/README.md).
+
 ## Изоляция поз Тугарина #56 — 2026-10-18
 
 WorldBossModel.sample делегирует только Tugarin в client-only TugarinPoses;

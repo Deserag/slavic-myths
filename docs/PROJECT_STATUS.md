@@ -1,3 +1,8 @@
+## Соловей #57 — IN_PROGRESS — 2026-10-18
+
+Соловей: две формы, отдельные torso/pelvis/кисти/колени, источник 58 поз на форму, восемь action sheets. Server AI/timings/NBT и предметы неизменны. Аудио FAIL, runtime0, owner acceptance отсутствует; PolyMC не обновлён.
+[Матрица и native сравнения](implementation/nightingale-57/README.md).
+
 ## Тугарин #56 — IN_PROGRESS — 2026-10-18
 
 Таз/колени/кисти первой формы, новая постановка SPIN и плавное восстановление

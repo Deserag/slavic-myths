@@ -1,0 +1,47 @@
+{
+  "status": "IN_PROGRESS",
+  "checks": 194709,
+  "forms": 2,
+  "native_poses_per_form": 58,
+  "tugarin_control_parity": true,
+  "idle_bounds_blocks": {
+    "first": [
+      [
+        -0.5056775,
+        0.5056775
+      ],
+      [
+        -0.3242128125,
+        1.5000013125
+      ],
+      [
+        -0.7450055625,
+        0.3272326875
+      ]
+    ],
+    "second": [
+      [
+        -0.4173170625,
+        0.4173170625
+      ],
+      [
+        -0.31869675,
+        1.5000014375
+      ],
+      [
+        -0.7506001875,
+        0.2896159375
+      ]
+    ]
+  },
+  "physical_hitbox": [
+    0.95,
+    1.85
+  ],
+  "weapons_and_cloak_full_footprint_fit": false,
+  "jar_sha256": "686722fc51f0ec20612c2e9c5a16e4529fcabf1b0cad9264e6356ad8da7277d4",
+  "audio": "FAIL: no new accepted real whistle/wind/foley; old assets unchanged",
+  "runtime_launches": 0,
+  "owner_accepted": false,
+  "poly_mc": "NOT_INSTALLED"
+}

@@ -118,33 +118,73 @@ def model(name):
     # Physical geometry, not renderer/entity scaling. Feet stay at model Y=24.
     by={p['name']:p for p in parts}
     if name.startswith('nightingale'):
-        by['body']['pivot'][1]=-10
-        by['torso']['box'][1]=-9
-        by['torso']['box'][4]=9
-        by['head']['pivot'][1]=-7
-        for side in ['L','R']:
-            by['arm'+side]['pivot'][1]=-8
-            by['upperArm'+side]['box'][4]=5.5
-            by['fore'+side]['pivot'][1]=4.5
-            by['forearm'+side]['box'][4]=5.5
-            by['cuff'+side]['box'][1]=3
-            by['blade'+side]['pivot'][1]=4.5
-            by['blade'+side]['rotation'][0]=-1.1
-            by['leg'+side]['pivot'][1]=-10
-            by['pants'+side]['box'][4]=7
-            by['boot'+side]['box'][1]=5
+        # #57: stocky forest robber versus lean, ribbed, quick whistle form.
+        upper=6.5 if not comic else 7.2;lower=3.0;sole=1.5 if not comic else 1.6
+        waist=upper+lower+sole
+        add('pelvis','root',xyz=(0,-waist,0))
+        by['body']['parent']='pelvis';by['body']['pivot']=[0,0,0]
+        by['torso']['box']=[-4.1,-4.5,-2.1,8.2,4.5,4.2] if not comic else [-3.2,-3.6,-1.9,6.4,3.6,3.8]
+        box('ribcage','body',-4.9 if not comic else -4.2,-10.5 if not comic else -10,-2.7 if not comic else -2.5,9.8 if not comic else 8.4,6.4 if not comic else 6.8,5.4 if not comic else 5,7 if not comic else 1)
+        box('neckWrap','body',-2,-11,-1.8,4,2.4,3.6,7 if not comic else 11)
+        by['belt']['box']=[-4.5 if not comic else -3.6,-1,-2.5,9 if not comic else 7.2,1.8,5]
+        by['buckle']['box']=[-1,-.8,-2.9,2,1.3,.7]
+        by['head']['pivot']=[0,-10 if not comic else -9.2,0]
+        by['face']['box']=[-3.7,-6.3,-3.6,7.4,7.5,7.2] if not comic else [-3.4,-6,-3.4,6.8,7.2,6.8]
+        by['nose']['box']=[-.8,-3.1,-4.7,1.6,2.5,1.6]
+        by['jaw']['box']=[-3.1,0,-3.5,6.2,1.3,5.7]
+        by['hairCap']['box']=[-3.85 if not comic else -3.55,-6.6 if not comic else -6.3,-2.8,7.7 if not comic else 7.1,1.7,6.5]
+        if not comic:by['beard']['box']=[-3.2,.6,-3.7,6.4,2.5,1.6]
+        box('lipRim','head',-.8,.1,-4.2,1.6,1.1,.35,0)
+        box('whistleLips','head',-.35,.4,-4.45,.7,.45,.12,3)
+        for sign,side in [(1,'L'),(-1,'R')]:
+            by['eye'+side]['box']=[sign*1.9-.55,-3.7,-3.85 if not comic else -3.65,1.1,.8,.4]
+            by['pupil'+side]['box']=[sign*1.9-.2,-3.7,-4.05 if not comic else -3.85,.4,.8,.22]
+            box('brow'+side,'head',sign*1.9-1,-4.4,-4.05,2.1,.6,.6,3,rot=(0,0,-sign*(.14 if not comic else .28)))
+            by['sideHair'+side]['box']=[sign*3.5-.55,-4.5,1.6,1.1,6 if not comic else 5,2.4]
+            by['moustache'+side]['pivot']=[sign*1.1,-.3,-4.05]
+            whisker=3.6 if not comic else 4.7
+            by['whisker'+side]['box']=[0 if sign>0 else -whisker,0,0,whisker,.9,.8]
+            by['arm'+side]['pivot']=[sign*(4.85 if not comic else 5),-9.1 if not comic else -9.4,0]
+            by['arm'+side]['rotation']=[0,0,sign*.04]
+            aw=3.6 if not comic else 3.0;u=5.5 if not comic else 5.8;fore=5 if not comic else 5.5
+            by['upperArm'+side]['box']=[-aw/2,-.6,-aw/2,aw,u+.4,aw]
+            by['fore'+side]['pivot']=[0,u,0]
+            by['forearm'+side]['box']=[-aw/2,0,-aw/2,aw,fore,aw]
+            by['cuff'+side]['box']=[-aw/2-.15,fore-1.8,-aw/2-.15,aw+.3,1.6,aw+.3]
+            add('wrist'+side,'fore'+side,xyz=(0,fore-.2,-1.3))
+            box('palm'+side,'wrist'+side,-1.6,-.8,-1.7,3.2,3.4,3.4,2)
+            box('thumb'+side,'wrist'+side,sign*1.4-.45,0,-2,.9,1.6,1.4,0 if not comic else 11)
+            by['blade'+side]['parent']='wrist'+side;by['blade'+side]['pivot']=[0,0,0];by['blade'+side]['rotation']=[-1,0,sign*.15]
+            by['grip'+side]['box']=[-.6,-1,-.6,1.2,3.2,1.2]
+            by['guard'+side]['box']=[-1.6,2,-.9,3.2,.8,1.8]
+            # Short hooked steel knife: 8-unit blade, narrow guard, leather grip.
+            for i in range(5):
+                by['bladeCurve'+side+str(i)]['box'][1]=2.8+i*1.6;by['bladeCurve'+side+str(i)]['box'][4]=1.8
+                by['bladeEdge'+side+str(i)]['box'][1]=2.8+i*1.6;by['bladeEdge'+side+str(i)]['box'][4]=1.8
+            by['leg'+side]['parent']='pelvis';by['leg'+side]['pivot']=[sign*(2.5 if not comic else 2.2),0,0]
+            by['pants'+side]['box']=[-1.9 if not comic else -1.65,0,-1.9 if not comic else -1.65,3.8 if not comic else 3.3,upper,3.8 if not comic else 3.3]
+            add('knee'+side,'leg'+side,xyz=(0,upper,0))
+            box('shin'+side,'knee'+side,-1.8 if not comic else -1.5,0,-1.8 if not comic else -1.5,3.6 if not comic else 3,lower,3.6 if not comic else 3,2 if not comic else 1)
+            add('ankle'+side,'knee'+side,xyz=(0,lower,0))
+            by['boot'+side]['parent']='ankle'+side;by['boot'+side]['box']=[-2.1 if not comic else -1.85,-2,-3 if not comic else -2.8,4.2 if not comic else 3.7,2+sole,5 if not comic else 4.7]
         if not comic:
-            for p in parts:
-                if p['name'].startswith(('cloakStrip','cloakSide')) and p['box'] is None:p['pivot'][1]=-8
-                if p['name'].startswith('cloakCloth'):p['box'][4]=12+(int(p['name'][-1])%3)
-                if p['name'].startswith('cloakSideCloth'):p['box'][4]=12
-                if p['name'].startswith('shoulderMantle'):p['box'][1]=-9
+            for sign,side in [(1,'L'),(-1,'R')]:
+                by['shoulderMantle'+side]['box']=[0 if sign>0 else -6.8,-10,-3.2,6.8,2.5,7.4]
+                by['cloakSide'+side]['pivot']=[sign*5.4,-9,-1];by['cloakSideCloth'+side]['box']=[0 if sign>0 else -1.4,0,-2,1.4,13,2]
+            discard={n for i in range(3,7) for n in ['cloakStrip'+str(i),'cloakCloth'+str(i)]}
+            parts[:]=[p for p in parts if p['name'] not in discard]
+            for i in range(3):
+                by['cloakStrip'+str(i)]['pivot']=[-4+i*4,-9,3]
+                by['cloakCloth'+str(i)]['box']=[-2.2,0,0,4.4,13+i%2,.9]
         else:
-            parts[:]=[p for p in parts if p['name'] not in ('topknotStem','topknotTip')]
-        if not comic:add('topknot','head',xyz=(0,-7,1),rot=(0,0,.12))
-        box('topknotStem','topknot',-1.3,-4,-1.4,2.6,4.5,2.8,3)
-        box('topknotTip','topknot',-1.6,-6,-1.6,3.2,3,3.2,3,rot=(.1,0,-.16))
-        box('topknotSweep','topknot',-1.4,-5,1,2.8,3,4,3,rot=(.18,0,0))
+            for sign,side in [(1,'L'),(-1,'R')]:
+                add('coatTail'+side,'body',xyz=(sign*2.7,-1,2),rot=(.08,0,sign*.05))
+                box('coatCloth'+side,'coatTail'+side,-1.6,0,0,3.2,8 if sign>0 else 10,.8,11)
+        parts[:]=[p for p in parts if p['name'] not in ('topknotStem','topknotTip')]
+        if not comic:add('topknot','head',xyz=(0,-6.3,1),rot=(.12,0,.12))
+        else:by['topknot']['pivot']=[0,-5.8,1];by['topknot']['rotation']=[.16,0,-.18]
+        box('topknotStem','topknot',-1,-1.6,-1,2,2,2,3)
+        box('topknotTip','topknot',-1.3,-1.9,.3,2.6,2.2,3.3,3,rot=(-.15,0,-.1))
     if fat:
         # Broad shoulder girdle and deep, round belly above short planted legs.
         by['body']['pivot'][1]=-24
@@ -266,22 +306,25 @@ def save_png(path,im):
     finally:
         if temporary.exists():temporary.unlink()
 
-def apply(tugarin_only=False):
+def apply(tugarin_only=False,nightingale_only=False):
     models=[model(n) for n in ['tugarin_phase1','tugarin_phase2','nightingale_phase1','nightingale_phase2']]
     target=ROOT/'src/main/resources/assets/slavicmyths/boss_geometry';target.mkdir(exist_ok=True)
     java=['package org.slavicmyths.client;','/** Generated by tools/boss_reimplementation_resources.py; original silhouettes. */','final class BossReworkGeometry {','static void build(BossGeometrySink m,int form){switch(form){']
     def f(v):return str(float(v))+'F'
     for i,m in enumerate(models):
-        if not tugarin_only or i<2:(target/(m['name']+'.json')).write_text(json.dumps(m,indent=2)+'\n')
+        selected=not(tugarin_only or nightingale_only) or tugarin_only and i<2 or nightingale_only and i>=2
+        if selected:(target/(m['name']+'.json')).write_text(json.dumps(m,indent=2)+'\n')
         java.append('case '+str(i)+' -> {')
         for p in m['parts']:
             box='null' if p['box'] is None else 'new float[]{'+','.join(map(f,p['box']))+'}'
             java.append('m.add("'+p['name']+'","'+p['parent']+'",'+','.join(map(f,p['pivot']))+','+box+','+str(p['material'])+','+','.join(map(f,p['rotation']))+');')
         java.append('}')
-        if tugarin_only and i>=2:continue
+        if not selected:continue
         im=Image.new('RGB',(1024,1024))
         px=im.load()
         for slot,color in enumerate(PALETTE):
+            if i==2:color={7:(43,68,45),2:(61,42,28)}.get(slot,color)
+            if i==3:color={0:(173,154,128),1:(99,39,39),11:(48,93,91)}.get(slot,color)
             for y in range(256):
                 for x in range(256):
                     delta=((x//3*7+y//3*11+slot*3+i*5)%9)-4
@@ -290,11 +333,14 @@ def apply(tugarin_only=False):
                         delta+=((x//5*3+y//4*7+slot)%5-2)*3
                         if slot==1 and (y%12==0 or x%17==0):delta-=10
                         if slot in [4,5,6] and (x+y)%13==0:delta+=12
+                    if i>=2:
+                        delta+=((x//4*3+y//5*5+slot)%5-2)*3
+                        if slot in [1,7,11] and y%13==0:delta-=7
                     px[slot%4*256+x,slot//4*256+y]=tuple(max(0,min(255,c+delta)) for c in color)
         save_png(ROOT/'src/main/resources/assets/slavicmyths/textures/entity'/ (m['name']+'.png'),im)
     java.extend(['default -> throw new IllegalArgumentException("Boss form: "+form);','}}','private BossReworkGeometry(){}','}'])
     (ROOT/'src/main/java/org/slavicmyths/client/BossReworkGeometry.java').write_text('\n'.join(java)+'\n')
-    if tugarin_only:return
+    if tugarin_only or nightingale_only:return
     sounds=json.loads((ROOT/'tools/boss_reimplementation_sounds.json').read_text())
     path=ROOT/'src/main/resources/assets/slavicmyths/sounds.json'
     data=json.loads(path.read_text(encoding='utf-8'));data.update({k:{'sounds':[{'name':v,'type':'event'}]} for k,v in sounds.items()});path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -305,4 +351,4 @@ def apply(tugarin_only=False):
         data['tooltip.slavicmyths.nightingale_dagger']='10 \u0443\u0440\u043e\u043d\u0430. \u0412\u0435\u0442\u0440\u043e\u0432\u043e\u0439 \u0432\u0437\u043c\u0430\u0445: 8 \u0431\u043b\u043e\u043a\u043e\u0432, 7 \u0443\u0440\u043e\u043d\u0430, \u0437\u0430\u0440\u044f\u0434 0,4 \u0441, \u043f\u0435\u0440\u0435\u0437\u0430\u0440\u044f\u0434\u043a\u0430 7 \u0441.' if lang=='ru_ru' else '10 attack damage. Wind slash: 8 blocks, 7 damage, 0.4 s charge, 7 s cooldown.'
         data['tooltip.slavicmyths.nightingale_whistle']='\u0420\u0430\u0434\u0438\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u043e\u0440\u044b\u0432: 6 \u0431\u043b\u043e\u043a\u043e\u0432, \u043f\u0435\u0440\u0435\u0437\u0430\u0440\u044f\u0434\u043a\u0430 16 \u0441.' if lang=='ru_ru' else 'Radial gust: 6 blocks, 16 s cooldown.'
         path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-if __name__=='__main__':apply('--tugarin-model-only' in sys.argv)
+if __name__=='__main__':apply('--tugarin-model-only' in sys.argv,'--nightingale-model-only' in sys.argv)
