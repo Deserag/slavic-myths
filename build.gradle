@@ -504,3 +504,25 @@ if (project.hasProperty('rusalkaOfflineCheck')) {
   mainClass = 'org.slavicmyths.verify.RusalkaOffline'
  }
 }
+
+
+// Emergency audio quality gate, #59/#60: rejected synthesized vocal cues must not
+// silently reappear in the production JAR.  Owner review is required before unmuting.
+tasks.register('verifyRejectedVoiceQuarantine') {
+    doLast {
+        def events = new groovy.json.JsonSlurper().parse(file('src/main/resources/assets/slavicmyths/sounds.json'))
+        def bad = events.findAll { name, cue ->
+            def quarantine =
+                ['rusalka_', 'vodyanoy_', 'domovoy_', 'leshy_', 'kikimora_',
+                 'polevik_', 'poludnitsa_', 'bannik_', 'igosha_'].any { name.startsWith(it) } ||
+                name ==~ /^nochnitsa\.(ambient|breath|hurt|scream_inhale|scream_release|scream_interrupt|target_spotted|sunrise_dissolve|death)$/ ||
+                name ==~ /^doghead\.(hunter|scout|leader|shared)\.(ambient|bark|spot_bark|howl_inhale|howl_release|hurt|death)$/ ||
+                name ==~ /^firebird_(ambient|call|warning|retaliation|hurt|death)$/
+            quarantine && cue.sounds != []
+        }
+        if (!bad.isEmpty()) {
+            throw new GradleException('REJECTED_SYNTHETIC_VOICES: do not re-enable until owner accepts real replacement OGG, #59/#60: ' + bad.keySet())
+        }
+    }
+}
+tasks.named('processResources') { dependsOn 'verifyRejectedVoiceQuarantine' }
