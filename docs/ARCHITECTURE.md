@@ -1,3 +1,14 @@
+## Native pose contract Проклятого Волколака #55 — 2026-10-18
+
+CursedVolkolakModel.sample получает существующие synced move/stance/held и часы;
+setupAnim сохраняет per-entity blend. Опоры вычисляются из фактических сегментов,
+кисти — двумя ограниченными transform chains в рендере. RISE/DROP следуют
+физической смене stance 8/6; ESCAPE затемняет глаза 19–49, оживляет на 49,
+поднимает до 87. Gameplay CursedVolkolak.java не менялся. Только renderer depth
+0.68 вместо 0.85; размеры сущности прежние. --model-only у генератора изолирует
+rig и два atlas от квестов/GUI/предметов. Статус IN_PROGRESS, runtime NOT_RUN.
+[Native данные и проверки](implementation/cursed-volkolak-55/README.md).
+
 ## GreyWolf native pose contract #54 — 2026-10-18
 
 GreyWolfGeometry/manifest/atlas генерируются из authored69cuboids/30parts.

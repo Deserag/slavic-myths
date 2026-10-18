@@ -9,5 +9,5 @@ import org.slavicmyths.volkolak.CursedVolkolak;
 public final class CursedVolkolakEyes extends RenderLayer<CursedVolkolak,CursedVolkolakModel>{
  private static final RenderType EYES=RenderType.eyes(ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/cursed_volkolak_eyes.png"));
  public CursedVolkolakEyes(CursedVolkolakRenderer parent){super(parent);}
- @Override public void render(PoseStack pose,MultiBufferSource buffers,int light,CursedVolkolak entity,float walk,float amount,float partial,float age,float yaw,float pitch){getParentModel().renderToBuffer(pose,buffers.getBuffer(EYES),15728880,OverlayTexture.NO_OVERLAY,0x4DFFFFFF);}
+ @Override public void render(PoseStack pose,MultiBufferSource buffers,int light,CursedVolkolak entity,float walk,float amount,float partial,float age,float yaw,float pitch){if(entity.move()==CursedVolkolak.Move.ESCAPE){float t=entity.animationTicks(partial);if(t>=19&&t<49)return;}getParentModel().renderToBuffer(pose,buffers.getBuffer(EYES),15728880,OverlayTexture.NO_OVERLAY,0x4DFFFFFF);}
 }

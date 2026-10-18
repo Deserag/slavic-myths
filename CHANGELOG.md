@@ -1,3 +1,11 @@
+## 2026-10-18 — #55 source iteration (IN_PROGRESS)
+
+- Cursed Volkolak: shorter mask, tapered torso/tail, revised limbs and coal/grey fur.
+- Grounded stance/gait and RISE/DROP at existing collision ticks; false-death
+  eyes/breath/rise aligned to unchanged 49/87/131 story timing.
+- Actual baked geometry/UV before-after, 37 poses and offline gates; no game launch,
+  no owner acceptance, no version bump or PolyMC delivery.
+
 ## Unreleased — #54 IN_PROGRESS, owner acceptance pending
 
 - Серый Волк: сужающийся корпус, мощные лапы/суставы, более узкая морда,

@@ -543,3 +543,11 @@ if (project.hasProperty('greyWolfModelOfflineCheck')) {
   systemProperty 'slavicmyths.wolf54Baseline', project.hasProperty('wolf54Baseline')
  }
 }
+if (project.hasProperty('volkolakModelOfflineCheck')) {
+ tasks.register('verifyCursed55', JavaExec) {
+  dependsOn 'volkolakModelOfflineClasses'
+  classpath = sourceSets.volkolakModelOffline.runtimeClasspath
+  mainClass = 'org.slavicmyths.verify.Cursed55Offline'
+  systemProperty 'slavicmyths.cursed55Baseline', project.hasProperty('cursed55Baseline')
+ }
+}

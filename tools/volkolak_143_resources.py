@@ -1,7 +1,7 @@
 """Authored Variant B anatomy and original clustered pixel resources. Keeps legacy Volkolak assets."""
 from pathlib import Path
 from PIL import Image,ImageDraw
-import json,random,math
+import json,random,math,sys
 ROOT=Path(__file__).resolve().parents[1];A=ROOT/'src/main/resources/assets/slavicmyths';D=ROOT/'src/main/resources/data/slavicmyths'
 P=['#242326','#343237','#464349','#5B565A','#685A50','#858077','#BDB6A7','#2B292C','#C1B9A6','#805447','#CE963B','#F3C163','#171518','#1D1B1D','#DDD5C0']
 def write(p,d):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -9,42 +9,42 @@ def save(p,im):p.parent.mkdir(parents=True,exist_ok=True);im.save(p)
 parts=[]
 def part(name,parent,pos,boxes=(),rotation=(0,0,0),material='fur'):
  parts.append(dict(name=name,parent=parent,pos=pos,rotation=rotation,boxes=[dict(shape=list(b),material=material)for b in boxes]))
-part('root',None,[0,24,0]);part('pelvis','root',[0,-14,11],[[-7.5,-6,-6.5,15,12,13]])
-part('spine','pelvis',[0,-2,-5],[[-7,-6,-10,14,12,17]],(.17,0,0))
-part('chest','spine',[0,-3,-8],[[-11,-9,-9,22,17,15]])
-part('neck','chest',[0,-4,-3],[[-6.5,-5,-11,13,11,12]])
-part('head','neck',[0,4,-5],[[-6.5,-6,-7,13,12,13]])
-part('muzzle','head',[0,2,-6],[[-4,-2,-12,8,6,12]])
-part('nose','muzzle',[0,0,-12],[[-3,-1,-.7,6,3,1]],material='nose')
-part('jaw','head',[0,5,-6],[[-4,0,-11,8,3,11]],material='jaw')
-part('earL','head',[-5,-6,0],[[-1.5,-7,-1.5,3,7,3]],(0,0,-.14))
-part('earR','head',[5,-6,0],[[-1.5,-6,-1.5,3,6,3]],(.08,0,.22))
+part('root',None,[0,24,0]);part('pelvis','root',[0,-12,1.5],[[-6.5,-5,-5.5,13,10,11]])
+part('spine','pelvis',[0,-1,-2.5],[[-6,-5,-7,12,10,13]],(.17,0,0))
+part('chest','spine',[0,-2,-4],[[-9,-7,-6.5,18,14,12],[-7.5,4,-5.5,15,4,10]])
+part('neck','chest',[0,-3,-1.5],[[-5.5,-4.5,-7,11,9,9]])
+part('head','neck',[0,3,-2.5],[[-6,-5.2,-5.5,12,10.5,11]])
+part('muzzle','head',[0,1.6,-3.8],[[-3.8,-1.8,-5.5,7.6,4.8,6]])
+part('nose','muzzle',[0,0,-5.5],[[-2.8,-1,-.7,5.6,2.8,1.2]],material='nose')
+part('jaw','head',[0,4,-3.8],[[-3.4,0,-6.5,6.8,2.4,7]],material='jaw')
+part('earL','head',[-4.5,-5,0],[[-1.4,-4.5,-1.3,2.8,4.5,2.6]],(0,0,-.14))
+part('earR','head',[4.5,-5,0],[[-1.4,-4,-1.3,2.8,4,2.6]],(.08,0,.22))
 for side,x in [('L',-1),('R',1)]:
- part('brow'+side,'head',[x*5,-2,-6.9],[[-1.5,-1,-.7,3,2,2]])
- part('eye'+side,'head',[x*4,-1,-7.3],[[-.9,-.6,-.2,1.8,1.2,.4]],material='eye')
- part('upper'+side,'chest',[x*11,-6,-3],[[-4,0,-4,8,9,8],[-3.5,8,-3.5,7,8,7]],(.82,0,x*.2))
- part('fore'+side,'upper'+side,[0,16,0],[[-3.5,0,-3.5,7,14,7]],(-1.65,0,0))
- part('hand'+side,'fore'+side,[0,14,0],[[-4.5,-1,-5,9,4,8]],(.83,0,0))
+ part('brow'+side,'head',[x*4.7,-2.4,-5.7],[[-1.4,-.8,-.7,2.8,1.6,1.8]],(0,0,x*.12))
+ part('eye'+side,'head',[x*3.8,-1,-5.95],[[-.7,-.45,-.2,1.4,.9,.4]],material='eye')
+ part('upper'+side,'chest',[x*8.4,-4,-2.4],[[-3.2,0,-3.5,6.4,8,7],[-2.9,7,-3,5.8,6.5,6]],(.78,0,x*.04))
+ part('fore'+side,'upper'+side,[0,13,0],[[-2.8,0,-3,5.6,11,6]],(-1.5,0,0))
+ part('hand'+side,'fore'+side,[0,11,0],[[-3.6,-1,-4.2,7.2,4,7]],(.55,0,0))
  for i in range(4):
   part(f'claw{side}{i}','hand'+side,[-2.5+i*1.7,-1.5,-4],[[-.5,0,-4,1,1.5,4]],(.12,0,0),material='claw')
   part(f'hook{side}{i}',f'claw{side}{i}',[0,0,-4],[[-.5,0,-1.5,1,2,1.5]],(.35,0,0),material='clawtip')
- part('thigh'+side,'pelvis',[x*5,1,2],[[-3.5,0,-4,7,13,8]],(1.35,0,x*.08))
- part('shin'+side,'thigh'+side,[0,13,0],[[-2.5,0,-2.5,5,15,5]],(-2.4,0,0))
- part('foot'+side,'shin'+side,[0,15,0],[[-3.5,-1,-7,7,4,10]],(1.05,0,0))
+ part('thigh'+side,'pelvis',[x*4.5,1,1.6],[[-3.2,0,-3.8,6.4,11,7.6]],(1.35,0,0))
+ part('shin'+side,'thigh'+side,[0,11,0],[[-2.3,0,-2.5,4.6,11,5]],(-2.4,0,0))
+ part('foot'+side,'shin'+side,[0,11,0],[[-3.3,-1,-5.5,6.6,4,8.5]],(1.05,0,0))
  for i in range(3):part(f'toe{side}{i}','foot'+side,[-2+i*2,1,-6],[[-.5,0,-2,1,1,2]],material='clawtip')
-part('tail1','pelvis',[0,0,6],[[-3.5,-3,0,7,8,7]],(.35,0,0))
-part('tail2','tail1',[0,3,3],[[-4,-3,0,8,10,9]],(.25,0,0))
-part('tail3','tail2',[0,4,3],[[-3.5,-3,0,7,9,8]],(.1,0,.08))
+part('tail1','pelvis',[0,0,3],[[-2.7,-2.5,0,5.4,6,5]],(.35,0,0))
+part('tail2','tail1',[0,1.5,3],[[-2.4,-2.2,0,4.8,5.5,5]],(.25,0,0))
+part('tail3','tail2',[0,1.5,3],[[-1.8,-1.7,0,3.6,4.5,4]],(.1,0,.08))
 for name,parent,pos,box in [
  ('furShoulderL','chest',[-9,-7,2],[-2,-2,-4,4,7,8]),('furShoulderR','chest',[9,-7,2],[-2,-2,-4,4,7,8]),
  ('furNape','neck',[0,-5,0],[-7,-2,-4,14,4,10]),('furRuffL','neck',[-6,0,-5],[-2,-4,-4,4,9,8]),('furRuffR','neck',[6,0,-5],[-2,-4,-4,4,9,8]),
- ('furBack','spine',[0,-6,0],[-6,-2,-3,12,4,9]),('furTail','tail3',[0,5,6],[-3,-2,-1,6,5,4]),('furJaw','jaw',[0,2,-2],[-4,-1,-3,8,4,5])]:part(name,parent,pos,[box])
+ ('furBack','spine',[0,-6,0],[-6,-2,-3,12,4,9]),('furTail','tail3',[0,3,3],[-2,-1,-1,4,3,2]),('furJaw','jaw',[0,2,-2],[-4,-1,-3,8,4,5])]:part(name,parent,pos,[box])
 part('chestV','chest',[0,0,-9.15],[[-7,-6,-.3,14,12,.6]],material='chestV')
 part('sternumFur','chest',[0,8,0],[[-7,0,-8,14,2.2,12]],material='chestV')
 part('sternumTip','chest',[0,8.5,3],[[-5,0,0,10,2,4]],(.08,0,0),material='chestV')
 part('throatUnder','neck',[0,5,-5],[[-5,0,-6,10,2.5,11]],material='chestV')
 part('throatFur','neck',[0,3,-10],[[-5,-3,-1,10,8,2]],material='chestV')
-part('muzzleLight','muzzle',[0,2,-5],[[-4.1,0,-6.5,8.2,2.2,12]],material='jawLight')
+part('muzzleLight','muzzle',[0,1.6,-2],[[-3.85,0,-3.8,7.7,1.8,6.5]],material='jawLight')
 # Connected, broad ruff tiers follow the shoulder/nape surface instead of detached spikes.
 for side,x in [('L',-1),('R',1)]:
  part('shoulderRuff'+side,'chest',[x*8,-5,1],[[-3,-3,-5,6,10,11]],(0,0,x*.12))
@@ -54,22 +54,23 @@ for side,x in [('L',-1),('R',1)]:
 part('napeRidge','neck',[0,-5,1],[[-6,-3,-3,12,5,9]])
 # Cream ruff wraps the neck volume and remains visible when the spine rises.
 # Tier tips overlap their roots, so the silhouette stays connected in both stances.
-for tier in range(4):
- width=12-tier*1.7
+for tier in range(3):
+ width=10-tier*1.7
  part('bibTier'+str(tier),'neck',[0,3+tier*2,-8],
       [[-width/2,-1,-3,width,4,4]],(.12,0,0),material='chestV')
 for side,x in [('L',-1),('R',1)]:
  part('lightCheek'+side,'head',[x*4,4,-4],[[-2,-1,-4,4,4,6]],(0,0,x*.16),material='jawLight')
- for tier in range(3):
+ for tier in range(2):
   part('ruffTip'+side+str(tier),'neck',[x*(5-tier*.5),tier*2,-3],
        [[-1.7,-1,-2,3.4,4,5]],(.18,0,x*.16),material='chestV')
 for side,x in [('L',-1),('R',1)]:
- part('fangUpper'+side,'muzzle',[x*2.7,3.5,-9],[[-.6,0,-.6,1.2,3.5,1.2]],material='tooth')
- part('fangLower'+side,'jaw',[x*2.6,0,-7],[[-.5,-2.5,-.5,1,2.5,1]],material='tooth')
- part('toothSide'+side,'muzzle',[x*3.7,3.3,-4],[[-.5,0,-.5,1,2,1]],material='tooth')
+ part('fangUpper'+side,'muzzle',[x*2.4,2.7,-4.2],[[-.6,0,-.6,1.2,3.5,1.2]],material='tooth')
+ part('fangLower'+side,'jaw',[x*2.3,0,-4.2],[[-.5,-2.5,-.5,1,2.5,1]],material='tooth')
+ part('toothSide'+side,'muzzle',[x*3.3,2.6,-2],[[-.5,0,-.5,1,2,1]],material='tooth')
 part('scarArm','upperL',[-3.1,4,-2],[[-.25,0,-.5,.5,6,1]],material='scar')
 part('scarRibs','chest',[10.1,0,1],[[-.25,-3,-.5,.5,6,1]],material='scar')
 
+BODY_P=P.copy();BODY_P[2]='#45454A';BODY_P[3]='#555257';BODY_P[4]='#5C5049';BODY_P[5]='#74716C';BODY_P[6]='#8D8C86';BODY_P[8]='#A39B8D';BODY_P[10]='#AD7D39';BODY_P[11]='#D2A05A'
 atlas=Image.new('RGBA',(512,512));draw=ImageDraw.Draw(atlas);rng=random.Random(143);cx=cy=row=0;rectangles=[]
 for p in parts:
  for b in p['boxes']:
@@ -82,9 +83,9 @@ for p in parts:
    for px in range(cx+1,cx+rw-1):
     index=palette[(px//3*7+py//4*11)%len(palette)]
     if material=='eye':index=12 if px%4==1 else 11 if py%3==0 else 10
-    draw.point((px,py),fill=P[index])
+    draw.point((px,py),fill=BODY_P[index])
   if material=='chestV':
-   draw.polygon([(u+id,v+id),(u+id+iw/2,v+id+ih),(u+id+iw,v+id)],fill=P[6])
+   draw.polygon([(u+id,v+id),(u+id+iw/2,v+id+ih),(u+id+iw,v+id)],fill=BODY_P[6])
   cx+=rw;row=max(row,rh)
 save(A/'textures/entity/cursed_volkolak.png',atlas)
 eyes=Image.new('RGBA',(512,512));ed=ImageDraw.Draw(eyes)
@@ -101,6 +102,9 @@ for p in parts:
  lines.append(f'm.part("{p["name"]}",{parent},{arr(p["pos"])},{arr(p["rotation"])});')
  for b in p['boxes']:lines.append(f'm.box("{p["name"]}",{b["uv"][0]},{b["uv"][1]},{arr(b["shape"])});')
 lines+=['}','private CursedVolkolakGeometry(){}','}'];(ROOT/'src/main/java/org/slavicmyths/client/CursedVolkolakGeometry.java').write_text('\n'.join(lines)+'\n')
+
+if '--model-only' in sys.argv:
+ print(f'Cursed #55 model-only: {len(parts)} parts; no quest/items/audio modified');raise SystemExit(0)
 
 def sprite(kind):
  im=Image.new('RGBA',(32,32));d=ImageDraw.Draw(im)
