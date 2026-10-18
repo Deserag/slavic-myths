@@ -1,291 +1,131 @@
 {
   "domovoy_ambient": {
     "subtitle": "subtitles.slavicmyths.domovoy_ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:domovoy_ambient",
-        "volume": 0.8
-      }
-    ]
+    "sounds": []
   },
   "domovoy_hurt": {
     "subtitle": "subtitles.slavicmyths.domovoy_hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:domovoy_hurt",
-        "volume": 0.8
-      }
-    ]
+    "sounds": []
   },
   "domovoy_death": {
     "subtitle": "subtitles.slavicmyths.domovoy_death",
-    "sounds": [
-      {
-        "name": "slavicmyths:domovoy_death",
-        "volume": 0.8
-      }
-    ]
+    "sounds": []
   },
   "leshy_ambient": {
     "subtitle": "subtitles.slavicmyths.leshy_ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:leshy_ambient",
-        "volume": 0.8
-      }
-    ]
+    "sounds": []
   },
   "leshy_hurt": {
     "subtitle": "subtitles.slavicmyths.leshy_hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:leshy_hurt",
-        "volume": 0.8
-      }
-    ]
+    "sounds": []
   },
   "leshy_death": {
     "subtitle": "subtitles.slavicmyths.leshy_death",
-    "sounds": [
-      {
-        "name": "slavicmyths:leshy_death",
-        "volume": 0.8
-      }
-    ]
+    "sounds": []
   },
   "leshy_angry": {
     "subtitle": "subtitles.slavicmyths.leshy_angry",
-    "sounds": [
-      {
-        "name": "slavicmyths:leshy_angry",
-        "volume": 0.8
-      }
-    ]
+    "sounds": []
   },
   "kikimora_ambient": {
     "subtitle": "subtitles.slavicmyths.kikimora_ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/kikimora_ambient",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "kikimora_hurt": {
     "subtitle": "subtitles.slavicmyths.kikimora_hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/kikimora_hurt",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "kikimora_death": {
     "subtitle": "subtitles.slavicmyths.kikimora_death",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/kikimora_death",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "kikimora_angry": {
     "subtitle": "subtitles.slavicmyths.kikimora_angry",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/kikimora_angry",
-        "volume": 0.65
-      }
-    ]
+    "sounds": []
   },
   "kikimora_power": {
     "subtitle": "subtitles.slavicmyths.kikimora_power",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/kikimora_power",
-        "volume": 0.65
-      }
-    ]
+    "sounds": []
   },
   "poludnitsa_ambient": {
     "subtitle": "subtitles.slavicmyths.poludnitsa_ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/poludnitsa_ambient",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "poludnitsa_hurt": {
     "subtitle": "subtitles.slavicmyths.poludnitsa_hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/poludnitsa_hurt",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "poludnitsa_death": {
     "subtitle": "subtitles.slavicmyths.poludnitsa_death",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/poludnitsa_death",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "poludnitsa_angry": {
     "subtitle": "subtitles.slavicmyths.poludnitsa_angry",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/poludnitsa_angry",
-        "volume": 0.65
-      }
-    ]
+    "sounds": []
   },
   "poludnitsa_power": {
     "subtitle": "subtitles.slavicmyths.poludnitsa_power",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/poludnitsa_power",
-        "volume": 0.65
-      }
-    ]
+    "sounds": []
   },
   "polevik_ambient": {
     "subtitle": "subtitles.slavicmyths.polevik_ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/polevik_ambient",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "polevik_hurt": {
     "subtitle": "subtitles.slavicmyths.polevik_hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/polevik_hurt",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "polevik_death": {
     "subtitle": "subtitles.slavicmyths.polevik_death",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/polevik_death",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "polevik_angry": {
     "subtitle": "subtitles.slavicmyths.polevik_angry",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/polevik_angry",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "polevik_power": {
     "subtitle": "subtitles.slavicmyths.polevik_power",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/polevik_power",
-        "volume": 0.65
-      }
-    ]
+    "sounds": []
   },
   "bannik_ambient": {
     "subtitle": "subtitles.slavicmyths.bannik_ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/bannik_ambient",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "bannik_hurt": {
     "subtitle": "subtitles.slavicmyths.bannik_hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/bannik_hurt",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "bannik_death": {
     "subtitle": "subtitles.slavicmyths.bannik_death",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/bannik_death",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "bannik_angry": {
     "subtitle": "subtitles.slavicmyths.bannik_angry",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/bannik_angry",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "bannik_power": {
     "subtitle": "subtitles.slavicmyths.bannik_power",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/bannik_power",
-        "volume": 0.65
-      }
-    ]
+    "sounds": []
   },
   "igosha_ambient": {
     "subtitle": "subtitles.slavicmyths.igosha_ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/igosha_ambient",
-        "volume": 0.65
-      }
-    ]
+    "sounds": []
   },
   "igosha_hurt": {
     "subtitle": "subtitles.slavicmyths.igosha_hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/igosha_hurt",
-        "volume": 0.65
-      }
-    ]
+    "sounds": []
   },
   "igosha_death": {
     "subtitle": "subtitles.slavicmyths.igosha_death",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/igosha_death",
-        "volume": 0.65
-      }
-    ]
+    "sounds": []
   },
   "igosha_angry": {
     "subtitle": "subtitles.slavicmyths.igosha_angry",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/igosha_angry",
-        "volume": 0.65
-      }
-    ]
+    "sounds": []
   },
   "igosha_power": {
     "subtitle": "subtitles.slavicmyths.igosha_power",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/igosha_power",
-        "volume": 0.65
-      }
-    ]
+    "sounds": []
   },
   "ovinnik_ambient": {
     "subtitle": "subtitles.slavicmyths.ovinnik_ambient",
@@ -339,102 +179,47 @@
   },
   "poludnitsa_notice": {
     "subtitle": "subtitles.slavicmyths.poludnitsa_notice",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/poludnitsa_notice",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "poludnitsa_transform": {
     "subtitle": "subtitles.slavicmyths.poludnitsa_transform",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/poludnitsa_transform",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "poludnitsa_attack": {
     "subtitle": "subtitles.slavicmyths.poludnitsa_attack",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/poludnitsa_attack",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "polevik_step": {
     "subtitle": "subtitles.slavicmyths.polevik_step",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/polevik_step",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "bannik_step": {
     "subtitle": "subtitles.slavicmyths.bannik_step",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/bannik_step",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "bannik_attack": {
     "subtitle": "subtitles.slavicmyths.bannik_attack",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/bannik_attack",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "bannik_steam": {
     "subtitle": "subtitles.slavicmyths.bannik_steam",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/bannik_steam",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "kikimora_notice": {
     "subtitle": "subtitles.slavicmyths.kikimora_notice",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/kikimora_notice",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "kikimora_laugh": {
     "subtitle": "subtitles.slavicmyths.kikimora_laugh",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/kikimora_laugh",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "kikimora_attack": {
     "subtitle": "subtitles.slavicmyths.kikimora_attack",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/kikimora_attack",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "kikimora_step": {
     "subtitle": "subtitles.slavicmyths.kikimora_step",
-    "sounds": [
-      {
-        "name": "slavicmyths:land/kikimora_step",
-        "volume": 0.6
-      }
-    ]
+    "sounds": []
   },
   "bear_ambient": {
     "subtitle": "subtitles.slavicmyths.bear_ambient",
@@ -783,75 +568,39 @@
   },
   "vodyanoy_ambient": {
     "subtitle": "subtitles.slavicmyths.vodyanoy_ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:water/vodyanoy_ambient"
-      }
-    ]
+    "sounds": []
   },
   "vodyanoy_angry": {
     "subtitle": "subtitles.slavicmyths.vodyanoy_angry",
-    "sounds": [
-      {
-        "name": "slavicmyths:water/vodyanoy_angry"
-      }
-    ]
+    "sounds": []
   },
   "vodyanoy_hurt": {
     "subtitle": "subtitles.slavicmyths.vodyanoy_hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:water/vodyanoy_hurt"
-      }
-    ]
+    "sounds": []
   },
   "vodyanoy_death": {
     "subtitle": "subtitles.slavicmyths.vodyanoy_death",
-    "sounds": [
-      {
-        "name": "slavicmyths:water/vodyanoy_death"
-      }
-    ]
+    "sounds": []
   },
   "rusalka_ambient": {
     "subtitle": "subtitles.slavicmyths.rusalka_ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:water/rusalka_ambient"
-      }
-    ]
+    "sounds": []
   },
   "rusalka_angry": {
     "subtitle": "subtitles.slavicmyths.rusalka_angry",
-    "sounds": [
-      {
-        "name": "slavicmyths:water/rusalka_angry"
-      }
-    ]
+    "sounds": []
   },
   "rusalka_hurt": {
     "subtitle": "subtitles.slavicmyths.rusalka_hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:water/rusalka_hurt"
-      }
-    ]
+    "sounds": []
   },
   "rusalka_death": {
     "subtitle": "subtitles.slavicmyths.rusalka_death",
-    "sounds": [
-      {
-        "name": "slavicmyths:water/rusalka_death"
-      }
-    ]
+    "sounds": []
   },
   "rusalka_song": {
     "subtitle": "subtitles.slavicmyths.rusalka_song",
-    "sounds": [
-      {
-        "name": "slavicmyths:water/rusalka_song"
-      }
-    ]
+    "sounds": []
   },
   "elder_idle": {
     "subtitle": "subtitles.slavicmyths.elder_idle",
@@ -3124,7 +2873,7 @@
         "name": "slavicmyths:earth_spirit/footstep_1",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3136,7 +2885,7 @@
         "name": "slavicmyths:earth_spirit/awaken_rumble",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3148,7 +2897,7 @@
         "name": "slavicmyths:earth_spirit/pillar_throw",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3160,7 +2909,7 @@
         "name": "slavicmyths:earth_spirit/volley_release",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3172,7 +2921,7 @@
         "name": "slavicmyths:earth_spirit/servant_hit",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3184,7 +2933,7 @@
         "name": "slavicmyths:earth_spirit/armor_activate",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3196,7 +2945,7 @@
         "name": "slavicmyths:earth_spirit/death_fall",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3208,7 +2957,7 @@
         "name": "slavicmyths:earth_spirit/pillar_grip",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3220,7 +2969,7 @@
         "name": "slavicmyths:earth_spirit/ambient_1",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3232,7 +2981,7 @@
         "name": "slavicmyths:earth_spirit/volley_impact",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3244,7 +2993,7 @@
         "name": "slavicmyths:earth_spirit/melee_impact",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3256,7 +3005,7 @@
         "name": "slavicmyths:earth_spirit/shockwave",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3268,7 +3017,7 @@
         "name": "slavicmyths:earth_spirit/pillar_impact",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3280,7 +3029,7 @@
         "name": "slavicmyths:earth_spirit/roar_2",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3292,7 +3041,7 @@
         "name": "slavicmyths:earth_spirit/tremor_impact",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3304,7 +3053,7 @@
         "name": "slavicmyths:earth_spirit/ambient_2",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3316,7 +3065,7 @@
         "name": "slavicmyths:earth_spirit/pillar_rip",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3328,7 +3077,7 @@
         "name": "slavicmyths:earth_spirit/roar_1",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3340,7 +3089,7 @@
         "name": "slavicmyths:earth_spirit/phase_change",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3352,7 +3101,7 @@
         "name": "slavicmyths:earth_spirit/servant_emerge",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3364,7 +3113,7 @@
         "name": "slavicmyths:earth_spirit/tremor_warning",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3376,7 +3125,7 @@
         "name": "slavicmyths:earth_spirit/gate_close",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3388,7 +3137,7 @@
         "name": "slavicmyths:earth_spirit/volley_charge",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3400,7 +3149,7 @@
         "name": "slavicmyths:earth_spirit/footstep_2",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3412,7 +3161,7 @@
         "name": "slavicmyths:earth_spirit/melee_windup",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3424,7 +3173,7 @@
         "name": "slavicmyths:earth_spirit/summon_warning",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3436,7 +3185,7 @@
         "name": "slavicmyths:earth_spirit/servant_death",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3448,7 +3197,7 @@
         "name": "slavicmyths:earth_spirit/rune_reward",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3460,7 +3209,7 @@
         "name": "slavicmyths:earth_spirit/servant_idle",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3472,7 +3221,7 @@
         "name": "slavicmyths:earth_spirit/seal_break",
         "type": "file",
         "volume": 0.8,
-        "pitch": 1.0,
+        "pitch": 1,
         "attenuation_distance": 32
       }
     ]
@@ -3707,32 +3456,10 @@
     ]
   },
   "firebird_ambient": {
-    "sounds": [
-      {
-        "name": "slavicmyths:firebird/ambient_01",
-        "attenuation_distance": 64
-      },
-      {
-        "name": "slavicmyths:firebird/ambient_02",
-        "attenuation_distance": 64
-      },
-      {
-        "name": "slavicmyths:firebird/ambient_03",
-        "attenuation_distance": 64
-      }
-    ]
+    "sounds": []
   },
   "firebird_call": {
-    "sounds": [
-      {
-        "name": "slavicmyths:firebird/call_01",
-        "attenuation_distance": 64
-      },
-      {
-        "name": "slavicmyths:firebird/call_02",
-        "attenuation_distance": 64
-      }
-    ]
+    "sounds": []
   },
   "firebird_wing_flap": {
     "sounds": [
@@ -3787,44 +3514,13 @@
     ]
   },
   "firebird_warning": {
-    "sounds": [
-      {
-        "name": "slavicmyths:firebird/warning_01",
-        "attenuation_distance": 64
-      },
-      {
-        "name": "slavicmyths:firebird/warning_02",
-        "attenuation_distance": 64
-      }
-    ]
+    "sounds": []
   },
   "firebird_retaliation": {
-    "sounds": [
-      {
-        "name": "slavicmyths:firebird/retaliation_01",
-        "attenuation_distance": 64
-      },
-      {
-        "name": "slavicmyths:firebird/retaliation_02",
-        "attenuation_distance": 64
-      }
-    ]
+    "sounds": []
   },
   "firebird_hurt": {
-    "sounds": [
-      {
-        "name": "slavicmyths:firebird/hurt_01",
-        "attenuation_distance": 64
-      },
-      {
-        "name": "slavicmyths:firebird/hurt_02",
-        "attenuation_distance": 64
-      },
-      {
-        "name": "slavicmyths:firebird/hurt_03",
-        "attenuation_distance": 64
-      }
-    ]
+    "sounds": []
   },
   "firebird_drop": {
     "sounds": [
@@ -3855,50 +3551,15 @@
     ]
   },
   "firebird_death": {
-    "sounds": [
-      {
-        "name": "slavicmyths:firebird/death_01",
-        "attenuation_distance": 64
-      },
-      {
-        "name": "slavicmyths:firebird/death_02",
-        "attenuation_distance": 64
-      }
-    ]
+    "sounds": []
   },
   "nochnitsa.ambient": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:nochnitsa/ambient_01",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:nochnitsa/ambient_02",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:nochnitsa/ambient_03",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "nochnitsa.breath": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.breath",
-    "sounds": [
-      {
-        "name": "slavicmyths:nochnitsa/breath_01",
-        "attenuation_distance": 14
-      },
-      {
-        "name": "slavicmyths:nochnitsa/breath_02",
-        "attenuation_distance": 14
-      },
-      {
-        "name": "slavicmyths:nochnitsa/breath_03",
-        "attenuation_distance": 14
-      }
-    ]
+    "sounds": []
   },
   "nochnitsa.step": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.step",
@@ -3936,102 +3597,31 @@
   },
   "nochnitsa.hurt": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:nochnitsa/hurt_01",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:nochnitsa/hurt_02",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:nochnitsa/hurt_03",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "nochnitsa.scream_inhale": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.scream_inhale",
-    "sounds": [
-      {
-        "name": "slavicmyths:nochnitsa/scream_inhale_01",
-        "attenuation_distance": 24
-      },
-      {
-        "name": "slavicmyths:nochnitsa/scream_inhale_02",
-        "attenuation_distance": 24
-      }
-    ]
+    "sounds": []
   },
   "nochnitsa.scream_release": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.scream_release",
-    "sounds": [
-      {
-        "name": "slavicmyths:nochnitsa/scream_release_01",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:nochnitsa/scream_release_02",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:nochnitsa/scream_release_03",
-        "attenuation_distance": 32
-      }
-    ]
+    "sounds": []
   },
   "nochnitsa.scream_interrupt": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.scream_interrupt",
-    "sounds": [
-      {
-        "name": "slavicmyths:nochnitsa/scream_interrupt_01",
-        "attenuation_distance": 20
-      },
-      {
-        "name": "slavicmyths:nochnitsa/scream_interrupt_02",
-        "attenuation_distance": 20
-      }
-    ]
+    "sounds": []
   },
   "nochnitsa.target_spotted": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.target_spotted",
-    "sounds": [
-      {
-        "name": "slavicmyths:nochnitsa/target_spotted_01",
-        "attenuation_distance": 20
-      },
-      {
-        "name": "slavicmyths:nochnitsa/target_spotted_02",
-        "attenuation_distance": 20
-      }
-    ]
+    "sounds": []
   },
   "nochnitsa.sunrise_dissolve": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.sunrise_dissolve",
-    "sounds": [
-      {
-        "name": "slavicmyths:nochnitsa/sunrise_dissolve_01",
-        "attenuation_distance": 20
-      },
-      {
-        "name": "slavicmyths:nochnitsa/sunrise_dissolve_02",
-        "attenuation_distance": 20
-      }
-    ]
+    "sounds": []
   },
   "nochnitsa.death": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.death",
-    "sounds": [
-      {
-        "name": "slavicmyths:nochnitsa/death_01",
-        "attenuation_distance": 20
-      },
-      {
-        "name": "slavicmyths:nochnitsa/death_02",
-        "attenuation_distance": 20
-      }
-    ]
+    "sounds": []
   },
   "nochnitsa.robes_rustle": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.robes_rustle",
@@ -4052,41 +3642,11 @@
   },
   "doghead.hunter.ambient": {
     "subtitle": "subtitles.slavicmyths.doghead.hunter.ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/hunter_ambient_01",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/hunter_ambient_02",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/hunter_ambient_03",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/hunter_ambient_04",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "doghead.hunter.bark": {
     "subtitle": "subtitles.slavicmyths.doghead.hunter.bark",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/hunter_bark_01",
-        "attenuation_distance": 24
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/hunter_bark_02",
-        "attenuation_distance": 24
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/hunter_bark_03",
-        "attenuation_distance": 24
-      }
-    ]
+    "sounds": []
   },
   "doghead.hunter.thrust_whoosh": {
     "subtitle": "subtitles.slavicmyths.doghead.hunter.thrust_whoosh",
@@ -4120,41 +3680,11 @@
   },
   "doghead.scout.ambient": {
     "subtitle": "subtitles.slavicmyths.doghead.scout.ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/scout_ambient_01",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/scout_ambient_02",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/scout_ambient_03",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/scout_ambient_04",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "doghead.scout.spot_bark": {
     "subtitle": "subtitles.slavicmyths.doghead.scout.spot_bark",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/scout_spot_bark_01",
-        "attenuation_distance": 24
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/scout_spot_bark_02",
-        "attenuation_distance": 24
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/scout_spot_bark_03",
-        "attenuation_distance": 24
-      }
-    ]
+    "sounds": []
   },
   "doghead.scout.bow_draw": {
     "subtitle": "subtitles.slavicmyths.doghead.scout.bow_draw",
@@ -4201,58 +3731,15 @@
   },
   "doghead.leader.ambient": {
     "subtitle": "subtitles.slavicmyths.doghead.leader.ambient",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/leader_ambient_01",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/leader_ambient_02",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/leader_ambient_03",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/leader_ambient_04",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "doghead.leader.howl_inhale": {
     "subtitle": "subtitles.slavicmyths.doghead.leader.howl_inhale",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/leader_howl_inhale_01",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/leader_howl_inhale_02",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "doghead.leader.howl_release": {
     "subtitle": "subtitles.slavicmyths.doghead.leader.howl_release",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/leader_howl_release_01",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/leader_howl_release_02",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/leader_howl_release_03",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/leader_howl_release_04",
-        "attenuation_distance": 32
-      }
-    ]
+    "sounds": []
   },
   "doghead.leader.axe_whoosh": {
     "subtitle": "subtitles.slavicmyths.doghead.leader.axe_whoosh",
@@ -4290,61 +3777,11 @@
   },
   "doghead.shared.hurt": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_01",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_02",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_03",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_04",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_05",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_06",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "doghead.shared.death": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.death",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_01",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_02",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_03",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_04",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_05",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_06",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "doghead.shared.claw_gear": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.claw_gear",
@@ -4437,81 +3874,27 @@
   },
   "doghead.hunter.hurt": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_01",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_02",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "doghead.hunter.death": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.death",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_01",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_02",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "doghead.scout.hurt": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_03",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_04",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "doghead.scout.death": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.death",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_03",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_04",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "doghead.leader.hurt": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.hurt",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_05",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_hurt_06",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "doghead.leader.death": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.death",
-    "sounds": [
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_05",
-        "attenuation_distance": 16
-      },
-      {
-        "name": "slavicmyths:pesigolovtsy/shared_death_06",
-        "attenuation_distance": 16
-      }
-    ]
+    "sounds": []
   },
   "kuzya.voice_enter_01": {
     "sounds": [
