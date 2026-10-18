@@ -1,0 +1,55 @@
+{
+  "description": "Slavic Myths 2.0 kurgan V2 art review",
+  "status": "review-source-not-runtime",
+  "dimension": [
+    16,
+    16
+  ],
+  "format": "RGB PNG",
+  "files": {
+    "bog_green_kurgan_stone.png": {
+      "sha256": "8c2526194dc05a9e124553f6f7e10cc97063eb88fb09d8dd2e1ba5289e9ebf5d",
+      "git_blob_sha": "2cbde7594cf23c6a88459736e047ca1f7d808847"
+    },
+    "bog_green_kurgan_cobblestone.png": {
+      "sha256": "790b7b9eb9dd02667539f24bb50bca445aace35d6ac9b409f1c5f43e994ffc1c",
+      "git_blob_sha": "986bc5a1dba6c4c3a9fbc02ccb5d389a9c6588bb"
+    },
+    "cracked_bog_green_kurgan_cobblestone.png": {
+      "sha256": "2325017bcca6de3a29719a1c6a21d0c5a9f5a29f5d5dd682d98534891d896132",
+      "git_blob_sha": "1172ce0e4510fd4394d4c81131628de3e7b0f4a5"
+    },
+    "mossy_bog_green_kurgan_cobblestone.png": {
+      "sha256": "48ddda0c158e60235aa5a8a434e1def6903c5c1f50f2e521a9d8880fc8845f06",
+      "git_blob_sha": "114f6ea0f64b613cc03817603d003951ef03002f"
+    },
+    "pale_blue_kurgan_stone.png": {
+      "sha256": "ed68df26b5c7b57386e9044970ff303b0e3642276876b79f4be87163b74a8c65",
+      "git_blob_sha": "9b715806a0d285e00ac61c66ff60e4f1c3178982"
+    },
+    "pale_blue_kurgan_stone_variant.png": {
+      "sha256": "2c70b73258f92c88ce26bed9ff0d5e603e278878ed67aecf39fa3f84e89cd895",
+      "git_blob_sha": "733b7fdd7788bc3297c215bfa37ea421e990702d"
+    },
+    "pale_blue_kurgan_cobblestone.png": {
+      "sha256": "03dd186ad9222263385ac46b5b1862ae9c3994eb81e71c2ce970c7f12",
+      "git_blob_sha": "406f604e0603bf94c0242700ca538c1117049539"
+    },
+    "cracked_pale_blue_kurgan_cobblestone.png": {
+      "sha256": "bf24a0c6044345ff975fa996a4b54719afbdc703b262cba285a58de9639e806a",
+      "git_blob_sha": "fd36ac98358424df8669ec7ca0b7ecd96a47e4a3"
+    },
+    "mossy_pale_blue_kurgan_cobblestone.png": {
+      "sha256": "da8a47f014db81decb7f7000dfbcc71aa56534df6c57503b556035e79668a7ae",
+      "git_blob_sha": "2b10b4464c0a855e008c540278665f5afe66b337"
+    },
+    "burial_stone_top.png": {
+      "sha256": "a322cbdd56df53cc909dcbeaa3281bf2394005a19731de8a17b77fcca3d7e531",
+      "git_blob_sha": "68b3a93b10d5377a5b48c6b999d1b5b1c97d2dcd"
+    },
+    "carved_burial_stone.png": {
+      "sha256": "99df86407b644cb9af134640a2384c152469106aa2e9a87643654c8ce4dfb829",
+      "git_blob_sha": "79a67b3871c5f7fa1b7691cb217e232045696b03"
+    }
+  }
+}
