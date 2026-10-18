@@ -1,0 +1,138 @@
+{
+  "events": {
+    "rusalka_ambient": {
+      "subtitle": "subtitles.slavicmyths.rusalka_ambient",
+      "sounds": [
+        {
+          "name": "slavicmyths:water/rusalka/ambient_1",
+          "attenuation_distance": 20
+        },
+        {
+          "name": "slavicmyths:water/rusalka/ambient_2",
+          "attenuation_distance": 20
+        },
+        {
+          "name": "slavicmyths:water/rusalka/ambient_3",
+          "attenuation_distance": 20
+        }
+      ]
+    },
+    "rusalka_angry": {
+      "subtitle": "subtitles.slavicmyths.rusalka_angry",
+      "sounds": [
+        {
+          "name": "slavicmyths:water/rusalka/angry",
+          "attenuation_distance": 20
+        }
+      ]
+    },
+    "rusalka_hurt": {
+      "subtitle": "subtitles.slavicmyths.rusalka_hurt",
+      "sounds": [
+        {
+          "name": "slavicmyths:water/rusalka/hurt_1",
+          "attenuation_distance": 20
+        },
+        {
+          "name": "slavicmyths:water/rusalka/hurt_2",
+          "attenuation_distance": 20
+        }
+      ]
+    },
+    "rusalka_death": {
+      "subtitle": "subtitles.slavicmyths.rusalka_death",
+      "sounds": [
+        {
+          "name": "slavicmyths:water/rusalka/death",
+          "attenuation_distance": 20
+        }
+      ]
+    },
+    "rusalka_song": {
+      "subtitle": "subtitles.slavicmyths.rusalka_song_loop",
+      "sounds": [
+        {
+          "name": "slavicmyths:rusalka_song_loop",
+          "type": "event"
+        }
+      ]
+    },
+    "rusalka_song_intro": {
+      "subtitle": "subtitles.slavicmyths.rusalka_song_intro",
+      "sounds": [
+        {
+          "name": "slavicmyths:water/rusalka/song_intro",
+          "attenuation_distance": 20
+        }
+      ]
+    },
+    "rusalka_song_loop": {
+      "subtitle": "subtitles.slavicmyths.rusalka_song_loop",
+      "sounds": [
+        {
+          "name": "slavicmyths:water/rusalka/song_loop",
+          "attenuation_distance": 20
+        }
+      ]
+    },
+    "rusalka_song_intense": {
+      "subtitle": "subtitles.slavicmyths.rusalka_song_intense",
+      "sounds": [
+        {
+          "name": "slavicmyths:water/rusalka/song_intense",
+          "attenuation_distance": 20
+        }
+      ]
+    },
+    "rusalka_song_break": {
+      "subtitle": "subtitles.slavicmyths.rusalka_song_break",
+      "sounds": [
+        {
+          "name": "slavicmyths:water/rusalka/song_break",
+          "attenuation_distance": 20
+        }
+      ]
+    },
+    "rusalka_grab": {
+      "subtitle": "subtitles.slavicmyths.rusalka_grab",
+      "sounds": [
+        {
+          "name": "slavicmyths:water/rusalka/grab",
+          "attenuation_distance": 20
+        }
+      ]
+    }
+  },
+  "lang": {
+    "ru_ru": {
+      "subtitles.slavicmyths.rusalka_ambient": "Русалка — голос",
+      "subtitles.slavicmyths.rusalka_angry": "Русалка — недовольство",
+      "subtitles.slavicmyths.rusalka_hurt": "Русалка — боль",
+      "subtitles.slavicmyths.rusalka_death": "Русалка — затихает",
+      "subtitles.slavicmyths.rusalka_song": "Русалка — поёт",
+      "subtitles.slavicmyths.rusalka_song_intro": "Русалка начинает песню",
+      "subtitles.slavicmyths.rusalka_song_loop": "Русалка манит песней",
+      "subtitles.slavicmyths.rusalka_song_intense": "Песня омута нарастает",
+      "subtitles.slavicmyths.rusalka_song_break": "Песня Русалки обрывается",
+      "subtitles.slavicmyths.rusalka_grab": "Русалка всплескивает воду",
+      "rusalka.preview.unavailable": "Рядом нет спокойной Русалки для предпросмотра",
+      "rusalka.preview.started": "Предпросмотр Русалки: 30 секунд, без чар и атаки",
+      "rusalka.preview.stopped": "Предпросмотр Русалки завершён"
+    },
+    "en_us": {
+      "subtitles.slavicmyths.rusalka_ambient": "Rusalka ambient",
+      "subtitles.slavicmyths.rusalka_angry": "Rusalka angry",
+      "subtitles.slavicmyths.rusalka_hurt": "Rusalka hurt",
+      "subtitles.slavicmyths.rusalka_death": "Rusalka death",
+      "subtitles.slavicmyths.rusalka_song": "Rusalka song",
+      "subtitles.slavicmyths.rusalka_song_intro": "Rusalka begins a song",
+      "subtitles.slavicmyths.rusalka_song_loop": "Rusalka sings a lure",
+      "subtitles.slavicmyths.rusalka_song_intense": "The deepwater song intensifies",
+      "subtitles.slavicmyths.rusalka_song_break": "Rusalka’s song breaks",
+      "subtitles.slavicmyths.rusalka_grab": "Rusalka splashes water",
+      "rusalka.preview.unavailable": "No calm Rusalka nearby for preview",
+      "rusalka.preview.started": "Rusalka preview: 30 seconds, no charm or attack",
+      "rusalka.preview.stopped": "Rusalka preview stopped"
+    }
+  }
+}

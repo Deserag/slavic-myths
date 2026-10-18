@@ -1,3 +1,17 @@
+## Encounter/audio ownership #59 и поза #53 — 2026-10-18
+
+RusalkaEncounter хранит server observation/grace/close-warning clocks;
+SONG_CLOCK/PREVIEW передаются через SynchedEntityData. Client RusalkaSound
+выбирает INTRO(60ticks)/LOOP/INTENSE, останавливая старый экземпляр до нового.
+Canonical art/audio/rusalka-59: licensed inputs, edit tool, event mappings.
+PolevikModel.sample(crop,state,phase,...) вычисляет pelvis drop по суставам,
+согласует body/hips и компенсирует стопы; gameplay PolevikEntity не меняется.
+
+Статус: IN_PROGRESS, не DONE. Новые записи выключены до прослушивания владельцем;
+карантин307419b3 сохранён, в sounds.json пустые entries и client gate=false.
+Minecraft/PolyMC/GameTest/server:0запусков, runtime NOT_RUN.
+[Код, источники, реальные позы и проверки](implementation/quality-59-53/README.md).
+
 ## Русалка — #49, 2026-10-18
 
 **PARTIAL_NEEDS_AUDIO_SOURCE**: реализована отдельная native модель/текстура

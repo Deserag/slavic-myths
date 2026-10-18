@@ -8,6 +8,12 @@ import net.minecraft.core.registries.Registries;
 
 public final class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(Registries.SOUND_EVENT, "slavicmyths");
+    public static final DeferredHolder<SoundEvent,SoundEvent> RUSALKA_SONG_INTRO=sound("rusalka_song_intro");
+    public static final DeferredHolder<SoundEvent,SoundEvent> RUSALKA_SONG_LOOP=sound("rusalka_song_loop");
+    public static final DeferredHolder<SoundEvent,SoundEvent> RUSALKA_SONG_INTENSE=sound("rusalka_song_intense");
+    public static final DeferredHolder<SoundEvent,SoundEvent> RUSALKA_SONG_BREAK=sound("rusalka_song_break");
+    public static final DeferredHolder<SoundEvent,SoundEvent> RUSALKA_GRAB=sound("rusalka_grab");
+
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_IDLE=sound("bandit_idle");
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_ALERT=sound("bandit_alert");
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_ATTACK=sound("bandit_attack");

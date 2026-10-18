@@ -6,6 +6,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.util.Mth;
 import org.slavicmyths.entity.PolevikEntity;
 public final class PolevikModel extends EntityModel<PolevikEntity>{
+ private final java.util.Map<java.util.UUID,float[]> cropTransitions=new java.util.LinkedHashMap<>();
  private int texWidth=64,texHeight=32;
  private final FolkModelGeometry geometry=new FolkModelGeometry();
  private final ModelPart root,body,torsoStem0,torsoStem1,torsoStem2,torsoStem3,head,nose,grainHair0,grainHair1,grainHair2,grainHair3,grainHair4,beard,beardStrand0,beardStrand1,beardStrand2,beardStrand3,LeftArm,LeftFore,LeftRootFinger0,LeftRootFinger1,LeftRootFinger2,LeftLeg,LeftShin,LeftToe0,LeftToe1,LeftToe2,RightArm,RightFore,RightRootFinger0,RightRootFinger1,RightRootFinger2,RightLeg,RightShin,RightToe0,RightToe1,RightToe2,shoulderGrain0,shoulderGrain1,shoulderGrain2,danglingRoot0,danglingRoot1;
@@ -157,6 +158,15 @@ public final class PolevikModel extends EntityModel<PolevikEntity>{
  geometry.box(danglingRoot1,186,16,-0.2F,0.0F,-0.25F,0.4F,5.0F,0.5F);
  }
  @Override public void setupAnim(PolevikEntity e,float walk,float amount,float age,float yaw,float pitch){
+  float[] transition=cropTransitions.get(e.getUUID());
+  if(transition==null){if(cropTransitions.size()>=64)cropTransitions.remove(cropTransitions.keySet().iterator().next());transition=new float[]{0,age};cropTransitions.put(e.getUUID(),transition);}
+  float step=Math.clamp(age-transition[1],0,2)/8;transition[1]=age;
+  transition[0]+=Math.clamp((e.state()==1?1:0)-transition[0],-step,step);
+  sample(transition[0],e.state(),e.attackPhase(),walk,amount,age,yaw,pitch);
+ }
+ /** Source fixture calls the exact production pose without constructing a world/entity. */
+ public void sample(float crop,int state,org.slavicmyths.entity.AttackTimeline.Phase phase,float walk,float amount,float age,float yaw,float pitch){
+ root.getAllParts().forEach(p->{p.visible=true;p.skipDraw=false;});
  root.setPos(0.0F,0.0F,0.0F);root.xRot=0.0F;root.yRot=0.0F;root.zRot=0.0F;
  body.setPos(0.0F,0.0F,0.0F);body.xRot=0.07F;body.yRot=0.0F;body.zRot=-0.06F;
  torsoStem0.setPos(-2.1F,-0.4F,-1.5F);torsoStem0.xRot=0.02F;torsoStem0.yRot=0.0F;torsoStem0.zRot=0.12F;
@@ -203,8 +213,18 @@ public final class PolevikModel extends EntityModel<PolevikEntity>{
  head.yRot=yaw*.0174533F;head.xRot+=pitch*.0174533F;body.zRot=-.06F+Mth.sin(age*.025F)*.035F;
  LeftLeg.xRot=Mth.cos(walk*.42F)*amount*.45F;RightLeg.xRot=-LeftLeg.xRot;LeftArm.xRot=RightLeg.xRot*.15F;RightArm.xRot=LeftLeg.xRot*.12F-Mth.sin(attackTime*3.14159F)*1.5F;
  beard.xRot=.14F+Mth.sin(age*.035F+.6F)*.035F;grainHair0.zRot+=Mth.sin(age*.03F)*.04F;grainHair2.xRot+=Mth.sin(age*.026F+1)*.035F;
- if(e.state()==1){body.y=8;LeftLeg.xRot=RightLeg.xRot=-.95F;LeftShin.xRot=RightShin.xRot=.7F;}if(e.state()==2){LeftFore.xRot=RightFore.xRot=-.7F;}
- switch(e.attackPhase()){case TELEGRAPH->{body.xRot=.3F;RightArm.xRot=-1.2F;}case ACTIVE->{body.xRot=.5F;RightArm.xRot=-.4F;}case RECOVERY->{head.xRot+=.2F;RightArm.xRot=.3F;}default->{}}
+ float w=Math.clamp(crop,0,1);w=w*w*(3-2*w);
+ if(w>0){
+  float thigh=-.95F*w,knee=1.55F*w;
+  float drop=7*(1-Mth.cos(thigh))+6.5F*(1-Mth.cos(thigh+knee));
+  float shift=-7*Mth.sin(thigh)-6.5F*Mth.sin(thigh+knee);
+  body.y=drop;body.z=shift;body.xRot+=.12F*w;
+  LeftLeg.y=RightLeg.y=10+drop;LeftLeg.z=RightLeg.z=shift;
+  LeftLeg.xRot=RightLeg.xRot=thigh;LeftShin.xRot=RightShin.xRot=knee;
+  for(ModelPart toe:new ModelPart[]{LeftToe0,LeftToe1,LeftToe2,RightToe0,RightToe1,RightToe2})toe.xRot=-(thigh+knee);
+  LeftFore.xRot-=.2F*w;RightFore.xRot-=.2F*w;
+ }if(state==2){LeftFore.xRot=RightFore.xRot=-.7F;}
+ switch(phase){case TELEGRAPH->{body.xRot=.3F;RightArm.xRot=-1.2F;}case ACTIVE->{body.xRot=.5F;RightArm.xRot=-.4F;}case RECOVERY->{head.xRot+=.2F;RightArm.xRot=.3F;}default->{}}
  }
  @Override public void renderToBuffer(PoseStack p,VertexConsumer b,int l,int o,int color){root.render(p,b,l,o,color);}
 }

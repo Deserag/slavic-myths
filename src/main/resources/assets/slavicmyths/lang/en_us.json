@@ -5452,5 +5452,13 @@
   "classtrial.slavicmyths.strelok": "Hit 15 distinct foes with arrows from at least 16 blocks.",
   "classtrial.slavicmyths.ataman": "Break pursuit of at least 2 foes using smoke in 5 encounters.",
   "classtrial.slavicmyths.reznik": "Land a dirty strike from flank or rear in 15 encounters.",
-  "brewing.slavicmyths.vat_aging": "To age: use wort on an empty vat; use a container to pour. Empty hand shows quality."
+  "brewing.slavicmyths.vat_aging": "To age: use wort on an empty vat; use a container to pour. Empty hand shows quality.",
+  "subtitles.slavicmyths.rusalka_song_intro": "Rusalka begins a song",
+  "subtitles.slavicmyths.rusalka_song_loop": "Rusalka sings a lure",
+  "subtitles.slavicmyths.rusalka_song_intense": "The deepwater song intensifies",
+  "subtitles.slavicmyths.rusalka_song_break": "Rusalka’s song breaks",
+  "subtitles.slavicmyths.rusalka_grab": "Rusalka splashes water",
+  "rusalka.preview.unavailable": "No calm Rusalka nearby for preview",
+  "rusalka.preview.started": "Rusalka preview: 30 seconds, no charm or attack",
+  "rusalka.preview.stopped": "Rusalka preview stopped"
 }

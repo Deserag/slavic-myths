@@ -1,0 +1,98 @@
+[
+  {
+    "file": "water/rusalka/song_intro.ogg",
+    "seconds": 3.0,
+    "channels": 1,
+    "peak_dbfs": -14.62,
+    "integrated_lufs": -21.9,
+    "sha256": "06b980f281013107f8ae2dba7ee5f13534f9803ee2d8fc240bbea73d0a5d6896"
+  },
+  {
+    "file": "water/rusalka/song_loop.ogg",
+    "seconds": 7.32,
+    "channels": 1,
+    "peak_dbfs": -13.58,
+    "integrated_lufs": -21.8,
+    "sha256": "1b23d8cf21876b4831f859101562bbdb17e7d32d398a234505d171e6ef30c127"
+  },
+  {
+    "file": "water/rusalka/song_intense.ogg",
+    "seconds": 7.32,
+    "channels": 1,
+    "peak_dbfs": -14.87,
+    "integrated_lufs": -22.3,
+    "sha256": "e14aa6bc0b8bc20ad968fb68961413648b9da1fe5e4a1dcafb403f1a76eb4f91"
+  },
+  {
+    "file": "water/rusalka/ambient_1.ogg",
+    "seconds": 2.2,
+    "channels": 1,
+    "peak_dbfs": -13.99,
+    "integrated_lufs": -23.2,
+    "sha256": "b5a27e4c59ec465ae69ae2291449cd7af92fc5320541e1cefc4696c96de09867"
+  },
+  {
+    "file": "water/rusalka/ambient_2.ogg",
+    "seconds": 2.0,
+    "channels": 1,
+    "peak_dbfs": -14.87,
+    "integrated_lufs": -22.6,
+    "sha256": "a5a9a1ad97724c6b560e97177b9314c2ae2be289b4c5789f6d97abad0b6405b7"
+  },
+  {
+    "file": "water/rusalka/ambient_3.ogg",
+    "seconds": 2.4,
+    "channels": 1,
+    "peak_dbfs": -13.59,
+    "integrated_lufs": -23.1,
+    "sha256": "f67bbf0616bbd7f4c3f9ef84be5229c083336eaf01b8a2feb6f34e6b826012cf"
+  },
+  {
+    "file": "water/rusalka/angry.ogg",
+    "seconds": 1.1,
+    "channels": 1,
+    "peak_dbfs": -6.21,
+    "integrated_lufs": -21.2,
+    "sha256": "6ba95813677b3a4f36601c3982044969bd9a0518af59dd7b99666b0696406de0"
+  },
+  {
+    "file": "water/rusalka/hurt_1.ogg",
+    "seconds": 1.3,
+    "channels": 1,
+    "peak_dbfs": -6.99,
+    "integrated_lufs": -20.4,
+    "sha256": "b08bee9e06f51b3b7f36c38ae89c51101d9995c49e4c465df2a05bb28a1784a1"
+  },
+  {
+    "file": "water/rusalka/hurt_2.ogg",
+    "seconds": 1.45,
+    "channels": 1,
+    "peak_dbfs": -7.1,
+    "integrated_lufs": -23.0,
+    "sha256": "1b5651e5d3bdef3965b05bd45ace5ca96a237774be6a2477bb184c95d51606c8"
+  },
+  {
+    "file": "water/rusalka/song_break.ogg",
+    "seconds": 1.4,
+    "channels": 1,
+    "peak_dbfs": -5.9,
+    "integrated_lufs": -24.0,
+    "sha256": "114aa6ce9bdafa356060d3230a050196df3a6db5ffb718893c57c1277072d508"
+  },
+  {
+    "file": "water/rusalka/death.ogg",
+    "seconds": 3.2,
+    "channels": 1,
+    "peak_dbfs": -6.8,
+    "integrated_lufs": -18.6,
+    "sha256": "536cc9ffbaa3bbfe30f8d011fd3c8e6f7ebc91048de0b65736e2508c997a5e89"
+  },
+  {
+    "file": "water/rusalka/grab.ogg",
+    "seconds": 1.08,
+    "channels": 1,
+    "peak_dbfs": -5.98,
+    "integrated_lufs": -24.7,
+    "sha256": "a3fa30d3bc8bff302cbb67929a19c6ba784d1be3824d21c2768366779fef3326"
+  }
+]

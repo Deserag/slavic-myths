@@ -1,0 +1,68 @@
+[
+  {
+    "name": "notes",
+    "author": "drotzruhn",
+    "page": "https://freesound.org/people/drotzruhn/sounds/439504/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://cdn.freesound.org/previews/439/439504_6616150-hq.mp3",
+    "file": "sources/notes.mp3",
+    "sha256": "1b84d1c2f98bf4e04542f28e0097400a9bbbd2ef4d5d1ad999f899e795b25db6",
+    "source_format": "Public HQ MP3 preview of recorded human voice/foley; not lossless original"
+  },
+  {
+    "name": "humming",
+    "author": "PSsoundproject",
+    "page": "https://freesound.org/people/PSsoundproject/sounds/183565/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://cdn.freesound.org/previews/183/183565_3363267-hq.mp3",
+    "file": "sources/humming.mp3",
+    "sha256": "91cbe734978378ef1283ad4c0266600b663f2ebc5ba6cdd7eb4f5cc7f9058873",
+    "source_format": "Public HQ MP3 preview of recorded human voice/foley; not lossless original"
+  },
+  {
+    "name": "gasp",
+    "author": "slamaxu",
+    "page": "https://freesound.org/people/slamaxu/sounds/509883/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://cdn.freesound.org/previews/509/509883_9238038-hq.mp3",
+    "file": "sources/gasp.mp3",
+    "sha256": "d49bfabb3789caf19a08fad8bc6df5bce55d5f967d3212e6613f2f4d40654709",
+    "source_format": "Public HQ MP3 preview of recorded human voice/foley; not lossless original"
+  },
+  {
+    "name": "hurt",
+    "author": "Vanalosswen",
+    "page": "https://freesound.org/people/Vanalosswen/sounds/572452/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://cdn.freesound.org/previews/572/572452_11954823-hq.mp3",
+    "file": "sources/hurt.mp3",
+    "sha256": "4c4dbe0b2eb95ae7cc709ccd7cba84926dddde35a48d373537ad86f1776b3a47",
+    "source_format": "Public HQ MP3 preview of recorded human voice/foley; not lossless original"
+  },
+  {
+    "name": "death",
+    "author": "Soundjougi",
+    "page": "https://freesound.org/people/Soundjougi/sounds/826716/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://cdn.freesound.org/previews/826/826716_17844892-hq.mp3",
+    "file": "sources/death.mp3",
+    "sha256": "f5d28d4d58a90c6fd48b949ecd95697d673a122af950b09ec33dc15aa70085ec",
+    "source_format": "Public HQ MP3 preview of recorded human voice/foley; not lossless original"
+  },
+  {
+    "name": "splash",
+    "author": "bxyorna",
+    "page": "https://freesound.org/people/bxyorna/sounds/410335/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://cdn.freesound.org/previews/410/410335_7963426-hq.mp3",
+    "file": "sources/splash.mp3",
+    "sha256": "2ba6f2dc5f1575eed55f333dcc4ee1f0d8b79963effec78766a75d567bd281da",
+    "source_format": "Public HQ MP3 preview of recorded human voice/foley; not lossless original"
+  }
+]

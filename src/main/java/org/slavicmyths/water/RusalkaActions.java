@@ -1,7 +1,7 @@
 package org.slavicmyths.water;
 /** Wire IDs and fixed timings shared by server action state, native pose and offline checks. */
 public final class RusalkaActions {
- public static final int IDLE=0,OBSERVE=1,SONG_START=2,LURE=3,BREAK=4,WINDUP=5,GRAB=6,RECOVERY=7,DIVE=8;
+ public static final int IDLE=0,OBSERVE=1,SONG_START=2,LURE=3,BREAK=4,WINDUP=5,GRAB=6,RECOVERY=7,DIVE=8,INTENSE=9,WARNING=10;
  public static final int TELEGRAPH=12,ACTIVE=1,RECOVER=7,DIVE_COOLDOWN=160,DIVE_WARN=8,DIVE_MOVE=10;
  public static int remaining(long deadline,long now,int limit){return (int)Math.max(0,Math.min(limit,deadline-now));}
  public static boolean diveDistance(double squared){return Double.isFinite(squared)&&squared>=16&&squared<=64;}

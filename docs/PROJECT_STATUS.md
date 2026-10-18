@@ -1,3 +1,17 @@
+## Исправления #59/#53 после отказа владельца — 2026-10-18
+
+Русалка: реальные CC0 vocal candidates12OGG, intro/loop/intense/break,
+пауза и предупреждение перед агрессией, opt-in Creative preview. Старые5OGG
+сохранены; кандидатные mappings подготовлены, production playback выключен.
+Приёмка на слух ещё отсутствует.
+Полевик: согласованное приседание вместо body.y=8; это отдельный возможный
+дефект, не утверждение, что найден моб из жалобы. AI/ID/NBT/баланс сохранены.
+
+Статус: IN_PROGRESS, не DONE. Новые записи выключены до прослушивания владельцем;
+карантин307419b3 сохранён, в sounds.json пустые entries и client gate=false.
+Minecraft/PolyMC/GameTest/server:0запусков, runtime NOT_RUN.
+[Код, источники, реальные позы и проверки](implementation/quality-59-53/README.md).
+
 ## Русалка — #49, 2026-10-18
 
 **PARTIAL_NEEDS_AUDIO_SOURCE**: реализована отдельная native модель/текстура

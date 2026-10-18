@@ -5452,5 +5452,13 @@
   "classtrial.slavicmyths.strelok": "Поразить стрелами 15 разных врагов с расстояния от 16 блоков.",
   "classtrial.slavicmyths.ataman": "В 5 схватках дымом разорвать преследование минимум 2 врагов.",
   "classtrial.slavicmyths.reznik": "В 15 схватках нанести грязный удар с фланга или тыла.",
-  "brewing.slavicmyths.vat_aging": "Для выдержки: ПКМ суслом по пустому чану; ПКМ тарой — розлив. Пустая рука — качество."
+  "brewing.slavicmyths.vat_aging": "Для выдержки: ПКМ суслом по пустому чану; ПКМ тарой — розлив. Пустая рука — качество.",
+  "subtitles.slavicmyths.rusalka_song_intro": "Русалка начинает песню",
+  "subtitles.slavicmyths.rusalka_song_loop": "Русалка манит песней",
+  "subtitles.slavicmyths.rusalka_song_intense": "Песня омута нарастает",
+  "subtitles.slavicmyths.rusalka_song_break": "Песня Русалки обрывается",
+  "subtitles.slavicmyths.rusalka_grab": "Русалка всплескивает воду",
+  "rusalka.preview.unavailable": "Рядом нет спокойной Русалки для предпросмотра",
+  "rusalka.preview.started": "Предпросмотр Русалки: 30 секунд, без чар и атаки",
+  "rusalka.preview.stopped": "Предпросмотр Русалки завершён"
 }

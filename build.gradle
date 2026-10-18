@@ -526,3 +526,12 @@ tasks.register('verifyRejectedVoiceQuarantine') {
     }
 }
 tasks.named('processResources') { dependsOn 'verifyRejectedVoiceQuarantine' }
+
+// Opt-in #59/#53 native fixtures; no loader/world bootstrap, never production.
+if (project.hasProperty('rusalkaOfflineCheck')) {
+ tasks.register('verifyQualityCorrections', JavaExec) {
+  dependsOn 'rusalkaOfflineClasses'
+  classpath = sourceSets.rusalkaOffline.runtimeClasspath
+  mainClass = 'org.slavicmyths.verify.QualityCorrectionsOffline'
+ }
+}

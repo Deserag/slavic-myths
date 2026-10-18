@@ -64,7 +64,7 @@ public final class RusalkaModel extends EntityModel<RusalkaEntity> {
   if(water){p("body").xRot=1.18F;p("body").y=5+wave*.15F;p("legL").xRot=stride*.22F;p("legR").xRot=-stride*.22F;p("armL").xRot=-.5F+stride*.22F;p("armR").xRot=-.5F-stride*.22F;}
   switch(action){
    case RusalkaActions.OBSERVE -> {p("head").zRot=.14F+wave*.015F;p("armR").zRot=-.12F;}
-   case RusalkaActions.SONG_START,RusalkaActions.LURE -> {float w=action==RusalkaActions.SONG_START?ease(time/24):1;p("head").xRot-=w*.18F;p("head").zRot=.07F*w;p("armR").xRot=-.95F*w;p("armR").yRot=-.18F*w;p("foreR").xRot=-.25F*w;p("armL").xRot=-.15F*w;p("handR").zRot=-.1F+wave*.03F;}
+   case RusalkaActions.SONG_START,RusalkaActions.LURE,RusalkaActions.INTENSE,RusalkaActions.WARNING -> {float w=action==RusalkaActions.SONG_START?ease(time/24):1;p("head").xRot-=w*.18F;p("head").zRot=.07F*w;p("armR").xRot=-.95F*w;p("armR").yRot=-.18F*w;p("foreR").xRot=-.25F*w;p("armL").xRot=-.15F*w;p("handR").zRot=-.1F+wave*.03F;}
    case RusalkaActions.BREAK -> {float w=ease(time/12);p("head").xRot=.28F*w;p("head").zRot=-.12F*w;p("armR").xRot=-.8F*(1-w);p("body").zRot=.025F;}
    case RusalkaActions.WINDUP -> {float w=ease(time/12);p("body").yRot=-.22F*w;p("armL").xRot=.55F*w;p("armR").xRot=.7F*w;p("foreL").xRot=-.8F*w;p("foreR").xRot=-.65F*w;p("head").xRot=.1F;}
    case RusalkaActions.GRAB -> {p("body").xRot-=.22F;p("body").yRot=.12F;p("armL").xRot=p("armR").xRot=-1.45F;p("armL").yRot=.12F;p("armR").yRot=-.12F;p("foreL").xRot=p("foreR").xRot=-.12F;}
@@ -72,6 +72,8 @@ public final class RusalkaModel extends EntityModel<RusalkaEntity> {
    case RusalkaActions.DIVE -> {float w=ease(time/8);p("body").xRot=1.18F+.22F*w;p("armL").xRot=.35F;p("armR").xRot=.35F;p("legL").xRot=.12F;p("legR").xRot=-.12F;}
    default -> { }
   }
+  if(action==RusalkaActions.INTENSE||action==RusalkaActions.WARNING){p("head").zRot=-.11F;p("armL").xRot=-.55F;p("foreL").xRot=-.35F;p("head").xRot+=sin(age*.11F)*.025F;}
+  if(action==RusalkaActions.WARNING){p("head").xRot=.2F;p("armR").xRot=-1.25F;p("handR").xRot=.35F;}
   // Separate hinges and delayed phases give heavy hair and linen rather than rigid sleeves.
   p("hairBack").xRot=.04F+sin(age*.055F)*.025F-p("body").xRot*.22F;
   p("hairMid").xRot=.035F+sin(age*.055F-.6F)*.04F;p("hairTip").xRot=sin(age*.055F-1.2F)*.055F;

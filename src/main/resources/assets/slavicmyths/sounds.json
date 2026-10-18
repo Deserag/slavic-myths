@@ -599,7 +599,7 @@
     "sounds": []
   },
   "rusalka_song": {
-    "subtitle": "subtitles.slavicmyths.rusalka_song",
+    "subtitle": "subtitles.slavicmyths.rusalka_song_loop",
     "sounds": []
   },
   "elder_idle": {
@@ -7875,5 +7875,25 @@
     "sounds": [
       "slavicmyths:gorynych/armor_fullset_proc"
     ]
+  },
+  "rusalka_song_intro": {
+    "subtitle": "subtitles.slavicmyths.rusalka_song_intro",
+    "sounds": []
+  },
+  "rusalka_song_loop": {
+    "subtitle": "subtitles.slavicmyths.rusalka_song_loop",
+    "sounds": []
+  },
+  "rusalka_song_intense": {
+    "subtitle": "subtitles.slavicmyths.rusalka_song_intense",
+    "sounds": []
+  },
+  "rusalka_song_break": {
+    "subtitle": "subtitles.slavicmyths.rusalka_song_break",
+    "sounds": []
+  },
+  "rusalka_grab": {
+    "subtitle": "subtitles.slavicmyths.rusalka_grab",
+    "sounds": []
   }
 }

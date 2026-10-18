@@ -87,7 +87,9 @@ def generate():
  sounds()
 def sounds():
  # DO NOT REGENERATE the rejected 210/78Hz synthetic animal-like voices (#59/#60).
- # Deliberate no-op: accepted audio must be installed through reviewed source files.
+ # Recorded candidates remain muted until owner acceptance; no synthesized OGG.
+ from rusalka_audio_59 import restore_events
+ restore_events(A)
  return
 if __name__=='__main__':generate()
 
