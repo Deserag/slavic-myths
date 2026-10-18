@@ -1,4 +1,8 @@
 """Original avian formant synthesis, modulated trills, filtered feather noise and chimes."""
+
+# Rejected synthetic/formant creature vocals. Generate new OGG only from owner-approved sources.
+raise RuntimeError("REJECTED_SYNTHETIC_VOICE (#60): legacy audio generator disabled pending owner acceptance")
+
 from pathlib import Path
 import math, random, wave, array, subprocess, json, hashlib
 ROOT=Path(__file__).resolve().parents[1];assets=ROOT/'src/main/resources/assets/slavicmyths';out=assets/'sounds/firebird';out.mkdir(parents=True,exist_ok=True)
