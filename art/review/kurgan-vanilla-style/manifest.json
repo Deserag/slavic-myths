@@ -1,0 +1,111 @@
+{
+  "status": "AWAITING_OWNER_APPROVAL",
+  "sources": {
+    "bog_green_kurgan_stone": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "9403d64441b51cce429914cb525b764fae9ec0f8dd84003da251b79808124209"
+    },
+    "bog_green_kurgan_cobblestone": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "11e125a46a4b9c2124a991bdaacef042b84f83f0a0ce3b09dc7a494be30304cc"
+    },
+    "cracked_bog_green_kurgan_cobblestone": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "513e92259d75829e1551c25319fdd4cbf5dabbb90978e6e47adcc5420b4702cc"
+    },
+    "mossy_bog_green_kurgan_cobblestone": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "7332271be5aee03c3042c0cf4b8a4a108d6130d56a540459c838dabdcb0b3d56"
+    },
+    "pale_blue_kurgan_stone": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "15917b94fb4fd0ffddfdba94a285d9ac3093af3d7f7948f583fe5873644b3961"
+    },
+    "pale_blue_kurgan_stone_variant": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "6e4c39170550ca0b7041c3a267b48177e755b11d986e974765c2c7541e133774"
+    },
+    "pale_blue_kurgan_cobblestone": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "875e6de8b7d5224c6105f1b8621674260f8a28752bde83e9d7ad5e93d7b6b2f3"
+    },
+    "cracked_pale_blue_kurgan_cobblestone": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "eb3fb01569eeb15ab9b074026da84a8e8164d5f54b6ea7f6e6531eababec0d5f"
+    },
+    "mossy_pale_blue_kurgan_cobblestone": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "922e101d322cbe03debf3c6baf41f8b69b0afbfbea610e4dc898aff810ee916b"
+    },
+    "burial_stone_top": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "a4c58193fe91795a9e12599f41c86230d432a91fd8c4b82b0268f2ff232400a5"
+    },
+    "carved_burial_stone": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "ff9d8dec03730c994f4761e21293b5f51bbd2d6f5dca0a5d570a13449bc61d20"
+    }
+  },
+  "prototypes": {
+    "bog_green_kurgan_stone": {
+      "size": [
+        16,
+        16
+      ],
+      "colors": 9,
+      "sha256": "dd57b896c539b2e5a505adc6618e100ac414b91898cab22d421b67f1ec734eae"
+    },
+    "pale_blue_kurgan_cobblestone": {
+      "size": [
+        16,
+        16
+      ],
+      "colors": 9,
+      "sha256": "b73931fe35a135ffff521f0532e3c8ceb806af145a80ed24d5e6398d0b46a968"
+    },
+    "carved_burial_stone": {
+      "size": [
+        16,
+        16
+      ],
+      "colors": 7,
+      "sha256": "c27ff847a75d7a3acef6bb49a8cadce1917193748b6daf57c77eedbe13d1fc2f"
+    }
+  },
+  "method": "Authored polygons and pixel clusters at 16x16; no source resizing used to create prototypes.",
+  "production_textures_changed": false,
+  "client_starts": 0
+}
