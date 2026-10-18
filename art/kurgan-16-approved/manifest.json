@@ -1,10 +1,10 @@
 {
-  "archive_sha256": "107bb2ae8413a34f36649238242e77604e123d00dfccf519845a5264167b8c6a",
-  "approval": "User approved exact11 assets 2026-10-18; no artwork changes",
+  "archive_sha256": "98a01d34281371c40edfb5928a37f2538fbae78e140fa97bd148b348a9ae457b",
+  "approval": "Owner supplied V2 replaces rejected V1; exact PNG bytes only, 2026-10-18",
   "textures": {
     "bog_green_kurgan_stone": {
       "old_sha256": "9403d64441b51cce429914cb525b764fae9ec0f8dd84003da251b79808124209",
-      "sha256": "960c019846089c8a16863c47255b492cf188d83568b9f40811eb7cb1f08178e3",
+      "sha256": "8c2526194dc05a9e124553f6f7e10cc97063eb88fb09d8dd2e1ba5289e9ebf5d",
       "before": [
         256,
         256
@@ -16,7 +16,7 @@
     },
     "bog_green_kurgan_cobblestone": {
       "old_sha256": "11e125a46a4b9c2124a991bdaacef042b84f83f0a0ce3b09dc7a494be30304cc",
-      "sha256": "80ac72e29bd777bcb37f6a94adae64f882b998d7c7630039a5177b41e97d444f",
+      "sha256": "790b7b9eb9dd02667539f24bb50bca445aace35d6ac9b409f1c5f43e994ffc1c",
       "before": [
         256,
         256
@@ -28,7 +28,7 @@
     },
     "cracked_bog_green_kurgan_cobblestone": {
       "old_sha256": "513e92259d75829e1551c25319fdd4cbf5dabbb90978e6e47adcc5420b4702cc",
-      "sha256": "9c5a2f37ceab3b8280d9e6a0ad98a9089d7622db7468ba578d66e4afd575bfa8",
+      "sha256": "2325017bcca6de3a29719a1c6a21d0c5a9f5a29f5d5dd682d98534891d896132",
       "before": [
         256,
         256
@@ -40,7 +40,7 @@
     },
     "mossy_bog_green_kurgan_cobblestone": {
       "old_sha256": "7332271be5aee03c3042c0cf4b8a4a108d6130d56a540459c838dabdcb0b3d56",
-      "sha256": "e9e930b89d0ec4e9d19df0f77ab5aec67e85f4f6ad673e1f4921376dae450c8b",
+      "sha256": "48ddda0c158e60235aa5a8a434e1def6903c5c1f50f2e521a9d8880fc8845f06",
       "before": [
         256,
         256
@@ -52,7 +52,7 @@
     },
     "pale_blue_kurgan_stone": {
       "old_sha256": "15917b94fb4fd0ffddfdba94a285d9ac3093af3d7f7948f583fe5873644b3961",
-      "sha256": "b5d13d60d3728476954857b5ee4820df8825f84abe7aa3842ec36bb223eb1222",
+      "sha256": "ed68df26b5c7b57386e9044970ff303b0e3642276876b79f4be87163b74a8c65",
       "before": [
         256,
         256
@@ -64,7 +64,7 @@
     },
     "pale_blue_kurgan_stone_variant": {
       "old_sha256": "6e4c39170550ca0b7041c3a267b48177e755b11d986e974765c2c7541e133774",
-      "sha256": "109385d50159596e80a162f55b1e5cd1012df430e67c93cc6e2b69af9f4adce3",
+      "sha256": "2c70b73258f92c88ce26bed9ff0d5e603e278878ed67aecf39fa3f84e89cd895",
       "before": [
         256,
         256
@@ -76,7 +76,7 @@
     },
     "pale_blue_kurgan_cobblestone": {
       "old_sha256": "875e6de8b7d5224c6105f1b8621674260f8a28752bde83e9d7ad5e93d7b6b2f3",
-      "sha256": "fac1d73198f9d1fd334c2cc555cf054994374fd042d72fe11bfa2008a05a24c6",
+      "sha256": "03dd186ad9222263385ac46b5b1862ae9c3994eb81e71c2ce970cfa8890c7f12",
       "before": [
         256,
         256
@@ -88,7 +88,7 @@
     },
     "cracked_pale_blue_kurgan_cobblestone": {
       "old_sha256": "eb3fb01569eeb15ab9b074026da84a8e8164d5f54b6ea7f6e6531eababec0d5f",
-      "sha256": "935ed5d555b90ebd2f82837d147723594af6877f5c498960b842df9e8f302643",
+      "sha256": "bf24a0c6044345ff975fa996a4b54719afbdc703b262cba285a58de9639e806a",
       "before": [
         256,
         256
@@ -100,7 +100,7 @@
     },
     "mossy_pale_blue_kurgan_cobblestone": {
       "old_sha256": "922e101d322cbe03debf3c6baf41f8b69b0afbfbea610e4dc898aff810ee916b",
-      "sha256": "0903302dbcec3796f5a9c1d79771e4c30fa229d8b8cbf6cdd0910c6268089a04",
+      "sha256": "da8a47f014db81decb7f7000dfbcc71aa56534df6c57503b556035e79668a7ae",
       "before": [
         256,
         256
@@ -112,7 +112,7 @@
     },
     "burial_stone_top": {
       "old_sha256": "a4c58193fe91795a9e12599f41c86230d432a91fd8c4b82b0268f2ff232400a5",
-      "sha256": "02aeb921b98bd3921b52e6d3b31526134d4b62dcde01af12584d88b1f340efbd",
+      "sha256": "a322cbdd56df53cc909dcbeaa3281bf2394005a19731de8a17b77fcca3d7e531",
       "before": [
         256,
         256
@@ -124,7 +124,7 @@
     },
     "carved_burial_stone": {
       "old_sha256": "ff9d8dec03730c994f4761e21293b5f51bbd2d6f5dca0a5d570a13449bc61d20",
-      "sha256": "293726872b0448a485db3d8fe540f8d0646bca98d12fc41f699e22573de776d4",
+      "sha256": "99df86407b644cb9af134640a2384c152469106aa2e9a87643654c8ce4dfb829",
       "before": [
         256,
         256
@@ -134,5 +134,6 @@
         16
       ]
     }
-  }
+  },
+  "art_revision": "V2"
 }

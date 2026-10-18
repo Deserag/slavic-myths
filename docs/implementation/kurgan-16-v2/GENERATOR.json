@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "direct_v2_restore": "PASS",
+  "legacy_entrypoint_v2_restore": "PASS",
+  "idempotent_resource_and_original_art_hashes": "PASS",
+  "v1_rejected_before_writes": "PASS",
+  "relabelled_v1_rejected": "PASS",
+  "temporary_fixtures": "REMOVED",
+  "legacy085_core_loop_intercepted": "PASS: only sealed masonry would be generated; V2 core textures/models/states preserved"
+}

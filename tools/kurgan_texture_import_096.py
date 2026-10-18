@@ -1,13 +1,9 @@
-import json,shutil
-import runpy
-from pathlib import Path
-from PIL import Image,ImageDraw
-if (Path(__file__).resolve().parents[1]/'art/kurgan-16-approved/approved.zip').exists():
- runpy.run_path(str(Path(__file__).resolve().with_name('install_kurgan_16.py')),run_name='__main__')
- raise SystemExit(0)
-meta=json.loads(Path('work/kurgan-texture-sources-096.json').read_text());root=Path('art/kurgan-0.9.6');root.mkdir(parents=True,exist_ok=True)
-out=Path('src/main/resources/assets/slavicmyths/textures/block');sheet=Image.new('RGB',(4*272,3*292),'#161d22');draw=ImageDraw.Draw(sheet)
-for i,row in enumerate(meta):
- src=Path(row['path']);dst=root/(row['name']+'-source.png');shutil.copy2(src,dst);im=Image.open(src).convert('RGBA');assert min(im.size)>=256
- tile=im.resize((256,256),Image.Resampling.NEAREST);tile.save(out/(row['name']+'.png'));x=(i%4)*272;y=(i//4)*292;sheet.paste(tile,(x,y));draw.text((x,y+258),row['name'][:38],fill='white');row['authorSource']=str(dst);row['runtimeSize']=[256,256]
-(root/'provenance.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding='utf-8');sheet.save(root/'block-texture-review.png');print('AUTHORED_STONE_TILES',len(meta))
+"""Compatibility entry point: restore canonical V2, never historical 256px/V1 art.
+
+Missing/invalid canonical input is an error. Archived original sources are never
+used as an automatic fallback and remain untouched in art/kurgan-0.9.6.
+"""
+from install_kurgan_16 import install
+
+if __name__ == '__main__':
+    install()

@@ -1,0 +1,36 @@
+{
+  "scope": "offline catalog/source/model inspection; no client",
+  "duplicate_catalog_ids": [],
+  "items": [
+    {
+      "item_id": "slavicmyths:pale_blue_kurgan_cobblestone",
+      "model": "slavicmyths:block/pale_blue_kurgan_cobblestone",
+      "side": "slavicmyths:block/pale_blue_kurgan_cobblestone",
+      "labels": {
+        "ru_ru": "Бледно-синий булыжник кургана",
+        "en_us": "Pale Blue Kurgan Cobblestone"
+      }
+    },
+    {
+      "item_id": "slavicmyths:cracked_pale_blue_kurgan_cobblestone",
+      "model": "slavicmyths:block/cracked_pale_blue_kurgan_cobblestone",
+      "side": "slavicmyths:block/cracked_pale_blue_kurgan_cobblestone",
+      "labels": {
+        "ru_ru": "Потрескавшийся бледно-синий булыжник кургана",
+        "en_us": "Cracked Pale Blue Kurgan Cobblestone"
+      }
+    },
+    {
+      "item_id": "slavicmyths:mossy_pale_blue_kurgan_cobblestone",
+      "model": "slavicmyths:block/mossy_pale_blue_kurgan_cobblestone",
+      "side": "slavicmyths:block/mossy_pale_blue_kurgan_cobblestone",
+      "labels": {
+        "ru_ru": "Замшелый бледно-синий булыжник кургана",
+        "en_us": "Mossy Pale Blue Kurgan Cobblestone"
+      }
+    }
+  ],
+  "variant": "weighted model only, not a block/item ID",
+  "same_top_bottom": "burial_stone_top",
+  "observed_pair": "Cannot identify exact player-observed stacks without their tooltip/IDs; no blocks removed"
+}

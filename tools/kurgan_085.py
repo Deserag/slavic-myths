@@ -59,8 +59,11 @@ def elem(a,b,t):
  return {'from':a,'to':b,'faces':{d:{'texture':'#'+t,'uv':[0,0,16,16]} for d in ['north','south','west','east','up','down']}}
 
 def generate():
+ from install_kurgan_16 import install
+ approved=install()
  core=list(NAMES)[:9]
  for n in core:
+  if n in approved:continue # Keep current V2 textures, weighted models and face bindings.
   png(A/f'textures/block/{n}.png',64,masonry(n))
   write(A/f'models/block/{n}.json',{'parent':'minecraft:block/cube_all','textures':{'all':'slavicmyths:block/'+n}})
   write(A/f'blockstates/{n}.json',{'variants':{'':{'model':'slavicmyths:block/'+n}}})
