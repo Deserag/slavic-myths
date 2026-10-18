@@ -1,4 +1,8 @@
 """Original procedural canine glottal/formant and material DSP. No sampled recordings."""
+
+# Rejected synthetic/formant creature vocals. Generate new OGG only from owner-approved sources.
+raise RuntimeError("REJECTED_SYNTHETIC_VOICE (#60): legacy audio generator disabled pending owner acceptance")
+
 from pathlib import Path
 import csv,json,wave,subprocess,hashlib
 import numpy as np
