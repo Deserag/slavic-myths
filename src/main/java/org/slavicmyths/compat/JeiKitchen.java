@@ -20,6 +20,7 @@ import org.slavicmyths.registry.ModItems;
 @JeiPlugin public final class JeiKitchen implements IModPlugin{
  private static final ResourceLocation ID=ResourceLocation.fromNamespaceAndPath("slavicmyths","kitchen");private static final RecipeType<KitchenRecipe> TYPE=new RecipeType<>(ID,KitchenRecipe.class);
  public ResourceLocation getPluginUid(){return ID;}
+ public void onRuntimeAvailable(mezz.jei.api.runtime.IJeiRuntime runtime){runtime.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,List.of(new ItemStack(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("slavicmyths","wooden_barrel")))));}
  public void registerCategories(IRecipeCategoryRegistration r){r.addRecipeCategories(new Category(r.getJeiHelpers().getGuiHelper()));}
  public void registerRecipes(IRecipeRegistration r){var level=Minecraft.getInstance().level;if(level!=null)r.addRecipes(TYPE,level.getRecipeManager().getAllRecipesFor(KitchenRecipe.TYPE.get()).stream().map(h->h.value()).toList());}
  public void registerRecipeCatalysts(IRecipeCatalystRegistration r){r.addRecipeCatalyst(new ItemStack(ModItems.KITCHEN_TABLE.get()),TYPE);}

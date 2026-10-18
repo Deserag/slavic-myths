@@ -59,6 +59,7 @@ public final class ModItemGroup {
         var key = BuiltInRegistries.ITEM.getKey(item);
         if (!key.getNamespace().equals("slavicmyths")) return -1;
         String path = key.getPath();
+        if (path.equals("wooden_barrel")) return -1; // Registered only for old saves.
         if (CreativeCatalog.entry(path) != null) return CreativeCatalog.category(path);
         if (REPORTED_FALLBACKS.add(path))
             System.getLogger("slavicmyths.creative").log(System.Logger.Level.WARNING,

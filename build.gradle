@@ -41,6 +41,18 @@ processResources {
 }
 jar { manifest { attributes 'Implementation-Version': project.version } }
 
+// Plain JVM, no NeoForge run configuration and no game/world construction.
+if (project.hasProperty('barrelOfflineCheck')) {
+    sourceSets { barrelOffline { java.srcDir 'tools/barrel-offline' } }
+    sourceSets.barrelOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.barrelOffline.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.register('verifyFermentationOffline', JavaExec) {
+        dependsOn 'barrelOfflineClasses'
+        classpath = sourceSets.barrelOffline.runtimeClasspath
+        mainClass = 'org.slavicmyths.brewing.FermentationOffline'
+    }
+}
+
 // Chud city fixtures are opt-in, with a separate smoke world and no production test classes.
 if (project.hasProperty('chudCheck')) {
     sourceSets { chudCheck { java.srcDir 'tools/chud-tests'; resources.srcDir 'tools/chud-test-resources' } }

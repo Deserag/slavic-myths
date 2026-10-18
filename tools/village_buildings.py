@@ -144,7 +144,7 @@ def house(kind,palette,variant=1,zombie=False):
  tablex=x1-1 if small else x1-2;tablez=z0+2 if small else z0+4
  b.put(tablex,fy,tablez,'slavicmyths:pine_table',facing='north',connection='none')
  b.put(tablex,fy,tablez+1,'slavicmyths:pine_stool',facing='north')
- b.put(x1-1,fy,z0+1,'slavicmyths:wooden_barrel',facing='north',brewing=False)
+ b.put(x1-1,fy,z0+1,'minecraft:barrel',facing='north',open=False)
  b.put(x1-1,fy+1,z0+2,'slavicmyths:pine_shelf',facing='west')
  loot(b,x1-1,fy,z1-1,kind if kind in LOOT else 'home')
  if not small:b.put(cx,fy,z0+3,'red_carpet')
@@ -190,7 +190,7 @@ def house(kind,palette,variant=1,zombie=False):
   if kind=='ambar':b.put(x0+1,fy,z1-2,'slavicmyths:settlement_chest',facing='east');b.put(x0+2,fy,z0+2,'hay_block',axis='y')
  if kind=='hunter_house':b.put(x0-1,1,z0+2,'slavicmyths:pine_weapon_rack',facing='east')
  if kind=='fisher_house':
-  b.box((x0-1,0,z0+2),(x0-1,0,z0+5),'water');b.box((x0-1,1,z0+2),(x0-1,1,z0+5),frame+'_planks');b.put(x0-1,2,z0+3,'slavicmyths:wooden_barrel',facing='east',brewing=False)
+  b.box((x0-1,0,z0+2),(x0-1,0,z0+5),'water');b.box((x0-1,1,z0+2),(x0-1,1,z0+5),frame+'_planks');b.put(x0-1,2,z0+3,'minecraft:barrel',facing='east',open=False)
  entities=[]
  if animal:
   # Three stalls flank a wide central route; covered water trough is not a job site.
@@ -237,7 +237,7 @@ def house(kind,palette,variant=1,zombie=False):
   if forge:b.put(x1+1,2,z0+3,'anvil',facing='north')
   elif kind=='mason_workshop':b.put(x1+1,2,z0+3,'bricks')
   elif kind in ['weaver_house','tanner_house']:b.put(x1+1,2,z0+3,'white_banner',rotation=4)
-  elif kind in ['brewer_house','cook_house']:b.put(x1+1,2,z0+3,'slavicmyths:wooden_barrel',facing='east',brewing=False)
+  elif kind in ['brewer_house','cook_house']:b.put(x1+1,2,z0+3,'minecraft:barrel',facing='east',open=False)
   elif kind=='hunter_house':b.put(x1+1,2,z0+3,'slavicmyths:pine_weapon_rack',facing='east')
   elif kind=='herbalist_house':b.put(x1+1,2,z0+3,'potted_fern')
   else:b.put(x1+1,2,z0+3,'slavicmyths:storage_sack',facing='east',fill=0)

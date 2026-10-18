@@ -123,8 +123,9 @@ for name in names:
  m['display']={'gui':{'rotation':[30,225,0],'scale':[.35,.35,.35] if name in ['storage_shelf','drying_rack'] else [.65,.65,.65]},'ground':{'translation':[0,3,0],'scale':[.25,.25,.25]}}
  js(A/f'models/item/{name}.json',m)
 # Exact crafting and single-owner multiblock loot.
-patterns={'storage_sack':['CCC','C C','CTC'],'basket':['S S','SPS','SSS'],'large_basket':['S S','SPS','PSP'],'produce_crate':['P P','S S','PPP'],'household_chest':['PPP','PIP','PPP'],'wooden_barrel':['PNP','P P','PNP'],'wall_shelf':['PPP','S S'],'storage_shelf':['SPS','PPP','SPS'],'drying_rack':['STS','S S','PPP']}
+patterns={'storage_sack':['CCC','C C','CTC'],'basket':['S S','SPS','SSS'],'large_basket':['S S','SPS','PSP'],'produce_crate':['P P','S S','PPP'],'household_chest':['PPP','PIP','PPP'],'wall_shelf':['PPP','S S'],'storage_shelf':['SPS','PPP','SPS'],'drying_rack':['STS','S S','PPP']}
 keys={'P':{'tag':'minecraft:planks'},'S':{'item':'minecraft:stick'},'C':{'item':'slavicmyths:linen_cloth'},'T':{'item':'slavicmyths:linen_thread'},'I':{'item':'minecraft:iron_ingot'},'N':{'item':'minecraft:iron_nugget'}}
+(D/'recipe/wooden_barrel.json').unlink(missing_ok=True)
 for name,pattern in patterns.items():js(D/f'recipe/{name}.json',{'type':'minecraft:crafting_shaped','pattern':pattern,'key':{c:keys[c] for c in sorted(set(''.join(pattern))) if c!=' '},'result':{'id':'slavicmyths:'+name,'count':2 if name=='wall_shelf' else 1}})
 for grain in ['rye','barley','oat']:
  js(D/f'recipe/{grain}_sheaf.json',{'type':'minecraft:crafting_shaped','pattern':['GGG']*3,'key':{'G':{'item':'slavicmyths:'+grain+'_grain'}},'result':{'id':'slavicmyths:'+grain+'_sheaf','count':1}});js(D/f'recipe/{grain}_sheaf_unpack.json',{'type':'minecraft:crafting_shapeless','ingredients':[{'item':'slavicmyths:'+grain+'_sheaf'}],'result':{'id':'slavicmyths:'+grain+'_grain','count':9}})

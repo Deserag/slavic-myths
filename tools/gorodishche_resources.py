@@ -114,7 +114,7 @@ def urban_house(climate,family,name,w=13,d=15,kind='rich',role=None,job=None,var
  if kind!='trading':furniture(b,x0+2,1,z0+4);furniture(b,x0+2,1,z0+5,'pine_stool')
  if floors>1:furniture(b,cx,6,z1-4);furniture(b,cx+1,6,z1-4,'pine_stool')
  b.put(x0+1,1,z0+1,'furnace',facing='south',lit=False);b.box((x0+1,2,z0+1),(x0+1,roof_base+w//2+2,z0+1),'bricks' if variant%2 else 'stone_bricks');v.slab(b,x0+1,roof_base+w//2+3,z0+1,'brick' if variant%2 else 'stone_brick')
- b.put(cx,1,z1-1,'slavicmyths:wooden_barrel',facing='east',brewing=False);v.loot(b,x1-1,upper,z1-1,'home')
+ b.put(cx,1,z1-1,'minecraft:barrel',facing='east',open=False);v.loot(b,x1-1,upper,z1-1,'home')
  jobs=[];spawns=[]
  if role:
   pos=[x0+2,1,z0+7];jobs.append(workstation(b,pos,role,job));spawns.append(([cx,1,z0+2],role))

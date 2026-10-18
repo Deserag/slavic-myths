@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "version": "1.9.7.5",
+  "checks": 23723,
+  "resources": 6804,
+  "templates": 768,
+  "changed_templates": 364,
+  "jar_sha256": "5f298a3b66cc99b01a34d7d59fb9768db104c070d4d34d8bd3ebf2d4cf355bc8",
+  "client_starts": 0,
+  "server_starts": 0,
+  "gametest_starts": 0,
+  "runtime": "NOT_RUN"
+}

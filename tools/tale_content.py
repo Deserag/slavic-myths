@@ -371,6 +371,7 @@ by_subject=defaultdict(list)
 for ident,e in entries.items():
     for s in e['subjects']:by_subject[s].append(ident)
 for ident in DATA['recipes']:
+    if ident == 'slavicmyths:wooden_barrel':continue  # Legacy block, no obtainable recipe.
     key=ident.split(':')[1]
     path=RES/'data/slavicmyths/recipe'/f'{key}.json'
     recipe=json.loads(path.read_text(encoding='utf8')) if path.exists() else {}
