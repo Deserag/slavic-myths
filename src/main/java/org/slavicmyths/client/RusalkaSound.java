@@ -17,6 +17,8 @@ import org.slavicmyths.registry.ModSounds;
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class RusalkaSound extends AbstractTickableSoundInstance {
  private static final int MAX_LOOPS=4;
+ // Re-enable ONLY after a real original singing source is supplied and accepted (#59).
+ private static final boolean APPROVED_VOCALS_AVAILABLE=false;
  private static final Map<UUID,RusalkaSound> ACTIVE=new HashMap<>();
  private final RusalkaEntity singer;private int playedTicks;
  private RusalkaSound(RusalkaEntity e){
@@ -30,7 +32,7 @@ public final class RusalkaSound extends AbstractTickableSoundInstance {
  private void updatePosition(){x=singer.getX();y=singer.getY()+1;z=singer.getZ();}
  private void finish(){stop();ACTIVE.remove(singer.getUUID(),this);}
  @SubscribeEvent public static void living(EntityTickEvent.Post event){
-  if(!(event.getEntity() instanceof RusalkaEntity r)||!r.level().isClientSide||ACTIVE.containsKey(r.getUUID())||ACTIVE.size()>=MAX_LOOPS)return;
+  if(!APPROVED_VOCALS_AVAILABLE||!(event.getEntity() instanceof RusalkaEntity r)||!r.level().isClientSide||ACTIVE.containsKey(r.getUUID())||ACTIVE.size()>=MAX_LOOPS)return;
   var sound=new RusalkaSound(r);if(!sound.audible())return;
   ACTIVE.put(r.getUUID(),sound);Minecraft.getInstance().getSoundManager().play(sound);
  }
