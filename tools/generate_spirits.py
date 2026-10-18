@@ -84,32 +84,6 @@ def generate(root):
         if y in (5,8,10):heart[y][x+1]=(213,228,135,255)
     png(res/'assets/slavicmyths/textures/item/leshy_heart.png',heart,16,16)
 
-    # libsndfile encodes real Vorbis; no renamed WAV files or borrowed recordings.
-    sys.path.insert(0,str(root/'.tools/audio-libs'))
-    import numpy as np
-    import soundfile as sf
-    rate=22050
-    for index,name in enumerate(soundnames):
-        duration=[0.65,0.28,0.75,1.1,0.4,1.2,0.85][index]
-        t=np.arange(int(duration*rate))/rate
-        rng=np.random.default_rng(index+300)
-        noise=rng.normal(0,1,len(t)); low=np.convolve(noise,np.ones(35)/35,mode='same')
-        envelope=np.sin(np.pi*t/duration)**1.5
-        if name.startswith('domovoy'):
-            frequency=110+12*np.sin(t*19)+(35 if 'hurt' in name else 0)
-            phase=np.cumsum(frequency)*2*np.pi/rate
-            samples=(0.35*np.sin(phase)+0.1*np.sin(phase*2.1)+0.25*low)*envelope*(0.65+0.35*np.sin(t*32)**2)
-        else:
-            phase=2*np.pi*(55*t+6*np.sin(t*5))
-            samples=(0.22*np.sin(phase)+0.55*low)*envelope
-            for when in (0.08,0.23,0.41):
-                samples+=0.08*np.sin(2*np.pi*430*t)*np.exp(-np.maximum(0,t-when)*65)*(t>=when)
-        samples=np.clip(samples,-0.8,0.8).astype('float32')
-        path=res/f'assets/slavicmyths/sounds/{name}.ogg';path.parent.mkdir(parents=True,exist_ok=True)
-        # Vorbis writes a fresh stream serial on each encode. Preserve an existing
-        # validated recording so regeneration does not churn bytes or user audio edits.
-        if not path.exists(): sf.write(path,samples,rate,format='OGG',subtype='VORBIS')
-        decoded,sr=sf.read(path)
-        assert sr==rate and len(decoded)>0 and np.isfinite(decoded).all()
+    # Rejected synthetic Domovoy/Leshy voices must never be regenerated (#60).
 
 if __name__=='__main__': generate(Path(__file__).resolve().parents[1])
