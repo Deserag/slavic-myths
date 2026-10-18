@@ -86,26 +86,9 @@ def generate():
   data['water.slavicmyths.charm']=('Зов воды: %s / 100','Water charm: %s / 100')[idx];write(path,data)
  sounds()
 def sounds():
- sys.path.insert(0,str(R/'.tools/audio-libs'));import numpy as np;import soundfile as sf
- events=json.loads((A/'sounds.json').read_text(encoding='utf-8'))
- # Rusalka recordings are preserved until #49 receives an approved real vocal source.
- for who in ('vodyanoy',):
-  for kind in ('ambient','angry','hurt','death','song'):
-   if who=='vodyanoy' and kind=='song':continue
-   name=who+'_'+kind;duration=8 if kind=='song' else 1.8;rate=22050;t=np.arange(int(rate*duration))/rate
-   rng=np.random.default_rng(sum(map(ord,name)));freq=(210 if who=='rusalka' else 78)*(1+.04*np.sin(t*2*np.pi*4.5)+.08*np.sin(t*2*np.pi/duration))
-   phase=np.cumsum(freq)*2*np.pi/rate;wave=np.zeros(len(t))
-   # Original wordless formant vocal: breath plus harmonics, no instruments or sampled voices.
-   for k in range(1,20):
-    hz=k*(210 if who=='rusalka' else 78);gain=sum(np.exp(-((hz-f)/width)**2) for f,width in ((650,200),(1150,250),(2700,400)))+.07
-    wave+=np.sin(phase*k)*gain/k
-   noise=rng.normal(0,1,len(t));noise=np.convolve(noise,np.ones(7)/7,mode='same');wave+=noise*(.045 if who=='rusalka' else .28)
-   envelope=np.minimum(1,t/.35)*np.minimum(1,(duration-t)/.6)*(.75+.25*np.sin(t*np.pi/2)**2)
-   wave=wave*envelope;wave*=.32/(np.max(np.abs(wave))+1e-6);path=A/f'sounds/water/{name}.ogg';path.parent.mkdir(parents=True,exist_ok=True);sf.write(str(path),wave,rate,format='OGG',subtype='VORBIS')
-   subtitle='subtitles.slavicmyths.'+name;events[name]={'subtitle':subtitle,'sounds':[{'name':'slavicmyths:water/'+name}]}
-   for lang in ('ru_ru','en_us'):
-    p=A/f'lang/{lang}.json';d=json.loads(p.read_text(encoding='utf-8'));d[subtitle]=( ('Русалка' if who=='rusalka' else 'Водяной')+' — '+{'ambient':'голос','angry':'недовольство','hurt':'боль','death':'затихает','song':'поёт'}[kind]) if lang=='ru_ru' else who.title()+' '+kind;write(p,d)
- write(A/'sounds.json',events)
+ # DO NOT REGENERATE the rejected 210/78Hz synthetic animal-like voices (#59/#60).
+ # Deliberate no-op: accepted audio must be installed through reviewed source files.
+ return
 if __name__=='__main__':generate()
 
 # Keep Kitchen II canonical resources/recipes after this legacy generation pass.
