@@ -1,3 +1,10 @@
+## Unreleased — #54 IN_PROGRESS, owner acceptance pending
+
+- Серый Волк: сужающийся корпус, мощные лапы/суставы, более узкая морда,
+  менее ступенчатый хвост, холодная palette;69cuboids/30joints.
+- Gait/посадка/прыжок/вой и reset; source/NBT/quest/hitbox сохранены.
+- Strict Z-fit в старый квадратный bbox остаётся открытым; runtime NOT_RUN.
+
 ## Unreleased — #59 / #53 (owner acceptance pending)
 
 - Русалка:12OGG из лицензированных записей голоса/воды вместо synth event mappings;

@@ -1,3 +1,11 @@
+## Серый Волк #54 — IN_PROGRESS — 2026-10-18
+
+Переработаны anatomy/texture/locomotion/sit/pounce;30суставов,69кубов,15native
+poses и source comparisons. AI/квест/тайминги/NBT/ID/хитбокс не менялись.
+Ширина/высота проверены; Z4.608блока против collision2.2 — открытое ограничение.
+Runtime0запусков, owner acceptance отсутствует, PolyMC не обновлён.
+[До/после, матрица требований и тесты](implementation/grey-wolf-54/README.md).
+
 ## Исправления #59/#53 после отказа владельца — 2026-10-18
 
 Русалка: реальные CC0 vocal candidates12OGG, intro/loop/intense/break,

@@ -535,3 +535,11 @@ if (project.hasProperty('rusalkaOfflineCheck')) {
   mainClass = 'org.slavicmyths.verify.QualityCorrectionsOffline'
  }
 }
+if (project.hasProperty('greyWolfModelOfflineCheck')) {
+ tasks.register('verifyGreyWolf54', JavaExec) {
+  dependsOn 'greyWolfModelOfflineClasses'
+  classpath = sourceSets.greyWolfModelOffline.runtimeClasspath
+  mainClass = 'org.slavicmyths.verify.GreyWolf54Offline'
+  systemProperty 'slavicmyths.wolf54Baseline', project.hasProperty('wolf54Baseline')
+ }
+}

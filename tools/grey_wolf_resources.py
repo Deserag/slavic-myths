@@ -6,41 +6,34 @@ ROOT=Path(__file__).resolve().parents[1]; A=ROOT/'src/main/resources/assets/slav
 parts=[];boxes=[]
 def part(n,parent,pos):parts.append(dict(name=n,parent=parent,pos=pos))
 def box(n,b,material):boxes.append(dict(part=n,b=b,material=material))
-part('root',None,[0,24,0]);part('pelvis','root',[0,-25,16]);box('pelvis',[-10,-9,-9,20,17,18],'side')
-part('chest','root',[0,-34,-9]);box('chest',[-13,-11,-15,26,22,28],'side');box('chest',[-12,-13,-13,24,6,24],'back');box('chest',[-10,3,-16,20,11,13],'silver')
-part('loin','root',[0,-29,7]);box('loin',[-10,-10,-10,20,15,19],'side');box('loin',[-10,-12,-10,20,5,19],'back')
-part('neck','root',[0,-40,-21]);box('neck',[-11,-8,-7,22,20,15],'side')
-part('head','neck',[0,-3,-5]);box('head',[-9,-7,-9,18,14,16],'side');box('head',[-7,-8,-8,14,4,13],'back')
-part('upperJaw','head',[0,0,-7]);box('upperJaw',[-7,-2,-12,14,6,13],'cheek');box('upperJaw',[-5,-1,-16,10,5,6],'cheek')
-part('nose','upperJaw',[0,0,-16]);box('nose',[-5,-2,-2,10,4,3],'black')
-part('jaw','head',[0,5,-4]);box('jaw',[-6,0,-17,12,3,18],'cheek');box('jaw',[-5,-.5,-16,10,1,15],'mouth')
+# #54: a tapered powerful forest wolf, preserved 30-joint contract.
+part('root',None,[0,24,0])
+part('pelvis','root',[0,-23,11]);box('pelvis',[-7,-7,-7,14,14,14],'side');box('pelvis',[-6,-7.8,-5,12,6,13],'back')
+part('chest','root',[0,-28,-8]);box('chest',[-10,-8,-10,20,18,19],'side');box('chest',[-9,-9.5,-8,18,6,17],'back');box('chest',[-8,3,-10.8,16,8,13],'silver')
+part('loin','root',[0,-25.5,2.5]);box('loin',[-7.5,-7,-7,15,12,16],'side');box('loin',[-6.8,-8,-6,13.6,4,15],'back')
+part('neck','root',[0,-34.5,-14.5]);box('neck',[-7.2,-6,-5,14.4,14,12],'side');box('neck',[-6,2,-6.5,12,9,9],'silver')
+part('head','neck',[0,-3,-4]);box('head',[-6.3,-5.5,-5.5,12.6,11,11],'side');box('head',[-5.8,-6.2,-4.5,11.6,3,9],'back')
+part('upperJaw','head',[0,.3,-4]);box('upperJaw',[-4.2,-1.5,-7.5,8.4,4.6,8.5],'cheek');box('upperJaw',[-3.3,-1.2,-10,6.6,4,4],'cheek')
+part('nose','upperJaw',[0,0,-10]);box('nose',[-3.4,-1.5,-1.1,6.8,2.8,2],'black')
+part('jaw','head',[0,3.8,-3]);box('jaw',[-3.5,0,-10.5,7,2.3,11],'cheek');box('jaw',[-3.1,-.35,-9.5,6.2,.65,8.5],'mouth')
 for side,x in [('L',1),('R',-1)]:
- part('ear'+side,'head',[x*6,-7,0]);box('ear'+side,[-3,-6,-2,6,6,4],'back');box('ear'+side,[-2,-9,-1.5,4,3,3],'back');box('ear'+side,[-1.8,-5.3,-2.2,3.6,4,.6],'mouth')
- part('ear'+side+'Tip','ear'+side,[0,-9,0]);box('ear'+side+'Tip',[-1,-2,-1,2,2,2],'back')
- box('head',[x*9-.3,-3,-7,.6,3,4],'amber');box('head',[x*9-.4,-2,-6,.8,1,1],'gold')
- box('head',[x*9-1,-5,-8,2,2,6],'back');box('head',[x*8-2,3,-8,4,7,8],'cheek')
- for z in [-14,-7]:box('upperJaw',[x*4-1,3,z,2,4 if z==-14 else 2,2],'teeth')
- box('jaw',[x*4-1,-3,-13,2,3,2],'teeth')
-for name,y,z,mat in [('maneFront',-39,-23,'silver'),('maneRear',-40,-14,'back')]:
- part(name,'root',[0,y,z])
- for i in range(4):
-  w=30-i*3;box(name,[-w/2,i*4-5,-2+i, w,6,8],'back' if name=='maneRear' else mat)
- for x in [-12,8]:box(name,[x,1,-4,4,12,6],mat)
-for name,x,z,front in [('fl',10,-16,True),('fr',-10,-16,True),('bl',8,17,False),('br',-8,17,False)]:
- part(name,'root' if front else 'pelvis',[x,-30 if front else 0,z if front else z-16]);box(name,[-4,0,-4,8,14 if front else 13,9],'side')
- part(name+'Lower',name,[0,14 if front else 13,0]);box(name+'Lower',[-3,0,-3,6,12 if front else 9,7],'silver')
- part(name+'Foot',name+'Lower',[0,12 if front else 9,0]);box(name+'Foot',[-4,0,-6,8,4 if front else 3,10],'cheek')
- for toe in [-2.6,0,2.6]:box(name+'Foot',[toe-1,1,-8,2,2,4],'cheek');box(name+'Foot',[toe-.7,2,-9,.0+1.4,1.2,2],'black')
-part('tail1','pelvis',[0,-3,8]);box('tail1',[-4,-3,0,8,8,12],'side')
-part('tail2','tail1',[0,4,10]);box('tail2',[-5,-2,0,10,10,13],'side')
-part('tail3','tail2',[0,5,11]);box('tail3',[-3,-1,0,6,7,11],'back')
-# Bear measured neutral bounds: .943 x1.736 x2.435 blocks.
-# Authored giant: about1.875 x3.469 x4.870, no renderer/global scale.
-for p in parts:
- if p['name']!='root':p['pos']=[p['pos'][0],p['pos'][1]*.91,p['pos'][2]*(4.87/6.6875)]
-for b in boxes:
- b['b']=[value*([1,.91,4.87/6.6875][i%3]) for i,value in enumerate(b['b'])]
-COL={'side':(112,112,120),'back':(52,53,58),'silver':(167,165,162),'cheek':(194,189,181),'black':(33,33,38),'amber':(217,154,55),'gold':(255,208,106),'mouth':(64,40,40),'teeth':(219,211,189)}
+ part('ear'+side,'head',[x*4.5,-5.5,.3]);box('ear'+side,[-2,-4,-1.5,4,4,3],'back');box('ear'+side,[-1.2,-3.5,-1.7,2.4,2.8,.5],'mouth')
+ part('ear'+side+'Tip','ear'+side,[0,-4,0]);box('ear'+side+'Tip',[-1,-2,-1.1,2,2,2.2],'back')
+ box('head',[x*6.3-.3,-2.5,-4.7,.6,1.2,2.2],'amber');box('head',[x*6.3-.35,-2.1,-4.4,.7,.45,.65],'gold')
+ box('head',[x*6.1-.8,-3.8,-5.2,1.6,1.4,4],'back');box('head',[x*5.7-1.4,1,-3.7,2.8,4,5],'cheek')
+ box('upperJaw',[x*2.7-.55,2.2,-7.3,1.1,2,1.1],'teeth');box('jaw',[x*2.5-.5,-1.6,-6.5,1,1.6,1],'teeth')
+for name,y,z,mat in [('maneFront',-33,-16.5,'silver'),('maneRear',-34,-10,'back')]:
+ part(name,'root',[0,y,z]);box(name,[-8.5,-4,-2,17,8,6],mat);box(name,[-7.2,2,-1,14.4,7,5],mat);box(name,[-5.5,7,0,11,4,4],mat)
+for name,x,z,front in [('fl',7.8,-12,True),('fr',-7.8,-12,True),('bl',6.5,1.5,False),('br',-6.5,1.5,False)]:
+ part(name,'root' if front else 'pelvis',[x,-27 if front else 0,z]);box(name,[-3.2 if front else -4.2,-.5,-3.6 if front else -4.2,6.4 if front else 8.4,14.5 if front else 12.5,7.2 if front else 8.4],'side')
+ if front:box(name,[-3.8,-1.5,-4,7.6,6.5,8],'back')
+ part(name+'Lower',name,[0,14 if front else 12,0]);box(name+'Lower',[-2.3,0,-2.5,4.6,10 if front else 8,5.5],'silver')
+ part(name+'Foot',name+'Lower',[0,10 if front else 8,0]);box(name+'Foot',[-3.7,0,-5,7.4,3,9.5],'cheek')
+ for toe in [-2.2,0,2.2]:box(name+'Foot',[toe-.65,1.1,-5.6,1.3,1.1,1.6],'black')
+part('tail1','pelvis',[0,-2,6]);box('tail1',[-3.2,-2.7,-.5,6.4,6.2,10],'side')
+part('tail2','tail1',[0,1,8]);box('tail2',[-2.8,-2.4,0,5.6,5.8,10],'side')
+part('tail3','tail2',[0,1,8]);box('tail3',[-1.9,-1.6,0,3.8,4,8],'back')
+COL={'side':(92,104,112),'back':(47,54,63),'silver':(154,164,168),'cheek':(168,174,176),'black':(33,33,38),'amber':(197,149,74),'gold':(224,181,111),'mouth':(64,40,40),'teeth':(219,211,189)}
 def write(p,d):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def apply():
  text=json.loads((ROOT/"tools/grey_wolf_text.json").read_text(encoding="utf-8"))

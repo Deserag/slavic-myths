@@ -1,3 +1,13 @@
+## GreyWolf native pose contract #54 — 2026-10-18
+
+GreyWolfGeometry/manifest/atlas генерируются из authored69cuboids/30parts.
+setupAnim вызывает sample(State,Move,t,run,hurt,walk,...), затем прежний
+WeakHashMap blend. FootPlant учитывает реальную длину сегментов; sit сохраняет
+опоры, attack samples совпадают с неизменённым WolfTimeline.
+Ширина/высота проверены; Z4.608блока против collision2.2 — открытое ограничение.
+Runtime0запусков, owner acceptance отсутствует, PolyMC не обновлён.
+[До/после, матрица требований и тесты](implementation/grey-wolf-54/README.md).
+
 ## Encounter/audio ownership #59 и поза #53 — 2026-10-18
 
 RusalkaEncounter хранит server observation/grace/close-warning clocks;

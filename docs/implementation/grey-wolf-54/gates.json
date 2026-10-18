@@ -1,0 +1,51 @@
+{
+  "status": "IN_PROGRESS",
+  "checks": 31671,
+  "native_pose_count": 15,
+  "parts": 30,
+  "cubes": 69,
+  "before_bounds_blocks": [
+    [
+      -0.9375,
+      0.9375
+    ],
+    [
+      -1.973615,
+      1.5113750625
+    ],
+    [
+      -2.321215,
+      2.434666375
+    ]
+  ],
+  "after_bounds_blocks": [
+    [
+      -0.725,
+      0.725
+    ],
+    [
+      -1.5684890625,
+      1.5000055
+    ],
+    [
+      -2.1,
+      2.50827525
+    ]
+  ],
+  "extents_blocks": [
+    1.45,
+    3.0684945625,
+    4.60827525
+  ],
+  "unchanged_hitbox": [
+    2.2,
+    3.5,
+    2.2
+  ],
+  "strict_long_axis_fit": false,
+  "known_limit": "Long silhouette extends beyond the legacy square collision footprint. Hitbox unchanged; owner decision/runtime acceptance pending.",
+  "jar_sha256": "36fa0d68866822ba36e8a159d1a9e4bc31b36d11ee181864afabc512dd645cdc",
+  "runtime_launches": 0,
+  "in_game_visual": "NOT_RUN",
+  "owner_accepted": false
+}
