@@ -1,0 +1,47 @@
+[
+  {
+    "path": "C:\\Users\\pavel\\.codex\\worktrees\\advancements-redesign",
+    "bytes": 0,
+    "files": 1,
+    "sample": [
+      "C:\\Users\\pavel\\.codex\\worktrees\\advancements-redesign\\.codex-worktree-name"
+    ],
+    "decision": "KEEP_UNREGISTERED_UNTIL_OWNER_IDENTIFIED"
+  },
+  {
+    "path": "C:\\Users\\pavel\\.codex\\worktrees\\classes-3-review",
+    "bytes": 0,
+    "files": 1,
+    "sample": [
+      "C:\\Users\\pavel\\.codex\\worktrees\\classes-3-review\\.codex-worktree-name"
+    ],
+    "decision": "KEEP_UNREGISTERED_UNTIL_OWNER_IDENTIFIED"
+  },
+  {
+    "path": "C:\\Users\\pavel\\.codex\\worktrees\\integrated-197-20261014",
+    "bytes": 0,
+    "files": 1,
+    "sample": [
+      "C:\\Users\\pavel\\.codex\\worktrees\\integrated-197-20261014\\.codex-worktree-name"
+    ],
+    "decision": "KEEP_UNREGISTERED_UNTIL_OWNER_IDENTIFIED"
+  },
+  {
+    "path": "C:\\Users\\pavel\\.codex\\worktrees\\reward-weapon-issues",
+    "bytes": 0,
+    "files": 1,
+    "sample": [
+      "C:\\Users\\pavel\\.codex\\worktrees\\reward-weapon-issues\\.codex-worktree-name"
+    ],
+    "decision": "KEEP_UNREGISTERED_UNTIL_OWNER_IDENTIFIED"
+  },
+  {
+    "path": "C:\\Users\\pavel\\.codex\\worktrees\\weapon-visual-qa-197",
+    "bytes": 0,
+    "files": 1,
+    "sample": [
+      "C:\\Users\\pavel\\.codex\\worktrees\\weapon-visual-qa-197\\.codex-worktree-name"
+    ],
+    "decision": "KEEP_UNREGISTERED_UNTIL_OWNER_IDENTIFIED"
+  }
+]

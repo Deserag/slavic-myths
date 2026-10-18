@@ -1,0 +1,18 @@
+[
+  {
+    "path": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\rebuildable-output-backup.zip",
+    "sha256": "7028e36b76e921676e64724a9a304786ca59c074e672767e85008554d1352037",
+    "entries": 136938,
+    "verified": "ALL_ENTRY_SHA256"
+  },
+  {
+    "path": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\historical-publish-1.9.4.zip",
+    "sha256": "11d80d896712ab52a6df5bd5ea40421f52c005d1d29e7564002f7d8b3ee62d7b",
+    "verified": "ALL_ENTRY_CRC"
+  },
+  {
+    "path": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\shared-git-before-maintenance.zip",
+    "sha256": "635aab0f6949c862d27c7731b7b90262ab89d4cdb754b853dfe3ff337107a3e6",
+    "verified": "ALL_ENTRY_CRC"
+  }
+]

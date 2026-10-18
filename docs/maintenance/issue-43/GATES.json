@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "base_main": "fb2994e958911169317523e1066b8a1ca7a155af",
+  "checks": {
+    "json": 3919,
+    "png": 1325,
+    "resources": 6804,
+    "classes": 1685
+  },
+  "jar_sha256": "aee4b68b26010cdef3f9a67b7a35f3c0d53178195d01f77752a18111b60e49ca",
+  "jar_bytes": 19696924,
+  "resource_and_generator_delta": "NONE",
+  "minecraft_launches": 0,
+  "runtime": "NOT_RUN",
+  "production_sources": {
+    "src/main/java/org/slavicmyths/poloz/PolozEvents.java": {
+      "source_branch": "origin/codex/poloz-body-melee-lifecycle",
+      "sha256": "8392767519b53ef7af174c4f1f5e4f4a901a9a59144bee03842c4fc5cff51d23"
+    },
+    "src/main/java/org/slavicmyths/client/GuardianClient.java": {
+      "source_branch": "origin/codex/guardian-cube-allocation",
+      "sha256": "a1d3722585eeebe765b2194924cd6c8a59de00c6b703b0b87f983ff68f21e5d3"
+    }
+  },
+  "primary_user_docs_unchanged": "3/3 byte equality with backup",
+  "cleanup": "NOT_EXECUTED",
+  "backup_safe_files": 136938,
+  "git_fsck_exit": 0,
+  "nested_git_fsck_exit": 0
+}

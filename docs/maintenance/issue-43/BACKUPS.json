@@ -1,0 +1,65 @@
+[
+  {
+    "worktree": "D:\\slavic-myths",
+    "archive": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\working-changes-00.zip",
+    "sha256": "ed7ee9548232e9713fd0f6a07fc9ac030bcdf189026f8af733a8b2383f881a96",
+    "files": 16,
+    "verified": true
+  },
+  {
+    "worktree": "C:\\Users\\pavel\\.codex\\worktrees\\advancements-2-implementation\\slavic-myths",
+    "archive": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\working-changes-01.zip",
+    "sha256": "66a6f85da7cddefb275febc732987c3c5ece2984bfe8b68f0201b987baf74cfc",
+    "files": 24,
+    "verified": true
+  },
+  {
+    "worktree": "C:\\Users\\pavel\\.codex\\worktrees\\guardian-cube\\slavic-myths",
+    "archive": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\working-changes-02.zip",
+    "sha256": "5e1484b8a97f2ca4474a2dcb119e5b0e6157be2d2056f14b2524440fc60ce918",
+    "files": 12,
+    "verified": true
+  },
+  {
+    "worktree": "C:\\Users\\pavel\\.codex\\worktrees\\poloz-body-melee\\slavic-myths",
+    "archive": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\working-changes-04.zip",
+    "sha256": "5dbbd20b07a20209819b257a46a45ec284bd119025f0decb0fe01d948717e3a6",
+    "files": 29,
+    "verified": true
+  },
+  {
+    "worktree": "C:\\Users\\pavel\\.codex\\worktrees\\poloz-effects\\slavic-myths",
+    "archive": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\working-changes-05.zip",
+    "sha256": "8e9beb6a2241b6b7f0d43bcd928656aba8774c92d1d673bba716fa21ea161321",
+    "files": 3,
+    "verified": true
+  },
+  {
+    "worktree": "D:\\slavic-myths-advancements-v3",
+    "archive": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\working-changes-07.zip",
+    "sha256": "fe69fa74e13d76bf1090a05b64b89e45b94f23df16fbc3f07c7bd4205230648a",
+    "files": 144,
+    "verified": true
+  },
+  {
+    "worktree": "D:\\slavic-myths-audit",
+    "archive": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\working-changes-08.zip",
+    "sha256": "441ca4754775dc731aab99e6b6259dcf50912782cec38a88116eb6233b31edb0",
+    "files": 94,
+    "verified": true
+  },
+  {
+    "worktree": "D:\\slavic-myths-balance-baseline",
+    "archive": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\working-changes-10.zip",
+    "sha256": "8c07d9356b82f7f27a321d40ae1268dd8fc7134b0fd10025ccb982acd56b9153",
+    "files": 7,
+    "verified": true
+  },
+  {
+    "worktree": "D:\\slavic-myths-integrated",
+    "archive": "C:\\Users\\pavel\\.codex\\recovery\\slavic-myths-20261018\\working-changes-11.zip",
+    "sha256": "1f0e2297f2ffccd178e1d8ccdee4d38397ff57c489813aef5304b3755cdef886",
+    "files": 38,
+    "verified": true
+  }
+]

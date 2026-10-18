@@ -1,0 +1,11 @@
+gradle.beforeProject {p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets {polozAiCheck {java.srcDir 'tools/poloz-ai-lifecycle/java';resources.srcDir 'tools/poloz-runtime-resources'}}
+ p.sourceSets.polozAiCheck.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.polozAiCheck.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compilePolozAiCheckJava') {dependsOn p.tasks.named('classes')}
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.polozAiCheck)
+ p.neoForge.runs {polozAiChecks {
+  type='gameTestServer';gameDirectory=p.file('work/poloz-ai-lifecycle')
+  systemProperty 'neoforge.enabledGameTestNamespaces','slavicmyths_poloz'
+ }}
+} }
