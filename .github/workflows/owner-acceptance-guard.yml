@@ -1,0 +1,39 @@
+name: Owner acceptance guard for quality issues
+
+on:
+  issues:
+    types: [closed]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  reopen-without-owner-acceptance:
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Reopen quality issue unless owner accepted it
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            const number = issue.number;
+            const quality = [42,47,48,49,50,51,52,53,54,55,56,57,58,59,60].includes(number)
+              || /\[(?:P0|P1|EXECUTION|QUALITY GATE)\]/i.test(issue.title);
+            if (!quality) return;
+            const labels = (issue.labels || []).map(l => typeof l === 'string' ? l : l.name);
+            if (labels.includes('owner-accepted')) return;
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: number,
+              state: 'open'
+            });
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: number,
+              body: '⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).'
+            });
