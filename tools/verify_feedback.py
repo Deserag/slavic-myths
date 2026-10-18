@@ -1,4 +1,8 @@
 """Production/resource gates for the concrete 1.7.7 feedback changes."""
+
+if __name__ == "__main__":
+    raise SystemExit('ARCHIVED historical tool. See docs/maintenance/issue-43/HISTORICAL_ARTIFACTS.md; restore its original revision and verified inputs in a separate historical checkout. Current source is not its baseline.')
+
 from pathlib import Path
 import json,hashlib,zipfile,struct,subprocess,sys
 from PIL import Image

@@ -1,4 +1,8 @@
 """Install only into the already selected 1.21.1 test instance after production gates."""
+
+if __name__ == "__main__":
+    raise SystemExit('ARCHIVED historical tool. See docs/maintenance/issue-43/HISTORICAL_ARTIFACTS.md; restore its original revision and verified inputs in a separate historical checkout. Current source is not its baseline.')
+
 from pathlib import Path
 import json,hashlib,shutil,datetime
 R=Path(__file__).resolve().parents[1];out=R/'docs/verification/kuzya-1.6.6';gate=json.loads((out/'resource-gates.json').read_text());sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();source=R/'release/slavicmyths-1.6.6.jar'

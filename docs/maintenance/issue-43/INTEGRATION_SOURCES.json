@@ -1,0 +1,6 @@
+{
+  "src/main/java/org/slavicmyths/poloz/PolozEvents.java": "origin/codex/poloz-body-melee-lifecycle",
+  "src/main/java/org/slavicmyths/client/GuardianClient.java": "origin/codex/guardian-cube-allocation",
+  "README.md": "origin/chore/repository-recovery-20261018",
+  "docs/maintenance/REPOSITORY_RECOVERY_2026-10-18.md": "origin/chore/repository-recovery-20261018"
+}

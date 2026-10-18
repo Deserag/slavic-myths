@@ -1,0 +1,47 @@
+{
+  "before-fixture-v1": {
+    "raw_local_sha256": "0272162e7a4db0482eb071be59c594a8f2700364cf769aa1e0cdf03fdda4e0dc",
+    "cases": [
+      "POLOZ_AI_CASE null_zombie PASS",
+      "POLOZ_AI_CASE null_heavy_bandit PASS",
+      "POLOZ_AI_CASE replacement PASS",
+      "POLOZ_AI_CASE dead_boss PASS"
+    ],
+    "fixture_v1_not_a_valid_reproducer": true
+  },
+  "before": {
+    "raw_local_sha256": "30eed2d242210778883a2e7f10875124f2e2c38d8545257202e51fe26121e39d",
+    "cases": [
+      "POLOZ_AI_CASE heavy_preemption FAIL java.lang.NullPointerException: Cannot invoke \"org.slavicmyths.poloz.GreatPoloz.getBoundingBox()\" because \"boss\" is null",
+      "POLOZ_AI_CASE null_zombie FAIL java.lang.NullPointerException: Cannot invoke \"org.slavicmyths.poloz.GreatPoloz.getBoundingBox()\" because \"boss\" is null",
+      "POLOZ_AI_CASE null_heavy_bandit FAIL java.lang.NullPointerException: Cannot invoke \"org.slavicmyths.poloz.GreatPoloz.getBoundingBox()\" because \"boss\" is null",
+      "POLOZ_AI_CASE replacement FAIL java.lang.ClassCastException: class net.minecraft.world.entity.monster.Zombie cannot be cast to class org.slavicmyths.poloz.GreatPoloz (net.minecraft.world.entity.monster.Zombie is in module minecraft@1.21.1 of loader 'TRANSFORMER' @f2e4acf; org.slavicmyths.poloz.GreatPoloz is in module slavicmyths@1.9.7.5 of loader 'TRANSFORMER' @f2e4acf)",
+      "POLOZ_AI_CASE dead_boss FAIL net.minecraft.gametest.framework.GameTestAssertException: No attack after target became invalid: dead_boss",
+      "POLOZ_AI_CASE valid_target_cooldown PASS"
+    ],
+    "fixture_v1_not_a_valid_reproducer": false
+  },
+  "after": {
+    "raw_local_sha256": "db285a94e2470fb500d2d8c5958e0b2c71e0d0c07966c809eae03bc1cab2e627",
+    "cases": [
+      "POLOZ_AI_CASE heavy_preemption PASS",
+      "POLOZ_AI_CASE null_zombie PASS",
+      "POLOZ_AI_CASE null_heavy_bandit PASS",
+      "POLOZ_AI_CASE replacement PASS",
+      "POLOZ_AI_CASE dead_boss PASS",
+      "POLOZ_AI_CASE valid_target_cooldown PASS"
+    ],
+    "fixture_v1_not_a_valid_reproducer": false
+  },
+  "subscribers": {
+    "raw_local_sha256": "497403fc2f21c5391049039de4c114dfe0733d6ee7ca19c14e967d2fa29053aa",
+    "cases": [],
+    "fixture_v1_not_a_valid_reproducer": false
+  },
+  "world_crash": {
+    "raw_local_sha256": "23c1bd920276be0e5e9792c25b68a9163a25b6bee8edc8421d31aba65f3f8c94",
+    "date": "2026-10-17 15:38:11 MSK",
+    "baseline": "fb2994e958911169317523e1066b8a1ca7a155af"
+  },
+  "fixed_revision": "8b49c5ca65b158a95ffddcebefb8b86ea6aeba94"
+}

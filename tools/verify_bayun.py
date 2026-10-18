@@ -2,6 +2,10 @@
 
 This is a packaging/static/audio gate, not a client or performance test.
 """
+
+if __name__ == "__main__":
+    raise SystemExit('ARCHIVED historical tool. See docs/maintenance/issue-43/HISTORICAL_ARTIFACTS.md; restore its original revision and verified inputs in a separate historical checkout. Current source is not its baseline.')
+
 from pathlib import Path
 import array,csv,hashlib,io,json,math,re,subprocess,zipfile
 from PIL import Image

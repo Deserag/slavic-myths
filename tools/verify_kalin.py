@@ -1,4 +1,8 @@
 """Production resource and baseline gate, with actual bounded test evidence."""
+
+if __name__ == "__main__":
+    raise SystemExit('ARCHIVED historical tool. See docs/maintenance/issue-43/HISTORICAL_ARTIFACTS.md; restore its original revision and verified inputs in a separate historical checkout. Current source is not its baseline.')
+
 from pathlib import Path
 import zipfile,json,hashlib,subprocess,struct,io
 from PIL import Image

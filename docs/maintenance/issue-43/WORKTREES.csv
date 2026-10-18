@@ -1,0 +1,372 @@
+path,branch,HEAD,bytes,tracked_files,status,PR,behind_ahead,backup,owner_state,removal
+D:/slavic-myths,refs/heads/codex/classes-3-implementation,b57771e4e025a44a7e94079853d6fc1724b5bb76,9777847583,19546,"M docs/ARCHITECTURE.md
+ M docs/PROJECT_STATUS.md
+ M docs/ROADMAP.md
+?? docs/implementation/classes3/CHANGED_FILES.txt
+?? docs/implementation/classes3/ISOLATED_RESOURCE_JAR_CHECKS.json
+?? docs/implementation/classes3/PUBLICATION.md
+?? docs/implementation/classes3/REPORT.md
+?? docs/implementation/classes3/isolated-audited-final.log
+?? docs/implementation/classes3/isolated-final-verify.log
+?? docs/implementation/classes3/isolated-final-write.log
+?? docs/implementation/classes3/isolated-release-gates.log
+?? docs/implementation/classes3/isolated-trial-final.log
+?? docs/implementation/classes3/isolated-verify.log
+?? docs/implementation/classes3/isolated-write.log
+?? tools/classes3_publication_update.py
+?? tools/classes3_report.py",,1	0,C:\Users\pavel\.codex\recovery\slavic-myths-20261018\working-changes-00.zip,current chat/root preserved; integration reuses clean advancements worktree,HOLD: dirty/open PR/ignored unique data or current integration
+C:/Users/pavel/.codex/worktrees/advancements-2-implementation/slavic-myths,refs/heads/codex/advancements-2-implementation,82a0cccb569307b2992e4c82bf30667a7862fade,1115701260,19605,"?? docs/implementation/advancements-2-implementation/POLYMC_INSTALLATION.json
+?? docs/implementation/advancements-redesign/AUDIT_NOTES.md
+?? docs/implementation/advancements-redesign/BUILD.log
+?? docs/implementation/advancements-redesign/REPORT.md
+?? docs/implementation/advancements-redesign/TREE_NOTES.md
+?? docs/implementation/advancements-redesign/VERIFY.log
+?? docs/implementation/advancements-redesign/prepare_design.py
+?? docs/implementation/advancements-redesign/verify_design.py
+?? work-advancement-build-accepted.log
+?? work-advancement-build-final.log
+?? work-advancement-build-first.log
+?? work-advancement-commit.log
+?? work-advancement-dry-run.log
+?? work-advancement-final-dry-run.log
+?? work-advancement-gates-accepted.log
+?? work-advancement-gates-final.log
+?? work-advancement-gates-release.log
+?? work-advancement-resource-build.log
+?? work-advancement-tests-accepted.log
+?? work-advancement-tests-confirm.log
+?? work-advancement-tests-final.log
+?? work-advancement-tests-first.log
+?? work-advancement-tests-release.log
+?? work-advancement-whitespace-warnings.log",40,0	2,C:\Users\pavel\.codex\recovery\slavic-myths-20261018\working-changes-01.zip,No active process observed; exact task owner not exposed; do not remove,HOLD: dirty/open PR/ignored unique data or current integration
+C:/Users/pavel/.codex/worktrees/guardian-cube/slavic-myths,refs/heads/codex/guardian-cube-allocation,224a320baad1f7a7d1e952f619cd7a847438f028,1266435473,19618,"?? tools/performance-2.0/ProfileSummary.java
+?? tools/performance-2.0/cube/init.gradle
+?? tools/performance-2.0/cube/java/CubeProbe.java
+?? tools/performance-2.0/cube/java/ReferenceCube.java
+?? tools/performance-2.0/cube/java/VertexAudit.java
+?? tools/performance-2.0/gates.py
+?? tools/performance-2.0/run.ps1
+?? work-cube-after-build.log
+?? work-cube-build.log
+?? work-cube-compile.log
+?? work-cube-cross-build.log
+?? work-perf2-cube-compile.log",37,0	1,C:\Users\pavel\.codex\recovery\slavic-myths-20261018\working-changes-02.zip,No active process observed; exact task owner not exposed; do not remove,HOLD: dirty/open PR/ignored unique data or current integration
+C:/Users/pavel/.codex/worktrees/performance-2-release/slavic-myths,refs/heads/codex/performance-2-release,82c26c6bdbf818e6f08c9b5b2641c45c87a8c715,2838588202,19934,,39,0	1,none: Git-clean; ignored data still protected,No active process observed; exact task owner not exposed; do not remove,HOLD: dirty/open PR/ignored unique data or current integration
+C:/Users/pavel/.codex/worktrees/poloz-body-melee/slavic-myths,refs/heads/codex/poloz-body-melee-lifecycle,69262a0545c92f069d8bfbbfd722761bd3e34dc5,1171614729,19558,"?? tools/performance-2.0/.gitattributes
+?? tools/performance-2.0/HeapTimeline.java
+?? tools/performance-2.0/JfrReport.java
+?? tools/performance-2.0/ProfileSummary.java
+?? tools/performance-2.0/README.md
+?? tools/performance-2.0/city/init.gradle
+?? tools/performance-2.0/city/java/BossTicks.java
+?? tools/performance-2.0/city/java/CitySetup.java
+?? tools/performance-2.0/cube/init.gradle
+?? tools/performance-2.0/cube/java/CubeProbe.java
+?? tools/performance-2.0/cube/java/ReferenceCube.java
+?? tools/performance-2.0/cube/java/VertexAudit.java
+?? tools/performance-2.0/cube_summary.py
+?? tools/performance-2.0/gates.py
+?? tools/performance-2.0/gpu.ps1
+?? tools/performance-2.0/package.py
+?? tools/performance-2.0/plots.py
+?? tools/performance-2.0/run.ps1
+?? tools/performance-2.0/tables.py
+?? tools/performance-2.0/world/init.gradle
+?? tools/performance-2.0/world/java/AuditMod.java
+?? tools/performance-2.0/world/java/ScenarioBridge.java
+?? tools/performance-2.0/world/java/WorldProbe.java
+?? tools/performance-2.0/world/mod/ModScenes.java
+?? tools/performance-2.0/world/resources/META-INF/neoforge.mods.toml
+?? tools/performance-2.0/world/v1/AuditMod.java
+?? tools/performance-2.0/world/v1/ScenarioBridge.java
+?? tools/performance-2.0/world/v1/WorldProbe.java
+?? tools/performance-2.0/world_summary.py",38,0	2,C:\Users\pavel\.codex\recovery\slavic-myths-20261018\working-changes-04.zip,No active process observed; exact task owner not exposed; do not remove,HOLD: dirty/open PR/ignored unique data or current integration
+C:/Users/pavel/.codex/worktrees/poloz-effects/slavic-myths,refs/heads/codex/poloz-effects-investigation,2ce889cd4391708cd0e2366ac94107a1d3b5bf61,1216822102,19589,"?? tools/poloz-audit/ProfileSummary.java
+?? work-poloz-build.log
+?? work-poloz-compile.log",36,0	1,C:\Users\pavel\.codex\recovery\slavic-myths-20261018\working-changes-05.zip,No active process observed; exact task owner not exposed; do not remove,HOLD: dirty/open PR/ignored unique data or current integration
+D:/slavic-myths-advancements,refs/heads/codex/advancements-micro-patch,e2ca8a8f998bb390cd6538f8979a2df13da006cc,1125167810,19562,,25,0	1,none: Git-clean; ignored data still protected,current chat/root preserved; integration reuses clean advancements worktree,HOLD: dirty/open PR/ignored unique data or current integration
+D:/slavic-myths-advancements-v3,refs/heads/codex/advancements-v3,82a0cccb569307b2992e4c82bf30667a7862fade,1112649065,19605,"M docs/ARCHITECTURE.md
+ M docs/PROJECT_STATUS.md
+ M docs/ROADMAP.md
+ M src/main/java/org/slavicmyths/bayun/BayunEntity.java
+ M src/main/java/org/slavicmyths/bayun/BayunNetwork.java
+ M src/main/java/org/slavicmyths/brewing/Fermentation.java
+ M src/main/java/org/slavicmyths/client/TaleScreen.java
+ M src/main/java/org/slavicmyths/military/GreyWolfStory.java
+ M src/main/java/org/slavicmyths/quest185/Quest185Story.java
+ M src/main/java/org/slavicmyths/rpg/tools/mixin/ToolRuneBreakMixin.java
+ M src/main/java/org/slavicmyths/rpg/tools/mixin/ToolRuneUseMixin.java
+ M src/main/java/org/slavicmyths/storage/StorageTile.java
+ M src/main/java/org/slavicmyths/tales/TaleEvents.java
+ M src/main/java/org/slavicmyths/wolf/WolfProgress.java
+ M src/main/java/org/slavicmyths/yaga/YagaMenu.java
+ M src/main/resources/assets/slavicmyths/lang/en_us.json
+ M src/main/resources/assets/slavicmyths/lang/ru_ru.json
+ M src/main/resources/data/slavicmyths/advancement/all_timber.json
+ M src/main/resources/data/slavicmyths/advancement/ancient_find.json
+ M src/main/resources/data/slavicmyths/advancement/bad_people.json
+ M src/main/resources/data/slavicmyths/advancement/bind_hearth.json
+ M src/main/resources/data/slavicmyths/advancement/bog_explorer.json
+ M src/main/resources/data/slavicmyths/advancement/bookkeeper.json
+ M src/main/resources/data/slavicmyths/advancement/break_water_call.json
+ M src/main/resources/data/slavicmyths/advancement/cauldron_service.json
+ M src/main/resources/data/slavicmyths/advancement/claimed_fire_fragment.json
+ M src/main/resources/data/slavicmyths/advancement/claimed_water_fragment.json
+ M src/main/resources/data/slavicmyths/advancement/class_iv.json
+ M src/main/resources/data/slavicmyths/advancement/clear_large_camp.json
+ M src/main/resources/data/slavicmyths/advancement/curse_resolved.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_depth_master.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_gorynych.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_idolishche.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_kalin.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_kartaus.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_leshy.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_marinka.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_nightingale.json
+ M src/main/resources/data/slavicmyths/advancement/defeat_skim.json
+ M src/main/resources/data/slavicmyths/advancement/depth_champions.json
+ M src/main/resources/data/slavicmyths/advancement/earth_heart.json
+ M src/main/resources/data/slavicmyths/advancement/endured_frost.json
+ M src/main/resources/data/slavicmyths/advancement/endured_last_night.json
+ M src/main/resources/data/slavicmyths/advancement/explore_abandoned_settlement.json
+ M src/main/resources/data/slavicmyths/advancement/extinguish_the_barn.json
+ M src/main/resources/data/slavicmyths/advancement/falling_star.json
+ M src/main/resources/data/slavicmyths/advancement/fern_flower.json
+ M src/main/resources/data/slavicmyths/advancement/find_deep_pool.json
+ M src/main/resources/data/slavicmyths/advancement/find_large_camp.json
+ M src/main/resources/data/slavicmyths/advancement/find_small_camp.json
+ M src/main/resources/data/slavicmyths/advancement/find_the_hut.json
+ M src/main/resources/data/slavicmyths/advancement/first_book_entry.json
+ M src/main/resources/data/slavicmyths/advancement/first_flight.json
+ M src/main/resources/data/slavicmyths/advancement/first_ritual.json
+ M src/main/resources/data/slavicmyths/advancement/found_ancient_sanctuary.json
+ M src/main/resources/data/slavicmyths/advancement/found_two_sanctuaries.json
+ M src/main/resources/data/slavicmyths/advancement/friend_of_bayun.json
+ M src/main/resources/data/slavicmyths/advancement/full_yard.json
+ M src/main/resources/data/slavicmyths/advancement/great_poloz_fall.json
+ M src/main/resources/data/slavicmyths/advancement/group_burial.json
+ M src/main/resources/data/slavicmyths/advancement/group_home.json
+ M src/main/resources/data/slavicmyths/advancement/group_knowledge.json
+ M src/main/resources/data/slavicmyths/advancement/group_legends.json
+ M src/main/resources/data/slavicmyths/advancement/group_roads.json
+ M src/main/resources/data/slavicmyths/advancement/group_water.json
+ M src/main/resources/data/slavicmyths/advancement/guest_of_yaga.json
+ M src/main/resources/data/slavicmyths/advancement/kitchen_meal.json
+ M src/main/resources/data/slavicmyths/advancement/kurgan_rest.json
+ M src/main/resources/data/slavicmyths/advancement/linen_craft.json
+ M src/main/resources/data/slavicmyths/advancement/name_your_misfortune.json
+ M src/main/resources/data/slavicmyths/advancement/night_watch.json
+ M src/main/resources/data/slavicmyths/advancement/own_path.json
+ M src/main/resources/data/slavicmyths/advancement/rare_accessory.json
+ M src/main/resources/data/slavicmyths/advancement/root.json
+ M src/main/resources/data/slavicmyths/advancement/silver_remedy.json
+ M src/main/resources/data/slavicmyths/advancement/steppe_champion.json
+ M src/main/resources/data/slavicmyths/advancement/three_signs.json
+ M src/main/resources/data/slavicmyths/advancement/traces_of_past.json
+ M src/main/resources/data/slavicmyths/advancement/trusted_by_yaga.json
+ M src/main/resources/data/slavicmyths/advancement/without_ataman.json
+ M src/main/resources/slavicmyths.work.mixins.json
+ M tools/advancements2_resources.py
+ M tools/tale_advancements.py
+ M tools/test_advancement_audit.py
+ M tools/verify_advancement_tree.py
+?? docs/implementation/advancements-v3/ACHIEVEMENTS.csv
+?? docs/implementation/advancements-v3/ACHIEVEMENTS.json
+?? docs/implementation/advancements-v3/AUDIT.json
+?? docs/implementation/advancements-v3/BASE_PR40.json
+?? docs/implementation/advancements-v3/BUILD.log
+?? docs/implementation/advancements-v3/BUILD_FINAL.log
+?? docs/implementation/advancements-v3/BUILD_RELEASE.log
+?? docs/implementation/advancements-v3/CHECKS.json
+?? docs/implementation/advancements-v3/COMPATIBILITY.csv
+?? docs/implementation/advancements-v3/CONDITIONS.md
+?? docs/implementation/advancements-v3/CONTRACTS.log
+?? docs/implementation/advancements-v3/CONTRACTS_JAR.log
+?? docs/implementation/advancements-v3/DELIVERY.json
+?? docs/implementation/advancements-v3/INSTALLED_API.json
+?? docs/implementation/advancements-v3/LEGACY_CONTRACTS.log
+?? docs/implementation/advancements-v3/MUTATIONS.log
+?? docs/implementation/advancements-v3/NEW_CONTRACT.json
+?? docs/implementation/advancements-v3/PARENTS.tsv
+?? docs/implementation/advancements-v3/PR_BODY.md
+?? docs/implementation/advancements-v3/PURE_JAVA.log
+?? docs/implementation/advancements-v3/REPORT.md
+?? docs/implementation/advancements-v3/SUBSCRIBERS.log
+?? docs/implementation/advancements-v3/TASK_GRAPH.log
+?? docs/implementation/advancements-v3/TREE.json
+?? docs/implementation/advancements-v3/TREE.md
+?? docs/implementation/advancements-v3/TREE.png
+?? docs/implementation/advancements-v3/TREE.svg
+?? docs/implementation/advancements-v3/VANILLA_VISIBILITY_SOURCE.txt
+?? src/main/java/org/slavicmyths/progression/AdvancementJourney.java
+?? src/main/java/org/slavicmyths/progression/JourneyZones.java
+?? src/main/java/org/slavicmyths/village/mixin/JourneyVillagerMixin.java
+?? src/main/resources/data/slavicmyths/advancement/bayun_new_tale.json
+?? src/main/resources/data/slavicmyths/advancement/bayun_song.json
+?? src/main/resources/data/slavicmyths/advancement/chud_halls.json
+?? src/main/resources/data/slavicmyths/advancement/chud_labyrinth.json
+?? src/main/resources/data/slavicmyths/advancement/explore_chud_abandoned.json
+?? src/main/resources/data/slavicmyths/advancement/explore_chud_city.json
+?? src/main/resources/data/slavicmyths/advancement/explore_gorodishche.json
+?? src/main/resources/data/slavicmyths/advancement/explore_kurgan.json
+?? src/main/resources/data/slavicmyths/advancement/first_neighbors.json
+?? src/main/resources/data/slavicmyths/advancement/first_structure.json
+?? src/main/resources/data/slavicmyths/advancement/grey_wolf_bandits.json
+?? src/main/resources/data/slavicmyths/advancement/grey_wolf_kurgan.json
+?? src/main/resources/data/slavicmyths/advancement/grey_wolf_likho.json
+?? src/main/resources/data/slavicmyths/advancement/linen_woven.json
+?? src/main/resources/data/slavicmyths/advancement/meet_bandits.json
+?? src/main/resources/data/slavicmyths/advancement/mor_invitation.json
+?? src/main/resources/data/slavicmyths/advancement/mor_story_complete.json
+?? src/main/resources/data/slavicmyths/advancement/own_harvest.json
+?? src/main/resources/data/slavicmyths/advancement/self_brewed_beer.json
+?? src/main/resources/data/slavicmyths/advancement/tales_come_alive.json
+?? src/main/resources/data/slavicmyths/advancement/talk_to_bayun.json
+?? src/main/resources/data/slavicmyths/advancement/wolf_trial_passed.json
+?? src/main/resources/data/slavicmyths/advancement/yaga_thread_earned.json
+?? src/main/resources/data/slavicmyths/tags/worldgen/structure/advancement_discoveries.json
+?? tools/advancements3-offline/JourneyChecks.java
+?? tools/advancements3_report.py
+?? tools/advancements3_resources.py
+?? tools/verify_advancements3.py",,0	2,C:\Users\pavel\.codex\recovery\slavic-myths-20261018\working-changes-07.zip,current chat/root preserved; integration reuses clean advancements worktree,HOLD: dirty/open PR/ignored unique data or current integration
+D:/slavic-myths-audit,refs/heads/audit,b76160800223267abc04e7c6d46812dfba8976dc,875288806,18682,"M  docs/ARCHITECTURE.md
+M  docs/PROJECT_STATUS.md
+M  docs/ROADMAP.md
+A  docs/audit/creatures-1.9.8.1/ATTACKS.csv
+M  docs/audit/creatures-1.9.8.1/CHECKS.md
+A  docs/audit/creatures-1.9.8.1/CREATURES.csv
+A  docs/audit/creatures-1.9.8.1/FORMS.md
+A  docs/audit/creatures-1.9.8.1/POST_IMPLEMENTATION_REQUIREMENTS.md
+M  docs/audit/creatures-1.9.8.1/REPORT.md
+A  docs/audit/creatures-1.9.8.1/REPORT_BEFORE_FINALIZATION.md
+A  docs/audit/creatures-1.9.8.1/TECHNICAL_RISKS.md
+A  docs/audit/creatures-1.9.8.1/UNVERIFIED.csv
+A  docs/audit/creatures-1.9.8.1/completion-summary.json
+A  docs/audit/creatures-1.9.8.1/table-checks.json
+A  docs/implementation/creature-feedback/ARTIFACT_GATES.json
+A  docs/implementation/creature-feedback/AUDIT_SYNC.json
+A  docs/implementation/creature-feedback/AUDIT_SYNC.md
+A  docs/implementation/creature-feedback/CLEAN_BUILD.log
+A  docs/implementation/creature-feedback/DIFF_CHECK.txt
+A  docs/implementation/creature-feedback/FILES.md
+A  docs/implementation/creature-feedback/GATE_NAMES.txt
+A  docs/implementation/creature-feedback/LOCALIZATION_FIXES.json
+A  docs/implementation/creature-feedback/OWN_FILES.json
+A  docs/implementation/creature-feedback/POLYMC_INSTALLATION.md
+A  docs/implementation/creature-feedback/REPORT.md
+A  docs/implementation/creature-feedback/RUNTIME_1.log
+A  docs/implementation/creature-feedback/RUNTIME_2.log
+A  docs/implementation/creature-feedback/RUNTIME_3.log
+A  docs/implementation/creature-feedback/RUNTIME_4.log
+A  docs/implementation/creature-feedback/SPEC.md
+A  docs/implementation/creature-feedback/START_SNAPSHOT.json
+A  docs/implementation/creature-feedback/SUMMARY.json
+A  docs/implementation/creature-feedback/WORKSPACE_DIFF_STAT.txt
+A  docs/implementation/creature-feedback/en_us-samples.json
+A  docs/implementation/creature-feedback/polymc-installation.json
+A  docs/implementation/creature-feedback/ru_ru-samples.json
+A  docs/implementation/creatures-1.9.8.2/BUILD.txt
+A  docs/implementation/creatures-1.9.8.2/CHECKS.json
+A  docs/implementation/creatures-1.9.8.2/FILES.json
+A  docs/implementation/creatures-1.9.8.2/REPORT.md
+A  docs/implementation/creatures-1.9.8.2/SPEC.md
+M  src/main/java/org/slavicmyths/bandit/BanditEntity.java
+M  src/main/java/org/slavicmyths/bandit/LargeCampPiece.java
+M  src/main/java/org/slavicmyths/bandit/NightingaleEntity.java
+M  src/main/java/org/slavicmyths/client/ChudPeopleClient.java
+M  src/main/java/org/slavicmyths/client/GorynychModel.java
+M  src/main/java/org/slavicmyths/client/PolozRenderer.java
+M  src/main/java/org/slavicmyths/combat/CombatTargeting.java
+A  src/main/java/org/slavicmyths/combat/CreatureHealthBalance.java
+A  src/main/java/org/slavicmyths/combat/CreatureSafety.java
+M  src/main/java/org/slavicmyths/earth/EarthSpirit.java
+M  src/main/java/org/slavicmyths/finist/KartausEntity.java
+M  src/main/java/org/slavicmyths/firebird/FirebirdEntity.java
+M  src/main/java/org/slavicmyths/gorynych/Gorynych.java
+M  src/main/java/org/slavicmyths/gorynych/GorynychLedger.java
+A  src/main/java/org/slavicmyths/gorynych/GorynychPose.java
+M  src/main/java/org/slavicmyths/gorynych/GorynychRules.java
+M  src/main/java/org/slavicmyths/gorynych/GorynychWorld.java
+M  src/main/java/org/slavicmyths/guardians/GuardianEntity.java
+M  src/main/java/org/slavicmyths/guardians/GuardianLedger.java
+M  src/main/java/org/slavicmyths/guardians/GuardianRules.java
+M  src/main/java/org/slavicmyths/guardians/GuardianWorld.java
+M  src/main/java/org/slavicmyths/hunt/BossKind.java
+M  src/main/java/org/slavicmyths/hunt/WorldBoss.java
+M  src/main/java/org/slavicmyths/industry/ChudPerson.java
+M  src/main/java/org/slavicmyths/kalin/KalinEntity.java
+M  src/main/java/org/slavicmyths/karachun/Karachun.java
+M  src/main/java/org/slavicmyths/karachun/NightConfig.java
+M  src/main/java/org/slavicmyths/karachun/NightNetwork.java
+M  src/main/java/org/slavicmyths/karachun/NightStatus.java
+M  src/main/java/org/slavicmyths/marinka/MarinkaEntity.java
+M  src/main/java/org/slavicmyths/morozko/FrostConfig.java
+M  src/main/java/org/slavicmyths/morozko/FrostRules.java
+M  src/main/java/org/slavicmyths/morozko/Morozko.java
+M  src/main/java/org/slavicmyths/poloz/GreatPoloz.java
+M  src/main/java/org/slavicmyths/poloz/PolozGlob.java
+M  src/main/java/org/slavicmyths/poloz/PolozRules.java
+M  src/main/java/org/slavicmyths/volkolak/CursedVolkolak.java
+M  src/main/java/org/slavicmyths/wolf/GreyWolf.java
+M  src/main/resources/assets/slavicmyths/lang/ru_ru.json
+A  tools/check_creature_audit_tables_1981.py
+A  tools/creature-feedback-runtime-resources/data/slavicmyths_creature_feedback/structure/empty.nbt
+A  tools/creature-feedback-runtime.init.gradle
+A  tools/creature-feedback-runtime/CreatureFeedbackTests.java
+A  tools/creature-health-offline.gradle
+A  tools/creature-health-tests/CreatureHealthChecks.java
+A  tools/creature_feedback_report.py
+A  tools/finalize_creature_audit_1981.py
+A  tools/finalize_creature_audit_docs_1981.py
+A  tools/install_creature_feedback.ps1
+M  tools/underground_mob_resources.py
+A  tools/verify_creature_feedback.py
+A  tools/verify_creature_health_1982.py
+?? docs/implementation/creature-feedback/OWN_PATCH.patch",,3	0,C:\Users\pavel\.codex\recovery\slavic-myths-20261018\working-changes-08.zip,No active process observed; exact task owner not exposed; do not remove,HOLD: dirty/open PR/ignored unique data or current integration
+D:/slavic-myths-balance,refs/heads/codex/legendary-weapon-balance,8b75b7fbeea3ef9d2b3f9fd04795c5aff47a1157,1177656016,19581,,27,0	1,none: Git-clean; ignored data still protected,No active process observed; exact task owner not exposed; do not remove,HOLD: dirty/open PR/ignored unique data or current integration
+D:/slavic-myths-balance-baseline,DETACHED,fb2994e958911169317523e1066b8a1ca7a155af,1100923610,19546,"M build.gradle
+?? docs/implementation/legendary-weapon-balance/BASELINE_EXTENDED.log
+?? docs/implementation/legendary-weapon-balance/BASELINE_EXTENDED_RETRY.log
+?? docs/implementation/legendary-weapon-balance/BEFORE.json
+?? docs/implementation/legendary-weapon-balance/DPS_CLOCK_BEFORE.json
+?? tools/balance-test-resources/data/slavicmyths_balance/structure/empty.nbt
+?? tools/balance-tests/org/slavicmyths/verify/WeaponBalanceGameTests.java",,0	0,C:\Users\pavel\.codex\recovery\slavic-myths-20261018\working-changes-10.zip,No active process observed; exact task owner not exposed; do not remove,HOLD: dirty/open PR/ignored unique data or current integration
+D:/slavic-myths-integrated,refs/heads/codex/polymc-advancements,8b75b7fbeea3ef9d2b3f9fd04795c5aff47a1157,1121129843,19581,"M build.gradle
+ M docs/ARCHITECTURE.md
+ M docs/PROJECT_STATUS.md
+ M docs/ROADMAP.md
+ M gradle.properties
+ M src/main/java/org/slavicmyths/guardians/GuardianLedger.java
+ M src/main/java/org/slavicmyths/kitchen/KitchenMenu.java
+ M src/main/java/org/slavicmyths/kitchen/KitchenTile.java
+ M src/main/java/org/slavicmyths/tales/TaleService.java
+ M src/main/resources/assets/slavicmyths/lang/en_us.json
+ M src/main/resources/assets/slavicmyths/lang/ru_ru.json
+ M tools/finalize_065.py
+ M tools/generate_milestone.py
+?? .github/workflows/advancements.yml
+?? docs/implementation/advancements-micro-patch/AUDIT.json
+?? docs/implementation/advancements-micro-patch/AUDIT_TESTS.log
+?? docs/implementation/advancements-micro-patch/BUILD_RUNTIME.log
+?? docs/implementation/advancements-micro-patch/CONDITIONS.md
+?? docs/implementation/advancements-micro-patch/FILES.txt
+?? docs/implementation/advancements-micro-patch/FINAL_BUILD.log
+?? docs/implementation/advancements-micro-patch/FINAL_BUILD_RUNTIME.log
+?? docs/implementation/advancements-micro-patch/REPORT.md
+?? docs/implementation/advancements-micro-patch/RESOURCE_JAR.log
+?? docs/implementation/advancements-micro-patch/RESTART_RUNTIME.log
+?? docs/implementation/advancements-micro-patch/save-contract.json
+?? docs/implementation/polymc-advancements/FINAL_BUILD.log
+?? docs/implementation/polymc-advancements/INSTALLATION.log
+?? docs/implementation/polymc-advancements/POLYMC_INSTALLATION.json
+?? docs/implementation/polymc-advancements/REPORT.md
+?? docs/implementation/polymc-advancements/RESOURCE_JAR_CHECKS.json
+?? docs/implementation/polymc-advancements/RESTART.log
+?? docs/implementation/polymc-advancements/RUNTIME.log
+?? tools/advancement-test-resources/data/slavicmyths_advancements/structure/empty.nbt
+?? tools/advancement-tests/org/slavicmyths/verify/AdvancementGameTests.java
+?? tools/check_integrated_install.py
+?? tools/install_advancements_update.ps1
+?? tools/test_advancement_audit.py
+?? tools/verify_advancement_tree.py",,0	1,C:\Users\pavel\.codex\recovery\slavic-myths-20261018\working-changes-11.zip,No active process observed; exact task owner not exposed; do not remove,HOLD: dirty/open PR/ignored unique data or current integration
+D:/slavic-myths-performance,refs/heads/codex/performance-audit,2a47e3b332e7920ef41f259a4f6cf7bff91141fe,1396806009,19640,,32,0	1,none: Git-clean; ignored data still protected,No active process observed; exact task owner not exposed; do not remove,HOLD: dirty/open PR/ignored unique data or current integration

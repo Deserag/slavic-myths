@@ -1,3 +1,5 @@
+throw 'ARCHIVED historical tool. See docs/maintenance/issue-43/HISTORICAL_ARTIFACTS.md; restore its original revision and verified inputs in a separate historical checkout. Current source is not its baseline.'
+
 $ErrorActionPreference='Stop'
 $taskRoot=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $instance=(Resolve-Path -LiteralPath 'C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing').Path

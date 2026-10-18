@@ -1,4 +1,8 @@
 """Production, source, linked-resource and baseline gates. Does not launch a game."""
+
+if __name__ == "__main__":
+    raise SystemExit('ARCHIVED historical tool. See docs/maintenance/issue-43/HISTORICAL_ARTIFACTS.md; restore its original revision and verified inputs in a separate historical checkout. Current source is not its baseline.')
+
 from pathlib import Path
 from PIL import Image
 import hashlib,json,zipfile,struct,re,subprocess,sys

@@ -1,1 +1,0 @@
-package xaero.common.minimap.waypoints;import java.util.*;public class WaypointSet{public List<Waypoint> points=new ArrayList<>();public Runnable onRemove=()->{};public void add(Waypoint p){points.add(p);}public void remove(Waypoint p){onRemove.run();points.remove(p);}}

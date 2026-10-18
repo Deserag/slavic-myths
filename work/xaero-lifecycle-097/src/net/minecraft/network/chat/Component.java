@@ -1,1 +1,0 @@
-package net.minecraft.network.chat; public record Component(String text){public static Component translatable(String s,Object...args){return new Component(s);}public String getString(){return text;}}
