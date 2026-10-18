@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "version": "1.9.7.8",
+  "command": "gradlew.bat clean build",
+  "java": "21.0.12",
+  "compileJava": "FROM-CACHE",
+  "exit_code": 0,
+  "jar_sha256": "22745ffa2bec9d72ed3049425fced3d5e746cf94ae022e4e1812a672c8200171",
+  "new_game_launches": 0
+}

@@ -2,7 +2,7 @@
 
 ## Единственный номер исходников
 
-Авторитетный номер — `mod_version` в [gradle.properties](../gradle.properties). Сейчас это **1.9.7.5**, историческая четырёхкомпонентная схема, не стандартный SemVer. Очистка не меняет номер и не публикует релиз.
+Авторитетный номер — `mod_version` в [gradle.properties](../gradle.properties). Сейчас это **1.9.7.8**, историческая четырёхкомпонентная схема, не стандартный SemVer. 1.9.7.8 — кандидат для локальной проверки утверждённых курганных PNG и исправления выдержки. Номер выбран выше установленной 1.9.7.7; это не публикация 2.0.
 
 [build.gradle](../build.gradle) получает номер через `version = mod_version`; `processResources` подставляет его в [neoforge.mods.toml](../src/main/resources/META-INF/neoforge.mods.toml). Имя JAR формируется Gradle: `slavicmyths-${mod_version}.jar`. Не вписывать второй независимый номер в metadata или код. Проверка `tools/recovery-43/source_gates.py` сравнивает properties, production metadata и имя JAR.
 

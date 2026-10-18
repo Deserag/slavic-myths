@@ -1,6 +1,10 @@
 import json,shutil
+import runpy
 from pathlib import Path
 from PIL import Image,ImageDraw
+if (Path(__file__).resolve().parents[1]/'art/kurgan-16-approved/approved.zip').exists():
+ runpy.run_path(str(Path(__file__).resolve().with_name('install_kurgan_16.py')),run_name='__main__')
+ raise SystemExit(0)
 meta=json.loads(Path('work/kurgan-texture-sources-096.json').read_text());root=Path('art/kurgan-0.9.6');root.mkdir(parents=True,exist_ok=True)
 out=Path('src/main/resources/assets/slavicmyths/textures/block');sheet=Image.new('RGB',(4*272,3*292),'#161d22');draw=ImageDraw.Draw(sheet)
 for i,row in enumerate(meta):
