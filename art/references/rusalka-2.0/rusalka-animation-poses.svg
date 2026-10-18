@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1460" height="930" viewBox="0 0 1460 930"><rect width="100%" height="100%" fill="#F0EEE7"/><g font-family="Georgia,serif" fill="#37432F"><text x="45" y="65" font-size="47" letter-spacing="9">RUSALKA</text><text x="47" y="96" font-size="18" letter-spacing="3">ANIMATION KEY POSES  •  MINECRAFT-JAVA MODELPART PLANNING</text></g><path d="M45 114 H1415" stroke="#B7B8A9" stroke-width="2"/><rect x="27" y="145" width="274" height="336" rx="8" fill="#E7E7DE" stroke="#BEC1B5"/><g transform="translate(164 307) scale(1.91)"><g transform="translate(0 0) scale(1) rotate(0)">
+<g stroke="#3A3A35" stroke-opacity=".24" stroke-width=".85" shape-rendering="crispEdges">
+<rect x="-12" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 -7 23)"/>
+<rect x="1" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 6 23)"/>
+<rect x="-14" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 -7 23)"/>
+<rect x="1" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 6 23)"/>
+<path d="M-17 -10 L17 -10 L23 33 L12 38 L7 35 L0 39 L-10 34 L-18 40 L-23 33Z" fill="#E8E3D6"/>
+<path d="M-17 12 L-23 33 L-18 40 L-10 34 L-4 38 L-3 3Z" fill="#CFC6B4"/>
+<path d="M10 -6 L18 -2 L22 25 L18 27 L14 15Z" fill="#8FA27E"/>
+<path d="M-10 10 L-14 18 L-10 28 L-9 12Z" fill="#5E6D4E"/>
+<g transform="translate(-20,-9) rotate(3)"><rect x="-7" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-7" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="-8" y="10" width="3" height="23" fill="#CFC6B4"/></g>
+<g transform="translate(20,-9) rotate(0)"><rect x="-3" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-3" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="6" y="12" width="3" height="18" fill="#CFC6B4"/></g>
+<g transform="rotate(2 0 -42)">
+<rect x="-17" y="-63" width="34" height="51" fill="#37432F"/>
+<rect x="-14" y="-61" width="28" height="47" fill="#5E6D4E"/>
+<rect x="-11" y="-56" width="22" height="23" fill="#C8D0C6"/><rect x="-11" y="-39" width="22" height="6" fill="#AAB8A5"/>
+<rect x="-17" y="-58" width="8" height="47" fill="#5E6D4E"/><rect x="11" y="-58" width="8" height="50" fill="#5E6D4E"/><rect x="-16" y="-56" width="3" height="26" fill="#8FA27E"/><rect x="16" y="-55" width="3" height="34" fill="#37432F"/><rect x="-16" y="-49" width="6" height="59" fill="#37432F"/><rect x="-16" y="-45" width="3" height="55" fill="#8FA27E"/><rect x="10" y="-43" width="9" height="55" fill="#5E6D4E"/>
+<rect x="-9" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="5" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="-4" y="-40" width="8" height="1.5" fill="#3A3A35"/>
+<rect x="-15" y="-64" width="31" height="4" fill="#37432F"/><rect x="-11" y="-67" width="9" height="4" fill="#8FA27E"/><rect x="0" y="-66" width="13" height="3" fill="#8FA27E"/><rect x="13" y="-62" width="4" height="3" fill="#CFC6B4"/>
+<rect x="-19" y="-39" width="4" height="14" fill="#5E6D4E"/><rect x="16" y="-33" width="4" height="18" fill="#37432F"/>
+</g>
+</g></g></g><text x="164" y="434" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#37432F">IDLE</text><text x="164" y="463" text-anchor="middle" font-size="13" font-family="Georgia" fill="#3A3A35">Nearly still, slow head turn</text><rect x="314" y="145" width="274" height="336" rx="8" fill="#E7E7DE" stroke="#BEC1B5"/><g transform="translate(451 307) scale(1.91)"><g transform="translate(0 0) scale(1) rotate(0)">
+<g stroke="#3A3A35" stroke-opacity=".24" stroke-width=".85" shape-rendering="crispEdges">
+<rect x="-12" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 -7 23)"/>
+<rect x="1" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 6 23)"/>
+<rect x="-14" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 -7 23)"/>
+<rect x="1" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 6 23)"/>
+<path d="M-17 -10 L17 -10 L23 33 L12 38 L7 35 L0 39 L-10 34 L-18 40 L-23 33Z" fill="#E8E3D6"/>
+<path d="M-17 12 L-23 33 L-18 40 L-10 34 L-4 38 L-3 3Z" fill="#CFC6B4"/>
+<path d="M10 -6 L18 -2 L22 25 L18 27 L14 15Z" fill="#8FA27E"/>
+<path d="M-10 10 L-14 18 L-10 28 L-9 12Z" fill="#5E6D4E"/>
+<g transform="translate(-20,-9) rotate(11)"><rect x="-7" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-7" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="-8" y="10" width="3" height="23" fill="#CFC6B4"/></g>
+<g transform="translate(20,-9) rotate(-4)"><rect x="-3" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-3" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="6" y="12" width="3" height="18" fill="#CFC6B4"/></g>
+<g transform="rotate(16 0 -42)">
+<rect x="-17" y="-63" width="34" height="51" fill="#37432F"/>
+<rect x="-14" y="-61" width="28" height="47" fill="#5E6D4E"/>
+<rect x="-11" y="-56" width="22" height="23" fill="#C8D0C6"/><rect x="-11" y="-39" width="22" height="6" fill="#AAB8A5"/>
+<rect x="-17" y="-58" width="8" height="47" fill="#5E6D4E"/><rect x="11" y="-58" width="8" height="50" fill="#5E6D4E"/><rect x="-16" y="-56" width="3" height="26" fill="#8FA27E"/><rect x="16" y="-55" width="3" height="34" fill="#37432F"/><rect x="-16" y="-49" width="6" height="59" fill="#37432F"/><rect x="-16" y="-45" width="3" height="55" fill="#8FA27E"/><rect x="10" y="-43" width="9" height="55" fill="#5E6D4E"/>
+<rect x="-9" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="5" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="-4" y="-40" width="8" height="1.5" fill="#3A3A35"/>
+<rect x="-15" y="-64" width="31" height="4" fill="#37432F"/><rect x="-11" y="-67" width="9" height="4" fill="#8FA27E"/><rect x="0" y="-66" width="13" height="3" fill="#8FA27E"/><rect x="13" y="-62" width="4" height="3" fill="#CFC6B4"/>
+<rect x="-19" y="-39" width="4" height="14" fill="#5E6D4E"/><rect x="16" y="-33" width="4" height="18" fill="#37432F"/>
+</g>
+</g></g></g><text x="451" y="434" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#37432F">OBSERVE</text><text x="451" y="463" text-anchor="middle" font-size="13" font-family="Georgia" fill="#3A3A35">Tilt, watch player</text><rect x="601" y="145" width="274" height="336" rx="8" fill="#E7E7DE" stroke="#BEC1B5"/><g transform="translate(738 307) scale(1.91)"><g transform="translate(0 0) scale(1) rotate(0)">
+<g stroke="#3A3A35" stroke-opacity=".24" stroke-width=".85" shape-rendering="crispEdges">
+<rect x="-12" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(21 -7 23)"/>
+<rect x="1" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(-17 6 23)"/>
+<rect x="-14" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(21 -7 23)"/>
+<rect x="1" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(-17 6 23)"/>
+<path d="M-17 -10 L17 -10 L23 33 L12 38 L7 35 L0 39 L-10 34 L-18 40 L-23 33Z" fill="#E8E3D6"/>
+<path d="M-17 12 L-23 33 L-18 40 L-10 34 L-4 38 L-3 3Z" fill="#CFC6B4"/>
+<path d="M10 -6 L18 -2 L22 25 L18 27 L14 15Z" fill="#8FA27E"/>
+<path d="M-10 10 L-14 18 L-10 28 L-9 12Z" fill="#5E6D4E"/>
+<g transform="translate(-20,-9) rotate(-9)"><rect x="-7" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-7" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="-8" y="10" width="3" height="23" fill="#CFC6B4"/></g>
+<g transform="translate(20,-9) rotate(13)"><rect x="-3" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-3" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="6" y="12" width="3" height="18" fill="#CFC6B4"/></g>
+<g transform="rotate(7 0 -42)">
+<rect x="-17" y="-63" width="34" height="51" fill="#37432F"/>
+<rect x="-14" y="-61" width="28" height="47" fill="#5E6D4E"/>
+<rect x="-11" y="-56" width="22" height="23" fill="#C8D0C6"/><rect x="-11" y="-39" width="22" height="6" fill="#AAB8A5"/>
+<rect x="-17" y="-58" width="8" height="47" fill="#5E6D4E"/><rect x="11" y="-58" width="8" height="50" fill="#5E6D4E"/><rect x="-16" y="-56" width="3" height="26" fill="#8FA27E"/><rect x="16" y="-55" width="3" height="34" fill="#37432F"/><rect x="-16" y="-49" width="6" height="59" fill="#37432F"/><rect x="-16" y="-45" width="3" height="55" fill="#8FA27E"/><rect x="10" y="-43" width="9" height="55" fill="#5E6D4E"/>
+<rect x="-9" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="5" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="-4" y="-40" width="8" height="1.5" fill="#3A3A35"/>
+<rect x="-15" y="-64" width="31" height="4" fill="#37432F"/><rect x="-11" y="-67" width="9" height="4" fill="#8FA27E"/><rect x="0" y="-66" width="13" height="3" fill="#8FA27E"/><rect x="13" y="-62" width="4" height="3" fill="#CFC6B4"/>
+<rect x="-19" y="-39" width="4" height="14" fill="#5E6D4E"/><rect x="16" y="-33" width="4" height="18" fill="#37432F"/>
+</g>
+</g></g></g><text x="738" y="434" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#37432F">WALK</text><text x="738" y="463" text-anchor="middle" font-size="13" font-family="Georgia" fill="#3A3A35">Uneven, cautious steps</text><rect x="888" y="145" width="274" height="336" rx="8" fill="#E7E7DE" stroke="#BEC1B5"/><g transform="translate(1025 307) scale(1.91)"><g transform="translate(0 0) scale(1) rotate(73)">
+<g stroke="#3A3A35" stroke-opacity=".24" stroke-width=".85" shape-rendering="crispEdges">
+<rect x="-12" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(12 -7 23)"/>
+<rect x="1" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(-12 6 23)"/>
+<rect x="-14" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(12 -7 23)"/>
+<rect x="1" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(-12 6 23)"/>
+<path d="M-17 -10 L17 -10 L23 33 L12 38 L7 35 L0 39 L-10 34 L-18 40 L-23 33Z" fill="#E8E3D6"/>
+<path d="M-17 12 L-23 33 L-18 40 L-10 34 L-4 38 L-3 3Z" fill="#CFC6B4"/>
+<path d="M10 -6 L18 -2 L22 25 L18 27 L14 15Z" fill="#8FA27E"/>
+<path d="M-10 10 L-14 18 L-10 28 L-9 12Z" fill="#5E6D4E"/>
+<g transform="translate(-20,-9) rotate(36)"><rect x="-7" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-7" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="-8" y="10" width="3" height="23" fill="#CFC6B4"/></g>
+<g transform="translate(20,-9) rotate(-27)"><rect x="-3" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-3" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="6" y="12" width="3" height="18" fill="#CFC6B4"/></g>
+<g transform="rotate(0 0 -42)">
+<rect x="-17" y="-63" width="34" height="51" fill="#37432F"/>
+<rect x="-14" y="-61" width="28" height="47" fill="#5E6D4E"/>
+<rect x="-11" y="-56" width="22" height="23" fill="#C8D0C6"/><rect x="-11" y="-39" width="22" height="6" fill="#AAB8A5"/>
+<rect x="-17" y="-58" width="8" height="47" fill="#5E6D4E"/><rect x="11" y="-58" width="8" height="50" fill="#5E6D4E"/><rect x="-16" y="-56" width="3" height="26" fill="#8FA27E"/><rect x="16" y="-55" width="3" height="34" fill="#37432F"/><rect x="-16" y="-49" width="6" height="59" fill="#37432F"/><rect x="-16" y="-45" width="3" height="55" fill="#8FA27E"/><rect x="10" y="-43" width="9" height="55" fill="#5E6D4E"/>
+<rect x="-9" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="5" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="-4" y="-40" width="8" height="1.5" fill="#3A3A35"/>
+<rect x="-15" y="-64" width="31" height="4" fill="#37432F"/><rect x="-11" y="-67" width="9" height="4" fill="#8FA27E"/><rect x="0" y="-66" width="13" height="3" fill="#8FA27E"/><rect x="13" y="-62" width="4" height="3" fill="#CFC6B4"/>
+<rect x="-19" y="-39" width="4" height="14" fill="#5E6D4E"/><rect x="16" y="-33" width="4" height="18" fill="#37432F"/>
+</g>
+</g></g></g><text x="1025" y="434" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#37432F">SWIM</text><text x="1025" y="463" text-anchor="middle" font-size="13" font-family="Georgia" fill="#3A3A35">Horizontal water stroke</text><rect x="1175" y="145" width="274" height="336" rx="8" fill="#E7E7DE" stroke="#BEC1B5"/><g transform="translate(1312 307) scale(1.91)"><g transform="translate(0 0) scale(1) rotate(0)">
+<g stroke="#3A3A35" stroke-opacity=".24" stroke-width=".85" shape-rendering="crispEdges">
+<rect x="-12" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 -7 23)"/>
+<rect x="1" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 6 23)"/>
+<rect x="-14" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 -7 23)"/>
+<rect x="1" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 6 23)"/>
+<path d="M-17 -10 L17 -10 L23 33 L12 38 L7 35 L0 39 L-10 34 L-18 40 L-23 33Z" fill="#E8E3D6"/>
+<path d="M-17 12 L-23 33 L-18 40 L-10 34 L-4 38 L-3 3Z" fill="#CFC6B4"/>
+<path d="M10 -6 L18 -2 L22 25 L18 27 L14 15Z" fill="#8FA27E"/>
+<path d="M-10 10 L-14 18 L-10 28 L-9 12Z" fill="#5E6D4E"/>
+<g transform="translate(-20,-9) rotate(-35)"><rect x="-7" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-7" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="-8" y="10" width="3" height="23" fill="#CFC6B4"/></g>
+<g transform="translate(20,-9) rotate(-96)"><rect x="-3" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-3" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="6" y="12" width="3" height="18" fill="#CFC6B4"/></g>
+<g transform="rotate(-8 0 -42)">
+<rect x="-17" y="-63" width="34" height="51" fill="#37432F"/>
+<rect x="-14" y="-61" width="28" height="47" fill="#5E6D4E"/>
+<rect x="-11" y="-56" width="22" height="23" fill="#C8D0C6"/><rect x="-11" y="-39" width="22" height="6" fill="#AAB8A5"/>
+<rect x="-17" y="-58" width="8" height="47" fill="#5E6D4E"/><rect x="11" y="-58" width="8" height="50" fill="#5E6D4E"/><rect x="-16" y="-56" width="3" height="26" fill="#8FA27E"/><rect x="16" y="-55" width="3" height="34" fill="#37432F"/><rect x="-16" y="-49" width="6" height="59" fill="#37432F"/><rect x="-16" y="-45" width="3" height="55" fill="#8FA27E"/><rect x="10" y="-43" width="9" height="55" fill="#5E6D4E"/>
+<rect x="-9" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="5" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="-4" y="-40" width="8" height="1.5" fill="#3A3A35"/>
+<rect x="-15" y="-64" width="31" height="4" fill="#37432F"/><rect x="-11" y="-67" width="9" height="4" fill="#8FA27E"/><rect x="0" y="-66" width="13" height="3" fill="#8FA27E"/><rect x="13" y="-62" width="4" height="3" fill="#CFC6B4"/>
+<rect x="-19" y="-39" width="4" height="14" fill="#5E6D4E"/><rect x="16" y="-33" width="4" height="18" fill="#37432F"/>
+</g>
+</g></g></g><text x="1312" y="434" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#37432F">SONG / LURE</text><text x="1312" y="463" text-anchor="middle" font-size="13" font-family="Georgia" fill="#3A3A35">Open reaching arm</text><rect x="27" y="493" width="274" height="336" rx="8" fill="#E7E7DE" stroke="#BEC1B5"/><g transform="translate(164 655) scale(1.91)"><g transform="translate(0 0) scale(1) rotate(0)">
+<g stroke="#3A3A35" stroke-opacity=".24" stroke-width=".85" shape-rendering="crispEdges">
+<rect x="-12" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 -7 23)"/>
+<rect x="1" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 6 23)"/>
+<rect x="-14" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 -7 23)"/>
+<rect x="1" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 6 23)"/>
+<path d="M-17 -10 L17 -10 L23 33 L12 38 L7 35 L0 39 L-10 34 L-18 40 L-23 33Z" fill="#E8E3D6"/>
+<path d="M-17 12 L-23 33 L-18 40 L-10 34 L-4 38 L-3 3Z" fill="#CFC6B4"/>
+<path d="M10 -6 L18 -2 L22 25 L18 27 L14 15Z" fill="#8FA27E"/>
+<path d="M-10 10 L-14 18 L-10 28 L-9 12Z" fill="#5E6D4E"/>
+<g transform="translate(-20,-9) rotate(14)"><rect x="-7" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-7" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="-8" y="10" width="3" height="23" fill="#CFC6B4"/></g>
+<g transform="translate(20,-9) rotate(12)"><rect x="-3" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-3" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="6" y="12" width="3" height="18" fill="#CFC6B4"/></g>
+<g transform="rotate(25 0 -42)">
+<rect x="-17" y="-63" width="34" height="51" fill="#37432F"/>
+<rect x="-14" y="-61" width="28" height="47" fill="#5E6D4E"/>
+<rect x="-11" y="-56" width="22" height="23" fill="#C8D0C6"/><rect x="-11" y="-39" width="22" height="6" fill="#AAB8A5"/>
+<rect x="-17" y="-58" width="8" height="47" fill="#5E6D4E"/><rect x="11" y="-58" width="8" height="50" fill="#5E6D4E"/><rect x="-16" y="-56" width="3" height="26" fill="#8FA27E"/><rect x="16" y="-55" width="3" height="34" fill="#37432F"/><rect x="-16" y="-49" width="6" height="59" fill="#37432F"/><rect x="-16" y="-45" width="3" height="55" fill="#8FA27E"/><rect x="10" y="-43" width="9" height="55" fill="#5E6D4E"/>
+<rect x="-9" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="5" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="-4" y="-40" width="8" height="1.5" fill="#3A3A35"/>
+<rect x="-15" y="-64" width="31" height="4" fill="#37432F"/><rect x="-11" y="-67" width="9" height="4" fill="#8FA27E"/><rect x="0" y="-66" width="13" height="3" fill="#8FA27E"/><rect x="13" y="-62" width="4" height="3" fill="#CFC6B4"/>
+<rect x="-19" y="-39" width="4" height="14" fill="#5E6D4E"/><rect x="16" y="-33" width="4" height="18" fill="#37432F"/>
+</g>
+</g></g></g><text x="164" y="782" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#37432F">SONG BREAK</text><text x="164" y="811" text-anchor="middle" font-size="13" font-family="Georgia" fill="#3A3A35">Sudden frozen downward face</text><rect x="314" y="493" width="274" height="336" rx="8" fill="#E7E7DE" stroke="#BEC1B5"/><g transform="translate(451 655) scale(1.91)"><g transform="translate(0 0) scale(1) rotate(17)">
+<g stroke="#3A3A35" stroke-opacity=".24" stroke-width=".85" shape-rendering="crispEdges">
+<rect x="-12" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 -7 23)"/>
+<rect x="1" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 6 23)"/>
+<rect x="-14" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 -7 23)"/>
+<rect x="1" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 6 23)"/>
+<path d="M-17 -10 L17 -10 L23 33 L12 38 L7 35 L0 39 L-10 34 L-18 40 L-23 33Z" fill="#E8E3D6"/>
+<path d="M-17 12 L-23 33 L-18 40 L-10 34 L-4 38 L-3 3Z" fill="#CFC6B4"/>
+<path d="M10 -6 L18 -2 L22 25 L18 27 L14 15Z" fill="#8FA27E"/>
+<path d="M-10 10 L-14 18 L-10 28 L-9 12Z" fill="#5E6D4E"/>
+<g transform="translate(-20,-9) rotate(50)"><rect x="-7" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-7" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="-8" y="10" width="3" height="23" fill="#CFC6B4"/></g>
+<g transform="translate(20,-9) rotate(-37)"><rect x="-3" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-3" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="6" y="12" width="3" height="18" fill="#CFC6B4"/></g>
+<g transform="rotate(19 0 -42)">
+<rect x="-17" y="-63" width="34" height="51" fill="#37432F"/>
+<rect x="-14" y="-61" width="28" height="47" fill="#5E6D4E"/>
+<rect x="-11" y="-56" width="22" height="23" fill="#C8D0C6"/><rect x="-11" y="-39" width="22" height="6" fill="#AAB8A5"/>
+<rect x="-17" y="-58" width="8" height="47" fill="#5E6D4E"/><rect x="11" y="-58" width="8" height="50" fill="#5E6D4E"/><rect x="-16" y="-56" width="3" height="26" fill="#8FA27E"/><rect x="16" y="-55" width="3" height="34" fill="#37432F"/><rect x="-16" y="-49" width="6" height="59" fill="#37432F"/><rect x="-16" y="-45" width="3" height="55" fill="#8FA27E"/><rect x="10" y="-43" width="9" height="55" fill="#5E6D4E"/>
+<rect x="-9" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="5" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="-4" y="-40" width="8" height="1.5" fill="#3A3A35"/>
+<rect x="-15" y="-64" width="31" height="4" fill="#37432F"/><rect x="-11" y="-67" width="9" height="4" fill="#8FA27E"/><rect x="0" y="-66" width="13" height="3" fill="#8FA27E"/><rect x="13" y="-62" width="4" height="3" fill="#CFC6B4"/>
+<rect x="-19" y="-39" width="4" height="14" fill="#5E6D4E"/><rect x="16" y="-33" width="4" height="18" fill="#37432F"/>
+</g>
+</g></g></g><text x="451" y="782" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#37432F">ATTACK WARN</text><text x="451" y="811" text-anchor="middle" font-size="13" font-family="Georgia" fill="#3A3A35">Curl torso, pull both arms</text><rect x="601" y="493" width="274" height="336" rx="8" fill="#E7E7DE" stroke="#BEC1B5"/><g transform="translate(738 655) scale(1.91)"><g transform="translate(0 0) scale(1) rotate(42)">
+<g stroke="#3A3A35" stroke-opacity=".24" stroke-width=".85" shape-rendering="crispEdges">
+<rect x="-12" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(-14 -7 23)"/>
+<rect x="1" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(12 6 23)"/>
+<rect x="-14" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(-14 -7 23)"/>
+<rect x="1" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(12 6 23)"/>
+<path d="M-17 -10 L17 -10 L23 33 L12 38 L7 35 L0 39 L-10 34 L-18 40 L-23 33Z" fill="#E8E3D6"/>
+<path d="M-17 12 L-23 33 L-18 40 L-10 34 L-4 38 L-3 3Z" fill="#CFC6B4"/>
+<path d="M10 -6 L18 -2 L22 25 L18 27 L14 15Z" fill="#8FA27E"/>
+<path d="M-10 10 L-14 18 L-10 28 L-9 12Z" fill="#5E6D4E"/>
+<g transform="translate(-20,-9) rotate(-88)"><rect x="-7" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-7" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="-8" y="10" width="3" height="23" fill="#CFC6B4"/></g>
+<g transform="translate(20,-9) rotate(-90)"><rect x="-3" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-3" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="6" y="12" width="3" height="18" fill="#CFC6B4"/></g>
+<g transform="rotate(0 0 -42)">
+<rect x="-17" y="-63" width="34" height="51" fill="#37432F"/>
+<rect x="-14" y="-61" width="28" height="47" fill="#5E6D4E"/>
+<rect x="-11" y="-56" width="22" height="23" fill="#C8D0C6"/><rect x="-11" y="-39" width="22" height="6" fill="#AAB8A5"/>
+<rect x="-17" y="-58" width="8" height="47" fill="#5E6D4E"/><rect x="11" y="-58" width="8" height="50" fill="#5E6D4E"/><rect x="-16" y="-56" width="3" height="26" fill="#8FA27E"/><rect x="16" y="-55" width="3" height="34" fill="#37432F"/><rect x="-16" y="-49" width="6" height="59" fill="#37432F"/><rect x="-16" y="-45" width="3" height="55" fill="#8FA27E"/><rect x="10" y="-43" width="9" height="55" fill="#5E6D4E"/>
+<rect x="-9" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="5" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="-4" y="-40" width="8" height="1.5" fill="#3A3A35"/>
+<rect x="-15" y="-64" width="31" height="4" fill="#37432F"/><rect x="-11" y="-67" width="9" height="4" fill="#8FA27E"/><rect x="0" y="-66" width="13" height="3" fill="#8FA27E"/><rect x="13" y="-62" width="4" height="3" fill="#CFC6B4"/>
+<rect x="-19" y="-39" width="4" height="14" fill="#5E6D4E"/><rect x="16" y="-33" width="4" height="18" fill="#37432F"/>
+</g>
+</g></g></g><text x="738" y="782" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#37432F">GRAB / LUNGE</text><text x="738" y="811" text-anchor="middle" font-size="13" font-family="Georgia" fill="#3A3A35">Lean &amp; forward reach</text><rect x="888" y="493" width="274" height="336" rx="8" fill="#E7E7DE" stroke="#BEC1B5"/><g transform="translate(1025 655) scale(1.91)"><g transform="translate(0 0) scale(1) rotate(-18)">
+<g stroke="#3A3A35" stroke-opacity=".24" stroke-width=".85" shape-rendering="crispEdges">
+<rect x="-12" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 -7 23)"/>
+<rect x="1" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 6 23)"/>
+<rect x="-14" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 -7 23)"/>
+<rect x="1" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 6 23)"/>
+<path d="M-17 -10 L17 -10 L23 33 L12 38 L7 35 L0 39 L-10 34 L-18 40 L-23 33Z" fill="#E8E3D6"/>
+<path d="M-17 12 L-23 33 L-18 40 L-10 34 L-4 38 L-3 3Z" fill="#CFC6B4"/>
+<path d="M10 -6 L18 -2 L22 25 L18 27 L14 15Z" fill="#8FA27E"/>
+<path d="M-10 10 L-14 18 L-10 28 L-9 12Z" fill="#5E6D4E"/>
+<g transform="translate(-20,-9) rotate(-60)"><rect x="-7" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-7" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="-8" y="10" width="3" height="23" fill="#CFC6B4"/></g>
+<g transform="translate(20,-9) rotate(50)"><rect x="-3" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-3" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="6" y="12" width="3" height="18" fill="#CFC6B4"/></g>
+<g transform="rotate(-15 0 -42)">
+<rect x="-17" y="-63" width="34" height="51" fill="#37432F"/>
+<rect x="-14" y="-61" width="28" height="47" fill="#5E6D4E"/>
+<rect x="-11" y="-56" width="22" height="23" fill="#C8D0C6"/><rect x="-11" y="-39" width="22" height="6" fill="#AAB8A5"/>
+<rect x="-17" y="-58" width="8" height="47" fill="#5E6D4E"/><rect x="11" y="-58" width="8" height="50" fill="#5E6D4E"/><rect x="-16" y="-56" width="3" height="26" fill="#8FA27E"/><rect x="16" y="-55" width="3" height="34" fill="#37432F"/><rect x="-16" y="-49" width="6" height="59" fill="#37432F"/><rect x="-16" y="-45" width="3" height="55" fill="#8FA27E"/><rect x="10" y="-43" width="9" height="55" fill="#5E6D4E"/>
+<rect x="-9" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="5" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="-4" y="-40" width="8" height="1.5" fill="#3A3A35"/>
+<rect x="-15" y="-64" width="31" height="4" fill="#37432F"/><rect x="-11" y="-67" width="9" height="4" fill="#8FA27E"/><rect x="0" y="-66" width="13" height="3" fill="#8FA27E"/><rect x="13" y="-62" width="4" height="3" fill="#CFC6B4"/>
+<rect x="-19" y="-39" width="4" height="14" fill="#5E6D4E"/><rect x="16" y="-33" width="4" height="18" fill="#37432F"/>
+</g>
+</g></g></g><text x="1025" y="782" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#37432F">HURT</text><text x="1025" y="811" text-anchor="middle" font-size="13" font-family="Georgia" fill="#3A3A35">Head recoil &amp; twist</text><rect x="1175" y="493" width="274" height="336" rx="8" fill="#E7E7DE" stroke="#BEC1B5"/><g transform="translate(1312 655) scale(1.91)"><g transform="translate(0 0) scale(1) rotate(0)">
+<g stroke="#3A3A35" stroke-opacity=".24" stroke-width=".85" shape-rendering="crispEdges">
+<rect x="-12" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 -7 23)"/>
+<rect x="1" y="23" width="11" height="25" fill="#AAB8A5" transform="rotate(0 6 23)"/>
+<rect x="-14" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 -7 23)"/>
+<rect x="1" y="43" width="14" height="6" fill="#C8D0C6" transform="rotate(0 6 23)"/>
+<path d="M-17 -10 L17 -10 L23 33 L12 38 L7 35 L0 39 L-10 34 L-18 40 L-23 33Z" fill="#E8E3D6"/>
+<path d="M-17 12 L-23 33 L-18 40 L-10 34 L-4 38 L-3 3Z" fill="#CFC6B4"/>
+<path d="M10 -6 L18 -2 L22 25 L18 27 L14 15Z" fill="#8FA27E"/>
+<path d="M-10 10 L-14 18 L-10 28 L-9 12Z" fill="#5E6D4E"/>
+<g transform="translate(-20,-9) rotate(-12)"><rect x="-7" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-7" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="-8" y="10" width="3" height="23" fill="#CFC6B4"/></g>
+<g transform="translate(20,-9) rotate(-8)"><rect x="-3" y="0" width="10" height="37" fill="#E8E3D6"/><rect x="-3" y="34" width="10" height="9" fill="#C8D0C6"/><rect x="6" y="12" width="3" height="18" fill="#CFC6B4"/></g>
+<g transform="rotate(9 0 -42)">
+<rect x="-17" y="-63" width="34" height="51" fill="#37432F"/>
+<rect x="-14" y="-61" width="28" height="47" fill="#5E6D4E"/>
+<rect x="-11" y="-56" width="22" height="23" fill="#C8D0C6"/><rect x="-11" y="-39" width="22" height="6" fill="#AAB8A5"/>
+<rect x="-17" y="-58" width="8" height="47" fill="#5E6D4E"/><rect x="11" y="-58" width="8" height="50" fill="#5E6D4E"/><rect x="-16" y="-56" width="3" height="26" fill="#8FA27E"/><rect x="16" y="-55" width="3" height="34" fill="#37432F"/><rect x="-16" y="-49" width="6" height="59" fill="#37432F"/><rect x="-16" y="-45" width="3" height="55" fill="#8FA27E"/><rect x="10" y="-43" width="9" height="55" fill="#5E6D4E"/>
+<rect x="-9" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="5" y="-51" width="3" height="3" fill="#DFF2E0"/><rect x="-4" y="-40" width="8" height="1.5" fill="#3A3A35"/>
+<rect x="-15" y="-64" width="31" height="4" fill="#37432F"/><rect x="-11" y="-67" width="9" height="4" fill="#8FA27E"/><rect x="0" y="-66" width="13" height="3" fill="#8FA27E"/><rect x="13" y="-62" width="4" height="3" fill="#CFC6B4"/>
+<rect x="-19" y="-39" width="4" height="14" fill="#5E6D4E"/><rect x="16" y="-33" width="4" height="18" fill="#37432F"/>
+</g>
+</g></g></g><text x="1312" y="782" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#37432F">RECOVERY</text><text x="1312" y="811" text-anchor="middle" font-size="13" font-family="Georgia" fill="#3A3A35">Return slowly to calm</text><text x="34" y="883" font-size="17" font-family="Georgia" fill="#3A3A35">Rules: graceful singer → unnatural hostile lunge. Blend transitions; retain old synced states; collision/damage timing must match visual events.</text><text x="34" y="915" font-size="13" fill="#777">Illustrative guide only. Production implementation uses actual rig and source textures; no Minecraft runtime screenshots.</text></svg>
