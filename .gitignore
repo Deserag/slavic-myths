@@ -26,3 +26,24 @@ run-village-buildings-checks/
 
 # Agent scratch copies; authoritative specifications and tooling are in docs/tools.
 /.codex/
+
+# Historical release binary copies belong in external archives / GitHub Releases,
+# not source control. Preserve release notes and SHA manifests as text.
+/release/*.jar
+/release/*.zip
+/release/*.mrpack
+
+# Generated diagnostic outputs and large profiling dumps, including nested runs.
+*.log
+*.jfr
+*.hprof
+*.heapdump
+*.tmp
+*.bak
+*.orig
+*~
+Thumbs.db
+.DS_Store
+
+# Local agent input / export workspace, not canonical project sources.
+/.codex-input/
