@@ -1,0 +1,54 @@
+{
+  "status": "PARTIAL_NEEDS_AUDIO_SOURCE",
+  "checks": 6869,
+  "source_checks": "STATIC, NOT LIVE CLIENT ACCEPTANCE",
+  "jar": "slavicmyths-1.9.7.8.jar",
+  "jar_sha256": "244ffe8e98c846991a1f24971494d233763537c3583522dbdd8eeb40e3762a4d",
+  "atlas_sha256": "c193286a5d874f9112907f54c128f163c8956aaf9ddb45a71bfc60e8824fbf79",
+  "audio": [
+    {
+      "file": "rusalka_ambient.ogg",
+      "seconds": 1.8,
+      "rate": 22050,
+      "peak": 0.323,
+      "sha256": "d417737eeee356f86a35a3d9a8c87f24e6f6cc2a7a79365b39c98935146d6604",
+      "status": "LEGACY_NOT_ACCEPTED_ON_HEARING"
+    },
+    {
+      "file": "rusalka_angry.ogg",
+      "seconds": 1.8,
+      "rate": 22050,
+      "peak": 0.3342,
+      "sha256": "281b73d3aae845b37287e3b0e939bb6333da8eaa5fe17c01ade465e7c72bea17",
+      "status": "LEGACY_NOT_ACCEPTED_ON_HEARING"
+    },
+    {
+      "file": "rusalka_death.ogg",
+      "seconds": 1.8,
+      "rate": 22050,
+      "peak": 0.3188,
+      "sha256": "f4993f62a2214554ac93600cad04a4686ebc409151a16100c2309e83cd8a9a12",
+      "status": "LEGACY_NOT_ACCEPTED_ON_HEARING"
+    },
+    {
+      "file": "rusalka_hurt.ogg",
+      "seconds": 1.8,
+      "rate": 22050,
+      "peak": 0.3311,
+      "sha256": "44c737cfa83be031693c18ad205ae24d741dd16d73d24d7c2ff03722c96195ca",
+      "status": "LEGACY_NOT_ACCEPTED_ON_HEARING"
+    },
+    {
+      "file": "rusalka_song.ogg",
+      "seconds": 8.0,
+      "rate": 22050,
+      "peak": 0.3322,
+      "sha256": "686adcec23b0be21b96a1c54d48f840f391ddbbc70be495d0cda6dd1b1aa30dc",
+      "status": "LEGACY_NOT_ACCEPTED_ON_HEARING"
+    }
+  ],
+  "legacy_loop_endpoint_delta": 0.00041781452819122933,
+  "runtime_launches": 0,
+  "manual_playback": "NOT_RUN",
+  "vocal": "NEEDS_AUDIO_SOURCE"
+}

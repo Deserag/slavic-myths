@@ -26,7 +26,10 @@ def generate():
  'fishing_net':('Рыболовная сеть','Fishing net'),'reed':('Камыш','Reed'),'water_grass':('Водная трава','Water grass'),'white_lily':('Белая кувшинка','White water lily')}
  animals={'pike':((83,101,56),'Щука','Pike'),'carp':((163,119,56),'Карп','Carp'),'crayfish':((73,78,50),'Речной рак','Crayfish'),'vodyanoy':((104,127,113),'Водяной','Vodyanoy'),'rusalka':((198,213,207),'Русалка','Rusalka')}
  for name,(color,ru,en) in animals.items():
-  material(A/f'textures/entity/{name}.png',256,color,name in ('vodyanoy','rusalka'))
+  if name=='rusalka':
+   import runpy
+   runpy.run_path(str(R/'tools/rusalka_resources.py'),run_name='__main__')
+  else:material(A/f'textures/entity/{name}.png',256,color,name=='vodyanoy')
   write(A/f'models/item/{name}_spawn_egg.json',{'parent':'minecraft:item/template_spawn_egg'})
   names[name+'_spawn_egg']=(ru+': яйцо призыва',en+' spawn egg')
   item='raw_'+name if name in ('pike','carp','crayfish') else 'water_grass' if name=='vodyanoy' else 'pearl_fragment'
@@ -85,7 +88,8 @@ def generate():
 def sounds():
  sys.path.insert(0,str(R/'.tools/audio-libs'));import numpy as np;import soundfile as sf
  events=json.loads((A/'sounds.json').read_text(encoding='utf-8'))
- for who in ('vodyanoy','rusalka'):
+ # Rusalka recordings are preserved until #49 receives an approved real vocal source.
+ for who in ('vodyanoy',):
   for kind in ('ambient','angry','hurt','death','song'):
    if who=='vodyanoy' and kind=='song':continue
    name=who+'_'+kind;duration=8 if kind=='song' else 1.8;rate=22050;t=np.arange(int(rate*duration))/rate

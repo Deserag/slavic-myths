@@ -1,3 +1,30 @@
+## Русалка — #49, 2026-10-18
+
+**PARTIAL_NEEDS_AUDIO_SOURCE**: реализована отдельная native модель/текстура
+128×64,31часть,13поз; SynchedEntityData для визуальных действий, телеграфированный
+single-hit, ограниченный физический нырок в глубокой загруженной воде,
+срыв песни/LOS и ограниченный lifecycle loop. Водяной и другие мобы не менялись;
+registry IDs/hitbox/attrs, Knowledge, charm-пороги/защитные вещи и старые NBT
+сохранены. Генератор воспроизводит новую Русалку, не возвращает256px skin
+и не пересинтезирует её legacy OGG.
+
+Java21 `clean build -PrusalkaOfflineCheck verifyRusalkaOffline`: **PASS**,
+20062 native/offline assertions;6869 source/resource/production JAR checks PASS.
+31part/13pose UV/finite/reset, два интерливированных UUID, bounded transitions,
+AttackTimeline/cancel, dive-policy, реальный CompoundTag roundtrip; не игровой
+перезаход/сетевой runtime. Production `build/libs/slavicmyths-1.9.7.8.jar` проверен;
+fixture отсутствует в JAR. Deprecated/unchecked предупреждения существующего
+проекта остаются. Source projections до/после и ключевые позы приложены.
+
+Все5legacy OGG побайтно сохранены, decode/loop-endpoints PASS, но прослушивание
+и финальный женский вокал **NOT_RUN / NEEDS_AUDIO_SOURCE**. Требуется запись
+женского голоса без слов с правами на обработку/распространение; отдельные
+intro/intensity/break/grab и варианты ambient/hurt ещё не поставлены.
+#49 не закрыта и не объявлена DONE. Версия1.9.7.8/PolyMC не менялись.
+Minecraft/client/server/GameTest/PolyMC: **0 запусков**. Следующие мобы этим
+коммитом не реализуются. Пользовательские10удалений future/** не затронуты.
+[Модель, кадры, ограничения и проверки](implementation/rusalka-49/README.md).
+
 ## Курганные текстуры V2 — #46 (2026-10-18)
 
 Отвергнутый V1 заменён на11 точных PNG RGB16×16 из переданного владельцем V2.

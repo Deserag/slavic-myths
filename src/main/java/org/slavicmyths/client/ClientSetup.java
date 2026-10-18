@@ -90,7 +90,7 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.WEAPON_PROJECTILE.get(),WeaponProjectileRenderer::new);
         event.registerEntityRenderer(ModEntities.BOLOTNIK.get(),BolotnikRenderer::new);
         event.registerEntityRenderer(ModEntities.VODYANOY.get(),m->new WaterSpiritRenderer(m,false));
-        event.registerEntityRenderer(ModEntities.RUSALKA.get(),m->new WaterSpiritRenderer(m,true));
+        event.registerEntityRenderer(ModEntities.RUSALKA.get(),RusalkaRenderer::new);
         event.registerEntityRenderer(ModEntities.PIKE.get(),m->new RiverFishRenderer(m,0));
         event.registerEntityRenderer(ModEntities.CARP.get(),m->new RiverFishRenderer(m,1));
         event.registerEntityRenderer(ModEntities.CRAYFISH.get(),m->new RiverFishRenderer(m,2));

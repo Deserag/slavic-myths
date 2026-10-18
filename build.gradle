@@ -493,3 +493,14 @@ if (project.hasProperty('bossReworkClientCheck')) {
  tasks.named('compileBossReworkClientCheckJava') { dependsOn 'classes' }
  neoForge.mods.slavicmyths.sourceSet(sourceSets.bossReworkClientCheck)
 }
+// #49 pure native geometry/policy fixtures: no NeoForge run configuration or production inclusion.
+if (project.hasProperty('rusalkaOfflineCheck')) {
+ sourceSets { rusalkaOffline { java.srcDir 'tools/rusalka-offline' } }
+ sourceSets.rusalkaOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.rusalkaOffline.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+ tasks.register('verifyRusalkaOffline', JavaExec) {
+  dependsOn 'rusalkaOfflineClasses'
+  classpath = sourceSets.rusalkaOffline.runtimeClasspath
+  mainClass = 'org.slavicmyths.verify.RusalkaOffline'
+ }
+}
