@@ -1,11 +1,11 @@
 {
   "status": "VERIFIED_TEST_PREVIEW_BUILD",
-  "source_commit": "8bf39d787331179f754fa67d86836e31353a8c06",
-  "version": "1.9.7.10",
-  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.10.jar",
-  "jar_sha256": "8687b4b2238fbf9c44ec04d8d36719157d2cea210dda00a7db707a44cfe386e8",
+  "source_commit": "bdf72453c79172b09273182b58a441a868629142",
+  "version": "1.9.7.11",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.11.jar",
+  "jar_sha256": "66a3be323c05223f9979ff9fb3662ab1bc9973be499a40ef873a6ee21d40f5bc",
   "clean_build": "PASS",
-  "build_log": ".tools/audio-19710-build.log",
+  "build_log": ".tools/audio-19711-build.log",
   "offline_checks": [
     {
       "check": "verify_audio_groups_61",

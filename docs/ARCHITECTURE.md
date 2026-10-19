@@ -1,3 +1,13 @@
+## Тестовая1.9.7.11 установлена; #62/#64/#66 IN_PROGRESS
+
+Соловей и клинок:19 событий/21 recorded variant, вдох и смех остаются BLOCKED.
+Java21 clean build50s и6 offline gates PASS;1309 OGG,914 events,34 muted.
+Вручную классифицированы111 из155 scanner routes;44 ещё без ручного разбора.
+Скрининг856086 пар:318 high matches, включая намеренно общий death обеих фаз.
+Установлен один JAR, source bdf72453, backup и SHA проверены. Запусков0.
+[Акт установки](implementation/audio-60/TEST_PREVIEW_1.9.7.11.json);
+[матрица](audio-review/NIGHTINGALE_PACKAGE_61.md). Hearing NOT_LISTENED.
+
 ## #64 — Соловей и клинок, техническое внедрение
 
 19 событий/21 recorded variant: человеческий свист, реакции, клинок и движение.

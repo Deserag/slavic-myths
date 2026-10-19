@@ -1,0 +1,9 @@
+{
+  "scanner_unresolved_rows": 155,
+  "manual_classified": 111,
+  "remaining_without_manual_classification": 44,
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "production_changed": false,
+  "method": "Manual classification overlays scanner; not reduced scanner unresolved count or proven runtime coverage"
+}

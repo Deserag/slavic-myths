@@ -20,8 +20,8 @@ foley застёжки/ткани ножен, а не документальна
 | Отдельные реакции и предметные действия | selection.json, группа nightingale-recorded / nightingale-weapon; подписанный soundboard.html и review.zip | PASS |
 | Начало и момент атаки сохранены | NightingaleEntity.java: begin charge, attackTick release t16, break-away t8, onslaught t46, landing guard; Java не изменён | PASS |
 | Реальные события оружия | NightingaleDagger.use/releaseUsing/hurtEnemy, WindAttack.bladeWave successful hurt, BossWeaponSounds equipment change | PASS |
-| Registry, NBT, AI, баланс и визуальные ресурсы сохранены | Полный frozen-source/resource gate verify_audio_groups_61.py | NOT_RUN |
-| Java21 clean build / decode / JAR parity | Проверка после сохранения production-коммита | NOT_RUN |
+| Registry, NBT, AI, баланс и визуальные ресурсы сохранены | Полный frozen-source/resource gate verify_audio_groups_61.py | PASS |
+| Java21 clean build / decode / JAR parity | Java21 clean build50s;6 scoped offline gates;1309 OGG decode, JAR parity; source bdf72453 | PASS |
 | Подходящий настоящий вдох | nightingale_phase1_whistle_charge отключён; нужен записанный вдох, не выдох | BLOCKED |
 | Подходящий мужской смех | nightingale_phase2_laugh отключён; общий callback смены фазы и редкого idle | BLOCKED |
 | Владелец слушает характер, угрозу и громкость в игре | Клиент/PolyMC/GameTest/сервер не запускать | NOT_RUN |

@@ -1,0 +1,38 @@
+{
+  "source_commit": "bdf72453c79172b09273182b58a441a868629142",
+  "archive_sha256": "a7854ed6f447066041e0c3dcca52b5effb5c644342422b2ebd72f83300b6a28e",
+  "new_performances": [
+    {
+      "key": "alba__(groan)_04.wav",
+      "original_pcm_sha256": "39e7ff40e309fd2661234eef45646f89869fe7be44f2beec2c6ce339578a73ee",
+      "curated_pcm_sha256": "39e7ff40e309fd2661234eef45646f89869fe7be44f2beec2c6ce339578a73ee",
+      "lossless": true
+    },
+    {
+      "key": "alba__(groan)_05.wav",
+      "original_pcm_sha256": "e4e524b643c0c6e30b57e425c38161c1e0fb5bb8ea2e455812f5b8fd6b56b99d",
+      "curated_pcm_sha256": "e4e524b643c0c6e30b57e425c38161c1e0fb5bb8ea2e455812f5b8fd6b56b99d",
+      "lossless": true
+    },
+    {
+      "key": "alba__(groan)_06.wav",
+      "original_pcm_sha256": "5ff828ef0d3399ffb96fa96a90762c253e237109e1ebd7e2623834768fb1d767",
+      "curated_pcm_sha256": "5ff828ef0d3399ffb96fa96a90762c253e237109e1ebd7e2623834768fb1d767",
+      "lossless": true
+    },
+    {
+      "key": "alba__(groan)_07.wav",
+      "original_pcm_sha256": "e7c89c5196fa8962697f3ab66e190bb41dbf75273067f44f9c358272546d9a73",
+      "curated_pcm_sha256": "e7c89c5196fa8962697f3ab66e190bb41dbf75273067f44f9c358272546d9a73",
+      "lossless": true
+    },
+    {
+      "key": "alba__Hmph_02.wav",
+      "original_pcm_sha256": "00c51e0700a9c328a3dd3b1da00cdee1f7cfb00664cddd617c61088e21219ea4",
+      "curated_pcm_sha256": "00c51e0700a9c328a3dd3b1da00cdee1f7cfb00664cddd617c61088e21219ea4",
+      "lossless": true
+    }
+  ],
+  "raw_curated_lossless": "PASS",
+  "runtime": "NOT_RUN"
+}

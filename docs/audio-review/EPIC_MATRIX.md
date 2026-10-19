@@ -1,3 +1,11 @@
+Актуально:1.9.7.11/source bdf72453 установлен TEST_PREVIEW, owner pending.
+914 events/1309 OGG;403 recorded assignments для372 events,35 vanilla references.
+Java21 clean build50s,6 offline gates PASS,0 запусков.
+MANUAL_ROUTES_SUMMARY.json:111 из155 scanner rows классифицированы вручную,44 остаются.
+Соловей:19 events/21variants; вдох/смех BLOCKED. Русалка/Кузя защищены.
+[Текущая матрица](NIGHTINGALE_PACKAGE_61.md), [установка](../implementation/audio-60/TEST_PREVIEW_1.9.7.11.json).
+Ниже исторические срезы; не текущие totals или installation status.
+
 Текущая матрица: [GROUPS_STAGE_61.md](GROUPS_STAGE_61.md);345 событий/374 назначений,1280 production OGG. Далее — исторический срез, не текущие totals.
 
 # #61–#66 — фактическая матрица, 19.10.2026
