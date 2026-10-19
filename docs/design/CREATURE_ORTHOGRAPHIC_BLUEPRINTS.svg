@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000"><rect width="1600" height="1000" fill="#131516"/><style>text{font-family:DejaVu Sans,sans-serif;fill:#e8ddd0}.title{font-size:22px;font-weight:bold}.cap{font-size:17px}.sub{font-size:13px;fill:#b8aca0}</style>
+<text x="18" y="34" class="title">#76 ПРОКЛЯТЫЙ ОБОРОТЕНЬ — АНАТОМИЯ</text>
+<rect x="16" y="55" width="385" height="397" fill="#232a2b" stroke="#8c795f" stroke-width="2"/>
+<text x="26" y="82" class="cap">ФАС</text>
+<rect x="34" y="97" width="348" height="296" fill="#21262b" stroke="#3d4346" stroke-width="2"/>
+<polygon points="125,187 149,136 173,119 201,137 231,119 260,140 279,193 266,277 249,317 156,317 135,277" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="147,206 167,177 235,177 255,206 245,266 157,266" fill="#7e747e" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="177,268 227,268 219,298 183,298" fill="#57515a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="174" cy="203" r="7" fill="#e9c575" stroke="#222" stroke-width="2"/>
+<circle cx="228" cy="203" r="7" fill="#e9c575" stroke="#222" stroke-width="2"/>
+<polygon points="123,314 163,314 169,394 156,410 130,406" fill="#57515a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="235,314 275,314 281,394 268,410 242,406" fill="#57515a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<text x="30" y="427" class="sub">2 глаза, видимые лапы</text>
+<rect x="413" y="55" width="385" height="397" fill="#232a2b" stroke="#8c795f" stroke-width="2"/>
+<text x="423" y="82" class="cap">ПРОФИЛЬ</text>
+<rect x="431" y="97" width="348" height="296" fill="#21262b" stroke="#3d4346" stroke-width="2"/>
+<polygon points="482,189 509,158 567,136 641,151 672,191 700,234 689,289 621,309 521,299 483,268" fill="#57515a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="624,165 646,118 662,145 693,125 701,180 715,218 648,234" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="684,216 743,227 753,254 690,271" fill="#7e747e" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="480,192 444,140 450,118 501,161" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="692" cy="193" r="7" fill="#e9c575" stroke="#222" stroke-width="2"/>
+<polygon points="504,286 540,286 545,390 533,409 503,404" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="527,402 549,405 550,412 500,412" fill="#7e747e" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="616,286 652,286 657,390 645,409 615,404" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="639,402 661,405 662,412 612,412" fill="#7e747e" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<text x="427" y="427" class="sub">Шея, рёбра, таз, суставы</text>
+<rect x="810" y="55" width="385" height="397" fill="#232a2b" stroke="#8c795f" stroke-width="2"/>
+<text x="820" y="82" class="cap">СЗАДИ</text>
+<rect x="828" y="97" width="348" height="296" fill="#21262b" stroke="#3d4346" stroke-width="2"/>
+<polygon points="914,179 949,128 1039,128 1076,179 1081,288 1060,321 925,321 908,287" fill="#57515a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="988,306 1009,313 1025,397 989,427 965,394" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="909,305 949,305 954,395 941,414 912,405" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1037,305 1077,305 1082,395 1069,414 1040,405" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<text x="824" y="427" class="sub">Хвост и задние лапы</text>
+<rect x="1207" y="55" width="385" height="397" fill="#232a2b" stroke="#8c795f" stroke-width="2"/>
+<text x="1217" y="82" class="cap">3/4</text>
+<rect x="1225" y="97" width="348" height="296" fill="#21262b" stroke="#3d4346" stroke-width="2"/>
+<polygon points="1272,187 1291,147 1366,133 1435,152 1469,198 1484,276 1440,305 1305,300 1279,258" fill="#57515a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1421,162 1443,101 1468,138 1487,112 1509,178 1503,226 1437,230" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1483,226 1553,233 1545,269 1484,276" fill="#7e747e" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="1496" cy="191" r="7" fill="#e9c575" stroke="#222" stroke-width="2"/>
+<polygon points="1277,183 1236,121 1250,104 1299,156" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1304,281 1339,281 1348,389 1331,416 1304,406" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1413,281 1448,281 1457,389 1440,416 1413,406" fill="#343139" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<text x="1221" y="427" class="sub">Анимации на новом rig</text>
+<text x="18" y="524" class="title">#77 СКИМ-ЗВЕРЬ — АНАТОМИЯ</text>
+<rect x="16" y="545" width="385" height="397" fill="#232a2b" stroke="#8c795f" stroke-width="2"/>
+<text x="26" y="572" class="cap">ФАС</text>
+<rect x="34" y="587" width="348" height="296" fill="#21262b" stroke="#3d4346" stroke-width="2"/>
+<polygon points="125,677 149,626 173,609 201,627 231,609 260,630 279,683 266,767 249,807 156,807 135,767" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="147,696 167,667 235,667 255,696 245,756 157,756" fill="#a26d51" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="177,758 227,758 219,788 183,788" fill="#784e42" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="174" cy="693" r="7" fill="#e9c575" stroke="#222" stroke-width="2"/>
+<circle cx="228" cy="693" r="7" fill="#e9c575" stroke="#222" stroke-width="2"/>
+<polygon points="123,804 163,804 169,884 156,900 130,896" fill="#784e42" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="235,804 275,804 281,884 268,900 242,896" fill="#784e42" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<text x="30" y="917" class="sub">2 глаза, видимые лапы</text>
+<rect x="413" y="545" width="385" height="397" fill="#232a2b" stroke="#8c795f" stroke-width="2"/>
+<text x="423" y="572" class="cap">ПРОФИЛЬ</text>
+<rect x="431" y="587" width="348" height="296" fill="#21262b" stroke="#3d4346" stroke-width="2"/>
+<polygon points="482,679 509,648 567,626 641,641 672,681 700,724 689,779 621,799 521,789 483,758" fill="#784e42" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="624,655 646,608 662,635 693,615 701,670 715,708 648,724" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="684,706 743,717 753,744 690,761" fill="#a26d51" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="480,682 444,630 450,608 501,651" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="692" cy="683" r="7" fill="#e9c575" stroke="#222" stroke-width="2"/>
+<polygon points="504,776 540,776 545,880 533,899 503,894" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="527,892 549,895 550,902 500,902" fill="#a26d51" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="616,776 652,776 657,880 645,899 615,894" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="639,892 661,895 662,902 612,902" fill="#a26d51" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<text x="427" y="917" class="sub">Шея, рёбра, таз, суставы</text>
+<rect x="810" y="545" width="385" height="397" fill="#232a2b" stroke="#8c795f" stroke-width="2"/>
+<text x="820" y="572" class="cap">СЗАДИ</text>
+<rect x="828" y="587" width="348" height="296" fill="#21262b" stroke="#3d4346" stroke-width="2"/>
+<polygon points="914,669 949,618 1039,618 1076,669 1081,778 1060,811 925,811 908,777" fill="#784e42" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="988,796 1009,803 1025,887 989,917 965,884" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="909,795 949,795 954,885 941,904 912,895" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1037,795 1077,795 1082,885 1069,904 1040,895" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<text x="824" y="917" class="sub">Хвост и задние лапы</text>
+<rect x="1207" y="545" width="385" height="397" fill="#232a2b" stroke="#8c795f" stroke-width="2"/>
+<text x="1217" y="572" class="cap">3/4</text>
+<rect x="1225" y="587" width="348" height="296" fill="#21262b" stroke="#3d4346" stroke-width="2"/>
+<polygon points="1272,677 1291,637 1366,623 1435,642 1469,688 1484,766 1440,795 1305,790 1279,748" fill="#784e42" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1421,652 1443,591 1468,628 1487,602 1509,668 1503,716 1437,720" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1483,716 1553,723 1545,759 1484,766" fill="#a26d51" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="1496" cy="681" r="7" fill="#e9c575" stroke="#222" stroke-width="2"/>
+<polygon points="1277,673 1236,611 1250,594 1299,646" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1304,771 1339,771 1348,879 1331,906 1304,896" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1413,771 1448,771 1457,879 1440,906 1413,896" fill="#30252a" stroke="#171516" stroke-width="4" stroke-linejoin="round"/>
+<text x="1221" y="917" class="sub">Анимации на новом rig</text>
+<text x="18" y="997" class="sub">ТЕХНИЧЕСКИЙ КОНЦЕПТ: размеры/цвет уточнить по реальному рендеру исходников; эта схема НЕ подтверждает реализацию в игре.</text>
+</svg>
