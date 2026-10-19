@@ -515,7 +515,7 @@ for cue,sources,ru,en,cap,rms in [
  ('blizzard_start',[['wind__wind.wav',glass(1)]],'Морозко поднимает метель','Morozko raises a blizzard',2.2,.065),
  ('blizzard_loop',[dict(key='wind__felix_blume_234000.mp3',start=22,end=25.8)],'Метель Морозко шумит','Morozko blizzard rushes',3.8,.04),
  ('spike_telegraph',[glass(2)],'Лёд потрескивает перед шипами','Ice cracks before spikes rise',.55,.06),
- ('breath',[[dict(key='wind__wind.wav',start=.55,end=3.45),glass(3)]],'Морозко выпускает морозный поток','Morozko releases a frost cone',2.8,.065),
+ ('breath',[[dict(key='wind__felix_blume_234000.mp3',start=40,end=42.8),glass(3)]],'Морозко выпускает морозный поток','Morozko releases a frost cone',2.8,.065),
  ('wave',[['foley__swosh-02.flac',glass(4)]],'Ледяная волна Морозко расходится','Morozko ice wave spreads',.65,.07),
  ('clone_spawn',[['chime__gnote_169855.mp3',glass(5)]],'Ледяная копия Морозко появляется','Morozko ice clone forms',1.1,.05),
  ('frost_damage',[glass(6)],'Мороз обжигает цель','Frost bites its target',.2,.055),
@@ -550,5 +550,5 @@ for cue,sources,ru,en,cap,rms in [
  ('last_breath',[['foley__swosh-03.flac',equip('sword.4.ogg')]],'Коса готовит Последний вздох','Scythe prepares Last Breath',.45,.065),
  ('black_harvest',[[equip('sword.6.ogg'),equip('sword_clash.10.ogg')]],'Коса готовит Чёрную жатву','Scythe prepares Black Harvest',.5,.07),
  ('wing_activate',[['wings__wings_flap_large.flac','foley__cloth-03.flac']],'Оберег Чёрное крыло призывает воронов','Black Wing charm calls ravens',.6,.055),
- ('waning_stage_up',[equip('belt-buckle-04.wav')],'Угасание мешает пользоваться снаряжением','Waning impedes equipment use',.22,.04)]:
+ ('waning_stage_up',[equip('belt-buckle-04.wav')],'Угасание усиливается','Waning intensifies',.22,.04)]:
  add('night-recorded-material','karachun.'+cue,sources,ru,en,cap,rms,radius=32)

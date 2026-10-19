@@ -2,7 +2,7 @@
   "status": "AGENT_SELECTED_OWNER_PENDING",
   "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
   "duration_s": 32,
-  "sha256": "def45ff25521577b2275e7291a072b9b7eb7b8660ec33214933b90c564b13061",
+  "sha256": "8134abe68421ec6d8fa02aa46db6cbc43c22df86a7dd047ba19388254b4be65f",
   "runtime": "NOT_RUN",
   "hearing": "NOT_LISTENED",
   "events": [
@@ -46,7 +46,7 @@
       "event": "morozko.breath",
       "label": "Морозко выпускает морозный поток",
       "file": "recorded61/morozko/breath_1.ogg",
-      "sha256": "3954f6af4461f006f23dd8a26ad3cefff37810c44a034801e334394129a296b9"
+      "sha256": "3e612eafa9d8acd6ae8e720cbedc26d6e8941250724fce924fc0bbc1b88febd6"
     },
     {
       "time_s": 22,

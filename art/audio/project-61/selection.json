@@ -11907,22 +11907,22 @@
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   },
   {
-    "render_signature": "3815f7ec9059ebaa3185727c93f8ed66df50395a34f75e92e2b2823f49856986",
+    "render_signature": "45544021607ee0e1bdedee324e1d398bf272a8ab9fd07db3b117f4ff9aeb8488",
     "event": "morozko.breath",
     "group": "frost-recorded-material",
     "ru": "Морозко выпускает морозный поток",
     "action": "Morozko releases a frost cone",
     "file": "recorded61/morozko/breath_1.ogg",
-    "sha256": "3954f6af4461f006f23dd8a26ad3cefff37810c44a034801e334394129a296b9",
+    "sha256": "3e612eafa9d8acd6ae8e720cbedc26d6e8941250724fce924fc0bbc1b88febd6",
     "sources": [
       {
-        "key": "wind__wind.wav",
-        "file": "sources/wind__wind.wav",
-        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "key": "wind__felix_blume_234000.mp3",
+        "file": "sources/wind__felix_blume_234000.mp3",
+        "sha256": "5776f9d7666c4f0a8baaad78fb1bb8ba5b809fd740c4135c9c30dc0931c1df71",
         "license": "CC0-1.0",
-        "author": "remaxim",
-        "page": "https://opengameart.org/content/short-wind-sound",
-        "start_sample": 24255
+        "author": "felix.blume",
+        "page": "https://freesound.org/people/felix.blume/sounds/234000/",
+        "start_sample": 1764000
       },
       {
         "key": "break__bfh1_glass_breaking_03.ogg",
@@ -11934,9 +11934,9 @@
         "start_sample": 0
       }
     ],
-    "seconds": 1.6202267573696145,
-    "peak_dbfs": -6.1237672843661635,
-    "rms_dbfs": -24.021204786205466,
+    "seconds": 2.809954648526077,
+    "peak_dbfs": -6.120733354883324,
+    "rms_dbfs": -24.33088754678664,
     "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
     "status": "AGENT_SELECTED_OWNER_PENDING",
     "owner_approved": false,
@@ -12836,11 +12836,11 @@
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   },
   {
-    "render_signature": "af5859e9fbc4ed9dfc961b39b5cc2a30b4c4b498c94fbf0c0b48fbb39e341fa9",
+    "render_signature": "698fcc471aa8aff6f2da06228b95ae3c7f7abb951520c538c3d19c4a363cc5d2",
     "event": "karachun.waning_stage_up",
     "group": "night-recorded-material",
-    "ru": "Угасание мешает пользоваться снаряжением",
-    "action": "Waning impedes equipment use",
+    "ru": "Угасание усиливается",
+    "action": "Waning intensifies",
     "file": "recorded61/karachun/waning_stage_up_1.ogg",
     "sha256": "de0572ccd6945050e86b29a7f733c9aebf59df34d8de691c998c4cf5e9136ea0",
     "sources": [

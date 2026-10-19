@@ -58,7 +58,7 @@
     {
       "time_s": 24,
       "event": "karachun.waning_stage_up",
-      "label": "Угасание мешает пользоваться снаряжением",
+      "label": "Угасание усиливается",
       "file": "recorded61/karachun/waning_stage_up_1.ogg",
       "sha256": "de0572ccd6945050e86b29a7f733c9aebf59df34d8de691c998c4cf5e9136ea0"
     }

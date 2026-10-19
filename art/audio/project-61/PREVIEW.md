@@ -1394,5 +1394,5 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 **Оберег Чёрное крыло призывает воронов / Black Wing charm calls ravens** · `karachun.wing_activate`
 ![Оберег Чёрное крыло призывает воронов / Black Wing charm calls ravens](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/wing_activate_1.ogg)
 
-**Угасание мешает пользоваться снаряжением / Waning impedes equipment use** · `karachun.waning_stage_up`
-![Угасание мешает пользоваться снаряжением / Waning impedes equipment use](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/waning_stage_up_1.ogg)
+**Угасание усиливается / Waning intensifies** · `karachun.waning_stage_up`
+![Угасание усиливается / Waning intensifies](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/waning_stage_up_1.ogg)

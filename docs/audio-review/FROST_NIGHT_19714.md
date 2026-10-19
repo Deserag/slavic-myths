@@ -16,7 +16,7 @@ HQ MP3 preview, исходные SHA и лицензии; они не объяв
 Магический лёд художественно озвучен физическими стеклянными записями,
 косы/снаряжение — фоли. Продолжительные метель и поток посоха используют
 запись воздушного потока felix.blume234000 (CC0, дверной проём в Брюсселе),
-разные отрезки22–25.8s и31–35.2s. Ветер remaxim — библиотечный wind effect: не заявляем,
+разные отрезки22–25.8s и31–35.2s; морозный конус —40–42.8s. Ветер remaxim — библиотечный wind effect: не заявляем,
 что он полевой, человеческий или голосовой. Все назначения подписаны RU/EN.
 
 morozko.breath — атака морозным конусом, не дыхание человека.
@@ -41,7 +41,7 @@ frost_night_items. Это офлайн-последовательности фа
 | REQUIREMENT | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN |
 |---|---|---|
 | Реальные файлы, source SHA, лицензии, RU/EN | sources.json / selection.json / project-61.txt | PASS (source) |
-| 35 событий /36 новых вариантов | selection.json; sounds.json | PASS (source) |
+| 35 событий /36 новых вариантов | selection.json; sounds.json; FROST_NIGHT_ROUTES.csv (36 routes including blocked whisper) | PASS (source) |
 | Старый шёпот не возвращается | BLOCKED; canonical generators | BLOCKED_NEEDS_AUDIO_SOURCE |
 | Аудиорежим не меняет модели и текстуры | FROST_RESTORER_GATES.json | NOT_RUN (new package) |
 | Java21 clean build / production JAR | После source commit | NOT_RUN |
