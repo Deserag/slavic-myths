@@ -12862,5 +12862,145 @@
     "owner_approved": false,
     "hearing": "NOT_LISTENED",
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "506124464f2840a4aeb0d4d57e7988a77fda7ed75ec5f3d3e1c6de3b80373d55",
+    "event": "volkolak_hunt_rage",
+    "group": "ordinary-volkolak",
+    "ru": "Волколак яростно рычит",
+    "action": "Volkolak snarls in rage",
+    "file": "recorded61/volkolak_hunt_rage_1.ogg",
+    "sha256": "bfa1b49e6a676c5645af406644e1cd46cda4672db255ef19dff6b8a0a302b407",
+    "sources": [
+      {
+        "key": "canine__harvey_growl_404920.mp3",
+        "file": "sources/canine__harvey_growl_404920.mp3",
+        "sha256": "4f1f9c5f7eddec8faa1667bf6f26165f2ea6672e8f0da954ad676a0a96f3454c",
+        "license": "CC0-1.0",
+        "author": "Harvey Bird (dog), recorded by Frederick Bird/coldvet",
+        "page": "https://freesound.org/people/coldvet/sounds/404920/",
+        "start_sample": 529200
+      }
+    ],
+    "seconds": 0.632517006802721,
+    "peak_dbfs": -5.23593499952152,
+    "rms_dbfs": -21.866524266301152,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "b306dd90e0a66b1db375b082187d2b0b34c84f2cb88db09951ea8b50e98b6464",
+    "event": "volkolak_hunt_rage",
+    "group": "ordinary-volkolak",
+    "ru": "Волколак яростно рычит",
+    "action": "Volkolak snarls in rage",
+    "file": "recorded61/volkolak_hunt_rage_2.ogg",
+    "sha256": "a432f8fb2bc8e6ca89c936a8eacf0cada13264aced19a857b9458253d051b293",
+    "sources": [
+      {
+        "key": "canine__harvey_growl_404920.mp3",
+        "file": "sources/canine__harvey_growl_404920.mp3",
+        "sha256": "4f1f9c5f7eddec8faa1667bf6f26165f2ea6672e8f0da954ad676a0a96f3454c",
+        "license": "CC0-1.0",
+        "author": "Harvey Bird (dog), recorded by Frederick Bird/coldvet",
+        "page": "https://freesound.org/people/coldvet/sounds/404920/",
+        "start_sample": 1455300
+      }
+    ],
+    "seconds": 1.2099773242630385,
+    "peak_dbfs": -11.139239399036075,
+    "rms_dbfs": -21.47025330435545,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "a04b85f7bfec279f41b92da7bf0319f07583af317f7b90e6fe47c4ae90cd9833",
+    "event": "volkolak_hunt_howl",
+    "group": "ordinary-volkolak",
+    "ru": "Волколак воет перед атакой",
+    "action": "Volkolak howls before striking",
+    "file": "recorded61/volkolak_hunt_howl_1.ogg",
+    "sha256": "5a690bee95280657d5f550df29f3d06d513475e480344917566ffdc385d2e874",
+    "sources": [
+      {
+        "key": "wolf__fws_howls.ogg",
+        "file": "sources/wolf__fws_howls.ogg",
+        "sha256": "98129d715778d3a46476784090d92c1ff3a74957838ec88de187d6ab603188fd",
+        "license": "PD-USGov-FWS",
+        "author": "U.S. Fish and Wildlife Service",
+        "page": "https://commons.wikimedia.org/wiki/File:Wolf_howls.ogg",
+        "start_sample": 793800
+      }
+    ],
+    "seconds": 1.2599773242630385,
+    "peak_dbfs": -13.383792350392108,
+    "rms_dbfs": -20.91526168613914,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "13fdb19c6fa14e916f85c9a8945de70fc4a6510229a25ab2036f0bde914452d8",
+    "event": "marinka.witch_whisper_01",
+    "group": "marinka-recorded-whisper",
+    "ru": "Маринка тихо шепчет",
+    "action": "Marinka whispers quietly",
+    "file": "recorded61/marinka/witch_whisper_01_1.ogg",
+    "sha256": "8de11b31f2baa69aaa0fedf9f151a531f0c517a553489e45e395dd9794785fc3",
+    "sources": [
+      {
+        "key": "whisper__bluesiren_377743.mp3",
+        "file": "sources/whisper__bluesiren_377743.mp3",
+        "sha256": "b41ad0a0ab0d9a8b473056c6448771f8b95289984f2afb62f8500b78bc6ba8a4",
+        "license": "CC0-1.0",
+        "author": "BlueSiren",
+        "page": "https://freesound.org/people/BlueSiren/sounds/377743/",
+        "start_sample": 26460
+      }
+    ],
+    "seconds": 1.7099773242630385,
+    "peak_dbfs": -14.237442729707848,
+    "rms_dbfs": -32.07103477597251,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "c8006b8dd443cc4648af2723767e9d02ea6d6a5a65491712cf8fc8dd232b8e10",
+    "event": "marinka.witch_whisper_02",
+    "group": "marinka-recorded-whisper",
+    "ru": "Маринка шепчет заклятие",
+    "action": "Marinka whispers a hex",
+    "file": "recorded61/marinka/witch_whisper_02_1.ogg",
+    "sha256": "4f3186d9b14417afa0fdf2fb811ccaf5a036992be5e8151d85129ac512a72d9e",
+    "sources": [
+      {
+        "key": "whisper__bluesiren_377743.mp3",
+        "file": "sources/whisper__bluesiren_377743.mp3",
+        "sha256": "b41ad0a0ab0d9a8b473056c6448771f8b95289984f2afb62f8500b78bc6ba8a4",
+        "license": "CC0-1.0",
+        "author": "BlueSiren",
+        "page": "https://freesound.org/people/BlueSiren/sounds/377743/",
+        "start_sample": 273420
+      }
+    ],
+    "seconds": 0.6599773242630386,
+    "peak_dbfs": -10.79058509855127,
+    "rms_dbfs": -25.314550807732054,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   }
 ]

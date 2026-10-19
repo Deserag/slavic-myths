@@ -5241,7 +5241,12 @@
   },
   "marinka.witch_whisper_01": {
     "subtitle": "subtitles.slavicmyths.marinka.witch_whisper_01",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/marinka/witch_whisper_01_1",
+        "attenuation_distance": 14
+      }
+    ]
   },
   "marinka.cloth_step_01": {
     "subtitle": "subtitles.slavicmyths.marinka.cloth_step_01",
@@ -5389,7 +5394,12 @@
   },
   "marinka.witch_whisper_02": {
     "subtitle": "subtitles.slavicmyths.marinka.witch_whisper_02",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/marinka/witch_whisper_02_1",
+        "attenuation_distance": 24
+      }
+    ]
   },
   "marinka.magpie_wings_02": {
     "subtitle": "subtitles.slavicmyths.marinka.magpie_wings_02",
@@ -8411,6 +8421,28 @@
       {
         "name": "slavicmyths:recorded61/bandit_shield_raise_1",
         "attenuation_distance": 28
+      }
+    ]
+  },
+  "volkolak_hunt_rage": {
+    "subtitle": "subtitles.slavicmyths.volkolak_hunt_rage",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/volkolak_hunt_rage_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "slavicmyths:recorded61/volkolak_hunt_rage_2",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "volkolak_hunt_howl": {
+    "subtitle": "subtitles.slavicmyths.volkolak_hunt_howl",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/volkolak_hunt_howl_1",
+        "attenuation_distance": 32
       }
     ]
   }

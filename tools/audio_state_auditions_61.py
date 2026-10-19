@@ -7,6 +7,8 @@ import numpy as np,soundfile as sf
 from audio_60_foley import encode,RATE,stable_text
 P=R/'art/audio/project-61';A=R/'src/main/resources/assets/slavicmyths/sounds'
 SEQUENCES={
+ 'marinka_whispers':[(0,'marinka.witch_whisper_01',1),(5,'marinka.witch_whisper_02',1),(9,'marinka.cloth_step_01',1),(12,'marinka.trace_hex_01',1),(16,'marinka.witch_whisper_02',1),(20,'marinka.witch_whisper_01',1)],
+ 'ordinary_volkolak':[(0,'volkolak_hunt_rage',1),(5,'volkolak_hunt_rage',2),(10,'volkolak_hunt_howl',1),(16,'volkolak_hunt_rage',1),(20,'volkolak_hunt_howl',1)],
  'morozko_material':[(0,'morozko.ambient',1),(4,'morozko.step',1),(6,'morozko.blizzard_start',1),(10,'morozko.blizzard_loop',1),(15,'morozko.spike_telegraph',1),(18,'morozko.breath',1),(22,'morozko.wave',1),(25,'morozko.clone_spawn',1),(28,'morozko.yield',1)],
  'karachun_material':[(0,'karachun.ambient_low_wind',1),(4,'karachun.enter_trial',1),(7,'karachun.dark_frost',1),(10,'karachun.long_night_cast',1),(13,'karachun.last_hour_mark',1),(16,'karachun.last_hour_impact',1),(19,'karachun.raven_call',1),(23,'karachun.raven_flap',1),(26,'karachun.raven_dive',1),(29,'karachun.raven_hit',1),(32,'karachun.yield',1)],
  'frost_night_items':[(0,'morozko.staff_stream',1),(6,'morozko.staff_wave',1),(9,'morozko.trial_call',1),(12,'karachun.last_breath',1),(15,'karachun.black_harvest',1),(18,'karachun.life_eater',1),(21,'karachun.wing_activate',1),(24,'karachun.waning_stage_up',1)],

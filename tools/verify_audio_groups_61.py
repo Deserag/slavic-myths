@@ -23,7 +23,7 @@ def main():
   check(not row['owner_approved'] and row['hearing']=='NOT_LISTENED','No invented hearing/acceptance '+row['event'])
   for ref in row['sources']:
    s=sources[ref['key']]
-   public_domain=(s['key']=='stilgar__soft_whistle.ogg' and s['license']=='PD-author' and s['page']=='https://commons.wikimedia.org/wiki/File:Soft_whistle.ogg' and s['license_url']==s['page']+'#Licensing')
+   public_domain=(s['key']=='wolf__fws_howls.ogg' and s['license']=='PD-USGov-FWS' and s['page']=='https://commons.wikimedia.org/wiki/File:Wolf_howls.ogg' and s['license_url']==s['page']+'#Licensing') or (s['key']=='stilgar__soft_whistle.ogg' and s['license']=='PD-author' and s['page']=='https://commons.wikimedia.org/wiki/File:Soft_whistle.ogg' and s['license_url']==s['page']+'#Licensing')
    check(sha(P/s['file'])==s['sha256']==ref['sha256'] and (s['license'] in ['CC0-1.0','CC-BY-4.0'] or public_domain) and s['page'].startswith('https://'),'Exact redistributable provenance '+ref['key'])
  asset_root=Path('C:/Users/pavel/AppData/Roaming/PolyMC/assets');objects=json.loads((asset_root/'indexes/17.json').read_text())['objects'];h=objects['minecraft/sounds.json']['hash'];vp=asset_root/'objects'/h[:2]/h;check(hashlib.sha1(vp.read_bytes()).hexdigest()==h,'Local vanilla sound index verified read-only');vanilla=json.loads(vp.read_bytes())
  for event,definition in events.items():
@@ -58,7 +58,10 @@ def main():
  skip={'src/main/java/org/slavicmyths/entity/DomovoyEntity.java','src/main/java/org/slavicmyths/entity/WildlifeEntity.java','src/main/java/org/slavicmyths/registry/ModSounds.java','src/main/java/org/slavicmyths/bandit/BanditEntity.java','src/main/resources/assets/slavicmyths/sounds.json',*[f'src/main/resources/assets/slavicmyths/lang/{l}.json' for l in ['ru_ru','en_us']]}
  for entry in names:
   metadata,n=entry.split('\t');blob=metadata.split()[2]
-  if n in __import__('audio_vocal_priority_61').PATHS:
+  if n in __import__('volkolak_hunt_audio_61').PATHS:
+   expected=__import__('volkolak_hunt_audio_61').edit(n,old(n).decode('utf-8').replace('\r\n','\n'))
+   check((R/n).read_text(encoding='utf-8')==expected,'Exact ordinary Volkolak audio-only diff; other HuntMob dispatch preserved '+n)
+  elif n in __import__('audio_vocal_priority_61').PATHS:
    expected=__import__('audio_vocal_priority_61').edit(n,old(n).decode('utf-8').replace('\r\n','\n'))
    check((R/n).read_text(encoding='utf-8')==expected,'Exact audio priority source diff, unchanged AI/damage/timing/explicit RNG '+n)
   elif n in __import__('hero_audio_routes_61').PATHS:
@@ -75,7 +78,7 @@ def main():
   if 'DomovoyEntity' in path:expected=expected.replace('message = "refused"; playSound(ModSounds.DOMOVOY_HURT.get(), 0.4F, 0.9F);','message = "refused"; playSound(ModSounds.DOMOVOY_REFUSE.get(), 0.4F, 1.0F);').replace('playSound(net.minecraft.sounds.SoundEvents.VILLAGER_YES, 0.4F, 1.3F);','playSound(ModSounds.DOMOVOY_THANKS.get(), 0.4F, 1.0F);')
   elif 'WildlifeEntity' in path:expected=expected.replace('if(!isInWater())voice("impact",kind==Kind.BEAR?.12F:.055F);','if(!isInWater())voice("step",kind==Kind.BEAR?.12F:.055F);')
   else:expected=expected.replace('public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_HURT','public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_REFUSE = sound("domovoy_refuse");\n    public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_THANKS = sound("domovoy_thanks");\n    public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_HURT').replace('"alert","roar","attack","impact"','"alert","roar","attack","impact","step"')
-  if 'ModSounds' in path:expected=__import__('bandit_audio_contract_61').registry_edit(expected)
+  if 'ModSounds' in path:expected=__import__('volkolak_hunt_audio_61').registry_edit(__import__('bandit_audio_contract_61').registry_edit(expected))
   check((R/path).read_text(encoding='utf-8')==expected,'Exact audio-only source diff '+path)
  path='src/main/java/org/slavicmyths/bandit/BanditEntity.java';expected=__import__('bandit_audio_contract_61').source_edit(old(path).decode('utf-8').replace('\r\n','\n'));check((R/path).read_text(encoding='utf-8')==expected,'Full bandit audio-only diff: unchanged attacks/damage/timers/AI/NBT')
  version=next(l.split('=',1)[1].strip() for l in (R/'gradle.properties').read_text().splitlines() if l.startswith('mod_version='))
@@ -87,7 +90,7 @@ def main():
     n=p.relative_to(R/'src/main/resources').as_posix()
     if n!='META-INF/neoforge.mods.toml':check(z.read(n)==p.read_bytes(),'Packaged resource parity '+n)
   check(not any(n.startswith(('art/','tools/')) for n in z.namelist()),'No review sources or fixtures in production JAR')
-  for source in __import__('hero_audio_routes_61').PATHS|__import__('audio_vocal_priority_61').PATHS:
+  for source in __import__('hero_audio_routes_61').PATHS|__import__('audio_vocal_priority_61').PATHS|__import__('volkolak_hunt_audio_61').PATHS:
    name=source.removeprefix('src/main/java/').removesuffix('.java')+'.class'
    check(z.read(name)==(R/'build/classes/java/main'/name).read_bytes(),'Actual compiled hero callsite packaged '+name)
  report=dict(status='IN_PROGRESS_OWNER_PENDING',baseline=BASE,checks=len(checks),recorded_variants=len(rows),recorded_events=len(PLAN),vanilla_aliases=len(ALIASES),source_gaps=BLOCKED,jar_sha256=sha(jar),runtime='NOT_RUN',hearing='NOT_LISTENED',owner_accepted=False,poly_mc_installed=False)

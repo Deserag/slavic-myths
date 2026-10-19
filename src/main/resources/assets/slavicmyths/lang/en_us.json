@@ -4114,7 +4114,7 @@
   "subtitles.slavicmyths.dobrynya.hero_return_01": "Sound: Dobrynya — hero return 01",
   "subtitles.slavicmyths.dobrynya.spear_swing_02": "Dobrynya spear thrust",
   "subtitles.slavicmyths.dobrynya.armor_step_02": "Dobrynya armor steps",
-  "subtitles.slavicmyths.marinka.witch_whisper_01": "Sound: Marinka — witch whisper 01",
+  "subtitles.slavicmyths.marinka.witch_whisper_01": "Marinka whispers quietly",
   "subtitles.slavicmyths.marinka.cloth_step_01": "Marinka cloth steps",
   "subtitles.slavicmyths.marinka.trace_hex_01": "Marinka traces a hex",
   "subtitles.slavicmyths.marinka.fire_charge_01": "Marinka gathers heat",
@@ -4131,7 +4131,7 @@
   "subtitles.slavicmyths.marinka.witch_hurt_01": "Marinka grunts in pain",
   "subtitles.slavicmyths.marinka.witch_rage_01": "Marinka cries with effort",
   "subtitles.slavicmyths.marinka.witch_defeat_01": "Marinka groans in defeat",
-  "subtitles.slavicmyths.marinka.witch_whisper_02": "Sound: Marinka — witch whisper 02",
+  "subtitles.slavicmyths.marinka.witch_whisper_02": "Marinka whispers a hex",
   "subtitles.slavicmyths.marinka.magpie_wings_02": "Magpie wings flap",
   "subtitles.slavicmyths.arena.yard_wind_01": "Sound: Witch yard — yard wind 01",
   "subtitles.slavicmyths.arena.ritual_circle_pulse_01": "Sound: Witch yard — ritual circle pulse 01",
@@ -5565,5 +5565,7 @@
   "subtitles.slavicmyths.nightingale_blade_wind_release": "Nightingale blade releases wind",
   "subtitles.slavicmyths.nightingale_blade_wind_hit": "Nightingale blade wind hits",
   "subtitles.slavicmyths.nightingale_phase1_whistle_charge": "Nightingale inhales",
-  "subtitles.slavicmyths.nightingale_phase2_laugh": "Nightingale chuckles wickedly"
+  "subtitles.slavicmyths.nightingale_phase2_laugh": "Nightingale chuckles wickedly",
+  "subtitles.slavicmyths.volkolak_hunt_rage": "Volkolak snarls in rage",
+  "subtitles.slavicmyths.volkolak_hunt_howl": "Volkolak howls before striking"
 }

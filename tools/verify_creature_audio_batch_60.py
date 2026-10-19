@@ -39,7 +39,8 @@ def main():
  s=s.replace(' private void cue(SoundEvent sound){playSound(sound,.85F,.65F);}',' private void cue(SoundEvent sound){playSound(sound,.85F,.65F);}\n private long nextOvenVoiceTick;\n private void ovenVoice(boolean power){long now=level().getGameTime();if(power||now>=nextOvenVoiceTick){playSound(power?org.slavicmyths.registry.ModSounds.OVINNIK_POWER.get():org.slavicmyths.registry.ModSounds.OVINNIK_ANGRY.get(),power?.9F:.75F,1);nextOvenVoiceTick=now+(power?28:18);}}')
  s=s.replace('entityData.set(RAGE,true);cue(SoundEvents.RAVAGER_ROAR);','entityData.set(RAGE,true);if(oven())ovenVoice(true);else cue(SoundEvents.RAVAGER_ROAR);')
  s=s.replace('  cue(move==Move.HOWL?SoundEvents.RAVAGER_ROAR:move==Move.ASH?SoundEvents.FIRE_EXTINGUISH:oven()?SoundEvents.BLAZE_AMBIENT:SoundEvents.WOLF_GROWL);','  if(oven()){if(move==Move.ASH)playSound(SoundEvents.FIRE_EXTINGUISH,.85F,1);else ovenVoice(false);}else cue(move==Move.HOWL?SoundEvents.RAVAGER_ROAR:move==Move.ASH?SoundEvents.FIRE_EXTINGUISH:oven()?SoundEvents.BLAZE_AMBIENT:SoundEvents.WOLF_GROWL);')
- check((R/file).read_text(encoding='utf-8')==s,'Entire HuntMob unchanged except scoped oven audio; non-oven/Mor/AI/damage preserved')
+ s=__import__('volkolak_hunt_audio_61').edit(file,s)
+ check((R/file).read_text(encoding='utf-8')==s,'Exact HuntMob oven+ordinary Volkolak audio diff; other dispatch/Mor/AI/damage preserved')
  file='src/main/java/org/slavicmyths/entity/OvinnikEntity.java';s=old(file).replace(' @Override public boolean oven(){return true;}',' @Override public boolean oven(){return true;}\n @Override public float getVoicePitch(){return morState()==0?1:super.getVoicePitch();}')
  check((R/file).read_text(encoding='utf-8')==s,'Only normal Ovinnik voice pitch changed; Mor retains superclass pitch')
  for file in ['wolf/GreyWolf.java','bogatyr/IdolishcheEntity.java','skim/SkimBeastEntity.java']:

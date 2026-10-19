@@ -1,0 +1,45 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 24,
+  "sha256": "771e3e4ac197e53db3f3c598e4ec1f7cac9f477eb0fc16c5bc28148ade0875ef",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "volkolak_hunt_rage",
+      "label": "Волколак яростно рычит",
+      "file": "recorded61/volkolak_hunt_rage_1.ogg",
+      "sha256": "bfa1b49e6a676c5645af406644e1cd46cda4672db255ef19dff6b8a0a302b407"
+    },
+    {
+      "time_s": 5,
+      "event": "volkolak_hunt_rage",
+      "label": "Волколак яростно рычит",
+      "file": "recorded61/volkolak_hunt_rage_2.ogg",
+      "sha256": "a432f8fb2bc8e6ca89c936a8eacf0cada13264aced19a857b9458253d051b293"
+    },
+    {
+      "time_s": 10,
+      "event": "volkolak_hunt_howl",
+      "label": "Волколак воет перед атакой",
+      "file": "recorded61/volkolak_hunt_howl_1.ogg",
+      "sha256": "5a690bee95280657d5f550df29f3d06d513475e480344917566ffdc385d2e874"
+    },
+    {
+      "time_s": 16,
+      "event": "volkolak_hunt_rage",
+      "label": "Волколак яростно рычит",
+      "file": "recorded61/volkolak_hunt_rage_1.ogg",
+      "sha256": "bfa1b49e6a676c5645af406644e1cd46cda4672db255ef19dff6b8a0a302b407"
+    },
+    {
+      "time_s": 20,
+      "event": "volkolak_hunt_howl",
+      "label": "Волколак воет перед атакой",
+      "file": "recorded61/volkolak_hunt_howl_1.ogg",
+      "sha256": "5a690bee95280657d5f550df29f3d06d513475e480344917566ffdc385d2e874"
+    }
+  ]
+}

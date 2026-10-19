@@ -2,9 +2,14 @@
 NIGHTINGALE='src/main/java/org/slavicmyths/bandit/NightingaleEntity.java'
 NOCHNITSA='src/main/java/org/slavicmyths/nochnitsa/NochnitsaEntity.java'
 KARACHUN='src/main/java/org/slavicmyths/karachun/Karachun.java'
-PATHS={NIGHTINGALE,NOCHNITSA,KARACHUN}
+MARINKA='src/main/java/org/slavicmyths/marinka/MarinkaEntity.java'
+PATHS={NIGHTINGALE,NOCHNITSA,KARACHUN,MARINKA}
 
 def edit(path,text):
+ if path==MARINKA:
+  marker='cooldown("heavy_safe",25);cue("witch_whisper_01");offensive++;'
+  assert text.count(marker)==1
+  return text.replace(marker,'cooldown("heavy_safe",25);cue("witch_whisper_02");offensive++;')
  if path==KARACHUN:
   marker='cleanup();NightContent.sound(this,"yield");for(var p:bar.getPlayers())'
   assert text.count(marker)==1

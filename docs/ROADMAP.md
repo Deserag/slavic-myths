@@ -1,3 +1,13 @@
+## #61/#64–#66 — ordinary Волколак и два шёпота Маринки
+
+Подготовлена1.9.7.15: обычный VolkolakEntity имеет отдельные реальные rage/howl
+вместо общего Ravager;2 новых registry events/3 записанных OGG. CursedVolkolak
+и модели сохранены; другие HuntMob используют прежний audio hook.
+Маринка:2 записанных женских whisper phrases; idle01 и LURE frame22→02.
+Source gaps12→10;458 вариантов/425 events. Не повторяем завершённый полный аудит.
+Java21 build/gates/installation ещё NOT_RUN; PolyMC пока1.9.7.14.
+[Матрица](audio-review/VOLKOLAK_WHISPER_19715.md). Owner/hearing/runtime pending.
+
 ## #64–#66 — мороз, ночь и защита генераторов
 
 1.9.7.14 IN_PROGRESS / OWNER_PENDING:35 существующих событий,36 новых OGG.

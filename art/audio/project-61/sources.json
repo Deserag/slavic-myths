@@ -3628,5 +3628,44 @@
     "sha256": "5776f9d7666c4f0a8baaad78fb1bb8ba5b809fd740c4135c9c30dc0931c1df71",
     "processing": "Official HQ MP3 preview; not raw WAV",
     "curation": "Recorded wind howling through a building doorway, Brussels; Schoeps CCM41/CCM8 with Sound Devices788T; physical airflow, not a voice or wilderness recording"
+  },
+  {
+    "key": "canine__harvey_growl_404920.mp3",
+    "file": "sources/canine__harvey_growl_404920.mp3",
+    "author": "Harvey Bird (dog), recorded by Frederick Bird/coldvet",
+    "page": "https://freesound.org/people/coldvet/sounds/404920/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verified_date": "2026-10-19",
+    "download": "https://cdn.freesound.org/previews/404/404920_5965692-hq.mp3",
+    "sha256": "4f1f9c5f7eddec8faa1667bf6f26165f2ea6672e8f0da954ad676a0a96f3454c",
+    "processing": "Official HQ MP3 preview downloaded unchanged; not raw WAV",
+    "curation": "Actual dog guarding food; unpitched canine rage, no CursedVolkolak harmonic mix reused"
+  },
+  {
+    "key": "wolf__fws_howls.ogg",
+    "file": "sources/wolf__fws_howls.ogg",
+    "author": "U.S. Fish and Wildlife Service",
+    "page": "https://commons.wikimedia.org/wiki/File:Wolf_howls.ogg",
+    "license": "PD-USGov-FWS",
+    "license_url": "https://commons.wikimedia.org/wiki/File:Wolf_howls.ogg#Licensing",
+    "verified_date": "2026-10-19",
+    "download": "https://upload.wikimedia.org/wikipedia/commons/8/87/Wolf_howls.ogg",
+    "sha256": "98129d715778d3a46476784090d92c1ff3a74957838ec88de187d6ab603188fd",
+    "processing": "Unmodified original OGG from historical work/grey-wolf/audio/Wolf_howls.ogg cache; primary source/license rechecked, fresh HTTP download403, no fresh remote-byte parity claim",
+    "curation": "Actual wolf howls; ordinary Volkolak excerpt, no synthetic rough growl layers"
+  },
+  {
+    "key": "whisper__bluesiren_377743.mp3",
+    "file": "sources/whisper__bluesiren_377743.mp3",
+    "author": "BlueSiren",
+    "page": "https://freesound.org/people/BlueSiren/sounds/377743/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verified_date": "2026-10-19",
+    "download": "https://cdn.freesound.org/previews/377/377743_6769439-hq.mp3",
+    "sha256": "b41ad0a0ab0d9a8b473056c6448771f8b95289984f2afb62f8500b78bc6ba8a4",
+    "processing": "Official HQ MP3 preview unchanged; author layered own recorded whispers, not a synthesized voice",
+    "curation": "Adult female performer whispering nonsense and dark phrases; indistinct layered witch spell, not Russian dialogue or claimed word transcription; owner hearing pending"
   }
 ]

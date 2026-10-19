@@ -1396,3 +1396,22 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 
 **Угасание усиливается / Waning intensifies** · `karachun.waning_stage_up`
 ![Угасание усиливается / Waning intensifies](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/waning_stage_up_1.ogg)
+
+## ordinary-volkolak
+
+**Волколак яростно рычит / Volkolak snarls in rage** · `volkolak_hunt_rage`
+![Волколак яростно рычит / Volkolak snarls in rage](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/volkolak_hunt_rage_1.ogg)
+
+**Волколак яростно рычит / Volkolak snarls in rage** · `volkolak_hunt_rage`
+![Волколак яростно рычит / Volkolak snarls in rage](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/volkolak_hunt_rage_2.ogg)
+
+**Волколак воет перед атакой / Volkolak howls before striking** · `volkolak_hunt_howl`
+![Волколак воет перед атакой / Volkolak howls before striking](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/volkolak_hunt_howl_1.ogg)
+
+## marinka-recorded-whisper
+
+**Маринка тихо шепчет / Marinka whispers quietly** · `marinka.witch_whisper_01`
+![Маринка тихо шепчет / Marinka whispers quietly](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/marinka/witch_whisper_01_1.ogg)
+
+**Маринка шепчет заклятие / Marinka whispers a hex** · `marinka.witch_whisper_02`
+![Маринка шепчет заклятие / Marinka whispers a hex](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/marinka/witch_whisper_02_1.ogg)

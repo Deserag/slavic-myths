@@ -1,0 +1,52 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 24,
+  "sha256": "6d740baa84f20461ff81c687582250e1c0afffb04acc673ed6a64ecbc8f22c6c",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "marinka.witch_whisper_01",
+      "label": "Маринка тихо шепчет",
+      "file": "recorded61/marinka/witch_whisper_01_1.ogg",
+      "sha256": "8de11b31f2baa69aaa0fedf9f151a531f0c517a553489e45e395dd9794785fc3"
+    },
+    {
+      "time_s": 5,
+      "event": "marinka.witch_whisper_02",
+      "label": "Маринка шепчет заклятие",
+      "file": "recorded61/marinka/witch_whisper_02_1.ogg",
+      "sha256": "4f3186d9b14417afa0fdf2fb811ccaf5a036992be5e8151d85129ac512a72d9e"
+    },
+    {
+      "time_s": 9,
+      "event": "marinka.cloth_step_01",
+      "label": "Одежда Маринки шуршит при шаге",
+      "file": "recorded61/marinka/cloth_step_01_1.ogg",
+      "sha256": "e4eaa88ed22d97f988ced68a62b5b19845f53eb21e7dbab991f3fb6bfc99f9d3"
+    },
+    {
+      "time_s": 12,
+      "event": "marinka.trace_hex_01",
+      "label": "Маринка начертывает проклятие",
+      "file": "recorded61/marinka/trace_hex_01_1.ogg",
+      "sha256": "fb61da1f7a3c87a173c8a60ffea4fab1689f9947e34669d21b68dc3c6dceab53"
+    },
+    {
+      "time_s": 16,
+      "event": "marinka.witch_whisper_02",
+      "label": "Маринка шепчет заклятие",
+      "file": "recorded61/marinka/witch_whisper_02_1.ogg",
+      "sha256": "4f3186d9b14417afa0fdf2fb811ccaf5a036992be5e8151d85129ac512a72d9e"
+    },
+    {
+      "time_s": 20,
+      "event": "marinka.witch_whisper_01",
+      "label": "Маринка тихо шепчет",
+      "file": "recorded61/marinka/witch_whisper_01_1.ogg",
+      "sha256": "8de11b31f2baa69aaa0fedf9f151a531f0c517a553489e45e395dd9794785fc3"
+    }
+  ]
+}

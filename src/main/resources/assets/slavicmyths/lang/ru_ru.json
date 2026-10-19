@@ -4114,7 +4114,7 @@
   "subtitles.slavicmyths.dobrynya.hero_return_01": "Звук: Добрыня — hero return 01",
   "subtitles.slavicmyths.dobrynya.spear_swing_02": "Копьё Добрыни рассекает воздух",
   "subtitles.slavicmyths.dobrynya.armor_step_02": "Доспех Добрыни позвякивает",
-  "subtitles.slavicmyths.marinka.witch_whisper_01": "Звук: Маринка — witch whisper 01",
+  "subtitles.slavicmyths.marinka.witch_whisper_01": "Маринка тихо шепчет",
   "subtitles.slavicmyths.marinka.cloth_step_01": "Одежда Маринки шуршит при шаге",
   "subtitles.slavicmyths.marinka.trace_hex_01": "Маринка начертывает проклятие",
   "subtitles.slavicmyths.marinka.fire_charge_01": "Маринка собирает жар",
@@ -4131,7 +4131,7 @@
   "subtitles.slavicmyths.marinka.witch_hurt_01": "Маринка вскрикивает от боли",
   "subtitles.slavicmyths.marinka.witch_rage_01": "Маринка напряжённо вскрикивает",
   "subtitles.slavicmyths.marinka.witch_defeat_01": "Маринка стонет при поражении",
-  "subtitles.slavicmyths.marinka.witch_whisper_02": "Звук: Маринка — witch whisper 02",
+  "subtitles.slavicmyths.marinka.witch_whisper_02": "Маринка шепчет заклятие",
   "subtitles.slavicmyths.marinka.magpie_wings_02": "Крылья сороки взмахивают",
   "subtitles.slavicmyths.arena.yard_wind_01": "Звук: Подворье — yard wind 01",
   "subtitles.slavicmyths.arena.ritual_circle_pulse_01": "Звук: Подворье — ritual circle pulse 01",
@@ -5565,5 +5565,7 @@
   "subtitles.slavicmyths.nightingale_blade_wind_release": "Клинок Соловья выпускает ветер",
   "subtitles.slavicmyths.nightingale_blade_wind_hit": "Ветер клинка Соловья достигает цели",
   "subtitles.slavicmyths.nightingale_phase1_whistle_charge": "Соловей набирает воздух",
-  "subtitles.slavicmyths.nightingale_phase2_laugh": "Соловей коротко злорадно смеётся"
+  "subtitles.slavicmyths.nightingale_phase2_laugh": "Соловей коротко злорадно смеётся",
+  "subtitles.slavicmyths.volkolak_hunt_rage": "Волколак яростно рычит",
+  "subtitles.slavicmyths.volkolak_hunt_howl": "Волколак воет перед атакой"
 }

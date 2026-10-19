@@ -552,3 +552,17 @@ for cue,sources,ru,en,cap,rms in [
  ('wing_activate',[['wings__wings_flap_large.flac','foley__cloth-03.flac']],'Оберег Чёрное крыло призывает воронов','Black Wing charm calls ravens',.6,.055),
  ('waning_stage_up',[equip('belt-buckle-04.wav')],'Угасание усиливается','Waning intensifies',.22,.04)]:
  add('night-recorded-material','karachun.'+cue,sources,ru,en,cap,rms,radius=32)
+
+# Ordinary VolkolakEntity: two genuinely different canine performances, not the
+# separate CursedVolkolak mix and not pitch clones of one Ravager roar.
+add('ordinary-volkolak','volkolak_hunt_rage',[dict(key='canine__harvey_growl_404920.mp3',start=12,end=13.2),dict(key='canine__harvey_growl_404920.mp3',start=33,end=34.2)],'Волколак яростно рычит','Volkolak snarls in rage',1.2,.085,radius=28)
+add('ordinary-volkolak','volkolak_hunt_howl',[dict(key='wolf__fws_howls.ogg',start=18,end=19.25)],'Волколак воет перед атакой','Volkolak howls before striking',1.25,.09,radius=32)
+NEW.update({'volkolak_hunt_rage','volkolak_hunt_howl'})
+
+# Two different phrases of a real layered female whisper performance. Idle is
+# longer/quieter; LURE uses an independently cropped short spell at frame22.
+for cue,start,end,cap,rms,ru,en in [
+ ('witch_whisper_01',.6,2.4,1.7,.025,'Маринка тихо шепчет','Marinka whispers quietly'),
+ ('witch_whisper_02',6.2,6.9,.65,.055,'Маринка шепчет заклятие','Marinka whispers a hex')]:
+ event='marinka.'+cue;BLOCKED.pop(event)
+ add('marinka-recorded-whisper',event,[dict(key='whisper__bluesiren_377743.mp3',start=start,end=end)],ru,en,cap,rms,radius=14 if cue.endswith('01') else 24)

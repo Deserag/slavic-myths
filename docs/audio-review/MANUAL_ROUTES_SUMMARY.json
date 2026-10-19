@@ -15,8 +15,9 @@
     "EXTERNAL_PLAYER_WEAPON_ROUTE": 2,
     "EXTERNAL_EQUIPMENT_EVENT_NOT_MOB_CALLBACK": 1,
     "REPAIRED_STANDARD_HURT_CALLBACK": 2,
-    "REGISTERED_VARIANT_NO_CURRENT_INVOCATION_SOURCE_REVIEW": 26,
+    "REGISTERED_VARIANT_NO_CURRENT_INVOCATION_SOURCE_REVIEW": 22,
     "REPAIRED_DETERMINISTIC_AUDIO_VARIANT": 7,
+    "REPAIRED_LURE_WHISPER_CALLBACK": 4,
     "DYNAMIC_ROLE_DISPATCH": 8,
     "EXTERNAL_STORY_NOT_ORDINARY_MOB_VOICE": 6,
     "ITEM_LOOP_NOT_BOSS_CALLBACK": 1,
@@ -26,5 +27,5 @@
   "hearing": "NOT_LISTENED",
   "production_changed": false,
   "method": "Manual source-classification overlay, not proof all events reachable. Scanner still154, helper guards526 remain. Registered-no-call classifications are defects or intentional legacy, not successful audio coverage.",
-  "evidence_refresh": "1.9.7.13: four routed variants, seven coarse registry rows; Nightingale current source hash rechecked"
+  "evidence_refresh": "1.9.7.15: Marinka LURE frame22 whisper02, four coarse profile rows reclassified; no repeat of completed inventory"
 }

@@ -22,6 +22,8 @@ public final class ModSounds {
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_MACE_IMPACT = sound("bandit_mace_impact");
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_BOW_DRAW = sound("bandit_bow_draw");
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_SHIELD_RAISE = sound("bandit_shield_raise");
+    public static final DeferredHolder<SoundEvent,SoundEvent> VOLKOLAK_HUNT_RAGE = sound("volkolak_hunt_rage");
+    public static final DeferredHolder<SoundEvent,SoundEvent> VOLKOLAK_HUNT_HOWL = sound("volkolak_hunt_howl");
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_IDLE=sound("bandit_idle");
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_ALERT=sound("bandit_alert");
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_ATTACK=sound("bandit_attack");
