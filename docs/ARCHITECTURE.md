@@ -6,7 +6,9 @@ DOE: juskiddink CC-BY4, пол источника не указан, привя�
 не менялись. Игоша3 DEFERRED/KEEP_CURRENT. Активные4 source gaps заполнены;
 весь аудиопроект OWNER_PENDING, не DONE. [Матрица](audio-review/DEER_19717.md).
 Java21 clean build1m37s +9 offline gates PASS; compiled main82679092.
-Установка тестового PolyMC пока NOT_RUN; Minecraft не запускался.
+PolyMC1.9.7.17 INSTALLED_TEST_PREVIEW: backup16/config/SHA/one active JAR PASS.
+Selected main092253f8 production-identical к compiled82679092; оба в receipts.
+Minecraft/PolyMC/GameTest/server запусков0; hearing/runtime owner pending.
 
 ## #61 — Карачун/медвежонок, Игоша отложена
 
