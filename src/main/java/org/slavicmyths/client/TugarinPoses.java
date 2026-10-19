@@ -82,6 +82,22 @@ final class TugarinPoses {
   plant(p,"L",10+ease(t/8),-4*left+1.5F*right,liftL,0);
   plant(p,"R",-10-ease(t/8),-4*right+1.5F*left,liftR,0);
  }
+ private static void chargeFeet(Map<String,ModelPart> p,float t,float recovery){
+  float prep=ease(t/10),fade=1-ease(recovery/24);
+  p.get("pelvis").y=-(24-4*prep*fade);
+  for(String side:new String[]{"L","R"}){
+   float sign=side.equals("L")?1:-1,z,lift;
+   if(recovery>0){float step=ease((recovery-(sign>0?12:0))/12);z=sign*9.6F*(1-step);lift=2.2F*sin(Mth.PI*step);}
+   else if(t<10){float step=ease((t-(sign>0?0:5))/5);z=sign*9.6F*step;lift=2.2F*sin(Mth.PI*step);}
+   else{
+    float phase=(t-10+(sign>0?1.5F:0))%3;
+    // 19.2 model units over1.5ticks matches the unchanged .8block/tick dash.
+    float u=phase/1.5F;z=u<=1?Mth.lerp(u,-9.6F,9.6F):Mth.lerp(ease(u-1),9.6F,-9.6F);
+    lift=u<=1?0:2.2F*sin(Mth.PI*ease(u-1));
+   }
+   plant(p,side,sign*10,z,lift,0);
+  }
+ }
  private static void spin(Map<String,ModelPart> p,float t,float recovery){
   t=Mth.clamp(t,0,52);recovery=Mth.clamp(recovery,0,24);
   float prep=ease(t/12),fade=1-ease(recovery/24),clock=Math.max(0,t-16);
@@ -140,11 +156,11 @@ final class TugarinPoses {
    for(String side:new String[]{"L","R"}){rx(p,"fore"+side,-.2F);rz(p,"wrist"+side,(side.equals("L")?1:-1)*.12F);rx(p,"moustache"+side,breathing*.025F);}
    switch(m){
     case SPIN -> spin(p,t,0);
-    case RECOVERY -> {if(previous==Move.SPIN)spin(p,52,t);else if(previous==Move.CHARGE){float a=1-ease(t/24);legs(p,.18F*a,t*.4F,.3F*a,0);rx(p,"body",.32F*a);rx(p,"head",-.1F*a);rx(p,"armL",-.65F*a);rx(p,"foreL",-.65F*a);rx(p,"foreR",-.8F*a);}}
+    case RECOVERY -> {if(previous==Move.SPIN)spin(p,52,t);else if(previous==Move.CHARGE){float a=1-ease(t/24);chargeFeet(p,22,t);rx(p,"body",.32F*a);rx(p,"head",-.1F*a);rx(p,"armL",-.65F*a);rx(p,"foreL",-.65F*a);rx(p,"foreR",-.8F*a);}}
     case BLADE_COMBO -> {int stage=Math.min(2,(int)(t/12));for(int stroke=0;stroke<3;stroke++)if(t>=stroke*12)slash(p,stroke==1?"L":"R",t-stroke*12,10);attackFeet(p,t,10,3);}
     case SWEEP -> {slash(p,"R",t,14);attackFeet(p,t,14,1);}
     case PUNCH -> {float prep=ease(t/7),hit=ease((t-7)/3),back=1-ease((t-10)/10);attackFeet(p,t,10,1);p.get("body").yRot=(-.45F*prep+.8F*hit)*back;rx(p,"armR",(-1.25F*prep+.3F*hit)*back);rx(p,"foreR",(-1.2F*prep+1.05F*hit)*back);rx(p,"armL",-.3F*prep*back);}
-    case CHARGE -> {float a=ease(t/10);legs(p,.18F*a,t<10?t*.16F:1.6F+(t-10)*1.1F,Mth.lerp(ease((t-10)/3),.25F,Math.max(.6F,Math.min(1,amount*2)))*a,0);rx(p,"body",.32F*a);rx(p,"head",-.1F*a);rx(p,"armL",-.65F*a);rx(p,"foreL",-.65F*a);rx(p,"foreR",-.8F*a);}
+    case CHARGE -> {float a=ease(t/10);chargeFeet(p,t,0);rx(p,"body",.32F*a);rx(p,"head",-.1F*a);rx(p,"armL",-.65F*a);rx(p,"foreL",-.65F*a);rx(p,"foreR",-.8F*a);}
     case STONE -> {float prep=ease(t/14),throwing=ease((t-14)/4),back=1-ease((t-18)/10);legs(p,.2F*prep*back,0,0,.7F);p.get("body").yRot=(-.4F*prep+.7F*throwing)*back;rx(p,"armR",(-2.5F*prep+2.6F*throwing)*back);rx(p,"foreR",-.8F*prep*(1-throwing));}
     case SLAM -> {float prep=ease(t/10),drop=ease((t-11)/3),back=1-ease((t-14)/10);legs(p,(.12F+.18F*drop)*back,0,0,1);rx(p,"body",(-.1F*prep+.45F*drop)*back);for(String side:new String[]{"L","R"}){rx(p,"arm"+side,(-2.3F*prep+2.1F*drop)*back);rx(p,"fore"+side,-.6F*prep*back);}}
     case TRANSITION -> {float brace=ease(t/20),change=ease((t-20)/10);legs(p,.28F*brace,0,0,1.5F*brace);rx(p,"body",.16F*brace-.3F*change);p.get("belly").xScale=1+.035F*brace;p.get("body").xScale=1-.1F*change;rx(p,"head",-.25F*change);rx(p,"armL",-.65F*brace);rx(p,"foreL",-.85F*brace);rx(p,"armR",-.45F*brace);rx(p,"foreR",-.8F*brace);}
@@ -161,8 +177,9 @@ final class TugarinPoses {
   for(int i=0;i<4;i++)p.get("tail"+i).yRot+=sin(age*.06F-i*.6F)*.09F;
   float open=.12F+breathing*.025F,flap=0;
   if(m==Move.TRANSITION){float growth=ease((t-30)/30);p.get("body").yScale=.72F+.28F*growth;p.get("neck").yScale=.7F+.3F*ease((t-30)/15);open=.08F+.97F*ease((t-30)/10)-.13F*ease((t-40)/20);rx(p,"head",-.2F*(1-growth));}
+  if(m==Move.RECOVERY&&previous==Move.TRANSITION)open=Mth.lerp(ease(t/12),.92F,.12F+breathing*.025F);
   if(m==Move.WING_DIVE){float takeoff=ease(t/8);open=t<8?.12F+.83F*takeoff:t<20?.95F:.72F-.12F*ease((t-20)/16);flap=t<20?sin((t-8)*.65F)*.18F:0;rx(p,"body",t<8?-.2F*takeoff:t<20?-.12F:.5F*ease((t-20)/8));rx(p,"legL",-.4F*takeoff);rx(p,"legR",-.4F*takeoff);}
-  if(m==Move.RECOVERY&&previous==Move.WING_DIVE){float a=1-ease(t/25);open=.12F+.55F*a;rx(p,"body",.5F*a);rx(p,"legL",-.4F*a);rx(p,"legR",-.4F*a);rx(p,"neck",-.08F*sin(Mth.PI*ease(t/25)));}
+  if(m==Move.RECOVERY&&previous==Move.WING_DIVE){float a=1-ease(t/25);open=.12F+.48F*a;rx(p,"body",.5F*a);rx(p,"legL",-.4F*a);rx(p,"legR",-.4F*a);rx(p,"neck",-.08F*sin(Mth.PI*ease(t/25)));}
   for(String side:new String[]{"L","R"}){float sign=side.equals("L")?1:-1;rz(p,"wing"+side,-sign*(open+flap));p.get("wing"+side).yRot=-sign*1.35F*(1-Math.min(1,open));rz(p,"wingLowerJoint"+side,sign*(.2F*(1-open)-flap*.5F));}
   if(m==Move.BREATH||m==Move.RECOVERY&&previous==Move.BREATH){
    float weight=breathWeight(m,t,previous);
