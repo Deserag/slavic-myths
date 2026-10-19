@@ -5536,5 +5536,13 @@
   "subtitles.slavicmyths.firebird_glide": "Firebird glides",
   "subtitles.slavicmyths.firebird_perch": "Firebird perches",
   "subtitles.slavicmyths.firebird_drop": "Firebird feather falls",
-  "subtitles.slavicmyths.firebird_depart": "Firebird departs"
+  "subtitles.slavicmyths.firebird_depart": "Firebird departs",
+  "subtitles.slavicmyths.bandit_sword_windup": "Bandit sword winds up",
+  "subtitles.slavicmyths.bandit_axe_windup": "Bandit axe winds up",
+  "subtitles.slavicmyths.bandit_mace_windup": "Bandit mace winds up",
+  "subtitles.slavicmyths.bandit_sword_impact": "Bandit sword connects",
+  "subtitles.slavicmyths.bandit_axe_impact": "Bandit axe connects",
+  "subtitles.slavicmyths.bandit_mace_impact": "Bandit mace connects",
+  "subtitles.slavicmyths.bandit_bow_draw": "Bandit draws bow",
+  "subtitles.slavicmyths.bandit_shield_raise": "Bandit raises shield"
 }

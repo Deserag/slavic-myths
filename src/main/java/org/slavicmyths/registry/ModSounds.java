@@ -14,6 +14,14 @@ public final class ModSounds {
     public static final DeferredHolder<SoundEvent,SoundEvent> RUSALKA_SONG_BREAK=sound("rusalka_song_break");
     public static final DeferredHolder<SoundEvent,SoundEvent> RUSALKA_GRAB=sound("rusalka_grab");
 
+    public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_SWORD_WINDUP = sound("bandit_sword_windup");
+    public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_AXE_WINDUP = sound("bandit_axe_windup");
+    public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_MACE_WINDUP = sound("bandit_mace_windup");
+    public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_SWORD_IMPACT = sound("bandit_sword_impact");
+    public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_AXE_IMPACT = sound("bandit_axe_impact");
+    public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_MACE_IMPACT = sound("bandit_mace_impact");
+    public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_BOW_DRAW = sound("bandit_bow_draw");
+    public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_SHIELD_RAISE = sound("bandit_shield_raise");
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_IDLE=sound("bandit_idle");
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_ALERT=sound("bandit_alert");
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_ATTACK=sound("bandit_attack");

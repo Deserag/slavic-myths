@@ -8324,5 +8324,77 @@
         "type": "event"
       }
     ]
+  },
+  "bandit_sword_windup": {
+    "subtitle": "subtitles.slavicmyths.bandit_sword_windup",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/bandit_sword_windup_1",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "bandit_axe_windup": {
+    "subtitle": "subtitles.slavicmyths.bandit_axe_windup",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/bandit_axe_windup_1",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "bandit_mace_windup": {
+    "subtitle": "subtitles.slavicmyths.bandit_mace_windup",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/bandit_mace_windup_1",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "bandit_sword_impact": {
+    "subtitle": "subtitles.slavicmyths.bandit_sword_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/bandit_sword_impact_1",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "bandit_axe_impact": {
+    "subtitle": "subtitles.slavicmyths.bandit_axe_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/bandit_axe_impact_1",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "bandit_mace_impact": {
+    "subtitle": "subtitles.slavicmyths.bandit_mace_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/bandit_mace_impact_1",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "bandit_bow_draw": {
+    "subtitle": "subtitles.slavicmyths.bandit_bow_draw",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/bandit_bow_draw_1",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "bandit_shield_raise": {
+    "subtitle": "subtitles.slavicmyths.bandit_shield_raise",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/bandit_shield_raise_1",
+        "attenuation_distance": 28
+      }
+    ]
   }
 }

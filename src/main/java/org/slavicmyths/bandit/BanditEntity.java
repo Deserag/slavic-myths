@@ -93,6 +93,10 @@ public final class BanditEntity extends Monster {
                 for(BanditEntity b:level().getEntitiesOfClass(BanditEntity.class,getBoundingBox().inflate(24),e->Objects.equals(e.camp,camp)))b.commandUntil=0;}
         }super.die(source);
     }
+    private SoundEvent weaponCue(boolean impact){
+        Item item=getMainHandItem().getItem();
+        return item instanceof SwordItem?(impact?ModSounds.BANDIT_SWORD_IMPACT.get():ModSounds.BANDIT_SWORD_WINDUP.get()):item instanceof AxeItem?(impact?ModSounds.BANDIT_AXE_IMPACT.get():ModSounds.BANDIT_AXE_WINDUP.get()):(impact?ModSounds.BANDIT_MACE_IMPACT.get():ModSounds.BANDIT_MACE_WINDUP.get());
+    }
     private final class CombatGoal extends Goal {
         private int timer,cooldown,repath,shots;private boolean heavy;
         CombatGoal(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
@@ -117,22 +121,23 @@ public final class BanditEntity extends Monster {
                         try {hit=doHurtTarget(target);} finally {if(heavy)getAttribute(Attributes.ATTACK_DAMAGE).removeModifier(power);}
                         if(target instanceof Player&&target.isBlocking()&&getMainHandItem().getItem() instanceof AxeItem)((Player)target).disableShield();
                         if(hit&&heavy){Vec3 d=target.position().subtract(position());target.knockback(.8F,-d.x,-d.z);}
+                        if(hit)playSound(heavy?ModSounds.BANDIT_HEAVY.get():weaponCue(true),.65F,1);
                     }
                     playSound(ModSounds.BANDIT_ATTACK.get(),.65F,heavy?.8F:1);action(3);cooldown=heavy?30:getMainHandItem().getItem() instanceof SwordItem?15:25;
                 }return;
             }
             if(cooldown>0){getNavigation().stop();return;}
             if(distance<7.3&&sight){getNavigation().stop();
-                if(getOffhandItem().getItem() instanceof ShieldItem&&level().getGameTime()>shieldUntil&&random.nextInt(3)==0){startUsingItem(InteractionHand.OFF_HAND);action(4);timer=22;return;}
+                if(getOffhandItem().getItem() instanceof ShieldItem&&level().getGameTime()>shieldUntil&&random.nextInt(3)==0){startUsingItem(InteractionHand.OFF_HAND);playSound(ModSounds.BANDIT_SHIELD_RAISE.get(),.35F,1);action(4);timer=22;return;}
                 heavy=role==ATAMAN&&random.nextInt(3)==0;timer=heavy?24:getMainHandItem().getItem() instanceof SwordItem?7:15;action(heavy?7:1);
-                if(heavy)playSound(ModSounds.BANDIT_HEAVY.get(),.8F,.9F);
+                playSound(weaponCue(false),heavy?.8F:.55F,1);
             }else if(repath==0){repath=commandUntil>level().getGameTime()?12:20;
                 getNavigation().moveTo(target,1);action(0);}
         }
         private void ranged(LivingEntity target,double distance,boolean sight){
             if(distance<64){stopUsingItem();shots=0;action(0);if(repath==0){repath=20;Vec3 away=position().subtract(target.position()).normalize();getNavigation().moveTo(getX()+away.x*5,getY(),getZ()+away.z*5,1.15);}return;}
             if(distance>196||!sight){stopUsingItem();shots=0;action(0);if(repath==0){repath=20;getNavigation().moveTo(target,.9);}return;}
-            getNavigation().stop();if(cooldown>0)return;if(!isUsingItem()){startUsingItem(InteractionHand.MAIN_HAND);action(5);shots=0;}
+            getNavigation().stop();if(cooldown>0)return;if(!isUsingItem()){startUsingItem(InteractionHand.MAIN_HAND);action(5);shots=0;playSound(ModSounds.BANDIT_BOW_DRAW.get(),.4F,1);}
             if(++shots>=24){Arrow arrow=new Arrow(level(),BanditEntity.this,new ItemStack(Items.ARROW),getMainHandItem());double x=target.getX()-getX(),z=target.getZ()-getZ();arrow.setBaseDamage(2);arrow.shoot(x,target.getY(.5)-arrow.getY()+Math.sqrt(x*x+z*z)*.18,z,1.6F,6);level().addFreshEntity(arrow);playSound(SoundEvents.SKELETON_SHOOT,.65F,1);stopUsingItem();action(3);cooldown=35;shots=0;}
         }
     }

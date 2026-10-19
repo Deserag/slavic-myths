@@ -14,7 +14,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  rows=json.loads((P/'selection.json').read_text(encoding='utf-8'));sources={s['key']:s for s in json.loads((P/'sources.json').read_text(encoding='utf-8'))}
  events=json.loads((A/'sounds.json').read_text(encoding='utf-8'));baseline=__import__('audio_resource_names_61').qualified(json.loads(old('src/main/resources/assets/slavicmyths/sounds.json')))
- check(set(events)==set(baseline)|NEW,'Existing event IDs preserved; exactly eight intentional audio IDs added')
+ check(set(events)==set(baseline)|NEW,'Existing event IDs preserved; exactly the planned audio IDs added')
  check(all(events[k]==v for k,v in baseline.items() if k not in EVENTS),'Every out-of-scope event including approved voices, Rusalka and Kuzya unchanged')
  for row in rows:
   p=A/'sounds'/row['file'];x,sr=sf.read(p);check(sr==44100 and x.ndim==1 and sf.info(p).subtype=='VORBIS' and np.isfinite(x).all(),'Decoded spatial Vorbis '+row['file'])
@@ -45,7 +45,7 @@ def main():
   for e in PLAN|ALIASES:check(bool(data.get(events[e]['subtitle'])),'RU/EN subtitle '+lang+' '+e)
  # All pre-existing resources except exact maps/credits remain byte frozen.
  names=subprocess.check_output(['git','ls-tree','-r',BASE,'src/main/resources','src/main/java'],cwd=R).decode().splitlines()
- skip={'src/main/java/org/slavicmyths/entity/DomovoyEntity.java','src/main/java/org/slavicmyths/entity/WildlifeEntity.java','src/main/java/org/slavicmyths/registry/ModSounds.java','src/main/resources/assets/slavicmyths/sounds.json',*[f'src/main/resources/assets/slavicmyths/lang/{l}.json' for l in ['ru_ru','en_us']]}
+ skip={'src/main/java/org/slavicmyths/entity/DomovoyEntity.java','src/main/java/org/slavicmyths/entity/WildlifeEntity.java','src/main/java/org/slavicmyths/registry/ModSounds.java','src/main/java/org/slavicmyths/bandit/BanditEntity.java','src/main/resources/assets/slavicmyths/sounds.json',*[f'src/main/resources/assets/slavicmyths/lang/{l}.json' for l in ['ru_ru','en_us']]}
  for entry in names:
   metadata,n=entry.split('\t');blob=metadata.split()[2]
   if n not in skip:
@@ -59,8 +59,11 @@ def main():
   if 'DomovoyEntity' in path:expected=expected.replace('message = "refused"; playSound(ModSounds.DOMOVOY_HURT.get(), 0.4F, 0.9F);','message = "refused"; playSound(ModSounds.DOMOVOY_REFUSE.get(), 0.4F, 1.0F);').replace('playSound(net.minecraft.sounds.SoundEvents.VILLAGER_YES, 0.4F, 1.3F);','playSound(ModSounds.DOMOVOY_THANKS.get(), 0.4F, 1.0F);')
   elif 'WildlifeEntity' in path:expected=expected.replace('if(!isInWater())voice("impact",kind==Kind.BEAR?.12F:.055F);','if(!isInWater())voice("step",kind==Kind.BEAR?.12F:.055F);')
   else:expected=expected.replace('public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_HURT','public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_REFUSE = sound("domovoy_refuse");\n    public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_THANKS = sound("domovoy_thanks");\n    public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_HURT').replace('"alert","roar","attack","impact"','"alert","roar","attack","impact","step"')
+  if 'ModSounds' in path:expected=__import__('bandit_audio_contract_61').registry_edit(expected)
   check((R/path).read_text(encoding='utf-8')==expected,'Exact audio-only source diff '+path)
- jar=R/'build/libs/slavicmyths-1.9.7.9.jar'
+ path='src/main/java/org/slavicmyths/bandit/BanditEntity.java';expected=__import__('bandit_audio_contract_61').source_edit(old(path).decode('utf-8').replace('\r\n','\n'));check((R/path).read_text(encoding='utf-8')==expected,'Full bandit audio-only diff: unchanged attacks/damage/timers/AI/NBT')
+ version=next(l.split('=',1)[1].strip() for l in (R/'gradle.properties').read_text().splitlines() if l.startswith('mod_version='))
+ jar=R/f'build/libs/slavicmyths-{version}.jar'
  with zipfile.ZipFile(jar) as z:
   check(z.testzip() is None,'JAR CRC')
   for p in (R/'src/main/resources').rglob('*'):

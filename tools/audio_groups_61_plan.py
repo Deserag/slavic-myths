@@ -429,3 +429,14 @@ for event,source,ru,en in [
  ('entity.finist.hurt_1','yell1','Финист вскрикивает от боли','Finist cries in pain'),
  ('entity.finist.hurt_2','yell2','Финист вскрикивает от боли','Finist cries in pain'),
  ('entity.finist.hurt_3','yell3','Финист вскрикивает от боли','Finist cries in pain')]:add('hero-recorded-pain',event,['hael__'+source+'.wav'],ru,en,.65,.07)
+# Real bandit weapon tells/contact, not a human grunt or an impact before a hit.
+for cue,source,ru,en,cap in [
+ ('sword_windup',equip('sword.4.ogg'),'Разбойник замахивается мечом','Bandit sword winds up',.14),
+ ('axe_windup',equip('sword.6.ogg'),'Разбойник замахивается топором','Bandit axe winds up',.23),
+ ('mace_windup',equip('sword.10.ogg'),'Разбойник замахивается булавой','Bandit mace winds up',.29),
+ ('sword_impact',equip('sword_clash.1.ogg'),'Меч разбойника достигает цели','Bandit sword connects',.2),
+ ('axe_impact',wood(21),'Топор разбойника достигает цели','Bandit axe connects',.22),
+ ('mace_impact',equip('body-3.flac'),'Булава разбойника достигает цели','Bandit mace connects',.25),
+ ('bow_draw',equip('quiver-leather-squeeze-08.wav'),'Разбойник натягивает тетиву','Bandit draws bow',.55),
+ ('shield_raise',equip('quiver-leather-squeeze-07.wav'),'Разбойник поднимает щит','Bandit raises shield',.3)]:
+ add('bandit-weapon-contact','bandit_'+cue,[source],ru,en,cap,.065);NEW.add('bandit_'+cue)

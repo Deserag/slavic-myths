@@ -10515,5 +10515,229 @@
     "owner_approved": false,
     "hearing": "NOT_LISTENED",
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "f62c57aeccd993e20cfb9244cbad6bcc11aeacd291cdd1a839c68850cce207a1",
+    "event": "bandit_sword_windup",
+    "group": "bandit-weapon-contact",
+    "ru": "Разбойник замахивается мечом",
+    "action": "Bandit sword winds up",
+    "file": "recorded61/bandit_sword_windup_1.ogg",
+    "sha256": "60bf6464646c99480eb956ec759cc545ff9e4872a15b414eaafbe6032f9d23c7",
+    "sources": [
+      {
+        "key": "equipment__sword.4.ogg",
+        "file": "../kurgan-65/sources/sword.4.ogg",
+        "sha256": "320aa8a77d35f9354c3d7e03a53e987ae67b0c5721f0dd2680100c5e6b5e4cc4",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 1989
+      }
+    ],
+    "seconds": 0.14997732426303856,
+    "peak_dbfs": -11.08707493920469,
+    "rms_dbfs": -24.106755126304492,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "278413f77bbfd2a187c94ce2ae8c8d98b3010067c4c94ff3930c1eeb4a14b290",
+    "event": "bandit_axe_windup",
+    "group": "bandit-weapon-contact",
+    "ru": "Разбойник замахивается топором",
+    "action": "Bandit axe winds up",
+    "file": "recorded61/bandit_axe_windup_1.ogg",
+    "sha256": "9c87371de563c0e32642299d25a02cc14aa811c770a2afe41c676530421de29f",
+    "sources": [
+      {
+        "key": "equipment__sword.6.ogg",
+        "file": "../kurgan-65/sources/sword.6.ogg",
+        "sha256": "5b6eaaac9c552ce364cfdea3c12cef846c89796fc9bb880181615f43ee4e4779",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 414
+      }
+    ],
+    "seconds": 0.23997732426303856,
+    "peak_dbfs": -5.352151303142698,
+    "rms_dbfs": -24.627706737955258,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "c8cce14988dc8f1d799d6e612ba2ba6c1812cde3d7295b3520fc806dcec6f5c3",
+    "event": "bandit_mace_windup",
+    "group": "bandit-weapon-contact",
+    "ru": "Разбойник замахивается булавой",
+    "action": "Bandit mace winds up",
+    "file": "recorded61/bandit_mace_windup_1.ogg",
+    "sha256": "1ac5df4b911dabd095565d513d6f0cbecaadad8858098345fadaf73b2f350bac",
+    "sources": [
+      {
+        "key": "equipment__sword.10.ogg",
+        "file": "../kurgan-65/sources/sword.10.ogg",
+        "sha256": "530bf3daac9e21ba7f8414291820bc8c26f3522ecbda8f00e6454b1cef74cd07",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 8338
+      }
+    ],
+    "seconds": 0.2999773242630385,
+    "peak_dbfs": -7.96479341856661,
+    "rms_dbfs": -24.155079844408508,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "a4c0b50f8df9a41f89f7b6f0b52c0fb3a6ed8a783c8ab2d1c02c4b6b16627deb",
+    "event": "bandit_sword_impact",
+    "group": "bandit-weapon-contact",
+    "ru": "Меч разбойника достигает цели",
+    "action": "Bandit sword connects",
+    "file": "recorded61/bandit_sword_impact_1.ogg",
+    "sha256": "e18243e030a289e41661e6ea4e9b6daa269037977deada6200b5e6da6f70d18c",
+    "sources": [
+      {
+        "key": "equipment__sword_clash.1.ogg",
+        "file": "../kurgan-65/sources/sword_clash.1.ogg",
+        "sha256": "5c5e78e466ba78fe2414f2b7a2a6eb674822ccfc8a8bc9fda32be22f5dde5e69",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 6765
+      }
+    ],
+    "seconds": 0.20997732426303856,
+    "peak_dbfs": -10.101003469899288,
+    "rms_dbfs": -24.220969818087795,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "77ca8796ee96e23db30a569a05d1d3c7eb604743f2f85623b9fdcd25ec478273",
+    "event": "bandit_axe_impact",
+    "group": "bandit-weapon-contact",
+    "ru": "Топор разбойника достигает цели",
+    "action": "Bandit axe connects",
+    "file": "recorded61/bandit_axe_impact_1.ogg",
+    "sha256": "c48e153c9e42949e1ede374d2976e3e29daff0e0815ad704b8270eb21d183275",
+    "sources": [
+      {
+        "key": "wood__impactwood21.mp3.flac",
+        "file": "sources/wood__impactwood21.mp3.flac",
+        "sha256": "382df5ac9817113de932b808463158f8c479498506129762a14d9c71a7ec5ab1",
+        "license": "CC0-1.0",
+        "author": "Independent.nu (submitted by qubodup)",
+        "page": "https://opengameart.org/content/35-wooden-crackshitsdestructions",
+        "start_sample": 8194
+      }
+    ],
+    "seconds": 0.22997732426303855,
+    "peak_dbfs": -13.039399542045034,
+    "rms_dbfs": -23.98123335105971,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "98596bf36c5417cc72af782dd622c41e8356d451b52d4b9ed1d5af4391add867",
+    "event": "bandit_mace_impact",
+    "group": "bandit-weapon-contact",
+    "ru": "Булава разбойника достигает цели",
+    "action": "Bandit mace connects",
+    "file": "recorded61/bandit_mace_impact_1.ogg",
+    "sha256": "d8ffa8b26985eaaa67aa378752155d7781a4507778a6210c891d533fd7387e6f",
+    "sources": [
+      {
+        "key": "equipment__body-3.flac",
+        "file": "../kurgan-65/sources/body-3.flac",
+        "sha256": "2905f5e39d15a6fa41661c625db66f2b7df95699cbd492b656c974e7c448a2e4",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/40-wet-towel-clubpoundhitattack-sounds",
+        "start_sample": 26
+      }
+    ],
+    "seconds": 0.25997732426303855,
+    "peak_dbfs": -7.828708134260394,
+    "rms_dbfs": -24.122052210440913,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "1f94f83bc8e2070d1898b03640932c07ed6606ccae214a60e3b35296aa23a7cd",
+    "event": "bandit_bow_draw",
+    "group": "bandit-weapon-contact",
+    "ru": "Разбойник натягивает тетиву",
+    "action": "Bandit draws bow",
+    "file": "recorded61/bandit_bow_draw_1.ogg",
+    "sha256": "7b7e163e119962ad3f98a27781e99a8da26ef1339fe4864347ab33ff6c915c40",
+    "sources": [
+      {
+        "key": "equipment__quiver-leather-squeeze-08.wav",
+        "file": "../kurgan-65/sources/quiver-leather-squeeze-08.wav",
+        "sha256": "866895d141cd7eb159d433bf01837ead34de0c1be0809ab793a740d49eaaa092",
+        "license": "CC0-1.0",
+        "author": "Vehicle",
+        "page": "https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library",
+        "start_sample": 418
+      }
+    ],
+    "seconds": 0.2768253968253968,
+    "peak_dbfs": -5.577876595195329,
+    "rms_dbfs": -26.404225635359623,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "276184d4b037836b0a754f402d43f4dd298767abd6b83393d96b9531db4871dd",
+    "event": "bandit_shield_raise",
+    "group": "bandit-weapon-contact",
+    "ru": "Разбойник поднимает щит",
+    "action": "Bandit raises shield",
+    "file": "recorded61/bandit_shield_raise_1.ogg",
+    "sha256": "f4a8b72c9bea32b730f7987f3242875b0cf3e93381beb0eff5db7a940a6043c4",
+    "sources": [
+      {
+        "key": "equipment__quiver-leather-squeeze-07.wav",
+        "file": "../kurgan-65/sources/quiver-leather-squeeze-07.wav",
+        "sha256": "4072827507f8d6bbaf9d8a89bfc4c8ce5616a5cb32e59d9abc43e81927b256e6",
+        "license": "CC0-1.0",
+        "author": "Vehicle",
+        "page": "https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library",
+        "start_sample": 231
+      }
+    ],
+    "seconds": 0.30997732426303853,
+    "peak_dbfs": -5.527088429714152,
+    "rms_dbfs": -26.181708788980217,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   }
 ]

@@ -5536,5 +5536,13 @@
   "subtitles.slavicmyths.firebird_glide": "Жар-птица планирует",
   "subtitles.slavicmyths.firebird_perch": "Жар-птица садится",
   "subtitles.slavicmyths.firebird_drop": "Перо Жар-птицы падает",
-  "subtitles.slavicmyths.firebird_depart": "Жар-птица улетает"
+  "subtitles.slavicmyths.firebird_depart": "Жар-птица улетает",
+  "subtitles.slavicmyths.bandit_sword_windup": "Разбойник замахивается мечом",
+  "subtitles.slavicmyths.bandit_axe_windup": "Разбойник замахивается топором",
+  "subtitles.slavicmyths.bandit_mace_windup": "Разбойник замахивается булавой",
+  "subtitles.slavicmyths.bandit_sword_impact": "Меч разбойника достигает цели",
+  "subtitles.slavicmyths.bandit_axe_impact": "Топор разбойника достигает цели",
+  "subtitles.slavicmyths.bandit_mace_impact": "Булава разбойника достигает цели",
+  "subtitles.slavicmyths.bandit_bow_draw": "Разбойник натягивает тетиву",
+  "subtitles.slavicmyths.bandit_shield_raise": "Разбойник поднимает щит"
 }
