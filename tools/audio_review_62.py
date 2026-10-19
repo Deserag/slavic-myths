@@ -37,7 +37,7 @@ def main():
    eventrows.append(dict(event=event,type=kind,name=name,weight=source.get('weight',1),pitch=source.get('pitch',1),volume=source.get('volume',1),stream=source.get('stream',False),subtitle=subtitle,ru=subtitle in langs['ru_ru'],en=subtitle in langs['en_us'],path=path.relative_to(R).as_posix() if path else '',exists=path.exists() if path else 'VANILLA_OR_EVENT' if name else 'MUTED',literal_mentions=';'.join(f'{p}:{s.count(chr(10),0,m.start())+1}' for p,s in java.items() for m in re.finditer(re.escape('"'+event+'"'),s)),reachability='UNVERIFIED_DYNAMIC_DISPATCH'))
  write('EVENT_MAP.csv',eventrows,list(eventrows[0]))
  metrics=[];bybyte=defaultdict(list);bypcm=defaultdict(list);signatures=[]
- jar=R/'build/libs/slavicmyths-1.9.7.8.jar'
+ version=next(s.split('=',1)[1].strip() for s in (R/'gradle.properties').read_text(encoding='utf-8').splitlines() if s.startswith('mod_version='));jar=R/f'build/libs/slavicmyths-{version}.jar'
  with zipfile.ZipFile(jar) as z:
   for path in sorted((A/'sounds').rglob('*.ogg')):
    rel=path.relative_to(R).as_posix();entry=path.relative_to(R/'src/main/resources').as_posix();b=path.read_bytes()
@@ -102,6 +102,12 @@ def main():
   for row in json.loads((R/'art/audio/pack-a-60/voice-rework/batch-selection.json').read_text(encoding='utf-8')):
    if row['layer']=='recorded voice':known[row['file']]=('StarNinjas','CC0-1.0','https://opengameart.org/content/16-monster-growls','art/audio/pack-a-60/voice-rework/sources.json')
    else:known[row['file']]=('OwlishMedia','CC0-1.0','https://opengameart.org/content/202-more-sound-effects','art/audio/pack-a-60/sources.json')
+ for row in json.loads((R/'art/audio/pack-a-60/frost-foley/selection.json').read_text(encoding='utf-8')):
+  source=next(s for s in json.loads((R/'art/audio/pack-a-60/frost-foley/sources.json').read_text(encoding='utf-8')) if s['file']==row['source']);known[row['file']]=(source['author'],source['license'],source['page'],'art/audio/pack-a-60/frost-foley/sources.json')
+ if (R/'art/audio/kurgan-65/selection.json').exists():
+  source_map={s['file']:s for s in json.loads((R/'art/audio/kurgan-65/sources.json').read_text(encoding='utf-8'))}
+  for row in json.loads((R/'art/audio/kurgan-65/selection.json').read_text(encoding='utf-8')):
+   source=source_map[row['source']];known[row['file']]=(source['author'],source['license'],source['page'],'art/audio/kurgan-65/sources.json')
  for row in metrics:
   key=row['path'].split('assets/slavicmyths/sounds/',1)[1];author,license,url,evidence=known.get(key,('UNKNOWN','UNKNOWN','','SOURCE_NOT_YET_TRACED_PER_ASSET'))
   licenses.append(dict(asset=row['path'],evidence=evidence,author=author,license=license,url=url,sha256=row['sha256'],status='RECORDED_SOURCE_CHAIN' if key in known else 'UNRESOLVED_NOT_A_CLAIM_OF_ILLEGALITY'))
@@ -113,6 +119,6 @@ def main():
  write('GENERATORS.csv',generators,['path','mode','note'])
  assert set(registered)=={r['id'] for r in coverage},'Registry/table drift requires manual fix'
  assert all(sha(p.read_bytes())==h for p,h in protected.items()),'Production changed during read-only inventory'
- report=dict(status='IN_PROGRESS',base_sha=subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip(),working_tree='DIRTY_OWNER_APPROVED_AUDIO_SUBSET_AND_USER_DELETIONS_PRESERVED',events=len(events),muted=sum(not d.get('sounds') for d in events.values()),ogg=len(metrics),decode_fail=sum(r['status']!='DECODE_PASS' for r in metrics),jar_mismatch=sum(not r['jar_parity'] for r in metrics),registry_count=len(registered),entity_rows=len(coverage),independent=sum(r.get('group')!='auxiliary' for r in coverage),source_sites=len(sites),duplicate_groups=len(dup),jar_sha256=sha(jar.read_bytes()),production_unchanged=True,runtime_launches=0,manual_reachability='PENDING',perceptual_alignment='NOT_IMPLEMENTED_ENVELOPE_SCREEN_ONLY',hearing='NOT_LISTENED')
+ report=dict(status='IN_PROGRESS',base_sha=subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip(),working_tree='DIRTY_OWNER_APPROVED_AUDIO_SUBSET_AND_USER_DELETIONS_PRESERVED',events=len(events),muted=sum(not d.get('sounds') for d in events.values()),ogg=len(metrics),decode_fail=sum(r['status']!='DECODE_PASS' for r in metrics),jar_mismatch=sum(not r['jar_parity'] for r in metrics),registry_count=len(registered),entity_rows=len(coverage),independent=sum(r.get('group')!='auxiliary' for r in coverage),source_sites=len(sites),duplicate_groups=len(dup),jar_sha256=sha(jar.read_bytes()),production_unchanged=True,runtime_launches=0,manual_reachability='PENDING',perceptual_alignment='SEPARATE_PROJECT_SIMILARITY_METHOD_JSON_STAGE',hearing='NOT_LISTENED')
  (O/'gates.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print(json.dumps(report,indent=2))
 if __name__=='__main__':main()

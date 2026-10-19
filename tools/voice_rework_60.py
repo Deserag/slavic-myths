@@ -29,6 +29,8 @@ def restore_accepted():
  restore_creature_batch()
  from frost_foley_60 import restore_selected as restore_frost_foley
  restore_frost_foley()
+ from kurgan_audio_65 import restore_selected as restore_kurgan
+ restore_kurgan()
 
 def bass_alternative():
  source=P/'preview/tugarin_challenge.ogg';raw=subprocess.check_output(['ffmpeg','-v','error','-i',str(source),'-af','equalizer=f=160:t=q:w=0.8:g=2','-f','f32le','-ar',str(RATE),'-ac','1','pipe:1']);x=np.frombuffer(raw,dtype='<f4').astype(float);x*=min(1,.88/max(np.max(abs(x)),1e-12))
@@ -54,5 +56,5 @@ def main():
  subprocess.run([sys.executable,str(R/'tools/tugarin_rough_preview_60.py')],check=True)
  subprocess.run([sys.executable,str(R/'tools/audio_review_62_candidates.py')],check=True)
  readme += ['## Текущий выбранный Тугарин','', 'Владелец одобрил более грубый низкий вариант. В production используется именно [прослушанный rough-файл](alternatives/tugarin_challenge_rough.ogg), а не исходный высокий голос или EQ-only. Полная игровая приёмка не выполнена.','']
- (P/'outputs.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');(P/'README.md').write_text('\n'.join(readme)+'\n',encoding='utf-8');restore_accepted();print('8 labeled voices; 4 exact owner-approved takes restored to production.')
+ (P/'outputs.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');(P/'README.md').write_text('\n'.join(readme).rstrip()+'\n',encoding='utf-8');restore_accepted();print('8 labeled voices; 4 exact owner-approved takes restored to production.')
 if __name__=='__main__':main()

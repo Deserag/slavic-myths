@@ -82,7 +82,7 @@ def main():
  receipt=json.loads(receipt_before)
  check(receipt_path.read_bytes()==receipt_before,'Installation receipt not rewritten')
  check(digest(Path(receipt['installed_jar']).read_bytes())==receipt['sha256'],'Previously installed JAR unchanged; current frost batch not installed')
- report=dict(status='IN_PROGRESS',source_base=BASE,commit='NOT_COMMITTED',runtime_launches=0,owner_accepted=False,files=11,events=9,checks=len(checks),jar=str(jar),jar_sha256=digest(jar.read_bytes()),installed_receipt_unchanged=True,protected=protected,results=checks)
+ report=dict(status='IN_PROGRESS',source_base=BASE,source_revision_at_test=subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip(),runtime_launches=0,owner_accepted=False,files=11,events=9,checks=len(checks),jar=str(jar),jar_sha256=digest(jar.read_bytes()),installed_receipt_unchanged=True,protected=protected,results=checks)
  (P/'gates.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  print(json.dumps({k:v for k,v in report.items() if k not in ['protected','results']},indent=2))
 if __name__=='__main__':main()

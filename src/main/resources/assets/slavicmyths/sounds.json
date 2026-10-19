@@ -855,10 +855,12 @@
     "subtitle": "subtitles.slavicmyths.upyr_ambient",
     "sounds": [
       {
-        "name": "minecraft:entity.husk.ambient",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.55
+        "name": "kurgan/recorded/upyr_ambient_1",
+        "attenuation_distance": 20
+      },
+      {
+        "name": "kurgan/recorded/upyr_ambient_2",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -866,10 +868,12 @@
     "subtitle": "subtitles.slavicmyths.upyr_hurt",
     "sounds": [
       {
-        "name": "minecraft:entity.husk.hurt",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/upyr_hurt_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/upyr_hurt_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -877,10 +881,8 @@
     "subtitle": "subtitles.slavicmyths.upyr_death",
     "sounds": [
       {
-        "name": "minecraft:entity.husk.death",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/upyr_death_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -888,10 +890,12 @@
     "subtitle": "subtitles.slavicmyths.upyr_attack",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.sweep",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/upyr_attack_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/upyr_attack_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -899,10 +903,8 @@
     "subtitle": "subtitles.slavicmyths.upyr_leap",
     "sounds": [
       {
-        "name": "minecraft:entity.husk.ambient",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/upyr_leap_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -910,10 +912,8 @@
     "subtitle": "subtitles.slavicmyths.upyr_bite",
     "sounds": [
       {
-        "name": "minecraft:entity.husk.hurt",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/upyr_bite_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -921,10 +921,12 @@
     "subtitle": "subtitles.slavicmyths.upyr_step",
     "sounds": [
       {
-        "name": "minecraft:block.stone.step",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.55
+        "name": "kurgan/recorded/upyr_step_1",
+        "attenuation_distance": 20
+      },
+      {
+        "name": "kurgan/recorded/upyr_step_2",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -965,10 +967,8 @@
     "subtitle": "subtitles.slavicmyths.nav_attack",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.sweep",
-        "type": "event",
-        "pitch": 0.85,
-        "volume": 0.85
+        "name": "kurgan/recorded/nav_attack_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -976,10 +976,8 @@
     "subtitle": "subtitles.slavicmyths.nav_shift",
     "sounds": [
       {
-        "name": "minecraft:entity.illusioner.mirror_move",
-        "type": "event",
-        "pitch": 0.85,
-        "volume": 0.85
+        "name": "kurgan/recorded/nav_shift_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -987,10 +985,8 @@
     "subtitle": "subtitles.slavicmyths.nav_spectral_appear",
     "sounds": [
       {
-        "name": "minecraft:entity.illusioner.mirror_move",
-        "type": "event",
-        "pitch": 0.85,
-        "volume": 0.85
+        "name": "kurgan/recorded/nav_spectral_appear_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -998,10 +994,12 @@
     "subtitle": "subtitles.slavicmyths.nav_step",
     "sounds": [
       {
-        "name": "minecraft:entity.phantom.flap",
-        "type": "event",
-        "pitch": 0.85,
-        "volume": 0.55
+        "name": "kurgan/recorded/nav_step_1",
+        "attenuation_distance": 20
+      },
+      {
+        "name": "kurgan/recorded/nav_step_2",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -1009,10 +1007,12 @@
     "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_ambient",
     "sounds": [
       {
-        "name": "minecraft:entity.wither_skeleton.ambient",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.55
+        "name": "kurgan/recorded/kurgan_druzhinnik_ambient_1",
+        "attenuation_distance": 20
+      },
+      {
+        "name": "kurgan/recorded/kurgan_druzhinnik_ambient_2",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -1020,10 +1020,12 @@
     "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_hurt",
     "sounds": [
       {
-        "name": "minecraft:entity.wither_skeleton.hurt",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/kurgan_druzhinnik_hurt_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/kurgan_druzhinnik_hurt_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1031,10 +1033,12 @@
     "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_death",
     "sounds": [
       {
-        "name": "minecraft:entity.wither_skeleton.death",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/kurgan_druzhinnik_death_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/kurgan_druzhinnik_death_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1042,10 +1046,12 @@
     "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_sword_attack",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.sweep",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/kurgan_druzhinnik_sword_attack_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/kurgan_druzhinnik_sword_attack_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1053,10 +1059,12 @@
     "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_shield_block",
     "sounds": [
       {
-        "name": "minecraft:item.shield.block",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/kurgan_druzhinnik_shield_block_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/kurgan_druzhinnik_shield_block_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1064,10 +1072,8 @@
     "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_shield_bash",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.knockback",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/kurgan_druzhinnik_shield_bash_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1075,10 +1081,12 @@
     "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_step",
     "sounds": [
       {
-        "name": "minecraft:block.stone.step",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.55
+        "name": "kurgan/recorded/kurgan_druzhinnik_step_1",
+        "attenuation_distance": 20
+      },
+      {
+        "name": "kurgan/recorded/kurgan_druzhinnik_step_2",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -1086,10 +1094,8 @@
     "subtitle": "subtitles.slavicmyths.kurgan_voevoda_ambient",
     "sounds": [
       {
-        "name": "minecraft:entity.wither_skeleton.ambient",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.55
+        "name": "kurgan/recorded/kurgan_voevoda_ambient_1",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -1097,10 +1103,12 @@
     "subtitle": "subtitles.slavicmyths.kurgan_voevoda_hurt",
     "sounds": [
       {
-        "name": "minecraft:entity.wither_skeleton.hurt",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/kurgan_voevoda_hurt_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/kurgan_voevoda_hurt_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1108,10 +1116,8 @@
     "subtitle": "subtitles.slavicmyths.kurgan_voevoda_death",
     "sounds": [
       {
-        "name": "minecraft:entity.wither_skeleton.death",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/kurgan_voevoda_death_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1119,10 +1125,12 @@
     "subtitle": "subtitles.slavicmyths.kurgan_voevoda_axe_attack",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.sweep",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/kurgan_voevoda_axe_attack_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/kurgan_voevoda_axe_attack_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1130,10 +1138,8 @@
     "subtitle": "subtitles.slavicmyths.kurgan_voevoda_shield_charge",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.knockback",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/kurgan_voevoda_shield_charge_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1141,10 +1147,12 @@
     "subtitle": "subtitles.slavicmyths.kurgan_voevoda_shield_impact",
     "sounds": [
       {
-        "name": "minecraft:item.shield.block",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/kurgan_voevoda_shield_impact_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/kurgan_voevoda_shield_impact_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1152,10 +1160,8 @@
     "subtitle": "subtitles.slavicmyths.kurgan_voevoda_phase_shift",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.roar",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/kurgan_voevoda_phase_shift_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1163,10 +1169,12 @@
     "subtitle": "subtitles.slavicmyths.kurgan_voevoda_step",
     "sounds": [
       {
-        "name": "minecraft:block.stone.step",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.55
+        "name": "kurgan/recorded/kurgan_voevoda_step_1",
+        "attenuation_distance": 20
+      },
+      {
+        "name": "kurgan/recorded/kurgan_voevoda_step_2",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -1207,10 +1215,12 @@
     "subtitle": "subtitles.slavicmyths.buried_volkhv_cast_basic",
     "sounds": [
       {
-        "name": "minecraft:entity.evoker.cast_spell",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/buried_volkhv_cast_basic_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/buried_volkhv_cast_basic_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1218,10 +1228,8 @@
     "subtitle": "subtitles.slavicmyths.buried_volkhv_cast_clones",
     "sounds": [
       {
-        "name": "minecraft:entity.illusioner.mirror_move",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/buried_volkhv_cast_clones_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1229,10 +1237,8 @@
     "subtitle": "subtitles.slavicmyths.buried_volkhv_cast_ground_seal",
     "sounds": [
       {
-        "name": "minecraft:entity.evoker.cast_spell",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/buried_volkhv_cast_ground_seal_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1240,10 +1246,8 @@
     "subtitle": "subtitles.slavicmyths.buried_volkhv_summon",
     "sounds": [
       {
-        "name": "minecraft:entity.evoker.prepare_summon",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/buried_volkhv_summon_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1251,10 +1255,8 @@
     "subtitle": "subtitles.slavicmyths.buried_volkhv_step",
     "sounds": [
       {
-        "name": "minecraft:block.stone.step",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.55
+        "name": "kurgan/recorded/buried_volkhv_step_1",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -1262,10 +1264,8 @@
     "subtitle": "subtitles.slavicmyths.unresting_prince_ambient",
     "sounds": [
       {
-        "name": "minecraft:entity.wither_skeleton.ambient",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.55
+        "name": "kurgan/recorded/unresting_prince_ambient_1",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -1273,10 +1273,12 @@
     "subtitle": "subtitles.slavicmyths.unresting_prince_hurt",
     "sounds": [
       {
-        "name": "minecraft:entity.wither_skeleton.hurt",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/unresting_prince_hurt_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/unresting_prince_hurt_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1284,10 +1286,8 @@
     "subtitle": "subtitles.slavicmyths.unresting_prince_death",
     "sounds": [
       {
-        "name": "minecraft:entity.wither_skeleton.death",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/unresting_prince_death_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1295,10 +1295,12 @@
     "subtitle": "subtitles.slavicmyths.unresting_prince_combo",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.sweep",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/unresting_prince_combo_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/unresting_prince_combo_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1306,10 +1308,8 @@
     "subtitle": "subtitles.slavicmyths.unresting_prince_summon",
     "sounds": [
       {
-        "name": "minecraft:entity.evoker.prepare_summon",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/unresting_prince_summon_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1317,10 +1317,8 @@
     "subtitle": "subtitles.slavicmyths.unresting_prince_phase_shift",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.roar",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/unresting_prince_phase_shift_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1328,10 +1326,12 @@
     "subtitle": "subtitles.slavicmyths.unresting_prince_heavy_strike",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.sweep",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/unresting_prince_heavy_strike_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/unresting_prince_heavy_strike_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1339,10 +1339,8 @@
     "subtitle": "subtitles.slavicmyths.unresting_prince_grab",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.roar",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/unresting_prince_grab_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1350,10 +1348,12 @@
     "subtitle": "subtitles.slavicmyths.unresting_prince_shield_block",
     "sounds": [
       {
-        "name": "minecraft:item.shield.block",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.85
+        "name": "kurgan/recorded/unresting_prince_shield_block_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/unresting_prince_shield_block_2",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1361,10 +1361,12 @@
     "subtitle": "subtitles.slavicmyths.unresting_prince_step",
     "sounds": [
       {
-        "name": "minecraft:block.stone.step",
-        "type": "event",
-        "pitch": 0.72,
-        "volume": 0.55
+        "name": "kurgan/recorded/unresting_prince_step_1",
+        "attenuation_distance": 20
+      },
+      {
+        "name": "kurgan/recorded/unresting_prince_step_2",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -7918,6 +7920,64 @@
     "sounds": [
       {
         "name": "voice/tugarin/spin_prepare",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "upyr_impact": {
+    "subtitle": "subtitles.slavicmyths.upyr_impact",
+    "sounds": [
+      {
+        "name": "kurgan/recorded/upyr_impact_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "kurgan/recorded/upyr_impact_2",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "nav_impact": {
+    "subtitle": "subtitles.slavicmyths.nav_impact",
+    "sounds": [
+      {
+        "name": "kurgan/recorded/nav_impact_1",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "kurgan_druzhinnik_impact": {
+    "subtitle": "subtitles.slavicmyths.kurgan_druzhinnik_impact",
+    "sounds": [
+      {
+        "name": "kurgan/recorded/kurgan_druzhinnik_impact_1",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "kurgan_voevoda_impact": {
+    "subtitle": "subtitles.slavicmyths.kurgan_voevoda_impact",
+    "sounds": [
+      {
+        "name": "kurgan/recorded/kurgan_voevoda_impact_1",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "buried_volkhv_impact": {
+    "subtitle": "subtitles.slavicmyths.buried_volkhv_impact",
+    "sounds": [
+      {
+        "name": "kurgan/recorded/buried_volkhv_impact_1",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "unresting_prince_impact": {
+    "subtitle": "subtitles.slavicmyths.unresting_prince_impact",
+    "sounds": [
+      {
+        "name": "kurgan/recorded/unresting_prince_impact_1",
         "attenuation_distance": 28
       }
     ]

@@ -48,6 +48,7 @@ public final class KurganCreature extends Monster {
     public final Kind kind; public UUID kurgan;public int room=-1;public BlockPos home;
     private final EnumMap<Move,Integer> cooldowns=new EnumMap<>(Move.class);
     private int actionTick,basicWait,blocks,memory,cloneTime,alignWait;private boolean summoned,riposte,dashHit;
+    private long nextImpactSoundTick;
     private Vec3 aim=Vec3.ZERO;private BlockPos lastSeen,sealTarget;
     private final ServerBossEvent bar=new ServerBossEvent(Component.literal(""),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
     public KurganCreature(EntityType<? extends KurganCreature> type,Level world,Kind kind){super(type,world);this.kind=kind;xpReward=kind.boss()?50:8;bar.setName(getDisplayName());}
@@ -103,7 +104,7 @@ public final class KurganCreature extends Monster {
     private void dash(){Vec3 next=position().add(aim.scale(.75));if(allowed(next)){setDeltaMovement(aim.scale(kind==Kind.UPYR?.72:.65).add(0,getDeltaMovement().y,0));hasImpulse=true;}}
     private boolean strike(LivingEntity target,float damage,double reach,double cone,boolean bash){if(!target.isAlive()||distanceTo(target)>reach||!getSensing().hasLineOfSight(target))return false;Vec3 direction=target.position().subtract(position()).multiply(1,0,1).normalize();if(aim.dot(direction)<cone)return false;
         if(bash&&target instanceof Player&&target.isBlocking()){((Player)target).getCooldowns().addCooldown(Items.SHIELD,60);target.stopUsingItem();}
-        boolean hit=target.hurt(damageSources().mobAttack(this),damage);if(bash)target.knockback(.9F, -aim.x,-aim.z);return hit;
+        boolean hit=target.hurt(damageSources().mobAttack(this),damage);if(bash)target.knockback(.9F, -aim.x,-aim.z);if(hit&&level().getGameTime()>=nextImpactSoundTick){playSound(sound("impact"),.65F,1);nextImpactSoundTick=level().getGameTime()+2;}return hit;
     }
     private void release(LivingEntity target){Move m=action();float damage=(float)kind.damage;basicWait=basicInterval(kind,phase());
         if(m==Move.CLAW||m==Move.SWORD||m==Move.AXE||m==Move.TOUCH)basicWait=Math.max(0,basicWait-m.windup-1);
@@ -117,7 +118,8 @@ public final class KurganCreature extends Monster {
             case SEAL:areaSeal();break;
             case SUMMON:summoned=true;KurganEncounters.summon(this,kind==Kind.PRINCE?3:2+random.nextInt(2));break;
             case SWEEP:for(Player p:level().getEntitiesOfClass(Player.class,getBoundingBox().inflate(3.5)))strike(p,damage+2,3.5,-.35,true);break;
-            case HEAVY:if(strike(target,damage+4,3.8,.65,true))cue("heavy_strike");break;
+            // Contact cue now lives in strike; retain the former cue's pitch RNG draw.
+            case HEAVY:if(strike(target,damage+4,3.8,.65,true))random.nextFloat();break;
             case GRAB:if(strike(target,8,3,.5,true)){heal(12);target.setDeltaMovement(position().subtract(target.position()).normalize().scale(.6).add(0,.1,0));target.hurtMarked=true;}break;
             default:break;
         }

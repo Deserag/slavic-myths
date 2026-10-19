@@ -1,0 +1,17 @@
+{
+  "files": 906,
+  "all_pairs": 409965,
+  "duration_eligible_pairs": 187949,
+  "spectral_candidates": 187,
+  "high_waveform_matches": 67,
+  "rate": 8000,
+  "mel_bands": 32,
+  "time_bins": 16,
+  "window": 256,
+  "hop": 128,
+  "cosine_screen_threshold": 0.985,
+  "aligned_threshold": 0.98,
+  "max_lag_ms": 200,
+  "limitations": "Mel cosine is timbre/envelope screening with possible false positives. It misses large pitch/time transformations, phase cancellations and semantic misuse; hearing NOT_LISTENED. Waveform stage only on spectral candidates.",
+  "production_writes": false
+}

@@ -74,6 +74,12 @@ public final class ModSounds {
             for(String event:new String[]{"ambient","hurt","death","alert","roar","attack","impact"}) sound(animal+"_"+event);
     }
     public static final DeferredHolder<SoundEvent,SoundEvent> UPYR_AMBIENT=sound("upyr_ambient");
+    public static final DeferredHolder<SoundEvent,SoundEvent> UPYR_IMPACT=sound("upyr_impact");
+    public static final DeferredHolder<SoundEvent,SoundEvent> NAV_IMPACT=sound("nav_impact");
+    public static final DeferredHolder<SoundEvent,SoundEvent> DRUZHINNIK_IMPACT=sound("kurgan_druzhinnik_impact");
+    public static final DeferredHolder<SoundEvent,SoundEvent> VOEVODA_IMPACT=sound("kurgan_voevoda_impact");
+    public static final DeferredHolder<SoundEvent,SoundEvent> VOLKHV_IMPACT=sound("buried_volkhv_impact");
+    public static final DeferredHolder<SoundEvent,SoundEvent> PRINCE_IMPACT=sound("unresting_prince_impact");
     public static final DeferredHolder<SoundEvent,SoundEvent> UPYR_HURT=sound("upyr_hurt");
     public static final DeferredHolder<SoundEvent,SoundEvent> UPYR_DEATH=sound("upyr_death");
     public static final DeferredHolder<SoundEvent,SoundEvent> UPYR_ATTACK=sound("upyr_attack");

@@ -19,7 +19,8 @@ public final class KurganBolt extends ThrowableItemProjectile {
     @Override protected Item getDefaultItem(){return ModItems.NAV_ESSENCE.get();}
     @Override protected double getDefaultGravity(){return 0;}
     @Override public void tick(){super.tick();if(!level().isClientSide&&tickCount>50)discard();}
-    @Override protected void onHitEntity(EntityHitResult hit){super.onHitEntity(hit);if(!level().isClientSide){Entity owner=getOwner();if(owner instanceof LivingEntity&&!(hit.getEntity() instanceof KurganCreature))hit.getEntity().hurt(damageSources().mobProjectile(this,(LivingEntity)owner),6);discard();}}
-    @Override protected void onHitBlock(BlockHitResult hit){super.onHitBlock(hit);if(!level().isClientSide)discard();}
+    @Override protected void onHitEntity(EntityHitResult hit){super.onHitEntity(hit);if(!level().isClientSide){Entity owner=getOwner();if(owner instanceof LivingEntity&&!(hit.getEntity() instanceof KurganCreature))hit.getEntity().hurt(damageSources().mobProjectile(this,(LivingEntity)owner),6);impactSound();discard();}}
+    @Override protected void onHitBlock(BlockHitResult hit){super.onHitBlock(hit);if(!level().isClientSide){impactSound();discard();}}
+    private void impactSound(){playSound(org.slavicmyths.registry.ModSounds.VOLKHV_IMPACT.get(),.55F,1);}
 
 }

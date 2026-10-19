@@ -959,7 +959,7 @@
   "subtitles.slavicmyths.nav_step": "Навь: шаги",
   "entity.slavicmyths.kurgan_druzhinnik": "Курганный дружинник",
   "item.slavicmyths.kurgan_druzhinnik_spawn_egg": "Курганный дружинник — яйцо призыва",
-  "subtitles.slavicmyths.kurgan_druzhinnik_ambient": "Курганный дружинник: стоны",
+  "subtitles.slavicmyths.kurgan_druzhinnik_ambient": "Дружинник: кости потрескивают",
   "subtitles.slavicmyths.kurgan_druzhinnik_hurt": "Курганный дружинник: ранен",
   "subtitles.slavicmyths.kurgan_druzhinnik_death": "Курганный дружинник: погибает",
   "subtitles.slavicmyths.kurgan_druzhinnik_sword_attack": "Курганный дружинник: атака",
@@ -5465,5 +5465,11 @@
   "subtitles.slavicmyths.tugarin_challenge": "Тугарин бросает боевой вызов",
   "subtitles.slavicmyths.tugarin_breath": "Тугарин тяжело дышит",
   "subtitles.slavicmyths.tugarin_attack_voice": "Тугарин напрягается при ударе",
-  "subtitles.slavicmyths.tugarin_spin_prepare": "Тугарин выдыхает перед вращением"
+  "subtitles.slavicmyths.tugarin_spin_prepare": "Тугарин выдыхает перед вращением",
+  "subtitles.slavicmyths.upyr_impact": "Упырь: удар достигает цели",
+  "subtitles.slavicmyths.nav_impact": "Навь: удар достигает цели",
+  "subtitles.slavicmyths.kurgan_druzhinnik_impact": "Курганный дружинник: удар достигает цели",
+  "subtitles.slavicmyths.kurgan_voevoda_impact": "Курганный воевода: удар достигает цели",
+  "subtitles.slavicmyths.buried_volkhv_impact": "Погребённый волхв: удар достигает цели",
+  "subtitles.slavicmyths.unresting_prince_impact": "Неупокоенный князь: удар достигает цели"
 }

@@ -1,0 +1,56 @@
+[
+  {
+    "seconds": 0,
+    "event": "nav_ambient",
+    "new_present": false,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 3,
+    "event": "nav_step",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 5,
+    "event": "nav_attack",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 5.25,
+    "event": "nav_impact",
+    "new_present": true,
+    "note": "Collision time illustrative for projectile/charge; animation facing delays not simulated"
+  },
+  {
+    "seconds": 9,
+    "event": "nav_shift",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 9.4,
+    "event": "nav_spectral_appear",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 13,
+    "event": "nav_hurt",
+    "new_present": false,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 16,
+    "event": "nav_step",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 19,
+    "event": "nav_death",
+    "new_present": false,
+    "note": "source callback/tell schedule illustration"
+  }
+]

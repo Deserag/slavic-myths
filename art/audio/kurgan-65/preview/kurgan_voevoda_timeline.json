@@ -1,0 +1,56 @@
+[
+  {
+    "seconds": 0,
+    "event": "kurgan_voevoda_ambient",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 3,
+    "event": "kurgan_voevoda_step",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 5,
+    "event": "kurgan_voevoda_axe_attack",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 5.3,
+    "event": "kurgan_voevoda_impact",
+    "new_present": true,
+    "note": "Collision time illustrative for projectile/charge; animation facing delays not simulated"
+  },
+  {
+    "seconds": 9,
+    "event": "kurgan_voevoda_shield_charge",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 9.6,
+    "event": "kurgan_voevoda_impact",
+    "new_present": true,
+    "note": "Collision time illustrative for projectile/charge; animation facing delays not simulated"
+  },
+  {
+    "seconds": 13,
+    "event": "kurgan_voevoda_hurt",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 16,
+    "event": "kurgan_voevoda_phase_shift",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  },
+  {
+    "seconds": 19,
+    "event": "kurgan_voevoda_death",
+    "new_present": true,
+    "note": "source callback/tell schedule illustration"
+  }
+]

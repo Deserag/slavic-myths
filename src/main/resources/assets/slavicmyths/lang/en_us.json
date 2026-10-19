@@ -959,7 +959,7 @@
   "subtitles.slavicmyths.nav_step": "Nav: step",
   "entity.slavicmyths.kurgan_druzhinnik": "Kurgan Druzhinnik",
   "item.slavicmyths.kurgan_druzhinnik_spawn_egg": "Kurgan Druzhinnik Spawn Egg",
-  "subtitles.slavicmyths.kurgan_druzhinnik_ambient": "Kurgan Druzhinnik: ambient",
+  "subtitles.slavicmyths.kurgan_druzhinnik_ambient": "Buried warrior: bones rattle",
   "subtitles.slavicmyths.kurgan_druzhinnik_hurt": "Kurgan Druzhinnik: hurt",
   "subtitles.slavicmyths.kurgan_druzhinnik_death": "Kurgan Druzhinnik: death",
   "subtitles.slavicmyths.kurgan_druzhinnik_sword_attack": "Kurgan Druzhinnik: sword attack",
@@ -5465,5 +5465,11 @@
   "subtitles.slavicmyths.tugarin_challenge": "Tugarin challenges his foe",
   "subtitles.slavicmyths.tugarin_breath": "Tugarin breathes heavily",
   "subtitles.slavicmyths.tugarin_attack_voice": "Tugarin grunts with effort",
-  "subtitles.slavicmyths.tugarin_spin_prepare": "Tugarin exhales before spinning"
+  "subtitles.slavicmyths.tugarin_spin_prepare": "Tugarin exhales before spinning",
+  "subtitles.slavicmyths.upyr_impact": "Upyr: attack makes contact",
+  "subtitles.slavicmyths.nav_impact": "Nav: attack makes contact",
+  "subtitles.slavicmyths.kurgan_druzhinnik_impact": "Kurgan Druzhinnik: attack makes contact",
+  "subtitles.slavicmyths.kurgan_voevoda_impact": "Kurgan Voevoda: attack makes contact",
+  "subtitles.slavicmyths.buried_volkhv_impact": "Buried Volkhv: attack makes contact",
+  "subtitles.slavicmyths.unresting_prince_impact": "Unresting Prince: attack makes contact"
 }

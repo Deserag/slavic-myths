@@ -114,6 +114,8 @@ def generate():
  langs['en_us']['kurgan.command.encounter_info']='Room %s; encounter triggered %s; cleared %s; live UUIDs %s; seal opened %s; prince defeated %s.'
  for l,data in langs.items():write(A/f'lang/{l}.json',data)
  write(A/'sounds.json',sounds)
+ from kurgan_audio_65 import restore_selected
+ restore_selected()
  write(R/'docs/verification/kurgan-creatures-0.8.6.json',{'version':'0.8.6','creatures':CREATURES,'items':list(ITEMS),'sounds_vanilla_fallback':fallback,'minecraft_launches':0})
 
 if __name__=='__main__':generate()
