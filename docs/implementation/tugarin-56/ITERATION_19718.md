@@ -38,11 +38,11 @@ SPIN/recovery. Ракурс, масштаб, PNG и age одинаковы. GIF1
 
 | REQUIREMENT | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN |
 |---|---|---|
-| Нативное до/после: требуемые тики SPIN/recovery, клинки и ноги | before/after-19718-native.json.gz; spin-*-19718.png; motion-19718.gif | NOT_RUN |
-| Combo/charge/transition/wings и fire origin | other-actions-19718.png; breath-mouth-source-19718.png; native log | NOT_RUN |
-| Grounded stance/flat sole/no slide/grip; Лихо без изменений | verifyTugarin56; gates-19718.json | NOT_RUN |
-| Серверные тайминги/AI/NBT, исходные art/audio | scoped source gate | NOT_RUN |
-| Java21 clean build, native fixture и production JAR | TEST_PREVIEW_BUILD.json | NOT_RUN |
+| Нативное до/после: требуемые тики SPIN/recovery, клинки и ноги | before/after-19718-native.json.gz; spin-*-19718.png; motion-19718.gif | PASS_OFFLINE |
+| Combo/charge/transition/wings и fire origin | other-actions-19718.png; breath-mouth-source-19718.png; native log | PASS_OFFLINE |
+| Grounded stance/flat sole/no slide/grip; Лихо без изменений | verifyTugarin56; gates-19718.json | PASS_OFFLINE |
+| Серверные тайминги/AI/NBT, исходные art/audio | scoped source gate | PASS_OFFLINE |
+| Java21 clean build, native fixture и production JAR | TEST_PREVIEW_BUILD.json | PASS_OFFLINE |
 | Тестовый PolyMC с backup/SHA/one active JAR | TEST_PREVIEW_1.9.7.18.json + VERIFY.json | NOT_RUN |
 | Пластика/естественность/игровая анимация и звук | Только ручная приёмка владельца | NOT_RUN |
 
@@ -50,3 +50,9 @@ SPIN/recovery. Ракурс, масштаб, PNG и age одинаковы. GIF1
 combo и рывок; переход во вторую фазу, пикирование/посадку и огонь.
 Принятые тембры/записанные spin1/2/3 сохранены: нового аудиоаудита нет.
 Численные проверки не заменяют восприятие пластики и веса в игре.
+
+Java21 clean build2m PASS, source main3d4ff858; нативные84 позы×4 формы
+и scoped JAR gate PASS. См. NATIVE_BUILD_19718.log, gates-19718.json.
+При просмотре source-сравнения проверены реальные контакты16/28/40: ведущий
+клинок больше не остаётся у лица, руки имеют разные траектории и согнутые локти.
+Это source-проверка постановки, не утверждение о принятом качестве в игре.

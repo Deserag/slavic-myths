@@ -3,7 +3,8 @@
 #61–#66 сохранены OPEN/OWNER_PENDING; массовые аудиоаудиты остановлены.
 Тугарин1.9.7.18 IN_PROGRESS: опорные ноги/корпус/клинки и инерция, source-показ
 до/после текущей17, серверные hit ticks/AI/NBT и ресурсы сохранены.
-[Матрица #56](implementation/tugarin-56/ITERATION_19718.md). Build/install пока NOT_RUN.
+[Матрица #56](implementation/tugarin-56/ITERATION_19718.md). Java21 clean build2m + native/scoped gates PASS; compiled3d4ff858.
+Нативные до/после и GIF сохранены; PolyMC installation пока NOT_RUN.
 Minecraft не запускать; финальная приёмка владельцем.
 
 ## #61 — реакции оленя и оленихи, 1.9.7.17 IN_PROGRESS
