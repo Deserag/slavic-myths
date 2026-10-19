@@ -570,6 +570,8 @@ if (project.hasProperty('tugarinModelOfflineCheck')) {
   classpath = sourceSets.tugarinModelOffline.runtimeClasspath
   mainClass = 'org.slavicmyths.verify.Tugarin56Offline'
   if(project.hasProperty('tugarin56Baseline')) systemProperty 'slavicmyths.tugarin56Baseline', 'true'
+  if(project.hasProperty('tugarin56Output')) systemProperty 'slavicmyths.tugarin56Output', project.property('tugarin56Output')
+  if(project.hasProperty('tugarin56Timeline')) systemProperty 'slavicmyths.tugarin56Timeline', 'true'
  }
 }
 

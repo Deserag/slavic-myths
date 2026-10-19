@@ -29,7 +29,7 @@ public final class Tugarin56Offline {
   int planted=0;for(String side:List.of("L","R")){
    var pose=chain(parts,"root","pelvis","leg"+side,"knee"+side,"ankle"+side);
    float y=pose.last().pose().transformPosition(new Vector3f(0,4F/16,0)).y*16;
-   check(y<=24.01F&&y>=21.58F,"Actual boot support/swing "+move+"/"+tick);if(Math.abs(y-24)<.01F)planted++;
+   check(y<=24.01F&&y>=21.58F,"Actual boot support/swing "+move+"/"+tick+"/"+side+" y="+y);if(Math.abs(y-24)<.01F)planted++;
   }
   check(planted>=1,"At least one support foot "+move+"/"+tick);
  }
@@ -45,6 +45,7 @@ public final class Tugarin56Offline {
   for(int t:new int[]{0,8,20,36})keys.add(new Key("wing_"+t,Move.WING_DIVE,t,Move.IDLE));
   keys.add(new Key("landing",Move.RECOVERY,8,Move.WING_DIVE));
   for(var move:new Move[]{Move.IDLE,Move.PUNCH,Move.SWEEP,Move.STONE,Move.SLAM,Move.BREATH,Move.SERPENT_LUNGE,Move.SMOKE_BURST})keys.add(new Key(move.name(),move,10,Move.IDLE));
+  if(Boolean.getBoolean("slavicmyths.tugarin56Timeline")){for(int t=0;t<=52;t+=2)keys.add(new Key("film_spin_"+t,Move.SPIN,t,Move.IDLE));for(int t=0;t<=24;t+=2)keys.add(new Key("film_recovery_"+t,Move.RECOVERY,t,Move.SPIN));}
   for(String form:List.of("warrior","serpent","likho","mor_likho")){
    var model=new WorldBossModel(form.contains("likho"),form.equals("serpent"),form.equals("mor_likho"));var parts=(Map<String,ModelPart>)field(model,"parts");var poses=new JsonObject();
    for(var key:keys){model.sample(key.action,key.tick,key.previous,0,0,0,0,2,.0F,20,0,0);var polygons=new JsonArray();mesh(parts.get("root"),new PoseStack(),polygons);poses.add(key.name,polygons);}
@@ -65,6 +66,24 @@ public final class Tugarin56Offline {
    if(!baseline&&form.equals("warrior")){
     model.sample(Move.SPIN,100,Move.IDLE,0,0,0,0,0,0,20,0,0);check(Math.abs(parts.get("pelvis").yRot-3*Math.PI*2)<.001,"No fourth revolution during delayed sync");
     for(int tick=0;tick<52;tick++)supports(model,parts,Move.SPIN,tick,0,0);
+    if(Boolean.getBoolean("slavicmyths.tugarin56Timeline")){
+     for(float tick=16;tick<51;tick+=.5F)for(String side:List.of("L","R")){
+      float local=(tick-16-(side.equals("L")?0:3))%6;if(local<0)local+=6;
+      if(local>2.4F)continue;
+      model.sample(Move.SPIN,tick,Move.IDLE,0,0,0,0,0,0,20,0,0);
+      var boot=chain(parts,"root","pelvis","leg"+side,"knee"+side,"ankle"+side);
+      var a=boot.last().pose().transformPosition(new Vector3f(0,.25F,0));
+      var up=boot.last().pose().transformDirection(new Vector3f(0,1,0));check(up.distance(new Vector3f(0,1,0))<.001F,"Flat stance sole "+tick+side);
+      model.sample(Move.SPIN,tick+.25F,Move.IDLE,0,0,0,0,0,0,20,0,0);
+      var b=chain(parts,"root","pelvis","leg"+side,"knee"+side,"ankle"+side).last().pose().transformPosition(new Vector3f(0,.25F,0));
+      check(a.distance(b)*16<.01F,"No stance-foot sliding through pelvis turn "+tick+side);
+     }
+     for(float tick=0;tick<=24;tick+=.5F){
+      model.sample(Move.RECOVERY,tick,Move.SPIN,0,0,0,0,0,0,20,0,0);int contact=0;
+      for(String side:List.of("L","R")){float sole=chain(parts,"root","pelvis","leg"+side,"knee"+side,"ankle"+side).last().pose().transformPosition(new Vector3f(0,.25F,0)).y*16;check(sole<=24.01F,"No boot below floor in recovery");if(Math.abs(sole-24)<.01F)contact++;}
+      check(contact>0,"Grounded recovery "+tick);
+     }
+    }
     for(int phase=0;phase<48;phase++)for(var move:new Move[]{Move.IDLE,Move.CHARGE})supports(model,parts,move,16,phase*.15F,.8F);
     for(var key:keys){
      model.sample(key.action,key.tick,key.previous,0,0,0,0,2,0,20,0,0);
@@ -77,7 +96,7 @@ public final class Tugarin56Offline {
     }
    }
   }
-  var path=Path.of(baseline?"docs/implementation/tugarin-56/before-native.json.gz":"build/tugarin-56/after-native.json.gz");Files.createDirectories(path.getParent());if(baseline&&Files.exists(path))throw new AssertionError("Preserve existing baseline");try(var out=new GZIPOutputStream(Files.newOutputStream(path))){out.write(new Gson().toJson(output).getBytes(java.nio.charset.StandardCharsets.UTF_8));}
+  var path=Path.of(System.getProperty("slavicmyths.tugarin56Output",baseline?"docs/implementation/tugarin-56/before-native.json.gz":"build/tugarin-56/after-native.json.gz"));Files.createDirectories(path.getParent());if(baseline&&Files.exists(path))throw new AssertionError("Preserve existing baseline");try(var out=new GZIPOutputStream(Files.newOutputStream(path))){out.write(new Gson().toJson(output).getBytes(java.nio.charset.StandardCharsets.UTF_8));}
   System.out.println("TUGARIN_56_NATIVE "+(baseline?"BASELINE":"PASS")+" checks="+checks+" forms=4 poses="+keys.size()+"; no world/bootstrap");
  }
 }
