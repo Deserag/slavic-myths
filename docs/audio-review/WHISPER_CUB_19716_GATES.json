@@ -1,0 +1,15 @@
+{
+  "status": "PASS_OFFLINE_OWNER_PENDING",
+  "baseline": "d7327451",
+  "version": "1.9.7.16",
+  "events": 3,
+  "recorded_variants": 5,
+  "active_source_gaps": 4,
+  "owner_deferred": 3,
+  "igosha": "KEEP_CURRENT_BYTE_IDENTICAL",
+  "java": "UNCHANGED",
+  "jar_sha256": "e4bef6c057457a5b6edad994f81a41d8846d899ba1b07a475ec8e1f236eafeb8",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "owner_accepted": false
+}

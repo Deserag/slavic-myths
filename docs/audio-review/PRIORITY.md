@@ -1,3 +1,8 @@
+Текущий checkpoint1.9.7.16: следующий новый контекст —4 reactions stag/doe
+hurt/death. Карачун whisper/cub reactions технически подключены, OWNER_PENDING.
+Игоша3 DEFERRED/LOW_PRIORITY/KEEP_CURRENT по решению владельца19.10.2026;
+не менять её файлы и не считать gaps устранёнными. Ниже исторические очереди.
+
 Checkpoint1.9.7.15: ordinary Volkolak rage/HOWL исправлены отдельным override,
 проверенным javap в JAR; прежний Ravager default остаётся только для прочих
 HuntMob. Маринка idle/LURE whispers подключены. Остаются10 source gaps:

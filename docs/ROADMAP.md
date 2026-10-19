@@ -3,7 +3,8 @@
 Подготовлена1.9.7.16:3 прежних events/5 новых recorded OGG, одиночный мужской
 шёпот Карачуна и собственные cub reactions. Java/AI/модели не менялись.
 Игоша3 DEFERRED / LOW_PRIORITY / KEEP_CURRENT, bytes сохранены. Активны4 gaps
-оленя/оленихи. Build/gates/install16 ещё NOT_RUN; установлена15.
+оленя/оленихи. Java21 clean build44s +6 общих/2 scoped offline gates PASS.
+Compiled main1bb0a1f2; установка16 ещё NOT_RUN, установлена15.
 [Матрица](audio-review/WHISPER_CUB_19716.md). Hearing/runtime owner pending.
 
 ## #61/#64–#66 — ordinary Волколак и два шёпота Маринки

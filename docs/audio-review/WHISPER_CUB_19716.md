@@ -39,8 +39,8 @@ IENBA850703 найден, но описан как breath/exhale/sigh, не вы
 | REQUIREMENT | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN |
 |---|---|---|
 |3 events/5 recorded variants; sources/rights | selection.json / sources.json / packaged project-61.txt | PASS_SOURCE |
-| Игоша неизменна,3 deferred,4 active gaps | deferred.json; scoped byte checks | NOT_RUN |
-| Java/gameplay unchanged; duration budgets | verify_whisper_cub_19716.py | NOT_RUN |
-| Java21 clean build +6 общих+2 scoped gates | После source commit | NOT_RUN |
+| Игоша неизменна,3 deferred,4 active gaps | deferred.json; WHISPER_CUB_19716_GATES.json | PASS_OFFLINE |
+| Java/gameplay unchanged; duration budgets | WHISPER_CUB_19716_GATES.json; Java unchanged, Igosha byte parity | PASS_OFFLINE |
+| Java21 clean build +6 общих+2 scoped gates | main1bb0a1f2;44s;8 offline gates | PASS_OFFLINE |
 | PolyMC backup/installed metadata/SHA/one active JAR | После всех gates | NOT_RUN |
 | Слуховая и игровая приёмка | Только владелец | NOT_RUN |

@@ -3,7 +3,7 @@
 Ничего не объявлено принятым целиком. Одобрены четыре конкретных голосовых файла
 Тугарина/Скима; остальные выбранные клипы AGENT_SELECTED / OWNER_PENDING.
 
-- [Новый сквозной этап:458 назначений, роли и источники](../../art/audio/project-61/PREVIEW.md).
+- [Новый сквозной этап:463 назначения, роли и источники](../../art/audio/project-61/PREVIEW.md).
 - [OLD/NEW soundboard](../../art/audio/project-61/soundboard.html); [переносимый NEW ZIP](../../art/audio/project-61/review.zip).
 - [Предыдущий курганный пакет: курганная нежить,6 типов,53 события](../../art/audio/kurgan-65/PREVIEW.md).
 - [Открыть локальный OLD/NEW soundboard](../../art/audio/kurgan-65/soundboard.html).
@@ -34,3 +34,6 @@ actual event/file и лицензией. Нет автоматического �
 1.9.7.15: ещё2 подписанные последовательности ordinary_volkolak и
 marinka_whispers; всего11. Точная карта новых5 OGG — ROUTES_19715.csv.
 Шёпот Маринки — записанный наслоенный голос BlueSiren, не русская реплика.
+
+1.9.7.16: karachun_whisper и cub_reactions — ещё2 подписанные офлайн-подборки,
+всего13. Игоша3 отложена владельцем; текущая озвучка не менялась.

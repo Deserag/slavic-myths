@@ -18,7 +18,17 @@ def main():
  assert rows['morozko.blizzard_loop']['seconds']<80/20
  for event in ['karachun.dark_frost','karachun.last_hour_mark']:
   assert rows[event]['seconds']/.94<40/20,event
- assert not json.loads((R/'src/main/resources/assets/slavicmyths/sounds.json').read_text(encoding='utf-8'))['karachun.voice_whisper']['sounds']
+ from audio_groups_61_plan import BLOCKED
+ whisper=json.loads((R/'src/main/resources/assets/slavicmyths/sounds.json').read_text(encoding='utf-8'))['karachun.voice_whisper']['sounds']
+ if 'karachun.voice_whisper' in BLOCKED:assert not whisper
+ else:
+  selected=json.loads((R/'art/audio/project-61/selection.json').read_text(encoding='utf-8'))
+  selected=[r for r in selected if r['event']=='karachun.voice_whisper']
+  assert len(selected)==2 and {v['name'] for v in whisper}=={'slavicmyths:'+r['file'].removesuffix('.ogg') for r in selected}
+  for row in selected:
+   assert {s['key'] for s in row['sources']}=={'whisper__sardin_3256.wav'}
+   assert row['seconds']/.94<24/20
+   assert hashlib.sha256((R/'src/main/resources/assets/slavicmyths/sounds'/row['file']).read_bytes()).hexdigest()==row['sha256']
  report=dict(status='PASS_OFFLINE',scripts=['morozko_assets.py --audio-only','karachun_assets.py --audio-only'],production_files=len(before),production_unchanged=True,legacy_synthesis_executed=False,geometry_generators_executed=False,duration_budgets='PASS_DECODED_FILES_NOT_RUNTIME',runtime='NOT_RUN',owner_accepted=False)
  (R/'docs/audio-review/FROST_RESTORER_GATES.json').write_text(json.dumps(report,indent=2)+'\n')
  print(json.dumps(report,indent=2))
