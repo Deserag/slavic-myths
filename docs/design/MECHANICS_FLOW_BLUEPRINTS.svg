@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1330" viewBox="0 0 1680 1330"><rect width="1680" height="1330" fill="#12191c"/><style>text{font-family:DejaVu Sans,sans-serif;fill:#eae6dc}.big{font-size:25px;font-weight:bold}.sm{font-size:17px}.tiny{font-size:14px;fill:#bdc8c9}</style>
+<rect x="20" y="16" width="808" height="610" rx="8" fill="#1d2529" stroke="#9b8770" stroke-width="2"/>
+<text x="40" y="56" class="big">#78 БОГАТЫРИ: цикл призыва</text>
+<rect x="69" y="113" width="192" height="60" rx="8" fill="#273032" stroke="#7c9f98" stroke-width="2"/>
+<text x="83" y="151" class="sm">Доступен</text>
+<rect x="291" y="113" width="192" height="60" rx="8" fill="#273032" stroke="#7c9f98" stroke-width="2"/>
+<text x="305" y="151" class="sm">Призван</text>
+<rect x="523" y="113" width="192" height="60" rx="8" fill="#273032" stroke="#7c9f98" stroke-width="2"/>
+<text x="537" y="151" class="sm">Помогает</text>
+<rect x="523" y="250" width="192" height="60" rx="8" fill="#273032" stroke="#7c9f98" stroke-width="2"/>
+<text x="537" y="288" class="sm">Восстановление</text>
+<rect x="303" y="388" width="192" height="60" rx="8" fill="#273032" stroke="#7c9f98" stroke-width="2"/>
+<text x="317" y="426" class="sm">Отступает</text>
+<rect x="69" y="515" width="228" height="60" rx="8" fill="#273032" stroke="#7c9f98" stroke-width="2"/>
+<text x="83" y="553" class="sm">КД повторного вызова</text>
+<path d="M270 143L291 143" stroke="#e0bd7d" stroke-width="3"/><path d="M283 138L291 143L283 148" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<path d="M474 143L522 143" stroke="#e0bd7d" stroke-width="3"/><path d="M514 138L522 143L514 148" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<path d="M629 175L629 249" stroke="#e0bd7d" stroke-width="3"/><path d="M621 244L629 249L621 254" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<path d="M533 279L483 420" stroke="#e0bd7d" stroke-width="3"/><path d="M475 415L483 420L475 425" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<path d="M481 420L282 544" stroke="#e0bd7d" stroke-width="3"/><path d="M274 539L282 544L274 549" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<text x="45" y="269" class="tiny">Лимит времени · Лимит восстановлений</text>
+<text x="45" y="312" class="tiny">Перезаход не сбрасывает таймер</text>
+<text x="45" y="348" class="tiny">Один герой на владельца · Без дубликатов</text>
+<text x="45" y="608" class="tiny">Проверить Илью, Добрыню, Алёшу и Финиста</text>
+<rect x="851" y="16" width="808" height="610" rx="8" fill="#1d2529" stroke="#9b8770" stroke-width="2"/>
+<text x="871" y="56" class="big">#79 ОТНОШЕНИЯ: общая политика</text>
+<rect x="880" y="100" width="720" height="62" rx="8" fill="#242c32" stroke="#6b919c" stroke-width="2"/>
+<text x="902" y="139" class="sm">Entity registry / class / tag</text>
+<rect x="880" y="200" width="720" height="62" rx="8" fill="#242c32" stroke="#6b919c" stroke-width="2"/>
+<text x="902" y="239" class="sm">Owner / ally / Peaceful</text>
+<rect x="880" y="300" width="720" height="62" rx="8" fill="#242c32" stroke="#6b919c" stroke-width="2"/>
+<text x="902" y="339" class="sm">Mor, purification, story state</text>
+<rect x="880" y="430" width="720" height="62" rx="8" fill="#304148" stroke="#b3dcb9" stroke-width="2"/>
+<text x="902" y="469" class="sm">Единый CombatTargeting</text>
+<rect x="880" y="525" width="720" height="62" rx="8" fill="#242c32" stroke="#6b919c" stroke-width="2"/>
+<text x="902" y="564" class="sm">ally | neutral | hostile | protected</text>
+<path d="M1240 162L1240 200" stroke="#d9c188" stroke-width="3"/><path d="M1232 195L1240 200L1232 205" fill="none" stroke="#d9c188" stroke-width="3"/>
+<path d="M1240 262L1240 300" stroke="#d9c188" stroke-width="3"/><path d="M1232 295L1240 300L1232 305" fill="none" stroke="#d9c188" stroke-width="3"/>
+<path d="M1240 422L1240 460" stroke="#d9c188" stroke-width="3"/><path d="M1232 455L1240 460L1232 465" fill="none" stroke="#d9c188" stroke-width="3"/>
+<path d="M1240 462L1240 500" stroke="#d9c188" stroke-width="3"/><path d="M1232 495L1240 500L1232 505" fill="none" stroke="#d9c188" stroke-width="3"/>
+<text x="901" y="608" class="tiny">Одна система для всех семейств; вражда меняется по сюжету.</text>
+<rect x="20" y="666" width="808" height="610" rx="8" fill="#1d2529" stroke="#9b8770" stroke-width="2"/>
+<text x="40" y="706" class="big">#85 ОПЬЯНЕНИЕ: пороги</text>
+<rect x="62" y="770" width="77" height="62" rx="8" fill="#304e47" stroke="#80ae8b" stroke-width="2"/>
+<text x="93" y="810" class="big">0</text>
+<rect x="164" y="770" width="77" height="62" rx="8" fill="#304e47" stroke="#80ae8b" stroke-width="2"/>
+<text x="195" y="810" class="big">1</text>
+<rect x="266" y="770" width="77" height="62" rx="8" fill="#304e47" stroke="#80ae8b" stroke-width="2"/>
+<text x="297" y="810" class="big">2</text>
+<rect x="368" y="770" width="77" height="62" rx="8" fill="#304e47" stroke="#80ae8b" stroke-width="2"/>
+<text x="399" y="810" class="big">3</text>
+<rect x="470" y="770" width="77" height="62" rx="8" fill="#5c3f31" stroke="#bd8c5f" stroke-width="2"/>
+<text x="501" y="810" class="big">4</text>
+<rect x="572" y="770" width="77" height="62" rx="8" fill="#5c3f31" stroke="#bd8c5f" stroke-width="2"/>
+<text x="603" y="810" class="big">5</text>
+<rect x="674" y="770" width="77" height="62" rx="8" fill="#5c3f31" stroke="#bd8c5f" stroke-width="2"/>
+<text x="705" y="810" class="big">6</text>
+<path d="M139 801L164 801" stroke="#e0bd7d" stroke-width="3"/><path d="M156 796L164 801L156 806" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<path d="M241 801L266 801" stroke="#e0bd7d" stroke-width="3"/><path d="M258 796L266 801L258 806" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<path d="M343 801L368 801" stroke="#e0bd7d" stroke-width="3"/><path d="M360 796L368 801L360 806" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<path d="M445 801L470 801" stroke="#e0bd7d" stroke-width="3"/><path d="M462 796L470 801L462 806" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<path d="M547 801L572 801" stroke="#e0bd7d" stroke-width="3"/><path d="M564 796L572 801L564 806" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<path d="M649 801L674 801" stroke="#e0bd7d" stroke-width="3"/><path d="M666 796L674 801L666 806" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<text x="61" y="876" class="sm">0–3 порции: нет негативных эффектов</text>
+<text x="61" y="919" class="sm">4: первый ощутимый эффект  ·  5–6: рост тяжести</text>
+<text x="61" y="964" class="sm">Decay должен снимать стадии, а не продлевать навсегда</text>
+<text x="61" y="1019" class="sm">Особые напитки: отдельный эквивалент дозы</text>
+<rect x="851" y="666" width="808" height="610" rx="8" fill="#1d2529" stroke="#9b8770" stroke-width="2"/>
+<text x="871" y="706" class="big">#89 ДОСТИЖЕНИЯ: до / после</text>
+<text x="895" y="770" class="sm">СЕЙЧАС: три награды за один эпизод</text>
+<rect x="900" y="801" width="194" height="64" rx="8" fill="#463b32" stroke="#b09672" stroke-width="2"/>
+<text x="911" y="838" class="tiny">Встретил Лешего</text>
+<rect x="1130" y="801" width="194" height="64" rx="8" fill="#463b32" stroke="#b09672" stroke-width="2"/>
+<text x="1141" y="838" class="tiny">Победил Лешего</text>
+<rect x="1360" y="801" width="194" height="64" rx="8" fill="#463b32" stroke="#b09672" stroke-width="2"/>
+<text x="1371" y="838" class="tiny">Сердце Лешего</text>
+<path d="M1094 833L1126 833" stroke="#e0bd7d" stroke-width="3"/><path d="M1118 828L1126 833L1118 838" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<path d="M1324 833L1356 833" stroke="#e0bd7d" stroke-width="3"/><path d="M1348 828L1356 833L1348 838" fill="none" stroke="#e0bd7d" stroke-width="3"/>
+<text x="895" y="963" class="sm">НУЖНО: значимая веха</text>
+<rect x="965" y="994" width="490" height="65" rx="8" fill="#30493a" stroke="#9ccd99" stroke-width="2"/>
+<text x="992" y="1032" class="sm">Победа над Хранителем леса</text>
+<text x="897" y="1139" class="sm">Другие события: скрытые условия, без спама тостов.</text>
+<text x="897" y="1191" class="tiny">Сохранить уже выданные награды и старые миры.</text>
+<text x="23" y="1321" class="tiny">ЧЕРТЕЖИ СОСТОЯНИЙ: схема логики, не свидетельство внедрения. Доказательство — серверный код + тесты и игровая приёмка.</text>
+</svg>
