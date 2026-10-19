@@ -1,3 +1,14 @@
+## #61 — реакции оленя и оленихи, 1.9.7.17 IN_PROGRESS
+
+Подключены4 прежних hurt/death events /6 recorded OGG. Самец: kvgarlic CC0;
+DOE: juskiddink CC-BY4, пол источника не указан, привязка требует слуховой оценки.
+Последние реакции — игровая интерпретация, не записи смерти. Java/AI/модели
+не менялись. Игоша3 DEFERRED/KEEP_CURRENT. Активные4 source gaps заполнены;
+весь аудиопроект OWNER_PENDING, не DONE. [Матрица](DEER_19717.md).
+Build/JAR/installation пока NOT_RUN; Minecraft не запускался.
+
+Ниже — исторические checkpoints.
+
 Текущий checkpoint1.9.7.16: следующий новый контекст —4 reactions stag/doe
 hurt/death. Карачун whisper/cub reactions технически подключены, OWNER_PENDING.
 Игоша3 DEFERRED/LOW_PRIORITY/KEEP_CURRENT по решению владельца19.10.2026;

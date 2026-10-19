@@ -1,0 +1,52 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 24,
+  "sha256": "9ef93ef6ad9cebef347b1c6a9b193fedd03415f18c087ca985af3f4505ff3917",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "stag_hurt",
+      "label": "Олень резко фыркает от удара",
+      "file": "recorded61/stag_hurt_1.ogg",
+      "sha256": "537afaa95fe92bdf74265fc98d1fca8f05cfb630d591c2eb00530fd225d1375c"
+    },
+    {
+      "time_s": 4,
+      "event": "stag_hurt",
+      "label": "Олень резко фыркает от удара",
+      "file": "recorded61/stag_hurt_2.ogg",
+      "sha256": "a5d7adbefe3b6ab835cb2172bf858e4a6de51df7315756b26855e4ff7f362902"
+    },
+    {
+      "time_s": 8,
+      "event": "stag_death",
+      "label": "Олень затихает",
+      "file": "recorded61/stag_death_1.ogg",
+      "sha256": "caa20133e4dd56f994309ed39733070d95a07a81c14a4131e50fd4d64adf579a"
+    },
+    {
+      "time_s": 12,
+      "event": "doe_hurt",
+      "label": "Олениха вскрикивает от удара",
+      "file": "recorded61/doe_hurt_1.ogg",
+      "sha256": "6d7a1fa7e4323315596ee5a2a0860ad2384272710c4c2cefd1b10950f6f28f9f"
+    },
+    {
+      "time_s": 16,
+      "event": "doe_hurt",
+      "label": "Олениха вскрикивает от удара",
+      "file": "recorded61/doe_hurt_2.ogg",
+      "sha256": "b6414768b7ff9f8655fdc070a0dc79e0ae091a7a2d4b1a349970f351c6077a72"
+    },
+    {
+      "time_s": 20,
+      "event": "doe_death",
+      "label": "Олениха затихает",
+      "file": "recorded61/doe_death_1.ogg",
+      "sha256": "ec0040eee86e23165d8293289f2f44a3fd8fd2d887e8cb1918f8bf1f7a03fc0d"
+    }
+  ]
+}

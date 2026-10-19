@@ -607,11 +607,25 @@
   },
   "stag_hurt": {
     "subtitle": "subtitles.slavicmyths.stag_hurt",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/stag_hurt_1",
+        "attenuation_distance": 16
+      },
+      {
+        "name": "slavicmyths:recorded61/stag_hurt_2",
+        "attenuation_distance": 16
+      }
+    ]
   },
   "stag_death": {
     "subtitle": "subtitles.slavicmyths.stag_death",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/stag_death_1",
+        "attenuation_distance": 16
+      }
+    ]
   },
   "doe_ambient": {
     "subtitle": "subtitles.slavicmyths.doe_ambient",
@@ -624,11 +638,25 @@
   },
   "doe_hurt": {
     "subtitle": "subtitles.slavicmyths.doe_hurt",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doe_hurt_1",
+        "attenuation_distance": 16
+      },
+      {
+        "name": "slavicmyths:recorded61/doe_hurt_2",
+        "attenuation_distance": 16
+      }
+    ]
   },
   "doe_death": {
     "subtitle": "subtitles.slavicmyths.doe_death",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doe_death_1",
+        "attenuation_distance": 16
+      }
+    ]
   },
   "bear_alert": {
     "subtitle": "subtitles.slavicmyths.bear_alert",

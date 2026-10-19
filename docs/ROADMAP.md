@@ -1,3 +1,12 @@
+## #61 — реакции оленя и оленихи, 1.9.7.17 IN_PROGRESS
+
+Подключены4 прежних hurt/death events /6 recorded OGG. Самец: kvgarlic CC0;
+DOE: juskiddink CC-BY4, пол источника не указан, привязка требует слуховой оценки.
+Последние реакции — игровая интерпретация, не записи смерти. Java/AI/модели
+не менялись. Игоша3 DEFERRED/KEEP_CURRENT. Активные4 source gaps заполнены;
+весь аудиопроект OWNER_PENDING, не DONE. [Матрица](audio-review/DEER_19717.md).
+Build/JAR/installation пока NOT_RUN; Minecraft не запускался.
+
 ## #61 — Карачун/медвежонок, Игоша отложена
 
 Установлена тестовая1.9.7.16:3 прежних events/5 новых recorded OGG, одиночный мужской

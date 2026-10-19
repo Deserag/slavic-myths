@@ -1434,3 +1434,23 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 
 **Медвежонок затихает / Bear cub falls silent** · `cub_death`
 ![Медвежонок затихает / Bear cub falls silent](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/cub_death_1.ogg)
+
+## deer-recorded-reactions
+
+**Олень резко фыркает от удара / Stag snorts on impact** · `stag_hurt`
+![Олень резко фыркает от удара / Stag snorts on impact](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/stag_hurt_1.ogg)
+
+**Олень резко фыркает от удара / Stag snorts on impact** · `stag_hurt`
+![Олень резко фыркает от удара / Stag snorts on impact](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/stag_hurt_2.ogg)
+
+**Олень затихает / Stag falls silent** · `stag_death`
+![Олень затихает / Stag falls silent](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/stag_death_1.ogg)
+
+**Олениха вскрикивает от удара / Doe cries out on impact** · `doe_hurt`
+![Олениха вскрикивает от удара / Doe cries out on impact](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doe_hurt_1.ogg)
+
+**Олениха вскрикивает от удара / Doe cries out on impact** · `doe_hurt`
+![Олениха вскрикивает от удара / Doe cries out on impact](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doe_hurt_2.ogg)
+
+**Олениха затихает / Doe falls silent** · `doe_death`
+![Олениха затихает / Doe falls silent](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doe_death_1.ogg)

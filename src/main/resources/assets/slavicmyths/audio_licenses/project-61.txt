@@ -93,6 +93,7 @@ cub__yle_distress_249442.mp3: YleArkisto / Yleisradio (Finnish Broadcasting Comp
 cymbal__mirko_175932.mp3: MirkoMeter84; https://freesound.org/people/MirkoMeter84/sounds/175932/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 davor__breathing_346932.mp3: dav0r; https://freesound.org/people/dav0r/sounds/346932/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 deer__351113_4790684-hq.mp3: msantoro11; https://freesound.org/people/msantoro11/sounds/351113/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
+deer__juskiddink_startled_58128.mp3: juskiddink; https://freesound.org/people/juskiddink/sounds/58128/; CC-BY-4.0; https://creativecommons.org/licenses/by/4.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 elk__263487_2663250-hq.mp3: lwdickens; https://freesound.org/people/lwdickens/sounds/263487/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 equipment__belt-buckle-01.wav: Vehicle; https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 equipment__belt-buckle-02.wav: Vehicle; https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
@@ -185,6 +186,7 @@ rustle__rustle18.flac: qubodup; https://lpc.opengameart.org/content/20-rustles-d
 rustle__rustle19.flac: qubodup; https://lpc.opengameart.org/content/20-rustles-dry-leaves; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 rustle__rustle20.flac: qubodup; https://lpc.opengameart.org/content/20-rustles-dry-leaves; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 slamaxu__female_gasp_509883.mp3: slamaxu; https://freesound.org/people/slamaxu/sounds/509883/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
+stag__kvgarlic_snorts_816601.mp3: kvgarlic; https://freesound.org/people/kvgarlic/sounds/816601/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 steam__steam hisses - Marker #1.wav: bart; https://opengameart.org/content/steam-release-sounds; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 steam__steam hisses - Marker #2.wav: bart; https://opengameart.org/content/steam-release-sounds; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 steam__steam hisses - Marker #3.wav: bart; https://opengameart.org/content/steam-release-sounds; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.

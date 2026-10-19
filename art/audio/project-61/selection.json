@@ -13142,5 +13142,173 @@
     "owner_approved": false,
     "hearing": "NOT_LISTENED",
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "638bb164d5ad81db39f960d5be6b8dcdc827630b24bc84ba204d48ce2ede64ef",
+    "event": "stag_hurt",
+    "group": "deer-recorded-reactions",
+    "ru": "Олень резко фыркает от удара",
+    "action": "Stag snorts on impact",
+    "file": "recorded61/stag_hurt_1.ogg",
+    "sha256": "537afaa95fe92bdf74265fc98d1fca8f05cfb630d591c2eb00530fd225d1375c",
+    "sources": [
+      {
+        "key": "stag__kvgarlic_snorts_816601.mp3",
+        "file": "sources/stag__kvgarlic_snorts_816601.mp3",
+        "sha256": "3601b4b7e1127849c8d4d2ac1229aa7161292b06afcb370919d0a60e79625c50",
+        "license": "CC0-1.0",
+        "author": "kvgarlic",
+        "page": "https://freesound.org/people/kvgarlic/sounds/816601/",
+        "start_sample": 1796192
+      }
+    ],
+    "seconds": 0.38997732426303855,
+    "peak_dbfs": -12.070316445617998,
+    "rms_dbfs": -25.596222881375375,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "9e3195747173d29a91c0f62f0a39592af9df31a12e556eb6e37e6e75608f07e3",
+    "event": "stag_hurt",
+    "group": "deer-recorded-reactions",
+    "ru": "Олень резко фыркает от удара",
+    "action": "Stag snorts on impact",
+    "file": "recorded61/stag_hurt_2.ogg",
+    "sha256": "a5d7adbefe3b6ab835cb2172bf858e4a6de51df7315756b26855e4ff7f362902",
+    "sources": [
+      {
+        "key": "stag__kvgarlic_snorts_816601.mp3",
+        "file": "sources/stag__kvgarlic_snorts_816601.mp3",
+        "sha256": "3601b4b7e1127849c8d4d2ac1229aa7161292b06afcb370919d0a60e79625c50",
+        "license": "CC0-1.0",
+        "author": "kvgarlic",
+        "page": "https://freesound.org/people/kvgarlic/sounds/816601/",
+        "start_sample": 1950542
+      }
+    ],
+    "seconds": 0.38997732426303855,
+    "peak_dbfs": -13.142950072877815,
+    "rms_dbfs": -25.585286115130934,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "292c2c25d0d16d467fbd428a219f5d34b005f9f5f7fd27e33854a6188b40fc85",
+    "event": "stag_death",
+    "group": "deer-recorded-reactions",
+    "ru": "Олень затихает",
+    "action": "Stag falls silent",
+    "file": "recorded61/stag_death_1.ogg",
+    "sha256": "caa20133e4dd56f994309ed39733070d95a07a81c14a4131e50fd4d64adf579a",
+    "sources": [
+      {
+        "key": "stag__kvgarlic_snorts_816601.mp3",
+        "file": "sources/stag__kvgarlic_snorts_816601.mp3",
+        "sha256": "3601b4b7e1127849c8d4d2ac1229aa7161292b06afcb370919d0a60e79625c50",
+        "license": "CC0-1.0",
+        "author": "kvgarlic",
+        "page": "https://freesound.org/people/kvgarlic/sounds/816601/",
+        "start_sample": 2268063
+      }
+    ],
+    "seconds": 0.6299773242630385,
+    "peak_dbfs": -12.301762289009702,
+    "rms_dbfs": -26.27786562436775,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "d44463fa4a1f0376db3a1555d528ced52e3bfacd952e0cfac64006e5eef336e3",
+    "event": "doe_hurt",
+    "group": "deer-recorded-reactions",
+    "ru": "Олениха вскрикивает от удара",
+    "action": "Doe cries out on impact",
+    "file": "recorded61/doe_hurt_1.ogg",
+    "sha256": "6d7a1fa7e4323315596ee5a2a0860ad2384272710c4c2cefd1b10950f6f28f9f",
+    "sources": [
+      {
+        "key": "deer__juskiddink_startled_58128.mp3",
+        "file": "sources/deer__juskiddink_startled_58128.mp3",
+        "sha256": "5e5914252a531f23fd8c797f3d6b3184b3b20138d080fa2e1492c6386f19992f",
+        "license": "CC-BY-4.0",
+        "author": "juskiddink",
+        "page": "https://freesound.org/people/juskiddink/sounds/58128/",
+        "start_sample": 44100
+      }
+    ],
+    "seconds": 0.38997732426303855,
+    "peak_dbfs": -11.183688945118908,
+    "rms_dbfs": -25.42404488577885,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "1d3bd901f0ed541a8786f6f7cae0f0b9c7379480ad906921557ddad82c328df9",
+    "event": "doe_hurt",
+    "group": "deer-recorded-reactions",
+    "ru": "Олениха вскрикивает от удара",
+    "action": "Doe cries out on impact",
+    "file": "recorded61/doe_hurt_2.ogg",
+    "sha256": "b6414768b7ff9f8655fdc070a0dc79e0ae091a7a2d4b1a349970f351c6077a72",
+    "sources": [
+      {
+        "key": "deer__juskiddink_startled_58128.mp3",
+        "file": "sources/deer__juskiddink_startled_58128.mp3",
+        "sha256": "5e5914252a531f23fd8c797f3d6b3184b3b20138d080fa2e1492c6386f19992f",
+        "license": "CC-BY-4.0",
+        "author": "juskiddink",
+        "page": "https://freesound.org/people/juskiddink/sounds/58128/",
+        "start_sample": 130095
+      }
+    ],
+    "seconds": 0.38997732426303855,
+    "peak_dbfs": -14.723662077452808,
+    "rms_dbfs": -25.388271595896544,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "3c60fbdfe36b31c38592966b1f472888477633b4e82a2d5b510262688778b43a",
+    "event": "doe_death",
+    "group": "deer-recorded-reactions",
+    "ru": "Олениха затихает",
+    "action": "Doe falls silent",
+    "file": "recorded61/doe_death_1.ogg",
+    "sha256": "ec0040eee86e23165d8293289f2f44a3fd8fd2d887e8cb1918f8bf1f7a03fc0d",
+    "sources": [
+      {
+        "key": "deer__juskiddink_startled_58128.mp3",
+        "file": "sources/deer__juskiddink_startled_58128.mp3",
+        "sha256": "5e5914252a531f23fd8c797f3d6b3184b3b20138d080fa2e1492c6386f19992f",
+        "license": "CC-BY-4.0",
+        "author": "juskiddink",
+        "page": "https://freesound.org/people/juskiddink/sounds/58128/",
+        "start_sample": 246959
+      }
+    ],
+    "seconds": 0.8599773242630385,
+    "peak_dbfs": -8.771759249034826,
+    "rms_dbfs": -26.261599253455636,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   }
 ]

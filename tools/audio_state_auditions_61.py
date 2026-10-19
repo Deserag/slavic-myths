@@ -7,6 +7,7 @@ import numpy as np,soundfile as sf
 from audio_60_foley import encode,RATE,stable_text
 P=R/'art/audio/project-61';A=R/'src/main/resources/assets/slavicmyths/sounds'
 SEQUENCES={
+ 'deer_reactions':[(0,'stag_hurt',1),(4,'stag_hurt',2),(8,'stag_death',1),(12,'doe_hurt',1),(16,'doe_hurt',2),(20,'doe_death',1)],
  'karachun_whisper':[(0,'karachun.voice_whisper',1),(5,'karachun.voice_whisper',2),(10,'karachun.dark_frost',1),(15,'karachun.voice_whisper',1),(20,'karachun.voice_whisper',2)],
  'cub_reactions':[(0,'cub_hurt',1),(5,'cub_hurt',2),(10,'cub_death',1),(16,'cub_hurt',1),(20,'cub_death',1)],
  'marinka_whispers':[(0,'marinka.witch_whisper_01',1),(5,'marinka.witch_whisper_02',1),(9,'marinka.cloth_step_01',1),(12,'marinka.trace_hex_01',1),(16,'marinka.witch_whisper_02',1),(20,'marinka.witch_whisper_01',1)],

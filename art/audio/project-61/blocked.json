@@ -1,9 +1,5 @@
 {
   "igosha_ambient": "DEFERRED / LOW_PRIORITY / KEEP_CURRENT: owner2026-10-19; existing audio satisfactory, not a claim that source gap is solved.",
   "igosha_hurt": "DEFERRED / LOW_PRIORITY / KEEP_CURRENT: owner2026-10-19; existing audio satisfactory, not a claim that source gap is solved.",
-  "igosha_death": "DEFERRED / LOW_PRIORITY / KEEP_CURRENT: owner2026-10-19; existing audio satisfactory, not a claim that source gap is solved.",
-  "stag_hurt": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
-  "stag_death": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
-  "doe_hurt": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
-  "doe_death": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source."
+  "igosha_death": "DEFERRED / LOW_PRIORITY / KEEP_CURRENT: owner2026-10-19; existing audio satisfactory, not a claim that source gap is solved."
 }

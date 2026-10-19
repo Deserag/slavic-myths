@@ -584,3 +584,14 @@ for event,sources,cap,rms,ru,en in [
  ('cub_death',[dict(key='cub__yle_distress_249442.mp3',start=242,end=243)],.85,.06,'Медвежонок затихает','Bear cub falls silent')]:
  BLOCKED.pop(event);ALIASES.pop(event)
  add('cub-recorded-reactions',event,sources,ru,en,cap,rms,radius=16)
+
+# Adult deer: independent actual recorded calls, never pitch-cloned identities.
+# Hurt/terminal assignment is game interpretation, not a recorded animal death.
+# Juskiddink does not identify caller sex: DOE mapping needs owner hearing.
+for event,sources,cap,rms,ru,en in [
+ ('stag_hurt',[dict(key='stag__kvgarlic_snorts_816601.mp3',start=40.73,end=41.12),dict(key='stag__kvgarlic_snorts_816601.mp3',start=44.23,end=44.62)],.38,.055,'Олень резко фыркает от удара','Stag snorts on impact'),
+ ('stag_death',[dict(key='stag__kvgarlic_snorts_816601.mp3',start=51.43,end=52.05)],.62,.05,'Олень затихает','Stag falls silent'),
+ ('doe_hurt',[dict(key='deer__juskiddink_startled_58128.mp3',start=1.00,end=1.39),dict(key='deer__juskiddink_startled_58128.mp3',start=2.95,end=3.34)],.38,.055,'Олениха вскрикивает от удара','Doe cries out on impact'),
+ ('doe_death',[dict(key='deer__juskiddink_startled_58128.mp3',start=5.60,end=6.45)],.85,.05,'Олениха затихает','Doe falls silent')]:
+ BLOCKED.pop(event)
+ add('deer-recorded-reactions',event,sources,ru,en,cap,rms,radius=16)

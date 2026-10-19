@@ -3693,5 +3693,31 @@
     "sha256": "028ab4dfd9301429fe798c7f7ade73b555d91cf070e5de3bc674091c3884673f",
     "processing": "Official HQ MP3 preview preserved unchanged, not original tape/WAV",
     "curation": "Actual distressed bear cub crying/yelling, with mother and stream background; Skansen Sweden1975-03-02, Nagra analog recording. Reaction interpretation in game, not recording of death. Attribution and changed crops in packaged credits"
+  },
+  {
+    "key": "stag__kvgarlic_snorts_816601.mp3",
+    "file": "sources/stag__kvgarlic_snorts_816601.mp3",
+    "author": "kvgarlic",
+    "page": "https://freesound.org/people/kvgarlic/sounds/816601/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verified_date": "2026-10-19",
+    "download": "https://cdn.freesound.org/previews/816/816601_1050391-hq.mp3",
+    "sha256": "3601b4b7e1127849c8d4d2ac1229aa7161292b06afcb370919d0a60e79625c50",
+    "processing": "Official HQ MP3 preview unchanged, not raw WAV",
+    "curation": "Author identifies actual male deer snorts at40/44/52s; forest birds present; separate recorded calls for game reaction/terminal interpretation, not a recording of death"
+  },
+  {
+    "key": "deer__juskiddink_startled_58128.mp3",
+    "file": "sources/deer__juskiddink_startled_58128.mp3",
+    "author": "juskiddink",
+    "page": "https://freesound.org/people/juskiddink/sounds/58128/",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "verified_date": "2026-10-19",
+    "download": "https://cdn.freesound.org/previews/58/58128_649468-hq.mp3",
+    "sha256": "5e5914252a531f23fd8c797f3d6b3184b3b20138d080fa2e1492c6386f19992f",
+    "processing": "Official HQ MP3 preview unchanged, not raw WAV",
+    "curation": "Actual adult roe deer startled near its young; caller sex not specified by author. Game DOE mapping is an interpretation, not verified female-sex recording or actual death"
   }
 ]

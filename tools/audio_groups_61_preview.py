@@ -32,6 +32,9 @@ def main():
     ps+=f'<p>{detail} · {r["seconds"]:.2f}s</p><audio controls preload="none" src="{rel}"></audio>'
     md+=[f'**{label}** · `{e}`',f'![{label}]({path.as_posix()})','']
    old=baseline.get(e,{}).get('sounds',[])
+   if e in {'stag_hurt','stag_death','doe_hurt','doe_death'}:
+    old=[]
+    ls+='<p>OLD actual1.9.7.16: muted source gap. NEW separate real deer calls; terminal roles interpreted, DOE caller sex unverified.</p>'
    if e in {'cub_hurt','cub_death'}:
     old=[{'name':'minecraft:entity.polar_bear.'+('hurt' if e.endswith('hurt') else 'death'),'type':'event'}]
     ls+='<p>OLD actual1.9.7.15: adult vanilla polar-bear fallback.</p>'
