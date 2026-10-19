@@ -1,3 +1,12 @@
+## Проверенная1.9.7.12: callbacks героев; PolyMC остаётся1.9.7.11
+
+Source25adb2c5: Алёша hurt1/2 и Финист successful sword contact подключены.
+Java21 clean build50s,6 offline gates и compiled JAR parity PASS. Установка
+NOT_INSTALLED: открыт polymc.exe PID10580, guard до мутаций. Запусков Codex0.
+154/154 scanner dynamic rows вручную классифицированы (это не runtime coverage);
+526 helper guards и UNKNOWN provenance остаются. #61–#66 IN_PROGRESS/OWNER_PENDING.
+[Callbacks](audio-review/HERO_CALLBACK_REPAIR_61.md), [установка](implementation/audio-60/TEST_PREVIEW_1.9.7.12.json).
+
 ## #64/#65 — подключение пропущенных callbacks героев
 
 Алёша: стандартные hurt callbacks для2 записанных takes; Финист: sword contact

@@ -17,9 +17,13 @@ playSound с pitch1, чтобы новый cue не потреблял игро�
 |---|---|---|
 | Реальный callback болевой реакции Алёши | AlyoshaEntity.getHurtSound → SkimContent.sound("alyosha.hurt_" + variant) | PASS (source) |
 | Контакт меча после успешного damage | FinistEntity SWORD frame8 → successful hurt → sword_contact | PASS (source) |
-| Только звук, без изменения AI/урона/кадров/NBT/RNG | tools/hero_audio_routes_61.py; full-file baseline comparison в verify_audio_groups_61.py | NOT_RUN |
-| Сборка и compiled JAR parity | Java21 clean build, actual compiled class comparison | NOT_RUN |
+| Только звук, без изменения AI/урона/кадров/NBT/RNG | tools/hero_audio_routes_61.py; full-file baseline comparison в verify_audio_groups_61.py | PASS |
+| Сборка и compiled JAR parity | Java21 clean build50s,6 offline gates, actual compiled class comparison | PASS |
 | Реальная слышимость в игре | Владелец проверяет отдельно, Codex не запускает клиент | NOT_RUN |
 
 Это исправление callbacks, не новый принятый голос героев. Неподключённые
 recovery/summon/варианты других действий остаются отдельным остатком аудита.
+
+Сборка1.9.7.12/source25adb2c5 сохранена в GitHub. POLYMC_NOT_INSTALLED:
+polymc.exe PID10580 открыт; guard остановился до замены/backup. В тестовом
+профиле остаётся1.9.7.11. Акт попытки: ../implementation/audio-60/TEST_PREVIEW_1.9.7.12.json.

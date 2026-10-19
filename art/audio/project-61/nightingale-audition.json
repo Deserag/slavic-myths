@@ -1,0 +1,91 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_LABELED_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 26,
+  "sha256": "f09dfa181fa9f9b76ee4e517e5abd0eab56125b97303ed9cbe0264f30345ecaf",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "nightingale_phase1_idle_whistle",
+      "label": "Редкий спокойный свист",
+      "file": "recorded61/nightingale_phase1_idle_whistle_1.ogg",
+      "sha256": "c68a6b58952ac483f6c6bd9e3c6f03b9057aa2f6f390f31ffd62e54441cdc12d"
+    },
+    {
+      "time_s": 2,
+      "event": "nightingale_phase1_aggro",
+      "label": "Недовольный отклик",
+      "file": "recorded61/nightingale_phase1_aggro_1.ogg",
+      "sha256": "46b0a233236f6f62169435dc9f0ce12954ff7edbaa6717a7bb1b34b8703a6ea7"
+    },
+    {
+      "time_s": 4,
+      "event": "nightingale_phase1_whistle_release",
+      "label": "Боевой свист",
+      "file": "recorded61/nightingale_phase1_whistle_release_1.ogg",
+      "sha256": "3845ff0e58cb5dc482a49ca99ae9dcf21f7aac82f5a0f2613a681ab6d170ee6e"
+    },
+    {
+      "time_s": 7,
+      "event": "nightingale_phase1_slash",
+      "label": "Замах клинком",
+      "file": "recorded61/nightingale_phase1_slash_1.ogg",
+      "sha256": "1d41be90a3cbc7d71ed67a4d00e14471582f5d1253ca2fe9b791bf95ecae97d4"
+    },
+    {
+      "time_s": 9,
+      "event": "nightingale_phase1_hurt",
+      "label": "Болевая реакция",
+      "file": "recorded61/nightingale_phase1_hurt_1.ogg",
+      "sha256": "b02c36d35838379db1c896df07f6f246a32ad205dbcd05f9eaf47b1bbc6c13b8"
+    },
+    {
+      "time_s": 11,
+      "event": "nightingale.phase1.land",
+      "label": "Приземление",
+      "file": "recorded61/nightingale/phase1/land_1.ogg",
+      "sha256": "e94f648a9171bfc91b93ad792c36ff32a680722b64736b01b8730917f39b1a81"
+    },
+    {
+      "time_s": 13,
+      "event": "nightingale_phase2_dash",
+      "label": "Рывок",
+      "file": "recorded61/nightingale_phase2_dash_1.ogg",
+      "sha256": "ce8349829a1a55320ca4823ec881d431ba7838f2d2b91e671826f70281cabd21"
+    },
+    {
+      "time_s": 15,
+      "event": "nightingale_phase2_wave",
+      "label": "Воздушная волна",
+      "file": "recorded61/nightingale_phase2_wave_1.ogg",
+      "sha256": "b82ed662ae34919af7114e352eef660c0608d423855858d3cab6e8e9221c27dd"
+    },
+    {
+      "time_s": 18,
+      "event": "nightingale_phase2_whirlwind",
+      "label": "Вихрь",
+      "file": "recorded61/nightingale_phase2_whirlwind_1.ogg",
+      "sha256": "9d2be9a2a2a2da4025f7d19a61129c5344c24054a8ce4e28281f43d7e9aaaad1"
+    },
+    {
+      "time_s": 21,
+      "event": "nightingale_phase2_death",
+      "label": "Последний стон",
+      "file": "recorded61/nightingale_phase2_death_1.ogg",
+      "sha256": "e95da8e9d6d7061c12bd579d3fe87ebce79797059263e34183eefdab202f8155"
+    },
+    {
+      "time_s": 23,
+      "event": "nightingale_blade_wind_release",
+      "label": "Ветер клинка игрока",
+      "file": "recorded61/nightingale_blade_wind_release_1.ogg",
+      "sha256": "1872d037d8ed028eb17fef4ad3409d7aef4a235c61aa5422439faadbb32378ad"
+    }
+  ],
+  "omitted_blocked": [
+    "nightingale_phase1_whistle_charge",
+    "nightingale_phase2_laugh"
+  ],
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED"
+}

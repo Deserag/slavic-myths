@@ -1,3 +1,9 @@
+Последнее:1.9.7.12/source25adb2c5 build+6gates PASS, NOT_INSTALLED (PolyMC открыт).
+Фактически установленная остаётся1.9.7.11. Подключены callbacks Алёши hurt и
+Финиста sword contact. MANUAL_ROUTES_SUMMARY:154/154 scanner rows source-reviewed;
+это не успешная слышимость154 событий.526 helper guards/UNKNOWN/hearing остаются.
+[Матрица исправлений](HERO_CALLBACK_REPAIR_61.md). Ниже исторические срезы.
+
 Актуально:1.9.7.11/source bdf72453 установлен TEST_PREVIEW, owner pending.
 914 events/1309 OGG;403 recorded assignments для372 events,35 vanilla references.
 Java21 clean build50s,6 offline gates PASS,0 запусков.

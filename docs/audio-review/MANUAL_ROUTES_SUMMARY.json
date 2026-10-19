@@ -1,9 +1,28 @@
 {
-  "scanner_unresolved_rows": 155,
-  "manual_classified": 111,
-  "remaining_without_manual_classification": 44,
+  "scanner_unresolved_rows": 154,
+  "manual_classified": 154,
+  "remaining_without_manual_classification": 0,
+  "classification_counts": {
+    "CLIENT_UI_NOT_CAT_VOCAL": 3,
+    "EXTERNAL_ITEM_OR_UI_ROUTE": 16,
+    "DYNAMIC_TSAR_STEP_NOT_SHARED_FACTION_VOICE": 8,
+    "NO_NORMAL_DEATH_TRIGGER": 1,
+    "EXTERNAL_ITEM_OR_ENCOUNTER_NOT_MOB_VOICE": 8,
+    "CLIENT_EFFECT_ROUTE": 2,
+    "LEGACY_REGISTERED_NO_DIRECT_JAVA_TRIGGER": 43,
+    "EXTERNAL_EQUIPMENT_EVENT_NOT_MOB_CALLBACK": 1,
+    "EXTERNAL_STORY_NOT_ORDINARY_MOB_VOICE": 6,
+    "ITEM_LOOP_NOT_BOSS_CALLBACK": 1,
+    "WRONG_COARSE_FAMILY_OWNER": 16,
+    "CLIENT_OWNED_LOOP_ROUTE": 1,
+    "CLIENT_ROUTE_EXPLICITLY_DISABLED": 3,
+    "EXTERNAL_PLAYER_WEAPON_ROUTE": 2,
+    "REPAIRED_STANDARD_HURT_CALLBACK": 2,
+    "REGISTERED_VARIANT_NO_CURRENT_INVOCATION_SOURCE_REVIEW": 33,
+    "DYNAMIC_ROLE_DISPATCH": 8
+  },
   "runtime": "NOT_RUN",
   "hearing": "NOT_LISTENED",
   "production_changed": false,
-  "method": "Manual classification overlays scanner; not reduced scanner unresolved count or proven runtime coverage"
+  "method": "Manual source-classification overlay, not proof all events reachable. Scanner still154, helper guards526 remain. Registered-no-call classifications are defects or intentional legacy, not successful audio coverage."
 }
