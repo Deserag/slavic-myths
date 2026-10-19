@@ -1,6 +1,6 @@
 {
   "status": "IN_PROGRESS",
-  "checks": 7409,
+  "checks": 7417,
   "voice_candidates": 8,
   "timbre_approved_keys": [
     "skim_roar",
@@ -17,5 +17,5 @@
   "runtime_accepted": false,
   "runtime_launches": 0,
   "poly_mc_updated_this_iteration": false,
-  "jar_sha256": "87299361d626c5e66862ad182dadccde89aa8590492ec67e0baa24d1d6745bfc"
+  "jar_sha256": "8687b4b2238fbf9c44ec04d8d36719157d2cea210dda00a7db707a44cfe386e8"
 }

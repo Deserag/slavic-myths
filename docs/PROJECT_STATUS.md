@@ -1,9 +1,12 @@
-## Подготовка тестовой1.9.7.10 — 19.10.2026
+## Тестовая1.9.7.10 установлена — 19.10.2026
 
-Добавлены раздельные weapon tell/contact, bow draw и shield raise разбойников;
-тяжёлый impact перенесён на успешное попадание, без изменения боя.
-Владелец разрешил доставку всего безопасного main в существующий тестовый PolyMC.
-BUILD/INSTALL пока NOT_RUN; факты будут в implementation/audio-60/TEST_PREVIEW_1.9.7.10.*.
+INSTALLED_TEST_PREVIEW / AUDIO_OWNER_PENDING; source8bf39d78.
+Clean build Java21 PASS1m25s,6 offline gates PASS;1288 OGG/914 events.
+Все внедрённые main-пакеты включены; дополнительно исправлены weapon tells/contact
+и bow/shield cues разбойников. Backup проверен; один активный JAR; запусков0.
+Акт: [TEST_PREVIEW_1.9.7.10](implementation/audio-60/TEST_PREVIEW_1.9.7.10.json).
+#61–#66 остаются OPEN. Отдельно вручную классифицированы38 из155 source routes;
+117 остаются без ручной классификации, runtime NOT_RUN.
 
 ## #61 — обновлённый срез после продолжения, 19.10.2026
 

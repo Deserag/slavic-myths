@@ -11,6 +11,7 @@ tools/audio_review_62.py,REVIEW_REQUIRED,"Source text match; may be QA or writer
 tools/audio_review_62_candidates.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audio_review_62_correlation.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audio_review_62_previews.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
+tools/audio_similarity_triage_61.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audit_mob_worldgen_099.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/bandits_080.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/bayun_assets.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"

@@ -1143,3 +1143,29 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 
 **Финист вскрикивает от боли / Finist cries in pain** · `entity.finist.hurt_3`
 ![Финист вскрикивает от боли / Finist cries in pain](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/entity/finist/hurt_3_1.ogg)
+
+## bandit-weapon-contact
+
+**Разбойник замахивается мечом / Bandit sword winds up** · `bandit_sword_windup`
+![Разбойник замахивается мечом / Bandit sword winds up](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bandit_sword_windup_1.ogg)
+
+**Разбойник замахивается топором / Bandit axe winds up** · `bandit_axe_windup`
+![Разбойник замахивается топором / Bandit axe winds up](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bandit_axe_windup_1.ogg)
+
+**Разбойник замахивается булавой / Bandit mace winds up** · `bandit_mace_windup`
+![Разбойник замахивается булавой / Bandit mace winds up](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bandit_mace_windup_1.ogg)
+
+**Меч разбойника достигает цели / Bandit sword connects** · `bandit_sword_impact`
+![Меч разбойника достигает цели / Bandit sword connects](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bandit_sword_impact_1.ogg)
+
+**Топор разбойника достигает цели / Bandit axe connects** · `bandit_axe_impact`
+![Топор разбойника достигает цели / Bandit axe connects](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bandit_axe_impact_1.ogg)
+
+**Булава разбойника достигает цели / Bandit mace connects** · `bandit_mace_impact`
+![Булава разбойника достигает цели / Bandit mace connects](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bandit_mace_impact_1.ogg)
+
+**Разбойник натягивает тетиву / Bandit draws bow** · `bandit_bow_draw`
+![Разбойник натягивает тетиву / Bandit draws bow](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bandit_bow_draw_1.ogg)
+
+**Разбойник поднимает щит / Bandit raises shield** · `bandit_shield_raise`
+![Разбойник поднимает щит / Bandit raises shield](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bandit_shield_raise_1.ogg)

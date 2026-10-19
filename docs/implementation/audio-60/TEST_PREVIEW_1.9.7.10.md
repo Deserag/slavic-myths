@@ -17,8 +17,16 @@
 
 | REQUIREMENT | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN |
 |---|---|---|
-| source в main, следующий свободный test version | gradle.properties; git history | IN_PROGRESS |
-| Java21 clean build и offline gates | TEST_PREVIEW_BUILD.json после фактической сборки | NOT_RUN на момент подготовки |
-| backup/one JAR/installed SHA/version | TEST_PREVIEW_1.9.7.10.json после фактической установки | NOT_RUN на момент подготовки |
+| source в main, следующий свободный test version | gradle.properties; git history | PASS |
+| Java21 clean build и offline gates | TEST_PREVIEW_BUILD.json после фактической сборки | PASS |
+| backup/one JAR/installed SHA/version | TEST_PREVIEW_1.9.7.10.json после фактической установки | PASS |
 | запуск Minecraft/PolyMC/GameTest/server | запрещён;0 запусков | NOT_RUN |
 | слуховая/игровая приёмка | только владелец | NOT_RUN |
+
+Фактически установлено: INSTALLED_TEST_PREVIEW / AUDIO_OWNER_PENDING.
+Source commit: `8bf39d787331179f754fa67d86836e31353a8c06`.
+Installed JAR: `C:\Users\pavel\AppData\Roaming\PolyMC\instances\Slavic-Myths-1.21.1-Testing\.minecraft\mods\slavicmyths-1.9.7.10.jar`.
+SHA256: `8687b4b2238fbf9c44ec04d8d36719157d2cea210dda00a7db707a44cfe386e8`.
+Backup JAR/критичных конфигураций: `C:\Users\pavel\AppData\Roaming\PolyMC\instances\Slavic-Myths-1.21.1-Testing\.slavicmyths-backups\pre-audio-1.9.7.10-20261019-075554Z`.
+Активных slavicmyths JAR:1; Minecraft/PolyMC/server/GameTest запусков0.
+Подробный проверяемый акт: TEST_PREVIEW_1.9.7.10.json; clean build1m25s,6 offline gates PASS.

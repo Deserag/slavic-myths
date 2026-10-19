@@ -1,0 +1,37 @@
+{
+  "status": "VERIFIED_TEST_PREVIEW_BUILD",
+  "source_commit": "8bf39d787331179f754fa67d86836e31353a8c06",
+  "version": "1.9.7.10",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.10.jar",
+  "jar_sha256": "8687b4b2238fbf9c44ec04d8d36719157d2cea210dda00a7db707a44cfe386e8",
+  "clean_build": "PASS",
+  "build_log": ".tools/audio-19710-build.log",
+  "offline_checks": [
+    {
+      "check": "verify_audio_groups_61",
+      "exit_code": 0
+    },
+    {
+      "check": "verify_voice_rework_60",
+      "exit_code": 0
+    },
+    {
+      "check": "verify_audio_60",
+      "exit_code": 0
+    },
+    {
+      "check": "verify_creature_audio_batch_60",
+      "exit_code": 0
+    },
+    {
+      "check": "verify_frost_foley_60",
+      "exit_code": 0
+    },
+    {
+      "check": "verify_kurgan_audio_65",
+      "exit_code": 0
+    }
+  ],
+  "runtime_launches": 0,
+  "acceptance": "AUDIO_OWNER_PENDING"
+}
