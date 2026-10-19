@@ -1,0 +1,13 @@
+{
+  "status": "PASS_OFFLINE",
+  "scripts": [
+    "morozko_assets.py --audio-only",
+    "karachun_assets.py --audio-only"
+  ],
+  "production_files": 8379,
+  "production_unchanged": true,
+  "legacy_synthesis_executed": false,
+  "geometry_generators_executed": false,
+  "runtime": "NOT_RUN",
+  "owner_accepted": false
+}

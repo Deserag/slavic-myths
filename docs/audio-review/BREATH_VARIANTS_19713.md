@@ -33,9 +33,9 @@ WitchActor теперь чередует записанные варианты �
 | Человеческие записи и права | art/audio/project-61/sources.json;7 новых used CC0 sources | PASS (source/license) |
 | Отдельные события и RU/EN подписи | audio_groups_61_plan.py / selection.json / sounds.json | PASS (source) |
 | OLD/NEW и подписанные последовательности | soundboard.html; auditions/index.html;6 OGG22–34s; review.zip includes auditions | PASS (playable files) |
-| Реальные триггеры, только аудиоправки | hero_audio_routes_61.py full-file source contract | NOT_RUN |
-| Byte reproduction / decode / spatial mono / JAR | Scoped project gate | NOT_RUN |
-| Java21 clean build | После production commit | NOT_RUN |
+| Реальные триггеры, только аудиоправки | hero_audio_routes_61.py + audio_vocal_priority_61.py;6 exact source contracts | PASS (offline) |
+| Byte reproduction / decode / spatial mono / JAR | Scoped project gate; JAR SHA92d288d87450b4f1d357d859369612cf87e815ee6bdd8c64a93355cea690d648 | PASS (offline) |
+| Java21 clean build | source8e5c3494; clean build58s;6 offline gates | PASS |
 | Мод в PolyMC пока владелец проверяет1.9.7.11 | Установленные файлы не изменяются | PASS (preserved; new build not installed) |
 | Полноценная приёмка на слух и в игре | Владелец отдельно | NOT_RUN |
 

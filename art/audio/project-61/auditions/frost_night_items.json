@@ -1,0 +1,66 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 28,
+  "sha256": "2cb7bf89ff1eb94d40bf2b229bd60fe066faf38a89bdc7bddef421908afa83b3",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "morozko.staff_stream",
+      "label": "Посох выпускает морозный поток",
+      "file": "recorded61/morozko/staff_stream_1.ogg",
+      "sha256": "47c0b724d1bb5d3440b631e0a9f3257c21011b501fca706259935c0cb47a4d36"
+    },
+    {
+      "time_s": 6,
+      "event": "morozko.staff_wave",
+      "label": "Посох выпускает ледяную волну",
+      "file": "recorded61/morozko/staff_wave_1.ogg",
+      "sha256": "5f191b98d8b2f0f0239a98a82fc6839df00fb343d3e07ec18aae8d88c63c618a"
+    },
+    {
+      "time_s": 9,
+      "event": "morozko.trial_call",
+      "label": "Тотем зовёт Морозко",
+      "file": "recorded61/morozko/trial_call_1.ogg",
+      "sha256": "7d1ae2c0dc8f4ad737cab2ffb70428491c2420e24b974ff79f47e0b12c3f53c4"
+    },
+    {
+      "time_s": 12,
+      "event": "karachun.last_breath",
+      "label": "Коса готовит Последний вздох",
+      "file": "recorded61/karachun/last_breath_1.ogg",
+      "sha256": "7bd5d270fc3909f9bbac388eba2d6f9d2985ebb867ec3faaeab5638b08eba49a"
+    },
+    {
+      "time_s": 15,
+      "event": "karachun.black_harvest",
+      "label": "Коса готовит Чёрную жатву",
+      "file": "recorded61/karachun/black_harvest_1.ogg",
+      "sha256": "fa7b254b8ad2cfa09ebbd2d5d1add83edb5e9169482f39f6d940b1a9e094d7de"
+    },
+    {
+      "time_s": 18,
+      "event": "karachun.life_eater",
+      "label": "Коса поглощает жизненную силу",
+      "file": "recorded61/karachun/life_eater_1.ogg",
+      "sha256": "2d7cb63d9b5ce93a4bdae9307f05fb2209d89fe7e975ba6fd971e290e4c67106"
+    },
+    {
+      "time_s": 21,
+      "event": "karachun.wing_activate",
+      "label": "Оберег Чёрное крыло призывает воронов",
+      "file": "recorded61/karachun/wing_activate_1.ogg",
+      "sha256": "c1a1394eb1ae1f8db1739b6896b25f8042c79425c175b42f0547aa710ddc0bdd"
+    },
+    {
+      "time_s": 24,
+      "event": "karachun.waning_stage_up",
+      "label": "Угасание мешает пользоваться снаряжением",
+      "file": "recorded61/karachun/waning_stage_up_1.ogg",
+      "sha256": "de0572ccd6945050e86b29a7f733c9aebf59df34d8de691c998c4cf5e9136ea0"
+    }
+  ]
+}

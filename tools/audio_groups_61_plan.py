@@ -505,3 +505,50 @@ for cue,source,ru,en,cap,rms in [
  ('inspire','harp__phonos_490831.mp3','Ободряющая магия Финиста звучит переливом струн','Finist inspiration shimmers with strings',.65,.055),
  ('victory','cymbal__mirko_175932.mp3','Победа Финиста отзывается металлическим звоном','Finist victory rings out',1.3,.055)]:
  add('finist-recorded-magic','entity.finist.'+cue,[source],ru,en,cap,rms,radius=24)
+
+# Frost/night: physical foley and explicitly authored magic accents. None of
+# these props is presented as human speech, a breath performance or a real ice
+# recording. Morozko breath is the existing frost-cone attack, not idle lungs.
+for cue,sources,ru,en,cap,rms in [
+ ('ambient',['wind__wind.wav'],'Холодный ветер вокруг Морозко','Cold wind surrounds Morozko',2.2,.022),
+ ('step',[equip('boots-leather-step-03.wav'),equip('boots-leather-step-04.wav')],'Тяжёлые шаги Морозко','Morozko steps heavily',.22,.045),
+ ('blizzard_start',[['wind__wind.wav',glass(1)]],'Морозко поднимает метель','Morozko raises a blizzard',2.2,.065),
+ ('blizzard_loop',[dict(key='wind__wind.wav',start=.1,end=4.05)],'Метель Морозко шумит','Morozko blizzard rushes',3.8,.04),
+ ('spike_telegraph',[glass(2)],'Лёд потрескивает перед шипами','Ice cracks before spikes rise',.55,.06),
+ ('breath',[[dict(key='wind__wind.wav',start=.55,end=3.45),glass(3)]],'Морозко выпускает морозный поток','Morozko releases a frost cone',2.8,.065),
+ ('wave',[['foley__swosh-02.flac',glass(4)]],'Ледяная волна Морозко расходится','Morozko ice wave spreads',.65,.07),
+ ('clone_spawn',[['chime__gnote_169855.mp3',glass(5)]],'Ледяная копия Морозко появляется','Morozko ice clone forms',1.1,.05),
+ ('frost_damage',[glass(6)],'Мороз обжигает цель','Frost bites its target',.2,.055),
+ ('yield',['harp__phonos_490831.mp3'],'Морозко завершает испытание','Morozko yields the trial',1.6,.045),
+ ('mirror_summon',[['chime__connersaw8_125147.mp3',glass(2)]],'Ледяное зеркало возникает','Ice mirror forms',.65,.05),
+ ('staff_stream',['wind__wind.wav'],'Посох выпускает морозный поток','Staff channels a frost stream',4.2,.05),
+ ('staff_wave',[['foley__swosh-01.flac',glass(6)]],'Посох выпускает ледяную волну','Staff releases an ice wave',.55,.065),
+ ('trial_call',['cymbal__mirko_175932.mp3'],'Тотем зовёт Морозко','Totem calls Morozko',1.5,.055)]:
+ add('frost-recorded-material','morozko.'+cue,sources,ru,en,cap,rms,radius=32 if 'blizzard' in cue else 24,**({'stream':True} if cue=='staff_stream' else {}))
+
+# The former whispered oscillator is quarantined until a lawful real whisper
+# fits Karachun. Silence is a source gap, not a completed voice replacement.
+BLOCKED['karachun.voice_whisper']='BLOCKED_NEEDS_AUDIO_SOURCE: actual grave hostile whisper not yet sourced; no harmonic/noise whisper restoration.'
+for cue,sources,ru,en,cap,rms in [
+ ('ambient_low_wind',[dict(key='wind__wind.wav',start=1.2,end=4.1)],'Низкий ветер вокруг Карачуна','Low wind surrounds Karachun',2.7,.025),
+ ('enter_trial',[['clock__martineerok_148284.mp3','wind__wind.wav']],'Начало испытания Карачуна отмечено звоном','A bell marks Karachun trial',1.7,.065),
+ ('dark_frost',[[glass(4),dict(key='wind__wind.wav',start=2,end=3.7)]],'Тёмный мороз Карачуна сгущается','Karachun dark frost gathers',1.5,.05),
+ ('long_night_cast',[['clock__martineerok_148284.mp3','foley__swosh-03.flac']],'Карачун призывает долгую ночь','Karachun calls the long night',1.5,.065),
+ ('touch_hunger',[equip('quiver-leather-squeeze-06.wav')],'Печать голода сжимается','Hunger seal tightens',.35,.045),
+ ('touch_frost',[glass(1)],'Печать мороза потрескивает','Frost seal cracks',.3,.055),
+ ('touch_death',[equip('body-3.flac')],'Смертельное касание Карачуна ударяет','Karachun death touch strikes',.25,.065),
+ ('last_hour_mark',['clock__martineerok_148284.mp3'],'Колокол отмечает последний час','Bell marks the last hour',1.1,.06),
+ ('last_hour_impact',[[rock(7),equip('sword_clash.9.ogg')]],'Последний час обрушивается','Last hour crashes down',.65,.08),
+ ('fear_phantom_spawn',['foley__cloth-05.flac'],'Призрак страха возникает рядом','Fear phantom appears nearby',.5,.045),
+ ('fear_phantom_dispel',['foley__swosh-02.flac'],'Призрак страха рассеивается','Fear phantom disperses',.3,.04),
+ ('yield',['cymbal__mirko_175932.mp3'],'Карачун завершает испытание','Karachun yields the trial',1.2,.05),
+ ('raven_call',['raven__nielstii_346318.mp3'],'Ворон Карачуна каркает','Karachun raven calls',2.65,.06),
+ ('raven_flap',['wings__wings_flap_large.flac'],'Ворон Карачуна взмахивает крыльями','Karachun raven flaps',.4,.04),
+ ('raven_dive',[['wings__wings_flap_large.flac','foley__swosh-01.flac']],'Ворон Карачуна пикирует','Karachun raven dives',.45,.06),
+ ('raven_hit',[equip('body-1.flac')],'Ворон Карачуна ударяет цель','Karachun raven strikes',.22,.055),
+ ('life_eater',[equip('quiver-leather-squeeze-07.wav')],'Коса поглощает жизненную силу','Scythe absorbs life force',.35,.045),
+ ('last_breath',[['foley__swosh-03.flac',equip('sword.4.ogg')]],'Коса готовит Последний вздох','Scythe prepares Last Breath',.45,.065),
+ ('black_harvest',[[equip('sword.6.ogg'),equip('sword_clash.10.ogg')]],'Коса готовит Чёрную жатву','Scythe prepares Black Harvest',.5,.07),
+ ('wing_activate',[['wings__wings_flap_large.flac','foley__cloth-03.flac']],'Оберег Чёрное крыло призывает воронов','Black Wing charm calls ravens',.6,.055),
+ ('waning_stage_up',[equip('belt-buckle-04.wav')],'Угасание мешает пользоваться снаряжением','Waning impedes equipment use',.22,.04)]:
+ add('night-recorded-material','karachun.'+cue,sources,ru,en,cap,rms,radius=32)

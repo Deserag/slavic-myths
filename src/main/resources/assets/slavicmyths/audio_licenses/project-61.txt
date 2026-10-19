@@ -68,6 +68,7 @@ cat__cat_purrsleepy_loop.wav: Kerzoven; https://opengameart.org/content/cat-purr
 cat__cat_softmew.wav: Kerzoven; https://opengameart.org/content/cat-purr-meow; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 chime__connersaw8_125147.mp3: connersaw8; https://freesound.org/people/connersaw8/sounds/125147/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 chime__gnote_169855.mp3: GnoteSoundz; https://freesound.org/people/GnoteSoundz/sounds/169855/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
+clock__martineerok_148284.mp3: Martineerok; https://freesound.org/people/Martineerok/sounds/148284/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 creature__barking_01.ogg: rubberduck; https://opengameart.org/content/80-cc0-creature-sfx; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 creature__barking_02.ogg: rubberduck; https://opengameart.org/content/80-cc0-creature-sfx; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 creature__breath.ogg: rubberduck; https://opengameart.org/content/80-cc0-creature-sfx; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
@@ -160,6 +161,7 @@ laugh__maniacal_laughter_pack_1.ogg: AuraVoice / Nocturnal_Vanguard; https://ope
 otherthings__inhale_10115b.mp3: otherthings; https://freesound.org/people/otherthings/sounds/65621/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 owlstorm__female_breathing_151206.mp3: OwlStorm / Ashe Kirk / Owlish Media; https://freesound.org/people/OwlStorm/sounds/151206/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 qubodup__evil_laughter.flac: qubodup; https://opengameart.org/content/evil-laughter; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
+raven__nielstii_346318.mp3: nielstii; https://freesound.org/people/nielstii/sounds/346318/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 rustle__rustle01.flac: qubodup; https://lpc.opengameart.org/content/20-rustles-dry-leaves; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 rustle__rustle02.flac: qubodup; https://lpc.opengameart.org/content/20-rustles-dry-leaves; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 rustle__rustle03.flac: qubodup; https://lpc.opengameart.org/content/20-rustles-dry-leaves; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.

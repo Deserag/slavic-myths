@@ -1,0 +1,73 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 32,
+  "sha256": "c542bdd53fa34ac1415c13dbaca59e80ea114bcf5f0968a34c071ad0db853e20",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "morozko.ambient",
+      "label": "Холодный ветер вокруг Морозко",
+      "file": "recorded61/morozko/ambient_1.ogg",
+      "sha256": "66fd012f105fb1b1145ce89ba3c7a42b69b9ae63459534bb3b3f173d8006e4f6"
+    },
+    {
+      "time_s": 4,
+      "event": "morozko.step",
+      "label": "Тяжёлые шаги Морозко",
+      "file": "recorded61/morozko/step_1.ogg",
+      "sha256": "dfe69a2fc8490d6b499506c0174ffa540fdf8769c2e79b0387313769893d6771"
+    },
+    {
+      "time_s": 6,
+      "event": "morozko.blizzard_start",
+      "label": "Морозко поднимает метель",
+      "file": "recorded61/morozko/blizzard_start_1.ogg",
+      "sha256": "694a2e27e93aa4ad143fc75d81bc7faabc874d357979301bec641659aec4f03a"
+    },
+    {
+      "time_s": 10,
+      "event": "morozko.blizzard_loop",
+      "label": "Метель Морозко шумит",
+      "file": "recorded61/morozko/blizzard_loop_1.ogg",
+      "sha256": "0a8572dbb24cbc0496aea91171712f97df9ff32cc5fb2a8b15dd4b83b4927118"
+    },
+    {
+      "time_s": 15,
+      "event": "morozko.spike_telegraph",
+      "label": "Лёд потрескивает перед шипами",
+      "file": "recorded61/morozko/spike_telegraph_1.ogg",
+      "sha256": "994a7ee73acc89d0595e69bd11edb57c978f71855c644b4faa76cad240901d1a"
+    },
+    {
+      "time_s": 18,
+      "event": "morozko.breath",
+      "label": "Морозко выпускает морозный поток",
+      "file": "recorded61/morozko/breath_1.ogg",
+      "sha256": "3954f6af4461f006f23dd8a26ad3cefff37810c44a034801e334394129a296b9"
+    },
+    {
+      "time_s": 22,
+      "event": "morozko.wave",
+      "label": "Ледяная волна Морозко расходится",
+      "file": "recorded61/morozko/wave_1.ogg",
+      "sha256": "1461526164670ebc0f06884f5b2fb78b36603d3203c78e7828aa540d77adc69a"
+    },
+    {
+      "time_s": 25,
+      "event": "morozko.clone_spawn",
+      "label": "Ледяная копия Морозко появляется",
+      "file": "recorded61/morozko/clone_spawn_1.ogg",
+      "sha256": "16f8d0e1cf0fad3eaedb515350146cd8ce776d7021e833758f5eebbc741dad1c"
+    },
+    {
+      "time_s": 28,
+      "event": "morozko.yield",
+      "label": "Морозко завершает испытание",
+      "file": "recorded61/morozko/yield_1.ogg",
+      "sha256": "1f06314b131f197064f235d52d44555c55e0f7d56ee4e923b2f0585af6e255bf"
+    }
+  ]
+}

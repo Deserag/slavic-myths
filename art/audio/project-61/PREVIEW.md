@@ -1284,3 +1284,115 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 
 **Победа Финиста отзывается металлическим звоном / Finist victory rings out** · `entity.finist.victory`
 ![Победа Финиста отзывается металлическим звоном / Finist victory rings out](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/entity/finist/victory_1.ogg)
+
+## frost-recorded-material
+
+**Холодный ветер вокруг Морозко / Cold wind surrounds Morozko** · `morozko.ambient`
+![Холодный ветер вокруг Морозко / Cold wind surrounds Morozko](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/ambient_1.ogg)
+
+**Тяжёлые шаги Морозко / Morozko steps heavily** · `morozko.step`
+![Тяжёлые шаги Морозко / Morozko steps heavily](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/step_1.ogg)
+
+**Тяжёлые шаги Морозко / Morozko steps heavily** · `morozko.step`
+![Тяжёлые шаги Морозко / Morozko steps heavily](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/step_2.ogg)
+
+**Морозко поднимает метель / Morozko raises a blizzard** · `morozko.blizzard_start`
+![Морозко поднимает метель / Morozko raises a blizzard](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/blizzard_start_1.ogg)
+
+**Метель Морозко шумит / Morozko blizzard rushes** · `morozko.blizzard_loop`
+![Метель Морозко шумит / Morozko blizzard rushes](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/blizzard_loop_1.ogg)
+
+**Лёд потрескивает перед шипами / Ice cracks before spikes rise** · `morozko.spike_telegraph`
+![Лёд потрескивает перед шипами / Ice cracks before spikes rise](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/spike_telegraph_1.ogg)
+
+**Морозко выпускает морозный поток / Morozko releases a frost cone** · `morozko.breath`
+![Морозко выпускает морозный поток / Morozko releases a frost cone](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/breath_1.ogg)
+
+**Ледяная волна Морозко расходится / Morozko ice wave spreads** · `morozko.wave`
+![Ледяная волна Морозко расходится / Morozko ice wave spreads](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/wave_1.ogg)
+
+**Ледяная копия Морозко появляется / Morozko ice clone forms** · `morozko.clone_spawn`
+![Ледяная копия Морозко появляется / Morozko ice clone forms](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/clone_spawn_1.ogg)
+
+**Мороз обжигает цель / Frost bites its target** · `morozko.frost_damage`
+![Мороз обжигает цель / Frost bites its target](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/frost_damage_1.ogg)
+
+**Морозко завершает испытание / Morozko yields the trial** · `morozko.yield`
+![Морозко завершает испытание / Morozko yields the trial](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/yield_1.ogg)
+
+**Ледяное зеркало возникает / Ice mirror forms** · `morozko.mirror_summon`
+![Ледяное зеркало возникает / Ice mirror forms](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/mirror_summon_1.ogg)
+
+**Посох выпускает морозный поток / Staff channels a frost stream** · `morozko.staff_stream`
+![Посох выпускает морозный поток / Staff channels a frost stream](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/staff_stream_1.ogg)
+
+**Посох выпускает ледяную волну / Staff releases an ice wave** · `morozko.staff_wave`
+![Посох выпускает ледяную волну / Staff releases an ice wave](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/staff_wave_1.ogg)
+
+**Тотем зовёт Морозко / Totem calls Morozko** · `morozko.trial_call`
+![Тотем зовёт Морозко / Totem calls Morozko](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/morozko/trial_call_1.ogg)
+
+## night-recorded-material
+
+**Низкий ветер вокруг Карачуна / Low wind surrounds Karachun** · `karachun.ambient_low_wind`
+![Низкий ветер вокруг Карачуна / Low wind surrounds Karachun](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/ambient_low_wind_1.ogg)
+
+**Начало испытания Карачуна отмечено звоном / A bell marks Karachun trial** · `karachun.enter_trial`
+![Начало испытания Карачуна отмечено звоном / A bell marks Karachun trial](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/enter_trial_1.ogg)
+
+**Тёмный мороз Карачуна сгущается / Karachun dark frost gathers** · `karachun.dark_frost`
+![Тёмный мороз Карачуна сгущается / Karachun dark frost gathers](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/dark_frost_1.ogg)
+
+**Карачун призывает долгую ночь / Karachun calls the long night** · `karachun.long_night_cast`
+![Карачун призывает долгую ночь / Karachun calls the long night](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/long_night_cast_1.ogg)
+
+**Печать голода сжимается / Hunger seal tightens** · `karachun.touch_hunger`
+![Печать голода сжимается / Hunger seal tightens](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/touch_hunger_1.ogg)
+
+**Печать мороза потрескивает / Frost seal cracks** · `karachun.touch_frost`
+![Печать мороза потрескивает / Frost seal cracks](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/touch_frost_1.ogg)
+
+**Смертельное касание Карачуна ударяет / Karachun death touch strikes** · `karachun.touch_death`
+![Смертельное касание Карачуна ударяет / Karachun death touch strikes](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/touch_death_1.ogg)
+
+**Колокол отмечает последний час / Bell marks the last hour** · `karachun.last_hour_mark`
+![Колокол отмечает последний час / Bell marks the last hour](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/last_hour_mark_1.ogg)
+
+**Последний час обрушивается / Last hour crashes down** · `karachun.last_hour_impact`
+![Последний час обрушивается / Last hour crashes down](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/last_hour_impact_1.ogg)
+
+**Призрак страха возникает рядом / Fear phantom appears nearby** · `karachun.fear_phantom_spawn`
+![Призрак страха возникает рядом / Fear phantom appears nearby](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/fear_phantom_spawn_1.ogg)
+
+**Призрак страха рассеивается / Fear phantom disperses** · `karachun.fear_phantom_dispel`
+![Призрак страха рассеивается / Fear phantom disperses](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/fear_phantom_dispel_1.ogg)
+
+**Карачун завершает испытание / Karachun yields the trial** · `karachun.yield`
+![Карачун завершает испытание / Karachun yields the trial](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/yield_1.ogg)
+
+**Ворон Карачуна каркает / Karachun raven calls** · `karachun.raven_call`
+![Ворон Карачуна каркает / Karachun raven calls](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/raven_call_1.ogg)
+
+**Ворон Карачуна взмахивает крыльями / Karachun raven flaps** · `karachun.raven_flap`
+![Ворон Карачуна взмахивает крыльями / Karachun raven flaps](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/raven_flap_1.ogg)
+
+**Ворон Карачуна пикирует / Karachun raven dives** · `karachun.raven_dive`
+![Ворон Карачуна пикирует / Karachun raven dives](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/raven_dive_1.ogg)
+
+**Ворон Карачуна ударяет цель / Karachun raven strikes** · `karachun.raven_hit`
+![Ворон Карачуна ударяет цель / Karachun raven strikes](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/raven_hit_1.ogg)
+
+**Коса поглощает жизненную силу / Scythe absorbs life force** · `karachun.life_eater`
+![Коса поглощает жизненную силу / Scythe absorbs life force](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/life_eater_1.ogg)
+
+**Коса готовит Последний вздох / Scythe prepares Last Breath** · `karachun.last_breath`
+![Коса готовит Последний вздох / Scythe prepares Last Breath](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/last_breath_1.ogg)
+
+**Коса готовит Чёрную жатву / Scythe prepares Black Harvest** · `karachun.black_harvest`
+![Коса готовит Чёрную жатву / Scythe prepares Black Harvest](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/black_harvest_1.ogg)
+
+**Оберег Чёрное крыло призывает воронов / Black Wing charm calls ravens** · `karachun.wing_activate`
+![Оберег Чёрное крыло призывает воронов / Black Wing charm calls ravens](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/wing_activate_1.ogg)
+
+**Угасание мешает пользоваться снаряжением / Waning impedes equipment use** · `karachun.waning_stage_up`
+![Угасание мешает пользоваться снаряжением / Waning impedes equipment use](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/waning_stage_up_1.ogg)

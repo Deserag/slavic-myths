@@ -7054,7 +7054,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.ambient",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/ambient",
+        "name": "slavicmyths:recorded61/morozko/ambient_1",
         "attenuation_distance": 24
       }
     ]
@@ -7063,7 +7063,11 @@
     "subtitle": "subtitle.slavicmyths.morozko.step",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/step",
+        "name": "slavicmyths:recorded61/morozko/step_1",
+        "attenuation_distance": 24
+      },
+      {
+        "name": "slavicmyths:recorded61/morozko/step_2",
         "attenuation_distance": 24
       }
     ]
@@ -7090,7 +7094,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.blizzard_start",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/blizzard_start",
+        "name": "slavicmyths:recorded61/morozko/blizzard_start_1",
         "attenuation_distance": 32
       }
     ]
@@ -7099,7 +7103,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.blizzard_loop",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/blizzard_loop",
+        "name": "slavicmyths:recorded61/morozko/blizzard_loop_1",
         "attenuation_distance": 32
       }
     ]
@@ -7108,7 +7112,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.spike_telegraph",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/spike_telegraph",
+        "name": "slavicmyths:recorded61/morozko/spike_telegraph_1",
         "attenuation_distance": 24
       }
     ]
@@ -7126,7 +7130,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.breath",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/breath",
+        "name": "slavicmyths:recorded61/morozko/breath_1",
         "attenuation_distance": 24
       }
     ]
@@ -7135,7 +7139,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.wave",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/wave",
+        "name": "slavicmyths:recorded61/morozko/wave_1",
         "attenuation_distance": 24
       }
     ]
@@ -7144,7 +7148,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.clone_spawn",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/clone_spawn",
+        "name": "slavicmyths:recorded61/morozko/clone_spawn_1",
         "attenuation_distance": 24
       }
     ]
@@ -7162,7 +7166,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.frost_damage",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/frost_damage",
+        "name": "slavicmyths:recorded61/morozko/frost_damage_1",
         "attenuation_distance": 24
       }
     ]
@@ -7171,7 +7175,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.yield",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/yield",
+        "name": "slavicmyths:recorded61/morozko/yield_1",
         "attenuation_distance": 24
       }
     ]
@@ -7180,7 +7184,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.mirror_summon",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/mirror_summon",
+        "name": "slavicmyths:recorded61/morozko/mirror_summon_1",
         "attenuation_distance": 24
       }
     ]
@@ -7207,8 +7211,9 @@
     "subtitle": "subtitle.slavicmyths.morozko.staff_stream",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/staff_stream",
-        "attenuation_distance": 24
+        "name": "slavicmyths:recorded61/morozko/staff_stream_1",
+        "attenuation_distance": 24,
+        "stream": true
       }
     ]
   },
@@ -7226,7 +7231,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.staff_wave",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/staff_wave",
+        "name": "slavicmyths:recorded61/morozko/staff_wave_1",
         "attenuation_distance": 24
       }
     ]
@@ -7235,7 +7240,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.trial_call",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/trial_call",
+        "name": "slavicmyths:recorded61/morozko/trial_call_1",
         "attenuation_distance": 24
       }
     ]
@@ -7244,15 +7249,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.ambient_low_wind",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/ambient_low_wind_0",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:karachun/ambient_low_wind_1",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:karachun/ambient_low_wind_2",
+        "name": "slavicmyths:recorded61/karachun/ambient_low_wind_1",
         "attenuation_distance": 32
       }
     ]
@@ -7261,27 +7258,14 @@
     "subtitle": "subtitle.slavicmyths.karachun.enter_trial",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/enter_trial_0",
+        "name": "slavicmyths:recorded61/karachun/enter_trial_1",
         "attenuation_distance": 32
       }
     ]
   },
   "karachun.voice_whisper": {
     "subtitle": "subtitle.slavicmyths.karachun.voice_whisper",
-    "sounds": [
-      {
-        "name": "slavicmyths:karachun/voice_whisper_0",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:karachun/voice_whisper_1",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:karachun/voice_whisper_2",
-        "attenuation_distance": 32
-      }
-    ]
+    "sounds": []
   },
   "karachun.scythe_windup": {
     "subtitle": "subtitle.slavicmyths.karachun.scythe_windup",
@@ -7313,7 +7297,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.dark_frost",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/dark_frost_0",
+        "name": "slavicmyths:recorded61/karachun/dark_frost_1",
         "attenuation_distance": 32
       }
     ]
@@ -7322,7 +7306,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.long_night_cast",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/long_night_cast_0",
+        "name": "slavicmyths:recorded61/karachun/long_night_cast_1",
         "attenuation_distance": 32
       }
     ]
@@ -7331,7 +7315,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.touch_hunger",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/touch_hunger_0",
+        "name": "slavicmyths:recorded61/karachun/touch_hunger_1",
         "attenuation_distance": 32
       }
     ]
@@ -7340,7 +7324,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.touch_frost",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/touch_frost_0",
+        "name": "slavicmyths:recorded61/karachun/touch_frost_1",
         "attenuation_distance": 32
       }
     ]
@@ -7349,7 +7333,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.touch_death",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/touch_death_0",
+        "name": "slavicmyths:recorded61/karachun/touch_death_1",
         "attenuation_distance": 32
       }
     ]
@@ -7358,7 +7342,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.last_hour_mark",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/last_hour_mark_0",
+        "name": "slavicmyths:recorded61/karachun/last_hour_mark_1",
         "attenuation_distance": 32
       }
     ]
@@ -7367,7 +7351,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.last_hour_impact",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/last_hour_impact_0",
+        "name": "slavicmyths:recorded61/karachun/last_hour_impact_1",
         "attenuation_distance": 32
       }
     ]
@@ -7376,7 +7360,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.fear_phantom_spawn",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/fear_phantom_spawn_0",
+        "name": "slavicmyths:recorded61/karachun/fear_phantom_spawn_1",
         "attenuation_distance": 32
       }
     ]
@@ -7385,7 +7369,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.fear_phantom_dispel",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/fear_phantom_dispel_0",
+        "name": "slavicmyths:recorded61/karachun/fear_phantom_dispel_1",
         "attenuation_distance": 32
       }
     ]
@@ -7394,7 +7378,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.yield",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/yield_0",
+        "name": "slavicmyths:recorded61/karachun/yield_1",
         "attenuation_distance": 32
       }
     ]
@@ -7403,15 +7387,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.raven_call",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/raven_call_0",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:karachun/raven_call_1",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:karachun/raven_call_2",
+        "name": "slavicmyths:recorded61/karachun/raven_call_1",
         "attenuation_distance": 32
       }
     ]
@@ -7420,15 +7396,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.raven_flap",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/raven_flap_0",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:karachun/raven_flap_1",
-        "attenuation_distance": 32
-      },
-      {
-        "name": "slavicmyths:karachun/raven_flap_2",
+        "name": "slavicmyths:recorded61/karachun/raven_flap_1",
         "attenuation_distance": 32
       }
     ]
@@ -7437,7 +7405,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.raven_dive",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/raven_dive_0",
+        "name": "slavicmyths:recorded61/karachun/raven_dive_1",
         "attenuation_distance": 32
       }
     ]
@@ -7446,7 +7414,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.raven_hit",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/raven_hit_0",
+        "name": "slavicmyths:recorded61/karachun/raven_hit_1",
         "attenuation_distance": 32
       }
     ]
@@ -7455,7 +7423,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.life_eater",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/life_eater_0",
+        "name": "slavicmyths:recorded61/karachun/life_eater_1",
         "attenuation_distance": 32
       }
     ]
@@ -7464,7 +7432,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.last_breath",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/last_breath_0",
+        "name": "slavicmyths:recorded61/karachun/last_breath_1",
         "attenuation_distance": 32
       }
     ]
@@ -7473,7 +7441,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.black_harvest",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/black_harvest_0",
+        "name": "slavicmyths:recorded61/karachun/black_harvest_1",
         "attenuation_distance": 32
       }
     ]
@@ -7482,7 +7450,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.wing_activate",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/wing_activate_0",
+        "name": "slavicmyths:recorded61/karachun/wing_activate_1",
         "attenuation_distance": 32
       }
     ]
@@ -7491,7 +7459,7 @@
     "subtitle": "subtitle.slavicmyths.karachun.waning_stage_up",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/waning_stage_up_0",
+        "name": "slavicmyths:recorded61/karachun/waning_stage_up_1",
         "attenuation_distance": 32
       }
     ]

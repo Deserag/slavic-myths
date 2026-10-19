@@ -3589,5 +3589,31 @@
     "sha256": "2eba1356479e786d9b2e1d740955f7aa81c6dd7fb550ebbc458136fea811fe05",
     "processing": "Official hq MP3 preview preserved byte-for-byte; not original WAV",
     "curation": "Acoustic finger cymbal one-shot, AKG Perception220; magical accent interpretation, not a human voice or cloned tone"
+  },
+  {
+    "key": "raven__nielstii_346318.mp3",
+    "file": "sources/raven__nielstii_346318.mp3",
+    "author": "nielstii",
+    "page": "https://freesound.org/people/nielstii/sounds/346318/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verified_date": "2026-10-19",
+    "download": "https://cdn.freesound.org/previews/346/346318_6290213-hq.mp3",
+    "sha256": "82ce740c25821de021b902f618db91d4a9b9e35a553c0d669e922c7c4e0604bb",
+    "processing": "Official hq MP3 preview preserved byte-for-byte; not original WAV",
+    "curation": "Actual raven calling three times while flying over; no crow or synthetic voice substitution"
+  },
+  {
+    "key": "clock__martineerok_148284.mp3",
+    "file": "sources/clock__martineerok_148284.mp3",
+    "author": "Martineerok",
+    "page": "https://freesound.org/people/Martineerok/sounds/148284/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verified_date": "2026-10-19",
+    "download": "https://cdn.freesound.org/previews/148/148284_1540977-hq.mp3",
+    "sha256": "18b138c9227a4c590a262376a4ff5985447a3e7b19dc4176f402caec767ab5fd",
+    "processing": "Official hq MP3 preview preserved byte-for-byte; not original WAV",
+    "curation": "Recorded clock bell, Tascam DR100; physical warning bell, never a creature voice"
   }
 ]

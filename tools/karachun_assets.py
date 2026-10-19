@@ -124,28 +124,11 @@ def icons():
   (A/'textures/item').mkdir(parents=True,exist_ok=True);im.save(A/f'textures/item/{name}.png')
   if name!='karachun_scythe':write(A/f'models/item/{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/'+name}})
 def audio():
- names=['ambient_low_wind','enter_trial','voice_whisper','scythe_windup','scythe_hit','dark_frost','long_night_cast','touch_hunger','touch_frost','touch_death','last_hour_mark','last_hour_impact','fear_phantom_spawn','fear_phantom_dispel','yield','raven_call','raven_flap','raven_dive','raven_hit','life_eater','last_breath','black_harvest','wing_activate','waning_stage_up'];sounds={};ff=shutil.which('ffmpeg');assert ff
- for index,name in enumerate(names):
-  from frost_foley_60 import EVENTS
-  if 'karachun.'+name in EVENTS:continue
-  variants=3 if name in ['raven_call','raven_flap','ambient_low_wind','voice_whisper'] else 1;entries=[]
-  for variant in range(variants):
-   rnd=random.Random(1920+index*3+variant);rate=22050;duration=2.8 if name=='ambient_low_wind' else 1.7 if name in ['long_night_cast','yield','last_hour_mark'] else .65;count=int(rate*duration);smooth=0;samples=[]
-   for i in range(count):
-    t=i/rate;u=t/duration;noise=rnd.uniform(-1,1);smooth=smooth*.93+noise*.07;envelope=min(1,t*40)*max(0,1-u)**1.7;freq=82+index*3+variant*7
-    low=math.sin(math.tau*freq*t)*.22+math.sin(math.tau*(freq*1.49)*t)*.08
-    if name.startswith('raven'):signal=math.sin(math.tau*(280+80*math.sin(t*14))*t)*(.35 if name!='raven_flap' else .08)+smooth*.7;envelope*=.25+.75*max(0,math.sin(t*18))
-    elif name in ['touch_frost','waning_stage_up','fear_phantom_dispel']:signal=math.sin(math.tau*(920+index*31)*t)*math.exp(-t*7)*.3+noise*.07
-    elif 'scythe' in name or 'harvest' in name or name=='last_breath':signal=smooth*.8+low*math.exp(-t*6)+math.sin(math.tau*610*t)*.04
-    else:signal=low+smooth*.55+noise*.02
-    samples.append(int(max(-.8,min(.8,signal*envelope))*32767))
-   tmp=O/f'{name}-{variant}.wav';dest=A/f'sounds/karachun/{name}_{variant}.ogg';dest.parent.mkdir(parents=True,exist_ok=True)
-   with wave.open(str(tmp),'wb') as out:out.setnchannels(1);out.setsampwidth(2);out.setframerate(rate);out.writeframes(struct.pack('<'+'h'*len(samples),*samples))
-   subprocess.run([ff,'-hide_banner','-loglevel','error','-y','-i',str(tmp),'-fflags','+bitexact','-flags:a','+bitexact','-c:a','libvorbis','-q:a','3','-map_metadata','-1',str(dest)],check=True);tmp.unlink();entries.append({'name':f'slavicmyths:karachun/{name}_{variant}','attenuation_distance':32})
-  sounds['karachun.'+name]={'subtitle':'subtitle.slavicmyths.karachun.'+name,'sounds':entries}
- merge(A/'sounds.json',sounds)
- from frost_foley_60 import restore_selected
- restore_selected()
+ """Restore curated audio only; never regenerate the rejected legacy synthesis."""
+ from frost_foley_60 import restore_selected as restore_frost
+ from audio_groups_61 import restore_selected as restore_project
+ restore_frost()
+ restore_project()
 def resources():
  names={'karachun_scythe':('Коса Карачуна','Karachun’s Scythe'),'rune_of_waning':('Руна угасания','Rune of Waning'),'black_wing_amulet':('Чёрное крыло','Black Wing'),'shard_of_last_night':('Осколок последней ночи','Shard of the Last Night'),'karachun_trial_totem':('Тотем призыва Карачуна','Karachun Trial Totem')}
  ru={'boss':'Карачун','boss_phase':'Карачун · фаза %s','success':'Испытание пройдено — Карачун отступает','start':'Карачун услышал зов. Выдержи последнюю ночь!','overworld':'Испытание Карачуна доступно в Верхнем мире','active':'Испытание Карачуна уже идёт','space':'Нужно больше свободного места','received':'Получено: %s','queued':'Награда сохранена. Освободи места: %s','cancel':'Испытание прервано; незавершённый бой закрыт','trust':'Заслужи доверие Яги или угости Баюна','offering':'Подношение: 4 обсидиана и 1 синий лёд','offhand':'Угасание: второстепенная рука временно недоступна','totem_hint':'Многоразовый призыв по твёрдой поверхности. Репутация не нужна для готового тотема. Одно испытание одновременно.','npc_title':'Карачун','npc_offer':'Доверие II Яги или первое угощение Баюна. 4 обсидиана + 1 синий лёд; утраченный тотем восстанавливается.','scythe_hint':'ЛКМ — три тяжёлых удара по дуге; способности: Последний вздох и Чёрная жатва.','scythe_passives':'Жатва душ: каждый третий hit по цели — Иссушение I. Пожиратель жизни: до 2 HP / 5 с. Нежить: +25% урона, +3 HP за убийство.','waning':'Угасание %s · %s','fear':'Страх %s','cooldowns':'Вздох %s с · Жатва %s с · Крыло %s с','bindings':'%s — Последний вздох; %s — Чёрная жатва; %s — Чёрное крыло','reduced':'Сниженные искажения: %s','compatible.waning':'Вставляется в оружие; 20% на +25 Угасания, не чаще раза в секунду по цели.'}
@@ -171,5 +154,9 @@ def resources():
  write(D/'advancement/endured_last_night.json',{'parent':'slavicmyths:root','display':{'icon':{'id':'slavicmyths:shard_of_last_night'},'title':{'translate':'advancement.slavicmyths.endured_last_night'},'description':{'translate':'advancement.slavicmyths.endured_last_night.desc'},'frame':'challenge','show_toast':True,'announce_to_chat':True,'hidden':False},'criteria':{'event':{'trigger':'minecraft:impossible'}}})
 NightSounds=['ambient_low_wind','enter_trial','voice_whisper','scythe_windup','scythe_hit','dark_frost','long_night_cast','touch_hunger','touch_frost','touch_death','last_hour_mark','last_hour_impact','fear_phantom_spawn','fear_phantom_dispel','yield','raven_call','raven_flap','raven_dive','raven_hit','life_eater','last_breath','black_harvest','wing_activate','waning_stage_up']
 def main():
- O.mkdir(parents=True,exist_ok=True);r=boss();emit(r,'karachun','KarachunMesh');held(r);bird=raven();emit(bird,'karachun_raven','NightRavenMesh',256);icons();audio();resources();__import__('weapon_patch_assets').main();print('KARACHUN_ASSETS',len(r.bones),len(r.boxes),len(bird.bones),len(bird.boxes))
-if __name__=='__main__':main()
+ O.mkdir(parents=True,exist_ok=True);r=boss();emit(r,'karachun','KarachunMesh');held(r);bird=raven();emit(bird,'karachun_raven','NightRavenMesh',256);icons();resources();audio();__import__('weapon_patch_assets').main();print('KARACHUN_ASSETS',len(r.bones),len(r.boxes),len(bird.bones),len(bird.boxes))
+if __name__=='__main__':
+ import sys
+ if sys.argv[1:]==['--audio-only']:audio()
+ elif not sys.argv[1:]:main()
+ else:raise SystemExit('Supported arguments: --audio-only (preserves models/textures)')

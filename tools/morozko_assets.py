@@ -134,28 +134,11 @@ def icons():
   (A/'textures/item').mkdir(parents=True,exist_ok=True);im.save(A/f'textures/item/{name}.png')
   if name!='morozko_staff':write(A/f'models/item/{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':f'slavicmyths:item/{name}'}})
 def audio():
- names=['ambient','step','staff_hit','ice_bolt','blizzard_start','blizzard_loop','spike_telegraph','spike_break','breath','wave','clone_spawn','clone_break','frost_damage','yield','mirror_summon','mirror_break','staff_shoot','staff_stream','staff_icicles','staff_wave','trial_call'];durations=[2,.2,.35,.45,2.5,4,.9,.45,2.5,.7,2,.65,.3,2.5,.7,.5,.35,1.5,1.2,.6,3]
- ff=shutil.which('ffmpeg')
- if not ff:raise RuntimeError('ffmpeg required for authored OGG')
- sounds={}
- for index,(name,duration) in enumerate(zip(names,durations)):
-  from frost_foley_60 import EVENTS
-  if 'morozko.'+name in EVENTS:continue
-  rng=random.Random(191+index);rate=22050;path=O/f'{name}.wav';samples=[];smooth=0
-  for i in range(int(rate*duration)):
-   t=i/rate;progress=t/duration;noise=rng.uniform(-1,1);smooth=smooth*.94+noise*.06;envelope=min(1,t/.06)*min(1,(duration-t)/.12)
-   if 'start' in name:envelope*=.3+.7*progress
-   elif 'loop' not in name and name not in ['ambient','breath','staff_stream']:envelope*=math.exp(-progress*3)
-   crystal=sum(math.sin(2*math.pi*(410+index*47)*harm*t)*math.exp(-t*(2+harm)) /harm for harm in [1,2.37,3.91])*.12
-   wind=(smooth*.7+noise*.07)*(1 if name in ['ambient','blizzard_start','blizzard_loop','breath','staff_stream','trial_call'] else .25)
-   pulse=math.sin(2*math.pi*70*t)*math.exp(-t*18)*.2 if name in ['staff_hit','wave','staff_wave','step'] else 0
-   if name=='staff_icicles':crystal*=.4+.6*max(0,math.cos(t*2*math.pi/ .14))
-   samples.append(int(MathClamp((wind+crystal+pulse)*envelope,-.8,.8)*32767))
-  with wave.open(str(path),'wb') as out:out.setnchannels(1);out.setsampwidth(2);out.setframerate(rate);out.writeframes(struct.pack('<'+'h'*len(samples),*samples))
-  dest=A/f'sounds/morozko/{name}.ogg';dest.parent.mkdir(parents=True,exist_ok=True);subprocess.run([ff,'-hide_banner','-loglevel','error','-y','-i',str(path),'-fflags','+bitexact','-flags:a','+bitexact','-c:a','libvorbis','-q:a','3','-map_metadata','-1',str(dest)],check=True);path.unlink();sounds['morozko.'+name]={'subtitle':'subtitle.slavicmyths.morozko.'+name,'sounds':[{'name':'slavicmyths:morozko/'+name,'attenuation_distance':32 if 'blizzard' in name else 24}]}
- merge(A/'sounds.json',sounds)
- from frost_foley_60 import restore_selected
- restore_selected()
+ """Restore curated audio only; never regenerate the rejected legacy synthesis."""
+ from frost_foley_60 import restore_selected as restore_frost
+ from audio_groups_61 import restore_selected as restore_project
+ restore_frost()
+ restore_project()
 def MathClamp(n,a,b):return max(a,min(b,n))
 def resources():
  items=[('morozko_staff','Посох Морозко','Morozko’s Staff'),('frost_mirror','Морозное зерцало','Frost Mirror'),('frost_resistance_rune','Руна морозостойкости','Frost Resistance Rune'),('frost_rune','Руна мороза','Frost Rune'),('heart_of_eternal_cold','Сердце вечной стужи','Heart of Eternal Cold'),('morozko_trial_totem','Ледяной тотем призыва Морозко','Morozko Trial Totem')]
@@ -197,9 +180,13 @@ def resources():
 def add_tag(path,item):
  old=json.loads(path.read_text()) if path.exists() else {'replace':False,'values':[]};old['values']=list(dict.fromkeys(old['values']+[item]));return old
 def main():
- O.mkdir(parents=True,exist_ok=True);r=boss();emit(r);icons();audio();resources();from summon_access_policy import apply;apply();print('Morozko:',len(r.bones),'bones;',len(r.boxes),'boxes; 6 icons; 21 original OGG')
-if __name__=='__main__':main()
+ O.mkdir(parents=True,exist_ok=True);r=boss();emit(r);icons();resources();audio();from summon_access_policy import apply;apply();print('Morozko:',len(r.bones),'bones;',len(r.boxes),'boxes; 6 icons; canonical selected audio')
+if __name__=='__main__':
+ import sys
+ if sys.argv[1:]==['--audio-only']:audio()
+ elif not sys.argv[1:]:main()
+ else:raise SystemExit('Supported arguments: --audio-only (preserves models/textures)')
 
-if __name__=="__main__":
+if __name__=="__main__" and not __import__("sys").argv[1:]:
  from reward_weapon_texts import apply as apply_reward_texts
  apply_reward_texts()

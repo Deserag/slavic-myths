@@ -113,6 +113,9 @@ def main():
    known[row['file']]=('; '.join(sorted({x['author'] for x in row['sources']})),'; '.join(sorted({x['license'] for x in row['sources']})),'; '.join(sorted({x['page'] for x in row['sources']})),'art/audio/project-61/selection.json')
  from audio_legacy_provenance_62 import trace
  legacy={r['asset']:r for r in trace()}
+ from audio_additional_origins_62 import trace as additional_origins
+ for row in additional_origins():
+  if row['asset'] not in legacy:legacy[row['asset']]=row
  for row in metrics:
   key=row['path'].split('assets/slavicmyths/sounds/',1)[1];author,license,url,evidence=known.get(key,('UNKNOWN','UNKNOWN','','SOURCE_NOT_YET_TRACED_PER_ASSET'))
   historical=legacy.get(row['path'])

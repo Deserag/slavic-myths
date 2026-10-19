@@ -11728,5 +11728,1139 @@
     "owner_approved": false,
     "hearing": "NOT_LISTENED",
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "1e9bbbc78921651d4d27f58c852e0f174ce4d03046db709f455707ab0e261a3c",
+    "event": "morozko.ambient",
+    "group": "frost-recorded-material",
+    "ru": "Холодный ветер вокруг Морозко",
+    "action": "Cold wind surrounds Morozko",
+    "file": "recorded61/morozko/ambient_1.ogg",
+    "sha256": "66fd012f105fb1b1145ce89ba3c7a42b69b9ae63459534bb3b3f173d8006e4f6",
+    "sources": [
+      {
+        "key": "wind__wind.wav",
+        "file": "sources/wind__wind.wav",
+        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "license": "CC0-1.0",
+        "author": "remaxim",
+        "page": "https://opengameart.org/content/short-wind-sound",
+        "start_sample": 1505
+      }
+    ],
+    "seconds": 2.1360997732426306,
+    "peak_dbfs": -16.98981587497362,
+    "rms_dbfs": -33.19295891567576,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "00dde4277d842631d224bc129a57978b56d579dc63523a4efb6d31cedfe1674d",
+    "event": "morozko.step",
+    "group": "frost-recorded-material",
+    "ru": "Тяжёлые шаги Морозко",
+    "action": "Morozko steps heavily",
+    "file": "recorded61/morozko/step_1.ogg",
+    "sha256": "dfe69a2fc8490d6b499506c0174ffa540fdf8769c2e79b0387313769893d6771",
+    "sources": [
+      {
+        "key": "equipment__boots-leather-step-03.wav",
+        "file": "../kurgan-65/sources/boots-leather-step-03.wav",
+        "sha256": "f63cc8613d927915c691257d8c12e3b62e1badd5079f503aa155f33c2d91c7e5",
+        "license": "CC0-1.0",
+        "author": "Vehicle",
+        "page": "https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library",
+        "start_sample": 1980
+      }
+    ],
+    "seconds": 0.1073469387755102,
+    "peak_dbfs": -11.041939955658231,
+    "rms_dbfs": -27.33507169419606,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "f0be16d7e7ff874891d822311b595008005f0589a58fc4a39af2209dfc42ca06",
+    "event": "morozko.step",
+    "group": "frost-recorded-material",
+    "ru": "Тяжёлые шаги Морозко",
+    "action": "Morozko steps heavily",
+    "file": "recorded61/morozko/step_2.ogg",
+    "sha256": "cc37c63228605da2500a0e72f2a1c2010fcaacebaffbd3713b7bedc8c2a25689",
+    "sources": [
+      {
+        "key": "equipment__boots-leather-step-04.wav",
+        "file": "../kurgan-65/sources/boots-leather-step-04.wav",
+        "sha256": "1924af86e3f5ca2a8515ac9c731c2eb7a7430392c645a7141a52b0dd079b977c",
+        "license": "CC0-1.0",
+        "author": "Vehicle",
+        "page": "https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library",
+        "start_sample": 1150
+      }
+    ],
+    "seconds": 0.15777777777777777,
+    "peak_dbfs": -10.84422297330856,
+    "rms_dbfs": -27.235830795736025,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "0d3e06dcb7db06363e634fa5692dc62b95779c42c75d1cd0a892307012fda58a",
+    "event": "morozko.blizzard_start",
+    "group": "frost-recorded-material",
+    "ru": "Морозко поднимает метель",
+    "action": "Morozko raises a blizzard",
+    "file": "recorded61/morozko/blizzard_start_1.ogg",
+    "sha256": "694a2e27e93aa4ad143fc75d81bc7faabc874d357979301bec641659aec4f03a",
+    "sources": [
+      {
+        "key": "wind__wind.wav",
+        "file": "sources/wind__wind.wav",
+        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "license": "CC0-1.0",
+        "author": "remaxim",
+        "page": "https://opengameart.org/content/short-wind-sound",
+        "start_sample": 1505
+      },
+      {
+        "key": "break__bfh1_glass_breaking_01.ogg",
+        "file": "sources/break__bfh1_glass_breaking_01.ogg",
+        "sha256": "438c45398ee77a40d5cc6ffcc59db0cdc709dc6d0521da5e2896b4afc19fcacb",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+        "start_sample": 257
+      }
+    ],
+    "seconds": 2.1360997732426306,
+    "peak_dbfs": -5.360060693797295,
+    "rms_dbfs": -23.96258722505843,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "0d41de3312a31ea314fe2b2a8982e537ed64ba9166c22227aa11ba6df690a0ce",
+    "event": "morozko.blizzard_loop",
+    "group": "frost-recorded-material",
+    "ru": "Метель Морозко шумит",
+    "action": "Morozko blizzard rushes",
+    "file": "recorded61/morozko/blizzard_loop_1.ogg",
+    "sha256": "0a8572dbb24cbc0496aea91171712f97df9ff32cc5fb2a8b15dd4b83b4927118",
+    "sources": [
+      {
+        "key": "wind__wind.wav",
+        "file": "sources/wind__wind.wav",
+        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "license": "CC0-1.0",
+        "author": "remaxim",
+        "page": "https://opengameart.org/content/short-wind-sound",
+        "start_sample": 4410
+      }
+    ],
+    "seconds": 2.0702267573696145,
+    "peak_dbfs": -12.239228182201582,
+    "rms_dbfs": -28.03490070460739,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "9a676e7c2698eaf859befeb385a2278dc707663bf5af1298936b4fe5445277e7",
+    "event": "morozko.spike_telegraph",
+    "group": "frost-recorded-material",
+    "ru": "Лёд потрескивает перед шипами",
+    "action": "Ice cracks before spikes rise",
+    "file": "recorded61/morozko/spike_telegraph_1.ogg",
+    "sha256": "994a7ee73acc89d0595e69bd11edb57c978f71855c644b4faa76cad240901d1a",
+    "sources": [
+      {
+        "key": "break__bfh1_glass_breaking_02.ogg",
+        "file": "sources/break__bfh1_glass_breaking_02.ogg",
+        "sha256": "35dcb1dc69338bad745e1cd56c676d04e4afb6687b9aa6d05ba83a255252747b",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+        "start_sample": 0
+      }
+    ],
+    "seconds": 0.3218367346938775,
+    "peak_dbfs": -6.407537573832257,
+    "rms_dbfs": -24.7918956139696,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "3815f7ec9059ebaa3185727c93f8ed66df50395a34f75e92e2b2823f49856986",
+    "event": "morozko.breath",
+    "group": "frost-recorded-material",
+    "ru": "Морозко выпускает морозный поток",
+    "action": "Morozko releases a frost cone",
+    "file": "recorded61/morozko/breath_1.ogg",
+    "sha256": "3954f6af4461f006f23dd8a26ad3cefff37810c44a034801e334394129a296b9",
+    "sources": [
+      {
+        "key": "wind__wind.wav",
+        "file": "sources/wind__wind.wav",
+        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "license": "CC0-1.0",
+        "author": "remaxim",
+        "page": "https://opengameart.org/content/short-wind-sound",
+        "start_sample": 24255
+      },
+      {
+        "key": "break__bfh1_glass_breaking_03.ogg",
+        "file": "sources/break__bfh1_glass_breaking_03.ogg",
+        "sha256": "065edd6caeb5846fa9cddbaeacbabcdea834e7c42182ff98297f2e49f126cc25",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+        "start_sample": 0
+      }
+    ],
+    "seconds": 1.6202267573696145,
+    "peak_dbfs": -6.1237672843661635,
+    "rms_dbfs": -24.021204786205466,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "6f6d08f161123a34fb2016189218d86aaa48ae0a705ecb21b38710fc936c5a77",
+    "event": "morozko.wave",
+    "group": "frost-recorded-material",
+    "ru": "Ледяная волна Морозко расходится",
+    "action": "Morozko ice wave spreads",
+    "file": "recorded61/morozko/wave_1.ogg",
+    "sha256": "1461526164670ebc0f06884f5b2fb78b36603d3203c78e7828aa540d77adc69a",
+    "sources": [
+      {
+        "key": "foley__swosh-02.flac",
+        "file": "../pack-a-60/sources/swosh-02.flac",
+        "sha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+        "start_sample": 0
+      },
+      {
+        "key": "break__bfh1_glass_breaking_04.ogg",
+        "file": "sources/break__bfh1_glass_breaking_04.ogg",
+        "sha256": "b5038806325fa2f336a70cfb72c643d6eaa6e69df084988d4c63d65a0123000c",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+        "start_sample": 935
+      }
+    ],
+    "seconds": 0.6082993197278912,
+    "peak_dbfs": -6.070072983446635,
+    "rms_dbfs": -30.3727167130317,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "f6172408119295fc339b94e3bc3426278e2ce9bd2eb10030011d0fb8de252a32",
+    "event": "morozko.clone_spawn",
+    "group": "frost-recorded-material",
+    "ru": "Ледяная копия Морозко появляется",
+    "action": "Morozko ice clone forms",
+    "file": "recorded61/morozko/clone_spawn_1.ogg",
+    "sha256": "16f8d0e1cf0fad3eaedb515350146cd8ce776d7021e833758f5eebbc741dad1c",
+    "sources": [
+      {
+        "key": "chime__gnote_169855.mp3",
+        "file": "sources/chime__gnote_169855.mp3",
+        "sha256": "bac210d16fc4850b77a870e8f82ed7eb55737969e3ab06b118863d0ad9293d05",
+        "license": "CC0-1.0",
+        "author": "GnoteSoundz",
+        "page": "https://freesound.org/people/GnoteSoundz/sounds/169855/",
+        "start_sample": 0
+      },
+      {
+        "key": "break__bfh1_glass_breaking_05.ogg",
+        "file": "sources/break__bfh1_glass_breaking_05.ogg",
+        "sha256": "9e788240282b05f4fd70414b133ab43f9f0c82e36f4879f7eefc9ed062850574",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+        "start_sample": 0
+      }
+    ],
+    "seconds": 1.1099773242630386,
+    "peak_dbfs": -9.258283460876896,
+    "rms_dbfs": -26.051840457912224,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "0eb66b120215ec9bc03e8d69e0cdfa1da1b0be9435ea58dcbcc5588d60280ff4",
+    "event": "morozko.frost_damage",
+    "group": "frost-recorded-material",
+    "ru": "Мороз обжигает цель",
+    "action": "Frost bites its target",
+    "file": "recorded61/morozko/frost_damage_1.ogg",
+    "sha256": "f2d31cebf96664c921b7d785484e59098f5509fa4f8e35a8d6d31c4e31aa835d",
+    "sources": [
+      {
+        "key": "break__bfh1_glass_breaking_06.ogg",
+        "file": "sources/break__bfh1_glass_breaking_06.ogg",
+        "sha256": "5dad395c21e85d0750be4b1f9c110aeba366ee5da0dadae8c307497e0a4b4c0d",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+        "start_sample": 0
+      }
+    ],
+    "seconds": 0.20997732426303856,
+    "peak_dbfs": -11.655966714831855,
+    "rms_dbfs": -25.688970013967968,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "ce46cb474c5c1d0abeedc899222b42fbe243b251a2f83f3131cfd21e385aa5cf",
+    "event": "morozko.yield",
+    "group": "frost-recorded-material",
+    "ru": "Морозко завершает испытание",
+    "action": "Morozko yields the trial",
+    "file": "recorded61/morozko/yield_1.ogg",
+    "sha256": "1f06314b131f197064f235d52d44555c55e0f7d56ee4e923b2f0585af6e255bf",
+    "sources": [
+      {
+        "key": "harp__phonos_490831.mp3",
+        "file": "sources/harp__phonos_490831.mp3",
+        "sha256": "c2d54125598ebd8bb5a2ae9ae07dffc30d6b60354e974d564fe98216a84c13fb",
+        "license": "CC0-1.0",
+        "author": "PhonosUPF",
+        "page": "https://freesound.org/people/PhonosUPF/sounds/490831/",
+        "start_sample": 13
+      }
+    ],
+    "seconds": 0.509501133786848,
+    "peak_dbfs": -10.001819966149254,
+    "rms_dbfs": -26.95804313820425,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "e1d6ff2acf5c5d96eebaf3738e953e8f52f1e979ed09695ba9f1d25c0bf1bff2",
+    "event": "morozko.mirror_summon",
+    "group": "frost-recorded-material",
+    "ru": "Ледяное зеркало возникает",
+    "action": "Ice mirror forms",
+    "file": "recorded61/morozko/mirror_summon_1.ogg",
+    "sha256": "5e4d32d05fe1df9338a69053187c74aa937aaaa93d2fe8d568e641d64f9752c1",
+    "sources": [
+      {
+        "key": "chime__connersaw8_125147.mp3",
+        "file": "sources/chime__connersaw8_125147.mp3",
+        "sha256": "7137f3388b3361ab6fcd500c97a4cb52919dbd809955e8069111648bbe666097",
+        "license": "CC0-1.0",
+        "author": "connersaw8",
+        "page": "https://freesound.org/people/connersaw8/sounds/125147/",
+        "start_sample": 290
+      },
+      {
+        "key": "break__bfh1_glass_breaking_02.ogg",
+        "file": "sources/break__bfh1_glass_breaking_02.ogg",
+        "sha256": "35dcb1dc69338bad745e1cd56c676d04e4afb6687b9aa6d05ba83a255252747b",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+        "start_sample": 0
+      }
+    ],
+    "seconds": 0.3218367346938775,
+    "peak_dbfs": -9.936222161411719,
+    "rms_dbfs": -26.384180808554632,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "597b77a21848def8e863eb35ad2ebd10238162e3ae12cd21e9642bf6f04b212d",
+    "event": "morozko.staff_stream",
+    "group": "frost-recorded-material",
+    "ru": "Посох выпускает морозный поток",
+    "action": "Staff channels a frost stream",
+    "file": "recorded61/morozko/staff_stream_1.ogg",
+    "sha256": "47c0b724d1bb5d3440b631e0a9f3257c21011b501fca706259935c0cb47a4d36",
+    "sources": [
+      {
+        "key": "wind__wind.wav",
+        "file": "sources/wind__wind.wav",
+        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "license": "CC0-1.0",
+        "author": "remaxim",
+        "page": "https://opengameart.org/content/short-wind-sound",
+        "start_sample": 1505
+      }
+    ],
+    "seconds": 2.1360997732426306,
+    "peak_dbfs": -9.767149224271881,
+    "rms_dbfs": -26.078892059155635,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "75ef781fa4bb7ef5a2294a2d0d9fa80827608e0c568bbe15162a95cbee516789",
+    "event": "morozko.staff_wave",
+    "group": "frost-recorded-material",
+    "ru": "Посох выпускает ледяную волну",
+    "action": "Staff releases an ice wave",
+    "file": "recorded61/morozko/staff_wave_1.ogg",
+    "sha256": "5f191b98d8b2f0f0239a98a82fc6839df00fb343d3e07ec18aae8d88c63c618a",
+    "sources": [
+      {
+        "key": "foley__swosh-01.flac",
+        "file": "../pack-a-60/sources/swosh-01.flac",
+        "sha256": "6bacb655b1b6e6669f5b1eb44e7eaea1219b185539486c08e11240193391ebd5",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+        "start_sample": 844
+      },
+      {
+        "key": "break__bfh1_glass_breaking_06.ogg",
+        "file": "sources/break__bfh1_glass_breaking_06.ogg",
+        "sha256": "5dad395c21e85d0750be4b1f9c110aeba366ee5da0dadae8c307497e0a4b4c0d",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+        "start_sample": 0
+      }
+    ],
+    "seconds": 0.5599773242630386,
+    "peak_dbfs": -6.351772650658678,
+    "rms_dbfs": -23.97223560531169,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "3607ec6796d5d8ccb02990af1aecce53e951a9b362826d67d8a808988afe2c87",
+    "event": "morozko.trial_call",
+    "group": "frost-recorded-material",
+    "ru": "Тотем зовёт Морозко",
+    "action": "Totem calls Morozko",
+    "file": "recorded61/morozko/trial_call_1.ogg",
+    "sha256": "7d1ae2c0dc8f4ad737cab2ffb70428491c2420e24b974ff79f47e0b12c3f53c4",
+    "sources": [
+      {
+        "key": "cymbal__mirko_175932.mp3",
+        "file": "sources/cymbal__mirko_175932.mp3",
+        "sha256": "2eba1356479e786d9b2e1d740955f7aa81c6dd7fb550ebbc458136fea811fe05",
+        "license": "CC0-1.0",
+        "author": "MirkoMeter84",
+        "page": "https://freesound.org/people/MirkoMeter84/sounds/175932/",
+        "start_sample": 1664
+      }
+    ],
+    "seconds": 1.5099773242630385,
+    "peak_dbfs": -5.439688853022905,
+    "rms_dbfs": -33.36505914784026,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "e920867d9eb5fc6bf5b6c2e62b38beac1bcfcdd0ffce4489d8f329fc0dbd828e",
+    "event": "karachun.ambient_low_wind",
+    "group": "night-recorded-material",
+    "ru": "Низкий ветер вокруг Карачуна",
+    "action": "Low wind surrounds Karachun",
+    "file": "recorded61/karachun/ambient_low_wind_1.ogg",
+    "sha256": "369960bc129d0455b094afadc48aa59f0bb8b96af4316f2e0a42a9bef5ba0b16",
+    "sources": [
+      {
+        "key": "wind__wind.wav",
+        "file": "sources/wind__wind.wav",
+        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "license": "CC0-1.0",
+        "author": "remaxim",
+        "page": "https://opengameart.org/content/short-wind-sound",
+        "start_sample": 52920
+      }
+    ],
+    "seconds": 1.1161678004535147,
+    "peak_dbfs": -15.088057648495576,
+    "rms_dbfs": -32.09204595612525,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "1b8c5318575f87a2ba03015a6189e274594b596fd0b9f664ceb595e42f9995ab",
+    "event": "karachun.enter_trial",
+    "group": "night-recorded-material",
+    "ru": "Начало испытания Карачуна отмечено звоном",
+    "action": "A bell marks Karachun trial",
+    "file": "recorded61/karachun/enter_trial_1.ogg",
+    "sha256": "cf548cdc7512e91586057a8d1b30e11f98da888947d6b3f122ad75aa65cf50d5",
+    "sources": [
+      {
+        "key": "clock__martineerok_148284.mp3",
+        "file": "sources/clock__martineerok_148284.mp3",
+        "sha256": "18b138c9227a4c590a262376a4ff5985447a3e7b19dc4176f402caec767ab5fd",
+        "license": "CC0-1.0",
+        "author": "Martineerok",
+        "page": "https://freesound.org/people/Martineerok/sounds/148284/",
+        "start_sample": 0
+      },
+      {
+        "key": "wind__wind.wav",
+        "file": "sources/wind__wind.wav",
+        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "license": "CC0-1.0",
+        "author": "remaxim",
+        "page": "https://opengameart.org/content/short-wind-sound",
+        "start_sample": 1505
+      }
+    ],
+    "seconds": 1.7099773242630385,
+    "peak_dbfs": -9.086273394001326,
+    "rms_dbfs": -23.771046969707502,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "1afaa3159f51cdfbe9b00dabbf9889d31ad4de28bb6deae2933a2f1b9121ba88",
+    "event": "karachun.dark_frost",
+    "group": "night-recorded-material",
+    "ru": "Тёмный мороз Карачуна сгущается",
+    "action": "Karachun dark frost gathers",
+    "file": "recorded61/karachun/dark_frost_1.ogg",
+    "sha256": "f23aec50d9c456eec772688743e2d36cd0efd04b64643b9d2964b4b35bdfcf79",
+    "sources": [
+      {
+        "key": "break__bfh1_glass_breaking_04.ogg",
+        "file": "sources/break__bfh1_glass_breaking_04.ogg",
+        "sha256": "b5038806325fa2f336a70cfb72c643d6eaa6e69df084988d4c63d65a0123000c",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+        "start_sample": 935
+      },
+      {
+        "key": "wind__wind.wav",
+        "file": "sources/wind__wind.wav",
+        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "license": "CC0-1.0",
+        "author": "remaxim",
+        "page": "https://opengameart.org/content/short-wind-sound",
+        "start_sample": 88200
+      }
+    ],
+    "seconds": 0.6082993197278912,
+    "peak_dbfs": -6.008237293328439,
+    "rms_dbfs": -30.422336006277284,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "f7bfa2928fa5d821c1b8cdb199b6b67d883e5f36a9dbf61f4edc0370078b7ddf",
+    "event": "karachun.long_night_cast",
+    "group": "night-recorded-material",
+    "ru": "Карачун призывает долгую ночь",
+    "action": "Karachun calls the long night",
+    "file": "recorded61/karachun/long_night_cast_1.ogg",
+    "sha256": "2dce0b30217af6ac04578e0f338b59aca47bd8cd0e1fec9678b4d03c5958b221",
+    "sources": [
+      {
+        "key": "clock__martineerok_148284.mp3",
+        "file": "sources/clock__martineerok_148284.mp3",
+        "sha256": "18b138c9227a4c590a262376a4ff5985447a3e7b19dc4176f402caec767ab5fd",
+        "license": "CC0-1.0",
+        "author": "Martineerok",
+        "page": "https://freesound.org/people/Martineerok/sounds/148284/",
+        "start_sample": 0
+      },
+      {
+        "key": "foley__swosh-03.flac",
+        "file": "../pack-a-60/sources/swosh-03.flac",
+        "sha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+        "start_sample": 502
+      }
+    ],
+    "seconds": 1.5099773242630385,
+    "peak_dbfs": -5.422589245436548,
+    "rms_dbfs": -23.755536456908768,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "c5e5dcc3319576682ba3e4150b8a533275ff0a2c308de917281c1634d4789730",
+    "event": "karachun.touch_hunger",
+    "group": "night-recorded-material",
+    "ru": "Печать голода сжимается",
+    "action": "Hunger seal tightens",
+    "file": "recorded61/karachun/touch_hunger_1.ogg",
+    "sha256": "7e736f9ee31aaa7b22adf0f543fe0cbb1e3752948b1482d791a5ce980d5b6e2e",
+    "sources": [
+      {
+        "key": "equipment__quiver-leather-squeeze-06.wav",
+        "file": "../kurgan-65/sources/quiver-leather-squeeze-06.wav",
+        "sha256": "f33ecdc45a63fff9ae019319674a737d1bd40b2247ee73b384704d3acc451446",
+        "license": "CC0-1.0",
+        "author": "Vehicle",
+        "page": "https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library",
+        "start_sample": 5
+      }
+    ],
+    "seconds": 0.3599546485260771,
+    "peak_dbfs": -6.373892028831271,
+    "rms_dbfs": -27.12219584089533,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "cd189c4350526e115f3ca28ea16b1da9599dbb9d28bf04231a889ac7c7ff46d8",
+    "event": "karachun.touch_frost",
+    "group": "night-recorded-material",
+    "ru": "Печать мороза потрескивает",
+    "action": "Frost seal cracks",
+    "file": "recorded61/karachun/touch_frost_1.ogg",
+    "sha256": "e08d0e09261622f2209b4d648c4401a9b2e2e405d04e93b2de754c8c3e6f1b13",
+    "sources": [
+      {
+        "key": "break__bfh1_glass_breaking_01.ogg",
+        "file": "sources/break__bfh1_glass_breaking_01.ogg",
+        "sha256": "438c45398ee77a40d5cc6ffcc59db0cdc709dc6d0521da5e2896b4afc19fcacb",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+        "start_sample": 257
+      }
+    ],
+    "seconds": 0.30997732426303853,
+    "peak_dbfs": -7.2818926239340565,
+    "rms_dbfs": -25.61915354350852,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "750371a9e37b62b963a65121ca1fd48cc4558aeb5149456fc4a895a25bed9f43",
+    "event": "karachun.touch_death",
+    "group": "night-recorded-material",
+    "ru": "Смертельное касание Карачуна ударяет",
+    "action": "Karachun death touch strikes",
+    "file": "recorded61/karachun/touch_death_1.ogg",
+    "sha256": "d8ffa8b26985eaaa67aa378752155d7781a4507778a6210c891d533fd7387e6f",
+    "sources": [
+      {
+        "key": "equipment__body-3.flac",
+        "file": "../kurgan-65/sources/body-3.flac",
+        "sha256": "2905f5e39d15a6fa41661c625db66f2b7df95699cbd492b656c974e7c448a2e4",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/40-wet-towel-clubpoundhitattack-sounds",
+        "start_sample": 26
+      }
+    ],
+    "seconds": 0.25997732426303855,
+    "peak_dbfs": -7.828708134260394,
+    "rms_dbfs": -24.122052210440913,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "794a36527975ca2576db597cf67956a5148972ae8527c0d11e7b455b55e8baa9",
+    "event": "karachun.last_hour_mark",
+    "group": "night-recorded-material",
+    "ru": "Колокол отмечает последний час",
+    "action": "Bell marks the last hour",
+    "file": "recorded61/karachun/last_hour_mark_1.ogg",
+    "sha256": "573f4758127b8040feb867975b6615b97819aff10a8c8edc150c22c5094b9bf9",
+    "sources": [
+      {
+        "key": "clock__martineerok_148284.mp3",
+        "file": "sources/clock__martineerok_148284.mp3",
+        "sha256": "18b138c9227a4c590a262376a4ff5985447a3e7b19dc4176f402caec767ab5fd",
+        "license": "CC0-1.0",
+        "author": "Martineerok",
+        "page": "https://freesound.org/people/Martineerok/sounds/148284/",
+        "start_sample": 0
+      }
+    ],
+    "seconds": 1.1099773242630386,
+    "peak_dbfs": -7.9457729972392634,
+    "rms_dbfs": -24.461329562739174,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "d12496cbac0c41df9009b7f989d046bee1c4ccf7af225e4379513d1f8bac033c",
+    "event": "karachun.last_hour_impact",
+    "group": "night-recorded-material",
+    "ru": "Последний час обрушивается",
+    "action": "Last hour crashes down",
+    "file": "recorded61/karachun/last_hour_impact_1.ogg",
+    "sha256": "8370d182dc67c26d02d52c3a793e40a967df7519e0ea1dd23234aef50f67d5c3",
+    "sources": [
+      {
+        "key": "break__bfh1_rock_falling_07.ogg",
+        "file": "sources/break__bfh1_rock_falling_07.ogg",
+        "sha256": "66a659f0082ab3a282804a3ce5c42f096d41706fff1fa24a5328905fe41883fc",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+        "start_sample": 0
+      },
+      {
+        "key": "equipment__sword_clash.9.ogg",
+        "file": "../kurgan-65/sources/sword_clash.9.ogg",
+        "sha256": "aabd55ad99a1d171b50d741923077488a1021460fab35adf4fb7f36def49adc0",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 7387
+      }
+    ],
+    "seconds": 0.5120861678004535,
+    "peak_dbfs": -6.157550919980546,
+    "rms_dbfs": -31.7621471760912,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "3113207c967b17ddf38b4fa8ee1f37e438a5d4fbc7821a14bd03f32b1dde06be",
+    "event": "karachun.fear_phantom_spawn",
+    "group": "night-recorded-material",
+    "ru": "Призрак страха возникает рядом",
+    "action": "Fear phantom appears nearby",
+    "file": "recorded61/karachun/fear_phantom_spawn_1.ogg",
+    "sha256": "edca7de4526582e0a8f1a6040b319b662f8ceafe39f558ff80250eaf75a315ba",
+    "sources": [
+      {
+        "key": "foley__cloth-05.flac",
+        "file": "../pack-a-60/sources/cloth-05.flac",
+        "sha256": "6a71812510e0843fc28264239a8f1d2a5ea06044f850cae0c8094ffc83838706",
+        "license": "CC0-1.0",
+        "author": "OwlishMedia",
+        "page": "https://opengameart.org/content/202-more-sound-effects",
+        "start_sample": 1807
+      }
+    ],
+    "seconds": 0.248140589569161,
+    "peak_dbfs": -12.498301387766805,
+    "rms_dbfs": -27.111746705879266,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "d7f17f6926955a7b9112c24e195918b6016a18f7739c6b8dcc19d61268f7b959",
+    "event": "karachun.fear_phantom_dispel",
+    "group": "night-recorded-material",
+    "ru": "Призрак страха рассеивается",
+    "action": "Fear phantom disperses",
+    "file": "recorded61/karachun/fear_phantom_dispel_1.ogg",
+    "sha256": "c0c587e724880e99ea20be773168520b73902e2af5e83d1c4b48ed7db82f4881",
+    "sources": [
+      {
+        "key": "foley__swosh-02.flac",
+        "file": "../pack-a-60/sources/swosh-02.flac",
+        "sha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+        "start_sample": 0
+      }
+    ],
+    "seconds": 0.21215419501133786,
+    "peak_dbfs": -14.80235017160659,
+    "rms_dbfs": -28.15055679068589,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "a97ba6c27c7ae6a03d9b450479171981c5e387efbb9a33b9b146a3c8d38d18f0",
+    "event": "karachun.yield",
+    "group": "night-recorded-material",
+    "ru": "Карачун завершает испытание",
+    "action": "Karachun yields the trial",
+    "file": "recorded61/karachun/yield_1.ogg",
+    "sha256": "a0fe9a498199fd2d6ca28e08b1497eba0cd022db082811e9d68171a8b2834927",
+    "sources": [
+      {
+        "key": "cymbal__mirko_175932.mp3",
+        "file": "sources/cymbal__mirko_175932.mp3",
+        "sha256": "2eba1356479e786d9b2e1d740955f7aa81c6dd7fb550ebbc458136fea811fe05",
+        "license": "CC0-1.0",
+        "author": "MirkoMeter84",
+        "page": "https://freesound.org/people/MirkoMeter84/sounds/175932/",
+        "start_sample": 1664
+      }
+    ],
+    "seconds": 1.2099773242630385,
+    "peak_dbfs": -5.276801697168006,
+    "rms_dbfs": -32.52255913490406,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "2fecf6ffd5fef22af0a813f4276185f4bf95c280c1dcdfeb19ce7246bfddd44e",
+    "event": "karachun.raven_call",
+    "group": "night-recorded-material",
+    "ru": "Ворон Карачуна каркает",
+    "action": "Karachun raven calls",
+    "file": "recorded61/karachun/raven_call_1.ogg",
+    "sha256": "fe9ad5d3d62a1300f78dce547788a48837577eb22be4e8b652bd3ebdf9e02f3c",
+    "sources": [
+      {
+        "key": "raven__nielstii_346318.mp3",
+        "file": "sources/raven__nielstii_346318.mp3",
+        "sha256": "82ce740c25821de021b902f618db91d4a9b9e35a553c0d669e922c7c4e0604bb",
+        "license": "CC0-1.0",
+        "author": "nielstii",
+        "page": "https://freesound.org/people/nielstii/sounds/346318/",
+        "start_sample": 0
+      }
+    ],
+    "seconds": 2.6599773242630387,
+    "peak_dbfs": -7.473994809410032,
+    "rms_dbfs": -24.524242638206903,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "c3549fb2c7f01038c9e77d1c3ba74d0332bb31ba0a4434a90cd0e9269300a7a9",
+    "event": "karachun.raven_flap",
+    "group": "night-recorded-material",
+    "ru": "Ворон Карачуна взмахивает крыльями",
+    "action": "Karachun raven flaps",
+    "file": "recorded61/karachun/raven_flap_1.ogg",
+    "sha256": "6aeede73c5f2f7bd963c54e86c697a56d328575bb40c7c4d1792cfbc006c693c",
+    "sources": [
+      {
+        "key": "wings__wings_flap_large.flac",
+        "file": "sources/wings__wings_flap_large.flac",
+        "sha256": "57dc196fdfbbddb75033d09222560901bc9d33f72224745e95e585c4cd994e4f",
+        "license": "CC0-1.0",
+        "author": "AntumDeluge / dave.des",
+        "page": "https://opengameart.org/content/large-wings-flap",
+        "start_sample": 53
+      }
+    ],
+    "seconds": 0.40997732426303857,
+    "peak_dbfs": -13.853227183705137,
+    "rms_dbfs": -28.11504401988888,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "829f3238ac0ca5e3aace36d5e816da0ca0164adc306c9f943d449b9ba583f7fe",
+    "event": "karachun.raven_dive",
+    "group": "night-recorded-material",
+    "ru": "Ворон Карачуна пикирует",
+    "action": "Karachun raven dives",
+    "file": "recorded61/karachun/raven_dive_1.ogg",
+    "sha256": "0c9c7ba4d4d38dca8f0d96a2af191687e68d0c9a9f2865d38e71baa38c8b8edc",
+    "sources": [
+      {
+        "key": "wings__wings_flap_large.flac",
+        "file": "sources/wings__wings_flap_large.flac",
+        "sha256": "57dc196fdfbbddb75033d09222560901bc9d33f72224745e95e585c4cd994e4f",
+        "license": "CC0-1.0",
+        "author": "AntumDeluge / dave.des",
+        "page": "https://opengameart.org/content/large-wings-flap",
+        "start_sample": 53
+      },
+      {
+        "key": "foley__swosh-01.flac",
+        "file": "../pack-a-60/sources/swosh-01.flac",
+        "sha256": "6bacb655b1b6e6669f5b1eb44e7eaea1219b185539486c08e11240193391ebd5",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+        "start_sample": 844
+      }
+    ],
+    "seconds": 0.45997732426303856,
+    "peak_dbfs": -9.56093177812644,
+    "rms_dbfs": -24.63502203591496,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "bf9ccb3fec7fc6168d2dd8a2a6c2d1618077d26d4f1d1724389e0a7c48f18c0b",
+    "event": "karachun.raven_hit",
+    "group": "night-recorded-material",
+    "ru": "Ворон Карачуна ударяет цель",
+    "action": "Karachun raven strikes",
+    "file": "recorded61/karachun/raven_hit_1.ogg",
+    "sha256": "27ad104c2514a85a66c8c8874714760777c6549a27176ccdaebecef1c1112151",
+    "sources": [
+      {
+        "key": "equipment__body-1.flac",
+        "file": "../kurgan-65/sources/body-1.flac",
+        "sha256": "6fc86a761d01d5f459d7d9d659c2d41cb80753068e7f4403c0eab3d3a13fc255",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/40-wet-towel-clubpoundhitattack-sounds",
+        "start_sample": 79
+      }
+    ],
+    "seconds": 0.22156462585034015,
+    "peak_dbfs": -5.6047740867454765,
+    "rms_dbfs": -26.521637631130375,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "415aea07fcb0fcc7d0c6e4913a43b975f551de1650530acb96cd711fa8360956",
+    "event": "karachun.life_eater",
+    "group": "night-recorded-material",
+    "ru": "Коса поглощает жизненную силу",
+    "action": "Scythe absorbs life force",
+    "file": "recorded61/karachun/life_eater_1.ogg",
+    "sha256": "2d7cb63d9b5ce93a4bdae9307f05fb2209d89fe7e975ba6fd971e290e4c67106",
+    "sources": [
+      {
+        "key": "equipment__quiver-leather-squeeze-07.wav",
+        "file": "../kurgan-65/sources/quiver-leather-squeeze-07.wav",
+        "sha256": "4072827507f8d6bbaf9d8a89bfc4c8ce5616a5cb32e59d9abc43e81927b256e6",
+        "license": "CC0-1.0",
+        "author": "Vehicle",
+        "page": "https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library",
+        "start_sample": 231
+      }
+    ],
+    "seconds": 0.3464625850340136,
+    "peak_dbfs": -6.175814682681877,
+    "rms_dbfs": -27.320826347909662,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "23b6bc7078b21f35b9bed642a9425cb0eedee0efe90878dd2668e4a461624a88",
+    "event": "karachun.last_breath",
+    "group": "night-recorded-material",
+    "ru": "Коса готовит Последний вздох",
+    "action": "Scythe prepares Last Breath",
+    "file": "recorded61/karachun/last_breath_1.ogg",
+    "sha256": "7bd5d270fc3909f9bbac388eba2d6f9d2985ebb867ec3faaeab5638b08eba49a",
+    "sources": [
+      {
+        "key": "foley__swosh-03.flac",
+        "file": "../pack-a-60/sources/swosh-03.flac",
+        "sha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+        "start_sample": 502
+      },
+      {
+        "key": "equipment__sword.4.ogg",
+        "file": "../kurgan-65/sources/sword.4.ogg",
+        "sha256": "320aa8a77d35f9354c3d7e03a53e987ae67b0c5721f0dd2680100c5e6b5e4cc4",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 1989
+      }
+    ],
+    "seconds": 0.2938775510204082,
+    "peak_dbfs": -9.041936372077776,
+    "rms_dbfs": -23.86859788485827,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "0cb4ad911033942ae049c67ccaa947c8cc21afb90ac4bb26a817f887cf236dae",
+    "event": "karachun.black_harvest",
+    "group": "night-recorded-material",
+    "ru": "Коса готовит Чёрную жатву",
+    "action": "Scythe prepares Black Harvest",
+    "file": "recorded61/karachun/black_harvest_1.ogg",
+    "sha256": "fa7b254b8ad2cfa09ebbd2d5d1add83edb5e9169482f39f6d940b1a9e094d7de",
+    "sources": [
+      {
+        "key": "equipment__sword.6.ogg",
+        "file": "../kurgan-65/sources/sword.6.ogg",
+        "sha256": "5b6eaaac9c552ce364cfdea3c12cef846c89796fc9bb880181615f43ee4e4779",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 414
+      },
+      {
+        "key": "equipment__sword_clash.10.ogg",
+        "file": "../kurgan-65/sources/sword_clash.10.ogg",
+        "sha256": "61d40c241c5df7722249983938109564a8470245116fe34d23d2a35324d3a4f1",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 8798
+      }
+    ],
+    "seconds": 0.37848072562358276,
+    "peak_dbfs": -5.962866660360472,
+    "rms_dbfs": -25.92039662333353,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "92ea61735e1a95270088490c369c57dce9c7d03d7e0c016b4b93f360540335e7",
+    "event": "karachun.wing_activate",
+    "group": "night-recorded-material",
+    "ru": "Оберег Чёрное крыло призывает воронов",
+    "action": "Black Wing charm calls ravens",
+    "file": "recorded61/karachun/wing_activate_1.ogg",
+    "sha256": "c1a1394eb1ae1f8db1739b6896b25f8042c79425c175b42f0547aa710ddc0bdd",
+    "sources": [
+      {
+        "key": "wings__wings_flap_large.flac",
+        "file": "sources/wings__wings_flap_large.flac",
+        "sha256": "57dc196fdfbbddb75033d09222560901bc9d33f72224745e95e585c4cd994e4f",
+        "license": "CC0-1.0",
+        "author": "AntumDeluge / dave.des",
+        "page": "https://opengameart.org/content/large-wings-flap",
+        "start_sample": 53
+      },
+      {
+        "key": "foley__cloth-03.flac",
+        "file": "../pack-a-60/sources/cloth-03.flac",
+        "sha256": "f3e01f1e6ed54748b1351163e373c1d6270d63e7c1338155f9b3d03427d25c23",
+        "license": "CC0-1.0",
+        "author": "OwlishMedia",
+        "page": "https://opengameart.org/content/202-more-sound-effects",
+        "start_sample": 4887
+      }
+    ],
+    "seconds": 0.6099773242630385,
+    "peak_dbfs": -10.143938567148387,
+    "rms_dbfs": -25.48150013716993,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "af5859e9fbc4ed9dfc961b39b5cc2a30b4c4b498c94fbf0c0b48fbb39e341fa9",
+    "event": "karachun.waning_stage_up",
+    "group": "night-recorded-material",
+    "ru": "Угасание мешает пользоваться снаряжением",
+    "action": "Waning impedes equipment use",
+    "file": "recorded61/karachun/waning_stage_up_1.ogg",
+    "sha256": "de0572ccd6945050e86b29a7f733c9aebf59df34d8de691c998c4cf5e9136ea0",
+    "sources": [
+      {
+        "key": "equipment__belt-buckle-04.wav",
+        "file": "../kurgan-65/sources/belt-buckle-04.wav",
+        "sha256": "6bd265c996eab899b4946ed8df59055cf621745b8acf5f269d827d0d2b3a77af",
+        "license": "CC0-1.0",
+        "author": "Vehicle",
+        "page": "https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library",
+        "start_sample": 476
+      }
+    ],
+    "seconds": 0.15997732426303854,
+    "peak_dbfs": -5.643390737872115,
+    "rms_dbfs": -29.627077356266103,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   }
 ]

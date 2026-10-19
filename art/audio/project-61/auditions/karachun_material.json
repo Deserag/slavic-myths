@@ -1,0 +1,87 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 36,
+  "sha256": "0fdf354bc04dec7ec305373d0592cf06c9b9bb88e4f21c5bc79931ece59b8875",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "karachun.ambient_low_wind",
+      "label": "Низкий ветер вокруг Карачуна",
+      "file": "recorded61/karachun/ambient_low_wind_1.ogg",
+      "sha256": "369960bc129d0455b094afadc48aa59f0bb8b96af4316f2e0a42a9bef5ba0b16"
+    },
+    {
+      "time_s": 4,
+      "event": "karachun.enter_trial",
+      "label": "Начало испытания Карачуна отмечено звоном",
+      "file": "recorded61/karachun/enter_trial_1.ogg",
+      "sha256": "cf548cdc7512e91586057a8d1b30e11f98da888947d6b3f122ad75aa65cf50d5"
+    },
+    {
+      "time_s": 7,
+      "event": "karachun.dark_frost",
+      "label": "Тёмный мороз Карачуна сгущается",
+      "file": "recorded61/karachun/dark_frost_1.ogg",
+      "sha256": "f23aec50d9c456eec772688743e2d36cd0efd04b64643b9d2964b4b35bdfcf79"
+    },
+    {
+      "time_s": 10,
+      "event": "karachun.long_night_cast",
+      "label": "Карачун призывает долгую ночь",
+      "file": "recorded61/karachun/long_night_cast_1.ogg",
+      "sha256": "2dce0b30217af6ac04578e0f338b59aca47bd8cd0e1fec9678b4d03c5958b221"
+    },
+    {
+      "time_s": 13,
+      "event": "karachun.last_hour_mark",
+      "label": "Колокол отмечает последний час",
+      "file": "recorded61/karachun/last_hour_mark_1.ogg",
+      "sha256": "573f4758127b8040feb867975b6615b97819aff10a8c8edc150c22c5094b9bf9"
+    },
+    {
+      "time_s": 16,
+      "event": "karachun.last_hour_impact",
+      "label": "Последний час обрушивается",
+      "file": "recorded61/karachun/last_hour_impact_1.ogg",
+      "sha256": "8370d182dc67c26d02d52c3a793e40a967df7519e0ea1dd23234aef50f67d5c3"
+    },
+    {
+      "time_s": 19,
+      "event": "karachun.raven_call",
+      "label": "Ворон Карачуна каркает",
+      "file": "recorded61/karachun/raven_call_1.ogg",
+      "sha256": "fe9ad5d3d62a1300f78dce547788a48837577eb22be4e8b652bd3ebdf9e02f3c"
+    },
+    {
+      "time_s": 23,
+      "event": "karachun.raven_flap",
+      "label": "Ворон Карачуна взмахивает крыльями",
+      "file": "recorded61/karachun/raven_flap_1.ogg",
+      "sha256": "6aeede73c5f2f7bd963c54e86c697a56d328575bb40c7c4d1792cfbc006c693c"
+    },
+    {
+      "time_s": 26,
+      "event": "karachun.raven_dive",
+      "label": "Ворон Карачуна пикирует",
+      "file": "recorded61/karachun/raven_dive_1.ogg",
+      "sha256": "0c9c7ba4d4d38dca8f0d96a2af191687e68d0c9a9f2865d38e71baa38c8b8edc"
+    },
+    {
+      "time_s": 29,
+      "event": "karachun.raven_hit",
+      "label": "Ворон Карачуна ударяет цель",
+      "file": "recorded61/karachun/raven_hit_1.ogg",
+      "sha256": "27ad104c2514a85a66c8c8874714760777c6549a27176ccdaebecef1c1112151"
+    },
+    {
+      "time_s": 32,
+      "event": "karachun.yield",
+      "label": "Карачун завершает испытание",
+      "file": "recorded61/karachun/yield_1.ogg",
+      "sha256": "a0fe9a498199fd2d6ca28e08b1497eba0cd022db082811e9d68171a8b2834927"
+    }
+  ]
+}
