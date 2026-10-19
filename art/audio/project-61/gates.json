@@ -1,9 +1,9 @@
 {
   "status": "IN_PROGRESS_OWNER_PENDING",
   "baseline": "ee4a40bec4f603e06dd69ee3b35ad4290dfc2389",
-  "checks": 19747,
-  "recorded_variants": 417,
-  "recorded_events": 386,
+  "checks": 20075,
+  "recorded_variants": 453,
+  "recorded_events": 421,
   "vanilla_aliases": 35,
   "source_gaps": {
     "igosha_ambient": "Fragile non-caricature vocal identity needs review; ordinary adult grunt is not an infant recording.",
@@ -16,9 +16,10 @@
     "doe_hurt": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
     "doe_death": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
     "marinka.witch_whisper_01": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording.",
-    "marinka.witch_whisper_02": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording."
+    "marinka.witch_whisper_02": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording.",
+    "karachun.voice_whisper": "BLOCKED_NEEDS_AUDIO_SOURCE: actual grave hostile whisper not yet sourced; no harmonic/noise whisper restoration."
   },
-  "jar_sha256": "92d288d87450b4f1d357d859369612cf87e815ee6bdd8c64a93355cea690d648",
+  "jar_sha256": "7a9f7f528648736590d6074eed91ea167f8ef832adc98bace23fcdd66ea3e54b",
   "runtime": "NOT_RUN",
   "hearing": "NOT_LISTENED",
   "owner_accepted": false,

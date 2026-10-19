@@ -1,9 +1,14 @@
 """Bounded audio-only priorities; exact source edit, unchanged explicit RNG draws."""
 NIGHTINGALE='src/main/java/org/slavicmyths/bandit/NightingaleEntity.java'
 NOCHNITSA='src/main/java/org/slavicmyths/nochnitsa/NochnitsaEntity.java'
-PATHS={NIGHTINGALE,NOCHNITSA}
+KARACHUN='src/main/java/org/slavicmyths/karachun/Karachun.java'
+PATHS={NIGHTINGALE,NOCHNITSA,KARACHUN}
 
 def edit(path,text):
+ if path==KARACHUN:
+  marker='cleanup();NightContent.sound(this,"yield");for(var p:bar.getPlayers())'
+  assert text.count(marker)==1
+  return text.replace(marker,'cleanup();getRandom().nextFloat();/* Preserve the duplicate cue pitch draw; action(10) already plays yield. */for(var p:bar.getPlayers())')
  if path==NIGHTINGALE:
   marker='@Override protected SoundEvent getAmbientSound(){return action()!=IDLE?null:'
   assert text.count(marker)==1

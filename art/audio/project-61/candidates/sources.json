@@ -39,5 +39,35 @@
     "download": "https://cdn.freesound.org/previews/556/556523_7051221-hq.mp3",
     "reason": "Quiet low-contrast breath session retained only as an alternative; OwlStorm selected for more separated breath gestures. Numerical screen does not prove subjective quality.",
     "hearing": "NOT_LISTENED"
+  },
+  {
+    "character": "Kikimora",
+    "status": "CANDIDATE_ONLY_NOT_PRODUCTION",
+    "file": "chaos__female_evil_laugh_275652.mp3",
+    "sha256": "2ed78274c2a2d272a5c89914122500a0f6dbefc78d82c711dba5ed9fdf8bbdbf",
+    "author": "Me_Is_Chaos",
+    "page": "https://freesound.org/people/Me_Is_Chaos/sounds/275652/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verified_date": "2026-10-19",
+    "download": "https://cdn.freesound.org/previews/275/275652_5287301-hq.mp3",
+    "reason": "Actual performed female laugh with author resonance processing; timbre and crop suitability not yet heard, not assigned as final voice",
+    "hearing": "NOT_LISTENED",
+    "processing": "Official HQ MP3 preview preserved unchanged, not raw WAV"
+  },
+  {
+    "character": "Karachun",
+    "status": "CANDIDATE_ONLY_NOT_PRODUCTION",
+    "file": "unfa__deafening_whispers_185059.mp3",
+    "sha256": "1cc11a9e651e8b382bac0a8b437afe6411615b717a31af05256f1cc82990535c",
+    "author": "unfa",
+    "page": "https://freesound.org/people/unfa/sounds/185059/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verified_date": "2026-10-19",
+    "download": "https://cdn.freesound.org/previews/185/185059_1038806-hq.mp3",
+    "reason": "Actual overdubbed male whispers; multiple voices, speech content and character fit need hearing. Candidate only, no voice cloning or ML training",
+    "hearing": "NOT_LISTENED",
+    "processing": "Official HQ MP3 preview preserved unchanged, not raw WAV"
   }
 ]

@@ -66,6 +66,7 @@ def main():
   visual=name.startswith('src/main/resources/assets/') and any(k in low for k in ['karachun','morozko','frost_mirror','heart_of_eternal_cold']) and '/sounds' not in name and name.endswith(('.png','.json'))
   if java or visual:
    path=R/name;data=path.read_bytes();old=original(name)
+   if name=='src/main/java/org/slavicmyths/karachun/Karachun.java':old=__import__('audio_vocal_priority_61').edit(name,old.decode('utf-8').replace('\r\n','\n')).encode('utf-8')
    textual=java or name.endswith('.json')
    check(data.replace(b'\r\n',b'\n')==old.replace(b'\r\n',b'\n') if textual else data==old,'Accepted visual / full mechanic unchanged (text EOL normalized) '+name)
    protected.append({'file':name,'sha256':digest(data)})
@@ -74,8 +75,11 @@ def main():
  for file,tokens in contracts.items():
   text=(R/'src/main/java/org/slavicmyths'/file).read_text(encoding='utf-8')
   check(all(token in text for token in tokens),'Real existing callsite contract '+file)
- for name in ['morozko_assets.py','karachun_assets.py']:
-  code=(R/'tools'/name).read_text(encoding='utf-8');check("from frost_foley_60 import EVENTS" in code and 'in EVENTS:continue' in code and 'restore_selected()' in code,'Legacy generator skips selected synthetic outputs and restores recorded maps '+name)
+ # Exercise the actual safe entry points, rather than require the removed
+ # legacy synthesis loop's textual skip markers.
+ from verify_frost_restorers_61 import main as verify_safe_restorers
+ verify_safe_restorers()
+ check(True,'Actual audio-only restoration preserves every production file and decoded timing budgets')
  check('restore_frost_foley()' in (R/'tools/voice_rework_60.py').read_text(encoding='utf-8'),'Shared restoration pipeline includes frost batch')
  version=next(s.split('=',1)[1].strip() for s in (R/'gradle.properties').read_text(encoding='utf-8').splitlines() if s.startswith('mod_version='));jar=R/f'build/libs/slavicmyths-{version}.jar'
  with zipfile.ZipFile(jar) as z:
