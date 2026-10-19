@@ -14,7 +14,7 @@ def restore_accepted():
   assert key in targets;source=P/acceptance['approved_files'][key];assert hashlib.sha256(source.read_bytes()).hexdigest()==acceptance['approved_sha256'][key],'Do not replace approved take with unreviewed processing'
   event,dest,subtitle,distance=targets[key];path=assets/'sounds'/(dest+'.ogg');path.parent.mkdir(parents=True,exist_ok=True);
   if not path.exists() or path.read_bytes()!=source.read_bytes():shutil.copyfile(source,path)
-  events[event]={'subtitle':subtitle,'sounds':[{'name':dest,'attenuation_distance':distance}]}
+  events[event]={'subtitle':subtitle,'sounds':[{'name':'slavicmyths:'+dest,'attenuation_distance':distance}]}
  stable_text(events_path,json.dumps(events,ensure_ascii=False,indent=2)+'\n')
  for lang,label in [('ru_ru','Тугарин бросает боевой вызов'),('en_us','Tugarin challenges his foe')]:
   path=assets/f'lang/{lang}.json';d=json.loads(path.read_text(encoding='utf-8'));d['subtitles.slavicmyths.tugarin_challenge']=label
@@ -31,6 +31,8 @@ def restore_accepted():
  restore_frost_foley()
  from kurgan_audio_65 import restore_selected as restore_kurgan
  restore_kurgan()
+ from audio_groups_61 import restore_selected as restore_project
+ restore_project()
 
 def bass_alternative():
  source=P/'preview/tugarin_challenge.ogg';raw=subprocess.check_output(['ffmpeg','-v','error','-i',str(source),'-af','equalizer=f=160:t=q:w=0.8:g=2','-f','f32le','-ar',str(RATE),'-ac','1','pipe:1']);x=np.frombuffer(raw,dtype='<f4').astype(float);x*=min(1,.88/max(np.max(abs(x)),1e-12))

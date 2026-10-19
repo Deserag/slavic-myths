@@ -15,7 +15,7 @@ def stable_text(path,text):
 
 def restore_events():
  assets=R/'src/main/resources/assets/slavicmyths';path=assets/'sounds.json';events=json.loads(path.read_text(encoding='utf-8'))
- for n in range(1,4):events[f'tugarin_spin_blade_{n}']={'subtitle':'subtitles.slavicmyths.tugarin_spin_blade','sounds':[{'name':f'boss/tugarin/foley/spin_{n}','attenuation_distance':24}]}
+ for n in range(1,4):events[f'tugarin_spin_blade_{n}']={'subtitle':'subtitles.slavicmyths.tugarin_spin_blade','sounds':[{'name':f'slavicmyths:boss/tugarin/foley/spin_{n}','attenuation_distance':24}]}
  stable_text(path,json.dumps(events,ensure_ascii=False,indent=2)+'\n')
  for lang,label in [('en_us','Tugarin swings his blades'),('ru_ru','Тугарин взмахивает клинками')]:
   path=assets/f'lang/{lang}.json';data=json.loads(path.read_text(encoding='utf-8'));data['subtitles.slavicmyths.tugarin_spin_blade']=label;stable_text(path,json.dumps(data,ensure_ascii=False,indent=2)+'\n')

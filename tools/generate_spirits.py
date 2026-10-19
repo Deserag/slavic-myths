@@ -38,10 +38,10 @@ def generate(root):
     js(Path('data/slavicmyths/loot_tables/entities/leshy.json'),{'type':'minecraft:entity','pools':[{'rolls':1,'conditions':[{'condition':'minecraft:killed_by_player'},{'condition':'minecraft:random_chance','chance':0.35}],'entries':[{'type':'minecraft:item','name':'slavicmyths:leshy_heart'}]}]})
     soundnames=['domovoy_ambient','domovoy_hurt','domovoy_death','leshy_ambient','leshy_hurt','leshy_death','leshy_angry']
     subtitles=[('Домовой ворчит','Domovoy murmurs'),('Домовой вскрикивает','Domovoy hurts'),('Домовой затихает','Domovoy dies'),('Леший шелестит','Leshy rustles'),('Кора трещит','Bark cracks'),('Леший затихает','Leshy dies'),('Леший рычит','Leshy growls')]
-    sounds={}
+    sounds=json.loads((res/'assets/slavicmyths/sounds.json').read_text(encoding='utf-8'))
     for name,text in zip(soundnames,subtitles):
         labels['subtitles.slavicmyths.'+name]=text
-        sounds[name]={'subtitle':'subtitles.slavicmyths.'+name,'sounds':[{'name':'slavicmyths:'+name,'volume':0.8}]}
+        sounds.setdefault(name,{'subtitle':'subtitles.slavicmyths.'+name,'sounds':[]})
     js(Path('assets/slavicmyths/sounds.json'),sounds)
     for lang,index in [('ru_ru',0),('en_us',1)]:
         path=Path('assets/slavicmyths/lang')/(lang+'.json')
@@ -84,6 +84,8 @@ def generate(root):
         if y in (5,8,10):heart[y][x+1]=(213,228,135,255)
     png(res/'assets/slavicmyths/textures/item/leshy_heart.png',heart,16,16)
 
-    # Rejected synthetic Domovoy/Leshy voices must never be regenerated (#60).
+    # Restore exact licensed audio; never reconstruct rejected synthetic voices.
+    from audio_groups_61 import restore_selected as restore_project_audio
+    restore_project_audio()
 
 if __name__=='__main__': generate(Path(__file__).resolve().parents[1])

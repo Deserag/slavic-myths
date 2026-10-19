@@ -1,0 +1,1072 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "authorization": "https://github.com/Deserag/slavic-myths/issues/61",
+  "owner_accepted": false,
+  "events": {
+    "domovoy_ambient": [
+      {
+        "name": "slavicmyths:recorded61/domovoy_ambient_1",
+        "sha256": "e531780448528ff32d800b08d995edc3ee1741480069a211e3232e68ed142d7e",
+        "sources": [
+          {
+            "key": "alba__Hmm_01.wav",
+            "file": "sources/alba__Hmm_01.flac",
+            "sha256": "1e0b897e764ec6102f11f8c8cf908ca1ab6eaf5f292ab42303035241ece5e13d",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 4873
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/domovoy_ambient_2",
+        "sha256": "389f467d846cf893628665117b6bde86e4cff04bc8c02bb5a87274541f7a1cfa",
+        "sources": [
+          {
+            "key": "alba__Hmm_02.wav",
+            "file": "sources/alba__Hmm_02.flac",
+            "sha256": "1aefd1f27953e697da5635ee4a6ea6159571d56e159f82e93f8a96de3dd0d975",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 2733
+          }
+        ]
+      }
+    ],
+    "domovoy_hurt": [
+      {
+        "name": "slavicmyths:recorded61/domovoy_hurt_1",
+        "sha256": "a56296808d041e930c8c0d6d157a5df120f61f55ee56d4654eae50e6f73f9d2c",
+        "sources": [
+          {
+            "key": "alba__(grunt)_01.wav",
+            "file": "sources/alba__(grunt)_01.flac",
+            "sha256": "fc646b825ba1bb3e0ea560cee1be70dfa4955e2b14595de71c07a1a5e4f9e0f2",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 1538
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/domovoy_hurt_2",
+        "sha256": "f9ece50492007f15777b0d6c32809f99b56f2d14b57b018946c5beabb0807f11",
+        "sources": [
+          {
+            "key": "alba__(grunt)_02.wav",
+            "file": "sources/alba__(grunt)_02.flac",
+            "sha256": "aa34e3d2ea2fa414540474df33ad37a658431f338c6bdf111c3f4418c7c0da32",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 1038
+          }
+        ]
+      }
+    ],
+    "domovoy_death": [
+      {
+        "name": "slavicmyths:recorded61/domovoy_death_1",
+        "sha256": "343dd6a4488b5db59628bbee6944eaaca44801d73a03c0f948c65065087cf6d7",
+        "sources": [
+          {
+            "key": "alba__(groan)_01.wav",
+            "file": "sources/alba__(groan)_01.flac",
+            "sha256": "39b4bc7a65671267fc7519537970f32bdc6377d58b23068ee308cb84224895af",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 356
+          }
+        ]
+      }
+    ],
+    "domovoy_refuse": [
+      {
+        "name": "slavicmyths:recorded61/domovoy_refuse_1",
+        "sha256": "f47e34a8d74d424b4b88ba681ddf9254d6a9e7fdceedc392600c9d87275fc12e",
+        "sources": [
+          {
+            "key": "alba__Hmph_01.wav",
+            "file": "sources/alba__Hmph_01.flac",
+            "sha256": "b69d047cbc78e3414fb116835f3ca5e6795bf806410a2dbae6aab67beb13a7f2",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 463
+          }
+        ]
+      }
+    ],
+    "domovoy_thanks": [
+      {
+        "name": "slavicmyths:recorded61/domovoy_thanks_1",
+        "sha256": "6db27d78e49e1c4bc5e42b09f8b0384905a0f3d81b2d0cf68ec1ae800389f66a",
+        "sources": [
+          {
+            "key": "alba__Hmm_03.wav",
+            "file": "sources/alba__Hmm_03.flac",
+            "sha256": "844c8d1a72dde97759bc4e4366e6ea5809ac4fea0b3b89e4a86375b26e140473",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 4676
+          }
+        ]
+      }
+    ],
+    "leshy_ambient": [
+      {
+        "name": "slavicmyths:recorded61/leshy_ambient_1",
+        "sha256": "2ede30947387fd4ee56860da71632355762fdb71a8ed96b0ab272afa344d3217",
+        "sources": [
+          {
+            "key": "wood__impactwood01.mp3.flac",
+            "file": "sources/wood__impactwood01.mp3.flac",
+            "sha256": "50a270369dfede6bcfa54b992a63b74b409365ea8124e69f8527925ec7f42d32",
+            "license": "CC0-1.0",
+            "author": "Independent.nu (submitted by qubodup)",
+            "page": "https://opengameart.org/content/35-wooden-crackshitsdestructions",
+            "start_sample": 1265
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/leshy_ambient_2",
+        "sha256": "71618e11393e349ce1c4388328619c1fb4ef388414d75e9a12c07ada6f63f3ca",
+        "sources": [
+          {
+            "key": "wood__impactwood02.mp3.flac",
+            "file": "sources/wood__impactwood02.mp3.flac",
+            "sha256": "4fa54962e12db2eff7ef292d10216cca62666b528310db6c8e152f37171d0de8",
+            "license": "CC0-1.0",
+            "author": "Independent.nu (submitted by qubodup)",
+            "page": "https://opengameart.org/content/35-wooden-crackshitsdestructions",
+            "start_sample": 5957
+          }
+        ]
+      }
+    ],
+    "leshy_hurt": [
+      {
+        "name": "slavicmyths:recorded61/leshy_hurt_1",
+        "sha256": "6a2c33b9f57ce0df757caaeef0901fde68dc7e8141bb3d28db8589ca407f5ea4",
+        "sources": [
+          {
+            "key": "wood__crack03.mp3.flac",
+            "file": "sources/wood__crack03.mp3.flac",
+            "sha256": "7175b9c70b7d25f81d70b5dccd3b584d797ca00a1e3d1da2f671e907daa488cf",
+            "license": "CC0-1.0",
+            "author": "Independent.nu (submitted by qubodup)",
+            "page": "https://opengameart.org/content/35-wooden-crackshitsdestructions",
+            "start_sample": 6238
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/leshy_hurt_2",
+        "sha256": "ae56a79f98f3984e623f55fed9df81a2002c125f9d24c5887a6fe9d8b739092a",
+        "sources": [
+          {
+            "key": "wood__crack04.mp3.flac",
+            "file": "sources/wood__crack04.mp3.flac",
+            "sha256": "0ec4b2e98141d0c51fc823a8f77cb313b5a4482f16044850b9dc5bc2eaddd5c2",
+            "license": "CC0-1.0",
+            "author": "Independent.nu (submitted by qubodup)",
+            "page": "https://opengameart.org/content/35-wooden-crackshitsdestructions",
+            "start_sample": 8141
+          }
+        ]
+      }
+    ],
+    "leshy_death": [
+      {
+        "name": "slavicmyths:recorded61/leshy_death_1",
+        "sha256": "587fdefe9995043dd4fcb871ab24919d32c1c10ac23efc240b3718b69f93469f",
+        "sources": [
+          {
+            "key": "wood__crack05.mp3.flac",
+            "file": "sources/wood__crack05.mp3.flac",
+            "sha256": "56ab16c95c28892e056bb557524e5575f3a5000f527368285e0320f4ae10585d",
+            "license": "CC0-1.0",
+            "author": "Independent.nu (submitted by qubodup)",
+            "page": "https://opengameart.org/content/35-wooden-crackshitsdestructions",
+            "start_sample": 3001
+          }
+        ]
+      }
+    ],
+    "leshy_angry": [
+      {
+        "name": "slavicmyths:recorded61/leshy_angry_1",
+        "sha256": "f233fddf7c383449d3a16ad84e9e66f24a1dda7c7777c088303bd088ea7f89b3",
+        "sources": [
+          {
+            "key": "wood__crack06.mp3.flac",
+            "file": "sources/wood__crack06.mp3.flac",
+            "sha256": "35fcccacbae84bb459957f5212f34daad7eafba6ef81e89ff112c2452d24b79a",
+            "license": "CC0-1.0",
+            "author": "Independent.nu (submitted by qubodup)",
+            "page": "https://opengameart.org/content/35-wooden-crackshitsdestructions",
+            "start_sample": 5672
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/leshy_angry_2",
+        "sha256": "98f66730d745e6b95e6889b07d554ab0cfd6787a7562a001e141d6d0d59fb8b5",
+        "sources": [
+          {
+            "key": "wood__crack07.mp3.flac",
+            "file": "sources/wood__crack07.mp3.flac",
+            "sha256": "9efa670daaedf79e101fd3463ea6f585ccc1079dc7e23785947e68886b276a44",
+            "license": "CC0-1.0",
+            "author": "Independent.nu (submitted by qubodup)",
+            "page": "https://opengameart.org/content/35-wooden-crackshitsdestructions",
+            "start_sample": 408
+          }
+        ]
+      }
+    ],
+    "kikimora_ambient": [
+      {
+        "name": "slavicmyths:recorded61/kikimora_ambient_1",
+        "sha256": "7ba5990903fd834ed02104fe2b7c3459743899cc24b8efd68cb6fe0304ce8e28",
+        "sources": [
+          {
+            "key": "rustle__rustle01.flac",
+            "file": "sources/rustle__rustle01.flac",
+            "sha256": "9c5da19eb8d37b59890c0be1171c40fe4dd16177e7a97558a156c1036b7bed05",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 5777
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/kikimora_ambient_2",
+        "sha256": "187ec6542cdcac100f9167ccf96168a1628eedbd7a545369bdd1cc44b404ff8e",
+        "sources": [
+          {
+            "key": "rustle__rustle02.flac",
+            "file": "sources/rustle__rustle02.flac",
+            "sha256": "1e01e752b2165d78482bd91ef8b859541601ae4de6b7cf6178e935cce0036c69",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 765
+          }
+        ]
+      }
+    ],
+    "kikimora_hurt": [
+      {
+        "name": "slavicmyths:recorded61/kikimora_hurt_1",
+        "sha256": "9097897f51f504ea6d3932f75c4f9f17ef2a118da485e757f0d737a37d0bb7fa",
+        "sources": [
+          {
+            "key": "female_t2__damaged1.wav",
+            "file": "sources/female_t2__damaged1.wav",
+            "sha256": "c3228b867728aeecc0ef37e0fe0ec7fca660822b8df2e4a2630774fb7336bf7c",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 1024
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/kikimora_hurt_2",
+        "sha256": "ff262bc977810149a13781b621d124f187a786591f0f0301d9ecf2f4cd0ff8ad",
+        "sources": [
+          {
+            "key": "female_t2__damaged2.wav",
+            "file": "sources/female_t2__damaged2.wav",
+            "sha256": "c9c583634a9ef13deeb5b7f7cd18f188e901e8fda7dc6e43d017a4b84274ad5c",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 739
+          }
+        ]
+      }
+    ],
+    "kikimora_death": [
+      {
+        "name": "slavicmyths:recorded61/kikimora_death_1",
+        "sha256": "827225d602b012c3431d9c72ea5e1a716e9eb58ad91b5d310f44c45800d3fb35",
+        "sources": [
+          {
+            "key": "female_t2__damaged3.wav",
+            "file": "sources/female_t2__damaged3.wav",
+            "sha256": "b7f92af3fb5234fbeaa862c715af14f39c10012b0f4d29d153aec86505a33168",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 505
+          },
+          {
+            "key": "rustle__rustle03.flac",
+            "file": "sources/rustle__rustle03.flac",
+            "sha256": "517bbf429a21d3a0cd39f6f7bf9be1894615091fa07c4926f8cf69bbbfa05366",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 1950
+          }
+        ]
+      }
+    ],
+    "kikimora_angry": [
+      {
+        "name": "slavicmyths:recorded61/kikimora_angry_1",
+        "sha256": "b3e81aadb9335b27f17f926adcd2162505be754597a6b58c993568c00f7e4370",
+        "sources": [
+          {
+            "key": "female_t2__attack3.wav",
+            "file": "sources/female_t2__attack3.wav",
+            "sha256": "90c9b321f42a6014deadb0a2cecd8f5f0fbfe43ba30854b795e985f9610d2d1e",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 921
+          }
+        ]
+      }
+    ],
+    "kikimora_power": [
+      {
+        "name": "slavicmyths:recorded61/kikimora_power_1",
+        "sha256": "f1ea83a1d7336b886a2014f3b979a46802992bf4ae514fee5b23214b7b291d67",
+        "sources": [
+          {
+            "key": "rustle__rustle04.flac",
+            "file": "sources/rustle__rustle04.flac",
+            "sha256": "ef00c41e4c72f0ae5a96e1c90f9b3b3f53b5612adf60fdf9be367194d6780afa",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 1818
+          }
+        ]
+      }
+    ],
+    "kikimora_notice": [
+      {
+        "name": "slavicmyths:recorded61/kikimora_notice_1",
+        "sha256": "4187b71dc2ae3ec6d9b31c713253cf3679691eb2fff380aef89e02240041065c",
+        "sources": [
+          {
+            "key": "rustle__rustle05.flac",
+            "file": "sources/rustle__rustle05.flac",
+            "sha256": "b7e85badf26220810e38eb9ae37eedaaeb9d743e1251a757c8faedb2a2d80a30",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 1087
+          }
+        ]
+      }
+    ],
+    "kikimora_attack": [
+      {
+        "name": "slavicmyths:recorded61/kikimora_attack_1",
+        "sha256": "e1c538ecdcfdbd2940a3195ce20ee334ac19de7ae8ce78439de3e095da13814a",
+        "sources": [
+          {
+            "key": "female_t2__attack1.wav",
+            "file": "sources/female_t2__attack1.wav",
+            "sha256": "f75bb8866f02b7e9cf48106e1b4a7d7ff77e25cb25ae6056aac893c79f3dd7b5",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 1119
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/kikimora_attack_2",
+        "sha256": "7d52e49179d354f14b39e803a7f9df1168fbf8c10ff3f41257160a3684c110ec",
+        "sources": [
+          {
+            "key": "female_t2__attack2.wav",
+            "file": "sources/female_t2__attack2.wav",
+            "sha256": "a365d740e3cb60af96fead0c7b607663eff066af54032e2c572d39ce8a0d7ac7",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 825
+          }
+        ]
+      }
+    ],
+    "kikimora_step": [
+      {
+        "name": "slavicmyths:recorded61/kikimora_step_1",
+        "sha256": "8617923420b19cfd868887a822e5e9b75ba4b933ead00ec0525cf43ee13956a8",
+        "sources": [
+          {
+            "key": "rustle__rustle06.flac",
+            "file": "sources/rustle__rustle06.flac",
+            "sha256": "46c0feab3ea03f2be11596a1f3badf5113eb126989e9da50f8a687c6f38e807d",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 401
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/kikimora_step_2",
+        "sha256": "a8d2331af600688f7bd0e76143bfa8da78fff2d4821fda8454d35a9d68db4792",
+        "sources": [
+          {
+            "key": "rustle__rustle07.flac",
+            "file": "sources/rustle__rustle07.flac",
+            "sha256": "1abaaabe7c2be91e6b111c5fafd1666d7c7f2b4869e03c3779d9c9616a08cbf8",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 799
+          }
+        ]
+      }
+    ],
+    "poludnitsa_ambient": [
+      {
+        "name": "slavicmyths:recorded61/poludnitsa_ambient_1",
+        "sha256": "0f9f2af795909cc7045f0909dca8affce3b0a4cadd76475def6dab51c5d013da",
+        "sources": [
+          {
+            "key": "rustle__rustle08.flac",
+            "file": "sources/rustle__rustle08.flac",
+            "sha256": "c9130555f50f85c36c0eb1604bc9a95afde7e8e0853a321737904a048d8e97b7",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 483
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/poludnitsa_ambient_2",
+        "sha256": "bdfb0c3cb8833f9312fbb4d9c20c074aa82e15eacf3689fe3969f6da139b4b11",
+        "sources": [
+          {
+            "key": "rustle__rustle09.flac",
+            "file": "sources/rustle__rustle09.flac",
+            "sha256": "efa9b55ed26bc570da99c4348f2f6fbdf4b8be098029581bef27db8a1d0065e3",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 307
+          }
+        ]
+      }
+    ],
+    "poludnitsa_hurt": [
+      {
+        "name": "slavicmyths:recorded61/poludnitsa_hurt_1",
+        "sha256": "9cbb043b47a8b2ece4033c4bb0f7f7d3219775d388768b14a9a92a851206a25b",
+        "sources": [
+          {
+            "key": "female_t3__damaged1.wav",
+            "file": "sources/female_t3__damaged1.wav",
+            "sha256": "91833836c0c6e9aba122a4d67a0e964353d9cf0bbfd64e14c7e0cc01c0a6d4f2",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 260
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/poludnitsa_hurt_2",
+        "sha256": "8fab0e01177ff3accf7bffa73b35c58d6eed8a96d8b5c9ff1352b305f538b54b",
+        "sources": [
+          {
+            "key": "female_t3__damaged2.wav",
+            "file": "sources/female_t3__damaged2.wav",
+            "sha256": "c9e7308db5c898e47fb11edd18497750b4b29991d3420762f14ebe327892c60c",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 694
+          }
+        ]
+      }
+    ],
+    "poludnitsa_death": [
+      {
+        "name": "slavicmyths:recorded61/poludnitsa_death_1",
+        "sha256": "8a5a707a806d583e5116c6fe09ad1709457c0ca513286f17923835c0610ff56c",
+        "sources": [
+          {
+            "key": "female_t3__damaged3.wav",
+            "file": "sources/female_t3__damaged3.wav",
+            "sha256": "e54849b73113ccfe2d6de66225c477d4ad34a7c4ec64e2ed09f73c50dd6724d9",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 252
+          },
+          {
+            "key": "rustle__rustle10.flac",
+            "file": "sources/rustle__rustle10.flac",
+            "sha256": "7a6d0b9d170e59e571ac7560133a8c860527ab0f045c08b375591b81bcb59b1f",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 32
+          }
+        ]
+      }
+    ],
+    "poludnitsa_angry": [
+      {
+        "name": "slavicmyths:recorded61/poludnitsa_angry_1",
+        "sha256": "f976222cdd0cd22e74b2f2d2727117b3b78f4a96fe54803263a3755b95749397",
+        "sources": [
+          {
+            "key": "female_t3__attack3.wav",
+            "file": "sources/female_t3__attack3.wav",
+            "sha256": "6b2046fdc221880374091f8a097fe23819d8f6b47a8ca8209ff4256c6735bb5a",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 781
+          }
+        ]
+      }
+    ],
+    "poludnitsa_power": [
+      {
+        "name": "slavicmyths:recorded61/poludnitsa_power_1",
+        "sha256": "aa000e10950ba7102dedba343331ef4340b84d97f277345b6fae0908a9df2b75",
+        "sources": [
+          {
+            "key": "wind__wind.wav",
+            "file": "sources/wind__wind.wav",
+            "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+            "license": "CC0-1.0",
+            "author": "remaxim",
+            "page": "https://opengameart.org/content/short-wind-sound",
+            "start_sample": 1505
+          }
+        ]
+      }
+    ],
+    "poludnitsa_notice": [
+      {
+        "name": "slavicmyths:recorded61/poludnitsa_notice_1",
+        "sha256": "e3a63b9512adc41a3c3fb49ae9287f7563d440e24201b6069b0ff960abfd9298",
+        "sources": [
+          {
+            "key": "rustle__rustle11.flac",
+            "file": "sources/rustle__rustle11.flac",
+            "sha256": "f742bf8a42804cfcce4a552e501c2479795c808394b0c25cf758aac303969111",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 1661
+          }
+        ]
+      }
+    ],
+    "poludnitsa_transform": [
+      {
+        "name": "slavicmyths:recorded61/poludnitsa_transform_1",
+        "sha256": "a9157a44a7962dae313ccba192387e58c9f1a3a22fdcd3deba9b93ec35222fba",
+        "sources": [
+          {
+            "key": "rustle__rustle12.flac",
+            "file": "sources/rustle__rustle12.flac",
+            "sha256": "cddcf2912ee7fc6a9bcac783e24e3576c7c2f1fb2d5abe1fc3eb22fd036ddd6b",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 286
+          }
+        ]
+      }
+    ],
+    "poludnitsa_attack": [
+      {
+        "name": "slavicmyths:recorded61/poludnitsa_attack_1",
+        "sha256": "bbd239c444aad6a79fc5702b9efa431718382aaf6975697a55da5118337d40ac",
+        "sources": [
+          {
+            "key": "female_t3__attack1.wav",
+            "file": "sources/female_t3__attack1.wav",
+            "sha256": "5b92dd2b5fae403e3f6f8016379e29ca38c45e198136928ee4bd5adec8545a7f",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 766
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/poludnitsa_attack_2",
+        "sha256": "415f870287e567ad56bb9da72fbc4ce91c1e75d948536ed22865018e1cee72a9",
+        "sources": [
+          {
+            "key": "female_t3__attack2.wav",
+            "file": "sources/female_t3__attack2.wav",
+            "sha256": "d364f6d691b3955f98eff8792092b4a66834b89bbb82aa37e3b082e51c2ce4db",
+            "license": "CC0-1.0",
+            "author": "cicifyre",
+            "page": "https://opengameart.org/content/female-rpg-voice-starter-pack",
+            "start_sample": 773
+          }
+        ]
+      }
+    ],
+    "polevik_ambient": [
+      {
+        "name": "slavicmyths:recorded61/polevik_ambient_1",
+        "sha256": "bcbfcbfba18bf602cba993fac7514ea54b22671d2306a291f8dfebbc3e442734",
+        "sources": [
+          {
+            "key": "rustle__rustle13.flac",
+            "file": "sources/rustle__rustle13.flac",
+            "sha256": "c1e4339b2a0b8776c8396d5193fd813ee67badcc51222ffe5064bfa4d1fa3a31",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 3725
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/polevik_ambient_2",
+        "sha256": "cf4e9c8f884f56095d230ea2afb73fea7b3901a83c96501c1ed50ce656f0dd11",
+        "sources": [
+          {
+            "key": "rustle__rustle14.flac",
+            "file": "sources/rustle__rustle14.flac",
+            "sha256": "b1765f73c57a48ef9b127c6771fdac5ec8c539855f6519d8c67a27efd157501f",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 3303
+          }
+        ]
+      }
+    ],
+    "polevik_hurt": [
+      {
+        "name": "slavicmyths:recorded61/polevik_hurt_1",
+        "sha256": "e7d4bcb4e625477e75f095e8527a10c8c8caa2d339c929622a556e324d1390e8",
+        "sources": [
+          {
+            "key": "alba__(grunt)_03.wav",
+            "file": "sources/alba__(grunt)_03.flac",
+            "sha256": "bd04911362d9427dacb451e390bc5d87b939b3b8ab2879bf6783cb45d0c02422",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 2195
+          }
+        ]
+      }
+    ],
+    "polevik_death": [
+      {
+        "name": "slavicmyths:recorded61/polevik_death_1",
+        "sha256": "3c90a7809af9accdf1cf3f3dfc0e17c32aa692dba5b8f097bca4b11a5665050d",
+        "sources": [
+          {
+            "key": "alba__(groan)_02.wav",
+            "file": "sources/alba__(groan)_02.flac",
+            "sha256": "a26f1578be95a8c2a98a1f79ea5e4def4a8cc867ca086c9f7be78ae4059b8612",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 1701
+          }
+        ]
+      }
+    ],
+    "polevik_angry": [
+      {
+        "name": "slavicmyths:recorded61/polevik_angry_1",
+        "sha256": "cb0063fde7ae1599de53153876bcec83f2e23e54e201b9f1fb597b21d1da0b7f",
+        "sources": [
+          {
+            "key": "alba__Hmph_03.wav",
+            "file": "sources/alba__Hmph_03.flac",
+            "sha256": "c1019eea9d8a6310d66838f6c1163ddb43e8388d96793c596b20b2dfeb5515ed",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 1776
+          }
+        ]
+      }
+    ],
+    "polevik_power": [
+      {
+        "name": "slavicmyths:recorded61/polevik_power_1",
+        "sha256": "2c98f6afc7b79f777c3cbe592ab17f318890ff6e5edf56ba680e8d83eaadf214",
+        "sources": [
+          {
+            "key": "rustle__rustle15.flac",
+            "file": "sources/rustle__rustle15.flac",
+            "sha256": "95c58bceeb7b6710d4bec45b41972c7a0350c4283f78794d28208b4ca6ca86bd",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 4909
+          }
+        ]
+      }
+    ],
+    "polevik_step": [
+      {
+        "name": "slavicmyths:recorded61/polevik_step_1",
+        "sha256": "f848a937bffbda098fc5c64f30b9e549fcf03365bd1a5833fb3958c8e8b568cf",
+        "sources": [
+          {
+            "key": "rustle__rustle16.flac",
+            "file": "sources/rustle__rustle16.flac",
+            "sha256": "1b2eda4fab3ecf3c909abb3f69aaf1f83e667bbff6b26b602ece431092b4008a",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 5964
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/polevik_step_2",
+        "sha256": "9b853285f5bea63493715b05ca79899861ed990e326c41f89ee093e711d624bd",
+        "sources": [
+          {
+            "key": "rustle__rustle17.flac",
+            "file": "sources/rustle__rustle17.flac",
+            "sha256": "ccb7094917e95098c12965c9a73384ccd3bbf7add2cb949237c8adff80367ad1",
+            "license": "CC0-1.0",
+            "author": "qubodup",
+            "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+            "start_sample": 1204
+          }
+        ]
+      }
+    ],
+    "bannik_ambient": [
+      {
+        "name": "slavicmyths:recorded61/bannik_ambient_1",
+        "sha256": "2968fcc250efacd64fd2efb1c3fea81018e784634d69e98ca7fe5075f2e2bf03",
+        "sources": [
+          {
+            "key": "alba__(breathing)_laboured.wav",
+            "file": "sources/alba__(breathing)_laboured.flac",
+            "sha256": "35d450359255c8d430031f909d58b232747ca81b5184a70fb364e82f44ce7439",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 2268
+          }
+        ]
+      }
+    ],
+    "bannik_hurt": [
+      {
+        "name": "slavicmyths:recorded61/bannik_hurt_1",
+        "sha256": "5a775dd1846f66c5f5f70aeafa294fecc49b4f47edc23041e7edb4acad606076",
+        "sources": [
+          {
+            "key": "alba__(grunt)_04.wav",
+            "file": "sources/alba__(grunt)_04.flac",
+            "sha256": "44805d73cbc2a11473fd7eb39eb4946542d529454c54514ad5419fb56ca38cb0",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 1201
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/bannik_hurt_2",
+        "sha256": "f947a8fcdfa6af0c3d4a9ab6151ffaed90c3f193e8569e2a98b736f7d119bfc3",
+        "sources": [
+          {
+            "key": "alba__(grunt)_05.wav",
+            "file": "sources/alba__(grunt)_05.flac",
+            "sha256": "46ef05755a0653e2ea590d0b779720214124bf21091b8270ca7d52ab1203ea65",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 77
+          }
+        ]
+      }
+    ],
+    "bannik_death": [
+      {
+        "name": "slavicmyths:recorded61/bannik_death_1",
+        "sha256": "b96bbe216acacaf66fa5d1a65091da42704a4a3ed16767d7241855238c9cb019",
+        "sources": [
+          {
+            "key": "alba__(groan)_03.wav",
+            "file": "sources/alba__(groan)_03.flac",
+            "sha256": "8c986d6fcc49df423f833a8c2b64827dc789daa404ee91773017d64cc1652064",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 203
+          }
+        ]
+      }
+    ],
+    "bannik_angry": [
+      {
+        "name": "slavicmyths:recorded61/bannik_angry_1",
+        "sha256": "90bb0ae7ad82d2ac227f4aab995dd795c2f708d2028f304ab6b639ec3d6daa30",
+        "sources": [
+          {
+            "key": "alba__(breath out)_01.wav",
+            "file": "sources/alba__(breath out)_01.flac",
+            "sha256": "fee94b5ced9eb266214b7d9eec7fc26df05b8f93d24bb0f7f02bb76dca8e3960",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 843
+          }
+        ]
+      }
+    ],
+    "bannik_power": [
+      {
+        "name": "slavicmyths:recorded61/bannik_power_1",
+        "sha256": "23eff87e8e0485a430773b8bac7aed99edf8c014696051a42835daf1f6005ea4",
+        "sources": [
+          {
+            "key": "steam__steam hisses - Marker #3.wav",
+            "file": "sources/steam__steam hisses - Marker #3.wav",
+            "sha256": "f064442e7f7974f7f526f5d7dafc62015ea2d0ad7b1ca252e2841df4709ebe24",
+            "license": "CC0-1.0",
+            "author": "bart",
+            "page": "https://opengameart.org/content/steam-release-sounds",
+            "start_sample": 0
+          }
+        ]
+      }
+    ],
+    "bannik_steam": [
+      {
+        "name": "slavicmyths:recorded61/bannik_steam_1",
+        "sha256": "d173baa4d3811832f85accfea6e389f6fd3aee2fb35f9ae4f3bff5bb017a763b",
+        "sources": [
+          {
+            "key": "steam__steam hisses - Marker #1.wav",
+            "file": "sources/steam__steam hisses - Marker #1.wav",
+            "sha256": "1dd3462e1320c9a620c35328fee71d4ca30a5284dd9948b24da0faecb476817c",
+            "license": "CC0-1.0",
+            "author": "bart",
+            "page": "https://opengameart.org/content/steam-release-sounds",
+            "start_sample": 0
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/bannik_steam_2",
+        "sha256": "b27422eb6cf4728e4fdf0241894cf4e4b039c98cf2b3d219ab81843186070569",
+        "sources": [
+          {
+            "key": "steam__steam hisses - Marker #2.wav",
+            "file": "sources/steam__steam hisses - Marker #2.wav",
+            "sha256": "e0f94117729588440da6f56fec934fc637b299266556fd6a27df68a03277ef6a",
+            "license": "CC0-1.0",
+            "author": "bart",
+            "page": "https://opengameart.org/content/steam-release-sounds",
+            "start_sample": 0
+          }
+        ]
+      }
+    ],
+    "bannik_attack": [
+      {
+        "name": "slavicmyths:recorded61/bannik_attack_1",
+        "sha256": "fe334880c2c36e9ba6b6af196aa0b460d1705aeb351331dfd9a79d34189211f4",
+        "sources": [
+          {
+            "key": "alba__(grunt)_06.wav",
+            "file": "sources/alba__(grunt)_06.flac",
+            "sha256": "b65d50ba5f5ec797175dd9918a01aabdc4913fd93c4c808ac76ec30c423c7636",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 161
+          }
+        ]
+      }
+    ],
+    "bannik_step": [
+      {
+        "name": "slavicmyths:recorded61/bannik_step_1",
+        "sha256": "bc636c1ec790ea45bbced0188d16e21f291fd1d2e122f53833ab409ca33259d8",
+        "sources": [
+          {
+            "key": "water__splash_01.ogg",
+            "file": "sources/water__splash_01.ogg",
+            "sha256": "156f4df0fa1a552d1c4e451284a55000417ea871954dc4b5e0d4302a49e228a8",
+            "license": "CC0-1.0",
+            "author": "rubberduck",
+            "page": "https://opengameart.org/content/40-cc0-water-splash-slime-sfx",
+            "start_sample": 2434
+          }
+        ]
+      },
+      {
+        "name": "slavicmyths:recorded61/bannik_step_2",
+        "sha256": "d3da0940d942d5eea4140f657e9fe1e1312b42137602e9b7355dbe9e1c7c86c0",
+        "sources": [
+          {
+            "key": "water__splash_02.ogg",
+            "file": "sources/water__splash_02.ogg",
+            "sha256": "eab0bb4bc01386528ba1e6244c6fd8940ee8d3c91ddb9e9cfea186e8560e04de",
+            "license": "CC0-1.0",
+            "author": "rubberduck",
+            "page": "https://opengameart.org/content/40-cc0-water-splash-slime-sfx",
+            "start_sample": 714
+          }
+        ]
+      }
+    ],
+    "igosha_angry": [
+      {
+        "name": "slavicmyths:recorded61/igosha_angry_1",
+        "sha256": "8e63969f594f3b0b6d2392be22c2b24e1788cdf47e037f1f7f626ff38804473b",
+        "sources": [
+          {
+            "key": "equipment__quiver-leather-squeeze-01.wav",
+            "file": "../kurgan-65/sources/quiver-leather-squeeze-01.wav",
+            "sha256": "c53929968eb63bf07080be8d4f0ed9a02ce40e688c094c50dff92243ca3e334f",
+            "license": "CC0-1.0",
+            "author": "Vehicle",
+            "page": "https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library",
+            "start_sample": 953
+          }
+        ]
+      }
+    ],
+    "igosha_power": [
+      {
+        "name": "slavicmyths:recorded61/igosha_power_1",
+        "sha256": "8bf7e33ea75913388f74c4a4e7e57ab28b03d78b35f1a29d925b64aecc97b4c8",
+        "sources": [
+          {
+            "key": "equipment__quiver-leather-squeeze-02.wav",
+            "file": "../kurgan-65/sources/quiver-leather-squeeze-02.wav",
+            "sha256": "208b1694418d86614e3f586a751058ebc2ab04e07025921aa4dead39bdcf0006",
+            "license": "CC0-1.0",
+            "author": "Vehicle",
+            "page": "https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library",
+            "start_sample": 307
+          }
+        ]
+      }
+    ],
+    "vodyanoy_ambient": [
+      {
+        "name": "slavicmyths:recorded61/vodyanoy_ambient_1",
+        "sha256": "c3d7e537c19cd68baa97b0b010f171323f2d67a98963774d060fc041fda39cd2",
+        "sources": [
+          {
+            "key": "alba__(breathing)_shallow.wav",
+            "file": "sources/alba__(breathing)_shallow.flac",
+            "sha256": "8f6efb99e00b2cf98148962eb1c0161bde055ad914c0441e127160fd3d8a91ef",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 1870
+          },
+          {
+            "key": "water__bubble_01.ogg",
+            "file": "sources/water__bubble_01.ogg",
+            "sha256": "1d03d72347019be889280efc6de5ca5ea439d0b24b235e6db87e5bf7583ecb2b",
+            "license": "CC0-1.0",
+            "author": "rubberduck",
+            "page": "https://opengameart.org/content/40-cc0-water-splash-slime-sfx",
+            "start_sample": 0
+          }
+        ]
+      }
+    ],
+    "vodyanoy_angry": [
+      {
+        "name": "slavicmyths:recorded61/vodyanoy_angry_1",
+        "sha256": "f10dc82e011fdf3f5ecc2853159c39d620acd15f0e3c0a6f1bd6e7c589e7f9aa",
+        "sources": [
+          {
+            "key": "alba__(breath out)_02.wav",
+            "file": "sources/alba__(breath out)_02.flac",
+            "sha256": "51a6cf5e5d46eeb43e8c4ec55ef237c76286ba3d1ac36b524915178c9f44b1c5",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 530
+          },
+          {
+            "key": "water__bubble_02.ogg",
+            "file": "sources/water__bubble_02.ogg",
+            "sha256": "7992a1a4637ea727b177b3edbc086ec280167d67a8fad010bb8fb58893b2e2f2",
+            "license": "CC0-1.0",
+            "author": "rubberduck",
+            "page": "https://opengameart.org/content/40-cc0-water-splash-slime-sfx",
+            "start_sample": 1885
+          }
+        ]
+      }
+    ],
+    "vodyanoy_hurt": [
+      {
+        "name": "slavicmyths:recorded61/vodyanoy_hurt_1",
+        "sha256": "4f44af1255a763d3410215224ca439ab12f4107f370ae4503d5b9511dbb95a58",
+        "sources": [
+          {
+            "key": "alba__(grunt)_10.wav",
+            "file": "sources/alba__(grunt)_10.flac",
+            "sha256": "860fd1efd929f677925908bc9435765dee2c91bd852319982525ced5e7f04683",
+            "license": "CC-BY-4.0",
+            "author": "Alba MacKenna",
+            "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+            "start_sample": 2337
+          },
+          {
+            "key": "water__splash_03.ogg",
+            "file": "sources/water__splash_03.ogg",
+            "sha256": "ae2cff9a47934ece590dda45ff18acf89c5c98cb5497ce71c50b3a315b225a94",
+            "license": "CC0-1.0",
+            "author": "rubberduck",
+            "page": "https://opengameart.org/content/40-cc0-water-splash-slime-sfx",
+            "start_sample": 1054
+          }
+        ]
+      }
+    ],
+    "vodyanoy_death": [
+      {
+        "name": "slavicmyths:recorded61/vodyanoy_death_1",
+        "sha256": "d90784026ba03ec60412b2f6430384d2319f1f8aca6296b9caa155c498380c0c",
+        "sources": [
+          {
+            "key": "water__bubble_03.ogg",
+            "file": "sources/water__bubble_03.ogg",
+            "sha256": "6189106305ab917f1a260b66a74380ed7d6e5be0fb4f5eba3ac93aeb89d9b7ca",
+            "license": "CC0-1.0",
+            "author": "rubberduck",
+            "page": "https://opengameart.org/content/40-cc0-water-splash-slime-sfx",
+            "start_sample": 989
+          }
+        ]
+      }
+    ]
+  }
+}

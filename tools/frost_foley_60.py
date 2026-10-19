@@ -38,7 +38,7 @@ def restore_selected():
   x*=min(target/max(np.sqrt(np.mean(x*x)),1e-12),.6/max(abs(x)))
   mob=event.split('.')[0];name=f'foley/{mob}/{Path(member).stem}';dest=A/'sounds'/(name+'.ogg');dest.parent.mkdir(parents=True,exist_ok=True);encode(dest,x)
   y,sr=sf.read(dest);assert sr==RATE and y.ndim==1 and np.isfinite(y).all() and max(abs(y))<.8
-  entry={'name':name,'attenuation_distance':24 if mob=='morozko' else 32}
+  entry={'name':'slavicmyths:'+name,'attenuation_distance':24 if mob=='morozko' else 32}
   if event=='morozko.staff_icicles':entry['volume']=.55 # Five close emitters share a cast.
   bindings.setdefault(event,[]).append(entry)
   rows.append(dict(event=event,file=name+'.ogg',label=label,callsite=callsite,source=spec['file'],source_sha256=spec['sha256'],sha256=hashlib.sha256(dest.read_bytes()).hexdigest(),seconds=len(y)/sr,rms_dbfs=float(20*np.log10(np.sqrt(np.mean(y*y)))),peak_dbfs=float(20*np.log10(max(abs(y)))),trim_start_samples=start,processing='90Hz highpass/10kHz lowpass, mono44100, leading silence trim, crop, 5ms fades, gain; no pitch shift',material='recorded bamboo/metal/wood/glass prop, glass represents fantasy ice; not voice',status='AGENT_SELECTED_UNDER_OWNER_DELEGATION',owner_approved=False,hearing='NOT_LISTENED'))

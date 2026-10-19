@@ -16,7 +16,7 @@ def restore_selected():
  target=A/'sounds/voice/tugarin/spin_prepare.ogg'
  if not target.exists() or target.read_bytes()!=dest.read_bytes():shutil.copyfile(dest,target)
  event='tugarin_spin_prepare';subtitle='subtitles.slavicmyths.tugarin_spin_prepare'
- path=A/'sounds.json';events=json.loads(path.read_text(encoding='utf-8'));events[event]={'subtitle':subtitle,'sounds':[{'name':'voice/tugarin/spin_prepare','attenuation_distance':28}]};stable_text(path,json.dumps(events,ensure_ascii=False,indent=2)+'\n')
+ path=A/'sounds.json';events=json.loads(path.read_text(encoding='utf-8'));events[event]={'subtitle':subtitle,'sounds':[{'name':'slavicmyths:voice/tugarin/spin_prepare','attenuation_distance':28}]};stable_text(path,json.dumps(events,ensure_ascii=False,indent=2)+'\n')
  for lang,label in [('ru_ru','Тугарин выдыхает перед вращением'),('en_us','Tugarin exhales before spinning')]:
   path=A/f'lang/{lang}.json';d=json.loads(path.read_text(encoding='utf-8'));d[subtitle]=label;stable_text(path,json.dumps(d,ensure_ascii=False,indent=2)+'\n')
  path=R/'src/main/java/org/slavicmyths/registry/ModSounds.java';s=path.read_text(encoding='utf-8');line='        map.put("tugarin_spin_prepare",sound("tugarin_spin_prepare"));\n'

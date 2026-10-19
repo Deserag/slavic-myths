@@ -10,6 +10,11 @@ def check(ok,label):
  if not ok:raise AssertionError(label)
 def old(file):return subprocess.check_output(['git','show','037f80ac:'+file],cwd=R).decode('utf-8').replace('\r\n','\n')
 def main():
+ # New delegated mappings are independently checked against exact source/JAR contracts.
+ from verify_audio_groups_61 import main as verify_project
+ verify_project()
+ from audio_groups_61 import EVENTS as PROJECT_EVENTS
+ from audio_groups_61_plan import NEW as PROJECT_NEW
  rows=json.loads((P/'batch-selection.json').read_text(encoding='utf-8'));check(len(rows)==17,'14 performed vocals + 3 movement foley files')
  before={r['file']:hashlib.sha256((A/'sounds'/r['file']).read_bytes()).hexdigest() for r in rows};restore_selected();check(before=={r['file']:hashlib.sha256((A/'sounds'/r['file']).read_bytes()).hexdigest() for r in rows},'Entire selected batch regenerates byte-for-byte')
  events=json.loads((A/'sounds.json').read_text(encoding='utf-8'));pcm=[];sources=[]
@@ -18,7 +23,7 @@ def main():
   check(info.subtype=='VORBIS' and sr==44100 and x.ndim==1 and np.isfinite(x).all() and np.max(abs(x))<.95,'Full decode/mono/rate/peak '+row['event'])
   check(abs(x[0])<.03 and abs(x[-1])<.03,'Short edge fade '+row['event'])
   check(hashlib.sha256(path.read_bytes()).hexdigest()==row['sha256'],'Selected hash '+row['event']);pcm.append(hashlib.sha256(x.tobytes()).hexdigest())
-  check(events[row['event']]['sounds'][0]['name']==row['file'][:-4],'Actual event -> recorded asset '+row['event'])
+  check(events[row['event']]['sounds'][0]['name']=='slavicmyths:'+row['file'][:-4],'Actual event -> recorded asset '+row['event'])
   check(not row['owner_approved'] and row['status']=='AGENT_SELECTED_UNDER_OWNER_DELEGATION','No invented hearing approval '+row['event'])
   if row['layer']=='recorded voice':sources.append(row['source_sha256'])
   if row['event'].startswith('skim.hurt'):check(len(x)/sr/.96<14/20,'Skim hurt fits pre-existing audio cooldown14')
@@ -39,9 +44,9 @@ def main():
  check((R/file).read_text(encoding='utf-8')==s,'Only normal Ovinnik voice pitch changed; Mor retains superclass pitch')
  for file in ['wolf/GreyWolf.java','bogatyr/IdolishcheEntity.java','skim/SkimBeastEntity.java']:
   path='src/main/java/org/slavicmyths/'+file;check((R/path).read_text(encoding='utf-8')==old(path),'Full AI/quest/HP/cooldown/NBT unchanged '+file)
- baseline=json.loads(old('src/main/resources/assets/slavicmyths/sounds.json'))
+ baseline=__import__('audio_resource_names_61').qualified(json.loads(old('src/main/resources/assets/slavicmyths/sounds.json')))
  for k,v in baseline.items():
-  if not v.get('sounds'):check(events[k]==v,'Quarantine remains disabled '+k)
+  if not v.get('sounds') and k not in PROJECT_EVENTS:check(events[k]==v,'Quarantine remains disabled '+k)
  for lang in ['ru_ru','en_us']:
   d=json.loads((A/f'lang/{lang}.json').read_text(encoding='utf-8'))
   for row in rows:check(events[row['event']]['subtitle'] in d,'Subtitle exists '+lang+' '+row['event'])

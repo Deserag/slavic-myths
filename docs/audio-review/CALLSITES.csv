@@ -135,8 +135,8 @@ src/main/java/org/slavicmyths/entity/BannikEntity.java,49,"if(!wet&&level().getG
 src/main/java/org/slavicmyths/entity/BannikEntity.java,50,"else if(attackable(getTarget(),2.6)){steam=false;attack.start(14,1,18,getHealth()<getMaxHealth()*.35F?34:40);behavior=Behavior.SLAP_COMBO;voice(""attack"",.5F);}",UNVERIFIED_SOURCE_MATCH
 src/main/java/org/slavicmyths/entity/BannikEntity.java,63,"@Override protected void playStepSound(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState block){if(!level().isClientSide)voice(""step"",.2F);}",UNVERIFIED_SOURCE_MATCH
 src/main/java/org/slavicmyths/entity/BannikEntity.java,64,"@Override public boolean doHurtTarget(net.minecraft.world.entity.Entity target){boolean hit=super.doHurtTarget(target);if(hit && !level().isClientSide)voice(""attack"",.45F);return hit;}",UNVERIFIED_SOURCE_MATCH
-src/main/java/org/slavicmyths/entity/DomovoyEntity.java,74,"message = ""refused""; playSound(ModSounds.DOMOVOY_HURT.get(), 0.4F, 0.9F);",UNVERIFIED_SOURCE_MATCH
-src/main/java/org/slavicmyths/entity/DomovoyEntity.java,89,"playSound(net.minecraft.sounds.SoundEvents.VILLAGER_YES, 0.4F, 1.3F);",UNVERIFIED_SOURCE_MATCH
+src/main/java/org/slavicmyths/entity/DomovoyEntity.java,74,"message = ""refused""; playSound(ModSounds.DOMOVOY_REFUSE.get(), 0.4F, 1.0F);",UNVERIFIED_SOURCE_MATCH
+src/main/java/org/slavicmyths/entity/DomovoyEntity.java,89,"playSound(ModSounds.DOMOVOY_THANKS.get(), 0.4F, 1.0F);",UNVERIFIED_SOURCE_MATCH
 src/main/java/org/slavicmyths/entity/DomovoyEntity.java,152,@Override protected SoundEvent getAmbientSound() { return ModSounds.DOMOVOY_AMBIENT.get(); },UNVERIFIED_SOURCE_MATCH
 src/main/java/org/slavicmyths/entity/DomovoyEntity.java,153,@Override protected SoundEvent getHurtSound(DamageSource damage) { return ModSounds.DOMOVOY_HURT.get(); },UNVERIFIED_SOURCE_MATCH
 src/main/java/org/slavicmyths/entity/DomovoyEntity.java,154,@Override protected SoundEvent getDeathSound() { return ModSounds.DOMOVOY_DEATH.get(); },UNVERIFIED_SOURCE_MATCH
@@ -180,7 +180,7 @@ src/main/java/org/slavicmyths/entity/WildlifeEntity.java,317,"private void voice
 src/main/java/org/slavicmyths/entity/WildlifeEntity.java,318,"@Override protected SoundEvent getAmbientSound(){return sound(""ambient"");}",UNVERIFIED_SOURCE_MATCH
 src/main/java/org/slavicmyths/entity/WildlifeEntity.java,319,"@Override protected SoundEvent getHurtSound(DamageSource source){return sound(""hurt"");}",UNVERIFIED_SOURCE_MATCH
 src/main/java/org/slavicmyths/entity/WildlifeEntity.java,320,"@Override protected SoundEvent getDeathSound(){return sound(""death"");}",UNVERIFIED_SOURCE_MATCH
-src/main/java/org/slavicmyths/entity/WildlifeEntity.java,323,"@Override protected void playStepSound(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState block){if(!isInWater())voice(""impact"",kind==Kind.BEAR?.12F:.055F);}",UNVERIFIED_SOURCE_MATCH
+src/main/java/org/slavicmyths/entity/WildlifeEntity.java,323,"@Override protected void playStepSound(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState block){if(!isInWater())voice(""step"",kind==Kind.BEAR?.12F:.055F);}",UNVERIFIED_SOURCE_MATCH
 src/main/java/org/slavicmyths/equipment/UniqueEquipment.java,35,"15, SoundEvents.ARMOR_EQUIP_IRON, () -> Ingredient.of(repair == null ? HARDENED_IRON.get() : repair),",UNVERIFIED_SOURCE_MATCH
 src/main/java/org/slavicmyths/farming/FertilizerItem.java,44,"level.playSound(null,center,SoundEvents.BONE_MEAL_USE,SoundSource.BLOCKS,.7F,1);",UNVERIFIED_SOURCE_MATCH
 src/main/java/org/slavicmyths/farming/FieldHoeItem.java,41,"if (!level.isClientSide) level.playSound(null, center, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1, 1);",UNVERIFIED_SOURCE_MATCH

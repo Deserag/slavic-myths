@@ -1,0 +1,164 @@
+{
+  "bear_ambient": {
+    "group": "world",
+    "event": "bear_ambient",
+    "target": "entity.polar_bear.ambient",
+    "reason": "Natural species-family vanilla reference; actual new warning/roar recorded separately"
+  },
+  "bear_hurt": {
+    "group": "world",
+    "event": "bear_hurt",
+    "target": "entity.polar_bear.hurt",
+    "reason": "Natural species-family vanilla reference; actual new warning/roar recorded separately"
+  },
+  "bear_death": {
+    "group": "world",
+    "event": "bear_death",
+    "target": "entity.polar_bear.death",
+    "reason": "Natural species-family vanilla reference; actual new warning/roar recorded separately"
+  },
+  "cub_ambient": {
+    "group": "world",
+    "event": "cub_ambient",
+    "target": "entity.polar_bear.ambient_baby",
+    "reason": "Baby-specific ambient recording; hurt/death adult-family fallback remains a child-timbre review item"
+  },
+  "cub_alert": {
+    "group": "world",
+    "event": "cub_alert",
+    "target": "entity.polar_bear.ambient_baby",
+    "reason": "Baby-specific ambient recording; hurt/death adult-family fallback remains a child-timbre review item"
+  },
+  "cub_hurt": {
+    "group": "world",
+    "event": "cub_hurt",
+    "target": "entity.polar_bear.hurt",
+    "reason": "Baby-specific ambient recording; hurt/death adult-family fallback remains a child-timbre review item"
+  },
+  "cub_death": {
+    "group": "world",
+    "event": "cub_death",
+    "target": "entity.polar_bear.death",
+    "reason": "Baby-specific ambient recording; hurt/death adult-family fallback remains a child-timbre review item"
+  },
+  "wolf_ambient": {
+    "group": "world",
+    "event": "wolf_ambient",
+    "target": "entity.wolf.pant",
+    "reason": "Ordinary forest wolf, natural vanilla canine callback; no boss pitch processing"
+  },
+  "wolf_alert": {
+    "group": "world",
+    "event": "wolf_alert",
+    "target": "entity.wolf.growl",
+    "reason": "Ordinary forest wolf, natural vanilla canine callback; no boss pitch processing"
+  },
+  "wolf_hurt": {
+    "group": "world",
+    "event": "wolf_hurt",
+    "target": "entity.wolf.hurt",
+    "reason": "Ordinary forest wolf, natural vanilla canine callback; no boss pitch processing"
+  },
+  "wolf_death": {
+    "group": "world",
+    "event": "wolf_death",
+    "target": "entity.wolf.death",
+    "reason": "Ordinary forest wolf, natural vanilla canine callback; no boss pitch processing"
+  },
+  "wolf_roar": {
+    "group": "world",
+    "event": "wolf_roar",
+    "target": "entity.wolf.howl",
+    "reason": "Ordinary forest wolf, natural vanilla canine callback; no boss pitch processing"
+  },
+  "boar_ambient": {
+    "group": "world",
+    "event": "boar_ambient",
+    "target": "entity.pig.ambient",
+    "reason": "Sus scrofa family vanilla reference, warning uses performed wild-boar imitation"
+  },
+  "boar_hurt": {
+    "group": "world",
+    "event": "boar_hurt",
+    "target": "entity.pig.hurt",
+    "reason": "Sus scrofa family vanilla reference, warning uses performed wild-boar imitation"
+  },
+  "boar_death": {
+    "group": "world",
+    "event": "boar_death",
+    "target": "entity.pig.death",
+    "reason": "Sus scrofa family vanilla reference, warning uses performed wild-boar imitation"
+  },
+  "bear_step": {
+    "group": "world",
+    "event": "bear_step",
+    "target": "entity.polar_bear.step",
+    "reason": "Shared material footfall, separate from combat impact"
+  },
+  "cub_step": {
+    "group": "world",
+    "event": "cub_step",
+    "target": "entity.polar_bear.step",
+    "reason": "Shared material footfall, separate from combat impact"
+  },
+  "wolf_step": {
+    "group": "world",
+    "event": "wolf_step",
+    "target": "entity.wolf.step",
+    "reason": "Shared material footfall, separate from combat impact"
+  },
+  "boar_step": {
+    "group": "world",
+    "event": "boar_step",
+    "target": "entity.pig.step",
+    "reason": "Shared material footfall, separate from combat impact"
+  },
+  "stag_step": {
+    "group": "world",
+    "event": "stag_step",
+    "target": "entity.horse.step",
+    "reason": "Shared material footfall, separate from combat impact"
+  },
+  "doe_step": {
+    "group": "world",
+    "event": "doe_step",
+    "target": "entity.horse.step",
+    "reason": "Shared material footfall, separate from combat impact"
+  },
+  "kalin.horse_gallop_loop": {
+    "group": "world",
+    "event": "kalin.horse_gallop_loop",
+    "target": "entity.horse.gallop",
+    "reason": "Actual vanilla horse performance for horse action; no synthetic horse voice"
+  },
+  "kalin.horse_rear": {
+    "group": "world",
+    "event": "kalin.horse_rear",
+    "target": "entity.horse.angry",
+    "reason": "Actual vanilla horse performance for horse action; no synthetic horse voice"
+  },
+  "kalin.horse_snort": {
+    "group": "world",
+    "event": "kalin.horse_snort",
+    "target": "entity.horse.breathe",
+    "reason": "Actual vanilla horse performance for horse action; no synthetic horse voice"
+  },
+  "kalin.horse_step_01": {
+    "group": "world",
+    "event": "kalin.horse_step_01",
+    "target": "entity.horse.step",
+    "reason": "Actual vanilla horse performance for horse action; no synthetic horse voice"
+  },
+  "kalin.horse_step_02": {
+    "group": "world",
+    "event": "kalin.horse_step_02",
+    "target": "entity.horse.step_wood",
+    "reason": "Actual vanilla horse performance for horse action; no synthetic horse voice"
+  },
+  "kalin.horse_stomp": {
+    "group": "world",
+    "event": "kalin.horse_stomp",
+    "target": "entity.horse.land",
+    "reason": "Actual vanilla horse performance for horse action; no synthetic horse voice"
+  }
+}

@@ -108,6 +108,9 @@ def main():
   source_map={s['file']:s for s in json.loads((R/'art/audio/kurgan-65/sources.json').read_text(encoding='utf-8'))}
   for row in json.loads((R/'art/audio/kurgan-65/selection.json').read_text(encoding='utf-8')):
    source=source_map[row['source']];known[row['file']]=(source['author'],source['license'],source['page'],'art/audio/kurgan-65/sources.json')
+ if (R/'art/audio/project-61/selection.json').exists():
+  for row in json.loads((R/'art/audio/project-61/selection.json').read_text(encoding='utf-8')):
+   known[row['file']]=('; '.join(sorted({x['author'] for x in row['sources']})),'; '.join(sorted({x['license'] for x in row['sources']})),'; '.join(sorted({x['page'] for x in row['sources']})),'art/audio/project-61/selection.json')
  for row in metrics:
   key=row['path'].split('assets/slavicmyths/sounds/',1)[1];author,license,url,evidence=known.get(key,('UNKNOWN','UNKNOWN','','SOURCE_NOT_YET_TRACED_PER_ASSET'))
   licenses.append(dict(asset=row['path'],evidence=evidence,author=author,license=license,url=url,sha256=row['sha256'],status='RECORDED_SOURCE_CHAIN' if key in known else 'UNRESOLVED_NOT_A_CLAIM_OF_ILLEGALITY'))

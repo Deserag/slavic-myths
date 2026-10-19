@@ -1,6 +1,6 @@
 {
   "status": "IN_PROGRESS",
-  "checks": 248,
+  "checks": 201,
   "new_recorded_files": 17,
   "changed_existing_events": 18,
   "voice_takes": 14,
@@ -8,5 +8,5 @@
   "owner_accepted": false,
   "runtime_launches": 0,
   "poly_mc_updated": false,
-  "jar_sha256": "9f2da63fc926933b54fac3e5f8ffbb7f11167397e274379cb8621ff3de5a6995"
+  "jar_sha256": "6674ac9a1eed910d26a733ff4e41b08e538716389424582aaabf981be76be673"
 }

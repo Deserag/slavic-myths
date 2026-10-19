@@ -1,13 +1,13 @@
 {
   "status": "IN_PROGRESS",
-  "checks": 7765,
+  "checks": 7766,
   "production_foley_events": 3,
   "preview_clips": 8,
   "game_launches": 0,
   "owner_accepted": false,
   "package_a_complete": false,
-  "remaining": "Kurgan attack/impact; remaining Tugarin phase/transform and Skim special cues; owner in-game hearing pending",
-  "jar_sha256": "9f2da63fc926933b54fac3e5f8ffbb7f11167397e274379cb8621ff3de5a6995",
+  "remaining": "Remaining Tugarin phase/transform and Skim special cues, other epic groups; owner in-game hearing pending",
+  "jar_sha256": "6674ac9a1eed910d26a733ff4e41b08e538716389424582aaabf981be76be673",
   "installed_model_source": "037f80ac85706196ffed1e1052b860a2ff852871",
   "installed_model_sha256": "4fa880a3d7becbb819071c9dec838b0fa2d31f4ae19468f16f142143eb99a3cd",
   "new_audio_installed": false

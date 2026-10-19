@@ -1,0 +1,26 @@
+[
+  {
+    "check": "verify_audio_groups_61",
+    "exit_code": 0
+  },
+  {
+    "check": "verify_voice_rework_60",
+    "exit_code": 0
+  },
+  {
+    "check": "verify_audio_60",
+    "exit_code": 0
+  },
+  {
+    "check": "verify_creature_audio_batch_60",
+    "exit_code": 0
+  },
+  {
+    "check": "verify_frost_foley_60",
+    "exit_code": 0
+  },
+  {
+    "check": "verify_kurgan_audio_65",
+    "exit_code": 0
+  }
+]

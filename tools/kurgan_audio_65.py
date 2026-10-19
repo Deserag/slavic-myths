@@ -79,7 +79,7 @@ def restore_selected():
    start=max(0,int(active[0])-220);x=x[start:start+int(cap*RATE)];f=min(220,len(x)//8);x[:f]*=np.linspace(0,1,f);x[-f:]*=np.linspace(1,0,f);x*=min(target/max(np.sqrt(np.mean(x*x)),1e-12),.6/max(abs(x)))
    x=np.pad(x,(220,220)) # Guard against Vorbis pre-echo at the first packet edge.
    name=f'kurgan/recorded/{event}_{index}';dest=A/'sounds'/(name+'.ogg');dest.parent.mkdir(parents=True,exist_ok=True);encode(dest,x);y,sr=sf.read(dest)
-   values.append({'name':name,'attenuation_distance':20 if suffix in ['ambient','step'] else 28})
+   values.append({'name':'slavicmyths:'+name,'attenuation_distance':20 if suffix in ['ambient','step'] else 28})
    rows.append(dict(event=event,file=name+'.ogg',sha256=hashlib.sha256(dest.read_bytes()).hexdigest(),source=spec['file'],source_sha256=spec['sha256'],seconds=len(y)/sr,peak_dbfs=float(20*np.log10(max(abs(y)))),rms_dbfs=float(20*np.log10(np.sqrt(np.mean(y*y)))),trim_start_samples=start,role=role(event),layer='performed zombie voice' if member.startswith('zombie') else 'recorded shells/wood/leather/steel prop; not vocal',processing='mono44100; highpass80/lowpass9000; trim; cap;5ms fades;5ms zero guards; gain; no pitch shift',status='AGENT_SELECTED_OWNER_PENDING',owner_approved=False,hearing='NOT_LISTENED'))
   subtitle=events[event]['subtitle'] if event in events else 'subtitles.slavicmyths.'+event
   events[event]={'subtitle':subtitle,'sounds':values}

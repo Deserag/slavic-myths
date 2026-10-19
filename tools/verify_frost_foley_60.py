@@ -13,6 +13,11 @@ def original(path):return subprocess.check_output(['git','show',BASE+':'+path],c
 def digest(data):return hashlib.sha256(data).hexdigest()
 
 def main():
+ # New delegated mappings are independently checked against exact source/JAR contracts.
+ from verify_audio_groups_61 import main as verify_project
+ verify_project()
+ from audio_groups_61 import EVENTS as PROJECT_EVENTS
+ from audio_groups_61_plan import NEW as PROJECT_NEW
  receipt_path=R/'docs/implementation/audio-60/POLYMC_INSTALLATION.json';receipt_before=receipt_path.read_bytes()
  rows=json.loads((P/'selection.json').read_text(encoding='utf-8'))
  check(len(rows)==11 and len(EVENTS)==9,'Eleven recorded clips, nine existing events')
@@ -44,14 +49,14 @@ def main():
   source=sources[row['source']]
   check(source['license']=='CC0-1.0' and digest((P/row['source']).read_bytes())==source['sha256']==row['source_sha256'],'Legal source and exact recorded take '+row['source'])
   pcm.append(digest(x.tobytes()))
-  check(any(e['name']==row['file'][:-4] for e in events[row['event']]['sounds']),'Actual event maps to installed resource '+row['event'])
+  check(any(e['name']=='slavicmyths:'+row['file'][:-4] for e in events[row['event']]['sounds']),'Actual event maps to installed resource '+row['event'])
   for lang in ['ru_ru','en_us']:
    d=json.loads((A/f'lang/{lang}.json').read_text(encoding='utf-8'))
    check(events[row['event']]['subtitle'] in d,'Existing subtitle '+lang+' '+row['event'])
  check(len(set(pcm))==11 and len({r['source'] for r in rows})==11,'Eleven distinct decoded clips and eleven separate source takes')
  for event in EVENTS:check(events[event]['subtitle']==baseline[event]['subtitle'],'Subtitle identity preserved '+event)
  for event,v in baseline.items():
-  if not v.get('sounds'):check(events[event]==v,'Quarantine unchanged '+event)
+  if not v.get('sounds') and event not in PROJECT_EVENTS:check(events[event]==v,'Quarantine unchanged '+event)
  # Accepted visuals and complete frost/night mechanics must be byte-identical to main.
  tracked=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE],cwd=R).decode().splitlines()
  protected=[]

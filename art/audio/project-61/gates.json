@@ -1,0 +1,27 @@
+{
+  "status": "IN_PROGRESS_OWNER_PENDING",
+  "baseline": "ee4a40bec4f603e06dd69ee3b35ad4290dfc2389",
+  "checks": 18937,
+  "recorded_variants": 338,
+  "recorded_events": 310,
+  "vanilla_aliases": 27,
+  "source_gaps": {
+    "kikimora_laugh": "Distinct real crooked female laugh not yet sourced; do not relabel an attack grunt as laughter.",
+    "igosha_ambient": "Fragile non-caricature vocal identity needs review; ordinary adult grunt is not an infant recording.",
+    "igosha_hurt": "Fragile non-caricature vocal identity needs review; ordinary adult grunt is not an infant recording.",
+    "igosha_death": "Fragile non-caricature vocal identity needs review; ordinary adult grunt is not an infant recording.",
+    "cub_hurt": "Temporary vanilla bear fallback; genuine cub-specific hurt recording still needed.",
+    "cub_death": "Temporary vanilla bear fallback; genuine cub-specific death recording still needed.",
+    "stag_hurt": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
+    "stag_death": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
+    "doe_hurt": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
+    "doe_death": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
+    "marinka.witch_whisper_01": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording.",
+    "marinka.witch_whisper_02": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording."
+  },
+  "jar_sha256": "6674ac9a1eed910d26a733ff4e41b08e538716389424582aaabf981be76be673",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "owner_accepted": false,
+  "poly_mc_installed": false
+}

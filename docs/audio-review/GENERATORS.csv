@@ -1,6 +1,9 @@
 ﻿path,mode,note
 tools/artifact_065.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audio_60_foley.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
+tools/audio_groups_61.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
+tools/audio_groups_61_plan.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
+tools/audio_groups_61_preview.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audio_project_61.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audio_project_similarity_62.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audio_review_62.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
@@ -64,6 +67,7 @@ tools/tugarin_spin_voice_60.py,REVIEW_REQUIRED,"Source text match; may be QA or 
 tools/underground_mob_resources.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/verify_050.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/verify_audio_60.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
+tools/verify_audio_groups_61.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/verify_bayun.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/verify_bogatyr.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/verify_boss_reimplementation.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"

@@ -11,14 +11,19 @@ def check(ok,message):
 def old(path):return subprocess.check_output(['git','show',BASE+':'+path],cwd=R).decode('utf-8').replace('\r\n','\n')
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
+ # New delegated mappings are independently checked against exact source/JAR contracts.
+ from verify_audio_groups_61 import main as verify_project
+ verify_project()
+ from audio_groups_61 import EVENTS as PROJECT_EVENTS
+ from audio_groups_61_plan import NEW as PROJECT_NEW
  rows=json.loads((P/'selection.json').read_text(encoding='utf-8'));before={r['file']:sha(A/'sounds'/r['file']) for r in rows};maps=(A/'sounds.json').read_bytes();restore_selected()
  check(maps==(A/'sounds.json').read_bytes() and all(sha(A/'sounds'/name)==h for name,h in before.items()),'Selected recordings and maps byte-idempotent')
- baseline=json.loads(old('src/main/resources/assets/slavicmyths/sounds.json'));events=json.loads(maps)
+ baseline=__import__('audio_resource_names_61').qualified(json.loads(old('src/main/resources/assets/slavicmyths/sounds.json')));events=json.loads(maps)
  family={k for k in baseline if any(k.startswith(kind+'_') for kind in KINDS)}
  check(set(PLAN)|set(KEEP)==family|NEW and set(PLAN)&set(KEEP)==set(),'All 47 original family events accounted:41 changed,6 KEEP,6 new contact events')
- check(set(events)==set(baseline)|NEW,'Only six audio event IDs added; no entity/item registry changes')
+ check(set(events)==set(baseline)|NEW|PROJECT_NEW,'Only six audio event IDs added; no entity/item registry changes')
  for event,definition in baseline.items():
-  if event not in PLAN:check(events[event]==definition,'Unrelated / KEEP / quarantined mapping unchanged '+event)
+  if event not in PLAN and event not in PROJECT_EVENTS:check(events[event]==definition,'Unrelated / KEEP / quarantined mapping unchanged '+event)
  sources={r['file']:r for r in json.loads((P/'sources.json').read_text(encoding='utf-8'))};decoded=[]
  for row in rows:
   p=A/'sounds'/row['file'];x,sr=sf.read(p);check(sf.info(p).subtype=='VORBIS' and sr==44100 and x.ndim==1 and np.isfinite(x).all(),'Spatial Vorbis full decode '+row['file'])
@@ -42,8 +47,8 @@ def main():
  for event in NEW:check('sound("'+event+'")' in sound_source,'Real sound registry '+event)
  for lang in ['ru_ru','en_us']:
   actual=json.loads((A/f'lang/{lang}.json').read_text(encoding='utf-8'));previous=json.loads(old(f'src/main/resources/assets/slavicmyths/lang/{lang}.json'))
-  check(set(actual)-set(previous)=={'subtitles.slavicmyths.'+e for e in NEW},'Only six new subtitle keys '+lang)
-  check(all(actual[k]==v for k,v in previous.items() if k!='subtitles.slavicmyths.kurgan_druzhinnik_ambient'),'Only intended skeleton ambient label changed '+lang)
+  check(set(actual)-set(previous)=={'subtitles.slavicmyths.'+e for e in NEW}|{events[e]['subtitle'] for e in PROJECT_EVENTS if events[e].get('subtitle') and events[e]['subtitle'] not in previous},'Only scoped new subtitle keys '+lang)
+  check(all(actual[k]==v for k,v in previous.items() if k!='subtitles.slavicmyths.kurgan_druzhinnik_ambient' and k not in {events[e].get('subtitle') for e in PROJECT_EVENTS}),'Only intended skeleton ambient label changed '+lang)
   for event in set(PLAN)|set(KEEP):check(events[event]['subtitle'] in actual,'Actual subtitle '+lang+' '+event)
  version=next(s.split('=',1)[1].strip() for s in (R/'gradle.properties').read_text().splitlines() if s.startswith('mod_version='));jar=R/f'build/libs/slavicmyths-{version}.jar'
  with zipfile.ZipFile(jar) as z:

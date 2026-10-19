@@ -3,7 +3,9 @@
 Ничего не объявлено принятым целиком. Одобрены четыре конкретных голосовых файла
 Тугарина/Скима; остальные выбранные клипы AGENT_SELECTED / OWNER_PENDING.
 
-- [Новый крупный пакет: курганная нежить,6 типов,53 события](../../art/audio/kurgan-65/PREVIEW.md).
+- [Новый сквозной этап:338 назначений, роли и источники](../../art/audio/project-61/PREVIEW.md).
+- [OLD/NEW soundboard](../../art/audio/project-61/soundboard.html); [переносимый NEW ZIP](../../art/audio/project-61/review.zip).
+- [Предыдущий курганный пакет: курганная нежить,6 типов,53 события](../../art/audio/kurgan-65/PREVIEW.md).
 - [Открыть локальный OLD/NEW soundboard](../../art/audio/kurgan-65/soundboard.html).
 - [Переносимый ZIP: распаковать, открыть index.html](../../art/audio/kurgan-65/kurgan-review.zip).
   ZIP содержит только лицензированные NEW записи,6 demo и credits; vanilla OLD

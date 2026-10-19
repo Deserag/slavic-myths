@@ -507,10 +507,12 @@ if (project.hasProperty('rusalkaOfflineCheck')) {
 
 
 // Emergency audio quality gate, #59/#60: rejected synthesized vocal cues must not
-// silently reappear in the production JAR.  Owner review is required before unmuting.
+// silently reappear. #61 permits exact licensed AGENT_SELECTED recordings; final owner review remains pending.
 tasks.register('verifyRejectedVoiceQuarantine') {
     doLast {
         def events = new groovy.json.JsonSlurper().parse(file('src/main/resources/assets/slavicmyths/sounds.json'))
+        def ledger = new groovy.json.JsonSlurper().parse(file('src/main/resources/assets/slavicmyths/audio_licenses/delegated-recordings-61.json'))
+        def permitted = ['vodyanoy_', 'domovoy_', 'leshy_', 'kikimora_', 'polevik_', 'poludnitsa_', 'bannik_', 'igosha_']
         def bad = events.findAll { name, cue ->
             def quarantine =
                 ['rusalka_', 'vodyanoy_', 'domovoy_', 'leshy_', 'kikimora_',
@@ -518,10 +520,20 @@ tasks.register('verifyRejectedVoiceQuarantine') {
                 name ==~ /^nochnitsa\.(ambient|breath|hurt|scream_inhale|scream_release|scream_interrupt|target_spotted|sunrise_dissolve|death)$/ ||
                 name ==~ /^doghead\.(hunter|scout|leader|shared)\.(ambient|bark|spot_bark|howl_inhale|howl_release|hurt|death)$/ ||
                 name ==~ /^firebird_(ambient|call|warning|retaliation|hurt|death)$/
-            quarantine && cue.sounds != []
+            def replacement = ledger.events[name]
+            def delegated = permitted.any { name.startsWith(it) } && replacement &&
+                ledger.status == 'AGENT_SELECTED_OWNER_PENDING' && ledger.owner_accepted == false &&
+                cue.sounds.size() == replacement.size() && cue.sounds.every { entry ->
+                    def proof = replacement.find { it.name == entry.name }
+                    def resource = file('src/main/resources/assets/slavicmyths/sounds/' + entry.name.substring('slavicmyths:'.length()) + '.ogg')
+                    entry.name.startsWith('slavicmyths:recorded61/') && proof && resource.isFile() &&
+                    java.security.MessageDigest.getInstance('SHA-256').digest(resource.bytes).encodeHex().toString() == proof.sha256 &&
+                    proof.sources && proof.sources.every { it.license in ['CC-BY-4.0', 'CC0-1.0'] && it.page.startsWith('https://') && it.sha256.size() == 64 }
+                }
+            quarantine && cue.sounds != [] && !delegated
         }
         if (!bad.isEmpty()) {
-            throw new GradleException('REJECTED_SYNTHETIC_VOICES: do not re-enable until owner accepts real replacement OGG, #59/#60: ' + bad.keySet())
+            throw new GradleException('REJECTED_SYNTHETIC_VOICES: only exact delegated recorded61 replacements permitted, #59/#60/#61: ' + bad.keySet())
         }
     }
 }

@@ -48,7 +48,7 @@ def restore_selected():
   report.append(dict(event=event,mob='grey_wolf',role='Мифический хищник',action={'pounce':'Шорох тела при прыжке','dash':'Резкое движение шерсти','claw':'Движение лапы'}[event.split('.')[1]],layer='recorded cloth prop foley, not voice',source=source.relative_to(R).as_posix(),source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),file=file,sha256=hashlib.sha256(dest.read_bytes()).hexdigest(),seconds=len(x)/RATE,processing='crop, mono, DC removal, 5ms fade, gain; no pitch shift',status='AGENT_SELECTED_UNDER_OWNER_DELEGATION',owner_approved=False,hearing='NOT_LISTENED'))
  path=A/'sounds.json';events=json.loads(path.read_text(encoding='utf-8'))
  for row in report:
-  old=events[row['event']];entry={'name':row['file'][:-4],'attenuation_distance':28 if row['mob']!='grey_wolf' else 20}
+  old=events[row['event']];entry={'name':'slavicmyths:'+row['file'][:-4],'attenuation_distance':28 if row['mob']!='grey_wolf' else 20}
   if row['mob']=='idolishche':entry['volume']=.85
   events[row['event']]={'subtitle':old['subtitle'],'sounds':[entry]}
  events['grey_wolf.hurt']={'subtitle':events['grey_wolf.hurt']['subtitle'],'sounds':[{'name':'minecraft:entity.wolf.hurt','type':'event','pitch':.9}]}

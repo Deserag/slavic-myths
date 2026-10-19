@@ -71,7 +71,7 @@ public final class DomovoyEntity extends PathfinderMob {
         String message;
         long now = level().getGameTime();
         if (food && r.reputation <= -40) {
-            message = "refused"; playSound(ModSounds.DOMOVOY_HURT.get(), 0.4F, 0.9F);
+            message = "refused"; playSound(ModSounds.DOMOVOY_REFUSE.get(), 0.4F, 1.0F);
         } else if (food && now < r.nextGift) message = "wait";
         else if (food) {
             r.nextGift = now + 1200;
@@ -86,7 +86,7 @@ public final class DomovoyEntity extends PathfinderMob {
                 }
             }
             message = "accepted";
-            playSound(net.minecraft.sounds.SoundEvents.VILLAGER_YES, 0.4F, 1.3F);
+            playSound(ModSounds.DOMOVOY_THANKS.get(), 0.4F, 1.0F);
             ((net.minecraft.server.level.ServerLevel) level()).sendParticles(net.minecraft.core.particles.ParticleTypes.HEART,
                     getX(), getY() + 1, getZ(), 3, 0.2, 0.2, 0.2, 0);
             org.slavicmyths.progression.Knowledge.award(player, "offer_domovoy");

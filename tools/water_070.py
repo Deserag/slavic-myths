@@ -90,6 +90,8 @@ def sounds():
  # Recorded candidates remain muted until owner acceptance; no synthesized OGG.
  from rusalka_audio_59 import restore_events
  restore_events(A)
+ from audio_groups_61 import restore_selected as restore_project_audio
+ restore_project_audio()
  return
 if __name__=='__main__':generate()
 

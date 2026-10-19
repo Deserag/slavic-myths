@@ -320,7 +320,7 @@ public final class WildlifeEntity extends PathfinderMob {
  @Override protected SoundEvent getDeathSound(){return sound("death");}
  @Override public int getAmbientSoundInterval(){return kind==Kind.STAG||kind==Kind.DOE?700:500;}
  @Override protected float getSoundVolume(){return .45F;}
- @Override protected void playStepSound(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState block){if(!isInWater())voice("impact",kind==Kind.BEAR?.12F:.055F);}
+ @Override protected void playStepSound(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState block){if(!isInWater())voice("step",kind==Kind.BEAR?.12F:.055F);}
  @Override protected net.minecraft.resources.ResourceKey<net.minecraft.world.level.storage.loot.LootTable> getDefaultLootTable(){return net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath("slavicmyths","entities/"+(isFawn()?"cub":isMother()?"mother_bear":kind.name().toLowerCase(java.util.Locale.ROOT))));}
  @Override public int getMaxSpawnClusterSize(){return kind==Kind.WOLF?4:kind==Kind.STAG||kind==Kind.DOE?5:kind==Kind.CUB?1:3;}
  @Override public boolean canBeLeashed(){return false;}

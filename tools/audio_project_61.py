@@ -59,6 +59,8 @@ def main():
  for event in ['tugarin_spin_prepare','skim.rage',*[f'tugarin_spin_blade_{n}' for n in range(1,4)]]:selected[event]={'status':'AGENT_SELECTED_OWNER_PENDING'}
  if (R/'art/audio/kurgan-65/selection.json').exists():
   for row in json.loads((R/'art/audio/kurgan-65/selection.json').read_text(encoding='utf-8')):selected[row['event']]=row
+ if (R/'art/audio/project-61/selection.json').exists():
+  for row in json.loads((R/'art/audio/project-61/selection.json').read_text(encoding='utf-8')):selected[row['event']]=row
  actions=[];coverage=[];forms=[]
  for entity in entities:
   ident=entity['id'].split(':')[1];impl=entity['implementation'].split('.')[-1];chain=[];seen=set()
@@ -74,8 +76,9 @@ def main():
   related={};direct_vanilla=[]
   for path in sorted(set(chain)|associated):
    text=java[path]
-   for statement in re.finditer(r'[^;]+(?:;|$)',text):
-    line=statement[0];number=text.count('\n',0,statement.start())+1
+   units=[(m[0],text.count('\n',0,m.start())+1) for m in re.finditer(r'[^;]+(?:;|$)',text)]
+   units.extend((line,n) for n,line in enumerate(text.splitlines(),1))
+   for line,number in units:
     if not re.search(r'playSound\(|\bcue\(|\bvoice\(|\bsound\(|getAmbientSound\(|getHurtSound\(|getDeathSound\(|SoundInstance|ModSounds\.|String cue\s*=',line) and not path.endswith('KuzyaAssets.java'):continue
     literals=re.findall(r'"([a-z0-9_.]+)"',line)
     found={e for e in owned if e in literals}
@@ -83,7 +86,7 @@ def main():
     for value in literals:
      found|={e for e in owned if any(e==prefix+'_'+value or e==prefix+'.'+value for prefix in prefixes)}
      found|={e for e in owned if '.' in e and e==e.split('.')[0]+'.'+value}
-     if value.endswith('_') and 'nextInt' in line:found|={e for e in owned if re.fullmatch(re.escape(value)+r'\d+',e)}
+     if value.endswith('_') and ('nextInt' in line or '?' in line):found|={e for e in owned if re.fullmatch(re.escape(value)+r'\d+',e)}
     for event in found:related.setdefault(event,[]).append((path,number,line.strip(),'ENTITY_OR_INHERITED_DISPATCH' if path in chain else 'DOMAIN_HELPER_REQUIRES_GUARD_REVIEW'))
     if path in chain:
      for value in re.findall(r'SoundEvents\.([A-Z_0-9]+)',line):direct_vanilla.append((path,number,value,line.strip()))

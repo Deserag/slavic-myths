@@ -22,6 +22,8 @@ public final class ModSounds {
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_COMMAND=sound("bandit_command");
     public static final DeferredHolder<SoundEvent,SoundEvent> BANDIT_HEAVY=sound("bandit_heavy");
     public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_AMBIENT = sound("domovoy_ambient");
+    public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_REFUSE = sound("domovoy_refuse");
+    public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_THANKS = sound("domovoy_thanks");
     public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_HURT = sound("domovoy_hurt");
     public static final DeferredHolder<SoundEvent,SoundEvent> DOMOVOY_DEATH = sound("domovoy_death");
     public static final DeferredHolder<SoundEvent,SoundEvent> LESHY_AMBIENT = sound("leshy_ambient");
@@ -71,7 +73,7 @@ public final class ModSounds {
     public static final DeferredHolder<SoundEvent,SoundEvent> KIKIMORA_STEP = sound("kikimora_step");
     static {
         for(String animal:new String[]{"bear","cub","wolf","boar","stag","doe"})
-            for(String event:new String[]{"ambient","hurt","death","alert","roar","attack","impact"}) sound(animal+"_"+event);
+            for(String event:new String[]{"ambient","hurt","death","alert","roar","attack","impact","step"}) sound(animal+"_"+event);
     }
     public static final DeferredHolder<SoundEvent,SoundEvent> UPYR_AMBIENT=sound("upyr_ambient");
     public static final DeferredHolder<SoundEvent,SoundEvent> UPYR_IMPACT=sound("upyr_impact");
