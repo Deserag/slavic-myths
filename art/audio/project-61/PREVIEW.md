@@ -1415,3 +1415,22 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 
 **Маринка шепчет заклятие / Marinka whispers a hex** · `marinka.witch_whisper_02`
 ![Маринка шепчет заклятие / Marinka whispers a hex](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/marinka/witch_whisper_02_1.ogg)
+
+## karachun-recorded-whisper
+
+**Карачун тихо шепчет / Karachun whispers quietly** · `karachun.voice_whisper`
+![Карачун тихо шепчет / Karachun whispers quietly](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/voice_whisper_1.ogg)
+
+**Карачун тихо шепчет / Karachun whispers quietly** · `karachun.voice_whisper`
+![Карачун тихо шепчет / Karachun whispers quietly](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/karachun/voice_whisper_2.ogg)
+
+## cub-recorded-reactions
+
+**Медвежонок вскрикивает / Bear cub cries out** · `cub_hurt`
+![Медвежонок вскрикивает / Bear cub cries out](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/cub_hurt_1.ogg)
+
+**Медвежонок вскрикивает / Bear cub cries out** · `cub_hurt`
+![Медвежонок вскрикивает / Bear cub cries out](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/cub_hurt_2.ogg)
+
+**Медвежонок затихает / Bear cub falls silent** · `cub_death`
+![Медвежонок затихает / Bear cub falls silent](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/cub_death_1.ogg)

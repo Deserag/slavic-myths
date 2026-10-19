@@ -1,3 +1,11 @@
+## #61 — Карачун/медвежонок, Игоша отложена
+
+Подготовлена1.9.7.16:3 прежних events/5 новых recorded OGG, одиночный мужской
+шёпот Карачуна и собственные cub reactions. Java/AI/модели не менялись.
+Игоша3 DEFERRED / LOW_PRIORITY / KEEP_CURRENT, bytes сохранены. Активны4 gaps
+оленя/оленихи. Build/gates/install16 ещё NOT_RUN; установлена15.
+[Матрица](audio-review/WHISPER_CUB_19716.md). Hearing/runtime owner pending.
+
 ## #61/#64–#66 — ordinary Волколак и два шёпота Маринки
 
 Установлена тестовая1.9.7.15: обычный VolkolakEntity имеет отдельные реальные rage/howl

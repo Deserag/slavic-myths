@@ -13002,5 +13002,145 @@
     "owner_approved": false,
     "hearing": "NOT_LISTENED",
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "602ca0c9ae222beb857295814f44d0df7c9d6b2f3991e0b2e78df088e2de7cfd",
+    "event": "karachun.voice_whisper",
+    "group": "karachun-recorded-whisper",
+    "ru": "Карачун тихо шепчет",
+    "action": "Karachun whispers quietly",
+    "file": "recorded61/karachun/voice_whisper_1.ogg",
+    "sha256": "deaaa92c04278be696ef6b8dd3cdb27fafbdbf90ce225fd3a5bbe586288fce45",
+    "sources": [
+      {
+        "key": "whisper__sardin_3256.wav",
+        "file": "sources/whisper__sardin_3256.wav",
+        "sha256": "8740184cbfebdf722ac20dc1706d634948ae75bfed3568473149a7bd27d2d215",
+        "license": "CC0-1.0",
+        "author": "Joseph SARDIN & Axeline T.",
+        "page": "https://bigsoundbank.com/whisper-2-s3256.html",
+        "start_sample": 179349
+      }
+    ],
+    "seconds": 1.0099773242630385,
+    "peak_dbfs": -5.1009861269095005,
+    "rms_dbfs": -34.73985616480931,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "ef92876a609a1132b40e7282d022515ad1dc4c59f8ea1c9346b9a897380f09d1",
+    "event": "karachun.voice_whisper",
+    "group": "karachun-recorded-whisper",
+    "ru": "Карачун тихо шепчет",
+    "action": "Karachun whispers quietly",
+    "file": "recorded61/karachun/voice_whisper_2.ogg",
+    "sha256": "ceb965902a268d192e6100932ac4061d1108ba54e770bb275e87c801b7db7f9b",
+    "sources": [
+      {
+        "key": "whisper__sardin_3256.wav",
+        "file": "sources/whisper__sardin_3256.wav",
+        "sha256": "8740184cbfebdf722ac20dc1706d634948ae75bfed3568473149a7bd27d2d215",
+        "license": "CC0-1.0",
+        "author": "Joseph SARDIN & Axeline T.",
+        "page": "https://bigsoundbank.com/whisper-2-s3256.html",
+        "start_sample": 617400
+      }
+    ],
+    "seconds": 1.0099773242630385,
+    "peak_dbfs": -5.448910520208604,
+    "rms_dbfs": -35.082670003595666,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "abead92b92e7265146e52b6d09d4369715feca5719a1274a2f811af987b3f55f",
+    "event": "cub_hurt",
+    "group": "cub-recorded-reactions",
+    "ru": "Медвежонок вскрикивает",
+    "action": "Bear cub cries out",
+    "file": "recorded61/cub_hurt_1.ogg",
+    "sha256": "aa83ac1c5f39ceb0e84e2e06e7b8004b567bc5260dfe11109bdcae7fe5dd05d1",
+    "sources": [
+      {
+        "key": "cub__yle_distress_249442.mp3",
+        "file": "sources/cub__yle_distress_249442.mp3",
+        "sha256": "028ab4dfd9301429fe798c7f7ade73b555d91cf070e5de3bc674091c3884673f",
+        "license": "CC-BY-4.0",
+        "author": "YleArkisto / Yleisradio (Finnish Broadcasting Company)",
+        "page": "https://freesound.org/people/YleArkisto/sounds/249442/",
+        "start_sample": 4851412
+      }
+    ],
+    "seconds": 0.3599546485260771,
+    "peak_dbfs": -9.047706292523408,
+    "rms_dbfs": -23.262193647988703,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "04ba81d6cdbe8685a7e8a6a7786bfc084a2700b8a46b75a1cfb2d87a7d3ad3d3",
+    "event": "cub_hurt",
+    "group": "cub-recorded-reactions",
+    "ru": "Медвежонок вскрикивает",
+    "action": "Bear cub cries out",
+    "file": "recorded61/cub_hurt_2.ogg",
+    "sha256": "4d4c1b4bf1fe5a3d558a0c851768bc5ac9f7c4b55e33b4970a695fdf3e00e4a0",
+    "sources": [
+      {
+        "key": "cub__yle_distress_249442.mp3",
+        "file": "sources/cub__yle_distress_249442.mp3",
+        "sha256": "028ab4dfd9301429fe798c7f7ade73b555d91cf070e5de3bc674091c3884673f",
+        "license": "CC-BY-4.0",
+        "author": "YleArkisto / Yleisradio (Finnish Broadcasting Company)",
+        "page": "https://freesound.org/people/YleArkisto/sounds/249442/",
+        "start_sample": 7100100
+      }
+    ],
+    "seconds": 0.3599546485260771,
+    "peak_dbfs": -12.998861275203522,
+    "rms_dbfs": -23.388925868937047,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "6e803ccada3abdac70d2616619c595d9e3a6485078c140ad61bf040d22b8afba",
+    "event": "cub_death",
+    "group": "cub-recorded-reactions",
+    "ru": "Медвежонок затихает",
+    "action": "Bear cub falls silent",
+    "file": "recorded61/cub_death_1.ogg",
+    "sha256": "adb3d78b65dfc28f7edfecf6b6a80393e2338380c2ed2e47dd0223df68e207af",
+    "sources": [
+      {
+        "key": "cub__yle_distress_249442.mp3",
+        "file": "sources/cub__yle_distress_249442.mp3",
+        "sha256": "028ab4dfd9301429fe798c7f7ade73b555d91cf070e5de3bc674091c3884673f",
+        "license": "CC-BY-4.0",
+        "author": "YleArkisto / Yleisradio (Finnish Broadcasting Company)",
+        "page": "https://freesound.org/people/YleArkisto/sounds/249442/",
+        "start_sample": 10672200
+      }
+    ],
+    "seconds": 0.8599773242630385,
+    "peak_dbfs": -11.534886649722633,
+    "rms_dbfs": -24.557008693672934,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   }
 ]

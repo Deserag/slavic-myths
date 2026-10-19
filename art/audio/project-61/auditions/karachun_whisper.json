@@ -1,0 +1,45 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 24,
+  "sha256": "a165a8a3170150cb176ebf9aebcb17529f669c20a772728504d5d7e9015f16ac",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "karachun.voice_whisper",
+      "label": "Карачун тихо шепчет",
+      "file": "recorded61/karachun/voice_whisper_1.ogg",
+      "sha256": "deaaa92c04278be696ef6b8dd3cdb27fafbdbf90ce225fd3a5bbe586288fce45"
+    },
+    {
+      "time_s": 5,
+      "event": "karachun.voice_whisper",
+      "label": "Карачун тихо шепчет",
+      "file": "recorded61/karachun/voice_whisper_2.ogg",
+      "sha256": "ceb965902a268d192e6100932ac4061d1108ba54e770bb275e87c801b7db7f9b"
+    },
+    {
+      "time_s": 10,
+      "event": "karachun.dark_frost",
+      "label": "Тёмный мороз Карачуна сгущается",
+      "file": "recorded61/karachun/dark_frost_1.ogg",
+      "sha256": "f23aec50d9c456eec772688743e2d36cd0efd04b64643b9d2964b4b35bdfcf79"
+    },
+    {
+      "time_s": 15,
+      "event": "karachun.voice_whisper",
+      "label": "Карачун тихо шепчет",
+      "file": "recorded61/karachun/voice_whisper_1.ogg",
+      "sha256": "deaaa92c04278be696ef6b8dd3cdb27fafbdbf90ce225fd3a5bbe586288fce45"
+    },
+    {
+      "time_s": 20,
+      "event": "karachun.voice_whisper",
+      "label": "Карачун тихо шепчет",
+      "file": "recorded61/karachun/voice_whisper_2.ogg",
+      "sha256": "ceb965902a268d192e6100932ac4061d1108ba54e770bb275e87c801b7db7f9b"
+    }
+  ]
+}

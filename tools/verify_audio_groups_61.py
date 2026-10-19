@@ -4,7 +4,7 @@ import sys,json,hashlib,subprocess,zipfile
 R=Path(__file__).resolve().parents[1];sys.path[:0]=[str(R/'.tools/audio-libs'),str(R/'tools')]
 import soundfile as sf,numpy as np
 from audio_groups_61 import A,P,EVENTS,DELEGATED_PREFIXES
-from audio_groups_61_plan import PLAN,ALIASES,BLOCKED,NEW
+from audio_groups_61_plan import PLAN,ALIASES,BLOCKED,DEFERRED,NEW
 BASE='ee4a40bec4f603e06dd69ee3b35ad4290dfc2389';checks=[]
 def check(ok,msg):
  if not ok:raise AssertionError(msg)
@@ -93,6 +93,6 @@ def main():
   for source in __import__('hero_audio_routes_61').PATHS|__import__('audio_vocal_priority_61').PATHS|__import__('volkolak_hunt_audio_61').PATHS:
    name=source.removeprefix('src/main/java/').removesuffix('.java')+'.class'
    check(z.read(name)==(R/'build/classes/java/main'/name).read_bytes(),'Actual compiled hero callsite packaged '+name)
- report=dict(status='IN_PROGRESS_OWNER_PENDING',baseline=BASE,checks=len(checks),recorded_variants=len(rows),recorded_events=len(PLAN),vanilla_aliases=len(ALIASES),source_gaps=BLOCKED,jar_sha256=sha(jar),runtime='NOT_RUN',hearing='NOT_LISTENED',owner_accepted=False,poly_mc_installed=False)
+ report=dict(status='IN_PROGRESS_OWNER_PENDING',baseline=BASE,checks=len(checks),recorded_variants=len(rows),recorded_events=len(PLAN),vanilla_aliases=len(ALIASES),source_gaps={e:reason for e,reason in BLOCKED.items() if e not in DEFERRED},deferred=DEFERRED,jar_sha256=sha(jar),runtime='NOT_RUN',hearing='NOT_LISTENED',owner_accepted=False,poly_mc_installed=False)
  (P/'gates.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print(json.dumps({k:v for k,v in report.items() if k!='source_gaps'},indent=2))
 if __name__=='__main__':main()

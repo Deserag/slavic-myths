@@ -7,6 +7,8 @@ import numpy as np,soundfile as sf
 from audio_60_foley import encode,RATE,stable_text
 P=R/'art/audio/project-61';A=R/'src/main/resources/assets/slavicmyths/sounds'
 SEQUENCES={
+ 'karachun_whisper':[(0,'karachun.voice_whisper',1),(5,'karachun.voice_whisper',2),(10,'karachun.dark_frost',1),(15,'karachun.voice_whisper',1),(20,'karachun.voice_whisper',2)],
+ 'cub_reactions':[(0,'cub_hurt',1),(5,'cub_hurt',2),(10,'cub_death',1),(16,'cub_hurt',1),(20,'cub_death',1)],
  'marinka_whispers':[(0,'marinka.witch_whisper_01',1),(5,'marinka.witch_whisper_02',1),(9,'marinka.cloth_step_01',1),(12,'marinka.trace_hex_01',1),(16,'marinka.witch_whisper_02',1),(20,'marinka.witch_whisper_01',1)],
  'ordinary_volkolak':[(0,'volkolak_hunt_rage',1),(5,'volkolak_hunt_rage',2),(10,'volkolak_hunt_howl',1),(16,'volkolak_hunt_rage',1),(20,'volkolak_hunt_howl',1)],
  'morozko_material':[(0,'morozko.ambient',1),(4,'morozko.step',1),(6,'morozko.blizzard_start',1),(10,'morozko.blizzard_loop',1),(15,'morozko.spike_telegraph',1),(18,'morozko.breath',1),(22,'morozko.wave',1),(25,'morozko.clone_spawn',1),(28,'morozko.yield',1)],

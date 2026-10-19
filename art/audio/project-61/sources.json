@@ -3667,5 +3667,31 @@
     "sha256": "b41ad0a0ab0d9a8b473056c6448771f8b95289984f2afb62f8500b78bc6ba8a4",
     "processing": "Official HQ MP3 preview unchanged; author layered own recorded whispers, not a synthesized voice",
     "curation": "Adult female performer whispering nonsense and dark phrases; indistinct layered witch spell, not Russian dialogue or claimed word transcription; owner hearing pending"
+  },
+  {
+    "key": "whisper__sardin_3256.wav",
+    "file": "sources/whisper__sardin_3256.wav",
+    "author": "Joseph SARDIN & Axeline T.",
+    "page": "https://bigsoundbank.com/whisper-2-s3256.html",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verified_date": "2026-10-19",
+    "download": "https://bigsoundbank.com/UPLOAD/bwf-en/3256.wav",
+    "sha256": "8740184cbfebdf722ac20dc1706d634948ae75bfed3568473149a7bd27d2d215",
+    "processing": "Original studio mono WAV,48kHz24bit; no chorus, no synthesized voice",
+    "curation": "Single real male whisper, Joseph recording himself; low restrained voice gesture, not claimed Russian dialogue. Final timbre/hearing owner pending"
+  },
+  {
+    "key": "cub__yle_distress_249442.mp3",
+    "file": "sources/cub__yle_distress_249442.mp3",
+    "author": "YleArkisto / Yleisradio (Finnish Broadcasting Company)",
+    "page": "https://freesound.org/people/YleArkisto/sounds/249442/",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "verified_date": "2026-10-19",
+    "download": "https://cdn.freesound.org/previews/249/249442_4415905-hq.mp3",
+    "sha256": "028ab4dfd9301429fe798c7f7ade73b555d91cf070e5de3bc674091c3884673f",
+    "processing": "Official HQ MP3 preview preserved unchanged, not original tape/WAV",
+    "curation": "Actual distressed bear cub crying/yelling, with mother and stream background; Skansen Sweden1975-03-02, Nagra analog recording. Reaction interpretation in game, not recording of death. Attribution and changed crops in packaged credits"
   }
 ]

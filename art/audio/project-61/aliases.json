@@ -29,18 +29,6 @@
     "target": "entity.polar_bear.ambient_baby",
     "reason": "Baby-specific ambient recording; hurt/death adult-family fallback remains a child-timbre review item"
   },
-  "cub_hurt": {
-    "group": "world",
-    "event": "cub_hurt",
-    "target": "entity.polar_bear.hurt",
-    "reason": "Baby-specific ambient recording; hurt/death adult-family fallback remains a child-timbre review item"
-  },
-  "cub_death": {
-    "group": "world",
-    "event": "cub_death",
-    "target": "entity.polar_bear.death",
-    "reason": "Baby-specific ambient recording; hurt/death adult-family fallback remains a child-timbre review item"
-  },
   "wolf_ambient": {
     "group": "world",
     "event": "wolf_ambient",

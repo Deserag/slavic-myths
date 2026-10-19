@@ -524,8 +524,12 @@
     "subtitle": "subtitles.slavicmyths.cub_hurt",
     "sounds": [
       {
-        "name": "minecraft:entity.polar_bear.hurt",
-        "type": "event"
+        "name": "slavicmyths:recorded61/cub_hurt_1",
+        "attenuation_distance": 16
+      },
+      {
+        "name": "slavicmyths:recorded61/cub_hurt_2",
+        "attenuation_distance": 16
       }
     ]
   },
@@ -533,8 +537,8 @@
     "subtitle": "subtitles.slavicmyths.cub_death",
     "sounds": [
       {
-        "name": "minecraft:entity.polar_bear.death",
-        "type": "event"
+        "name": "slavicmyths:recorded61/cub_death_1",
+        "attenuation_distance": 16
       }
     ]
   },
@@ -7275,7 +7279,16 @@
   },
   "karachun.voice_whisper": {
     "subtitle": "subtitle.slavicmyths.karachun.voice_whisper",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/karachun/voice_whisper_1",
+        "attenuation_distance": 24
+      },
+      {
+        "name": "slavicmyths:recorded61/karachun/voice_whisper_2",
+        "attenuation_distance": 24
+      }
+    ]
   },
   "karachun.scythe_windup": {
     "subtitle": "subtitle.slavicmyths.karachun.scythe_windup",

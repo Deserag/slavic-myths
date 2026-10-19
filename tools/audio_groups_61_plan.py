@@ -1,5 +1,5 @@
 """Curated semantic choices. No filename-driven automatic replacement of voices."""
-PLAN={};ALIASES={};BLOCKED={};NEW=set()
+PLAN={};ALIASES={};BLOCKED={};DEFERRED={};NEW=set()
 def add(group,event,sources,ru,en,cap=.6,rms=.08,**kw):
  assert event not in PLAN and event not in ALIASES
  PLAN[event]=dict(group=group,event=event,sources=sources,ru=ru,en=en,cap=cap,rms=rms,**kw)
@@ -566,3 +566,21 @@ for cue,start,end,cap,rms,ru,en in [
  ('witch_whisper_02',6.2,6.9,.65,.055,'Маринка шепчет заклятие','Marinka whispers a hex')]:
  event='marinka.'+cue;BLOCKED.pop(event)
  add('marinka-recorded-whisper',event,[dict(key='whisper__bluesiren_377743.mp3',start=start,end=end)],ru,en,cap,rms,radius=14 if cue.endswith('01') else 24)
+
+# Owner decision2026-10-19: preserve every existing Igosha file/event, not fixed
+# and not disabled anew. Keep IDs in canonical scope, but exclude active backlog.
+for suffix in ['ambient','hurt','death']:
+ event='igosha_'+suffix
+ DEFERRED[event]='DEFERRED / LOW_PRIORITY / KEEP_CURRENT: owner2026-10-19; existing audio satisfactory, not a claim that source gap is solved.'
+ BLOCKED[event]=DEFERRED[event]
+BLOCKED.pop('karachun.voice_whisper')
+add('karachun-recorded-whisper','karachun.voice_whisper',[dict(key='whisper__sardin_3256.wav',start=4,end=5.1),dict(key='whisper__sardin_3256.wav',start=14,end=15.1)],'Карачун тихо шепчет','Karachun whispers quietly',1.0,.035,radius=24)
+
+# Actual distressed cub calls from the Yle archive, not adult bear pitch shifts.
+# Terminal cue is an artistic interpretation of a separate recorded cry; the
+# archive does not depict an animal dying and no such claim is made.
+for event,sources,cap,rms,ru,en in [
+ ('cub_hurt',[dict(key='cub__yle_distress_249442.mp3',start=110,end=110.4),dict(key='cub__yle_distress_249442.mp3',start=161,end=161.4)],.35,.07,'Медвежонок вскрикивает','Bear cub cries out'),
+ ('cub_death',[dict(key='cub__yle_distress_249442.mp3',start=242,end=243)],.85,.06,'Медвежонок затихает','Bear cub falls silent')]:
+ BLOCKED.pop(event);ALIASES.pop(event)
+ add('cub-recorded-reactions',event,sources,ru,en,cap,rms,radius=16)

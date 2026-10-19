@@ -4,7 +4,7 @@ import sys,json,hashlib,subprocess
 R=Path(__file__).resolve().parents[1];sys.path.insert(0,str(R/'.tools/audio-libs'))
 import numpy as np,soundfile as sf
 from audio_60_foley import encode,stable_text,RATE
-from audio_groups_61_plan import PLAN,ALIASES,BLOCKED,NEW
+from audio_groups_61_plan import PLAN,ALIASES,BLOCKED,DEFERRED,NEW
 A=R/'src/main/resources/assets/slavicmyths';P=R/'art/audio/project-61'
 EVENTS=set(PLAN)|set(ALIASES)|set(BLOCKED)
 DELEGATED_PREFIXES=('domovoy_','leshy_','kikimora_','polevik_','poludnitsa_','bannik_','igosha_','vodyanoy_','nochnitsa.','doghead.')
@@ -73,7 +73,7 @@ def restore_selected():
    texts['ru_ru'][subtitle]='Шаги зверя';texts['en_us'][subtitle]='Animal footsteps'
  # Only specifically rejected/unresolved cues are disabled, never silently restored.
  for event,reason in BLOCKED.items():
-  if event not in ALIASES:events[event]['sounds']=[]
+  if event not in ALIASES and event not in DEFERRED:events[event]['sounds']=[]
  from audio_resource_names_61 import qualified
  events=qualified(events)
  stable_text(A/'sounds.json',json.dumps(events,ensure_ascii=False,indent=2)+'\n')
@@ -86,7 +86,8 @@ def restore_selected():
  stable_text(license_dir/'project-61.txt','\n'.join(credits)+'\n')
  stable_text(P/'selection.json',json.dumps(rows,ensure_ascii=False,indent=2)+'\n')
  stable_text(P/'aliases.json',json.dumps(ALIASES,ensure_ascii=False,indent=2)+'\n');stable_text(P/'blocked.json',json.dumps(BLOCKED,ensure_ascii=False,indent=2)+'\n')
+ stable_text(P/'deferred.json',json.dumps(DEFERRED,ensure_ascii=False,indent=2)+'\n')
  return rows
 
 if __name__=='__main__':
- rows=restore_selected();print(f'{len(rows)} recorded variants / {len(PLAN)} events; {len(ALIASES)} semantic vanilla references; {len(BLOCKED)} explicit source gaps. OWNER_PENDING.')
+ rows=restore_selected();print(f'{len(rows)} recorded variants / {len(PLAN)} events; {len(ALIASES)} semantic vanilla references; {len(BLOCKED)-len(DEFERRED)} active source gaps / {len(DEFERRED)} owner-deferred. OWNER_PENDING.')

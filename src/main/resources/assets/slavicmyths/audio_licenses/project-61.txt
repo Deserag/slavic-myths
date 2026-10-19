@@ -89,6 +89,7 @@ creature__monster_07.ogg: rubberduck; https://opengameart.org/content/80-cc0-cre
 creature__roar_01.ogg: rubberduck; https://opengameart.org/content/80-cc0-creature-sfx; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 creature__roar_03.ogg: rubberduck; https://opengameart.org/content/80-cc0-creature-sfx; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 creature__troll_01.ogg: rubberduck; https://opengameart.org/content/80-cc0-creature-sfx; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
+cub__yle_distress_249442.mp3: YleArkisto / Yleisradio (Finnish Broadcasting Company); https://freesound.org/people/YleArkisto/sounds/249442/; CC-BY-4.0; https://creativecommons.org/licenses/by/4.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 cymbal__mirko_175932.mp3: MirkoMeter84; https://freesound.org/people/MirkoMeter84/sounds/175932/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 davor__breathing_346932.mp3: dav0r; https://freesound.org/people/dav0r/sounds/346932/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 deer__351113_4790684-hq.mp3: msantoro11; https://freesound.org/people/msantoro11/sounds/351113/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
@@ -217,6 +218,7 @@ water__splash_10.ogg: rubberduck; https://opengameart.org/content/40-cc0-water-s
 water__splash_11.ogg: rubberduck; https://opengameart.org/content/40-cc0-water-splash-slime-sfx; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 water__splash_12.ogg: rubberduck; https://opengameart.org/content/40-cc0-water-splash-slime-sfx; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 whisper__bluesiren_377743.mp3: BlueSiren; https://freesound.org/people/BlueSiren/sounds/377743/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
+whisper__sardin_3256.wav: Joseph SARDIN & Axeline T.; https://bigsoundbank.com/whisper-2-s3256.html; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 wind__felix_blume_234000.mp3: felix.blume; https://freesound.org/people/felix.blume/sounds/234000/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 wind__wind.wav: remaxim; https://opengameart.org/content/short-wind-sound; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 wings__wings_flap_large.flac: AntumDeluge / dave.des; https://opengameart.org/content/large-wings-flap; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.

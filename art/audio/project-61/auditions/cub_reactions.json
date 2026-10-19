@@ -1,0 +1,45 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 24,
+  "sha256": "67cf86f14d3306e604c1d24fbff78145e30fa55145ef8864ed92fc5761b6a1d9",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "cub_hurt",
+      "label": "Медвежонок вскрикивает",
+      "file": "recorded61/cub_hurt_1.ogg",
+      "sha256": "aa83ac1c5f39ceb0e84e2e06e7b8004b567bc5260dfe11109bdcae7fe5dd05d1"
+    },
+    {
+      "time_s": 5,
+      "event": "cub_hurt",
+      "label": "Медвежонок вскрикивает",
+      "file": "recorded61/cub_hurt_2.ogg",
+      "sha256": "4d4c1b4bf1fe5a3d558a0c851768bc5ac9f7c4b55e33b4970a695fdf3e00e4a0"
+    },
+    {
+      "time_s": 10,
+      "event": "cub_death",
+      "label": "Медвежонок затихает",
+      "file": "recorded61/cub_death_1.ogg",
+      "sha256": "adb3d78b65dfc28f7edfecf6b6a80393e2338380c2ed2e47dd0223df68e207af"
+    },
+    {
+      "time_s": 16,
+      "event": "cub_hurt",
+      "label": "Медвежонок вскрикивает",
+      "file": "recorded61/cub_hurt_1.ogg",
+      "sha256": "aa83ac1c5f39ceb0e84e2e06e7b8004b567bc5260dfe11109bdcae7fe5dd05d1"
+    },
+    {
+      "time_s": 20,
+      "event": "cub_death",
+      "label": "Медвежонок затихает",
+      "file": "recorded61/cub_death_1.ogg",
+      "sha256": "adb3d78b65dfc28f7edfecf6b6a80393e2338380c2ed2e47dd0223df68e207af"
+    }
+  ]
+}
