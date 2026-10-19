@@ -43,7 +43,7 @@ SPIN/recovery. Ракурс, масштаб, PNG и age одинаковы. GIF1
 | Grounded stance/flat sole/no slide/grip; Лихо без изменений | verifyTugarin56; gates-19718.json | PASS_OFFLINE |
 | Серверные тайминги/AI/NBT, исходные art/audio | scoped source gate | PASS_OFFLINE |
 | Java21 clean build, native fixture и production JAR | TEST_PREVIEW_BUILD.json | PASS_OFFLINE |
-| Тестовый PolyMC с backup/SHA/one active JAR | TEST_PREVIEW_1.9.7.18.json + VERIFY.json | NOT_RUN |
+| Тестовый PolyMC с backup/SHA/one active JAR | TEST_PREVIEW_1.9.7.18.json + VERIFY.json | PASS_INSTALLED_TEST_PREVIEW |
 | Пластика/естественность/игровая анимация и звук | Только ручная приёмка владельца | NOT_RUN |
 
 Проверить владельцу: три удара вращения, опорные шаги, возврат в стойку;
@@ -52,7 +52,18 @@ combo и рывок; переход во вторую фазу, пикирова
 Численные проверки не заменяют восприятие пластики и веса в игре.
 
 Java21 clean build2m PASS, source main3d4ff858; нативные84 позы×4 формы
-и scoped JAR gate PASS. См. NATIVE_BUILD_19718.log, gates-19718.json.
+и scoped JAR gate PASS. См. NATIVE_BUILD_19718.txt, gates-19718.json.
 При просмотре source-сравнения проверены реальные контакты16/28/40: ведущий
 клинок больше не остаётся у лица, руки имеют разные траектории и согнутые локти.
 Это source-проверка постановки, не утверждение о принятом качестве в игре.
+
+Installed JAR: `C:\Users\pavel\AppData\Roaming\PolyMC\instances\Slavic-Myths-1.21.1-Testing\.minecraft\mods\slavicmyths-1.9.7.18.jar`.
+
+SHA256 `d1ab17f1eb3e579cc9fddd3ff3035ac1ef37bf06dd466cba7c7aa6f77a811aee`.
+
+Backup17/config: `C:\Users\pavel\AppData\Roaming\PolyMC\instances\Slavic-Myths-1.21.1-Testing\.slavicmyths-backups\pre-audio-1.9.7.18-20261019-165703Z`.
+
+Selected verified main384cd496, compiled3d4ff858: production-identical src tree
+`efc1d2d580e1d5794a952dc406d9e1fc5136ddc0` и gradle.properties. Backup/SHA/version/one active JAR
+перепроверены независимо от установщика. Minecraft/PolyMC/server/GameTest запусков0.
+Финальное качество пластики/боёвки в игре остаётся NOT_RUN до оценки владельцем.

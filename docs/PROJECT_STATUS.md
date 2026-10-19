@@ -4,7 +4,9 @@
 Тугарин1.9.7.18 IN_PROGRESS: опорные ноги/корпус/клинки и инерция, source-показ
 до/после текущей17, серверные hit ticks/AI/NBT и ресурсы сохранены.
 [Матрица #56](implementation/tugarin-56/ITERATION_19718.md). Java21 clean build2m + native/scoped gates PASS; compiled3d4ff858.
-Нативные до/после и GIF сохранены; PolyMC installation пока NOT_RUN.
+Нативные до/после и GIF сохранены; PolyMC1.9.7.18 INSTALLED_TEST_PREVIEW.
+Backup17/config/SHA/one active JAR PASS; selected384cd496 production-identical
+к compiled3d4ff858. Owner visual/runtime NOT_RUN.
 Minecraft не запускать; финальная приёмка владельцем.
 
 ## #61 — реакции оленя и оленихи, 1.9.7.17 IN_PROGRESS

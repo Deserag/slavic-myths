@@ -1,0 +1,17 @@
+{
+  "status": "VERIFIED_TEST_PREVIEW_VISUAL_OWNER_PENDING",
+  "source_commit": "384cd496b950b6bfb2a5893f07102503835bf261",
+  "compiled_from_commit": "3d4ff85873d0311710a06466178dd4f4df8b21db",
+  "production_tree_identical_to_compiled_commit": true,
+  "production_src_tree": "efc1d2d580e1d5794a952dc406d9e1fc5136ddc0",
+  "version": "1.9.7.18",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.18.jar",
+  "jar_sha256": "d1ab17f1eb3e579cc9fddd3ff3035ac1ef37bf06dd466cba7c7aa6f77a811aee",
+  "clean_build": "PASS",
+  "build_log": ".tools/tugarin-19718-final-native.log",
+  "build_duration": "2m",
+  "native": "PASS_84_SAMPLES_4_FORMS",
+  "scoped_jar_gate": "PASS",
+  "runtime_launches": 0,
+  "owner_accepted": false
+}

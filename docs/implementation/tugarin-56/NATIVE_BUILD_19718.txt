@@ -1,0 +1,22 @@
+> Task :jarJar NO-SOURCE
+> Task :jar
+> Task :assemble
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+> Task :compileTugarinModelOfflineJava
+> Task :processTugarinModelOfflineResources NO-SOURCE
+> Task :tugarinModelOfflineClasses
+
+> Task :verifyTugarin56
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+TUGARIN_56_NATIVE PASS checks=953451 forms=4 poses=84; no world/bootstrap
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 2m
+8 actionable tasks: 8 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html
