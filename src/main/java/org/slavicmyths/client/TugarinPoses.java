@@ -92,7 +92,12 @@ final class TugarinPoses {
   for(String side:new String[]{"L","R"}){
    float sign=side.equals("L")?1:-1,offset=sign>0?0:3;
    float wx,wz,lift=0,footYaw;
-   if(t<16){wx=sign*(10-7*prep);wz=0;footYaw=sign*.12F*prep;}
+   if(t<16){
+    // Wide brace first, then cross-step into the central pivot one foot at a time.
+    float step=side.equals("L")?(t<8?ease(t/8):ease((t-12)/4)):ease((t-8)/4);
+    wx=side.equals("L")?(t<8?Mth.lerp(step,10,12):Mth.lerp(step,12,3)):-Mth.lerp(step,10,3);
+    lift=2.1F*sin(Mth.PI*step);wz=0;footYaw=sign*.12F*sin(Mth.PI*ease(t/16));
+   }
    else if(recovery>0){
     float step=ease((recovery-(sign>0?0:12))/12);
     float endAngle=spinYaw(sign>0?52:49);
