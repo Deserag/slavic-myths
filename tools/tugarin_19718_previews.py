@@ -2,7 +2,7 @@
 from pathlib import Path
 from PIL import Image,ImageDraw
 import json,gzip,io,subprocess,math
-from grey_wolf_54_previews import draw
+from native_pose_preview_56 import draw
 R=Path(__file__).resolve().parents[1];OUT=R/'docs/implementation/tugarin-56'
 def main():
  before=json.loads(gzip.decompress((OUT/'before-19718-native.json.gz').read_bytes()));after=json.loads(gzip.decompress((R/'build/tugarin-56/after-native.json.gz').read_bytes()))

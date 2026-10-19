@@ -38,6 +38,7 @@ def main():
   check(not any('org/slavicmyths/verify/' in key for key in z.namelist()),'No native fixtures in production')
   for c in (R/'build/classes/java/main/org/slavicmyths/client').glob('TugarinPoses*.class'):
    check(z.read(c.relative_to(R/'build/classes/java/main').as_posix())==c.read_bytes(),'Actual revised compiled pose class packaged')
+   check(int.from_bytes(c.read_bytes()[6:8],'big')==65,'Actual Java21 class version')
  report=dict(status='IN_PROGRESS_OWNER_QA_PENDING',baseline=BASE,version=version,checks=len(checks),evidence=checks,native_samples_per_form=84,forms=4,server='UNCHANGED',resources_and_audio='UNCHANGED',source_before_sha256=sha(O/'before-19718-native.json.gz'),source_after_sha256=sha(O/'after-19718-native.json.gz'),jar_sha256=sha(jar),runtime='NOT_RUN',owner_accepted=False)
  (O/'gates-19718.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8');print(json.dumps(report,indent=2))
 if __name__=='__main__':main()

@@ -67,6 +67,18 @@ public final class Tugarin56Offline {
     model.sample(Move.SPIN,100,Move.IDLE,0,0,0,0,0,0,20,0,0);check(Math.abs(parts.get("pelvis").yRot-3*Math.PI*2)<.001,"No fourth revolution during delayed sync");
     for(int tick=0;tick<52;tick++)supports(model,parts,Move.SPIN,tick,0,0);
     if(Boolean.getBoolean("slavicmyths.tugarin56Timeline")){
+     for(int tick:new int[]{16,28,40}){
+      String side=tick==28?"L":"R";model.sample(Move.SPIN,tick,Move.IDLE,0,0,0,0,0,0,20,0,0);
+      var hand=chain(parts,"root","pelvis","body","arm"+side,"fore"+side,"wrist"+side).last().pose().transformPosition(new Vector3f()).mul(16);
+      check(hand.x*hand.x+hand.z*hand.z>28*28,"Leading weapon leaves face guard at hit "+tick);
+      check(Math.abs(parts.get("fore"+side).xRot)<1.2F&&Math.abs(parts.get("arm"+side).zRot)<1.4F,"Bent striking elbow, no horizontal T-pose "+tick);
+     }
+     model.sample(Move.CHARGE,10.25F,Move.IDLE,0,0,0,0,0,0,20,0,0);
+     float start=chain(parts,"root","pelvis","legR","kneeR","ankleR").last().pose().transformPosition(new Vector3f(0,.25F,0)).z*16;
+     model.sample(Move.CHARGE,10.5F,Move.IDLE,0,0,0,0,0,0,20,0,0);
+     float end=chain(parts,"root","pelvis","legR","kneeR","ankleR").last().pose().transformPosition(new Vector3f(0,.25F,0)).z*16;
+     check(Math.abs(end-start-3.2F)<.02F,"Dash stance boot cancels unchanged .8block/tick movement");
+
      for(float tick=16;tick<51;tick+=.5F)for(String side:List.of("L","R")){
       float local=(tick-16-(side.equals("L")?0:3))%6;if(local<0)local+=6;
       if(local>2.4F)continue;

@@ -129,12 +129,12 @@ final class TugarinPoses {
     lift=2.3F*sin(Mth.PI*travel);footYaw=angle;
    }
    plant(p,side,wx,wz,lift,footYaw);
-   float hand=side.equals("R")?1:-1,arc=sin(phase+(hand>0?0:Mth.PI));
+   float hand=side.equals("R")?1:-1,arc=Mth.cos(phase*.5F+(hand>0?0:Mth.PI))*(1-.85F*brake);
    float drive=active*(1-.45F*brake)*fade;
-   p.get("arm"+side).yRot=hand*(-.45F*prep+.7F*arc*active)*fade;
-   rx(p,"arm"+side,(-.75F*prep+(hand>0?-.35F:.18F)*prep-.4F*arc*active)*fade);
-   rz(p,"arm"+side,hand*(.28F*prep+.35F*(.5F+.5F*arc)*active)*fade);
-   rx(p,"fore"+side,-(1.05F*prep-.42F*arc*active+.2F*brake)*fade);
+   p.get("arm"+side).yRot=hand*(-.25F*prep+.45F*arc*active)*fade;
+   rx(p,"arm"+side,(-.55F*prep-hand*.05F*prep-.35F*arc*active)*fade);
+   rz(p,"arm"+side,hand*(.25F*prep+.6F*(.5F+.5F*arc)*active)*fade);
+   rx(p,"fore"+side,-(1.0F*prep-.65F*arc*active+.1F*brake)*fade);
    p.get("fore"+side).yRot=hand*.12F*arc*drive;
    rx(p,"wrist"+side,(-.18F*prep+.24F*arc*active)*fade);
    p.get("wrist"+side).yRot=hand*(.2F*arc*drive-.12F*brake*fade);
