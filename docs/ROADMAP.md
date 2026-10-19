@@ -1,3 +1,13 @@
+## Обновление тестового PolyMC 1.9.7.19 — 19.10.2026
+
+По запросу владельца установлен текущий main23a23441 в тестовый PolyMC.
+Production src/main совпадает с1.9.7.18; версия повышена, удалённые владельцем
+планы future/ сохранены удалёнными и опубликованы. Java21 clean build PASS1m23s;
+JSON/resources и compiled classes проверены на совпадение с production JAR.
+Backup/SHA/один активный JAR PASS; миры и1.16.5 не изменены, запусков0.
+INSTALLED_TEST_PREVIEW / OWNER_PENDING; Issues не закрываются.
+[Матрица и акт](implementation/consolidated-19719/REPORT.md).
+
 ## Приоритет владельца: визуал #56, затем #46, #54/#55
 
 #61–#66 сохранены OPEN/OWNER_PENDING; массовые аудиоаудиты остановлены.

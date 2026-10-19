@@ -1,0 +1,7 @@
+{
+  "checks": 9097,
+  "jar_sha256": "28b01fe9bca6183e990c7b9286edc29ed5d532618963dc06e1c3266f730a2b78",
+  "status": "PASS",
+  "scope": "JSON/resource and compiled class JAR parity; unchanged production source",
+  "runtime": "NOT_RUN"
+}
