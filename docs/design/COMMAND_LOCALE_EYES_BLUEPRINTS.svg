@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1070" viewBox="0 0 1536 1070"><rect width="1536" height="1070" fill="#171a1d"/><style>text{font-family:DejaVu Sans,sans-serif;fill:#e9e4d9}.h{font-size:23px;font-weight:bold}.sm{font-size:16px}.small{font-size:14px;fill:#bec7c5}</style>
+<rect x="14" y="15" width="740" height="496" rx="5" fill="#22282c" stroke="#8b825f" stroke-width="2"/>
+<text x="32" y="52" class="h">#73 — СООБЩЕНИЯ: ПРОВЕРКА В ИГРЕ</text>
+<rect x="36" y="85" width="690" height="102" rx="5" fill="#3a2926" stroke="#c07370" stroke-width="2"/>
+<text x="51" y="117" class="sm">БЫЛО (кривой UTF-8):</text>
+<text x="51" y="151" class="sm">РќРµ С…РІР°С‚Р°РµС‚ …</text>
+<path d="M377 189 L377 221" stroke="#cbac73" stroke-width="3"/>
+<rect x="36" y="231" width="690" height="130" rx="5" fill="#293c34" stroke="#83aa7c" stroke-width="2"/>
+<text x="51" y="266" class="sm">СТАЛО:</text>
+<text x="51" y="302" class="sm">Недостаточно места для размещения.</text>
+<text x="51" y="332" class="sm">Выберите другую область.</text>
+<text x="40" y="408" class="small">Success: действие завершено, что создано.</text>
+<text x="40" y="441" class="small">Failure: причина + как исправить.</text>
+<text x="40" y="474" class="small">RU/EN placeholders без поломки.</text>
+<rect x="782" y="15" width="740" height="496" rx="5" fill="#22282c" stroke="#8b825f" stroke-width="2"/>
+<text x="800" y="52" class="h">#74 — КОМАНДЫ: ЕДИНЫЙ СИНТАКСИС</text>
+<rect x="805" y="80" width="694" height="67" rx="5" fill="#303935" stroke="#aec19d" stroke-width="2"/>
+<text x="825" y="121" class="h">/slavicmyths</text>
+<rect x="853" y="180" width="600" height="65" rx="5" fill="#283c39" stroke="#7dac90" stroke-width="2"/>
+<text x="868" y="221" class="sm">help / navigation / gameplay</text>
+<path d="M1120 147 L1120 180" stroke="#cbac73" stroke-width="3"/>
+<rect x="853" y="285" width="600" height="65" rx="5" fill="#3d312c" stroke="#a78964" stroke-width="2"/>
+<text x="868" y="326" class="sm">dev → info / debug</text>
+<path d="M1120 245 L1120 285" stroke="#cbac73" stroke-width="3"/>
+<rect x="853" y="390" width="600" height="65" rx="5" fill="#3d312c" stroke="#a78964" stroke-width="2"/>
+<text x="868" y="431" class="sm">dev → world change / reset</text>
+<path d="M1120 350 L1120 390" stroke="#cbac73" stroke-width="3"/>
+<text x="836" y="486" class="small">Игрок / OP / консоль: доступ различается!</text>
+<rect x="14" y="536" width="1508" height="519" rx="5" fill="#22282c" stroke="#8b825f" stroke-width="2"/>
+<text x="32" y="576" class="h">#80 — ОТСУТСТВУЮЩИЕ ГЛАЗА: ЭТАЛОН 4 ПРОВЕРОК</text>
+<rect x="31" y="602" width="353" height="374" rx="5" fill="#263038" stroke="#5f7891" stroke-width="2"/>
+<text x="46" y="637" class="small">ЛИЦО / ДВА ГЛАЗА</text>
+<ellipse cx="207" cy="786" rx="106" ry="117" fill="#4d5155" stroke="#818080" stroke-width="6"/>
+<ellipse cx="158" cy="775" rx="32" ry="20" fill="#2c2b32"/><ellipse cx="257" cy="775" rx="32" ry="20" fill="#2c2b32"/><circle cx="161" cy="772" r="8" fill="#f6cb75"/><circle cx="260" cy="772" r="8" fill="#f6cb75"/>
+<text x="53" y="932" class="small">Никакой пустой UV-области</text>
+<rect x="403" y="602" width="353" height="374" rx="5" fill="#263038" stroke="#5f7891" stroke-width="2"/>
+<text x="418" y="637" class="small">ПРОФИЛЬ / 1 ВИДИМ</text>
+<ellipse cx="579" cy="786" rx="106" ry="117" fill="#4d5155" stroke="#818080" stroke-width="6"/>
+<ellipse cx="620" cy="780" rx="30" ry="17" fill="#282b2e"/><circle cx="630" cy="781" r="7" fill="#f6cb75"/>
+<text x="425" y="932" class="small">Никакой пустой UV-области</text>
+<rect x="775" y="602" width="353" height="374" rx="5" fill="#263038" stroke="#5f7891" stroke-width="2"/>
+<text x="790" y="637" class="small">СВЕТ / КОНТРАСТ</text>
+<ellipse cx="951" cy="786" rx="106" ry="117" fill="#4d5155" stroke="#818080" stroke-width="6"/>
+<ellipse cx="902" cy="775" rx="32" ry="20" fill="#2c2b32"/><ellipse cx="1001" cy="775" rx="32" ry="20" fill="#2c2b32"/><circle cx="905" cy="772" r="8" fill="#f6cb75"/><circle cx="1004" cy="772" r="8" fill="#f6cb75"/>
+<text x="797" y="932" class="small">Никакой пустой UV-области</text>
+<rect x="1147" y="602" width="353" height="374" rx="5" fill="#263038" stroke="#5f7891" stroke-width="2"/>
+<text x="1162" y="637" class="small">ТЕМНОТА / КОРРЕКТНЫЙ LAYER</text>
+<ellipse cx="1323" cy="786" rx="106" ry="117" fill="#4d5155" stroke="#818080" stroke-width="6"/>
+<ellipse cx="1274" cy="775" rx="32" ry="20" fill="#2c2b32"/><ellipse cx="1373" cy="775" rx="32" ry="20" fill="#2c2b32"/><circle cx="1277" cy="772" r="8" fill="#f6cb75"/><circle cx="1376" cy="772" r="8" fill="#f6cb75"/>
+<text x="1169" y="932" class="small">Без белых пятен в темноте</text>
+<text x="23" y="1042" class="small">Имя entity по исходникам сначала подтвердить. Это UV/renderer smoke sheet, а не готовая модель.</text>
+</svg>
