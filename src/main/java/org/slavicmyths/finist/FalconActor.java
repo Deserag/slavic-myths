@@ -23,7 +23,8 @@ public abstract class FalconActor extends PathfinderMob {
  public void face(LivingEntity e){setYRot((float)Math.toDegrees(Math.atan2(e.getZ()-getZ(),e.getX()-getX()))-90);yBodyRot=getYRot();getLookControl().setLookAt(e,25,20);}
  public double edge(LivingEntity e){return Math.max(0,Math.sqrt(e.getBoundingBox().distanceToSqr(position()))-getBbWidth()/2);}
  public boolean cone(LivingEntity e,double r,double angle){var d=e.position().subtract(position()).multiply(1,0,1);return edge(e)<=r&&(d.lengthSqr()<.01||d.normalize().dot(heading())>=Math.cos(Math.toRadians(angle/2)));}
- public void cue(String k){if(!level().isClientSide)playSound(FinistContent.sound(k),.8F,.96F+random.nextFloat()*.08F);}
+ private int swordVoiceVariation;
+ public void cue(String k){if(!level().isClientSide){if(k.equals("entity.finist.sword_swing_1"))k="entity.finist.sword_swing_"+((swordVoiceVariation++&1)+1);playSound(FinistContent.sound(k),.8F,.96F+random.nextFloat()*.08F);}}
  @Override protected void registerGoals(){goalSelector.addGoal(0,new net.minecraft.world.entity.ai.goal.FloatGoal(this));}
  @Override public boolean removeWhenFarAway(double d){return false;}
  @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);var c=new CompoundTag();cooldowns.forEach(c::putLong);n.put("FalconCooldowns",c);n.putString("FalconAction",action().name());}

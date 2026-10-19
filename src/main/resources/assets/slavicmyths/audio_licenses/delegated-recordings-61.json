@@ -1628,6 +1628,74 @@
           }
         ]
       }
+    ],
+    "nochnitsa.ambient": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/ambient_1",
+        "sha256": "18d12e332ce2a12cd65e17fb22d19894754edaaad4a7d1043ee3ee1944625b64",
+        "sources": [
+          {
+            "key": "owlstorm__female_breathing_151206.mp3",
+            "file": "sources/owlstorm__female_breathing_151206.mp3",
+            "sha256": "e509b1ff3165b79de03a71940e390f8c51c30dcd604641c3b841d62d6605da55",
+            "license": "CC0-1.0",
+            "author": "OwlStorm / Ashe Kirk / Owlish Media",
+            "page": "https://freesound.org/people/OwlStorm/sounds/151206/",
+            "start_sample": 392490
+          }
+        ]
+      }
+    ],
+    "nochnitsa.breath": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/breath_1",
+        "sha256": "94dd5e28f6ce8d938ab9ec40e548d1b79f1bc7f8b4e20f13bfd42d32411da5b3",
+        "sources": [
+          {
+            "key": "owlstorm__female_breathing_151206.mp3",
+            "file": "sources/owlstorm__female_breathing_151206.mp3",
+            "sha256": "e509b1ff3165b79de03a71940e390f8c51c30dcd604641c3b841d62d6605da55",
+            "license": "CC0-1.0",
+            "author": "OwlStorm / Ashe Kirk / Owlish Media",
+            "page": "https://freesound.org/people/OwlStorm/sounds/151206/",
+            "start_sample": 61739
+          }
+        ]
+      }
+    ],
+    "nochnitsa.scream_inhale": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/scream_inhale_1",
+        "sha256": "d6ac77d084a3ca6c18e25a51ffd039553f21fc74bdcb0cd6d1e947397566d577",
+        "sources": [
+          {
+            "key": "slamaxu__female_gasp_509883.mp3",
+            "file": "sources/slamaxu__female_gasp_509883.mp3",
+            "sha256": "d49bfabb3789caf19a08fad8bc6df5bce55d5f967d3212e6613f2f4d40654709",
+            "license": "CC0-1.0",
+            "author": "slamaxu",
+            "page": "https://freesound.org/people/slamaxu/sounds/509883/",
+            "start_sample": 9206
+          }
+        ]
+      }
+    ],
+    "nochnitsa.scream_interrupt": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/scream_interrupt_1",
+        "sha256": "b2ff863587dcd67b889fa0d3de78035b687804b71d9805802a6f49136a4dfec3",
+        "sources": [
+          {
+            "key": "kanyonwyvern__female_gasp_740310.mp3",
+            "file": "sources/kanyonwyvern__female_gasp_740310.mp3",
+            "sha256": "30f47bc3ed22edff0d91812983cd65e702b217e38288d835504e3070ce1d11b6",
+            "license": "CC0-1.0",
+            "author": "kanyonwyvern",
+            "page": "https://freesound.org/people/kanyonwyvern/sounds/740310/",
+            "start_sample": 30315
+          }
+        ]
+      }
     ]
   }
 }

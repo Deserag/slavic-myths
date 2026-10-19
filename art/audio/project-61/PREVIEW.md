@@ -1220,6 +1220,12 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 **Соловей тяжело приземляется / Nightingale lands** · `nightingale.phase1.land`
 ![Соловей тяжело приземляется / Nightingale lands](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale/phase1/land_1.ogg)
 
+**Соловей набирает воздух / Nightingale inhales** · `nightingale_phase1_whistle_charge`
+![Соловей набирает воздух / Nightingale inhales](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase1_whistle_charge_1.ogg)
+
+**Соловей коротко злорадно смеётся / Nightingale chuckles wickedly** · `nightingale_phase2_laugh`
+![Соловей коротко злорадно смеётся / Nightingale chuckles wickedly](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase2_laugh_1.ogg)
+
 ## nightingale-weapon
 
 **Клинок Соловья извлекают из ножен / Nightingale blade is drawn** · `nightingale_blade_draw`
@@ -1236,3 +1242,45 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 
 **Ветер клинка Соловья достигает цели / Nightingale blade wind hits** · `nightingale_blade_wind_hit`
 ![Ветер клинка Соловья достигает цели / Nightingale blade wind hits](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_blade_wind_hit_1.ogg)
+
+## nochnitsa-recorded-breath
+
+**Ночница тихо дышит / Nochnitsa breathes quietly** · `nochnitsa.ambient`
+![Ночница тихо дышит / Nochnitsa breathes quietly](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nochnitsa/ambient_1.ogg)
+
+**Ночница тяжело дышит при преследовании / Nochnitsa breathes while pursuing** · `nochnitsa.breath`
+![Ночница тяжело дышит при преследовании / Nochnitsa breathes while pursuing](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nochnitsa/breath_1.ogg)
+
+**Ночница резко набирает воздух / Nochnitsa draws a sharp breath** · `nochnitsa.scream_inhale`
+![Ночница резко набирает воздух / Nochnitsa draws a sharp breath](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nochnitsa/scream_inhale_1.ogg)
+
+**Дыхание Ночницы сбивается / Nochnitsa gasps as interrupted** · `nochnitsa.scream_interrupt`
+![Дыхание Ночницы сбивается / Nochnitsa gasps as interrupted](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nochnitsa/scream_interrupt_1.ogg)
+
+## hero-recorded-breath
+
+**Илья спокойно дышит / Ilya breathes steadily** · `ilya_muromets.ambient_breath_01`
+![Илья спокойно дышит / Ilya breathes steadily](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/ilya_muromets/ambient_breath_01_1.ogg)
+
+**Илья тяжело дышит, отступая / Ilya breathes hard while retreating** · `ilya_muromets.retreat_breath_01`
+![Илья тяжело дышит, отступая / Ilya breathes hard while retreating](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/ilya_muromets/retreat_breath_01_1.ogg)
+
+**Илья переводит дыхание / Ilya catches his breath** · `ilya_muromets.recover_breath_01`
+![Илья переводит дыхание / Ilya catches his breath](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/ilya_muromets/recover_breath_01_1.ogg)
+
+**Добрыня ровно дышит / Dobrynya breathes steadily** · `dobrynya.breath_idle_01`
+![Добрыня ровно дышит / Dobrynya breathes steadily](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/dobrynya/breath_idle_01_1.ogg)
+
+## finist-recorded-magic
+
+**Появление Финиста сопровождается переливом / Finist arrival chimes** · `entity.finist.summon_chime`
+![Появление Финиста сопровождается переливом / Finist arrival chimes](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/entity/finist/summon_chime_1.ogg)
+
+**Метка Финиста отзывается коротким звоном / Finist mark rings briefly** · `entity.finist.mark_cast`
+![Метка Финиста отзывается коротким звоном / Finist mark rings briefly](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/entity/finist/mark_cast_1.ogg)
+
+**Ободряющая магия Финиста звучит переливом струн / Finist inspiration shimmers with strings** · `entity.finist.inspire`
+![Ободряющая магия Финиста звучит переливом струн / Finist inspiration shimmers with strings](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/entity/finist/inspire_1.ogg)
+
+**Победа Финиста отзывается металлическим звоном / Finist victory rings out** · `entity.finist.victory`
+![Победа Финиста отзывается металлическим звоном / Finist victory rings out](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/entity/finist/victory_1.ogg)

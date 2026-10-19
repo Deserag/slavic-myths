@@ -8,3 +8,7 @@
 ![Игоша — кандидат естественного плача](D:/slavic-myths/art/audio/project-61/candidates/igosha-natural-cry-667199.mp3)
 
 ![Игоша — кандидат естественного плача](D:/slavic-myths/art/audio/project-61/candidates/igosha-natural-cry-668793.mp3)
+
+SofieHolmark breathing_556523 — отдельный тихий кандидат Ночницы; runtime не
+подключён. Для действующих дыхательных жестов выбран OwlStorm с более
+разделёнными фразами. Это технический отбор, не утверждение LISTENED.

@@ -11336,5 +11336,397 @@
     "owner_approved": false,
     "hearing": "NOT_LISTENED",
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "fc73647f8e7e777fae51f08115fe964f15cf43297782b21e1009c9a0d7ae8e28",
+    "event": "nightingale_phase1_whistle_charge",
+    "group": "nightingale-recorded",
+    "ru": "Соловей набирает воздух",
+    "action": "Nightingale inhales",
+    "file": "recorded61/nightingale_phase1_whistle_charge_1.ogg",
+    "sha256": "974b2ffbed4910c5e53e6dd38caadc23bd2ccef6d71f348561fec492b855571d",
+    "sources": [
+      {
+        "key": "otherthings__inhale_10115b.mp3",
+        "file": "sources/otherthings__inhale_10115b.mp3",
+        "sha256": "fef5c968e47ccc5f169267444452c579152b241011a454ed0bb3be019122b764",
+        "license": "CC0-1.0",
+        "author": "otherthings",
+        "page": "https://freesound.org/people/otherthings/sounds/65621/",
+        "start_sample": 10
+      }
+    ],
+    "seconds": 0.7599773242630385,
+    "peak_dbfs": -11.36850023387981,
+    "rms_dbfs": -25.57323089528063,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "5ca9d10011d4b69ee6482d3bff65bac24cdeb62d979b2129167cda9d1a403512",
+    "event": "nightingale_phase2_laugh",
+    "group": "nightingale-recorded",
+    "ru": "Соловей коротко злорадно смеётся",
+    "action": "Nightingale chuckles wickedly",
+    "file": "recorded61/nightingale_phase2_laugh_1.ogg",
+    "sha256": "27f6a4d9760e01e95ea12c7813c5d36ff2f2540718795b4fe8fe8abfea22ff7a",
+    "sources": [
+      {
+        "key": "qubodup__evil_laughter.flac",
+        "file": "sources/qubodup__evil_laughter.flac",
+        "sha256": "4ce4e2d113be03b170f36b99b5d68360b4a6fa7e9ade533fa73dface955b2a28",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/evil-laughter",
+        "start_sample": 103635
+      }
+    ],
+    "seconds": 0.5599773242630386,
+    "peak_dbfs": -5.241641253815575,
+    "rms_dbfs": -26.513662686802995,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "cdebeec935997e3affa6649610bc610c47f6a6b22eb6df5814570143131380dd",
+    "event": "nochnitsa.ambient",
+    "group": "nochnitsa-recorded-breath",
+    "ru": "Ночница тихо дышит",
+    "action": "Nochnitsa breathes quietly",
+    "file": "recorded61/nochnitsa/ambient_1.ogg",
+    "sha256": "18d12e332ce2a12cd65e17fb22d19894754edaaad4a7d1043ee3ee1944625b64",
+    "sources": [
+      {
+        "key": "owlstorm__female_breathing_151206.mp3",
+        "file": "sources/owlstorm__female_breathing_151206.mp3",
+        "sha256": "e509b1ff3165b79de03a71940e390f8c51c30dcd604641c3b841d62d6605da55",
+        "license": "CC0-1.0",
+        "author": "OwlStorm / Ashe Kirk / Owlish Media",
+        "page": "https://freesound.org/people/OwlStorm/sounds/151206/",
+        "start_sample": 392490
+      }
+    ],
+    "seconds": 0.8599773242630385,
+    "peak_dbfs": -14.918518484915715,
+    "rms_dbfs": -32.346030630133264,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "5f72be2826e193e9a228527204b2949c3c6908505b1085eb722f3454918cfd2c",
+    "event": "nochnitsa.breath",
+    "group": "nochnitsa-recorded-breath",
+    "ru": "Ночница тяжело дышит при преследовании",
+    "action": "Nochnitsa breathes while pursuing",
+    "file": "recorded61/nochnitsa/breath_1.ogg",
+    "sha256": "94dd5e28f6ce8d938ab9ec40e548d1b79f1bc7f8b4e20f13bfd42d32411da5b3",
+    "sources": [
+      {
+        "key": "owlstorm__female_breathing_151206.mp3",
+        "file": "sources/owlstorm__female_breathing_151206.mp3",
+        "sha256": "e509b1ff3165b79de03a71940e390f8c51c30dcd604641c3b841d62d6605da55",
+        "license": "CC0-1.0",
+        "author": "OwlStorm / Ashe Kirk / Owlish Media",
+        "page": "https://freesound.org/people/OwlStorm/sounds/151206/",
+        "start_sample": 61739
+      }
+    ],
+    "seconds": 0.9599773242630385,
+    "peak_dbfs": -9.167594199767054,
+    "rms_dbfs": -27.109899262174455,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "5577aa7d7a0040fae730a27bb29d989226a77685e5516eee6e66eb241c8293fd",
+    "event": "nochnitsa.scream_inhale",
+    "group": "nochnitsa-recorded-breath",
+    "ru": "Ночница резко набирает воздух",
+    "action": "Nochnitsa draws a sharp breath",
+    "file": "recorded61/nochnitsa/scream_inhale_1.ogg",
+    "sha256": "d6ac77d084a3ca6c18e25a51ffd039553f21fc74bdcb0cd6d1e947397566d577",
+    "sources": [
+      {
+        "key": "slamaxu__female_gasp_509883.mp3",
+        "file": "sources/slamaxu__female_gasp_509883.mp3",
+        "sha256": "d49bfabb3789caf19a08fad8bc6df5bce55d5f967d3212e6613f2f4d40654709",
+        "license": "CC0-1.0",
+        "author": "slamaxu",
+        "page": "https://freesound.org/people/slamaxu/sounds/509883/",
+        "start_sample": 9206
+      }
+    ],
+    "seconds": 0.38553287981859413,
+    "peak_dbfs": -10.111847546545736,
+    "rms_dbfs": -23.332889245138272,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "bde129b75d9b920f4635821505878a4f3fd8a793ce8ac3045ec0f31f0f16e377",
+    "event": "nochnitsa.scream_interrupt",
+    "group": "nochnitsa-recorded-breath",
+    "ru": "Дыхание Ночницы сбивается",
+    "action": "Nochnitsa gasps as interrupted",
+    "file": "recorded61/nochnitsa/scream_interrupt_1.ogg",
+    "sha256": "b2ff863587dcd67b889fa0d3de78035b687804b71d9805802a6f49136a4dfec3",
+    "sources": [
+      {
+        "key": "kanyonwyvern__female_gasp_740310.mp3",
+        "file": "sources/kanyonwyvern__female_gasp_740310.mp3",
+        "sha256": "30f47bc3ed22edff0d91812983cd65e702b217e38288d835504e3070ce1d11b6",
+        "license": "CC0-1.0",
+        "author": "kanyonwyvern",
+        "page": "https://freesound.org/people/kanyonwyvern/sounds/740310/",
+        "start_sample": 30315
+      }
+    ],
+    "seconds": 0.38997732426303855,
+    "peak_dbfs": -13.203708241495885,
+    "rms_dbfs": -23.827501087996495,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "9bcff455656b235fb5b241fba0cdb02472125563ac74e2c6652cafe67d9c56a0",
+    "event": "ilya_muromets.ambient_breath_01",
+    "group": "hero-recorded-breath",
+    "ru": "Илья спокойно дышит",
+    "action": "Ilya breathes steadily",
+    "file": "recorded61/ilya_muromets/ambient_breath_01_1.ogg",
+    "sha256": "4a367d4905095ca7fb4213ddd7ce82a0b43fd241741ca6380532e8003313a3c7",
+    "sources": [
+      {
+        "key": "exe2be__breathing_512741.mp3",
+        "file": "sources/exe2be__breathing_512741.mp3",
+        "sha256": "800065c7ac5cc14166fcdb4f5e19202b9d6724cf28964b076ec713b245f283de",
+        "license": "CC0-1.0",
+        "author": "exe2be",
+        "page": "https://freesound.org/people/exe2be/sounds/512741/",
+        "start_sample": 35280
+      }
+    ],
+    "seconds": 1.1099773242630386,
+    "peak_dbfs": -11.92382393297903,
+    "rms_dbfs": -29.41904573698185,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "fc04a391836bc24a14a23837f202e7dec17a8c4c778b3e9a44274100ae8d1a6b",
+    "event": "ilya_muromets.retreat_breath_01",
+    "group": "hero-recorded-breath",
+    "ru": "Илья тяжело дышит, отступая",
+    "action": "Ilya breathes hard while retreating",
+    "file": "recorded61/ilya_muromets/retreat_breath_01_1.ogg",
+    "sha256": "8ddd6a20082aea242330f0b86cd1be6ed26294971ffe29ea393512b0df427823",
+    "sources": [
+      {
+        "key": "exe2be__breathing_512741.mp3",
+        "file": "sources/exe2be__breathing_512741.mp3",
+        "sha256": "800065c7ac5cc14166fcdb4f5e19202b9d6724cf28964b076ec713b245f283de",
+        "license": "CC0-1.0",
+        "author": "exe2be",
+        "page": "https://freesound.org/people/exe2be/sounds/512741/",
+        "start_sample": 512634
+      }
+    ],
+    "seconds": 1.2542857142857142,
+    "peak_dbfs": -5.289140793501776,
+    "rms_dbfs": -25.88114269721664,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "4346abee3acd3917c4e2815b0b7bec721b4f47d9dcfe5e533f0c823565c0c142",
+    "event": "ilya_muromets.recover_breath_01",
+    "group": "hero-recorded-breath",
+    "ru": "Илья переводит дыхание",
+    "action": "Ilya catches his breath",
+    "file": "recorded61/ilya_muromets/recover_breath_01_1.ogg",
+    "sha256": "3c8064c4254f164adc9a7fc3c79b8d86f475aa682dd1441553e279b305f1b63f",
+    "sources": [
+      {
+        "key": "exe2be__breathing_512741.mp3",
+        "file": "sources/exe2be__breathing_512741.mp3",
+        "sha256": "800065c7ac5cc14166fcdb4f5e19202b9d6724cf28964b076ec713b245f283de",
+        "license": "CC0-1.0",
+        "author": "exe2be",
+        "page": "https://freesound.org/people/exe2be/sounds/512741/",
+        "start_sample": 249165
+      }
+    ],
+    "seconds": 1.0599773242630386,
+    "peak_dbfs": -9.952434790344126,
+    "rms_dbfs": -27.098363563144154,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "50c1398633a2cb01ebfd99aa9f01273e38848ec642026886b48460c8b6d92a44",
+    "event": "dobrynya.breath_idle_01",
+    "group": "hero-recorded-breath",
+    "ru": "Добрыня ровно дышит",
+    "action": "Dobrynya breathes steadily",
+    "file": "recorded61/dobrynya/breath_idle_01_1.ogg",
+    "sha256": "b46ba440a2c38c6bc5c893eb9868781ad9e978ffda597c0831d8808f2e3c39bc",
+    "sources": [
+      {
+        "key": "davor__breathing_346932.mp3",
+        "file": "sources/davor__breathing_346932.mp3",
+        "sha256": "c034bf1c4df94903d4d9fc7cbd3faf32ec18db309ad98244863d4e27fb2f5e1f",
+        "license": "CC0-1.0",
+        "author": "dav0r",
+        "page": "https://freesound.org/people/dav0r/sounds/346932/",
+        "start_sample": 264600
+      }
+    ],
+    "seconds": 1.7099773242630385,
+    "peak_dbfs": -11.478051893995012,
+    "rms_dbfs": -29.171549785590972,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "3138e603a144a6578d82a5b7ebda2a9888b5be3af10c4d79fdacbaa83486f933",
+    "event": "entity.finist.summon_chime",
+    "group": "finist-recorded-magic",
+    "ru": "Появление Финиста сопровождается переливом",
+    "action": "Finist arrival chimes",
+    "file": "recorded61/entity/finist/summon_chime_1.ogg",
+    "sha256": "3d988707ce9ce10422fd3ca0fad49bd3fc9637da6be2992bba5b3fe6968b3536",
+    "sources": [
+      {
+        "key": "chime__gnote_169855.mp3",
+        "file": "sources/chime__gnote_169855.mp3",
+        "sha256": "bac210d16fc4850b77a870e8f82ed7eb55737969e3ab06b118863d0ad9293d05",
+        "license": "CC0-1.0",
+        "author": "GnoteSoundz",
+        "page": "https://freesound.org/people/GnoteSoundz/sounds/169855/",
+        "start_sample": 0
+      }
+    ],
+    "seconds": 1.409954648526077,
+    "peak_dbfs": -7.174045153644918,
+    "rms_dbfs": -26.021238373645982,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "3fbf53a1201c84c1ee72f1547e6ec9089fcb9498a4fa0873ca1cad1260cdf8c0",
+    "event": "entity.finist.mark_cast",
+    "group": "finist-recorded-magic",
+    "ru": "Метка Финиста отзывается коротким звоном",
+    "action": "Finist mark rings briefly",
+    "file": "recorded61/entity/finist/mark_cast_1.ogg",
+    "sha256": "16db403ccd5e1637ab470d14b2bc18505355ff01b1643d967683d45e81e0e8da",
+    "sources": [
+      {
+        "key": "chime__connersaw8_125147.mp3",
+        "file": "sources/chime__connersaw8_125147.mp3",
+        "sha256": "7137f3388b3361ab6fcd500c97a4cb52919dbd809955e8069111648bbe666097",
+        "license": "CC0-1.0",
+        "author": "connersaw8",
+        "page": "https://freesound.org/people/connersaw8/sounds/125147/",
+        "start_sample": 290
+      }
+    ],
+    "seconds": 0.2028798185941043,
+    "peak_dbfs": -10.649084907138262,
+    "rms_dbfs": -27.45703680760382,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "f7a19b65c4ecfa8b24a732c3a887b1562bd188246bd426ee1eabeeb54fea40d4",
+    "event": "entity.finist.inspire",
+    "group": "finist-recorded-magic",
+    "ru": "Ободряющая магия Финиста звучит переливом струн",
+    "action": "Finist inspiration shimmers with strings",
+    "file": "recorded61/entity/finist/inspire_1.ogg",
+    "sha256": "60a2a6a8823f5f5f80fcf57fd9ddd55b8660ebe6e63fab9503dd82624962090a",
+    "sources": [
+      {
+        "key": "harp__phonos_490831.mp3",
+        "file": "sources/harp__phonos_490831.mp3",
+        "sha256": "c2d54125598ebd8bb5a2ae9ae07dffc30d6b60354e974d564fe98216a84c13fb",
+        "license": "CC0-1.0",
+        "author": "PhonosUPF",
+        "page": "https://freesound.org/people/PhonosUPF/sounds/490831/",
+        "start_sample": 13
+      }
+    ],
+    "seconds": 0.509501133786848,
+    "peak_dbfs": -8.350405805829798,
+    "rms_dbfs": -25.25146401108442,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "0033402d57a54a1b002c377e9724bfdd429a69d5214c6ba8e87cea2a7d0ea253",
+    "event": "entity.finist.victory",
+    "group": "finist-recorded-magic",
+    "ru": "Победа Финиста отзывается металлическим звоном",
+    "action": "Finist victory rings out",
+    "file": "recorded61/entity/finist/victory_1.ogg",
+    "sha256": "c5ecd54895917ff5338279ce20ab639f3f8fa8e78d4d31bbe32168cf8176d6dd",
+    "sources": [
+      {
+        "key": "cymbal__mirko_175932.mp3",
+        "file": "sources/cymbal__mirko_175932.mp3",
+        "sha256": "2eba1356479e786d9b2e1d740955f7aa81c6dd7fb550ebbc458136fea811fe05",
+        "license": "CC0-1.0",
+        "author": "MirkoMeter84",
+        "page": "https://freesound.org/people/MirkoMeter84/sounds/175932/",
+        "start_sample": 1664
+      }
+    ],
+    "seconds": 1.3099773242630386,
+    "peak_dbfs": -5.276801697168006,
+    "rms_dbfs": -32.850096295531856,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   }
 ]

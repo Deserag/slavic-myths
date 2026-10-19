@@ -470,3 +470,38 @@ for cue,source,ru,en,cap in [
  ('wind_release','foley__swosh-03.flac','Клинок Соловья выпускает ветер','Nightingale blade releases wind',.45),
  ('wind_hit',equip('body-2.flac'),'Ветер клинка Соловья достигает цели','Nightingale blade wind hits',.25)]:
  add('nightingale-weapon','nightingale_blade_'+cue,[source],ru,en,cap,.065)
+
+# Independently recorded human inhalation and performed evil laugh; no reversed
+# exhale, tone oscillator, generated voice or copied film performance.
+BLOCKED.pop('nightingale_phase1_whistle_charge')
+BLOCKED.pop('nightingale_phase2_laugh')
+add('nightingale-recorded','nightingale_phase1_whistle_charge',['otherthings__inhale_10115b.mp3'],'Соловей набирает воздух','Nightingale inhales',.75,.055,radius=28)
+add('nightingale-recorded','nightingale_phase2_laugh',[dict(key='qubodup__evil_laughter.flac',start=2.35,end=3.1)],'Соловей коротко злорадно смеётся','Nightingale chuckles wickedly',.55,.065,radius=28)
+
+# Nochnitsa's breath and interrupted gasp are separate recorded performances.
+# The short gasp fits the damage interval; an inhale completes before release.
+for cue,source,start,end,ru,en,cap,rms in [
+ ('ambient','owlstorm__female_breathing_151206.mp3',8.9,9.8,'Ночница тихо дышит','Nochnitsa breathes quietly',.85,.025),
+ ('breath','owlstorm__female_breathing_151206.mp3',1.4,2.4,'Ночница тяжело дышит при преследовании','Nochnitsa breathes while pursuing',.95,.045),
+ ('scream_inhale','slamaxu__female_gasp_509883.mp3',0,1.161,'Ночница резко набирает воздух','Nochnitsa draws a sharp breath',.6,.07),
+ ('scream_interrupt','kanyonwyvern__female_gasp_740310.mp3',0,1.84,'Дыхание Ночницы сбивается','Nochnitsa gasps as interrupted',.38,.065)]:
+ BLOCKED.pop('nochnitsa.'+cue)
+ add('nochnitsa-recorded-breath','nochnitsa.'+cue,[dict(key=source,start=start,end=end)],ru,en,cap,rms,radius=16 if cue=='ambient' else 24)
+
+# Ilya's calm/retreat/recovery are different actual breath phrases of one actor,
+# not the old near-identical tonal files. Dobrynya has a different performer.
+for cue,start,end,ru,en,cap,rms in [
+ ('ambient_breath_01',.8,1.9,'Илья спокойно дышит','Ilya breathes steadily',1.1,.035),
+ ('retreat_breath_01',11.4,12.9,'Илья тяжело дышит, отступая','Ilya breathes hard while retreating',1.45,.07),
+ ('recover_breath_01',5.65,6.7,'Илья переводит дыхание','Ilya catches his breath',1.05,.045)]:
+ add('hero-recorded-breath','ilya_muromets.'+cue,[dict(key='exe2be__breathing_512741.mp3',start=start,end=end)],ru,en,cap,rms)
+add('hero-recorded-breath','dobrynya.breath_idle_01',[dict(key='davor__breathing_346932.mp3',start=6,end=7.8)],'Добрыня ровно дышит','Dobrynya breathes steadily',1.7,.035)
+
+# Four different physical instrumental gestures replace the correlated legacy
+# Finist signals. These are magic accents, never speech or vocal emotion.
+for cue,source,ru,en,cap,rms in [
+ ('summon_chime','chime__gnote_169855.mp3','Появление Финиста сопровождается переливом','Finist arrival chimes',1.4,.05),
+ ('mark_cast','chime__connersaw8_125147.mp3','Метка Финиста отзывается коротким звоном','Finist mark rings briefly',.22,.045),
+ ('inspire','harp__phonos_490831.mp3','Ободряющая магия Финиста звучит переливом струн','Finist inspiration shimmers with strings',.65,.055),
+ ('victory','cymbal__mirko_175932.mp3','Победа Финиста отзывается металлическим звоном','Finist victory rings out',1.3,.055)]:
+ add('finist-recorded-magic','entity.finist.'+cue,[source],ru,en,cap,rms,radius=24)

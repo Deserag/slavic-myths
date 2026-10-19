@@ -1,0 +1,66 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 23,
+  "sha256": "f5670b60b9daf3f221f4667f5dfdb1ddc028d00b8a523f1004fd5f5b61dc81bb",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "nochnitsa.ambient",
+      "label": "Ночница тихо дышит",
+      "file": "recorded61/nochnitsa/ambient_1.ogg",
+      "sha256": "18d12e332ce2a12cd65e17fb22d19894754edaaad4a7d1043ee3ee1944625b64"
+    },
+    {
+      "time_s": 3,
+      "event": "nochnitsa.breath",
+      "label": "Ночница тяжело дышит при преследовании",
+      "file": "recorded61/nochnitsa/breath_1.ogg",
+      "sha256": "94dd5e28f6ce8d938ab9ec40e548d1b79f1bc7f8b4e20f13bfd42d32411da5b3"
+    },
+    {
+      "time_s": 6,
+      "event": "nochnitsa.target_spotted",
+      "label": "Ночница замечает жертву и вскрикивает",
+      "file": "recorded61/nochnitsa/target_spotted_1.ogg",
+      "sha256": "928faafc9c71b503f0a1ba505110d4bdc1950b1e0a4daf048071901e903df095"
+    },
+    {
+      "time_s": 9,
+      "event": "nochnitsa.scream_inhale",
+      "label": "Ночница резко набирает воздух",
+      "file": "recorded61/nochnitsa/scream_inhale_1.ogg",
+      "sha256": "d6ac77d084a3ca6c18e25a51ffd039553f21fc74bdcb0cd6d1e947397566d577"
+    },
+    {
+      "time_s": 10,
+      "event": "nochnitsa.scream_release",
+      "label": "Ночница пронзительно кричит",
+      "file": "recorded61/nochnitsa/scream_release_1.ogg",
+      "sha256": "1115b8a081345f2c96b0458617fc02ad7a2aa773172cb851a9b6a51319583a07"
+    },
+    {
+      "time_s": 13,
+      "event": "nochnitsa.scream_interrupt",
+      "label": "Дыхание Ночницы сбивается",
+      "file": "recorded61/nochnitsa/scream_interrupt_1.ogg",
+      "sha256": "b2ff863587dcd67b889fa0d3de78035b687804b71d9805802a6f49136a4dfec3"
+    },
+    {
+      "time_s": 16,
+      "event": "nochnitsa.hurt",
+      "label": "Ночница резко вскрикивает",
+      "file": "recorded61/nochnitsa/hurt_1.ogg",
+      "sha256": "90ed5b8e301bf8f56120833b119c37ef07964f59d3c86ec16ad193f4d14134ae"
+    },
+    {
+      "time_s": 19,
+      "event": "nochnitsa.death",
+      "label": "Последний крик Ночницы затихает",
+      "file": "recorded61/nochnitsa/death_1.ogg",
+      "sha256": "1bb40709137bbe41ffb60b99102420c7fcbb7a27bf88cdf64e595a1f1a53e964"
+    }
+  ]
+}

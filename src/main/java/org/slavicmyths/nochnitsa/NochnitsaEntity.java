@@ -30,7 +30,17 @@ public final class NochnitsaEntity extends Monster {
     public void debug(String event){if(NochnitsaConfig.debug)logger.info("Nochnitsa {} t={} {}",getUUID(),level().getGameTime(),event);}
     private void sync(){if(entityData.get(STATE)!=clock.state.ordinal()||clock.age==0){entityData.set(STATE,clock.state.ordinal());entityData.set(START,level().getGameTime()-clock.age);}}
     private void begin(State s){clock.begin(s);sync();if(clock.locked())getNavigation().stop();}
-    private void cue(String name,float volume){playSound(NochnitsaContent.sound(name),volume,1+(random.nextFloat()-.5F)*.10F);}
+    private long secondaryVoiceAfter,hurtVoiceAfter;
+    private void cue(String name,float volume){
+        float pitch=1+(random.nextFloat()-.5F)*.10F; // Preserve the old draw even when an audio cue is suppressed.
+        long now=level().getGameTime();
+        if((name.equals("ambient")||name.equals("breath"))&&now<secondaryVoiceAfter)return;
+        if(name.equals("hurt")&&now<hurtVoiceAfter)return;
+        int ticks=switch(name){case "ambient"->20;case "breath"->21;case "target_spotted","scream_release"->22;case "scream_inhale"->14;case "scream_interrupt"->9;case "hurt"->18;case "death"->30;default->0;};
+        if(ticks>0)secondaryVoiceAfter=now+ticks;
+        if(name.equals("hurt"))hurtVoiceAfter=now+18;
+        playSound(NochnitsaContent.sound(name),volume,pitch);
+    }
     public boolean valid(LivingEntity target){if(clock.state==State.DAWN||clock.state==State.DEATH||target==null||!target.isAlive()||target.level()!=level()||isAlliedTo(target))return false;
         if(target instanceof Player p)return !p.isCreative()&&!p.isSpectator()&&!OminousAura.ignores(this,p);
         return target instanceof Villager||target==getLastHurtByMob()&&target instanceof net.minecraft.world.entity.animal.IronGolem;

@@ -1,0 +1,59 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 22,
+  "sha256": "f1ac70163dfb0b4060a51ecc09547aa6299043dc5ca92d2e1a0ba53b999a9502",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "ilya_muromets.ambient_breath_01",
+      "label": "Илья спокойно дышит",
+      "file": "recorded61/ilya_muromets/ambient_breath_01_1.ogg",
+      "sha256": "4a367d4905095ca7fb4213ddd7ce82a0b43fd241741ca6380532e8003313a3c7"
+    },
+    {
+      "time_s": 3,
+      "event": "ilya_muromets.mace_swing_01",
+      "label": "Илья замахивается булавой",
+      "file": "recorded61/ilya_muromets/mace_swing_01_1.ogg",
+      "sha256": "47e6d18d06082391ae1085a97b854e427dc6a1b57a3115e19a595ab2d7d22896"
+    },
+    {
+      "time_s": 5,
+      "event": "ilya_muromets.mace_impact_01",
+      "label": "Булава Ильи тяжело ударяет",
+      "file": "recorded61/ilya_muromets/mace_impact_01_1.ogg",
+      "sha256": "10185f4a5c9840d68023852ca8448019f1077acde1e7e1fb6da7a031543c4993"
+    },
+    {
+      "time_s": 8,
+      "event": "ilya_muromets.pain_nonverbal_01",
+      "label": "Илья глухо вскрикивает от боли",
+      "file": "recorded61/ilya_muromets/pain_nonverbal_01_1.ogg",
+      "sha256": "9ddd6ef73815a740c5255a53328013082878d10c9b8864fdcf73be9db8e0c02b"
+    },
+    {
+      "time_s": 11,
+      "event": "ilya_muromets.retreat_breath_01",
+      "label": "Илья тяжело дышит, отступая",
+      "file": "recorded61/ilya_muromets/retreat_breath_01_1.ogg",
+      "sha256": "8ddd6a20082aea242330f0b86cd1be6ed26294971ffe29ea393512b0df427823"
+    },
+    {
+      "time_s": 15,
+      "event": "ilya_muromets.recover_breath_01",
+      "label": "Илья переводит дыхание",
+      "file": "recorded61/ilya_muromets/recover_breath_01_1.ogg",
+      "sha256": "3c8064c4254f164adc9a7fc3c79b8d86f475aa682dd1441553e279b305f1b63f"
+    },
+    {
+      "time_s": 18,
+      "event": "ilya_muromets.shield_block_01",
+      "label": "Щит Ильи принимает удар",
+      "file": "recorded61/ilya_muromets/shield_block_01_1.ogg",
+      "sha256": "522e637030f824d97729dc611efab88e0f517c687778b0837949e6be76cd2c66"
+    }
+  ]
+}

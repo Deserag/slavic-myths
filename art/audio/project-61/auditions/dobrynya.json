@@ -1,0 +1,66 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 22,
+  "sha256": "98332ce71744baf4cc0d068a2a64dc297fdb7c3a4ad8c190771b8fc22f04efcb",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "dobrynya.breath_idle_01",
+      "label": "Добрыня ровно дышит",
+      "file": "recorded61/dobrynya/breath_idle_01_1.ogg",
+      "sha256": "b46ba440a2c38c6bc5c893eb9868781ad9e978ffda597c0831d8808f2e3c39bc"
+    },
+    {
+      "time_s": 3,
+      "event": "dobrynya.armor_step_01",
+      "label": "Доспех Добрыни позвякивает",
+      "file": "recorded61/dobrynya/armor_step_01_1.ogg",
+      "sha256": "9bce3e74e9dd6e53b2677e118576d219eda978a72e59fc42229d2ff86666e6c3"
+    },
+    {
+      "time_s": 5,
+      "event": "dobrynya.armor_step_02",
+      "label": "Доспех Добрыни позвякивает",
+      "file": "recorded61/dobrynya/armor_step_02_1.ogg",
+      "sha256": "a44aaebae27c8d6201971231f0f4f62c425446f867da412f242001307bc47fd4"
+    },
+    {
+      "time_s": 7,
+      "event": "dobrynya.spear_swing_01",
+      "label": "Копьё Добрыни рассекает воздух",
+      "file": "recorded61/dobrynya/spear_swing_01_1.ogg",
+      "sha256": "52d342e5a3a777b2c41b18e0a495053b853fc2475b0e1c2e118bde38f10ea22e"
+    },
+    {
+      "time_s": 9,
+      "event": "dobrynya.spear_swing_02",
+      "label": "Копьё Добрыни рассекает воздух",
+      "file": "recorded61/dobrynya/spear_swing_02_1.ogg",
+      "sha256": "0dea7692a146f2787eb3857e968c85b51a2eb98a67c607b0de24a9f603b1b783"
+    },
+    {
+      "time_s": 11,
+      "event": "dobrynya.spear_impact_01",
+      "label": "Копьё Добрыни попадает в цель",
+      "file": "recorded61/dobrynya/spear_impact_01_1.ogg",
+      "sha256": "27ad104c2514a85a66c8c8874714760777c6549a27176ccdaebecef1c1112151"
+    },
+    {
+      "time_s": 14,
+      "event": "dobrynya.grunt_hurt_01",
+      "label": "Добрыня вскрикивает от боли",
+      "file": "recorded61/dobrynya/grunt_hurt_01_1.ogg",
+      "sha256": "bf2a6a77ff3518fcc00c573b2df471e7e485be3d2ba0a4dac6caf390a1374b78"
+    },
+    {
+      "time_s": 17,
+      "event": "dobrynya.elixir_drink_01",
+      "label": "Добрыня пьёт эликсир",
+      "file": "recorded61/dobrynya/elixir_drink_01_1.ogg",
+      "sha256": "d90784026ba03ec60412b2f6430384d2319f1f8aca6296b9caa155c498380c0c"
+    }
+  ]
+}

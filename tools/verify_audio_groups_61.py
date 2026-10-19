@@ -32,11 +32,19 @@ def main():
    if entry.get('type','sound')=='event':check(path in (vanilla if namespace=='minecraft' else events),'Actual namespace event resolves '+event+' -> '+name)
    else:check((A/'sounds'/(path+'.ogg')).exists() if namespace=='slavicmyths' else 'minecraft/sounds/'+path+'.ogg' in objects,'Actual namespace FILE resolves '+event+' -> '+name)
  with zipfile.ZipFile(R/'build/moddev/artifacts/neoforge-21.1.255-sources.jar') as sourcejar:
+  level_source=sourcejar.read('net/minecraft/world/level/Level.java').decode()
+  check('public final RandomSource random = RandomSource.create();' in level_source and 'private final RandomSource threadSafeRandom = RandomSource.createThreadSafe();' in level_source and 'this.threadSafeRandom.nextLong()' in level_source,'Installed Level sound seeds use separate threadSafeRandom, not gameplay random')
   serializer=sourcejar.read('net/minecraft/client/resources/sounds/SoundEventRegistrationSerializer.java').decode();check('ResourceLocation.parse(GsonHelper.getAsString' in serializer,'Installed Minecraft serializer parses name independently of sound-event namespace')
  for e,c in PLAN.items():check(len(events[e]['sounds'])==len(c['sources']) and all(x['name'].startswith('slavicmyths:recorded61/') for x in events[e]['sounds']),'Exact planned variant mapping '+e)
  for e,c in ALIASES.items():check(events[e]['sounds']==[dict(name='minecraft:'+c['target'],type='event')],'Semantic vanilla reference '+e)
  for e in BLOCKED:
   if e not in ALIASES:check(events[e]['sounds']==[],'Unresolved source stays muted '+e)
+ # Decode duration plus the actual lowest playback pitch must fit the existing
+ # warning/recovery interval or the new audio-only repetition gate.
+ budgets={'nightingale_phase1_whistle_charge':(.95,.8),'nightingale_phase2_laugh':(1,.6),'nochnitsa.scream_inhale':(.95,1),'nochnitsa.scream_interrupt':(.95,.5),'nochnitsa.hurt':(.95,.9),'nochnitsa.ambient':(.95,1),'nochnitsa.breath':(.95,1.05)}
+ for event,(pitch,seconds) in budgets.items():
+  selected=[r for r in rows if r['event']==event]
+  check(bool(selected) and all(r['seconds']/pitch<=seconds+1/44100 for r in selected),'Actual decoded vocal fits warning/audio gate '+event)
  ledger=json.loads((A/'audio_licenses/delegated-recordings-61.json').read_text(encoding='utf-8'))
  check(set(ledger['events'])=={e for e in PLAN if e.startswith(DELEGATED_PREFIXES)},'Quarantine exceptions restricted to exact delegated recordings')
  for e,proof in ledger['events'].items():
@@ -50,7 +58,10 @@ def main():
  skip={'src/main/java/org/slavicmyths/entity/DomovoyEntity.java','src/main/java/org/slavicmyths/entity/WildlifeEntity.java','src/main/java/org/slavicmyths/registry/ModSounds.java','src/main/java/org/slavicmyths/bandit/BanditEntity.java','src/main/resources/assets/slavicmyths/sounds.json',*[f'src/main/resources/assets/slavicmyths/lang/{l}.json' for l in ['ru_ru','en_us']]}
  for entry in names:
   metadata,n=entry.split('\t');blob=metadata.split()[2]
-  if n in __import__('hero_audio_routes_61').PATHS:
+  if n in __import__('audio_vocal_priority_61').PATHS:
+   expected=__import__('audio_vocal_priority_61').edit(n,old(n).decode('utf-8').replace('\r\n','\n'))
+   check((R/n).read_text(encoding='utf-8')==expected,'Exact audio priority source diff, unchanged AI/damage/timing/explicit RNG '+n)
+  elif n in __import__('hero_audio_routes_61').PATHS:
    expected=__import__('hero_audio_routes_61').edit(n,old(n).decode('utf-8').replace('\r\n','\n'))
    check((R/n).read_text(encoding='utf-8')==expected,'Exact hero sound-only diff, same damage/tick/AI/NBT/gameplay RNG '+n)
   elif n not in skip:
@@ -76,7 +87,7 @@ def main():
     n=p.relative_to(R/'src/main/resources').as_posix()
     if n!='META-INF/neoforge.mods.toml':check(z.read(n)==p.read_bytes(),'Packaged resource parity '+n)
   check(not any(n.startswith(('art/','tools/')) for n in z.namelist()),'No review sources or fixtures in production JAR')
-  for source in __import__('hero_audio_routes_61').PATHS:
+  for source in __import__('hero_audio_routes_61').PATHS|__import__('audio_vocal_priority_61').PATHS:
    name=source.removeprefix('src/main/java/').removesuffix('.java')+'.class'
    check(z.read(name)==(R/'build/classes/java/main'/name).read_bytes(),'Actual compiled hero callsite packaged '+name)
  report=dict(status='IN_PROGRESS_OWNER_PENDING',baseline=BASE,checks=len(checks),recorded_variants=len(rows),recorded_events=len(PLAN),vanilla_aliases=len(ALIASES),source_gaps=BLOCKED,jar_sha256=sha(jar),runtime='NOT_RUN',hearing='NOT_LISTENED',owner_accepted=False,poly_mc_installed=False)

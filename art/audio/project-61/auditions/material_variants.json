@@ -1,0 +1,59 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 22,
+  "sha256": "1bba874f072a9c6ae94325c1714e401073bd8c12fe06cd5fa86b6122f46c4150",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "marinka.magpie_wings_01",
+      "label": "Крылья сороки взмахивают",
+      "file": "recorded61/marinka/magpie_wings_01_1.ogg",
+      "sha256": "90360e6e88dbe26dd045c36faf386833cd5d6000e3e372dad22a75e3d0eb50d5"
+    },
+    {
+      "time_s": 3,
+      "event": "marinka.magpie_wings_02",
+      "label": "Крылья сороки взмахивают",
+      "file": "recorded61/marinka/magpie_wings_02_1.ogg",
+      "sha256": "08745d572620b24fbab11c0e4dbcffe46dbf0845f9db6fd399f27c31df5a0881"
+    },
+    {
+      "time_s": 6,
+      "event": "entity.finist.sword_swing_1",
+      "label": "Меч Финиста рассекает воздух",
+      "file": "recorded61/entity/finist/sword_swing_1_1.ogg",
+      "sha256": "cb3eb256ab6fac0f7efcb5e8545de549ff59e48a07cc52e3b19282178eaa4b0b"
+    },
+    {
+      "time_s": 9,
+      "event": "entity.finist.sword_swing_2",
+      "label": "Меч Финиста рассекает воздух",
+      "file": "recorded61/entity/finist/sword_swing_2_1.ogg",
+      "sha256": "9cf4ce9614eddbd4a549255ce298fc5d8d7fb7d51246af267c3d3a9e2bdbbf8a"
+    },
+    {
+      "time_s": 12,
+      "event": "entity.finist.sword_contact",
+      "label": "Меч Финиста достигает цели",
+      "file": "recorded61/entity/finist/sword_contact_1.ogg",
+      "sha256": "b23de3da3e0beb1e33bf856c617358f513e398434d5bab9da64736ec470c3972"
+    },
+    {
+      "time_s": 15,
+      "event": "entity.finist.hurt_1",
+      "label": "Финист вскрикивает от боли",
+      "file": "recorded61/entity/finist/hurt_1_1.ogg",
+      "sha256": "a7618b4a1d42d85c404c5848c9a3ca568e8704cc56a2c3c17e9411f6db07c617"
+    },
+    {
+      "time_s": 18,
+      "event": "entity.finist.hurt_2",
+      "label": "Финист вскрикивает от боли",
+      "file": "recorded61/entity/finist/hurt_2_1.ogg",
+      "sha256": "2b08510a980552644db0559dcf8e6e7b8f3cf2ec960cc57dd045f21350d1d903"
+    }
+  ]
+}

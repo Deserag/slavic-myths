@@ -87,5 +87,8 @@
     "nightingale_phase2_laugh"
   ],
   "runtime": "NOT_RUN",
-  "hearing": "NOT_LISTENED"
+  "hearing": "NOT_LISTENED",
+  "source_snapshot": "bdf72453c79172b09273182b58a441a868629142",
+  "version_snapshot": "1.9.7.11",
+  "current_auditions": "auditions/index.html"
 }

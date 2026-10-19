@@ -5,7 +5,7 @@ R=Path(__file__).resolve().parents[1];A=R/'src/main/resources/assets/slavicmyths
 
 # Only positively identified material/prop banks qualify as physical reuse.
 # Unknown families must not silently become props (e.g. newly added cat voices).
-PHYSICAL_BANKS={'break','equipment','foley','rustle','steam','water','wind','wings','wood','woodmetal'}
+PHYSICAL_BANKS={'break','equipment','foley','rustle','steam','water','wind','wings','wood','woodmetal','chime','harp','cymbal'}
 def physical(row):
  return bool(row and row.get('sources')) and all(s['key'].split('__',1)[0] in PHYSICAL_BANKS for s in row['sources'])
 def main():

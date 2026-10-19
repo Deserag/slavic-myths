@@ -1,0 +1,52 @@
+{
+  "status": "AGENT_SELECTED_OWNER_PENDING",
+  "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
+  "duration_s": 22,
+  "sha256": "ea2229983b77c3ac54204d4eb5b3d79ef15a6d64e11e54808339f27b29c9659d",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "events": [
+    {
+      "time_s": 0,
+      "event": "entity.finist.summon_chime",
+      "label": "Появление Финиста сопровождается переливом",
+      "file": "recorded61/entity/finist/summon_chime_1.ogg",
+      "sha256": "3d988707ce9ce10422fd3ca0fad49bd3fc9637da6be2992bba5b3fe6968b3536"
+    },
+    {
+      "time_s": 4,
+      "event": "entity.finist.mark_cast",
+      "label": "Метка Финиста отзывается коротким звоном",
+      "file": "recorded61/entity/finist/mark_cast_1.ogg",
+      "sha256": "16db403ccd5e1637ab470d14b2bc18505355ff01b1643d967683d45e81e0e8da"
+    },
+    {
+      "time_s": 8,
+      "event": "entity.finist.inspire",
+      "label": "Ободряющая магия Финиста звучит переливом струн",
+      "file": "recorded61/entity/finist/inspire_1.ogg",
+      "sha256": "60a2a6a8823f5f5f80fcf57fd9ddd55b8660ebe6e63fab9503dd82624962090a"
+    },
+    {
+      "time_s": 12,
+      "event": "entity.finist.sword_swing_1",
+      "label": "Меч Финиста рассекает воздух",
+      "file": "recorded61/entity/finist/sword_swing_1_1.ogg",
+      "sha256": "cb3eb256ab6fac0f7efcb5e8545de549ff59e48a07cc52e3b19282178eaa4b0b"
+    },
+    {
+      "time_s": 15,
+      "event": "entity.finist.sword_contact",
+      "label": "Меч Финиста достигает цели",
+      "file": "recorded61/entity/finist/sword_contact_1.ogg",
+      "sha256": "b23de3da3e0beb1e33bf856c617358f513e398434d5bab9da64736ec470c3972"
+    },
+    {
+      "time_s": 18,
+      "event": "entity.finist.victory",
+      "label": "Победа Финиста отзывается металлическим звоном",
+      "file": "recorded61/entity/finist/victory_1.ogg",
+      "sha256": "c5ecd54895917ff5338279ce20ab639f3f8fa8e78d4d31bbe32168cf8176d6dd"
+    }
+  ]
+}

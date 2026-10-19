@@ -45,10 +45,12 @@ def main():
  gaps='<h2>Реальные пробелы</h2>'+''.join(f'<p><code>{e}</code>: {html.escape(reason)}</p>' for e,reason in BLOCKED.items())
  head='<!doctype html><meta charset="utf-8"><title>Slavic Myths audio #61</title><style>body{font:16px system-ui;background:#172126;color:#eee;max-width:1100px;margin:24px auto}article{padding:16px;border:1px solid #657;margin:12px}audio{display:block;width:95%}code{overflow-wrap:anywhere}</style><h1>Полная карта нового аудиоэтапа</h1><p>AGENT_SELECTED / OWNER_PENDING. Exact playable files; no game capture, no owner acceptance. Общие физические материалы могут повторяться; голосовая индивидуальность требует прослушивания.</p>'
  stable_text(P/'soundboard.html',head+''.join(cards)+gaps);stable_text(P/'PREVIEW.md','\n'.join(md))
+ auditions=__import__('audio_state_auditions_61').render()
  buf=io.BytesIO()
  with zipfile.ZipFile(buf,'w',zipfile.ZIP_DEFLATED) as z:
   z.writestr('index.html',head+''.join(portable)+gaps);z.write(A/'audio_licenses/project-61.txt','LICENSES.txt')
   for r in rows:z.write(A/'sounds'/r['file'],'new/'+r['file'])
   for name in ['sources.json','selection.json','aliases.json','blocked.json']:z.write(P/name,name)
+  for path in sorted(auditions.iterdir()):z.write(path,'auditions/'+path.name)
  (P/'review.zip').write_bytes(buf.getvalue());print(len(rows),'labeled playable variants; portable licensed review ZIP; runtime NOT_RUN')
 if __name__=='__main__':main()

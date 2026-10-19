@@ -249,7 +249,7 @@ public final class NightingaleEntity extends PathfinderMob implements net.minecr
     @Override public boolean causeFallDamage(float distance,float multiplier,net.minecraft.world.damagesource.DamageSource source){return phase()==Phase.PHASE_TWO?false:super.causeFallDamage(Math.max(0,distance-7),multiplier,source);}
     @Override public boolean removeWhenFarAway(double distance){return false;}
     @Override public int getAmbientSoundInterval(){return 600;}
-    @Override protected SoundEvent getAmbientSound(){return action()!=IDLE?null:phase()==Phase.PHASE_TWO?ModSounds.boss("nightingale_phase2_laugh"):ModSounds.boss("nightingale_phase1_idle_whistle");}
+    @Override protected SoundEvent getAmbientSound(){return action()!=IDLE||getTarget()!=null?null:phase()==Phase.PHASE_TWO?ModSounds.boss("nightingale_phase2_laugh"):ModSounds.boss("nightingale_phase1_idle_whistle");}
     @Override protected SoundEvent getHurtSound(DamageSource s){return ModSounds.boss(phase()==Phase.PHASE_TWO?"nightingale_phase2_hurt":"nightingale_phase1_hurt");}
     @Override protected SoundEvent getDeathSound(){return ModSounds.boss(phase()==Phase.PHASE_TWO?"nightingale_phase2_death":"nightingale_phase1_death");}
     @Override public void stopSeenByPlayer(ServerPlayer p){super.stopSeenByPlayer(p);bar.removePlayer(p);}

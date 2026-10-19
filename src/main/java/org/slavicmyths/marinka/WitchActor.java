@@ -27,7 +27,14 @@ public abstract class WitchActor extends PathfinderMob {
     public double edge(LivingEntity e){if(e instanceof org.slavicmyths.poloz.GreatPoloz)return org.slavicmyths.poloz.PolozAim.edge(this,e);return Math.max(0,Math.sqrt(e.getBoundingBox().distanceToSqr(position()))-getBbWidth()/2);}
     public boolean cone(LivingEntity e,double r,double angle){var d=org.slavicmyths.poloz.PolozAim.point(this,e).subtract(position()).multiply(1,0,1);return edge(e)<=r&&(d.lengthSqr()<.01||d.normalize().dot(heading())>=Math.cos(Math.toRadians(angle/2)));}
     public boolean line(Vec3 from,Vec3 to){for(int i=0;i<=16;i++)if(!level().hasChunkAt(net.minecraft.core.BlockPos.containing(from.lerp(to,i/16.0))))return false;return level().clip(new net.minecraft.world.level.ClipContext(from,to,net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,this)).getType()==HitResult.Type.MISS;}
-    public void cue(String name){if(!level().isClientSide)playSound(MarinkaContent.sound((this instanceof DobrynyaEntity?"dobrynya":"marinka")+"."+name),name.contains("step")?.5F:.9F,.97F+random.nextFloat()*.06F);}
+    private int armorVoiceVariation,spearVoiceVariation,wingVoiceVariation;
+    public void cue(String name){if(!level().isClientSide){
+        if(this instanceof DobrynyaEntity){
+            if(name.equals("armor_step_01"))name="armor_step_0"+((armorVoiceVariation++&1)+1);
+            else if(name.equals("spear_swing_01"))name="spear_swing_0"+((spearVoiceVariation++&1)+1);
+        }else if(name.equals("magpie_wings_01"))name="magpie_wings_0"+((wingVoiceVariation++&1)+1);
+        playSound(MarinkaContent.sound((this instanceof DobrynyaEntity?"dobrynya":"marinka")+"."+name),name.contains("step")?.5F:.9F,.97F+random.nextFloat()*.06F);
+    }}
     public void bark(int line){if(!(level() instanceof ServerLevel w))return;WitchActor speaker=this;UUID owner=null;String who="dobrynya";if(this instanceof DobrynyaEntity h)owner=h.owner;else if(this instanceof MarinkaEntity m){var root=m.root();if(root==null)return;speaker=root;owner=m.owner;who="marinka";}if(owner==null||!speaker.ready("voice_line"))return;var p=w.getServer().getPlayerList().getPlayer(owner);if(p==null||p.level()!=w||distanceToSqr(p)>1024)return;speaker.cooldown("voice_line",140);p.sendSystemMessage(net.minecraft.network.chat.Component.translatable("dialogue.slavicmyths.172."+who+"_"+line));}
     @Override protected void registerGoals(){goalSelector.addGoal(0,new net.minecraft.world.entity.ai.goal.FloatGoal(this));}
     @Override public boolean removeWhenFarAway(double d){return false;}

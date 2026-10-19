@@ -9,11 +9,5 @@
   "doe_hurt": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
   "doe_death": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
   "marinka.witch_whisper_01": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording.",
-  "marinka.witch_whisper_02": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording.",
-  "nochnitsa.ambient": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone.",
-  "nochnitsa.breath": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone.",
-  "nochnitsa.scream_inhale": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone.",
-  "nochnitsa.scream_interrupt": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone.",
-  "nightingale_phase1_whistle_charge": "Actual human inhalation needed at begin(INHALE/RADIAL) and transition. Do not substitute an exhale, synthetic tone or weapon whoosh.",
-  "nightingale_phase2_laugh": "Distinct actual male laughter performance needed; phase-change and idle share this callback. No female laugh relabeled as male, no synthetic vocal restoration."
+  "marinka.witch_whisper_02": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording."
 }

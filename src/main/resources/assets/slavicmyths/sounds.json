@@ -2420,7 +2420,13 @@
     ]
   },
   "nightingale_phase1_whistle_charge": {
-    "sounds": []
+    "subtitle": "subtitles.slavicmyths.nightingale_phase1_whistle_charge",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/nightingale_phase1_whistle_charge_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "nightingale_phase1_whistle_release": {
     "subtitle": "subtitles.slavicmyths.nightingale_phase1_whistle_release",
@@ -2463,7 +2469,13 @@
     ]
   },
   "nightingale_phase2_laugh": {
-    "sounds": []
+    "subtitle": "subtitles.slavicmyths.nightingale_phase2_laugh",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/nightingale_phase2_laugh_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "nightingale_phase2_slash": {
     "subtitle": "subtitles.slavicmyths.nightingale_phase2_slash",
@@ -3824,11 +3836,21 @@
   },
   "nochnitsa.ambient": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.ambient",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/ambient_1",
+        "attenuation_distance": 16
+      }
+    ]
   },
   "nochnitsa.breath": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.breath",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/breath_1",
+        "attenuation_distance": 24
+      }
+    ]
   },
   "nochnitsa.step": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.step",
@@ -3859,7 +3881,12 @@
   },
   "nochnitsa.scream_inhale": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.scream_inhale",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/scream_inhale_1",
+        "attenuation_distance": 24
+      }
+    ]
   },
   "nochnitsa.scream_release": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.scream_release",
@@ -3872,7 +3899,12 @@
   },
   "nochnitsa.scream_interrupt": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.scream_interrupt",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/scream_interrupt_1",
+        "attenuation_distance": 24
+      }
+    ]
   },
   "nochnitsa.target_spotted": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.target_spotted",
@@ -4741,8 +4773,8 @@
     "subtitle": "subtitle.slavicmyths.171.ilya_muromets.ambient_breath_01",
     "sounds": [
       {
-        "name": "slavicmyths:entity/ilya_muromets/ambient_breath_01",
-        "attenuation_distance": 32
+        "name": "slavicmyths:recorded61/ilya_muromets/ambient_breath_01_1",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -4795,8 +4827,8 @@
     "subtitle": "subtitle.slavicmyths.171.ilya_muromets.recover_breath_01",
     "sounds": [
       {
-        "name": "slavicmyths:entity/ilya_muromets/recover_breath_01",
-        "attenuation_distance": 32
+        "name": "slavicmyths:recorded61/ilya_muromets/recover_breath_01_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -4804,8 +4836,8 @@
     "subtitle": "subtitle.slavicmyths.171.ilya_muromets.retreat_breath_01",
     "sounds": [
       {
-        "name": "slavicmyths:entity/ilya_muromets/retreat_breath_01",
-        "attenuation_distance": 32
+        "name": "slavicmyths:recorded61/ilya_muromets/retreat_breath_01_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -5067,8 +5099,8 @@
     "subtitle": "subtitles.slavicmyths.dobrynya.breath_idle_01",
     "sounds": [
       {
-        "name": "slavicmyths:dobrynya/breath_idle_01",
-        "stream": false
+        "name": "slavicmyths:recorded61/dobrynya/breath_idle_01_1",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -5872,22 +5904,22 @@
     ]
   },
   "entity.finist.summon_chime": {
+    "subtitle": "subtitle.slavicmyths.finist.summon_chime",
     "sounds": [
       {
-        "name": "slavicmyths:finist/summon_chime",
-        "stream": false
+        "name": "slavicmyths:recorded61/entity/finist/summon_chime_1",
+        "attenuation_distance": 24
       }
-    ],
-    "subtitle": "subtitle.slavicmyths.finist.summon_chime"
+    ]
   },
   "entity.finist.mark_cast": {
+    "subtitle": "subtitle.slavicmyths.finist.mark_cast",
     "sounds": [
       {
-        "name": "slavicmyths:finist/mark_cast",
-        "stream": false
+        "name": "slavicmyths:recorded61/entity/finist/mark_cast_1",
+        "attenuation_distance": 24
       }
-    ],
-    "subtitle": "subtitle.slavicmyths.finist.mark_cast"
+    ]
   },
   "entity.finist.wing_dash": {
     "subtitle": "subtitle.slavicmyths.finist.wing_dash",
@@ -5899,13 +5931,13 @@
     ]
   },
   "entity.finist.inspire": {
+    "subtitle": "subtitle.slavicmyths.finist.inspire",
     "sounds": [
       {
-        "name": "slavicmyths:finist/inspire",
-        "stream": false
+        "name": "slavicmyths:recorded61/entity/finist/inspire_1",
+        "attenuation_distance": 24
       }
-    ],
-    "subtitle": "subtitle.slavicmyths.finist.inspire"
+    ]
   },
   "entity.finist.transform": {
     "subtitle": "subtitle.slavicmyths.finist.transform",
@@ -5971,13 +6003,13 @@
     ]
   },
   "entity.finist.victory": {
+    "subtitle": "subtitle.slavicmyths.finist.victory",
     "sounds": [
       {
-        "name": "slavicmyths:finist/victory",
-        "stream": false
+        "name": "slavicmyths:recorded61/entity/finist/victory_1",
+        "attenuation_distance": 24
       }
-    ],
-    "subtitle": "subtitle.slavicmyths.finist.victory"
+    ]
   },
   "entity.finist.sword_swing_1": {
     "subtitle": "subtitle.slavicmyths.finist.sword_swing_1",
