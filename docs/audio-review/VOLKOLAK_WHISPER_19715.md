@@ -36,9 +36,9 @@ auditions/ordinary_volkolak и marinka_whispers. OLD для Волколака �
 |---|---|---|
 | Обычный Волколак,2 новых registry events/3 OGG | volkolak_hunt_audio_61.py; sources/selection | PASS_SOURCE |
 | Разный шёпот Маринки,2 OGG и два реальных callbacks | MarinkaEntity; audio_vocal_priority_61.py | PASS_SOURCE |
-| Модели, другой Hunt dispatch и CursedVolkolak сохранены | Exact full-source contracts + unchanged Cursed bank | NOT_RUN |
-| Реальный compiled JAR virtual dispatch | verify_volkolak_hunt_audio_61.py, javap | NOT_RUN |
-| Java21 clean build +6 общих gates +scoped gate | После production commit | NOT_RUN |
+| Модели, другой Hunt dispatch и CursedVolkolak сохранены | Exact full-source contracts + unchanged Cursed bank | PASS_OFFLINE |
+| Реальный compiled JAR virtual dispatch | VOLKOLAK_HUNT_GATES.json; javap production JAR | PASS_OFFLINE |
+| Java21 clean build +6 общих gates +scoped gate | 66a19070; clean build69s;6 общих+1 scoped gates | PASS_OFFLINE |
 | Установка тестового PolyMC,backup/SHA/one active JAR | После всех gates | NOT_RUN |
 | Приёмка угрозы, тембра и громкости в игре | Владелец | NOT_RUN |
 

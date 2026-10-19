@@ -1,3 +1,11 @@
+Checkpoint1.9.7.15: ordinary Volkolak rage/HOWL исправлены отдельным override,
+проверенным javap в JAR; прежний Ravager default остаётся только для прочих
+HuntMob. Маринка idle/LURE whispers подключены. Остаются10 source gaps:
+Карачун1, Игоша3, cub2, stag/doe4. Начать с поиска скупого низкого шёпота
+Карачуна; хор unfa не считать одобрением персонажа. Затем оставшиеся нужные
+человеческие/предметные near-duplicate cues. Ниже старые записи очереди,
+их указание P0 ordinary Volkolak неактуально после scoped PASS15.
+
 Точный checkpoint1.9.7.14: P0 ordinary VolkolakEntity→HuntMob rage/HOWL
 всё ещё direct Ravager. Не считать его исправленным через CursedVolkolak.
 Далее remaining human/item magic near-duplicate pairs (SIMILARITY_TRIAGE.csv),

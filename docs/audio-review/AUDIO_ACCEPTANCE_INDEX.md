@@ -3,7 +3,7 @@
 Ничего не объявлено принятым целиком. Одобрены четыре конкретных голосовых файла
 Тугарина/Скима; остальные выбранные клипы AGENT_SELECTED / OWNER_PENDING.
 
-- [Новый сквозной этап:453 назначения, роли и источники](../../art/audio/project-61/PREVIEW.md).
+- [Новый сквозной этап:458 назначений, роли и источники](../../art/audio/project-61/PREVIEW.md).
 - [OLD/NEW soundboard](../../art/audio/project-61/soundboard.html); [переносимый NEW ZIP](../../art/audio/project-61/review.zip).
 - [Предыдущий курганный пакет: курганная нежить,6 типов,53 события](../../art/audio/kurgan-65/PREVIEW.md).
 - [Открыть локальный OLD/NEW soundboard](../../art/audio/kurgan-65/soundboard.html).
@@ -30,3 +30,7 @@ actual event/file и лицензией. Нет автоматического �
 [auditions/index.html](../../art/audio/project-61/auditions/index.html).
 Установленная тестовая1.9.7.14 включает дыхание/реакции, фоли Морозко/Карачуна
 и Финиста; матрица FROST_NIGHT_19714. Старый шёпот Карачуна отключён.
+
+1.9.7.15: ещё2 подписанные последовательности ordinary_volkolak и
+marinka_whispers; всего11. Точная карта новых5 OGG — ROUTES_19715.csv.
+Шёпот Маринки — записанный наслоенный голос BlueSiren, не русская реплика.

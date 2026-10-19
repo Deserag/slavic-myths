@@ -1,3 +1,12 @@
+Актуальный incremental checkpoint1.9.7.15/source66a19070:
+обычный Волколак2 новых события/3 recorded variants; Маринка2 whisper events
+активированы, LURE frame22 использует02. Source gaps12→10;458 variants/425 events.
+Java21 clean build69s,6 общих+1 scoped offline gates PASS. Runtime NOT_RUN,
+hearing NOT_LISTENED. Полный прежний аудит не повторялся; below full inventory
+является историческим срезом1.9.7.14. Новые5 файлов: ROUTES_19715.csv.
+Установка15 пока NOT_RUN; фактическая версия14 до отдельного receipt.
+[Матрица](VOLKOLAK_WHISPER_19715.md).
+
 Актуально:1.9.7.14/source69a77a70 установлен TEST_PREVIEW / OWNER_PENDING.
 Java21 clean build47s;6 offline gates PASS;1359 OGG decode PASS,0 JAR mismatches.
 453 recorded assignments/421 events;35 vanilla references;12 declared source gaps.

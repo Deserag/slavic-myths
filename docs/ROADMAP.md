@@ -5,7 +5,9 @@
 и модели сохранены; другие HuntMob используют прежний audio hook.
 Маринка:2 записанных женских whisper phrases; idle01 и LURE frame22→02.
 Source gaps12→10;458 вариантов/425 events. Не повторяем завершённый полный аудит.
-Java21 build/gates/installation ещё NOT_RUN; PolyMC пока1.9.7.14.
+Java21 clean build69s и6 общих+1 scoped offline gates PASS.
+Compiled source66a19070; CursedVolkolak/другие Hunt dispatch сохранены.
+Установка1.9.7.15 ещё NOT_RUN; PolyMC пока1.9.7.14.
 [Матрица](audio-review/VOLKOLAK_WHISPER_19715.md). Owner/hearing/runtime pending.
 
 ## #64–#66 — мороз, ночь и защита генераторов

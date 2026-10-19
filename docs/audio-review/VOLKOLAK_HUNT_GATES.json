@@ -1,0 +1,17 @@
+{
+  "status": "PASS_OFFLINE_OWNER_PENDING",
+  "baseline": "c3a3a721",
+  "version": "1.9.7.15",
+  "events": 2,
+  "recorded_variants": 3,
+  "ordinary_override": "COMPILED_JAR_VERIFIED",
+  "rage": "actual dog growl",
+  "howl": "actual FWS wolf howl",
+  "other_hunt_dispatch": "PRESERVED_BY_EXACT_SOURCE_CONTRACT",
+  "cursed_volkolak": "UNCHANGED",
+  "combat_rules": "UNCHANGED",
+  "jar_sha256": "46483f2c3ea400de40687c39fa2282eb7de0d07c8b0a6dfee122a49d910be8a1",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "owner_accepted": false
+}
