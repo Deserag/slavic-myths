@@ -1,3 +1,10 @@
+## #64/#65 — подключение пропущенных callbacks героев
+
+Алёша: стандартные hurt callbacks для2 записанных takes; Финист: sword contact
+только после успешного damage на существующем frame8. Без новых RNG draws,
+изменений урона/AI/NBT. [Матрица](audio-review/HERO_CALLBACK_REPAIR_61.md).
+Техническая1.9.7.12 подготовлена; build/install ещё NOT_RUN. В PolyMC пока1.9.7.11.
+
 ## Тестовая1.9.7.11 установлена; #62/#64/#66 IN_PROGRESS
 
 Соловей и клинок:19 событий/21 recorded variant, вдох и смех остаются BLOCKED.

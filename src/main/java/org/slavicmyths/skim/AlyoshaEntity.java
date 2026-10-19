@@ -13,6 +13,8 @@ public final class AlyoshaEntity extends SkimActor {
  private static final EntityDataAccessor<Boolean> RECOVERING=SynchedEntityData.defineId(AlyoshaEntity.class,EntityDataSerializers.BOOLEAN);
  public UUID owner,arena;public boolean lastStand,intercepted;private Vec3 dodge,cover;private long daringUntil,lastHit;private int accurate,bowTicks,totalCombat;private UUID dodgedBoss;
  public AlyoshaEntity(EntityType<? extends AlyoshaEntity> t,Level w){super(t,w);}
+ private int hurtVoiceVariation;
+ @Override protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source){return SkimContent.sound("alyosha.hurt_"+((hurtVoiceVariation++&1)+1));}
  @Override public void begin(SkimAction a){super.begin(a,(a==SkimAction.SABER||a==SkimAction.COUNTER)&&level().getGameTime()<daringUntil?(int)Math.ceil(a.ticks/1.1):a.ticks);}
  @Override protected EntityDimensions getDefaultDimensions(Pose p){return EntityDimensions.scalable(.72F,2.15F).withEyeHeight(1.9F);}
  @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(OWNER,"");b.define(RECOVERING,false);}

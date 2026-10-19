@@ -50,7 +50,10 @@ def main():
  skip={'src/main/java/org/slavicmyths/entity/DomovoyEntity.java','src/main/java/org/slavicmyths/entity/WildlifeEntity.java','src/main/java/org/slavicmyths/registry/ModSounds.java','src/main/java/org/slavicmyths/bandit/BanditEntity.java','src/main/resources/assets/slavicmyths/sounds.json',*[f'src/main/resources/assets/slavicmyths/lang/{l}.json' for l in ['ru_ru','en_us']]}
  for entry in names:
   metadata,n=entry.split('\t');blob=metadata.split()[2]
-  if n not in skip:
+  if n in __import__('hero_audio_routes_61').PATHS:
+   expected=__import__('hero_audio_routes_61').edit(n,old(n).decode('utf-8').replace('\r\n','\n'))
+   check((R/n).read_text(encoding='utf-8')==expected,'Exact hero sound-only diff, same damage/tick/AI/NBT/gameplay RNG '+n)
+  elif n not in skip:
    data=(R/n).read_bytes()
    if b'\0' not in data:
     try:data=data.decode('utf-8').replace('\r\n','\n').encode('utf-8')
@@ -73,6 +76,9 @@ def main():
     n=p.relative_to(R/'src/main/resources').as_posix()
     if n!='META-INF/neoforge.mods.toml':check(z.read(n)==p.read_bytes(),'Packaged resource parity '+n)
   check(not any(n.startswith(('art/','tools/')) for n in z.namelist()),'No review sources or fixtures in production JAR')
+  for source in __import__('hero_audio_routes_61').PATHS:
+   name=source.removeprefix('src/main/java/').removesuffix('.java')+'.class'
+   check(z.read(name)==(R/'build/classes/java/main'/name).read_bytes(),'Actual compiled hero callsite packaged '+name)
  report=dict(status='IN_PROGRESS_OWNER_PENDING',baseline=BASE,checks=len(checks),recorded_variants=len(rows),recorded_events=len(PLAN),vanilla_aliases=len(ALIASES),source_gaps=BLOCKED,jar_sha256=sha(jar),runtime='NOT_RUN',hearing='NOT_LISTENED',owner_accepted=False,poly_mc_installed=False)
  (P/'gates.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print(json.dumps({k:v for k,v in report.items() if k!='source_gaps'},indent=2))
 if __name__=='__main__':main()
