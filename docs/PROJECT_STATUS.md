@@ -1,13 +1,15 @@
 ## #61/#64–#66 — ordinary Волколак и два шёпота Маринки
 
-Подготовлена1.9.7.15: обычный VolkolakEntity имеет отдельные реальные rage/howl
+Установлена тестовая1.9.7.15: обычный VolkolakEntity имеет отдельные реальные rage/howl
 вместо общего Ravager;2 новых registry events/3 записанных OGG. CursedVolkolak
 и модели сохранены; другие HuntMob используют прежний audio hook.
 Маринка:2 записанных женских whisper phrases; idle01 и LURE frame22→02.
 Source gaps12→10;458 вариантов/425 events. Не повторяем завершённый полный аудит.
 Java21 clean build69s и6 общих+1 scoped offline gates PASS.
 Compiled source66a19070; CursedVolkolak/другие Hunt dispatch сохранены.
-Установка1.9.7.15 ещё NOT_RUN; PolyMC пока1.9.7.14.
+PolyMC1.9.7.15 INSTALLED_TEST_PREVIEW: backup/SHA/one active JAR PASS.
+Selected main43a39201 имеет ту же production tree, что compiled66a19070;
+в build/installation receipt записаны оба commits. Запусков0, миры сохранены.
 [Матрица](audio-review/VOLKOLAK_WHISPER_19715.md). Owner/hearing/runtime pending.
 
 ## #64–#66 — мороз, ночь и защита генераторов

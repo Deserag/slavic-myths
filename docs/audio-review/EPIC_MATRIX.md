@@ -4,7 +4,9 @@
 Java21 clean build69s,6 общих+1 scoped offline gates PASS. Runtime NOT_RUN,
 hearing NOT_LISTENED. Полный прежний аудит не повторялся; below full inventory
 является историческим срезом1.9.7.14. Новые5 файлов: ROUTES_19715.csv.
-Установка15 пока NOT_RUN; фактическая версия14 до отдельного receipt.
+Тестовая15 установлена: TEST_PREVIEW_1.9.7.15.json / VERIFY.json;
+backup/SHA/one active JAR PASS,0 launches. Source43a39201 production-identical
+compiled66a19070 (оба commits и tree hash зафиксированы в receipts).
 [Матрица](VOLKOLAK_WHISPER_19715.md).
 
 Актуально:1.9.7.14/source69a77a70 установлен TEST_PREVIEW / OWNER_PENDING.

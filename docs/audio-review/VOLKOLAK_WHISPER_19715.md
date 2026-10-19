@@ -39,7 +39,7 @@ auditions/ordinary_volkolak и marinka_whispers. OLD для Волколака �
 | Модели, другой Hunt dispatch и CursedVolkolak сохранены | Exact full-source contracts + unchanged Cursed bank | PASS_OFFLINE |
 | Реальный compiled JAR virtual dispatch | VOLKOLAK_HUNT_GATES.json; javap production JAR | PASS_OFFLINE |
 | Java21 clean build +6 общих gates +scoped gate | 66a19070; clean build69s;6 общих+1 scoped gates | PASS_OFFLINE |
-| Установка тестового PolyMC,backup/SHA/one active JAR | После всех gates | NOT_RUN |
+| Установка тестового PolyMC,backup/SHA/one active JAR | TEST_PREVIEW_1.9.7.15.json + VERIFY.json; backup/metadata/SHA/one active JAR | PASS_INSTALLED_TEST_PREVIEW |
 | Приёмка угрозы, тембра и громкости в игре | Владелец | NOT_RUN |
 
 ## Остальные10 source gaps
@@ -53,3 +53,22 @@ auditions/ordinary_volkolak и marinka_whispers. OLD для Волколака �
 
 Полный прежний аудит не повторялся: обновлены только относящиеся к Маринке
 устаревшие route rows. Новые ресурсы и совместимость проверяются gates.
+
+
+Production compilation:66a19070d9194ace192009dd571afce5db8f6beb.
+Selected verified main:43a392016f8ca8f4c8914b252cfd40fb50bb5bb7 (после QA-only
+registration contract fix). `src/main` tree обоих commits идентична:
+8c74988fcb7d03b7e8ec7146db3a252b619ac7ab; gradle.properties также без diff.
+Это проверено перед установкой, не незакоммиченный локальный снимок.
+
+Installed SHA256:46483f2c3ea400de40687c39fa2282eb7de0d07c8b0a6dfee122a49d910be8a1.
+Профиль Slavic-Myths-1.21.1-Testing; один slavicmyths-1.9.7.15.jar.
+Backup предыдущей14 и критичных configs:
+`.slavicmyths-backups/pre-audio-1.9.7.15-20261019-123133Z` в том же профиле.
+Независимая проверка metadata/installed SHA/backup hashes PASS. Ни Minecraft,
+ни PolyMC/server/GameTest не запускались. Миры и другие моды не менялись.
+
+Краткая ручная проверка: обычный `/summon slavicmyths:volkolak` — ярость
+при50%HP и действие HOWL должны давать разные canine sounds, не Ravager.
+Для Маринки сравнить редкий тихий idle и короткий LURE whisper на frame22.
+Тембр, угроза, громкость и слышимость на дистанциях ещё OWNER_PENDING.
