@@ -1,0 +1,14 @@
+{
+  "status": "PASS_OFFLINE_INSTALLED_FILE_CHECK",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.16.jar",
+  "version": "1.9.7.16",
+  "sha256": "e4bef6c057457a5b6edad994f81a41d8846d899ba1b07a475ec8e1f236eafeb8",
+  "source_commit": "bc74fccb8c5da81fa9a5cb16769ae80e7b227601",
+  "compiled_from_commit": "1bb0a1f226e26d67a97951f20f417229a326cb8e",
+  "production_src_tree": "fc464dc09cd234fd0f4752e097cb2bc1c3fe5c36",
+  "active_slavic_jars": 1,
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z",
+  "backup_checks": "PASS",
+  "runtime_launches": 0,
+  "owner_accepted": false
+}

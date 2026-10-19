@@ -1,14 +1,18 @@
 {
   "status": "VERIFIED_TEST_PREVIEW_AUDIO_OWNER_PENDING",
-  "source_commit": "43a392016f8ca8f4c8914b252cfd40fb50bb5bb7",
-  "compiled_from_commit": "66a19070d9194ace192009dd571afce5db8f6beb",
+  "source_commit": "bc74fccb8c5da81fa9a5cb16769ae80e7b227601",
+  "compiled_from_commit": "1bb0a1f226e26d67a97951f20f417229a326cb8e",
   "production_tree_identical_to_compiled_commit": true,
-  "version": "1.9.7.15",
-  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.15.jar",
-  "jar_sha256": "46483f2c3ea400de40687c39fa2282eb7de0d07c8b0a6dfee122a49d910be8a1",
+  "version": "1.9.7.16",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.16.jar",
+  "jar_sha256": "e4bef6c057457a5b6edad994f81a41d8846d899ba1b07a475ec8e1f236eafeb8",
   "clean_build": "PASS",
-  "build_log": ".tools/audio-19715-build.log",
+  "build_log": ".tools/audio-19716-build.log",
   "offline_checks": [
+    {
+      "check": "verify_whisper_cub_19716",
+      "exit_code": 0
+    },
     {
       "check": "verify_volkolak_hunt_audio_61",
       "exit_code": 0

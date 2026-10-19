@@ -42,5 +42,21 @@ IENBA850703 найден, но описан как breath/exhale/sigh, не вы
 | Игоша неизменна,3 deferred,4 active gaps | deferred.json; WHISPER_CUB_19716_GATES.json | PASS_OFFLINE |
 | Java/gameplay unchanged; duration budgets | WHISPER_CUB_19716_GATES.json; Java unchanged, Igosha byte parity | PASS_OFFLINE |
 | Java21 clean build +6 общих+2 scoped gates | main1bb0a1f2;44s;8 offline gates | PASS_OFFLINE |
-| PolyMC backup/installed metadata/SHA/one active JAR | После всех gates | NOT_RUN |
+| PolyMC backup/installed metadata/SHA/one active JAR | TEST_PREVIEW_1.9.7.16.json + VERIFY.json | PASS_INSTALLED_TEST_PREVIEW |
 | Слуховая и игровая приёмка | Только владелец | NOT_RUN |
+
+
+Installed JAR: `C:\Users\pavel\AppData\Roaming\PolyMC\instances\Slavic-Myths-1.21.1-Testing\.minecraft\mods\slavicmyths-1.9.7.16.jar`.
+
+SHA256 `e4bef6c057457a5b6edad994f81a41d8846d899ba1b07a475ec8e1f236eafeb8`.
+
+Backup предыдущей15/configs: `C:\Users\pavel\AppData\Roaming\PolyMC\instances\Slavic-Myths-1.21.1-Testing\.slavicmyths-backups\pre-audio-1.9.7.16-20261019-124644Z`.
+
+Selected verified mainbc74fccb, compiled1bb0a1f2 имеют одинаковую production
+tree fc464dc09cd234fd0f4752e097cb2bc1c3fe5c36 и gradle.properties; оба
+commits записаны в receipts. Независимые metadata/SHA/backup/one active JAR
+checks PASS. Принятые модели, миры и другие моды сохранены. Запусков0.
+
+OLD для этих3 events уточнён до фактической15: adult polar-bear fallback
+для cub и muted quarantine для Карачуна; отвергнутый тон не проигрывается.
+Изменение только review artifacts/tool, production/JAR не меняет.

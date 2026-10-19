@@ -32,6 +32,12 @@ def main():
     ps+=f'<p>{detail} · {r["seconds"]:.2f}s</p><audio controls preload="none" src="{rel}"></audio>'
     md+=[f'**{label}** · `{e}`',f'![{label}]({path.as_posix()})','']
    old=baseline.get(e,{}).get('sounds',[])
+   if e in {'cub_hurt','cub_death'}:
+    old=[{'name':'minecraft:entity.polar_bear.'+('hurt' if e.endswith('hurt') else 'death'),'type':'event'}]
+    ls+='<p>OLD actual1.9.7.15: adult vanilla polar-bear fallback.</p>'
+   elif e=='karachun.voice_whisper':
+    old=[]
+    ls+='<p>OLD actual1.9.7.15: muted quarantine; no rejected tone playback. NEW real single male whisper.</p>'
    if e in {'volkolak_hunt_rage','volkolak_hunt_howl'}:
     old=[{'name':'minecraft:entity.ravager.roar','type':'event'}]
     ls+='<p>OLD direct HuntMob Java cue: volume0.85, pitch0.65. NEW ordinary Volkolak override: volume0.85, pitch1.0. Below OLD file plays without the old pitch/gain.</p>'

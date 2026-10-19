@@ -1,0 +1,347 @@
+{
+  "status": "INSTALLED_TEST_PREVIEW",
+  "acceptance": "AUDIO_OWNER_PENDING",
+  "version": "1.9.7.16",
+  "source_commit": "bc74fccb8c5da81fa9a5cb16769ae80e7b227601",
+  "source_has_uncommitted_changes": false,
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.16.jar",
+  "sha256": "e4bef6c057457a5b6edad994f81a41d8846d899ba1b07a475ec8e1f236eafeb8",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z",
+  "previous_jar": "slavicmyths-1.9.7.15.jar",
+  "previous_sha256": "46483f2c3ea400de40687c39fa2282eb7de0d07c8b0a6dfee122a49d910be8a1",
+  "critical_configuration_backups": [
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\instance.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\instance.cfg",
+      "sha256": "cdd0186d3688dfe36fdc4830ffd614201c4022ba9f4d5e877faefa3bf5d7c9d3"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\mmc-pack.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\mmc-pack.json",
+      "sha256": "789eb5c2c5410d00541a082f324012ec2c20291d3f95f9515f8bf5179c07f058"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\options.txt",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\options.txt",
+      "sha256": "3e9578d1160655973143bd87eae23ecec17dad789b4d7773e3540129e4494f07"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\curios-client.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\curios-client.toml",
+      "sha256": "8af475d222d452c40b548db89c8956f3e4d1e2aaf729464e3065f029936b3e0d"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\curios-common.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\curios-common.toml",
+      "sha256": "9f00a6b9904cf63a36c0c72f8346642962d538aaa78b59943b9de60dda82e6d0"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\curios-server.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\curios-server.toml",
+      "sha256": "1a3bee95a96f082b8e97cccbce30c1efe1352b616c78e06d5884fd4475668add"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\fallingtree.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\fallingtree.json",
+      "sha256": "9704d03d869a866e68c5e783025c8720df6d35e3e76c56080e08e9bf6473a341"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\fml.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\fml.toml",
+      "sha256": "cc59fb1039726fda3ab1eb69b06d9b9aebb7496604ea579cfb735bc5377e7825"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei-server.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei-server.toml",
+      "sha256": "702acd04d99445bce659d04fcc488e1a98c8a803983c31ae262b0f3a47fdc8d3"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\neoforge-client.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\neoforge-client.toml",
+      "sha256": "d58d93e2c429410d0abf25507d1679f732e1023b03bb52414348efcf5cf3ddb0"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\neoforge-common.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\neoforge-common.toml",
+      "sha256": "fe878a2717a145cd890621eac5b3be1e1fd656f7ff9abc6e8d53f670d37474c4"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\neoforge-server.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\neoforge-server.toml",
+      "sha256": "b1e3b38d612295f8d9dfa0fbdb538a992b7a1a3b7a766c491b4e9fdf3823396f"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-bogatyr.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-bogatyr.toml",
+      "sha256": "868712b0e7b477573a4d27c7466a9ba1b2c3a34c5fc89b8975a26b60e1c08643"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-chud-worldgen.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-chud-worldgen.toml",
+      "sha256": "fb41eaefe2ea5053811354ad055dd156c577b78a9699732c6f5fcc3dc6cc9034"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-client-1.toml.bak",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-client-1.toml.bak",
+      "sha256": "955afedabea6302545b45c2be51f7db8872d777bcfffed7f2bd879e407cbde7e"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-client.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-client.toml",
+      "sha256": "bbc3a235cebd989e2a53bc3096a7638026d05600ab285770e507719b90ba940a"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-earth-spirit-1.toml.bak",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-earth-spirit-1.toml.bak",
+      "sha256": "712d5187f927620d05c8ef7abbd53df36d717d9a595e6dd7a188398e6bc96221"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-earth-spirit-2.toml.bak",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-earth-spirit-2.toml.bak",
+      "sha256": "35feb9632d750bc577c47196c92083ed280270afabacd617ac9f6a840d4ebb68"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-earth-spirit.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-earth-spirit.toml",
+      "sha256": "8aeadffea771a0ce487ae91f0eb584238c814a2c56b5753408177d89a477863b"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-earth-visuals.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-earth-visuals.toml",
+      "sha256": "5f6601136eb71e37678b53d105d46e0a644b08b34a730e18bb7a0e5c5c30b22c"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-karachun-1.toml.bak",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-karachun-1.toml.bak",
+      "sha256": "4cbf69fce5d53f6cb1b3f61cdd95c609d0fab1503f0933c120a0efc69d683e7a"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-karachun.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-karachun.toml",
+      "sha256": "056f4ca6b12d01e78a013b895e00b0a20acfa41eda72ebf5f78dc01f43900b36"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-mor-blocks.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-mor-blocks.toml",
+      "sha256": "22a9e838652dd7e49e8fb158ba0c22dcb013a2f68e893bbd20151a5c9818a75f"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-morozko-1.toml.bak",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-morozko-1.toml.bak",
+      "sha256": "a07206dc7fa22cb3913186dc7448a74b47e5c3a271ec085508c4cdb2ec6e22a3"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-morozko.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-morozko.toml",
+      "sha256": "8f3d6c3f45be4a5f1bc9b13175b622edbb85784701b73bd9e105359f5842d470"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-nochnitsa.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-nochnitsa.toml",
+      "sha256": "8f40d1c94b0f1aed611f7abd71b69899d83a1146f1c7f29e8bab2b259b9f1b51"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-pesigolovtsy.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-pesigolovtsy.toml",
+      "sha256": "f77def39453dbffcfac24a719966301783e8c837b507b105ce8198825ebb83f1"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-poloz-visuals.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-poloz-visuals.toml",
+      "sha256": "1bee03cd7a7d1d8b90cffbd76aa3dc9279fe889196ac25136f93dfa15d284978"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\slavicmyths-sanctuaries.toml",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\slavicmyths-sanctuaries.toml",
+      "sha256": "9b3b099bbd1a0052b5dcd679d7e0da9b3ced005525c8a130f05f5be42a5a0617"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaerohud.txt",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaerohud.txt",
+      "sha256": "58c9270f258d0b224bb7d0f7c927544d5fbe5f1b8027c820e1e14ecbf48fb88c"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaeropatreon.txt",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaeropatreon.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jade\\hide-blocks.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jade\\hide-blocks.json",
+      "sha256": "309df4ae96864c19eae41b646d58497c85a73b1fc3c584e772ef4d5822794baa"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jade\\hide-entities.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jade\\hide-entities.json",
+      "sha256": "3741bb54a4535fb5a00fb0ee1f4386f3dd17834aebdf9e89c21fcd3307109709"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jade\\jade.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jade\\jade.json",
+      "sha256": "1b9faa0637ce35640b258cb9a6ede6d7fbe23f3138e1f3e04167caef4f204ecc"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jade\\plugins.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jade\\plugins.json",
+      "sha256": "105738db03833d8275f4e7ab4f2bfe274453049d30ca5f5a72573b6881f2f669"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jade\\sort-order.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jade\\sort-order.json",
+      "sha256": "c302f4304f9e843e2371a5ab849424ebdaed21f989ceb355f9e8f8421eec25d8"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\blacklist.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\blacklist.json",
+      "sha256": "b4174dc6e985aa90be5002c14e94b956d8d586683c44b7b6710c44d08fb13648"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\ingredient-list-mod-sort-order.ini",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\ingredient-list-mod-sort-order.ini",
+      "sha256": "87ac9e6992bd5e2ffeb9877dea50f9de5f0bd0fcb2cfe0113d1e031f79adfe30"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\ingredient-list-type-sort-order.ini",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\ingredient-list-type-sort-order.ini",
+      "sha256": "9be9f5ca14028eda8df857922eea736a3d1e76a85661ba90edae2682eeb0b502"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\jei-client.ini",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\jei-client.ini",
+      "sha256": "a74afa0aae880c89af589d1b008e1a2d1fa82c28dfce8594f8fe930a4a030893"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\jei-colors.ini",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\jei-colors.ini",
+      "sha256": "755f199a3868224bdccb2a8ffd8f1a4eb2d96140757f444ba31f8d677a66034f"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\jei-debug.ini",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\jei-debug.ini",
+      "sha256": "8bb0722d480964720a1500654493b5be225c74f7ff3f94e8658e39db5ab098ad"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\jei-mod-id-format.ini",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\jei-mod-id-format.ini",
+      "sha256": "0f7758b015952072ae6eb72f829f5be6530f81d79b190d3e45cd7955d201de85"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\recipe-category-sort-order.ini",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\recipe-category-sort-order.ini",
+      "sha256": "cb6e71ffee0052a21bf170a99bcf73a21503a80848cbb248aa5e06a959fe6033"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\lib\\client.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\lib\\client.cfg",
+      "sha256": "43ed9dbfa5b4d6f0f3d2e8c2ced17ad298164b22c68ff11d415257a39b074336"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\lib\\common.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\lib\\common.cfg",
+      "sha256": "98f698d96a6d21d830a455b4ad045b70516fa63c298021742d8499e7f0366cd2"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\minimap\\client.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\minimap\\client.cfg",
+      "sha256": "c0915eff5d1a7905cd1038d646eb9086fd1a29e2f637d53535e4da161de17b9f"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\minimap\\common.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\minimap\\common.cfg",
+      "sha256": "2b49df024c03a369c62a303c72755e7fedeb4f4653ff53a12fd37bd83ccd4ed0"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\minimap\\default_radar_categories_client.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\minimap\\default_radar_categories_client.json",
+      "sha256": "d44155ad6524baf93af689dcc2f7bab16d1989475f4c91a88ee526687e4957ec"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\minimap\\default_radar_categories_server.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\minimap\\default_radar_categories_server.json",
+      "sha256": "a4c652cafa7dea324e5f5cf3b1df46a84e54b6d4f877195857bce55a559c1cfd"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\world-map\\client.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\world-map\\client.cfg",
+      "sha256": "8f73b810f5d45a9f1a4fc36d76185e76e3059914b4ac0c0403bf85924c3f7558"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\world-map\\common.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\world-map\\common.cfg",
+      "sha256": "0c229eb0daf85bd09af51f21eeeb99497a3bd50a825d5ab1ca695fb21bf6cf9d"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\world-map\\profiles\\default.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\world-map\\profiles\\default.cfg",
+      "sha256": "5422abf9c83fedef6509144293fad20f588d4bb6ce0cf1af78cbcd2bcd0d2ccf"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\world-map\\server_profiles\\default.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\world-map\\server_profiles\\default.cfg",
+      "sha256": "d438aea41ca41e93697e059f523686935c0add482f6abe96b532bbf10c6ed80a"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\minimap\\profiles\\default.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\minimap\\profiles\\default.cfg",
+      "sha256": "f1ff62b22cfc97486d00e8bd3367a3207f0a8da235e7b365c5aa2a54e3f8dc25"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\minimap\\server_profiles\\default.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\minimap\\server_profiles\\default.cfg",
+      "sha256": "d438aea41ca41e93697e059f523686935c0add482f6abe96b532bbf10c6ed80a"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\minimap\\profiles\\info_display_config\\default.cfg.txt",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\minimap\\profiles\\info_display_config\\default.cfg.txt",
+      "sha256": "184e654fa1fc8ad09943c97c4e65ab78acb5b3cfca22417a831513d1b6d9bbc6"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\lib\\profiles\\default.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\lib\\profiles\\default.cfg",
+      "sha256": "34ae854b17d896d7cb853bdc28c27231a3947e91cb9f0991f372846ee3c2a907"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\xaero\\lib\\server_profiles\\default.cfg",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\xaero\\lib\\server_profiles\\default.cfg",
+      "sha256": "d438aea41ca41e93697e059f523686935c0add482f6abe96b532bbf10c6ed80a"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\world\\local\\Новый мир\\lookupHistory.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\world\\local\\Новый мир\\lookupHistory.json",
+      "sha256": "3c5d543118ee2bc18b6d9c3cee45897fe8a1cc5bf0e87c9c8ebc13a43d5f289a"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\world\\local\\Новый мир (3)\\lookupHistory.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\world\\local\\Новый мир (3)\\lookupHistory.json",
+      "sha256": "53964c72a00e2d32ca6003c61b34c77b58f2c3c8b2c068e9b6e1b9209f56c7d8"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\world\\local\\Новый мир (4)\\lookupHistory.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\world\\local\\Новый мир (4)\\lookupHistory.json",
+      "sha256": "5e54dfa1e13c383c548e817ec3d14940e9a9bad70baba72e42dcc272a874ab17"
+    },
+    {
+      "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\config\\jei\\world\\local\\Новый мир (7)\\lookupHistory.json",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1.9.7.16-20261019-124644Z\\profile\\.minecraft\\config\\jei\\world\\local\\Новый мир (7)\\lookupHistory.json",
+      "sha256": "92b5bef1641d51d456e506b22d4453e53172efd7984643a7d859429bd17950a7"
+    }
+  ],
+  "active_slavic_jars": 1,
+  "other_mod_files_preserved": 6,
+  "profile_name": "Slavic Myths 1.9.7.16 - NeoForge 1.21.1 TEST - Audio Owner Pending",
+  "platform": {
+    "org.lwjgl3": "3.3.3",
+    "net.minecraft": "1.21.1",
+    "net.neoforged.neoforge": "21.1.255"
+  },
+  "runtime_launches": 0,
+  "worlds": "NOT_MODIFIED: no write operation targets saves",
+  "old_1_16_5": "NOT_MODIFIED",
+  "installed_at": "2026-10-19T12:46:45.585517+00:00",
+  "authorization": "https://github.com/Deserag/slavic-myths/issues/61",
+  "clean_build": "PASS",
+  "offline_checks": "PASS",
+  "compiled_from_commit": "1bb0a1f226e26d67a97951f20f417229a326cb8e",
+  "production_tree_identical_to_compiled_commit": true,
+  "production_src_tree": "fc464dc09cd234fd0f4752e097cb2bc1c3fe5c36"
+}

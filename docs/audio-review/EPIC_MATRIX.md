@@ -2,7 +2,9 @@ Incremental checkpoint1.9.7.16: настоящий одиночный мужск
 и настоящие cub reactions,3 events/5 recorded OGG;463 variants/428 events.
 Игоша3 DEFERRED/LOW_PRIORITY/KEEP_CURRENT, event+OGG bytes unchanged.
 4 active gaps: stag/doe hurt/death. Полный аудит не повторялся.
-Build44s,6 общих+2 scoped gates PASS, source1bb0a1f2; installation16 pending.
+Build44s,6 общих+2 scoped gates PASS, compiled1bb0a1f2.
+PolyMC16 INSTALLED_TEST_PREVIEW; selectedbc74fccb production-identical;
+backup/SHA/one active JAR PASS,0 launches. TEST_PREVIEW_1.9.7.16_VERIFY.json.
 [Матрица](WHISPER_CUB_19716.md). Ниже исторические checkpoint, не текущий backlog.
 
 Актуальный incremental checkpoint1.9.7.15/source66a19070:
