@@ -1,5 +1,4 @@
 {
-  "kikimora_laugh": "Distinct real crooked female laugh not yet sourced; do not relabel an attack grunt as laughter.",
   "igosha_ambient": "Fragile non-caricature vocal identity needs review; ordinary adult grunt is not an infant recording.",
   "igosha_hurt": "Fragile non-caricature vocal identity needs review; ordinary adult grunt is not an infant recording.",
   "igosha_death": "Fragile non-caricature vocal identity needs review; ordinary adult grunt is not an infant recording.",
@@ -10,5 +9,9 @@
   "doe_hurt": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
   "doe_death": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
   "marinka.witch_whisper_01": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording.",
-  "marinka.witch_whisper_02": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording."
+  "marinka.witch_whisper_02": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording.",
+  "nochnitsa.ambient": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone.",
+  "nochnitsa.breath": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone.",
+  "nochnitsa.scream_inhale": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone.",
+  "nochnitsa.scream_interrupt": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone."
 }

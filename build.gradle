@@ -512,7 +512,7 @@ tasks.register('verifyRejectedVoiceQuarantine') {
     doLast {
         def events = new groovy.json.JsonSlurper().parse(file('src/main/resources/assets/slavicmyths/sounds.json'))
         def ledger = new groovy.json.JsonSlurper().parse(file('src/main/resources/assets/slavicmyths/audio_licenses/delegated-recordings-61.json'))
-        def permitted = ['vodyanoy_', 'domovoy_', 'leshy_', 'kikimora_', 'polevik_', 'poludnitsa_', 'bannik_', 'igosha_']
+        def permitted = ['vodyanoy_', 'domovoy_', 'leshy_', 'kikimora_', 'polevik_', 'poludnitsa_', 'bannik_', 'igosha_', 'nochnitsa.', 'doghead.']
         def bad = events.findAll { name, cue ->
             def quarantine =
                 ['rusalka_', 'vodyanoy_', 'domovoy_', 'leshy_', 'kikimora_',

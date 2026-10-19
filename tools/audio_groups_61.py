@@ -7,7 +7,7 @@ from audio_60_foley import encode,stable_text,RATE
 from audio_groups_61_plan import PLAN,ALIASES,BLOCKED,NEW
 A=R/'src/main/resources/assets/slavicmyths';P=R/'art/audio/project-61'
 EVENTS=set(PLAN)|set(ALIASES)|set(BLOCKED)
-DELEGATED_PREFIXES=('domovoy_','leshy_','kikimora_','polevik_','poludnitsa_','bannik_','igosha_','vodyanoy_')
+DELEGATED_PREFIXES=('domovoy_','leshy_','kikimora_','polevik_','poludnitsa_','bannik_','igosha_','vodyanoy_','nochnitsa.','doghead.')
 PROTECTED_PREFIXES=('rusalka','kuzya','kurgan/recorded')
 
 def render_source(spec,source):
@@ -52,7 +52,7 @@ def restore_selected():
    x=np.zeros(max(len(c) for c in clips))
    for c in clips:x[:len(c)]+=c/len(clips)
    fade=min(int(.012*RATE),len(x)//6);x[:fade]*=np.linspace(0,1,fade);x[-fade:]*=np.linspace(1,0,fade)
-   x*=min(choice['rms']/max(np.sqrt(np.mean(x*x)),1e-12),.55/max(abs(x)));x=np.pad(x,(220,220))
+   x*=min(choice['rms']/max(np.sqrt(np.mean(x*x)),1e-12),choice.get('peak',.55)/max(abs(x)));x=np.pad(x,(220,220))
    name='recorded61/'+event.replace('.','/')+'_'+str(n);dest=A/'sounds'/(name+'.ogg');dest.parent.mkdir(parents=True,exist_ok=True);encode(dest,x);decoded,sr=sf.read(dest)
    assert sr==RATE and decoded.ndim==1 and np.isfinite(decoded).all() and max(abs(decoded))<.8
    entry={'name':'slavicmyths:'+name,'attenuation_distance':choice.get('radius',20 if any(t in event for t in ['ambient','idle','step']) else 28)}
@@ -67,7 +67,9 @@ def restore_selected():
  for event,choice in ALIASES.items():
   subtitle=events.get(event,{}).get('subtitle','subtitles.slavicmyths.'+event)
   events[event]={'subtitle':subtitle,'sounds':[{'name':'minecraft:'+choice['target'],'type':'event'}]}
-  if event in NEW:
+  if 'ru' in choice:
+   texts['ru_ru'][subtitle]=choice['ru'];texts['en_us'][subtitle]=choice['en']
+  elif event in NEW:
    texts['ru_ru'][subtitle]='Шаги зверя';texts['en_us'][subtitle]='Animal footsteps'
  # Only specifically rejected/unresolved cues are disabled, never silently restored.
  for event,reason in BLOCKED.items():

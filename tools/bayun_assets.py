@@ -104,3 +104,7 @@ for end in [(21,23),(23,16),(31,15),(42,16),(44,22)]:d.line([(32,31),end],fill='
 for x,y in [(21,15),(45,13),(21,49),(46,46)]:d.rectangle((x,y,x+3,y+3),fill='#7B2C22')
 im.save(A/'textures/item/lore_book.png');dump(A/'models/item/lore_book.json',{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/lore_book'}})
 print('Bayun assets:',len(nodes),'bones,',sum(len(n['boxes']) for n in nodes),'cubes,',len(curves),'clips,',len(rows),'keys,',len(files),'original OGG')
+
+# Preserve the delegated recorded animal identity after legacy resource generation.
+from audio_groups_61 import restore_selected as restore_project_audio
+restore_project_audio()

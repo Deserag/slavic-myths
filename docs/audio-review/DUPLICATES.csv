@@ -66,6 +66,7 @@ SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.wolf.hurt')",2,wolf_hurt;grey_w
 SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.wolf.growl')",4,wolf_alert;grey_wolf.growl;skim.ambient_2;skim.grip_hold,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
 SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.witch.ambient')",2,yaga_ambient;yaga_talk,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
 SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.chicken.ambient')",2,entity.goose.ambient;entity.duck.ambient,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
+SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.cat.hiss')",2,entity.goose.hiss;bayun.warn,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
 SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.chicken.hurt')",2,entity.goose.hurt;entity.duck.hurt,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
 SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.chicken.death')",2,entity.goose.death;entity.duck.death,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
 SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.ravager.roar')",5,tugarin.phase1.aggro;tugarin.phase1.charge;tugarin.transform.start;tugarin_phase1_charge;tugarin_transform_start,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
@@ -100,6 +101,9 @@ SHARED_EVENT_SOURCE,"('file', 'slavicmyths:kuzya/film/voice_original_pancakes')"
 SHARED_EVENT_SOURCE,"('file', 'slavicmyths:kuzya/film/voice_original_sleep')",3,kuzya.voice_sleep_01;kuzya.voice_sleep_02;kuzya.voice_original_sleep,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
 SHARED_EVENT_SOURCE,"('file', 'slavicmyths:kuzya/film/voice_original_desire')",3,kuzya.voice_notice_01;kuzya.voice_notice_02;kuzya.voice_original_desire,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
 SHARED_EVENT_SOURCE,"('file', 'slavicmyths:kuzya/film/voice_original_feed')",3,kuzya.voice_yaga_01;kuzya.voice_yaga_02;kuzya.voice_original_feed,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
+SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.cat.eat')",3,bayun.groom;bayun.milk;bayun.fish,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
+SHARED_EVENT_SOURCE,"('event', 'minecraft:item.book.page_turn')",2,bayun.book.page;bayun.book.open,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
+SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.experience_orb.pickup')",2,bayun.book.discovery;quest185.quest_claim,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
 SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.evoker.prepare_summon')",3,idolishche_poganoe.minions_summon_01;entity.kartaus.summon_guard;quest185.teleport_start,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
 SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.ravager.attack')",3,idolishche_poganoe.rush_charge_01;skim.leap_charge;skim.grab,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED
 SHARED_EVENT_SOURCE,"('event', 'minecraft:entity.generic.big_fall')",3,idolishche_poganoe.stomp_mid_01;idolishche_poganoe.stomp_near_01;skim.leap_land,SHARED_SOURCE_NOT_AUTOMATIC_DEFECT,NOT_LISTENED

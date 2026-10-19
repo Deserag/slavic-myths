@@ -1,0 +1,30 @@
+[
+  {
+    "character": "Igosha",
+    "status": "CANDIDATE_ONLY_NOT_PRODUCTION",
+    "file": "igosha-natural-cry-667199.mp3",
+    "sha256": "8d8522ef99c86a700e3d682246f9687015ea42a80850fd8717bcb3d172fdd42f",
+    "author": "MBPL",
+    "page": "https://freesound.org/people/MBPL/sounds/667199/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "download": "https://cdn.freesound.org/previews/667/667199_14585550-hq.mp3",
+    "source_description": "Actual infant crying, public field recording with unrelated noise reduced by author; not pain/death acting",
+    "decision": "Taste-sensitive infant lament; candidate retained rather than assigning adult grunt, pitch-shifted baby or claiming a death recording",
+    "hearing": "NOT_LISTENED"
+  },
+  {
+    "character": "Igosha",
+    "status": "CANDIDATE_ONLY_NOT_PRODUCTION",
+    "file": "igosha-natural-cry-668793.mp3",
+    "sha256": "b7d3a267fd3ff4ca655ad4b3fd0aee4066eebcc955d2b42d1892c9e34867716a",
+    "author": "MBPL",
+    "page": "https://freesound.org/people/MBPL/sounds/668793/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "download": "https://cdn.freesound.org/previews/668/668793_14585550-hq.mp3",
+    "source_description": "Actual infant crying, public field recording with unrelated noise reduced by author; not pain/death acting",
+    "decision": "Taste-sensitive infant lament; candidate retained rather than assigning adult grunt, pitch-shifted baby or claiming a death recording",
+    "hearing": "NOT_LISTENED"
+  }
+]

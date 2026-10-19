@@ -1,12 +1,11 @@
 {
   "status": "IN_PROGRESS_OWNER_PENDING",
   "baseline": "ee4a40bec4f603e06dd69ee3b35ad4290dfc2389",
-  "checks": 18937,
-  "recorded_variants": 338,
-  "recorded_events": 310,
-  "vanilla_aliases": 27,
+  "checks": 19337,
+  "recorded_variants": 374,
+  "recorded_events": 345,
+  "vanilla_aliases": 35,
   "source_gaps": {
-    "kikimora_laugh": "Distinct real crooked female laugh not yet sourced; do not relabel an attack grunt as laughter.",
     "igosha_ambient": "Fragile non-caricature vocal identity needs review; ordinary adult grunt is not an infant recording.",
     "igosha_hurt": "Fragile non-caricature vocal identity needs review; ordinary adult grunt is not an infant recording.",
     "igosha_death": "Fragile non-caricature vocal identity needs review; ordinary adult grunt is not an infant recording.",
@@ -17,9 +16,13 @@
     "doe_hurt": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
     "doe_death": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
     "marinka.witch_whisper_01": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording.",
-    "marinka.witch_whisper_02": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording."
+    "marinka.witch_whisper_02": "Needs a distinct actual whispered performance; no invented whisper from noise or hurt recording.",
+    "nochnitsa.ambient": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone.",
+    "nochnitsa.breath": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone.",
+    "nochnitsa.scream_inhale": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone.",
+    "nochnitsa.scream_interrupt": "Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone."
   },
-  "jar_sha256": "6674ac9a1eed910d26a733ff4e41b08e538716389424582aaabf981be76be673",
+  "jar_sha256": "87299361d626c5e66862ad182dadccde89aa8590492ec67e0baa24d1d6745bfc",
   "runtime": "NOT_RUN",
   "hearing": "NOT_LISTENED",
   "owner_accepted": false,

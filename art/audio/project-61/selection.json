@@ -9507,5 +9507,1013 @@
     "owner_approved": false,
     "hearing": "NOT_LISTENED",
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "7dbf429a1d3b226f3959ccc0e83eae61e89047f98dbff4417fec219b47f1c4f6",
+    "event": "bayun.purr.soft",
+    "group": "bayun-recorded-cat",
+    "ru": "Баюн тихо мурлычет",
+    "action": "Bayun purrs softly",
+    "file": "recorded61/bayun/purr/soft_1.ogg",
+    "sha256": "7c010f6d523f9182886c80402dbec475f4515918439a13c3a17653f3888238f2",
+    "sources": [
+      {
+        "key": "cat__cat_purrsleepy_loop.wav",
+        "file": "sources/cat__cat_purrsleepy_loop.wav",
+        "sha256": "7f06368e25e6a7aec9b106c3e2915f236b3fa10b41781733ecc8a1866fc749b9",
+        "license": "CC0-1.0",
+        "author": "Kerzoven",
+        "page": "https://opengameart.org/content/cat-purr-meow",
+        "start_sample": 0
+      }
+    ],
+    "seconds": 1.5099773242630385,
+    "peak_dbfs": -17.861635597363662,
+    "rms_dbfs": -28.08086292033892,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "e228f2fea2224e50571ff005f5009ef5514a942eca049b04a650700f11eef08f",
+    "event": "bayun.purr.happy",
+    "group": "bayun-recorded-cat",
+    "ru": "Баюн довольно мурлычет",
+    "action": "Bayun purrs happily",
+    "file": "recorded61/bayun/purr/happy_1.ogg",
+    "sha256": "105a884336a7a0f7e0e64cb8df9a21c6fe3a00f9c062e97b41b8a3b8eb046799",
+    "sources": [
+      {
+        "key": "cat__cat_purractive_loop.wav",
+        "file": "sources/cat__cat_purractive_loop.wav",
+        "sha256": "5b41fbabf4a43e526face6922a74a1fa2d1930d0901e0df590989bf7d68cc97a",
+        "license": "CC0-1.0",
+        "author": "Kerzoven",
+        "page": "https://opengameart.org/content/cat-purr-meow",
+        "start_sample": 431
+      }
+    ],
+    "seconds": 1.5099773242630385,
+    "peak_dbfs": -16.455335999175976,
+    "rms_dbfs": -28.000856187389335,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "b95961762970456a05f8bc115445132a4d4ead059e4093fd9e5762972d3cd76a",
+    "event": "bayun.mew.soft",
+    "group": "bayun-recorded-cat",
+    "ru": "Баюн тихо мяукает",
+    "action": "Bayun meows softly",
+    "file": "recorded61/bayun/mew/soft_1.ogg",
+    "sha256": "48bf48dd33bb17bfeafa18cf07adc65d40b5572b619c3eb37365926ce149f038",
+    "sources": [
+      {
+        "key": "cat__cat_softmew.wav",
+        "file": "sources/cat__cat_softmew.wav",
+        "sha256": "7de9fed4401b677ccbf072781182857d875093a8e9b5727fc21b38028cfd5a90",
+        "license": "CC0-1.0",
+        "author": "Kerzoven",
+        "page": "https://opengameart.org/content/cat-purr-meow",
+        "start_sample": 14536
+      }
+    ],
+    "seconds": 0.9099773242630386,
+    "peak_dbfs": -7.435307310899609,
+    "rms_dbfs": -25.34829932535189,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "35a97be01754ab69ac81a314aaff01f5093130f6eee1162102810de669d1718a",
+    "event": "bayun.mew.soft",
+    "group": "bayun-recorded-cat",
+    "ru": "Баюн тихо мяукает",
+    "action": "Bayun meows softly",
+    "file": "recorded61/bayun/mew/soft_2.ogg",
+    "sha256": "2b108eaaf841985dc4dc7d9d59c35819858d9e17a2fac0c58d8e566840431c40",
+    "sources": [
+      {
+        "key": "cat__cat_mewpurr2.wav",
+        "file": "sources/cat__cat_mewpurr2.wav",
+        "sha256": "918a896111936f3f6316d1cc7fd64aa1ef0a31a4162dfcbe02c058758b0f2458",
+        "license": "CC0-1.0",
+        "author": "Kerzoven",
+        "page": "https://opengameart.org/content/cat-purr-meow",
+        "start_sample": 5702
+      }
+    ],
+    "seconds": 0.9099773242630386,
+    "peak_dbfs": -10.409020742004145,
+    "rms_dbfs": -25.385372030307927,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "6172e631d65c35e917d87964c634dfab1c9c1e1dbe9c7db9fcb81be1162f9ef8",
+    "event": "bayun.mew.annoyed",
+    "group": "bayun-recorded-cat",
+    "ru": "Баюн настойчиво мяукает",
+    "action": "Bayun meows insistently",
+    "file": "recorded61/bayun/mew/annoyed_1.ogg",
+    "sha256": "7a34714453145e02164fd5a127161d85d28c11846119fb24f584e33207f04b2b",
+    "sources": [
+      {
+        "key": "cat__cat_mewfood.wav",
+        "file": "sources/cat__cat_mewfood.wav",
+        "sha256": "3550f080882b52e236c8810a353756b2e0395fb7dadf0aeface0a06893cd181f",
+        "license": "CC0-1.0",
+        "author": "Kerzoven",
+        "page": "https://opengameart.org/content/cat-purr-meow",
+        "start_sample": 2907
+      }
+    ],
+    "seconds": 0.8361678004535147,
+    "peak_dbfs": -6.405281170263849,
+    "rms_dbfs": -25.38303937545505,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "b65b5fecca30af804ec7ef3ebbd9d73d6ad1fe77afe8dd5c7c751554e47f7bc9",
+    "event": "bayun.stretch",
+    "group": "bayun-recorded-cat",
+    "ru": "Баюн мурлычет, потягиваясь",
+    "action": "Bayun purrs while stretching",
+    "file": "recorded61/bayun/stretch_1.ogg",
+    "sha256": "c822e41436aa861cf31069d957f453d3c79ae87fcf352aab9e5534faf67a40ae",
+    "sources": [
+      {
+        "key": "cat__cat_mewpurr.wav",
+        "file": "sources/cat__cat_mewpurr.wav",
+        "sha256": "a58487959ee00c812f9f02ca822a668173bcf04a98c6dd98a902514a1d3994ea",
+        "license": "CC0-1.0",
+        "author": "Kerzoven",
+        "page": "https://opengameart.org/content/cat-purr-meow",
+        "start_sample": 857
+      }
+    ],
+    "seconds": 0.9099773242630386,
+    "peak_dbfs": -12.803654265542132,
+    "rms_dbfs": -25.302322419269277,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "cbea2b2cb2235ae2bf7ee98258afd686e22b0cbbcd6761b749de56c6c4eaa7db",
+    "event": "bayun.settle",
+    "group": "bayun-recorded-cat",
+    "ru": "Баюн устраивается поудобнее",
+    "action": "Bayun settles down",
+    "file": "recorded61/bayun/settle_1.ogg",
+    "sha256": "7c94a368b8d2e006613f5991087e56996b88219fef6f45e79dab102204d9929a",
+    "sources": [
+      {
+        "key": "foley__cloth-03.flac",
+        "file": "../pack-a-60/sources/cloth-03.flac",
+        "sha256": "f3e01f1e6ed54748b1351163e373c1d6270d63e7c1338155f9b3d03427d25c23",
+        "license": "CC0-1.0",
+        "author": "OwlishMedia",
+        "page": "https://opengameart.org/content/202-more-sound-effects",
+        "start_sample": 4887
+      }
+    ],
+    "seconds": 0.30997732426303853,
+    "peak_dbfs": -12.305992257548773,
+    "rms_dbfs": -25.496880366044387,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "73155604e9ee397aa89d6c7aab6fb1242978f5099f103025d822920055a5ad54",
+    "event": "bayun.pawstep",
+    "group": "bayun-recorded-cat",
+    "ru": "Мягкие шаги Баюна",
+    "action": "Bayun soft pawsteps",
+    "file": "recorded61/bayun/pawstep_1.ogg",
+    "sha256": "4573ca3160c98578d1dc85daa25b79c1f91f483324476613ebf55fa8bc1c22a7",
+    "sources": [
+      {
+        "key": "rustle__rustle16.flac",
+        "file": "sources/rustle__rustle16.flac",
+        "sha256": "1b2eda4fab3ecf3c909abb3f69aaf1f83e667bbff6b26b602ece431092b4008a",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+        "start_sample": 5964
+      }
+    ],
+    "seconds": 0.18997732426303854,
+    "peak_dbfs": -7.05663780309711,
+    "rms_dbfs": -25.63344867619513,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "9fea9264c1658806c0be34af2e870b72c91fedf6501a813eb21ad3a6da4cf4f0",
+    "event": "bayun.pounce",
+    "group": "bayun-recorded-cat",
+    "ru": "Баюн прыгает",
+    "action": "Bayun pounces",
+    "file": "recorded61/bayun/pounce_1.ogg",
+    "sha256": "c61cb1cd0142e1d91504d40c5cb7b025eb3029240fbd22816102de98facda340",
+    "sources": [
+      {
+        "key": "foley__cloth-01.flac",
+        "file": "../pack-a-60/sources/cloth-01.flac",
+        "sha256": "831561cad51e015267d697c417cc1f9c2913c20837b369a68ba396fe52118f66",
+        "license": "CC0-1.0",
+        "author": "OwlishMedia",
+        "page": "https://opengameart.org/content/202-more-sound-effects",
+        "start_sample": 11840
+      }
+    ],
+    "seconds": 0.22997732426303855,
+    "peak_dbfs": -11.83105344949826,
+    "rms_dbfs": -25.416287132564527,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "0cf31ad0c171bb3026a8d5981945945a32b3c53c5fd8c6047b58b2afe94aa4e0",
+    "event": "bayun.claw",
+    "group": "bayun-recorded-cat",
+    "ru": "Когти Баюна рассекают воздух",
+    "action": "Bayun claws swish",
+    "file": "recorded61/bayun/claw_1.ogg",
+    "sha256": "8cca4fff5942c7e7db46fecc196babe91d16dfb9dea66ad7d2ce6c780962a5c3",
+    "sources": [
+      {
+        "key": "foley__swosh-01.flac",
+        "file": "../pack-a-60/sources/swosh-01.flac",
+        "sha256": "6bacb655b1b6e6669f5b1eb44e7eaea1219b185539486c08e11240193391ebd5",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+        "start_sample": 844
+      }
+    ],
+    "seconds": 0.15997732426303854,
+    "peak_dbfs": -9.560959794647466,
+    "rms_dbfs": -25.523324204551557,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "b6ffe9ee319dcaa95d845697659ab6d80ea99958a9fcaf1a8fe69a18b1930f1e",
+    "event": "kikimora_laugh",
+    "group": "spirits",
+    "ru": "Кикимора зловеще смеётся",
+    "action": "Kikimora laughs wickedly",
+    "file": "recorded61/kikimora_laugh_1.ogg",
+    "sha256": "287e137755423dd5feacaa32803a4dbaa617cbd058cb5f4e174eeed58ae70564",
+    "sources": [
+      {
+        "key": "laugh__maniacal_laughter_pack_1.ogg",
+        "file": "sources/laugh__maniacal_laughter_pack_1.ogg",
+        "sha256": "1891b4b843738ee226950dd20b8f1a9bbbc0eaa7a2360c9d94c9cbfe7a21cf86",
+        "license": "CC0-1.0",
+        "author": "AuraVoice / Nocturnal_Vanguard",
+        "page": "https://opengameart.org/content/maniacal-laughter-pack-1",
+        "start_sample": 6350
+      }
+    ],
+    "seconds": 2.6099773242630384,
+    "peak_dbfs": -11.676131313732963,
+    "rms_dbfs": -25.29994527036512,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "67fc9a644445f31530ab13a72d8cbf8a4f978f4d6d0bf71d71168245f204196e",
+    "event": "doghead.hunter.ambient",
+    "group": "doghead-performed-voices",
+    "ru": "Псоглавец-охотник ворчит",
+    "action": "Doghead hunter grumbles",
+    "file": "recorded61/doghead/hunter/ambient_1.ogg",
+    "sha256": "cfe8dd9aa7a0fce033edbeade40eccf56cbba30f4b2439511fb9afb184a795a1",
+    "sources": [
+      {
+        "key": "creature__grunt_01.ogg",
+        "file": "sources/creature__grunt_01.ogg",
+        "sha256": "73ee84f2bb3e1b371a72dd66a09f150c98c9000bcb735c3bdd7f607e59385206",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 2763
+      }
+    ],
+    "seconds": 0.6280725623582767,
+    "peak_dbfs": -13.480441716282712,
+    "rms_dbfs": -27.047476111696497,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "dc26761f4ada313a7d35187750dd6c199fc0056e19f9178e86723e796d265152",
+    "event": "doghead.hunter.hurt",
+    "group": "doghead-performed-voices",
+    "ru": "Псоглавец-охотник вскрикивает",
+    "action": "Doghead hunter cries out",
+    "file": "recorded61/doghead/hunter/hurt_1.ogg",
+    "sha256": "293a6426e340fe22a5c9b2fdf6cc0b5375d00f7c40958bec07ff08fbf56fcc89",
+    "sources": [
+      {
+        "key": "creature__hurt_01.ogg",
+        "file": "sources/creature__hurt_01.ogg",
+        "sha256": "619f9f2b4bc6cb013b4a62d0ef515a11e4be3a73c9d78c7c12ec5669b166d2cd",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 551
+      }
+    ],
+    "seconds": 0.3218367346938775,
+    "peak_dbfs": -6.333674380604442,
+    "rms_dbfs": -23.120334230028718,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "1fd1e8557b75dbd5c79b3958a9d57f41cb20e4b2feeb2f6dfc16f01101b196a3",
+    "event": "doghead.hunter.death",
+    "group": "doghead-performed-voices",
+    "ru": "Псоглавец-охотник испускает последний рык",
+    "action": "Doghead hunter gives a final growl",
+    "file": "recorded61/doghead/hunter/death_1.ogg",
+    "sha256": "9af1b7a9d6368599271da1653c8dd7eaca99abc711687cff3916d7d6ae7eeef0",
+    "sources": [
+      {
+        "key": "creature__monster_01.ogg",
+        "file": "sources/creature__monster_01.ogg",
+        "sha256": "e8bb5c9d3d25172666c60ed302d354144b67e66170bdf039ec88f4b6b0cd879f",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 1965
+      }
+    ],
+    "seconds": 0.531859410430839,
+    "peak_dbfs": -6.194278549643687,
+    "rms_dbfs": -25.327602654474944,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "8940de8d09560cec86902875422020a43190d069321e399e3a338e4b30fa921b",
+    "event": "doghead.scout.ambient",
+    "group": "doghead-performed-voices",
+    "ru": "Псоглавец-разведчик ворчит",
+    "action": "Doghead scout grumbles",
+    "file": "recorded61/doghead/scout/ambient_1.ogg",
+    "sha256": "d2a70bac344350f64ef78d9529a98a8da1eac0dc286adfef149b982e06a80c14",
+    "sources": [
+      {
+        "key": "creature__grunt_02.ogg",
+        "file": "sources/creature__grunt_02.ogg",
+        "sha256": "76d78154f2f22b3f373bd3ec4ff0edabb459322f72adabfa285b738f37987cbb",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 900
+      }
+    ],
+    "seconds": 0.5242857142857142,
+    "peak_dbfs": -18.32769015422673,
+    "rms_dbfs": -26.960044171897305,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "0b20b515a369e86aefeb89448001dfd84fa8f87051d7772f3256a200ef5fd4f3",
+    "event": "doghead.scout.hurt",
+    "group": "doghead-performed-voices",
+    "ru": "Псоглавец-разведчик вскрикивает",
+    "action": "Doghead scout cries out",
+    "file": "recorded61/doghead/scout/hurt_1.ogg",
+    "sha256": "4b7daf4778d904188ede642e42a0c070b2c7b1d05bfb215b39e9bac894e984e1",
+    "sources": [
+      {
+        "key": "creature__hurt_02.ogg",
+        "file": "sources/creature__hurt_02.ogg",
+        "sha256": "b90ca3a0f5f48e1141ec6326f08ebf9f597efb6b2ca4ceeccc285b203c1ccbe1",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 837
+      }
+    ],
+    "seconds": 0.3357823129251701,
+    "peak_dbfs": -9.442305082447145,
+    "rms_dbfs": -22.7713305622203,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "801181e10f7c357596dcb7b35777e362e382e1762ecf004ed1c4eaa5ae4ed504",
+    "event": "doghead.scout.death",
+    "group": "doghead-performed-voices",
+    "ru": "Псоглавец-разведчик испускает последний рык",
+    "action": "Doghead scout gives a final growl",
+    "file": "recorded61/doghead/scout/death_1.ogg",
+    "sha256": "7100ba9edd0a985e19294eb0faa932375c6cb71d1a4f4ef2f40a62fbb76fb7cc",
+    "sources": [
+      {
+        "key": "creature__monster_02.ogg",
+        "file": "sources/creature__monster_02.ogg",
+        "sha256": "2f590aec7086b2327a141ec71d5e8b8e83524a30e6b9baf3be2784f4adb153b3",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 3484
+      }
+    ],
+    "seconds": 0.3891156462585034,
+    "peak_dbfs": -6.141120633650261,
+    "rms_dbfs": -25.14677146670909,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "5f90405a0629b8105c6214df2845fa08b887b68c65bd655bf247c87c2bc80429",
+    "event": "doghead.leader.ambient",
+    "group": "doghead-performed-voices",
+    "ru": "Псоглавец-вожак ворчит",
+    "action": "Doghead leader grumbles",
+    "file": "recorded61/doghead/leader/ambient_1.ogg",
+    "sha256": "c90133ecf2e4f3e8d734cc3bb7d35f54289b79a93398141ec8d53f7fd2febefb",
+    "sources": [
+      {
+        "key": "creature__troll_01.ogg",
+        "file": "sources/creature__troll_01.ogg",
+        "sha256": "d61a6ea6ab0263406de93002ee7378abac7b33486eafc04a91eeb625938e0df1",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 738
+      }
+    ],
+    "seconds": 0.5468707482993197,
+    "peak_dbfs": -16.117996664335358,
+    "rms_dbfs": -26.981644416114065,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "d87b2b12480faa4ac5347891403c051db9262f82d2162e22f7dcf9755cb20ebc",
+    "event": "doghead.leader.hurt",
+    "group": "doghead-performed-voices",
+    "ru": "Псоглавец-вожак вскрикивает",
+    "action": "Doghead leader cries out",
+    "file": "recorded61/doghead/leader/hurt_1.ogg",
+    "sha256": "a8676ca16ae4c2480ae2bf2e88f01b07ee397e9e4dcab34ae95609c1199cbd35",
+    "sources": [
+      {
+        "key": "creature__hurt_03.ogg",
+        "file": "sources/creature__hurt_03.ogg",
+        "sha256": "53e0ff510ef43f583befea63af23af1d82ddb993b981f7c3c0e7eb5f0f9d21ab",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 162
+      }
+    ],
+    "seconds": 0.27424036281179137,
+    "peak_dbfs": -9.033495934075122,
+    "rms_dbfs": -22.61597398383831,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "92feec65b1dd0f034cfe849a832dc2a5ba3f30316a17e85847055a658ffceda7",
+    "event": "doghead.leader.death",
+    "group": "doghead-performed-voices",
+    "ru": "Псоглавец-вожак испускает последний рык",
+    "action": "Doghead leader gives a final growl",
+    "file": "recorded61/doghead/leader/death_1.ogg",
+    "sha256": "89430d0b2cb750b6b3b78975f9b2fce672602ea47be17847a220440f2ab8f51a",
+    "sources": [
+      {
+        "key": "creature__monster_03.ogg",
+        "file": "sources/creature__monster_03.ogg",
+        "sha256": "1208729886f3f66e7d8018e8880dff073275fd37b30e1016dd5b164161482df1",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 2603
+      }
+    ],
+    "seconds": 0.36891156462585034,
+    "peak_dbfs": -7.7224623090436975,
+    "rms_dbfs": -22.646072476139835,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "feaf6e1663bf1dccb8f1fdf779a6b5c2175f1a906537fa60ea4e47e5031d6b50",
+    "event": "doghead.hunter.bark",
+    "group": "doghead-performed-voices",
+    "ru": "Псоглавец-охотник лает",
+    "action": "Doghead hunter barks",
+    "file": "recorded61/doghead/hunter/bark_1.ogg",
+    "sha256": "4b231ef2a71a1dfe21515ac6a4a18cb4d0e154fc951c3b119396b7ff3e8cb16c",
+    "sources": [
+      {
+        "key": "creature__barking_01.ogg",
+        "file": "sources/creature__barking_01.ogg",
+        "sha256": "f9b32cc139f0b8e7ae1f3b2409c08f374faa3d3a0935beb85b13e822d84bbb3d",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 754
+      }
+    ],
+    "seconds": 0.2546485260770975,
+    "peak_dbfs": -7.8446571634279145,
+    "rms_dbfs": -23.728745250365733,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "a159823201fbcf73732c9717dafe600e44de0c137a8ff631e888f04e2691c0f3",
+    "event": "doghead.scout.spot_bark",
+    "group": "doghead-performed-voices",
+    "ru": "Псоглавец-разведчик подаёт тревогу",
+    "action": "Doghead scout barks an alarm",
+    "file": "recorded61/doghead/scout/spot_bark_1.ogg",
+    "sha256": "a13356de417339d0c1db9240d8dcaa918b0fc8755d63e27cb656ca80b008adcb",
+    "sources": [
+      {
+        "key": "creature__barking_02.ogg",
+        "file": "sources/creature__barking_02.ogg",
+        "sha256": "d0222abeebea1616996b58af320c5b08d48fd68e13d9ba85104fd64d9f8e22ba",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 1140
+      }
+    ],
+    "seconds": 0.20675736961451247,
+    "peak_dbfs": -8.451914766918755,
+    "rms_dbfs": -23.86935435083737,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "d0f3ca2b9c79a84caf31c65ad0bbfcf1194c91d358d1ac018d73a6750f804fa7",
+    "event": "doghead.leader.howl_release",
+    "group": "doghead-performed-voices",
+    "ru": "Вожак псоглавцев воет",
+    "action": "Doghead leader howls",
+    "file": "recorded61/doghead/leader/howl_release_1.ogg",
+    "sha256": "1d92e274cadbd3d48725b938ba51e216c9dec432e455363ea9dc126e4f9f69db",
+    "sources": [
+      {
+        "key": "creature__howl.ogg",
+        "file": "sources/creature__howl.ogg",
+        "sha256": "e63e29a219dfbe64724525600f36db7aab6017145650ffbc92763f87181c7825",
+        "license": "CC0-1.0",
+        "author": "rubberduck",
+        "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+        "start_sample": 919
+      }
+    ],
+    "seconds": 0.5102947845804988,
+    "peak_dbfs": -8.36800176142035,
+    "rms_dbfs": -20.48106110341244,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "1299564c287d7ddc52ea56c1b931b425ab349c6643997f79a74f7b1435355a02",
+    "event": "nochnitsa.hurt",
+    "group": "nochnitsa-performed-voice",
+    "ru": "Ночница резко вскрикивает",
+    "action": "Nochnitsa cries out",
+    "file": "recorded61/nochnitsa/hurt_1.ogg",
+    "sha256": "90ed5b8e301bf8f56120833b119c37ef07964f59d3c86ec16ad193f4d14134ae",
+    "sources": [
+      {
+        "key": "aura__evil_screech_1.ogg",
+        "file": "sources/aura__evil_screech_1.ogg",
+        "sha256": "78c2c83d32d33488ca25a62a7b8ea51c3cc2fb268f5ec02541690149b9d720aa",
+        "license": "CC0-1.0",
+        "author": "AuraVoice / Nocturnal_Vanguard",
+        "page": "https://opengameart.org/content/evil-screech-1",
+        "start_sample": 18323
+      }
+    ],
+    "seconds": 0.7541043083900226,
+    "peak_dbfs": -10.42485084011647,
+    "rms_dbfs": -22.75161387230712,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "4ca8c7ae080606373f94c9097b6f186f4735e4a54bb4a63cf5905be35a3213d0",
+    "event": "nochnitsa.target_spotted",
+    "group": "nochnitsa-performed-voice",
+    "ru": "Ночница замечает жертву и вскрикивает",
+    "action": "Nochnitsa spots prey and screeches",
+    "file": "recorded61/nochnitsa/target_spotted_1.ogg",
+    "sha256": "928faafc9c71b503f0a1ba505110d4bdc1950b1e0a4daf048071901e903df095",
+    "sources": [
+      {
+        "key": "aura__evil_screech_1.ogg",
+        "file": "sources/aura__evil_screech_1.ogg",
+        "sha256": "78c2c83d32d33488ca25a62a7b8ea51c3cc2fb268f5ec02541690149b9d720aa",
+        "license": "CC0-1.0",
+        "author": "AuraVoice / Nocturnal_Vanguard",
+        "page": "https://opengameart.org/content/evil-screech-1",
+        "start_sample": 85113
+      }
+    ],
+    "seconds": 0.9868480725623583,
+    "peak_dbfs": -11.138592638591616,
+    "rms_dbfs": -22.737577260942373,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "8143be235d6a5fb56a467f77e116c05055c9bc3808f6086c34ac0b08385c5e3e",
+    "event": "nochnitsa.scream_release",
+    "group": "nochnitsa-performed-voice",
+    "ru": "Ночница пронзительно кричит",
+    "action": "Nochnitsa shrieks",
+    "file": "recorded61/nochnitsa/scream_release_1.ogg",
+    "sha256": "1115b8a081345f2c96b0458617fc02ad7a2aa773172cb851a9b6a51319583a07",
+    "sources": [
+      {
+        "key": "aura__evil_screech_1.ogg",
+        "file": "sources/aura__evil_screech_1.ogg",
+        "sha256": "78c2c83d32d33488ca25a62a7b8ea51c3cc2fb268f5ec02541690149b9d720aa",
+        "license": "CC0-1.0",
+        "author": "AuraVoice / Nocturnal_Vanguard",
+        "page": "https://opengameart.org/content/evil-screech-1",
+        "start_sample": 170002
+      }
+    ],
+    "seconds": 0.9181632653061225,
+    "peak_dbfs": -8.815519925839215,
+    "rms_dbfs": -22.699235594722715,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "eede4fa6c4fac3049fc0f4e8774baa31539fedf0151cdcde3d081b427648bac5",
+    "event": "nochnitsa.death",
+    "group": "nochnitsa-performed-voice",
+    "ru": "Последний крик Ночницы затихает",
+    "action": "Nochnitsa final cry fades",
+    "file": "recorded61/nochnitsa/death_1.ogg",
+    "sha256": "1bb40709137bbe41ffb60b99102420c7fcbb7a27bf88cdf64e595a1f1a53e964",
+    "sources": [
+      {
+        "key": "aura__evil_screech_1.ogg",
+        "file": "sources/aura__evil_screech_1.ogg",
+        "sha256": "78c2c83d32d33488ca25a62a7b8ea51c3cc2fb268f5ec02541690149b9d720aa",
+        "license": "CC0-1.0",
+        "author": "AuraVoice / Nocturnal_Vanguard",
+        "page": "https://opengameart.org/content/evil-screech-1",
+        "start_sample": 249113
+      }
+    ],
+    "seconds": 0.8902267573696145,
+    "peak_dbfs": -9.871465289309796,
+    "rms_dbfs": -22.76811831707093,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "05148501bc6f5a36ff403c4ebe09e7351cf52208c4be5a75ffc9dac0f4fb975a",
+    "event": "nochnitsa.sunrise_dissolve",
+    "group": "other-hostiles",
+    "ru": "Одежда Ночницы осыпается на рассвете",
+    "action": "Nochnitsa cloth crumbles at sunrise",
+    "file": "recorded61/nochnitsa/sunrise_dissolve_1.ogg",
+    "sha256": "14afdaf17b9685aea53c4198e2c2b673f39434773d427c9f44946f48380305b3",
+    "sources": [
+      {
+        "key": "rustle__rustle10.flac",
+        "file": "sources/rustle__rustle10.flac",
+        "sha256": "7a6d0b9d170e59e571ac7560133a8c860527ab0f045c08b375591b81bcb59b1f",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://lpc.opengameart.org/content/20-rustles-dry-leaves",
+        "start_sample": 32
+      }
+    ],
+    "seconds": 0.41253968253968254,
+    "peak_dbfs": -10.718142347255649,
+    "rms_dbfs": -27.189666255708907,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "7f54b21f70fd3726311c497acc8ade8296600b1d195db35f08fd87f0331430fa",
+    "event": "ilya_muromets.pain_nonverbal_01",
+    "group": "hero-recorded-pain",
+    "ru": "Илья глухо вскрикивает от боли",
+    "action": "Ilya grunts in pain",
+    "file": "recorded61/ilya_muromets/pain_nonverbal_01_1.ogg",
+    "sha256": "9ddd6ef73815a740c5255a53328013082878d10c9b8864fdcf73be9db8e0c02b",
+    "sources": [
+      {
+        "key": "hael__3grunt1.wav",
+        "file": "sources/hael__3grunt1.flac",
+        "sha256": "3a0acdbc65aeff6b922b5ff6532ba6cc94319c466fff7b4c75a9df6742e98819",
+        "license": "CC0-1.0",
+        "author": "HaelDB; four vocalists described by uploader",
+        "page": "https://opengameart.org/content/male-gruntyelling-sounds",
+        "start_sample": 23369
+      }
+    ],
+    "seconds": 0.34727891156462587,
+    "peak_dbfs": -13.869998806055845,
+    "rms_dbfs": -23.213981876834925,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "b2737929b262e2171b7c9a1af46fbff9a61e879bf9e1772bf601bb38440afc36",
+    "event": "ilya_muromets.pain_nonverbal_02",
+    "group": "hero-recorded-pain",
+    "ru": "Илья глухо вскрикивает от боли",
+    "action": "Ilya grunts in pain",
+    "file": "recorded61/ilya_muromets/pain_nonverbal_02_1.ogg",
+    "sha256": "6f690f9351918284c4b30124c82df1a66db9c8e69552bdd1b367d9a1d23b06fc",
+    "sources": [
+      {
+        "key": "hael__3grunt2.wav",
+        "file": "sources/hael__3grunt2.flac",
+        "sha256": "d8ca20c172578a5600d406256484434464812a9768b9bd95b1e506111d7283dc",
+        "license": "CC0-1.0",
+        "author": "HaelDB; four vocalists described by uploader",
+        "page": "https://opengameart.org/content/male-gruntyelling-sounds",
+        "start_sample": 12709
+      }
+    ],
+    "seconds": 0.6142857142857143,
+    "peak_dbfs": -5.48837069980539,
+    "rms_dbfs": -24.145050495651503,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "cdc6fbf919e11e327ea625555d461854149345ec340c9f9ddba9bdde9177521c",
+    "event": "dobrynya.grunt_hurt_01",
+    "group": "hero-recorded-pain",
+    "ru": "Добрыня вскрикивает от боли",
+    "action": "Dobrynya cries in pain",
+    "file": "recorded61/dobrynya/grunt_hurt_01_1.ogg",
+    "sha256": "bf2a6a77ff3518fcc00c573b2df471e7e485be3d2ba0a4dac6caf390a1374b78",
+    "sources": [
+      {
+        "key": "hael__1yell1.wav",
+        "file": "sources/hael__1yell1.flac",
+        "sha256": "ef2cc423559c17321461558e1104a1dc2c660904657eab26bfc4475af9485a17",
+        "license": "CC0-1.0",
+        "author": "HaelDB; four vocalists described by uploader",
+        "page": "https://opengameart.org/content/male-gruntyelling-sounds",
+        "start_sample": 14139
+      }
+    ],
+    "seconds": 0.32414965986394556,
+    "peak_dbfs": -8.451278469794891,
+    "rms_dbfs": -23.210006520114508,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "ec2ae287ef6d9fb34b19d5b096ec80a2185a533108321b13aebc645be861a521",
+    "event": "alyosha.hurt_1",
+    "group": "hero-recorded-pain",
+    "ru": "Алёша вскрикивает от боли",
+    "action": "Alyosha cries in pain",
+    "file": "recorded61/alyosha/hurt_1_1.ogg",
+    "sha256": "e0019e2eb2da0215210ee02bb41eef10cb1a6cb3b26ca3b3c0ae6705ae038034",
+    "sources": [
+      {
+        "key": "hael__2yell1.wav",
+        "file": "sources/hael__2yell1.flac",
+        "sha256": "79a26be08c78ebc403c12cc813c5f6790579ece0d1c81afeb2bde4d6f488a91b",
+        "license": "CC0-1.0",
+        "author": "HaelDB; four vocalists described by uploader",
+        "page": "https://opengameart.org/content/male-gruntyelling-sounds",
+        "start_sample": 18153
+      }
+    ],
+    "seconds": 0.4145578231292517,
+    "peak_dbfs": -11.37962140520099,
+    "rms_dbfs": -23.15839041473709,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "3a0f175bbd3967414ca64dacb86c2bf558518a84c31a65b53325ea16c6fb0d35",
+    "event": "alyosha.hurt_2",
+    "group": "hero-recorded-pain",
+    "ru": "Алёша вскрикивает от боли",
+    "action": "Alyosha cries in pain",
+    "file": "recorded61/alyosha/hurt_2_1.ogg",
+    "sha256": "4410f7d388aa811a5bd6d4181fa00d4f618d7995832779cb2020df9a2783ed65",
+    "sources": [
+      {
+        "key": "hael__2yell2.wav",
+        "file": "sources/hael__2yell2.flac",
+        "sha256": "31117546b50a622ccfd3c48d164d7e0596b043f7372a12929ed5fea1fdf50f44",
+        "license": "CC0-1.0",
+        "author": "HaelDB; four vocalists described by uploader",
+        "page": "https://opengameart.org/content/male-gruntyelling-sounds",
+        "start_sample": 16621
+      }
+    ],
+    "seconds": 0.6599773242630386,
+    "peak_dbfs": -11.359971955777928,
+    "rms_dbfs": -23.127649865088415,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "82d442d829da0db65d3f17322961205cfbefcbcc891a0502528f4e83bc1d13f6",
+    "event": "entity.finist.hurt_1",
+    "group": "hero-recorded-pain",
+    "ru": "Финист вскрикивает от боли",
+    "action": "Finist cries in pain",
+    "file": "recorded61/entity/finist/hurt_1_1.ogg",
+    "sha256": "a7618b4a1d42d85c404c5848c9a3ca568e8704cc56a2c3c17e9411f6db07c617",
+    "sources": [
+      {
+        "key": "hael__yell1.wav",
+        "file": "sources/hael__yell1.flac",
+        "sha256": "67aaee92d7d96e494ae286000f2c05dd5b7dcfb012d17c5308619f8d45f2ce0a",
+        "license": "CC0-1.0",
+        "author": "HaelDB; four vocalists described by uploader",
+        "page": "https://opengameart.org/content/male-gruntyelling-sounds",
+        "start_sample": 65345
+      }
+    ],
+    "seconds": 0.6599773242630386,
+    "peak_dbfs": -14.506904244844698,
+    "rms_dbfs": -23.216635988947626,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "039470f7e7ff3fc1e6e3120be2f2f8014af159b1451c09cf1739fb8a94c05955",
+    "event": "entity.finist.hurt_2",
+    "group": "hero-recorded-pain",
+    "ru": "Финист вскрикивает от боли",
+    "action": "Finist cries in pain",
+    "file": "recorded61/entity/finist/hurt_2_1.ogg",
+    "sha256": "2b08510a980552644db0559dcf8e6e7b8f3cf2ec960cc57dd045f21350d1d903",
+    "sources": [
+      {
+        "key": "hael__yell2.wav",
+        "file": "sources/hael__yell2.flac",
+        "sha256": "4a677afb00944a701b5f5ab4905db168237c29d9ad6bf0f74deeafd7f78f8acf",
+        "license": "CC0-1.0",
+        "author": "HaelDB; four vocalists described by uploader",
+        "page": "https://opengameart.org/content/male-gruntyelling-sounds",
+        "start_sample": 15193
+      }
+    ],
+    "seconds": 0.6599773242630386,
+    "peak_dbfs": -13.25647041999137,
+    "rms_dbfs": -23.303358095622574,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "f8d3c30c06e081574bb93ef28fec4e50d34029beb309f0e7cb0b3e96b2083c14",
+    "event": "entity.finist.hurt_3",
+    "group": "hero-recorded-pain",
+    "ru": "Финист вскрикивает от боли",
+    "action": "Finist cries in pain",
+    "file": "recorded61/entity/finist/hurt_3_1.ogg",
+    "sha256": "0476ad6ef4a6dbef713b01a3367759f8c6454e5b0bdec20aa197b1c15ae33230",
+    "sources": [
+      {
+        "key": "hael__yell3.wav",
+        "file": "sources/hael__yell3.flac",
+        "sha256": "5dd1b1d0f647c434e38465661b8fa229577674f2cf0c99aaff2765efcf1ec992",
+        "license": "CC0-1.0",
+        "author": "HaelDB; four vocalists described by uploader",
+        "page": "https://opengameart.org/content/male-gruntyelling-sounds",
+        "start_sample": 19100
+      }
+    ],
+    "seconds": 0.6599773242630386,
+    "peak_dbfs": -10.149653109744596,
+    "rms_dbfs": -23.201062457004934,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   }
 ]

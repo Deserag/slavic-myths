@@ -160,5 +160,69 @@
     "event": "kalin.horse_stomp",
     "target": "entity.horse.land",
     "reason": "Actual vanilla horse performance for horse action; no synthetic horse voice"
+  },
+  "bayun.breath": {
+    "group": "bayun-recorded-cat",
+    "event": "bayun.breath",
+    "target": "entity.cat.purr",
+    "reason": "Actual cat/material/notification vanilla reference; never song or human speech",
+    "ru": "Баюн тихо мурлычет",
+    "en": "Bayun purrs softly"
+  },
+  "bayun.groom": {
+    "group": "bayun-recorded-cat",
+    "event": "bayun.groom",
+    "target": "entity.cat.eat",
+    "reason": "Actual cat/material/notification vanilla reference; never song or human speech",
+    "ru": "Баюн перебирает шерсть",
+    "en": "Bayun grooms"
+  },
+  "bayun.milk": {
+    "group": "bayun-recorded-cat",
+    "event": "bayun.milk",
+    "target": "entity.cat.eat",
+    "reason": "Actual cat/material/notification vanilla reference; never song or human speech",
+    "ru": "Баюн лакает молоко",
+    "en": "Bayun laps milk"
+  },
+  "bayun.fish": {
+    "group": "bayun-recorded-cat",
+    "event": "bayun.fish",
+    "target": "entity.cat.eat",
+    "reason": "Actual cat/material/notification vanilla reference; never song or human speech",
+    "ru": "Баюн жуёт рыбу",
+    "en": "Bayun chews fish"
+  },
+  "bayun.warn": {
+    "group": "bayun-recorded-cat",
+    "event": "bayun.warn",
+    "target": "entity.cat.hiss",
+    "reason": "Actual cat/material/notification vanilla reference; never song or human speech",
+    "ru": "Баюн предупреждающе шипит",
+    "en": "Bayun hisses a warning"
+  },
+  "bayun.book.page": {
+    "group": "bayun-recorded-cat",
+    "event": "bayun.book.page",
+    "target": "item.book.page_turn",
+    "reason": "Actual cat/material/notification vanilla reference; never song or human speech",
+    "ru": "Страница Книги сказаний шелестит",
+    "en": "Tales book page turns"
+  },
+  "bayun.book.open": {
+    "group": "bayun-recorded-cat",
+    "event": "bayun.book.open",
+    "target": "item.book.page_turn",
+    "reason": "Actual cat/material/notification vanilla reference; never song or human speech",
+    "ru": "Книга сказаний открывается",
+    "en": "Tales book opens"
+  },
+  "bayun.book.discovery": {
+    "group": "bayun-recorded-cat",
+    "event": "bayun.book.discovery",
+    "target": "entity.experience_orb.pickup",
+    "reason": "Actual cat/material/notification vanilla reference; never song or human speech",
+    "ru": "Книга сказаний отзывается звоном",
+    "en": "Tales book chimes"
   }
 }

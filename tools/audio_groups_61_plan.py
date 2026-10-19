@@ -374,3 +374,58 @@ for cue,source,ru,en,cap in [
  ('emerge',rock(1),'Полоз прорывает поверхность','Poloz emerges',.8),
  ('phase2_cracks',rock(2),'Чешуя Полоза растрескивается','Poloz scales crack',.8),
  ('death',rock(3),'Тело Полоза обрушивается','Poloz body collapses',1.2)]:add('elemental-guardians','poloz_'+cue,[source],ru,en,cap,.065)
+# Bayun's ordinary animal identity uses recorded cats, not synthesized meows.
+# His existing song is a separate unresolved audit/source item, not a purr relabeled as singing.
+for cue,source,ru,en,cap in [
+ ('purr.soft','cat__cat_purrsleepy_loop.wav','Баюн тихо мурлычет','Bayun purrs softly',1.5),
+ ('purr.happy','cat__cat_purractive_loop.wav','Баюн довольно мурлычет','Bayun purrs happily',1.5),
+ ('mew.soft','cat__cat_softmew.wav','Баюн тихо мяукает','Bayun meows softly',.9),
+ ('mew.annoyed','cat__cat_mewfood.wav','Баюн настойчиво мяукает','Bayun meows insistently',.9),
+ ('stretch','cat__cat_mewpurr.wav','Баюн мурлычет, потягиваясь','Bayun purrs while stretching',.9),
+ ('settle','foley__cloth-03.flac','Баюн устраивается поудобнее','Bayun settles down',.3),
+ ('pawstep',leaf(16),'Мягкие шаги Баюна','Bayun soft pawsteps',.18),
+ ('pounce','foley__cloth-01.flac','Баюн прыгает','Bayun pounces',.22),
+ ('claw','foley__swosh-01.flac','Когти Баюна рассекают воздух','Bayun claws swish',.15)]:add('bayun-recorded-cat','bayun.'+cue,[source],ru,en,cap,.04 if cue.startswith('purr') else .055,radius=10)
+for cue,target,ru,en in [
+ ('breath','entity.cat.purr','Баюн тихо мурлычет','Bayun purrs softly'),
+ ('groom','entity.cat.eat','Баюн перебирает шерсть','Bayun grooms'),
+ ('milk','entity.cat.eat','Баюн лакает молоко','Bayun laps milk'),
+ ('fish','entity.cat.eat','Баюн жуёт рыбу','Bayun chews fish'),
+ ('warn','entity.cat.hiss','Баюн предупреждающе шипит','Bayun hisses a warning'),
+ ('book.page','item.book.page_turn','Страница Книги сказаний шелестит','Tales book page turns'),
+ ('book.open','item.book.page_turn','Книга сказаний открывается','Tales book opens'),
+ ('book.discovery','entity.experience_orb.pickup','Книга сказаний отзывается звоном','Tales book chimes')]:
+ alias('bayun-recorded-cat','bayun.'+cue,target,'Actual cat/material/notification vanilla reference; never song or human speech');ALIASES['bayun.'+cue].update(ru=ru,en=en)
+BLOCKED.pop('kikimora_laugh')
+add_spirit('kikimora_laugh',[dict(key='laugh__maniacal_laughter_pack_1.ogg',start=0,end=2.8)],'Кикимора зловеще смеётся','Kikimora laughs wickedly',2.6,.055)
+PLAN['bayun.mew.soft']['sources'].append('cat__cat_mewpurr2.wav')
+# Doghead role performances: separate original mouth-performed source files,
+# not a generic bark pitched up/down for three roles. Shared legacy vocal IDs stay muted.
+for role,ambient,hurt,death,ru in [('hunter','grunt_01','hurt_01','monster_01','охотник'),('scout','grunt_02','hurt_02','monster_02','разведчик'),('leader','troll_01','hurt_03','monster_03','вожак')]:
+ for cue,source,label,en,cap,rms in [('ambient',ambient,'ворчит','grumbles',.65,.045),('hurt',hurt,'вскрикивает','cries out',.6,.075),('death',death,'испускает последний рык','gives a final growl',1.2,.075)]:
+  add('doghead-performed-voices',f'doghead.{role}.{cue}',[creature(source)],f'Псоглавец-{ru} {label}',f'Doghead {role} {en}',cap,rms)
+for event,source,ru,en,cap in [
+ ('doghead.hunter.bark','barking_01','Псоглавец-охотник лает','Doghead hunter barks',.8),
+ ('doghead.scout.spot_bark','barking_02','Псоглавец-разведчик подаёт тревогу','Doghead scout barks an alarm',.8),
+ ('doghead.leader.howl_release','howl','Вожак псоглавцев воет','Doghead leader howls',1.6)]:add('doghead-performed-voices',event,[creature(source)],ru,en,cap,.095,peak=.4,radius=48 if 'howl' in event else 32)
+# Four distinct performed phrases from an actress's screech session; the gaps
+# for real inhale/breath/interrupt remain explicit rather than synthetic replacements.
+for cue,start,end,ru,en,cap in [
+ ('hurt',.4,1.2,'Ночница резко вскрикивает','Nochnitsa cries out',.8),
+ ('target_spotted',1.9,3,'Ночница замечает жертву и вскрикивает','Nochnitsa spots prey and screeches',1),
+ ('scream_release',3.8,4.85,'Ночница пронзительно кричит','Nochnitsa shrieks',1),
+ ('death',5.6,7.3,'Последний крик Ночницы затихает','Nochnitsa final cry fades',1.4)]:add('nochnitsa-performed-voice','nochnitsa.'+cue,[dict(key='aura__evil_screech_1.ogg',start=start,end=end)],ru,en,cap,.075)
+for cue in ['ambient','breath','scream_inhale','scream_interrupt']:BLOCKED['nochnitsa.'+cue]='Separate actual female breath/inhale/interrupt performance still required; no cloned scream, noise or synthetic tone.'
+add('other-hostiles','nochnitsa.sunrise_dissolve',[leaf(10)],'Одежда Ночницы осыпается на рассвете','Nochnitsa cloth crumbles at sunrise',.65,.045)
+# Hero pain uses the uploader's four recorded male groups rather than one
+# synthesized male template or a set of pitch-shifted clones. Other moods remain
+# separate work; pain yells are not relabeled as breathing, a taunt or victory.
+for event,source,ru,en in [
+ ('ilya_muromets.pain_nonverbal_01','3grunt1','Илья глухо вскрикивает от боли','Ilya grunts in pain'),
+ ('ilya_muromets.pain_nonverbal_02','3grunt2','Илья глухо вскрикивает от боли','Ilya grunts in pain'),
+ ('dobrynya.grunt_hurt_01','1yell1','Добрыня вскрикивает от боли','Dobrynya cries in pain'),
+ ('alyosha.hurt_1','2yell1','Алёша вскрикивает от боли','Alyosha cries in pain'),
+ ('alyosha.hurt_2','2yell2','Алёша вскрикивает от боли','Alyosha cries in pain'),
+ ('entity.finist.hurt_1','yell1','Финист вскрикивает от боли','Finist cries in pain'),
+ ('entity.finist.hurt_2','yell2','Финист вскрикивает от боли','Finist cries in pain'),
+ ('entity.finist.hurt_3','yell3','Финист вскрикивает от боли','Finist cries in pain')]:add('hero-recorded-pain',event,['hael__'+source+'.wav'],ru,en,.65,.07)

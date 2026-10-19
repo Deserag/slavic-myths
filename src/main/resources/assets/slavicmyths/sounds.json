@@ -451,7 +451,12 @@
   },
   "kikimora_laugh": {
     "subtitle": "subtitles.slavicmyths.kikimora_laugh",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/kikimora_laugh_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "kikimora_attack": {
     "subtitle": "subtitles.slavicmyths.kikimora_attack",
@@ -3828,7 +3833,12 @@
   },
   "nochnitsa.hurt": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.hurt",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/hurt_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "nochnitsa.scream_inhale": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.scream_inhale",
@@ -3836,7 +3846,12 @@
   },
   "nochnitsa.scream_release": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.scream_release",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/scream_release_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "nochnitsa.scream_interrupt": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.scream_interrupt",
@@ -3844,15 +3859,30 @@
   },
   "nochnitsa.target_spotted": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.target_spotted",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/target_spotted_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "nochnitsa.sunrise_dissolve": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.sunrise_dissolve",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/sunrise_dissolve_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "nochnitsa.death": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.death",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/nochnitsa/death_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "nochnitsa.robes_rustle": {
     "subtitle": "subtitles.slavicmyths.nochnitsa.robes_rustle",
@@ -3865,11 +3895,21 @@
   },
   "doghead.hunter.ambient": {
     "subtitle": "subtitles.slavicmyths.doghead.hunter.ambient",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/hunter/ambient_1",
+        "attenuation_distance": 20
+      }
+    ]
   },
   "doghead.hunter.bark": {
     "subtitle": "subtitles.slavicmyths.doghead.hunter.bark",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/hunter/bark_1",
+        "attenuation_distance": 32
+      }
+    ]
   },
   "doghead.hunter.thrust_whoosh": {
     "subtitle": "subtitles.slavicmyths.doghead.hunter.thrust_whoosh",
@@ -3891,11 +3931,21 @@
   },
   "doghead.scout.ambient": {
     "subtitle": "subtitles.slavicmyths.doghead.scout.ambient",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/scout/ambient_1",
+        "attenuation_distance": 20
+      }
+    ]
   },
   "doghead.scout.spot_bark": {
     "subtitle": "subtitles.slavicmyths.doghead.scout.spot_bark",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/scout/spot_bark_1",
+        "attenuation_distance": 32
+      }
+    ]
   },
   "doghead.scout.bow_draw": {
     "subtitle": "subtitles.slavicmyths.doghead.scout.bow_draw",
@@ -3926,7 +3976,12 @@
   },
   "doghead.leader.ambient": {
     "subtitle": "subtitles.slavicmyths.doghead.leader.ambient",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/leader/ambient_1",
+        "attenuation_distance": 20
+      }
+    ]
   },
   "doghead.leader.howl_inhale": {
     "subtitle": "subtitles.slavicmyths.doghead.leader.howl_inhale",
@@ -3934,7 +3989,12 @@
   },
   "doghead.leader.howl_release": {
     "subtitle": "subtitles.slavicmyths.doghead.leader.howl_release",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/leader/howl_release_1",
+        "attenuation_distance": 48
+      }
+    ]
   },
   "doghead.leader.axe_whoosh": {
     "subtitle": "subtitles.slavicmyths.doghead.leader.axe_whoosh",
@@ -4009,27 +4069,57 @@
   },
   "doghead.hunter.hurt": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.hurt",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/hunter/hurt_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "doghead.hunter.death": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.death",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/hunter/death_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "doghead.scout.hurt": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.hurt",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/scout/hurt_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "doghead.scout.death": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.death",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/scout/death_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "doghead.leader.hurt": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.hurt",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/leader/hurt_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "doghead.leader.death": {
     "subtitle": "subtitles.slavicmyths.doghead.shared.death",
-    "sounds": []
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/doghead/leader/death_1",
+        "attenuation_distance": 28
+      }
+    ]
   },
   "kuzya.voice_enter_01": {
     "sounds": [
@@ -4457,8 +4547,7 @@
     "subtitle": "subtitles.slavicmyths.bayun.purr.soft",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_purr_soft",
-        "stream": false,
+        "name": "slavicmyths:recorded61/bayun/purr/soft_1",
         "attenuation_distance": 10
       }
     ]
@@ -4467,8 +4556,7 @@
     "subtitle": "subtitles.slavicmyths.bayun.purr.happy",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_purr_happy",
-        "stream": false,
+        "name": "slavicmyths:recorded61/bayun/purr/happy_1",
         "attenuation_distance": 10
       }
     ]
@@ -4477,8 +4565,11 @@
     "subtitle": "subtitles.slavicmyths.bayun.mew.soft",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_mew_soft",
-        "stream": false,
+        "name": "slavicmyths:recorded61/bayun/mew/soft_1",
+        "attenuation_distance": 10
+      },
+      {
+        "name": "slavicmyths:recorded61/bayun/mew/soft_2",
         "attenuation_distance": 10
       }
     ]
@@ -4487,8 +4578,7 @@
     "subtitle": "subtitles.slavicmyths.bayun.mew.annoyed",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_mew_annoyed",
-        "stream": false,
+        "name": "slavicmyths:recorded61/bayun/mew/annoyed_1",
         "attenuation_distance": 10
       }
     ]
@@ -4497,9 +4587,8 @@
     "subtitle": "subtitles.slavicmyths.bayun.breath",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_breath",
-        "stream": false,
-        "attenuation_distance": 10
+        "name": "minecraft:entity.cat.purr",
+        "type": "event"
       }
     ]
   },
@@ -4507,8 +4596,7 @@
     "subtitle": "subtitles.slavicmyths.bayun.settle",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_settle",
-        "stream": false,
+        "name": "slavicmyths:recorded61/bayun/settle_1",
         "attenuation_distance": 10
       }
     ]
@@ -4517,8 +4605,7 @@
     "subtitle": "subtitles.slavicmyths.bayun.stretch",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_stretch_exhale",
-        "stream": false,
+        "name": "slavicmyths:recorded61/bayun/stretch_1",
         "attenuation_distance": 10
       }
     ]
@@ -4527,9 +4614,8 @@
     "subtitle": "subtitles.slavicmyths.bayun.groom",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_groom",
-        "stream": false,
-        "attenuation_distance": 10
+        "name": "minecraft:entity.cat.eat",
+        "type": "event"
       }
     ]
   },
@@ -4537,9 +4623,8 @@
     "subtitle": "subtitles.slavicmyths.bayun.milk",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_lap_milk",
-        "stream": false,
-        "attenuation_distance": 10
+        "name": "minecraft:entity.cat.eat",
+        "type": "event"
       }
     ]
   },
@@ -4547,9 +4632,8 @@
     "subtitle": "subtitles.slavicmyths.bayun.fish",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_chew_fish",
-        "stream": false,
-        "attenuation_distance": 10
+        "name": "minecraft:entity.cat.eat",
+        "type": "event"
       }
     ]
   },
@@ -4557,8 +4641,7 @@
     "subtitle": "subtitles.slavicmyths.bayun.pawstep",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_pawstep",
-        "stream": false,
+        "name": "slavicmyths:recorded61/bayun/pawstep_1",
         "attenuation_distance": 10
       }
     ]
@@ -4567,9 +4650,8 @@
     "subtitle": "subtitles.slavicmyths.bayun.warn",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_spell_warning",
-        "stream": false,
-        "attenuation_distance": 16
+        "name": "minecraft:entity.cat.hiss",
+        "type": "event"
       }
     ]
   },
@@ -4597,8 +4679,7 @@
     "subtitle": "subtitles.slavicmyths.bayun.pounce",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_pounce",
-        "stream": false,
+        "name": "slavicmyths:recorded61/bayun/pounce_1",
         "attenuation_distance": 10
       }
     ]
@@ -4607,8 +4688,7 @@
     "subtitle": "subtitles.slavicmyths.bayun.claw",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_claw_swoosh",
-        "stream": false,
+        "name": "slavicmyths:recorded61/bayun/claw_1",
         "attenuation_distance": 10
       }
     ]
@@ -4617,9 +4697,8 @@
     "subtitle": "subtitles.slavicmyths.bayun.book.page",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/bayun_book_page",
-        "stream": false,
-        "attenuation_distance": 10
+        "name": "minecraft:item.book.page_turn",
+        "type": "event"
       }
     ]
   },
@@ -4627,9 +4706,8 @@
     "subtitle": "subtitles.slavicmyths.bayun.book.open",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/book_open",
-        "stream": false,
-        "attenuation_distance": 10
+        "name": "minecraft:item.book.page_turn",
+        "type": "event"
       }
     ]
   },
@@ -4637,9 +4715,8 @@
     "subtitle": "subtitles.slavicmyths.bayun.book.discovery",
     "sounds": [
       {
-        "name": "slavicmyths:bayun/book_discovery",
-        "stream": false,
-        "attenuation_distance": 10
+        "name": "minecraft:entity.experience_orb.pickup",
+        "type": "event"
       }
     ]
   },
@@ -4683,8 +4760,8 @@
     "subtitle": "subtitle.slavicmyths.171.ilya_muromets.pain_nonverbal_01",
     "sounds": [
       {
-        "name": "slavicmyths:entity/ilya_muromets/pain_nonverbal_01",
-        "attenuation_distance": 32
+        "name": "slavicmyths:recorded61/ilya_muromets/pain_nonverbal_01_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -4692,8 +4769,8 @@
     "subtitle": "subtitle.slavicmyths.171.ilya_muromets.pain_nonverbal_02",
     "sounds": [
       {
-        "name": "slavicmyths:entity/ilya_muromets/pain_nonverbal_02",
-        "attenuation_distance": 32
+        "name": "slavicmyths:recorded61/ilya_muromets/pain_nonverbal_02_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -5054,8 +5131,8 @@
     "subtitle": "subtitles.slavicmyths.dobrynya.grunt_hurt_01",
     "sounds": [
       {
-        "name": "slavicmyths:dobrynya/grunt_hurt_01",
-        "stream": false
+        "name": "slavicmyths:recorded61/dobrynya/grunt_hurt_01_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -5440,8 +5517,8 @@
     "subtitle": "subtitles.slavicmyths.alyosha.hurt_1",
     "sounds": [
       {
-        "name": "slavicmyths:alyosha/hurt_1",
-        "attenuation_distance": 18
+        "name": "slavicmyths:recorded61/alyosha/hurt_1_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -5449,8 +5526,8 @@
     "subtitle": "subtitles.slavicmyths.alyosha.hurt_2",
     "sounds": [
       {
-        "name": "slavicmyths:alyosha/hurt_2",
-        "attenuation_distance": 18
+        "name": "slavicmyths:recorded61/alyosha/hurt_2_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -5832,31 +5909,31 @@
     ]
   },
   "entity.finist.hurt_1": {
+    "subtitle": "subtitle.slavicmyths.finist.hurt_1",
     "sounds": [
       {
-        "name": "slavicmyths:finist/hurt_1",
-        "stream": false
+        "name": "slavicmyths:recorded61/entity/finist/hurt_1_1",
+        "attenuation_distance": 28
       }
-    ],
-    "subtitle": "subtitle.slavicmyths.finist.hurt_1"
+    ]
   },
   "entity.finist.hurt_2": {
+    "subtitle": "subtitle.slavicmyths.finist.hurt_2",
     "sounds": [
       {
-        "name": "slavicmyths:finist/hurt_2",
-        "stream": false
+        "name": "slavicmyths:recorded61/entity/finist/hurt_2_1",
+        "attenuation_distance": 28
       }
-    ],
-    "subtitle": "subtitle.slavicmyths.finist.hurt_2"
+    ]
   },
   "entity.finist.hurt_3": {
+    "subtitle": "subtitle.slavicmyths.finist.hurt_3",
     "sounds": [
       {
-        "name": "slavicmyths:finist/hurt_3",
-        "stream": false
+        "name": "slavicmyths:recorded61/entity/finist/hurt_3_1",
+        "attenuation_distance": 28
       }
-    ],
-    "subtitle": "subtitle.slavicmyths.finist.hurt_3"
+    ]
   },
   "entity.finist.retreat": {
     "sounds": [

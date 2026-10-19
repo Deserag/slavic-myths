@@ -1,0 +1,12 @@
+[
+  {
+    "case": "wrong_sha",
+    "result": "PASS_REJECTED",
+    "runtime_launches": 0
+  },
+  {
+    "case": "protected_rusalka",
+    "result": "PASS_REJECTED",
+    "runtime_launches": 0
+  }
+]

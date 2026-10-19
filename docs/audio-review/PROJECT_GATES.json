@@ -1,13 +1,14 @@
 {
   "status": "IN_PROGRESS",
-  "source_base": "ee4a40bec4f603e06dd69ee3b35ad4290dfc2389",
+  "source_base": "8c505a55bd2c09c6ff27c1ef34797d4d16e155f3",
   "registry_count": 111,
   "independent": 69,
   "auxiliary": 42,
   "action_rows": 1627,
   "profile_event_rows": 1187,
-  "unresolved_routes": 166,
-  "quarantined_events": 50,
+  "source_guard_pending_rows": 526,
+  "unresolved_routes": 155,
+  "quarantined_events": 32,
   "hearing": "NOT_LISTENED",
   "runtime": "NOT_RUN",
   "method": "Conservative static route join; inherited versus domain helper evidence distinguished. No runtime reachability or quality inferred from prefix alone."

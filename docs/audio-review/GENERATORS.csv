@@ -4,6 +4,7 @@ tools/audio_60_foley.py,REVIEW_REQUIRED,"Source text match; may be QA or writer,
 tools/audio_groups_61.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audio_groups_61_plan.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audio_groups_61_preview.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
+tools/audio_legacy_provenance_62.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audio_project_61.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audio_project_similarity_62.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/audio_review_62.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"

@@ -1,11 +1,12 @@
-## #61: сквозной звуковой этап — 19.10.2026
+## #61 — обновлённый срез после продолжения, 19.10.2026
 
-310 событий/338 записанных назначений,27 vanilla references; исправлены444
-неквалифицированные sound paths, отказ/благодарность Домового и animal step/contact.
-Java21 clean build PASS51s; шесть offline gates PASS;1244 OGG decode/JAR parity PASS.
-Сохранены прежние ресурсы и механики. [Матрица этапа](audio-review/GROUPS_STAGE_61.md).
-IN_PROGRESS / OWNER_PENDING;166 routes и802 старых provenance UNKNOWN остаются.
-Runtime0; PolyMC не обновлялся. Это не завершение общего аудиопроекта.
+345 событий/374 записанных назначения и35 vanilla references; реестр1280 OGG.
+Новые записи духов, мира, боссов, героев и прочих существ; исправлены namespace
+записанных OGG, отказ Домового и animal step/contact. Java21 clean build PASS48s;
+шесть offline gates PASS.315 старых процедурных OGG traced по exact SHA.
+Остаются487 UNKNOWN,155 unresolved routes,526 helper guard reviews,32 muted.
+[Текущая матрица](audio-review/GROUPS_STAGE_61.md). IN_PROGRESS / OWNER_PENDING;
+hearing NOT_LISTENED; runtime0; PolyMC не обновлялся. Это не завершение #61–#66.
 
 ## #61: опубликован предыдущий пакет; курганная группа и сквозной реестр — 19.10.2026
 

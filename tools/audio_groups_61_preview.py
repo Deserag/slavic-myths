@@ -37,6 +37,11 @@ def main():
    ls+='<details><summary>OLD: прежнее назначение (JSON, не запись игры)</summary><pre>'+html.escape(json.dumps(old,ensure_ascii=False,indent=2))+'</pre></details>'
    local.append(ls+'</article>');export.append(ps+'</article>')
   cards+=local;portable+=export
+ cards.append('<h2>Vanilla references — local playback only</h2>');portable.append('<h2>Vanilla references — not redistributed</h2>')
+ translations=json.loads((A/'lang/ru_ru.json').read_text(encoding='utf-8'))
+ for e,c in ALIASES.items():
+  label=c.get('ru',translations.get(events[e].get('subtitle',''),e));path=resolve(events[e]['sounds'][0]);body=f'<article><h3>{html.escape(label)}</h3><code>{e}</code><p>{html.escape(c["target"])} — {html.escape(c["reason"])}</p>'
+  cards.append(body+f'<audio controls preload="none" src="{path.as_uri()}"></audio></article>');portable.append(body+'<p>Built-in vanilla reference; use local board for audition.</p></article>')
  gaps='<h2>Реальные пробелы</h2>'+''.join(f'<p><code>{e}</code>: {html.escape(reason)}</p>' for e,reason in BLOCKED.items())
  head='<!doctype html><meta charset="utf-8"><title>Slavic Myths audio #61</title><style>body{font:16px system-ui;background:#172126;color:#eee;max-width:1100px;margin:24px auto}article{padding:16px;border:1px solid #657;margin:12px}audio{display:block;width:95%}code{overflow-wrap:anywhere}</style><h1>Полная карта нового аудиоэтапа</h1><p>AGENT_SELECTED / OWNER_PENDING. Exact playable files; no game capture, no owner acceptance. Общие физические материалы могут повторяться; голосовая индивидуальность требует прослушивания.</p>'
  stable_text(P/'soundboard.html',head+''.join(cards)+gaps);stable_text(P/'PREVIEW.md','\n'.join(md))

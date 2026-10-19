@@ -241,6 +241,9 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 **Вода вокруг Старшего бурлит / Elder Vodyanoy: phase** · `elder_phase`
 ![Вода вокруг Старшего бурлит / Elder Vodyanoy: phase](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/elder_phase_1.ogg)
 
+**Кикимора зловеще смеётся / Kikimora laughs wickedly** · `kikimora_laugh`
+![Кикимора зловеще смеётся / Kikimora laughs wickedly](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/kikimora_laugh_1.ogg)
+
 ## world
 
 **Медведь предупреждающе рычит / Bear warns** · `bear_alert`
@@ -828,6 +831,9 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 **Жар-птица улетает / Firebird departs** · `firebird_depart`
 ![Жар-птица улетает / Firebird departs](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/firebird_depart_1.ogg)
 
+**Одежда Ночницы осыпается на рассвете / Nochnitsa cloth crumbles at sunrise** · `nochnitsa.sunrise_dissolve`
+![Одежда Ночницы осыпается на рассвете / Nochnitsa cloth crumbles at sunrise](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nochnitsa/sunrise_dissolve_1.ogg)
+
 ## elemental-guardians
 
 **Угли стража потрескивают / Guardian embers crackle** · `guardians.fire_guardian_idle`
@@ -1027,3 +1033,113 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 
 **Тело Полоза обрушивается / Poloz body collapses** · `poloz_death`
 ![Тело Полоза обрушивается / Poloz body collapses](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/poloz_death_1.ogg)
+
+## bayun-recorded-cat
+
+**Баюн тихо мурлычет / Bayun purrs softly** · `bayun.purr.soft`
+![Баюн тихо мурлычет / Bayun purrs softly](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bayun/purr/soft_1.ogg)
+
+**Баюн довольно мурлычет / Bayun purrs happily** · `bayun.purr.happy`
+![Баюн довольно мурлычет / Bayun purrs happily](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bayun/purr/happy_1.ogg)
+
+**Баюн тихо мяукает / Bayun meows softly** · `bayun.mew.soft`
+![Баюн тихо мяукает / Bayun meows softly](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bayun/mew/soft_1.ogg)
+
+**Баюн тихо мяукает / Bayun meows softly** · `bayun.mew.soft`
+![Баюн тихо мяукает / Bayun meows softly](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bayun/mew/soft_2.ogg)
+
+**Баюн настойчиво мяукает / Bayun meows insistently** · `bayun.mew.annoyed`
+![Баюн настойчиво мяукает / Bayun meows insistently](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bayun/mew/annoyed_1.ogg)
+
+**Баюн мурлычет, потягиваясь / Bayun purrs while stretching** · `bayun.stretch`
+![Баюн мурлычет, потягиваясь / Bayun purrs while stretching](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bayun/stretch_1.ogg)
+
+**Баюн устраивается поудобнее / Bayun settles down** · `bayun.settle`
+![Баюн устраивается поудобнее / Bayun settles down](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bayun/settle_1.ogg)
+
+**Мягкие шаги Баюна / Bayun soft pawsteps** · `bayun.pawstep`
+![Мягкие шаги Баюна / Bayun soft pawsteps](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bayun/pawstep_1.ogg)
+
+**Баюн прыгает / Bayun pounces** · `bayun.pounce`
+![Баюн прыгает / Bayun pounces](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bayun/pounce_1.ogg)
+
+**Когти Баюна рассекают воздух / Bayun claws swish** · `bayun.claw`
+![Когти Баюна рассекают воздух / Bayun claws swish](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bayun/claw_1.ogg)
+
+## doghead-performed-voices
+
+**Псоглавец-охотник ворчит / Doghead hunter grumbles** · `doghead.hunter.ambient`
+![Псоглавец-охотник ворчит / Doghead hunter grumbles](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/hunter/ambient_1.ogg)
+
+**Псоглавец-охотник вскрикивает / Doghead hunter cries out** · `doghead.hunter.hurt`
+![Псоглавец-охотник вскрикивает / Doghead hunter cries out](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/hunter/hurt_1.ogg)
+
+**Псоглавец-охотник испускает последний рык / Doghead hunter gives a final growl** · `doghead.hunter.death`
+![Псоглавец-охотник испускает последний рык / Doghead hunter gives a final growl](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/hunter/death_1.ogg)
+
+**Псоглавец-разведчик ворчит / Doghead scout grumbles** · `doghead.scout.ambient`
+![Псоглавец-разведчик ворчит / Doghead scout grumbles](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/scout/ambient_1.ogg)
+
+**Псоглавец-разведчик вскрикивает / Doghead scout cries out** · `doghead.scout.hurt`
+![Псоглавец-разведчик вскрикивает / Doghead scout cries out](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/scout/hurt_1.ogg)
+
+**Псоглавец-разведчик испускает последний рык / Doghead scout gives a final growl** · `doghead.scout.death`
+![Псоглавец-разведчик испускает последний рык / Doghead scout gives a final growl](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/scout/death_1.ogg)
+
+**Псоглавец-вожак ворчит / Doghead leader grumbles** · `doghead.leader.ambient`
+![Псоглавец-вожак ворчит / Doghead leader grumbles](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/leader/ambient_1.ogg)
+
+**Псоглавец-вожак вскрикивает / Doghead leader cries out** · `doghead.leader.hurt`
+![Псоглавец-вожак вскрикивает / Doghead leader cries out](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/leader/hurt_1.ogg)
+
+**Псоглавец-вожак испускает последний рык / Doghead leader gives a final growl** · `doghead.leader.death`
+![Псоглавец-вожак испускает последний рык / Doghead leader gives a final growl](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/leader/death_1.ogg)
+
+**Псоглавец-охотник лает / Doghead hunter barks** · `doghead.hunter.bark`
+![Псоглавец-охотник лает / Doghead hunter barks](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/hunter/bark_1.ogg)
+
+**Псоглавец-разведчик подаёт тревогу / Doghead scout barks an alarm** · `doghead.scout.spot_bark`
+![Псоглавец-разведчик подаёт тревогу / Doghead scout barks an alarm](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/scout/spot_bark_1.ogg)
+
+**Вожак псоглавцев воет / Doghead leader howls** · `doghead.leader.howl_release`
+![Вожак псоглавцев воет / Doghead leader howls](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/doghead/leader/howl_release_1.ogg)
+
+## nochnitsa-performed-voice
+
+**Ночница резко вскрикивает / Nochnitsa cries out** · `nochnitsa.hurt`
+![Ночница резко вскрикивает / Nochnitsa cries out](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nochnitsa/hurt_1.ogg)
+
+**Ночница замечает жертву и вскрикивает / Nochnitsa spots prey and screeches** · `nochnitsa.target_spotted`
+![Ночница замечает жертву и вскрикивает / Nochnitsa spots prey and screeches](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nochnitsa/target_spotted_1.ogg)
+
+**Ночница пронзительно кричит / Nochnitsa shrieks** · `nochnitsa.scream_release`
+![Ночница пронзительно кричит / Nochnitsa shrieks](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nochnitsa/scream_release_1.ogg)
+
+**Последний крик Ночницы затихает / Nochnitsa final cry fades** · `nochnitsa.death`
+![Последний крик Ночницы затихает / Nochnitsa final cry fades](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nochnitsa/death_1.ogg)
+
+## hero-recorded-pain
+
+**Илья глухо вскрикивает от боли / Ilya grunts in pain** · `ilya_muromets.pain_nonverbal_01`
+![Илья глухо вскрикивает от боли / Ilya grunts in pain](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/ilya_muromets/pain_nonverbal_01_1.ogg)
+
+**Илья глухо вскрикивает от боли / Ilya grunts in pain** · `ilya_muromets.pain_nonverbal_02`
+![Илья глухо вскрикивает от боли / Ilya grunts in pain](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/ilya_muromets/pain_nonverbal_02_1.ogg)
+
+**Добрыня вскрикивает от боли / Dobrynya cries in pain** · `dobrynya.grunt_hurt_01`
+![Добрыня вскрикивает от боли / Dobrynya cries in pain](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/dobrynya/grunt_hurt_01_1.ogg)
+
+**Алёша вскрикивает от боли / Alyosha cries in pain** · `alyosha.hurt_1`
+![Алёша вскрикивает от боли / Alyosha cries in pain](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/alyosha/hurt_1_1.ogg)
+
+**Алёша вскрикивает от боли / Alyosha cries in pain** · `alyosha.hurt_2`
+![Алёша вскрикивает от боли / Alyosha cries in pain](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/alyosha/hurt_2_1.ogg)
+
+**Финист вскрикивает от боли / Finist cries in pain** · `entity.finist.hurt_1`
+![Финист вскрикивает от боли / Finist cries in pain](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/entity/finist/hurt_1_1.ogg)
+
+**Финист вскрикивает от боли / Finist cries in pain** · `entity.finist.hurt_2`
+![Финист вскрикивает от боли / Finist cries in pain](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/entity/finist/hurt_2_1.ogg)
+
+**Финист вскрикивает от боли / Finist cries in pain** · `entity.finist.hurt_3`
+![Финист вскрикивает от боли / Finist cries in pain](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/entity/finist/hurt_3_1.ogg)
