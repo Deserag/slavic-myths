@@ -12,7 +12,7 @@ import org.slavicmyths.registry.ModItems;
 
 @EventBusSubscriber(modid="slavicmyths")
 public final class DepthsCommands {
-    @SubscribeEvent public static void register(RegisterCommandsEvent event){
+    public static void register(org.slavicmyths.commands.CommandTree tree){
         var root=Commands.literal("depths").requires(s->s.hasPermission(2));
         root.then(Commands.literal("generate").executes(c->{if(!(c.getSource().getEntity() instanceof ServerPlayer p)){c.getSource().sendFailure(Component.translatable("depths.slavicmyths.player_required"));return 0;}return DepthsService.start(p,null)?1:0;}));
         root.then(Commands.literal("map").executes(c->{if(!(c.getSource().getEntity() instanceof ServerPlayer p)){c.getSource().sendFailure(Component.translatable("depths.slavicmyths.player_required"));return 0;}DepthsService.give(p,new ItemStack(ModItems.ANCIENT_DEPTHS_MAP.get()));return 1;}));
@@ -24,7 +24,7 @@ public final class DepthsCommands {
             var o=e.plan.origin();c.getSource().sendSuccess(()->Component.translatable("depths.slavicmyths.located",o.x(),o.y()+1,o.z(),e.plan.id(),e.plan.skylight()?"SKYLIGHT":"CLOSED"),false);return 1;
         }));
         root.then(Commands.literal("status").executes(c->DepthsService.status(c.getSource())));
-        event.getDispatcher().register(Commands.literal("slavicmyths").then(root));
+        tree.add(Commands.literal("slavicmyths").then(root));
     }
     private DepthsCommands(){}
 }

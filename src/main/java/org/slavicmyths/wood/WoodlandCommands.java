@@ -9,10 +9,10 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class WoodlandCommands {
- @SubscribeEvent public static void register(RegisterCommandsEvent e){
-  com.mojang.brigadier.builder.LiteralArgumentBuilder<CommandSourceStack> tree=Commands.literal("growtree");
-  for(String s:Woodlands.SETS.keySet())tree.then(Commands.literal(s).executes(c->grow(c.getSource(),s)).then(Commands.literal("random").executes(c->grow(c.getSource(),s))));
-  e.getDispatcher().register(Commands.literal("slavicmyths").then(Commands.literal("dev").requires(source->source.hasPermission(2)).then(tree)));
+ public static void register(org.slavicmyths.commands.CommandTree tree){
+  com.mojang.brigadier.builder.LiteralArgumentBuilder<CommandSourceStack> grow=Commands.literal("growtree");
+  for(String s:Woodlands.SETS.keySet())grow.then(Commands.literal(s).executes(c->grow(c.getSource(),s)).then(Commands.literal("random").executes(c->grow(c.getSource(),s))));
+  tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").requires(source->source.hasPermission(2)).then(grow)));
  }
  private static int grow(CommandSourceStack source,String species)throws com.mojang.brigadier.exceptions.CommandSyntaxException {
   ServerPlayer player=source.getPlayerOrException();BlockPos front=player.blockPosition().relative(player.getDirection(),8);

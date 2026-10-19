@@ -27,13 +27,13 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class CampCommands {
-    @SubscribeEvent public static void register(RegisterCommandsEvent e){
+    public static void register(org.slavicmyths.commands.CommandTree tree){
         com.mojang.brigadier.builder.LiteralArgumentBuilder<CommandSourceStack> locate=Commands.literal("bandit_camp"),tp=Commands.literal("tp_bandit_camp");
         for(String size:new String[]{"small","medium","large","any"}){
             locate.then(Commands.literal(size).executes(c->run(c.getSource(),size,false,false)).then(Commands.literal("next").executes(c->run(c.getSource(),size,true,false))));
             tp.then(Commands.literal(size).executes(c->run(c.getSource(),size,false,true)).then(Commands.literal("next").executes(c->run(c.getSource(),size,true,true))));
         }
-        e.getDispatcher().register(Commands.literal("slavicmyths").then(Commands.literal("locate").requires(source->source.hasPermission(2)).then(locate)).then(Commands.literal("dev").requires(source->source.hasPermission(2)).then(tp).then(Commands.literal("tp_nightingale").executes(c->run(c.getSource(),"nightingale",false,true))).then(Commands.literal("spawn_nightingale").executes(c->{ServerPlayer p=c.getSource().getPlayerOrException();NightingaleEntity boss=org.slavicmyths.registry.ModEntities.NIGHTINGALE.get().create(p.serverLevel());BlockPos at=p.blockPosition().relative(p.getDirection(),4);boss.home=at;boss.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,180,0);return p.serverLevel().addFreshEntity(boss)?1:0;}))));
+        tree.add(Commands.literal("slavicmyths").then(Commands.literal("locate").requires(source->source.hasPermission(2)).then(locate)).then(Commands.literal("dev").requires(source->source.hasPermission(2)).then(tp).then(Commands.literal("tp_nightingale").executes(c->run(c.getSource(),"nightingale",false,true))).then(Commands.literal("spawn_nightingale").executes(c->{ServerPlayer p=c.getSource().getPlayerOrException();NightingaleEntity boss=org.slavicmyths.registry.ModEntities.NIGHTINGALE.get().create(p.serverLevel());BlockPos at=p.blockPosition().relative(p.getDirection(),4);boss.home=at;boss.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,180,0);return p.serverLevel().addFreshEntity(boss)?1:0;}))));
     }
     private static int run(CommandSourceStack source,String size,boolean next,boolean teleport)throws CommandSyntaxException {
         ServerLevel w=source.getLevel();if(!w.dimension().equals(Level.OVERWORLD)){source.sendFailure(Component.translatable("swamp.command.overworld"));return 0;}

@@ -18,7 +18,7 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 /** Explicit operator excavation, with persisted starts and portal-room protection. */
 @EventBusSubscriber(modid="slavicmyths")
 public final class ChudGenerateCommands {
-    @SubscribeEvent public static void register(RegisterCommandsEvent event){
+    public static void register(org.slavicmyths.commands.CommandTree tree){
         var city=Commands.literal("city").requires(s->s.hasPermission(2));
         city.then(Commands.literal("generate").executes(c->generate(c.getSource(),"city"))
             .then(Commands.literal("attached").executes(c->generate(c.getSource(),"attached"))));
@@ -26,7 +26,7 @@ public final class ChudGenerateCommands {
         var generate=Commands.literal("generate").executes(c->generate(c.getSource(),"medium"));
         for(String kind:List.of("medium","great"))generate.then(Commands.literal(kind).executes(c->generate(c.getSource(),kind)));
         abandoned.then(generate);
-        event.getDispatcher().register(Commands.literal("slavicmyths").then(city).then(abandoned));
+        tree.add(Commands.literal("slavicmyths").then(city).then(abandoned));
     }
     private static int generate(CommandSourceStack source,String kind){
         var level=source.getLevel();var owner=new ChunkPos(BlockPos.containing(source.getPosition()));

@@ -22,8 +22,7 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 /** Explicit operator placement; natural generation rules remain unchanged. */
 @EventBusSubscriber(modid="slavicmyths")
 public final class SanctuaryCommands {
-    @SubscribeEvent
-    public static void register(RegisterCommandsEvent event) {
+    public static void register(org.slavicmyths.commands.CommandTree tree) {
         var root=Commands.literal("slavicmyths");
         for(boolean spring:List.of(false,true)) {
             root.then(Commands.literal(spring?"generate_pure_spring":"generate_fire_sanctuary")
@@ -32,7 +31,7 @@ public final class SanctuaryCommands {
                 .then(Commands.argument("pos",BlockPosArgument.blockPos())
                     .executes(c->place(c.getSource(),BlockPosArgument.getBlockPos(c,"pos"),spring))));
         }
-        event.getDispatcher().register(root);
+        tree.add(root);
     }
 
     private static int place(CommandSourceStack source,BlockPos origin,boolean spring) {

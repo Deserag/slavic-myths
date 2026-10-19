@@ -1,0 +1,9 @@
+{
+  "status": "PASS_OFFLINE",
+  "checks": 9057,
+  "original_executables_in_contributions": 274,
+  "tree_nodes": 647,
+  "compatibility_nodes": 305,
+  "tests": "Real builders/Brigadier OP0-4, player/console identity, callback identity, bounds/UUID, class/help completion, one-action parsing spies",
+  "not_run": "Server event bus; real player selectors/world-backed suggestions; gameplay/text display; 0 clients/servers/GameTests"
+}

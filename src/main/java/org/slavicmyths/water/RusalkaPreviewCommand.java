@@ -7,7 +7,7 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 /** Explicit Creative/operator-only preview of an existing nearby singer; never spawns or edits worlds. */
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class RusalkaPreviewCommand {
- @SubscribeEvent public static void register(RegisterCommandsEvent event){
+ public static void register(org.slavicmyths.commands.CommandTree tree){
   var preview=Commands.literal("rusalka_preview");
   for(boolean enable:new boolean[]{true,false})preview.then(Commands.literal(enable?"start":"stop").executes(context->{
    var player=context.getSource().getPlayerOrException();if(!player.isCreative())return 0;
@@ -16,6 +16,6 @@ public final class RusalkaPreviewCommand {
    if(singer==null||!singer.preview(player,enable)){context.getSource().sendFailure(Component.translatable("rusalka.preview.unavailable"));return 0;}
    context.getSource().sendSuccess(()->Component.translatable(enable?"rusalka.preview.started":"rusalka.preview.stopped"),false);return 1;
   }));
-  event.getDispatcher().register(Commands.literal("slavicmyths").then(Commands.literal("dev").requires(s->s.hasPermission(2)).then(preview)));
+  tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").requires(s->s.hasPermission(2)).then(preview)));
  }
 }

@@ -41,10 +41,10 @@ public final class ChudSearchCommands {
         Job(MinecraftServer server) { this.server=server; }
         void cancel() { cancelled=true; var t=thread; if(t!=null)t.interrupt(); }
     }
-    @SubscribeEvent public static void register(RegisterCommandsEvent event) {
+    public static void register(org.slavicmyths.commands.CommandTree tree) {
         for(String name:List.of("chud_city","chud_abandoned")) {
             // Exact literals take precedence over vanilla's argument; other structures retain vanilla locate.
-            event.getDispatcher().register(Commands.literal("locate").requires(s->s.hasPermission(2))
+            tree.add(Commands.literal("locate").requires(s->s.hasPermission(2))
                 .then(Commands.literal("structure").then(Commands.literal("slavicmyths:"+name)
                     .executes(c->start(c.getSource(),name,null,0)))));
         }
@@ -59,10 +59,10 @@ public final class ChudSearchCommands {
                     .then(Commands.argument("page",IntegerArgumentType.integer(0,128))
                         .executes(c->start(c.getSource(),structure,kind,IntegerArgumentType.getInteger(c,"page")))));
             }
-            event.getDispatcher().register(Commands.literal("slavicmyths").then(Commands.literal(branch)
+            tree.add(Commands.literal("slavicmyths").then(Commands.literal(branch)
                 .requires(s->s.hasPermission(2)).then(search)));
         }
-        event.getDispatcher().register(Commands.literal("slavicmyths").then(Commands.literal("chud_search")
+        tree.add(Commands.literal("slavicmyths").then(Commands.literal("chud_search")
             .requires(s->s.hasPermission(2))
             .then(Commands.literal("status").executes(c->control(c.getSource(),false)))
             .then(Commands.literal("next").executes(c->next(c.getSource())))

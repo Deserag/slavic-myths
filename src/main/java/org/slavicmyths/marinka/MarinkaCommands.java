@@ -7,7 +7,7 @@ import net.minecraft.core.BlockPos;
 /** Explicit admin staging is the safe fallback; no unsolicited generation in existing worlds. */
 @EventBusSubscriber(modid="slavicmyths")
 public final class MarinkaCommands {
- @SubscribeEvent public static void register(RegisterCommandsEvent e){e.getDispatcher().register(Commands.literal("slavicmyths")
+ public static void register(org.slavicmyths.commands.CommandTree tree){tree.add(Commands.literal("slavicmyths")
   .then(Commands.literal("hero").then(Commands.literal("dobrynya").executes(c->WitchYard.call(c.getSource().getPlayerOrException())?1:0)))
   .then(Commands.literal("witch_yard").requires(s->s.hasPermission(2))
    .then(Commands.literal("place").executes(c->{var p=c.getSource().getPlayerOrException();var at=BlockPos.containing(p.position().add(p.getLookAngle().multiply(40,0,40))).below();boolean ok=WitchYard.place(p,at,Math.floorMod(Math.round(p.getYRot()/90),4));if(!ok)p.sendSystemMessage(net.minecraft.network.chat.Component.translatable("msg.slavicmyths.yard_invalid"));return ok?1:0;}))

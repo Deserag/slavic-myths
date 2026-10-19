@@ -9,7 +9,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class YagaCommands {
- @SubscribeEvent public static void register(RegisterCommandsEvent e){e.getDispatcher().register(Commands.literal("slavicmyths").then(Commands.literal("dev").requires(source->source.hasPermission(2)).then(Commands.literal("yaga")
+ public static void register(org.slavicmyths.commands.CommandTree tree){tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").requires(source->source.hasPermission(2)).then(Commands.literal("yaga")
   .then(Commands.literal("locate").requires(source->source.hasPermission(2)).executes(c->{ServerLevel w=c.getSource().getServer().getLevel(Level.OVERWORLD);YagaHut.prepare(w);YagaData d=YagaData.get(w);if(d.anchor==null){c.getSource().sendFailure(Component.translatable("yaga.fail.home"));return 0;}c.getSource().sendSuccess(()->d.placed?Component.translatable("yaga.located",d.anchor.toShortString(),true):Component.translatable("yaga.site.planned",d.anchor.getX(),d.anchor.getZ()),false);return 1;}))
   .then(Commands.literal("generate").executes(c->generate(c.getSource())))
   .then(Commands.literal("status").executes(c->{ServerPlayer p=c.getSource().getPlayerOrException();YagaData d=YagaData.get(p.server.getLevel(Level.OVERWORLD));YagaData.Progress v=d.progress(p.getUUID());c.getSource().sendSuccess(()->Component.translatable("yaga.status",Component.translatable("yaga.favor."+v.stage),v.active,v.blocked(p.level().getGameTime())),false);return 1;})))));}

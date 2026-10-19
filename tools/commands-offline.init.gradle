@@ -1,0 +1,16 @@
+gradle.projectsEvaluated {
+ def p = gradle.rootProject
+ p.sourceSets { commandOffline { java.srcDir 'tools/command-tests' } }
+ p.sourceSets.commandOffline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.commandOffline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+ p.tasks.register('verifyCommandsOffline', JavaExec) {
+  dependsOn 'commandOfflineClasses'
+  classpath = p.sourceSets.commandOffline.runtimeClasspath
+  mainClass = 'org.slavicmyths.verify.CommandCatalogOffline'
+ }
+ p.tasks.register('verifyFrostStaffOffline', JavaExec) {
+  dependsOn 'commandOfflineClasses'
+  classpath = p.sourceSets.commandOffline.runtimeClasspath
+  mainClass = 'org.slavicmyths.verify.FrostStaffOffline'
+ }
+}

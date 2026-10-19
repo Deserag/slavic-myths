@@ -19,15 +19,14 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 /** Read-only commands inspect native starts in already loaded chunks. They never generate a city. */
 @EventBusSubscriber(modid="slavicmyths")
 public final class ChudCommands {
-    @SubscribeEvent public static void register(RegisterCommandsEvent e){
+    public static void register(org.slavicmyths.commands.CommandTree tree){
         var city=Commands.literal("city").requires(s->s.hasPermission(2));
         city.then(Commands.literal("locate").executes(c->locate(c.getSource(),128)).then(Commands.argument("radius",IntegerArgumentType.integer(16,512)).executes(c->locate(c.getSource(),IntegerArgumentType.getInteger(c,"radius")))));
         for(String action:List.of("info","debug_plan"))city.then(Commands.literal(action).executes(c->info(c.getSource(),null)).then(Commands.argument("city_id",StringArgumentType.word()).executes(c->info(c.getSource(),StringArgumentType.getString(c,"city_id")))));
         city.then(Commands.literal("validate").executes(c->validate(c.getSource(),null)).then(Commands.argument("city_id",StringArgumentType.word()).executes(c->validate(c.getSource(),StringArgumentType.getString(c,"city_id")))));
         var tp=Commands.literal("tp");var identified=Commands.argument("city_id",StringArgumentType.word()).executes(c->teleport(c.getSource(),ChudPlan.Role.ENTRANCE,StringArgumentType.getString(c,"city_id")));
         for(var role:ChudPlan.Role.values()){tp.then(Commands.literal(role.name().toLowerCase(Locale.ROOT)).executes(c->teleport(c.getSource(),role,null)));identified.then(Commands.literal(role.name().toLowerCase(Locale.ROOT)).executes(c->teleport(c.getSource(),role,StringArgumentType.getString(c,"city_id"))));}city.then(tp.then(identified));
-        var root=e.getDispatcher().register(Commands.literal("slavicmyths").then(city));
-        e.getDispatcher().register(Commands.literal("slavicmyths").then(Commands.literal("debug").then(Commands.literal("chud_city").requires(s->s.hasPermission(2)).redirect(root.getChild("city")))));
+        tree.add(Commands.literal("slavicmyths").then(city));
     }
     private static List<ChudPiece> loaded(ServerLevel level,BlockPos center,int radius){
         var result=new ArrayList<ChudPiece>();var seen=new HashSet<String>();

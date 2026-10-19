@@ -17,17 +17,17 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 @EventBusSubscriber(modid="slavicmyths")
 public final class VillageCommands {
-    @SubscribeEvent public static void register(RegisterCommandsEvent e){
+    public static void register(org.slavicmyths.commands.CommandTree tree){
         var debug=Commands.literal("villager").executes(c->inspect(c.getSource(),nearest(c.getSource())))
             .then(Commands.argument("target",EntityArgument.entity()).executes(c->inspect(c.getSource(),EntityArgument.getEntity(c,"target"))));
         var jobs=Commands.literal("workstation");
         for(String role:VillageRoles.ROLES.keySet())jobs.then(Commands.literal(role).executes(c->workstation(c.getSource(),role)));
-        var root=e.getDispatcher().register(Commands.literal("slavicmyths")
+        tree.add(Commands.literal("slavicmyths")
             .then(Commands.literal("debug").requires(s->s.hasPermission(2)).then(debug)
                 .then(Commands.literal("settlement_chest").then(Commands.argument("pos",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos()).executes(c->storage(c.getSource(),net.minecraft.commands.arguments.coordinates.BlockPosArgument.getLoadedBlockPos(c,"pos"))))))
             .then(Commands.literal("test").requires(s->s.hasPermission(2)).then(Commands.literal("villager").then(jobs)
                 .then(Commands.literal("level").then(Commands.argument("level",IntegerArgumentType.integer(1,5)).executes(c->level(c.getSource(),IntegerArgumentType.getInteger(c,"level"))))))));
-        if(e.getDispatcher().getRoot().getChild("sm")==null)e.getDispatcher().register(Commands.literal("sm").redirect(e.getDispatcher().getRoot().getChild("slavicmyths")));
+
     }
     private static LivingEntity nearest(CommandSourceStack s){
         var box=new net.minecraft.world.phys.AABB(s.getPosition().add(-12,-6,-12),s.getPosition().add(12,6,12));

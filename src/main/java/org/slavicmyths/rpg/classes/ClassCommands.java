@@ -9,7 +9,7 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class ClassCommands {
-    @SubscribeEvent public static void register(RegisterCommandsEvent e){
+    public static void register(org.slavicmyths.commands.CommandTree tree){
         var player=Commands.argument("player",EntityArgument.player());
         player.then(Commands.literal("state").executes(c->{var p=EntityArgument.getPlayer(c,"player");c.getSource().sendSuccess(()->Component.literal(ClassState.data(p).toString()),false);return 1;}));
         player.then(Commands.literal("xp").then(Commands.argument("amount",IntegerArgumentType.integer(1,ClassDefinitions.MAX_XP_GRANT)).executes(c->{ClassState.awardXp(EntityArgument.getPlayer(c,"player"),IntegerArgumentType.getInteger(c,"amount"));return 1;})));
@@ -21,7 +21,7 @@ public final class ClassCommands {
             if(action.equals("force")){if(!ClassDefinitions.BASES.contains(id))return 0;d.putString("Base",id);d.remove("First");d.remove("Second");d.remove("Third");d.remove("Ultimate");d.remove("Passive2");ClassUltimateRuntime.clear(p);for(int n=0;n<3;n++)d.remove("Active"+n);d.remove("Passive");}
             else {if(!ClassDefinitions.SKILLS.containsKey(id))return 0;int rank=d.getCompound("Ranks").getInt(id);d.getCompound("Ranks").remove(id);d.putInt("Points",Math.min(10000,d.getInt("Points")+rank));for(int n=0;n<3;n++)if(d.getString("Active"+n).equals(id))d.remove("Active"+n);if(d.getString("Passive").equals(id))d.remove("Passive");if(d.getString("Passive2").equals(id))d.remove("Passive2");}
             ClassState.restore(p);ClassState.sync(p);return 1;})));
-        e.getDispatcher().register(Commands.literal("smclass").requires(s->s.hasPermission(2)).then(player));
+        tree.add(Commands.literal("smclass").requires(s->s.hasPermission(2)).then(player));
     }
     private ClassCommands(){}
 }

@@ -1,0 +1,17 @@
+{
+  "status": "PASS_OFFLINE",
+  "baseline": "09d1d844",
+  "version": "1.9.7.19",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.19.jar",
+  "jar_sha256": "0fa115ea180dce99d84a4b8743f2d42aa6855eeb7b3c064dae3edc6a8ec5501c",
+  "resources": 7398,
+  "compiled_classes": 1705,
+  "source_fingerprint": "7320a2cd5bf418ee86007e0eeb5e16a49ad43270fe79728636f7b5a13bc5e165",
+  "registrars": 37,
+  "new_event_subscribers": [
+    "SlavicCommands.java"
+  ],
+  "runtime_launches": 0,
+  "polymc": "NOT_UPDATED_BY_THIS_TASK",
+  "owner_acceptance": "PENDING"
+}

@@ -8,8 +8,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 @EventBusSubscriber(modid="slavicmyths")
 public final class MorBlockCommands {
-    @SubscribeEvent public static void register(RegisterCommandsEvent e) {
-        e.getDispatcher().register(Commands.literal("sm").requires(s->s.hasPermission(2)).then(Commands.literal("test").then(Commands.literal("mor_block").then(Commands.argument("id",StringArgumentType.word()).suggests((c,b)->{for(String id:MorBlocks.IDS)b.suggest(id);b.suggest("reset");return b.buildFuture();}).executes(c->{
+    public static void register(org.slavicmyths.commands.CommandTree tree) {
+        tree.add(Commands.literal("sm").requires(s->s.hasPermission(2)).then(Commands.literal("test").then(Commands.literal("mor_block").then(Commands.argument("id",StringArgumentType.word()).suggests((c,b)->{for(String id:MorBlocks.IDS)b.suggest(id);b.suggest("reset");return b.buildFuture();}).executes(c->{
             var player=c.getSource().getPlayerOrException();var hit=player.pick(8,0,false);
             if(!(hit instanceof BlockHitResult target)||hit.getType()!=net.minecraft.world.phys.HitResult.Type.BLOCK)return 0;
             String id=StringArgumentType.getString(c,"id");var level=player.serverLevel();var pos=target.getBlockPos();

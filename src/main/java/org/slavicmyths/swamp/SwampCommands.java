@@ -32,8 +32,8 @@ import java.util.*;
 
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class SwampCommands {
-    @SubscribeEvent public static void register(RegisterCommandsEvent event) {
-        event.getDispatcher().register(Commands.literal("slavicmyths")
+    public static void register(org.slavicmyths.commands.CommandTree tree) {
+        tree.add(Commands.literal("slavicmyths")
             .then(Commands.literal("dev").requires(source->source.hasPermission(2)).then(Commands.literal("swamp").executes(c->swamp(c.getSource())))
             .then(Commands.literal("structure").then(Commands.argument("id",StringArgumentType.word())
                 .suggests((c,b)->SharedSuggestionProvider.suggest(SwampStructures.IDS,b))

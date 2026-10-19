@@ -40,16 +40,16 @@ public final class VillageShowcase {
         }
     }
     private static BlockPos pos(JsonArray a){return new BlockPos(a.get(0).getAsInt(),a.get(1).getAsInt(),a.get(2).getAsInt());}
-    @SubscribeEvent public static void register(RegisterCommandsEvent event){
+    public static void register(org.slavicmyths.commands.CommandTree tree){
         var show=Commands.literal("village_showcase").executes(c->showcase(c.getSource(),climate(c.getSource())));
         for(String palette:List.of("temperate","cold","warm"))show.then(Commands.literal(palette).executes(c->showcase(c.getSource(),palette)));
-        var root=event.getDispatcher().register(Commands.literal("slavicmyths")
+        tree.add(Commands.literal("slavicmyths")
             .then(Commands.literal("test").requires(s->s.hasPermission(2)).then(show))
             .then(Commands.literal("place").requires(s->s.hasPermission(2)).then(Commands.literal("village")
                 .then(Commands.argument("template",net.minecraft.commands.arguments.ResourceLocationArgument.id()).suggests((c,b)->{
                     try{for(var e:catalog(c.getSource().getLevel()))b.suggest(e.id().toString());}catch(IOException ignored){}return b.buildFuture();
                 }).executes(c->individual(c.getSource(),net.minecraft.commands.arguments.ResourceLocationArgument.getId(c,"template").toString()))))));
-        if(event.getDispatcher().getRoot().getChild("sm")==null)event.getDispatcher().register(Commands.literal("sm").redirect(event.getDispatcher().getRoot().getChild("slavicmyths")));
+
     }
     private static String climate(CommandSourceStack s){var b=s.getLevel().getBiome(BlockPos.containing(s.getPosition())).value();return b.getBaseTemperature()<.25F?"cold":b.getBaseTemperature()>1F?"warm":"temperate";}
     private static Planned plan(ServerLevel level,Entry e,int x,int z,int ground,Rotation rotation)throws IOException{

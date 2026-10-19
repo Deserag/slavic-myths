@@ -1,3 +1,16 @@
+## #73/#74 и посох Морозко — 19.10.2026, OWNER_PENDING
+
+#73:8 повреждённых мест исправлены; #74:37 registrars → один event/root,
+274 исходных варианта →250 канонических с help;26 повторов объединены,
+старые пути сохранены. Полные [команды](COMMANDS.md) и [миграция](COMMAND_MIGRATION.md).
+По новому сообщению владельца исправлены фильтр целей/близкий луч посоха,
+ПКМ по существам и подписи HUD. [Посох](implementation/frost-staff-targeting/REPORT.md).
+Java21 clean build1m6s,9057 command checks и13 staff predicate/geometry cases PASS.
+JAR/resource/class parity PASS:7398 ресурсов/1705 классов, jar-check.json; offline proof.
+Runtime/HP/HUD/event-bus QA NOT_RUN, запусков0. PolyMC не переустанавливался;
+в нём прежняя19 без этих новых правок. Issues остаются OPEN до owner acceptance.
+[Матрица #74](implementation/commands-74/REPORT.md).
+
 ## #73 — исправление локализации, 19.10.2026
 
 Исправлены6 сообщений генератора Чуди и2 UI-символа;8 новых ключей RU/EN.

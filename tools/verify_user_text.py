@@ -48,7 +48,7 @@ def main():
         if not all(key in langs[l] for l in langs):errors.append('Missing RU/EN key: '+key);continue
         if placeholders(langs['ru_ru'][key])!=placeholders(langs['en_us'][key]):errors.append('Placeholder mismatch: '+key)
     for p in (R/'src/main/java').rglob('*.java'):
-        for key in re.findall(r'Component\.translatable\("(command\.slavicmyths\.[^"]+)"',p.read_text(encoding='utf-8')):
+        for key in re.findall(r'Component\.translatable\("(command\.slavicmyths\.[^"]+)"(?!\s*\+)',p.read_text(encoding='utf-8')):
             if key not in keys:errors.append('Missing literal translation: '+key)
     if '--jar' in sys.argv:
         props=dict(l.split('=',1) for l in (R/'gradle.properties').read_text().splitlines() if '=' in l)

@@ -14,7 +14,7 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 /** Read-only loaded-start diagnostics; never requests generation or force-loads a complex. */
 @EventBusSubscriber(modid="slavicmyths")
 public final class AbandonedCommands {
-    @SubscribeEvent public static void register(RegisterCommandsEvent event){
+    public static void register(org.slavicmyths.commands.CommandTree tree){
         var root=Commands.literal("abandoned").requires(s->s.hasPermission(2));var locate=Commands.literal("locate").executes(c->locate(c.getSource(),null));
         for(var kind:AbandonedPlan.Kind.values())locate.then(Commands.literal(label(kind)).executes(c->locate(c.getSource(),kind)));root.then(locate);
         for(var name:List.of("info","inspect","debug","validate")){var action=Commands.literal(name).executes(c->info(c.getSource(),null,name.equals("validate")||name.equals("debug")));action.then(Commands.argument("abandoned_id",StringArgumentType.word()).executes(c->info(c.getSource(),StringArgumentType.getString(c,"abandoned_id"),name.equals("validate")||name.equals("debug"))));root.then(action);}
@@ -23,7 +23,7 @@ public final class AbandonedCommands {
             tp.then(Commands.literal(landmark).executes(c->teleport(c.getSource(),null,landmark)));
             identified.then(Commands.literal(landmark).executes(c->teleport(c.getSource(),StringArgumentType.getString(c,"abandoned_id"),landmark)));
         }
-        root.then(tp.then(identified));event.getDispatcher().register(Commands.literal("slavicmyths").then(root));
+        root.then(tp.then(identified));tree.add(Commands.literal("slavicmyths").then(root));
     }
     private record Known(AbandonedPlan plan,ChudPlan city){}
     private static String label(AbandonedPlan.Kind kind){return switch(kind){case ATTACHED_SMALL->"attached";case INDEPENDENT_MEDIUM->"medium";case INDEPENDENT_GREAT->"great";};}
