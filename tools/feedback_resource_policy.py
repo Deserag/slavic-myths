@@ -85,6 +85,9 @@ def apply():
         assert name in sounds, 'Missing sound cue: '+name
         sounds[name]['sounds']=[{'name':target,'type':'event','volume':0.65,'attenuation_distance':48 if name=='skim.roar' else 36 if name.startswith('skim.whistle') else 28 if name.startswith('skim.') else 16}]
     path.write_text(json.dumps(sounds,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+    # Delegated recorded selections supersede historical generic aliases.
+    from voice_rework_60 import restore_accepted
+    restore_accepted()
 
 if __name__=='__main__':
     apply()

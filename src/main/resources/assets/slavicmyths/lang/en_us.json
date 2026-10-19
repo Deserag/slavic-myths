@@ -271,7 +271,7 @@
   "subtitles.slavicmyths.igosha_death": "Igosha death",
   "subtitles.slavicmyths.igosha_angry": "Igosha angry",
   "subtitles.slavicmyths.igosha_power": "Igosha power",
-  "subtitles.slavicmyths.ovinnik_ambient": "Ovinnik: ambient",
+  "subtitles.slavicmyths.ovinnik_ambient": "Ovinnik breathes harshly",
   "subtitles.slavicmyths.ovinnik_hurt": "Ovinnik: hurt",
   "subtitles.slavicmyths.ovinnik_death": "Ovinnik: death",
   "subtitles.slavicmyths.ovinnik_angry": "Ovinnik: angry",
@@ -5461,5 +5461,9 @@
   "rusalka.preview.unavailable": "No calm Rusalka nearby for preview",
   "rusalka.preview.started": "Rusalka preview: 30 seconds, no charm or attack",
   "rusalka.preview.stopped": "Rusalka preview stopped",
-  "subtitles.slavicmyths.tugarin_spin_blade": "Tugarin swings his blades"
+  "subtitles.slavicmyths.tugarin_spin_blade": "Tugarin swings his blades",
+  "subtitles.slavicmyths.tugarin_challenge": "Tugarin challenges his foe",
+  "subtitles.slavicmyths.tugarin_breath": "Tugarin breathes heavily",
+  "subtitles.slavicmyths.tugarin_attack_voice": "Tugarin grunts with effort",
+  "subtitles.slavicmyths.tugarin_spin_prepare": "Tugarin exhales before spinning"
 }

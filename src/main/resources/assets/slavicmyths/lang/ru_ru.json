@@ -271,7 +271,7 @@
   "subtitles.slavicmyths.igosha_death": "Игоша: затихает",
   "subtitles.slavicmyths.igosha_angry": "Игоша: предупреждение",
   "subtitles.slavicmyths.igosha_power": "Игоша: всплеск силы",
-  "subtitles.slavicmyths.ovinnik_ambient": "Овинник: треск",
+  "subtitles.slavicmyths.ovinnik_ambient": "Овинник тяжело выдыхает",
   "subtitles.slavicmyths.ovinnik_hurt": "Овинник: ранен",
   "subtitles.slavicmyths.ovinnik_death": "Овинник: затухает",
   "subtitles.slavicmyths.ovinnik_angry": "Овинник: рычит",
@@ -5461,5 +5461,9 @@
   "rusalka.preview.unavailable": "Рядом нет спокойной Русалки для предпросмотра",
   "rusalka.preview.started": "Предпросмотр Русалки: 30 секунд, без чар и атаки",
   "rusalka.preview.stopped": "Предпросмотр Русалки завершён",
-  "subtitles.slavicmyths.tugarin_spin_blade": "Тугарин взмахивает клинками"
+  "subtitles.slavicmyths.tugarin_spin_blade": "Тугарин взмахивает клинками",
+  "subtitles.slavicmyths.tugarin_challenge": "Тугарин бросает боевой вызов",
+  "subtitles.slavicmyths.tugarin_breath": "Тугарин тяжело дышит",
+  "subtitles.slavicmyths.tugarin_attack_voice": "Тугарин напрягается при ударе",
+  "subtitles.slavicmyths.tugarin_spin_prepare": "Тугарин выдыхает перед вращением"
 }

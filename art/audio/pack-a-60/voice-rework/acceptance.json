@@ -1,0 +1,28 @@
+{
+  "owner_accepted": false,
+  "package_a_complete": false,
+  "timbre_approved_keys": [
+    "tugarin_challenge",
+    "skim_roar",
+    "tugarin_breath",
+    "tugarin_attack_voice"
+  ],
+  "approved_sha256": {
+    "tugarin_challenge": "e66735ee332a3c4d51c865d00123f56614a86d6fc0f1ae9393fbf60ee35ee596",
+    "skim_roar": "30ad70d06a226bd77e7e3bea837dae56a146b01ba6c405ce1ae93d70bb89eb20",
+    "tugarin_breath": "9cf291d575cfa41f85a00ccdd8405e9f44bf6f0f0c5636e56c62e332252dc279",
+    "tugarin_attack_voice": "80225f9487cf196a86b92613d38f4ae045813cc6f1edce2d984b6cbe37877399"
+  },
+  "approval_scope": "Four specific heard files; final in-game acceptance remains pending",
+  "owner_feedback": "Тугарин: тембр подобран удачно, оставляем, максимум более басисто. Ским-зверь: напоминает дракона, но довольно неплохо; эти варианты нравятся.",
+  "runtime_accepted": false,
+  "approved_files": {
+    "tugarin_challenge": "alternatives/tugarin_challenge_rough.ogg",
+    "skim_roar": "preview/skim_roar.ogg",
+    "tugarin_breath": "alternatives/tugarin_breath_rough.ogg",
+    "tugarin_attack_voice": "alternatives/tugarin_attack_voice_rough.ogg"
+  },
+  "revision_feedback": "Owner approved rough Tugarin variant: this version fits, continue work. Original high voice superseded.",
+  "autonomous_selection_authorized": true,
+  "autonomous_scope": "Owner authorizes independent selection and integration of suitable sounds; questionable material remains candidate; final in-game evaluation by owner. Commit and installation decisions still pending."
+}

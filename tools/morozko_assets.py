@@ -139,6 +139,8 @@ def audio():
  if not ff:raise RuntimeError('ffmpeg required for authored OGG')
  sounds={}
  for index,(name,duration) in enumerate(zip(names,durations)):
+  from frost_foley_60 import EVENTS
+  if 'morozko.'+name in EVENTS:continue
   rng=random.Random(191+index);rate=22050;path=O/f'{name}.wav';samples=[];smooth=0
   for i in range(int(rate*duration)):
    t=i/rate;progress=t/duration;noise=rng.uniform(-1,1);smooth=smooth*.94+noise*.06;envelope=min(1,t/.06)*min(1,(duration-t)/.12)
@@ -152,6 +154,8 @@ def audio():
   with wave.open(str(path),'wb') as out:out.setnchannels(1);out.setsampwidth(2);out.setframerate(rate);out.writeframes(struct.pack('<'+'h'*len(samples),*samples))
   dest=A/f'sounds/morozko/{name}.ogg';dest.parent.mkdir(parents=True,exist_ok=True);subprocess.run([ff,'-hide_banner','-loglevel','error','-y','-i',str(path),'-fflags','+bitexact','-flags:a','+bitexact','-c:a','libvorbis','-q:a','3','-map_metadata','-1',str(dest)],check=True);path.unlink();sounds['morozko.'+name]={'subtitle':'subtitle.slavicmyths.morozko.'+name,'sounds':[{'name':'slavicmyths:morozko/'+name,'attenuation_distance':32 if 'blizzard' in name else 24}]}
  merge(A/'sounds.json',sounds)
+ from frost_foley_60 import restore_selected
+ restore_selected()
 def MathClamp(n,a,b):return max(a,min(b,n))
 def resources():
  items=[('morozko_staff','Посох Морозко','Morozko’s Staff'),('frost_mirror','Морозное зерцало','Frost Mirror'),('frost_resistance_rune','Руна морозостойкости','Frost Resistance Rune'),('frost_rune','Руна мороза','Frost Rune'),('heart_of_eternal_cold','Сердце вечной стужи','Heart of Eternal Cold'),('morozko_trial_totem','Ледяной тотем призыва Морозко','Morozko Trial Totem')]

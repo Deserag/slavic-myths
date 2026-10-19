@@ -133,3 +133,7 @@ if __name__=='__main__':hero();beast();items();resources()
 if __name__ == "__main__":
  from feedback_resource_policy import apply as apply_feedback_policy
  apply_feedback_policy()
+
+if __name__ == "__main__":
+ from voice_rework_60 import restore_accepted
+ restore_accepted()

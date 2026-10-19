@@ -1,0 +1,30 @@
+[
+  {
+    "mob": "Тугарин",
+    "role": "Босс, человеческая форма",
+    "phase": "Фаза 1",
+    "action": "Тяжёлое дыхание в ожидании боя",
+    "source": "art\\audio\\pack-a-60\\voice-rework\\preview\\tugarin_breath.ogg",
+    "source_sha256": "5d07463733ba01a0f14161149b019c32cf74af607daad80798c433b38f726936",
+    "file": "art\\audio\\pack-a-60\\voice-rework\\alternatives\\tugarin_breath_rough.ogg",
+    "sha256": "9cf291d575cfa41f85a00ccdd8405e9f44bf6f0f0c5636e56c62e332252dc279",
+    "seconds": 4.0,
+    "processing": "rubberband=pitch=0.7491535384:formant=shifted,highpass=f=65,lowpass=f=4200,equalizer=f=2400:t=q:w=0.8:g=-5,equalizer=f=140:t=q:w=0.7:g=4; mild saturation; calibrated gain",
+    "status": "OWNER_APPROVED_SELECTED",
+    "owner_approved": true
+  },
+  {
+    "mob": "Тугарин",
+    "role": "Босс, человеческая форма",
+    "phase": "Фаза 1",
+    "action": "Голосовое усилие при ударе",
+    "source": "art\\audio\\pack-a-60\\voice-rework\\preview\\tugarin_attack_voice.ogg",
+    "source_sha256": "877bbf1160849368b759f179ea08a96003af9f71bf5064423947f6c2b1747d6c",
+    "file": "art\\audio\\pack-a-60\\voice-rework\\alternatives\\tugarin_attack_voice_rough.ogg",
+    "sha256": "80225f9487cf196a86b92613d38f4ae045813cc6f1edce2d984b6cbe37877399",
+    "seconds": 1.1000453514739228,
+    "processing": "rubberband=pitch=0.7491535384:formant=shifted,highpass=f=65,lowpass=f=4200,equalizer=f=2400:t=q:w=0.8:g=-5,equalizer=f=140:t=q:w=0.7:g=4; mild saturation; calibrated gain",
+    "status": "OWNER_APPROVED_SELECTED",
+    "owner_approved": true
+  }
+]

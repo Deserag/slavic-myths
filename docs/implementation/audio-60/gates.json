@@ -1,14 +1,14 @@
 {
   "status": "IN_PROGRESS",
-  "checks": 7731,
+  "checks": 7736,
   "production_foley_events": 3,
   "preview_clips": 8,
   "game_launches": 0,
   "owner_accepted": false,
   "package_a_complete": false,
-  "remaining": "Ovinnik voice, Tugarin voice/step/transform, wolf distinct reactions, undead/Skim/Idolishche categories not completed",
-  "jar_sha256": "c7850539726a1ef1b97a917cb9e8d2f7c43d6bfc1e4e7d4736ebbb95f08b969b",
-  "installed_model_source": "956f4645295d31cc1d6eb206a604d88395aee2c0",
-  "installed_model_sha256": "65894e8c63812201bd50ee17da29fe19d8ffe1a8d56fc1a66cfd70d22a03a7ba",
+  "remaining": "Kurgan attack/impact; remaining Tugarin phase/transform and Skim special cues; owner in-game hearing pending",
+  "jar_sha256": "63fdef98d36a976253cd78ebf7570303e022259841bd470f9325c5c95f25c80a",
+  "installed_model_source": "037f80ac85706196ffed1e1052b860a2ff852871",
+  "installed_model_sha256": "4fa880a3d7becbb819071c9dec838b0fa2d31f4ae19468f16f142143eb99a3cd",
   "new_audio_installed": false
 }

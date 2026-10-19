@@ -25,6 +25,8 @@ final class TugarinCombat {
     private Vec3 heading=Vec3.ZERO,origin=Vec3.ZERO;
     private int time,rest,targetLockedUntil,nextDecision;
     private Move lastSpecial=Move.IDLE;
+    private long nextAttackVoiceTick;
+    private void attackVoice(float volume){long now=boss.level().getGameTime();if(now>=nextAttackVoiceTick){boss.playSound(ModSounds.boss("tugarin_phase1_attack"),volume,1);nextAttackVoiceTick=now+24;}}
     TugarinCombat(WorldBoss boss){this.boss=boss;}
     private ServerLevel level(){return (ServerLevel)boss.level();}
     void threat(LivingEntity attacker,float damage){
@@ -46,7 +48,7 @@ final class TugarinCombat {
         // A local, bounded player query every ten ticks; no scans for arbitrary monsters.
         for(LivingEntity p:level().getEntitiesOfClass(LivingEntity.class,boss.getBoundingBox().inflate(32),e->valid(e)&&org.slavicmyths.bandit.BossTargets.automatic(e)))if(boss.getSensing().hasLineOfSight(p)&&(best==null||score(p)>score(best)))best=p;
         if(best!=current&&(!valid(current)||now>=targetLockedUntil||best!=null&&score(best)>score(current)*2+8)){
-            boss.setTarget(best);targetLockedUntil=now+30;if(current==null&&best!=null)boss.playSound(ModSounds.boss("tugarin_phase1_aggro"),1,.7F);
+            boss.setTarget(best);targetLockedUntil=now+30;if(current==null&&best!=null)boss.playSound(ModSounds.boss(boss.tugarinState()==TugarinState.PHASE_ONE?"tugarin_phase1_aggro":"tugarin.phase1.aggro"),1,boss.tugarinState()==TugarinState.PHASE_ONE?1:.7F);
         }
     }
     void tick(){
@@ -88,7 +90,7 @@ final class TugarinCombat {
             if(time>=52){boss.playSound(SoundEvents.RAVAGER_STEP,1,.65F);recover(24);}return;
         }
         if(move==Move.BLADE_COMBO){
-            if(time==10||time==22||time==34){hits.clear();hit(target,time==34?8:5,3.5,.4,.3F,0);boss.playSound(ModSounds.boss("tugarin_phase1_attack"),.8F,1);}
+            if(time==10||time==22||time==34){hits.clear();hit(target,time==34?8:5,3.5,.4,.3F,0);attackVoice(.8F);}
             if(time>=40)recover(18);return;
         }
         if(move==Move.CHARGE){
@@ -157,8 +159,8 @@ final class TugarinCombat {
         cooldowns.put(move,move==Move.PUNCH&&boss.tugarinState()==TugarinState.PHASE_TWO?20:cooldown(move));
         if(move!=Move.PUNCH)lastSpecial=move;
         boss.getNavigation().stop();
-        if(move==Move.SPIN)boss.playSound(SoundEvents.RAVAGER_ROAR,.9F,.6F);
-        boss.playSound(switch(move){case BREATH,SMOKE_BURST -> ModSounds.boss("tugarin_phase2_fire_charge");case WING_DIVE -> ModSounds.boss("tugarin_phase2_dive");case SERPENT_LUNGE -> ModSounds.boss("tugarin_phase2_attack");case SWEEP -> ModSounds.boss("tugarin_phase1_sweep");case CHARGE -> ModSounds.boss("tugarin_phase1_charge");default -> ModSounds.boss(boss.tugarinState()==TugarinState.PHASE_TWO?"tugarin_phase2_attack":"tugarin_phase1_attack");},.7F,move==Move.BREATH?.7F:.8F);
+        if(move==Move.SPIN){boss.playSound(ModSounds.boss("tugarin_spin_prepare"),.8F,1);return;}
+        var cue=switch(move){case BREATH,SMOKE_BURST -> ModSounds.boss("tugarin_phase2_fire_charge");case WING_DIVE -> ModSounds.boss("tugarin_phase2_dive");case SERPENT_LUNGE -> ModSounds.boss("tugarin_phase2_attack");case SWEEP -> ModSounds.boss("tugarin_phase1_sweep");case CHARGE -> ModSounds.boss("tugarin_phase1_charge");default -> ModSounds.boss(boss.tugarinState()==TugarinState.PHASE_TWO?"tugarin_phase2_attack":"tugarin_phase1_attack");};if(boss.tugarinState()==TugarinState.PHASE_ONE&&cue==ModSounds.boss("tugarin_phase1_attack"))attackVoice(.7F);else boss.playSound(cue,.7F,move==Move.BREATH?.7F:.8F);
     }
     private boolean hit(LivingEntity target,float damage,double radius,double cone,float kb,int slow){
         if(!valid(target)||boss.distanceTo(target)>radius||!boss.getSensing().hasLineOfSight(target)||heading.dot(target.position().subtract(boss.position()).multiply(1,0,1).normalize())<cone)return false;

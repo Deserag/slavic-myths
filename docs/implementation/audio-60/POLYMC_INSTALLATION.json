@@ -1,0 +1,24 @@
+{
+  "status": "INSTALLED_FOR_OWNER_TEST_NOT_ACCEPTED",
+  "version": "1.9.7.9",
+  "source_commit": "037f80ac85706196ffed1e1052b860a2ff852871",
+  "source_has_uncommitted_changes": true,
+  "source_snapshot_sha256": "4dae9155c978b629b85c212acd63e642e1c384c1f15bb8037c0cf6c827bff850",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.9.jar",
+  "sha256": "4fa880a3d7becbb819071c9dec838b0fa2d31f4ae19468f16f142143eb99a3cd",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-audio-1979-20261019-082029",
+  "previous_jar": "slavicmyths-1.9.7.8.jar",
+  "previous_sha256": "65894e8c63812201bd50ee17da29fe19d8ffe1a8d56fc1a66cfd70d22a03a7ba",
+  "profile_name": "Slavic Myths 1.9.7.9 - NeoForge 1.21.1 TEST - Audio",
+  "other_files_preserved": 240,
+  "active_slavic_jars": 1,
+  "runtime_launches": 0,
+  "worlds": "NOT_MODIFIED",
+  "old_1_16_5": "NOT_MODIFIED",
+  "purpose": "Explicit owner request: intermediate audio test build, not final delivery or release",
+  "platform": {
+    "org.lwjgl3": "3.3.3",
+    "net.minecraft": "1.21.1",
+    "net.neoforged.neoforge": "21.1.255"
+  }
+}

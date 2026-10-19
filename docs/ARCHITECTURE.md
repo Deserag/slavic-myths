@@ -1,3 +1,119 @@
+## Главный аудиопроект #61 — исполнительное решение 19.10.2026
+
+Владелец разрешил последовательную реализацию #62–#66 целиком и сохранение
+проверенных пакетов в main. Источник: #61 comment6260650720 / #60 comment6260654991.
+Это заменяет прежний локальный NO_COMMIT и старый пофайловый preapproval-gate.
+Подходящие лицензированные записи: AGENT_SELECTED; игровая приёмка OWNER_PENDING.
+Русалка/Кузя/спорные голоса остаются отдельным согласованием. Закрывает владелец.
+Сначала сохраняется существующий проверенный пакет (5 существ + коса/посох/лёд),
+далее единый сквозной реестр #62 и тематические наборы #63–#65; QA #66 общий.
+PolyMC не переустанавливать, игровые процессы не запускать. User deletions future/ сохранены.
+
+## #60/#64 — записанный foley косы, посоха и льда — 2026-10-19
+
+Актуальное решение владельца в #58: руки и хваты Карачуна и Морозко приняты,
+визуальная задача закрыта владельцем. Эта итерация не меняет их геометрию.
+В #60 оставлено отдельное аудио: 11 различных записанных takes → 9 существующих
+событий: два замаха и два металлических удара косы; деревянный удар посоха;
+отдельные вылеты снарядов босса/игрока; треск шипа/попадания, двух типов копий,
+появления сосулек. Источники qubodup/rubberduck CC0; стеклянный prop изображает
+фантастический лёд. Это предметный foley, не голос и не запись настоящего льда.
+Тайминги, полный frost/night Java, registry IDs и принятые визуальные ресурсы сохранены.
+Выбор по делегированию; слуховая/игровая приёмка NOT_RUN. Остальные голоса,
+песня русалки и оставшиеся звуковые группы этим пакетом не завершены.
+Состояние IN_PROGRESS, без коммита, без повышения версии и установки PolyMC.
+Установленная ранее 1.9.7.9 имеет прежний SHA4fa880a3… и не содержит этот пакет.
+[Матрица требований и проверки](implementation/audio-60/FROST_FOLEY.md).
+[Клипы с подписями](../art/audio/pack-a-60/frost-foley/PREVIEW.md).
+
+## 1.9.7.9 установлена для проверки владельцем — 2026-10-19
+
+По прямому запросу владельца повышена тестовая версия до1.9.7.9 и установлена
+в Slavic-Myths-1.21.1-Testing. Это промежуточная проверка, не final delivery/релиз.
+Java21 clean build PASS1m14s; audio/source/JAR gates PASS. Metadata установленного
+JAR=1.9.7.9, SHA4fa880a3d7becbb819071c9dec838b0fa2d31f4ae19468f16f142143eb99a3cd.
+Одна активная копия Slavic Myths; старый JAR/config в backup,240 остальных файлов
+профиля проверены без изменений. Миры/1.16.5 не изменены, runtime0 запусков.
+База037f80ac + незакоммиченные изменения, не опубликованный main commit.
+[Акт установки и точные пути](implementation/audio-60/POLYMC_INSTALLATION.json).
+Issue остаются OPEN до всех обязательных результатов и ручной приёмки;
+новый AGENTS от19.10 отменяет прежнюю общую возможность самостоятельного закрытия.
+
+## creature_audio_batch_60 — 2026-10-18
+
+Идемпотентный renderer14 разных performed source takes +3 recorded prop foley.
+Ограничение клипов Skim hurt<.7s, Idol hurt<1.6s, Ovinnik hurt<.5s соответствует
+существующим hurt intervals. Источники/лицензии/SHA и AGENT_SELECTED раздельны
+от owner approvals. Native voice dispatch существующих IDs, новых EntityType нет.
+HuntMob.ovenVoice имеет только transient audio deadline18/28; rage для !oven()
+сохраняет прежний cue. OvinnikEntity.getVoicePitch normal1, Mor=super.
+Серверные выборы целей, атаки, cooldown, damage, NBT не менялись.
+voice_rework_60 и legacy resource policy/богатырь/волк восстанавливают текущие maps.
+
+## SPIN preparation / Skim rage — 2026-10-18
+
+tugarin_spin_voice_60.restore_selected воспроизводит отдельный грубый выдох,
+регистрирует новый sound ID tugarin_spin_prepare и RU/EN. begin(SPIN) после
+всех прежних state/cooldown/navigation setup играет выдох и завершает метод,
+пропуская только прежний второй generic attack sound. Удары16/28/40 сохранены.
+skim_rage_audio_60.restore_selected закрепляет отдельный SHA Monster_02 take
+за существующим skim.rage; Java RAGE64/once/rageUsed и random pitch не менялись.
+Оба восстановления вызываются voice_rework_60.restore_accepted из генераторов.
+Метаданные отделяют AGENT_SELECTED от четырёх точных OWNER_APPROVED файлов.
+
+## Четыре выбранных голоса / ограничение повторов — 2026-10-18
+
+voice_rework_60.restore_accepted использует approved_files и SHA для четырёх
+точных файлов. Дыхание и удар Тугарина генерируются до восстановления ресурсов.
+TugarinCombat.attackVoice ограничивает только звук удара интервалом24 тика,
+pitch1; вызовы begin и hit-комбо делят один transient таймер. Другие sound cues,
+серверные attack clocks/урон и сохранения не меняются.
+Новые автономно выбранные файлы не отмечать owner-approved без его оценки.
+
+## Read-only audio review #62 — 2026-10-18
+
+tools/audio_review_62.py пишет только docs/audio-review: свежие декларации,
+source matches/наследование, events, полное decode, exact PCM и screening
+огибающих; literal match не считается доказательством reachable state.
+Production защищён сравнением SHA до/после. Preview tool читает локальный
+vanilla asset cache только для локальных OLD, пишет их в игнорируемый .tools;
+не распространять эти private references. Два новых кандидата Тугарина
+генерируются отдельным audio_review_62_candidates.py только в art/alternatives.
+Ни одного изменения production/AI/registry или нового запуска.
+
+## Approved rough Tugarin voice — 2026-10-18
+
+Owner approved the lower, rougher challenge preview. The exact heard OGG
+(e66735ee332a3c4d51c865d00123f56614a86d6fc0f1ae9393fbf60ee35ee596)
+now replaces the earlier high challenge in production. approved_files and frozen
+SHA select it explicitly; regeneration reproduces the rough processing before
+restoring approved assets. Skim remains unchanged. Other six voices remain
+candidates; full issue/runtime acceptance is still false. PolyMC not updated.
+
+## Тугарин rough-preview #60 — 2026-10-18
+
+tools/tugarin_rough_preview_60.py создаёт только alternatives/tugarin_challenge_rough.ogg:
+Rubber Band -5 полутонов с изменением формант без замедления, EQ и мягкая сатурация.
+Источник/обработка/SHA записываются рядом в JSON; production и выбранные SHA не меняются.
+
+## Голосовая переработка #60 — кандидаты — 2026-10-18
+
+Восемь раздельных подписанных голосовых OGG: Тугарин4, Ским3, Волк1.
+Владелец одобрил тембр двух прослушанных файлов: tugarin_challenge/skim_roar.
+Именно эти два замороженных по SHA файла подключены к прежним событиям, pitch1;
+остальные6 и EQ160Hz+2dB Тугарина пока кандидаты. Полная приёмка=false.
+Указаны роли/фазы/источники/CC attribution; film audio не использовалось.
+Runtime0, PolyMC этой итерацией не изменён; остальная озвучка #60 не завершена.
+[Подписанные образцы](../art/audio/pack-a-60/voice-rework/README.md).
+
+## Уточнение звуковой приёмки #60 — 2026-10-18
+
+Каждый пример подписывать: существо, роль, действие, фаза и назначение эффекта.
+Для враждебных мобов/мини-боссов/боссов требуется убедительная характерная угроза.
+Сопутствующие огонь/ткань/оружие не запрещены; прежняя трактовка «весь набор
+отклонён» была ошибкой Codex. Нынешняя подача и выразительность требуют доработки.
+Owner acceptance=false; production/PolyMC по этому уточнению не менялись.
+
 ## PolyMC и аудио #60 — IN_PROGRESS — 2026-10-18
 
 По прямому указанию владельца установлена проверенная модельная сборка956f4645,

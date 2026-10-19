@@ -1,5 +1,13 @@
 ## 2026-10-18 — #56 source iteration (IN_PROGRESS)
 
+## 1.9.7.9 — локальный тестовый кандидат, 19.10.2026
+
+- Звуковой пакет пяти существ: Тугарин, Овинник, Идолище, Ским и Серый Волк.
+- Раздельные записанные голоса, движения и реакции боли; устранены наложения голоса Тугарина и прямые fallback cues Овинника.
+- Сохранены квесты, боёвка, registry IDs, миры, формы Мора и вой Волка.
+- Обновление тестового PolyMC разрешено владельцем; публичный релиз не создаётся. Игровая приёмка NOT_RUN.
+
+
 - Tugarin: pelvis/knee/ankle/wrist rig, asymmetric three-turn spin, planted steps,
   overlapping combo recovery, charge/transform/wing choreography.
 - Preserve server hit clocks/AI/NBT/escrow and native Likho/Mor Likho poses.

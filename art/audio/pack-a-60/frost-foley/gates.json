@@ -1,0 +1,606 @@
+{
+  "status": "IN_PROGRESS",
+  "source_base": "037f80ac",
+  "commit": "NOT_COMMITTED",
+  "runtime_launches": 0,
+  "owner_accepted": false,
+  "files": 11,
+  "events": 9,
+  "checks": 285,
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.9.jar",
+  "jar_sha256": "63fdef98d36a976253cd78ebf7570303e022259841bd470f9325c5c95f25c80a",
+  "installed_receipt_unchanged": true,
+  "protected": [
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostClient.java",
+      "sha256": "f230d1e3e787b615a6c4dc23fa1bc6b09426fe5da00ba8c10d549cde0f1baa09"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostGeometryRenderer.java",
+      "sha256": "d263207c28632d0c6f6a041bf04730f33359adcf77bc78ef34cc9c99fb3b3b48"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/FrostStreamSound.java",
+      "sha256": "c663a564fee6e7d17adfb50256a5be53b74c496f93b2c5535a731ba3e02d4cca"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/KarachunMesh.java",
+      "sha256": "1bfc55cb700070d9684da6152f4bfc15867723284dd8fd818cae2ec73a739619"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/KarachunModel.java",
+      "sha256": "8bfab0e6e579b251c5caf89f64378ae8e06214866f1ab0e7c588d891680ce77b"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/KarachunRenderer.java",
+      "sha256": "c24cfec2a94e7614f69c048b4010f5ee65e5a1db2a9a6487fb6fc10b5b5c2094"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/MorozkoMesh.java",
+      "sha256": "e2735356d33e51fad8fbe86e85bff0a4c947a662e11e78ad57324be2031f5f77"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/MorozkoModel.java",
+      "sha256": "9152b50a6c435e185cd28b45f8bd846e2903df84c6b647d4bd7f5d60e170e268"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/MorozkoRenderer.java",
+      "sha256": "b9daaf5d299ffef916ced6dd7352fdb1d9204b4f69c4db8972000e6fbd41fb4c"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightBladeRenderer.java",
+      "sha256": "df67e6cda28bc21eda98f5d1119726265f14b1b436628b246b40d76fa7890072"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightRavenMesh.java",
+      "sha256": "13faed7d8f3d56d4bed3e0a7aaaa751f0780069cc85f30aaf779ba02939bc3c3"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/client/NightRavenRenderer.java",
+      "sha256": "8457e34c9083835d0e797b42f6c0c3f4c7f5f75ea1ab2a6d1a216bf7d580a024"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/equipment/mixin/FrostPlayerSaveInvoker.java",
+      "sha256": "10dc4653588243f72a1a85c3d836f8501320a1a3dc27aa2437ae239494814342"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/Karachun.java",
+      "sha256": "c1ad460e0de617ece04d24ee92473e32631b83d98779c0bc7bb238f9f819c5ad"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightBlade.java",
+      "sha256": "de4fd227e6eaa1fdc5dcbee57b3951fef72ea0b4cade2d1cb570e6946a52e519"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightCombat.java",
+      "sha256": "d2269e571a480c1fb4d5e6e535795f716b3bda4f84db6ab52c57bf3b6a4b0651"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightConfig.java",
+      "sha256": "602dbe3450632b05a622e7f7db7a1d23a2a53e50433c9d81ffc81e66c27e839d"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightContent.java",
+      "sha256": "d3fcbd83d62c05e86d9777a36f3081e09c574ed513e5c6196d2c24e11ebe41cd"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEffects.java",
+      "sha256": "fd09d3f9b47d833631052d426a23cae615d2f44ae8a8998667ff17e1c3af8b36"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightEvents.java",
+      "sha256": "795b9ca236457397562db5a474a3d3855d60e1b243c96044d8114aa0e0f4550c"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightLedger.java",
+      "sha256": "594662d41cc479895fb192480a11b47e14e6066c3afc1c381a54e0d759d6e165"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightNetwork.java",
+      "sha256": "941e05adc99dd9ca4ae3380c47ddacddc4e7647e62c55f370b85de44b5c1b10e"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightOwners.java",
+      "sha256": "a88ccb6c227f2ed33be56d5eb28e1d56f656ebbd20d077a3af9489372107e663"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightRaven.java",
+      "sha256": "cc30bc702b6910bab586327ee841df1a8f0c4c74719310c67bf32a0ad473902f"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightRules.java",
+      "sha256": "7faadbba1bbc98ec0a283a4630496f4cf5e47f18a415ed0d65f3439f418e9459"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightScythe.java",
+      "sha256": "a69abb68df188a42f76e937c429fb962ba29f0cf26b8548b0f28b02779288dba"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightStatus.java",
+      "sha256": "630f6beea473a885cbe4dcbbfed6a7663e00657ceba36fbc7c2898278e508b84"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/karachun/NightTotem.java",
+      "sha256": "fd73ef27b8623c433a2081af0d32f80a45018e92b4a3709eadda35a5a0d526dd"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostCold.java",
+      "sha256": "97a4e8c8f8ff88a3eabb56db7437115ed730568557761d034df6c8b48b297d5f"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostConfig.java",
+      "sha256": "ee0a310a73199fc1eadd833f31dede1f2e766f227b70c852f9523ed92fe99015"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+      "sha256": "e9cf0cc5843aad9db881ede580b05d0f7420c86dd9e3aefefc974b2d42f66f8d"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostDamage.java",
+      "sha256": "bc56a120bc18c1660da2d0eb94992f4928b05e64c03780a4c30371784afec8f0"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+      "sha256": "d80a3da5d20dd1f6fe49686dee18b669d8d84e6675890d0c5988d5dbe60eb392"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostHazard.java",
+      "sha256": "ed8a377091260f99b8b0e811c1c2c0956d29da79dde7c05c8bc716f1b2aebbc2"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostLedger.java",
+      "sha256": "1e526c5b9d0a0313b529bede08f9e163977ee211a2ce3426330281d9f4f589d0"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostNetwork.java",
+      "sha256": "cbe3df2c7b54c367267e98056bac86b29180f6a9dc4006164228398d0beb768a"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostRules.java",
+      "sha256": "a82b59edae175921dae89c3dbf7f4b1686503d526b5c58caadafeee3f12ce929"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostShard.java",
+      "sha256": "1272f91e2dd7ce716de0a9566a375aea8919b576d8c237599c64a1db2ceaf3eb"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostSkills.java",
+      "sha256": "fc480fa6ccf11162052ca3084355595f51f533fd860d6c86dc783be7501f6926"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostStaff.java",
+      "sha256": "29453de26c37c0c670d55a1ee43e5d82b9e97e7099388bc00f949ede76bb6787"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostVisuals.java",
+      "sha256": "87473b6cd5f7c55de501fdca841c40c67028a2e4589488b59cd7e2b4c5268a0a"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/FrostWorld.java",
+      "sha256": "89b4f2447f74f0f5ec0bd581d45dd658a5cb2c0bfb6dd8f47ee71d0f5d55db63"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/IceDouble.java",
+      "sha256": "2283f75c0b41572ef8e4808f5f8e432c7d9c6cdfa34d1f7f9169cd8b34c6acb8"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/Morozko.java",
+      "sha256": "8b4dbc4f4f5322fdaaa1a6d4d991bdfb73b78787d928520dbe5d0ed77f432bb7"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/PlayerDouble.java",
+      "sha256": "bef3d889c8fed2fd65aad858ce2bf147279021d1646a57f1ee2982a9e1c7d223"
+    },
+    {
+      "file": "src/main/java/org/slavicmyths/morozko/TrialTotem.java",
+      "sha256": "104764ff04af9b726b6ad07bf9cfb5e593a9d414419b95339c7b9b10c7e03e0f"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/amulet_two_winters_karachun.json",
+      "sha256": "0ff6b12ffc149f4777f1ab0e1af2cab7e2444f07959ff4abad3912714596c2cb"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/amulet_two_winters_morozko.json",
+      "sha256": "d68c5f295733a39191159c2ee200cc614d3f6b5ff7ff8f0ff21965952d7de540"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/frost_mirror.json",
+      "sha256": "50dce7bf98b47e9543a343fbb5299658572dc8e491cc63a71105358ca6d842b8"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/heart_of_eternal_cold.json",
+      "sha256": "d0aca6d299e65623fc628aa278262107cca6eb0efdea2a3630e0b51210f78720"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/heart_of_eternal_cold_held.json",
+      "sha256": "b054a839a92a7a5ba22a6eed6e1d50207f29af1e95b48751c83d321851ed7791"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/heart_of_eternal_cold_icon.json",
+      "sha256": "25ca04304878ad391e5d8cdc3ef47070723b69787450f13d40afa0c723e7e5d7"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/karachun_scythe.json",
+      "sha256": "d0aca6d299e65623fc628aa278262107cca6eb0efdea2a3630e0b51210f78720"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/karachun_scythe_held.json",
+      "sha256": "cdd7b0e7542181546095f1b52ec16aa5cfc20606937629dfd736f3a72b35aec8"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/karachun_scythe_icon.json",
+      "sha256": "414ad6c3feb7ab2133ac23e299207c8840e01e2ccd7f7dc6e676ba4b000c5c2f"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/karachun_trial_totem.json",
+      "sha256": "ad6919fb3529198f1e1cb9193a9848c585911df40d9398243eb9bfd2d04ec019"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/morozko_staff.json",
+      "sha256": "d0aca6d299e65623fc628aa278262107cca6eb0efdea2a3630e0b51210f78720"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/morozko_staff_held.json",
+      "sha256": "fd73ed3311c03c1693304c2878a07610e636d027157e23ff290a01638b944b78"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/morozko_staff_icon.json",
+      "sha256": "8d14172a7628237cc480f7bcbb5a9853368f38309e8a2283fe69f607deefa8a1"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/models/item/morozko_trial_totem.json",
+      "sha256": "e6eec4ee84ab6d626a70b7433d7068796f0eb8db16259bfadf549c70b4c51bc2"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/entity/karachun.png",
+      "sha256": "fd378a3dcbdfc7b1bb717e31efc0c8646fc3f6aa7a12b1bef998e0f6415e2298"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/entity/karachun_glow.png",
+      "sha256": "fdd79a596c9cbb500d4d384e4693d2ff101c9d5f76233d8c36bc2c7ab8c9efaf"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/entity/karachun_raven.png",
+      "sha256": "40430c37ca449ce11048cd93416fa35e3e60085209bbd41696add1d3de6a6fe1"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/entity/karachun_raven_glow.png",
+      "sha256": "49ca4bedb6e1feea6dbfbffe2ef9c67095b9d12d08aaa8a6140654cd46601558"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/entity/morozko.png",
+      "sha256": "6b875570f434b5393aab0155730ecdb75f6a7f3266c3470824c40e2e0a3e56a4"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/entity/morozko_crystal.png",
+      "sha256": "63c02e514e5ba9fcbe23e85d60a848145ce1c9572696f1573f8f8a34b8906012"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/entity/morozko_glow.png",
+      "sha256": "ee8a7501f0903b90a0d2de5704944cb61c84098cb9c98eeb263b4f7a794feddf"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/entity/morozko_ice_double.png",
+      "sha256": "bb2c6a5fcd217cec69e7b77ccdcc444a8060653e07453a9276015aa06a92f296"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/item/amulet_two_winters_karachun.png",
+      "sha256": "286ecea7b48af37a64d852a312261fe7546bec1d331e47a42e08e2ed3d986442"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/item/amulet_two_winters_morozko.png",
+      "sha256": "2ca0af820268ee2ff5ce226d8e110e8bdb88906efe01cd8849aa754435a24011"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/item/frost_mirror.png",
+      "sha256": "fbbd172d698b3e8ebc3a2d2cbcb3240d76df7da83bfca9fc0c2666723d666ed3"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/item/heart_of_eternal_cold.png",
+      "sha256": "60653bc39a5e919a13b9e25b0141436350ce68f7464344148b7a6bd3afd046db"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/item/karachun_scythe.png",
+      "sha256": "2c032981b65b611ccea87879fe5ce3b26d2578ade5bc8d2a92238aff71a99db6"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/item/karachun_trial_totem.png",
+      "sha256": "53a2e6749cb69f98094b08c6d5ced2387e37d1ab08138f10f0d61fcfe9e97559"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/item/morozko_staff.png",
+      "sha256": "d465673dcf0198603df6de8c7a4941eebfcb85de3ba409d1357c333d4d49fc66"
+    },
+    {
+      "file": "src/main/resources/assets/slavicmyths/textures/item/morozko_trial_totem.png",
+      "sha256": "8cd59d4a462aaf6cd3a79c813b17b6aeaf7f7a3ce10d3847fe2d6d8624ca3529"
+    }
+  ],
+  "results": [
+    "Eleven recorded clips, nine existing events",
+    "Renderer byte-idempotent, frozen selected maps",
+    "Restoration replaces legacy event maps with current selected recordings",
+    "Restoration from sources recovers exact eleven output files",
+    "No new registry IDs; all nine events already existed",
+    "Spatial mono Vorbis foley/karachun/swosh-04.ogg",
+    "Duration, peak and faded edges foley/karachun/swosh-04.ogg",
+    "Windup finishes before earliest hit10 at lowest source pitch",
+    "Selected output SHA foley/karachun/swosh-04.ogg",
+    "Legal source and exact recorded take sources/swosh-04.flac",
+    "Actual event maps to installed resource karachun.scythe_windup",
+    "Existing subtitle ru_ru karachun.scythe_windup",
+    "Existing subtitle en_us karachun.scythe_windup",
+    "Spatial mono Vorbis foley/karachun/swosh-05.ogg",
+    "Duration, peak and faded edges foley/karachun/swosh-05.ogg",
+    "Windup finishes before earliest hit10 at lowest source pitch",
+    "Selected output SHA foley/karachun/swosh-05.ogg",
+    "Legal source and exact recorded take sources/swosh-05.flac",
+    "Actual event maps to installed resource karachun.scythe_windup",
+    "Existing subtitle ru_ru karachun.scythe_windup",
+    "Existing subtitle en_us karachun.scythe_windup",
+    "Spatial mono Vorbis foley/karachun/metal_hit_01.ogg",
+    "Duration, peak and faded edges foley/karachun/metal_hit_01.ogg",
+    "Selected output SHA foley/karachun/metal_hit_01.ogg",
+    "Legal source and exact recorded take sources/metal_hit_01.ogg",
+    "Actual event maps to installed resource karachun.scythe_hit",
+    "Existing subtitle ru_ru karachun.scythe_hit",
+    "Existing subtitle en_us karachun.scythe_hit",
+    "Spatial mono Vorbis foley/karachun/metal_hit_03.ogg",
+    "Duration, peak and faded edges foley/karachun/metal_hit_03.ogg",
+    "Selected output SHA foley/karachun/metal_hit_03.ogg",
+    "Legal source and exact recorded take sources/metal_hit_03.ogg",
+    "Actual event maps to installed resource karachun.scythe_hit",
+    "Existing subtitle ru_ru karachun.scythe_hit",
+    "Existing subtitle en_us karachun.scythe_hit",
+    "Spatial mono Vorbis foley/morozko/wood_hit_03.ogg",
+    "Duration, peak and faded edges foley/morozko/wood_hit_03.ogg",
+    "Selected output SHA foley/morozko/wood_hit_03.ogg",
+    "Legal source and exact recorded take sources/wood_hit_03.ogg",
+    "Actual event maps to installed resource morozko.staff_hit",
+    "Existing subtitle ru_ru morozko.staff_hit",
+    "Existing subtitle en_us morozko.staff_hit",
+    "Spatial mono Vorbis foley/morozko/bfh1_glass_hit_01.ogg",
+    "Duration, peak and faded edges foley/morozko/bfh1_glass_hit_01.ogg",
+    "Selected output SHA foley/morozko/bfh1_glass_hit_01.ogg",
+    "Legal source and exact recorded take sources/bfh1_glass_hit_01.ogg",
+    "Actual event maps to installed resource morozko.ice_bolt",
+    "Existing subtitle ru_ru morozko.ice_bolt",
+    "Existing subtitle en_us morozko.ice_bolt",
+    "Spatial mono Vorbis foley/morozko/bfh1_glass_hit_02.ogg",
+    "Duration, peak and faded edges foley/morozko/bfh1_glass_hit_02.ogg",
+    "Selected output SHA foley/morozko/bfh1_glass_hit_02.ogg",
+    "Legal source and exact recorded take sources/bfh1_glass_hit_02.ogg",
+    "Actual event maps to installed resource morozko.staff_shoot",
+    "Existing subtitle ru_ru morozko.staff_shoot",
+    "Existing subtitle en_us morozko.staff_shoot",
+    "Spatial mono Vorbis foley/morozko/bfh1_glass_breaking_01.ogg",
+    "Duration, peak and faded edges foley/morozko/bfh1_glass_breaking_01.ogg",
+    "Selected output SHA foley/morozko/bfh1_glass_breaking_01.ogg",
+    "Legal source and exact recorded take sources/bfh1_glass_breaking_01.ogg",
+    "Actual event maps to installed resource morozko.spike_break",
+    "Existing subtitle ru_ru morozko.spike_break",
+    "Existing subtitle en_us morozko.spike_break",
+    "Spatial mono Vorbis foley/morozko/bfh1_glass_breaking_02.ogg",
+    "Duration, peak and faded edges foley/morozko/bfh1_glass_breaking_02.ogg",
+    "Selected output SHA foley/morozko/bfh1_glass_breaking_02.ogg",
+    "Legal source and exact recorded take sources/bfh1_glass_breaking_02.ogg",
+    "Actual event maps to installed resource morozko.clone_break",
+    "Existing subtitle ru_ru morozko.clone_break",
+    "Existing subtitle en_us morozko.clone_break",
+    "Spatial mono Vorbis foley/morozko/bfh1_glass_breaking_03.ogg",
+    "Duration, peak and faded edges foley/morozko/bfh1_glass_breaking_03.ogg",
+    "Selected output SHA foley/morozko/bfh1_glass_breaking_03.ogg",
+    "Legal source and exact recorded take sources/bfh1_glass_breaking_03.ogg",
+    "Actual event maps to installed resource morozko.mirror_break",
+    "Existing subtitle ru_ru morozko.mirror_break",
+    "Existing subtitle en_us morozko.mirror_break",
+    "Spatial mono Vorbis foley/morozko/bfh1_glass_falling_01.ogg",
+    "Duration, peak and faded edges foley/morozko/bfh1_glass_falling_01.ogg",
+    "Selected output SHA foley/morozko/bfh1_glass_falling_01.ogg",
+    "Legal source and exact recorded take sources/bfh1_glass_falling_01.ogg",
+    "Actual event maps to installed resource morozko.staff_icicles",
+    "Existing subtitle ru_ru morozko.staff_icicles",
+    "Existing subtitle en_us morozko.staff_icicles",
+    "Eleven distinct decoded clips and eleven separate source takes",
+    "Subtitle identity preserved morozko.clone_break",
+    "Subtitle identity preserved karachun.scythe_hit",
+    "Subtitle identity preserved morozko.ice_bolt",
+    "Subtitle identity preserved morozko.staff_hit",
+    "Subtitle identity preserved morozko.mirror_break",
+    "Subtitle identity preserved morozko.spike_break",
+    "Subtitle identity preserved morozko.staff_icicles",
+    "Subtitle identity preserved morozko.staff_shoot",
+    "Subtitle identity preserved karachun.scythe_windup",
+    "Quarantine unchanged domovoy_ambient",
+    "Quarantine unchanged domovoy_hurt",
+    "Quarantine unchanged domovoy_death",
+    "Quarantine unchanged leshy_ambient",
+    "Quarantine unchanged leshy_hurt",
+    "Quarantine unchanged leshy_death",
+    "Quarantine unchanged leshy_angry",
+    "Quarantine unchanged kikimora_ambient",
+    "Quarantine unchanged kikimora_hurt",
+    "Quarantine unchanged kikimora_death",
+    "Quarantine unchanged kikimora_angry",
+    "Quarantine unchanged kikimora_power",
+    "Quarantine unchanged poludnitsa_ambient",
+    "Quarantine unchanged poludnitsa_hurt",
+    "Quarantine unchanged poludnitsa_death",
+    "Quarantine unchanged poludnitsa_angry",
+    "Quarantine unchanged poludnitsa_power",
+    "Quarantine unchanged polevik_ambient",
+    "Quarantine unchanged polevik_hurt",
+    "Quarantine unchanged polevik_death",
+    "Quarantine unchanged polevik_angry",
+    "Quarantine unchanged polevik_power",
+    "Quarantine unchanged bannik_ambient",
+    "Quarantine unchanged bannik_hurt",
+    "Quarantine unchanged bannik_death",
+    "Quarantine unchanged bannik_angry",
+    "Quarantine unchanged bannik_power",
+    "Quarantine unchanged igosha_ambient",
+    "Quarantine unchanged igosha_hurt",
+    "Quarantine unchanged igosha_death",
+    "Quarantine unchanged igosha_angry",
+    "Quarantine unchanged igosha_power",
+    "Quarantine unchanged poludnitsa_notice",
+    "Quarantine unchanged poludnitsa_transform",
+    "Quarantine unchanged poludnitsa_attack",
+    "Quarantine unchanged polevik_step",
+    "Quarantine unchanged bannik_step",
+    "Quarantine unchanged bannik_attack",
+    "Quarantine unchanged bannik_steam",
+    "Quarantine unchanged kikimora_notice",
+    "Quarantine unchanged kikimora_laugh",
+    "Quarantine unchanged kikimora_attack",
+    "Quarantine unchanged kikimora_step",
+    "Quarantine unchanged vodyanoy_ambient",
+    "Quarantine unchanged vodyanoy_angry",
+    "Quarantine unchanged vodyanoy_hurt",
+    "Quarantine unchanged vodyanoy_death",
+    "Quarantine unchanged rusalka_ambient",
+    "Quarantine unchanged rusalka_angry",
+    "Quarantine unchanged rusalka_hurt",
+    "Quarantine unchanged rusalka_death",
+    "Quarantine unchanged rusalka_song",
+    "Quarantine unchanged firebird_ambient",
+    "Quarantine unchanged firebird_call",
+    "Quarantine unchanged firebird_warning",
+    "Quarantine unchanged firebird_retaliation",
+    "Quarantine unchanged firebird_hurt",
+    "Quarantine unchanged firebird_death",
+    "Quarantine unchanged nochnitsa.ambient",
+    "Quarantine unchanged nochnitsa.breath",
+    "Quarantine unchanged nochnitsa.hurt",
+    "Quarantine unchanged nochnitsa.scream_inhale",
+    "Quarantine unchanged nochnitsa.scream_release",
+    "Quarantine unchanged nochnitsa.scream_interrupt",
+    "Quarantine unchanged nochnitsa.target_spotted",
+    "Quarantine unchanged nochnitsa.sunrise_dissolve",
+    "Quarantine unchanged nochnitsa.death",
+    "Quarantine unchanged doghead.hunter.ambient",
+    "Quarantine unchanged doghead.hunter.bark",
+    "Quarantine unchanged doghead.scout.ambient",
+    "Quarantine unchanged doghead.scout.spot_bark",
+    "Quarantine unchanged doghead.leader.ambient",
+    "Quarantine unchanged doghead.leader.howl_inhale",
+    "Quarantine unchanged doghead.leader.howl_release",
+    "Quarantine unchanged doghead.shared.hurt",
+    "Quarantine unchanged doghead.shared.death",
+    "Quarantine unchanged doghead.hunter.hurt",
+    "Quarantine unchanged doghead.hunter.death",
+    "Quarantine unchanged doghead.scout.hurt",
+    "Quarantine unchanged doghead.scout.death",
+    "Quarantine unchanged doghead.leader.hurt",
+    "Quarantine unchanged doghead.leader.death",
+    "Quarantine unchanged rusalka_song_intro",
+    "Quarantine unchanged rusalka_song_loop",
+    "Quarantine unchanged rusalka_song_intense",
+    "Quarantine unchanged rusalka_song_break",
+    "Quarantine unchanged rusalka_grab",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/FrostClient.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/FrostGeometryRenderer.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/FrostStreamSound.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/KarachunMesh.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/KarachunModel.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/KarachunRenderer.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/MorozkoMesh.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/MorozkoModel.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/MorozkoRenderer.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/NightBladeRenderer.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/NightRavenMesh.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/client/NightRavenRenderer.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/equipment/mixin/FrostPlayerSaveInvoker.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/Karachun.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightBlade.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightCombat.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightConfig.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightContent.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightEffects.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightEvents.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightLedger.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightNetwork.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightOwners.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightRaven.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightRules.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightScythe.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightStatus.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/karachun/NightTotem.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostCold.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostConfig.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostDamage.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostEvents.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostHazard.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostLedger.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostNetwork.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostRules.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostShard.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostSkills.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostStaff.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostVisuals.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/FrostWorld.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/IceDouble.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/Morozko.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/PlayerDouble.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/java/org/slavicmyths/morozko/TrialTotem.java",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/amulet_two_winters_karachun.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/amulet_two_winters_morozko.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/frost_mirror.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/heart_of_eternal_cold.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/heart_of_eternal_cold_held.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/heart_of_eternal_cold_icon.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/karachun_scythe.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/karachun_scythe_held.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/karachun_scythe_icon.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/karachun_trial_totem.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/morozko_staff.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/morozko_staff_held.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/morozko_staff_icon.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/models/item/morozko_trial_totem.json",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/entity/karachun.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/entity/karachun_glow.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/entity/karachun_raven.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/entity/karachun_raven_glow.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/entity/morozko.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/entity/morozko_crystal.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/entity/morozko_glow.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/entity/morozko_ice_double.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/item/amulet_two_winters_karachun.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/item/amulet_two_winters_morozko.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/item/frost_mirror.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/item/heart_of_eternal_cold.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/item/karachun_scythe.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/item/karachun_trial_totem.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/item/morozko_staff.png",
+    "Accepted visual / full mechanic unchanged (text EOL normalized) src/main/resources/assets/slavicmyths/textures/item/morozko_trial_totem.png",
+    "Protected accepted models/UV/textures/icons and full frost/night code enumerated",
+    "Real existing callsite contract karachun/Karachun.java",
+    "Real existing callsite contract morozko/Morozko.java",
+    "Real existing callsite contract morozko/FrostSkills.java",
+    "Real existing callsite contract morozko/FrostHazard.java",
+    "Real existing callsite contract morozko/FrostShard.java",
+    "Real existing callsite contract morozko/IceDouble.java",
+    "Real existing callsite contract morozko/PlayerDouble.java",
+    "Legacy generator skips selected synthetic outputs and restores recorded maps morozko_assets.py",
+    "Legacy generator skips selected synthetic outputs and restores recorded maps karachun_assets.py",
+    "Shared restoration pipeline includes frost batch",
+    "Production JAR CRC",
+    "Production event map byte parity",
+    "Production OGG byte parity foley/karachun/swosh-04.ogg",
+    "Production OGG byte parity foley/karachun/swosh-05.ogg",
+    "Production OGG byte parity foley/karachun/metal_hit_01.ogg",
+    "Production OGG byte parity foley/karachun/metal_hit_03.ogg",
+    "Production OGG byte parity foley/morozko/wood_hit_03.ogg",
+    "Production OGG byte parity foley/morozko/bfh1_glass_hit_01.ogg",
+    "Production OGG byte parity foley/morozko/bfh1_glass_hit_02.ogg",
+    "Production OGG byte parity foley/morozko/bfh1_glass_breaking_01.ogg",
+    "Production OGG byte parity foley/morozko/bfh1_glass_breaking_02.ogg",
+    "Production OGG byte parity foley/morozko/bfh1_glass_breaking_03.ogg",
+    "Production OGG byte parity foley/morozko/bfh1_glass_falling_01.ogg",
+    "Source license packaged",
+    "No smoke test package in production JAR (gameplay SmokeAging is legitimate)",
+    "Installation receipt not rewritten",
+    "Previously installed JAR unchanged; current frost batch not installed"
+  ]
+}

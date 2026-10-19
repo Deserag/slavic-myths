@@ -1,0 +1,30 @@
+[
+  {
+    "mob": "Овинник",
+    "role": "Враждебный дух овина",
+    "action": "Вариант голоса ярости / HOWL",
+    "layer": "Voice, not fire",
+    "source": "sources/starninjas_monster_2.ogg",
+    "file": "alternatives/ovinnik_rage_candidate_1.ogg",
+    "sha256": "da7d71875216ed24f611a152e69b064c9a4dbfb6855802bdf775d372bb3cc809",
+    "seconds": 0.7546485260770975,
+    "processing": "mono, max3s crop, DC removal, 5ms fade, gain; pitch unchanged",
+    "status": "CANDIDATE_UNCERTAIN_NOT_WIRED",
+    "hearing": "NOT_LISTENED",
+    "owner_approved": false
+  },
+  {
+    "mob": "Овинник",
+    "role": "Враждебный дух овина",
+    "action": "Вариант голоса ярости / HOWL",
+    "layer": "Voice, not fire",
+    "source": "sources/starninjas_monster_7.ogg",
+    "file": "alternatives/ovinnik_rage_candidate_2.ogg",
+    "sha256": "48559f94e2010066be5a95e9aae09ae0577702cb7402aa8c6b06fd65ecb39331",
+    "seconds": 1.4164172335600906,
+    "processing": "mono, max3s crop, DC removal, 5ms fade, gain; pitch unchanged",
+    "status": "CANDIDATE_UNCERTAIN_NOT_WIRED",
+    "hearing": "NOT_LISTENED",
+    "owner_approved": false
+  }
+]

@@ -172,4 +172,7 @@ def resources():
  # Ground-only translucent warning geometry uses a white pixel field, not a weapon sprite.
  path=A/'textures/entity/bogatyr_warning.png';Image.new('RGBA',(32,32),'white').save(path)
  (O/'audio-origin.json').write_text(json.dumps({str(p.relative_to(S)):hashlib.sha256(p.read_bytes()).hexdigest() for p in (S/'05_Звуки').rglob('*.ogg')},indent=2)+'\n')
-if __name__=='__main__':hero();boss();resources()
+if __name__=='__main__':
+ hero();boss();resources()
+ from voice_rework_60 import restore_accepted
+ restore_accepted()

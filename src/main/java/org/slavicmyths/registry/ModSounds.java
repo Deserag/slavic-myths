@@ -189,6 +189,7 @@ public final class ModSounds {
         map.put("tugarin_spin_blade_1",sound("tugarin_spin_blade_1"));
         map.put("tugarin_spin_blade_2",sound("tugarin_spin_blade_2"));
         map.put("tugarin_spin_blade_3",sound("tugarin_spin_blade_3"));
+        map.put("tugarin_spin_prepare",sound("tugarin_spin_prepare"));
         map.put("tugarin_phase1_idle",sound("tugarin_phase1_idle"));
         map.put("tugarin_phase1_aggro",sound("tugarin_phase1_aggro"));
         map.put("tugarin_phase1_attack",sound("tugarin_phase1_attack"));

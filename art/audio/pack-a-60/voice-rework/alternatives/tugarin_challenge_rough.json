@@ -1,0 +1,15 @@
+{
+  "creature": "Тугарин",
+  "role": "босс",
+  "phase": "человеческая, 1",
+  "action": "боевой вызов при обнаружении противника",
+  "purpose": "низкий грубый угрожающий голос вместо высокого крика",
+  "processing": "rubberband=pitch=0.7491535384:formant=shifted,highpass=f=65,lowpass=f=4200,equalizer=f=2400:t=q:w=0.8:g=-5,equalizer=f=140:t=q:w=0.7:g=4; mild tanh saturation; gain",
+  "source_sha256": "c88faf5cf40ece0591bb41869f24c6d489026a331cbc8d33692806567f9dfc04",
+  "sha256": "e66735ee332a3c4d51c865d00123f56614a86d6fc0f1ae9393fbf60ee35ee596",
+  "seconds": 1.6602267573696146,
+  "peak": 0.6034665703773499,
+  "owner_timbre_approved": true,
+  "production_selected": true,
+  "runtime_launches": 0
+}

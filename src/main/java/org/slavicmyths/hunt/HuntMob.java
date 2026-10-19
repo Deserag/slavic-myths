@@ -70,10 +70,12 @@ public abstract class HuntMob extends LandSpiritEntity {
  @Override public float getVoicePitch(){return .65F;}
  @Override public boolean hurt(DamageSource source,float amount){if(oven()&&source.is(net.minecraft.tags.DamageTypeTags.IS_FIRE))return false;return super.hurt(source,amount);}
  private void cue(SoundEvent sound){playSound(sound,.85F,.65F);}
+ private long nextOvenVoiceTick;
+ private void ovenVoice(boolean power){long now=level().getGameTime();if(power||now>=nextOvenVoiceTick){playSound(power?org.slavicmyths.registry.ModSounds.OVINNIK_POWER.get():org.slavicmyths.registry.ModSounds.OVINNIK_ANGRY.get(),power?.9F:.75F,1);nextOvenVoiceTick=now+(power?28:18);}}
  @Override public void tick(){super.tick();if(level().isClientSide)return;if(!isAlive()){bar.setVisible(false);bar.removeAllPlayers();return;}if(home==null){home=blockPosition();setPersistenceRequired();}if(morState()!=0)bar.setName(getDisplayName());bar.setVisible(showsHuntBar()&&getTarget()!=null);bar.setProgress(getHealth()/getMaxHealth());
   if(owner!=null&&isAlive()){HuntRecords.Hunt h=HuntRecords.get((ServerLevel)level()).hunts.get(owner);if(h==null||h.status!=HuntRecords.Status.ACTIVE||!h.target.equals(getUUID())){discard();return;}}
   if(morState()!=0)return;
-  if(miniBoss()&&!(this instanceof ElementHuntMob)&&isAlive()&&!rage()&&getHealth()<=getMaxHealth()*.5){entityData.set(RAGE,true);cue(SoundEvents.RAVAGER_ROAR);}
+  if(miniBoss()&&!(this instanceof ElementHuntMob)&&isAlive()&&!rage()&&getHealth()<=getMaxHealth()*.5){entityData.set(RAGE,true);if(oven())ovenVoice(true);else cue(SoundEvents.RAVAGER_ROAR);}
   if(oven()&&isInWater()&&tickCount%20==0)hurt(damageSources().drown(),2);
   if(tickCount%5==0){prey.entrySet().removeIf(e->e.getValue()<=level().getGameTime());trail.removeIf(t->t.until<=level().getGameTime());trailHits.entrySet().removeIf(e->e.getValue()+40<level().getGameTime());
    for(Trail t:trail){((ServerLevel)level()).sendParticles(ParticleTypes.SMOKE,t.pos.x,t.pos.y+.1,t.pos.z,1,.1,0,.1,.01);for(Player p:level().getEntitiesOfClass(Player.class,new AABB(t.pos.x-.6,t.pos.y-.2,t.pos.z-.6,t.pos.x+.6,t.pos.y+.5,t.pos.z+.6)))if(!p.isCreative()&&!p.isSpectator()&&level().getGameTime()>=trailHits.getOrDefault(p.getUUID(),0L)&&clearLine(t.pos.add(0,.2,0),p.position().add(0,.2,0))){p.hurt(org.slavicmyths.combat.MythDamageSources.caused("ovinnik_trail",this),wetRain()?1.7F:2);trailHits.put(p.getUUID(),level().getGameTime()+20);}}
@@ -81,7 +83,7 @@ public abstract class HuntMob extends LandSpiritEntity {
  }
  private boolean ready(Move m){return timers.getOrDefault(m,0)<=0;}
  private void begin(Move move,LivingEntity target){entityData.set(ACTION,move.ordinal());entityData.set(START,(int)level().getGameTime());actionTick=0;alignWait=0;dashHit=false;navigation.stop();aim=target.position().subtract(position()).multiply(1,0,1).normalize();timers.put(move,HuntRules.cooldown(move.cooldown,rage()&&(oven()||move==Move.POUNCE)));if(move==Move.DODGE){Vec3 side=new Vec3(-aim.z,0,aim.x).scale(random.nextBoolean()?2.5:-2.5);sidePoint=position().add(side);}
-  cue(move==Move.HOWL?SoundEvents.RAVAGER_ROAR:move==Move.ASH?SoundEvents.FIRE_EXTINGUISH:oven()?SoundEvents.BLAZE_AMBIENT:SoundEvents.WOLF_GROWL);
+  if(oven()){if(move==Move.ASH)playSound(SoundEvents.FIRE_EXTINGUISH,.85F,1);else ovenVoice(false);}else cue(move==Move.HOWL?SoundEvents.RAVAGER_ROAR:move==Move.ASH?SoundEvents.FIRE_EXTINGUISH:oven()?SoundEvents.BLAZE_AMBIENT:SoundEvents.WOLF_GROWL);
  }
  public boolean clearLine(Vec3 a,Vec3 b){return level().clip(new ClipContext(a,b,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,this)).getType()==HitResult.Type.MISS;}
  private boolean strike(LivingEntity target,float damage,double reach,double cone,float knockback){if(!target.isAlive()||distanceTo(target)>reach||!getSensing().hasLineOfSight(target)||aim.dot(target.position().subtract(position()).multiply(1,0,1).normalize())<cone)return false;

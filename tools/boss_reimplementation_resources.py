@@ -353,4 +353,6 @@ def apply(tugarin_only=False,nightingale_only=False):
         path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     from audio_60_foley import restore_events
     restore_events()
+    from voice_rework_60 import restore_accepted
+    restore_accepted()
 if __name__=='__main__':apply('--tugarin-model-only' in sys.argv,'--nightingale-model-only' in sys.argv)

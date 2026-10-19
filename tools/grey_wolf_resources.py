@@ -65,4 +65,7 @@ def apply():
  icon=Image.new('RGBA',(32,32),(44,44,48,255));di=ImageDraw.Draw(icon)
  for x in [5,12,19]:di.polygon([(x,25),(x+1,13),(x+7,5),(x+5,17)],fill=(152,31,44,255))
  ip=A/'textures/mob_effect/wolf_cut.png';ip.parent.mkdir(parents=True,exist_ok=True);icon.save(ip)
-if __name__=='__main__':apply()
+if __name__=='__main__':
+ apply()
+ from creature_audio_batch_60 import restore_selected
+ restore_selected()

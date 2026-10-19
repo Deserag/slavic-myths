@@ -1,0 +1,21 @@
+{
+  "status": "IN_PROGRESS",
+  "checks": 7031,
+  "voice_candidates": 8,
+  "timbre_approved_keys": [
+    "skim_roar",
+    "tugarin_attack_voice",
+    "tugarin_breath",
+    "tugarin_challenge"
+  ],
+  "production_selected_files": 23,
+  "owner_approved_files": 4,
+  "agent_selected_files": 19,
+  "other_candidates_and_eq_not_wired": true,
+  "package_a_complete": false,
+  "owner_accepted": false,
+  "runtime_accepted": false,
+  "runtime_launches": 0,
+  "poly_mc_updated_this_iteration": false,
+  "jar_sha256": "63fdef98d36a976253cd78ebf7570303e022259841bd470f9325c5c95f25c80a"
+}

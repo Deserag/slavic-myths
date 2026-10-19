@@ -1,0 +1,10 @@
+{
+  "pairs": 413,
+  "high_waveform_matches": 75,
+  "analysis_rate": 8000,
+  "onset_threshold_relative_db": -50,
+  "max_lag_ms": 200,
+  "threshold": 0.98,
+  "scope": "Only envelope-screened pairs; misses candidates with different envelopes or pitch/timing changes. Not exhaustive perceptual analysis or a hearing verdict.",
+  "production_writes": false
+}

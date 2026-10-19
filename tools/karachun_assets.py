@@ -126,6 +126,8 @@ def icons():
 def audio():
  names=['ambient_low_wind','enter_trial','voice_whisper','scythe_windup','scythe_hit','dark_frost','long_night_cast','touch_hunger','touch_frost','touch_death','last_hour_mark','last_hour_impact','fear_phantom_spawn','fear_phantom_dispel','yield','raven_call','raven_flap','raven_dive','raven_hit','life_eater','last_breath','black_harvest','wing_activate','waning_stage_up'];sounds={};ff=shutil.which('ffmpeg');assert ff
  for index,name in enumerate(names):
+  from frost_foley_60 import EVENTS
+  if 'karachun.'+name in EVENTS:continue
   variants=3 if name in ['raven_call','raven_flap','ambient_low_wind','voice_whisper'] else 1;entries=[]
   for variant in range(variants):
    rnd=random.Random(1920+index*3+variant);rate=22050;duration=2.8 if name=='ambient_low_wind' else 1.7 if name in ['long_night_cast','yield','last_hour_mark'] else .65;count=int(rate*duration);smooth=0;samples=[]
@@ -142,6 +144,8 @@ def audio():
    subprocess.run([ff,'-hide_banner','-loglevel','error','-y','-i',str(tmp),'-fflags','+bitexact','-flags:a','+bitexact','-c:a','libvorbis','-q:a','3','-map_metadata','-1',str(dest)],check=True);tmp.unlink();entries.append({'name':f'slavicmyths:karachun/{name}_{variant}','attenuation_distance':32})
   sounds['karachun.'+name]={'subtitle':'subtitle.slavicmyths.karachun.'+name,'sounds':entries}
  merge(A/'sounds.json',sounds)
+ from frost_foley_60 import restore_selected
+ restore_selected()
 def resources():
  names={'karachun_scythe':('Коса Карачуна','Karachun’s Scythe'),'rune_of_waning':('Руна угасания','Rune of Waning'),'black_wing_amulet':('Чёрное крыло','Black Wing'),'shard_of_last_night':('Осколок последней ночи','Shard of the Last Night'),'karachun_trial_totem':('Тотем призыва Карачуна','Karachun Trial Totem')}
  ru={'boss':'Карачун','boss_phase':'Карачун · фаза %s','success':'Испытание пройдено — Карачун отступает','start':'Карачун услышал зов. Выдержи последнюю ночь!','overworld':'Испытание Карачуна доступно в Верхнем мире','active':'Испытание Карачуна уже идёт','space':'Нужно больше свободного места','received':'Получено: %s','queued':'Награда сохранена. Освободи места: %s','cancel':'Испытание прервано; незавершённый бой закрыт','trust':'Заслужи доверие Яги или угости Баюна','offering':'Подношение: 4 обсидиана и 1 синий лёд','offhand':'Угасание: второстепенная рука временно недоступна','totem_hint':'Многоразовый призыв по твёрдой поверхности. Репутация не нужна для готового тотема. Одно испытание одновременно.','npc_title':'Карачун','npc_offer':'Доверие II Яги или первое угощение Баюна. 4 обсидиана + 1 синий лёд; утраченный тотем восстанавливается.','scythe_hint':'ЛКМ — три тяжёлых удара по дуге; способности: Последний вздох и Чёрная жатва.','scythe_passives':'Жатва душ: каждый третий hit по цели — Иссушение I. Пожиратель жизни: до 2 HP / 5 с. Нежить: +25% урона, +3 HP за убийство.','waning':'Угасание %s · %s','fear':'Страх %s','cooldowns':'Вздох %s с · Жатва %s с · Крыло %s с','bindings':'%s — Последний вздох; %s — Чёрная жатва; %s — Чёрное крыло','reduced':'Сниженные искажения: %s','compatible.waning':'Вставляется в оружие; 20% на +25 Угасания, не чаще раза в секунду по цели.'}

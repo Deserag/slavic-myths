@@ -1,0 +1,17 @@
+{
+  "mob": "Тугарин",
+  "role": "Босс, человеческая форма",
+  "action": "Выдох перед вращением SPIN",
+  "source": "preview/tugarin_spin_prepare.ogg",
+  "source_sha256": "4dd03b3ef57d07c2c513a9358b78afe5bfbd6a9c4169c491b5eacb97d01906ff",
+  "file": "alternatives/tugarin_spin_prepare_rough.ogg",
+  "sha256": "9d73a85313de91fc4c2ebbb9e2166b99b0392e47f244bf7053b2debd589f2dfb",
+  "seconds": 0.7125623582766439,
+  "event": "tugarin_spin_prepare",
+  "trigger": "TugarinCombat.begin(SPIN), tick0; first hit remains tick16",
+  "status": "AGENT_SELECTED_UNDER_OWNER_DELEGATION",
+  "owner_approved": false,
+  "runtime_accepted": false,
+  "processing": "rubberband=pitch=0.7491535384:formant=shifted,highpass=f=65,lowpass=f=4200,equalizer=f=2400:t=q:w=0.8:g=-5,equalizer=f=140:t=q:w=0.7:g=4; mild saturation; gain",
+  "license": "CC-BY-4.0, Alba MacKenna, existing documented distinct exhale source"
+}

@@ -131,9 +131,8 @@
     "subtitle": "subtitles.slavicmyths.ovinnik_ambient",
     "sounds": [
       {
-        "name": "minecraft:entity.blaze.ambient",
-        "type": "event",
-        "pitch": 0.7
+        "name": "voice/ovinnik/ambient",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -141,9 +140,8 @@
     "subtitle": "subtitles.slavicmyths.ovinnik_hurt",
     "sounds": [
       {
-        "name": "minecraft:entity.blaze.hurt",
-        "type": "event",
-        "pitch": 0.7
+        "name": "voice/ovinnik/hurt",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -151,9 +149,8 @@
     "subtitle": "subtitles.slavicmyths.ovinnik_death",
     "sounds": [
       {
-        "name": "minecraft:entity.blaze.death",
-        "type": "event",
-        "pitch": 0.7
+        "name": "voice/ovinnik/death",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -161,9 +158,8 @@
     "subtitle": "subtitles.slavicmyths.ovinnik_angry",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.roar",
-        "type": "event",
-        "pitch": 0.7
+        "name": "voice/ovinnik/angry",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -171,9 +167,8 @@
     "subtitle": "subtitles.slavicmyths.ovinnik_power",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.roar",
-        "type": "event",
-        "pitch": 0.7
+        "name": "voice/ovinnik/power",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -1886,26 +1881,29 @@
     ]
   },
   "tugarin_phase1_idle": {
+    "subtitle": "subtitles.slavicmyths.tugarin_breath",
     "sounds": [
       {
-        "name": "minecraft:entity.piglin_brute.ambient",
-        "type": "event"
+        "name": "voice/tugarin/breath",
+        "attenuation_distance": 20
       }
     ]
   },
   "tugarin_phase1_aggro": {
+    "subtitle": "subtitles.slavicmyths.tugarin_challenge",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.roar",
-        "type": "event"
+        "name": "voice/tugarin/challenge",
+        "attenuation_distance": 32
       }
     ]
   },
   "tugarin_phase1_attack": {
+    "subtitle": "subtitles.slavicmyths.tugarin_attack_voice",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.strong",
-        "type": "event"
+        "name": "voice/tugarin/attack",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -2231,9 +2229,8 @@
     "subtitle": "subtitles.slavicmyths.grey_wolf.claw",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.sweep",
-        "type": "event",
-        "pitch": 1
+        "name": "voice/grey_wolf/claw",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -2241,9 +2238,8 @@
     "subtitle": "subtitles.slavicmyths.grey_wolf.pounce",
     "sounds": [
       {
-        "name": "minecraft:entity.wolf.growl",
-        "type": "event",
-        "pitch": 0.85
+        "name": "voice/grey_wolf/pounce",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -2251,9 +2247,8 @@
     "subtitle": "subtitles.slavicmyths.grey_wolf.dash",
     "sounds": [
       {
-        "name": "minecraft:entity.wolf.growl",
-        "type": "event",
-        "pitch": 0.85
+        "name": "voice/grey_wolf/dash",
+        "attenuation_distance": 20
       }
     ]
   },
@@ -2271,9 +2266,9 @@
     "subtitle": "subtitles.slavicmyths.grey_wolf.hurt",
     "sounds": [
       {
-        "name": "minecraft:entity.wolf.growl",
+        "name": "minecraft:entity.wolf.hurt",
         "type": "event",
-        "pitch": 0.85
+        "pitch": 0.9
       }
     ]
   },
@@ -4647,10 +4642,9 @@
     "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.death_01",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.death",
-        "type": "event",
-        "volume": 0.65,
-        "attenuation_distance": 16
+        "name": "voice/idolishche/death_01",
+        "attenuation_distance": 28,
+        "volume": 0.85
       }
     ]
   },
@@ -4680,10 +4674,9 @@
     "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.hurt_01",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.hurt",
-        "type": "event",
-        "volume": 0.65,
-        "attenuation_distance": 16
+        "name": "voice/idolishche/hurt_01",
+        "attenuation_distance": 28,
+        "volume": 0.85
       }
     ]
   },
@@ -4691,10 +4684,9 @@
     "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.hurt_02",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.hurt",
-        "type": "event",
-        "volume": 0.65,
-        "attenuation_distance": 16
+        "name": "voice/idolishche/hurt_02",
+        "attenuation_distance": 28,
+        "volume": 0.85
       }
     ]
   },
@@ -4702,10 +4694,9 @@
     "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.idle_growl_01",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.ambient",
-        "type": "event",
-        "volume": 0.65,
-        "attenuation_distance": 16
+        "name": "voice/idolishche/idle_growl_01",
+        "attenuation_distance": 28,
+        "volume": 0.85
       }
     ]
   },
@@ -4713,10 +4704,9 @@
     "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.idle_growl_02",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.ambient",
-        "type": "event",
-        "volume": 0.65,
-        "attenuation_distance": 16
+        "name": "voice/idolishche/idle_growl_02",
+        "attenuation_distance": 28,
+        "volume": 0.85
       }
     ]
   },
@@ -4757,10 +4747,9 @@
     "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.rage_01",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.roar",
-        "type": "event",
-        "volume": 0.65,
-        "attenuation_distance": 16
+        "name": "voice/idolishche/rage_01",
+        "attenuation_distance": 28,
+        "volume": 0.85
       }
     ]
   },
@@ -4768,10 +4757,9 @@
     "subtitle": "subtitle.slavicmyths.171.idolishche_poganoe.roar_01",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.roar",
-        "type": "event",
-        "volume": 0.65,
-        "attenuation_distance": 16
+        "name": "voice/idolishche/roar_01",
+        "attenuation_distance": 28,
+        "volume": 0.85
       }
     ]
   },
@@ -5526,9 +5514,7 @@
     "subtitle": "subtitles.slavicmyths.skim.roar",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.roar",
-        "type": "event",
-        "volume": 0.65,
+        "name": "voice/skim/roar",
         "attenuation_distance": 48
       }
     ]
@@ -5570,8 +5556,7 @@
     "subtitle": "subtitles.slavicmyths.skim.rage",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.roar",
-        "type": "event",
+        "name": "voice/skim/rage",
         "volume": 0.65,
         "attenuation_distance": 28
       }
@@ -5603,9 +5588,7 @@
     "subtitle": "subtitles.slavicmyths.skim.hurt_1",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.hurt",
-        "type": "event",
-        "volume": 0.65,
+        "name": "voice/skim/hurt_1",
         "attenuation_distance": 28
       }
     ]
@@ -5614,9 +5597,7 @@
     "subtitle": "subtitles.slavicmyths.skim.hurt_2",
     "sounds": [
       {
-        "name": "minecraft:entity.ravager.hurt",
-        "type": "event",
-        "volume": 0.65,
+        "name": "voice/skim/hurt_2",
         "attenuation_distance": 28
       }
     ]
@@ -6925,7 +6906,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.staff_hit",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/staff_hit",
+        "name": "foley/morozko/wood_hit_03",
         "attenuation_distance": 24
       }
     ]
@@ -6934,7 +6915,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.ice_bolt",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/ice_bolt",
+        "name": "foley/morozko/bfh1_glass_hit_01",
         "attenuation_distance": 24
       }
     ]
@@ -6970,7 +6951,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.spike_break",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/spike_break",
+        "name": "foley/morozko/bfh1_glass_breaking_01",
         "attenuation_distance": 24
       }
     ]
@@ -7006,7 +6987,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.clone_break",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/clone_break",
+        "name": "foley/morozko/bfh1_glass_breaking_02",
         "attenuation_distance": 24
       }
     ]
@@ -7042,7 +7023,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.mirror_break",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/mirror_break",
+        "name": "foley/morozko/bfh1_glass_breaking_03",
         "attenuation_distance": 24
       }
     ]
@@ -7051,7 +7032,7 @@
     "subtitle": "subtitle.slavicmyths.morozko.staff_shoot",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/staff_shoot",
+        "name": "foley/morozko/bfh1_glass_hit_02",
         "attenuation_distance": 24
       }
     ]
@@ -7069,8 +7050,9 @@
     "subtitle": "subtitle.slavicmyths.morozko.staff_icicles",
     "sounds": [
       {
-        "name": "slavicmyths:morozko/staff_icicles",
-        "attenuation_distance": 24
+        "name": "foley/morozko/bfh1_glass_falling_01",
+        "attenuation_distance": 24,
+        "volume": 0.55
       }
     ]
   },
@@ -7139,7 +7121,11 @@
     "subtitle": "subtitle.slavicmyths.karachun.scythe_windup",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/scythe_windup_0",
+        "name": "foley/karachun/swosh-04",
+        "attenuation_distance": 32
+      },
+      {
+        "name": "foley/karachun/swosh-05",
         "attenuation_distance": 32
       }
     ]
@@ -7148,7 +7134,11 @@
     "subtitle": "subtitle.slavicmyths.karachun.scythe_hit",
     "sounds": [
       {
-        "name": "slavicmyths:karachun/scythe_hit_0",
+        "name": "foley/karachun/metal_hit_01",
+        "attenuation_distance": 32
+      },
+      {
+        "name": "foley/karachun/metal_hit_03",
         "attenuation_distance": 32
       }
     ]
@@ -7920,6 +7910,15 @@
       {
         "name": "boss/tugarin/foley/spin_3",
         "attenuation_distance": 24
+      }
+    ]
+  },
+  "tugarin_spin_prepare": {
+    "subtitle": "subtitles.slavicmyths.tugarin_spin_prepare",
+    "sounds": [
+      {
+        "name": "voice/tugarin/spin_prepare",
+        "attenuation_distance": 28
       }
     ]
   }

@@ -1,0 +1,17 @@
+{
+  "mob": "Ским-зверь",
+  "role": "Враждебный босс",
+  "action": "Переход в ярость, фаза3",
+  "source": "sources/skim_monster_2.flac",
+  "file": "preview/skim_rage.ogg",
+  "sha256": "c07b7982dcc6205ac9c4d51d7d4d089d363043b5f686ac24be40607c962a76f8",
+  "event": "skim.rage",
+  "callsite": "SkimBeastEntity phase3 && !rageUsed; RAGE64 ticks; cue once",
+  "seconds": 3,
+  "min_runtime_pitch": 0.96,
+  "max_duration_at_min_pitch": 3.125,
+  "status": "AGENT_SELECTED_UNDER_OWNER_DELEGATION",
+  "owner_approved": false,
+  "runtime_accepted": false,
+  "license": "CC-BY-3.0, Little Robot Sound Factory; documented Monster_02.wav, not the approved roar take"
+}

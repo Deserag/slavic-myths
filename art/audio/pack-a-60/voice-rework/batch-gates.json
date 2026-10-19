@@ -1,0 +1,12 @@
+{
+  "status": "IN_PROGRESS",
+  "checks": 248,
+  "new_recorded_files": 17,
+  "changed_existing_events": 18,
+  "voice_takes": 14,
+  "movement_foley": 3,
+  "owner_accepted": false,
+  "runtime_launches": 0,
+  "poly_mc_updated": false,
+  "jar_sha256": "63fdef98d36a976253cd78ebf7570303e022259841bd470f9325c5c95f25c80a"
+}

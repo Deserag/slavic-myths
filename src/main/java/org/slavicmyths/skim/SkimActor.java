@@ -24,7 +24,7 @@ public abstract class SkimActor extends PathfinderMob {
  public void face(LivingEntity e){setYRot((float)Math.toDegrees(Math.atan2(org.slavicmyths.poloz.PolozAim.point(this,e).z-getZ(),org.slavicmyths.poloz.PolozAim.point(this,e).x-getX()))-90);yBodyRot=getYRot();getLookControl().setLookAt(e,25,20);}
  public double edge(LivingEntity e){if(e instanceof org.slavicmyths.poloz.GreatPoloz)return org.slavicmyths.poloz.PolozAim.edge(this,e);return Math.max(0,Math.sqrt(e.getBoundingBox().distanceToSqr(position()))-getBbWidth()/2);}
  public boolean cone(LivingEntity e,double r,double angle){var d=org.slavicmyths.poloz.PolozAim.point(this,e).subtract(position()).multiply(1,0,1);return edge(e)<=r&&(d.lengthSqr()<.01||d.normalize().dot(heading())>=Math.cos(Math.toRadians(angle/2)));}
- public void cue(String k){if(!level().isClientSide)playSound(SkimContent.sound(k),.8F,.96F+random.nextFloat()*.08F);}
+ public void cue(String k){if(!level().isClientSide){float pitch=.96F+random.nextFloat()*.08F;playSound(SkimContent.sound(k),.8F,k.equals("skim.roar")?1:pitch);}}
  @Override protected void registerGoals(){goalSelector.addGoal(0,new net.minecraft.world.entity.ai.goal.FloatGoal(this));}
  @Override public boolean removeWhenFarAway(double d){return false;}
  @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);var c=new CompoundTag();cooldowns.forEach(c::putLong);n.put("SkimCooldowns",c);n.putString("SkimAction",action().name());}

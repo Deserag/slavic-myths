@@ -1,0 +1,21 @@
+{
+  "status": "IN_PROGRESS",
+  "base_sha": "037f80ac85706196ffed1e1052b860a2ff852871",
+  "working_tree": "DIRTY_OWNER_APPROVED_AUDIO_SUBSET_AND_USER_DELETIONS_PRESERVED",
+  "events": 891,
+  "muted": 87,
+  "ogg": 807,
+  "decode_fail": 0,
+  "jar_mismatch": 0,
+  "registry_count": 111,
+  "entity_rows": 111,
+  "independent": 69,
+  "source_sites": 574,
+  "duplicate_groups": 486,
+  "jar_sha256": "d7c86ea453ac76c377efe4e306091903722740d4139805984b926112f9a2fc84",
+  "production_unchanged": true,
+  "runtime_launches": 0,
+  "manual_reachability": "PENDING",
+  "perceptual_alignment": "NOT_IMPLEMENTED_ENVELOPE_SCREEN_ONLY",
+  "hearing": "NOT_LISTENED"
+}
