@@ -513,7 +513,7 @@ for cue,sources,ru,en,cap,rms in [
  ('ambient',['wind__wind.wav'],'Холодный ветер вокруг Морозко','Cold wind surrounds Morozko',2.2,.022),
  ('step',[equip('boots-leather-step-03.wav'),equip('boots-leather-step-04.wav')],'Тяжёлые шаги Морозко','Morozko steps heavily',.22,.045),
  ('blizzard_start',[['wind__wind.wav',glass(1)]],'Морозко поднимает метель','Morozko raises a blizzard',2.2,.065),
- ('blizzard_loop',[dict(key='wind__wind.wav',start=.1,end=4.05)],'Метель Морозко шумит','Morozko blizzard rushes',3.8,.04),
+ ('blizzard_loop',[dict(key='wind__felix_blume_234000.mp3',start=22,end=25.8)],'Метель Морозко шумит','Morozko blizzard rushes',3.8,.04),
  ('spike_telegraph',[glass(2)],'Лёд потрескивает перед шипами','Ice cracks before spikes rise',.55,.06),
  ('breath',[[dict(key='wind__wind.wav',start=.55,end=3.45),glass(3)]],'Морозко выпускает морозный поток','Morozko releases a frost cone',2.8,.065),
  ('wave',[['foley__swosh-02.flac',glass(4)]],'Ледяная волна Морозко расходится','Morozko ice wave spreads',.65,.07),
@@ -521,7 +521,7 @@ for cue,sources,ru,en,cap,rms in [
  ('frost_damage',[glass(6)],'Мороз обжигает цель','Frost bites its target',.2,.055),
  ('yield',['harp__phonos_490831.mp3'],'Морозко завершает испытание','Morozko yields the trial',1.6,.045),
  ('mirror_summon',[['chime__connersaw8_125147.mp3',glass(2)]],'Ледяное зеркало возникает','Ice mirror forms',.65,.05),
- ('staff_stream',['wind__wind.wav'],'Посох выпускает морозный поток','Staff channels a frost stream',4.2,.05),
+ ('staff_stream',[dict(key='wind__felix_blume_234000.mp3',start=31,end=35.2)],'Посох выпускает морозный поток','Staff channels a frost stream',4.2,.05),
  ('staff_wave',[['foley__swosh-01.flac',glass(6)]],'Посох выпускает ледяную волну','Staff releases an ice wave',.55,.065),
  ('trial_call',['cymbal__mirko_175932.mp3'],'Тотем зовёт Морозко','Totem calls Morozko',1.5,.055)]:
  add('frost-recorded-material','morozko.'+cue,sources,ru,en,cap,rms,radius=32 if 'blizzard' in cue else 24,**({'stream':True} if cue=='staff_stream' else {}))

@@ -215,6 +215,7 @@ water__splash_09.ogg: rubberduck; https://opengameart.org/content/40-cc0-water-s
 water__splash_10.ogg: rubberduck; https://opengameart.org/content/40-cc0-water-splash-slime-sfx; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 water__splash_11.ogg: rubberduck; https://opengameart.org/content/40-cc0-water-splash-slime-sfx; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 water__splash_12.ogg: rubberduck; https://opengameart.org/content/40-cc0-water-splash-slime-sfx; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
+wind__felix_blume_234000.mp3: felix.blume; https://freesound.org/people/felix.blume/sounds/234000/; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 wind__wind.wav: remaxim; https://opengameart.org/content/short-wind-sound; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 wings__wings_flap_large.flac: AntumDeluge / dave.des; https://opengameart.org/content/large-wings-flap; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.
 wood__crack03.mp3.flac: Independent.nu (submitted by qubodup); https://opengameart.org/content/35-wooden-crackshitsdestructions; CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/. Crop/resample/EQ/fade/gain/montage, no endorsement.

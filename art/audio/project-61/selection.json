@@ -11851,27 +11851,27 @@
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   },
   {
-    "render_signature": "0d41de3312a31ea314fe2b2a8982e537ed64ba9166c22227aa11ba6df690a0ce",
+    "render_signature": "a39c4dc48a82f28baa2788aa697f47aebe65cf2f7bcd38b160e5a277876d7d46",
     "event": "morozko.blizzard_loop",
     "group": "frost-recorded-material",
     "ru": "Метель Морозко шумит",
     "action": "Morozko blizzard rushes",
     "file": "recorded61/morozko/blizzard_loop_1.ogg",
-    "sha256": "0a8572dbb24cbc0496aea91171712f97df9ff32cc5fb2a8b15dd4b83b4927118",
+    "sha256": "f949b424a92435a64f9911187ccf73d84cc88a94dcfb5fb6788036896d3e1b93",
     "sources": [
       {
-        "key": "wind__wind.wav",
-        "file": "sources/wind__wind.wav",
-        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "key": "wind__felix_blume_234000.mp3",
+        "file": "sources/wind__felix_blume_234000.mp3",
+        "sha256": "5776f9d7666c4f0a8baaad78fb1bb8ba5b809fd740c4135c9c30dc0931c1df71",
         "license": "CC0-1.0",
-        "author": "remaxim",
-        "page": "https://opengameart.org/content/short-wind-sound",
-        "start_sample": 4410
+        "author": "felix.blume",
+        "page": "https://freesound.org/people/felix.blume/sounds/234000/",
+        "start_sample": 970200
       }
     ],
-    "seconds": 2.0702267573696145,
-    "peak_dbfs": -12.239228182201582,
-    "rms_dbfs": -28.03490070460739,
+    "seconds": 3.8099773242630386,
+    "peak_dbfs": -14.840498481683131,
+    "rms_dbfs": -27.940501774995305,
     "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
     "status": "AGENT_SELECTED_OWNER_PENDING",
     "owner_approved": false,
@@ -12111,27 +12111,27 @@
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   },
   {
-    "render_signature": "597b77a21848def8e863eb35ad2ebd10238162e3ae12cd21e9642bf6f04b212d",
+    "render_signature": "8897c544f4fad375e21491c0e84ac0a8dd728b7d681baab998a9c384fd38e50d",
     "event": "morozko.staff_stream",
     "group": "frost-recorded-material",
     "ru": "Посох выпускает морозный поток",
     "action": "Staff channels a frost stream",
     "file": "recorded61/morozko/staff_stream_1.ogg",
-    "sha256": "47c0b724d1bb5d3440b631e0a9f3257c21011b501fca706259935c0cb47a4d36",
+    "sha256": "90d4a86664392be0726215e706abd9cebb99c625967d8a74abedbb61cb310d85",
     "sources": [
       {
-        "key": "wind__wind.wav",
-        "file": "sources/wind__wind.wav",
-        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "key": "wind__felix_blume_234000.mp3",
+        "file": "sources/wind__felix_blume_234000.mp3",
+        "sha256": "5776f9d7666c4f0a8baaad78fb1bb8ba5b809fd740c4135c9c30dc0931c1df71",
         "license": "CC0-1.0",
-        "author": "remaxim",
-        "page": "https://opengameart.org/content/short-wind-sound",
-        "start_sample": 1505
+        "author": "felix.blume",
+        "page": "https://freesound.org/people/felix.blume/sounds/234000/",
+        "start_sample": 1367100
       }
     ],
-    "seconds": 2.1360997732426306,
-    "peak_dbfs": -9.767149224271881,
-    "rms_dbfs": -26.078892059155635,
+    "seconds": 4.209977324263039,
+    "peak_dbfs": -14.90120335618652,
+    "rms_dbfs": -26.010294171363864,
     "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
     "status": "AGENT_SELECTED_OWNER_PENDING",
     "owner_approved": false,

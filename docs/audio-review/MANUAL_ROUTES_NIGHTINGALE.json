@@ -3,7 +3,7 @@
   "rows": 25,
   "method": "Full Java literal search excluding registry, plus inspection of actual actor boss dispatcher and external equipment handler. No dynamic/runtime completeness inferred.",
   "evidence_sha256": {
-    "src/main/java/org/slavicmyths/bandit/NightingaleEntity.java": "104b4c26a3ef3d53a69a138f38f69f6fa8c4fb6ff508816a3ddf0980ae5a3d36",
+    "src/main/java/org/slavicmyths/bandit/NightingaleEntity.java": "29c03595fb52c99329365dc3e367941f6c28272b4a0ec4f2e13c95411d3c9e1a",
     "src/main/java/org/slavicmyths/registry/ModSounds.java": "c7eb1dc2dc9646a014a84f59b24ba7712c0532217b213b00ed541bc8adb30e81",
     "src/main/java/org/slavicmyths/bandit/BossWeaponSounds.java": "fceb891183bd79e877aa97f7fa233660f2d2234bea1fcb0ed3d0292a5cd13fb8"
   },

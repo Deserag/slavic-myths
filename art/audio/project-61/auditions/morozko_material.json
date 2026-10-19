@@ -2,7 +2,7 @@
   "status": "AGENT_SELECTED_OWNER_PENDING",
   "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
   "duration_s": 32,
-  "sha256": "c542bdd53fa34ac1415c13dbaca59e80ea114bcf5f0968a34c071ad0db853e20",
+  "sha256": "def45ff25521577b2275e7291a072b9b7eb7b8660ec33214933b90c564b13061",
   "runtime": "NOT_RUN",
   "hearing": "NOT_LISTENED",
   "events": [
@@ -32,7 +32,7 @@
       "event": "morozko.blizzard_loop",
       "label": "Метель Морозко шумит",
       "file": "recorded61/morozko/blizzard_loop_1.ogg",
-      "sha256": "0a8572dbb24cbc0496aea91171712f97df9ff32cc5fb2a8b15dd4b83b4927118"
+      "sha256": "f949b424a92435a64f9911187ccf73d84cc88a94dcfb5fb6788036896d3e1b93"
     },
     {
       "time_s": 15,

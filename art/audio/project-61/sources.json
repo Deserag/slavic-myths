@@ -3615,5 +3615,18 @@
     "sha256": "18b138c9227a4c590a262376a4ff5985447a3e7b19dc4176f402caec767ab5fd",
     "processing": "Official hq MP3 preview preserved byte-for-byte; not original WAV",
     "curation": "Recorded clock bell, Tascam DR100; physical warning bell, never a creature voice"
+  },
+  {
+    "key": "wind__felix_blume_234000.mp3",
+    "file": "sources/wind__felix_blume_234000.mp3",
+    "author": "felix.blume",
+    "page": "https://freesound.org/people/felix.blume/sounds/234000/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verified_date": "2026-10-19",
+    "download": "https://cdn.freesound.org/previews/234/234000_1661766-hq.mp3",
+    "sha256": "5776f9d7666c4f0a8baaad78fb1bb8ba5b809fd740c4135c9c30dc0931c1df71",
+    "processing": "Official HQ MP3 preview; not raw WAV",
+    "curation": "Recorded wind howling through a building doorway, Brussels; Schoeps CCM41/CCM8 with Sound Devices788T; physical airflow, not a voice or wilderness recording"
   }
 ]

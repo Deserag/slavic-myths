@@ -2,7 +2,7 @@
   "status": "AGENT_SELECTED_OWNER_PENDING",
   "kind": "OFFLINE_FILE_AUDITION_NOT_GAMEPLAY",
   "duration_s": 28,
-  "sha256": "2cb7bf89ff1eb94d40bf2b229bd60fe066faf38a89bdc7bddef421908afa83b3",
+  "sha256": "0ae74c6b4fdc369ec93b59258241702620af7b980af03f3958beaea3917f06d7",
   "runtime": "NOT_RUN",
   "hearing": "NOT_LISTENED",
   "events": [
@@ -11,7 +11,7 @@
       "event": "morozko.staff_stream",
       "label": "Посох выпускает морозный поток",
       "file": "recorded61/morozko/staff_stream_1.ogg",
-      "sha256": "47c0b724d1bb5d3440b631e0a9f3257c21011b501fca706259935c0cb47a4d36"
+      "sha256": "90d4a86664392be0726215e706abd9cebb99c625967d8a74abedbb61cb310d85"
     },
     {
       "time_s": 6,
