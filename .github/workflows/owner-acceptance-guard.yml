@@ -23,9 +23,9 @@ jobs:
             const quality = [42,47,48,49,50,51,52,53,54,55,56,57,58,59,60].includes(number)
               || /\[(?:P0|P1|EXECUTION|QUALITY GATE)\]/i.test(issue.title);
             if (!quality) return;
-            // Owner retired these redundant trackers on 2026-10-19. Cancellation is not acceptance.
+            // Owner retired these obsolete/duplicate visual scopes on 2026-10-19. Cancellation is not acceptance.
             // Keep the owner-accepted gate unchanged for completed work and every other issue.
-            if (issue.state_reason === 'not_planned' && [33, 48, 52].includes(number)) return;
+            if (issue.state_reason === 'not_planned' && [33, 48, 52, 54, 55, 56, 57].includes(number)) return;
             const labels = (issue.labels || []).map(l => typeof l === 'string' ? l : l.name);
             if (labels.includes('owner-accepted')) return;
             await github.rest.issues.update({
