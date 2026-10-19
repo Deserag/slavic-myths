@@ -1169,3 +1169,70 @@ AGENT_SELECTED / OWNER_PENDING. Прослушивание владельцем 
 
 **Разбойник поднимает щит / Bandit raises shield** · `bandit_shield_raise`
 ![Разбойник поднимает щит / Bandit raises shield](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/bandit_shield_raise_1.ogg)
+
+## nightingale-recorded
+
+**Соловей коротко посвистывает / Nightingale whistles briefly** · `nightingale_phase1_idle_whistle`
+![Соловей коротко посвистывает / Nightingale whistles briefly](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase1_idle_whistle_1.ogg)
+
+**Соловей выпускает боевой свист / Nightingale releases a battle whistle** · `nightingale_phase1_whistle_release`
+![Соловей выпускает боевой свист / Nightingale releases a battle whistle](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase1_whistle_release_1.ogg)
+
+**Соловей выпускает воздушную волну свистом / Nightingale whistles an air wave** · `nightingale_phase2_wave`
+![Соловей выпускает воздушную волну свистом / Nightingale whistles an air wave](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase2_wave_1.ogg)
+
+**Соловей недовольно окликает / Nightingale challenges** · `nightingale_phase1_aggro`
+![Соловей недовольно окликает / Nightingale challenges](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase1_aggro_1.ogg)
+
+**Соловей стонет от боли / Nightingale groans in pain** · `nightingale_phase1_hurt`
+![Соловей стонет от боли / Nightingale groans in pain](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase1_hurt_1.ogg)
+
+**Соловей стонет от боли / Nightingale groans in pain** · `nightingale_phase1_hurt`
+![Соловей стонет от боли / Nightingale groans in pain](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase1_hurt_2.ogg)
+
+**Соловей хрипло стонет / Nightingale groans hoarsely** · `nightingale_phase2_hurt`
+![Соловей хрипло стонет / Nightingale groans hoarsely](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase2_hurt_1.ogg)
+
+**Последний стон Соловья / Nightingale final groan** · `nightingale_phase1_death`
+![Последний стон Соловья / Nightingale final groan](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase1_death_1.ogg)
+
+**Клинок Соловья рассекает воздух / Nightingale blade swishes** · `nightingale_phase1_slash`
+![Клинок Соловья рассекает воздух / Nightingale blade swishes](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase1_slash_1.ogg)
+
+**Клинок Соловья рассекает воздух / Nightingale blade swishes** · `nightingale_phase1_slash`
+![Клинок Соловья рассекает воздух / Nightingale blade swishes](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase1_slash_2.ogg)
+
+**Соловей резко взмахивает клинком / Nightingale blade cuts the air** · `nightingale_phase2_slash`
+![Соловей резко взмахивает клинком / Nightingale blade cuts the air](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase2_slash_1.ogg)
+
+**Одежда Соловья шуршит в прыжке / Nightingale cloth rustles in a leap** · `nightingale_phase1_leap`
+![Одежда Соловья шуршит в прыжке / Nightingale cloth rustles in a leap](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase1_leap_1.ogg)
+
+**Соловей проносится в рывке / Nightingale dashes through air** · `nightingale_phase2_dash`
+![Соловей проносится в рывке / Nightingale dashes through air](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase2_dash_1.ogg)
+
+**Вихрь Соловья бушует / Nightingale whirlwind rushes** · `nightingale_phase2_whirlwind`
+![Вихрь Соловья бушует / Nightingale whirlwind rushes](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase2_whirlwind_1.ogg)
+
+**Последний стон Соловья / Nightingale final groan** · `nightingale_phase2_death`
+![Последний стон Соловья / Nightingale final groan](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_phase2_death_1.ogg)
+
+**Соловей тяжело приземляется / Nightingale lands** · `nightingale.phase1.land`
+![Соловей тяжело приземляется / Nightingale lands](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale/phase1/land_1.ogg)
+
+## nightingale-weapon
+
+**Клинок Соловья извлекают из ножен / Nightingale blade is drawn** · `nightingale_blade_draw`
+![Клинок Соловья извлекают из ножен / Nightingale blade is drawn](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_blade_draw_1.ogg)
+
+**Клинок Соловья ударяет цель / Nightingale blade strikes** · `nightingale_blade_slash`
+![Клинок Соловья ударяет цель / Nightingale blade strikes](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_blade_slash_1.ogg)
+
+**Воздух собирается у клинка Соловья / Air gathers at Nightingale blade** · `nightingale_blade_wind_charge`
+![Воздух собирается у клинка Соловья / Air gathers at Nightingale blade](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_blade_wind_charge_1.ogg)
+
+**Клинок Соловья выпускает ветер / Nightingale blade releases wind** · `nightingale_blade_wind_release`
+![Клинок Соловья выпускает ветер / Nightingale blade releases wind](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_blade_wind_release_1.ogg)
+
+**Ветер клинка Соловья достигает цели / Nightingale blade wind hits** · `nightingale_blade_wind_hit`
+![Ветер клинка Соловья достигает цели / Nightingale blade wind hits](D:/slavic-myths/src/main/resources/assets/slavicmyths/sounds/recorded61/nightingale_blade_wind_hit_1.ogg)

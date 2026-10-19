@@ -2137,10 +2137,11 @@
     ]
   },
   "nightingale.phase1.land": {
+    "subtitle": "subtitles.slavicmyths.nightingale.phase1.land",
     "sounds": [
       {
-        "name": "minecraft:block.grass.step",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale/phase1/land_1",
+        "attenuation_distance": 28
       }
     ]
   },
@@ -2388,162 +2389,178 @@
     ]
   },
   "nightingale_phase1_idle_whistle": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase1_idle_whistle",
     "sounds": [
       {
-        "name": "slavicmyths:nightingale_idle",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase1_idle_whistle_1",
+        "attenuation_distance": 16
       }
     ]
   },
   "nightingale_phase1_aggro": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase1_aggro",
     "sounds": [
       {
-        "name": "slavicmyths:nightingale_notice",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase1_aggro_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_phase1_slash": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase1_slash",
     "sounds": [
       {
-        "name": "slavicmyths:nightingale_melee",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase1_slash_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "slavicmyths:recorded61/nightingale_phase1_slash_2",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_phase1_whistle_charge": {
-    "sounds": [
-      {
-        "name": "slavicmyths:nightingale_inhale",
-        "type": "event"
-      }
-    ]
+    "sounds": []
   },
   "nightingale_phase1_whistle_release": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase1_whistle_release",
     "sounds": [
       {
-        "name": "slavicmyths:nightingale_whistle",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase1_whistle_release_1",
+        "attenuation_distance": 40
       }
     ]
   },
   "nightingale_phase1_leap": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase1_leap",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.sweep",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase1_leap_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_phase1_hurt": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase1_hurt",
     "sounds": [
       {
-        "name": "slavicmyths:nightingale_hurt",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase1_hurt_1",
+        "attenuation_distance": 28
+      },
+      {
+        "name": "slavicmyths:recorded61/nightingale_phase1_hurt_2",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_phase1_death": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase1_death",
     "sounds": [
       {
-        "name": "slavicmyths:nightingale_death",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase1_death_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_phase2_laugh": {
-    "sounds": [
-      {
-        "name": "slavicmyths:nightingale_voice",
-        "type": "event"
-      }
-    ]
+    "sounds": []
   },
   "nightingale_phase2_slash": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase2_slash",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.sweep",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase2_slash_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_phase2_whirlwind": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase2_whirlwind",
     "sounds": [
       {
-        "name": "slavicmyths:nightingale_destructive",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase2_whirlwind_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_phase2_dash": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase2_dash",
     "sounds": [
       {
-        "name": "slavicmyths:nightingale_wave",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase2_dash_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_phase2_wave": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase2_wave",
     "sounds": [
       {
-        "name": "slavicmyths:nightingale_destructive",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase2_wave_1",
+        "attenuation_distance": 40
       }
     ]
   },
   "nightingale_phase2_hurt": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase2_hurt",
     "sounds": [
       {
-        "name": "slavicmyths:nightingale_hurt",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase2_hurt_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_phase2_death": {
+    "subtitle": "subtitles.slavicmyths.nightingale_phase2_death",
     "sounds": [
       {
-        "name": "slavicmyths:nightingale_death",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_phase2_death_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_blade_draw": {
+    "subtitle": "subtitles.slavicmyths.nightingale_blade_draw",
     "sounds": [
       {
-        "name": "minecraft:item.armor.equip_iron",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_blade_draw_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_blade_slash": {
+    "subtitle": "subtitles.slavicmyths.nightingale_blade_slash",
     "sounds": [
       {
-        "name": "minecraft:entity.player.attack.sweep",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_blade_slash_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_blade_wind_charge": {
+    "subtitle": "subtitles.slavicmyths.nightingale_blade_wind_charge",
     "sounds": [
       {
-        "name": "minecraft:entity.breeze.charge",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_blade_wind_charge_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_blade_wind_release": {
+    "subtitle": "subtitles.slavicmyths.nightingale_blade_wind_release",
     "sounds": [
       {
-        "name": "minecraft:entity.breeze.shoot",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_blade_wind_release_1",
+        "attenuation_distance": 28
       }
     ]
   },
   "nightingale_blade_wind_hit": {
+    "subtitle": "subtitles.slavicmyths.nightingale_blade_wind_hit",
     "sounds": [
       {
-        "name": "minecraft:entity.breeze.shoot",
-        "type": "event"
+        "name": "slavicmyths:recorded61/nightingale_blade_wind_hit_1",
+        "attenuation_distance": 28
       }
     ]
   },

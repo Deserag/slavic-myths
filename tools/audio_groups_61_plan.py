@@ -440,3 +440,33 @@ for cue,source,ru,en,cap in [
  ('bow_draw',equip('quiver-leather-squeeze-08.wav'),'Разбойник натягивает тетиву','Bandit draws bow',.55),
  ('shield_raise',equip('quiver-leather-squeeze-07.wav'),'Разбойник поднимает щит','Bandit raises shield',.3)]:
  add('bandit-weapon-contact','bandit_'+cue,[source],ru,en,cap,.065);NEW.add('bandit_'+cue)
+
+# Nightingale: actual human whistle phrases, new performed reactions and weapon
+# props at existing action ticks. No AI, registry or animation changes.
+for cue,start,end,ru,en,cap in [
+ ('phase1_idle_whistle',.1,.6,'Соловей коротко посвистывает','Nightingale whistles briefly',.5),
+ ('phase1_whistle_release',1.9,3.3,'Соловей выпускает боевой свист','Nightingale releases a battle whistle',1.4),
+ ('phase2_wave',3.55,4.95,'Соловей выпускает воздушную волну свистом','Nightingale whistles an air wave',1.4)]:
+ add('nightingale-recorded','nightingale_'+cue,[dict(key='stilgar__soft_whistle.ogg',start=start,end=end)],ru,en,cap,.035 if 'idle' in cue else .075,radius=16 if 'idle' in cue else 40)
+for cue,sources,ru,en,cap in [
+ ('phase1_aggro',[a('Hmph_02')],'Соловей недовольно окликает','Nightingale challenges',.65),
+ ('phase1_hurt',[a('(groan)_04'),a('(groan)_05')],'Соловей стонет от боли','Nightingale groans in pain',.7),
+ ('phase2_hurt',[a('(groan)_06')],'Соловей хрипло стонет','Nightingale groans hoarsely',.8),
+ ('phase1_death',[a('(groan)_07')],'Последний стон Соловья','Nightingale final groan',1.4),
+ ('phase1_slash',[equip('sword.7.ogg'),equip('sword.8.ogg')],'Клинок Соловья рассекает воздух','Nightingale blade swishes',.22),
+ ('phase2_slash',[equip('sword.10.ogg')],'Соловей резко взмахивает клинком','Nightingale blade cuts the air',.18),
+ ('phase1_leap',['foley__cloth-03.flac'],'Одежда Соловья шуршит в прыжке','Nightingale cloth rustles in a leap',.3),
+ ('phase2_dash',['foley__swosh-03.flac'],'Соловей проносится в рывке','Nightingale dashes through air',.35),
+ ('phase2_whirlwind',['wind__wind.wav'],'Вихрь Соловья бушует','Nightingale whirlwind rushes',1.1)]:
+ add('nightingale-recorded','nightingale_'+cue,sources,ru,en,cap,.055 if 'leap' in cue else .075)
+add('nightingale-recorded','nightingale_phase2_death',[a('(groan)_07')],'Последний стон Соловья','Nightingale final groan',1.4,.075,shared_foley_reason='Same human death across both phases; intentionally same performance for same action, no pitch variant or distinct-emotion claim')
+add('nightingale-recorded','nightingale.phase1.land',[equip('boots-leather-jump-03.wav')],'Соловей тяжело приземляется','Nightingale lands',.25,.08)
+BLOCKED['nightingale_phase1_whistle_charge']='Actual human inhalation needed at begin(INHALE/RADIAL) and transition. Do not substitute an exhale, synthetic tone or weapon whoosh.'
+BLOCKED['nightingale_phase2_laugh']='Distinct actual male laughter performance needed; phase-change and idle share this callback. No female laugh relabeled as male, no synthetic vocal restoration.'
+for cue,source,ru,en,cap in [
+ ('draw',[equip('belt-buckle-03.wav'),'foley__cloth-01.flac'],'Клинок Соловья извлекают из ножен','Nightingale blade is drawn',.35),
+ ('slash',equip('sword_clash.2.ogg'),'Клинок Соловья ударяет цель','Nightingale blade strikes',.2),
+ ('wind_charge','foley__swosh-01.flac','Воздух собирается у клинка Соловья','Air gathers at Nightingale blade',.35),
+ ('wind_release','foley__swosh-03.flac','Клинок Соловья выпускает ветер','Nightingale blade releases wind',.45),
+ ('wind_hit',equip('body-2.flac'),'Ветер клинка Соловья достигает цели','Nightingale blade wind hits',.25)]:
+ add('nightingale-weapon','nightingale_blade_'+cue,[source],ru,en,cap,.065)

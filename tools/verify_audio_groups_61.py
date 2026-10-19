@@ -22,7 +22,9 @@ def main():
   check(len(x)/sr<=PLAN[row['event']]['cap']+.02,'Explicit role duration cap '+row['event'])
   check(not row['owner_approved'] and row['hearing']=='NOT_LISTENED','No invented hearing/acceptance '+row['event'])
   for ref in row['sources']:
-   s=sources[ref['key']];check(sha(P/s['file'])==s['sha256']==ref['sha256'] and s['license'] in ['CC0-1.0','CC-BY-4.0'] and s['page'].startswith('https://'),'Exact redistributable provenance '+ref['key'])
+   s=sources[ref['key']]
+   public_domain=(s['key']=='stilgar__soft_whistle.ogg' and s['license']=='PD-author' and s['page']=='https://commons.wikimedia.org/wiki/File:Soft_whistle.ogg' and s['license_url']==s['page']+'#Licensing')
+   check(sha(P/s['file'])==s['sha256']==ref['sha256'] and (s['license'] in ['CC0-1.0','CC-BY-4.0'] or public_domain) and s['page'].startswith('https://'),'Exact redistributable provenance '+ref['key'])
  asset_root=Path('C:/Users/pavel/AppData/Roaming/PolyMC/assets');objects=json.loads((asset_root/'indexes/17.json').read_text())['objects'];h=objects['minecraft/sounds.json']['hash'];vp=asset_root/'objects'/h[:2]/h;check(hashlib.sha1(vp.read_bytes()).hexdigest()==h,'Local vanilla sound index verified read-only');vanilla=json.loads(vp.read_bytes())
  for event,definition in events.items():
   for entry in definition.get('sounds',[]):

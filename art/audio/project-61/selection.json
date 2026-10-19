@@ -10739,5 +10739,602 @@
     "owner_approved": false,
     "hearing": "NOT_LISTENED",
     "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "c6fffd4027a27b41898a4207ecc78c75e3a42f2b135eedad9130fc3ab9f60147",
+    "event": "nightingale_phase1_idle_whistle",
+    "group": "nightingale-recorded",
+    "ru": "Соловей коротко посвистывает",
+    "action": "Nightingale whistles briefly",
+    "file": "recorded61/nightingale_phase1_idle_whistle_1.ogg",
+    "sha256": "c68a6b58952ac483f6c6bd9e3c6f03b9057aa2f6f390f31ffd62e54441cdc12d",
+    "sources": [
+      {
+        "key": "stilgar__soft_whistle.ogg",
+        "file": "sources/stilgar__soft_whistle.ogg",
+        "sha256": "4146ba2c56e7ef0c7c633364fff27634b9058f7dc233eb6b904346cdbdcdc7e9",
+        "license": "PD-author",
+        "author": "stilgar",
+        "page": "https://commons.wikimedia.org/wiki/File:Soft_whistle.ogg",
+        "start_sample": 4410
+      }
+    ],
+    "seconds": 0.5099773242630385,
+    "peak_dbfs": -18.4496333048329,
+    "rms_dbfs": -29.201951503012605,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "1a589b9bbd53b9a536609686641f2251d8c0e25fb8588795ad8b72db79265f0a",
+    "event": "nightingale_phase1_whistle_release",
+    "group": "nightingale-recorded",
+    "ru": "Соловей выпускает боевой свист",
+    "action": "Nightingale releases a battle whistle",
+    "file": "recorded61/nightingale_phase1_whistle_release_1.ogg",
+    "sha256": "3845ff0e58cb5dc482a49ca99ae9dcf21f7aac82f5a0f2613a681ab6d170ee6e",
+    "sources": [
+      {
+        "key": "stilgar__soft_whistle.ogg",
+        "file": "sources/stilgar__soft_whistle.ogg",
+        "sha256": "4146ba2c56e7ef0c7c633364fff27634b9058f7dc233eb6b904346cdbdcdc7e9",
+        "license": "PD-author",
+        "author": "stilgar",
+        "page": "https://commons.wikimedia.org/wiki/File:Soft_whistle.ogg",
+        "start_sample": 83790
+      }
+    ],
+    "seconds": 1.409954648526077,
+    "peak_dbfs": -13.522332777769755,
+    "rms_dbfs": -22.512302178500192,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "1493ba1d3bd14fc321ad8e163be257f0ebd8245b731b3fce74e2e6c9559af185",
+    "event": "nightingale_phase2_wave",
+    "group": "nightingale-recorded",
+    "ru": "Соловей выпускает воздушную волну свистом",
+    "action": "Nightingale whistles an air wave",
+    "file": "recorded61/nightingale_phase2_wave_1.ogg",
+    "sha256": "b82ed662ae34919af7114e352eef660c0608d423855858d3cab6e8e9221c27dd",
+    "sources": [
+      {
+        "key": "stilgar__soft_whistle.ogg",
+        "file": "sources/stilgar__soft_whistle.ogg",
+        "sha256": "4146ba2c56e7ef0c7c633364fff27634b9058f7dc233eb6b904346cdbdcdc7e9",
+        "license": "PD-author",
+        "author": "stilgar",
+        "page": "https://commons.wikimedia.org/wiki/File:Soft_whistle.ogg",
+        "start_sample": 156555
+      }
+    ],
+    "seconds": 1.409954648526077,
+    "peak_dbfs": -12.093195420457029,
+    "rms_dbfs": -22.495346064728178,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "9698d7af92b295210282fc36770a73105524db0a0de44a5f9632885f9a787a06",
+    "event": "nightingale_phase1_aggro",
+    "group": "nightingale-recorded",
+    "ru": "Соловей недовольно окликает",
+    "action": "Nightingale challenges",
+    "file": "recorded61/nightingale_phase1_aggro_1.ogg",
+    "sha256": "46b0a233236f6f62169435dc9f0ce12954ff7edbaa6717a7bb1b34b8703a6ea7",
+    "sources": [
+      {
+        "key": "alba__Hmph_02.wav",
+        "file": "sources/alba__Hmph_02.flac",
+        "sha256": "83ca350d39adae90a7f384a604b2dd706a095bc6a3b667092bd4b3c94c63f85a",
+        "license": "CC-BY-4.0",
+        "author": "Alba MacKenna",
+        "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+        "start_sample": 598
+      }
+    ],
+    "seconds": 0.2514965986394558,
+    "peak_dbfs": -10.913772662030308,
+    "rms_dbfs": -22.67292060856831,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "f4b043496c754f2c03e9d5d2ba2fde620767dc26cb124baccf33bb9cac0d52c6",
+    "event": "nightingale_phase1_hurt",
+    "group": "nightingale-recorded",
+    "ru": "Соловей стонет от боли",
+    "action": "Nightingale groans in pain",
+    "file": "recorded61/nightingale_phase1_hurt_1.ogg",
+    "sha256": "b02c36d35838379db1c896df07f6f246a32ad205dbcd05f9eaf47b1bbc6c13b8",
+    "sources": [
+      {
+        "key": "alba__(groan)_04.wav",
+        "file": "sources/alba__(groan)_04.flac",
+        "sha256": "325cc7461247983e8a2716a1646331877a778f36ce29fd02844d8f06c72c5e07",
+        "license": "CC-BY-4.0",
+        "author": "Alba MacKenna",
+        "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+        "start_sample": 2183
+      }
+    ],
+    "seconds": 0.7099546485260771,
+    "peak_dbfs": -8.93050581300449,
+    "rms_dbfs": -22.586030734901215,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "12b7773025944514c0045b5751d5fdeceda1d40cc16030f4ba52fb5d39086e19",
+    "event": "nightingale_phase1_hurt",
+    "group": "nightingale-recorded",
+    "ru": "Соловей стонет от боли",
+    "action": "Nightingale groans in pain",
+    "file": "recorded61/nightingale_phase1_hurt_2.ogg",
+    "sha256": "8376155b165e9f1732ca76d0622068cdb0170d779f7a0bb39f3cfa181497a9bb",
+    "sources": [
+      {
+        "key": "alba__(groan)_05.wav",
+        "file": "sources/alba__(groan)_05.flac",
+        "sha256": "3f99fbc4b2670f86493e37d40aa8a95302f3e58521e58f5308f1e576ce6e56b5",
+        "license": "CC-BY-4.0",
+        "author": "Alba MacKenna",
+        "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+        "start_sample": 639
+      }
+    ],
+    "seconds": 0.7099546485260771,
+    "peak_dbfs": -10.35285762789308,
+    "rms_dbfs": -22.592313697121153,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "912408ea6c58d4873b0e7ff11032daf30eefb1480f30722983d95bc7103cfea7",
+    "event": "nightingale_phase2_hurt",
+    "group": "nightingale-recorded",
+    "ru": "Соловей хрипло стонет",
+    "action": "Nightingale groans hoarsely",
+    "file": "recorded61/nightingale_phase2_hurt_1.ogg",
+    "sha256": "b175b095306a7b9fabca2ccbc991e59dadc85c518e268447ac24d62370da19ba",
+    "sources": [
+      {
+        "key": "alba__(groan)_06.wav",
+        "file": "sources/alba__(groan)_06.flac",
+        "sha256": "dbd877ce23554134fb707fb3e956d84cdf4555272a68b62aa86f4f8028108371",
+        "license": "CC-BY-4.0",
+        "author": "Alba MacKenna",
+        "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+        "start_sample": 621
+      }
+    ],
+    "seconds": 0.6590702947845805,
+    "peak_dbfs": -10.994767995386303,
+    "rms_dbfs": -22.55991189887611,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "8010be3368d241a3de478327537eb8abbf619ce41fc29ab907b346e576f6a353",
+    "event": "nightingale_phase1_death",
+    "group": "nightingale-recorded",
+    "ru": "Последний стон Соловья",
+    "action": "Nightingale final groan",
+    "file": "recorded61/nightingale_phase1_death_1.ogg",
+    "sha256": "e95da8e9d6d7061c12bd579d3fe87ebce79797059263e34183eefdab202f8155",
+    "sources": [
+      {
+        "key": "alba__(groan)_07.wav",
+        "file": "sources/alba__(groan)_07.flac",
+        "sha256": "bdb4349998b4933e0f435b03003e424476538cedfd71ec11985d6143e38567c0",
+        "license": "CC-BY-4.0",
+        "author": "Alba MacKenna",
+        "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+        "start_sample": 1815
+      }
+    ],
+    "seconds": 0.8935600907029478,
+    "peak_dbfs": -10.68656588923674,
+    "rms_dbfs": -22.560138273836774,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "6c17b36e034a7e9e47b1d6262997dd188865eded72934378708f84240a48549c",
+    "event": "nightingale_phase1_slash",
+    "group": "nightingale-recorded",
+    "ru": "Клинок Соловья рассекает воздух",
+    "action": "Nightingale blade swishes",
+    "file": "recorded61/nightingale_phase1_slash_1.ogg",
+    "sha256": "1d41be90a3cbc7d71ed67a4d00e14471582f5d1253ca2fe9b791bf95ecae97d4",
+    "sources": [
+      {
+        "key": "equipment__sword.7.ogg",
+        "file": "../kurgan-65/sources/sword.7.ogg",
+        "sha256": "66f2a2e63182fa14470a63fc4a862ff77fa861f69a6a41d8e9874c9853c2d9dd",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 6128
+      }
+    ],
+    "seconds": 0.22997732426303855,
+    "peak_dbfs": -5.789170288222652,
+    "rms_dbfs": -22.821462408368703,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "f9751f8235c2d28b40c6d247115c46acdb452dc5a40e104e2cebe4486888667a",
+    "event": "nightingale_phase1_slash",
+    "group": "nightingale-recorded",
+    "ru": "Клинок Соловья рассекает воздух",
+    "action": "Nightingale blade swishes",
+    "file": "recorded61/nightingale_phase1_slash_2.ogg",
+    "sha256": "34e64dcce84e91b22ce20ce01816a634869482c2b37b93bd624576b15baf2ecd",
+    "sources": [
+      {
+        "key": "equipment__sword.8.ogg",
+        "file": "../kurgan-65/sources/sword.8.ogg",
+        "sha256": "97f55774d7f0602c5f87e4ef289fcdf7ff07eea987ddc52849909d74374458a6",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 9628
+      }
+    ],
+    "seconds": 0.22997732426303855,
+    "peak_dbfs": -5.461790914295198,
+    "rms_dbfs": -25.639987158192746,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "0d41748a2a39579c0f61dd893466482fea8c8ca9d9c451e23f7311fdfc2dd272",
+    "event": "nightingale_phase2_slash",
+    "group": "nightingale-recorded",
+    "ru": "Соловей резко взмахивает клинком",
+    "action": "Nightingale blade cuts the air",
+    "file": "recorded61/nightingale_phase2_slash_1.ogg",
+    "sha256": "3b5e0cfb5d284d065956c3af284c53a7671f902987e196b599b3424fd7994c30",
+    "sources": [
+      {
+        "key": "equipment__sword.10.ogg",
+        "file": "../kurgan-65/sources/sword.10.ogg",
+        "sha256": "530bf3daac9e21ba7f8414291820bc8c26f3522ecbda8f00e6454b1cef74cd07",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 8338
+      }
+    ],
+    "seconds": 0.18997732426303854,
+    "peak_dbfs": -7.748009633034435,
+    "rms_dbfs": -22.96217753312563,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "f2f53654415c504c3de9cc89610bbf4c2e41b3c7a9c48a485b872ffc50f274e3",
+    "event": "nightingale_phase1_leap",
+    "group": "nightingale-recorded",
+    "ru": "Одежда Соловья шуршит в прыжке",
+    "action": "Nightingale cloth rustles in a leap",
+    "file": "recorded61/nightingale_phase1_leap_1.ogg",
+    "sha256": "7c94a368b8d2e006613f5991087e56996b88219fef6f45e79dab102204d9929a",
+    "sources": [
+      {
+        "key": "foley__cloth-03.flac",
+        "file": "../pack-a-60/sources/cloth-03.flac",
+        "sha256": "f3e01f1e6ed54748b1351163e373c1d6270d63e7c1338155f9b3d03427d25c23",
+        "license": "CC0-1.0",
+        "author": "OwlishMedia",
+        "page": "https://opengameart.org/content/202-more-sound-effects",
+        "start_sample": 4887
+      }
+    ],
+    "seconds": 0.30997732426303853,
+    "peak_dbfs": -12.305992257548773,
+    "rms_dbfs": -25.496880366044387,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "36a2d9cbc56749db2dd2084b45a52b69e5f26f0128bda65cfaacc5a0f7b2037f",
+    "event": "nightingale_phase2_dash",
+    "group": "nightingale-recorded",
+    "ru": "Соловей проносится в рывке",
+    "action": "Nightingale dashes through air",
+    "file": "recorded61/nightingale_phase2_dash_1.ogg",
+    "sha256": "ce8349829a1a55320ca4823ec881d431ba7838f2d2b91e671826f70281cabd21",
+    "sources": [
+      {
+        "key": "foley__swosh-03.flac",
+        "file": "../pack-a-60/sources/swosh-03.flac",
+        "sha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+        "start_sample": 502
+      }
+    ],
+    "seconds": 0.2938775510204082,
+    "peak_dbfs": -6.486913313327369,
+    "rms_dbfs": -22.699590257608744,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "13dd3086d87e648ddf5913e0049e0a8879b6bac19be506e6310ea2b322d4670f",
+    "event": "nightingale_phase2_whirlwind",
+    "group": "nightingale-recorded",
+    "ru": "Вихрь Соловья бушует",
+    "action": "Nightingale whirlwind rushes",
+    "file": "recorded61/nightingale_phase2_whirlwind_1.ogg",
+    "sha256": "9d2be9a2a2a2da4025f7d19a61129c5344c24054a8ce4e28281f43d7e9aaaad1",
+    "sources": [
+      {
+        "key": "wind__wind.wav",
+        "file": "sources/wind__wind.wav",
+        "sha256": "4435f5ad1baf171f21f876f778d0a8a7447becea0c4955bb2566e0c63ab20f41",
+        "license": "CC0-1.0",
+        "author": "remaxim",
+        "page": "https://opengameart.org/content/short-wind-sound",
+        "start_sample": 1505
+      }
+    ],
+    "seconds": 1.1099773242630386,
+    "peak_dbfs": -8.75394249053225,
+    "rms_dbfs": -22.563758906909456,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "6c9cf9570cafdc8237fd13aecd75b55535393f56fc17ca31d7c699550a28bb91",
+    "event": "nightingale_phase2_death",
+    "group": "nightingale-recorded",
+    "ru": "Последний стон Соловья",
+    "action": "Nightingale final groan",
+    "file": "recorded61/nightingale_phase2_death_1.ogg",
+    "sha256": "e95da8e9d6d7061c12bd579d3fe87ebce79797059263e34183eefdab202f8155",
+    "sources": [
+      {
+        "key": "alba__(groan)_07.wav",
+        "file": "sources/alba__(groan)_07.flac",
+        "sha256": "bdb4349998b4933e0f435b03003e424476538cedfd71ec11985d6143e38567c0",
+        "license": "CC-BY-4.0",
+        "author": "Alba MacKenna",
+        "page": "https://opengameart.org/content/voice-pack%E2%94%82universal-spurts",
+        "start_sample": 1815
+      }
+    ],
+    "seconds": 0.8935600907029478,
+    "peak_dbfs": -10.68656588923674,
+    "rms_dbfs": -22.560138273836774,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Same human death across both phases; intentionally same performance for same action, no pitch variant or distinct-emotion claim"
+  },
+  {
+    "render_signature": "b8a9d75d195c28d861f6c7a8b30cae87d628b4e7d3e7d39e2b5288d622a3cd73",
+    "event": "nightingale.phase1.land",
+    "group": "nightingale-recorded",
+    "ru": "Соловей тяжело приземляется",
+    "action": "Nightingale lands",
+    "file": "recorded61/nightingale/phase1/land_1.ogg",
+    "sha256": "e94f648a9171bfc91b93ad792c36ff32a680722b64736b01b8730917f39b1a81",
+    "sources": [
+      {
+        "key": "equipment__boots-leather-jump-03.wav",
+        "file": "../kurgan-65/sources/boots-leather-jump-03.wav",
+        "sha256": "10e6a8b20c225f463da1b1875c40458b8ab5bb5b383f7e1de347a3d0cc087181",
+        "license": "CC0-1.0",
+        "author": "Vehicle",
+        "page": "https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library",
+        "start_sample": 892
+      }
+    ],
+    "seconds": 0.11979591836734693,
+    "peak_dbfs": -4.991223167209674,
+    "rms_dbfs": -25.304329503542196,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "bdd10cffb710f5432cfbd6ffb1d0badce862e14a58eb6e1dcd32d469b77282a3",
+    "event": "nightingale_blade_draw",
+    "group": "nightingale-weapon",
+    "ru": "Клинок Соловья извлекают из ножен",
+    "action": "Nightingale blade is drawn",
+    "file": "recorded61/nightingale_blade_draw_1.ogg",
+    "sha256": "81b346f24e253a1484579133c488fba46f43ea79cc562d46c4800623a9a5682d",
+    "sources": [
+      {
+        "key": "equipment__belt-buckle-03.wav",
+        "file": "../kurgan-65/sources/belt-buckle-03.wav",
+        "sha256": "3214f31e7a1f71a41f07145ef444b1a2f1400b89122b27c858a84eb2e41b1df9",
+        "license": "CC0-1.0",
+        "author": "Vehicle",
+        "page": "https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library",
+        "start_sample": 1558
+      },
+      {
+        "key": "foley__cloth-01.flac",
+        "file": "../pack-a-60/sources/cloth-01.flac",
+        "sha256": "831561cad51e015267d697c417cc1f9c2913c20837b369a68ba396fe52118f66",
+        "license": "CC0-1.0",
+        "author": "OwlishMedia",
+        "page": "https://opengameart.org/content/202-more-sound-effects",
+        "start_sample": 11840
+      }
+    ],
+    "seconds": 0.3599546485260771,
+    "peak_dbfs": -5.5116312042823745,
+    "rms_dbfs": -27.453643173870184,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "be17747482e6e3aea5c898c534bd286d1583b4d861d71f16ab03927950d84435",
+    "event": "nightingale_blade_slash",
+    "group": "nightingale-weapon",
+    "ru": "Клинок Соловья ударяет цель",
+    "action": "Nightingale blade strikes",
+    "file": "recorded61/nightingale_blade_slash_1.ogg",
+    "sha256": "75d3eaea909171f4159e3b172c383a24924c78d2b12108ad2c0e74d43a761ed9",
+    "sources": [
+      {
+        "key": "equipment__sword_clash.2.ogg",
+        "file": "../kurgan-65/sources/sword_clash.2.ogg",
+        "sha256": "e09f222b70d53f2967514d076e2ae50c21526ac640fe4919965f964af043da1a",
+        "license": "CC0-1.0",
+        "author": "StarNinjas",
+        "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+        "start_sample": 1117
+      }
+    ],
+    "seconds": 0.20997732426303856,
+    "peak_dbfs": -9.09882730413918,
+    "rms_dbfs": -23.980931833205435,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "99230555e9a74ccc0ee5e139c4ec3a91a909400297af799a38124f516731b625",
+    "event": "nightingale_blade_wind_charge",
+    "group": "nightingale-weapon",
+    "ru": "Воздух собирается у клинка Соловья",
+    "action": "Air gathers at Nightingale blade",
+    "file": "recorded61/nightingale_blade_wind_charge_1.ogg",
+    "sha256": "2c279e5c061b16d3f836e533d96c87c5007eb8af241f5a5dd0c1e6331d9765f8",
+    "sources": [
+      {
+        "key": "foley__swosh-01.flac",
+        "file": "../pack-a-60/sources/swosh-01.flac",
+        "sha256": "6bacb655b1b6e6669f5b1eb44e7eaea1219b185539486c08e11240193391ebd5",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+        "start_sample": 844
+      }
+    ],
+    "seconds": 0.1813378684807256,
+    "peak_dbfs": -7.579675758100811,
+    "rms_dbfs": -24.002965409718932,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "9e3407dc9e22529f363d4bc6ff4bc480fdaee3e0edd827d9fb16f6948724d6b5",
+    "event": "nightingale_blade_wind_release",
+    "group": "nightingale-weapon",
+    "ru": "Клинок Соловья выпускает ветер",
+    "action": "Nightingale blade releases wind",
+    "file": "recorded61/nightingale_blade_wind_release_1.ogg",
+    "sha256": "1872d037d8ed028eb17fef4ad3409d7aef4a235c61aa5422439faadbb32378ad",
+    "sources": [
+      {
+        "key": "foley__swosh-03.flac",
+        "file": "../pack-a-60/sources/swosh-03.flac",
+        "sha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+        "start_sample": 502
+      }
+    ],
+    "seconds": 0.2938775510204082,
+    "peak_dbfs": -7.568815109419349,
+    "rms_dbfs": -23.829799677573366,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
+  },
+  {
+    "render_signature": "9bf56718e9904d5ab90add774560749d3ee164197fec52682e896c180f133b72",
+    "event": "nightingale_blade_wind_hit",
+    "group": "nightingale-weapon",
+    "ru": "Ветер клинка Соловья достигает цели",
+    "action": "Nightingale blade wind hits",
+    "file": "recorded61/nightingale_blade_wind_hit_1.ogg",
+    "sha256": "c4cbcd4b53ffa3963c129eb53886e3c017d3836d01a050798342f23d8dafc7ff",
+    "sources": [
+      {
+        "key": "equipment__body-2.flac",
+        "file": "../kurgan-65/sources/body-2.flac",
+        "sha256": "a8457e8f0721b8f3dff36eb97e4c3f0fe1d7d784a8dedf796560a0683eecea8d",
+        "license": "CC0-1.0",
+        "author": "qubodup",
+        "page": "https://opengameart.org/content/40-wet-towel-clubpoundhitattack-sounds",
+        "start_sample": 367
+      }
+    ],
+    "seconds": 0.25997732426303855,
+    "peak_dbfs": -7.470899162338698,
+    "rms_dbfs": -24.050226081996875,
+    "processing": "decode mono44100, EQ65/10500, source crop/onset, duration cap,12ms fades,5ms guards, role-calibrated gain; no pitch shift or synthesis",
+    "status": "AGENT_SELECTED_OWNER_PENDING",
+    "owner_approved": false,
+    "hearing": "NOT_LISTENED",
+    "shared_foley_reason": "Only physical material recordings may be shared across characters; never an identity voice"
   }
 ]
