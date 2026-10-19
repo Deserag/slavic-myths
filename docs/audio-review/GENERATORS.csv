@@ -28,6 +28,7 @@ tools/feedback_resource_policy.py,REVIEW_REQUIRED,"Source text match; may be QA 
 tools/finist_assets.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/firebird_audio.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/folk_equipment.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
+tools/frost_audio_routes_61.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/frost_foley_60.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/generate_050.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"
 tools/generate_051.py,REVIEW_REQUIRED,"Source text match; may be QA or writer, not executed by this inventory"

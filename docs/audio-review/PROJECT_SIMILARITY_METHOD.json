@@ -1,7 +1,7 @@
 {
   "files": 1359,
   "all_pairs": 922761,
-  "duration_eligible_pairs": 415436,
+  "duration_eligible_pairs": 415212,
   "spectral_candidates": 472,
   "high_waveform_matches": 345,
   "rate": 8000,

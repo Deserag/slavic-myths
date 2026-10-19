@@ -1,3 +1,17 @@
+Актуально:1.9.7.14/source69a77a70 установлен TEST_PREVIEW / OWNER_PENDING.
+Java21 clean build47s;6 offline gates PASS;1359 OGG decode PASS,0 JAR mismatches.
+453 recorded assignments/421 events;35 vanilla references;12 declared source gaps.
+111 registry types /69 independent; scanner154 conservative unresolved joins,
+154 manually classified (not proof of runtime);526 helper guards remain.
+Provenance:557 recorded chains,426 hash-traced procedural,28 legacy recorded/mix
+manifest declarations pending original chain,348 UNKNOWN.345 waveform candidates:
+274 shared physical-prop pairs,58 inactive originals,12 legacy/mixed,1 same-character
+Nightingale death across phases (intentional). Hearing NOT_LISTENED, runtime NOT_RUN.
+35 frost/night events +36 new OGG; previous breath/Finist package14 OGG included.
+[Матрица](FROST_NIGHT_19714.md), [routes](FROST_NIGHT_ROUTES.csv),
+[доставка](../implementation/audio-60/TEST_PREVIEW_1.9.7.14.json).
+Ниже исторические срезы; их totals/install status не текущие.
+
 Последнее:1.9.7.12/source25adb2c5 build+6gates PASS, NOT_INSTALLED (PolyMC открыт).
 Фактически установленная остаётся1.9.7.11. Подключены callbacks Алёши hurt и
 Финиста sword contact. MANUAL_ROUTES_SUMMARY:154/154 scanner rows source-reviewed;

@@ -3,7 +3,7 @@
 Ничего не объявлено принятым целиком. Одобрены четыре конкретных голосовых файла
 Тугарина/Скима; остальные выбранные клипы AGENT_SELECTED / OWNER_PENDING.
 
-- [Новый сквозной этап:374 назначения, роли и источники](../../art/audio/project-61/PREVIEW.md).
+- [Новый сквозной этап:453 назначения, роли и источники](../../art/audio/project-61/PREVIEW.md).
 - [OLD/NEW soundboard](../../art/audio/project-61/soundboard.html); [переносимый NEW ZIP](../../art/audio/project-61/review.zip).
 - [Предыдущий курганный пакет: курганная нежить,6 типов,53 события](../../art/audio/kurgan-65/PREVIEW.md).
 - [Открыть локальный OLD/NEW soundboard](../../art/audio/kurgan-65/soundboard.html).
@@ -25,3 +25,8 @@ actual event/file и лицензией. Нет автоматического �
 Реальные остатки:216 консервативно неразрешённых legacy/dynamic/item routes,
 история лицензий многих старых production файлов, голоса и другие группы#63–#65,
 Рusalka#59 и итоговая owner in-game приёмка. Этого не скрывают source/build PASS.
+
+Текущие9 подписанных последовательностей (офлайн, не игровые записи):
+[auditions/index.html](../../art/audio/project-61/auditions/index.html).
+Установленная тестовая1.9.7.14 включает дыхание/реакции, фоли Морозко/Карачуна
+и Финиста; матрица FROST_NIGHT_19714. Старый шёпот Карачуна отключён.

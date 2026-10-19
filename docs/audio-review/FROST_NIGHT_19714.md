@@ -43,13 +43,22 @@ frost_night_items. Это офлайн-последовательности фа
 | Реальные файлы, source SHA, лицензии, RU/EN | sources.json / selection.json / project-61.txt | PASS (source) |
 | 35 событий /36 новых вариантов | selection.json; sounds.json; FROST_NIGHT_ROUTES.csv (36 routes including blocked whisper) | PASS (source) |
 | Старый шёпот не возвращается | BLOCKED; canonical generators | BLOCKED_NEEDS_AUDIO_SOURCE |
-| Аудиорежим не меняет модели и текстуры | FROST_RESTORER_GATES.json | NOT_RUN (new package) |
-| Java21 clean build / production JAR | После source commit | NOT_RUN |
-| Decode / JAR parity /6 offline gates | После сборки | NOT_RUN |
-| PolyMC | Оставлена установленная1.9.7.11 на время проверки владельцем | NOT_INSTALLED (1.9.7.14) |
+| Аудиорежим не меняет модели и текстуры | FROST_RESTORER_GATES.json | PASS (all8415 src/main files unchanged) |
+| Java21 clean build / production JAR | source69a77a70; Java21 clean build47s; production JAR SHA da114d33f6faced3f29d298644aeb81abe2336877ada017b0f2e8633b32e91d2 | PASS (offline) |
+| Decode / JAR parity /6 offline gates | 6 offline gates,1359 OGG decode,0 JAR mismatches | PASS (offline) |
+| PolyMC | TEST_PREVIEW_1.9.7.14.json / VERIFY.json; closed-process guard, verified backup, one active mod JAR | PASS (INSTALLED_TEST_PREVIEW) |
 | Слуховая и игровая оценка | Только владелец | NOT_RUN |
 
 Дополнительный read-only аудит #62 нашёл139 точных hash-связей с историческими
 исходными пакетами/manifest. Из них111 процедурных и28 записанных/смешанных
 по старым декларациям. Это уточнение происхождения, не приёмка и не полная
 лицензионная очистка старых смесей. Старые генераторы для аудита не запускались.
+
+Installed JAR: `C:\Users\pavel\AppData\Roaming\PolyMC\instances\Slavic-Myths-1.21.1-Testing\.minecraft\mods\slavicmyths-1.9.7.14.jar`.
+
+Backup: `C:\Users\pavel\AppData\Roaming\PolyMC\instances\Slavic-Myths-1.21.1-Testing\.slavicmyths-backups\pre-audio-1.9.7.14-20261019-120950Z`.
+
+Следующий P0: ordinary VolkolakEntity→HuntMob direct RAVAGER_ROAR
+(rage и HOWL) ещё не заменён; его нельзя считать исправленным по
+событиям отдельного CursedVolkolak. Русалка/Кузя защищены. Для шёпота
+Карачуна и смеха Кикиморы добавлены только кандидаты (не в JAR).

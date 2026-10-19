@@ -1,3 +1,10 @@
+Точный checkpoint1.9.7.14: P0 ordinary VolkolakEntity→HuntMob rage/HOWL
+всё ещё direct Ravager. Не считать его исправленным через CursedVolkolak.
+Далее remaining human/item magic near-duplicate pairs (SIMILARITY_TRIAGE.csv),
+и12 source gaps. Кандидаты спорного шёпота/смеха только в art/candidates.
+348 UNKNOWN origins остаются: отсутствие provenance не означает незаконность.
+Ниже общие направления прежней очереди, не актуальные counts.
+
 # Очередь всего аудиопроекта #61
 
 1. P0 Русалка#59: реальный подходящий женский вокал, BLOCKED_NEEDS_AUDIO_SOURCE;

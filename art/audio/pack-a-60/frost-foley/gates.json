@@ -1,14 +1,14 @@
 {
   "status": "IN_PROGRESS",
   "source_base": "037f80ac",
-  "source_revision_at_test": "e086415d6c762c2589f21b25b4b118eded873c06",
+  "source_revision_at_test": "69a77a7027aac50a0bb1833e9471a9cd8f766aff",
   "runtime_launches": 0,
   "owner_accepted": false,
   "files": 11,
   "events": 9,
   "checks": 216,
   "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.14.jar",
-  "jar_sha256": "7a9f7f528648736590d6074eed91ea167f8ef832adc98bace23fcdd66ea3e54b",
+  "jar_sha256": "da114d33f6faced3f29d298644aeb81abe2336877ada017b0f2e8633b32e91d2",
   "installed_receipt_unchanged": true,
   "protected": [
     {
@@ -65,7 +65,7 @@
     },
     {
       "file": "src/main/java/org/slavicmyths/karachun/Karachun.java",
-      "sha256": "c1ad460e0de617ece04d24ee92473e32631b83d98779c0bc7bb238f9f819c5ad"
+      "sha256": "f093d6cc8392e56356a22151fa2af60f34245e8a8c924634767be5645dda2c5f"
     },
     {
       "file": "src/main/java/org/slavicmyths/karachun/NightBlade.java",
@@ -402,15 +402,15 @@
     "Existing subtitle ru_ru morozko.staff_icicles",
     "Existing subtitle en_us morozko.staff_icicles",
     "Eleven distinct decoded clips and eleven separate source takes",
-    "Subtitle identity preserved morozko.staff_icicles",
-    "Subtitle identity preserved morozko.staff_shoot",
     "Subtitle identity preserved morozko.ice_bolt",
-    "Subtitle identity preserved morozko.staff_hit",
+    "Subtitle identity preserved morozko.staff_icicles",
     "Subtitle identity preserved karachun.scythe_hit",
-    "Subtitle identity preserved karachun.scythe_windup",
+    "Subtitle identity preserved morozko.staff_shoot",
+    "Subtitle identity preserved morozko.staff_hit",
     "Subtitle identity preserved morozko.clone_break",
     "Subtitle identity preserved morozko.mirror_break",
     "Subtitle identity preserved morozko.spike_break",
+    "Subtitle identity preserved karachun.scythe_windup",
     "Quarantine unchanged rusalka_ambient",
     "Quarantine unchanged rusalka_angry",
     "Quarantine unchanged rusalka_hurt",
