@@ -4,7 +4,7 @@
     "morozko_assets.py --audio-only",
     "karachun_assets.py --audio-only"
   ],
-  "production_files": 8425,
+  "production_files": 8431,
   "production_unchanged": true,
   "legacy_synthesis_executed": false,
   "geometry_generators_executed": false,
