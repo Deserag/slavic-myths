@@ -1,3 +1,9 @@
+## #73 — исправление локализации, 19.10.2026
+
+Исправлены6 сообщений генератора Чуди и2 UI-символа;8 новых ключей RU/EN.
+UTF-8/JSON/placeholders/JAR PASS; Java21 clean build1m13s PASS. Запусков0,
+OWNER_PENDING; PolyMC не менялся. [Матрица](implementation/localization-73/REPORT.md).
+
 ## Обновление тестового PolyMC 1.9.7.19 — 19.10.2026
 
 По запросу владельца установлен текущий main23a23441 в тестовый PolyMC.

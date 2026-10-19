@@ -5567,5 +5567,13 @@
   "subtitles.slavicmyths.nightingale_phase1_whistle_charge": "Соловей набирает воздух",
   "subtitles.slavicmyths.nightingale_phase2_laugh": "Соловей коротко злорадно смеётся",
   "subtitles.slavicmyths.volkolak_hunt_rage": "Волколак яростно рычит",
-  "subtitles.slavicmyths.volkolak_hunt_howl": "Волколак воет перед атакой"
+  "subtitles.slavicmyths.volkolak_hunt_howl": "Волколак воет перед атакой",
+  "command.slavicmyths.chud.generate.no_space": "Не хватает высоты мира либо место пересекает крепость с энд-порталом. Выберите другое место.",
+  "command.slavicmyths.chud.generate.portal_room": "Размещение отменено: пересечение комнаты энд-портала.",
+  "command.slavicmyths.chud.generate.world_border": "Комплекс выходит за границу мира.",
+  "command.slavicmyths.chud.generate.existing": "В этом чанке уже сохранён комплекс этого типа. Выберите другой чанк.",
+  "command.slavicmyths.chud.generate.portal_frame": "Размещение отменено: рядом обнаружен энд-портал или его рамка.",
+  "command.slavicmyths.chud.generate.success": "Создан %s; %s; границы: %s. Доступны info, validate и tp. Принудительная команда не соблюдает расстояние естественной сетки.",
+  "command.slavicmyths.chud.generate.above": "над поверхностью плоского мира",
+  "command.slavicmyths.chud.generate.below": "под землёй"
 }

@@ -5567,5 +5567,13 @@
   "subtitles.slavicmyths.nightingale_phase1_whistle_charge": "Nightingale inhales",
   "subtitles.slavicmyths.nightingale_phase2_laugh": "Nightingale chuckles wickedly",
   "subtitles.slavicmyths.volkolak_hunt_rage": "Volkolak snarls in rage",
-  "subtitles.slavicmyths.volkolak_hunt_howl": "Volkolak howls before striking"
+  "subtitles.slavicmyths.volkolak_hunt_howl": "Volkolak howls before striking",
+  "command.slavicmyths.chud.generate.no_space": "Insufficient world height, or the site intersects a stronghold with an End portal. Choose another site.",
+  "command.slavicmyths.chud.generate.portal_room": "Placement cancelled: the site intersects an End portal room.",
+  "command.slavicmyths.chud.generate.world_border": "The complex extends beyond the world border.",
+  "command.slavicmyths.chud.generate.existing": "A complex of this type is already saved in this chunk. Choose another chunk.",
+  "command.slavicmyths.chud.generate.portal_frame": "Placement cancelled: an End portal or portal frame was found nearby.",
+  "command.slavicmyths.chud.generate.success": "Created %s; %s; bounds: %s. Use info, validate and tp. Forced generation ignores natural structure spacing.",
+  "command.slavicmyths.chud.generate.above": "above the flat world surface",
+  "command.slavicmyths.chud.generate.below": "underground"
 }
