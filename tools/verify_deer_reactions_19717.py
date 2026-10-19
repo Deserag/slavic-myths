@@ -1,12 +1,16 @@
 """Focused deer route/resource contract; does not certify hearing or runtime."""
 from pathlib import Path
-import sys,json,hashlib,subprocess,zipfile
+import sys,json,hashlib,subprocess,zipfile,io
 R=Path(__file__).resolve().parents[1];sys.path[:0]=[str(R/'tools'),str(R/'.tools/audio-libs')]
 import numpy as np,soundfile as sf
 from audio_groups_61_plan import PLAN,BLOCKED,DEFERRED
 BASE='02c5b8837471090892b98480f66d1d59db50bca0';A=R/'src/main/resources/assets/slavicmyths'
 EVENTS={'stag_hurt','stag_death','doe_hurt','doe_death'}
-def old(path):return subprocess.check_output(['git','show',BASE+':'+path],cwd=R)
+_baseline=None
+def old(path):
+ global _baseline
+ if _baseline is None:_baseline=zipfile.ZipFile(io.BytesIO(subprocess.check_output(['git','archive','--format=zip',BASE,'src/main/resources/assets/slavicmyths'],cwd=R)))
+ return _baseline.read(path)
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  before=json.loads(old('src/main/resources/assets/slavicmyths/sounds.json'));current=json.loads((A/'sounds.json').read_text(encoding='utf-8'))
@@ -19,7 +23,10 @@ def main():
  paths=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'src/main/resources/assets/slavicmyths'],cwd=R,text=True).splitlines()
  # Every existing OGG, model, texture, recipe and blockstate must be unchanged.
  for path in paths:
-  if any('/'+s+'/' in path for s in ['sounds','textures','models','blockstates','recipes']):assert (R/path).read_bytes()==old(path),path
+  if any('/'+s+'/' in path for s in ['sounds','textures','models','blockstates','recipes']):
+   actual=(R/path).read_bytes();expected=old(path)
+   if path.endswith(('.json','.txt','.mcmeta')):actual=actual.replace(b'\r\n',b'\n');expected=expected.replace(b'\r\n',b'\n')
+   assert actual==expected,path
  selection=json.loads((R/'art/audio/project-61/selection.json').read_text(encoding='utf-8'))
  rows=[r for r in selection if r['event'] in EVENTS];assert len(rows)==6
  fingerprints=[]
@@ -50,6 +57,6 @@ def main():
   assert 'kvgarlic' in credits and 'juskiddink' in credits and 'https://creativecommons.org/licenses/by/4.0/' in credits
   assert json.loads(z.read('assets/slavicmyths/sounds.json'))==current
   for row in rows:assert z.read('assets/slavicmyths/sounds/'+row['file'])==(A/'sounds'/row['file']).read_bytes()
- report=dict(status='PASS_OFFLINE_OWNER_PENDING',baseline=BASE,version=version,events=4,variants=6,active_source_gaps=0,owner_deferred=3,java='UNCHANGED',existing_art_and_audio='BYTE_IDENTICAL',restorer='BYTE_IDENTICAL',doe_source_sex='UNSPECIFIED_BY_AUTHOR',terminal_calls='GAME_INTERPRETATION_NOT_RECORDED_DEATH',fawn='EXISTING_SHARED_DOE_ROUTE_UNCHANGED',jar_sha256=sha(jar),runtime='NOT_RUN',hearing='NOT_LISTENED',owner_accepted=False)
+ report=dict(status='PASS_OFFLINE_OWNER_PENDING',baseline=BASE,version=version,events=4,variants=6,active_source_gaps=0,owner_deferred=3,java='UNCHANGED',existing_art_and_audio='BINARY_BYTE_IDENTICAL_TEXT_GIT_IDENTICAL',restorer='BYTE_IDENTICAL',doe_source_sex='UNSPECIFIED_BY_AUTHOR',terminal_calls='GAME_INTERPRETATION_NOT_RECORDED_DEATH',fawn='EXISTING_SHARED_DOE_ROUTE_UNCHANGED',jar_sha256=sha(jar),runtime='NOT_RUN',hearing='NOT_LISTENED',owner_accepted=False)
  (R/'docs/audio-review/DEER_19717_GATES.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8');print(json.dumps(report,indent=2))
 if __name__=='__main__':main()

@@ -1,14 +1,14 @@
 {
   "status": "IN_PROGRESS",
-  "checks": 7780,
+  "checks": 7786,
   "production_foley_events": 3,
   "preview_clips": 8,
   "game_launches": 0,
   "owner_accepted": false,
   "package_a_complete": false,
   "remaining": "Remaining Tugarin phase/transform and Skim special cues, other epic groups; owner in-game hearing pending",
-  "jar_sha256": "e4bef6c057457a5b6edad994f81a41d8846d899ba1b07a475ec8e1f236eafeb8",
-  "installed_model_source": "43a392016f8ca8f4c8914b252cfd40fb50bb5bb7",
-  "installed_model_sha256": "46483f2c3ea400de40687c39fa2282eb7de0d07c8b0a6dfee122a49d910be8a1",
+  "jar_sha256": "ab1259c8d4b50ba8e77f23d149d9456675c7d0c338938d995a3b9def29d0a384",
+  "installed_model_source": "bc74fccb8c5da81fa9a5cb16769ae80e7b227601",
+  "installed_model_sha256": "e4bef6c057457a5b6edad994f81a41d8846d899ba1b07a475ec8e1f236eafeb8",
   "new_audio_installed": false
 }

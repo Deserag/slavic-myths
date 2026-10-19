@@ -1,7 +1,7 @@
 {
   "status": "PASS_OFFLINE_OWNER_PENDING",
   "baseline": "c3a3a721",
-  "version": "1.9.7.16",
+  "version": "1.9.7.17",
   "events": 2,
   "recorded_variants": 3,
   "ordinary_override": "COMPILED_JAR_VERIFIED",
@@ -10,7 +10,7 @@
   "other_hunt_dispatch": "PRESERVED_BY_EXACT_SOURCE_CONTRACT",
   "cursed_volkolak": "UNCHANGED",
   "combat_rules": "UNCHANGED",
-  "jar_sha256": "e4bef6c057457a5b6edad994f81a41d8846d899ba1b07a475ec8e1f236eafeb8",
+  "jar_sha256": "ab1259c8d4b50ba8e77f23d149d9456675c7d0c338938d995a3b9def29d0a384",
   "runtime": "NOT_RUN",
   "hearing": "NOT_LISTENED",
   "owner_accepted": false

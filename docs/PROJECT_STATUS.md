@@ -5,7 +5,8 @@ DOE: juskiddink CC-BY4, пол источника не указан, привя�
 Последние реакции — игровая интерпретация, не записи смерти. Java/AI/модели
 не менялись. Игоша3 DEFERRED/KEEP_CURRENT. Активные4 source gaps заполнены;
 весь аудиопроект OWNER_PENDING, не DONE. [Матрица](audio-review/DEER_19717.md).
-Build/JAR/installation пока NOT_RUN; Minecraft не запускался.
+Java21 clean build1m37s +9 offline gates PASS; compiled main82679092.
+Установка тестового PolyMC пока NOT_RUN; Minecraft не запускался.
 
 ## #61 — Карачун/медвежонок, Игоша отложена
 

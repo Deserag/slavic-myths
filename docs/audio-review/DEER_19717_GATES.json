@@ -1,0 +1,19 @@
+{
+  "status": "PASS_OFFLINE_OWNER_PENDING",
+  "baseline": "02c5b8837471090892b98480f66d1d59db50bca0",
+  "version": "1.9.7.17",
+  "events": 4,
+  "variants": 6,
+  "active_source_gaps": 0,
+  "owner_deferred": 3,
+  "java": "UNCHANGED",
+  "existing_art_and_audio": "BINARY_BYTE_IDENTICAL_TEXT_GIT_IDENTICAL",
+  "restorer": "BYTE_IDENTICAL",
+  "doe_source_sex": "UNSPECIFIED_BY_AUTHOR",
+  "terminal_calls": "GAME_INTERPRETATION_NOT_RECORDED_DEATH",
+  "fawn": "EXISTING_SHARED_DOE_ROUTE_UNCHANGED",
+  "jar_sha256": "ab1259c8d4b50ba8e77f23d149d9456675c7d0c338938d995a3b9def29d0a384",
+  "runtime": "NOT_RUN",
+  "hearing": "NOT_LISTENED",
+  "owner_accepted": false
+}

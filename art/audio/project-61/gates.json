@@ -1,22 +1,17 @@
 {
   "status": "IN_PROGRESS_OWNER_PENDING",
   "baseline": "ee4a40bec4f603e06dd69ee3b35ad4290dfc2389",
-  "checks": 20159,
-  "recorded_variants": 463,
-  "recorded_events": 428,
+  "checks": 20209,
+  "recorded_variants": 469,
+  "recorded_events": 432,
   "vanilla_aliases": 33,
-  "source_gaps": {
-    "stag_hurt": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
-    "stag_death": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
-    "doe_hurt": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source.",
-    "doe_death": "Actual species call is not proof of hurt/death performance; original synthetic replacement needs suitable source."
-  },
+  "source_gaps": {},
   "deferred": {
     "igosha_ambient": "DEFERRED / LOW_PRIORITY / KEEP_CURRENT: owner2026-10-19; existing audio satisfactory, not a claim that source gap is solved.",
     "igosha_hurt": "DEFERRED / LOW_PRIORITY / KEEP_CURRENT: owner2026-10-19; existing audio satisfactory, not a claim that source gap is solved.",
     "igosha_death": "DEFERRED / LOW_PRIORITY / KEEP_CURRENT: owner2026-10-19; existing audio satisfactory, not a claim that source gap is solved."
   },
-  "jar_sha256": "e4bef6c057457a5b6edad994f81a41d8846d899ba1b07a475ec8e1f236eafeb8",
+  "jar_sha256": "ab1259c8d4b50ba8e77f23d149d9456675c7d0c338938d995a3b9def29d0a384",
   "runtime": "NOT_RUN",
   "hearing": "NOT_LISTENED",
   "owner_accepted": false,
