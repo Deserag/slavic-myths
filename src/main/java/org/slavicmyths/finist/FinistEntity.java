@@ -15,7 +15,7 @@ public final class FinistEntity extends FalconActor {
  private void bird(int state,LivingEntity target){entityData.set(BIRD,state);birdStarted=level().getGameTime();entityData.set(BIRD_START,birdStarted);entityData.set(BIRD_TARGET,target==null?0:target.getId());}
  public void curse(BannerEntity anchor){curseUntil=level().getGameTime()+240;entityData.set(ANCHOR,anchor.getId());marked=null;entityData.set(MARK,0);bird(4,anchor);}
  public void clearCurse(){curseUntil=0;entityData.set(ANCHOR,0);bird(0,null);}
- public void resetEncounter(){lastStand=false;lethalUsed=false;morphPhase=-1;entityData.set(REST,false);}
+ public void resetEncounter(){HeroCalls.recovered(this);lastStand=false;lethalUsed=false;morphPhase=-1;entityData.set(REST,false);}
  public KartausEntity boss(){if(!(level() instanceof ServerLevel w)||encounter==null)return null;var e=KartausEncounter.get(w).entries.get(encounter);return e==null||e.boss==null?null:w.getEntity(e.boss) instanceof KartausEntity k?k:null;}
  public ServerPlayer player(){return level() instanceof ServerLevel w&&owner!=null?w.getServer().getPlayerList().getPlayer(owner):null;}
  @Override public EntityDimensions getDefaultDimensions(Pose p){return morphed()?EntityDimensions.scalable(1.15F,.85F).withEyeHeight(.65F):super.getDefaultDimensions(p).withEyeHeight(2F);}
