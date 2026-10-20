@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="940" viewBox="0 0 1640 940">
+<rect x="0" y="0" width="1640" height="940" rx="0" fill="#151b22" stroke="none"/>
+<text x="38" y="53" font-family="DejaVu Sans,Arial,sans-serif" font-size="30" fill="#f5e8cf" font-weight="700">DECOR #91 · ЧИТАЕМОСТЬ МАЛЫХ ДЕРЕВЯННЫХ ПРЕДМЕТОВ</text>
+<text x="40" y="93" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#c1cfce" font-weight="400">Целевые иконки Minecraft: кнопка, нажимная плита, люк, табличка</text>
+<text x="40" y="127" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#e2bb8d" font-weight="400">Концепт, НЕ копия production PNG: уточнение контраста без изменения формы и размера</text>
+<rect x="38" y="157" width="780" height="320" rx="10" fill="#253039" stroke="#4d606b"/>
+<text x="58" y="196" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#f2e8d9" font-weight="700">КНОПКА</text>
+<rect x="58" y="219" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="88" y="261" width="36" height="18" rx="0" fill="#8f774e" stroke="none"/><rect x="88" y="261" width="36" height="12" rx="0" fill="#c4a773" stroke="none"/><rect x="94" y="261" width="24" height="6" rx="0" fill="#efd9a1" stroke="none"/>
+<text x="75" y="345" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">липа</text>
+<rect x="214" y="219" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="244" y="261" width="36" height="18" rx="0" fill="#6b775f" stroke="none"/><rect x="244" y="261" width="36" height="12" rx="0" fill="#a0a589" stroke="none"/><rect x="250" y="261" width="24" height="6" rx="0" fill="#cfceb2" stroke="none"/>
+<text x="231" y="345" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">ива</text>
+<rect x="370" y="219" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="400" y="261" width="36" height="18" rx="0" fill="#765131" stroke="none"/><rect x="400" y="261" width="36" height="12" rx="0" fill="#b57f45" stroke="none"/><rect x="406" y="261" width="24" height="6" rx="0" fill="#e3ae67" stroke="none"/>
+<text x="387" y="345" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">сосна</text>
+<rect x="542" y="215" width="248" height="190" rx="5" fill="#182228" stroke="#4b5f63"/>
+<text x="554" y="241" font-family="DejaVu Sans,Arial,sans-serif" font-size="17" fill="#a7d5c9" font-weight="700">ПРОВЕРИТЬ</text>
+<text x="554" y="273" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">различимость на 1×</text>
+<text x="554" y="303" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">не утолщать 3D-модель</text>
+<text x="554" y="333" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">без изменения hitbox</text>
+<text x="58" y="438" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#e3cfa6" font-weight="400">Принцип: небольшой контрастный акцент, только при доказанном дефекте.</text>
+<rect x="848" y="157" width="780" height="320" rx="10" fill="#253039" stroke="#4d606b"/>
+<text x="868" y="196" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#f2e8d9" font-weight="700">НАЖИМНАЯ ПЛИТА</text>
+<rect x="868" y="219" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="880" y="267" width="72" height="18" rx="0" fill="#8f774e" stroke="none"/><rect x="880" y="267" width="72" height="12" rx="0" fill="#c4a773" stroke="none"/><rect x="886" y="267" width="60" height="6" rx="0" fill="#efd9a1" stroke="none"/><rect x="880" y="279" width="72" height="6" rx="0" fill="#8f774e" stroke="none"/>
+<text x="885" y="345" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">липа</text>
+<rect x="1024" y="219" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="1036" y="267" width="72" height="18" rx="0" fill="#6b775f" stroke="none"/><rect x="1036" y="267" width="72" height="12" rx="0" fill="#a0a589" stroke="none"/><rect x="1042" y="267" width="60" height="6" rx="0" fill="#cfceb2" stroke="none"/><rect x="1036" y="279" width="72" height="6" rx="0" fill="#6b775f" stroke="none"/>
+<text x="1041" y="345" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">ива</text>
+<rect x="1180" y="219" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="1192" y="267" width="72" height="18" rx="0" fill="#765131" stroke="none"/><rect x="1192" y="267" width="72" height="12" rx="0" fill="#b57f45" stroke="none"/><rect x="1198" y="267" width="60" height="6" rx="0" fill="#e3ae67" stroke="none"/><rect x="1192" y="279" width="72" height="6" rx="0" fill="#765131" stroke="none"/>
+<text x="1197" y="345" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">сосна</text>
+<rect x="1352" y="215" width="248" height="190" rx="5" fill="#182228" stroke="#4b5f63"/>
+<text x="1364" y="241" font-family="DejaVu Sans,Arial,sans-serif" font-size="17" fill="#a7d5c9" font-weight="700">ПРОВЕРИТЬ</text>
+<text x="1364" y="273" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">отличима от кнопки</text>
+<text x="1364" y="303" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">сохранить плоский вид</text>
+<text x="1364" y="333" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">без изменения redstone</text>
+<text x="868" y="438" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#e3cfa6" font-weight="400">Принцип: небольшой контрастный акцент, только при доказанном дефекте.</text>
+<rect x="38" y="505" width="780" height="320" rx="10" fill="#253039" stroke="#4d606b"/>
+<text x="58" y="544" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#f2e8d9" font-weight="700">ЛЮК</text>
+<rect x="58" y="567" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="76" y="579" width="60" height="72" rx="0" fill="#8f774e" stroke="none"/><rect x="82" y="585" width="48" height="60" rx="0" fill="#c4a773" stroke="none"/><rect x="88" y="591" width="36" height="48" rx="0" fill="#efd9a1" stroke="none"/><rect x="94" y="597" width="24" height="36" rx="0" fill="#c4a773" stroke="none"/><rect x="100" y="603" width="12" height="24" rx="0" fill="#8f774e" stroke="none"/>
+<text x="75" y="693" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">липа</text>
+<rect x="214" y="567" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="232" y="579" width="60" height="72" rx="0" fill="#6b775f" stroke="none"/><rect x="238" y="585" width="48" height="60" rx="0" fill="#a0a589" stroke="none"/><rect x="244" y="591" width="36" height="48" rx="0" fill="#cfceb2" stroke="none"/><rect x="250" y="597" width="24" height="36" rx="0" fill="#a0a589" stroke="none"/><rect x="256" y="603" width="12" height="24" rx="0" fill="#6b775f" stroke="none"/>
+<text x="231" y="693" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">ива</text>
+<rect x="370" y="567" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="388" y="579" width="60" height="72" rx="0" fill="#765131" stroke="none"/><rect x="394" y="585" width="48" height="60" rx="0" fill="#b57f45" stroke="none"/><rect x="400" y="591" width="36" height="48" rx="0" fill="#e3ae67" stroke="none"/><rect x="406" y="597" width="24" height="36" rx="0" fill="#b57f45" stroke="none"/><rect x="412" y="603" width="12" height="24" rx="0" fill="#765131" stroke="none"/>
+<text x="387" y="693" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">сосна</text>
+<rect x="542" y="563" width="248" height="190" rx="5" fill="#182228" stroke="#4b5f63"/>
+<text x="554" y="589" font-family="DejaVu Sans,Arial,sans-serif" font-size="17" fill="#a7d5c9" font-weight="700">ПРОВЕРИТЬ</text>
+<text x="554" y="621" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">отверстия / доски видны</text>
+<text x="554" y="651" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">не менять ориентацию</text>
+<text x="554" y="681" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">дверные пары — отдельно</text>
+<text x="58" y="786" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#e3cfa6" font-weight="400">Принцип: небольшой контрастный акцент, только при доказанном дефекте.</text>
+<rect x="848" y="505" width="780" height="320" rx="10" fill="#253039" stroke="#4d606b"/>
+<text x="868" y="544" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#f2e8d9" font-weight="700">ТАБЛИЧКА</text>
+<rect x="868" y="567" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="880" y="585" width="72" height="42" rx="0" fill="#8f774e" stroke="none"/><rect x="886" y="591" width="60" height="30" rx="0" fill="#c4a773" stroke="none"/><rect x="892" y="597" width="48" height="6" rx="0" fill="#efd9a1" stroke="none"/><rect x="910" y="627" width="12" height="30" rx="0" fill="#8f774e" stroke="none"/>
+<text x="885" y="693" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">липа</text>
+<rect x="1024" y="567" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="1036" y="585" width="72" height="42" rx="0" fill="#6b775f" stroke="none"/><rect x="1042" y="591" width="60" height="30" rx="0" fill="#a0a589" stroke="none"/><rect x="1048" y="597" width="48" height="6" rx="0" fill="#cfceb2" stroke="none"/><rect x="1066" y="627" width="12" height="30" rx="0" fill="#6b775f" stroke="none"/>
+<text x="1041" y="693" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">ива</text>
+<rect x="1180" y="567" width="96" height="96" rx="2" fill="#858585" stroke="#343434"/><rect x="1192" y="585" width="72" height="42" rx="0" fill="#765131" stroke="none"/><rect x="1198" y="591" width="60" height="30" rx="0" fill="#b57f45" stroke="none"/><rect x="1204" y="597" width="48" height="6" rx="0" fill="#e3ae67" stroke="none"/><rect x="1222" y="627" width="12" height="30" rx="0" fill="#765131" stroke="none"/>
+<text x="1197" y="693" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d7c8a7" font-weight="400">сосна</text>
+<rect x="1352" y="563" width="248" height="190" rx="5" fill="#182228" stroke="#4b5f63"/>
+<text x="1364" y="589" font-family="DejaVu Sans,Arial,sans-serif" font-size="17" fill="#a7d5c9" font-weight="700">ПРОВЕРИТЬ</text>
+<text x="1364" y="621" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">рамка + центр</text>
+<text x="1364" y="651" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">не трогать текст</text>
+<text x="1364" y="681" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" fill="#d4dadd" font-weight="400">сохранить sign renderer</text>
+<text x="868" y="786" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#e3cfa6" font-weight="400">Принцип: небольшой контрастный акцент, только при доказанном дефекте.</text>
+<rect x="38" y="870" width="1580" height="43" rx="6" fill="#293934" stroke="#466959"/>
+<text x="51" y="897" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" fill="#d4eadf" font-weight="400">До Codex: реальный исходный slot 1× → A/B с предлагаемым изменением → подтверждение владельца. Никаких массовых PNG.</text>
+</svg>
