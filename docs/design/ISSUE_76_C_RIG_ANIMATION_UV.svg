@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1780" height="1240" viewBox="0 0 1780 1240"><rect width="1780" height="1240" fill="#151a20"/><style>text{font-family:DejaVu Sans,sans-serif;fill:#e9e0d2}.title{font-size:27px;font-weight:bold}.head{font-size:19px;font-weight:bold}.text{font-size:16px}.sub{font-size:14px;fill:#aeb8bd}</style>
+<text x="28" y="46" class="title">#76 • RIG / UV / СТОЙКИ / ТАЙМИНГИ — ЧЕРТЁЖ СОВМЕСТИМОСТИ</text>
+<text x="28" y="79" class="sub">Не заменять один pivot новым названием без миграции всех дочерних частей; никакой декоративный эскиз не заменяет эти проверки.</text>
+<rect x="20" y="104" width="830" height="518" rx="4" fill="#222b33" stroke="#89785e" stroke-width="2"/>
+<text x="40" y="143" class="head">1. ИЕРАРХИЯ PIVOT-ОВ И КОСТЕЙ (схематично)</text>
+<rect x="56" y="177" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="64" y="205" class="sub">root</text>
+<rect x="56" y="249" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="64" y="277" class="sub">pelvis</text>
+<rect x="212" y="249" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="220" y="277" class="sub">spine</text>
+<rect x="371" y="249" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="379" y="277" class="sub">chest</text>
+<rect x="516" y="249" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="524" y="277" class="sub">neck</text>
+<rect x="660" y="249" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="668" y="277" class="sub">head</text>
+<rect x="56" y="364" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="64" y="392" class="sub">tail1</text>
+<rect x="56" y="425" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="64" y="453" class="sub">tail2</text>
+<rect x="56" y="488" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="64" y="516" class="sub">tail3</text>
+<rect x="186" y="366" width="133" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="194" y="394" class="sub">thighL/R</text>
+<rect x="186" y="432" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="194" y="460" class="sub">shinL/R</text>
+<rect x="186" y="496" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="194" y="524" class="sub">footL/R</text>
+<rect x="371" y="366" width="133" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="379" y="394" class="sub">upperL/R</text>
+<rect x="371" y="432" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="379" y="460" class="sub">foreL/R</text>
+<rect x="371" y="497" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="379" y="525" class="sub">handL/R</text>
+<rect x="631" y="354" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="639" y="382" class="sub">muzzle</text>
+<rect x="631" y="422" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="639" y="450" class="sub">nose</text>
+<rect x="729" y="422" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="737" y="450" class="sub">jaw</text>
+<rect x="631" y="489" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="639" y="517" class="sub">eyeL/R</text>
+<rect x="729" y="489" width="96" height="43" rx="4" fill="#34404b" stroke="#829195" stroke-width="2"/>
+<text x="737" y="517" class="sub">ears</text>
+<path d="M120 212L120 248" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M160 273L212 273" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M324 273L371 273" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M483 273L517 273" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M627 273L662 273" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M115 294L115 365" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M115 406L115 426" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M115 470L115 488" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M139 294L227 365" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M253 407L253 431" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M253 477L253 495" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M424 294L424 365" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M429 407L429 431" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M429 477L429 495" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M728 294L728 353" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M699 399L699 423" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M732 400L786 423" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M714 466L714 488" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<path d="M747 466L782 488" fill="none" stroke="#dbc18b" stroke-width="2"/>
+<text x="38" y="597" class="sub">Нота: 92 части / 94 кубоида; дерево выше показывает только ключевые опорные цепи.</text>
+<rect x="868" y="104" width="895" height="518" rx="4" fill="#222b33" stroke="#89785e" stroke-width="2"/>
+<text x="886" y="143" class="head">2. ДВЕ СТОЙКИ, ОДИН SKELETON</text>
+<rect x="905" y="167" width="178" height="73" rx="4" fill="#303d45" stroke="#89785e" stroke-width="2"/>
+<text x="915" y="210" class="text">QUADRUPED</text>
+<rect x="1107" y="167" width="178" height="73" rx="4" fill="#303d45" stroke="#89785e" stroke-width="2"/>
+<text x="1117" y="210" class="text">RISE</text>
+<rect x="1305" y="167" width="178" height="73" rx="4" fill="#435342" stroke="#89785e" stroke-width="2"/>
+<text x="1315" y="210" class="text">UPRIGHT</text>
+<rect x="1501" y="167" width="178" height="73" rx="4" fill="#303d45" stroke="#89785e" stroke-width="2"/>
+<text x="1511" y="210" class="text">DROP</text>
+<path d="M1080 207L1117 207" fill="none" stroke="#e0b36d" stroke-width="3"/>
+<text x="1089" y="197" class="head">→</text>
+<path d="M1277 207L1314 207" fill="none" stroke="#e0b36d" stroke-width="3"/>
+<text x="1286" y="197" class="head">→</text>
+<path d="M1474 207L1511 207" fill="none" stroke="#e0b36d" stroke-width="3"/>
+<text x="1483" y="197" class="head">→</text>
+<text x="902" y="312" class="text">Динамический stance(f) зависит от root, pelvis, spine, chest, neck, head.</text>
+<text x="902" y="354" class="text">Меняются thigh + shin + foot, upper + fore + hand.</text>
+<text x="902" y="396" class="text">В QUAD опора 4 лап, в UPRIGHT — только задние лапы.</text>
+<text x="902" y="438" class="text">Не изменять default dimensions 1.65 × 1.9 / 2.8 блока.</text>
+<text x="902" y="480" class="text">Проверить границы перехода RISE: t=7..15, DROP: t=0..6.</text>
+<text x="902" y="548" class="sub">Текущий renderer DEPTH_SCALE=.68: до/после проверить Z.</text>
+<rect x="20" y="644" width="1090" height="566" rx="4" fill="#222b33" stroke="#89785e" stroke-width="2"/>
+<text x="38" y="684" class="head">3. АНИМАЦИИ: МАТРИЦА ПРОВЕРКИ</text>
+<rect x="38" y="716" width="280" height="53" rx="4" fill="#2c3941" stroke="#7b8f9b" stroke-width="2"/>
+<text x="52" y="750" class="text">IDLE/ALERT</text>
+<rect x="38" y="784" width="280" height="53" rx="4" fill="#2c3941" stroke="#7b8f9b" stroke-width="2"/>
+<text x="52" y="818" class="text">CLAW_L/R</text>
+<rect x="38" y="852" width="280" height="53" rx="4" fill="#2c3941" stroke="#7b8f9b" stroke-width="2"/>
+<text x="52" y="886" class="text">BITE/DOUBLE/TRIPLE</text>
+<rect x="38" y="920" width="280" height="53" rx="4" fill="#2c3941" stroke="#7b8f9b" stroke-width="2"/>
+<text x="52" y="954" class="text">POUNCE/FLANK</text>
+<rect x="38" y="988" width="280" height="53" rx="4" fill="#2c3941" stroke="#7b8f9b" stroke-width="2"/>
+<text x="52" y="1022" class="text">GRAB/ROAR/HOWL</text>
+<rect x="38" y="1056" width="280" height="53" rx="4" fill="#413036" stroke="#bb8171" stroke-width="2"/>
+<text x="52" y="1090" class="text">ESCAPE / FAKE DEATH</text>
+<text x="343" y="751" class="text">head aim; обе стойки; без вращения всего корпуса</text>
+<path d="M323 735L1090 735" fill="none" stroke="#56636b" stroke-width="1"/>
+<text x="343" y="819" class="text">цепи рук сохраняют длину; касание hit window</text>
+<path d="M323 803L1090 803" fill="none" stroke="#56636b" stroke-width="1"/>
+<text x="343" y="887" class="text">jaw + fangs, не сквозь нос и шею</text>
+<path d="M323 871L1090 871" fill="none" stroke="#56636b" stroke-width="1"/>
+<text x="343" y="955" class="text">опора лап при отталкивании и приземлении</text>
+<path d="M323 939L1090 939" fill="none" stroke="#56636b" stroke-width="1"/>
+<text x="343" y="1023" class="text">руки не проходят через грудь/цель</text>
+<path d="M323 1007L1090 1007" fill="none" stroke="#56636b" stroke-width="1"/>
+<text x="343" y="1091" class="text">ложная смерть; глаза скрыты только в t=19…49</text>
+<path d="M323 1075L1090 1075" fill="none" stroke="#56636b" stroke-width="1"/>
+<text x="39" y="1178" class="sub">Дополнительно: SNIFF, LISTEN, SNARL, STAGGER, DROP, RISE, WALK и damage states.</text>
+<rect x="1132" y="644" width="631" height="566" rx="4" fill="#222b33" stroke="#89785e" stroke-width="2"/>
+<text x="1152" y="685" class="head">4. UV / ТЕКСТУРЫ И МАСКА ГЛАЗ</text>
+<rect x="1170" y="735" width="250" height="251" rx="4" fill="#2d3237" stroke="#b2a68e" stroke-width="2"/>
+<text x="1180" y="760" class="sub">ATL 512×512</text>
+<path d="M1170 765L1420 765" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1190 735L1190 986" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1170 795L1420 795" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1220 735L1220 986" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1170 825L1420 825" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1250 735L1250 986" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1170 855L1420 855" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1280 735L1280 986" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1170 885L1420 885" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1310 735L1310 986" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1170 915L1420 915" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1340 735L1340 986" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1170 945L1420 945" fill="none" stroke="#48545c" stroke-width="1"/>
+<path d="M1370 735L1370 986" fill="none" stroke="#48545c" stroke-width="1"/>
+<rect x="1233" y="766" width="27" height="16" rx="4" fill="#e9bb61" stroke="#e4d7bd" stroke-width="2"/>
+<rect x="1315" y="797" width="27" height="16" rx="4" fill="#e9bb61" stroke="#e4d7bd" stroke-width="2"/>
+<text x="1161" y="1032" class="sub">eyeL UV (425,1), eyeR (263,29)</text>
+<text x="1156" y="1067" class="sub">Есть основной atlas + eyes-only PNG.</text>
+<text x="1156" y="1102" class="sub">Глаза не светят через мех/череп.</text>
+<text x="1156" y="1137" class="sub">ESCAPE t=19..49 — намеренно скрыты.</text>
+<text x="1156" y="1172" class="sub">Генератор должен обновлять 2 файла вместе.</text>
+</svg>
