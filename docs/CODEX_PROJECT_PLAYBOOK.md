@@ -1,5 +1,7 @@
 # Codex + ChatGPT — протокол работы с GitHub Project
 
+**Важное:** текущая доска — https://github.com/users/Deserag/projects/9/views/1. Миграция статусов [описана отдельно](PROJECT_MIGRATION_RUNBOOK.md); добавление конфигурации в репозиторий само по себе не означает, что карточка реально перенесена в Project.
+
 **Для любой новой сессии Codex:** сначала [AGENTS.md](../AGENTS.md) (обязательный quality gate), [PROJECT_WORKFLOW.md](PROJECT_WORKFLOW.md), [PROJECT_STATUS.md](PROJECT_STATUS.md), [ROADMAP.md](ROADMAP.md), [ARCHITECTURE.md](ARCHITECTURE.md), затем **конкретная Issue и ВСЕ её обязательные дочерние Issues**, затем рабочий source/main и git status. Эта инструкция не разрешает начинать никакую задачу сама по себе.
 
 ## Разделение ролей
