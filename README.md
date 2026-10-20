@@ -158,7 +158,7 @@
 - [Статус](docs/PROJECT_STATUS.md), [roadmap](docs/ROADMAP.md), [архитектура](docs/ARCHITECTURE.md)
 - [Фактическая консолидация и очистка #43](docs/maintenance/issue-43/REPORT.md)
 - [Исторические артефакты и инструменты](docs/maintenance/issue-43/HISTORICAL_ARTIFACTS.md)
-- [Процесс ведения задач](docs/PROJECT_WORKFLOW.md), [правила Codex](docs/CODEX_PROJECT_PLAYBOOK.md), [настройка GitHub Project](docs/GITHUB_PROJECT_SETUP.md)
+- [GitHub Project №9 — доска разработки](https://github.com/users/Deserag/projects/9/views/1), [процесс ведения задач](docs/PROJECT_WORKFLOW.md), [правила Codex](docs/CODEX_PROJECT_PLAYBOOK.md), [настройка GitHub Project](docs/GITHUB_PROJECT_SETUP.md)
 - [Задачи](https://github.com/Deserag/slavic-myths/issues), [PR](https://github.com/Deserag/slavic-myths/pulls)
 
 Slavic Myths 2.0 — будущая работа с отдельной приёмкой. Новое содержимое, баланс и готовность релиза подтверждаются принятыми изменениями и соответствующими проверками.
