@@ -1,0 +1,18 @@
+{
+  "status": "INSTALLED_TEST_PREVIEW_OWNER_PENDING",
+  "version": "1.9.7.35",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.35.jar",
+  "installed_sha256": "6a55ae13ee18bb7b55f70575e1922e591dd8b81b5d27fb916248aeacdf6dd672",
+  "backup_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\codex-backups\\before-1.9.7.35-20261020-162430\\slavicmyths-1.9.7.32.jar",
+  "backup_sha256": "4614b9ef67280fa7433c84b2ebedacb17341385939a67fd58bac7ce37ce98947",
+  "source_commit": "eb113d4c67b7ab046cacb413c0022fefb244f970",
+  "source_fingerprint": "31d3ba87a9234441e7e992146516998ed7c6b00f0f974ca2b5f9f2bba6011b5c",
+  "source_manifest": "docs/implementation/meat-83/build-source-sha256.json",
+  "other_mods_preserved": 6,
+  "active_mod_jars": [
+    "slavicmyths-1.9.7.35.jar"
+  ],
+  "runtime_launches": 0,
+  "issue83": "OPEN / OWNER_PENDING",
+  "included": "previous #78/#79 + #81 M1 + #82 + #83"
+}

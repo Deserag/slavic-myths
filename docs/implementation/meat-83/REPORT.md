@@ -48,7 +48,7 @@
 | Java21 clean build | BUILD.log, BUILD SUCCESSFUL in52s | PASS |
 | Production JAR CRC/meta/resource/class parity, fixtures excluded | jar-check.json | PASS offline |
 | Minecraft GUI/hand/drop/light/owner acceptance | агент запусков0, владелец ещё не принимал #83 | NOT_RUN / OWNER_PENDING |
-| Установка PolyMC и публикация Git | точный post-build receipt добавляется отдельно в ../polymc-19735/ | На момент source snapshot PENDING; см. receipt |
+| Установка PolyMC и публикация Git | точный post-build receipt добавляется отдельно в ../polymc-19735/ | PASS — [квитанция](../polymc-19735/REPORT.md) |
 
 ## Production build
 
@@ -61,3 +61,7 @@ SHA256 `6a55ae13ee18bb7b55f70575e1922e591dd8b81b5d27fb916248aeacdf6dd672`
 7431 resources / 1337 PNG / 1732 Java21 classes. Source fingerprint `31d3ba87a9234441e7e992146516998ed7c6b00f0f974ca2b5f9f2bba6011b5c` ([full manifest](build-source-sha256.json)); committed source SHA будет в квитанции установки после явной публикации.
 
 Короткая ручная проверка: в установленной .35 сравнить шесть raw рядом, приготовленные пары, предметы в руке/выброшенном виде и фон свет/тень. После явного решения владельца возможна приёмка #83; до этого не закрывается.
+
+## Публикация и установка после gates
+
+Исходники и proof пакеты опубликованы коммитом `eb113d4c67b7ab046cacb413c0022fefb244f970` в main, установлен идентичный JAR .35. [Точная квитанция](../polymc-19735/REPORT.md). Source snapshot выше намеренно сохраняет исходный pre-commit base; актуальный source commit указан здесь и в installed.json. Issue83 OPEN / OWNER_PENDING.

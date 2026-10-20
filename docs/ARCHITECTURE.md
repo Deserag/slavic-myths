@@ -1,3 +1,14 @@
+## PolyMC и Git обновлены до 1.9.7.35 · 20.10.2026
+
+По прямому поручению владельца опубликован source commit eb113d4c в origin/main,
+проверенный JAR35 установлен в тестовую1.21.1. Backup32, один active JAR,6других модов сохранены.
+[Точные path/version/SHA/source commit/backup](implementation/polymc-19735/REPORT.md).
+Сборка включает прежние #78/#79, #81 толькоM1, #82 и микропатч5raw #83.
+Java21 clean build/resources/JAR PASS; игровых запусков0, #82/#83 OWNER_PENDING/OPEN,
+#81 частичный. Никакого нового owner-accepted или закрытия без приёмки.
+В GitHub опубликованы source/evidence/метаданные, отдельный binary Release не создавался.
+Предыдущие записи ниже — исторические source snapshots.
+
 ## #83 — микропатч мяса и подготовка публикации .35 · 20.10.2026
 
 **IN_PROGRESS / OWNER_PENDING.** Пять raw PNG: утка, козлятина, кабанина, оленина,
