@@ -8,6 +8,10 @@ public final class BrewRules {
  public static final int DECAY_TICKS=1200;
  /** Preserve the existing effect ladder, starting its first negative step at four doses. */
  public static int stage(int points){return points<INTOXICATION_THRESHOLD?0:Math.min(5,points-INTOXICATION_THRESHOLD+2);}
+ public static final int STRONG_THRESHOLD=7;
+ public static final int SEVERE_THRESHOLD=12;
+ /** Minecraft amplifier is zero-based: I below 7, II at 7, III at 12 doses. */
+ public static int amplifier(int points){return points>=SEVERE_THRESHOLD?2:points>=STRONG_THRESHOLD?1:0;}
  public static int addLoad(int points,int dose){return (int)Math.min(Integer.MAX_VALUE,(long)Math.max(0,points)+Math.max(0,dose));}
  public static int decay(int points,long last,long now){return Math.max(0,points-(int)Math.min(Integer.MAX_VALUE,Math.max(0,now-last)/DECAY_TICKS));}
  private BrewRules(){}

@@ -6,6 +6,11 @@ public class IntoxicationChecks {
  public static void main(String[] args){
   int[] stages={0,0,0,0,2,3,4,5};
   for(int mugs=0;mugs<=7;mugs++)equal(BrewRules.stage(mugs),stages[mugs],"ordinary mugs "+mugs);
+  for(int dose:new int[]{0,1,3,4,5,6})equal(BrewRules.amplifier(dose),0,"level I below 7");
+  for(int dose:new int[]{7,8,10,11})equal(BrewRules.amplifier(dose),1,"level II from 7");
+  for(int dose:new int[]{12,13,20,Integer.MAX_VALUE})equal(BrewRules.amplifier(dose),2,"level III from 12");
+  equal(BrewRules.amplifier(BrewRules.decay(12,0,1200)),1,"12 to 11 drops to II");
+  equal(BrewRules.amplifier(BrewRules.decay(7,0,1200)),0,"7 to 6 drops to I");
   int points=0;
   for(int mugs=1;mugs<=6;mugs++){
    points=BrewRules.addLoad(BrewRules.decay(points,(mugs-1)*32L,mugs*32L),1);

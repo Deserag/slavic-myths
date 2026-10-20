@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib,json,re,subprocess,tomllib,zipfile
 from PIL import Image
 import beer_models_125 as art
-R=Path(__file__).resolve().parents[1];A=R/'src/main/resources/assets/slavicmyths';O=R/'docs/implementation/beer-84-85-v2';JDK=Path('C:/Program Files/Java/jdk-21.0.12/bin')
+R=Path(__file__).resolve().parents[1];A=R/'src/main/resources/assets/slavicmyths';O=R/'docs/implementation/drinks-19726';JDK=Path('C:/Program Files/Java/jdk-21.0.12/bin')
 
 def hashes(root):return {p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob('*') if p.is_file()}
 def main():
@@ -20,18 +20,31 @@ def main():
  assert 'container.equals("dark_bottle")&&mugAllowed(b)' in item and 'new net.minecraft.world.item.component.CustomModelData(1)' in item
  assert 'Set.of("kvass","mead","apple_cider","berry_mors")' in item # No beer pitchers exist.
  assert 'p.setData(Brewing.LOAD,n)' in item and 'int stage=BrewRules.stage(points)' in item
+ assert 'amp=BrewRules.amplifier(points)' in item
+ assert 'if(magic&&stage>=3)' not in item
+ assert 'negative(p,MobEffects.POISON,8,amp,factor)' in item
+ assert 'negative(p,MobEffects.MOVEMENT_SLOWDOWN,stage==4?30:45,amp,factor)' in item
  # #84 only changes resource generation. #85 already changed effect threshold.
  beforeitem=subprocess.check_output(['git','show','f07225da6f4c24efcda38730995e08bd7b2c70ba:src/main/java/org/slavicmyths/brewing/BeverageItem.java'],cwd=R).decode().replace('\r\n','\n')
  for name in ('beverage','pitcherAllowed','mugAllowed','load','quality','filled','empty'):
   pattern=r' public static [^\n]+ '+name+r'\([^\n]+'
   assert re.search(pattern,item).group(0)==re.search(pattern,beforeitem).group(0),name
- # Other vessels retain their full models and assets, not merely registry IDs.
+ # Owner requested kvass and mors to share the intact beer vessel and colored top.
  for name in ('kvass','berry_mors'):
-  for folder,endings in [('models/item',('_mug.json','_bottled.json')),('textures/item',('_liquid.png',))]:
-   for ending in endings:
-    p='src/main/resources/assets/slavicmyths/'+folder+'/'+name+ending
-    baseline=subprocess.check_output(['git','show','HEAD:'+p],cwd=R)
-    assert (baseline.decode().replace('\r\n','\n')==(R/p).read_text() if ending.endswith('.json') else baseline==(R/p).read_bytes()),p
+  path=A/f'models/item/{name}_mug.json';model=json.loads(path.read_text())
+  template=json.loads((A/'models/item/dark_beer_mug.json').read_text())
+  assert model['elements']==template['elements'] and model['display']==template['display']
+  assert model['textures']['foam']==f'slavicmyths:item/{name}_foam'
+  assert model['overrides']==[{'predicate':{'custom_model_data':1},'model':f'slavicmyths:item/{name}_bottled'}]
+  for variant in ('mug','bottled','liquid','foam'):
+   im=Image.open(A/f'textures/item/{name}_{variant}.png').convert('RGBA');assert im.size==(16,16) and set(im.getchannel('A').getdata())<={0,255}
+ # Existing eight beer models/textures must stay byte-for-byte as accepted for this revision.
+ for beer in art.BEER_ART:
+  for folder,suffixes in [('models/item',('_mug.json','_bottled.json')),('textures/item',('_mug.png','_bottled.png','_liquid.png','_foam.png'))]:
+   for suffix in suffixes:
+    path='src/main/resources/assets/slavicmyths/'+folder+'/'+beer+suffix
+    before=subprocess.check_output(['git','show','48ed68246c5073b581c6d9ef2fe6e0ed8e401254:'+path],cwd=R)
+    assert (before.decode().replace('\r\n','\n')==(R/path).read_text() if suffix.endswith('.json') else before==(R/path).read_bytes()),path
  evidence=[];marks=set();foams=set()
  vanilla=zipfile.ZipFile(R/'build/moddev/artifacts/neoforge-21.1.255-client-extra-aka-minecraft-resources.jar')
  for beer in art.BEER_ART:
@@ -85,7 +98,7 @@ def main():
  for key in langs['ru_ru']:
   if key.startswith('brewing.slavicmyths.'):
    assert key in langs['en_us'];assert re.findall(r'%(?:\d+\$)?[sd]',langs['ru_ru'][key])==re.findall(r'%(?:\d+\$)?[sd]',langs['en_us'][key]),key
- log=(R/'.tools/beer8485-v2-build.log').read_text(errors='replace');assert 'BUILD SUCCESSFUL' in log and 'INTOXICATION_NATIVE PASS' in log
+ log=(R/'.tools/drinks19726-build.log').read_text(errors='replace');assert 'BUILD SUCCESSFUL' in log and 'INTOXICATION_NATIVE PASS' in log
  report=dict(issues=[84,85],version=props['mod_version'],status='IN_PROGRESS / OWNER_PENDING',jar=str(jar),sha256=hashlib.sha256(jar.read_bytes()).hexdigest(),resources=resources,java21_classes=classes,build='PASS',source_base_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip(),source='uncommitted working tree',generator='PASS byte-identical',jvm_rules='PASS',runtime='NOT_RUN',minecraft_launches=0,polymc='POLYMC_NOT_INSTALLED',owner_acceptance=False,beer_routes=evidence)
  report['source_sha256']={str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [R/'gradle.properties',R/'src/main/java/org/slavicmyths/brewing/BeverageItem.java',R/'src/main/java/org/slavicmyths/brewing/BrewRules.java',R/'tools/beer_models_125.py']}
  (O/'checks.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print(json.dumps({k:v for k,v in report.items() if k not in ('beer_routes','source_sha256')},ensure_ascii=False))

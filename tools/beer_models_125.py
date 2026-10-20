@@ -56,9 +56,11 @@ def top_texture(drink,liquid,foam):
  im=Image.open(A/'textures/item/dark_bottle.png').convert('RGBA');ImageDraw.Draw(im).rectangle((6,9,10,12),fill=liquid)
  im.save(A/f'textures/item/{drink}_bottled.png')
 
+NONALCOHOLIC_ART={'kvass':BEER_ART['dark_beer'],'berry_mors':('#a72c42','#d87b89')}
+
 def main():
  legacy_main()
- for drink,(liquid,foam) in BEER_ART.items():
+ for drink,(liquid,foam) in (BEER_ART | NONALCOHOLIC_ART).items():
   top_texture(drink,liquid,foam)
   path=A/f'models/item/{drink}_mug.json';model=json.loads(path.read_text())
   # Keep every structural vertex, the connected handle, proportions and transforms.
