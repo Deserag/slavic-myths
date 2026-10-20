@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1610" height="840" viewBox="0 0 1610 840"><rect width="1610" height="840" fill="#182024"/><style>text{font-family:DejaVu Sans,sans-serif;fill:#eee1d0}.h{font-size:26px;font-weight:bold}.lab{font-size:18px}.note{font-size:16px;fill:#bbc2c1}</style>
+<text x="32" y="45" class="h">#84 ПИВО: ОДНА КРУЖКА, МЕНЯЕТСЯ ТОЛЬКО ВЕРХНЯЯ ПОВЕРХНОСТЬ</text>
+<text x="32" y="79" class="note">Эталон решения: сохранить исходный целый корпус/ручку/дно из production. Без бутылочек, потёков, наростов и нового силуэта.</text>
+<rect x="16" y="195" width="180" height="259" rx="2" fill="#263034" stroke="#59626b" stroke-width="2"/>
+<rect x="47" y="242" width="110" height="145" rx="2" fill="#76532e" stroke="#cfab73" stroke-width="6"/>
+<rect x="59" y="250" width="86" height="126" rx="2" fill="#855c34" stroke="#b58b5a" stroke-width="4"/>
+<path d="M157 270L185 275L186 343L157 354" stroke="#b58b72" stroke-width="18" fill="none" stroke-linejoin="round"/>
+<path d="M159 279L175 283L177 337L157 341" stroke="#3b3030" stroke-width="10" fill="none"/>
+<rect x="54" y="353" width="97" height="17" rx="2" fill="#5c432d" stroke="#d7af70" stroke-width="4"/>
+<rect x="65" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="93" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="121" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<path d="M47 242 Q65 221 102 225 Q139 221 157 242 L157 254 Q102 238 47 254Z" fill="#e6bb54" stroke="#e5c89d" stroke-width="5"/>
+<text x="27" y="491" class="note">Светлое</text>
+<text x="23" y="516" class="note">light_beer</text>
+<rect x="216" y="195" width="180" height="259" rx="2" fill="#263034" stroke="#59626b" stroke-width="2"/>
+<rect x="247" y="242" width="110" height="145" rx="2" fill="#76532e" stroke="#cfab73" stroke-width="6"/>
+<rect x="259" y="250" width="86" height="126" rx="2" fill="#855c34" stroke="#b58b5a" stroke-width="4"/>
+<path d="M357 270L385 275L386 343L357 354" stroke="#b58b72" stroke-width="18" fill="none" stroke-linejoin="round"/>
+<path d="M359 279L375 283L377 337L357 341" stroke="#3b3030" stroke-width="10" fill="none"/>
+<rect x="254" y="353" width="97" height="17" rx="2" fill="#5c432d" stroke="#d7af70" stroke-width="4"/>
+<rect x="265" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="293" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="321" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<path d="M247 242 Q265 221 302 225 Q339 221 357 242 L357 254 Q302 238 247 254Z" fill="#614234" stroke="#e5c89d" stroke-width="5"/>
+<text x="227" y="491" class="note">Тёмное</text>
+<text x="223" y="516" class="note">dark_beer</text>
+<rect x="416" y="195" width="180" height="259" rx="2" fill="#263034" stroke="#59626b" stroke-width="2"/>
+<rect x="447" y="242" width="110" height="145" rx="2" fill="#76532e" stroke="#cfab73" stroke-width="6"/>
+<rect x="459" y="250" width="86" height="126" rx="2" fill="#855c34" stroke="#b58b5a" stroke-width="4"/>
+<path d="M557 270L585 275L586 343L557 354" stroke="#b58b72" stroke-width="18" fill="none" stroke-linejoin="round"/>
+<path d="M559 279L575 283L577 337L557 341" stroke="#3b3030" stroke-width="10" fill="none"/>
+<rect x="454" y="353" width="97" height="17" rx="2" fill="#5c432d" stroke="#d7af70" stroke-width="4"/>
+<rect x="465" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="493" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="521" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<path d="M447 242 Q465 221 502 225 Q539 221 557 242 L557 254 Q502 238 447 254Z" fill="#aaa85a" stroke="#e5c89d" stroke-width="5"/>
+<text x="427" y="491" class="note">Хмельное</text>
+<text x="423" y="516" class="note">hopped_beer</text>
+<rect x="616" y="195" width="180" height="259" rx="2" fill="#263034" stroke="#59626b" stroke-width="2"/>
+<rect x="647" y="242" width="110" height="145" rx="2" fill="#76532e" stroke="#cfab73" stroke-width="6"/>
+<rect x="659" y="250" width="86" height="126" rx="2" fill="#855c34" stroke="#b58b5a" stroke-width="4"/>
+<path d="M757 270L785 275L786 343L757 354" stroke="#b58b72" stroke-width="18" fill="none" stroke-linejoin="round"/>
+<path d="M759 279L775 283L777 337L757 341" stroke="#3b3030" stroke-width="10" fill="none"/>
+<rect x="654" y="353" width="97" height="17" rx="2" fill="#5c432d" stroke="#d7af70" stroke-width="4"/>
+<rect x="665" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="693" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="721" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<path d="M647 242 Q665 221 702 225 Q739 221 757 242 L757 254 Q702 238 647 254Z" fill="#d99e4a" stroke="#e5c89d" stroke-width="5"/>
+<text x="627" y="491" class="note">Медовое</text>
+<text x="623" y="516" class="note">honey_beer</text>
+<rect x="816" y="195" width="180" height="259" rx="2" fill="#263034" stroke="#59626b" stroke-width="2"/>
+<rect x="847" y="242" width="110" height="145" rx="2" fill="#76532e" stroke="#cfab73" stroke-width="6"/>
+<rect x="859" y="250" width="86" height="126" rx="2" fill="#855c34" stroke="#b58b5a" stroke-width="4"/>
+<path d="M957 270L985 275L986 343L957 354" stroke="#b58b72" stroke-width="18" fill="none" stroke-linejoin="round"/>
+<path d="M959 279L975 283L977 337L957 341" stroke="#3b3030" stroke-width="10" fill="none"/>
+<rect x="854" y="353" width="97" height="17" rx="2" fill="#5c432d" stroke="#d7af70" stroke-width="4"/>
+<rect x="865" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="893" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="921" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<path d="M847 242 Q865 221 902 225 Q939 221 957 242 L957 254 Q902 238 847 254Z" fill="#82a266" stroke="#e5c89d" stroke-width="5"/>
+<text x="827" y="491" class="note">Лесное</text>
+<text x="823" y="516" class="note">forest_beer</text>
+<rect x="1016" y="195" width="180" height="259" rx="2" fill="#263034" stroke="#59626b" stroke-width="2"/>
+<rect x="1047" y="242" width="110" height="145" rx="2" fill="#76532e" stroke="#cfab73" stroke-width="6"/>
+<rect x="1059" y="250" width="86" height="126" rx="2" fill="#855c34" stroke="#b58b5a" stroke-width="4"/>
+<path d="M1157 270L1185 275L1186 343L1157 354" stroke="#b58b72" stroke-width="18" fill="none" stroke-linejoin="round"/>
+<path d="M1159 279L1175 283L1177 337L1157 341" stroke="#3b3030" stroke-width="10" fill="none"/>
+<rect x="1054" y="353" width="97" height="17" rx="2" fill="#5c432d" stroke="#d7af70" stroke-width="4"/>
+<rect x="1065" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="1093" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="1121" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<path d="M1047 242 Q1065 221 1102 225 Q1139 221 1157 242 L1157 254 Q1102 238 1047 254Z" fill="#7badc2" stroke="#e5c89d" stroke-width="5"/>
+<text x="1027" y="491" class="note">Грозовое</text>
+<text x="1023" y="516" class="note">thunder_beer</text>
+<rect x="1216" y="195" width="180" height="259" rx="2" fill="#263034" stroke="#59626b" stroke-width="2"/>
+<rect x="1247" y="242" width="110" height="145" rx="2" fill="#76532e" stroke="#cfab73" stroke-width="6"/>
+<rect x="1259" y="250" width="86" height="126" rx="2" fill="#855c34" stroke="#b58b5a" stroke-width="4"/>
+<path d="M1357 270L1385 275L1386 343L1357 354" stroke="#b58b72" stroke-width="18" fill="none" stroke-linejoin="round"/>
+<path d="M1359 279L1375 283L1377 337L1357 341" stroke="#3b3030" stroke-width="10" fill="none"/>
+<rect x="1254" y="353" width="97" height="17" rx="2" fill="#5c432d" stroke="#d7af70" stroke-width="4"/>
+<rect x="1265" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="1293" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="1321" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<path d="M1247 242 Q1265 221 1302 225 Q1339 221 1357 242 L1357 254 Q1302 238 1247 254Z" fill="#5f4b56" stroke="#e5c89d" stroke-width="5"/>
+<text x="1227" y="491" class="note">Тёмное Велеса</text>
+<text x="1223" y="516" class="note">veles_dark_beer</text>
+<rect x="1416" y="195" width="180" height="259" rx="2" fill="#263034" stroke="#59626b" stroke-width="2"/>
+<rect x="1447" y="242" width="110" height="145" rx="2" fill="#76532e" stroke="#cfab73" stroke-width="6"/>
+<rect x="1459" y="250" width="86" height="126" rx="2" fill="#855c34" stroke="#b58b5a" stroke-width="4"/>
+<path d="M1557 270L1585 275L1586 343L1557 354" stroke="#b58b72" stroke-width="18" fill="none" stroke-linejoin="round"/>
+<path d="M1559 279L1575 283L1577 337L1557 341" stroke="#3b3030" stroke-width="10" fill="none"/>
+<rect x="1454" y="353" width="97" height="17" rx="2" fill="#5c432d" stroke="#d7af70" stroke-width="4"/>
+<rect x="1465" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="1493" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<rect x="1521" y="273" width="11" height="65" rx="2" fill="#6f492b" stroke="#6f492b" stroke-width="1"/>
+<path d="M1447 242 Q1465 221 1502 225 Q1539 221 1557 242 L1557 254 Q1502 238 1447 254Z" fill="#ac718e" stroke="#e5c89d" stroke-width="5"/>
+<text x="1427" y="491" class="note">Ведьмино ягодное</text>
+<text x="1423" y="516" class="note">witch_berry_beer</text>
+<text x="30" y="626" class="h">ТОЛЬКО 8 ВЕРХНИХ ЦВЕТОВ. ВСЕ ПРОЧИЕ ПИКСЕЛИ КРУЖКИ ИДЕНТИЧНЫ.</text>
+<text x="31" y="668" class="note">Проверять в реальном Minecraft item slot (16px). Не добавлять передний символ, если цвет сверху читается.</text>
+<text x="31" y="709" class="note">Сохранить уже корректную основу кружки из исходника до отвергнутого варианта 1.9.7.24.</text>
+<text x="31" y="751" class="note">Этот SVG — эскиз цветовых различий, не настоящий source render и не готовые item textures.</text>
+</svg>
