@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1880" height="1320" viewBox="0 0 1880 1320"><defs><pattern id="grid" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0H0V14" stroke="#53616a" stroke-opacity=".22" fill="none"/></pattern></defs><rect width="1880" height="1320" fill="#12181d"/><style>text{font-family:DejaVu Sans,sans-serif;fill:#e8e0d2}.t{font-size:29px;font-weight:bold}.h{font-size:19px;font-weight:bold}.s{font-size:15px;fill:#c2b7a3}.mini{font-size:13px;fill:#a6b2b5}.digit{font-size:16px;font-weight:bold;fill:#edbf6f}</style>
+<text x="24" y="45" class="t">#76 • ЦЕЛЕВАЯ АНАТОМИЯ ПРОКЛЯТОГО ОБОРОТНЯ • ТЕХНИЧЕСКИЕ ВИДЫ</text>
+<text x="24" y="79" class="s">Minecraft-совместимая ступенчатая low-poly форма. Концепт силуэта: НЕ source-render; регистр/коллизии/анимации сохраняются.</text>
+<text x="24" y="101" class="mini">Код: pelvis→spine→chest→neck→head, upper/fore/hand L/R, thigh/shin/foot L/R; -Z = морда вперёд.</text>
+<rect x="20" y="126" width="452" height="440" rx="3" fill="#1d2830" stroke="#6a7980" stroke-width="2"/>
+<rect x="32" y="169" width="428" height="324" rx="3" fill="#263037" stroke="#4c5c65" stroke-width="1"/>
+<text x="36" y="158" class="h">A • АНФАС / ЧЕТЫРЕ ЛАПЫ</text>
+<polygon points="157.44,303.91999999999996 181.8,279.56 240.95999999999998,266.8 303.6,278.4 327.96,305.08 318.68,407.15999999999997 294.32,447.76 199.2,448.91999999999996 167.88,415.28" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="196.88,367.72 221.23999999999998,401.36 273.44,400.2 295.48,371.2 283.88,435 210.79999999999998,433.84" fill="#a79a8a" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="165.56,322.48 187.6,329.44 180.64,412.96 159.76,486.03999999999996 131.92000000000002,480.24 134.24,438.48" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="304.76,324.8 322.15999999999997,322.48 354.64,440.79999999999995 358.12,482.56 323.32,484.88 308.24,410.64" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="199.2,440.79999999999995 225.88,443.12 231.67999999999998,487.2 191.07999999999998,488.35999999999996" fill="#393539" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="267.64,443.12 296.64,439.64 302.43999999999994,489.52 261.84,488.35999999999996" fill="#393539" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="196.88,293.48 187.6,232 207.32,250.56 224.72,262.15999999999997" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="268.79999999999995,262.15999999999997 288.52,229.68 300.12,284.2" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="192.23999999999998,294.64 202.67999999999998,258.68 256.03999999999996,251.72 298.96,281.88 305.91999999999996,331.76 273.44,357.28 220.07999999999998,359.6" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="218.92,292.32 251.39999999999998,279.56 280.4,298.12 274.6,338.72 227.04,339.88" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="227.04,337.56 253.72,337.56 271.12,365.4 261.84,377 227.04,375.84" fill="#77737b" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="235.16,354.96 261.84,354.96 254.88,368.88 239.79999999999998,368.88" fill="#242226" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="225.88" cy="308.56" r="5.8" fill="#dfa95e" stroke="#302c27" stroke-width="1"/>
+<circle cx="275.76" cy="308.56" r="5.8" fill="#dfa95e" stroke="#302c27" stroke-width="1"/>
+<polygon points="243.28,371.2 256.03999999999996,370.03999999999996 252.55999999999997,380.48" fill="#a79a8a" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<text x="32" y="518" class="s">Морда читается, глаза симметричны</text>
+<rect x="493" y="126" width="452" height="440" rx="3" fill="#1d2830" stroke="#6a7980" stroke-width="2"/>
+<rect x="505" y="169" width="428" height="324" rx="3" fill="#263037" stroke="#4c5c65" stroke-width="1"/>
+<text x="509" y="158" class="h">B • ПРОФИЛЬ / ЧЕТЫРЕ ЛАПЫ</text>
+<polygon points="690.5,272.3 711.5,253.4 736.7,235.55 793.4000000000001,225.05 843.8,231.35 873.2,245 900.5,268.1 902.6,299.6 871.1,319.55 803.9000000000001,323.75 749.3,320.6 707.3,308" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="706.25,283.85 732.5,297.5 777.65,309.05 824.9000000000001,308 863.75,291.2 867.95,310.1 822.8,330.05 759.8,325.85 720.95,317.45" fill="#a79a8a" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="726.2,251.3 757.7,237.65 790.25,228.2 807.05,239.75 787.1,256.55 752.45,263.9" fill="#77737b" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="862.7,263.9 904.7,266 928.85,278.6 938.3,296.45 932,326.9 903.6500000000001,325.85 878.45,311.15" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="906.8,316.4 918.35,318.5 932,326.9 934.1,381.5 921.5,397.25 897.35,388.85" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="806,306.95 832.25,309.05 849.05,324.8 851.1500000000001,374.15 840.6500000000001,399.35 812.3,392 808.1,351.05" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="724.1,304.85 746.15,320.6 750.35,379.4 737.75,405.65 711.5,399.35 714.65,346.85" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="745.1,383.6 757.7,394.1 758.75,428.75 747.2,455 715.7,453.95000000000005 715.7,437.15 724.1,426.65" fill="#393539" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="819.6500000000001,388.85 838.55,396.20000000000005 843.8,428.75 834.35,452.9 803.9000000000001,455 799.7,444.5 809.1500000000001,431.9" fill="#393539" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="701,269.15 727.25,229.25 747.2,215.6 776.6,214.55 795.5,230.3 780.8,250.25 755.6,283.85 720.95,308 704.15,300.65" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="696.8,279.65 716.75,297.5 738.8,298.55 755.6,319.55 735.65,331.1 704.15,314.3" fill="#a79a8a" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="644.3,279.65 654.8,246.05 689.45,233.45 717.8,248.15 723.05,281.75 702.05,315.35 671.6,312.2" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="660.05,253.4 665.3,215.6 682.1,231.35 690.5,250.25" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="694.7,242.9 717.8,214.55 724.1,260.75" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="620.15,281.75 641.15,263.9 668.45,268.1 676.85,287 667.4,301.7 619.1,300.65 606.5,293.3" fill="#77737b" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="621.2,298.55 676.85,297.5 662.15,320.6 629.6,312.2" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="604.4,289.1 621.2,285.95 623.3,301.7 603.35,303.8" fill="#242226" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="632.75,315.35 655.85,322.7 672.65,315.35 655.85,331.1 644.3,330.05" fill="#a79a8a" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="657.95" cy="276.5" r="5.25" fill="#dfa95e" stroke="#302c27" stroke-width="1"/>
+<polyline points="657.95,294.35 673.7,291.2" fill="none" stroke="#383943" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="897.35,269.15 935.1500000000001,248.15 945.6500000000001,255.5 927.8,282.8 917.3,285.95" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="720.95,258.65 745.1,271.25 734.6,297.5" fill="none" stroke="#77737b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="766.1,247.1 806,257.6 846.95,250.25" fill="none" stroke="#77737b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="716.75,453.95000000000005 715.7,461.3" fill="none" stroke="#dbd2c6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="726.2,453.95000000000005 725.15,461.3" fill="none" stroke="#dbd2c6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="735.65,453.95000000000005 734.6,461.3" fill="none" stroke="#dbd2c6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="806,453.95000000000005 804.95,461.3" fill="none" stroke="#dbd2c6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="815.45,453.95000000000005 814.4000000000001,461.3" fill="none" stroke="#dbd2c6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="824.9000000000001,453.95000000000005 823.85,461.3" fill="none" stroke="#dbd2c6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="505" y="518" class="s">Сужение шеи и живота, 4 сустава</text>
+<rect x="966" y="126" width="452" height="440" rx="3" fill="#1d2830" stroke="#6a7980" stroke-width="2"/>
+<rect x="978" y="169" width="428" height="324" rx="3" fill="#263037" stroke="#4c5c65" stroke-width="1"/>
+<text x="982" y="158" class="h">C • СО СПИНЫ</text>
+<polygon points="1103.44,303.91999999999996 1127.8,279.56 1186.96,266.8 1249.6,278.4 1273.96,305.08 1264.68,407.15999999999997 1240.32,447.76 1145.2,448.91999999999996 1113.88,415.28" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1142.88,367.72 1167.24,401.36 1219.44,400.2 1241.48,371.2 1229.88,435 1156.8,433.84" fill="#a79a8a" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1111.56,322.48 1133.6,329.44 1126.6399999999999,412.96 1105.76,486.03999999999996 1077.92,480.24 1080.24,438.48" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1250.76,324.8 1268.1599999999999,322.48 1300.6399999999999,440.79999999999995 1304.12,482.56 1269.32,484.88 1254.24,410.64" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1145.2,440.79999999999995 1171.88,443.12 1177.68,487.2 1137.08,488.35999999999996" fill="#393539" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1213.6399999999999,443.12 1242.6399999999999,439.64 1248.44,489.52 1207.84,488.35999999999996" fill="#393539" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1144.04,262.15999999999997 1242.6399999999999,262.15999999999997 1262.36,312.03999999999996 1226.4,371.2 1167.24,372.36 1125.48,312.03999999999996" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1180,379.32 1207.84,379.32 1224.08,462.84 1196.24,515.04 1177.68,468.64" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<text x="978" y="518" class="s">Таз, задние лапы и хвост раздельны</text>
+<rect x="1439" y="126" width="452" height="440" rx="3" fill="#1d2830" stroke="#6a7980" stroke-width="2"/>
+<rect x="1451" y="169" width="428" height="324" rx="3" fill="#263037" stroke="#4c5c65" stroke-width="1"/>
+<text x="1455" y="158" class="h">D • 3/4 / ЧЕТЫРЕ ЛАПЫ</text>
+<polygon points="1615.22,274.53999999999996 1665.2,252.98 1748.5,254.94 1810.24,292.18 1797.5,334.32 1729.88,350.98 1645.6,339.22" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1620.12,290.22 1666.18,329.42 1727.92,341.18 1786.72,317.65999999999997 1777.9,339.22 1733.8,359.8 1656.38,351.96000000000004" fill="#a79a8a" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1761.24,330.4 1786.72,337.26 1792.6,406.84000000000003 1779.8600000000001,442.12 1750.46,437.22 1756.34,385.28" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1642.66,320.6 1662.26,333.34000000000003 1669.12,412.72 1661.28,450.94 1630.9,447.02" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1679.9,349.02 1705.38,355.88 1708.32,429.38 1697.54,459.76 1668.1399999999999,456.82" fill="#393539" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1790.6399999999999,401.94 1806.32,405.86 1814.1599999999999,458.78 1780.84,459.76 1777.9,448.98" fill="#393539" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1596.6,290.22 1616.2,253.96 1649.52,237.3 1686.76,250.04 1704.4,279.44 1686.76,320.6 1638.74,343.14" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1577.98,282.38 1603.46,257.88 1629.92,262.78 1645.6,292.18 1625.02,333.34000000000003 1587.78,337.26" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1568.18,243.18 1586.8,216.72 1594.64,267.68" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1612.28,258.86 1640.7,229.46 1645.6,287.28" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1549.56,303.94 1584.84,288.26 1601.5,301.98 1588.76,325.5 1545.64,325.5 1528,315.7" fill="#77737b" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1531.92,309.82 1545.64,305.9 1544.66,324.52 1527.02,326.48" fill="#242226" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1553.48,324.52 1583.86,328.44 1580.92,341.18 1558.38,340.2" fill="#a79a8a" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1583.86" cy="280.42" r="5.88" fill="#dfa95e" stroke="#302c27" stroke-width="1"/>
+<polygon points="1792.6,292.18 1846.5,265.72 1858.26,283.36 1829.84,322.56" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<text x="1451" y="518" class="s">Без блока из грудной клетки и головы</text>
+<rect x="20" y="598" width="920" height="480" rx="3" fill="#1d2830" stroke="#6a7980" stroke-width="2"/>
+<text x="39" y="637" class="h">E • СТОЙКА НА ДВУХ НОГАХ • СПЕРЕДИ / СБОКУ</text>
+<rect x="37" y="659" width="890" height="362" rx="3" fill="#263037" stroke="#596a72" stroke-width="2"/>
+<polygon points="186.12,765.34 206.52,746.98 270.78,745.96 304.44,770.44 299.34000000000003,868.36 284.03999999999996,904.06 198.36,901 172.86,866.3199999999999" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="196.32,872.44 217.74,883.66 252.42000000000002,882.64 286.08000000000004,865.3 279.96000000000004,905.08 206.52,910.1800000000001" fill="#a79a8a" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="186.12,777.58 169.8,770.44 155.51999999999998,823.48 150.42000000000002,911.2 133.07999999999998,943.84 159.6,949.96 184.07999999999998,911.2 198.36,840.8199999999999" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="299.34000000000003,779.62 314.64,780.64 329.94,830.62 335.04,906.1 347.28000000000003,944.86 323.82,948.94 300.36,913.24 284.03999999999996,838.78" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="202.44,899.98 231,897.94 227.94,1005.04 193.26,1006.06 188.16,979.54" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="253.44,899.98 284.03999999999996,898.96 298.32,1004.02 258.53999999999996,1005.04 258.53999999999996,973.4200000000001" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="194.28,765.34 192.24,725.56 206.52,701.08 262.62,701.08 279.96000000000004,734.74 285.06,782.6800000000001 254.46,821.44 214.68,822.46" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="212.64000000000001,739.84 253.44,737.8 265.68,787.78 233.04,811.24 208.56,783.7" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="210.6,704.14 217.74,677.62 232.02,712.3" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="260.58000000000004,712.3 279.96000000000004,678.64 286.08000000000004,732.7" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="222.84,793.9 260.58000000000004,793.9 255.48,817.36 228.96,817.36" fill="#77737b" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="221.82" cy="754.12" r="5.1" fill="#dfa95e" stroke="#302c27" stroke-width="1"/>
+<circle cx="264.65999999999997" cy="754.12" r="5.1" fill="#dfa95e" stroke="#302c27" stroke-width="1"/>
+<polygon points="687.8,749 728.6,742.88 765.3199999999999,775.52 780.62,858.14 750.02,916.28 712.28,902 668.42,836.72" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="704.12,876.5 726.56,895.88 712.28,971.36 693.9200000000001,1007.06 661.28,1005.02 666.38,971.36" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="732.6800000000001,890.78 765.3199999999999,882.62 780.62,973.4 760.22,1004 728.6,998.9" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="672.5,777.56 652.1,793.88 651.08,855.08 637.82,926.48 614.36,937.7 609.26,918.3199999999999 621.5,868.34 626.6,808.16" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="769.4,797.96 790.8199999999999,815.3 808.1600000000001,895.88 780.62,932.6 766.34,918.3199999999999 773.48,877.52 752.06,843.86" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="655.16,757.16 656.1800000000001,713.3 676.58,695.96 714.3199999999999,720.44 720.44,769.4 703.1,798.98 669.44,786.74" fill="#383943" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="634.76,745.94 668.42,751.04 675.56,776.54 651.08,787.76 624.56,769.4 607.22,766.34" fill="#525158" stroke="#191819" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="666.38" cy="741.86" r="5.1" fill="#dfa95e" stroke="#302c27" stroke-width="1"/>
+<text x="44" y="1052" class="s">Две стойки — ОДИН rig; рост в 2.8 блока только согласно фактической коллизии.</text>
+<rect x="962" y="598" width="896" height="480" rx="3" fill="#1d2830" stroke="#6a7980" stroke-width="2"/>
+<text x="985" y="638" class="h">ТЕХНИЧЕСКИЕ ГРАНИЦЫ ВИЗУАЛА</text>
+<text x="992" y="682" class="s">1. Узкая шея между головой и грудью, не цельная коробка.</text>
+<text x="992" y="725" class="s">2. Грудь массивнее таза, но не закрывает четыре лапы.</text>
+<text x="992" y="768" class="s">3. Передние и задние ноги имеют локоть/колено и отдельную лапу.</text>
+<text x="992" y="811" class="s">4. Силуэт порочный и тяжёлый: шрамы и мех, но без шипов ради шипов.</text>
+<text x="992" y="854" class="s">5. Глаза/челюсть видны в idle; исключение ESCAPE 19–49 ticks.</text>
+<text x="992" y="897" class="s">6. Реальный render DEPTH_SCALE=0.68 проверить на сплющивание.</text>
+<text x="992" y="940" class="s">7. Геометрия обязана пройти idle → RISE → upright → DROP.</text>
+<text x="992" y="983" class="s">8. Показать в Minecraft до/после, без подмены offline эскизом.</text>
+<text x="1006" y="1044" class="mini">Рисунок = ЦЕЛЕВОЙ НАПРАВЛЯЮЩИЙ СИЛУЭТ, не зафиксированные размеры UV/rig.</text>
+<text x="22" y="1116" class="s">РАЗМЕРНЫЕ ПРАВИЛА: 16 model units = 1 block. Точные pivots/UV и числа финальной геометрии выводить из существующей модели и теста обеих стоек.</text>
+<text x="22" y="1150" class="s">НЕЛЬЗЯ: портить Серого Волка, старого волколака, gameplay hitbox, тайминги, сюжет, звуки, сохранения. Корректировать только новую модель проклятого оборотня.</text>
+<text x="22" y="1208" class="s">Обязательная приёмка: исходный 8-видовой atlas, новый 8-видовой atlas в том же масштабе, анимации, живые скриншоты и контроль движений.</text>
+</svg>
