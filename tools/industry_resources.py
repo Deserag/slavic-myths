@@ -6,7 +6,10 @@ ROOT=Path(__file__).resolve().parent.parent/'src/main/resources'
 A=ROOT/'assets/slavicmyths';D=ROOT/'data/slavicmyths'
 def js(path,value):
     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-def png(path,im):path.parent.mkdir(parents=True,exist_ok=True);im.save(path)
+def png(path,im):
+    from metals36_assets import write_owned
+    if not write_owned(path):
+        path.parent.mkdir(parents=True,exist_ok=True);im.save(path)
 def item(name,im):
     png(A/'textures/item'/f'{name}.png',im);js(A/'models/item'/f'{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/'+name}})
 def canvas():return Image.new('RGBA',(32,32),(0,0,0,0))

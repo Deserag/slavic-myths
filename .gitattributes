@@ -29,3 +29,7 @@
 /docs/implementation/meat-83/**/*.patch -text
 /docs/implementation/meat-83/BUILD.log -text
 /docs/implementation/meat-83/**/BUILD.log -text
+
+/docs/implementation/metals-vanilla-36/before/** -text
+/docs/implementation/metals-vanilla-36/*.patch -text
+/docs/implementation/metals-vanilla-36/BUILD.log -text

@@ -1,0 +1,83 @@
+--- a/tools/materials81_m1.py
++++ b/tools/materials81_m1.py
+@@ -12,6 +12,8 @@
+ PREFIX = 'assets/slavicmyths/textures/item/'
+ 
+ def render_asset(name):
++    from metals36_assets import image, PALETTES
++    if name in PALETTES: return image(name)
+     assert name in OWNED
+     im = Image.new('RGBA', (32,32) if name == 'iron_blank' else (16,16))
+     d = ImageDraw.Draw(im)
+@@ -62,6 +64,8 @@
+ 
+ def write_owned(path):
+     """Replace only an exact owned texture target; leave all other paths alone."""
++    from metals36_assets import write_owned as current_metal
++    if current_metal(path): return True
+     path = Path(path)
+     if path.name not in {name+'.png' for name in OWNED} or not path.as_posix().endswith('/'+PREFIX+path.name):
+         return False
+--- a/tools/generate_045.py
++++ b/tools/generate_045.py
+@@ -284,7 +284,9 @@
+     for name in sorted(REDRAW_ITEMS):
+         path=res/f'textures/item/{name}.png'
+         if not write_owned(path): path.write_bytes(encode(item(name)))
+-    for name in sorted(REDRAW_BLOCKS): (res/f'textures/block/{name}.png').write_bytes(encode(block(name)))
++    for name in sorted(REDRAW_BLOCKS):
++        path=res/f'textures/block/{name}.png'
++        if not write_owned(path): path.write_bytes(encode(block(name)))
+     # Plants have separate inventory bundles, so a held herb never looks like a weapon or a block icon.
+     for name in ('flax','wormwood','st_johns_wort','nettle','fireweed','juniper_berries'):
+         (res/f'textures/item/{name}.png').write_bytes(encode(item(name)))
+--- a/tools/industry_resources.py
++++ b/tools/industry_resources.py
+@@ -6,7 +6,10 @@
+ A=ROOT/'assets/slavicmyths';D=ROOT/'data/slavicmyths'
+ def js(path,value):
+     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+-def png(path,im):path.parent.mkdir(parents=True,exist_ok=True);im.save(path)
++def png(path,im):
++    from metals36_assets import write_owned
++    if not write_owned(path):
++        path.parent.mkdir(parents=True,exist_ok=True);im.save(path)
+ def item(name,im):
+     png(A/'textures/item'/f'{name}.png',im);js(A/'models/item'/f'{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/'+name}})
+ def canvas():return Image.new('RGBA',(32,32),(0,0,0,0))
+--- a/tools/unique_armor_resources.py
++++ b/tools/unique_armor_resources.py
+@@ -23,6 +23,9 @@
+ def write(path,data):
+  path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ def icon(kind):
++ if kind=='hardened_iron':
++  from metals36_assets import image
++  return image(kind)
+  im=Image.new('RGBA',(32,32));p=ImageDraw.Draw(im)
+  def box(bounds,c):p.rectangle(bounds,fill=COL[c])
+  def poly(points,c):p.polygon(points,fill=COL[c])
+@@ -88,7 +91,9 @@
+ def apply():
+  (A/'textures/item').mkdir(parents=True,exist_ok=True);(A/'textures/armor').mkdir(parents=True,exist_ok=True)
+  for name in IDS:
+-  icon(name).save(A/f'textures/item/{name}.png')
++  from metals36_assets import write_owned
++  path=A/f'textures/item/{name}.png'
++  if not write_owned(path):icon(name).save(path)
+   if name!='ward_shield':write(A/f'models/item/{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':f'slavicmyths:item/{name}'}})
+  for kind in ['wind','bogatyr','clear_sight','indomitability']:
+   for layer in [1,2]:armor_texture(kind).save(A/f'textures/armor/unique_{kind}_layer_{layer}.png')
+--- a/tools/polish_046.py
++++ b/tools/polish_046.py
+@@ -296,7 +296,9 @@
+ 
+ def finish(res):
+     def tex(name,a,folder='block'):
+-        (res/f'textures/{folder}/{name}.png').write_bytes(encode(a.rows() if isinstance(a,Art) else a))
++        from metals36_assets import write_owned
++        path=res/f'textures/{folder}/{name}.png'
++        if not write_owned(path):path.write_bytes(encode(a.rows() if isinstance(a,Art) else a))
+     for name,master in SPRITES.items():
+         rows=master.strip().splitlines()
+         assert len(rows)==16 and all(len(r)==16 for r in rows),name

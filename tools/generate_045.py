@@ -284,7 +284,9 @@ def generate(root):
     for name in sorted(REDRAW_ITEMS):
         path=res/f'textures/item/{name}.png'
         if not write_owned(path): path.write_bytes(encode(item(name)))
-    for name in sorted(REDRAW_BLOCKS): (res/f'textures/block/{name}.png').write_bytes(encode(block(name)))
+    for name in sorted(REDRAW_BLOCKS):
+        path=res/f'textures/block/{name}.png'
+        if not write_owned(path): path.write_bytes(encode(block(name)))
     # Plants have separate inventory bundles, so a held herb never looks like a weapon or a block icon.
     for name in ('flax','wormwood','st_johns_wort','nettle','fireweed','juniper_berries'):
         (res/f'textures/item/{name}.png').write_bytes(encode(item(name)))

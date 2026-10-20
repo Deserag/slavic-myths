@@ -23,6 +23,9 @@ COL={'edge':'#1c222a','steel':'#536373','shine':'#a8bdc9','dark':'#29242a','leat
 def write(path,data):
  path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def icon(kind):
+ if kind=='hardened_iron':
+  from metals36_assets import image
+  return image(kind)
  im=Image.new('RGBA',(32,32));p=ImageDraw.Draw(im)
  def box(bounds,c):p.rectangle(bounds,fill=COL[c])
  def poly(points,c):p.polygon(points,fill=COL[c])
@@ -88,7 +91,9 @@ def shield_model():
 def apply():
  (A/'textures/item').mkdir(parents=True,exist_ok=True);(A/'textures/armor').mkdir(parents=True,exist_ok=True)
  for name in IDS:
-  icon(name).save(A/f'textures/item/{name}.png')
+  from metals36_assets import write_owned
+  path=A/f'textures/item/{name}.png'
+  if not write_owned(path):icon(name).save(path)
   if name!='ward_shield':write(A/f'models/item/{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':f'slavicmyths:item/{name}'}})
  for kind in ['wind','bogatyr','clear_sight','indomitability']:
   for layer in [1,2]:armor_texture(kind).save(A/f'textures/armor/unique_{kind}_layer_{layer}.png')

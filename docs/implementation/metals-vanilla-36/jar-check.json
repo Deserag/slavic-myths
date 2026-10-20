@@ -1,0 +1,14 @@
+{
+  "status": "PASS_OFFLINE_ONLY",
+  "version": "1.9.7.36",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.36.jar",
+  "sha256": "de33a23866ab1bb5c7616d488f3eb009550e042f4a856ae484ae23968c096dd7",
+  "resources": 7431,
+  "png_verified": 1337,
+  "java21_classes": 1732,
+  "ingot_topology_exact": true,
+  "ore_stone_pixels_exact": true,
+  "all_other_production_unchanged": true,
+  "runtime_launches": 0,
+  "source_fingerprint": "a09a2482cb461e2938ac5148bcc682ba8fc72e35dc0b3183a9fa09ce2be544c7"
+}

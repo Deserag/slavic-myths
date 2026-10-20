@@ -296,7 +296,9 @@ SPRITES = {
 
 def finish(res):
     def tex(name,a,folder='block'):
-        (res/f'textures/{folder}/{name}.png').write_bytes(encode(a.rows() if isinstance(a,Art) else a))
+        from metals36_assets import write_owned
+        path=res/f'textures/{folder}/{name}.png'
+        if not write_owned(path):path.write_bytes(encode(a.rows() if isinstance(a,Art) else a))
     for name,master in SPRITES.items():
         rows=master.strip().splitlines()
         assert len(rows)==16 and all(len(r)==16 for r in rows),name

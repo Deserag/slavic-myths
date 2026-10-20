@@ -12,6 +12,8 @@ OWNED = ('silver_nugget', 'silver_ingot', 'perunite', 'iron_blank')
 PREFIX = 'assets/slavicmyths/textures/item/'
 
 def render_asset(name):
+    from metals36_assets import image, PALETTES
+    if name in PALETTES: return image(name)
     assert name in OWNED
     im = Image.new('RGBA', (32,32) if name == 'iron_blank' else (16,16))
     d = ImageDraw.Draw(im)
@@ -62,6 +64,8 @@ def render_asset(name):
 
 def write_owned(path):
     """Replace only an exact owned texture target; leave all other paths alone."""
+    from metals36_assets import write_owned as current_metal
+    if current_metal(path): return True
     path = Path(path)
     if path.name not in {name+'.png' for name in OWNED} or not path.as_posix().endswith('/'+PREFIX+path.name):
         return False

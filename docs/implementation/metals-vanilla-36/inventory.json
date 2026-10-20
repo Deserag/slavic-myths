@@ -1,0 +1,100 @@
+[
+  {
+    "id": "silver_ingot",
+    "folder": "item",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/silver_ingot.png",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "a4dc946735cce4ecdeb748b9aa02ce8131b071bb873588203f90a8b88bcf94e5",
+    "new_sha256": "8cf748959a839b81e3369a0b407a3bc20ab1a37a400667272391a46b1add2548",
+    "model": "src/main/resources/assets/slavicmyths/models/item/silver_ingot.json",
+    "topology": "iron_ingot",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite",
+    "folder": "item",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/perunite.png",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "9f25de168b406e6a4dd13dcbe04c3b3e2a7e808deaef7744a980b42063fa53c1",
+    "new_sha256": "4735c1bcfe4731accd731c71fc4fc4abde1fd27760af4e1650d8e6049b93ae5a",
+    "model": "src/main/resources/assets/slavicmyths/models/item/perunite.json",
+    "topology": "iron_ingot",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "purified_iron_ingot",
+    "folder": "item",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/purified_iron_ingot.png",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "511e0c7a90dfc6b28c564083ca446d897f9e933949937680d29e07e442133b1b",
+    "new_sha256": "941ce65eb3f72e1c198b4c0a602ceaba2d695416b76d45fa0a1604f09ef1af14",
+    "model": "src/main/resources/assets/slavicmyths/models/item/purified_iron_ingot.json",
+    "topology": "iron_ingot",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "purified_copper_ingot",
+    "folder": "item",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/purified_copper_ingot.png",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "a11015ec28cc9b9999b204754e2925208a331eef9399c9e78dd1f57d105a2b3d",
+    "new_sha256": "eb06a12edc9b145e1eff78b4946a7d5c088806bb9308c053d21ecf2f75ae6b39",
+    "model": "src/main/resources/assets/slavicmyths/models/item/purified_copper_ingot.json",
+    "topology": "iron_ingot",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "hardened_iron",
+    "folder": "item",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/hardened_iron.png",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "b0b8937421e52f825e113189883037b46f83f05e0fb5a53fa8c0e7c0849cc8c8",
+    "new_sha256": "a877e19d01fc942c548cc0e7a53c13921987e06ae0b015e95c05c1598ed45bdb",
+    "model": "src/main/resources/assets/slavicmyths/models/item/hardened_iron.json",
+    "topology": "iron_ingot",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_ore",
+    "folder": "block",
+    "texture": "src/main/resources/assets/slavicmyths/textures/block/silver_ore.png",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "ebb67c013df481dc79b5ba223864f2608bf0e93b1aa57fe5cf3792aa2944a0ed",
+    "new_sha256": "ea3aee08eb8548e7159af381b352dd285a4cf8587c592b3234814c01eda44739",
+    "model": "src/main/resources/assets/slavicmyths/models/block/silver_ore.json",
+    "topology": "iron_ore",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_ore",
+    "folder": "block",
+    "texture": "src/main/resources/assets/slavicmyths/textures/block/perunite_ore.png",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "cb01b3926e470060d6d28a73afbd4cb8c2f4986956d56cf7f37b3dc28937a450",
+    "new_sha256": "aa0ed5bf2580b269e3f316ef37964e81ae0e85f0c6543f98ab7c8a796a0cabfc",
+    "model": "src/main/resources/assets/slavicmyths/models/block/perunite_ore.json",
+    "topology": "iron_ore",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  }
+]
