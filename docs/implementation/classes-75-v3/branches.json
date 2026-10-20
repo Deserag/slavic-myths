@@ -1,0 +1,182 @@
+[
+  {
+    "id": "vityaz",
+    "parent": "druzhinnik",
+    "base": "druzhinnik",
+    "level": 10,
+    "enhanced_skill": "lunge",
+    "multiplier": 1.1,
+    "role_ru": "Наступление: сближение и усиленная первая атака.",
+    "effect_ru_template": "Выпад: величина бонуса урона +%s%%."
+  },
+  {
+    "id": "griden",
+    "parent": "druzhinnik",
+    "base": "druzhinnik",
+    "level": 10,
+    "enhanced_skill": "shield_ram",
+    "multiplier": 1.1,
+    "role_ru": "Защита со щитом: оттеснение и остановка противника.",
+    "effect_ru_template": "Таран щитом: отбрасывание и длительность контроля +%s%%."
+  },
+  {
+    "id": "bogatyr",
+    "parent": "vityaz",
+    "base": "druzhinnik",
+    "level": 25,
+    "enhanced_skill": "aerial_strike",
+    "multiplier": 1.15,
+    "role_ru": "Удары с воздуха: усиление атаки при снижении и приземлении.",
+    "effect_ru_template": "Удар с воздуха: бонус урона и время выполнения приёма +%s%%."
+  },
+  {
+    "id": "ratoborets",
+    "parent": "vityaz",
+    "base": "druzhinnik",
+    "level": 25,
+    "enhanced_skill": "flurry",
+    "multiplier": 1.15,
+    "role_ru": "Продолжительный ближний бой через ускоренные атаки.",
+    "effect_ru_template": "Сеча: бонус скорости атаки и длительность +%s%%."
+  },
+  {
+    "id": "schitonosets",
+    "parent": "griden",
+    "base": "druzhinnik",
+    "level": 25,
+    "enhanced_skill": "shield_ram",
+    "multiplier": 1.2,
+    "role_ru": "Контроль врага щитом и более сильное отбрасывание.",
+    "effect_ru_template": "Таран щитом: отбрасывание и длительность контроля +%s%%. Урон удара не увеличивается."
+  },
+  {
+    "id": "voevoda",
+    "parent": "griden",
+    "base": "druzhinnik",
+    "level": 25,
+    "enhanced_skill": "second_wind",
+    "multiplier": 1.2,
+    "role_ru": "Выживание при низком здоровье за счёт более долгой защиты.",
+    "effect_ru_template": "Второе дыхание: длительность защиты при низком здоровье +%s%%."
+  },
+  {
+    "id": "volhv",
+    "parent": "vedun",
+    "base": "vedun",
+    "level": 10,
+    "enhanced_skill": "ward",
+    "multiplier": 1.1,
+    "role_ru": "Защитная магия: оберег поглощает больше урона и держится дольше.",
+    "effect_ru_template": "Оберег: объём поглощаемого урона и длительность +%s%%."
+  },
+  {
+    "id": "koldun",
+    "parent": "vedun",
+    "base": "vedun",
+    "level": 10,
+    "enhanced_skill": "hex",
+    "multiplier": 1.1,
+    "role_ru": "Проклятия: ослабление и замедление цели действуют дольше.",
+    "effect_ru_template": "Порча: длительность ослабления и замедления +%s%%."
+  },
+  {
+    "id": "oberezhnik",
+    "parent": "volhv",
+    "base": "vedun",
+    "level": 25,
+    "enhanced_skill": "ward",
+    "multiplier": 1.2,
+    "role_ru": "Развитие защитного оберега и доступ к его эволюции.",
+    "effect_ru_template": "Оберег: объём поглощаемого урона и длительность +%s%%."
+  },
+  {
+    "id": "znakhar",
+    "parent": "volhv",
+    "base": "vedun",
+    "level": 25,
+    "enhanced_skill": "herbalism",
+    "multiplier": 1.2,
+    "role_ru": "Лечение травяными продуктами мода через пассивное Знахарство.",
+    "effect_ru_template": "Знахарство: дополнительное лечение от травяных продуктов +%s%%."
+  },
+  {
+    "id": "morovik",
+    "parent": "koldun",
+    "base": "vedun",
+    "level": 25,
+    "enhanced_skill": "hex",
+    "multiplier": 1.2,
+    "role_ru": "Долгое удержание цели под ослаблением и замедлением Порчи.",
+    "effect_ru_template": "Порча: длительность ослабления и замедления +%s%%."
+  },
+  {
+    "id": "chernoknizhnik",
+    "parent": "koldun",
+    "base": "vedun",
+    "level": 25,
+    "enhanced_skill": "slumber",
+    "multiplier": 1.2,
+    "role_ru": "Контроль преследователей с помощью Сонной дрёмы.",
+    "effect_ru_template": "Сонная дрёма: длительность контроля +%s%%. Ограничения для PvP и боссов сохраняются."
+  },
+  {
+    "id": "ushkuinik",
+    "parent": "razboinik",
+    "base": "razboinik",
+    "level": 10,
+    "enhanced_skill": "keen_eye",
+    "multiplier": 1.1,
+    "role_ru": "Стрельба по недавно поражённой цели с помощью Зоркого глаза.",
+    "effect_ru_template": "Зоркий глаз: сила доводки стрелы и время подготовки +%s%%."
+  },
+  {
+    "id": "glavar",
+    "parent": "razboinik",
+    "base": "razboinik",
+    "level": 10,
+    "enhanced_skill": "dirty_strike",
+    "multiplier": 1.1,
+    "role_ru": "Подготовленная атака сзади или сбоку через Подлый удар.",
+    "effect_ru_template": "Подлый удар: бонус урона и время подготовки +%s%%."
+  },
+  {
+    "id": "naletchik",
+    "parent": "ushkuinik",
+    "base": "razboinik",
+    "level": 25,
+    "enhanced_skill": "dash",
+    "multiplier": 1.15,
+    "role_ru": "Манёвры и отход: более дальний Рывок и доступ к его эволюции.",
+    "effect_ru_template": "Рывок: дальность перемещения +%s%%. Не даёт неуязвимости."
+  },
+  {
+    "id": "strelok",
+    "parent": "ushkuinik",
+    "base": "razboinik",
+    "level": 25,
+    "enhanced_skill": "keen_eye",
+    "multiplier": 1.2,
+    "role_ru": "Более сильная доводка стрелы Зорким глазом и его эволюция.",
+    "effect_ru_template": "Зоркий глаз: сила доводки стрелы и время подготовки +%s%%."
+  },
+  {
+    "id": "ataman",
+    "parent": "glavar",
+    "base": "razboinik",
+    "level": 25,
+    "enhanced_skill": "smoke",
+    "multiplier": 1.2,
+    "role_ru": "Отход от преследования с более долгим ускорением Дымового ухода.",
+    "effect_ru_template": "Дымовой уход: длительность ускорения при отходе +%s%%."
+  },
+  {
+    "id": "reznik",
+    "parent": "glavar",
+    "base": "razboinik",
+    "level": 25,
+    "enhanced_skill": "cold_blood",
+    "multiplier": 1.2,
+    "role_ru": "Добивание: усиление бонуса урона по цели с низким здоровьем.",
+    "effect_ru_template": "Хладнокровие: величина бонуса урона +%s%% по цели с менее чем 35%% здоровья."
+  }
+]

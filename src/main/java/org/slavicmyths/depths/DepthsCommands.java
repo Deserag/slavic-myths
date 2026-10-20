@@ -10,7 +10,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import org.slavicmyths.registry.ModItems;
 
-@EventBusSubscriber(modid="slavicmyths")
 public final class DepthsCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree){
         var root=Commands.literal("depths").requires(s->s.hasPermission(2));

@@ -6,7 +6,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
-@EventBusSubscriber(modid="slavicmyths")
 public final class MorBlockCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree) {
         tree.add(Commands.literal("sm").requires(s->s.hasPermission(2)).then(Commands.literal("test").then(Commands.literal("mor_block").then(Commands.argument("id",StringArgumentType.word()).suggests((c,b)->{for(String id:MorBlocks.IDS)b.suggest(id);b.suggest("reset");return b.buildFuture();}).executes(c->{

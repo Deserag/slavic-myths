@@ -5,7 +5,6 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
-@EventBusSubscriber(modid="slavicmyths")
 public final class PolozCommands {
  public static void register(org.slavicmyths.commands.CommandTree tree){var root=Commands.literal("test");
   root.then(Commands.literal("poloz_spawn").then(Commands.literal("land").executes(c->spawn(c.getSource(),false))).then(Commands.literal("water").executes(c->spawn(c.getSource(),true))));

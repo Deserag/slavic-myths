@@ -17,7 +17,6 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 
 /** Read-only commands inspect native starts in already loaded chunks. They never generate a city. */
-@EventBusSubscriber(modid="slavicmyths")
 public final class ChudCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree){
         var city=Commands.literal("city").requires(s->s.hasPermission(2));

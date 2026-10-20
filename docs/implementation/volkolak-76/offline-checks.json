@@ -1,0 +1,271 @@
+{
+  "checks": {
+    "generator_repeat_0": {
+      "status": "PASS",
+      "evidence": "Entire src/main SHA256 manifest identical after model-only regeneration"
+    },
+    "generator_repeat_1": {
+      "status": "PASS",
+      "evidence": "Entire src/main SHA256 manifest identical after model-only regeneration"
+    },
+    "frozen_production_scope": {
+      "status": "PASS",
+      "evidence": [
+        "src/main/java/org/slavicmyths/client/CursedVolkolakGeometry.java",
+        "src/main/java/org/slavicmyths/client/CursedVolkolakModel.java",
+        "src/main/resources/assets/slavicmyths/cursed_volkolak_geometry.json",
+        "src/main/resources/assets/slavicmyths/textures/entity/cursed_volkolak.png",
+        "src/main/resources/assets/slavicmyths/textures/entity/cursed_volkolak_eyes.png",
+        "gradle.properties"
+      ]
+    },
+    "no_new_production_files": {
+      "status": "PASS",
+      "evidence": []
+    },
+    "atlas_dimensions": {
+      "status": "PASS",
+      "evidence": "Two512x512RGBA atlases"
+    },
+    "rig_hierarchy": {
+      "status": "PASS",
+      "evidence": "Topological parent-before-child; all names unique"
+    },
+    "unique_uv_allocations": {
+      "status": "PASS",
+      "evidence": "77 independent cube nets,2px gutters"
+    },
+    "eye_mask_only_two_islands": {
+      "status": "PASS",
+      "evidence": "Only eyeL/eyeR allocated nets emit; all other alpha0"
+    },
+    "positive_shapes": {
+      "status": "PASS",
+      "evidence": "All authored cuboid dimensions positive"
+    },
+    "native_finite": {
+      "status": "PASS",
+      "evidence": "582 native poses; every actual face vertex finite"
+    },
+    "native_uv_coverage": {
+      "status": "PASS",
+      "evidence": "All native cube face interior samples within atlas and opaque body coverage"
+    },
+    "transition_rear_ground": {
+      "status": "PASS",
+      "evidence": {
+        "max_model_px_error": 4.000000000559112e-06
+      }
+    },
+    "transition_rear_no_slip": {
+      "status": "PASS",
+      "evidence": {
+        "max_anchor_xz_error_px": 6.000000000394579e-06
+      }
+    },
+    "false_death_floor": {
+      "status": "PASS",
+      "evidence": {
+        "all132frames_max_penetration_px": 1.999999998503199e-06
+      }
+    },
+    "walk_support": {
+      "status": "PASS",
+      "evidence": {
+        "96samples_rear_support_or_swing_22to24": 4.000000000559112e-06
+      }
+    },
+    "escape_eyes_19": {
+      "status": "PASS",
+      "evidence": "actual mesh visibility, closed19<=t<49"
+    },
+    "escape_eyes_30": {
+      "status": "PASS",
+      "evidence": "actual mesh visibility, closed19<=t<49"
+    },
+    "escape_eyes_48": {
+      "status": "PASS",
+      "evidence": "actual mesh visibility, closed19<=t<49"
+    },
+    "escape_eyes_49": {
+      "status": "PASS",
+      "evidence": "actual mesh visibility, closed19<=t<49"
+    },
+    "escape_eyes_60": {
+      "status": "PASS",
+      "evidence": "actual mesh visibility, closed19<=t<49"
+    },
+    "escape_eyes_131": {
+      "status": "PASS",
+      "evidence": "actual mesh visibility, closed19<=t<49"
+    },
+    "blend_IDLE_support": {
+      "status": "PASS",
+      "evidence": {
+        "max_error_px": 4.000000000559112e-06,
+        "frames": "0..6 using production blendPose"
+      }
+    },
+    "blend_RISE_support": {
+      "status": "PASS",
+      "evidence": {
+        "max_error_px": 0.0,
+        "frames": "0..6 using production blendPose"
+      }
+    },
+    "blend_CLAW_L_support": {
+      "status": "PASS",
+      "evidence": {
+        "max_error_px": 4.000000000559112e-06,
+        "frames": "0..6 using production blendPose"
+      }
+    },
+    "blend_CLAW_R_support": {
+      "status": "PASS",
+      "evidence": {
+        "max_error_px": 4.000000000559112e-06,
+        "frames": "0..6 using production blendPose"
+      }
+    },
+    "blend_GRAB_support": {
+      "status": "PASS",
+      "evidence": {
+        "max_error_px": 4.000000000559112e-06,
+        "frames": "0..6 using production blendPose"
+      }
+    },
+    "blend_DROP_support": {
+      "status": "PASS",
+      "evidence": {
+        "max_error_px": 4.000000000559112e-06,
+        "frames": "0..6 using production blendPose"
+      }
+    },
+    "grab_anchor_24": {
+      "status": "PASS",
+      "evidence": {
+        "hand_target_error_px": 7.647058843929244e-07,
+        "victim": "native vanilla humanoid, frozen server feet .7forward/.18up"
+      }
+    },
+    "grab_anchor_28": {
+      "status": "PASS",
+      "evidence": {
+        "hand_target_error_px": 7.647058843929244e-07,
+        "victim": "native vanilla humanoid, frozen server feet .7forward/.18up"
+      }
+    },
+    "grab_anchor_30": {
+      "status": "PASS",
+      "evidence": {
+        "hand_target_error_px": 7.647058843929244e-07,
+        "victim": "native vanilla humanoid, frozen server feet .7forward/.18up"
+      }
+    },
+    "grab_anchor_45": {
+      "status": "PASS",
+      "evidence": {
+        "hand_target_error_px": 7.647058843929244e-07,
+        "victim": "native vanilla humanoid, frozen server feet .7forward/.18up"
+      }
+    },
+    "eye_depth_visibility": {
+      "status": "PASS",
+      "evidence": {
+        "quad_0": {
+          "eyeL": 32,
+          "eyeR": 32
+        },
+        "quad_90": {
+          "eyeR": 4
+        },
+        "quad_-90": {
+          "eyeL": 4
+        },
+        "quad_-35": {
+          "eyeL": 34,
+          "eyeR": 28
+        },
+        "upright_0": {
+          "eyeL": 35,
+          "eyeR": 35
+        },
+        "upright_90": {
+          "eyeR": 4
+        },
+        "upright_-90": {
+          "eyeL": 4
+        },
+        "upright_-35": {
+          "eyeL": 33,
+          "eyeR": 29
+        }
+      }
+    },
+    "end_boundary_rise": {
+      "status": "PASS",
+      "evidence": {
+        "max_ground_error_px": 4.000000000559112e-06,
+        "frames": "actual completed clip to IDLE,0..6"
+      }
+    },
+    "end_boundary_drop": {
+      "status": "PASS",
+      "evidence": {
+        "max_ground_error_px": 0.0,
+        "frames": "actual completed clip to IDLE,0..6"
+      }
+    },
+    "all_pose_ground_bounds": {
+      "status": "PASS",
+      "evidence": {
+        "max_model_px_penetration": 0.03727699999999956,
+        "tolerance_px": 0.05,
+        "scope": "all native captured clips and production blends, subpixel tolerance"
+      }
+    },
+    "joint_chains_connected": {
+      "status": "PASS",
+      "evidence": {
+        "max_length_error_px": 3.3015159512927994e-06,
+        "all_poses": 582,
+        "limbs": "no stretched/detached upper-lower-terminal joint chains"
+      }
+    },
+    "frozen_hitbox_quad": {
+      "status": "PASS",
+      "evidence": {
+        "visible_height_blocks": 1.68390990625,
+        "frozen_height_blocks": 1.9,
+        "width_blocks": 1.075,
+        "frozen_width_blocks": 1.65,
+        "scope": "idle bounds,not runtime collision"
+      }
+    },
+    "frozen_hitbox_upright": {
+      "status": "PASS",
+      "evidence": {
+        "visible_height_blocks": 2.7227665,
+        "frozen_height_blocks": 2.8,
+        "width_blocks": 1.075,
+        "frozen_width_blocks": 1.65,
+        "scope": "idle bounds,not runtime collision"
+      }
+    }
+  },
+  "source_changed_from28": [
+    "src/main/java/org/slavicmyths/client/CursedVolkolakGeometry.java",
+    "src/main/java/org/slavicmyths/client/CursedVolkolakModel.java",
+    "src/main/resources/assets/slavicmyths/cursed_volkolak_geometry.json",
+    "src/main/resources/assets/slavicmyths/textures/entity/cursed_volkolak.png",
+    "src/main/resources/assets/slavicmyths/textures/entity/cursed_volkolak_eyes.png",
+    "gradle.properties"
+  ],
+  "geometry": {
+    "before_parts": 92,
+    "after_parts": 69,
+    "before_cubes": 94,
+    "after_cubes": 77
+  },
+  "runtime": "NOT_RUN; owner in-game acceptance pending; no PolyMC install"
+}

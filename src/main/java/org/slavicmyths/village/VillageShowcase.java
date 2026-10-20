@@ -24,7 +24,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 /** Explicit operator-only QA placement; no terrain search, no tick handler or persistent tickets. */
-@EventBusSubscriber(modid="slavicmyths")
 public final class VillageShowcase {
     public record Entry(ResourceLocation id,String palette,int surface,BlockPos entrance,BlockPos spawn,String job,BlockPos workstation){}
     private record Planned(Entry entry,StructureTemplate template,BlockPos origin,StructurePlaceSettings settings,BoundingBox box){}

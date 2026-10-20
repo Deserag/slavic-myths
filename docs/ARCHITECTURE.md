@@ -1,3 +1,50 @@
+## #77 — изолированный Skim rig/pose/glow · 20.10.2026
+
+`skim_assets.py --model-only` до legacy imports вызывает `skim_77_model.py`: SkimMesh.java,
+3Skim PNG512px и authored-rig metadata, byte-identical repeat.59именных узлов/231cuboids;
+Mesh генерирует names/parents/bounds/sole/toe reach как единый источник.
+SkimModel сохраняет hero branch и делегирует зверя в SkimBeastPose. Двухзвенное IK использует
+реальные pivots, обратную матрицу Rz*Ry*Rx для плоской лапы и неизменяемую плоскость изгиба
+при поднятой лапе. ROAR следует серверному canRear, подкручивает только визуальную позу;
+локальный fit не подменяет world collision test. GRIP anchor ног1.7forward/.55up сохранён,
+пасть охватывает верх ноги стоящего native humanoid; head/hat clearance проверен offline.
+SkimBeastGlow добавляется только BeastRenderer: eyes-only mask и локальные red pixels RAGE;
+фазы13–20/50–64 и DEATH eye fade26–75 — отрисовка, без новых серверных событий.
+Java fixtures без Bootstrap/world экспортируют настоящие ModelPart/UV и150неизменных поз Алёши.
+[Матрица/source renders](implementation/skim-77/REPORT.md); GL/MP/relog/FPS/runtime NOT_RUN,
+OWNER_PENDING. Registry/server/NBT/audio/другие модели заморожены; PolyMC остаётся29.
+
+## #76 — владелец принял результат · 20.10.2026
+
+Владелец: «все хорошо меня все устраивает задачу закрою сам».
+Принят результат установленной 1.9.7.29; [квитанция PolyMC](implementation/polymc-19729/REPORT.md).
+Issue владелец закрывает самостоятельно. Предыдущие записи ниже — история проверок;
+инструментальные runtime/FPS/MP замеры Codex не проводил.
+Следующая явно назначенная работа — #77, модель Ским-зверя по плакату 1.7.3.
+
+## #76 — C76 rig и изолированная генерация · 20.10.2026
+
+`volkolak_143_resources.py --model-only` вызывает `cursed_volkolak_76_model.py`:
+только Geometry.java, geometry.json, body и eyes PNG; повторные outputs byte-identical.
+69 bones/77 cuboids, atlas512 с индивидуальными cube nets/2px gutter; два eye islands.
+CursedVolkolakModel решает двухзвенные цепи из реальных pivot distances и pad sole;
+после production5-тикового blend повторно сохраняет опору. GRAB использует замороженный
+серверный anchor0.7forward/0.18up; ESCAPE укладывает реальные cube corners на floor.
+Renderer depth0.68, Eyes layer, server entity, hit windows, ID, story, audio, другие волки
+не изменяются. Native Java fixture без world экспортирует фактические ModelPart/UV;
+CPU z-buffer строит [сравнения и матрицу](implementation/volkolak-76/REPORT.md), не игровые screenshots.
+Runtime/MP/FPS остаются NOT_RUN; глобальный polling не добавляется. PolyMC не обновлён.
+
+## PolyMC1.9.7.28 установлен —20.10.2026
+
+По прямому запросу владельца доставлены все текущие production изменения: #90v3
+(законные1/2/3), пиво/квас/морс и II7/III12, сохранённые ClassUI/command fixes.
+Java21 clean build59с +32HUD cases +6220ClassUI +9249commands/13staff +beer/NBT PASS.
+Backup25/63config/6othermods/installed SHA/один активныйJAR PASS.
+[Installed path/SHA/source e5924bd9 и полный source ZIP](implementation/polymc-19728/REPORT.md).
+Minecraft/PolyMC не запускались, миры не менялись. INSTALLED_TEST_PREVIEW;
+runtime/owner acceptance NOT_RUN, #90 OPEN. Игровая проверка владельцем одним прогоном.
+
 ## #90 по актуальному ТЗ v3 —1.9.7.28,20.10.2026
 
 Перепроверена Issue: прежнее требование4 одновременно отменено. HUD — одна колонка
@@ -30,6 +77,15 @@ Java21 clean build+native offline tests PASS61с; JAR7408resources/1707classes P
 [Матрица и preview](implementation/drinks-19726/REPORT.md). Реальные runtime/relog/death
 и owner acceptance NOT_RUN; запусков0, Issues OPEN. PolyMC остаётся25,26 не установлена.
 
+## PolyMC1.9.7.25 установлен для проверки —20.10.2026
+
+По прямому запросу владельца установлен проверенный единый пакет #84/#85.
+Backup23/63config/installed SHA/один активный JAR PASS;6 остальных mods сохранены.
+Source48ed6824 + сохранённые локальные UI/command правки зафиксированы полным ZIP+manifest.
+[Точная квитанция установки](implementation/polymc-19725/REPORT.md).
+Minecraft/PolyMC не запускались, миры не менялись; owner/runtime NOT_RUN.
+INSTALLED_TEST_PREVIEW, Issues OPEN.
+
 ## Пиво #84/#85 — исправление отклонённой1.9.7.24, 20.10.2026
 
 1.9.7.24 отклонена владельцем: перегруженный декор и выступающая пена.
@@ -43,6 +99,88 @@ Java21 clean build+native offline tests PASS61с; JAR7408resources/1707classes P
 Java21 clean build + native offline NBT/rules PASS44с; JAR7406resources/1707classes PASS.
 Игра/PolyMC не запускались, установка не выполнялась; owner/runtime NOT_RUN.
 Обе Issues OPEN/IN_PROGRESS; приёмка только владельцем. Другие локальные изменения сохранены.
+
+## Единый пакет пива #84 + #85 — 20.10.2026, OWNER_PENDING
+
+По уточнению владельца внешний вид и опьянение поставляются вместе для одного
+игрового прогона. Исправлены все8 production cuboid кружек и8 бутылочных моделей:
+видимое содержимое, разные геометрия/рисунок пены и крупные знаки;40PNG16px.
+Порог4 дозы и RU/EN из #85 включены. Полные source до/после, светлый/тёмный фон,
+4 display contexts и [единая матрица](implementation/beer-84-85/REPORT.md).
+Java21 clean build PASS1m9s, actual JVM progression/decay PASS, генератор byte-identical,
+JAR7414resources/1707classes PASS. Артефакт build/libs/slavicmyths-1.9.7.24.jar.
+Офлайн-проекции не являются Minecraft screenshots. Runtime/owner acceptance NOT_RUN;
+запусков0, POLYMC_NOT_INSTALLED для24. Без commit/push; обе Issues OPEN/IN_PROGRESS.
+Отдельная предыдущая передача #85 заменена этим общим пакетом.
+
+## #85 — порог опьянения, 20.10.2026, IN_PROGRESS
+
+В существующей BeverageItem/BrewRules первая алкогольная отрицательная ступень
+перенесена с2 на4 дозы;5/6 добавляют слабость/замедление,7 сохраняет прежнюю
+максимальную ступень. Existing load1/2, decay1200 тиков, длительности/усилители,
+quality/spoil и NBT сохранены. Добавлены RU/EN threshold tooltip и серверный
+снимок дозы/ступени после питья. JVM progression/decay/mixed/overflow PASS;
+Java21 clean build PASS1m21s. Production JSON/resource/JAR — checks.json.
+[Матрица #85](implementation/intoxication-85/REPORT.md).
+Игровые состояния, relog/death/MP/UI и owner acceptance NOT_RUN; запусков0.
+Issue OPEN/OWNER_PENDING, POLYMC_NOT_INSTALLED для этого пакета, commit/push нет.
+Предыдущие локальные правки #73–75 сохранены; их приёмка не заявляется.
+
+## #75 — уточнения по снимкам владельца / PolyMC1.9.7.23 — 20.10.2026
+
+Устранён двойной native/manual tooltip в ClassScreen; у вкладок и выбора ветви
+нет повторов названия. Hover навыка — только название, детали в карточке по клику;
+оставшиеся многострочные подсказки корректно переносятся. Уровень ветви постоянно
+виден под заголовком. Все18 реальных направлений получили RU/EN с точными выгодами,
+процентами из definitions, отдельным изучением эволюций и будущим развитием.
+Описания прокручиваются независимо. Одобренные части V2 сохранены:9 критических
+source-файлов совпадают с архивом установленной22. Balance/state/network не менялись.
+Java21 clean build2m4s,6220 UI checks +18 branch copy,7398resources/1707classes PASS.
+1.9.7.23 INSTALLED_TEST_PREVIEW: backup/SHA/source ZIP/один JAR PASS.
+[Матрица и квитанция](implementation/classes-75-v3/REPORT.md). Владелец положительно
+оценил остальную V2; исправления V3 и полная #75 ещё без ручной приёмки.
+V3 IN_GAME_NOT_RUN, Codex запусков0. Issue OPEN/IN_PROGRESS, commit/push не выполнялись.
+
+## #75 V2 — прежний UI отклонён; тестовый PolyMC1.9.7.22 — 19.10.2026
+
+Прочитан новый контракт GitHub и6 схем origin/main; источник отклонённого1.9.7.21
+подтверждён installed SHA+архивом source. ClassScreen переделан: полное полотно,
+нет выбора по умолчанию, transient card, pointer zoom/pan/fit, сохранение камеры,
+компактные3active+P/P2, picker/key draft Save/Cancel/conflicts. Направления отдельно,
+мастерство своего пути вместо общего каталога. Server state/balance/network неизменны.
+Java21 clean build1m8s,6220 UI rules/geometry cases и JAR7398resources/1707classes PASS.
+1.9.7.22 INSTALLED_TEST_PREVIEW: backup/source ZIP/installed SHA/один JAR PASS.
+[Промежуточная матрица](implementation/classes-75-v2/REPORT.md).
+6 игровых состояний, видео, шрифты, XP/death/relog/MP IN_GAME_NOT_RUN; Codex запусков0.
+#75 OPEN/IN_PROGRESS; прежняя работа не принята, V2 owner acceptance отсутствует.
+Другие Issues не брались; автоматического commit/push нет.
+
+## Исправление загрузки / PolyMC 1.9.7.21 — 19.10.2026
+
+Владелец обнаружил FAIL загрузки1.9.7.20: пустая @EventBusSubscriber у YagaCommands.
+Удалена31 устаревшая подписка после переноса #74; native EventBus regression PASS,
+9249 command checks/13 staff cases, Java21 clean build1m30s PASS. Установлен1.9.7.21:
+backup/SHA/один активный JAR PASS. [Матрица и квитанция](implementation/loading-fix-19721/REPORT.md).
+Codex запусков0; успешная игровая загрузка исправления и owner acceptance NOT_RUN.
+#74/#75 остаются OPEN; это preview. Миры/старый1.16.5 не менялись.
+
+## Тестовый PolyMC 1.9.7.20 установлен — 19.10.2026
+
+По запросу владельца установлен preview дерева #75 с исправлениями #73/#74/посоха.
+Java21 clean build PASS51s,7398 ресурсов/1706 классов и installed SHA256 PASS.
+Backup/один активный JAR PASS; точный незакоммиченный source сохранён ZIP+patch.
+[Акт установки](implementation/polymc-19720/REPORT.md). #75 IN_PROGRESS,
+ручная игровая приёмка NOT_RUN, запусков0. Миры и старый1.16.5 не тронуты.
+
+## #75 — дерево классов, IN_PROGRESS — 19.10.2026
+
+Взята следующая Issue из GitHub: #75. ClassScreen подключён к ClassTreeLayout:
+реальные связи 40 навыков, ранги/состояния, требования, вертикальная и горизонтальная
+прокрутка; исправлена подсказка второго пассивного слота. Серверные правила/формат данных
+не менялись. [Матрица и ограничения](implementation/classes-75/REPORT.md),
+[руководство](implementation/classes-75/PLAYER_GUIDE.md). Проверки и JAR — checks.json.
+Runtime XP/смерть/перезаход/MP и owner acceptance NOT_RUN; Issue OPEN.
+Запусков 0; PolyMC и миры не тронуты. Первая часть задачи, не итоговая поставка.
 
 ## #73/#74 и посох Морозко — 19.10.2026, OWNER_PENDING
 

@@ -7,7 +7,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import org.slavicmyths.bogatyr.BogatyrRules.State;
-@EventBusSubscriber(modid="slavicmyths")
 public final class BogatyrCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree){
         var debug=Commands.literal("debug_171").requires(s->s.hasPermission(2)&&BogatyrConfig.DEBUG.get())

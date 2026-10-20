@@ -8,7 +8,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
-@EventBusSubscriber(modid="slavicmyths")
 public final class NavigationCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree){
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("navigation").executes(c->{NavigationNetwork.sync(c.getSource().getPlayerOrException(),true);return 1;})));

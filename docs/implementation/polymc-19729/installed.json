@@ -1,0 +1,18 @@
+{
+  "status": "INSTALLED_TEST_PREVIEW_OWNER_PENDING",
+  "version": "1.9.7.29",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.29.jar",
+  "installed_sha256": "023e7d198f74b8fb1c80cceb421cdbb8a808cde632f8d450f248cda5af4cd605",
+  "source_head": "e5924bd909113dc587496940b270f963fe259714",
+  "merged_main": "a4f343f3421042736543dc2afa09cfc7f03bc65a",
+  "source_commit": "UNCOMMITTED working tree, including preserved user modifications; no automatic commit per AGENTS.md",
+  "source_fingerprint": "7882f286e0d0294900ceabff4eedda7508d4f55f52ceadbe65779609f7a0a3be",
+  "backup_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\codex-backups\\before-1.9.7.29-20261020-103316\\slavicmyths-1.9.7.28.jar",
+  "backup_sha256": "0d5076880f145dc38ea4a74380aa9f9285611708e072ce3485ed8f25bcb7138f",
+  "active_mod_jars": [
+    "slavicmyths-1.9.7.29.jar"
+  ],
+  "other_mods_preserved": 6,
+  "runtime_launches": 0,
+  "issue76": "OPEN_OWNER_IN_GAME_PENDING"
+}

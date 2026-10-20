@@ -1,0 +1,11 @@
+{
+  "status": "UNCHANGED",
+  "installed_version": "1.9.7.29",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.29.jar",
+  "sha256": "023e7d198f74b8fb1c80cceb421cdbb8a808cde632f8d450f248cda5af4cd605",
+  "active_slavic_jars": [
+    "slavicmyths-1.9.7.29.jar"
+  ],
+  "new_1.9.7.30": "NOT_INSTALLED",
+  "runtime_launches_by_agent": 0
+}

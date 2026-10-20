@@ -5,7 +5,6 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
 /** Explicit admin staging is the safe fallback; no unsolicited generation in existing worlds. */
-@EventBusSubscriber(modid="slavicmyths")
 public final class MarinkaCommands {
  public static void register(org.slavicmyths.commands.CommandTree tree){tree.add(Commands.literal("slavicmyths")
   .then(Commands.literal("hero").then(Commands.literal("dobrynya").executes(c->WitchYard.call(c.getSource().getPlayerOrException())?1:0)))

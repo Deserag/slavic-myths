@@ -8,7 +8,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class WolfCommands {
  public static void register(org.slavicmyths.commands.CommandTree tree){
   var decision=Commands.literal("wolf_decision").then(Commands.argument("encounter",UuidArgument.uuid()).then(Commands.argument("token",UuidArgument.uuid()).then(Commands.argument("action",StringArgumentType.word()).executes(c->{var p=c.getSource().getPlayerOrException();var id=UuidArgument.getUuid(c,"encounter");var token=UuidArgument.getUuid(c,"token");var action=StringArgumentType.getString(c,"action");if(!Set.of("accept","decline").contains(action))return 0;var wolf=p.serverLevel().getEntitiesOfClass(GreyWolf.class,p.getBoundingBox().inflate(16),w->w.encounterId().equals(id)).stream().findFirst().orElse(null);if(wolf==null){GreyWolf.say(p,"invalid");return 0;}return wolf.decision(p,token,action.equals("accept"))?1:0;}))));

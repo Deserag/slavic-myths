@@ -20,7 +20,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 /** Explicit operator placement; natural generation rules remain unchanged. */
-@EventBusSubscriber(modid="slavicmyths")
 public final class SanctuaryCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree) {
         var root=Commands.literal("slavicmyths");

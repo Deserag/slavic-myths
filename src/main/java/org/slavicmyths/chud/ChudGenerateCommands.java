@@ -16,7 +16,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 /** Explicit operator excavation, with persisted starts and portal-room protection. */
-@EventBusSubscriber(modid="slavicmyths")
 public final class ChudGenerateCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree){
         var city=Commands.literal("city").requires(s->s.hasPermission(2));

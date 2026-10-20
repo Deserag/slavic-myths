@@ -1,0 +1,3457 @@
+{
+  "variant": "B",
+  "atlas": [
+    512,
+    512
+  ],
+  "unit": "1/16 block",
+  "parts": [
+    {
+      "name": "root",
+      "parent": null,
+      "pos": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": []
+    },
+    {
+      "name": "pelvis",
+      "parent": "root",
+      "pos": [
+        0,
+        -12,
+        1.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -6.5,
+            -5,
+            -5.5,
+            13,
+            10,
+            11
+          ],
+          "material": "fur",
+          "uv": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spine",
+      "parent": "pelvis",
+      "pos": [
+        0,
+        -1,
+        -2.5
+      ],
+      "rotation": [
+        0.17,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -6,
+            -5,
+            -7,
+            12,
+            10,
+            13
+          ],
+          "material": "fur",
+          "uv": [
+            51,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chest",
+      "parent": "spine",
+      "pos": [
+        0,
+        -2,
+        -4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -9,
+            -7,
+            -6.5,
+            18,
+            14,
+            12
+          ],
+          "material": "fur",
+          "uv": [
+            103,
+            1
+          ]
+        },
+        {
+          "shape": [
+            -7.5,
+            4,
+            -5.5,
+            15,
+            4,
+            10
+          ],
+          "material": "fur",
+          "uv": [
+            165,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "neck",
+      "parent": "chest",
+      "pos": [
+        0,
+        -3,
+        -1.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -5.5,
+            -4.5,
+            -7,
+            11,
+            9,
+            9
+          ],
+          "material": "fur",
+          "uv": [
+            217,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "neck",
+      "pos": [
+        0,
+        3,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -6,
+            -5.2,
+            -5.5,
+            12,
+            10.5,
+            11
+          ],
+          "material": "fur",
+          "uv": [
+            259,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "muzzle",
+      "parent": "head",
+      "pos": [
+        0,
+        1.6,
+        -3.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.8,
+            -1.8,
+            -5.5,
+            7.6,
+            4.8,
+            6
+          ],
+          "material": "fur",
+          "uv": [
+            307,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nose",
+      "parent": "muzzle",
+      "pos": [
+        0,
+        0,
+        -5.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2.8,
+            -1,
+            -0.7,
+            5.6,
+            2.8,
+            1.2
+          ],
+          "material": "nose",
+          "uv": [
+            337,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "jaw",
+      "parent": "head",
+      "pos": [
+        0,
+        4,
+        -3.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.4,
+            0,
+            -6.5,
+            6.8,
+            2.4,
+            7
+          ],
+          "material": "jaw",
+          "uv": [
+            355,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "earL",
+      "parent": "head",
+      "pos": [
+        -4.5,
+        -5,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.14
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -1.4,
+            -4.5,
+            -1.3,
+            2.8,
+            4.5,
+            2.6
+          ],
+          "material": "fur",
+          "uv": [
+            385,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "earR",
+      "parent": "head",
+      "pos": [
+        4.5,
+        -5,
+        0
+      ],
+      "rotation": [
+        0.08,
+        0,
+        0.22
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -1.4,
+            -4,
+            -1.3,
+            2.8,
+            4,
+            2.6
+          ],
+          "material": "fur",
+          "uv": [
+            399,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "browL",
+      "parent": "head",
+      "pos": [
+        -4.7,
+        -2.4,
+        -5.7
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.12
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -1.4,
+            -0.8,
+            -0.7,
+            2.8,
+            1.6,
+            1.8
+          ],
+          "material": "fur",
+          "uv": [
+            413,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "eyeL",
+      "parent": "head",
+      "pos": [
+        -3.8,
+        -1,
+        -5.95
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.7,
+            -0.45,
+            -0.2,
+            1.4,
+            0.9,
+            0.4
+          ],
+          "material": "eye",
+          "uv": [
+            425,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "upperL",
+      "parent": "chest",
+      "pos": [
+        -8.4,
+        -4,
+        -2.4
+      ],
+      "rotation": [
+        0.78,
+        0,
+        -0.04
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.2,
+            0,
+            -3.5,
+            6.4,
+            8,
+            7
+          ],
+          "material": "fur",
+          "uv": [
+            433,
+            1
+          ]
+        },
+        {
+          "shape": [
+            -2.9,
+            7,
+            -3,
+            5.8,
+            6.5,
+            6
+          ],
+          "material": "fur",
+          "uv": [
+            463,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "foreL",
+      "parent": "upperL",
+      "pos": [
+        0,
+        13,
+        0
+      ],
+      "rotation": [
+        -1.5,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2.8,
+            0,
+            -3,
+            5.6,
+            11,
+            6
+          ],
+          "material": "fur",
+          "uv": [
+            1,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "handL",
+      "parent": "foreL",
+      "pos": [
+        0,
+        11,
+        0
+      ],
+      "rotation": [
+        0.55,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.6,
+            -1,
+            -4.2,
+            7.2,
+            4,
+            7
+          ],
+          "material": "fur",
+          "uv": [
+            27,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clawL0",
+      "parent": "handL",
+      "pos": [
+        -2.5,
+        -1.5,
+        -4
+      ],
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -4,
+            1,
+            1.5,
+            4
+          ],
+          "material": "claw",
+          "uv": [
+            59,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hookL0",
+      "parent": "clawL0",
+      "pos": [
+        0,
+        0,
+        -4
+      ],
+      "rotation": [
+        0.35,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -1.5,
+            1,
+            2,
+            1.5
+          ],
+          "material": "clawtip",
+          "uv": [
+            71,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clawL1",
+      "parent": "handL",
+      "pos": [
+        -0.8,
+        -1.5,
+        -4
+      ],
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -4,
+            1,
+            1.5,
+            4
+          ],
+          "material": "claw",
+          "uv": [
+            79,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hookL1",
+      "parent": "clawL1",
+      "pos": [
+        0,
+        0,
+        -4
+      ],
+      "rotation": [
+        0.35,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -1.5,
+            1,
+            2,
+            1.5
+          ],
+          "material": "clawtip",
+          "uv": [
+            91,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clawL2",
+      "parent": "handL",
+      "pos": [
+        0.8999999999999999,
+        -1.5,
+        -4
+      ],
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -4,
+            1,
+            1.5,
+            4
+          ],
+          "material": "claw",
+          "uv": [
+            99,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hookL2",
+      "parent": "clawL2",
+      "pos": [
+        0,
+        0,
+        -4
+      ],
+      "rotation": [
+        0.35,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -1.5,
+            1,
+            2,
+            1.5
+          ],
+          "material": "clawtip",
+          "uv": [
+            111,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clawL3",
+      "parent": "handL",
+      "pos": [
+        2.5999999999999996,
+        -1.5,
+        -4
+      ],
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -4,
+            1,
+            1.5,
+            4
+          ],
+          "material": "claw",
+          "uv": [
+            119,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hookL3",
+      "parent": "clawL3",
+      "pos": [
+        0,
+        0,
+        -4
+      ],
+      "rotation": [
+        0.35,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -1.5,
+            1,
+            2,
+            1.5
+          ],
+          "material": "clawtip",
+          "uv": [
+            131,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thighL",
+      "parent": "pelvis",
+      "pos": [
+        -4.5,
+        1,
+        1.6
+      ],
+      "rotation": [
+        1.35,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.2,
+            0,
+            -3.8,
+            6.4,
+            11,
+            7.6
+          ],
+          "material": "fur",
+          "uv": [
+            139,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "shinL",
+      "parent": "thighL",
+      "pos": [
+        0,
+        11,
+        0
+      ],
+      "rotation": [
+        -2.4,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2.3,
+            0,
+            -2.5,
+            4.6,
+            11,
+            5
+          ],
+          "material": "fur",
+          "uv": [
+            171,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "footL",
+      "parent": "shinL",
+      "pos": [
+        0,
+        11,
+        0
+      ],
+      "rotation": [
+        1.05,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.3,
+            -1,
+            -5.5,
+            6.6,
+            4,
+            8.5
+          ],
+          "material": "fur",
+          "uv": [
+            193,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toeL0",
+      "parent": "footL",
+      "pos": [
+        -2,
+        1,
+        -6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -2,
+            1,
+            1,
+            2
+          ],
+          "material": "clawtip",
+          "uv": [
+            227,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toeL1",
+      "parent": "footL",
+      "pos": [
+        0,
+        1,
+        -6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -2,
+            1,
+            1,
+            2
+          ],
+          "material": "clawtip",
+          "uv": [
+            235,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toeL2",
+      "parent": "footL",
+      "pos": [
+        2,
+        1,
+        -6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -2,
+            1,
+            1,
+            2
+          ],
+          "material": "clawtip",
+          "uv": [
+            243,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "browR",
+      "parent": "head",
+      "pos": [
+        4.7,
+        -2.4,
+        -5.7
+      ],
+      "rotation": [
+        0,
+        0,
+        0.12
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -1.4,
+            -0.8,
+            -0.7,
+            2.8,
+            1.6,
+            1.8
+          ],
+          "material": "fur",
+          "uv": [
+            251,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "eyeR",
+      "parent": "head",
+      "pos": [
+        3.8,
+        -1,
+        -5.95
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.7,
+            -0.45,
+            -0.2,
+            1.4,
+            0.9,
+            0.4
+          ],
+          "material": "eye",
+          "uv": [
+            263,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "upperR",
+      "parent": "chest",
+      "pos": [
+        8.4,
+        -4,
+        -2.4
+      ],
+      "rotation": [
+        0.78,
+        0,
+        0.04
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.2,
+            0,
+            -3.5,
+            6.4,
+            8,
+            7
+          ],
+          "material": "fur",
+          "uv": [
+            271,
+            29
+          ]
+        },
+        {
+          "shape": [
+            -2.9,
+            7,
+            -3,
+            5.8,
+            6.5,
+            6
+          ],
+          "material": "fur",
+          "uv": [
+            301,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "foreR",
+      "parent": "upperR",
+      "pos": [
+        0,
+        13,
+        0
+      ],
+      "rotation": [
+        -1.5,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2.8,
+            0,
+            -3,
+            5.6,
+            11,
+            6
+          ],
+          "material": "fur",
+          "uv": [
+            327,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "handR",
+      "parent": "foreR",
+      "pos": [
+        0,
+        11,
+        0
+      ],
+      "rotation": [
+        0.55,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.6,
+            -1,
+            -4.2,
+            7.2,
+            4,
+            7
+          ],
+          "material": "fur",
+          "uv": [
+            353,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clawR0",
+      "parent": "handR",
+      "pos": [
+        -2.5,
+        -1.5,
+        -4
+      ],
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -4,
+            1,
+            1.5,
+            4
+          ],
+          "material": "claw",
+          "uv": [
+            385,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hookR0",
+      "parent": "clawR0",
+      "pos": [
+        0,
+        0,
+        -4
+      ],
+      "rotation": [
+        0.35,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -1.5,
+            1,
+            2,
+            1.5
+          ],
+          "material": "clawtip",
+          "uv": [
+            397,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clawR1",
+      "parent": "handR",
+      "pos": [
+        -0.8,
+        -1.5,
+        -4
+      ],
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -4,
+            1,
+            1.5,
+            4
+          ],
+          "material": "claw",
+          "uv": [
+            405,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hookR1",
+      "parent": "clawR1",
+      "pos": [
+        0,
+        0,
+        -4
+      ],
+      "rotation": [
+        0.35,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -1.5,
+            1,
+            2,
+            1.5
+          ],
+          "material": "clawtip",
+          "uv": [
+            417,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clawR2",
+      "parent": "handR",
+      "pos": [
+        0.8999999999999999,
+        -1.5,
+        -4
+      ],
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -4,
+            1,
+            1.5,
+            4
+          ],
+          "material": "claw",
+          "uv": [
+            425,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hookR2",
+      "parent": "clawR2",
+      "pos": [
+        0,
+        0,
+        -4
+      ],
+      "rotation": [
+        0.35,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -1.5,
+            1,
+            2,
+            1.5
+          ],
+          "material": "clawtip",
+          "uv": [
+            437,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clawR3",
+      "parent": "handR",
+      "pos": [
+        2.5999999999999996,
+        -1.5,
+        -4
+      ],
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -4,
+            1,
+            1.5,
+            4
+          ],
+          "material": "claw",
+          "uv": [
+            445,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hookR3",
+      "parent": "clawR3",
+      "pos": [
+        0,
+        0,
+        -4
+      ],
+      "rotation": [
+        0.35,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -1.5,
+            1,
+            2,
+            1.5
+          ],
+          "material": "clawtip",
+          "uv": [
+            457,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thighR",
+      "parent": "pelvis",
+      "pos": [
+        4.5,
+        1,
+        1.6
+      ],
+      "rotation": [
+        1.35,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.2,
+            0,
+            -3.8,
+            6.4,
+            11,
+            7.6
+          ],
+          "material": "fur",
+          "uv": [
+            465,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "name": "shinR",
+      "parent": "thighR",
+      "pos": [
+        0,
+        11,
+        0
+      ],
+      "rotation": [
+        -2.4,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2.3,
+            0,
+            -2.5,
+            4.6,
+            11,
+            5
+          ],
+          "material": "fur",
+          "uv": [
+            1,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "footR",
+      "parent": "shinR",
+      "pos": [
+        0,
+        11,
+        0
+      ],
+      "rotation": [
+        1.05,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.3,
+            -1,
+            -5.5,
+            6.6,
+            4,
+            8.5
+          ],
+          "material": "fur",
+          "uv": [
+            23,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toeR0",
+      "parent": "footR",
+      "pos": [
+        -2,
+        1,
+        -6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -2,
+            1,
+            1,
+            2
+          ],
+          "material": "clawtip",
+          "uv": [
+            57,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toeR1",
+      "parent": "footR",
+      "pos": [
+        0,
+        1,
+        -6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -2,
+            1,
+            1,
+            2
+          ],
+          "material": "clawtip",
+          "uv": [
+            65,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toeR2",
+      "parent": "footR",
+      "pos": [
+        2,
+        1,
+        -6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -2,
+            1,
+            1,
+            2
+          ],
+          "material": "clawtip",
+          "uv": [
+            73,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tail1",
+      "parent": "pelvis",
+      "pos": [
+        0,
+        0,
+        3
+      ],
+      "rotation": [
+        0.35,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2.7,
+            -2.5,
+            0,
+            5.4,
+            6,
+            5
+          ],
+          "material": "fur",
+          "uv": [
+            81,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tail2",
+      "parent": "tail1",
+      "pos": [
+        0,
+        1.5,
+        3
+      ],
+      "rotation": [
+        0.25,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2.4,
+            -2.2,
+            0,
+            4.8,
+            5.5,
+            5
+          ],
+          "material": "fur",
+          "uv": [
+            105,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tail3",
+      "parent": "tail2",
+      "pos": [
+        0,
+        1.5,
+        3
+      ],
+      "rotation": [
+        0.1,
+        0,
+        0.08
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -1.8,
+            -1.7,
+            0,
+            3.6,
+            4.5,
+            4
+          ],
+          "material": "fur",
+          "uv": [
+            127,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "furShoulderL",
+      "parent": "chest",
+      "pos": [
+        -9,
+        -7,
+        2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2,
+            -2,
+            -4,
+            4,
+            7,
+            8
+          ],
+          "material": "fur",
+          "uv": [
+            145,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "furShoulderR",
+      "parent": "chest",
+      "pos": [
+        9,
+        -7,
+        2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2,
+            -2,
+            -4,
+            4,
+            7,
+            8
+          ],
+          "material": "fur",
+          "uv": [
+            171,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "furNape",
+      "parent": "neck",
+      "pos": [
+        0,
+        -5,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -7,
+            -2,
+            -4,
+            14,
+            4,
+            10
+          ],
+          "material": "fur",
+          "uv": [
+            197,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "furRuffL",
+      "parent": "neck",
+      "pos": [
+        -6,
+        0,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2,
+            -4,
+            -4,
+            4,
+            9,
+            8
+          ],
+          "material": "fur",
+          "uv": [
+            247,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "furRuffR",
+      "parent": "neck",
+      "pos": [
+        6,
+        0,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2,
+            -4,
+            -4,
+            4,
+            9,
+            8
+          ],
+          "material": "fur",
+          "uv": [
+            273,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "furBack",
+      "parent": "spine",
+      "pos": [
+        0,
+        -6,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -6,
+            -2,
+            -3,
+            12,
+            4,
+            9
+          ],
+          "material": "fur",
+          "uv": [
+            299,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "furTail",
+      "parent": "tail3",
+      "pos": [
+        0,
+        3,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2,
+            -1,
+            -1,
+            4,
+            3,
+            2
+          ],
+          "material": "fur",
+          "uv": [
+            343,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "furJaw",
+      "parent": "jaw",
+      "pos": [
+        0,
+        2,
+        -2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -4,
+            -1,
+            -3,
+            8,
+            4,
+            5
+          ],
+          "material": "fur",
+          "uv": [
+            357,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chestV",
+      "parent": "chest",
+      "pos": [
+        0,
+        0,
+        -9.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -7,
+            -6,
+            -0.3,
+            14,
+            12,
+            0.6
+          ],
+          "material": "chestV",
+          "uv": [
+            385,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sternumFur",
+      "parent": "chest",
+      "pos": [
+        0,
+        8,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -7,
+            0,
+            -8,
+            14,
+            2.2,
+            12
+          ],
+          "material": "chestV",
+          "uv": [
+            417,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sternumTip",
+      "parent": "chest",
+      "pos": [
+        0,
+        8.5,
+        3
+      ],
+      "rotation": [
+        0.08,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -5,
+            0,
+            0,
+            10,
+            2,
+            4
+          ],
+          "material": "chestV",
+          "uv": [
+            471,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "throatUnder",
+      "parent": "neck",
+      "pos": [
+        0,
+        5,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -5,
+            0,
+            -6,
+            10,
+            2.5,
+            11
+          ],
+          "material": "chestV",
+          "uv": [
+            1,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "throatFur",
+      "parent": "neck",
+      "pos": [
+        0,
+        3,
+        -10
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -5,
+            -3,
+            -1,
+            10,
+            8,
+            2
+          ],
+          "material": "chestV",
+          "uv": [
+            45,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "muzzleLight",
+      "parent": "muzzle",
+      "pos": [
+        0,
+        1.6,
+        -2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.85,
+            0,
+            -3.8,
+            7.7,
+            1.8,
+            6.5
+          ],
+          "material": "jawLight",
+          "uv": [
+            71,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "shoulderRuffL",
+      "parent": "chest",
+      "pos": [
+        -8,
+        -5,
+        1
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.12
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3,
+            -3,
+            -5,
+            6,
+            10,
+            11
+          ],
+          "material": "fur",
+          "uv": [
+            103,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "foreFurL",
+      "parent": "foreL",
+      "pos": [
+        0,
+        2,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3,
+            -1,
+            -3,
+            6,
+            7,
+            6
+          ],
+          "material": "fur",
+          "uv": [
+            139,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "handKnuckleL",
+      "parent": "handL",
+      "pos": [
+        0,
+        -1,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -4,
+            -1,
+            -4,
+            8,
+            3,
+            7
+          ],
+          "material": "fur",
+          "uv": [
+            165,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cheekRuffL",
+      "parent": "head",
+      "pos": [
+        -5,
+        2,
+        1
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.15
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2,
+            -3,
+            -4,
+            4,
+            8,
+            6
+          ],
+          "material": "fur",
+          "uv": [
+            197,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "shoulderRuffR",
+      "parent": "chest",
+      "pos": [
+        8,
+        -5,
+        1
+      ],
+      "rotation": [
+        0,
+        0,
+        0.12
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3,
+            -3,
+            -5,
+            6,
+            10,
+            11
+          ],
+          "material": "fur",
+          "uv": [
+            219,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "foreFurR",
+      "parent": "foreR",
+      "pos": [
+        0,
+        2,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3,
+            -1,
+            -3,
+            6,
+            7,
+            6
+          ],
+          "material": "fur",
+          "uv": [
+            255,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "handKnuckleR",
+      "parent": "handR",
+      "pos": [
+        0,
+        -1,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -4,
+            -1,
+            -4,
+            8,
+            3,
+            7
+          ],
+          "material": "fur",
+          "uv": [
+            281,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cheekRuffR",
+      "parent": "head",
+      "pos": [
+        5,
+        2,
+        1
+      ],
+      "rotation": [
+        0,
+        0,
+        0.15
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2,
+            -3,
+            -4,
+            4,
+            8,
+            6
+          ],
+          "material": "fur",
+          "uv": [
+            313,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "napeRidge",
+      "parent": "neck",
+      "pos": [
+        0,
+        -5,
+        1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -6,
+            -3,
+            -3,
+            12,
+            5,
+            9
+          ],
+          "material": "fur",
+          "uv": [
+            335,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bibTier0",
+      "parent": "neck",
+      "pos": [
+        0,
+        3,
+        -8
+      ],
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -5.0,
+            -1,
+            -3,
+            10.0,
+            4,
+            4
+          ],
+          "material": "chestV",
+          "uv": [
+            379,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bibTier1",
+      "parent": "neck",
+      "pos": [
+        0,
+        5,
+        -8
+      ],
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -4.15,
+            -1,
+            -3,
+            8.3,
+            4,
+            4
+          ],
+          "material": "chestV",
+          "uv": [
+            409,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bibTier2",
+      "parent": "neck",
+      "pos": [
+        0,
+        7,
+        -8
+      ],
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -3.3,
+            -1,
+            -3,
+            6.6,
+            4,
+            4
+          ],
+          "material": "chestV",
+          "uv": [
+            437,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightCheekL",
+      "parent": "head",
+      "pos": [
+        -4,
+        4,
+        -4
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.16
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2,
+            -1,
+            -4,
+            4,
+            4,
+            6
+          ],
+          "material": "jawLight",
+          "uv": [
+            461,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ruffTipL0",
+      "parent": "neck",
+      "pos": [
+        -5.0,
+        0,
+        -3
+      ],
+      "rotation": [
+        0.18,
+        0,
+        -0.16
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -1.7,
+            -1,
+            -2,
+            3.4,
+            4,
+            5
+          ],
+          "material": "chestV",
+          "uv": [
+            483,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ruffTipL1",
+      "parent": "neck",
+      "pos": [
+        -4.5,
+        2,
+        -3
+      ],
+      "rotation": [
+        0.18,
+        0,
+        -0.16
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -1.7,
+            -1,
+            -2,
+            3.4,
+            4,
+            5
+          ],
+          "material": "chestV",
+          "uv": [
+            1,
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightCheekR",
+      "parent": "head",
+      "pos": [
+        4,
+        4,
+        -4
+      ],
+      "rotation": [
+        0,
+        0,
+        0.16
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -2,
+            -1,
+            -4,
+            4,
+            4,
+            6
+          ],
+          "material": "jawLight",
+          "uv": [
+            21,
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ruffTipR0",
+      "parent": "neck",
+      "pos": [
+        5.0,
+        0,
+        -3
+      ],
+      "rotation": [
+        0.18,
+        0,
+        0.16
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -1.7,
+            -1,
+            -2,
+            3.4,
+            4,
+            5
+          ],
+          "material": "chestV",
+          "uv": [
+            43,
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ruffTipR1",
+      "parent": "neck",
+      "pos": [
+        4.5,
+        2,
+        -3
+      ],
+      "rotation": [
+        0.18,
+        0,
+        0.16
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -1.7,
+            -1,
+            -2,
+            3.4,
+            4,
+            5
+          ],
+          "material": "chestV",
+          "uv": [
+            63,
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fangUpperL",
+      "parent": "muzzle",
+      "pos": [
+        -2.4,
+        2.7,
+        -4.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.6,
+            0,
+            -0.6,
+            1.2,
+            3.5,
+            1.2
+          ],
+          "material": "tooth",
+          "uv": [
+            83,
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fangLowerL",
+      "parent": "jaw",
+      "pos": [
+        -2.3,
+        0,
+        -4.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            -2.5,
+            -0.5,
+            1,
+            2.5,
+            1
+          ],
+          "material": "tooth",
+          "uv": [
+            93,
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toothSideL",
+      "parent": "muzzle",
+      "pos": [
+        -3.3,
+        2.6,
+        -2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -0.5,
+            1,
+            2,
+            1
+          ],
+          "material": "tooth",
+          "uv": [
+            99,
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fangUpperR",
+      "parent": "muzzle",
+      "pos": [
+        2.4,
+        2.7,
+        -4.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.6,
+            0,
+            -0.6,
+            1.2,
+            3.5,
+            1.2
+          ],
+          "material": "tooth",
+          "uv": [
+            105,
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fangLowerR",
+      "parent": "jaw",
+      "pos": [
+        2.3,
+        0,
+        -4.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            -2.5,
+            -0.5,
+            1,
+            2.5,
+            1
+          ],
+          "material": "tooth",
+          "uv": [
+            115,
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toothSideR",
+      "parent": "muzzle",
+      "pos": [
+        3.3,
+        2.6,
+        -2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.5,
+            0,
+            -0.5,
+            1,
+            2,
+            1
+          ],
+          "material": "tooth",
+          "uv": [
+            121,
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scarArm",
+      "parent": "upperL",
+      "pos": [
+        -3.1,
+        4,
+        -2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.25,
+            0,
+            -0.5,
+            0.5,
+            6,
+            1
+          ],
+          "material": "scar",
+          "uv": [
+            127,
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scarRibs",
+      "parent": "chest",
+      "pos": [
+        10.1,
+        0,
+        1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "boxes": [
+        {
+          "shape": [
+            -0.25,
+            -3,
+            -0.5,
+            0.5,
+            6,
+            1
+          ],
+          "material": "scar",
+          "uv": [
+            133,
+            92
+          ]
+        }
+      ]
+    }
+  ],
+  "uv_rectangles": [
+    [
+      0,
+      0,
+      50,
+      23
+    ],
+    [
+      50,
+      0,
+      52,
+      25
+    ],
+    [
+      102,
+      0,
+      62,
+      28
+    ],
+    [
+      164,
+      0,
+      52,
+      16
+    ],
+    [
+      216,
+      0,
+      42,
+      20
+    ],
+    [
+      258,
+      0,
+      48,
+      24
+    ],
+    [
+      306,
+      0,
+      30,
+      13
+    ],
+    [
+      336,
+      0,
+      18,
+      7
+    ],
+    [
+      354,
+      0,
+      30,
+      12
+    ],
+    [
+      384,
+      0,
+      14,
+      10
+    ],
+    [
+      398,
+      0,
+      14,
+      9
+    ],
+    [
+      412,
+      0,
+      12,
+      6
+    ],
+    [
+      424,
+      0,
+      8,
+      4
+    ],
+    [
+      432,
+      0,
+      30,
+      17
+    ],
+    [
+      462,
+      0,
+      26,
+      15
+    ],
+    [
+      0,
+      28,
+      26,
+      19
+    ],
+    [
+      26,
+      28,
+      32,
+      13
+    ],
+    [
+      58,
+      28,
+      12,
+      8
+    ],
+    [
+      70,
+      28,
+      8,
+      6
+    ],
+    [
+      78,
+      28,
+      12,
+      8
+    ],
+    [
+      90,
+      28,
+      8,
+      6
+    ],
+    [
+      98,
+      28,
+      12,
+      8
+    ],
+    [
+      110,
+      28,
+      8,
+      6
+    ],
+    [
+      118,
+      28,
+      12,
+      8
+    ],
+    [
+      130,
+      28,
+      8,
+      6
+    ],
+    [
+      138,
+      28,
+      32,
+      21
+    ],
+    [
+      170,
+      28,
+      22,
+      18
+    ],
+    [
+      192,
+      28,
+      34,
+      15
+    ],
+    [
+      226,
+      28,
+      8,
+      5
+    ],
+    [
+      234,
+      28,
+      8,
+      5
+    ],
+    [
+      242,
+      28,
+      8,
+      5
+    ],
+    [
+      250,
+      28,
+      12,
+      6
+    ],
+    [
+      262,
+      28,
+      8,
+      4
+    ],
+    [
+      270,
+      28,
+      30,
+      17
+    ],
+    [
+      300,
+      28,
+      26,
+      15
+    ],
+    [
+      326,
+      28,
+      26,
+      19
+    ],
+    [
+      352,
+      28,
+      32,
+      13
+    ],
+    [
+      384,
+      28,
+      12,
+      8
+    ],
+    [
+      396,
+      28,
+      8,
+      6
+    ],
+    [
+      404,
+      28,
+      12,
+      8
+    ],
+    [
+      416,
+      28,
+      8,
+      6
+    ],
+    [
+      424,
+      28,
+      12,
+      8
+    ],
+    [
+      436,
+      28,
+      8,
+      6
+    ],
+    [
+      444,
+      28,
+      12,
+      8
+    ],
+    [
+      456,
+      28,
+      8,
+      6
+    ],
+    [
+      464,
+      28,
+      32,
+      21
+    ],
+    [
+      0,
+      49,
+      22,
+      18
+    ],
+    [
+      22,
+      49,
+      34,
+      15
+    ],
+    [
+      56,
+      49,
+      8,
+      5
+    ],
+    [
+      64,
+      49,
+      8,
+      5
+    ],
+    [
+      72,
+      49,
+      8,
+      5
+    ],
+    [
+      80,
+      49,
+      24,
+      13
+    ],
+    [
+      104,
+      49,
+      22,
+      13
+    ],
+    [
+      126,
+      49,
+      18,
+      11
+    ],
+    [
+      144,
+      49,
+      26,
+      17
+    ],
+    [
+      170,
+      49,
+      26,
+      17
+    ],
+    [
+      196,
+      49,
+      50,
+      16
+    ],
+    [
+      246,
+      49,
+      26,
+      19
+    ],
+    [
+      272,
+      49,
+      26,
+      19
+    ],
+    [
+      298,
+      49,
+      44,
+      15
+    ],
+    [
+      342,
+      49,
+      14,
+      7
+    ],
+    [
+      356,
+      49,
+      28,
+      11
+    ],
+    [
+      384,
+      49,
+      32,
+      15
+    ],
+    [
+      416,
+      49,
+      54,
+      17
+    ],
+    [
+      470,
+      49,
+      30,
+      8
+    ],
+    [
+      0,
+      68,
+      44,
+      16
+    ],
+    [
+      44,
+      68,
+      26,
+      12
+    ],
+    [
+      70,
+      68,
+      32,
+      11
+    ],
+    [
+      102,
+      68,
+      36,
+      23
+    ],
+    [
+      138,
+      68,
+      26,
+      15
+    ],
+    [
+      164,
+      68,
+      32,
+      12
+    ],
+    [
+      196,
+      68,
+      22,
+      16
+    ],
+    [
+      218,
+      68,
+      36,
+      23
+    ],
+    [
+      254,
+      68,
+      26,
+      15
+    ],
+    [
+      280,
+      68,
+      32,
+      12
+    ],
+    [
+      312,
+      68,
+      22,
+      16
+    ],
+    [
+      334,
+      68,
+      44,
+      16
+    ],
+    [
+      378,
+      68,
+      30,
+      10
+    ],
+    [
+      408,
+      68,
+      28,
+      10
+    ],
+    [
+      436,
+      68,
+      24,
+      10
+    ],
+    [
+      460,
+      68,
+      22,
+      12
+    ],
+    [
+      482,
+      68,
+      20,
+      11
+    ],
+    [
+      0,
+      91,
+      20,
+      11
+    ],
+    [
+      20,
+      91,
+      22,
+      12
+    ],
+    [
+      42,
+      91,
+      20,
+      11
+    ],
+    [
+      62,
+      91,
+      20,
+      11
+    ],
+    [
+      82,
+      91,
+      10,
+      8
+    ],
+    [
+      92,
+      91,
+      6,
+      6
+    ],
+    [
+      98,
+      91,
+      6,
+      5
+    ],
+    [
+      104,
+      91,
+      10,
+      8
+    ],
+    [
+      114,
+      91,
+      6,
+      6
+    ],
+    [
+      120,
+      91,
+      6,
+      5
+    ],
+    [
+      126,
+      91,
+      6,
+      9
+    ],
+    [
+      132,
+      91,
+      6,
+      9
+    ]
+  ]
+}

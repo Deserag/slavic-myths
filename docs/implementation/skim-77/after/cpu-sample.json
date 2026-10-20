@@ -1,0 +1,7 @@
+{
+  "IDLE_microseconds_per_sample": 19.93955,
+  "ROAR_microseconds_per_sample": 35.17035,
+  "GRIP_microseconds_per_sample": 36.33935,
+  "DEATH_microseconds_per_sample": 39.19615,
+  "scope": "CPU pose only,200warmup+2000samples; no world, no GPU/FPS claim"
+}

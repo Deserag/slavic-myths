@@ -1,0 +1,7 @@
+{
+  "IDLE_microseconds_per_sample": 33.35873333333333,
+  "RISE_microseconds_per_sample": 13.860799333333333,
+  "GRAB_microseconds_per_sample": 12.0236,
+  "ESCAPE_microseconds_per_sample": 35.595534,
+  "scope": "CPU model.sample only; warmup150, samples1500; not FPS, MSPT or in-game benchmark"
+}

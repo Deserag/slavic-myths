@@ -7,7 +7,6 @@ import net.minecraft.network.chat.Component;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class ClassCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree){
         var player=Commands.argument("player",EntityArgument.player());

@@ -1,0 +1,266 @@
+{
+  "druzhinnik": [
+    {
+      "id": "aerial_strike",
+      "x": 0,
+      "y": 222,
+      "parent": "flurry"
+    },
+    {
+      "id": "flurry",
+      "x": 0,
+      "y": 148,
+      "parent": "lunge"
+    },
+    {
+      "id": "riposte",
+      "x": 58,
+      "y": 296,
+      "parent": "shield_ram"
+    },
+    {
+      "id": "bulwark",
+      "x": 116,
+      "y": 296,
+      "parent": "shield_ram"
+    },
+    {
+      "id": "shield_ram",
+      "x": 87,
+      "y": 222,
+      "parent": "trip"
+    },
+    {
+      "id": "trip",
+      "x": 87,
+      "y": 148,
+      "parent": "lunge"
+    },
+    {
+      "id": "onslaught",
+      "x": 174,
+      "y": 148,
+      "parent": "lunge"
+    },
+    {
+      "id": "lunge",
+      "x": 87,
+      "y": 74,
+      "parent": "druzhinnik"
+    },
+    {
+      "id": "battle_discipline",
+      "x": 232,
+      "y": 222,
+      "parent": "steadfast"
+    },
+    {
+      "id": "steadfast",
+      "x": 232,
+      "y": 148,
+      "parent": "temper"
+    },
+    {
+      "id": "second_wind",
+      "x": 290,
+      "y": 148,
+      "parent": "temper"
+    },
+    {
+      "id": "iron_will",
+      "x": 348,
+      "y": 148,
+      "parent": "temper"
+    },
+    {
+      "id": "temper",
+      "x": 290,
+      "y": 74,
+      "parent": "druzhinnik"
+    },
+    {
+      "id": "druzhinnik",
+      "x": 188,
+      "y": 0,
+      "parent": ""
+    }
+  ],
+  "vedun": [
+    {
+      "id": "cleanse",
+      "x": 0,
+      "y": 222,
+      "parent": "ward"
+    },
+    {
+      "id": "last_rite",
+      "x": 58,
+      "y": 222,
+      "parent": "ward"
+    },
+    {
+      "id": "greater_ward",
+      "x": 116,
+      "y": 222,
+      "parent": "ward"
+    },
+    {
+      "id": "ward",
+      "x": 58,
+      "y": 148,
+      "parent": "binding_sign"
+    },
+    {
+      "id": "slumber",
+      "x": 174,
+      "y": 222,
+      "parent": "hex"
+    },
+    {
+      "id": "greater_hex",
+      "x": 232,
+      "y": 222,
+      "parent": "hex"
+    },
+    {
+      "id": "hex",
+      "x": 203,
+      "y": 148,
+      "parent": "binding_sign"
+    },
+    {
+      "id": "binding_sign",
+      "x": 130,
+      "y": 74,
+      "parent": "vedun"
+    },
+    {
+      "id": "spirit_sense",
+      "x": 290,
+      "y": 222,
+      "parent": "herbalism"
+    },
+    {
+      "id": "spiritual_fortitude",
+      "x": 348,
+      "y": 222,
+      "parent": "herbalism"
+    },
+    {
+      "id": "herbalism",
+      "x": 319,
+      "y": 148,
+      "parent": "ward_power"
+    },
+    {
+      "id": "sign_mastery",
+      "x": 406,
+      "y": 148,
+      "parent": "ward_power"
+    },
+    {
+      "id": "ward_power",
+      "x": 362,
+      "y": 74,
+      "parent": "vedun"
+    },
+    {
+      "id": "vedun",
+      "x": 246,
+      "y": 0,
+      "parent": ""
+    }
+  ],
+  "razboinik": [
+    {
+      "id": "dirty_strike",
+      "x": 0,
+      "y": 222,
+      "parent": "dash"
+    },
+    {
+      "id": "opportunity",
+      "x": 58,
+      "y": 296,
+      "parent": "smoke"
+    },
+    {
+      "id": "smoke",
+      "x": 58,
+      "y": 222,
+      "parent": "dash"
+    },
+    {
+      "id": "raider_dash",
+      "x": 116,
+      "y": 222,
+      "parent": "dash"
+    },
+    {
+      "id": "dash",
+      "x": 58,
+      "y": 148,
+      "parent": "keen_eye"
+    },
+    {
+      "id": "net",
+      "x": 174,
+      "y": 148,
+      "parent": "keen_eye"
+    },
+    {
+      "id": "hunters_fervor",
+      "x": 232,
+      "y": 148,
+      "parent": "keen_eye"
+    },
+    {
+      "id": "true_shot",
+      "x": 290,
+      "y": 148,
+      "parent": "keen_eye"
+    },
+    {
+      "id": "keen_eye",
+      "x": 174,
+      "y": 74,
+      "parent": "razboinik"
+    },
+    {
+      "id": "cold_blood",
+      "x": 348,
+      "y": 222,
+      "parent": "steady_aim"
+    },
+    {
+      "id": "ambush_master",
+      "x": 406,
+      "y": 222,
+      "parent": "steady_aim"
+    },
+    {
+      "id": "steady_aim",
+      "x": 377,
+      "y": 148,
+      "parent": "light_step"
+    },
+    {
+      "id": "survival_instinct",
+      "x": 464,
+      "y": 148,
+      "parent": "light_step"
+    },
+    {
+      "id": "light_step",
+      "x": 420,
+      "y": 74,
+      "parent": "razboinik"
+    },
+    {
+      "id": "razboinik",
+      "x": 297,
+      "y": 0,
+      "parent": ""
+    }
+  ]
+}

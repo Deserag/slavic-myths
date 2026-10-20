@@ -1,0 +1,23 @@
+{
+  "head": "e5924bd909113dc587496940b270f963fe259714",
+  "fetched_main": "fc68908b983fe677063f6ce29c982aebc72d3e26",
+  "installed_version": "1.9.7.29",
+  "installed_jar_sha256": "023e7d198f74b8fb1c80cceb421cdbb8a808cde632f8d450f248cda5af4cd605",
+  "source_commit": "preserved uncommitted working tree and pending merge from previous task",
+  "files": {
+    "src/main/java/org/slavicmyths/client/SkimMesh.java": "7f391ede71d955d625086672d4ffafa8023fb2abd6d69456ed1e30f6ac29c506",
+    "src/main/java/org/slavicmyths/client/SkimModel.java": "2e6618248ed3535c937eb98fb07bdb4df0acf04f3c486b755a0586e08c71b1c5",
+    "src/main/java/org/slavicmyths/client/SkimClient.java": "a182443aa12b3a350ceab47f32a393c3b00043dc7ba7f68483e362c23a0d4253",
+    "src/main/java/org/slavicmyths/client/AlyoshaMesh.java": "425dc9ce9703aef88122974bdebefa42f74c41db1f441920c202974ad2e30579",
+    "src/main/java/org/slavicmyths/skim/SkimBeastEntity.java": "f8c0c9cc5b39389ded3a0d2de81cc0f342cedbd7c9daaf9f341b076dd6501cfa",
+    "src/main/java/org/slavicmyths/skim/SkimAction.java": "2a229a98bba2170d3c0e38953714b36c3054478afdcb8fb12cb4b0f0660821cc",
+    "src/main/resources/assets/slavicmyths/textures/entity/skim_beast.png": "2ebd7bfd1b1d4dbc103068a32f478a55cc2431d015d5c2268b10c361d0a5f4d7",
+    "src/main/resources/assets/slavicmyths/textures/entity/alyosha_popovich.png": "2c6835a9251f7db926f65d19b5908680084afe8bd71f703ac9b0f690631568a1",
+    "tools/skim_assets.py": "788012e85d51b01495d869a923f2b2a21b30f6d36a1eeadf06037fd5663c922d",
+    "docs/design/ISSUE_77_SKIM_MODEL_SPEC.svg": "0c394ea8f51f04c6deed44fecd9293716f83b0072dd06630b6dd0d631c738b36",
+    "docs/specs/1.7.3/06_References/Approved/APPROVED_Skim_Beast_4_views_and_attacks.png": "4a122c4ad29ab5c7550fd8126703199294949a28ed11c11ebf670685e8963683"
+  },
+  "model_coordinates": "root y=0; ground y=24; 16modelpx=block; forward -Z; renderer no scale",
+  "frozen_aabb": "oriented width2.1, length4.8, forward center .55, height2.95; ceiling check2.95..4.7 permits rearing",
+  "owner_screenshot_20_oct": "not supplied in this task; independent actual source baseline captured instead"
+}

@@ -1,0 +1,11 @@
+{
+  "src/main/java/org/slavicmyths/client/ClassTreeViewport.java": "efad708810adf2e11994baf659577b9b12c38c8a4190556892188b71c8337000",
+  "src/main/java/org/slavicmyths/client/ClassClient.java": "06c21fd170c2e4c139a9b1fae2985da7de420d92495106947bbec6f6287bd06d",
+  "src/main/java/org/slavicmyths/client/ClassTheme.java": "5e7d5f60521c46ef68fd31703fecf12995d9ccedb552176ad1c3de094662d492",
+  "src/main/java/org/slavicmyths/client/ClassMasteryScreen.java": "3c8f15b71cc37651f1c67a6a8791454a1c6df56bb95b715114e45f7dbd43b7f6",
+  "src/main/java/org/slavicmyths/rpg/classes/ClassDefinitions.java": "496033b6137f7eb8e8603e8f1ae51ee6a1f29304e00c3669eed86d32568bdeeb",
+  "src/main/java/org/slavicmyths/rpg/classes/ClassState.java": "85217658712419aaa24a55bf856916bb0e9c13b8946cdb630a0ed22e01b9f288",
+  "src/main/java/org/slavicmyths/rpg/classes/ClassNetwork.java": "2c3bf2d2dadc0e07b089785048e64fe69ccbf77d7cdf8efab6ec72a473fa9225",
+  "src/main/java/org/slavicmyths/rpg/classes/ClassRuntime.java": "3e7ebd344ef9e009699c2b5a4214218f92306432cc88fb57a47fe0aadd37e47d",
+  "src/main/java/org/slavicmyths/rpg/classes/ClassBalance.java": "529b0544df273c9b47a580ae51fa4485a8528c2759fb2f6d8f1b289363b674f3"
+}

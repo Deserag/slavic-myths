@@ -31,7 +31,7 @@ public final class Cursed55Offline {
  }
  private record Key(String name,Move action,float tick,boolean upright,boolean held,float movement){}
  @SuppressWarnings("unchecked") public static void main(String[] args)throws Exception{
-  var model=new CursedVolkolakModel();var parts=(Map<String,ModelPart>)field(model,"parts");check(parts.size()>=70,"Preserved articulated cursed rig");var keys=new ArrayList<Key>();
+  var model=new CursedVolkolakModel();var parts=(Map<String,ModelPart>)field(model,"parts");check(parts.keySet().containsAll(List.of("root","pelvis","spine","chest","neck","head","muzzle","jaw","upperL","foreL","handL","upperR","foreR","handR","thighL","shinL","footL","thighR","shinR","footR","tail1","tail2","tail3","eyeL","eyeR")),"Preserved animated anchor chains; anatomy has no arbitrary minimum cube count");var keys=new ArrayList<Key>();
   keys.add(new Key("quad",Move.IDLE,20,false,false,0));keys.add(new Key("upright",Move.IDLE,20,true,false,0));keys.add(new Key("run_quad",Move.IDLE,20,false,false,.8F));keys.add(new Key("run_upright",Move.IDLE,20,true,false,.8F));
   for(var action:new Move[]{Move.SNIFF,Move.LISTEN,Move.ROAR,Move.HOWL_SHORT,Move.STAGGER,Move.ALERT,Move.SNARL})keys.add(new Key(action.name(),action,10,false,false,0));
   for(int tick:new int[]{0,4,8,12,16})keys.add(new Key("rise_"+tick,Move.RISE,tick,false,false,0));

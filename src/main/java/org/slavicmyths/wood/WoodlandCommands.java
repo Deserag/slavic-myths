@@ -7,7 +7,6 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class WoodlandCommands {
  public static void register(org.slavicmyths.commands.CommandTree tree){
   com.mojang.brigadier.builder.LiteralArgumentBuilder<CommandSourceStack> grow=Commands.literal("growtree");

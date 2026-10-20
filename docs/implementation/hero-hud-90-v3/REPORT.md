@@ -82,8 +82,14 @@ SHA256: `0d5076880f145dc38ea4a74380aa9f9285611708e072ce3485ed8f25bcb7138f`.
 | Java21 clean build/ресурсы/JAR + пиво/classes | build.log/checks.json/class-ui-regression | PASS |
 | Настоящее событие Полоза, runtime3/no4, unload/return/отсутствие мигания | Игру запускать запрещено | NOT_RUN |
 | Реальные minimap/chat/hotbar/font пересечения в модпаке | Общая ручная проверка владельца | NOT_RUN |
-| Установка всех текущих изменений в PolyMC | Квитанция после установки | NOT_RUN |
+| Установка всех текущих изменений в PolyMC | [Installed28/backup/SHA/source](../polymc-19728/REPORT.md) | PASS |
 | Owner acceptance | Не подтверждена для28 | NOT_RUN |
 
 Запусков Minecraft/PolyMC/GameTest/server0. Issue не закрывалась, labels приёмки
 за владельца не ставились. Установка — TEST_PREVIEW по прямому запросу владельца.
+
+## Установка после gates
+
+1.9.7.28 INSTALLED_TEST_PREVIEW, source e5924bd9 + сохранённые UI/command changes.
+Все текущие production изменения включены; backup25,installed SHA и одинJAR PASS.
+[Точная квитанция](../polymc-19728/REPORT.md). Runtime/owner по-прежнему NOT_RUN.

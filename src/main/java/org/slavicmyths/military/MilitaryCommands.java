@@ -12,7 +12,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import org.slavicmyths.village.VillageRoles;
-@EventBusSubscriber(modid="slavicmyths")
 public final class MilitaryCommands {
  public static void register(org.slavicmyths.commands.CommandTree tree){tree.add(Commands.literal("slavicmyths")
   .then(Commands.literal("test").requires(s->s.hasPermission(2)).then(Commands.literal("guard").executes(c->{var s=c.getSource();BlockPos pos=BlockPos.containing(s.getPosition()).relative(s.getEntity()==null?Direction.NORTH:s.getEntity().getDirection(),3);s.getLevel().setBlock(pos,Military.TABLE.get().defaultBlockState(),3);var v=EntityType.VILLAGER.create(s.getLevel());v.moveTo(pos.getX()+1.5,pos.getY(),pos.getZ()+.5,0,0);v.setVillagerData(v.getVillagerData().setProfession(VillageRoles.ROLES.get("druzhinnik").get()));v.getBrain().setMemory(net.minecraft.world.entity.ai.memory.MemoryModuleType.JOB_SITE,GlobalPos.of(s.getLevel().dimension(),pos));s.getLevel().getPoiManager().take(h->h.is(VillageRoles.JOBS.get("druzhinnik").getKey()),(h,p)->p.equals(pos),pos,1);v.refreshBrain(s.getLevel());return s.getLevel().addFreshEntity(v)?1:0;}))

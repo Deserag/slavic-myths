@@ -1,0 +1,13 @@
+// Native model sampling only: no NeoForge run configuration and no game/world.
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ p.sourceSets { cursed76 { java.srcDir 'tools/cursed76-native' } }
+ p.sourceSets.cursed76.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.cursed76.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+ p.tasks.register('captureCursed76', JavaExec) {
+  dependsOn 'cursed76Classes'
+  classpath=p.sourceSets.cursed76.runtimeClasspath
+  mainClass='Cursed76Native'
+  systemProperty 'cursed76.baseline',p.hasProperty('cursed76Baseline')
+ }
+}

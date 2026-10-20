@@ -1,0 +1,245 @@
+{
+  "status": "PASS_OFFLINE",
+  "contracts": {
+    "production_allowlist": {
+      "status": "PASS",
+      "evidence": {
+        "changed": [
+          "src/main/resources/assets/slavicmyths/textures/entity/skim_beast.png",
+          "src/main/java/org/slavicmyths/client/SkimClient.java",
+          "src/main/java/org/slavicmyths/client/SkimMesh.java",
+          "src/main/java/org/slavicmyths/client/SkimModel.java",
+          "gradle.properties"
+        ],
+        "new": [
+          "src/main/java/org/slavicmyths/client/SkimBeastGlow.java",
+          "src/main/java/org/slavicmyths/client/SkimBeastPose.java",
+          "src/main/resources/assets/slavicmyths/textures/entity/skim_beast_eyes.png",
+          "src/main/resources/assets/slavicmyths/textures/entity/skim_beast_rage.png"
+        ]
+      }
+    },
+    "generator_repeat_0": {
+      "status": "PASS",
+      "evidence": "Entire src/main SHA256 unchanged after regeneration, no hero/item/lang/audio writes"
+    },
+    "generator_repeat_1": {
+      "status": "PASS",
+      "evidence": "Entire src/main SHA256 unchanged after regeneration, no hero/item/lang/audio writes"
+    },
+    "frozen_ISSUE_77_SKIM_MODEL_SPEC": {
+      "status": "PASS",
+      "evidence": "0c394ea8f51f04c6deed44fecd9293716f83b0072dd06630b6dd0d631c738b36"
+    },
+    "frozen_APPROVED_Skim_Beast_4_views_and_attacks": {
+      "status": "PASS",
+      "evidence": "4a122c4ad29ab5c7550fd8126703199294949a28ed11c11ebf670685e8963683"
+    },
+    "atlas512": {
+      "status": "PASS",
+      "evidence": [
+        512,
+        512,
+        4
+      ]
+    },
+    "purposeful_palette": {
+      "status": "PASS",
+      "evidence": {
+        "opaque_colors": 16,
+        "palette": "approved1.7.3,4shadebands,no random noise"
+      }
+    },
+    "connected_authored_hierarchy": {
+      "status": "PASS",
+      "evidence": "59bones unique and parent-before-child"
+    },
+    "positive_cubes": {
+      "status": "PASS",
+      "evidence": 231
+    },
+    "mane24_tail1": {
+      "status": "PASS",
+      "evidence": "24layered mane groups, one5bone tail chain"
+    },
+    "cube_net_UV_unique": {
+      "status": "PASS",
+      "evidence": {
+        "independent_nets": 231,
+        "gutter": 3
+      }
+    },
+    "full_native_fixture": {
+      "status": "PASS",
+      "evidence": "Actual production ModelPart, sample plus low-ceiling/hurt/held fixture, not quick mode"
+    },
+    "captured_source_hashes": {
+      "status": "PASS",
+      "evidence": {
+        "src/main/java/org/slavicmyths/client/SkimMesh.java": "203bbcb7839910a88653901ccaebf8f33c3e2c161fb8242881ee704f4ef032ad",
+        "src/main/java/org/slavicmyths/client/SkimModel.java": "749cc9ba0c16a2aa347dc17d6108af62816780daf9a2d17c6782aa4567547896",
+        "src/main/java/org/slavicmyths/client/SkimBeastPose.java": "2b25fc07d1640f25508ed5b51ace60ab8976659ada668a1b368fe0c13fcf2e14",
+        "src/main/java/org/slavicmyths/client/SkimBeastGlow.java": "6409c941b4331f8c470f512d58fc846f1e517d99085da058aad8c935a48683b8",
+        "src/main/java/org/slavicmyths/client/SkimClient.java": "7de8afacb38714fdf3e3a786dda4131caaec02a27ac43115d20a6a7d51c096ac",
+        "src/main/resources/assets/slavicmyths/textures/entity/skim_beast.png": "5d68d9dee5c54b0e118fd8efbd9bb0c6757050202a3c05d074121114ed8bd717",
+        "src/main/resources/assets/slavicmyths/textures/entity/skim_beast_eyes.png": "a4c03311bbf7411b65f8446d7eb07455bdb7f475671e04defc8d8c8744447ef5",
+        "src/main/resources/assets/slavicmyths/textures/entity/skim_beast_rage.png": "5002c64649678cd98ec7a613147e5a8fca5486a75c822ad74ee6a3368d0efe33"
+      }
+    },
+    "Alyosha_pose_parity": {
+      "status": "PASS",
+      "evidence": {
+        "native_pose_pairs": 150,
+        "scope": "all25SkimAction x6phase actual hero vertices+UV, exact equality"
+      }
+    },
+    "all_sampled_geometry_floor": {
+      "status": "PASS",
+      "evidence": {
+        "max_penetration_model_px": 1.9999999999242846e-05,
+        "tolerance_px": 0.03,
+        "outliers": []
+      }
+    },
+    "rear_planted_critical_actions": {
+      "status": "PASS",
+      "evidence": {
+        "max_pad_contact_error_px": 1.6000000002236447e-05
+      }
+    },
+    "joint_lengths_not_stretched": {
+      "status": "PASS",
+      "evidence": {
+        "max_error_px": 5.2036613631401e-06
+      }
+    },
+    "low_roar_four_supports": {
+      "status": "PASS",
+      "evidence": {
+        "front_contact_error_px": 4.000000000559112e-06,
+        "rear_anchor_drift_px": 1.2999999999152578e-05,
+        "canRear": false
+      }
+    },
+    "height_IDLE_0": {
+      "status": "PASS",
+      "evidence": {
+        "visible_height": 2.9588879375,
+        "collision_height_frozen": 2.95,
+        "rear_ceiling_gate_frozen": 4.7
+      }
+    },
+    "height_ROAR_28": {
+      "status": "PASS",
+      "evidence": {
+        "visible_height": 4.34062625,
+        "collision_height_frozen": 2.95,
+        "rear_ceiling_gate_frozen": 4.7
+      }
+    },
+    "height_low_ROAR_28": {
+      "status": "PASS",
+      "evidence": {
+        "visible_height": 2.9161766875,
+        "collision_height_frozen": 2.95,
+        "rear_ceiling_gate_frozen": 4.7
+      }
+    },
+    "low_roar_three_block_clearance": {
+      "status": "PASS",
+      "evidence": {
+        "all59frames_max_visible_height": 2.9588879375,
+        "collision_frozen": 2.95,
+        "scope": "native static envelope,not world collision runtime"
+      }
+    },
+    "rear_roar_no_anchor_slip": {
+      "status": "PASS",
+      "evidence": {
+        "all59frames_max_XZ_error_px": 9.999999999621423e-06
+      }
+    },
+    "reared_mesh_inside_frozen_ceiling_guard": {
+      "status": "PASS",
+      "evidence": {
+        "max_outside_px": 0,
+        "server_check_frozen": "x+-1.4,z+-2.6,y2.95..4.7",
+        "poses": "59integer+58half-tickROAR frames plus yaw/pitch/hurt",
+        "scope": "native model-space diagnostic at heading0; world collision across headings NOT_RUN"
+      }
+    },
+    "grip_hold_anchor18to44": {
+      "status": "PASS",
+      "evidence": {
+        "last_error_px": 1.4142135625707708e-06,
+        "frozen_victim_feet": ".55up,1.7forward",
+        "target": "upper/lower mouth midpoint at native upper-leg back surface; server feet remain unchanged"
+      }
+    },
+    "held_head_clear18to44": {
+      "status": "PASS",
+      "evidence": {
+        "native_fixture_head_hat_vs_all_boss_cubes": 2,
+        "tolerance_px": 0.03,
+        "intersections": []
+      }
+    },
+    "native_UV_surface_coverage": {
+      "status": "PASS",
+      "evidence": "Every baked quad interior maps to opaque authored body net"
+    },
+    "eyes_visible_depth_test": {
+      "status": "PASS",
+      "evidence": {
+        "0": {
+          "eyeL": 40,
+          "eyeR": 40
+        },
+        "90": {
+          "eyeR": 16
+        },
+        "-90": {
+          "eyeL": 16
+        },
+        "-35": {
+          "eyeL": 44,
+          "eyeR": 46
+        }
+      }
+    },
+    "renderer_only_beast_glow_added": {
+      "status": "PASS",
+      "evidence": "Only BeastRenderer constructor adds the local glow layer; hero/arrow/ring source unchanged"
+    },
+    "glow_masks_are_local": {
+      "status": "PASS",
+      "evidence": {
+        "eyes": "only two actual eye cube nets",
+        "rage": "only existing red scar/band pixels",
+        "unused": "transparent",
+        "no_whole_face_or_body_glow": true
+      }
+    },
+    "server_logic_exact": {
+      "status": "PASS",
+      "evidence": "AI, all hit windows11/19/30,29,22,28,24,hold18..44/hits21/31/41/throw45,AABB,save/ID,audio callsites frozen"
+    }
+  },
+  "native_poses": 1000,
+  "alyosha_pairs": 150,
+  "changed": [
+    "src/main/resources/assets/slavicmyths/textures/entity/skim_beast.png",
+    "src/main/java/org/slavicmyths/client/SkimClient.java",
+    "src/main/java/org/slavicmyths/client/SkimMesh.java",
+    "src/main/java/org/slavicmyths/client/SkimModel.java",
+    "gradle.properties"
+  ],
+  "new": [
+    "src/main/java/org/slavicmyths/client/SkimBeastGlow.java",
+    "src/main/java/org/slavicmyths/client/SkimBeastPose.java",
+    "src/main/resources/assets/slavicmyths/textures/entity/skim_beast_eyes.png",
+    "src/main/resources/assets/slavicmyths/textures/entity/skim_beast_rage.png"
+  ],
+  "runtime": "NOT_RUN,OWNER_PENDING",
+  "polymc": "NOT_UPDATED"
+}

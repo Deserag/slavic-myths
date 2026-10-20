@@ -1,0 +1,15 @@
+19.10.2026 — #75 V2, offline gates only
+JAVA_HOME=C:/Program Files/Java/jdk-21.0.12
+./gradlew.bat clean build -I tools/commands-offline.init.gradle verifyCommandsOffline verifyFrostStaffOffline
+BUILD SUCCESSFUL in 1m 8s
+COMMANDS_OFFLINE PASS checks=9249 nodes=647 (includes native EventBus empty-subscriber regression)
+FROST_STAFF_OFFLINE PASS 13 actual predicate/geometry checks
+python tools/verify_classes_75_v2.py: PASS 6220 rule/camera/geometry/resource cases, 40 skills,3 trees,6 requested resolution/scale pairs
+python tools/verify_user_text.py --jar: PASS
+python tools/command_reference.py --write: PASS; normalize regenerated evidence without semantic changes
+Production JAR/resource/class parity PASS: 7398 resources;1707 Java21 classes; no offline fixture in JAR
+Version1.9.7.22; SHA256 94fded1f6a1a87223a93391a03fa8ab25035eaabcc04b28451f1df93dbefcc0a
+Installed PolyMC exact SHA256 / backup / single active slavicmyths JAR: PASS (INSTALLATION.json)
+Source base8730595d09f84386d2556a714d7f8126649f3863 + uncommitted V2/loading changes/version; exact source ZIP in backup
+IN_GAME_NOT_RUN: all6 states, video, font readability/click sequence in Minecraft, real progression/death/relog/MP
+Codex game/server/PolyMC/GameTest launches:0; owner acceptance NOT_RUN, issue OPEN/IN_PROGRESS

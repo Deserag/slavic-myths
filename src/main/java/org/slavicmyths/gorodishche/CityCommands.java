@@ -11,7 +11,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 /** Administrator-only explicit generation; no natural rarity predicates or permanent tickets. */
-@EventBusSubscriber(modid="slavicmyths")
 public final class CityCommands {
  private static final TicketType<BlockPos> TICKET=TicketType.create("slavicmyths_gorodishche_showcase",Comparator.comparingLong(BlockPos::asLong));
  private static final Map<ServerLevel,String> LAST=new WeakHashMap<>();

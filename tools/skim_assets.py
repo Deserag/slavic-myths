@@ -2,6 +2,11 @@
 Skim: long predator, segmented mane, tusks, four articulated paw chains and five-link tail.
 Uses established UV emitter only, never copies a prior hero or wolf model.
 """
+import sys
+if __name__=="__main__" and "--model-only" in sys.argv:
+ from skim_77_model import generate
+ generate();raise SystemExit(0)
+
 from pathlib import Path
 import inspect,textwrap,json,shutil,hashlib,math,re
 from PIL import Image,ImageDraw
@@ -50,25 +55,8 @@ def hero():
  box(r,'back_bow',-3,14.6,9.2,.2,14.8,.2,'cream')
  r.bone('flask','right_hand',[-6.4,18,0]);box(r,'flask',-6.4,17,-1,2.2,3,2.2,'green');box(r,'flask',-6.4,20,-1,1.1,1,1.1,'gold');r.emit()
 def beast():
- r=Rig('skim_beast',3);r.bone('body',None,[0,33,0]);box(r,'body',0,18,-9,30,23,34,'coat');r.bone('hips','body',[0,27,17]);box(r,'hips',0,18,15,25,18,29,'coat');r.bone('neck','body',[0,35,-22]);box(r,'neck',0,25,-23,32,20,23,'mane');r.bone('head','neck',[0,37,-28]);box(r,'head',0,34,-34,16.5,13.1,19.7,'coat');box(r,'head',0,32,-44,12,6,8,'mane');box(r,'head',0,34,-48,9,3,2,'boots')
- for side in [-1,1]:
-  box(r,'head',side*6,39,-44.4,3,1.8,.6,'eye');box(r,'head',side*7.5,42,-30,3.6,4.5,4,'mane');
-  for i in range(3):box(r,'head',side*(5.7+i*.35),29.3-i*2.1,-49+i*.6,2.4-i*.5,4.2,2.5-i*.4,'bone')
- r.bone('jaw','head',[0,33,-30]);box(r,'jaw',0,28,-40,12.5,5,14,'coat');box(r,'jaw',0,32,-40,11.5,1.2,12,'mouth')
- for i in range(6):box(r,'jaw',-4.5+i*1.8,32,-44,.9,2,.9,'bone')
- for i in range(24):
-  a=i*math.pi/12;x=math.sin(a)*(13+(i%3));y=34+math.cos(a)*9;z=-24+(i%3)*4;r.bone('mane_'+str(i),'neck',[x,y,z]);r.bones['mane_'+str(i)]['rotation']=[-.12,0,-math.sin(a)*.22];box(r,'mane_'+str(i),x,y-5,z,3.2+(i%3),min(9+(i%4),48-(y-5)),5,'mane' if i%4 else 'coat');box(r,'mane_'+str(i),x,y-5.2,z-2.9,1.2,6,.8,'scar' if i%3==0 else 'bone')
- for side,tag in [(-1,'right'),(1,'left')]:
-  for pair,z,x in [('front',-16,13),('back',20,10)]:
-   k=tag+'_'+pair;r.bone(k,'body' if pair=='front' else 'hips',[side*x,25,z]);box(r,k,side*x,12,z,7,14,8,'coat');r.bone(k+'_shin',k,[side*x,13,z]);box(r,k+'_shin',side*x,4,z-1,5.6,9,6,'mane');r.bone(k+'_paw',k+'_shin',[side*x,5,z-2]);box(r,k+'_paw',side*x,0,z-3,8.3,5.4,12.5,'coat')
-   for i in range(4):box(r,k+'_paw',side*x-3+i*2, .1,z-9,1.6,3.5,3.7,'bone')
-   for i in range(3):box(r,k,side*x,18-i*3,z-4.2,7.3,.8,.5,'scar')
- for i in range(5):
-  r.bone('tail_'+str(i),'hips' if i==0 else 'tail_'+str(i-1),[0,28+i*.2,30+i*5.5]);box(r,'tail_'+str(i),0,25+i*.2,32+i*5.5,4.5-i*.4,4.8-i*.3,6.1,'coat');box(r,'tail_'+str(i),0,25.5+i*.2,32+i*5.5,4.7-i*.4,.8,5,'scar')
- box(r,'tail_4',0,25.8,57,7,5,5,'mane')
- for side in [-1,1]:
-  for i in range(7):box(r,'body',side*15.1,28+(i%2)*1.1,-13+i*4, .6,3,1.8,'scar');box(r,'hips',side*12.6,24+i%2,12+i, .6,3,1,'scar')
- r.emit()
+ from skim_77_model import generate
+ return generate()
 
 def items():
  ids=['alyosha_call_whistle','ilya_call_token','dobrynya_call_emblem','beast_challenge_horn','skim_beast_spawn_egg','idolishche_poganoe_spawn_egg','marinka_spawn_egg']

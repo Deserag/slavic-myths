@@ -1,0 +1,23 @@
+{
+  "status": "INSTALLED_TEST_PREVIEW",
+  "version": "1.9.7.22",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.22.jar",
+  "sha256": "94fded1f6a1a87223a93391a03fa8ab25035eaabcc04b28451f1df93dbefcc0a",
+  "source_base_commit": "8730595d09f84386d2556a714d7f8126649f3863",
+  "source": "base commit + uncommitted subscriber fix and issue-75 V2 full canvas/quickbar UI, version 1.9.7.22",
+  "source_snapshot": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-19722-20261019-221331\\source-snapshot.zip",
+  "source_snapshot_sha256": "0ba1d8f70f84b861c7716d1150913693bad2e335917263d2611d714a7a5e2e44",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-19722-20261019-221331",
+  "previous_jars": {
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.21.jar": "1e0064b015bb0f4103b5d00f04b1ee855c3346becf9180c755299703e11c9be5"
+  },
+  "active_mod_jars": [
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.22.jar"
+  ],
+  "resources": 7398,
+  "java21_classes": 1707,
+  "build": "PASS",
+  "runtime": "NOT_RUN",
+  "launches": 0,
+  "owner_acceptance": "NOT_RUN"
+}

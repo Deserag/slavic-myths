@@ -6,29 +6,18 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.util.Mth;
 import org.slavicmyths.skim.*;
 public final class SkimModel<T extends SkimActor> extends EntityModel<T> {
- public final ModelPart root;public final Map<String,ModelPart> nodes=new HashMap<>();private final boolean beast;
- public SkimModel(ModelPart root,boolean beast){this.root=root;this.beast=beast;List<String> names=new ArrayList<>(List.of("hips","body","neck","head","jaw","quiver","saber","bow","string","draw_arrow","back_bow","flask"));for(var side:List.of("right","left"))for(var part:List.of("thigh","shin","foot","shoulder","hand","flap","front","front_shin","front_paw","back","back_shin","back_paw"))names.add(side+"_"+part);for(int i=0;i<24;i++){names.add("mane_"+i);names.add("tail_"+i);names.add("cloak_"+i);names.add("scarf_"+i);}index("root",root,names);}
+ public final ModelPart root;public final Map<String,ModelPart> nodes=new HashMap<>();private final boolean beast;private final SkimBeastPose beastPose;
+ public SkimModel(ModelPart root,boolean beast){this.root=root;this.beast=beast;List<String> names=new ArrayList<>(List.of("hips","body","neck","head","jaw","quiver","saber","bow","string","draw_arrow","back_bow","flask"));for(var side:List.of("right","left"))for(var part:List.of("thigh","shin","foot","shoulder","hand","flap","front","front_shin","front_paw","back","back_shin","back_paw"))names.add(side+"_"+part);for(int i=0;i<24;i++){names.add("mane_"+i);names.add("tail_"+i);names.add("cloak_"+i);names.add("scarf_"+i);}if(beast)names.addAll(SkimMesh.names());index("root",root,new ArrayList<>(new LinkedHashSet<>(names)));beastPose=beast?new SkimBeastPose(nodes):null;}
  private void index(String key,ModelPart p,List<String> names){nodes.put(key,p);for(var n:names)if(p.hasChild(n))index(n,p.getChild(n),names);}
  private void x(String k,float d){var p=nodes.get(k);if(p!=null)p.xRot=d*Mth.DEG_TO_RAD;}private void y(String k,float d){var p=nodes.get(k);if(p!=null)p.yRot=d*Mth.DEG_TO_RAD;}private void z(String k,float d){var p=nodes.get(k);if(p!=null)p.zRot=d*Mth.DEG_TO_RAD;}
+ /** Visual-only glow envelopes from the approved1.7.3 passport; no server state changes. */
+ public static float rageGlow(SkimAction action,float t){return action==SkimAction.RAGE?ramp(t,13,20)*(1-ramp(t,50,64)):0;}
+ public static float eyeGlow(SkimAction action,float t){return action==SkimAction.DEATH?.30F*(1-ramp(t,26,75)):.30F+.39F*rageGlow(action,t);}
  private static float ramp(float t,float a,float b){float f=Math.clamp((t-a)/(b-a),0,1);return f*f*(3-2*f);}private static float key(float t,float[] ts,float... vs){if(t<=ts[0])return vs[0];for(int i=1;i<ts.length;i++)if(t<=ts[i])return Mth.lerp(ramp(t,ts[i-1],ts[i]),vs[i-1],vs[i]);return vs[vs.length-1];}
- @Override public void setupAnim(T e,float swing,float amount,float age,float yaw,float pitch){pose(e.action(),e.clipAge(age-e.tickCount),swing,amount,age,yaw,pitch);if(e instanceof SkimBeastEntity b&&b.action()==SkimAction.ROAR&&!b.canRear()){nodes.get("body").resetPose();x("right_front",0);x("left_front",0);}if(e.hurtTime>0){x("head",Mth.sin(e.hurtTime*.4F)*5);z("body",Mth.sin(e.hurtTime*.4F)*4);}}
- public void pose(SkimAction a,float t,float swing,float amount,float age,float yaw,float pitch){root.getAllParts().forEach(ModelPart::resetPose);float gait=Mth.cos(swing*(beast?.45F:.8F))*Math.clamp(amount,0,1);y("head",Math.clamp(yaw,-35,35));x("head",Math.clamp(pitch,-20,20));
-  if(beast){for(int sign:new int[]{-1,1})for(int i=0;i<2;i++){var k=(sign<0?"right":"left")+(i==0?"_front":"_back");x(k,gait*sign*(i==0?1:-1)*25);x(k+"_shin",Math.max(0,-gait*sign)*20);}for(int i=0;i<5;i++)y("tail_"+i,Mth.sin(age*.075F-i*.3F)*8);for(int i=0;i<24;i++)x("mane_"+i,Mth.sin(age*.05F-i*.2F)*3);x("jaw",6+Mth.sin(age*.05F)*2);x("body",Mth.sin(age*.07F)*1);
-   switch(a){
-    case AWAKEN->{x("neck",key(t,new float[]{0,20,40,60},20,0,-12,0));x("jaw",key(t,new float[]{0,20,40,60},0,15,30,6));}
-    case CLAWS->{x("right_front",key(t,new float[]{0,8,11,16,24,30,39},0,-35,40,0,-45,55,0));x("left_front",key(t,new float[]{0,11,16,19,24,30,39},0,0,-35,45,-45,55,0));y("body",key(t,new float[]{0,11,19,30,39},0,12,-12,15,0));}
-    case LEAP->{float compress=ramp(t,0,12)-ramp(t,12,16);nodes.get("body").y+=5*compress;x("right_front",key(t,new float[]{0,12,18,29,44},0,-35,-65,25,0));x("left_front",key(t,new float[]{0,12,18,29,44},0,-35,-65,25,0));x("hips",key(t,new float[]{0,12,18,29,44},0,20,-12,15,0));}
-    case WHISTLE->{x("neck",-18*(ramp(t,0,14)-ramp(t,31,48)));x("jaw",6+22*(ramp(t,0,14)-ramp(t,31,48)));}
-    case ROAR->{float rear=ramp(t,0,18)-ramp(t,31,58);x("body",-20*rear);nodes.get("body").y-=6*rear;x("right_front",-65*rear);x("left_front",-65*rear);x("neck",-18*rear);x("jaw",6+37*(ramp(t,14,26)-ramp(t,31,48)));}
-    case FLANK->{y("body",35*(ramp(t,0,10)-ramp(t,26,38)));x("right_front",-35*(ramp(t,10,22)-ramp(t,26,38)));x("jaw",25*(ramp(t,10,22)-ramp(t,26,38)));}
-    case GRIP->{x("jaw",key(t,new float[]{0,14,18,30,44,45,65},6,43,8,13,12,40,6));x("neck",key(t,new float[]{0,14,18,30,44,45,65},0,20,-10,-10,-10,20,0));}
-    case RAGE->{y("head",Mth.sin(t*.35F)*10*(1-ramp(t,50,64)));x("jaw",6+35*(ramp(t,0,13)-ramp(t,50,64)));}
-    case EXHAUSTED->{float k=ramp(t,0,10)-ramp(t,55,70);nodes.get("body").y+=6*k;x("neck",18*k);x("right_front_shin",25*k);x("left_front_shin",25*k);x("jaw",15+Mth.sin(t*.3F)*6);}
-    case STAGGER->{y("head",Mth.sin(t*.4F)*12*(1-ramp(t,30,40)));x("neck",15*(1-ramp(t,30,40)));}
-    case DEATH->{nodes.get("body").y+=15*ramp(t,0,52);z("body",85*ramp(t,26,75));x("jaw",22*ramp(t,0,40));}
-    default->{}
-   }
-  }else{for(int sign:new int[]{-1,1}){var k=sign<0?"right":"left";x(k+"_thigh",gait*sign*28);x(k+"_shin",Math.max(0,-gait*sign)*25);x(k+"_shoulder",-gait*sign*12);}x("body",Mth.sin(age*.07F)*1.5F);for(int i=0;i<3;i++){x("cloak_"+i,5+Math.abs(gait)*9+Mth.sin(age*.07F-i*.4F)*3);z("scarf_"+i,Mth.sin(age*.1F-i*.4F)*6);}
+ @Override public void setupAnim(T e,float swing,float amount,float age,float yaw,float pitch){if(beast&&e instanceof SkimBeastEntity b){poseBeast(e.action(),e.clipAge(age-e.tickCount),swing,amount,age,yaw,pitch,b.canRear(),e.hurtTime);return;}pose(e.action(),e.clipAge(age-e.tickCount),swing,amount,age,yaw,pitch);if(e.hurtTime>0){x("head",Mth.sin(e.hurtTime*.4F)*5);z("body",Mth.sin(e.hurtTime*.4F)*4);}}
+ public void poseBeast(SkimAction a,float t,float swing,float amount,float age,float yaw,float pitch,boolean rearAllowed,float hurt){if(!beast)throw new IllegalStateException("Beast pose on Alyosha");root.getAllParts().forEach(ModelPart::resetPose);beastPose.apply(a,t,swing,amount,age,yaw,pitch,rearAllowed,hurt);}
+ public void pose(SkimAction a,float t,float swing,float amount,float age,float yaw,float pitch){if(beast){poseBeast(a,t,swing,amount,age,yaw,pitch,true,0);return;}root.getAllParts().forEach(ModelPart::resetPose);float gait=Mth.cos(swing*(beast?.45F:.8F))*Math.clamp(amount,0,1);y("head",Math.clamp(yaw,-35,35));x("head",Math.clamp(pitch,-20,20));
+  {for(int sign:new int[]{-1,1}){var k=sign<0?"right":"left";x(k+"_thigh",gait*sign*28);x(k+"_shin",Math.max(0,-gait*sign)*25);x(k+"_shoulder",-gait*sign*12);}x("body",Mth.sin(age*.07F)*1.5F);for(int i=0;i<3;i++){x("cloak_"+i,5+Math.abs(gait)*9+Mth.sin(age*.07F-i*.4F)*3);z("scarf_"+i,Mth.sin(age*.1F-i*.4F)*6);}
    x("right_hand",a==SkimAction.BOW||a==SkimAction.DRINK?0:-90);
    nodes.get("back_bow").visible=a!=SkimAction.BOW;nodes.get("saber").visible=a!=SkimAction.BOW&&a!=SkimAction.DRINK;nodes.get("bow").visible=a==SkimAction.BOW;nodes.get("draw_arrow").visible=a==SkimAction.BOW&&t>=6&&t<29;nodes.get("flask").visible=a==SkimAction.DRINK;
    switch(a){

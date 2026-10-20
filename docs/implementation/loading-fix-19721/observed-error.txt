@@ -1,0 +1,4 @@
+[19Oct2026 21:28:10.693] [modloading-worker-0/FATAL] [net.neoforged.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Failed to register class Lorg/slavicmyths/yaga/YagaCommands; with @EventBusSubscriber annotation
+java.lang.IllegalArgumentException: class org.slavicmyths.yaga.YagaCommands has no @SubscribeEvent methods, but register was called anyway.
+java.lang.RuntimeException: java.lang.IllegalArgumentException: class org.slavicmyths.yaga.YagaCommands has no @SubscribeEvent methods, but register was called anyway.
+Caused by: java.lang.IllegalArgumentException: class org.slavicmyths.yaga.YagaCommands has no @SubscribeEvent methods, but register was called anyway.

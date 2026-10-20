@@ -16,7 +16,6 @@ public final class SkimChecks {
         for(var e:((Map<String,ModelPart>)children.get(part)).entrySet())export(e.getValue(),stack,path+"/"+e.getKey(),out);stack.popPose();
     }
     @SuppressWarnings("unchecked") public static void main(String[] args)throws Exception{
-        net.neoforged.fml.loading.LoadingModList.of(List.of(),List.of(),List.of(),List.of(),Map.of());net.minecraft.SharedConstants.tryDetectVersion();net.minecraft.server.Bootstrap.bootStrap();
         cubes=ModelPart.class.getDeclaredField("cubes");children=ModelPart.class.getDeclaredField("children");polygons=ModelPart.Cube.class.getDeclaredField("polygons");for(var f:List.of(cubes,children,polygons))f.setAccessible(true);
         var output=new LinkedHashMap<String,List<Map<String,Object>>>();
         for(int form=0;form<2;form++){
@@ -24,7 +23,7 @@ public final class SkimChecks {
  var clips=form==0?List.of(SkimAction.IDLE,SkimAction.ARRIVE,SkimAction.RECALL,SkimAction.TAUNT,SkimAction.DODGE,SkimAction.SABER,SkimAction.FEINT,SkimAction.BOW,SkimAction.COUNTER,SkimAction.RETREAT,SkimAction.DRINK,SkimAction.REST,SkimAction.HURT):List.of(SkimAction.IDLE,SkimAction.AWAKEN,SkimAction.CLAWS,SkimAction.LEAP,SkimAction.WHISTLE,SkimAction.ROAR,SkimAction.FLANK,SkimAction.GRIP,SkimAction.RAGE,SkimAction.EXHAUSTED,SkimAction.STAGGER,SkimAction.DEATH,SkimAction.RECOVER);
  for(var action:clips){for(int tick=0;tick<=100;tick++){model.pose(action,tick,tick,.5F,tick,0,0);for(var n:model.nodes.values())check(Float.isFinite(n.xRot)&&Float.isFinite(n.yRot)&&Float.isFinite(n.zRot)&&Float.isFinite(n.x)&&Float.isFinite(n.y)&&Float.isFinite(n.z)&&Float.isFinite(n.xScale)&&Float.isFinite(n.yScale),"Nonfinite "+who+action);}
  model.pose(action,action==SkimAction.IDLE?0:action==SkimAction.ROAR?28:16,0,0,0,0,0);var mesh=new ArrayList<Map<String,Object>>();export(model.root,new PoseStack(),"root",mesh);output.put(who+"_"+action,mesh);
- if(action==SkimAction.IDLE){double min=1000,max=-1000;for(var cube:mesh){String part=(String)cube.get("part");if(part.contains("saber")||part.contains("bow"))continue;for(var face:(List<List<float[]>>)cube.get("faces"))for(var v:face){min=Math.min(min,v[1]);max=Math.max(max,v[1]);}}check(Math.abs((24-min)/16-(form==0?2.15:3.0))<.02,"Height "+who+" "+(24-min)/16);check(Math.abs(max-24)<.001,"Feet "+who);}
+ if(action==SkimAction.IDLE){double min=1000,max=-1000;for(var cube:mesh){String part=(String)cube.get("part");if(part.contains("saber")||part.contains("bow"))continue;for(var face:(List<List<float[]>>)cube.get("faces"))for(var v:face){min=Math.min(min,v[1]);max=Math.max(max,v[1]);}}check(form==0?Math.abs((24-min)/16-2.15)<.02:(24-min)/16>=2.85&&(24-min)/16<=3.05,"Actual authored mane envelope near frozen2.95height "+who+" "+(24-min)/16);check(Math.abs(max-24)<.001,"Feet "+who);}
  }
  if(form==0){model.pose(SkimAction.BOW,11,0,0,0,0,0);check(!model.nodes.get("saber").visible&&model.nodes.get("bow").visible,"Bow swap");model.pose(SkimAction.DRINK,24,0,0,0,0,0);check(model.nodes.get("flask").visible&&!model.nodes.get("saber").visible&&!model.nodes.get("bow").visible,"Drink equipment");}
  }

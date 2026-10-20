@@ -7,7 +7,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class YagaCommands {
  public static void register(org.slavicmyths.commands.CommandTree tree){tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").requires(source->source.hasPermission(2)).then(Commands.literal("yaga")
   .then(Commands.literal("locate").requires(source->source.hasPermission(2)).executes(c->{ServerLevel w=c.getSource().getServer().getLevel(Level.OVERWORLD);YagaHut.prepare(w);YagaData d=YagaData.get(w);if(d.anchor==null){c.getSource().sendFailure(Component.translatable("yaga.fail.home"));return 0;}c.getSource().sendSuccess(()->d.placed?Component.translatable("yaga.located",d.anchor.toShortString(),true):Component.translatable("yaga.site.planned",d.anchor.getX(),d.anchor.getZ()),false);return 1;}))

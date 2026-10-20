@@ -1,0 +1,349 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2160" height="1460" viewBox="0 0 2160 1460"><rect width="2160" height="1460" fill="#151311"/><style>text{font-family:'DejaVu Sans',sans-serif;fill:#efe2ca} .small{font-size:15px} .label{font-size:18px} .head{font-size:24px;font-weight:700} .note{font-size:14px;fill:#bcb1a4}</style>
+<rect x="20" y="22" width="686" height="685" rx="9" fill="#251f1a" stroke="#b08c54" stroke-width="4"/>
+<rect x="33" y="34" width="660" height="48" rx="3" fill="#31271e" stroke="#b08c54" stroke-width="2"/>
+<text x="46" y="66" class="head" style="fill:#e4bd70">1. Выбор класса</text>
+<text x="50" y="139" class="label" style="fill:#bcb1a4">Выбери один из трёх существующих классов</text>
+<rect x="50" y="191" width="199" height="310" rx="8" fill="#31271e" stroke="#725a39" stroke-width="3"/>
+<text x="63" y="232" class="label" style="fill:#e4bd70">Дружинник</text>
+<rect x="106" y="264" width="86" height="86" rx="3" fill="#263039" stroke="#725a39" stroke-width="2"/>
+<text x="133" y="319" class="head" style="fill:#e4bd70">⚔</text>
+<text x="62" y="399" class="small" style="fill:#bcb1a4">Ближний бой</text>
+<text x="62" y="424" class="small" style="fill:#bcb1a4">Оборона</text>
+<rect x="261" y="191" width="199" height="310" rx="8" fill="#3c3328" stroke="#e4bd70" stroke-width="3"/>
+<text x="274" y="232" class="label" style="fill:#e4bd70">Ведун</text>
+<rect x="317" y="264" width="86" height="86" rx="3" fill="#263039" stroke="#725a39" stroke-width="2"/>
+<text x="344" y="319" class="head" style="fill:#e4bd70">✧</text>
+<text x="273" y="399" class="small" style="fill:#bcb1a4">Знаки и магия</text>
+<text x="273" y="424" class="small" style="fill:#bcb1a4">Ритуалы</text>
+<rect x="472" y="191" width="199" height="310" rx="8" fill="#31271e" stroke="#725a39" stroke-width="3"/>
+<text x="485" y="232" class="label" style="fill:#e4bd70">Разбойник</text>
+<rect x="528" y="264" width="86" height="86" rx="3" fill="#263039" stroke="#725a39" stroke-width="2"/>
+<text x="555" y="319" class="head" style="fill:#e4bd70">➶</text>
+<text x="484" y="399" class="small" style="fill:#bcb1a4">Ловкость</text>
+<text x="484" y="424" class="small" style="fill:#bcb1a4">Точные удары</text>
+<rect x="457" y="565" width="198" height="43" rx="3" fill="#31271e" stroke="#e4bd70" stroke-width="2"/>
+<text x="484" y="593" class="small" style="fill:#e4bd70">Подтвердить выбор</text>
+<text x="50" y="657" class="small" style="fill:#bcb1a4">Без дерева и слотов до выбора класса.</text>
+<rect x="739" y="22" width="686" height="685" rx="9" fill="#251f1a" stroke="#b08c54" stroke-width="4"/>
+<rect x="752" y="34" width="660" height="48" rx="3" fill="#31271e" stroke="#b08c54" stroke-width="2"/>
+<text x="765" y="66" class="head" style="fill:#e4bd70">2. Дерево: ничего не выбрано</text>
+<rect x="764" y="97" width="140" height="37" rx="3" fill="#53402c" stroke="#e4bd70" stroke-width="2"/>
+<text x="775" y="122" class="small" style="fill:#e4bd70">Пути развития</text>
+<rect x="907" y="97" width="136" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="918" y="122" class="small" style="fill:#bcb1a4">Направления</text>
+<rect x="1046" y="97" width="124" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="1057" y="122" class="small" style="fill:#bcb1a4">Мастерство</text>
+<rect x="1174" y="97" width="110" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="1185" y="122" class="small" style="fill:#bcb1a4">Клавиши</text>
+<text x="764" y="168" class="label" style="fill:#efe2ca">Ведун • уровень 12</text>
+<text x="1086" y="168" class="small" style="fill:#e4bd70">Опыт 550/800 · Очки 2</text>
+<rect x="764" y="182" width="636" height="442" rx="5" fill="#1a2226" stroke="#725a39" stroke-width="3"/>
+<path d="M901 316 L1043 316" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1043 316 L1186 316" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M901 316 L901 429" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1043 316 L1043 429" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1186 316 L1186 429" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M901 429 L1043 429" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1043 429 L1186 429" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M901 429 L901 542" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1043 429 L1043 542" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1186 429 L1186 542" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M901 542 L1043 542" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1043 542 L1186 542" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<rect x="879" y="294" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="891" y="321" class="label" style="fill:#75b57b">✦</text>
+<rect x="882" y="341" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="886" y="355" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="1021" y="294" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="1033" y="321" class="label" style="fill:#75b57b">❄</text>
+<rect x="1024" y="341" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1028" y="355" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="1164" y="294" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="1176" y="321" class="label" style="fill:#75b57b">☾</text>
+<rect x="1167" y="341" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1171" y="355" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="879" y="407" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="891" y="434" class="label" style="fill:#75b57b">◇</text>
+<rect x="882" y="454" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="886" y="468" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="1021" y="407" width="44" height="44" rx="6" fill="#363126" stroke="#e4bd70" stroke-width="3"/>
+<text x="1033" y="434" class="label" style="fill:#e4bd70">⚡</text>
+<rect x="1024" y="454" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1028" y="468" class="note" style="fill:#efe2ca">0/3</text>
+<rect x="1164" y="407" width="44" height="44" rx="6" fill="#363126" stroke="#e4bd70" stroke-width="3"/>
+<text x="1176" y="434" class="label" style="fill:#e4bd70">◆</text>
+<rect x="1167" y="454" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1171" y="468" class="note" style="fill:#efe2ca">0/3</text>
+<rect x="879" y="520" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="891" y="547" class="label" style="fill:#777572">▣</text>
+<rect x="882" y="567" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="886" y="581" class="note" style="fill:#bcb1a4">0/3</text>
+<rect x="1021" y="520" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="1033" y="547" class="label" style="fill:#777572">☀</text>
+<rect x="1024" y="567" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1028" y="581" class="note" style="fill:#bcb1a4">0/3</text>
+<rect x="1164" y="520" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="1176" y="547" class="label" style="fill:#777572">✧</text>
+<rect x="1167" y="567" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1171" y="581" class="note" style="fill:#bcb1a4">0/3</text>
+<text x="785" y="206" class="small" style="fill:#bcb1a4">Дерево — вся рабочая область</text>
+<text x="1081" y="206" class="note" style="fill:#bcb1a4">ЛКМ: выбор · колесо: масштаб · MMB: сдвиг</text>
+<rect x="764" y="633" width="636" height="53" rx="4" fill="#31271e" stroke="#b08c54" stroke-width="2"/>
+<text x="771" y="654" class="small" style="fill:#bcb1a4">Активные:</text>
+<rect x="867" y="640" width="51" height="38" rx="3" fill="#344858" stroke="#e4bd70" stroke-width="2"/>
+<text x="882" y="664" class="label" style="fill:#efe2ca">1</text>
+<rect x="928" y="640" width="51" height="38" rx="3" fill="#3b302b" stroke="#e4bd70" stroke-width="2"/>
+<text x="943" y="664" class="label" style="fill:#efe2ca">2</text>
+<rect x="989" y="640" width="51" height="38" rx="3" fill="#3b302b" stroke="#e4bd70" stroke-width="2"/>
+<text x="1004" y="664" class="label" style="fill:#efe2ca">3</text>
+<text x="1091" y="654" class="small" style="fill:#bcb1a4">Пассивные:</text>
+<rect x="1196" y="640" width="47" height="38" rx="3" fill="#251f1a" stroke="#725a39" stroke-width="2"/>
+<text x="1212" y="664" class="small" style="fill:#efe2ca">P</text>
+<rect x="1253" y="640" width="47" height="38" rx="3" fill="#251f1a" stroke="#725a39" stroke-width="2"/>
+<text x="1269" y="664" class="small" style="fill:#efe2ca">P2</text>
+<rect x="1458" y="22" width="686" height="685" rx="9" fill="#251f1a" stroke="#b08c54" stroke-width="4"/>
+<rect x="1471" y="34" width="660" height="48" rx="3" fill="#31271e" stroke="#b08c54" stroke-width="2"/>
+<text x="1484" y="66" class="head" style="fill:#e4bd70">3. Дерево: выбран узел</text>
+<rect x="1483" y="97" width="140" height="37" rx="3" fill="#53402c" stroke="#e4bd70" stroke-width="2"/>
+<text x="1494" y="122" class="small" style="fill:#e4bd70">Пути развития</text>
+<rect x="1626" y="97" width="136" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="1637" y="122" class="small" style="fill:#bcb1a4">Направления</text>
+<rect x="1765" y="97" width="124" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="1776" y="122" class="small" style="fill:#bcb1a4">Мастерство</text>
+<rect x="1893" y="97" width="110" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="1904" y="122" class="small" style="fill:#bcb1a4">Клавиши</text>
+<text x="1483" y="168" class="label" style="fill:#efe2ca">Ведун • уровень 12</text>
+<text x="1805" y="168" class="small" style="fill:#e4bd70">Опыт 550/800 · Очки 2</text>
+<rect x="1483" y="182" width="636" height="442" rx="5" fill="#1a2226" stroke="#725a39" stroke-width="3"/>
+<path d="M1620 316 L1762 316" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1762 316 L1905 316" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1620 316 L1620 429" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1762 316 L1762 429" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1905 316 L1905 429" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1620 429 L1762 429" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1762 429 L1905 429" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1620 429 L1620 542" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1762 429 L1762 542" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1905 429 L1905 542" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1620 542 L1762 542" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1762 542 L1905 542" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<rect x="1598" y="294" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="1610" y="321" class="label" style="fill:#75b57b">✦</text>
+<rect x="1601" y="341" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1605" y="355" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="1740" y="294" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="1752" y="321" class="label" style="fill:#75b57b">❄</text>
+<rect x="1743" y="341" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1747" y="355" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="1883" y="294" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="1895" y="321" class="label" style="fill:#75b57b">☾</text>
+<rect x="1886" y="341" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1890" y="355" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="1598" y="407" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="1610" y="434" class="label" style="fill:#75b57b">◇</text>
+<rect x="1601" y="454" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1605" y="468" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="1740" y="407" width="44" height="44" rx="6" fill="#363126" stroke="#79b5ed" stroke-width="3"/>
+<text x="1752" y="434" class="label" style="fill:#79b5ed">⚡</text>
+<rect x="1743" y="454" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1747" y="468" class="note" style="fill:#efe2ca">0/3</text>
+<rect x="1883" y="407" width="44" height="44" rx="6" fill="#363126" stroke="#e4bd70" stroke-width="3"/>
+<text x="1895" y="434" class="label" style="fill:#e4bd70">◆</text>
+<rect x="1886" y="454" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1890" y="468" class="note" style="fill:#efe2ca">0/3</text>
+<rect x="1598" y="520" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="1610" y="547" class="label" style="fill:#777572">▣</text>
+<rect x="1601" y="567" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1605" y="581" class="note" style="fill:#bcb1a4">0/3</text>
+<rect x="1740" y="520" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="1752" y="547" class="label" style="fill:#777572">☀</text>
+<rect x="1743" y="567" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1747" y="581" class="note" style="fill:#bcb1a4">0/3</text>
+<rect x="1883" y="520" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="1895" y="547" class="label" style="fill:#777572">✧</text>
+<rect x="1886" y="567" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1890" y="581" class="note" style="fill:#bcb1a4">0/3</text>
+<text x="1504" y="206" class="small" style="fill:#bcb1a4">Дерево — вся рабочая область</text>
+<text x="1800" y="206" class="note" style="fill:#bcb1a4">ЛКМ: выбор · колесо: масштаб · MMB: сдвиг</text>
+<rect x="1483" y="633" width="636" height="53" rx="4" fill="#31271e" stroke="#b08c54" stroke-width="2"/>
+<text x="1490" y="654" class="small" style="fill:#bcb1a4">Активные:</text>
+<rect x="1586" y="640" width="51" height="38" rx="3" fill="#344858" stroke="#e4bd70" stroke-width="2"/>
+<text x="1601" y="664" class="label" style="fill:#efe2ca">1</text>
+<rect x="1647" y="640" width="51" height="38" rx="3" fill="#3b302b" stroke="#e4bd70" stroke-width="2"/>
+<text x="1662" y="664" class="label" style="fill:#efe2ca">2</text>
+<rect x="1708" y="640" width="51" height="38" rx="3" fill="#3b302b" stroke="#e4bd70" stroke-width="2"/>
+<text x="1723" y="664" class="label" style="fill:#efe2ca">3</text>
+<text x="1810" y="654" class="small" style="fill:#bcb1a4">Пассивные:</text>
+<rect x="1915" y="640" width="47" height="38" rx="3" fill="#251f1a" stroke="#725a39" stroke-width="2"/>
+<text x="1931" y="664" class="small" style="fill:#efe2ca">P</text>
+<rect x="1972" y="640" width="47" height="38" rx="3" fill="#251f1a" stroke="#725a39" stroke-width="2"/>
+<text x="1988" y="664" class="small" style="fill:#efe2ca">P2</text>
+<rect x="1775" y="287" width="315" height="202" rx="3" fill="#31271e" stroke="#e4bd70" stroke-width="3"/>
+<text x="1790" y="320" class="label" style="fill:#e4bd70">Скользящий знак</text>
+<text x="1790" y="348" class="small" style="fill:#efe2ca">Ранг 0/3 · требуется 1 очко</text>
+<text x="1790" y="375" class="small" style="fill:#efe2ca">Эффект: удержание и защита</text>
+<text x="1790" y="402" class="small" style="fill:#efe2ca">Уровень 12 ✓ · навык-предок ✓</text>
+<text x="1790" y="429" class="small" style="fill:#75b57b">[ Изучить ]    [ Назначить ]</text>
+<rect x="20" y="750" width="686" height="685" rx="9" fill="#251f1a" stroke="#b08c54" stroke-width="4"/>
+<rect x="33" y="762" width="660" height="48" rx="3" fill="#31271e" stroke="#b08c54" stroke-width="2"/>
+<text x="46" y="794" class="head" style="fill:#e4bd70">4. Переназначение клавиши</text>
+<rect x="45" y="825" width="140" height="37" rx="3" fill="#53402c" stroke="#e4bd70" stroke-width="2"/>
+<text x="56" y="850" class="small" style="fill:#e4bd70">Пути развития</text>
+<rect x="188" y="825" width="136" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="199" y="850" class="small" style="fill:#bcb1a4">Направления</text>
+<rect x="327" y="825" width="124" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="338" y="850" class="small" style="fill:#bcb1a4">Мастерство</text>
+<rect x="455" y="825" width="110" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="466" y="850" class="small" style="fill:#bcb1a4">Клавиши</text>
+<text x="45" y="896" class="label" style="fill:#efe2ca">Ведун • уровень 12</text>
+<text x="367" y="896" class="small" style="fill:#e4bd70">Опыт 550/800 · Очки 2</text>
+<rect x="45" y="910" width="636" height="442" rx="5" fill="#1a2226" stroke="#725a39" stroke-width="3"/>
+<path d="M182 1044 L324 1044" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M324 1044 L467 1044" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M182 1044 L182 1157" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M324 1044 L324 1157" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M467 1044 L467 1157" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M182 1157 L324 1157" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M324 1157 L467 1157" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M182 1157 L182 1270" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M324 1157 L324 1270" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M467 1157 L467 1270" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M182 1270 L324 1270" stroke="#e4bd70" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M324 1270 L467 1270" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<rect x="160" y="1022" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="172" y="1049" class="label" style="fill:#75b57b">✦</text>
+<rect x="163" y="1069" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="167" y="1083" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="302" y="1022" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="314" y="1049" class="label" style="fill:#75b57b">❄</text>
+<rect x="305" y="1069" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="309" y="1083" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="445" y="1022" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="457" y="1049" class="label" style="fill:#75b57b">☾</text>
+<rect x="448" y="1069" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="452" y="1083" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="160" y="1135" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="172" y="1162" class="label" style="fill:#75b57b">◇</text>
+<rect x="163" y="1182" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="167" y="1196" class="note" style="fill:#efe2ca">2/3</text>
+<rect x="302" y="1135" width="44" height="44" rx="6" fill="#363126" stroke="#e4bd70" stroke-width="3"/>
+<text x="314" y="1162" class="label" style="fill:#e4bd70">⚡</text>
+<rect x="305" y="1182" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="309" y="1196" class="note" style="fill:#efe2ca">0/3</text>
+<rect x="445" y="1135" width="44" height="44" rx="6" fill="#363126" stroke="#e4bd70" stroke-width="3"/>
+<text x="457" y="1162" class="label" style="fill:#e4bd70">◆</text>
+<rect x="448" y="1182" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="452" y="1196" class="note" style="fill:#efe2ca">0/3</text>
+<rect x="160" y="1248" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="172" y="1275" class="label" style="fill:#777572">▣</text>
+<rect x="163" y="1295" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="167" y="1309" class="note" style="fill:#bcb1a4">0/3</text>
+<rect x="302" y="1248" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="314" y="1275" class="label" style="fill:#777572">☀</text>
+<rect x="305" y="1295" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="309" y="1309" class="note" style="fill:#bcb1a4">0/3</text>
+<rect x="445" y="1248" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="457" y="1275" class="label" style="fill:#777572">✧</text>
+<rect x="448" y="1295" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="452" y="1309" class="note" style="fill:#bcb1a4">0/3</text>
+<text x="66" y="934" class="small" style="fill:#bcb1a4">Дерево — вся рабочая область</text>
+<text x="362" y="934" class="note" style="fill:#bcb1a4">ЛКМ: выбор · колесо: масштаб · MMB: сдвиг</text>
+<rect x="45" y="1361" width="636" height="53" rx="4" fill="#31271e" stroke="#b08c54" stroke-width="2"/>
+<text x="52" y="1382" class="small" style="fill:#bcb1a4">Активные:</text>
+<rect x="148" y="1368" width="51" height="38" rx="3" fill="#344858" stroke="#e4bd70" stroke-width="2"/>
+<text x="163" y="1392" class="label" style="fill:#efe2ca">1</text>
+<rect x="209" y="1368" width="51" height="38" rx="3" fill="#3b302b" stroke="#e4bd70" stroke-width="2"/>
+<text x="224" y="1392" class="label" style="fill:#efe2ca">2</text>
+<rect x="270" y="1368" width="51" height="38" rx="3" fill="#3b302b" stroke="#e4bd70" stroke-width="2"/>
+<text x="285" y="1392" class="label" style="fill:#efe2ca">3</text>
+<text x="372" y="1382" class="small" style="fill:#bcb1a4">Пассивные:</text>
+<rect x="477" y="1368" width="47" height="38" rx="3" fill="#251f1a" stroke="#725a39" stroke-width="2"/>
+<text x="493" y="1392" class="small" style="fill:#efe2ca">P</text>
+<rect x="534" y="1368" width="47" height="38" rx="3" fill="#251f1a" stroke="#725a39" stroke-width="2"/>
+<text x="550" y="1392" class="small" style="fill:#efe2ca">P2</text>
+<rect x="44" y="909" width="638" height="452" fill="#0a0908" opacity=".6"/>
+<rect x="217" y="1033" width="300" height="166" rx="3" fill="#31271e" stroke="#e4bd70" stroke-width="3"/>
+<text x="232" y="1066" class="label" style="fill:#e4bd70">Назначить клавишу</text>
+<text x="232" y="1094" class="small" style="fill:#efe2ca">Слот 2 · Скользящий знак</text>
+<text x="232" y="1121" class="small" style="fill:#efe2ca">Нажмите клавишу…</text>
+<text x="232" y="1148" class="small" style="fill:#75b57b">[ Отмена ]</text>
+<rect x="739" y="750" width="686" height="685" rx="9" fill="#251f1a" stroke="#b08c54" stroke-width="4"/>
+<rect x="752" y="762" width="660" height="48" rx="3" fill="#31271e" stroke="#b08c54" stroke-width="2"/>
+<text x="765" y="794" class="head" style="fill:#e4bd70">5. Направления развития</text>
+<rect x="764" y="825" width="140" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="775" y="850" class="small" style="fill:#bcb1a4">Пути развития</text>
+<rect x="907" y="825" width="136" height="37" rx="3" fill="#53402c" stroke="#e4bd70" stroke-width="2"/>
+<text x="918" y="850" class="small" style="fill:#e4bd70">Направления</text>
+<rect x="1046" y="825" width="124" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="1057" y="850" class="small" style="fill:#bcb1a4">Мастерство</text>
+<rect x="1174" y="825" width="110" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="1185" y="850" class="small" style="fill:#bcb1a4">Клавиши</text>
+<text x="774" y="915" class="label" style="fill:#e4bd70">Текущий класс: Ведун  ·  выбор направления</text>
+<rect x="771" y="942" width="622" height="412" rx="3" fill="#1a2226" stroke="#725a39" stroke-width="2"/>
+<rect x="789" y="985" width="282" height="309" rx="3" fill="#31271e" stroke="#b08c54" stroke-width="2"/>
+<text x="809" y="1023" class="head" style="fill:#e4bd70">Колдун</text>
+<rect x="908" y="1070" width="44" height="44" rx="6" fill="#363126" stroke="#e4bd70" stroke-width="3"/>
+<text x="920" y="1097" class="label" style="fill:#e4bd70">☾</text>
+<rect x="911" y="1117" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="915" y="1131" class="note" style="fill:#efe2ca">0/1</text>
+<path d="M930 1132 L930 1196" stroke="#725a39" stroke-width="3" fill="none" stroke-linecap="round"/>
+<text x="806" y="1246" class="small" style="fill:#efe2ca">Магия, проклятия</text>
+<rect x="850" y="1258" width="173" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="861" y="1283" class="small" style="fill:#bcb1a4">Выбрать направление</text>
+<rect x="1095" y="985" width="282" height="309" rx="3" fill="#31271e" stroke="#b08c54" stroke-width="2"/>
+<text x="1115" y="1023" class="head" style="fill:#e4bd70">Волхв</text>
+<rect x="1214" y="1070" width="44" height="44" rx="6" fill="#363126" stroke="#e4bd70" stroke-width="3"/>
+<text x="1226" y="1097" class="label" style="fill:#e4bd70">☼</text>
+<rect x="1217" y="1117" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1221" y="1131" class="note" style="fill:#efe2ca">0/1</text>
+<path d="M1236 1132 L1236 1196" stroke="#725a39" stroke-width="3" fill="none" stroke-linecap="round"/>
+<text x="1112" y="1246" class="small" style="fill:#efe2ca">Обряды, целительство</text>
+<rect x="1156" y="1258" width="173" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="1167" y="1283" class="small" style="fill:#bcb1a4">Выбрать направление</text>
+<text x="771" y="1394" class="small" style="fill:#bcb1a4">Никаких привязок или огромных панелей.</text>
+<rect x="1458" y="750" width="686" height="685" rx="9" fill="#251f1a" stroke="#b08c54" stroke-width="4"/>
+<rect x="1471" y="762" width="660" height="48" rx="3" fill="#31271e" stroke="#b08c54" stroke-width="2"/>
+<text x="1484" y="794" class="head" style="fill:#e4bd70">6. Мастерство</text>
+<rect x="1483" y="825" width="140" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="1494" y="850" class="small" style="fill:#bcb1a4">Пути развития</text>
+<rect x="1626" y="825" width="136" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="1637" y="850" class="small" style="fill:#bcb1a4">Направления</text>
+<rect x="1765" y="825" width="124" height="37" rx="3" fill="#53402c" stroke="#e4bd70" stroke-width="2"/>
+<text x="1776" y="850" class="small" style="fill:#e4bd70">Мастерство</text>
+<rect x="1893" y="825" width="110" height="37" rx="3" fill="#31271e" stroke="#725a39" stroke-width="2"/>
+<text x="1904" y="850" class="small" style="fill:#bcb1a4">Клавиши</text>
+<text x="1492" y="914" class="label" style="fill:#e4bd70">Финальное развитие и испытания выбранного пути</text>
+<rect x="1490" y="936" width="622" height="427" rx="3" fill="#1a2226" stroke="#725a39" stroke-width="2"/>
+<path d="M1626 1010 L1785 1010" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1785 1010 L1945 1010" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1626 1010 L1626 1169" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1785 1010 L1785 1169" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1945 1010 L1945 1169" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1626 1169 L1785 1169" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1785 1169 L1945 1169" stroke="#725a39" stroke-width="4" fill="none" stroke-linecap="round"/>
+<rect x="1604" y="988" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="1616" y="1015" class="label" style="fill:#75b57b">✧</text>
+<rect x="1607" y="1035" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1611" y="1049" class="note" style="fill:#efe2ca">3/3</text>
+<rect x="1763" y="988" width="44" height="44" rx="6" fill="#363126" stroke="#75b57b" stroke-width="3"/>
+<text x="1775" y="1015" class="label" style="fill:#75b57b">☼</text>
+<rect x="1766" y="1035" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1770" y="1049" class="note" style="fill:#efe2ca">3/3</text>
+<rect x="1923" y="988" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="1935" y="1015" class="label" style="fill:#777572">❖</text>
+<rect x="1926" y="1035" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1930" y="1049" class="note" style="fill:#bcb1a4">0/1</text>
+<rect x="1604" y="1147" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="1616" y="1174" class="label" style="fill:#777572">♜</text>
+<rect x="1607" y="1194" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1611" y="1208" class="note" style="fill:#bcb1a4">0/1</text>
+<rect x="1763" y="1147" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="1775" y="1174" class="label" style="fill:#777572">✦</text>
+<rect x="1766" y="1194" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1770" y="1208" class="note" style="fill:#bcb1a4">0/1</text>
+<rect x="1923" y="1147" width="44" height="44" rx="6" fill="#272727" stroke="#777572" stroke-width="3"/>
+<text x="1935" y="1174" class="label" style="fill:#777572">◆</text>
+<rect x="1926" y="1194" width="38" height="19" rx="0" fill="#251f1a" stroke="none" stroke-width="0"/>
+<text x="1930" y="1208" class="note" style="fill:#bcb1a4">0/1</text>
+<text x="1505" y="1391" class="small" style="fill:#bcb1a4">Выбор мастерства — только после доступного испытания.</text>
+<text x="22" y="1451" class="note">Авторитетный UX-чертёж для #75. Ноды/отступы схематические; реальные идентификаторы и требования берутся из ClassDefinitions/ClassState. 2026-10-19.</text></svg>

@@ -5,7 +5,6 @@ import com.mojang.brigadier.arguments.LongArgumentType;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
-@EventBusSubscriber(modid="slavicmyths")
 public final class ManualStructureCommands {
  public static void register(org.slavicmyths.commands.CommandTree tree){
   var generate=Commands.literal("generate").requires(s->s.hasPermission(2));

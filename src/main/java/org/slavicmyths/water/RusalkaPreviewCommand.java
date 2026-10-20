@@ -5,7 +5,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 /** Explicit Creative/operator-only preview of an existing nearby singer; never spawns or edits worlds. */
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class RusalkaPreviewCommand {
  public static void register(org.slavicmyths.commands.CommandTree tree){
   var preview=Commands.literal("rusalka_preview");

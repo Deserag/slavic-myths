@@ -12,7 +12,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import com.mojang.brigadier.arguments.StringArgumentType;
 /** Read-only loaded-start diagnostics; never requests generation or force-loads a complex. */
-@EventBusSubscriber(modid="slavicmyths")
 public final class AbandonedCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree){
         var root=Commands.literal("abandoned").requires(s->s.hasPermission(2));var locate=Commands.literal("locate").executes(c->locate(c.getSource(),null));

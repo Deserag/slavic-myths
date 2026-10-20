@@ -15,7 +15,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
-@EventBusSubscriber(modid="slavicmyths")
 public final class VillageCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree){
         var debug=Commands.literal("villager").executes(c->inspect(c.getSource(),nearest(c.getSource())))

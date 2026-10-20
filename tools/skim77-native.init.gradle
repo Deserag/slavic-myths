@@ -1,0 +1,7 @@
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ p.sourceSets { skim77 { java.srcDir 'tools/skim77-native' } }
+ p.sourceSets.skim77.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.skim77.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+ p.tasks.register('captureSkim77',JavaExec){dependsOn 'skim77Classes';classpath=p.sourceSets.skim77.runtimeClasspath;mainClass='Skim77Native';systemProperty 'skim77.baseline',p.hasProperty('skim77Baseline');systemProperty 'skim77.quick',p.hasProperty('skim77Quick')}
+}

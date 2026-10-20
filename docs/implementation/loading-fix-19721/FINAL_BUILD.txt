@@ -1,0 +1,11 @@
+Java21: C:/Program Files/Java/jdk-21.0.12
+./gradlew.bat clean build -I tools/commands-offline.init.gradle verifyCommandsOffline verifyFrostStaffOffline
+BUILD SUCCESSFUL in 1m 30s
+COMMANDS_OFFLINE PASS checks=9249 nodes=647 (includes native bus registration regression)
+FROST_STAFF_OFFLINE PASS 13 actual predicate/geometry checks
+USER_TEXT PASS --jar
+COMMAND_REFERENCE PASS --write
+Production/install parity: 7398 resources,1706 Java21 classes; native/offline tests excluded from JAR
+1.9.7.21 installed, SHA256 1e0064b015bb0f4103b5d00f04b1ee855c3346becf9180c755299703e11c9be5
+Backup and one active JAR PASS; exact source ZIP and working-tree patch preserved (INSTALLATION.json)
+Codex launches:0. Actual successful Minecraft loading after fix: NOT_RUN, owner pending.

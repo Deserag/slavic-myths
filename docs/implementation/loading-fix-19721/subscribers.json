@@ -1,0 +1,187 @@
+[
+  {
+    "file": "src/main/java/org/slavicmyths/bandit/CampCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/bayun/BayunCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/bogatyr/BogatyrCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/chud/AbandonedCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/chud/ChudCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/chud/ChudGenerateCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/chud/ChudSearchCommands.java",
+    "automatic_subscriber": true,
+    "event_handlers": 1
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/depths/DepthsCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/earth/EarthCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/finist/FinistEvents.java",
+    "automatic_subscriber": true,
+    "event_handlers": 7
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/firebird/FirebirdCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/gorodishche/CityCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/hunt/BossCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/hunt/HuntCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/kalin/KalinEvents.java",
+    "automatic_subscriber": true,
+    "event_handlers": 6
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/kurgan/KurganCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/kuzya/KuzyaResidence.java",
+    "automatic_subscriber": true,
+    "event_handlers": 1
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/marinka/MarinkaCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/military/MilitaryCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/mor/MorBlockCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/navigation/NavigationCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/poloz/PolozCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/quest185/Quest185Commands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/sanctuary/SanctuaryCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/serpenthill/HillCommands.java",
+    "automatic_subscriber": true,
+    "event_handlers": 1
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/sivka/SivkaCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/skim/SkimEvents.java",
+    "automatic_subscriber": true,
+    "event_handlers": 5
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/swamp/SwampCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/underground/UndergroundCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/village/VillageCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/village/VillageShowcase.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/water/RusalkaPreviewCommand.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/wolf/WolfCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/wood/WoodlandCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/worldgen/ManualStructureCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/yaga/YagaCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  },
+  {
+    "file": "src/main/java/org/slavicmyths/rpg/classes/ClassCommands.java",
+    "automatic_subscriber": false,
+    "event_handlers": 0
+  }
+]

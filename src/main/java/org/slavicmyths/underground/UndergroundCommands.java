@@ -5,7 +5,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import org.slavicmyths.chud.*;
-@EventBusSubscriber(modid="slavicmyths")
 public final class UndergroundCommands {
  public static void register(org.slavicmyths.commands.CommandTree tree){var root=Commands.literal("underground").requires(s->s.hasPermission(2));var spawn=Commands.literal("spawn");for(String kind:java.util.List.of("podzemnik","miner","kladovik","large_podzemnik"))spawn.then(Commands.literal(kind).executes(c->{var source=c.getSource();var w=source.getLevel();EncounterMob mob=kind.equals("kladovik")?UndergroundMobs.KLADOVIK.get().create(w):kind.equals("large_podzemnik")?UndergroundMobs.LARGE.get().create(w):UndergroundMobs.PODZEMNIK.get().create(w);if(mob==null)return 0;var p=net.minecraft.core.BlockPos.containing(source.getPosition().add(source.getRotation().y==0?2:0,0,2));if(mob instanceof Podzemnik m)m.variant(kind.equals("miner")?1:0);mob.bind(p,"");mob.moveTo(p.getX()+.5,p.getY(),p.getZ()+.5,0,0);if(!w.noCollision(mob)){source.sendFailure(Component.literal("Нет свободного места для этого моба."));return 0;}return w.addFreshEntity(mob)?1:0;}));root.then(spawn);
  root.then(Commands.literal("status").executes(c->{c.getSource().sendSuccess(()->Component.literal(EncounterPopulation.data(c.getSource().getLevel()).status()),false);return 1;}));

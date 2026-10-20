@@ -1,0 +1,16 @@
+{
+  "status": "PASS_OFFLINE",
+  "version": "1.9.7.29",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.29.jar",
+  "jar_sha256": "023e7d198f74b8fb1c80cceb421cdbb8a808cde632f8d450f248cda5af4cd605",
+  "resources": 7408,
+  "png_verified": 1335,
+  "production_java21_classes": 1713,
+  "baseline_head": "e5924bd909113dc587496940b270f963fe259714",
+  "merged_main": "a4f343f3421042736543dc2afa09cfc7f03bc65a",
+  "source_fingerprint": "7882f286e0d0294900ceabff4eedda7508d4f55f52ceadbe65779609f7a0a3be",
+  "source_commit": "UNCOMMITTED working tree, including preserved user modifications; no automatic commit per AGENTS.md",
+  "runtime_launches": 0,
+  "polymc": "NOT_UPDATED_BY_THIS_TASK",
+  "owner_acceptance": "PENDING"
+}

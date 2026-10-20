@@ -1,0 +1,25 @@
+{
+  "issue": 85,
+  "status": "IN_PROGRESS / OWNER_PENDING",
+  "base_commit": "8730595d09f84386d2556a714d7f8126649f3863",
+  "source": "uncommitted working tree",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.23.jar",
+  "sha256": "f47131cce1c2f6e3c75111bf78b27ce122392d8f1178a6584813a41529ea7a82",
+  "build": "PASS",
+  "resources": 7398,
+  "jsons": 3919,
+  "java21_classes": 1707,
+  "language_generator_values": "PASS (AST inspection, generator not executed)",
+  "runtime": "NOT_RUN",
+  "minecraft_launches": 0,
+  "polymc": "POLYMC_NOT_INSTALLED",
+  "owner_acceptance": false,
+  "source_sha256": {
+    "src/main/java/org/slavicmyths/brewing/BeverageItem.java": "c8e7ce9c8dfe9d2eb889865c7896a71c3fe55fef896651eeb5b70745f09a609b",
+    "src/main/java/org/slavicmyths/brewing/BrewRules.java": "795b4bcaf2e3861981b1aba1ede9bf0a659f8b02ef6d634525876fd79e380dab",
+    "src/main/java/org/slavicmyths/brewing/Brewing.java": "2de0b79a6fba9ccd494240bca787c7b9ec61141df9372024edbaf456a41cdb78",
+    "tools/brewing_resources.py": "82bce89dc34fb40ff4fcd7dae4ae3ff72e0279e346acf5bd492d02eaf690d8d9",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json": "e6b8b1839f7b19c139cf45c87f868488c338a5cfd0ab29619e7d92b47e3abe11",
+    "src/main/resources/assets/slavicmyths/lang/en_us.json": "b8afb96a750cba73bf1bbe2a412a8ad3a1829cd87b989d8379b1ed7b0f91affb"
+  }
+}

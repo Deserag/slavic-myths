@@ -1,0 +1,16 @@
+20.10.2026 — #75 V3, offline verification
+JAVA_HOME=C:/Program Files/Java/jdk-21.0.12
+./gradlew.bat clean build -I tools/commands-offline.init.gradle verifyCommandsOffline verifyFrostStaffOffline
+BUILD SUCCESSFUL in 2m 4s
+COMMANDS_OFFLINE PASS checks=9249 nodes=647
+FROST_STAFF_OFFLINE PASS 13 actual predicate/geometry checks
+python tools/verify_classes_75_v3.py: PASS 6220 rules/camera/geometry/resource cases,18 bilingual branch descriptions
+RU/EN literal keys/placeholders/generator copy parity PASS
+Production resources/classes parity PASS:7398 resources,1707 Java21 classes; offline fixtures absent from production JAR
+python tools/verify_user_text.py --jar: PASS
+python tools/command_reference.py --write: PASS; formatting normalization of regenerated evidence
+Version1.9.7.23, SHA256 3025394692093dcfdc491a07a0528c9364eb1d70c3c1aa1de6378fd20dbc5174
+PolyMC installed exact SHA / backup / one active mod JAR PASS, see INSTALLATION.json
+Source base8730595d09f84386d2556a714d7f8126649f3863 + uncommitted changes; exact source ZIP/patch in backup
+V3 in-game/after screenshots/video/manual acceptance IN_GAME_NOT_RUN; Codex launches0
+Issue75 OPEN/IN_PROGRESS, partial owner feedback for V2, no final acceptance

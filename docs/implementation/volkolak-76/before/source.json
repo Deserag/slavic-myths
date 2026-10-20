@@ -1,0 +1,16 @@
+{
+  "head": "e5924bd909113dc587496940b270f963fe259714",
+  "files": {
+    "src/main/java/org/slavicmyths/client/CursedVolkolakGeometry.java": "83097096769aae7e7e53fc3add97e1b8079d5b55b55520d037d3ec4b591506f6",
+    "src/main/java/org/slavicmyths/client/CursedVolkolakModel.java": "2febb40f537875008463ee4245f4a49503d9c3aa8d4b1d3228204258c39b3765",
+    "src/main/java/org/slavicmyths/client/CursedVolkolakRenderer.java": "281f655ed87d622ba8c212b59cca1c4bba400adc30ee850706cbdf71dae5eec6",
+    "src/main/java/org/slavicmyths/client/CursedVolkolakEyes.java": "7dfd2f3b8f69a4463f78030130cff8ec2c7c46fb9fc8d10000ddf7120b9ab67e",
+    "src/main/java/org/slavicmyths/volkolak/CursedVolkolak.java": "153054ba7ad9b2cec9697b5c29c3643d2203d5e20a735e153f23dc82dfde4f36",
+    "src/main/resources/assets/slavicmyths/cursed_volkolak_geometry.json": "1b645b4a5c8cb10b6fe5d982ebcbd5a9a63d6e1773a2a8ccd4592392d922b41a",
+    "src/main/resources/assets/slavicmyths/textures/entity/cursed_volkolak.png": "fc729e1a1a231468bc555d034b5f539f42ba98e89d78dc085f31df636eedcebb",
+    "src/main/resources/assets/slavicmyths/textures/entity/cursed_volkolak_eyes.png": "e3d1e4406df96815ca60e827bc8c74dbb131bf6003bd82d2cb0c639257207e92",
+    "tools/volkolak_143_resources.py": "44b473bb4341e0f8b059ab79031ff513c82053363eb8416d7d4391dc426e7112"
+  },
+  "renderer_depth": 0.68,
+  "owner_screenshot_source": "19 October rejected screenshot was not supplied in this turn: exact screenshot JAR unverified; current 1.9.7.28 installed source is baseline, no invented provenance"
+}

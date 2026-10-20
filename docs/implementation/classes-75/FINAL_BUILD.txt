@@ -1,0 +1,15 @@
+19.10.2026 — offline only; Minecraft/server/PolyMC launches: 0
+JAVA_HOME=C:/Program Files/Java/jdk-21.0.12
+./gradlew.bat clean build -I tools/commands-offline.init.gradle verifyCommandsOffline verifyFrostStaffOffline
+BUILD SUCCESSFUL in 1m 26s
+COMMANDS_OFFLINE PASS checks=9057 nodes=647
+FROST_STAFF_OFFLINE PASS 13 actual predicate/geometry checks
+python tools/verify_classes_75.py: PASS 5034 rule/layout checks; 40 skills; 3 trees; 6 resolution/scale pairs
+Production parity: 7398 resources; 1706 Java21 classes; no offline fixtures in JAR
+python tools/verify_user_text.py --jar: PASS
+python tools/command_reference.py --write: PASS; normalization of regenerated command evidence, no semantic diff
+JAR: build/libs/slavicmyths-1.9.7.19.jar
+SHA256: 7473396ea7a2007c252e4166a9c8a1c15383cb96a3aa22e0a0db7ff0edb0a713
+Source base: 8730595d09f84386d2556a714d7f8126649f3863 + uncommitted #75 changes (hashes in checks.json)
+Runtime/visual/XP/death/relog/MP: NOT_RUN
+POLYMC_NOT_INSTALLED; issue OPEN/IN_PROGRESS, owner acceptance NOT_RUN

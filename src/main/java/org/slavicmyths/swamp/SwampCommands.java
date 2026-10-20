@@ -30,7 +30,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import java.util.*;
 
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class SwampCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree) {
         tree.add(Commands.literal("slavicmyths")

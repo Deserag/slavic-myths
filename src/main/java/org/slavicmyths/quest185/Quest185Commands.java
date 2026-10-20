@@ -7,7 +7,6 @@ import net.minecraft.network.chat.Component;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class Quest185Commands {
  public static void register(org.slavicmyths.commands.CommandTree tree){var root=Commands.literal("quest185").requires(s->s.hasPermission(2));
   for(String action:List.of("status","reset","invite","debug_actors","wolf_call","cleansing_sample","cleansing_status")){final String selected=action;root.then(Commands.literal(action).then(Commands.argument("player",EntityArgument.player()).executes(c->run(c.getSource(),EntityArgument.getPlayer(c,"player"),selected))));}

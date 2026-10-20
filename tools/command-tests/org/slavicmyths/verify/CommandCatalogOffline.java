@@ -14,6 +14,7 @@ import org.slavicmyths.commands.*;
 /** Real production builders/Brigadier on a plain JVM. No server, client, world,
  * entity constructor or gameplay callback. Explicit spies test parsing only. */
 public final class CommandCatalogOffline {
+ private static final class EmptySubscriber {}
  private static int checks;
  private static CommandTree tree;
  private static ServerPlayer identity;
@@ -124,6 +125,21 @@ public final class CommandCatalogOffline {
   check(d.execute("slavicmyths dev clear_kurgan_curse Offline",source(2,false))==1,"Explicit player argument retained for console");
   boolean rejected=false;try{d.execute("smclass Offline state",source(0,true));}catch(com.mojang.brigadier.exceptions.CommandSyntaxException expected){rejected=true;}
   check(rejected,"Old root cannot elevate player");
+  // Exercise the same native bus registration validation used by automatic subscribers.
+  var registrationBus=net.neoforged.bus.api.BusBuilder.builder().build();
+  boolean rejectsEmpty=false;try{registrationBus.register(EmptySubscriber.class);}catch(IllegalArgumentException expected){rejectsEmpty=true;}
+  check(rejectsEmpty,"Native bus rejects empty subscriber (reported loading regression)");
+  int automatic=0;
+  try(var files=Files.walk(Path.of("src/main/java"))){for(var path:files.filter(p->p.toString().endsWith(".java")).toList()){
+   String source=Files.readString(path);boolean annotated=java.util.regex.Pattern.compile("@(?:[\\w.]+\\.)?EventBusSubscriber\\b").matcher(source).find();
+   if(!annotated)continue;
+   check(java.util.regex.Pattern.compile("@(?:[\\w.]+\\.)?SubscribeEvent\\b").matcher(source).find(),"Empty automatic subscriber: "+path);
+   if(source.contains("org.slavicmyths.commands.CommandTree tree)")||path.endsWith("SlavicCommands.java")){
+    String name=Path.of("src/main/java").relativize(path).toString().replace('\\','.').replace('/','.').replaceAll("\\.java$", "");
+    registrationBus.register(Class.forName(name));automatic++;check(true,"Native bus registration "+name);
+   }
+  }}
+  check(automatic==7,"Central registrar plus six contributors with remaining non-command events");
   var report=new LinkedHashMap<String,Object>();report.put("status","PASS_OFFLINE");report.put("checks",checks);
   report.put("original_executables_in_contributions",leaves);report.put("tree_nodes",rows.size());report.put("compatibility_nodes",tree.aliases().size());
   report.put("tests","Real builders/Brigadier OP0-4, player/console identity, callback identity, bounds/UUID, class/help completion, one-action parsing spies");
