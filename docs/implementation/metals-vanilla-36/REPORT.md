@@ -55,7 +55,7 @@ Legacy protection: materials81_m1 делегирует актуальные meta
 | Java21 clean build | BUILD.log, BUILD SUCCESSFUL in1m40s | PASS |
 | Production JAR/meta/resource/class parity | jar-check.json | PASS offline |
 | Minecraft GUI/world/light и приёмка владельца | запусков агента0 | NOT_RUN / OWNER_PENDING |
-| Установка/публикация | отдельная post-build квитанция будет добавлена после gates | PENDING до receipt |
+| Установка/публикация | [post-build квитанция](../polymc-19736/REPORT.md) | PASS установки/source публикации |
 
 Отдельно: это не полная реализация #81/#97 и не изменение оставшегося янтарного блока/прочих партий. Issue/owner-accepted не закрываются автоматически. Старые отчёты M1 — исторический as-was, новая геометрия .36 имеет приоритет по решению владельца.
 
@@ -66,3 +66,7 @@ JAR `D:\slavic-myths\build\libs\slavicmyths-1.9.7.36.jar`
 SHA256 `de33a23866ab1bb5c7616d488f3eb009550e042f4a856ae484ae23968c096dd7`
 
 Source fingerprint `a09a2482cb461e2938ac5148bcc682ba8fc72e35dc0b3183a9fa09ce2be544c7`; [полный manifest](build-source-sha256.json). 7431 resources / 1337 PNG / 1732 Java21 classes проверены byte-for-byte в production JAR, ZIP CRC и metadata36 PASS.
+
+## Установка и публикация
+
+Установлена .36, source commit `fad9d44d82fb8ec75571e76e08da11c16a37e571` отправлен в main. [Installed path/SHA/backup](../polymc-19736/REPORT.md). Реальных игровых запусков0, OWNER_PENDING.

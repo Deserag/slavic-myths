@@ -1,3 +1,13 @@
+## Установлена коррекция металлов 1.9.7.36 · 20.10.2026
+
+В PolyMC установлен проверенный JAR36, backup35 сохранён,1active Slavic JAR,6других модов
+не менялись. В origin/main source commit fad9d44d:5слитков одного vanilla silhouette,
+2руды с vanilla каменной основой; только материал/локальные жилки, без смены механик.
+[Квитанция path/SHA/source commit/backup](implementation/polymc-19736/REPORT.md),
+[A/B и матрица](implementation/metals-vanilla-36/REPORT.md). Clean build/JAR PASS;
+игровых запусков0, OWNER_PENDING. Предыдущие формы M1 отвергнуты владельцем и заменены.
+Следующие записи исторические; закрытие Issue не выполнялось.
+
 ## Коррекция металлов по скриншотам владельца · 1.9.7.36 · 20.10.2026
 
 **IN_PROGRESS / OWNER_PENDING.** Последнее указание владельца заменяет прежнее решение
