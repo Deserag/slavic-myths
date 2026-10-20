@@ -1,0 +1,55 @@
+name: Slavic Myths - Project 9 migration
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Apply changes to Project 9 (otherwise dry-run)"
+        required: true
+        type: boolean
+        default: false
+      include_closed:
+        description: "Also import historical closed Issues"
+        required: true
+        type: boolean
+        default: true
+      overwrite_existing_status:
+        description: "Reclassify existing statuses using approved issue matrix (recommended first run)"
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: slavic-project-9-migration
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout source and migration config
+        uses: actions/checkout@v4
+      - name: Check dedicated Project permission
+        shell: bash
+        env:
+          PROJECT_SECRET: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
+        run: |
+          if [ -z "$PROJECT_SECRET" ]; then
+            echo "::error::Repository secret SLAVIC_PROJECTS_TOKEN is missing. Add a classic PAT with project scope in Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+      - name: Validate migration Python
+        run: |
+          python3 -m py_compile tools/project-migration/sync.py
+          python3 -m json.tool tools/project-migration/config.json > /dev/null
+      - name: Read, plan, and optionally migrate Project
+        env:
+          GH_PROJECTS_TOKEN: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
+          APPLY_MIGRATION: ${{ inputs.apply }}
+          INCLUDE_CLOSED: ${{ inputs.include_closed }}
+          OVERWRITE_PROJECT_STATUS: ${{ inputs.overwrite_existing_status }}
+        run: python3 tools/project-migration/sync.py
