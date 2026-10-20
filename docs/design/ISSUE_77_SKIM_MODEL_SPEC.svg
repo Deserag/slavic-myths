@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1160" viewBox="0 0 1680 1160"><rect width="1680" height="1160" fill="#13191d"/><style>text{font-family:DejaVu Sans,sans-serif;fill:#e9e0d2}.t{font-size:28px;font-weight:bold}.h{font-size:19px}.s{font-size:14px;fill:#b8bbbc}</style>
+<text x="32" y="48" class="t">#77 • СКИМ-ЗВЕРЬ — ОТДЕЛЬНЫЙ ЧЕРТЁЖ ВИДОВ</text>
+<text x="32" y="83" class="s">Ортографические анатомические ориентиры; рендер реального model source обязательный, размеры согласуются с hitbox.</text>
+<rect x="18" y="117" width="399" height="460" rx="4" fill="#1e2930" stroke="#726f69" stroke-width="2"/>
+<text x="32" y="149" class="s">СПЕРЕДИ — МОРДА И ЛАПЫ</text>
+<polygon points="152,308 171,261 257,261 283,308 301,411 270,457 161,457 132,411" fill="#683b39" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="173,309 165,258 197,271 231,271 263,252 259,308" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="178,294 256,294 246,345 189,345" fill="#683b39" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="194,342 240,342 233,380 201,380" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="187" cy="301" r="6" fill="#ead8b2"/>
+<circle cx="247" cy="301" r="6" fill="#ead8b2"/>
+<circle cx="217" cy="374" r="8" fill="#201d1c"/>
+<polygon points="140,445 177,445 186,552 170,565 145,557" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<path d="M152 522L179 521" stroke="#683b39" stroke-width="3" fill="none"/>
+<polygon points="254,445 291,445 300,552 284,565 259,557" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<path d="M266 522L293 521" stroke="#683b39" stroke-width="3" fill="none"/>
+<text x="30" y="533" class="s">Два глаза + челюсть</text>
+<rect x="432" y="117" width="399" height="460" rx="4" fill="#1e2930" stroke="#726f69" stroke-width="2"/>
+<text x="446" y="149" class="s">СБОКУ — ПОДЪЁМ СПИНЫ</text>
+<polygon points="486,321 533,297 601,281 686,295 732,338 740,387 706,439 522,435 477,390" fill="#683b39" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="682,309 714,239 735,282 761,247 778,299 758,346" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="732,335 803,353 800,387 742,399" fill="#683b39" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="749" cy="305" r="7" fill="#ead8b2"/>
+<polygon points="479,337 450,270 465,248 512,291" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="504,421 540,421 542,550 528,565 503,564" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<path d="M520 462L532 508" stroke="#683b39" stroke-width="4" fill="none"/>
+<polygon points="648,421 684,421 686,550 672,565 647,564" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<path d="M664 462L676 508" stroke="#683b39" stroke-width="4" fill="none"/>
+<text x="444" y="533" class="s">Переходы шею/холка/спина</text>
+<rect x="846" y="117" width="399" height="460" rx="4" fill="#1e2930" stroke="#726f69" stroke-width="2"/>
+<text x="860" y="149" class="s">СЗАДИ — ТАЗ И ХВОСТ</text>
+<polygon points="975,266 1116,266 1140,325 1116,449 977,449 951,328" fill="#683b39" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1025,437 1062,434 1080,544 1046,569 1016,529" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="958,429 1008,429 1003,557 966,563" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1082,429 1132,429 1127,557 1090,563" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<text x="858" y="533" class="s">Хвост и раздельные задние ноги</text>
+<rect x="1260" y="117" width="399" height="460" rx="4" fill="#1e2930" stroke="#726f69" stroke-width="2"/>
+<text x="1274" y="149" class="s">3/4 — ОБЩИЙ СИЛУЭТ</text>
+<polygon points="1307,321 1362,292 1455,277 1526,311 1549,412 1501,439 1351,429" fill="#683b39" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1498,293 1530,231 1555,277 1578,244 1613,295 1592,349" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1571,334 1634,360 1618,386 1570,394" fill="#683b39" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1578" cy="303" r="7" fill="#ead8b2"/>
+<polygon points="1316,320 1285,250 1301,238 1351,293" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1329,417 1367,417 1378,549 1352,567 1328,559" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1477,417 1515,417 1526,549 1500,567 1476,559" fill="#a3574c" stroke="#151515" stroke-width="3" stroke-linejoin="round"/>
+<text x="1272" y="533" class="s">Проверка объёмов без коробки</text>
+<rect x="25" y="601" width="795" height="525" rx="4" fill="#1e262a" stroke="#9b8667" stroke-width="2"/>
+<text x="44" y="643" class="t">ОБЯЗАТЕЛЬНЫЕ АНАТОМИЧЕСКИЕ КРИТЕРИИ</text>
+<circle cx="55" cy="683" r="5" fill="#d7b986"/>
+<text x="76" y="691" class="h">Голова отделена от шеи, глаза и челюсть</text>
+<circle cx="55" cy="749" r="5" fill="#d7b986"/>
+<text x="76" y="757" class="h">Широкая, но расчленённая грудь и спина</text>
+<circle cx="55" cy="815" r="5" fill="#d7b986"/>
+<text x="76" y="823" class="h">Объём таза отделяется от корпуса и задних бёдер</text>
+<circle cx="55" cy="881" r="5" fill="#d7b986"/>
+<text x="76" y="889" class="h">Раздельные передние и задние лапы, когти</text>
+<circle cx="55" cy="947" r="5" fill="#d7b986"/>
+<text x="76" y="955" class="h">Грива и хвост не маскируют контур ног</text>
+<text x="44" y="1086" class="s">Нельзя заменить модель перекраской PNG или несколькими наростами.</text>
+<rect x="848" y="601" width="808" height="525" rx="4" fill="#1e262a" stroke="#9b8667" stroke-width="2"/>
+<text x="866" y="643" class="t">SOURCE + ПОЗЫ + ПРАВИЛА ВЫПУСКА</text>
+<circle cx="875" cy="683" r="5" fill="#d7b986"/>
+<text x="896" y="691" class="h">SkimMesh.create / SkimModel.pose</text>
+<circle cx="875" cy="748" r="5" fill="#d7b986"/>
+<text x="896" y="756" class="h">Сейчас body 30×23×34, hips 25×18×29 — база</text>
+<circle cx="875" cy="813" r="5" fill="#d7b986"/>
+<text x="896" y="821" class="h">Проверить UV и фактические PNG до изменений</text>
+<circle cx="875" cy="878" r="5" fill="#d7b986"/>
+<text x="896" y="886" class="h">ROAR / CLAWS / LEAP / GRIP / EXHAUSTED</text>
+<circle cx="875" cy="943" r="5" fill="#d7b986"/>
+<text x="896" y="951" class="h">DEATH/REST и state transition</text>
+<text x="869" y="1044" class="s">Выпуск: front/right/back/3⁄4 actual source; idle / walk / attack / hurt.</text>
+<text x="869" y="1080" class="s">Скрин концепта ≠ игровая приёмка. ID, UV, rig, collision сохранять.</text>
+</svg>

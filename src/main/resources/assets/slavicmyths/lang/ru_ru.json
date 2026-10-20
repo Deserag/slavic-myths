@@ -5619,5 +5619,8 @@
   "brewing.slavicmyths.intoxication_stage_2": "Путаница",
   "brewing.slavicmyths.intoxication_stage_3": "Путаница, слабость",
   "brewing.slavicmyths.intoxication_stage_4": "Путаница, слабость, замедление",
-  "brewing.slavicmyths.intoxication_stage_5": "Сильное опьянение, отравление"
+  "brewing.slavicmyths.intoxication_stage_5": "Сильное опьянение, отравление",
+  "hero_hud.slavicmyths.active": "Помогает",
+  "hero_hud.slavicmyths.retreating": "Отступает",
+  "hero_hud.slavicmyths.cursed": "Проклят"
 }

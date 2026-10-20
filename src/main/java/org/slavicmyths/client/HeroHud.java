@@ -13,42 +13,52 @@ import org.slavicmyths.marinka.DobrynyaEntity;
 import org.slavicmyths.skim.AlyoshaEntity;
 import org.slavicmyths.finist.FinistEntity;
 
-/** One compact stack for the two summoned companions, independent of hero type. */
+/** All loaded owned companions in a compact stack; no server timers or expanded scans. */
 @EventBusSubscriber(modid="slavicmyths", value=Dist.CLIENT)
 public final class HeroHud {
     @SubscribeEvent public static void render(RenderGuiEvent.Post event) {
-        var mc=Minecraft.getInstance();
-        if(mc.player==null||mc.level==null||mc.screen!=null||mc.options.hideGui
-                ||!org.slavicmyths.bogatyr.BogatyrConfig.HUD.get())return;
-        var heroes=new ArrayList<LivingEntity>();
-        for(var entity:mc.level.entitiesForRendering()) {
-            UUID owner=entity instanceof IlyaEntity h?h.syncedOwner():entity instanceof DobrynyaEntity h?h.syncedOwner()
-                    :entity instanceof AlyoshaEntity h?h.syncedOwner():entity instanceof FinistEntity h?h.syncedOwner():null;
-            if(mc.player.getUUID().equals(owner)&&entity instanceof LivingEntity h&&h.isAlive()
-                    &&mc.player.distanceToSqr(h)<=64*64)heroes.add(h);
+        var mc = Minecraft.getInstance();
+        if (mc.player == null || mc.level == null || mc.screen != null || mc.options.hideGui
+                || !org.slavicmyths.bogatyr.BogatyrConfig.HUD.get()) return;
+        var loaded = new ArrayList<HeroHudView.Entry>();
+        for (var entity : mc.level.entitiesForRendering()) {
+            UUID owner = entity instanceof IlyaEntity h ? h.syncedOwner() : entity instanceof DobrynyaEntity h ? h.syncedOwner()
+                    : entity instanceof AlyoshaEntity h ? h.syncedOwner() : entity instanceof FinistEntity h ? h.syncedOwner() : null;
+            if (!mc.player.getUUID().equals(owner) || !(entity instanceof LivingEntity h)
+                    || !h.isAlive() || mc.player.distanceToSqr(h) > 64 * 64) continue;
+            boolean resting = org.slavicmyths.kalin.KalinParty.recovering(h);
+            String key = retreating(h) ? "hero_hud.slavicmyths.retreating"
+                    : resting ? "gui.slavicmyths.174.recovery" : "hero_hud.slavicmyths.active";
+            if (h instanceof FinistEntity f && f.bird() == 4) key = "hero_hud.slavicmyths.cursed";
+            loaded.add(new HeroHudView.Entry(h.getUUID(), owner,
+                    net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(h.getType()).toString(),
+                    h.getName().getString(), h.getHealth(), h.getMaxHealth(),
+                    Component.translatable(key).getString(), resting, mc.player.distanceToSqr(h), h.isAlive()));
         }
-        heroes.sort(Comparator.comparing(h->h.getType().toString()));
-        var g=event.getGuiGraphics();
-        float scale=.75F;
-        int count=Math.min(2,heroes.size());
-        g.pose().pushPose();g.pose().scale(scale,scale,1);
-        int x=8,y=Math.max(8,(int)((g.guiHeight()-65)/scale)-count*23);
-        for(int i=0;i<count;i++) {
-            var h=heroes.get(i);int row=y+i*23;
-            boolean resting=org.slavicmyths.kalin.KalinParty.recovering(h);
-            String hp=Math.round(h.getHealth())+"/"+Math.round(h.getMaxHealth());
-            int hpWidth=mc.font.width(hp),panel=160;
-            g.fill(x-3,row-2,x+panel+3,row+19,0x98211D19);
-            String label=resting?Component.translatable("gui.slavicmyths.174.recovery").getString():h.getName().getString();
-            if(h instanceof FinistEntity f&&f.bird()==4)label=Component.translatable("message.slavicmyths.falcon_cursed").getString();
-            String name=mc.font.plainSubstrByWidth(label,panel-hpWidth-8);
-            g.drawString(mc.font,name,x,row,resting?0xC1B497:0xEEE1C9);
-            g.drawString(mc.font,hp,x+panel-hpWidth,row,0xDDD4C4);
-            g.fill(x,row+12,x+panel,row+15,0xFF493B35);
-            g.fill(x,row+12,x+Math.round(panel*Math.clamp(h.getHealth()/h.getMaxHealth(),0,1)),row+15,
-                    resting?0xFF897951:0xFFB99B61);
+        var heroes = HeroHudView.select(mc.player.getUUID(), loaded);
+        if (heroes.isEmpty()) return;
+        var graphics = event.getGuiGraphics();
+        var slots = HeroHudView.layout(graphics.guiWidth(), graphics.guiHeight(), heroes.size(),
+                org.slavicmyths.bogatyr.HeroHudConfig.X.get(), org.slavicmyths.bogatyr.HeroHudConfig.Y.get());
+        graphics.pose().pushPose();
+        try {
+            graphics.pose().scale(HeroHudView.SCALE, HeroHudView.SCALE, 1);
+            HeroHudView.draw(new HeroHudView.Canvas() {
+                public int width(String text) { return mc.font.width(text); }
+                public String trim(String text, int width) { return mc.font.plainSubstrByWidth(text, width); }
+                public void fill(int x, int y, int right, int bottom, int color) { graphics.fill(x, y, right, bottom, color); }
+                public void text(String text, int x, int y, int color) { graphics.drawString(mc.font, text, x, y, color); }
+            }, heroes, slots);
+        } finally {
+            graphics.pose().popPose();
         }
-        g.pose().popPose();
     }
-    private HeroHud() {}
+    private static boolean retreating(LivingEntity hero) {
+        if (hero instanceof IlyaEntity h) return h.state() == org.slavicmyths.bogatyr.BogatyrRules.State.RETREAT_START
+                || h.state() == org.slavicmyths.bogatyr.BogatyrRules.State.RETREAT_MOVING;
+        if (hero instanceof DobrynyaEntity h) return h.action() == org.slavicmyths.marinka.WitchAction.RETREAT;
+        if (hero instanceof AlyoshaEntity h) return h.action() == org.slavicmyths.skim.SkimAction.RETREAT;
+        return hero instanceof FinistEntity h && h.action() == org.slavicmyths.finist.FalconAction.RETREAT;
+    }
+    private HeroHud() { }
 }

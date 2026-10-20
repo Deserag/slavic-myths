@@ -1,0 +1,18 @@
+{
+  "issue": 90,
+  "status": "IN_PROGRESS / OWNER_PENDING",
+  "version": "1.9.7.27",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.27.jar",
+  "sha256": "9596c31c309fe70a72a939b2baad0d663e5d525eb12c35d72da530913d4527c4",
+  "resources": 7408,
+  "java21_classes": 1713,
+  "offline_cases": 40,
+  "selection": "UUID dedup, owner/alive/range boundary",
+  "render": "actual production Canvas calls and vanilla bitmap glyphs; OFFLINE, no Minecraft/GL",
+  "build": "PASS",
+  "runtime": "NOT_RUN",
+  "minecraft_launches": 0,
+  "polymc": "POLYMC_NOT_INSTALLED",
+  "owner_acceptance": false,
+  "lifetime_cooldown": "NOT_ADDED: #78 authoritative synchronization absent"
+}

@@ -5619,5 +5619,8 @@
   "brewing.slavicmyths.intoxication_stage_2": "Nausea",
   "brewing.slavicmyths.intoxication_stage_3": "Nausea, weakness",
   "brewing.slavicmyths.intoxication_stage_4": "Nausea, weakness, slowness",
-  "brewing.slavicmyths.intoxication_stage_5": "Severe intoxication, poison"
+  "brewing.slavicmyths.intoxication_stage_5": "Severe intoxication, poison",
+  "hero_hud.slavicmyths.active": "Assisting",
+  "hero_hud.slavicmyths.retreating": "Retreating",
+  "hero_hud.slavicmyths.cursed": "Cursed"
 }

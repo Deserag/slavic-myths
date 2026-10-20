@@ -18,6 +18,7 @@ public final class SlavicMyths {
 
     public SlavicMyths(IEventBus bus, ModContainer container) {
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.rpg.classes.ClassHudConfig.SPEC);
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.bogatyr.HeroHudConfig.SPEC,"slavicmyths-hero-hud.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.earth.EarthVisualConfig.SPEC,"slavicmyths-earth-visuals.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.chud.AbandonedConfig.SPEC,"slavicmyths-chud-worldgen.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.earth.EarthConfig.SPEC,"slavicmyths-earth-spirit.toml");
