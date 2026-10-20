@@ -1,0 +1,21 @@
+// Opt-in plain JVM gate. No NeoForge run config, game, server, world or player.
+allprojects {
+ afterEvaluate { p ->
+  if (p == p.rootProject) {
+   def compileBeer = tasks.register('compileBeerOffline', JavaCompile) {
+    dependsOn tasks.named('classes')
+    source = fileTree('tools/brewing-tests') { include '*.java' }
+    classpath = sourceSets.main.compileClasspath + sourceSets.main.output
+    destinationDirectory = layout.buildDirectory.dir('beer-offline')
+    javaCompiler = javaToolchains.compilerFor { languageVersion = JavaLanguageVersion.of(21) }
+    options.encoding = 'UTF-8'
+   }
+   tasks.register('verifyBeerOffline', JavaExec) {
+    dependsOn compileBeer
+    classpath = sourceSets.main.runtimeClasspath + files(layout.buildDirectory.dir('beer-offline'))
+    mainClass = 'IntoxicationNbtChecks'
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+   }
+  }
+ }
+}

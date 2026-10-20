@@ -5612,5 +5612,12 @@
   "command.slavicmyths.help.summary.boss": "Admin boss summon and lookup",
   "command.slavicmyths.help.summary.hunt": "Admin hunt summon and reset",
   "command.slavicmyths.help.summary.yaga": "Yaga’s home and resident Kuzya",
-  "command.slavicmyths.help.summary.growtree": "Grow a tree in front of the player"
+  "command.slavicmyths.help.summary.growtree": "Grow a tree in front of the player",
+  "brewing.slavicmyths.intoxication_threshold": "Intoxication at %s doses; −1 dose per %s s without alcohol",
+  "brewing.slavicmyths.intoxication_status": "Load: %s; threshold: %s · %s",
+  "brewing.slavicmyths.intoxication_stage_0": "No alcohol penalties",
+  "brewing.slavicmyths.intoxication_stage_2": "Nausea",
+  "brewing.slavicmyths.intoxication_stage_3": "Nausea, weakness",
+  "brewing.slavicmyths.intoxication_stage_4": "Nausea, weakness, slowness",
+  "brewing.slavicmyths.intoxication_stage_5": "Severe intoxication, poison"
 }

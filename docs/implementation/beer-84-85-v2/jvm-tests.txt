@@ -1,0 +1,2 @@
+INTOXICATION_OFFLINE PASS: progression 0-7, strong/mixed, decay boundaries, spaced drinks, overflow, quality. Runtime NOT_RUN.
+INTOXICATION_NATIVE PASS: actual CompoundTag codec, binary NBT, resumed decay, repeated dose, NeoForge copyOnDeath=false default. Actual player death/relog NOT_RUN.

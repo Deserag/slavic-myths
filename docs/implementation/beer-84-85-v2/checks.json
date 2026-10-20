@@ -1,0 +1,133 @@
+{
+  "issues": [
+    84,
+    85
+  ],
+  "version": "1.9.7.25",
+  "status": "IN_PROGRESS / OWNER_PENDING",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.25.jar",
+  "sha256": "c210f054e5077d33aa85c54922c1a3c81fbbf6c16d8ea7566d16fb8443f5e397",
+  "resources": 7406,
+  "java21_classes": 1707,
+  "build": "PASS",
+  "source_base_commit": "f07225da6f4c24efcda38730995e08bd7b2c70ba",
+  "source": "uncommitted working tree",
+  "generator": "PASS byte-identical",
+  "jvm_rules": "PASS",
+  "runtime": "NOT_RUN",
+  "minecraft_launches": 0,
+  "polymc": "POLYMC_NOT_INSTALLED",
+  "owner_acceptance": false,
+  "beer_routes": [
+    {
+      "id": "slavicmyths:light_beer_mug",
+      "bottled": "custom_model_data=1",
+      "pitcher": "NOT_SUPPORTED_BY_EXISTING_RULES",
+      "paths": [
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\light_beer_mug.json",
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\light_beer_bottled.json",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\light_beer_mug.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\light_beer_bottled.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\light_beer_liquid.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\light_beer_foam.png"
+      ]
+    },
+    {
+      "id": "slavicmyths:dark_beer_mug",
+      "bottled": "custom_model_data=1",
+      "pitcher": "NOT_SUPPORTED_BY_EXISTING_RULES",
+      "paths": [
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\dark_beer_mug.json",
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\dark_beer_bottled.json",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\dark_beer_mug.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\dark_beer_bottled.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\dark_beer_liquid.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\dark_beer_foam.png"
+      ]
+    },
+    {
+      "id": "slavicmyths:hopped_beer_mug",
+      "bottled": "custom_model_data=1",
+      "pitcher": "NOT_SUPPORTED_BY_EXISTING_RULES",
+      "paths": [
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\hopped_beer_mug.json",
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\hopped_beer_bottled.json",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\hopped_beer_mug.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\hopped_beer_bottled.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\hopped_beer_liquid.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\hopped_beer_foam.png"
+      ]
+    },
+    {
+      "id": "slavicmyths:honey_beer_mug",
+      "bottled": "custom_model_data=1",
+      "pitcher": "NOT_SUPPORTED_BY_EXISTING_RULES",
+      "paths": [
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\honey_beer_mug.json",
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\honey_beer_bottled.json",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\honey_beer_mug.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\honey_beer_bottled.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\honey_beer_liquid.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\honey_beer_foam.png"
+      ]
+    },
+    {
+      "id": "slavicmyths:forest_beer_mug",
+      "bottled": "custom_model_data=1",
+      "pitcher": "NOT_SUPPORTED_BY_EXISTING_RULES",
+      "paths": [
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\forest_beer_mug.json",
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\forest_beer_bottled.json",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\forest_beer_mug.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\forest_beer_bottled.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\forest_beer_liquid.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\forest_beer_foam.png"
+      ]
+    },
+    {
+      "id": "slavicmyths:thunder_beer_mug",
+      "bottled": "custom_model_data=1",
+      "pitcher": "NOT_SUPPORTED_BY_EXISTING_RULES",
+      "paths": [
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\thunder_beer_mug.json",
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\thunder_beer_bottled.json",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\thunder_beer_mug.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\thunder_beer_bottled.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\thunder_beer_liquid.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\thunder_beer_foam.png"
+      ]
+    },
+    {
+      "id": "slavicmyths:veles_dark_beer_mug",
+      "bottled": "custom_model_data=1",
+      "pitcher": "NOT_SUPPORTED_BY_EXISTING_RULES",
+      "paths": [
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\veles_dark_beer_mug.json",
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\veles_dark_beer_bottled.json",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\veles_dark_beer_mug.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\veles_dark_beer_bottled.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\veles_dark_beer_liquid.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\veles_dark_beer_foam.png"
+      ]
+    },
+    {
+      "id": "slavicmyths:witch_berry_beer_mug",
+      "bottled": "custom_model_data=1",
+      "pitcher": "NOT_SUPPORTED_BY_EXISTING_RULES",
+      "paths": [
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\witch_berry_beer_mug.json",
+        "src\\main\\resources\\assets\\slavicmyths\\models\\item\\witch_berry_beer_bottled.json",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\witch_berry_beer_mug.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\witch_berry_beer_bottled.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\witch_berry_beer_liquid.png",
+        "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\witch_berry_beer_foam.png"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "gradle.properties": "5df80f736e4efe27eea1c292b2dfab745f615e7a7d9db4ad9c971f7999592c41",
+    "src\\main\\java\\org\\slavicmyths\\brewing\\BeverageItem.java": "c8e7ce9c8dfe9d2eb889865c7896a71c3fe55fef896651eeb5b70745f09a609b",
+    "src\\main\\java\\org\\slavicmyths\\brewing\\BrewRules.java": "795b4bcaf2e3861981b1aba1ede9bf0a659f8b02ef6d634525876fd79e380dab",
+    "tools\\beer_models_125.py": "fbf778736af06b9996debfee77ea376ac8251e052f45bc857b7eb78820528554"
+  }
+}

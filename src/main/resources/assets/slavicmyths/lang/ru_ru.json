@@ -5612,5 +5612,12 @@
   "command.slavicmyths.help.summary.boss": "Служебный вызов и поиск боссов",
   "command.slavicmyths.help.summary.hunt": "Служебный вызов и сброс охоты",
   "command.slavicmyths.help.summary.yaga": "Дом Яги и проживающий Кузя",
-  "command.slavicmyths.help.summary.growtree": "Вырастить дерево перед игроком"
+  "command.slavicmyths.help.summary.growtree": "Вырастить дерево перед игроком",
+  "brewing.slavicmyths.intoxication_threshold": "Опьянение с %s доз; −1 доза за %s с без алкоголя",
+  "brewing.slavicmyths.intoxication_status": "Нагрузка: %s; порог: %s · %s",
+  "brewing.slavicmyths.intoxication_stage_0": "Без алкогольных штрафов",
+  "brewing.slavicmyths.intoxication_stage_2": "Путаница",
+  "brewing.slavicmyths.intoxication_stage_3": "Путаница, слабость",
+  "brewing.slavicmyths.intoxication_stage_4": "Путаница, слабость, замедление",
+  "brewing.slavicmyths.intoxication_stage_5": "Сильное опьянение, отравление"
 }
