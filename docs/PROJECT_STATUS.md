@@ -1,3 +1,15 @@
+## #90 по актуальному ТЗ v3 —1.9.7.28,20.10.2026
+
+Перепроверена Issue: прежнее требование4 одновременно отменено. HUD — одна колонка
+1/2 реально загруженных спутников, законный3-й у Полоза; без пустого/четвёртого слота.
+Лимиты HeroCalls2/3 и summon logic не менялись. Сортировка typeID+UUID стабильна
+при измененииHP/unload/return; отсутствующие сущности не рисуются. Bottom-left anchor
+для1/2 сохранён, максимум высоты3 строки, без переноса в дополнительные колонки.
+Java21 clean build+beer/native NBT tests PASS59с;32 GUI/count cases и lifecycle-list
+regression PASS; JAR7408resources/1713classes PASS. ClassUI6220checks/18branches PASS.
+[Актуальная матрица #90](implementation/hero-hud-90-v3/REPORT.md). Runtime/owner NOT_RUN.
+Установка28 по прямому запросу владельца — отдельная квитанция после gates. Issue OPEN.
+
 ## #90 — все загруженные богатыри в HUD,1.9.7.27,20.10.2026
 
 Убран cap2: все4 типа, фильтр владельца/живых/64 блоков, UUID dedup и стабильный порядок.

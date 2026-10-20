@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="880" viewBox="0 0 1440 880"><rect width="1440" height="880" fill="#181919"/><style>text{font-family:DejaVu Sans,sans-serif;fill:#e8dfd1}.h{font-size:25px;font-weight:bold}.body{font-size:17px}.note{font-size:15px;fill:#b1b0ac}</style>
+<text x="24" y="43" class="h">#90 • HUD союзных богатырей — реальные правила HeroCalls.count()</text>
+<text x="24" y="77" class="note">Обычно доступно до 2; активное событие Полоза допускает 3. НЕ проектировать 4 без изменения базовой системы.</text>
+<rect x="22" y="113" width="452" height="575" rx="5" fill="#232b2f" stroke="#836e54" stroke-width="3"/>
+<text x="37" y="149" class="body">Один активный богатырь</text>
+<rect x="38" y="186" width="420" height="360" rx="5" fill="#262d29" stroke="#566159" stroke-width="3"/>
+<rect x="50" y="217" width="394" height="64" rx="5" fill="#332c23" stroke="#7a6850" stroke-width="3"/>
+<rect x="62" y="228" width="39" height="41" rx="5" fill="#60666c" stroke="#b09463" stroke-width="3"/>
+<text x="115" y="245" class="body">Илья</text>
+<rect x="114" y="254" width="225" height="12" rx="5" fill="#624d40" stroke="#765c4c" stroke-width="3"/>
+<rect x="114" y="254" width="180" height="12" rx="5" fill="#78a06f" stroke="#78a06f" stroke-width="3"/>
+<text x="352" y="244" class="note">HP 127/170</text>
+<text x="46" y="592" class="note">Нет пустых карточек и слотов</text>
+<text x="46" y="628" class="note">HUD не перекрывает чат/хотбар.</text>
+<rect x="497" y="113" width="452" height="575" rx="5" fill="#232b2f" stroke="#836e54" stroke-width="3"/>
+<text x="512" y="149" class="body">Два — обычный лимит</text>
+<rect x="513" y="186" width="420" height="360" rx="5" fill="#262d29" stroke="#566159" stroke-width="3"/>
+<rect x="525" y="217" width="394" height="64" rx="5" fill="#332c23" stroke="#7a6850" stroke-width="3"/>
+<rect x="537" y="228" width="39" height="41" rx="5" fill="#60666c" stroke="#b09463" stroke-width="3"/>
+<text x="590" y="245" class="body">Илья</text>
+<rect x="589" y="254" width="225" height="12" rx="5" fill="#624d40" stroke="#765c4c" stroke-width="3"/>
+<rect x="589" y="254" width="180" height="12" rx="5" fill="#78a06f" stroke="#78a06f" stroke-width="3"/>
+<text x="827" y="244" class="note">HP 127/170</text>
+<rect x="525" y="295" width="394" height="64" rx="5" fill="#332c23" stroke="#7a6850" stroke-width="3"/>
+<rect x="537" y="306" width="39" height="41" rx="5" fill="#8b6661" stroke="#b09463" stroke-width="3"/>
+<text x="590" y="323" class="body">Добрыня</text>
+<rect x="589" y="332" width="225" height="12" rx="5" fill="#624d40" stroke="#765c4c" stroke-width="3"/>
+<rect x="589" y="332" width="157" height="12" rx="5" fill="#78a06f" stroke="#78a06f" stroke-width="3"/>
+<text x="827" y="322" class="note">HP 85/100</text>
+<text x="521" y="592" class="note">Нет пустых карточек и слотов</text>
+<text x="521" y="628" class="note">HUD не перекрывает чат/хотбар.</text>
+<rect x="972" y="113" width="452" height="575" rx="5" fill="#232b2f" stroke="#836e54" stroke-width="3"/>
+<text x="987" y="149" class="body">Три — только в событии Полоза</text>
+<rect x="988" y="186" width="420" height="360" rx="5" fill="#262d29" stroke="#566159" stroke-width="3"/>
+<rect x="1000" y="217" width="394" height="64" rx="5" fill="#332c23" stroke="#7a6850" stroke-width="3"/>
+<rect x="1012" y="228" width="39" height="41" rx="5" fill="#60666c" stroke="#b09463" stroke-width="3"/>
+<text x="1065" y="245" class="body">Илья</text>
+<rect x="1064" y="254" width="225" height="12" rx="5" fill="#624d40" stroke="#765c4c" stroke-width="3"/>
+<rect x="1064" y="254" width="180" height="12" rx="5" fill="#78a06f" stroke="#78a06f" stroke-width="3"/>
+<text x="1302" y="244" class="note">HP 127/170</text>
+<rect x="1000" y="295" width="394" height="64" rx="5" fill="#332c23" stroke="#7a6850" stroke-width="3"/>
+<rect x="1012" y="306" width="39" height="41" rx="5" fill="#8b6661" stroke="#b09463" stroke-width="3"/>
+<text x="1065" y="323" class="body">Добрыня</text>
+<rect x="1064" y="332" width="225" height="12" rx="5" fill="#624d40" stroke="#765c4c" stroke-width="3"/>
+<rect x="1064" y="332" width="157" height="12" rx="5" fill="#78a06f" stroke="#78a06f" stroke-width="3"/>
+<text x="1302" y="322" class="note">HP 85/100</text>
+<rect x="1000" y="373" width="394" height="64" rx="5" fill="#332c23" stroke="#7a6850" stroke-width="3"/>
+<rect x="1012" y="384" width="39" height="41" rx="5" fill="#596c74" stroke="#b09463" stroke-width="3"/>
+<text x="1065" y="401" class="body">Алёша/Финист</text>
+<rect x="1064" y="410" width="225" height="12" rx="5" fill="#624d40" stroke="#765c4c" stroke-width="3"/>
+<rect x="1064" y="410" width="134" height="12" rx="5" fill="#78a06f" stroke="#78a06f" stroke-width="3"/>
+<text x="1302" y="400" class="note">Восст.</text>
+<text x="996" y="592" class="note">Показывать всех 3 законных союзников</text>
+<text x="996" y="628" class="note">HUD не перекрывает чат/хотбар.</text>
+<rect x="22" y="730" width="1396" height="117" rx="5" fill="#262421" stroke="#86785d" stroke-width="3"/>
+<text x="42" y="769" class="body">Статусы и длительность: только действительные данные серверной синхронизации из #78.</text>
+<text x="42" y="809" class="body">Никакого Math.min(2) в законном режиме трёх союзников, но и никакой поддержки 4 как новой механики.</text>
+</svg>

@@ -1,3 +1,5 @@
+> SUPERSEDED: актуальное ТЗ v3 отменяет4 одновременно. См. [ревизию28](../hero-hud-90-v3/REPORT.md).
+
 # #90 — HUD всех загруженных богатырей,1.9.7.27
 
 IN_PROGRESS / OWNER_PENDING, Issue OPEN. Выполнялась одна следующая Issue #90.

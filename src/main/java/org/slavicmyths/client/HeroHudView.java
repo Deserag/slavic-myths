@@ -14,7 +14,8 @@ public final class HeroHudView {
     }
     public record Slot(int x, int y, int width, int height) { }
     public static final float SCALE = .75F;
-    private static final int GAP = 8, ROW = 24;
+    public static final int MAX_VISIBLE = 3;
+    private static final int ROW = 24;
 
     public static List<Entry> select(UUID player, List<Entry> loaded) {
         if (player == null) return List.of();
@@ -24,30 +25,27 @@ public final class HeroHudView {
                 unique.putIfAbsent(hero.id(), hero);
         }
         return unique.values().stream().sorted(Comparator.comparing(Entry::type)
-                .thenComparing(h -> h.id().toString())).toList();
+                .thenComparing(h -> h.id().toString())).limit(MAX_VISIBLE).toList();
     }
 
-    /** Reserve top boss/effect area and bottom vanilla bars; wrap instead of dropping rows. */
+    /** Original bottom-left anchor for 1/2, extended by one real row for the lawful third. */
     public static List<Slot> layout(int width, int height, int count, int offsetX, int offsetY) {
+        count = Math.clamp(count, 0, MAX_VISIBLE);
         if (count == 0) return List.of();
         int w = (int)(width / SCALE), h = (int)(height / SCALE);
-        int top = (int)(Math.min(44, height / 4) / SCALE);
-        int bottom = (int)(Math.min(64, height / 3) / SCALE);
-        int rows = Math.max(1, (h - top - bottom) / ROW);
-        int columns = (count + rows - 1) / rows;
-        int panel = Math.min(160, Math.max(1, (w - 16 - (columns - 1) * GAP) / columns));
-        int blockWidth = columns * panel + (columns - 1) * GAP;
-        int blockHeight = Math.min(count, rows) * ROW;
-        int x = Math.clamp(8 + (int)(offsetX / SCALE), 4, Math.max(4, w - blockWidth - 4));
-        int y = Math.clamp(top + (int)(offsetY / SCALE), top, Math.max(top, h - bottom - blockHeight));
+        int panel = Math.min(160, Math.max(1, w - 16));
+        int bottom = (int)(Math.min(65, height / 2) / SCALE);
+        int blockHeight = count * ROW;
+        int x = Math.clamp(8 + (int)(offsetX / SCALE), 4, Math.max(4, w - panel - 4));
+        int maxY = Math.max(8, h - bottom - blockHeight);
+        int y = Math.clamp(maxY + (int)(offsetY / SCALE), 8, maxY);
         var slots = new ArrayList<Slot>();
-        for (int i = 0; i < count; i++)
-            slots.add(new Slot(x + (i / rows) * (panel + GAP), y + (i % rows) * ROW, panel, ROW));
+        for (int i = 0; i < count; i++) slots.add(new Slot(x, y + i * ROW, panel, ROW));
         return List.copyOf(slots);
     }
 
     public static void draw(Canvas canvas, List<Entry> heroes, List<Slot> slots) {
-        for (int i = 0; i < heroes.size(); i++) {
+        for (int i = 0; i < Math.min(MAX_VISIBLE, Math.min(heroes.size(), slots.size())); i++) {
             var hero = heroes.get(i); var slot = slots.get(i);
             int x = slot.x(), y = slot.y(), width = slot.width();
             String hp = Math.round(hero.health()) + "/" + Math.round(hero.maxHealth());

@@ -1,0 +1,28 @@
+{
+  "offline_rule_and_layout_checks": 6220,
+  "skills": 40,
+  "trees": 3,
+  "resolution_scale_pairs": 6,
+  "minecraft_launches": 0,
+  "bilingual_branch_descriptions": 18,
+  "version": "1.9.7.28",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.28.jar",
+  "sha256": "0d5076880f145dc38ea4a74380aa9f9285611708e072ce3485ed8f25bcb7138f",
+  "resources": 7408,
+  "java21_classes": 1713,
+  "source_base_commit": "b6f0492ad932b1b7d7ffa5c1c2b25a6fdd6b1473",
+  "source": "uncommitted working tree",
+  "build": "PASS",
+  "runtime": "IN_GAME_NOT_RUN",
+  "screenshots": "IN_GAME_NOT_RUN",
+  "video": "IN_GAME_NOT_RUN",
+  "owner_acceptance": false,
+  "source_sha256": {
+    "src/main/java/org/slavicmyths/client/ClassScreen.java": "56a2766156ab97ecda7cb49c2ab208b4aea830be47a1b7330560707b57e93648",
+    "src/main/java/org/slavicmyths/client/ClassTreeViewport.java": "efad708810adf2e11994baf659577b9b12c38c8a4190556892188b71c8337000",
+    "src/main/java/org/slavicmyths/client/ClassMasteryScreen.java": "3c8f15b71cc37651f1c67a6a8791454a1c6df56bb95b715114e45f7dbd43b7f6",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json": "2dd5d093cb6cc4adace231680a65ba438b0869f372f27b25d2c4188cfda7b282",
+    "src/main/resources/assets/slavicmyths/lang/en_us.json": "db3fa0a4d62e99618b364f686901905c61ec0d29de9adda4281033730aaf5b89",
+    "gradle.properties": "7eac7a4d2386f1337ad67b0ff86a3d1654867644e13738ea633f17a1db353b3f"
+  }
+}

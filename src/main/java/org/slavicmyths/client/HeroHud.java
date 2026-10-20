@@ -13,7 +13,7 @@ import org.slavicmyths.marinka.DobrynyaEntity;
 import org.slavicmyths.skim.AlyoshaEntity;
 import org.slavicmyths.finist.FinistEntity;
 
-/** All loaded owned companions in a compact stack; no server timers or expanded scans. */
+/** Compact HUD for up to three loaded owned heroes; the server owns the 2/3 summon limit. */
 @EventBusSubscriber(modid="slavicmyths", value=Dist.CLIENT)
 public final class HeroHud {
     @SubscribeEvent public static void render(RenderGuiEvent.Post event) {

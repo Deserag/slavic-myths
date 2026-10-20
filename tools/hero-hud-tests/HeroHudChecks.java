@@ -38,12 +38,12 @@ public class HeroHudChecks {
         var list = new ArrayList<Entry>(); for(int i=0;i<4;i++)list.add(hero(i));
         require(HeroHudView.select(null,list).isEmpty(),"no player");
         require(HeroHudView.select(OTHER,list).isEmpty(),"other owner");
-        list.add(hero(0));require(HeroHudView.select(OWNER,list).size()==4,"UUID dedup preserves four types");
+        list.add(hero(0));require(HeroHudView.select(OWNER,list).size()==3,"no fourth slot even in malformed input");
         var e=hero(0);
         require(HeroHudView.select(OWNER,List.of(new Entry(e.id(),e.owner(),e.type(),e.name(),1,2,"",false,4096.01,true))).isEmpty(),"range remains 64");
         require(HeroHudView.select(OWNER,List.of(new Entry(e.id(),e.owner(),e.type(),e.name(),1,2,"",false,0,false))).isEmpty(),"dead");
         int cases=0;
-        for(int[] screen:new int[][]{{1280,720},{1920,1080}})for(int scale=1;scale<=4;scale++)for(int count=0;count<=4;count++) {
+        for(int[] screen:new int[][]{{1280,720},{1920,1080}})for(int scale=1;scale<=4;scale++)for(int count=0;count<=3;count++) {
             int w=(int)Math.ceil(screen[0]/(double)scale),h=(int)Math.ceil(screen[1]/(double)scale);
             var heroes=new ArrayList<Entry>();for(int i=0;i<count;i++)heroes.add(hero(i));
             var slots=HeroHudView.layout(w,h,count,0,0);require(slots.size()==count,"all count="+count);
@@ -55,16 +55,31 @@ public class HeroHudChecks {
             }
             var trace=new Trace();HeroHudView.draw(trace,heroes,slots);require(trace.labels==3*count&&trace.fills==3*count,"every row retains name HP state and bar");cases++;
         }
-        // Overflow wraps and configurable offsets clamp; no hidden hard cap for loaded entities.
-        for(int n:new int[]{5,8,12})require(HeroHudView.layout(320,180,n,4096,4096).size()==n,"wrap all "+n);
+        // Server already enforces 2 normally, 3 in Poloz; HUD never creates placeholders or a fourth.
+        for(int n:new int[]{4,5,12})require(HeroHudView.layout(320,180,n,4096,4096).size()==3,"three-row defensive cap "+n);
+        var lawful=new ArrayList<Entry>();for(int i=0;i<3;i++)lawful.add(hero(i));
+        var original=HeroHudView.select(OWNER,lawful);Collections.reverse(lawful);
+        require(HeroHudView.select(OWNER,lawful).equals(original),"stable independent of loaded iteration order");
+        var changed=new ArrayList<Entry>();for(var h:lawful)changed.add(new Entry(h.id(),h.owner(),h.type(),h.name(),1,h.maxHealth(),h.status(),h.resting(),h.distanceSquared(),true));
+        require(HeroHudView.select(OWNER,changed).stream().map(Entry::id).toList().equals(original.stream().map(Entry::id).toList()),"HP does not reorder");
+        var unloaded=new ArrayList<>(lawful);var missing=unloaded.remove(1);
+        var afterUnload=HeroHudView.select(OWNER,unloaded);
+        require(afterUnload.size()==2&&afterUnload.stream().noneMatch(h->h.id().equals(missing.id())),"no ghost active after unload");
+        require(HeroHudView.select(OWNER,List.of()).isEmpty(),"world unload clears all without static cached rows");
+        unloaded.add(missing);require(HeroHudView.select(OWNER,unloaded).equals(original),"return restores exact order without UUID duplicates");
+        // Every hero type can occupy a legitimate first/second row, including Finist.
+        for(int type=0;type<4;type++)require(HeroHudView.select(OWNER,List.of(hero(type))).size()==1,"all four types supported separately");
+        var capped=new Trace();HeroHudView.draw(capped,list,HeroHudView.layout(320,180,list.size(),0,0));
+        require(capped.labels==9,"draw cannot create a fourth row");
         var huge=new Entry(e.id(),e.owner(),e.type(),"Очень длинное локализованное имя героя".repeat(4),0,0,"Очень длинный статус".repeat(4),true,0,true);
         var trace=new Trace();var slots=HeroHudView.layout(320,180,1,-4096,-4096);HeroHudView.draw(trace,List.of(huge),slots);
         require(trace.ops.stream().anyMatch(s->s.contains("…")),"explicit ellipsis for clipped text");
         System.out.println("{\"result\":\"HERO_HUD_OFFLINE PASS\",\"cases\":"+cases+",\"runtime\":\"NOT_RUN\",\"previews\":[");
-        for(int n=1;n<=4;n++) {
+        for(int scale=2;scale<=4;scale++)for(int n=1;n<=3;n++) {
             var heroes=new ArrayList<Entry>();for(int i=0;i<n;i++)heroes.add(hero(i));heroes=new ArrayList<>(HeroHudView.select(OWNER,heroes));
-            var capture=new Trace();HeroHudView.draw(capture,heroes,HeroHudView.layout(320,180,n,0,0));
-            System.out.print("{\"count\":"+n+",\"ops\":["+String.join(",",capture.ops)+"]}"+(n<4?",":""));
+            int w=(1280+scale-1)/scale,h=(720+scale-1)/scale;
+            var capture=new Trace();HeroHudView.draw(capture,heroes,HeroHudView.layout(w,h,n,0,0));
+            System.out.print("{\"count\":"+n+",\"gui_scale\":"+scale+",\"width\":"+w+",\"height\":"+h+",\"ops\":["+String.join(",",capture.ops)+"]}"+(scale<4||n<3?",":""));
         }
         System.out.println("]}");
     }
