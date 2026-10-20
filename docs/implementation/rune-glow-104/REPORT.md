@@ -129,3 +129,13 @@ Issue104 OPEN. Для продолжения: игровая проверка в
 после создания разрешённого владельцем коммита. Код этой сборки не изменялся.
 Новые5 remote-коммитов содержат только3 дизайн-SVG; fast-forward сохранён без конфликтов.
 Игровых запусков0, OWNER_PENDING и ограничения104 сохраняются.
+
+
+### Публикация подтверждена
+
+Source commit [2f9a143a](https://github.com/Deserag/slavic-myths/commit/2f9a143a902b075f71c69a37399372af815d5d4d)
+опубликован вmain, integration commit `4f17670b0c8430c625fd2893f54e07133271c5eb`. Новые удалённые концепты оружия
+сохранены обычным merge безforce. Все 8496 production-входов совпадают с
+source commit под настроенными Git EOL-фильтрами. [Квитанция](publication.json).
+installed.json теперь содержит фактический source commit. Никаких изменений игровых
+проверок/приёмки: запусков0, #104 IN_PROGRESS / OWNER_PENDING.

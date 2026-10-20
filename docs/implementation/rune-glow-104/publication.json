@@ -1,0 +1,18 @@
+{
+  "status": "SOURCE_PUBLISHED_AND_INSTALLED_TEST_PREVIEW",
+  "source_commit": "2f9a143a902b075f71c69a37399372af815d5d4d",
+  "integrated_main_commit": "4f17670b0c8430c625fd2893f54e07133271c5eb",
+  "branch": "main",
+  "remote": "origin",
+  "url": "https://github.com/Deserag/slavic-myths/commit/2f9a143a902b075f71c69a37399372af815d5d4d",
+  "version": "1.9.7.42",
+  "installed_sha256": "ddbfccabb8ccf2609ce38474f75e051b284fd764df6881a80f71a2f0917f91e5",
+  "source_fingerprint": "3b8c0d5a26b235dad802471cea4de6dcf795a3b4a2c838f637e37fad2c6f3775",
+  "production_inputs_checked": 8496,
+  "git_object_fingerprint": "fb98d40ea9abea718b69c79a272c1c7418c42224f2c905167b1a2d5ff2aa2523",
+  "git_eol_policy": "Configured core.autocrlf=true; source matched committed objects using Git input filters; raw build bytes retained in build-source-sha256.json",
+  "remote_docs_preserved": true,
+  "minecraft_launches": 0,
+  "owner_acceptance": "PENDING",
+  "issue_state": "OPEN"
+}

@@ -6,7 +6,7 @@
   "backup_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\codex-backups\\before-1.9.7.42-20261020-201804\\slavicmyths-1.9.7.40.jar",
   "backup_sha256": "112db2736609251bc27e1f13f6619e2786c2c5573c6f03dc12bf79b31bcf85ab",
   "source_base_commit": "f5d42cd5ff52cdcd0624dd8709bcd855b3809339",
-  "source_commit": "PENDING_PUBLICATION; source manifest verified before installation",
+  "source_commit": "2f9a143a902b075f71c69a37399372af815d5d4d",
   "source_fingerprint": "3b8c0d5a26b235dad802471cea4de6dcf795a3b4a2c838f637e37fad2c6f3775",
   "other_mods_preserved": {
     "curios-neoforge-9.5.1+1.21.1.jar": "a45df2125c26219974aba7507ffc9afe7b83acc941a386af3faacb1cc0056fde",
@@ -20,5 +20,7 @@
     "slavicmyths-1.9.7.42.jar"
   ],
   "runtime_launches": 0,
-  "final_release": false
+  "final_release": false,
+  "source_url": "https://github.com/Deserag/slavic-myths/commit/2f9a143a902b075f71c69a37399372af815d5d4d",
+  "published_main_commit": "4f17670b0c8430c625fd2893f54e07133271c5eb"
 }

@@ -2,7 +2,8 @@
 
 В PolyMC Testing1.21.1 установлен проверенный42: backup40 сохранён, один активный
 Slavic JAR,6 соседних модов неизменны. [Точные path/SHA/source](implementation/rune-glow-104/installed.json).
-Публикуются полные изменения #102/#103, Creative/тайник и код #104 вместе с отчётами.
+В GitHub опубликованы изменения #102/#103, Creative/тайник и код #104 с отчётами.
+Source commit `2f9a143a`; [проверка публикации](implementation/rune-glow-104/publication.json).
 #87 остаётся отложенной: production-текстуры оружия восстановлены; эксперимент архивирован.
 Статус #104 IN_PROGRESS / OWNER_PENDING: игровые матрицы NOT_RUN, запусков0,
 known foreign-buffer exceptions описаны в отчёте. Никакой приёмки/закрытия Issues или релиза.
