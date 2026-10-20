@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.slavicmyths.client.runeglow.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ItemRendererRuneMixin",
+    "ArmorRuneMixin",
+    "RuneBufferAccess"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

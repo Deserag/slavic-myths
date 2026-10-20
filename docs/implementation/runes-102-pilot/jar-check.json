@@ -1,0 +1,22 @@
+{
+  "status": "PASS_OFFLINE_ONLY",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.37.jar",
+  "sha256": "3f18a4e785c7d2aee250059da10bd3bd5fea3a334165694b7e60fa160c389342",
+  "version": "1.9.7.37",
+  "resources": 7431,
+  "png_verified": 1337,
+  "java21_classes": 1732,
+  "source_base": "f5d42cd5ff52cdcd0624dd8709bcd855b3809339",
+  "source_commit": "UNCOMMITTED working tree, no automatic commit",
+  "source_fingerprint": "0758b2822e61d6ce6d068774cc3692b206cfb8ce13daa0dd343ad803f91faa45",
+  "changed_production": [
+    "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iii.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iv.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iii.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iv.png",
+    "gradle.properties"
+  ],
+  "runtime_launches": 0,
+  "owner_acceptance": "PENDING",
+  "polymc": "1.9.7.36 unchanged; 37 NOT_INSTALLED"
+}

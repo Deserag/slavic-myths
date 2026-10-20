@@ -1,0 +1,18 @@
+{
+  "status": "PASS_STANDALONE_SHADER_COMPILE_LINK",
+  "minecraft_launches": 0,
+  "visible_windows": 0,
+  "opengl_version": "4.6.0 Compatibility Profile Context 26.8.1.260806",
+  "vsh_sha256": "ffaa1f8c0c5f1ef951c84a47d79d5d90f7e2106f0bdb30d47291421331f39c16",
+  "fsh_sha256": "549f51107198f94b081ed2a738d2d44c29ed8efb58ef868dd4a5b3919d08264a",
+  "source_gpu_preview": "SOURCE-GPU-0-3.png",
+  "source_models": [
+    "minecraft:iron_sword",
+    "slavicmyths:perunite_sword",
+    "perunite_chestplate",
+    "minecraft:iron_chestplate"
+  ],
+  "source_preview_is_minecraft": false,
+  "minecraft_shader_reload": "NOT_RUN",
+  "minecraft_visual_acceptance": "NOT_RUN"
+}

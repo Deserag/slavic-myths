@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slavicmyths:item/blank_rune_3"
+  }
+}

@@ -39,7 +39,9 @@ def main():
     d.line((x,6,x,25),fill=red)
   else:
    for x in [5,19]:d.polygon([(x,9),(x+8,9),(x+8,22),(x+11,26),(x+10,29),(x-1,29)],fill=dark,outline=gold,width=2);d.line((x+2,14,x+6,17,x+3,24),fill=red,width=2)
-  path=A/f'textures/item/{name}.png';path.parent.mkdir(parents=True,exist_ok=True);im.save(path)
+  path=A/f'textures/item/{name}.png';path.parent.mkdir(parents=True,exist_ok=True)
+  from boss_runes103 import write_owned
+  if not write_owned(path):im.save(path)
   write(A/f'models/item/{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':f'slavicmyths:item/{name}'}})
  # UV swatches for layered armor geometry, gold horns and a red chest core.
  im=Image.new('RGBA',(64,64),dark);d=ImageDraw.Draw(im);rng=random.Random('armor')

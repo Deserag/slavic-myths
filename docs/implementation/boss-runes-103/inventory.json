@@ -1,0 +1,282 @@
+[
+  {
+    "id": "rune_stomp",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/rune_stomp.png",
+    "textures_sha256": "1794160e02915bb74826e4b63f0b847dc57a5b4498d9c1929d1985efefaa44c2",
+    "models": "src/main/resources/assets/slavicmyths/models/item/rune_stomp.json",
+    "models_sha256": "e22c0bf180bbe7a7366455ef37e783aabfc347aaad921feaab7df726c7956c74",
+    "size": [
+      64,
+      64
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "redesign",
+    "boss": "Идолище Поганое",
+    "logical_id": "stomp",
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java + rewards/RewardLedger.java:claimFirst/victory",
+    "design": "Тяжёлая сколотая печать, отпечаток удара и янтарный разлом",
+    "defect": "Прежняя спираль не передаёт удар/волну",
+    "new_sha256": "2c0d12c560965053e213c25ec4a3507a5f97e09ea4afb70baa614e18d72bec25"
+  },
+  {
+    "id": "rune_dispelling",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/rune_dispelling.png",
+    "textures_sha256": "dbeb8d8652a8ad6c9f3d3e4fa7c8b6d36e21499dc69cecf5ad30b5d65dabf69a",
+    "models": "src/main/resources/assets/slavicmyths/models/item/rune_dispelling.json",
+    "models_sha256": "bf57ed901b386d2ff026ce43c14f0ff16abe792f17483eb0f383b367313652ac",
+    "size": [
+      64,
+      64
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "redesign",
+    "boss": "Маринка",
+    "logical_id": "dispelling",
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java + rewards/RewardLedger.java:claimFirst/victory",
+    "design": "Расколотая асимметричная печать, разорванный знак, лиловые осколки",
+    "defect": "Перечёркнутый знак на круглой основе недостаточно передаёт расколотую печать",
+    "new_sha256": "87cab771c767bc0c36acaaf5665561bfdaf8a4316a3284301927d6a6006d7810"
+  },
+  {
+    "id": "rune_pursuit",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/rune_pursuit.png",
+    "textures_sha256": "be5244d4217406d82f6576b02efad8647aa54fc783b4a3b55d183b90604cacb0",
+    "models": "src/main/resources/assets/slavicmyths/models/item/rune_pursuit.json",
+    "models_sha256": "76c035438ceefea87896bc7a153a5a9a6b85f2276ee8042c4956488adc0ea0b1",
+    "size": [
+      64,
+      64
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "redesign",
+    "boss": "Ским-зверь",
+    "logical_id": "pursuit",
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java + rewards/RewardLedger.java:claimFirst/victory",
+    "design": "Золотистый направленный наконечник, длинный диагональный след",
+    "defect": "Старый компактный комок со штрихами не передаёт направленность",
+    "new_sha256": "33a4873446ea6270137e0e57994ff2eb88f772b959cfecb6243e58a1c2339e19"
+  },
+  {
+    "id": "rune_suppression",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/rune_suppression.png",
+    "textures_sha256": "33ecddc551adad958d28098fb069a36a4e69901902034cf74324f7ae128f4708",
+    "models": "src/main/resources/assets/slavicmyths/models/item/rune_suppression.json",
+    "models_sha256": "3673fa15cbfe4cf2d845851440baeaa5a5797e0853f6bdae9e9ca448d2c37037",
+    "size": [
+      64,
+      64
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "redesign",
+    "boss": "Картаус",
+    "logical_id": "suppression",
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java + rewards/RewardLedger.java:claimFirst/victory",
+    "design": "Массивные звенья, замковая планка, тёмная фиолетовая печать",
+    "defect": "Старые тонкие штрихи внутри камня теряются в слоте",
+    "new_sha256": "702d38a541a30a7ab697f6cd2dcee350df2064af10081e243dba9306e5b37393"
+  },
+  {
+    "id": "rune_battle_line",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/rune_battle_line.png",
+    "textures_sha256": "fed3db3d6275b07ae37bccb4b2d4fa59103ef02de6659c99c764ff3e9f7f11fb",
+    "models": "src/main/resources/assets/slavicmyths/models/item/rune_battle_line.json",
+    "models_sha256": "28eda2845ac47a075f9ad24b8e3b6352a530ebdbb61f1e10f1245a09a6acae8e",
+    "size": [
+      64,
+      64
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "redesign",
+    "boss": "Калин",
+    "logical_id": "battle_line",
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java + rewards/RewardLedger.java:claimFirst/victory",
+    "design": "Красное древнее знамя, выступающая перекладина, золотой боевой знак",
+    "defect": "Старая плоская табличка не передаёт знамя и боевой металл",
+    "new_sha256": "3ff3418cf976d02fd24eb93ba7b787c3feaf053c10aebe81aeffd3f2badaadc0"
+  },
+  {
+    "id": "rune_mor_breath",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/rune_mor_breath.png",
+    "textures_sha256": "b3bb06bc728f126bd82d609620d6d04d94bbaab66aaac5933a6211e013bcbcc0",
+    "models": "src/main/resources/assets/slavicmyths/models/item/rune_mor_breath.json",
+    "models_sha256": "6f1639b006072cdcfd5584f8067266e20a9d4ff0ccd48cb58f57d9c6a3d20c06",
+    "size": [
+      32,
+      32
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "redesign",
+    "boss": "Горыныч — мор",
+    "logical_id": "mor_breath",
+    "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java + gorynych/GorynychRewards.java:claim",
+    "design": "Свернувшийся змей с вилкой рогов и моровым дымом, зелень/лиловый",
+    "defect": "Общая шестиугольная основа и буква M вместо змеи",
+    "new_sha256": "dc64f17106d88ee96dd6038a0e0c1b66dff7d736465fccdd0f0ca69276b7e3a5"
+  },
+  {
+    "id": "rune_dragon_flame",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/rune_dragon_flame.png",
+    "textures_sha256": "0d83e90b6e63112770e3a45391a8c60e6c0773b335df2fa69ee2a59b42d7a031",
+    "models": "src/main/resources/assets/slavicmyths/models/item/rune_dragon_flame.json",
+    "models_sha256": "b6c1c43cb4be16c3ea9544996bb5dcc20340f43d9e7a18bebe16f7b6c4b9b4b0",
+    "size": [
+      32,
+      32
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "redesign",
+    "boss": "Горыныч — пламя",
+    "logical_id": "dragon_flame",
+    "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java + gorynych/GorynychRewards.java:claim",
+    "design": "Обгоревшая рогатая реликвия, змеиная голова и внутреннее пламя",
+    "defect": "Общая шестиугольная основа и угловой знак вместо дракона",
+    "new_sha256": "1bd402e71b3c26befb5b628e933ad8ea46a0808d1467f34e296f540d920b4770"
+  },
+  {
+    "id": "rune_storm_strike",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/rune_storm_strike.png",
+    "textures_sha256": "aaa588a8e561cc086e0e726446efa890c3653f7095bc9cf10df395c017700695",
+    "models": "src/main/resources/assets/slavicmyths/models/item/rune_storm_strike.json",
+    "models_sha256": "054b6ace0f3c853a29d634adac3ea203706fc66f93d22b8815c99eba01eccb13",
+    "size": [
+      32,
+      32
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "redesign",
+    "boss": "Горыныч — буря",
+    "logical_id": "storm_strike",
+    "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java + gorynych/GorynychRewards.java:claim",
+    "design": "Крылатый змеиный осколок с рогами, глазом и бело-голубым разломом",
+    "defect": "Молния есть, но мотив Горыныча отсутствует",
+    "new_sha256": "c07aeea4697b599b10c7499e405a8187aff8e5360b6c176e4695f91e28086ff0"
+  },
+  {
+    "id": "rune_earth_heart_iii",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/rune_earth_heart_iii.png",
+    "textures_sha256": "2141c49d5b027f7707c4e0f5a0fdde7de2f656cdb5181f1cba61ab45456e8a76",
+    "models": "src/main/resources/assets/slavicmyths/models/item/rune_earth_heart_iii.json",
+    "models_sha256": "24fdc8ae409387285b8a9c5ff65ff6acd9c89236c05407a5225f741f8608b064",
+    "size": [
+      64,
+      64
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "redesign",
+    "boss": "Дух земли",
+    "logical_id": "earth_heart_iii",
+    "source": "src/main/java/org/slavicmyths/earth/EarthContent.java + earth/EarthArena.java:115 + earth/EarthSpirit.java:103",
+    "design": "Асимметричный земляной обломок, прежнее спиральное ядро и янтарная гравировка",
+    "defect": "Спираль сохраняется; обломок и локальные минеральные фаски усиливают трофейность",
+    "new_sha256": "00d25af8b92b623217dd1aaebd8652f2073f0ea2e73502d7d524b33bc6b47423"
+  },
+  {
+    "id": "rune_earth_lord_iv",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/rune_earth_lord_iv.png",
+    "textures_sha256": "d8c8d74840d1582d30f0fb2a7c28d02f3570ca5a4dca105a6c204666d7caaead",
+    "models": "src/main/resources/assets/slavicmyths/models/item/rune_earth_lord_iv.json",
+    "models_sha256": "9c2d0929c4c99d55f3ef6553ea0c6b89a0b8e5272727d8959a2a068f22f35592",
+    "size": [
+      32,
+      32
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "redesign",
+    "boss": "Великий Полоз",
+    "logical_id": "earth_lord_iv",
+    "source": "src/main/java/org/slavicmyths/poloz/PolozRewards.java + poloz/GreatPoloz.java:die",
+    "design": "Коронованный S-образный змей, зелёный камень/золото, открытый силуэт",
+    "defect": "Старая шестигранная рамка скрывает змеевидный силуэт",
+    "new_sha256": "4bac12aa28e9e86b5a2adde7d934d52f5ce704a9647cda53890c8c1959688579"
+  },
+  {
+    "id": "rune_of_waning",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/rune_of_waning.png",
+    "textures_sha256": "fe8b569150c9683798ed0a32a1016e68039d499f28eeb4334551ac5b11d2ee11",
+    "models": "src/main/resources/assets/slavicmyths/models/item/rune_of_waning.json",
+    "models_sha256": "4546817bac123ec0b36b42b37ae33c080a41f28a0138a161fa0bfee50c1999f7",
+    "size": [
+      32,
+      32
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "preserve",
+    "boss": "Карачун",
+    "source": "src/main/java/org/slavicmyths/karachun/NightLedger.java:prepare",
+    "defect": "Путь и модель корректны, чёткий осколочный силуэт, подтверждённого дефекта нет",
+    "design": "Сохранить байт-в-байт"
+  },
+  {
+    "id": "frost_rune",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/frost_rune.png",
+    "textures_sha256": "c5b0e13cdd4f4cb74b35916d0be1ec3bc391c8388cc9defc6c267f51bcde0df1",
+    "models": "src/main/resources/assets/slavicmyths/models/item/frost_rune.json",
+    "models_sha256": "e62e538cdf32996ee9b63f3f4a81bf8e491cde7be8bf325a84b11a4a195c6dd6",
+    "size": [
+      32,
+      32
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "preserve",
+    "boss": "Морозко",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostLedger.java:prepare",
+    "defect": "Путь и модель корректны, чёткий осколочный силуэт, подтверждённого дефекта нет",
+    "design": "Сохранить байт-в-байт"
+  },
+  {
+    "id": "frost_resistance_rune",
+    "textures": "src/main/resources/assets/slavicmyths/textures/item/frost_resistance_rune.png",
+    "textures_sha256": "b8e64bd2de23667f4d3171f12db4cda30d96f3737cd7f7ee881d2e972b36f673",
+    "models": "src/main/resources/assets/slavicmyths/models/item/frost_resistance_rune.json",
+    "models_sha256": "b18ab02b484dcb68383e827f83f0839e631d2b60832fb15f7ad50c42ef7cd8e7",
+    "size": [
+      32,
+      32
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "decision": "preserve",
+    "boss": "Морозко",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostLedger.java:prepare",
+    "defect": "Путь и модель корректны, чёткий осколочный силуэт, подтверждённого дефекта нет",
+    "design": "Сохранить байт-в-байт"
+  }
+]

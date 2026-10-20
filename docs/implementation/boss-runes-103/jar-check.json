@@ -1,0 +1,28 @@
+{
+  "status": "PASS_OFFLINE_ONLY",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.39.jar",
+  "sha256": "b8f3016d5918d8ad3706bae3f66654c7786b950d2277220237ca988cfd0c4deb",
+  "version": "1.9.7.39",
+  "resources": 7431,
+  "png_verified": 1337,
+  "java21_classes": 1732,
+  "source_base": "f5d42cd5ff52cdcd0624dd8709bcd855b3809339",
+  "source_commit": "UNCOMMITTED working tree, no automatic commit",
+  "source_fingerprint": "e285a0cef2cd78d9539995ec8534c27fa461e5239953ee9d2d5fa45f72b07c81",
+  "changed_production": [
+    "src/main/resources/assets/slavicmyths/textures/item/rune_stomp.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_dispelling.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_pursuit.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_suppression.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_battle_line.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_mor_breath.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_dragon_flame.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_storm_strike.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_earth_heart_iii.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_earth_lord_iv.png",
+    "gradle.properties"
+  ],
+  "runtime_launches": 0,
+  "owner_acceptance": "PENDING",
+  "polymc": "1.9.7.39 installed afterwards as TEST PREVIEW; see installed.json"
+}

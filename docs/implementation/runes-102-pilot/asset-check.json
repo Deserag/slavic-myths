@@ -1,0 +1,19 @@
+{
+  "status": "PASS_SOURCE_ONLY",
+  "ids": 4,
+  "changed_production": [
+    "gradle.properties",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iii.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iv.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iii.png",
+    "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iv.png"
+  ],
+  "native64": true,
+  "binary_alpha": true,
+  "masters_match": true,
+  "reproducible": true,
+  "model_recipe_mechanics_other_png_unchanged": true,
+  "same_tool_masks_and_outline_through_tiers": true,
+  "actual_minecraft_launches": 0,
+  "owner_runtime": "NOT_RUN / OWNER_PENDING"
+}

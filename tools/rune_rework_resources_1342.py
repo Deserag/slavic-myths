@@ -22,6 +22,8 @@ TEXT={
 for id,categories,eng in [('strength','Оружие ближнего боя','Melee weapons'),('speed','Оружие ближнего боя, ботинки','Melee weapons, boots'),('resilience','Броня, щиты','Armor, shields'),('heat','Оружие ближнего боя, броня','Melee weapons, armor'),('crushing','Оружие ближнего боя','Melee weapons'),('wind','Ботинки, луки, арбалеты','Boots, bows, crossbows'),('blood','Оружие ближнего боя','Melee weapons'),('fortitude','Броня, щиты','Armor, shields')]:TEXT['compatible_'+id]=(categories,eng)
 def write(p,data):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def stone(id,tier):
+ from runes102_all import BY_ID,image
+ if 'rune_'+id in BY_ID:return image('rune_'+id)
  im=Image.new('RGBA',(32,32));d=ImageDraw.Draw(im);rng=random.Random('rune-'+id)
  points=[(7,4),(19,3),(25,7),(26,23),(22,28),(7,27),(4,23),(5,10)] if tier==1 else [(7,3),(22,3),(27,8),(27,25),(23,28),(7,28),(4,24),(4,8)]
  d.polygon(points,fill='#424344');d.polygon([(8,5),(20,5),(24,8),(24,23),(21,26),(8,25),(6,22),(7,10)],fill='#858580' if tier==1 else '#999b98')

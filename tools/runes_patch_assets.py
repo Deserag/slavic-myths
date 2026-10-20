@@ -18,7 +18,9 @@ for id,shape,pal in zip(IDS,shapes,palettes):
   d.line([(3,6),(6,6),(6,8),(9,8),(9,10),(12,10)],fill=pal[0]);d.line([(10,5),(9,6),(10,7),(10,9)],fill=pal[3]);d.point((6,10),fill=pal[2])
  else:
   d.line([(5,3),(11,3),(12,5),(12,10),(10,12),(5,12),(3,10),(3,5),(5,3)],fill=pal[2]);d.line([(6,5),(6,4),(5,4)],fill=pal[3]);d.line([(10,5),(10,4),(11,4)],fill=pal[3]);d.line([(5,7),(7,6),(10,8),(8,10),(5,9),(9,6),(11,7),(10,10),(7,9)],fill=pal[2]);d.rectangle((7,7,8,8),fill=pal[3])
- im.resize((64,64),Image.Resampling.NEAREST).save(R/f'assets/slavicmyths/textures/item/rune_{id}.png')
+ from runes102_all import write_owned
+ target=R/f'assets/slavicmyths/textures/item/rune_{id}.png'
+ if not write_owned(target):im.resize((64,64),Image.Resampling.NEAREST).save(target)
  (R/f'assets/slavicmyths/models/item/rune_{id}.json').write_text(json.dumps({'parent':'minecraft:item/generated','textures':{'layer0':f'slavicmyths:item/rune_{id}'}},indent=2)+'\n')
 materials=[ [('perunite_dust',3),('iron_dust',4)],[('diamond_dust',3),('soul_fragment',3)],[('perunite_dust',4),('empowered_soul',1)],[('diamond_dust',4),('perunite_dust',2)] ]
 for id,needs in zip(IDS,materials):

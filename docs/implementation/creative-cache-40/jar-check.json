@@ -1,0 +1,21 @@
+{
+  "status": "PASS_OFFLINE_ONLY",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.40.jar",
+  "sha256": "112db2736609251bc27e1f13f6619e2786c2c5573c6f03dc12bf79b31bcf85ab",
+  "version": "1.9.7.40",
+  "resources": 7432,
+  "png_verified": 1338,
+  "java21_classes": 1732,
+  "source_base": "f5d42cd5ff52cdcd0624dd8709bcd855b3809339",
+  "source_commit": "UNCOMMITTED working tree, no automatic commit",
+  "source_fingerprint": "2292b785fc3c1a9af25867d77bac793e8df14216c535c3f4b6f7fde9e5e69e32",
+  "changed_production": [
+    "src/main/java/org/slavicmyths/rpg/RuneFoundation.java",
+    "src/main/resources/assets/slavicmyths/models/item/sanctuary_ritual_cache.json",
+    "src/main/resources/assets/slavicmyths/textures/item/sanctuary_ritual_cache.png",
+    "gradle.properties"
+  ],
+  "runtime_launches": 0,
+  "owner_acceptance": "PENDING",
+  "polymc": "40 installed after offline gates; see installed.json"
+}

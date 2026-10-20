@@ -1,0 +1,36 @@
+{
+  "status": "PASS_OFFLINE_AND_STANDALONE_GL_ONLY",
+  "version": "1.9.7.42",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.42.jar",
+  "sha256": "ddbfccabb8ccf2609ce38474f75e051b284fd764df6881a80f71a2f0917f91e5",
+  "resources": 7437,
+  "png_verified": 1339,
+  "java21_classes": 1739,
+  "source_base_commit": "f5d42cd5ff52cdcd0624dd8709bcd855b3809339",
+  "source_commit": "UNCOMMITTED working tree; no automatic commit",
+  "source_fingerprint": "3b8c0d5a26b235dad802471cea4de6dcf795a3b4a2c838f637e37fad2c6f3775",
+  "modified": [
+    "gradle.properties",
+    "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+    "src/main/resources/META-INF/neoforge.mods.toml"
+  ],
+  "added": [
+    "src/main/java/org/slavicmyths/client/runeglow/RuneGlowBuffers.java",
+    "src/main/java/org/slavicmyths/client/runeglow/RuneGlowConsumer.java",
+    "src/main/java/org/slavicmyths/client/runeglow/RuneGlowRenderTypes.java",
+    "src/main/java/org/slavicmyths/client/runeglow/RuneGlowStyle.java",
+    "src/main/java/org/slavicmyths/client/runeglow/mixin/ArmorRuneMixin.java",
+    "src/main/java/org/slavicmyths/client/runeglow/mixin/ItemRendererRuneMixin.java",
+    "src/main/java/org/slavicmyths/client/runeglow/mixin/RuneBufferAccess.java",
+    "src/main/resources/assets/slavicmyths/shaders/core/rune_glint.fsh",
+    "src/main/resources/assets/slavicmyths/shaders/core/rune_glint.json",
+    "src/main/resources/assets/slavicmyths/shaders/core/rune_glint.vsh",
+    "src/main/resources/assets/slavicmyths/textures/misc/rune_glint.png",
+    "src/main/resources/slavicmyths.rune_glow.mixins.json"
+  ],
+  "minecraft_launches": 0,
+  "mixin_application": "NOT_RUN_IN_MINECRAFT; pinned bytecode target ABI checked",
+  "runtime": "NOT_RUN",
+  "owner_acceptance": "PENDING",
+  "polymc": "42 installed after verified gates; installed.json authoritative"
+}

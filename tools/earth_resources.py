@@ -51,7 +51,9 @@ d.line([(15,15),(22,10),(38,10),(40,16),(48,18)],fill=(149,138,126,255),width=3)
 spiral=[(19,46),(41,46),(41,23),(20,23),(20,40),(35,40),(35,29),(26,29),(26,34),(30,34)]
 d.line(spiral,fill=(110,50,30,255),width=7);d.line(spiral,fill=(169,99,44,255),width=5);d.line(spiral,fill=(245,179,89,255),width=3)
 for x in (24,30,36):d.rectangle((x,13,x+2,18),fill=(242,162,71,255))
-path=ASSET/'textures/item/rune_earth_heart_iii.png';path.parent.mkdir(parents=True,exist_ok=True);icon.save(path)
+path=ASSET/'textures/item/rune_earth_heart_iii.png';path.parent.mkdir(parents=True,exist_ok=True)
+from boss_runes103 import write_owned
+if not write_owned(path):icon.save(path)
 effect=Image.new('RGBA',(32,32));ed=ImageDraw.Draw(effect);ed.line([(3,23),(9,16),(13,22),(20,12),(29,18)],fill=(217,151,76,255),width=3);ed.rectangle((12,4,18,9),fill=(117,107,90,255));ed.line((15,10,20,19),fill=(157,143,117,255),width=3)
 ep=ASSET/'textures/mob_effect/earth_imbalance.png';ep.parent.mkdir(parents=True,exist_ok=True);effect.save(ep)
 items=['rune_earth_heart_iii','earth_servant_spawn_egg']

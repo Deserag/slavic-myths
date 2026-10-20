@@ -33,3 +33,22 @@
 /docs/implementation/metals-vanilla-36/before/** -text
 /docs/implementation/metals-vanilla-36/*.patch -text
 /docs/implementation/metals-vanilla-36/BUILD.log -text
+
+/docs/implementation/runes-102-pilot/before/** -text -whitespace
+/docs/implementation/runes-102-pilot/BUILD.log -text -whitespace
+
+/docs/implementation/runes-102-full/before/** -text -whitespace
+/docs/implementation/runes-102-full/BUILD.log -text -whitespace
+
+/docs/implementation/boss-runes-103/before/** -text -whitespace
+/docs/implementation/boss-runes-103/BUILD.log -text -whitespace
+
+/docs/implementation/creative-cache-40/before/** -text -whitespace
+/docs/implementation/creative-cache-40/BUILD.log -text -whitespace
+
+/docs/implementation/tools87/before/** -text -whitespace
+/docs/implementation/tools87/BUILD.log -text -whitespace
+
+/docs/implementation/rune-glow-104/before/** -text -whitespace
+/docs/implementation/rune-glow-104/BUILD.log -text -whitespace
+/docs/implementation/rune-glow-104/NATIVE-EXPORT.log -text -whitespace

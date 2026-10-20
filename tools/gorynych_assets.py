@@ -109,7 +109,9 @@ def icons():
    d.rectangle((6,2,25,9),fill=metal,outline=dark);d.rectangle((7,10,13,29),fill=metal,outline=dark);d.rectangle((18,10,24,29),fill=metal,outline=dark);d.line((10,12,10,25),fill=red,width=2);d.line((21,12,21,25),fill=red,width=2)
   else:
    for x in [3,18]:d.rectangle((x+3,3,x+10,23),fill=metal,outline=dark);d.polygon([(x+3,21),(x+10,20),(x+12,26),(x+11,30),(x,30),(x,25)],fill=dark,outline=metal);d.line((x+6,5,x+6,21),fill=red,width=2)
-  im.save(A/f'textures/item/{name}.png');write(A/f'models/item/{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':f'slavicmyths:item/{name}'}})
+  from boss_runes103 import write_owned
+  if not write_owned(A/f'textures/item/{name}.png'):im.save(A/f'textures/item/{name}.png')
+  write(A/f'models/item/{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':f'slavicmyths:item/{name}'}})
  write(A/'models/item/zmey_gorynych_spawn_egg.json',{'parent':'minecraft:item/template_spawn_egg'})
  im=Image.new('RGBA',(64,64));d=ImageDraw.Draw(im)
  for y in range(64):

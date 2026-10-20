@@ -62,7 +62,7 @@ public final class TextileClothingLayer extends RenderLayer<AbstractClientPlayer
     @Override public void render(PoseStack pose,MultiBufferSource buffers,int light,AbstractClientPlayer player,float walk,float amount,float partial,float age,float yaw,float pitch){
         if(player.isInvisible()||player.isSpectator())return;
         for(EquipmentSlot slot:List.of(EquipmentSlot.HEAD,EquipmentSlot.CHEST,EquipmentSlot.LEGS,EquipmentSlot.FEET)){
-            var stack=player.getItemBySlot(slot);if(stack.getItem() instanceof ClothingItem)show(BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath(),pose,buffers,light);
+            var stack=player.getItemBySlot(slot);if(stack.getItem() instanceof ClothingItem)show(BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath(),pose,org.slavicmyths.client.runeglow.RuneGlowBuffers.armor(stack,buffers,pose),light);
         }
         if(player.getData(BeltData.BELT).is(Textiles.item("woven_belt")))show("woven_belt",pose,buffers,light);
     }

@@ -1,0 +1,1836 @@
+[
+  {
+    "id": "butchering_knife",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\butchering_knife.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\butchering_knife.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      2,
+      3,
+      30,
+      30
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "rolling_pin",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\rolling_pin.json",
+    "model_exists": true,
+    "parent": "minecraft:item/generated",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\rolling_pin.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      0,
+      2,
+      15,
+      15
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "metal_pot",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\metal_pot.json",
+    "model_exists": true,
+    "parent": "minecraft:item/generated",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\metal_pot.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      1,
+      3,
+      15,
+      14
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "bath_broom",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\bath_broom.json",
+    "model_exists": true,
+    "parent": "minecraft:item/generated",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\bath_broom.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      3,
+      0,
+      15,
+      15
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "bath_stone",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\bath_stone.json",
+    "model_exists": true,
+    "parent": "minecraft:item/generated",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\bath_stone.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      2,
+      5,
+      15,
+      14
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "fishing_net",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\fishing_net.json",
+    "model_exists": true,
+    "parent": "minecraft:block/block",
+    "elements": 4,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\fishing_net.png",
+    "raw_texture_exists": false,
+    "native_size": null,
+    "alpha_bbox": null,
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "herb_pouch",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\herb_pouch.json",
+    "model_exists": true,
+    "parent": "minecraft:item/generated",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\herb_pouch.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      3,
+      2,
+      14,
+      15
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "meshochek_trofeev",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\meshochek_trofeev.json",
+    "model_exists": true,
+    "parent": "minecraft:item/generated",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\meshochek_trofeev.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      2,
+      2,
+      14,
+      15
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "ohotnichiy_rog",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ohotnichiy_rog.json",
+    "model_exists": true,
+    "parent": "minecraft:block/block",
+    "elements": 22,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ohotnichiy_rog.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      1,
+      3,
+      15,
+      15
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "nightingale_whistle",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\nightingale_whistle.json",
+    "model_exists": true,
+    "parent": "minecraft:block/block",
+    "elements": 10,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_whistle.png",
+    "raw_texture_exists": false,
+    "native_size": null,
+    "alpha_bbox": null,
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "bandit_horn",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\bandit_horn.json",
+    "model_exists": true,
+    "parent": "minecraft:block/block",
+    "elements": 6,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\bandit_horn.png",
+    "raw_texture_exists": false,
+    "native_size": null,
+    "alpha_bbox": null,
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "sickle",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\sickle.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\sickle.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      2,
+      1,
+      15,
+      16
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "field_hoe",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\field_hoe.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\field_hoe.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      5,
+      2,
+      30,
+      31
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "watering_can",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\watering_can.json",
+    "model_exists": true,
+    "parent": "minecraft:item/generated",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\watering_can.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      4,
+      2,
+      32,
+      29
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "perunite_pickaxe",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_pickaxe.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\perunite_pickaxe.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      2,
+      1,
+      15,
+      15
+    ],
+    "decision": "three selected head repairs"
+  },
+  {
+    "id": "perunite_axe",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_axe.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\perunite_axe.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      2,
+      2,
+      13,
+      15
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "perunite_shovel",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_shovel.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\perunite_shovel.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      4,
+      0,
+      15,
+      15
+    ],
+    "decision": "three selected head repairs"
+  },
+  {
+    "id": "perunite_hoe",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_hoe.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\perunite_hoe.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      4,
+      1,
+      14,
+      15
+    ],
+    "decision": "three selected head repairs"
+  },
+  {
+    "id": "rune_chisel",
+    "tab": "tools",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\rune_chisel.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\rune_chisel.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      5,
+      3,
+      29,
+      30
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "bone_knife",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\bone_knife.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 9,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\bone_knife.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "silver_dagger",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_dagger.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 17,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\silver_dagger.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "nightingale_dagger",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\nightingale_dagger.json",
+    "model_exists": true,
+    "parent": "minecraft:block/block",
+    "elements": 12,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_dagger.png",
+    "raw_texture_exists": false,
+    "native_size": null,
+    "alpha_bbox": null,
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_carolingian_sword.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ancient_carolingian_sword.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      1,
+      3,
+      14,
+      16
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\restored_carolingian_sword.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\restored_carolingian_sword.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      1,
+      3,
+      14,
+      16
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "silver_sword",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_sword.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 19,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\silver_sword.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "perunite_sword",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_sword.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 30,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\perunite_sword.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "tugarin_sword",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\tugarin_sword.json",
+    "model_exists": true,
+    "parent": "minecraft:block/block",
+    "elements": 2,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\tugarin_sword.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      5,
+      3,
+      29,
+      29
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\trophy_kalin_sabre.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 6,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\trophy_kalin_sabre.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      64,
+      64
+    ],
+    "alpha_bbox": [
+      6,
+      4,
+      62,
+      64
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "club",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\club.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 15,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\club.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      64,
+      16
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      64,
+      16
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "wooden_mace",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\wooden_mace.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 8,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\wooden_mace.png",
+    "raw_texture_exists": false,
+    "native_size": null,
+    "alpha_bbox": null,
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "stone_mace",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\stone_mace.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 8,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\stone_mace.png",
+    "raw_texture_exists": false,
+    "native_size": null,
+    "alpha_bbox": null,
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "mace",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\mace.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 9,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\mace.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "silver_mace",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_mace.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 9,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\silver_mace.png",
+    "raw_texture_exists": false,
+    "native_size": null,
+    "alpha_bbox": null,
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "perunite_mace",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_mace.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 14,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\perunite_mace.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "ancient_chekan",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_chekan.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ancient_chekan.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      3,
+      2,
+      14,
+      15
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "chekan",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\chekan.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\chekan.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      3,
+      2,
+      14,
+      15
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "battle_axe",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\battle_axe.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 15,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\battle_axe.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      64,
+      16
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      64,
+      16
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "thunder_axe",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\thunder_axe.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 24,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\thunder_axe.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "stone_flail",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\stone_flail.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\stone_flail.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      3,
+      6,
+      29,
+      30
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "gold_flail",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gold_flail.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\gold_flail.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      3,
+      6,
+      29,
+      30
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "flail",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\flail.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 23,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\flail.png",
+    "raw_texture_exists": false,
+    "native_size": null,
+    "alpha_bbox": null,
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "silver_flail",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_flail.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\silver_flail.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      3,
+      6,
+      29,
+      30
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "diamond_flail",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\diamond_flail.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\diamond_flail.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      3,
+      6,
+      29,
+      30
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "perunite_flail",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_flail.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\perunite_flail.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      3,
+      6,
+      29,
+      30
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "netherite_flail",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\netherite_flail.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\netherite_flail.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      3,
+      6,
+      29,
+      30
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "ataman_flail",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ataman_flail.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 7,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ataman_flail.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      2,
+      7,
+      31,
+      31
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "ancient_spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_spear.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ancient_spear.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      15,
+      16
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "restored_spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\restored_spear.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\restored_spear.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      15,
+      16
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\spear.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 21,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\spear.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "gold_spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gold_spear.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\gold_spear.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      2,
+      1,
+      30,
+      31
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "iron_spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\iron_spear.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\iron_spear.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      2,
+      1,
+      30,
+      31
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "silver_spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_spear.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 20,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\silver_spear.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "diamond_spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\diamond_spear.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\diamond_spear.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      2,
+      1,
+      30,
+      31
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "perunite_spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_spear.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\perunite_spear.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      2,
+      1,
+      30,
+      31
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "netherite_spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\netherite_spear.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\netherite_spear.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      2,
+      1,
+      30,
+      31
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "pool_spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\pool_spear.json",
+    "model_exists": true,
+    "parent": "minecraft:block/block",
+    "elements": 14,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\pool_spear.png",
+    "raw_texture_exists": false,
+    "native_size": null,
+    "alpha_bbox": null,
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "thunder_spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\thunder_spear.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 30,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\thunder_spear.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "victor_spear",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\victor_spear.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 4,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\victor_spear.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      1,
+      0,
+      31,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "berdysh",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\berdysh.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 21,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\berdysh.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "noon_sickle",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\noon_sickle.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\noon_sickle.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      3,
+      2,
+      13,
+      15
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "karachun_scythe",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\karachun_scythe.json",
+    "model_exists": true,
+    "parent": "builtin/entity",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\karachun_scythe.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      1,
+      3,
+      27,
+      31
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "poloz_whip",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\poloz_whip.json",
+    "model_exists": true,
+    "parent": "minecraft:item/generated",
+    "elements": 0,
+    "overrides": 5,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\poloz_whip.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      2,
+      1,
+      29,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "stone_throwing_knife",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\stone_throwing_knife.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\stone_throwing_knife.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      8,
+      8,
+      24,
+      26
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "gold_throwing_knife",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gold_throwing_knife.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\gold_throwing_knife.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      8,
+      8,
+      24,
+      26
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\iron_throwing_knife.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\iron_throwing_knife.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      8,
+      8,
+      24,
+      26
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "silver_throwing_knife",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_throwing_knife.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\silver_throwing_knife.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      8,
+      8,
+      24,
+      26
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\diamond_throwing_knife.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\diamond_throwing_knife.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      8,
+      8,
+      24,
+      26
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_throwing_knife.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\perunite_throwing_knife.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      8,
+      8,
+      24,
+      26
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\netherite_throwing_knife.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\netherite_throwing_knife.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      8,
+      8,
+      24,
+      26
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "stone_sulitsa",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\stone_sulitsa.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\stone_sulitsa.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      5,
+      4,
+      28,
+      28
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "gold_sulitsa",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gold_sulitsa.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\gold_sulitsa.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      5,
+      4,
+      28,
+      28
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "iron_sulitsa",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\iron_sulitsa.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\iron_sulitsa.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      5,
+      4,
+      28,
+      28
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "silver_sulitsa",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_sulitsa.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\silver_sulitsa.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      5,
+      4,
+      28,
+      28
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "diamond_sulitsa",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\diamond_sulitsa.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\diamond_sulitsa.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      5,
+      4,
+      28,
+      28
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "perunite_sulitsa",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_sulitsa.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\perunite_sulitsa.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      5,
+      4,
+      28,
+      28
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "netherite_sulitsa",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\netherite_sulitsa.json",
+    "model_exists": true,
+    "parent": "minecraft:item/handheld",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\netherite_sulitsa.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      5,
+      4,
+      28,
+      28
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "short_bow",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\short_bow.json",
+    "model_exists": true,
+    "parent": "minecraft:item/bow",
+    "elements": 0,
+    "overrides": 3,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\short_bow.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      8,
+      6,
+      21,
+      27
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "heavy_bow",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\heavy_bow.json",
+    "model_exists": true,
+    "parent": "minecraft:item/bow",
+    "elements": 0,
+    "overrides": 3,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\heavy_bow.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      3,
+      0,
+      23,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "finist_bow",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\finist_bow.json",
+    "model_exists": true,
+    "parent": "minecraft:item/bow",
+    "elements": 0,
+    "overrides": 3,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\finist_bow.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      1,
+      1,
+      28,
+      31
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "bone_arrow",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\bone_arrow.json",
+    "model_exists": true,
+    "parent": "item/generated",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\bone_arrow.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      16,
+      16
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      16,
+      15
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "serpent_crossbow",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\serpent_crossbow.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 8,
+    "overrides": 5,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\serpent_crossbow.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\three_breath_crossbow.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 65,
+    "overrides": 5,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\three_breath_crossbow.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "carved_staff",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\carved_staff.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 11,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\carved_staff.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      256,
+      256
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      256,
+      64
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "storm_staff",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\storm_staff.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 11,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\storm_staff.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "veles_staff",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\veles_staff.json",
+    "model_exists": true,
+    "parent": "minecraft:block/block",
+    "elements": 15,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\veles_staff.png",
+    "raw_texture_exists": false,
+    "native_size": null,
+    "alpha_bbox": null,
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "likho_staff",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\likho_staff.json",
+    "model_exists": true,
+    "parent": null,
+    "elements": 5,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\likho_staff.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      4,
+      2,
+      29,
+      31
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  },
+  {
+    "id": "morozko_staff",
+    "tab": "weapons",
+    "model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\morozko_staff.json",
+    "model_exists": true,
+    "parent": "builtin/entity",
+    "elements": 0,
+    "overrides": 0,
+    "raw_texture": "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\morozko_staff.png",
+    "raw_texture_exists": true,
+    "native_size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      4,
+      1,
+      28,
+      31
+    ],
+    "decision": "PRESERVED; atlas/held-model appearance not inferred from raw texture; in-game NOT_RUN"
+  }
+]

@@ -22,7 +22,9 @@ def run():
         dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,dest)
     for source in (SPEC/'07_Visual_References/Item_Textures_64').glob('*.png'):
         dest=RES/'assets/slavicmyths/textures/item'/source.name
-        dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,dest)
+        dest.parent.mkdir(parents=True,exist_ok=True)
+        from boss_runes103 import write_owned
+        if not write_owned(dest):shutil.copy2(source,dest)
     for source in (TEMPLATE/'data/slavicmyths/recipe').glob('*.json'):
         data=json.loads(source.read_text(encoding='utf-8'))
         # The supplied compact ingredient strings target a newer format. 1.21.1 uses objects.

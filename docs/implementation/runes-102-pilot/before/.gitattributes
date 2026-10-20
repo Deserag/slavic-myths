@@ -1,0 +1,35 @@
+# Preserve original bytes only for newly published proof packages.
+/docs/implementation/bogatyr-78/before/** -text
+/docs/implementation/bogatyr-78/**/before/** -text
+/docs/implementation/bogatyr-78/*.patch -text
+/docs/implementation/bogatyr-78/**/*.patch -text
+/docs/implementation/bogatyr-78/BUILD.log -text
+/docs/implementation/bogatyr-78/**/BUILD.log -text
+/docs/implementation/creatures-79/before/** -text
+/docs/implementation/creatures-79/**/before/** -text
+/docs/implementation/creatures-79/*.patch -text
+/docs/implementation/creatures-79/**/*.patch -text
+/docs/implementation/creatures-79/BUILD.log -text
+/docs/implementation/creatures-79/**/BUILD.log -text
+/docs/implementation/materials-81/before/** -text
+/docs/implementation/materials-81/**/before/** -text
+/docs/implementation/materials-81/*.patch -text
+/docs/implementation/materials-81/**/*.patch -text
+/docs/implementation/materials-81/BUILD.log -text
+/docs/implementation/materials-81/**/BUILD.log -text
+/docs/implementation/plants-82/before/** -text
+/docs/implementation/plants-82/**/before/** -text
+/docs/implementation/plants-82/*.patch -text
+/docs/implementation/plants-82/**/*.patch -text
+/docs/implementation/plants-82/BUILD.log -text
+/docs/implementation/plants-82/**/BUILD.log -text
+/docs/implementation/meat-83/before/** -text
+/docs/implementation/meat-83/**/before/** -text
+/docs/implementation/meat-83/*.patch -text
+/docs/implementation/meat-83/**/*.patch -text
+/docs/implementation/meat-83/BUILD.log -text
+/docs/implementation/meat-83/**/BUILD.log -text
+
+/docs/implementation/metals-vanilla-36/before/** -text
+/docs/implementation/metals-vanilla-36/*.patch -text
+/docs/implementation/metals-vanilla-36/BUILD.log -text

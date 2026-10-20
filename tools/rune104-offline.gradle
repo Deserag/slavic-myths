@@ -1,0 +1,18 @@
+allprojects { p ->
+ p.plugins.withId('java') {
+  p.sourceSets.create('rune104Offline') { java.srcDir('tools/rune104-offline') }
+  p.sourceSets.rune104Offline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+  p.sourceSets.rune104Offline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+  p.tasks.register('exportRune104Meshes', JavaExec) {
+   dependsOn p.tasks.named('rune104OfflineClasses')
+   classpath = p.sourceSets.rune104Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.client.RuneGlow104Meshes'
+   args = [p.file('docs/implementation/rune-glow-104/native-armor-source.json').absolutePath]
+  }
+  p.tasks.register('checkRune104Offline', JavaExec) {
+   dependsOn p.tasks.named('rune104OfflineClasses')
+   classpath = p.sourceSets.rune104Offline.runtimeClasspath
+   mainClass = 'RuneGlow104Checks'
+  }
+ }
+}

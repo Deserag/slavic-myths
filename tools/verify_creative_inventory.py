@@ -25,7 +25,7 @@ for line in (RES/'assets/slavicmyths/creative_catalog.tsv').read_text(encoding='
     id,tab,group=line.split('\t')
     require(id not in catalog,'unique ID '+id)
     require(tab in TAB_NAMES or tab=='hidden','valid tab '+id)
-    row={'registry_id':'slavicmyths:'+id,'category':tab,'order':counts[tab],'group':group,'stack_variants':0 if tab=='hidden' else 2 if id in {'blank_rune_1','blank_rune_2'} else 1}
+    row={'registry_id':'slavicmyths:'+id,'category':tab,'order':counts[tab],'group':group,'stack_variants':0 if tab=='hidden' else 1}
     counts[tab]+=1;rows.append(row);catalog[id]=row
 source=inventory()
 require(set(source)==set(catalog),'complete independent CURRENT SOURCE registration expansion equals catalog')
@@ -137,6 +137,6 @@ require('CREATIVE_CATALOG_OFFLINE_PASS' in (ROOT/'.tools/creative-offline.log').
 (OUT/'INVENTORY.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 with (OUT/'INVENTORY.csv').open('w',encoding='utf-8',newline='') as f:
     writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
-result={'status':'PASS','version':version,'jar':str(jar),'sha256':sha(jar),'source_items':len(source),'categories':dict(counts),'displayed_registry_ids':len(source)-len(hidden),'displayed_stacks':len(source)-len(hidden)+2,'hidden':sorted(hidden),'checks':len(checks),'scope':'CURRENT_SOURCE_STATIC + pure Java parser + production resources; not a loaded registry/gameplay/visual test','client_starts':0,'server_starts':0,'concurrent_files_included':concurrent if baseline_path.exists() else []}
+result={'status':'PASS','version':version,'jar':str(jar),'sha256':sha(jar),'source_items':len(source),'categories':dict(counts),'displayed_registry_ids':len(source)-len(hidden),'displayed_stacks':len(source)-len(hidden),'hidden':sorted(hidden),'checks':len(checks),'scope':'CURRENT_SOURCE_STATIC + pure Java parser + production resources; not a loaded registry/gameplay/visual test','client_starts':0,'server_starts':0,'concurrent_files_included':concurrent if baseline_path.exists() else []}
 (OUT/'GATES.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(result,ensure_ascii=False))

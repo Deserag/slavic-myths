@@ -43,3 +43,6 @@ side="CLIENT"
 
 [[mixins]]
 config="slavicmyths.physiology.mixins.json"
+
+[[mixins]]
+config="slavicmyths.rune_glow.mixins.json"

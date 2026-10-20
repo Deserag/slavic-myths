@@ -25,10 +25,9 @@ public final class RuneFoundation {
     }
     public static List<ItemStack> creative() {
         List<ItemStack> out=new ArrayList<>();
+        // One visible substrate per tier. Material alternatives remain craftable and JEI-aware.
         for(var entry:ITEMS.entrySet()) {
-            if(entry.getKey().equals("blank_rune_1")){out.add(blank(1,"iron"));out.add(blank(1,"gold"));}
-            else if(entry.getKey().equals("blank_rune_2")){out.add(blank(2,"diamond"));out.add(blank(2,"perunite"));}
-            else out.add(new ItemStack(entry.getValue().get()));
+            out.add(new ItemStack(entry.getValue().get()));
         }return out;
     }
     private static final class BlankItem extends Item {

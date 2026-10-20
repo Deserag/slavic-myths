@@ -1,0 +1,12 @@
+{
+  "status": "PASS_OFFLINE",
+  "sandbox_outputs": 10,
+  "byte_parity": true,
+  "legacy_routes": {
+    "rewards_assets": "Syntax and exact owned-write guard checked; exporter NOT_RUN (audio/model side effects)",
+    "gorynych_assets": "Syntax and exact owned-write guard checked; exporter NOT_RUN (audio/model side effects)",
+    "earth_resources": "Syntax and exact owned-write guard checked; exporter NOT_RUN (audio/model side effects)",
+    "poloz_full_assets": "Syntax and exact owned-write guard checked; exporter NOT_RUN (audio/model side effects)"
+  },
+  "legacy_audio_executions": 0
+}

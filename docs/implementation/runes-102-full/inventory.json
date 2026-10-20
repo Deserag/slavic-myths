@@ -1,0 +1,834 @@
+[
+  {
+    "id": "rune_strength",
+    "tier": 1,
+    "size": [
+      32,
+      32
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_strength.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_strength.json",
+    "old_sha256": "00b3a4a8fa167af32a6016460e90ae66540f78962a2a2e811f0d1548e5fde3fb",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_strength.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 1,
+            "material": "iron"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_strength",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "a0093b5634869932aaf0a4909480cb8acd2feb512c6834f2f1d203058e93d5b1"
+  },
+  {
+    "id": "rune_speed",
+    "tier": 1,
+    "size": [
+      32,
+      32
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_speed.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_speed.json",
+    "old_sha256": "9481f187060074f6420bf38a162332d4e5f21298ee17051a77c676608fafc1b3",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_speed.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 1,
+            "material": "gold"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_speed",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "2ba7c352e5df422925dc0605af19ca5bdfcfd50b315db957b7573da276b2e770"
+  },
+  {
+    "id": "rune_resilience",
+    "tier": 1,
+    "size": [
+      32,
+      32
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_resilience.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_resilience.json",
+    "old_sha256": "5007dc29928ef233118e622d2941551c985c6c8c1b900184d098d57a17b86992",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_resilience.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 1,
+            "material": "iron"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_resilience",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "b06bbdaaa8c8c0901b9d1fb66309e8b857b46de6b7a2a08ea4885c5930fed7ab"
+  },
+  {
+    "id": "rune_heat",
+    "tier": 1,
+    "size": [
+      32,
+      32
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_heat.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_heat.json",
+    "old_sha256": "c58830d9e06e76f5f6a79ba158eae3d873425023a2c3661607981cd68981700c",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_heat.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 1,
+            "material": "gold"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_heat",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "3d500acbd5715f18ea3786aa84956ed8eba45d5106540e9f83149d87195c41c6"
+  },
+  {
+    "id": "rune_crushing",
+    "tier": 2,
+    "size": [
+      32,
+      32
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_crushing.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_crushing.json",
+    "old_sha256": "d914cf03b717be8291c926626bb3de5ce932d4a33593a69d83237f9bac4b0d5c",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_crushing.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 2,
+            "material": "diamond"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_crushing",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "9147d29bbcd575437b9b5cc9751652eb527baab2efccbffe1e5cd06ad9313096"
+  },
+  {
+    "id": "rune_wind",
+    "tier": 2,
+    "size": [
+      32,
+      32
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_wind.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_wind.json",
+    "old_sha256": "808647f8f3b03b138f443e9274409ea46e8dc3441cc7ff70a30b0ba3ad992394",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_wind.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 2,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_wind",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "d47c3044827fadfb1c96695d6271fce436a99f9785c5432b04da9ff271618ef3"
+  },
+  {
+    "id": "rune_blood",
+    "tier": 2,
+    "size": [
+      32,
+      32
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_blood.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_blood.json",
+    "old_sha256": "b18b35ff810b1ed8d235235a3fb47987691cc084c7b7aec49459cd8934158bbf",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_blood.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 2,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_blood",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "60837b1c0cf1d7bba322bdc64a5988bfe4c6e19b27f5834ab952efced22a044e"
+  },
+  {
+    "id": "rune_fortitude",
+    "tier": 2,
+    "size": [
+      32,
+      32
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_fortitude.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_fortitude.json",
+    "old_sha256": "eccdaad4ed667774055e67604a6e0fc726ad4bc2b87a3aae41819d6ff0d43a5f",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_fortitude.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 2,
+            "material": "diamond"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_fortitude",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "5b677474cbdbd56fd19bcbeb1808e921fcbddcefc087a985d3122374d71c1adc"
+  },
+  {
+    "id": "rune_counterstrike_iii",
+    "tier": 3,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_counterstrike_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_counterstrike_iii.json",
+    "old_sha256": "73ef7548578833126ad3a2159d9e66b308cde9467a63efd62c1a6a5143642ad7",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_counterstrike_iii.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 3,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_counterstrike_iii",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "f4329ff376f1a5084d558d18ce89d6d28e88d9766573eae76a1ad59076bac573"
+  },
+  {
+    "id": "rune_hunter_iii",
+    "tier": 3,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_hunter_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_hunter_iii.json",
+    "old_sha256": "66e457e63589e9b6dab2ebc10adba2c956cec0077bad8e307926bb9b67353d3f",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_hunter_iii.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 3,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_hunter_iii",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "fa0d29ed6e8eaa39bff2bedefa51b68b70472b26648fd9b4bbb89497d1998463"
+  },
+  {
+    "id": "rune_last_stand_iii",
+    "tier": 3,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_last_stand_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_last_stand_iii.json",
+    "old_sha256": "a19714dd06c15a7b47256939cf26f41ec48fe3afb4ad4ae330aa32062fafa146",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_last_stand_iii.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 3,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_last_stand_iii",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "05ae7de8c8ff3b5c7b448c8c6b91e60712104917f3e0647804cadf7f82104821"
+  },
+  {
+    "id": "rune_depths_iii",
+    "tier": 3,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_depths_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_depths_iii.json",
+    "old_sha256": "c8509cebe9b72d2e7cde99760d0c11a53c174213df82c5767519476825822792",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_depths_iii.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 3,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_depths_iii",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "ae87d3b46dbc2a07ecd8544f0639b6b893d5963f9b0b751735a0285d6455c6df"
+  },
+  {
+    "id": "rune_miner_iii",
+    "tier": 3,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_miner_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_miner_iii.json",
+    "old_sha256": "871c57a8d6f0989f1e2d10dcf10bc1357a58bdd1d6ca576b15ea5f1bce0c7cfb",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_miner_iii.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 3,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_miner_iii",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "d217c94e070f6c097c217f321691383e0dbded148dbab12af07cc4c86d93a12d"
+  },
+  {
+    "id": "rune_excavator_iii",
+    "tier": 3,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_excavator_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_excavator_iii.json",
+    "old_sha256": "1d10e6543b8b87f8cf42a770ccdf2363321bffe1aea0f2f6c1e53699019560eb",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_excavator_iii.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 3,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_excavator_iii",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "ffcdba58efc62da446237462505e25627931deb2e6b12694362ba9de8f2130f4"
+  },
+  {
+    "id": "rune_farmer_iii",
+    "tier": 3,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_farmer_iii.json",
+    "old_sha256": "35d4ed618ad44ce5e32fdabb9eaea24d8104b3aefa4761246c11ad4f0b3138cf",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_farmer_iii.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 3,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_farmer_iii",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "4fb143a84dc077a638a3ded42d46c0f44527663c654edbbadbd3570d7cc9d43d"
+  },
+  {
+    "id": "rune_lumberjack_iii",
+    "tier": 3,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_lumberjack_iii.json",
+    "old_sha256": "3ff5a93df33167f2804a8a387df701d666ed09ed68073fe8b2afbcf34e1d2608",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_lumberjack_iii.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 3,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_lumberjack_iii",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "af2a323e1b95ebe088b93509fd17f08998bd7239395f4aba7063356637989421"
+  },
+  {
+    "id": "rune_unbreakable_iv",
+    "tier": 4,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_unbreakable_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_unbreakable_iv.json",
+    "old_sha256": "5f1dc6276e616b306bb7ba003704570cef4b956a3dbd175527dd7d235fdaa2cf",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_unbreakable_iv.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 4,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_unbreakable_iv",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "15faf9238d38e1e4c9b0cde56363c73a0fcd9cb4e8ad9124aa1963adca9ea605"
+  },
+  {
+    "id": "rune_perun_rage_iv",
+    "tier": 4,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_perun_rage_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_perun_rage_iv.json",
+    "old_sha256": "244b7a36342ab05e64e7caf56d2d179e7b45e8eb54a2c62b8a2a6b5aac98d5d1",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_perun_rage_iv.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 4,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_perun_rage_iv",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "2e3904b7e4971d96b5ca64256008dd0ef5e16a7d32d9faf04d024c638bc4a658"
+  },
+  {
+    "id": "rune_forest_spirit_iv",
+    "tier": 4,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_forest_spirit_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_forest_spirit_iv.json",
+    "old_sha256": "b01b2b1c170fa40915908eb69324a471fbeab8cac698bf7e092d712f64a9fd1f",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_forest_spirit_iv.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 4,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_forest_spirit_iv",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "198f44c8254df4a05b23bbe585612310765171dfc2d287a69dc055d03d312061"
+  },
+  {
+    "id": "rune_mastery_iv",
+    "tier": 4,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_mastery_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_mastery_iv.json",
+    "old_sha256": "f9476c29a198bbd32e1e0c548b2dc6dcd70580d9a4e2079464e3da15a3faf1ba",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_rework_mastery_iv.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 4,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_mastery_iv",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "537612060d9067a595247450d277d3611e6aac18c7fbf1276c859fe849f5f5d3"
+  },
+  {
+    "id": "rune_miner_iv",
+    "tier": 4,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_miner_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_miner_iv.json",
+    "old_sha256": "d04aa940ecd51e1e1fe1fb2a172af15380c23bc88d3f90f10e199d0a35045916",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_miner_iv.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 4,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_miner_iv",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "29e7999ecd6270c7a5b1741c2c44f2d6d99676de5708701d02790d3e5febe16e"
+  },
+  {
+    "id": "rune_excavator_iv",
+    "tier": 4,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_excavator_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_excavator_iv.json",
+    "old_sha256": "83359206f037f3f5604c60d9b84d5904384aee596c4f53600f0ffe6a1ee26b06",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_excavator_iv.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 4,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_excavator_iv",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "f17ea4e0f599af4e0bbdf43224ab648a99a90d1b961a1fccb59777b0abe2db02"
+  },
+  {
+    "id": "rune_farmer_iv",
+    "tier": 4,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_farmer_iv.json",
+    "old_sha256": "12fb4bcc6a65279d90e804c4292faeeff615991116d6003735cfc81bd3446419",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_farmer_iv.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 4,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_farmer_iv",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "3f83fef0b781384bb7037bdbbfc21b4f5817ea2766657fe0650a01a83f83b2f9"
+  },
+  {
+    "id": "rune_lumberjack_iv",
+    "tier": 4,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_lumberjack_iv.json",
+    "old_sha256": "27eb25222fa4b0816d1605586771cc2d7762c661bb701c6d541644c9b97fe21a",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/tool_rune_lumberjack_iv.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 4,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:rune_lumberjack_iv",
+          "count": 1
+        }
+      }
+    ],
+    "new_sha256": "8ff974fd7932537dfd9e1f97659670f8f240ad2052725488f32561c9e620dc50"
+  },
+  {
+    "id": "blank_rune_1",
+    "tier": 1,
+    "size": [
+      32,
+      32
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/blank_rune_1.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/blank_rune_1.json",
+    "old_sha256": "04bade9f462b1353b65fe73e20943730ca1abce9fec45d9abcbb0da59c8a2d11",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/blank_rune_1_from_ancient.json",
+        "type": "minecraft:crafting_shapeless",
+        "base_inputs": [],
+        "result": {
+          "id": "slavicmyths:blank_rune_1",
+          "count": 1
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_foundation_blank_1_gold.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [],
+        "result": {
+          "id": "slavicmyths:blank_rune_1",
+          "count": 1,
+          "components": {
+            "slavicmyths:rune_base": {
+              "tier": 1,
+              "material": "gold"
+            }
+          }
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_foundation_blank_1_iron.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [],
+        "result": {
+          "id": "slavicmyths:blank_rune_1",
+          "count": 1,
+          "components": {
+            "slavicmyths:rune_base": {
+              "tier": 1,
+              "material": "iron"
+            }
+          }
+        }
+      }
+    ],
+    "new_sha256": "80cca8568a98d685e3f713fe02337ef7bcd078174dd456c3f84875ea47bb32a8"
+  },
+  {
+    "id": "blank_rune_2",
+    "tier": 2,
+    "size": [
+      32,
+      32
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/blank_rune_2.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/blank_rune_2.json",
+    "old_sha256": "b73ca7a9cc62de2e4c0e4e91336d1460724aefd6ccb0b5e46e4969dab24f9a24",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_foundation_blank_2_diamond.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [],
+        "result": {
+          "id": "slavicmyths:blank_rune_2",
+          "count": 1,
+          "components": {
+            "slavicmyths:rune_base": {
+              "tier": 2,
+              "material": "diamond"
+            }
+          }
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_foundation_blank_2_perunite.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [],
+        "result": {
+          "id": "slavicmyths:blank_rune_2",
+          "count": 1,
+          "components": {
+            "slavicmyths:rune_base": {
+              "tier": 2,
+              "material": "perunite"
+            }
+          }
+        }
+      }
+    ],
+    "new_sha256": "eb3b49e2c0081b0ec403d46642755cbc0f11a6558019173062c7526b3ed3e713"
+  },
+  {
+    "id": "blank_rune_3",
+    "tier": 3,
+    "size": [
+      32,
+      32
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/blank_rune_3.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/blank_rune_3.json",
+    "old_sha256": "9c9e1c8d5a3c6ac0e964fc317e30f7595a778954f114f78e3d13bd2498a27cb9",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_foundation_blank_3.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [],
+        "result": {
+          "id": "slavicmyths:blank_rune_3",
+          "count": 1,
+          "components": {
+            "slavicmyths:rune_base": {
+              "tier": 3,
+              "material": "perunite"
+            }
+          }
+        }
+      }
+    ],
+    "new_sha256": "f7f4b805f1c3f2ff8a444bdbc89905ec2da69444545595ad3e2f5be6c31a4b4f"
+  },
+  {
+    "id": "blank_rune_4",
+    "tier": 4,
+    "size": [
+      64,
+      64
+    ],
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/blank_rune_4.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/blank_rune_4.json",
+    "old_sha256": "0b1906f19775568b9dc496546ee4ff09a1b1883b4d2d36e1b67b3f117a96e23c",
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rune_foundation_blank_4.json",
+        "type": "slavicmyths:rune_crafting",
+        "base_inputs": [
+          {
+            "tier": 3,
+            "material": "perunite"
+          }
+        ],
+        "result": {
+          "id": "slavicmyths:blank_rune_4",
+          "count": 1,
+          "components": {
+            "slavicmyths:rune_base": {
+              "tier": 4,
+              "material": "perunite"
+            }
+          }
+        }
+      }
+    ],
+    "new_sha256": "a3677d7d978e7380772a17f2b470e8efa31126b5629e0da1f18cf9dfa289e6f5"
+  }
+]

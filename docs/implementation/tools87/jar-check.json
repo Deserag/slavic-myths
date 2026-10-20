@@ -1,0 +1,21 @@
+{
+  "status": "PASS_OFFLINE_ONLY",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.41.jar",
+  "sha256": "fed1aabb8dc25ae36d53c424d397d6f29d914b4f3f5bc3cf20f97d2e1a23f850",
+  "version": "1.9.7.41",
+  "resources": 7432,
+  "png_verified": 1338,
+  "java21_classes": 1732,
+  "source_base": "f5d42cd5ff52cdcd0624dd8709bcd855b3809339",
+  "source_commit": "UNCOMMITTED working tree, no automatic commit",
+  "source_fingerprint": "3afde6c6c344a1548285d4a888ccf0b8a743e4fa1fe1f6017e8f560f960035cf",
+  "changed_production": [
+    "src/main/resources/assets/slavicmyths/textures/item/perunite_pickaxe.png",
+    "src/main/resources/assets/slavicmyths/textures/item/perunite_shovel.png",
+    "src/main/resources/assets/slavicmyths/textures/item/perunite_hoe.png",
+    "gradle.properties"
+  ],
+  "runtime_launches": 0,
+  "owner_acceptance": "PENDING",
+  "polymc": "41 NOT_INSTALLED"
+}

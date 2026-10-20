@@ -248,7 +248,9 @@ def icons():
 def block_assets():
  for index,name in enumerate(BLOCK_NAMES):
   if name=='sanctuary_ritual_cache':
-   write(A/f'blockstates/{name}.json',{'variants':{'':{'model':'minecraft:block/chest'}}});write(A/f'models/item/{name}.json',{'parent':'minecraft:item/chest'});continue
+   write(A/f'blockstates/{name}.json',{'variants':{'':{'model':'minecraft:block/chest'}}})
+   from ritual_cache_item40 import apply
+   apply();continue
   fire='spring' not in name and 'tainted' not in name;wood='pillar' in name and fire or 'idol' in name
   for lit in [False,True]:
    im=Image.new('RGBA',(32,32));d=ImageDraw.Draw(im);base=(87,64,44) if wood else (139,145,140);dark=(48,39,33) if wood else (75,86,88)

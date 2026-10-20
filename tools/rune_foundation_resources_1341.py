@@ -31,6 +31,8 @@ def recipe(name,inputs,result,chisel=False,base=None):
  if base:out['components']={'slavicmyths:rune_base':{'tier':base[0],'material':base[1]}}
  write(RES/f'data/slavicmyths/recipe/rune_foundation_{name}.json',{'type':'slavicmyths:rune_crafting','inputs':[{'ingredient':{'item':i},'count':n} for i,n in inputs],'result':out,'chisel':chisel})
 def sprite(id):
+ from runes102_all import write_owned
+ if write_owned(RES/f'assets/slavicmyths/textures/item/{id}.png'):return
  im=Image.new('RGBA',(32,32));d=ImageDraw.Draw(im);rng=random.Random(id)
  if id.endswith('_dust'):
   color={'iron_dust':(168,173,181),'gold_dust':(218,159,36),'coal_dust':(54,58,67),'lapis_dust':(42,85,173),'diamond_dust':(65,190,181),'perunite_dust':(145,87,187)}[id]

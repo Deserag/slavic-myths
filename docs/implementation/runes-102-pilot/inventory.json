@@ -1,0 +1,66 @@
+[
+  {
+    "id": "rune_farmer_iii",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_farmer_iii.json",
+    "recipe": "src/main/resources/data/slavicmyths/recipe/tool_rune_farmer_iii.json",
+    "master": "tools/tool-runes-art/rune_farmer_iii.png",
+    "size": [
+      64,
+      64
+    ],
+    "old_sha256": "35d4ed618ad44ce5e32fdabb9eaea24d8104b3aefa4761246c11ad4f0b3138cf",
+    "master_matches": true,
+    "new_sha256": "4fb143a84dc077a638a3ded42d46c0f44527663c654edbbadbd3570d7cc9d43d",
+    "status": "CHANGED / OWNER_PENDING",
+    "recipe_and_model_unchanged": true
+  },
+  {
+    "id": "rune_farmer_iv",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_farmer_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_farmer_iv.json",
+    "recipe": "src/main/resources/data/slavicmyths/recipe/tool_rune_farmer_iv.json",
+    "master": "tools/tool-runes-art/rune_farmer_iv.png",
+    "size": [
+      64,
+      64
+    ],
+    "old_sha256": "12fb4bcc6a65279d90e804c4292faeeff615991116d6003735cfc81bd3446419",
+    "master_matches": true,
+    "new_sha256": "3f83fef0b781384bb7037bdbbfc21b4f5817ea2766657fe0650a01a83f83b2f9",
+    "status": "CHANGED / OWNER_PENDING",
+    "recipe_and_model_unchanged": true
+  },
+  {
+    "id": "rune_lumberjack_iii",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iii.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_lumberjack_iii.json",
+    "recipe": "src/main/resources/data/slavicmyths/recipe/tool_rune_lumberjack_iii.json",
+    "master": "tools/tool-runes-art/rune_lumberjack_iii.png",
+    "size": [
+      64,
+      64
+    ],
+    "old_sha256": "3ff5a93df33167f2804a8a387df701d666ed09ed68073fe8b2afbcf34e1d2608",
+    "master_matches": true,
+    "new_sha256": "af2a323e1b95ebe088b93509fd17f08998bd7239395f4aba7063356637989421",
+    "status": "CHANGED / OWNER_PENDING",
+    "recipe_and_model_unchanged": true
+  },
+  {
+    "id": "rune_lumberjack_iv",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/rune_lumberjack_iv.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/rune_lumberjack_iv.json",
+    "recipe": "src/main/resources/data/slavicmyths/recipe/tool_rune_lumberjack_iv.json",
+    "master": "tools/tool-runes-art/rune_lumberjack_iv.png",
+    "size": [
+      64,
+      64
+    ],
+    "old_sha256": "27eb25222fa4b0816d1605586771cc2d7762c661bb701c6d541644c9b97fe21a",
+    "master_matches": true,
+    "new_sha256": "8ff974fd7932537dfd9e1f97659670f8f240ad2052725488f32561c9e620dc50",
+    "status": "CHANGED / OWNER_PENDING",
+    "recipe_and_model_unchanged": true
+  }
+]

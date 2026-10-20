@@ -1,0 +1,28 @@
+{
+  "status": "INSTALLED_TEST_PREVIEW_IN_PROGRESS_OWNER_PENDING",
+  "version": "1.9.7.39",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.39.jar",
+  "installed_sha256": "b8f3016d5918d8ad3706bae3f66654c7786b950d2277220237ca988cfd0c4deb",
+  "backup_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\codex-backups\\before-1.9.7.39-20261020-173308\\slavicmyths-1.9.7.36.jar",
+  "backup_sha256": "de33a23866ab1bb5c7616d488f3eb009550e042f4a856ae484ae23968c096dd7",
+  "source_base_commit": "f5d42cd5ff52cdcd0624dd8709bcd855b3809339",
+  "source_commit": "UNCOMMITTED working tree; base commit plus build-source-sha256.json describes installed sources",
+  "source_fingerprint": "e285a0cef2cd78d9539995ec8534c27fa461e5239953ee9d2d5fa45f72b07c81",
+  "other_mods_preserved": {
+    "curios-neoforge-9.5.1+1.21.1.jar": "a45df2125c26219974aba7507ffc9afe7b83acc941a386af3faacb1cc0056fde",
+    "FallingTree-1.21.1-1.21.1.11.jar": "70ee147602d2239e7a093e166fdf0c0abcef959d5d457c0f8f3669ef9b483dc4",
+    "Jade-1.21.1-NeoForge-15.10.6.jar": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810",
+    "jei-1.21.1-neoforge-19.51.0.418.jar": "8bc3936d869e4040a5649c58b7e8be1c78c82a245c0dc07bdd68ab49121a222c",
+    "xaerominimap-neoforge-1.21.1-26.5.0.jar": "667105d8fdca64b27b29d8e0b88e67e7342038d3fb4edc4129bf452b601c6d20",
+    "xaeroworldmap-neoforge-1.21.1-1.45.0.jar": "d60899112e84616ba52a993c1722fd891872acc4779bfac34d9b170001451c6f"
+  },
+  "active_mod_jars": [
+    "slavicmyths-1.9.7.39.jar"
+  ],
+  "runtime_launches": 0,
+  "final_release": false,
+  "remaining": [
+    "Owner in-game acceptance",
+    "Original historical BOSS_RUNE_CONCEPT.png unavailable"
+  ]
+}
