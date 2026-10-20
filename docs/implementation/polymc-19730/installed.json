@@ -6,7 +6,7 @@
   "backup_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\codex-backups\\before-1.9.7.30-20261020-124357\\slavicmyths-1.9.7.29.jar",
   "backup_sha256": "023e7d198f74b8fb1c80cceb421cdbb8a808cde632f8d450f248cda5af4cd605",
   "source_fingerprint": "5d73e27b2d433454d01658707511a08db8febcdb98e47e3934be1d16bb0c5740",
-  "source_commit": "PENDING_AUTHORIZED_COMMIT",
+  "source_commit": "86e383ba014be404767c541730e81cea2fd7061c",
   "other_mods_preserved": 6,
   "active_mod_jars": [
     "slavicmyths-1.9.7.30.jar"

@@ -1,3 +1,7 @@
+## PolyMC / Git update — 20.10.2026
+
+Installed test preview **1.9.7.30**, source `86e383ba014be404767c541730e81cea2fd7061c`; [installation receipt](implementation/polymc-19730/REPORT.md). Backup 1.9.7.29; one active mod JAR, six other mods preserved. Runtime launches 0. #77 remains OWNER_PENDING / OPEN. Next authorized task: #78. Earlier entries below are historical.
+
 ## #77 — Ским-зверь по плакату1.7.3 · 1.9.7.30 · 20.10.2026
 
 Заново построены несущие объёмы, многослойная грива, морда/зубы, разные передние/задние
