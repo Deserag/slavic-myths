@@ -1,0 +1,20 @@
+{
+  "head": "7e6d64d41b330d675c65cb10ac738f7a1091a9b8",
+  "reviewed_candidate": "2239417d",
+  "source_files": {
+    "src/main/java/org/slavicmyths/bogatyr/BogatyrEvents.java": "1ea0545a1df9418847dab9ee073daae04dfa5c250747e7378aa49b8b4d87d47e",
+    "src/main/java/org/slavicmyths/bogatyr/BogatyrLedger.java": "058f62c4a52d8e549abdb6671fac136c214a93878d97d6e4e06d7e7c03313a5e",
+    "src/main/java/org/slavicmyths/bogatyr/HeroThreats.java": "c45cebedcf07f80660df795d85bfeaf278707a5371459272a3261838e417a827",
+    "src/main/java/org/slavicmyths/bogatyr/IlyaEntity.java": "d9bccf71d87f29872b95ee0dcda76208ef892289990872a509504feae13a5512",
+    "src/main/java/org/slavicmyths/finist/FinistEntity.java": "c8d11cad412d2616142b980a74a555992c47253bfbd9326f15e56c651cef1459",
+    "src/main/java/org/slavicmyths/finist/FinistEvents.java": "a585eec2edf95fc05a7565e0f4640ab6667541bc6827bbdcf7cc09e7e640a3bd",
+    "src/main/java/org/slavicmyths/marinka/DobrynyaEntity.java": "1a4976c1a7c4ea724587b6b2e4b5422a4e39cbbd5bc47921bd2ceba092c324ed",
+    "src/main/java/org/slavicmyths/marinka/WitchYard.java": "f46097d5c95af16b878b0ab7d5c371efc58331aa76b5ad72ba747a48a49582fe",
+    "src/main/java/org/slavicmyths/skim/AlyoshaEntity.java": "5fae2c367f96f7f4431ff5d7cf15869b700e118027f62cafaedefc4c24147d2d",
+    "src/main/java/org/slavicmyths/skim/HeroCalls.java": "cd242685d26e56926f459de058995c02c8641b172b7b1093cdc9c2e0d63c1f95",
+    "src/main/java/org/slavicmyths/skim/SkimEvents.java": "12d558593c3f659637966fb171070e1ba534f294937e172ae3e4a17f23122797",
+    "src/main/java/org/slavicmyths/client/SkimModel.java": "749cc9ba0c16a2aa347dc17d6108af62816780daf9a2d17c6782aa4567547896",
+    "src/main/java/org/slavicmyths/skim/AlyoshaArrow.java": "842091c1dbfdd32693f921ea7498608779e45dc66c875a7d8047bb8a50f0b444",
+    "src/main/java/org/slavicmyths/kalin/KalinParty.java": "bdd36311dae892a25741d77ec8e8164523946f70a4ea1fe124600b50d696bf9f"
+  }
+}

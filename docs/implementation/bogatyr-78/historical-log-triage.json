@@ -1,0 +1,18 @@
+{
+  "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\logs\\latest.log",
+  "sha256": "9a10384e73c012396ba167a5445a9170de835430c5dcbc53183355e1460ec156",
+  "bytes": 34461,
+  "modified": 1792490501.0575767,
+  "matches": [
+    [
+      15,
+      "[20Oct2026 12:59:24.400] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file \"slavicmyths-1.9.7.30.jar\" [locator: {mods folder locator at C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods}, reader: mod manifest]"
+    ],
+    [
+      228,
+      "[20Oct2026 13:01:39.330] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server"
+    ]
+  ],
+  "verdict": "HISTORICAL_LOG_ONLY; no reproduced hang, FPS/TPS/AI profile NOT_RUN",
+  "new_launches": 0
+}

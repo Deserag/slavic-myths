@@ -47,6 +47,8 @@ SPRITES = {
 }
 
 def png(path, pixels, width, height):
+    from materials81_m1 import write_owned
+    if write_owned(path): return
     def chunk(kind, data):
         return struct.pack('!I', len(data))+kind+data+struct.pack('!I', zlib.crc32(kind+data)&0xffffffff)
     raw = b''.join(b'\0'+bytes(c for pixel in row for c in pixel) for row in pixels)

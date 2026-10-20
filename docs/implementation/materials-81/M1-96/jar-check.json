@@ -1,0 +1,22 @@
+{
+  "status": "PASS_OFFLINE_ONLY",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.33.jar",
+  "sha256": "67367490a975b8ed90316c2c75bf2ae0b9b5db9d4eaeab7ca3aa9a50403b4ea1",
+  "version": "1.9.7.33",
+  "resources": 7431,
+  "png_verified": 1337,
+  "java21_classes": 1732,
+  "source_base": "7e6d64d41b330d675c65cb10ac738f7a1091a9b8",
+  "source_commit": "UNCOMMITTED working tree, no automatic commit",
+  "source_fingerprint": "bc387b5a04284204093e359cd1f019902e5a00ec7f156d2857e098c9fc92290e",
+  "changed_production": [
+    "src/main/resources/assets/slavicmyths/textures/item/silver_nugget.png",
+    "src/main/resources/assets/slavicmyths/textures/item/silver_ingot.png",
+    "src/main/resources/assets/slavicmyths/textures/item/perunite.png",
+    "src/main/resources/assets/slavicmyths/textures/item/iron_blank.png",
+    "gradle.properties"
+  ],
+  "runtime_launches": 0,
+  "owner_acceptance": "PENDING",
+  "polymc": "1.9.7.32 unchanged; 33 NOT_INSTALLED"
+}

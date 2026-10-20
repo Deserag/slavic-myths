@@ -16,6 +16,9 @@ import org.slavicmyths.finist.FinistEntity;
 /** Compact HUD for up to three loaded owned heroes; the server owns the 2/3 summon limit. */
 @EventBusSubscriber(modid="slavicmyths", value=Dist.CLIENT)
 public final class HeroHud {
+    private static net.minecraft.nbt.CompoundTag lifecycle=new net.minecraft.nbt.CompoundTag();
+    @SubscribeEvent public static void lifecycle(org.slavicmyths.skim.HeroLifecycleNetwork.Received e){lifecycle=e.tag.copy();}
+    @SubscribeEvent public static void logout(net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut e){lifecycle=new net.minecraft.nbt.CompoundTag();}
     @SubscribeEvent public static void render(RenderGuiEvent.Post event) {
         var mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null || mc.screen != null || mc.options.hideGui
@@ -30,10 +33,14 @@ public final class HeroHud {
             String key = retreating(h) ? "hero_hud.slavicmyths.retreating"
                     : resting ? "gui.slavicmyths.174.recovery" : "hero_hud.slavicmyths.active";
             if (h instanceof FinistEntity f && f.bird() == 4) key = "hero_hud.slavicmyths.cursed";
+            String id=net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(h.getType()).getPath();
+            var lease=lifecycle.getCompound(id);
+            String status=Component.translatable(key).getString();
+            if(lease.getBoolean("Active"))status=lease.getBoolean("Returning")?Component.translatable("message.slavicmyths.hero.hud_returning").getString():status+" · "+Component.translatable("message.slavicmyths.hero.remaining",lease.getInt("Seconds"),2-lease.getInt("Recoveries")).getString();
             loaded.add(new HeroHudView.Entry(h.getUUID(), owner,
                     net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(h.getType()).toString(),
                     h.getName().getString(), h.getHealth(), h.getMaxHealth(),
-                    Component.translatable(key).getString(), resting, mc.player.distanceToSqr(h), h.isAlive()));
+                    status, resting, mc.player.distanceToSqr(h), h.isAlive()));
         }
         var heroes = HeroHudView.select(mc.player.getUUID(), loaded);
         if (heroes.isEmpty()) return;

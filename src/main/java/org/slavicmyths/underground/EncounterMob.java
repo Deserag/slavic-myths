@@ -28,9 +28,10 @@ public abstract class EncounterMob extends Monster {
  public void bind(BlockPos p,String key){home=p.immutable();encounterKey=key;restrictTo(home,leash());}
  protected int leash(){return 22;}
  protected boolean neutral(){return false;}
+ public boolean combatNeutral(){return neutral();}
  public boolean isAlliedTo(Entity e){return e instanceof EncounterMob||super.isAlliedTo(e);}
  protected void registerGoals(){goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new Goal(){ {setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}public boolean canUse(){return action()!=Action.IDLE||getTarget()!=null;}public void tick(){if(action()!=Action.IDLE){getNavigation().stop();return;}if(validTarget(getTarget())){getLookControl().setLookAt(getTarget(),25,25);getNavigation().moveTo(getTarget(),1);} }});goalSelector.addGoal(3,new MoveTowardsRestrictionGoal(this,.85));goalSelector.addGoal(5,new WaterAvoidingRandomStrollGoal(this,.6));goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,8));goalSelector.addGoal(7,new RandomLookAroundGoal(this));targetSelector.addGoal(1,new HurtByTargetGoal(this));if(!neutral()){targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Player.class,true));targetSelector.addGoal(3,new NearestAttackableTargetGoal<>(this,ChudPerson.class,true));}}
- protected boolean validTarget(LivingEntity t){return t!=null&&t.isAlive()&&t.level()==level()&&!(t instanceof Player p&&(p.isCreative()||p.isSpectator()))&&(home==null||t.distanceToSqr(home.getCenter())<=leash()*leash());}
+ protected boolean validTarget(LivingEntity t){return t!=null&&org.slavicmyths.combat.CombatTargeting.canAttack(this,t,org.slavicmyths.combat.CombatTargeting.Context.NATIVE_HUNT)&&t.isAlive()&&t.level()==level()&&!(t instanceof Player p&&(p.isCreative()||p.isSpectator()))&&(home==null||t.distanceToSqr(home.getCenter())<=leash()*leash());}
  protected boolean ready(Action a){return cooldowns.getOrDefault(a,0)<=0;}
  protected void begin(Action a,int ticks){entityData.set(STATE,a.ordinal());entityData.set(START,level().getGameTime());elapsed=0;duration=ticks;var t=getTarget();aim=t==null?position().add(getLookAngle().scale(3)):t.position();getNavigation().stop();}
  protected void finish(Action a,int cd,int recovery){cooldowns.put(a,cd);begin(Action.RECOVER,recovery);}

@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:buried_volkhv",
+    "slavicmyths:kurgan_druzhinnik",
+    "slavicmyths:kurgan_voevoda",
+    "slavicmyths:nav",
+    "slavicmyths:unresting_prince",
+    "slavicmyths:upyr",
+    "#minecraft:undead"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "INSTALLED_TEST_PREVIEW_OWNER_PENDING",
+  "version": "1.9.7.32",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.32.jar",
+  "installed_sha256": "4614b9ef67280fa7433c84b2ebedacb17341385939a67fd58bac7ce37ce98947",
+  "backup_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\codex-backups\\before-1.9.7.32-20261020-153628\\slavicmyths-1.9.7.30.jar",
+  "backup_sha256": "c2dd2a3eb148ce88fa3bc7cd59964dd314f9dfb0642e2dc4d3ff5eca943e2375",
+  "source_base_commit": "7e6d64d41b330d675c65cb10ac738f7a1091a9b8",
+  "source_commit": "UNCOMMITTED working tree #78 + #79; no matching committed source revision",
+  "source_fingerprint": "ce7342586caf3007537f120c0be665909a9054220e90f807e03f3264cc892921",
+  "source_manifest": "docs/implementation/creatures-79/build-source-sha256.json",
+  "other_mods_preserved": 6,
+  "active_mod_jars": [
+    "slavicmyths-1.9.7.32.jar"
+  ],
+  "runtime_launches": 0,
+  "issues_78_79": "IN_PROGRESS / OWNER_PENDING",
+  "issue80": "IDENTIFICATION_BLOCKED"
+}

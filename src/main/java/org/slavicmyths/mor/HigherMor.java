@@ -21,7 +21,7 @@ public final class HigherMor {
  public HigherMor(LandSpiritEntity mob){this.mob=mob;}
  public boolean phase(){return phase;}
  public static boolean higher(LivingEntity e){return e instanceof LandSpiritEntity s&&s.mor.kind()>=5&&s.morState()==2;}
- public static boolean enemy(LandSpiritEntity self,LivingEntity e){return e!=null&&e.isAlive()&&!self.isAlliedTo(e)&&(MorController.valid(e)||(e instanceof net.minecraft.world.entity.monster.Enemy||org.slavicmyths.bogatyr.HeroThreats.availableHero(e))&&!higher(e)&&!(e instanceof LandSpiritEntity s&&s.morState()!=0));}
+ public static boolean enemy(LandSpiritEntity self,LivingEntity e){return e!=null&&org.slavicmyths.combat.CombatTargeting.canAttack(self,e,org.slavicmyths.combat.CombatTargeting.Context.AREA)&&e.isAlive()&&!self.isAlliedTo(e)&&(MorController.valid(e)||(e instanceof net.minecraft.world.entity.monster.Enemy||org.slavicmyths.bogatyr.HeroThreats.availableHero(e))&&!higher(e)&&!(e instanceof LandSpiritEntity s&&s.morState()!=0));}
  public void tick(){
   if(mob.morState()!=2)return;
   if(mob.tickCount%240==0)mob.playSound(mob.mor.kind()==5?SoundEvents.WITCH_AMBIENT:SoundEvents.RAVAGER_AMBIENT,.4F,.55F);

@@ -1,0 +1,57 @@
+{
+  "status": "PASS_NATIVE_OFFLINE_ONLY",
+  "checks": 327,
+  "runtime_launches": 0,
+  "runtime_registry": "NOT_RUN",
+  "world_contacts": "NOT_RUN / OWNER_PENDING",
+  "policy_matrix": [
+    {
+      "nature": "HUMANOID",
+      "bleed": true,
+      "poison": true,
+      "fire": 1.0
+    },
+    {
+      "nature": "ANIMAL",
+      "bleed": true,
+      "poison": true,
+      "fire": 1.0
+    },
+    {
+      "nature": "MYTHICAL_BEAST",
+      "bleed": true,
+      "poison": true,
+      "fire": 1.0
+    },
+    {
+      "nature": "SPIRIT",
+      "bleed": false,
+      "poison": false,
+      "fire": 1.25
+    },
+    {
+      "nature": "UNDEAD",
+      "bleed": false,
+      "poison": false,
+      "fire": 1.0
+    },
+    {
+      "nature": "ELEMENTAL",
+      "bleed": false,
+      "poison": false,
+      "fire": 1.0
+    },
+    {
+      "nature": "CONSTRUCT",
+      "bleed": false,
+      "poison": false,
+      "fire": 1.0
+    },
+    {
+      "nature": "PLANT",
+      "bleed": false,
+      "poison": false,
+      "fire": 1.5
+    }
+  ]
+}

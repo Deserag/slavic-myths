@@ -1,0 +1,228 @@
+[
+  {
+    "tag": "bleed_immune",
+    "entries": [
+      "minecraft:bogged",
+      "minecraft:drowned",
+      "minecraft:husk",
+      "minecraft:phantom",
+      "minecraft:skeleton",
+      "minecraft:skeleton_horse",
+      "minecraft:stray",
+      "minecraft:wither",
+      "minecraft:wither_skeleton",
+      "minecraft:zoglin",
+      "minecraft:zombie",
+      "minecraft:zombie_horse",
+      "minecraft:zombie_villager",
+      "minecraft:zombified_piglin",
+      "slavicmyths:buried_volkhv",
+      "slavicmyths:earth_spirit",
+      "slavicmyths:kurgan_druzhinnik",
+      "slavicmyths:kurgan_voevoda",
+      "slavicmyths:nav",
+      "slavicmyths:unresting_prince",
+      "slavicmyths:upyr"
+    ],
+    "callsites": [
+      "src/main/java/org/slavicmyths/combat/CreatureProperties.java:44",
+      "src/main/java/org/slavicmyths/combat/CutEffect.java:23",
+      "src/main/java/org/slavicmyths/combat/RareBleedEffect.java:35",
+      "src/main/java/org/slavicmyths/rpg/RuneRuntime.java:58"
+    ],
+    "sha256": "1fc0624379ae2be6bd62f3608275f69721f02e5246b51e2a054882e2c4821d9d"
+  },
+  {
+    "tag": "class_bloodless",
+    "entries": [
+      "minecraft:blaze",
+      "minecraft:breeze",
+      "minecraft:ghast",
+      "minecraft:magma_cube",
+      "minecraft:slime",
+      "minecraft:vex",
+      "slavicmyths:nav"
+    ],
+    "callsites": [
+      "src/main/java/org/slavicmyths/combat/CreatureProperties.java:23",
+      "src/main/java/org/slavicmyths/combat/CreatureProperties.java:33"
+    ],
+    "sha256": "61449a96973466757450fe27b6e2db8dba44bc4640665113ea4a1f7be0bdd2d2"
+  },
+  {
+    "tag": "silver_vulnerable",
+    "entries": [
+      "slavicmyths:leshy"
+    ],
+    "callsites": [
+      "src/main/java/org/slavicmyths/combat/CreatureProperties.java:23",
+      "src/main/java/org/slavicmyths/combat/CreatureProperties.java:34",
+      "src/main/java/org/slavicmyths/item/SilverCombat.java:17",
+      "src/main/java/org/slavicmyths/item/SilverCombat.java:25"
+    ],
+    "sha256": "443a301dcaea0dabdcbce402d9422293c3c4c99dd25cb40d5a4797a512bc1880"
+  },
+  {
+    "tag": "class_mythical",
+    "entries": [
+      "slavicmyths:baba_yaga",
+      "slavicmyths:bannik",
+      "slavicmyths:domovoy",
+      "slavicmyths:elder_vodyanoy",
+      "slavicmyths:kikimora",
+      "slavicmyths:leshy",
+      "slavicmyths:likho_one_eyed",
+      "slavicmyths:nav",
+      "slavicmyths:ovinnik",
+      "slavicmyths:polevik",
+      "slavicmyths:poludnitsa",
+      "slavicmyths:rusalka",
+      "slavicmyths:upyr",
+      "slavicmyths:vodyanoy"
+    ],
+    "callsites": [
+      "src/main/java/org/slavicmyths/rpg/classes/ClassControl.java:12",
+      "src/main/java/org/slavicmyths/rpg/classes/ClassEvents.java:33"
+    ],
+    "sha256": "389239d835ca84387246a1a3e8d2c73e65309afecaaff77f62f14d27dd913cf2"
+  },
+  {
+    "tag": "class_control_resistant",
+    "entries": [
+      "minecraft:ender_dragon",
+      "minecraft:warden",
+      "minecraft:wither"
+    ],
+    "callsites": [
+      "src/main/java/org/slavicmyths/combat/CreatureProperties.java:23",
+      "src/main/java/org/slavicmyths/combat/CreatureProperties.java:35",
+      "src/main/java/org/slavicmyths/rpg/classes/ClassControl.java:11",
+      "src/main/java/org/slavicmyths/rpg/classes/ClassControl.java:14"
+    ],
+    "sha256": "881ba2adbc5881e129acc2baaee72e02400f36cef0fa883cf5c4e377b27ee1eb"
+  },
+  {
+    "tag": "control_immune",
+    "entries": [
+      "slavicmyths:kot_bayun",
+      "slavicmyths:kuzya"
+    ],
+    "callsites": [
+      "src/main/java/org/slavicmyths/combat/CombatTargeting.java:14",
+      "src/main/java/org/slavicmyths/combat/CombatTargeting.java:163",
+      "src/main/java/org/slavicmyths/combat/CreatureProperties.java:35"
+    ],
+    "sha256": "7cb1261164fd1132003b41ada21fa4e01b95be7c7654848fd7d2f863c38db971"
+  },
+  {
+    "tag": "combat_protected",
+    "entries": [
+      "minecraft:villager",
+      "minecraft:wandering_trader",
+      "slavicmyths:baba_yaga",
+      "slavicmyths:domovoy",
+      "slavicmyths:kot_bayun",
+      "slavicmyths:kuzya"
+    ],
+    "callsites": [
+      "src/main/java/org/slavicmyths/combat/CombatTargeting.java:14",
+      "src/main/java/org/slavicmyths/combat/CombatTargeting.java:25",
+      "src/main/java/org/slavicmyths/finist/GreyPackRing.java:32",
+      "src/main/java/org/slavicmyths/rpg/RuneEffects.java:16",
+      "src/main/java/org/slavicmyths/rpg/classes/ClassXpService.java:17"
+    ],
+    "sha256": "95418ab2af4a6b7fb8b4109c25b314748675b993779206c0f4c3957f1c897862"
+  },
+  {
+    "tag": "village_hostiles",
+    "entries": [
+      "minecraft:bogged",
+      "minecraft:drowned",
+      "minecraft:evoker",
+      "minecraft:husk",
+      "minecraft:pillager",
+      "minecraft:ravager",
+      "minecraft:skeleton",
+      "minecraft:stray",
+      "minecraft:vex",
+      "minecraft:vindicator",
+      "minecraft:wither_skeleton",
+      "minecraft:zombie",
+      "minecraft:zombie_villager",
+      "slavicmyths:ataman",
+      "slavicmyths:bandit_archer",
+      "slavicmyths:bandit_fighter",
+      "slavicmyths:bandit_heavy",
+      "slavicmyths:bandit_senior",
+      "slavicmyths:buried_volkhv",
+      "slavicmyths:fire_serpent",
+      "slavicmyths:kurgan_druzhinnik",
+      "slavicmyths:kurgan_voevoda",
+      "slavicmyths:likho_one_eyed",
+      "slavicmyths:nav",
+      "slavicmyths:nightingale",
+      "slavicmyths:podvey",
+      "slavicmyths:tugarin_zmey",
+      "slavicmyths:unresting_prince",
+      "slavicmyths:upyr",
+      "slavicmyths:volkolak"
+    ],
+    "callsites": [
+      "src/main/java/org/slavicmyths/combat/CombatTargeting.java:14",
+      "src/main/java/org/slavicmyths/combat/CombatTargeting.java:128",
+      "src/main/java/org/slavicmyths/finist/GreyPackRing.java:33",
+      "src/main/java/org/slavicmyths/military/Military.java:24"
+    ],
+    "sha256": "ebd736b0108be5b64839d04c32ea7c7a8cfae9883d720c31413d6939a551d537"
+  },
+  {
+    "tag": "ominous_aura_immune",
+    "entries": [
+      "minecraft:ender_dragon",
+      "minecraft:warden",
+      "minecraft:wither",
+      "slavicmyths:chud_guard",
+      "slavicmyths:earth_spirit",
+      "slavicmyths:kladovik",
+      "slavicmyths:large_podzemnik"
+    ],
+    "callsites": [
+      "src/main/java/org/slavicmyths/nochnitsa/NochnitsaHorde.java:23",
+      "src/main/java/org/slavicmyths/underground/OminousAura.java:18",
+      "src/main/java/org/slavicmyths/underground/OminousAura.java:20"
+    ],
+    "sha256": "f1752bc5e8a071aa8932192cb073eed37fc9670e7e1ffdd1049339249e247027"
+  },
+  {
+    "tag": "minecraft:undead",
+    "entries": [
+      "minecraft:bogged",
+      "minecraft:drowned",
+      "minecraft:husk",
+      "minecraft:phantom",
+      "minecraft:skeleton",
+      "minecraft:skeleton_horse",
+      "minecraft:stray",
+      "minecraft:wither",
+      "minecraft:wither_skeleton",
+      "minecraft:zoglin",
+      "minecraft:zombie",
+      "minecraft:zombie_horse",
+      "minecraft:zombie_villager",
+      "minecraft:zombified_piglin",
+      "slavicmyths:buried_volkhv",
+      "slavicmyths:kurgan_druzhinnik",
+      "slavicmyths:kurgan_voevoda",
+      "slavicmyths:nav",
+      "slavicmyths:unresting_prince",
+      "slavicmyths:upyr"
+    ],
+    "callsites": [
+      "src/main/java/org/slavicmyths/combat/CreatureProperties.java:44",
+      "src/main/java/org/slavicmyths/combat/CreatureProperties.java:46",
+      "src/main/java/org/slavicmyths/karachun/NightCombat.java:19",
+      "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java:17"
+    ],
+    "source": "installed Minecraft resources, no vanilla tag rewritten"
+  }
+]

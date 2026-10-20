@@ -21,7 +21,7 @@ public final class NochnitsaHorde {
     private record Alert(UUID target,long expires,long written){}
     private static final Map<Mob,Alert> memories=new WeakHashMap<>();
     public static boolean species(Mob m){return m instanceof Monster&&!(m instanceof NochnitsaEntity)&&!(m instanceof org.slavicmyths.underground.RoomBoss)&&!(m instanceof org.slavicmyths.industry.ChudPerson)&&!m.getType().is(OminousAura.IMMUNE)&&m.getMaxHealth()<=50&&(m instanceof Zombie||m instanceof AbstractSkeleton||m instanceof Spider||m instanceof Witch||m instanceof Creeper||m instanceof AbstractIllager||m.getType().is(RECRUITABLE));}
-    public static boolean legal(Mob m,LivingEntity t){if(t==null||!t.isAlive()||m.level()!=t.level()||m.isAlliedTo(t)||!m.canAttack(t))return false;
+    public static boolean legal(Mob m,LivingEntity t){if(t==null||!org.slavicmyths.combat.CombatTargeting.canAttack(m,t,org.slavicmyths.combat.CombatTargeting.Context.NATIVE_HUNT)||!t.isAlive()||m.level()!=t.level()||m.isAlliedTo(t)||!m.canAttack(t))return false;
         if(m instanceof NeutralMob n&&!n.isAngryAt(t))return false;
         if(t instanceof Player p)return !p.isCreative()&&!p.isSpectator()&&!OminousAura.ignores(m,p);
         return t instanceof Villager&&(m instanceof Zombie||m instanceof AbstractIllager||m.getType().is(VILLAGER_HUNTERS));

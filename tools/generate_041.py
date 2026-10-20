@@ -34,7 +34,7 @@ def sprite(name):
                 for x in range(2,7): dot(x,y,metal)
         elif 'pickaxe' in name or 'hoe' in name:
             for x in range(1,10): dot(x,2,metal)
-        elif 'shovel' in name: 
+        elif 'shovel' in name:
             for y in range(1,6):
                 for x in range(5,9): dot(x,y,metal)
         if name=='ritual_knife': dot(8,8,'r')
@@ -69,7 +69,7 @@ def sprite(name):
         for y in range(4,13):
             for x in range(4,13):
                 if (x-8)**2+(y-8)**2<23: dot(x,y,base if (x+y)%5 else ('w' if base=='S' else 'y'))
-        if name in ('herb_pouch','linen_cloth'): 
+        if name in ('herb_pouch','linen_cloth'):
             for x in range(4,13): dot(x,4,'w'); dot(x,12,'w')
         if name=='perun_charm':
             for x,y in ((8,4),(8,5),(7,6),(9,6),(8,7),(8,8),(7,9),(9,9),(8,10),(8,11)): dot(x,y,'y')
@@ -86,7 +86,9 @@ def generate(root):
         data['tooltip.slavicmyths.perun_charm'] = ('В левой руке: −30% урона от молнии.' if i==0 else 'Offhand: 30% less lightning damage.')
         js(path,data)
     for name in NAMES:
-        folder='block' if name in BLOCKS else 'item'; path=res/f'assets/slavicmyths/textures/{folder}/{name}.png'; path.parent.mkdir(parents=True,exist_ok=True); path.write_bytes(png(sprite(name)))
+        folder='block' if name in BLOCKS else 'item'; path=res/f'assets/slavicmyths/textures/{folder}/{name}.png'; path.parent.mkdir(parents=True,exist_ok=True);
+        from materials81_m1 import write_owned
+        if not write_owned(path): path.write_bytes(png(sprite(name)))
         js(f'assets/slavicmyths/models/item/{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:block/'+name}} if name in PLANTS else ({'parent':'slavicmyths:block/'+name} if name in BLOCKS else {'parent':'minecraft:item/handheld' if name in TOOLS else 'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/'+name}}))
         if name in BLOCKS:
             js(f'assets/slavicmyths/models/block/{name}.json',{'parent':'minecraft:block/cross','textures':{'cross':'slavicmyths:block/'+name}} if name in PLANTS else {'parent':'minecraft:block/cube_all','textures':{'all':'slavicmyths:block/'+name}})

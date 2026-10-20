@@ -1,0 +1,13 @@
+{
+  "source_registrations": 114,
+  "approved_primary": 69,
+  "old_auxiliary": 42,
+  "absent_from_old_audit": [
+    "slavicmyths:chud_artisan",
+    "slavicmyths:chud_guard",
+    "slavicmyths:chud_resident"
+  ],
+  "failures": [],
+  "runtime_registry": "NOT_RUN",
+  "status": "PASS_SOURCE_ONLY"
+}

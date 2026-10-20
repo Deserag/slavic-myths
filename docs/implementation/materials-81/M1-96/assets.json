@@ -1,0 +1,121 @@
+[
+  {
+    "id": "slavicmyths:silver_nugget",
+    "registry": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/silver_nugget.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/silver_nugget.png",
+    "source": "tools/materials81_m1.py",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "c389027624d1a01489504a45d2fc05fdbffc271615ab3d228c46d92dfb05b18e",
+    "new_sha256": "4016b008aa195b200f19a0a972984fbbeed7542ee34fb6ebdc038054b5ca5b2c",
+    "opaque_pixels": 73,
+    "old_opaque_pixels": 39,
+    "palette": [
+      "#455566",
+      "#788b9e",
+      "#8195aa",
+      "#aabcc8",
+      "#cadbe4",
+      "#e3ecf0",
+      "#ffffff"
+    ],
+    "model_unchanged": true,
+    "defect": "Бледное пятно без объёма",
+    "change": "Неровный компактный самородок, холодные тени и светлые грани"
+  },
+  {
+    "id": "slavicmyths:silver_ingot",
+    "registry": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/silver_ingot.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/silver_ingot.png",
+    "source": "tools/materials81_m1.py",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "93cdb90cfd12ee8266f6440ea1a308eb369655a3a21a42b08596124ce3b82a57",
+    "new_sha256": "a4dc946735cce4ecdeb748b9aa02ce8131b071bb873588203f90a8b88bcf94e5",
+    "opaque_pixels": 100,
+    "old_opaque_pixels": 52,
+    "palette": [
+      "#465b72",
+      "#829db6",
+      "#a7bdcf",
+      "#b1dfe9",
+      "#cad9e3",
+      "#d3f4fa",
+      "#edf5f7",
+      "#ffffff"
+    ],
+    "model_unchanged": true,
+    "defect": "Плоская прямоугольная полоска",
+    "change": "Скошенный светлый слиток, тонкая однопиксельная голубая жила"
+  },
+  {
+    "id": "slavicmyths:perunite",
+    "registry": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/perunite.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/perunite.png",
+    "source": "tools/materials81_m1.py",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "bf2bf3dface3169bb9b07dd09210ed369b60b9647af2fa5cd9f63e61591569a8",
+    "new_sha256": "9f25de168b406e6a4dd13dcbe04c3b3e2a7e808deaef7744a980b42063fa53c1",
+    "opaque_pixels": 129,
+    "old_opaque_pixels": 52,
+    "palette": [
+      "#18243f",
+      "#25365f",
+      "#259eac",
+      "#35518a",
+      "#38b9c4",
+      "#446497",
+      "#526ca4",
+      "#55d9df",
+      "#63e5e5",
+      "#8ba9d1",
+      "#a4f8ed"
+    ],
+    "model_unchanged": true,
+    "defect": "Тёмный прямоугольник с одиночной точкой",
+    "change": "Массивная асимметричная сине-стальная форма, локальные бирюзовые жилы"
+  },
+  {
+    "id": "slavicmyths:iron_blank",
+    "registry": "src/main/java/org/slavicmyths/combat/WeaponCatalog.java:32-33",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/iron_blank.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/iron_blank.png",
+    "source": "tools/materials81_m1.py",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "1bd22b005cac190d5f2c2af1e145727c3eb536fd372c827742415b8e5ce4117f",
+    "new_sha256": "b559a71b4cef5712ea0323abb08eb18236c247ddbdd2309500410d2fe109ac07",
+    "opaque_pixels": 249,
+    "old_opaque_pixels": 102,
+    "palette": [
+      "#242a32",
+      "#303c47",
+      "#45515d",
+      "#46515d",
+      "#555e67",
+      "#596670",
+      "#677780",
+      "#707c85",
+      "#909ca5",
+      "#939ea5",
+      "#9ca7ae",
+      "#b2bbc0",
+      "#bec5c8"
+    ],
+    "model_unchanged": true,
+    "defect": "Тонкая незаконченная полоска",
+    "change": "Плотная грубая поковка со ступенчатыми краями, окалиной и следами ковки"
+  }
+]

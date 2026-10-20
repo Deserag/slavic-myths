@@ -1,0 +1,23 @@
+{
+  "status": "PASS_OFFLINE_ONLY",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.35.jar",
+  "sha256": "6a55ae13ee18bb7b55f70575e1922e591dd8b81b5d27fb916248aeacdf6dd672",
+  "version": "1.9.7.35",
+  "resources": 7431,
+  "png_verified": 1337,
+  "java21_classes": 1732,
+  "source_base": "f48e42c2c4ec06dc81f7a241c3250a47b520031b",
+  "source_commit": "UNCOMMITTED working tree, no automatic commit",
+  "source_fingerprint": "31d3ba87a9234441e7e992146516998ed7c6b00f0f974ca2b5f9f2bba6011b5c",
+  "changed_production": [
+    "src/main/resources/assets/slavicmyths/textures/item/raw_duck.png",
+    "src/main/resources/assets/slavicmyths/textures/item/raw_goat.png",
+    "src/main/resources/assets/slavicmyths/textures/item/raw_boar_meat.png",
+    "src/main/resources/assets/slavicmyths/textures/item/raw_venison.png",
+    "src/main/resources/assets/slavicmyths/textures/item/raw_bear_meat.png",
+    "gradle.properties"
+  ],
+  "runtime_launches": 0,
+  "owner_acceptance": "PENDING",
+  "polymc": "Installation pending after gates"
+}

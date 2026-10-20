@@ -13,7 +13,9 @@ def write(path, data):
     path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
 def save(path,image):
-    path.parent.mkdir(parents=True,exist_ok=True);image.save(path)
+    from meat83_assets import write_owned
+    if not write_owned(path):
+        path.parent.mkdir(parents=True,exist_ok=True);image.save(path)
 
 # Parts: name, pivot, local cuboid, material. Separate authored baby proportions.
 def geometry(kind,baby):

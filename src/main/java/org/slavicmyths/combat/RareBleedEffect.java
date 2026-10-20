@@ -24,6 +24,7 @@ public final class RareBleedEffect extends MobEffect {
     public static MobEffectInstance current(LivingEntity target){var strong=target.getEffect(ModEffects.WOLF_CUT);return strong==null?target.getEffect(ModEffects.RARE_BLEED):strong;}
     @Override public boolean shouldApplyEffectTickThisTick(int duration,int amplifier){return true;}
     @Override public boolean applyEffectTick(LivingEntity target,int amplifier){
+        if(!CreatureProperties.canBleed(target))return false;
         if(!(target.level() instanceof ServerLevel world))return true;
         var data=target.getPersistentData();long now=RareCombat.now(target);int stacks=Math.min(3,amplifier+1);String ownerKey="RareBleedOwner";
         if(data.getBoolean("RareBleedSources")){int nativeStacks=data.getLong("RareBleedNativeUntil")>now?data.getInt("RareBleedNative"):0,runeStacks=data.getLong("RareBleedRuneUntil")>now?data.getInt("RareBleedRune"):0;stacks=org.slavicmyths.rpg.RuneBalance.bleedStacks(nativeStacks,runeStacks);if(stacks==0&&data.getLong("RareBleedWolfUntil")<=now)return false;ownerKey=nativeStacks>=runeStacks?"RareBleedNativeOwner":"RareBleedRuneOwner";}

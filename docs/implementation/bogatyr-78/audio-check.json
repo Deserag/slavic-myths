@@ -1,0 +1,25 @@
+{
+  "registration_failures": [],
+  "literal_call_failures": [],
+  "events": 78,
+  "files": 78,
+  "decode_failures": [],
+  "subtitle_failures": [],
+  "unmatched_candidates": [
+    "slavicmyths:alyosha.summon",
+    "slavicmyths:alyosha.recover_breath",
+    "slavicmyths:alyosha.victory",
+    "slavicmyths:entity.finist.banner_break",
+    "slavicmyths:entity.finist.victory",
+    "slavicmyths:entity.falcon.wing_flap_1",
+    "slavicmyths:entity.falcon.wing_flap_2",
+    "slavicmyths:entity.falcon.chained",
+    "slavicmyths:entity.falcon.chain_break",
+    "slavicmyths:entity.falcon.perch",
+    "slavicmyths:entity.falcon.morph_flight",
+    "slavicmyths:entity.falcon.ambient_call"
+  ],
+  "runtime_launches": 0,
+  "listened": false,
+  "verdict": "OWNER_PENDING"
+}

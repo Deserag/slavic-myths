@@ -4,6 +4,8 @@ import json,struct,zlib
 R=Path(__file__).resolve().parents[1]; A=R/'src/main/resources/assets/slavicmyths'; D=R/'src/main/resources/data/slavicmyths'
 def js(p,o):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(o,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def png(p,pix):
+ from meat83_assets import write_owned
+ if write_owned(p):return
  def c(t,d):return struct.pack('!I',len(d))+t+d+struct.pack('!I',zlib.crc32(t+d)&0xffffffff)
  h=len(pix);w=len(pix[0]);raw=b''.join(b'\0'+bytes(v for q in row for v in q) for row in pix);p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b'\x89PNG\r\n\x1a\n'+c(b'IHDR',struct.pack('!IIBBBBB',w,h,8,6,0,0,0))+c(b'IDAT',zlib.compress(raw))+c(b'IEND',b''))
 def entity(name,palette,marks):

@@ -7,7 +7,10 @@ V=zipfile.ZipFile('build/moddev/artifacts/neoforge-21.1.255-client-extra-aka-min
 B=['raspberry','blueberry','blackcurrant','lingonberry','cranberry']
 WOOD=['apple_log','stripped_apple_log','apple_wood','stripped_apple_wood','apple_planks','apple_stairs','apple_slab','apple_fence','apple_fence_gate','apple_door','apple_trapdoor','apple_pressure_plate','apple_button','apple_sign','apple_wall_sign','apple_hanging_sign','apple_wall_hanging_sign','apple_leaves','apple_sapling']
 def js(p,obj):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-def save(im,folder,name):p=A/f'textures/{folder}/{name}.png';p.parent.mkdir(parents=True,exist_ok=True);im.save(p)
+def save(im,folder,name):
+    p=A/f'textures/{folder}/{name}.png';p.parent.mkdir(parents=True,exist_ok=True)
+    from plants82_assets import write_owned
+    if not write_owned(p):im.save(p)
 def blank():im=Image.new('RGBA',(32,32));return im,ImageDraw.Draw(im)
 def leaf(d,x,y,kind,scale=1):
     green=['#54853b','#456d40','#5b823a','#355c30','#547344'][kind]

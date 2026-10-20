@@ -1,0 +1,155 @@
+{
+  "tagged": [
+    {
+      "damage_type": "slavicmyths:fire_serpent",
+      "callsites": [
+        {
+          "source": "src/main/java/org/slavicmyths/client/ElementRenderer.java",
+          "line": 12,
+          "text": " public ElementRenderer(net.minecraft.client.renderer.entity.EntityRendererProvider.Context manager,boolean fire){super(manager,new ElementModel<T>(fire),fire?.6F:.5F);normal=model;blighted=new ElementModel<T>(fire,true);texture=ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",\"textures/entity/\"+(fire?\"fire_serpent\":\"podvey\")+\".png\");addLayer(new RenderLayer<T,ElementModel<T>>(this){@Override public void render(PoseStack p,MultiBufferSource out,int light,T e,float stride,float amount,float partial,float age,float yaw,float pitch){model.glow(p,out.getBuffer(RenderType.eyes(getTextureLocation(e))),e);}});}"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/client/ElementRenderer.java",
+          "line": 13,
+          "text": " @Override public ResourceLocation getTextureLocation(T e){if(e instanceof org.slavicmyths.hunt.ElementHuntMob m&&MorVisual.shown(m))return MorVisual.texture(m,\"fire_serpent\");return texture;}"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/combat/CreatureSafety.java",
+          "line": 21,
+          "text": "    public static final Set<String> HOSTILES=Set.of(\"ataman\",\"bandit_archer\",\"bandit_fighter\",\"bandit_heavy\",\"bandit_senior\",\"nightingale\",\"leshy\",\"kikimora\",\"poludnitsa\",\"polevik\",\"bannik\",\"igosha\",\"rusalka\",\"vodyanoy\",\"bolotnik\",\"elder_vodyanoy\",\"ovinnik\",\"volkolak\",\"cursed_volkolak\",\"fire_serpent\",\"podvey\",\"likho_one_eyed\",\"tugarin_zmey\",\"upyr\",\"nav\",\"kurgan_druzhinnik\",\"kurgan_voevoda\",\"buried_volkhv\",\"unresting_prince\",\"nochnitsa\",\"pesigolovets\",\"kladovik\",\"large_podzemnik\",\"earth_spirit\",\"idolishche_poganoe\",\"kartaus\",\"marinka\",\"skim_beast\",\"kalin_tsar\",\"kalin_common_soldier\",\"kalin_elite_soldier\",\"morozko\",\"karachun\",\"great_poloz\",\"zmey_gorynych\",\"extinguished_flame_guardian\",\"defiled_spring_keeper\",\"earth_servant\",\"morozko_ice_double\",\"karachun_raven\",\"marinka_tur_minion\");"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/entity/LandSpiritEntity.java",
+          "line": 47,
+          "text": "    @Override protected net.minecraft.network.chat.Component getTypeName(){if(morState()!=0&&mor.kind()!=0){String name=switch(mor.kind()){case 1->\"leshy\";case 2->\"poludnitsa\";case 3->\"kikimora\";case 5->\"likho\";case 6->\"ovinnik\";default->\"fire_serpent\";};return net.minecraft.network.chat.Component.translatable(\"entity.slavicmyths.mor_\"+name);}return super.getTypeName();}"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/hunt/ElementHuntMob.java",
+          "line": 67,
+          "text": " private void fireHit(Player p,float d,int burn,float push){if(p.hurt(org.slavicmyths.combat.MythDamageSources.caused(\"fire_serpent\",this),fireDamage(d))){int duration=dampFire(p,ElementRules.ignite(burn,wetRain()));p.setRemainingFireTicks(Math.max(p.getRemainingFireTicks(),duration));}Vec3 v=p.position().subtract(position()).multiply(1,0,1).normalize();p.knockback(push,-v.x,-v.z);}"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/hunt/HuntCommands.java",
+          "line": 11,
+          "text": " public static void register(org.slavicmyths.commands.CommandTree tree){tree.add(Commands.literal(\"slavicmyths\").then(Commands.literal(\"dev\").requires(source->source.hasPermission(2)).then(Commands.literal(\"hunt\").then(Commands.literal(\"summon\").then(Commands.literal(\"ovinnik\").executes(c->HuntItems.summon(c.getSource().getPlayerOrException(),true,true)?1:0)).then(Commands.literal(\"volkolak\").executes(c->HuntItems.summon(c.getSource().getPlayerOrException(),false,true)?1:0)).then(Commands.literal(\"fire_serpent\").executes(c->HuntItems.summon(c.getSource().getPlayerOrException(),HuntTarget.FIRE_SERPENT,true)?1:0)).then(Commands.literal(\"podvey\").executes(c->HuntItems.summon(c.getSource().getPlayerOrException(),HuntTarget.PODVEY,true)?1:0))).then(Commands.literal(\"clear\").executes(c->{net.minecraft.server.level.ServerPlayer p=c.getSource().getPlayerOrException();ServerLevel w=p.server.getLevel(Level.OVERWORLD);HuntRecords d=HuntRecords.get(w);HuntRecords.Hunt h=d.hunts.get(p.getUUID());if(h!=null){d.finish(p.getUUID(),h.target,HuntRecords.Status.FAILED);h.ready=0;d.setDirty();net.minecraft.world.entity.Entity mob=w.getEntity(h.target);if(mob instanceof HuntMob&&p.getUUID().equals(((HuntMob)mob).owner))mob.discard();}p.getCooldowns().removeCooldown(org.slavicmyths.registry.ModItems.OHOTNICHIY_ROG.get());c.getSource().sendSuccess(()->Component.translatable(\"hunt.cleared\"),false);return 1;})))));}"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/hunt/HuntTarget.java",
+          "line": 4,
+          "text": " OVINNIK(\"ovinnik\"), VOLKOLAK(\"volkolak\"), FIRE_SERPENT(\"fire_serpent\"), PODVEY(\"podvey\");"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/navigation/NavigationManager.java",
+          "line": 39,
+          "text": "        if(!key.getNamespace().equals(\"slavicmyths\")||!Set.of(\"ovinnik\",\"volkolak\",\"fire_serpent\",\"podvey\",\"likho_one_eyed\",\"tugarin_zmey\").contains(key.getPath()))return null;"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/navigation/NavigationManager.java",
+          "line": 59,
+          "text": "        int kind=YagaServices.POOL[progress.contract];return new String[]{\"ovinnik\",\"volkolak\",\"fire_serpent\",\"podvey\",\"likho_one_eyed\",\"tugarin_zmey\"}[kind];"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/navigation/NavigationManager.java",
+          "line": 90,
+          "text": "            case \"fire_serpent\",\"podvey\"->SearchArea.Scale.RARE;"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+          "line": 114,
+          "text": "    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.ElementHuntMob>> FIRE_SERPENT=ENTITIES.register(\"fire_serpent\",()->EntityType.Builder.of(org.slavicmyths.hunt.ElementHuntMob::new,MobCategory.MONSTER).sized(1.25F,1.55F).clientTrackingRange(12).fireImmune().build(\"slavicmyths:fire_serpent\"));"
+        }
+      ],
+      "tagged_is_fire": true,
+      "runtime": "NOT_RUN"
+    },
+    {
+      "damage_type": "slavicmyths:serpent_trail",
+      "callsites": [
+        {
+          "source": "src/main/java/org/slavicmyths/hunt/ElementHuntMob.java",
+          "line": 77,
+          "text": "  if(tickCount%5==0){long now=level().getGameTime();traces.removeIf(t->t.until<=now);hits.entrySet().removeIf(e->e.getValue()+40<now);for(Trace tr:traces){((ServerLevel)level()).sendParticles(ParticleTypes.FLAME,tr.p.x,tr.p.y,tr.p.z,1,.2,.1,.2,.01);for(Player p:level().getEntitiesOfClass(Player.class,new AABB(tr.p.x-.7,tr.p.y-.6,tr.p.z-.7,tr.p.x+.7,tr.p.y+.7,tr.p.z+.7),this::valid))if(now>=hits.getOrDefault(p.getUUID(),0L)&&clearLine(tr.p,p.getEyePosition(1))){p.hurt(org.slavicmyths.combat.MythDamageSources.caused(\"serpent_trail\",this),fireDamage(2));hits.put(p.getUUID(),now+20);}}}"
+        }
+      ],
+      "tagged_is_fire": true,
+      "runtime": "NOT_RUN"
+    },
+    {
+      "damage_type": "slavicmyths:ovinnik_trail",
+      "callsites": [
+        {
+          "source": "src/main/java/org/slavicmyths/hunt/HuntMob.java",
+          "line": 82,
+          "text": "   for(Trail t:trail){((ServerLevel)level()).sendParticles(ParticleTypes.SMOKE,t.pos.x,t.pos.y+.1,t.pos.z,1,.1,0,.1,.01);for(Player p:level().getEntitiesOfClass(Player.class,new AABB(t.pos.x-.6,t.pos.y-.2,t.pos.z-.6,t.pos.x+.6,t.pos.y+.5,t.pos.z+.6)))if(!p.isCreative()&&!p.isSpectator()&&level().getGameTime()>=trailHits.getOrDefault(p.getUUID(),0L)&&clearLine(t.pos.add(0,.2,0),p.position().add(0,.2,0))){p.hurt(org.slavicmyths.combat.MythDamageSources.caused(\"ovinnik_trail\",this),wetRain()?1.7F:2);trailHits.put(p.getUUID(),level().getGameTime()+20);}}"
+        }
+      ],
+      "tagged_is_fire": true,
+      "runtime": "NOT_RUN"
+    },
+    {
+      "damage_type": "slavicmyths:ember_projectile",
+      "callsites": [
+        {
+          "source": "src/main/java/org/slavicmyths/combat/MythDamageSources.java",
+          "line": 26,
+          "text": "    public static DamageSource ember(Entity projectile,net.minecraft.world.entity.LivingEntity owner){return new DamageSource(type(projectile,\"ember_projectile\"),projectile,owner);}"
+        }
+      ],
+      "tagged_is_fire": true,
+      "runtime": "NOT_RUN"
+    },
+    {
+      "damage_type": "slavicmyths:guardian_fire",
+      "callsites": [
+        {
+          "source": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
+          "line": 26,
+          "text": " public static net.minecraft.world.damagesource.DamageSource fireDamage(GuardianEntity e){var key=net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.DAMAGE_TYPE,id(\"guardian_fire\"));return new net.minecraft.world.damagesource.DamageSource(e.level().registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(key),e,e);}"
+        }
+      ],
+      "tagged_is_fire": true,
+      "runtime": "NOT_RUN"
+    },
+    {
+      "damage_type": "slavicmyths:gorynych_fire",
+      "callsites": [
+        {
+          "source": "src/main/java/org/slavicmyths/gorynych/BreathCloud.java",
+          "line": 28,
+          "text": "  if(tickCount%20==0)for(var target:w.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(0,.3,0),t->t!=living&&t.isAlive()&&t.position().distanceToSqr(position())<radius*radius&&allowed(living,t))){if(w.clip(new net.minecraft.world.level.ClipContext(position().add(0,.6,0),target.getEyePosition(),net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,this)).getType()!=HitResult.Type.MISS)continue;target.hurt(org.slavicmyths.combat.MythDamageSources.periodic(type()==0?\"gorynych_mor\":type()==1?\"gorynych_fire\":\"gorynych_impact\",living),type()==2?2:3);if(type()==0)target.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS,80));if(type()==1)target.igniteForSeconds(2);if(type()==2){Vec3 d=target.position().subtract(position()).normalize().scale(.4);target.setDeltaMovement(target.getDeltaMovement().add(d.x,.18,d.z));target.hurtMarked=true;}if(living instanceof Gorynych g){UUID player=org.slavicmyths.karachun.NightOwners.owner(target);if(player!=null)GorynychLedger.get(w).participant(g.instance,player);}}"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/gorynych/BreathShot.java",
+          "line": 15,
+          "text": " @Override public void tick(){super.tick();if(level().isClientSide)return;var w=(ServerLevel)level();if(!(getOwner() instanceof Gorynych boss)||!boss.fighting()||tickCount>90||!w.hasChunkAt(blockPosition())){discard();return;}var from=position();var to=from.add(getDeltaMovement());var block=level().clip(new ClipContext(from,to,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,this));var entity=ProjectileUtil.getEntityHitResult(level(),this,from,to,getBoundingBox().expandTowards(getDeltaMovement()).inflate(.6),e->e instanceof LivingEntity l&&boss.candidate(l));HitResult hit=entity!=null&&(block.getType()==HitResult.Type.MISS||from.distanceToSqr(entity.getLocation())<from.distanceToSqr(block.getLocation()))?entity:block;if(hit.getType()!=HitResult.Type.MISS){var at=hit.getLocation();for(var t:w.getEntitiesOfClass(LivingEntity.class,new AABB(at.subtract(2,2,2),at.add(2,2,2)),boss::candidate))if(boss.hasLineOfSight(t)){t.hurt(org.slavicmyths.combat.MythDamageSources.caused(type()==0?\"gorynych_mor\":\"gorynych_fire\",boss),type()==0?6:8);if(type()==1)t.igniteForSeconds(3);}boss.cloud(type(),at,3);boss.sound(type()==0?\"mor_cloud\":\"head_fireball\");discard();return;}setPos(to);w.sendParticles(BreathCloud.particle(type()),getX(),getY(),getZ(),5,.12,.12,.12,0);}"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/gorynych/Gorynych.java",
+          "line": 42,
+          "text": " private boolean hit(LivingEntity t,float amount,int type){if(!fighting()||!candidate(t)||!hasLineOfSight(t))return false;boolean ok=t.hurt(org.slavicmyths.combat.MythDamageSources.caused(type==0?\"gorynych_mor\":type==1?\"gorynych_fire\":\"gorynych_impact\",this),amount);if(ok){credit(t);if(type==1)t.igniteForSeconds(3);if(type==0)t.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS,100));}return ok;}"
+        },
+        {
+          "source": "src/main/java/org/slavicmyths/gorynych/GorynychEquipment.java",
+          "line": 26,
+          "text": " private static void burst(LivingEntity owner,Vec3 at,int type,double radius,LivingEntity excluded){if(!(owner.level() instanceof ServerLevel w))return;SECONDARY.set(true);try{if(type==0){var cloud=GorynychContent.CLOUD.get().create(w);if(cloud!=null){cloud.configure(owner,0,at,3);w.addFreshEntity(cloud);}return;}for(var target:w.getEntitiesOfClass(LivingEntity.class,new AABB(at.subtract(radius,radius,radius),at.add(radius,radius,radius)),t->t!=excluded&&BreathCloud.allowed(owner,t)&&t.position().distanceToSqr(at)<=radius*radius)){if(w.clip(new net.minecraft.world.level.ClipContext(at.add(0,.5,0),target.getEyePosition(),net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,owner)).getType()!=HitResult.Type.MISS)continue;if(type==1){target.hurt(org.slavicmyths.combat.MythDamageSources.periodic(\"gorynych_fire\",owner),5);target.igniteForSeconds(2);}else{var delta=target.position().subtract(at).normalize().scale(.65);target.setDeltaMovement(target.getDeltaMovement().add(delta.x,.2,delta.z));target.hurtMarked=true;if(target instanceof Mob mob&&!(mob instanceof Gorynych)){mob.getNavigation().stop();mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,20,2));}}}if(type==1)FlameVfx.play(w,at,radius);else w.sendParticles(BreathCloud.particle(type),at.x,at.y+.3,at.z,36,radius,.4,radius,.04);}finally{SECONDARY.set(false);}}"
+        }
+      ],
+      "tagged_is_fire": true,
+      "runtime": "NOT_RUN"
+    },
+    {
+      "damage_type": "slavicmyths:marinka_fire",
+      "callsites": [],
+      "tagged_is_fire": true,
+      "runtime": "NOT_RUN"
+    }
+  ],
+  "marinka_chain": "WitchAction.FIRE -> WitchBolt -> MarinkaEntity.source(b,fire) -> marinka_fire; reflected uses physical hSource",
+  "unchanged_non_fire": [
+    "firebird_retaliation: name/visual not sufficient evidence of fire damage",
+    "WitchRune kind2: native generic magic 1",
+    "Idol poisonTicks: native scripted magic, not MobEffects.POISON"
+  ],
+  "coefficient_hook": "CreaturePhysiologyEvents.fire LivingDamageEvent.Pre LOWEST, only positive accepted IS_FIRE",
+  "runtime": "NOT_RUN"
+}

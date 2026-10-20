@@ -1,0 +1,20 @@
+{
+  "status": "PASS_OFFLINE_ONLY",
+  "version": "1.9.7.34",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.34.jar",
+  "sha256": "2920d922e889755a354c80fabce246ced21ff5302b29a939d52026e92d4b32cd",
+  "resources": 7431,
+  "png_verified": 1337,
+  "java21_classes": 1732,
+  "source_base": "5976ef3c37a56b49fbd8a9eb45a18e5f324c60a8",
+  "source_commit": "UNCOMMITTED #82 over previous packages",
+  "source_fingerprint": "83cb1087566644c415625cb193b2270c6db45e8942cc7e38f11b0e085816b70f",
+  "ids_audited": 11,
+  "changed_png": 6,
+  "berries_unchanged": 5,
+  "all_other_production_unchanged": true,
+  "legacy_writer_sandbox_checks": 3,
+  "runtime_launches": 0,
+  "owner_acceptance": "PENDING",
+  "polymc": "34 NOT_INSTALLED, 32 unchanged"
+}

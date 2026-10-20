@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:earth_servant",
+    "slavicmyths:kartaus_banner",
+    "slavicmyths:kartaus_curse_anchor",
+    "slavicmyths:marinka_hex_focus",
+    "minecraft:iron_golem",
+    "minecraft:snow_golem"
+  ]
+}

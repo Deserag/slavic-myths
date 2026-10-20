@@ -1,0 +1,265 @@
+{
+  "budget_cpu_200000_calls_ms": 26.5193,
+  "benchmark_scope": "Pure NBT budget only; NOT server MSPT/FPS or AI performance",
+  "checks": 345,
+  "runtime_launches": 0,
+  "status": "PASS_OFFLINE_ONLY",
+  "lifecycle_traces": [
+    {
+      "player": 0,
+      "hero": "ilya_muromets",
+      "defeats": 0,
+      "recoveries": 0,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "ilya_muromets",
+      "defeats": 1,
+      "recoveries": 1,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "ilya_muromets",
+      "defeats": 2,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "ilya_muromets",
+      "defeats": 3,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "dobrynya_nikitich",
+      "defeats": 0,
+      "recoveries": 0,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "dobrynya_nikitich",
+      "defeats": 1,
+      "recoveries": 1,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "dobrynya_nikitich",
+      "defeats": 2,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "dobrynya_nikitich",
+      "defeats": 3,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "alyosha_popovich",
+      "defeats": 0,
+      "recoveries": 0,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "alyosha_popovich",
+      "defeats": 1,
+      "recoveries": 1,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "alyosha_popovich",
+      "defeats": 2,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "alyosha_popovich",
+      "defeats": 3,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "finist",
+      "defeats": 0,
+      "recoveries": 0,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "finist",
+      "defeats": 1,
+      "recoveries": 1,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "finist",
+      "defeats": 2,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 0,
+      "hero": "finist",
+      "defeats": 3,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "ilya_muromets",
+      "defeats": 0,
+      "recoveries": 0,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "ilya_muromets",
+      "defeats": 1,
+      "recoveries": 1,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "ilya_muromets",
+      "defeats": 2,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "ilya_muromets",
+      "defeats": 3,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "dobrynya_nikitich",
+      "defeats": 0,
+      "recoveries": 0,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "dobrynya_nikitich",
+      "defeats": 1,
+      "recoveries": 1,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "dobrynya_nikitich",
+      "defeats": 2,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "dobrynya_nikitich",
+      "defeats": 3,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "alyosha_popovich",
+      "defeats": 0,
+      "recoveries": 0,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "alyosha_popovich",
+      "defeats": 1,
+      "recoveries": 1,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "alyosha_popovich",
+      "defeats": 2,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "alyosha_popovich",
+      "defeats": 3,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "finist",
+      "defeats": 0,
+      "recoveries": 0,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "finist",
+      "defeats": 1,
+      "recoveries": 1,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "finist",
+      "defeats": 2,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    },
+    {
+      "player": 1,
+      "hero": "finist",
+      "defeats": 3,
+      "recoveries": 2,
+      "expiresAt": 12173,
+      "readyAt": 48173
+    }
+  ]
+}

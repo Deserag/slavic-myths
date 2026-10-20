@@ -1,0 +1,198 @@
+[
+  {
+    "id": "apple_sapling",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/apple_sapling.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/block/apple_sapling.png",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "6d58cbc86b1bf090a8bebc535af8e7c77bbd1be094dcac5ef5556c6e7287ee87",
+    "item_model_sha256": "277ff029184a5be91978aea9744e2b47db10d0d566a2d16b6950b02d9f0bad8f",
+    "status": "CHANGED",
+    "diagnosis": "Три рыхлые округлые группы с цветком, силуэт слишком мягкий: компактные угловатые листья без цветения",
+    "new_sha256": "d5d709fe1c07a1fd1d4db66e2106c112d9633f4de6e6a14ebf6347a154387d11",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "placed_model": "src/main/resources/assets/slavicmyths/models/block/apple_sapling.json",
+    "blockstate": "src/main/resources/assets/slavicmyths/blockstates/apple_sapling.json",
+    "cross_geometry": "actual-vanilla-cross.json",
+    "source": "tools/plants82_assets.py"
+  },
+  {
+    "id": "linden_sapling",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/linden_sapling.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/block/linden_sapling.png",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "9753ca1950b2a3316865ae13ad66341c48eb6bbc8f9eeb93995b214745544816",
+    "item_model_sha256": "5e69cf14b129f33c1ed2f27741d525bbcd62b354c2f799c003540a79bab35b77",
+    "status": "CHANGED",
+    "diagnosis": "Сплошная округлая шапка и толстый ствол: плотные отдельные широкие листовые группы",
+    "new_sha256": "5abdec6bdfac8b6940143f39883916ee65ffd11b6abf5509805888135de340f6",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "placed_model": "src/main/resources/assets/slavicmyths/models/block/linden_sapling.json",
+    "blockstate": "src/main/resources/assets/slavicmyths/blockstates/linden_sapling.json",
+    "cross_geometry": "actual-vanilla-cross.json",
+    "source": "tools/plants82_assets.py"
+  },
+  {
+    "id": "rowan_sapling",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/rowan_sapling.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/block/rowan_sapling.png",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "f02f548fa18d405d7054c80aa59b2fa7a5f1e8a176a7e65de95d09857d910545",
+    "item_model_sha256": "bb8bfc24fc77f57fbc1dff64c01d987a7b50f7dd9bc1482fd33b2e1d7d0887a6",
+    "status": "CHANGED",
+    "diagnosis": "Два пятна на прямом стволе: расходящиеся тонкие ветви с мелкими отдельными листьями",
+    "new_sha256": "fe08ea2a97c5b52cc08c4fceb9fb367135495ec110ede1ff7cc9b8b7ecc18e38",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "placed_model": "src/main/resources/assets/slavicmyths/models/block/rowan_sapling.json",
+    "blockstate": "src/main/resources/assets/slavicmyths/blockstates/rowan_sapling.json",
+    "cross_geometry": "actual-vanilla-cross.json",
+    "source": "tools/plants82_assets.py"
+  },
+  {
+    "id": "willow_sapling",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/willow_sapling.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/block/willow_sapling.png",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "fc6cfe1e14e8358d82b0be94e0e76f59d419255c4aaa5030c8705a98bfe0ee0b",
+    "item_model_sha256": "184ea423a1284c783ff63411e114d2e449cc4998c6f32fbe09d45394ecb72275",
+    "status": "CHANGED",
+    "diagnosis": "Ровная перекладина с одинаковыми полосами: четыре коротких побега разной длины",
+    "new_sha256": "5ab25183de38b6b81c32d1cf74d2e7e610d6f734a803d3afdc3125cb9feebf52",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "placed_model": "src/main/resources/assets/slavicmyths/models/block/willow_sapling.json",
+    "blockstate": "src/main/resources/assets/slavicmyths/blockstates/willow_sapling.json",
+    "cross_geometry": "actual-vanilla-cross.json",
+    "source": "tools/plants82_assets.py"
+  },
+  {
+    "id": "pine_sapling",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/pine_sapling.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/block/pine_sapling.png",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "59299f665785cd660594d7a99e63bb41e527436b444dedcd86ab319ae41b96b4",
+    "item_model_sha256": "791cf150836482a57f3e76c77faf1216e8cee6702ca1e7d2a4e620eea2b16181",
+    "status": "CHANGED",
+    "diagnosis": "Редкие разрозненные штрихи без конуса: три чётких хвойных яруса",
+    "new_sha256": "031f8d3147dd4279fb592a6f8c18664db440acf4e846c1b054ec790dbf98ff5d",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "placed_model": "src/main/resources/assets/slavicmyths/models/block/pine_sapling.json",
+    "blockstate": "src/main/resources/assets/slavicmyths/blockstates/pine_sapling.json",
+    "cross_geometry": "actual-vanilla-cross.json",
+    "source": "tools/plants82_assets.py"
+  },
+  {
+    "id": "raspberry_sapling",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/raspberry_sapling.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/raspberry_sapling.png",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "ca70fd2450fc540739cac360594e12542fd139fb798ab05c80642aff1c9d16f5",
+    "item_model_sha256": "d4a6d5d6dfa8a5c9d7398bad71a25d53031a041be399d73df49c6378472ccabf",
+    "status": "UNCHANGED",
+    "diagnosis": "OK: вытянутый молодой побег, листовые группы читаемы; видимого дефекта нет",
+    "new_sha256": "ca70fd2450fc540739cac360594e12542fd139fb798ab05c80642aff1c9d16f5",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "planted_blockstate": "src/main/resources/assets/slavicmyths/blockstates/raspberry_bush.json",
+    "source": "tools/gardens_resources.py UNCHANGED"
+  },
+  {
+    "id": "blueberry_sapling",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/blueberry_sapling.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/blueberry_sapling.png",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "dc7f16f765d259709575a941e4daa75d3389a0e1e221d7b17fc64f1eede0f2a9",
+    "item_model_sha256": "c0cbed2464532182e3423a5e69a46854c68e26aa9851b2ada753d73df4bfcb5e",
+    "status": "UNCHANGED",
+    "diagnosis": "OK: компактные небольшие листья и тонкий побег; видимого дефекта нет",
+    "new_sha256": "dc7f16f765d259709575a941e4daa75d3389a0e1e221d7b17fc64f1eede0f2a9",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "planted_blockstate": "src/main/resources/assets/slavicmyths/blockstates/blueberry_bush.json",
+    "source": "tools/gardens_resources.py UNCHANGED"
+  },
+  {
+    "id": "blackcurrant_sapling",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/blackcurrant_sapling.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/blackcurrant_sapling.png",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "124d45795c9d7533adf40a0c7c8cb9ec9ffc11fd90e50b1b99dcb02094c5c34e",
+    "item_model_sha256": "1dd192153d8c0172544a24cc63603174411d1cfdfceaaf8749482e3268c9d7c7",
+    "status": "UNCHANGED",
+    "diagnosis": "OK: широкие более тёмные листья; видимого дефекта нет",
+    "new_sha256": "124d45795c9d7533adf40a0c7c8cb9ec9ffc11fd90e50b1b99dcb02094c5c34e",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "planted_blockstate": "src/main/resources/assets/slavicmyths/blockstates/blackcurrant_bush.json",
+    "source": "tools/gardens_resources.py UNCHANGED"
+  },
+  {
+    "id": "lingonberry_sapling",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/lingonberry_sapling.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/lingonberry_sapling.png",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "8067932caf4fc77e5b600dca8c02890e2f487ffbfaefa6fca5d6bea1c4301c94",
+    "item_model_sha256": "57a8c9bb7221c222a2c468186460dd14e9877f5b332b46857ebf065757dd0ee9",
+    "status": "UNCHANGED",
+    "diagnosis": "OK: маленькие плотные листья; видимого дефекта нет",
+    "new_sha256": "8067932caf4fc77e5b600dca8c02890e2f487ffbfaefa6fca5d6bea1c4301c94",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "planted_blockstate": "src/main/resources/assets/slavicmyths/blockstates/lingonberry_bush.json",
+    "source": "tools/gardens_resources.py UNCHANGED"
+  },
+  {
+    "id": "cranberry_sapling",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/cranberry_sapling.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/cranberry_sapling.png",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "d7d8f2f6a5d882f3b26cd977a8f534d6641ae3e88647cd586d119518658aa974",
+    "item_model_sha256": "853da2bc82c86d5339264622a2d417e405869686a685ebd8e0cee69616d23a0d",
+    "status": "UNCHANGED",
+    "diagnosis": "OK: низкие стелющиеся веточки; видимого дефекта нет",
+    "new_sha256": "d7d8f2f6a5d882f3b26cd977a8f534d6641ae3e88647cd586d119518658aa974",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "planted_blockstate": "src/main/resources/assets/slavicmyths/blockstates/cranberry_bush.json",
+    "source": "tools/gardens_resources.py UNCHANGED"
+  },
+  {
+    "id": "cabbage",
+    "item_model": "src/main/resources/assets/slavicmyths/models/item/cabbage.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/cabbage.png",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "cdd56d8bcda54f58c81abb0d13eb189e8c4c748574c39e5c349b1fab6f5b5f90",
+    "item_model_sha256": "90f75f6f25f72cffa1a9575ed4b97ee82856d2d3071516988c154a15aa100242",
+    "status": "CHANGED",
+    "diagnosis": "Круглый кочан: плоские бока и длинный плоский верх, срезанные углы, слои листьев",
+    "new_sha256": "0f29af68631bc168e8591337ac74a8e80ebfed68d792c4009116118683b351d1",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "source": "tools/plants82_assets.py"
+  }
+]

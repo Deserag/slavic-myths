@@ -1,0 +1,1347 @@
+[
+  {
+    "id": "slavicmyths:alyosha_arrow",
+    "source": "src/main/java/org/slavicmyths/skim/SkimContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"alyosha_arrow\",()->EntityType.Builder.<AlyoshaArrow>of(AlyoshaArrow::new,MobCategory.MISC).sized(.5F,.5F).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:alyosha_arrow\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.skim.AlyoshaArrow",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:alyosha_popovich",
+    "source": "src/main/java/org/slavicmyths/skim/SkimContent.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"alyosha_popovich\",()->EntityType.Builder.of(AlyoshaEntity::new,MobCategory.CREATURE).sized(.72F,2.15F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:alyosha_popovich\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ally",
+    "implementation": "org.slavicmyths.skim.AlyoshaEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:ataman",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 106,
+    "declaration": "ENTITIES.register(\"ataman\",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,4),MobCategory.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build(\"slavicmyths:ataman\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.bandit.BanditEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:baba_yaga",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 126,
+    "declaration": "ENTITIES.register(\"baba_yaga\",()->EntityType.Builder.of(org.slavicmyths.yaga.BabaYaga::new,MobCategory.CREATURE).sized(.6F,1.75F).clientTrackingRange(8).build(\"slavicmyths:baba_yaga\"))",
+    "nature": "HUMANOID",
+    "traits": [
+      "STORY_PROTECTED"
+    ],
+    "old_group": "NPC",
+    "implementation": "org.slavicmyths.yaga.BabaYaga",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:bandit_archer",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 103,
+    "declaration": "ENTITIES.register(\"bandit_archer\",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,1),MobCategory.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build(\"slavicmyths:bandit_archer\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.bandit.BanditEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:bandit_fighter",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 102,
+    "declaration": "ENTITIES.register(\"bandit_fighter\",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,0),MobCategory.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build(\"slavicmyths:bandit_fighter\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.bandit.BanditEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:bandit_heavy",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 104,
+    "declaration": "ENTITIES.register(\"bandit_heavy\",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,2),MobCategory.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build(\"slavicmyths:bandit_heavy\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.bandit.BanditEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:bandit_senior",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 105,
+    "declaration": "ENTITIES.register(\"bandit_senior\",()->EntityType.Builder.<org.slavicmyths.bandit.BanditEntity>of((t,w)->new org.slavicmyths.bandit.BanditEntity(t,w,3),MobCategory.MONSTER).sized(.6F,1.95F).clientTrackingRange(10).build(\"slavicmyths:bandit_senior\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.bandit.BanditEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:bannik",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 29,
+    "declaration": "ENTITIES.register(\"bannik\", () -> EntityType.Builder.of(org.slavicmyths.entity.BannikEntity::new, MobCategory.MONSTER).sized(0.9F,1.45F).clientTrackingRange(10).build(\"slavicmyths:bannik\"))",
+    "nature": "SPIRIT",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.BannikEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:bear_cub",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 34,
+    "declaration": "= wildlife(\"bear_cub\", org.slavicmyths.entity.WildlifeEntity.Kind.CUB, .72F, .78F)",
+    "nature": "ANIMAL",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.WildlifeEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:boar",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 36,
+    "declaration": "= wildlife(\"boar\", org.slavicmyths.entity.WildlifeEntity.Kind.BOAR, 1.05F, 1.0F)",
+    "nature": "ANIMAL",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.WildlifeEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:bolotnik",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 45,
+    "declaration": "ENTITIES.register(\"bolotnik\",()->EntityType.Builder.of(org.slavicmyths.swamp.BolotnikEntity::new,MobCategory.MONSTER).sized(1.15F,2.0F).clientTrackingRange(10).build(\"slavicmyths:bolotnik\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "WATER_AFFINITY"
+    ],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.swamp.BolotnikEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:brown_bear",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 33,
+    "declaration": "= wildlife(\"brown_bear\", org.slavicmyths.entity.WildlifeEntity.Kind.BEAR, 1.35F, 1.65F)",
+    "nature": "ANIMAL",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.WildlifeEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:buried_volkhv",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 111,
+    "declaration": "ENTITIES.register(\"buried_volkhv\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.VOLKHV),MobCategory.MONSTER).sized(0.7F,2.1F).clientTrackingRange(12).build(\"slavicmyths:buried_volkhv\"))",
+    "nature": "UNDEAD",
+    "traits": [],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.kurgan.KurganCreature",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:carcass",
+    "source": "src/main/java/org/slavicmyths/textile/Textiles.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"carcass\",()->EntityType.Builder.of(Carcass::new,MobCategory.MISC).sized(1.2F,.45F).clientTrackingRange(8).build(\"slavicmyths:carcass\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.textile.Carcass",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:carp",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 96,
+    "declaration": "ENTITIES.register(\"carp\",()->EntityType.Builder.<org.slavicmyths.water.RiverFish>of((t,w)->new org.slavicmyths.water.RiverFish(t,w,1),MobCategory.WATER_AMBIENT).sized(.65F,.5F).clientTrackingRange(8).build(\"slavicmyths:carp\"))",
+    "nature": "ANIMAL",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.water.RiverFish",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:chud_artisan",
+    "source": "src/main/java/org/slavicmyths/industry/ChudPeople.java",
+    "line": 11,
+    "declaration": "ChudPeople.type: =type(\"chud_artisan\")",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ABSENT_FROM_OLD_AUDIT",
+    "implementation": "org.slavicmyths.industry.ChudPerson",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:chud_guard",
+    "source": "src/main/java/org/slavicmyths/industry/ChudPeople.java",
+    "line": 11,
+    "declaration": "ChudPeople.type: =type(\"chud_guard\")",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ABSENT_FROM_OLD_AUDIT",
+    "implementation": "org.slavicmyths.industry.ChudPerson",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:chud_resident",
+    "source": "src/main/java/org/slavicmyths/industry/ChudPeople.java",
+    "line": 11,
+    "declaration": "ChudPeople.type: =type(\"chud_resident\")",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ABSENT_FROM_OLD_AUDIT",
+    "implementation": "org.slavicmyths.industry.ChudPerson",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:crayfish",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 97,
+    "declaration": "ENTITIES.register(\"crayfish\",()->EntityType.Builder.<org.slavicmyths.water.RiverFish>of((t,w)->new org.slavicmyths.water.RiverFish(t,w,2),MobCategory.WATER_AMBIENT).sized(.45F,.2F).clientTrackingRange(8).build(\"slavicmyths:crayfish\"))",
+    "nature": "ANIMAL",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.water.RiverFish",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:cursed_volkolak",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 118,
+    "declaration": "ENTITIES.register(\"cursed_volkolak\",()->EntityType.Builder.of(org.slavicmyths.volkolak.CursedVolkolak::new,MobCategory.MONSTER).sized(1.65F,1.9F).eyeHeight(1.55F).clientTrackingRange(12).build(\"slavicmyths:cursed_volkolak\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [
+      "BOSS"
+    ],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.volkolak.CursedVolkolak",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:defiled_spring_keeper",
+    "source": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"defiled_spring_keeper\",()->EntityType.Builder.of(SpringKeeper::new,MobCategory.MONSTER).sized(1f,3f).clientTrackingRange(12).updateInterval(2).build(\"slavicmyths:defiled_spring_keeper\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "BOSS",
+      "WATER_AFFINITY"
+    ],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.guardians.SpringKeeper",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:dobrynya_nikitich",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"dobrynya_nikitich\",()->EntityType.Builder.of(DobrynyaEntity::new,MobCategory.CREATURE).sized(.8F,2.2F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:dobrynya_nikitich\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ally",
+    "implementation": "org.slavicmyths.marinka.DobrynyaEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:doe",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 38,
+    "declaration": "= wildlife(\"doe\", org.slavicmyths.entity.WildlifeEntity.Kind.DOE, .9F, 1.8F)",
+    "nature": "ANIMAL",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.WildlifeEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:doghead_arrow",
+    "source": "src/main/java/org/slavicmyths/pesigolovtsy/DogheadContent.java",
+    "line": 29,
+    "declaration": "ModEntities.ENTITIES.register(\"doghead_arrow\",()->EntityType.Builder.<DogheadArrow>of(DogheadArrow::new,MobCategory.MISC).sized(.5F,.5F).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:doghead_arrow\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.pesigolovtsy.DogheadArrow",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:domovoy",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 19,
+    "declaration": "ENTITIES.register(\"domovoy\",\n            () -> EntityType.Builder.of(DomovoyEntity::new, MobCategory.CREATURE)\n                    .sized(0.55F, 1.1F).clientTrackingRange(8).build(\"slavicmyths:domovoy\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "STORY_PROTECTED"
+    ],
+    "old_group": "NPC",
+    "implementation": "org.slavicmyths.entity.DomovoyEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:earth_encounter_actor",
+    "source": "src/main/java/org/slavicmyths/earth/EarthContent.java",
+    "line": 21,
+    "declaration": "ModEntities.ENTITIES.register(\"earth_encounter_actor\",()->EntityType.Builder.<EarthActor>of(EarthActor::new,MobCategory.MISC).sized(.6F,.6F).clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:earth_encounter_actor\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.earth.EarthActor",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:earth_servant",
+    "source": "src/main/java/org/slavicmyths/earth/EarthContent.java",
+    "line": 20,
+    "declaration": "ModEntities.ENTITIES.register(\"earth_servant\",()->EntityType.Builder.of(EarthServant::new,MobCategory.MONSTER).sized(.85F,1.4F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:earth_servant\"))",
+    "nature": "CONSTRUCT",
+    "traits": [
+      "EARTH_AFFINITY",
+      "SUMMONED"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.earth.EarthServant",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:earth_spirit",
+    "source": "src/main/java/org/slavicmyths/earth/EarthContent.java",
+    "line": 19,
+    "declaration": "ModEntities.ENTITIES.register(\"earth_spirit\",()->EntityType.Builder.of(EarthSpirit::new,MobCategory.MONSTER).sized(3.1F,6.35F).clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:earth_spirit\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "EARTH_AFFINITY"
+    ],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.earth.EarthSpirit",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:elder_vodyanoy",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 101,
+    "declaration": "ENTITIES.register(\"elder_vodyanoy\",()->EntityType.Builder.of(org.slavicmyths.depth.ElderVodyanoy::new,MobCategory.MONSTER).sized(1.4F,2.35F).clientTrackingRange(10).build(\"slavicmyths:elder_vodyanoy\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "WATER_AFFINITY"
+    ],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.depth.ElderVodyanoy",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:ember_clump",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 119,
+    "declaration": "ENTITIES.register(\"ember_clump\",()->EntityType.Builder.of(org.slavicmyths.hunt.EmberClump::new,MobCategory.MISC).sized(.3F,.3F).clientTrackingRange(8).updateInterval(2).build(\"slavicmyths:ember_clump\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.hunt.EmberClump",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:extinguished_flame_guardian",
+    "source": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"extinguished_flame_guardian\",()->EntityType.Builder.of(FireGuardian::new,MobCategory.MONSTER).sized(1.5f,3.6f).clientTrackingRange(12).updateInterval(2).build(\"slavicmyths:extinguished_flame_guardian\"))",
+    "nature": "ELEMENTAL",
+    "traits": [
+      "BOSS"
+    ],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.guardians.FireGuardian",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:finist",
+    "source": "src/main/java/org/slavicmyths/finist/FinistContent.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"finist\",()->EntityType.Builder.of(FinistEntity::new,MobCategory.CREATURE).sized(.76F,2.2F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:finist\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ally",
+    "implementation": "org.slavicmyths.finist.FinistEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:finist_magic_arrow",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 18,
+    "declaration": "ENTITIES.register(\"finist_magic_arrow\",()->net.minecraft.world.entity.EntityType.Builder.<org.slavicmyths.finist.FinistArrow>of(org.slavicmyths.finist.FinistArrow::new,net.minecraft.world.entity.MobCategory.MISC).sized(.5F,.5F).clientTrackingRange(4).updateInterval(1).build(\"finist_magic_arrow\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.finist.FinistArrow",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:fire_serpent",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 114,
+    "declaration": "ENTITIES.register(\"fire_serpent\",()->EntityType.Builder.of(org.slavicmyths.hunt.ElementHuntMob::new,MobCategory.MONSTER).sized(1.25F,1.55F).clientTrackingRange(12).fireImmune().build(\"slavicmyths:fire_serpent\"))",
+    "nature": "ELEMENTAL",
+    "traits": [
+      "FIRE_AFFINITY"
+    ],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.hunt.ElementHuntMob",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:firebird",
+    "source": "src/main/java/org/slavicmyths/firebird/FirebirdContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"firebird\",()->EntityType.Builder.of(FirebirdEntity::new,MobCategory.CREATURE).sized(1.35F,2.6F).fireImmune().clientTrackingRange(16).updateInterval(2).build(\"slavicmyths:firebird\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [
+      "FIRE_AFFINITY",
+      "STORY_PROTECTED"
+    ],
+    "old_group": "NPC",
+    "implementation": "org.slavicmyths.firebird.FirebirdEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:flame_vial",
+    "source": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
+    "line": 28,
+    "declaration": "ModEntities.ENTITIES.register(\"flame_vial\",()->EntityType.Builder.<FlameVial>of(FlameVial::new,MobCategory.MISC).sized(.25f,.25f).noSave().clientTrackingRange(8).build(\"slavicmyths:flame_vial\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.sanctuary.FlameVial",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:flying_broom",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 124,
+    "declaration": "ENTITIES.register(\"flying_broom\",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,false),MobCategory.MISC).sized(1F,.45F).clientTrackingRange(10).updateInterval(3).build(\"slavicmyths:flying_broom\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.flight.FlyingVessel",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:flying_mortar",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 125,
+    "declaration": "ENTITIES.register(\"flying_mortar\",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,true),MobCategory.MISC).sized(.95F,1.2F).clientTrackingRange(10).updateInterval(3).build(\"slavicmyths:flying_mortar\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.flight.FlyingVessel",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:forest_wolf",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 35,
+    "declaration": "= wildlife(\"forest_wolf\", org.slavicmyths.entity.WildlifeEntity.Kind.WOLF, .82F, 1.05F)",
+    "nature": "ANIMAL",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.WildlifeEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:furniture_seat",
+    "source": "src/main/java/org/slavicmyths/furniture/Furniture.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"furniture_seat\",()->EntityType.Builder.<SeatEntity>of(SeatEntity::new,MobCategory.MISC).sized(.01F,.01F).clientTrackingRange(8).updateInterval(20).noSave().noSummon().build(\"slavicmyths:furniture_seat\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.furniture.SeatEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:gorynych_breath_cloud",
+    "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+    "line": 12,
+    "declaration": "ModEntities.ENTITIES.register(\"gorynych_breath_cloud\",()->EntityType.Builder.<BreathCloud>of(BreathCloud::new,MobCategory.MISC).sized(6,1.4f).noSave().clientTrackingRange(12).updateInterval(2).build(\"slavicmyths:gorynych_breath_cloud\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.gorynych.BreathCloud",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:gorynych_breath_shot",
+    "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"gorynych_breath_shot\",()->EntityType.Builder.<BreathShot>of(BreathShot::new,MobCategory.MISC).sized(.6f,.6f).noSave().clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:gorynych_breath_shot\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.gorynych.BreathShot",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:great_poloz",
+    "source": "src/main/java/org/slavicmyths/poloz/PolozContent.java",
+    "line": 11,
+    "declaration": "ModEntities.ENTITIES.register(\"great_poloz\",()->EntityType.Builder.<GreatPoloz>of(GreatPoloz::new,MobCategory.MONSTER).sized(3.5F,3).fireImmune().clientTrackingRange(16).updateInterval(4).build(\"slavicmyths:great_poloz\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [
+      "BOSS"
+    ],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.poloz.GreatPoloz",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:grey_wolf",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 47,
+    "declaration": "ENTITIES.register(\"grey_wolf\",()->EntityType.Builder.of(org.slavicmyths.wolf.GreyWolf::new,MobCategory.CREATURE).sized(2.2F,3.5F).clientTrackingRange(16).build(\"slavicmyths:grey_wolf\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [
+      "STORY_PROTECTED"
+    ],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.wolf.GreyWolf",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:grey_wolf_support",
+    "source": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"grey_wolf_support\",()->EntityType.Builder.<WolfSupport>of(WolfSupport::new,MobCategory.CREATURE).sized(2.2F,3.5F).clientTrackingRange(16).build(\"slavicmyths:grey_wolf_support\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [
+      "STORY_PROTECTED",
+      "SUMMONED"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.quest185.WolfSupport",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:guardian_water_echo",
+    "source": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"guardian_water_echo\",()->EntityType.Builder.of(WaterEcho::new,MobCategory.MONSTER).sized(.65f,1.4f).noSave().clientTrackingRange(10).build(\"slavicmyths:guardian_water_echo\"))",
+    "nature": "ELEMENTAL",
+    "traits": [
+      "SUMMONED",
+      "WATER_AFFINITY"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.guardians.WaterEcho",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:guardian_water_prison",
+    "source": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"guardian_water_prison\",()->EntityType.Builder.<WaterPrison>of(WaterPrison::new,MobCategory.MISC).sized(2f,2.8f).noSave().clientTrackingRange(10).updateInterval(2).build(\"slavicmyths:guardian_water_prison\"))",
+    "nature": "ELEMENTAL",
+    "traits": [
+      "SUMMONED",
+      "WATER_AFFINITY"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.guardians.WaterPrison",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:hot_stone",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 32,
+    "declaration": "ENTITIES.register(\"hot_stone\", () -> EntityType.Builder.<org.slavicmyths.entity.HotStoneEntity>of(org.slavicmyths.entity.HotStoneEntity::new, MobCategory.MISC).sized(.25F,.25F).clientTrackingRange(4).updateInterval(10).build(\"slavicmyths:hot_stone\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.entity.HotStoneEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:idolishche_poganoe",
+    "source": "src/main/java/org/slavicmyths/bogatyr/BogatyrContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"idolishche_poganoe\",()->EntityType.Builder.of(IdolishcheEntity::new,MobCategory.MONSTER).sized(4.2F,8.8F).clientTrackingRange(12).updateInterval(1).fireImmune().build(\"slavicmyths:idolishche_poganoe\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [
+      "BOSS"
+    ],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.bogatyr.IdolishcheEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:igosha",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 30,
+    "declaration": "ENTITIES.register(\"igosha\", () -> EntityType.Builder.of(org.slavicmyths.entity.IgoshaEntity::new, MobCategory.MONSTER).sized(0.5F,0.75F).clientTrackingRange(10).build(\"slavicmyths:igosha\"))",
+    "nature": "SPIRIT",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.IgoshaEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:ilya_muromets",
+    "source": "src/main/java/org/slavicmyths/bogatyr/BogatyrContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"ilya_muromets\",()->EntityType.Builder.of(IlyaEntity::new,MobCategory.CREATURE).sized(.93F,2.45F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:ilya_muromets\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ally",
+    "implementation": "org.slavicmyths.bogatyr.IlyaEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kalin_common_soldier",
+    "source": "src/main/java/org/slavicmyths/kalin/KalinContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"kalin_common_soldier\",()->EntityType.Builder.of(KalinSoldier::new,MobCategory.MONSTER).sized(.65F,1.95F).clientTrackingRange(12).build(\"slavicmyths:kalin_common_soldier\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.kalin.KalinSoldier",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kalin_elite_soldier",
+    "source": "src/main/java/org/slavicmyths/kalin/KalinContent.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"kalin_elite_soldier\",()->EntityType.Builder.of(KalinSoldier::new,MobCategory.MONSTER).sized(.8F,2.2F).clientTrackingRange(12).build(\"slavicmyths:kalin_elite_soldier\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.kalin.KalinSoldier",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kalin_tsar",
+    "source": "src/main/java/org/slavicmyths/kalin/KalinContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"kalin_tsar\",()->EntityType.Builder.of(KalinEntity::new,MobCategory.MONSTER).sized(1.05F,2.8F).clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:kalin_tsar\"))",
+    "nature": "HUMANOID",
+    "traits": [
+      "BOSS"
+    ],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.kalin.KalinEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kalin_war_horse",
+    "source": "src/main/java/org/slavicmyths/kalin/KalinContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"kalin_war_horse\",()->EntityType.Builder.of(WarHorse::new,MobCategory.CREATURE).sized(1.65F,3.2F).clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:kalin_war_horse\"))",
+    "nature": "ANIMAL",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.kalin.WarHorse",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:karachun",
+    "source": "src/main/java/org/slavicmyths/karachun/NightContent.java",
+    "line": 11,
+    "declaration": "ModEntities.ENTITIES.register(\"karachun\",()->EntityType.Builder.of(Karachun::new,MobCategory.MONSTER).sized(1.5f,3.95f).clientTrackingRange(16).build(\"slavicmyths:karachun\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "BOSS",
+      "ICE_AFFINITY"
+    ],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.karachun.Karachun",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:karachun_blade",
+    "source": "src/main/java/org/slavicmyths/karachun/NightContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"karachun_blade\",()->EntityType.Builder.<NightBlade>of(NightBlade::new,MobCategory.MISC).sized(.7f,.7f).noSave().clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:karachun_blade\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.karachun.NightBlade",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:karachun_raven",
+    "source": "src/main/java/org/slavicmyths/karachun/NightContent.java",
+    "line": 12,
+    "declaration": "ModEntities.ENTITIES.register(\"karachun_raven\",()->EntityType.Builder.of(NightRaven::new,MobCategory.CREATURE).sized(.6f,.65f).noSave().clientTrackingRange(12).updateInterval(2).build(\"slavicmyths:karachun_raven\"))",
+    "nature": "ANIMAL",
+    "traits": [
+      "SUMMONED"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.karachun.NightRaven",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kartaus",
+    "source": "src/main/java/org/slavicmyths/finist/FinistContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"kartaus\",()->EntityType.Builder.of(KartausEntity::new,MobCategory.MONSTER).sized(.92F,2.65F).clientTrackingRange(14).updateInterval(1).build(\"slavicmyths:kartaus\"))",
+    "nature": "HUMANOID",
+    "traits": [
+      "BOSS"
+    ],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.finist.KartausEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kartaus_banner",
+    "source": "src/main/java/org/slavicmyths/finist/FinistContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"kartaus_banner\",()->EntityType.Builder.of(BannerEntity::new,MobCategory.MISC).sized(.85F,1.95F).clientTrackingRange(12).build(\"slavicmyths:kartaus_banner\"))",
+    "nature": "CONSTRUCT",
+    "traits": [
+      "SUMMONED"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.finist.BannerEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kartaus_curse_anchor",
+    "source": "src/main/java/org/slavicmyths/finist/FinistContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"kartaus_curse_anchor\",()->EntityType.Builder.of(BannerEntity::new,MobCategory.MISC).sized(.7F,.95F).clientTrackingRange(12).build(\"slavicmyths:kartaus_curse_anchor\"))",
+    "nature": "CONSTRUCT",
+    "traits": [
+      "SUMMONED"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.finist.BannerEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kikimora",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 26,
+    "declaration": "ENTITIES.register(\"kikimora\", () -> EntityType.Builder.of(org.slavicmyths.entity.KikimoraEntity::new, MobCategory.MONSTER).sized(0.55F,2.25F).clientTrackingRange(10).build(\"slavicmyths:kikimora\"))",
+    "nature": "SPIRIT",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.KikimoraEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kladovik",
+    "source": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"kladovik\",()->EntityType.Builder.of(Kladovik::new,MobCategory.MONSTER).sized(.82F,1.4F).clientTrackingRange(12).build(\"slavicmyths:kladovik\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.underground.Kladovik",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kladovik_spike",
+    "source": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+    "line": 19,
+    "declaration": "ModEntities.ENTITIES.register(\"kladovik_spike\",()->EntityType.Builder.<StoneSpike>of(StoneSpike::new,MobCategory.MISC).sized(.5F,1.1F).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:kladovik_spike\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.underground.StoneSpike",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kladovik_stone",
+    "source": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"kladovik_stone\",()->EntityType.Builder.<ThrownStone>of(ThrownStone::new,MobCategory.MISC).sized(.35F,.35F).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:kladovik_stone\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.underground.ThrownStone",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kot_bayun",
+    "source": "src/main/java/org/slavicmyths/bayun/BayunContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"kot_bayun\",()->EntityType.Builder.of(BayunEntity::new,MobCategory.CREATURE).sized(1.25F,1.65F).clientTrackingRange(12).updateInterval(2).build(\"slavicmyths:kot_bayun\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [
+      "STORY_PROTECTED"
+    ],
+    "old_group": "NPC",
+    "implementation": "org.slavicmyths.bayun.BayunEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kurgan_bolt",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 113,
+    "declaration": "ENTITIES.register(\"kurgan_bolt\",()->EntityType.Builder.of(org.slavicmyths.kurgan.KurganBolt::new,MobCategory.MISC).sized(.25F,.25F).clientTrackingRange(8).updateInterval(2).build(\"slavicmyths:kurgan_bolt\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.kurgan.KurganBolt",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kurgan_druzhinnik",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 109,
+    "declaration": "ENTITIES.register(\"kurgan_druzhinnik\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.DRUZHINNIK),MobCategory.MONSTER).sized(0.8F,2F).clientTrackingRange(12).build(\"slavicmyths:kurgan_druzhinnik\"))",
+    "nature": "UNDEAD",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.kurgan.KurganCreature",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kurgan_voevoda",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 110,
+    "declaration": "ENTITIES.register(\"kurgan_voevoda\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.VOEVODA),MobCategory.MONSTER).sized(1F,2.3F).clientTrackingRange(12).build(\"slavicmyths:kurgan_voevoda\"))",
+    "nature": "UNDEAD",
+    "traits": [],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.kurgan.KurganCreature",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:kuzya",
+    "source": "src/main/java/org/slavicmyths/kuzya/KuzyaContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"kuzya\",()->EntityType.Builder.of(KuzyaEntity::new,MobCategory.MISC).sized(.52F,.70F).fireImmune().clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:kuzya\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "STORY_PROTECTED"
+    ],
+    "old_group": "NPC",
+    "implementation": "org.slavicmyths.kuzya.KuzyaEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:large_podzemnik",
+    "source": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"large_podzemnik\",()->EntityType.Builder.of(LargePodzemnik::new,MobCategory.MONSTER).sized(1.45F,2.8F).clientTrackingRange(14).build(\"slavicmyths:large_podzemnik\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.underground.LargePodzemnik",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:leshy",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 22,
+    "declaration": "ENTITIES.register(\"leshy\",\n            () -> EntityType.Builder.of(LeshyEntity::new, MobCategory.MONSTER)\n                    .sized(0.8F, 2.8F).clientTrackingRange(8).build(\"slavicmyths:leshy\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "SILVER_VULNERABLE"
+    ],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.LeshyEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:likho_one_eyed",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 120,
+    "declaration": "ENTITIES.register(\"likho_one_eyed\",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,MobCategory.MONSTER).sized(.95F,3.25F).clientTrackingRange(12).build(\"slavicmyths:likho_one_eyed\"))",
+    "nature": "SPIRIT",
+    "traits": [],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.hunt.WorldBoss",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:marinka",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"marinka\",()->EntityType.Builder.of(MarinkaEntity::new,MobCategory.MONSTER).sized(.68F,1.96F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:marinka\"))",
+    "nature": "HUMANOID",
+    "traits": [
+      "BOSS"
+    ],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.marinka.MarinkaEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:marinka_bolt",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"marinka_bolt\",()->EntityType.Builder.<WitchBolt>of(WitchBolt::new,MobCategory.MISC).sized(.35F,.35F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:marinka_bolt\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.marinka.WitchBolt",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:marinka_hex_focus",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"marinka_hex_focus\",()->EntityType.Builder.of(HexAnchor::new,MobCategory.MISC).sized(1,1.8F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:marinka_hex_focus\"))",
+    "nature": "CONSTRUCT",
+    "traits": [
+      "SUMMONED"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.marinka.HexAnchor",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:marinka_rune",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 19,
+    "declaration": "ModEntities.ENTITIES.register(\"marinka_rune\",()->EntityType.Builder.<WitchRune>of(WitchRune::new,MobCategory.MISC).sized(2.5F,.05F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:marinka_rune\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.marinka.WitchRune",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:marinka_tur_minion",
+    "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
+    "line": 17,
+    "declaration": "ModEntities.ENTITIES.register(\"marinka_tur_minion\",()->EntityType.Builder.of(TurMinion::new,MobCategory.MONSTER).sized(1.15F,1.7F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:marinka_tur_minion\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [
+      "SUMMONED"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.marinka.TurMinion",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:mor_bolt",
+    "source": "src/main/java/org/slavicmyths/mor/MorContent.java",
+    "line": 12,
+    "declaration": "ModEntities.ENTITIES.register(\"mor_bolt\",()->EntityType.Builder.<MorBolt>of(MorBolt::new,MobCategory.MISC).sized(.35F,.35F).clientTrackingRange(4).updateInterval(2).build(\"slavicmyths:mor_bolt\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.mor.MorBolt",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:mor_flask_projectile",
+    "source": "src/main/java/org/slavicmyths/mor/MorContent.java",
+    "line": 11,
+    "declaration": "ModEntities.ENTITIES.register(\"mor_flask_projectile\",()->EntityType.Builder.<MorFlaskProjectile>of(MorFlaskProjectile::new,MobCategory.MISC).sized(.25F,.25F).clientTrackingRange(4).updateInterval(2).build(\"slavicmyths:mor_flask_projectile\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.mor.MorFlaskProjectile",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:mor_zone",
+    "source": "src/main/java/org/slavicmyths/mor/MorContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"mor_zone\",()->EntityType.Builder.<MorZone>of(MorZone::new,MobCategory.MISC).sized(.1F,.1F).clientTrackingRange(8).updateInterval(20).build(\"slavicmyths:mor_zone\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.mor.MorZone",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:morozko",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "line": 12,
+    "declaration": "ModEntities.ENTITIES.register(\"morozko\",()->EntityType.Builder.of(Morozko::new,MobCategory.MONSTER).sized(1.35f,3.15f).clientTrackingRange(16).build(\"slavicmyths:morozko\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "BOSS",
+      "ICE_AFFINITY"
+    ],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.morozko.Morozko",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:morozko_ice_bolt",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"morozko_ice_bolt\",()->EntityType.Builder.<FrostShard>of(FrostShard::new,MobCategory.MISC).sized(.25f,.4f).noSave().clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:morozko_ice_bolt\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.morozko.FrostShard",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:morozko_ice_double",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"morozko_ice_double\",()->EntityType.Builder.of(IceDouble::new,MobCategory.MONSTER).sized(1.35f,3.15f).clientTrackingRange(16).build(\"slavicmyths:morozko_ice_double\"))",
+    "nature": "ELEMENTAL",
+    "traits": [
+      "ICE_AFFINITY",
+      "SUMMONED"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.morozko.IceDouble",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:morozko_icicle",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "line": 16,
+    "declaration": "ModEntities.ENTITIES.register(\"morozko_icicle\",()->EntityType.Builder.<FrostHazard>of(FrostHazard::new,MobCategory.MISC).sized(.65f,2.4f).noSave().clientTrackingRange(16).updateInterval(1).build(\"slavicmyths:morozko_icicle\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.morozko.FrostHazard",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:nav",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 108,
+    "declaration": "ENTITIES.register(\"nav\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.NAV),MobCategory.MONSTER).sized(0.6F,2.1F).clientTrackingRange(12).build(\"slavicmyths:nav\"))",
+    "nature": "UNDEAD",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.kurgan.KurganCreature",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:nightingale",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 43,
+    "declaration": "ENTITIES.register(\"nightingale\", () -> EntityType.Builder.of(org.slavicmyths.bandit.NightingaleEntity::new, MobCategory.MONSTER).sized(.95F,1.85F).eyeHeight(1.25F).clientTrackingRange(12).build(\"slavicmyths:nightingale\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.bandit.NightingaleEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:nochnitsa",
+    "source": "src/main/java/org/slavicmyths/nochnitsa/NochnitsaContent.java",
+    "line": 23,
+    "declaration": "ModEntities.ENTITIES.register(\"nochnitsa\",()->EntityType.Builder.of(NochnitsaEntity::new,MobCategory.MONSTER).sized(.72F,2.15F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:nochnitsa\"))",
+    "nature": "SPIRIT",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.nochnitsa.NochnitsaEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:ovinnik",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 31,
+    "declaration": "ENTITIES.register(\"ovinnik\", () -> EntityType.Builder.of(org.slavicmyths.entity.OvinnikEntity::new, MobCategory.MONSTER).sized(1.15F,2.45F).clientTrackingRange(12).fireImmune().build(\"slavicmyths:ovinnik\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "FIRE_AFFINITY"
+    ],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.entity.OvinnikEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:pesigolovets",
+    "source": "src/main/java/org/slavicmyths/pesigolovtsy/DogheadContent.java",
+    "line": 28,
+    "declaration": "ModEntities.ENTITIES.register(\"pesigolovets\",()->EntityType.Builder.of(DogheadEntity::new,MobCategory.MONSTER).sized(.95F,2.3F).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:pesigolovets\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.pesigolovtsy.DogheadEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:pike",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 95,
+    "declaration": "ENTITIES.register(\"pike\",()->EntityType.Builder.<org.slavicmyths.water.RiverFish>of((t,w)->new org.slavicmyths.water.RiverFish(t,w,0),MobCategory.WATER_AMBIENT).sized(.85F,.35F).clientTrackingRange(8).build(\"slavicmyths:pike\"))",
+    "nature": "ANIMAL",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.water.RiverFish",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:player_ice_double",
+    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "line": 14,
+    "declaration": "ModEntities.ENTITIES.register(\"player_ice_double\",()->EntityType.Builder.of(PlayerDouble::new,MobCategory.CREATURE).sized(.6f,1.8f).noSave().clientTrackingRange(16).build(\"slavicmyths:player_ice_double\"))",
+    "nature": "ELEMENTAL",
+    "traits": [
+      "ICE_AFFINITY",
+      "SUMMONED"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.morozko.PlayerDouble",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:podvey",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 115,
+    "declaration": "ENTITIES.register(\"podvey\",()->EntityType.Builder.of(org.slavicmyths.hunt.ElementHuntMob::new,MobCategory.MONSTER).sized(1.1F,2.55F).clientTrackingRange(12).build(\"slavicmyths:podvey\"))",
+    "nature": "SPIRIT",
+    "traits": [],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.hunt.ElementHuntMob",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:podzemnik",
+    "source": "src/main/java/org/slavicmyths/underground/UndergroundMobs.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"podzemnik\",()->EntityType.Builder.of(Podzemnik::new,MobCategory.MONSTER).sized(.68F,1.68F).clientTrackingRange(10).build(\"slavicmyths:podzemnik\"))",
+    "nature": "HUMANOID",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.underground.Podzemnik",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:polevik",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 28,
+    "declaration": "ENTITIES.register(\"polevik\", () -> EntityType.Builder.of(org.slavicmyths.entity.PolevikEntity::new, MobCategory.MONSTER).sized(0.6F,2.1F).clientTrackingRange(10).build(\"slavicmyths:polevik\"))",
+    "nature": "SPIRIT",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.PolevikEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:poloz_glob",
+    "source": "src/main/java/org/slavicmyths/poloz/PolozContent.java",
+    "line": 12,
+    "declaration": "ModEntities.ENTITIES.register(\"poloz_glob\",()->EntityType.Builder.<PolozGlob>of(PolozGlob::new,MobCategory.MISC).sized(.4F,.4F).clientTrackingRange(8).updateInterval(4).build(\"slavicmyths:poloz_glob\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.poloz.PolozGlob",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:poloz_stone_spike",
+    "source": "src/main/java/org/slavicmyths/poloz/PolozContent.java",
+    "line": 13,
+    "declaration": "ModEntities.ENTITIES.register(\"poloz_stone_spike\",()->EntityType.Builder.<PolozStoneSpike>of(PolozStoneSpike::new,MobCategory.MISC).sized(.7F,2).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:poloz_stone_spike\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.poloz.PolozStoneSpike",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:poludnitsa",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 27,
+    "declaration": "ENTITIES.register(\"poludnitsa\", () -> EntityType.Builder.of(org.slavicmyths.entity.PoludnitsaEntity::new, MobCategory.MONSTER).sized(0.6F,1.98F).clientTrackingRange(10).build(\"slavicmyths:poludnitsa\"))",
+    "nature": "SPIRIT",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.PoludnitsaEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:rune_visual",
+    "source": "src/main/java/org/slavicmyths/rpg/RuneVisual.java",
+    "line": 20,
+    "declaration": "ModEntities.ENTITIES.register(\"rune_visual\",()->EntityType.Builder.<RuneVisual>of(RuneVisual::new,MobCategory.MISC).sized(.4F,.4F).clientTrackingRange(12).updateInterval(1).noSave().build(\"slavicmyths:rune_visual\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.rpg.RuneVisual",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:rusalka",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 99,
+    "declaration": "ENTITIES.register(\"rusalka\",()->EntityType.Builder.of(org.slavicmyths.water.RusalkaEntity::new,MobCategory.MONSTER).sized(.55F,1.85F).clientTrackingRange(10).build(\"slavicmyths:rusalka\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "WATER_AFFINITY"
+    ],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.water.RusalkaEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:serpent_projection",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 116,
+    "declaration": "ENTITIES.register(\"serpent_projection\",()->EntityType.Builder.of(org.slavicmyths.hunt.SerpentProjection::new,MobCategory.MISC).sized(1.25F,1.55F).clientTrackingRange(12).updateInterval(2).fireImmune().build(\"slavicmyths:serpent_projection\"))",
+    "nature": "PROJECTION",
+    "traits": [
+      "BLOODLESS",
+      "PROJECTION"
+    ],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.hunt.SerpentProjection",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:sivka_burka",
+    "source": "src/main/java/org/slavicmyths/sivka/SivkaContent.java",
+    "line": 18,
+    "declaration": "ModEntities.ENTITIES.register(\"sivka_burka\",()->EntityType.Builder.of(SivkaEntity::new,MobCategory.CREATURE).sized(SivkaRules.WIDTH,SivkaRules.HEIGHT).clientTrackingRange(12).updateInterval(1).build(\"slavicmyths:sivka_burka\"))",
+    "nature": "ANIMAL",
+    "traits": [
+      "STORY_PROTECTED"
+    ],
+    "old_group": "NPC",
+    "implementation": "org.slavicmyths.sivka.SivkaEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:skim_beast",
+    "source": "src/main/java/org/slavicmyths/skim/SkimContent.java",
+    "line": 15,
+    "declaration": "ModEntities.ENTITIES.register(\"skim_beast\",()->EntityType.Builder.of(SkimBeastEntity::new,MobCategory.MONSTER).sized(2.1F,2.95F).clientTrackingRange(14).updateInterval(1).build(\"slavicmyths:skim_beast\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [
+      "BOSS"
+    ],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.skim.SkimBeastEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:stag",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 37,
+    "declaration": "= wildlife(\"stag\", org.slavicmyths.entity.WildlifeEntity.Kind.STAG, 1.0F, 2.1F)",
+    "nature": "ANIMAL",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.entity.WildlifeEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:thrown_net",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 100,
+    "declaration": "ENTITIES.register(\"thrown_net\",()->EntityType.Builder.<org.slavicmyths.depth.ThrownNet>of(org.slavicmyths.depth.ThrownNet::new,MobCategory.MISC).sized(.3F,.3F).clientTrackingRange(4).updateInterval(5).build(\"slavicmyths:thrown_net\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.depth.ThrownNet",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:tugarin_stone",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 122,
+    "declaration": "ENTITIES.register(\"tugarin_stone\",()->EntityType.Builder.of(org.slavicmyths.hunt.BossStone::new,MobCategory.MISC).sized(.4F,.4F).clientTrackingRange(8).updateInterval(2).build(\"slavicmyths:tugarin_stone\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.hunt.BossStone",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:tugarin_zmey",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 121,
+    "declaration": "ENTITIES.register(\"tugarin_zmey\",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,MobCategory.MONSTER).sized(3.5F,4.85F).eyeHeight(4.15F).clientTrackingRange(12).build(\"slavicmyths:tugarin_zmey\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [
+      "BOSS"
+    ],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.hunt.WorldBoss",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:unresting_prince",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 112,
+    "declaration": "ENTITIES.register(\"unresting_prince\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.PRINCE),MobCategory.MONSTER).sized(1.1F,2.6F).clientTrackingRange(12).build(\"slavicmyths:unresting_prince\"))",
+    "nature": "UNDEAD",
+    "traits": [],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.kurgan.KurganCreature",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:upyr",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 107,
+    "declaration": "ENTITIES.register(\"upyr\",()->EntityType.Builder.<org.slavicmyths.kurgan.KurganCreature>of((t,world)->new org.slavicmyths.kurgan.KurganCreature(t,world,org.slavicmyths.kurgan.KurganFighter.Kind.UPYR),MobCategory.MONSTER).sized(0.65F,1.9F).clientTrackingRange(12).build(\"slavicmyths:upyr\"))",
+    "nature": "UNDEAD",
+    "traits": [],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.kurgan.KurganCreature",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:vodyanoy",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 98,
+    "declaration": "ENTITIES.register(\"vodyanoy\",()->EntityType.Builder.of(org.slavicmyths.water.VodyanoyEntity::new,MobCategory.MONSTER).sized(.9F,1.7F).clientTrackingRange(10).build(\"slavicmyths:vodyanoy\"))",
+    "nature": "SPIRIT",
+    "traits": [
+      "WATER_AFFINITY"
+    ],
+    "old_group": "ordinary",
+    "implementation": "org.slavicmyths.water.VodyanoyEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:volkolak",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 117,
+    "declaration": "ENTITIES.register(\"volkolak\",()->EntityType.Builder.of(org.slavicmyths.entity.VolkolakEntity::new,MobCategory.MONSTER).sized(1.05F,2.25F).clientTrackingRange(12).build(\"slavicmyths:volkolak\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [],
+    "old_group": "mini_boss",
+    "implementation": "org.slavicmyths.entity.VolkolakEntity",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:weapon_projectile",
+    "source": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+    "line": 127,
+    "declaration": "ENTITIES.register(\"weapon_projectile\",()->EntityType.Builder.<org.slavicmyths.combat.WeaponProjectile>of(org.slavicmyths.combat.WeaponProjectile::new,MobCategory.MISC).sized(.25F,.25F).clientTrackingRange(8).updateInterval(1).build(\"slavicmyths:weapon_projectile\"))",
+    "nature": "NO_PHYSIOLOGY",
+    "traits": [],
+    "old_group": "auxiliary",
+    "implementation": "org.slavicmyths.combat.WeaponProjectile",
+    "runtime_registry": "NOT_RUN"
+  },
+  {
+    "id": "slavicmyths:zmey_gorynych",
+    "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+    "line": 11,
+    "declaration": "ModEntities.ENTITIES.register(\"zmey_gorynych\",()->EntityType.Builder.of(Gorynych::new,MobCategory.MONSTER).sized(4.8f,5.5f).eyeHeight(4.8f).fireImmune().clientTrackingRange(20).updateInterval(2).build(\"slavicmyths:zmey_gorynych\"))",
+    "nature": "MYTHICAL_BEAST",
+    "traits": [
+      "BOSS"
+    ],
+    "old_group": "boss",
+    "implementation": "org.slavicmyths.gorynych.Gorynych",
+    "runtime_registry": "NOT_RUN"
+  }
+]

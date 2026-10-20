@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-20",
+  "owner_statement": "бери 81 задачу предыдщуие закрывай задачи все окей, 80 можешь удалить она лишняя",
+  "accepted": [
+    77,
+    78,
+    79
+  ],
+  "closure_authorized": true,
+  "agent_runtime_launches": 0,
+  "issue80": "Cancelled by owner, still closed/not_planned; DELETE_NOT_AVAILABLE (connector lacks method, browser signed out)",
+  "github_status": "77/78/79 OPEN: closure attempted, owner-acceptance-guard reopened due missing owner-accepted label",
+  "required_owner_action": "Owner must set owner-accepted label; AGENTS forbids Codex setting it on behalf of owner"
+}

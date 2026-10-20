@@ -1,0 +1,397 @@
+[
+  {
+    "source": "src/main/java/org/slavicmyths/bogatyr/IdolishcheEntity.java",
+    "line": 35,
+    "code": "private final Map<UUID,Integer> poisonTicks=new HashMap<>();"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/bogatyr/IdolishcheEntity.java",
+    "line": 80,
+    "code": "for(var id:new ArrayList<>(poisonAt.keySet()))if(w.getGameTime()>=poisonAt.get(id)){if(w.getEntity(id) instanceof LivingEntity e&&valid(e))e.hurt(w.damageSources().indirectMagic(this,this),1);int left=poisonTicks.getOrDefault(id,0)-1;if(left<=0){poisonAt.remove(id);poisonTicks.remove(id);}else{poisonTicks.put(id,left);poisonAt.put(id,w.getGameTime()+40);}}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/bogatyr/IdolishcheEntity.java",
+    "line": 111,
+    "code": "case BREATH_ACTIVE->{if(t==1)cue(\"poison_breath_01\");if(t%10==0){for(var e:targets(13))if(cone(e,11,75,locked)&&hasLineOfSight(e)&&e.getY()<getY()+4&&!hit.contains(e.getUUID())){hit.add(e.getUUID());damage(e,\"breath\",20,0);e.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60));e.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,80));e.addEffect(new MobEffectInstance(MobEffects.CONFUSION,50));poisonAt.put(e.getUUID(),w.getGameTime()+40);poisonTicks.put(e.getUUID(),2);}w.sendParticles(net.minecraft.core.particles.ColorParticleOption.create(net.minecraft.core.particles.ParticleTypes.ENTITY_EFFECT,0xFF879F43),getX()+locked.x*4,getY()+2,getZ()+locked.z*4,14,2,1,2,.01);}lastDanger=w.getGameTime();}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/bogatyr/IdolishcheEntity.java",
+    "line": 147,
+    "code": "private void clean(ServerLevel w){release(true);for(var id:minions)if(w.getEntity(id) instanceof Zombie z)z.discard();minions.clear();for(var h:w.getEntitiesOfClass(IlyaEntity.class,getBoundingBox().inflate(80),h->encounter.equals(h.encounter)))h.endEncounter();bar.removeAllPlayers();poisonAt.clear();poisonTicks.clear();}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/brewing/BeverageItem.java",
+    "line": 40,
+    "code": "if(q.equals(\"spoiled\")||b.equals(\"spoiled_brew\")){p.addEffect(new MobEffectInstance(MobEffects.CONFUSION,400));p.addEffect(new MobEffectInstance(MobEffects.POISON,100));b=\"spoiled_brew\";}else switch(b){case \"light_beer\"->positive(p,MobEffects.MOVEMENT_SPEED,45,q);case \"dark_beer\"->positive(p,MobEffects.DAMAGE_RESISTANCE,45,q);case \"hopped_beer\"->positive(p,MobEffects.DIG_SPEED,40,q);case \"honey_beer\"->positive(p,MobEffects.ABSORPTION,30,q);case \"forest_beer\"->{positive(p,MobEffects.NIGHT_VISION,45,q);positive(p,MobEffects.LUCK,45,q);}case \"thunder_beer\"->{positive(p,MobEffects.MOVEMENT_SPEED,60,q);positive(p,MobEffects.DIG_SPEED,60,q);}case \"veles_dark_beer\"->{positive(p,MobEffects.DAMAGE_RESISTANCE,60,q);positive(p,MobEffects.NIGHT_VISION,45,q);}case \"witch_berry_beer\"->positive(p,MobEffects.LUCK,90,q);case \"mead\"->positive(p,MobEffects.REGENERATION,8,q);case \"apple_cider\"->positive(p,MobEffects.JUMP,45,q);default->{}}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/brewing/BeverageItem.java",
+    "line": 46,
+    "code": "if(stage>=5)negative(p,MobEffects.POISON,8,amp,factor);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/client/VolkolakTooltip.java",
+    "line": 11,
+    "code": "@SubscribeEvent public static void blood(net.neoforged.neoforge.client.event.GatherEffectScreenTooltipsEvent e){if(e.getEffectInstance().is(org.slavicmyths.registry.ModEffects.BAD_BLOOD))e.getTooltip().add(GreyWolfStory.text(\"bad_blood_help\"));}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/CreaturePhysiologyEvents.java",
+    "line": 8,
+    "code": "/** Only named physiological effects and accepted fire damage. Never BAD_BLOOD, curses or magic. */"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/CreaturePhysiologyEvents.java",
+    "line": 13,
+    "code": "boolean bleed=effect.is(ModEffects.CUT.getKey())||effect.is(ModEffects.RARE_BLEED.getKey())||effect.is(ModEffects.WOLF_CUT.getKey());"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/CreaturePhysiologyEvents.java",
+    "line": 14,
+    "code": "if(bleed&&!CreatureProperties.canBleed(e.getEntity())||effect==MobEffects.POISON&&!CreatureProperties.isPhysiologicalPoisonTarget(e.getEntity()))e.setResult(MobEffectEvent.Applicable.Result.DO_NOT_APPLY);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/CreatureProperties.java",
+    "line": 43,
+    "code": "public static boolean canBleed(Nature n,Set<Trait> traits,boolean legacyBleedImmune,boolean vanillaUndead){return biological(n)&&!traits.contains(Trait.BLOODLESS)&&!legacyBleedImmune&&!vanillaUndead;}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/CreatureProperties.java",
+    "line": 44,
+    "code": "public static boolean canBleed(LivingEntity e){return canBleed(nature(e),traits(e),e.getType().is(CutEffect.IMMUNE),e.getType().is(EntityTypeTags.UNDEAD));}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/CutEffect.java",
+    "line": 23,
+    "code": "public static final TagKey<EntityType<?>> IMMUNE=TagKey.create(Registries.ENTITY_TYPE,ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",\"bleed_immune\"));"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/CutEffect.java",
+    "line": 27,
+    "code": "return target.isAlive()&&CreatureProperties.canBleed(target)&&target!=attacker&&"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/CutEffect.java",
+    "line": 49,
+    "code": "if(!CreatureProperties.canBleed(target))return false;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 9,
+    "code": "public final class RareBleedEffect extends MobEffect {"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 10,
+    "code": "public RareBleedEffect(){super(MobEffectCategory.HARMFUL,0x8c2528);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 15,
+    "code": "if(old==null){data.remove(\"RareBleedWolfUntil\");data.remove(\"RareBleedWolfStacks\");data.remove(\"RareBleedWolfActor\");data.putInt(\"RareBleedNative\",0);data.putInt(\"RareBleedRune\",0);data.putLong(\"RareBleedNativeUntil\",0);data.putLong(\"RareBleedRuneUntil\",0);data.putLong(\"RareBleedPulse\",now+org.slavicmyths.rpg.RuneBalance.BLEED_INTERVAL);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 16,
+    "code": "else if(!data.getBoolean(\"RareBleedSources\")){data.putInt(\"RareBleedNative\",Math.min(3,old.getAmplifier()+1));data.putLong(\"RareBleedNativeUntil\",now+old.getDuration());if(data.hasUUID(\"RareBleedOwner\"))data.putUUID(\"RareBleedNativeOwner\",data.getUUID(\"RareBleedOwner\"));}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 17,
+    "code": "data.putBoolean(\"RareBleedSources\",true);String source=rune?\"Rune\":\"Native\";int max=rune?org.slavicmyths.rpg.RuneBalance.RUNE_BLEED_MAX:org.slavicmyths.rpg.RuneBalance.NATIVE_BLEED_MAX;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 18,
+    "code": "int before=data.getLong(\"RareBleed\"+source+\"Until\")>now?data.getInt(\"RareBleed\"+source):0;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 19,
+    "code": "data.putInt(\"RareBleed\"+source,Math.min(max,before+1));data.putLong(\"RareBleed\"+source+\"Until\",now+org.slavicmyths.rpg.RuneBalance.BLEED_DURATION);data.putUUID(\"RareBleed\"+source+\"Owner\",p.getUUID());"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 20,
+    "code": "int nativeStacks=data.getLong(\"RareBleedNativeUntil\")>now?data.getInt(\"RareBleedNative\"):0,runeStacks=data.getLong(\"RareBleedRuneUntil\")>now?data.getInt(\"RareBleedRune\"):0;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 21,
+    "code": "int wolf=data.getLong(\"RareBleedWolfUntil\")>now?data.getInt(\"RareBleedWolfStacks\"):0;int stacks=Math.max(wolf,org.slavicmyths.rpg.RuneBalance.bleedStacks(nativeStacks,runeStacks));int duration=(int)((wolf>0?data.getLong(\"RareBleedWolfUntil\"):Math.max(data.getLong(\"RareBleedNativeUntil\"),data.getLong(\"RareBleedRuneUntil\")))-now);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 22,
+    "code": "data.putUUID(\"RareBleedOwner\",p.getUUID());target.removeEffect(ModEffects.RARE_BLEED);target.removeEffect(ModEffects.WOLF_CUT);target.addEffect(new MobEffectInstance(wolf>0?ModEffects.WOLF_CUT:ModEffects.RARE_BLEED,duration,stacks-1,false,true,true),p);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 24,
+    "code": "public static MobEffectInstance current(LivingEntity target){var strong=target.getEffect(ModEffects.WOLF_CUT);return strong==null?target.getEffect(ModEffects.RARE_BLEED):strong;}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 27,
+    "code": "if(!CreatureProperties.canBleed(target))return false;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 29,
+    "code": "var data=target.getPersistentData();long now=RareCombat.now(target);int stacks=Math.min(3,amplifier+1);String ownerKey=\"RareBleedOwner\";"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 30,
+    "code": "if(data.getBoolean(\"RareBleedSources\")){int nativeStacks=data.getLong(\"RareBleedNativeUntil\")>now?data.getInt(\"RareBleedNative\"):0,runeStacks=data.getLong(\"RareBleedRuneUntil\")>now?data.getInt(\"RareBleedRune\"):0;stacks=org.slavicmyths.rpg.RuneBalance.bleedStacks(nativeStacks,runeStacks);if(stacks==0&&data.getLong(\"RareBleedWolfUntil\")<=now)return false;ownerKey=nativeStacks>=runeStacks?\"RareBleedNativeOwner\":\"RareBleedRuneOwner\";}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 31,
+    "code": "int wolf=data.getLong(\"RareBleedWolfUntil\")>now?Math.clamp(data.getInt(\"RareBleedWolfStacks\"),0,3):0;stacks=Math.max(stacks,wolf);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 32,
+    "code": "var actor=wolf>0&&data.hasUUID(\"RareBleedWolfActor\")?world.getEntity(data.getUUID(\"RareBleedWolfActor\")):null;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 37,
+    "code": "if(now>=data.getLong(\"RareBleedPulse\")){"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 38,
+    "code": "data.putLong(\"RareBleedPulse\",now+org.slavicmyths.rpg.RuneBalance.BLEED_INTERVAL);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "line": 39,
+    "code": "target.hurt(wolf>0?(actor==null?MythDamageSources.unattributed(\"cut\",target):MythDamageSources.periodic(\"cut\",actor)):(owner==null?MythDamageSources.unattributed(\"cut\",target):MythDamageSources.periodic(\"cut\",owner)),(float)((wolf>0?2:org.slavicmyths.rpg.RuneBalance.BLEED_HP)*stacks));"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/combat/RareCombat.java",
+    "line": 59,
+    "code": "if(paired(p)&&d.getFloat(\"RareAttackCharge\")>=.9F){RareBleedEffect.apply(p,target);p.swing(InteractionHand.OFF_HAND,true);p.getMainHandItem().hurtAndBreak(1,p,EquipmentSlot.MAINHAND);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/earth/EarthSpirit.java",
+    "line": 48,
+    "code": "@Override public boolean canBeAffected(MobEffectInstance e){return e.getEffect().value()!=ModEffects.CUT.get()&&e.getEffect().value()!=ModEffects.RARE_BLEED.get()&&e.getEffect().value()!=ModEffects.WOLF_CUT.get()&&super.canBeAffected(e);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/registry/ModEffects.java",
+    "line": 17,
+    "code": "public static final DeferredHolder<MobEffect,MobEffect> WOLF_CUT=EFFECTS.register(\"wolf_cut\",org.slavicmyths.wolf.WolfBleeding::new);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/registry/ModEffects.java",
+    "line": 18,
+    "code": "public static final DeferredHolder<MobEffect,MobEffect> BAD_BLOOD=EFFECTS.register(\"bad_blood\",org.slavicmyths.volkolak.BadBlood::new);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/registry/ModEffects.java",
+    "line": 21,
+    "code": "public static final DeferredHolder<MobEffect,MobEffect> RARE_BLEED=EFFECTS.register(\"rare_bleeding\",org.slavicmyths.combat.RareBleedEffect::new);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/RuneBalance.java",
+    "line": 12,
+    "code": "public static final double BLOOD_CHANCE=.20,BLEED_HP=.5,FORT_TOUGHNESS=1,FORT_KB=.03,FORT_SLOW=.015;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/RuneBalance.java",
+    "line": 13,
+    "code": "public static final int FIRE_SECONDS=3,BLEED_DURATION=120,BLEED_INTERVAL=40,RUNE_BLEED_MAX=2,NATIVE_BLEED_MAX=3;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/RuneBalance.java",
+    "line": 29,
+    "code": "public static int bleedStacks(int nativeStacks,int runeStacks){return Math.max(Math.clamp(nativeStacks,0,NATIVE_BLEED_MAX),Math.clamp(runeStacks,0,RUNE_BLEED_MAX));}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "line": 46,
+    "code": "case \"blood\"->out.add(line(\"bleed\",Math.min(RuneBalance.PROC_CAP,RuneBalance.BLOOD_CHANCE*p)*100,RuneBalance.RUNE_BLEED_MAX,RuneBalance.BLEED_HP,RuneBalance.BLEED_INTERVAL/20.0,RuneBalance.BLEED_DURATION/20.0));"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRuntime.java",
+    "line": 59,
+    "code": "RareBleedEffect.applyRune(p,target);if(target.level() instanceof ServerLevel w)w.sendParticles(new DustParticleOptions(new org.joml.Vector3f(.4F,.06F,.07F),1),target.getX(),target.getEyeY(),target.getZ(),3,.1,.1,.1,0);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+    "line": 24,
+    "code": "else if(kind.equals(\"purified_water_bottle\")){for(var effect:List.of(MobEffects.MOVEMENT_SLOWDOWN,MobEffects.WEAKNESS,MobEffects.POISON)){var active=p.getEffect(effect);if(active==null||active.isInfiniteDuration()||protectedEffect(p,effect))continue;var shortened=new MobEffectInstance(effect,SanctuaryRules.shortened(active.getDuration()),active.getAmplifier(),active.isAmbient(),active.isVisible(),active.showIcon());p.removeEffect(effect);p.addEffect(shortened);}SanctuaryContent.sound(w,p.blockPosition(),\"water_use\");}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+    "line": 27,
+    "code": "private static boolean protectedEffect(ServerPlayer p,net.minecraft.core.Holder<MobEffect> effect){if(!effect.is(MobEffects.POISON)&&p.getPersistentData().contains(org.slavicmyths.morozko.FrostCold.KEY))return true;if(p.getPersistentData().getBoolean(\"Quest185Ground.\"+effect.value().getDescriptionId()))return true;var owned=p.getPersistentData().getCompound(\"Night192Effects\");String id=net.minecraft.core.registries.BuiltInRegistries.MOB_EFFECT.getKey(effect.value()).toString();return owned.getAllKeys().stream().anyMatch(k->owned.getCompound(k).contains(id));}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/volkolak/BadBlood.java",
+    "line": 16,
+    "code": "public static void apply(LivingEntity target,LivingEntity source){target.addEffect(new MobEffectInstance(ModEffects.BAD_BLOOD,500,0,false,true,true),source);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/volkolak/BadBlood.java",
+    "line": 18,
+    "code": "@SubscribeEvent public static void heal(LivingHealEvent event){if(INSTANT.get()==0&&event.getEntity().hasEffect(ModEffects.BAD_BLOOD)&&event.getAmount()>0)event.setAmount(event.getAmount()*.5F);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/volkolak/BadBlood.java",
+    "line": 19,
+    "code": "public static void food(Player player,FoodData food,FoodProperties properties){int before=food.getFoodLevel();float saturation=food.getSaturationLevel();food.eat(properties);if(player.level().isClientSide||!player.hasEffect(ModEffects.BAD_BLOOD)){player.getPersistentData().remove(\"VolkolakFoodHalf\");return;}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/volkolak/BadBlood.java",
+    "line": 26,
+    "code": "@SubscribeEvent public static void expired(net.neoforged.neoforge.event.entity.living.MobEffectEvent.Expired e){if(e.getEffectInstance().is(ModEffects.BAD_BLOOD))clear(e.getEntity());}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/volkolak/BadBlood.java",
+    "line": 27,
+    "code": "@SubscribeEvent public static void removed(net.neoforged.neoforge.event.entity.living.MobEffectEvent.Remove e){if(e.getEffect()!=null&&e.getEffect().equals(ModEffects.BAD_BLOOD))clear(e.getEntity());}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/volkolak/CursedVolkolak.java",
+    "line": 60,
+    "code": "private boolean strike(LivingEntity target,float damage,double reach,double degrees,boolean bleed){if(!valid(target)||distanceTo(target)>reach||!hasLineOfSight(target))return false;Vec3 d=target.position().subtract(position()).multiply(1,0,1).normalize();if(aim.dot(d)<Math.cos(Math.toRadians(degrees*.5)))return false;float before=target.getHealth()+target.getAbsorptionAmount();boolean result=target.hurt(damageSources().mobAttack(this),Math.max(0,damage+(float)getAttributeValue(Attributes.ATTACK_DAMAGE)-15+(phase()==3?2:0)));boolean actual=result&&target.getHealth()+target.getAbsorptionAmount()<before;if(actual&&bleed&&target instanceof ServerPlayer p)org.slavicmyths.wolf.WolfBleeding.apply(this,p);return actual;}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/volkolak/CursedVolkolak.java",
+    "line": 136,
+    "code": "else if(m==Move.GRAB){if(tick==14)launch(.6,.12);if(tick>=22&&tick<=25&&!connected)capture(t);if(tick==28&&(hitMask&1)==0&&heldEntity()==t.getId()&&t.getVehicle()==this){hitMask|=1;cue(\"grab_bite\",.85F);if(strike(t,24,2.4,100,true)){BadBlood.apply(t,this);cue(\"bad_blood_apply\",.45F);}}if(tick==45)release(true);if(tick==49)cue(\"grab_release\",.6F);if(tick==26&&!connected){finish();recovery=18;return;}}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/volkolak/VolkolakSounds.java",
+    "line": 10,
+    "code": "public static final List<String> NAMES=List.of(\"ambient\",\"howl_short\",\"alert\",\"snarl\",\"claw_windup\",\"claw_swing\",\"bite\",\"pounce_grunt\",\"land\",\"stance_shift\",\"grab_prepare\",\"grab_bite\",\"grab_release\",\"hurt\",\"phase_roar\",\"fake_fall\",\"curse_revive\",\"escape_howl\",\"bad_blood_apply\",\"grave_rustle\",\"grave_dig\",\"skull_unearth\",\"curse_cleared\");"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/GreyWolf.java",
+    "line": 122,
+    "code": "if(landed&&p.getHealth()+p.getAbsorptionAmount()<before){WolfBleeding.apply(this,p);if(action==Move.POUNCE)p.knockback(.65,getX()-p.getX(),getZ()-p.getZ());}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfBleeding.java",
+    "line": 5,
+    "code": "import org.slavicmyths.combat.RareBleedEffect;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfBleeding.java",
+    "line": 7,
+    "code": "public final class WolfBleeding extends MobEffect {"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfBleeding.java",
+    "line": 8,
+    "code": "public WolfBleeding(){super(MobEffectCategory.HARMFUL,0x981f2c);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfBleeding.java",
+    "line": 10,
+    "code": "if(target.isCreative()||target.isSpectator()||!target.isAlive()||!org.slavicmyths.combat.CreatureProperties.canBleed(target))return;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfBleeding.java",
+    "line": 11,
+    "code": "var old=RareBleedEffect.current(target);var d=target.getPersistentData();long now=org.slavicmyths.combat.RareCombat.now(target);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfBleeding.java",
+    "line": 12,
+    "code": "if(old==null){for(String key:new String[]{\"RareBleedNative\",\"RareBleedRune\",\"RareBleedNativeUntil\",\"RareBleedRuneUntil\",\"RareBleedWolfStacks\",\"RareBleedWolfUntil\"})d.remove(key);d.putLong(\"RareBleedPulse\",now+40);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfBleeding.java",
+    "line": 13,
+    "code": "int strong=d.getLong(\"RareBleedWolfUntil\")>now?d.getInt(\"RareBleedWolfStacks\"):0;strong=Math.min(3,strong+1);d.putInt(\"RareBleedWolfStacks\",strong);d.putLong(\"RareBleedWolfUntil\",now+160);d.putUUID(\"RareBleedWolfActor\",wolf.getUUID());d.putBoolean(\"RareBleedSources\",true);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfBleeding.java",
+    "line": 14,
+    "code": "int weak=Math.max(d.getLong(\"RareBleedNativeUntil\")>now?d.getInt(\"RareBleedNative\"):0,d.getLong(\"RareBleedRuneUntil\")>now?d.getInt(\"RareBleedRune\"):0);int stacks=Math.min(3,Math.max(strong,weak));int duration=160;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfBleeding.java",
+    "line": 15,
+    "code": "target.removeEffect(ModEffects.RARE_BLEED);target.removeEffect(ModEffects.WOLF_CUT);target.addEffect(new MobEffectInstance(ModEffects.WOLF_CUT,duration,stacks-1,false,true,true),wolf);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfBleeding.java",
+    "line": 18,
+    "code": "@Override public boolean applyEffectTick(net.minecraft.world.entity.LivingEntity target,int amplifier){return ((RareBleedEffect)ModEffects.RARE_BLEED.get()).applyEffectTick(target,amplifier);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfEvents.java",
+    "line": 11,
+    "code": "var target=e.getEntity();w.getServer().tell(new net.minecraft.server.TickTask(w.getServer().getTickCount()+1,()->{if(!target.isAlive()||org.slavicmyths.combat.RareBleedEffect.current(target)!=null)return;var d=target.getPersistentData();long now=org.slavicmyths.combat.RareCombat.now(target);d.remove(\"RareBleedWolfUntil\");d.remove(\"RareBleedWolfStacks\");d.remove(\"RareBleedWolfActor\");"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfEvents.java",
+    "line": 12,
+    "code": "int n=d.getLong(\"RareBleedNativeUntil\")>now?d.getInt(\"RareBleedNative\"):0,r=d.getLong(\"RareBleedRuneUntil\")>now?d.getInt(\"RareBleedRune\"):0,stacks=org.slavicmyths.rpg.RuneBalance.bleedStacks(n,r);int remaining=(int)(Math.max(d.getLong(\"RareBleedNativeUntil\"),d.getLong(\"RareBleedRuneUntil\"))-now);"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/wolf/WolfEvents.java",
+    "line": 13,
+    "code": "if(stacks>0&&remaining>0)target.addEffect(new net.minecraft.world.effect.MobEffectInstance(org.slavicmyths.registry.ModEffects.RARE_BLEED,remaining,stacks-1,false,true,true));"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/yaga/YagaUtilityItem.java",
+    "line": 30,
+    "code": "@Override public ItemStack finishUsingItem(ItemStack s,Level w,LivingEntity e){if(!w.isClientSide){switch(kind){case CLEANSE:for(net.minecraft.core.Holder<MobEffect> bad:java.util.List.of(MobEffects.POISON,MobEffects.WITHER,MobEffects.BLINDNESS,MobEffects.MOVEMENT_SLOWDOWN,MobEffects.WEAKNESS,MobEffects.HUNGER,MobEffects.CONFUSION))e.removeEffect(bad);break;case SALVE:if(e instanceof Player)FlightRecovery.apply((Player)e);break;case SIGHT:e.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION,1200));break;case RESIST:e.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,600));break;case VIGOR:e.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,1200));break;case RESTORE:e.addEffect(new MobEffectInstance(MobEffects.REGENERATION,200));break;default:break;}}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/classes/ClassPassiveEvents.java",
+    "line": 18,
+    "code": "if(java.util.Set.of(MobEffects.POISON,MobEffects.WEAKNESS,MobEffects.MOVEMENT_SLOWDOWN,MobEffects.BLINDNESS,MobEffects.DIG_SLOWDOWN,MobEffects.HUNGER,MobEffects.CONFUSION).contains(effect.getEffect()))effect.duration=Math.max(1,(int)Math.ceil(effect.getDuration()*(1-ClassDefinitions.SKILLS.get(\"spiritual_fortitude\").power(rank))));"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+    "line": 25,
+    "code": "String skill,dimension;long until,start;Vec3 origin,last,direction;UUID target,decoy;int hits,charges;float pool,bleedDealt;boolean airborne,spent;"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+    "line": 51,
+    "code": "case \"plague_seal\",\"blood_mark\",\"vulnerable_point\"->{t=target(p,u.range());if(t==null||u.skill().equals(\"blood_mark\")&&!org.slavicmyths.combat.CreatureProperties.canBleed(t)){feedback(p,\"target\");return false;}a.target=t.getUUID();if(u.skill().equals(\"vulnerable_point\"))p.serverLevel().sendParticles(ParticleTypes.CRIT,t.getX(),t.getEyeY(),t.getZ(),12,.2,.2,.2,0);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+    "line": 62,
+    "code": "private static boolean cleanseable(MobEffectInstance e){return !e.getEffect().is(ClassControl.PROTECTED)&&Set.of(MobEffects.POISON,MobEffects.WEAKNESS,MobEffects.MOVEMENT_SLOWDOWN,MobEffects.BLINDNESS,MobEffects.HUNGER).contains(e.getEffect());}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+    "line": 63,
+    "code": "private static void visual(ServerPlayer p,Vec3 at,String skill){var particle=switch(skill){case \"earth_thunder\"->ParticleTypes.CLOUD;case \"living_wall\",\"sacred_circle\"->ParticleTypes.ENCHANT;case \"living_water\"->ParticleTypes.HEART;case \"plague_seal\"->ParticleTypes.SPORE_BLOSSOM_AIR;case \"shadow_pact\",\"false_ambush\"->ParticleTypes.SMOKE;case \"blood_mark\"->ParticleTypes.DAMAGE_INDICATOR;default->ParticleTypes.CRIT;};p.serverLevel().sendParticles(particle,at.x,at.y+.5,at.z,16,.7,.3,.7,.03);p.level().playSound(null,net.minecraft.core.BlockPos.containing(at),net.minecraft.sounds.SoundEvents.ENCHANTMENT_TABLE_USE,net.minecraft.sounds.SoundSource.PLAYERS,.5F,1);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+    "line": 73,
+    "code": "if(now%40==0&&(a.skill.equals(\"plague_seal\")||a.skill.equals(\"blood_mark\"))){var e=p.serverLevel().getEntity(a.target);if(!(e instanceof LivingEntity t)||!hostile(p,t)||p.distanceToSqr(t)>256){clear(p);return;}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+    "line": 75,
+    "code": "else if(org.slavicmyths.combat.CreatureProperties.canBleed(t)&&a.charges>0&&a.pool>0){float amount=Math.min(2,a.pool);if(hit(p,t,ClassControl.resistant(t)?Math.min(1,amount):amount,true)){a.pool-=amount;a.bleedDealt+=amount;}}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+    "line": 105,
+    "code": "if(a.skill.equals(\"blood_mark\")&&e.getEntity().getUUID().equals(a.target)&&e.getSource().getDirectEntity()==p&&\"player\".equals(e.getSource().getMsgId())&&!a.spent&&e.getEntity().getHealth()<e.getEntity().getMaxHealth()*.25F){a.spent=true;e.setAmount(e.getAmount()+(ClassControl.resistant(e.getEntity())?2:5));}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+    "line": 112,
+    "code": "if(a.skill.equals(\"blood_mark\")&&e.getEntity().getUUID().equals(a.target)){a.charges=Math.min(4,a.charges+1);a.pool=Math.max(0,a.charges*2-a.bleedDealt);}"
+  },
+  {
+    "source": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimates.java",
+    "line": 23,
+    "code": "add(m,\"reznik\",\"krovnik\",\"blood_mark\",\"razboinik\",100,10,12,8);"
+  }
+]

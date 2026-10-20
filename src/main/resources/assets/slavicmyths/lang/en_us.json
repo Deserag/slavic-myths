@@ -5688,5 +5688,11 @@
   "brewing.slavicmyths.intoxication_stage_5": "Severe intoxication, poison",
   "hero_hud.slavicmyths.active": "Assisting",
   "hero_hud.slavicmyths.retreating": "Retreating",
-  "hero_hud.slavicmyths.cursed": "Cursed"
+  "hero_hud.slavicmyths.cursed": "Cursed",
+  "message.slavicmyths.hero.cooldown": "This hero can be summoned again in %s s.",
+  "message.slavicmyths.hero.available": "Hero available for %s s.",
+  "message.slavicmyths.hero.recovering": "Hero is recovering (%s/2).",
+  "message.slavicmyths.hero.returning": "Hero is returning. Next summon in %s s.",
+  "message.slavicmyths.hero.remaining": "%s s; recoveries: %s",
+  "message.slavicmyths.hero.hud_returning": "Returning"
 }

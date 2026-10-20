@@ -1,0 +1,998 @@
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -3,7 +3,7 @@
+ org.gradle.caching=true
+ minecraft_version=1.21.1
+ neo_version=21.1.255
+-mod_version=1.9.7.31
++mod_version=1.9.7.32
+ mod_group_id=org.slavicmyths
+ curios_version=9.5.1+1.21.1
+ jei_version=19.51.0.418
+--- a/src/main/java/org/slavicmyths/combat/CombatTargeting.java
++++ b/src/main/java/org/slavicmyths/combat/CombatTargeting.java
+@@ -11,24 +11,160 @@
+ /** Local combat/control policy. No faction manager or global entity scans. */
+ public final class CombatTargeting {
+     private static TagKey<EntityType<?>> tag(String id){return TagKey.create(Registries.ENTITY_TYPE,ResourceLocation.fromNamespaceAndPath("slavicmyths",id));}
+-    public static final TagKey<EntityType<?>> HOSTILE=tag("village_hostiles"),PROTECTED=tag("combat_protected"),CONTROL_IMMUNE=tag("control_immune");
+-    public static boolean canAttack(LivingEntity owner,LivingEntity target){
+-        if(owner==null||target==null||owner==target||owner.isSpectator()||target instanceof net.minecraft.world.entity.decoration.ArmorStand||!owner.isAlive()||!target.isAlive()||target.isRemoved()||target.isSpectator()||CreatureSafety.protectedPlayer(target)||target.isInvulnerable()||target.getType().is(PROTECTED)||owner.isAlliedTo(target)||target.isAlliedTo(owner))return false;
+-        if(target instanceof TamableAnimal pet&&pet.getOwnerUUID()!=null&&pet.getOwnerUUID().equals(owner.getUUID()))return false;
++    public static final TagKey<EntityType<?>> HOSTILE=tag("village_hostiles"),PROTECTED=tag("combat_protected"),CONTROL_IMMUNE=tag("control_immune"),BOSS=tag("trait_boss"),PROXY=tag("combat_proxy"),STORY=tag("trait_story_protected");
++    private static final String[] SUMMON_OWNER_KEYS={"IdolOwner","KartausBoss174","greyWolfActor"};
++    private static boolean physical(LivingEntity owner,LivingEntity target,Context context){
++        if(owner==null||target==null||owner==target||owner.level()!=target.level()
++                ||owner.isSpectator()||!owner.isAlive()||!target.isAlive()||target.isRemoved()
++                ||target.isSpectator()||CreatureSafety.protectedPlayer(target)||target.isInvulnerable()
++                ||target instanceof net.minecraft.world.entity.decoration.ArmorStand)return false;
++        // Keep protected-target semantics for selection/skills, while native hit delegates retain their own hurt contract.
++        boolean nativePopulationHunt=context==Context.NATIVE_HUNT
++                &&owner instanceof net.minecraft.world.entity.monster.Monster
++                &&target instanceof net.minecraft.world.entity.npc.AbstractVillager;
++        if(target.getType().is(PROTECTED)&&context!=Context.NATIVE_DAMAGE&&!nativePopulationHunt)return false;
++        if(target instanceof Player other){
++            var responsible=playerOwner(owner);
++            if(responsible!=null&&owner.level() instanceof net.minecraft.server.level.ServerLevel w){
++                var player=w.getServer().getPlayerList().getPlayer(responsible);
++                if(!w.getServer().isPvpAllowed()||player==null||!player.isAlive()||player.isSpectator()||!player.canHarmPlayer(other))return false;
++            }
++        }
+         if(owner instanceof Player player){
+-            if(target instanceof Player other&&!player.canHarmPlayer(other))return false;
++            if(target instanceof Player other&&(!player.canHarmPlayer(other)
++                    ||player.getServer()!=null&&!player.getServer().isPvpAllowed()))return false;
+             if(target instanceof LandSpiritEntity spirit&&spirit.permits(player))return false;
+         }
+         return true;
+     }
+-    public static boolean canControl(LivingEntity owner,LivingEntity target){return canAttack(owner,target)&&!target.getType().is(CONTROL_IMMUNE);}
+-    public static boolean isHostileCombatTarget(LivingEntity owner,LivingEntity target){return canAttack(owner,target)&&isHostileTo(owner,target);}
+-    public static boolean isHostileTo(LivingEntity owner,LivingEntity target){
+-        // Neutral spirits/pets become automatic targets only while actually attacking this owner.
+-        if(target.getType().is(HOSTILE))return true;
+-        if(target instanceof LandSpiritEntity||target instanceof TamableAnimal)return target instanceof Mob mob&&mob.getTarget()==owner;
+-        return target instanceof Enemy||target.getType().is(HOSTILE)||target instanceof Mob mob&&mob.getTarget()==owner;
++    public enum Context { DIRECT, ACQUIRE, RETALIATION, SETTLEMENT, PROJECTILE, AREA, CONTROL, NATIVE_HUNT, NATIVE_DAMAGE }
++    public enum Relation { FORBIDDEN, ALLY, NEUTRAL, ENEMY }
++    public enum Intent { PEACEFUL, NEUTRAL, HOSTILE, DEFENDER }
++    public static java.util.UUID affiliation(LivingEntity e){
++        if(e.getPersistentData().hasUUID("summonedByPolozUUID"))return e.getPersistentData().getUUID("summonedByPolozUUID");
++        if(e.getPersistentData().hasUUID("GreyPackOwner"))return e.getPersistentData().getUUID("GreyPackOwner");
++        for(String key:SUMMON_OWNER_KEYS)if(e.getPersistentData().hasUUID(key))return e.getPersistentData().getUUID(key);
++        if(e instanceof org.slavicmyths.finist.BannerEntity prop)return prop.boss;
++        if(e instanceof org.slavicmyths.marinka.HexAnchor prop)return prop.boss;
++        if(e instanceof org.slavicmyths.hunt.SerpentProjection prop)return prop.parent;
++        if(e instanceof org.slavicmyths.kalin.KalinSoldier soldier)return soldier.commander;
++        if(e instanceof TamableAnimal a)return a.getOwnerUUID();
++        if(e instanceof org.slavicmyths.karachun.NightRaven r)return r.owner;
++        if(e instanceof org.slavicmyths.morozko.PlayerDouble d)return d.owner();
++        if(e instanceof org.slavicmyths.morozko.IceDouble d)return d.owner;
++        if(e instanceof org.slavicmyths.guardians.WaterEcho d)return d.keeper;
++        if(e instanceof org.slavicmyths.guardians.WaterPrison d)return d.keeper;
++        if(e instanceof org.slavicmyths.marinka.TurMinion d)return d.boss;
++        if(e instanceof org.slavicmyths.earth.EarthServant d)return d.combatOwner();
++        return org.slavicmyths.kalin.KalinParty.owner(e);
+     }
++    private static java.util.UUID playerOwner(LivingEntity e){
++        if(e instanceof Player p)return p.getUUID();
++        if(e instanceof TamableAnimal pet)return pet.getOwnerUUID();
++        if(e instanceof org.slavicmyths.morozko.PlayerDouble d)return d.owner();
++        if(e instanceof org.slavicmyths.karachun.NightRaven r&&r.allied())return r.owner;
++        if(e.getPersistentData().hasUUID("GreyPackOwner"))return e.getPersistentData().getUUID("GreyPackOwner");
++        return org.slavicmyths.kalin.KalinParty.owner(e);
++    }
++    private static net.minecraft.world.scores.Team effectiveTeam(LivingEntity e){
++        var own=e.getTeam();if(own!=null)return own;var owner=playerOwner(e);
++        if(owner==null||!(e.level() instanceof net.minecraft.server.level.ServerLevel w))return null;
++        var player=w.getServer().getPlayerList().getPlayer(owner);if(player!=null)return player.getTeam();
++        // UUID cache lookup is local; never request profiles over the network or invent another faction ledger.
++        var cache=w.getServer().getProfileCache();if(cache==null)return null;
++        return cache.get(owner).map(p->w.getScoreboard().getPlayersTeam(p.getName())).orElse(null);
++    }
++    private static boolean allied(LivingEntity a,LivingEntity b){
++        var x=affiliation(a);var y=affiliation(b);var at=effectiveTeam(a);var bt=effectiveTeam(b);
++        return a.isAlliedTo(b)||b.isAlliedTo(a)||at!=null&&at.isAlliedTo(bt)
++                ||x!=null&&(x.equals(b.getUUID())||x.equals(y))||y!=null&&y.equals(a.getUUID());
++    }
++    /** Explicit dynamic gates precede static hostile tags. No target selectors are added here. */
++    public static boolean sceneProtected(LivingEntity e){
++        if(e instanceof LandSpiritEntity s&&(s.morState()==1||s.morConcealed()))return true;
++        if(e instanceof org.slavicmyths.guardians.GuardianEntity g)return true;
++        if(e instanceof org.slavicmyths.gorynych.Gorynych g)return g.state()>=org.slavicmyths.gorynych.GorynychRules.EXHAUSTED;
++        if(e instanceof org.slavicmyths.wolf.GreyWolf wolf)return wolf.narrativeActor(); // No automatic intervention against higher Mor-Likho.
++        if(e instanceof org.slavicmyths.firebird.FirebirdEntity)return true;
++        if(e instanceof org.slavicmyths.volkolak.CursedVolkolak b)return b.encounter!=null;
++        if(e instanceof org.slavicmyths.poloz.GreatPoloz)return true;
++        if(e instanceof org.slavicmyths.skim.SkimBeastEntity b)return b.arena!=null;
++        if(e instanceof org.slavicmyths.marinka.MarinkaEntity b)return b.arena!=null;
++        if(e instanceof org.slavicmyths.finist.KartausEntity b)return b.encounter!=null;
++        if(e instanceof org.slavicmyths.kalin.KalinEntity b)return b.encounter!=null;
++        if(e instanceof org.slavicmyths.bogatyr.IdolishcheEntity b)return b.active&&!b.debug;
++        if(e instanceof org.slavicmyths.morozko.Morozko)return true;
++        if(e instanceof org.slavicmyths.karachun.Karachun)return true;
++        return e.getType().is(STORY)||e.getPersistentData().getBoolean("HeroRecalling")||e.getPersistentData().getBoolean("HeroSpent")||org.slavicmyths.kalin.KalinParty.recovering(e);
++    }
++    public static boolean bossMode(LivingEntity e){
++        if(org.slavicmyths.mor.HigherMor.higher(e))return true;
++        if(e instanceof org.slavicmyths.morozko.IceDouble)return false;
++        if(e instanceof org.slavicmyths.morozko.Morozko b)return b.fighting();
++        if(e instanceof org.slavicmyths.karachun.Karachun b)return b.fighting();
++        if(e instanceof org.slavicmyths.guardians.GuardianEntity b)return b.fighting();
++        if(e instanceof org.slavicmyths.bogatyr.IdolishcheEntity b)return b.active;
++        if(e instanceof org.slavicmyths.skim.SkimBeastEntity b)return b.active();
++        if(e instanceof org.slavicmyths.marinka.MarinkaEntity b)return b.active;
++        if(e instanceof org.slavicmyths.finist.KartausEntity b)return b.validEncounter()&&b.getTarget()!=null;
++        if(e instanceof org.slavicmyths.kalin.KalinEntity b)return b.valid()&&b.getTarget()!=null;
++        if(e instanceof org.slavicmyths.gorynych.Gorynych b)return b.state()<org.slavicmyths.gorynych.GorynychRules.EXHAUSTED&&b.getTarget()!=null;
++        return e instanceof Mob m&&m.getTarget()!=null;
++    }
++    public static Intent intent(LivingEntity e){
++        if(e.getType().is(PROXY))return Intent.NEUTRAL;
++        if(e instanceof org.slavicmyths.industry.ChudPerson p)return p.role()==3?Intent.DEFENDER:Intent.PEACEFUL;
++        if(e instanceof net.minecraft.world.entity.npc.Villager v)return org.slavicmyths.military.Military.guard(v)?Intent.DEFENDER:Intent.PEACEFUL;
++        if(e instanceof net.minecraft.world.entity.npc.WanderingTrader)return Intent.PEACEFUL;
++        if(e instanceof org.slavicmyths.underground.EncounterMob m&&m.combatNeutral()&&m.getTarget()==null)return Intent.NEUTRAL;
++        if(e instanceof net.minecraft.world.entity.animal.IronGolem)return Intent.DEFENDER;
++        if(e instanceof NeutralMob n)return n.getRemainingPersistentAngerTime()>0?Intent.HOSTILE:Intent.NEUTRAL;
++        if(e instanceof LandSpiritEntity s){if(s.morState()==1)return Intent.NEUTRAL;if(s.morState()==2)return Intent.HOSTILE;}
++        if(bossMode(e)&&e.getType().is(BOSS))return Intent.HOSTILE;
++        if(sceneProtected(e))return Intent.NEUTRAL;
++        if(org.slavicmyths.kalin.KalinParty.owner(e)!=null)return Intent.DEFENDER;
++        if(e instanceof org.slavicmyths.karachun.NightRaven r&&r.allied())return Intent.DEFENDER;
++        if(e instanceof LandSpiritEntity && CreatureProperties.nature(e)==CreatureProperties.Nature.SPIRIT && !(e instanceof org.slavicmyths.hunt.WorldBoss b&&b.kind()==org.slavicmyths.hunt.BossKind.TUGARIN))return e instanceof Mob m&&m.getTarget()!=null?Intent.HOSTILE:Intent.NEUTRAL;
++        if(e.getType().is(HOSTILE)||e instanceof Enemy)return Intent.HOSTILE;
++        return Intent.NEUTRAL;
++    }
++    private static boolean threatening(LivingEntity observer,LivingEntity target){
++        if(observer instanceof org.slavicmyths.industry.ChudPerson chud&&chud.recordedAggressor(target))return true;
++        if(target instanceof Mob m&&m.getTarget()!=null){var victim=m.getTarget();if(victim==observer||allied(observer,victim))return true;
++            if(observer instanceof org.slavicmyths.industry.ChudPerson a&&victim instanceof org.slavicmyths.industry.ChudPerson b)return a.sameSettlement(b);
++            if(observer instanceof net.minecraft.world.entity.npc.Villager||observer instanceof net.minecraft.world.entity.animal.IronGolem)return victim instanceof net.minecraft.world.entity.npc.AbstractVillager;
++        }
++        return observer.getLastHurtByMob()==target&&observer.tickCount-observer.getLastHurtByMobTimestamp()<=1200;
++    }
++    public static Relation relation(LivingEntity actor,LivingEntity target,Context context){
++        if(actor==null||target==null)return Relation.FORBIDDEN;
++        boolean nativePlayerDuel=context==Context.NATIVE_DAMAGE&&actor instanceof Player a&&target instanceof Player b
++                &&a!=b&&a.getTeam()!=null&&a.getTeam()==b.getTeam()&&a.getTeam().isAllowFriendlyFire();
++        if(allied(actor,target)&&!nativePlayerDuel)return Relation.ALLY;
++        if(!physical(actor,target,context))return Relation.FORBIDDEN;
++        if(context==Context.NATIVE_DAMAGE&&(org.slavicmyths.kalin.KalinParty.recovering(target)||target.getPersistentData().getBoolean("HeroSpent")||target.getPersistentData().getBoolean("HeroRecalling")))return Relation.FORBIDDEN;
++        // STORY_PROTECTED controls acquisition/intervention. Player damage retains the entity's own hurt contract.
++        if(context!=Context.NATIVE_DAMAGE&&!(actor instanceof Player)&&sceneProtected(target))return Relation.FORBIDDEN;
++        var targetIntent=intent(target);
++        // An angry neutral spirit is not a settlement-wide enemy merely for fighting somebody else.
++        if((context==Context.SETTLEMENT||context==Context.ACQUIRE)&&target instanceof NeutralMob)targetIntent=Intent.NEUTRAL;
++        if(context==Context.SETTLEMENT&&target instanceof LandSpiritEntity s&&s.morState()==0&&CreatureProperties.nature(target)==CreatureProperties.Nature.SPIRIT)targetIntent=Intent.NEUTRAL;
++        return decide(context,intent(actor),targetIntent,actor instanceof Player,target instanceof Player,threatening(actor,target));
++    }
++    /** Legal-entity adapters above feed this single directed intent rule; useful without a game world. */
++    public static Relation decide(Context context,Intent actor,Intent target,boolean actorPlayer,boolean targetPlayer,boolean threat){
++        if(context==Context.NATIVE_DAMAGE||context==Context.NATIVE_HUNT||context==Context.DIRECT||context==Context.PROJECTILE||context==Context.AREA||context==Context.CONTROL)return Relation.NEUTRAL;
++        if(threat)return Relation.ENEMY;
++        if(targetPlayer)return actor==Intent.HOSTILE&&context==Context.ACQUIRE?Relation.ENEMY:Relation.NEUTRAL;
++        return (context==Context.SETTLEMENT||actorPlayer||actor==Intent.DEFENDER)&&target==Intent.HOSTILE?Relation.ENEMY:Relation.NEUTRAL;
++    }
++    public static boolean canAttack(LivingEntity owner,LivingEntity target){return canAttack(owner,target,Context.DIRECT);}
++    public static boolean canAttack(LivingEntity owner,LivingEntity target,Context context){var r=relation(owner,target,context);return r==Relation.ENEMY||r==Relation.NEUTRAL&&(context==Context.NATIVE_DAMAGE||context==Context.NATIVE_HUNT||context==Context.DIRECT||context==Context.PROJECTILE||context==Context.AREA||context==Context.CONTROL);}
++    public static boolean canControl(LivingEntity owner,LivingEntity target){return canAttack(owner,target,Context.CONTROL)&&!target.getType().is(CONTROL_IMMUNE);}
++    public static boolean isEnemy(LivingEntity actor,LivingEntity target,Context context){return relation(actor,target,context)==Relation.ENEMY;}
++    public static boolean isThreatToSettlement(LivingEntity defender,LivingEntity target){return isEnemy(defender,target,Context.SETTLEMENT);}
++    public static boolean isHostileCombatTarget(LivingEntity owner,LivingEntity target){return isHostileTo(owner,target);}
++    public static boolean isHostileTo(LivingEntity owner,LivingEntity target){return isEnemy(owner,target,Context.ACQUIRE);}
+     public static boolean controlResistant(LivingEntity target){return org.slavicmyths.rpg.classes.ClassControl.resistant(target)||target.getType().is(org.slavicmyths.rpg.RareRuneRuntime.IMMUNE);}
+     private CombatTargeting(){}
+ }
+--- /dev/null
++++ b/src/main/java/org/slavicmyths/combat/CreaturePhysiologyEvents.java
+@@ -0,0 +1,22 @@
++package org.slavicmyths.combat;
++import net.minecraft.world.effect.MobEffects;
++import net.minecraft.tags.DamageTypeTags;
++import net.neoforged.bus.api.*;
++import net.neoforged.fml.common.EventBusSubscriber;
++import net.neoforged.neoforge.event.entity.living.*;
++import org.slavicmyths.registry.ModEffects;
++/** Only named physiological effects and accepted fire damage. Never BAD_BLOOD, curses or magic. */
++@EventBusSubscriber(modid="slavicmyths")
++public final class CreaturePhysiologyEvents {
++ @SubscribeEvent(priority=EventPriority.LOWEST) public static void applicable(MobEffectEvent.Applicable e){
++  var effect=e.getEffectInstance().getEffect();
++  boolean bleed=effect.is(ModEffects.CUT.getKey())||effect.is(ModEffects.RARE_BLEED.getKey())||effect.is(ModEffects.WOLF_CUT.getKey());
++  if(bleed&&!CreatureProperties.canBleed(e.getEntity())||effect==MobEffects.POISON&&!CreatureProperties.isPhysiologicalPoisonTarget(e.getEntity()))e.setResult(MobEffectEvent.Applicable.Result.DO_NOT_APPLY);
++ }
++ @SubscribeEvent(priority=EventPriority.LOWEST) public static void fire(LivingDamageEvent.Pre e){
++  if(e.getEntity().level().isClientSide||e.getNewDamage()<=0||!e.getSource().is(DamageTypeTags.IS_FIRE))return;
++  // This is the only hook applying the nature coefficient. Native immunity/phase filters have already accepted the hit.
++  e.setNewDamage(e.getNewDamage()*CreatureProperties.fireMultiplier(e.getEntity()));
++ }
++ private CreaturePhysiologyEvents(){}
++}
+--- /dev/null
++++ b/src/main/java/org/slavicmyths/combat/CreatureProjectileSafety.java
+@@ -0,0 +1,18 @@
++package org.slavicmyths.combat;
++import net.minecraft.core.registries.BuiltInRegistries;
++import net.minecraft.world.entity.LivingEntity;
++import net.minecraft.world.entity.projectile.Projectile;
++import net.minecraft.world.entity.npc.Villager;
++import net.neoforged.bus.api.*;
++import net.neoforged.fml.common.EventBusSubscriber;
++import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
++/** Delayed projectile hits retain their real owner's team/PvP/ally checks. Native hurt/encounter gates stay authoritative. */
++@EventBusSubscriber(modid="slavicmyths")
++public final class CreatureProjectileSafety {
++ @SubscribeEvent(priority=EventPriority.HIGH) public static void hit(LivingIncomingDamageEvent e){
++  if(e.getEntity().level().isClientSide||!(e.getSource().getDirectEntity() instanceof Projectile shot)||!(e.getSource().getEntity() instanceof LivingEntity owner))return;
++  boolean ours=BuiltInRegistries.ENTITY_TYPE.getKey(shot.getType()).getNamespace().equals("slavicmyths")||BuiltInRegistries.ENTITY_TYPE.getKey(owner.getType()).getNamespace().equals("slavicmyths")||owner instanceof Villager v&&org.slavicmyths.military.Military.guard(v);
++  if(ours&&!CombatTargeting.canAttack(owner,e.getEntity(),CombatTargeting.Context.NATIVE_DAMAGE))e.setCanceled(true);
++ }
++ private CreatureProjectileSafety(){}
++}
+--- /dev/null
++++ b/src/main/java/org/slavicmyths/combat/CreatureProperties.java
+@@ -0,0 +1,54 @@
++package org.slavicmyths.combat;
++
++import java.util.*;
++import net.minecraft.core.registries.Registries;
++import net.minecraft.resources.ResourceLocation;
++import net.minecraft.tags.*;
++import net.minecraft.world.entity.*;
++import net.minecraft.world.entity.animal.Animal;
++import net.minecraft.world.entity.animal.WaterAnimal;
++import net.neoforged.bus.api.SubscribeEvent;
++import net.neoforged.fml.common.EventBusSubscriber;
++import net.neoforged.neoforge.event.TagsUpdatedEvent;
++
++/** Registry tags describe physiology; no owner, hostility, NBT migration or world scan is cached. */
++@EventBusSubscriber(modid="slavicmyths")
++public final class CreatureProperties {
++ public enum Nature {HUMANOID,ANIMAL,MYTHICAL_BEAST,SPIRIT,UNDEAD,ELEMENTAL,CONSTRUCT,PLANT,UNCLASSIFIED}
++ public enum Trait {BLOODLESS,FIRE_AFFINITY,ICE_AFFINITY,WATER_AFFINITY,EARTH_AFFINITY,SILVER_VULNERABLE,CONTROL_RESISTANT,BOSS,SUMMONED,STORY_PROTECTED,PROJECTION}
++ private static TagKey<EntityType<?>> tag(String s){return TagKey.create(Registries.ENTITY_TYPE,ResourceLocation.fromNamespaceAndPath("slavicmyths",s));}
++ private static final Map<Nature,TagKey<EntityType<?>>> NATURE=new EnumMap<>(Nature.class);
++ private static final Map<Trait,TagKey<EntityType<?>>> TRAITS=new EnumMap<>(Trait.class);
++ private static final Map<EntityType<?>,Nature> CACHE=Collections.synchronizedMap(new IdentityHashMap<>());
++ private static final TagKey<EntityType<?>> OLD_BLOODLESS=tag("class_bloodless"),SILVER=tag("silver_vulnerable"),CONTROL=tag("class_control_resistant");
++ static {for(var n:Nature.values())if(n!=Nature.UNCLASSIFIED)NATURE.put(n,tag("nature_"+n.name().toLowerCase(Locale.ROOT)));for(var t:Trait.values())TRAITS.put(t,tag("trait_"+t.name().toLowerCase(Locale.ROOT)));}
++ @SubscribeEvent public static void tags(TagsUpdatedEvent event){CACHE.clear();}
++ public static Nature taggedNature(EntityType<?> type){return CACHE.computeIfAbsent(type,t->{Nature found=Nature.UNCLASSIFIED;for(var e:NATURE.entrySet())if(t.is(e.getValue())){if(found!=Nature.UNCLASSIFIED)return Nature.UNCLASSIFIED;found=e.getKey();}return found;});}
++ public static Nature nature(LivingEntity e){var n=taggedNature(e.getType());if(n!=Nature.UNCLASSIFIED)return n;
++  // Vanilla animals are anatomy-based fallbacks; unknown mod types remain explicit audit failures.
++  if(net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(e.getType()).getNamespace().equals("minecraft")&&(e instanceof Animal||e instanceof WaterAnimal))return Nature.ANIMAL;
++  return Nature.UNCLASSIFIED;
++ }
++ public static EnumSet<Trait> traits(LivingEntity e){var out=EnumSet.noneOf(Trait.class);for(var entry:TRAITS.entrySet())if(e.getType().is(entry.getValue()))out.add(entry.getKey());
++  if(e.getType().is(OLD_BLOODLESS))out.add(Trait.BLOODLESS);
++  if(e.getType().is(SILVER))out.add(Trait.SILVER_VULNERABLE);
++  if(e.getType().is(CONTROL)||e.getType().is(CombatTargeting.CONTROL_IMMUNE))out.add(Trait.CONTROL_RESISTANT);
++  if(CombatTargeting.affiliation(e)!=null)out.add(Trait.SUMMONED);
++  if(e instanceof org.slavicmyths.marinka.MarinkaEntity witch&&witch.falseBody()){out.add(Trait.PROJECTION);out.add(Trait.BLOODLESS);}
++  if(org.slavicmyths.mor.HigherMor.higher(e))out.add(Trait.BOSS);
++  if(out.contains(Trait.BOSS)&&!CombatTargeting.bossMode(e))out.remove(Trait.BOSS);
++  return out;
++ }
++ public static boolean biological(Nature n){return n==Nature.HUMANOID||n==Nature.ANIMAL||n==Nature.MYTHICAL_BEAST||n==Nature.UNCLASSIFIED;}
++ public static boolean canBleed(Nature n,Set<Trait> traits,boolean legacyBleedImmune,boolean vanillaUndead){return biological(n)&&!traits.contains(Trait.BLOODLESS)&&!legacyBleedImmune&&!vanillaUndead;}
++ public static boolean canBleed(LivingEntity e){return canBleed(nature(e),traits(e),e.getType().is(CutEffect.IMMUNE),e.getType().is(EntityTypeTags.UNDEAD));}
++ public static boolean isPhysiologicalPoisonTarget(Nature n,Set<Trait> traits,boolean vanillaUndead){return biological(n)&&!traits.contains(Trait.BLOODLESS)&&!vanillaUndead;}
++ public static boolean isPhysiologicalPoisonTarget(LivingEntity e){return isPhysiologicalPoisonTarget(nature(e),traits(e),e.getType().is(EntityTypeTags.UNDEAD));}
++ public static float fireMultiplier(Nature n,Set<Trait> traits){if(traits.contains(Trait.FIRE_AFFINITY)&&traits.contains(Trait.ICE_AFFINITY))return 1; // Inventory rejects this ambiguity; runtime stays safe.
++  if(traits.contains(Trait.FIRE_AFFINITY))return .5F;if(traits.contains(Trait.ICE_AFFINITY))return 1.5F;
++  return n==Nature.SPIRIT?1.25F:n==Nature.PLANT?1.5F:1;
++ }
++ public static float fireMultiplier(Nature n,Set<Trait> traits,boolean nativeImmune){return nativeImmune?0:fireMultiplier(n,traits);}
++ public static float fireMultiplier(LivingEntity e){return fireMultiplier(nature(e),traits(e),e.fireImmune());}
++ private CreatureProperties(){}
++}
+--- a/src/main/java/org/slavicmyths/combat/CutEffect.java
++++ b/src/main/java/org/slavicmyths/combat/CutEffect.java
+@@ -24,7 +24,7 @@
+     private static final String OWNER="SlavicCutOwner",OWNER_NAME="SlavicCutOwnerName",PULSE="SlavicCutPulse";
+     public CutEffect(){super(MobEffectCategory.HARMFUL,0x691C24);}
+     public static boolean permitted(Player attacker,LivingEntity target){
+-        return target.isAlive()&&!target.getType().is(IMMUNE)&&target!=attacker&&
++        return target.isAlive()&&CreatureProperties.canBleed(target)&&target!=attacker&&
+             (!(target instanceof Player other)||attacker.getServer()!=null&&attacker.getServer().isPvpAllowed()&&attacker.canHarmPlayer(other));
+     }
+     @SubscribeEvent public static void hit(LivingDamageEvent.Post e){
+@@ -46,7 +46,7 @@
+     @Override public boolean shouldApplyEffectTickThisTick(int duration,int amplifier){return true;}
+     @Override public boolean applyEffectTick(LivingEntity target,int amplifier){
+         if(!(target.level() instanceof ServerLevel world))return true;
+-        if(target.getType().is(IMMUNE))return false;
++        if(!CreatureProperties.canBleed(target))return false;
+         var data=target.getPersistentData();
+         Player owner=data.hasUUID(OWNER)?world.getServer().getPlayerList().getPlayer(data.getUUID(OWNER)):null;
+         if(target instanceof Player player){
+--- a/src/main/java/org/slavicmyths/combat/RareBleedEffect.java
++++ b/src/main/java/org/slavicmyths/combat/RareBleedEffect.java
+@@ -24,6 +24,7 @@
+     public static MobEffectInstance current(LivingEntity target){var strong=target.getEffect(ModEffects.WOLF_CUT);return strong==null?target.getEffect(ModEffects.RARE_BLEED):strong;}
+     @Override public boolean shouldApplyEffectTickThisTick(int duration,int amplifier){return true;}
+     @Override public boolean applyEffectTick(LivingEntity target,int amplifier){
++        if(!CreatureProperties.canBleed(target))return false;
+         if(!(target.level() instanceof ServerLevel world))return true;
+         var data=target.getPersistentData();long now=RareCombat.now(target);int stacks=Math.min(3,amplifier+1);String ownerKey="RareBleedOwner";
+         if(data.getBoolean("RareBleedSources")){int nativeStacks=data.getLong("RareBleedNativeUntil")>now?data.getInt("RareBleedNative"):0,runeStacks=data.getLong("RareBleedRuneUntil")>now?data.getInt("RareBleedRune"):0;stacks=org.slavicmyths.rpg.RuneBalance.bleedStacks(nativeStacks,runeStacks);if(stacks==0&&data.getLong("RareBleedWolfUntil")<=now)return false;ownerKey=nativeStacks>=runeStacks?"RareBleedNativeOwner":"RareBleedRuneOwner";}
+--- /dev/null
++++ b/src/main/java/org/slavicmyths/combat/SettlementTargetSafety.java
+@@ -0,0 +1,21 @@
++package org.slavicmyths.combat;
++import net.minecraft.world.entity.*;
++import net.minecraft.world.entity.player.Player;
++import net.minecraft.world.entity.npc.Villager;
++import net.minecraft.world.entity.animal.IronGolem;
++import net.neoforged.bus.api.*;
++import net.neoforged.fml.common.EventBusSubscriber;
++import net.neoforged.neoforge.event.entity.living.LivingChangeTargetEvent;
++/** Event boundary for native HurtBy/taunt goals too; no new goals on wildlife or story actors. */
++@EventBusSubscriber(modid="slavicmyths")
++public final class SettlementTargetSafety {
++ @SubscribeEvent(priority=EventPriority.LOWEST) public static void target(LivingChangeTargetEvent e){
++  var actor=e.getEntity();var target=e.getNewAboutToBeSetTarget();if(target==null)return;
++  boolean allowed=true;
++  if(actor instanceof org.slavicmyths.industry.ChudPerson c&&c.role()==3)allowed=CombatTargeting.isThreatToSettlement(c,target);
++  else if(actor instanceof Villager v&&org.slavicmyths.military.Military.guard(v))allowed=org.slavicmyths.military.GuardBehavior.hostile(v,target);
++  else if(actor instanceof IronGolem g)allowed=target instanceof Player?CombatTargeting.canAttack(g,target):CombatTargeting.isThreatToSettlement(g,target);
++  if(!allowed)e.setNewAboutToBeSetTarget(null);
++ }
++ private SettlementTargetSafety(){}
++}
+--- /dev/null
++++ b/src/main/java/org/slavicmyths/combat/mixin/PoisonPhysiologyMixin.java
+@@ -0,0 +1,12 @@
++package org.slavicmyths.combat.mixin;
++import net.minecraft.world.entity.LivingEntity;
++import org.spongepowered.asm.mixin.Mixin;
++import org.spongepowered.asm.mixin.injection.*;
++import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
++@Mixin(targets="net.minecraft.world.effect.PoisonMobEffect",remap=false)
++public abstract class PoisonPhysiologyMixin {
++ @Inject(method="applyEffectTick",at=@At("HEAD"),cancellable=true)
++ private void slavicPhysiology(LivingEntity target,int amplifier,CallbackInfoReturnable<Boolean> callback){
++  if(!org.slavicmyths.combat.CreatureProperties.isPhysiologicalPoisonTarget(target))callback.setReturnValue(false);
++ }
++}
+--- a/src/main/java/org/slavicmyths/earth/EarthServant.java
++++ b/src/main/java/org/slavicmyths/earth/EarthServant.java
+@@ -13,6 +13,7 @@
+ public final class EarthServant extends Monster {
+     private static final EntityDataAccessor<Integer> STATE=SynchedEntityData.defineId(EarthServant.class,EntityDataSerializers.INT),VARIANT=SynchedEntityData.defineId(EarthServant.class,EntityDataSerializers.INT);
+     private static final EntityDataAccessor<Long> START=SynchedEntityData.defineId(EarthServant.class,EntityDataSerializers.LONG);
++    public UUID combatOwner(){return owner;}
+     private UUID owner,arena;private BlockPos home;private int attackIn=32,collapseIn=-1,idleIn=260;
+     public EarthServant(EntityType<? extends Monster> t,Level w){super(t,w);setPersistenceRequired();xpReward=0;getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(EarthRules.SERVANT_HEALTH);setHealth((float)EarthRules.SERVANT_HEALTH);}
+     @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(STATE,0);b.define(VARIANT,0);b.define(START,0L);}
+--- a/src/main/java/org/slavicmyths/finist/GreyPackRing.java
++++ b/src/main/java/org/slavicmyths/finist/GreyPackRing.java
+@@ -30,7 +30,7 @@
+   for(var wolf:made)if(!w.addFreshEntity(wolf)){made.forEach(Entity::discard);return;}sound(p,"ring_pack_arrive",.45F);for(var wolf:made)w.sendParticles(net.minecraft.core.particles.ParticleTypes.POOF,wolf.getX(),wolf.getY()+.4,wolf.getZ(),3,.12,.1,.12,0);
+  }
+  public static boolean enemy(ServerPlayer owner,LivingEntity target){if(!owner.isAlive()||owner.isSpectator()||target==null||target==owner||!target.isAlive()||target.level()!=owner.level()||target instanceof org.slavicmyths.wolf.GreyWolf||target.getType().is(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","combat_protected")))||target.getPersistentData().getBoolean("GreyPackAlly")||target.isAlliedTo(owner)||target instanceof net.minecraft.world.entity.TamableAnimal pet&&pet.isTame())return false;
+-  if(target instanceof Player p)return !p.isCreative()&&!p.isSpectator()&&org.slavicmyths.combat.CutEffect.permitted(owner,target);return target instanceof net.minecraft.world.entity.monster.Enemy||target.getType().is(org.slavicmyths.military.Military.HOSTILES)||target instanceof org.slavicmyths.kurgan.KurganCreature||target instanceof org.slavicmyths.hunt.WorldBoss;
++  if(target instanceof Player p)return !p.isCreative()&&!p.isSpectator()&&owner.getServer()!=null&&owner.getServer().isPvpAllowed()&&owner.canHarmPlayer(p)&&org.slavicmyths.combat.CombatTargeting.canAttack(owner,target);return target instanceof net.minecraft.world.entity.monster.Enemy||target.getType().is(org.slavicmyths.military.Military.HOSTILES)||target instanceof org.slavicmyths.kurgan.KurganCreature||target instanceof org.slavicmyths.hunt.WorldBoss;
+  }
+  public static LivingEntity target(ServerPlayer p,WildlifeEntity wolf){var d=data(p);long now=now(p);if(d.hasUUID("Enemy")&&d.getLong("EnemyUntil")>now){var e=p.serverLevel().getEntity(d.getUUID("Enemy"));if(e instanceof LivingEntity living&&enemy(p,living)&&wolf.distanceToSqr(living)<=400&&wolf.hasLineOfSight(living))return living;}return null;}
+  public static void attacked(ServerPlayer p,LivingEntity target){if(!PathData.data(p).contains("GreyPack",10)&&equipped(p).isEmpty())return;if(!enemy(p,target))return;var d=data(p);d.putUUID("Enemy",target.getUUID());d.putLong("EnemyUntil",now(p)+160);}
+--- a/src/main/java/org/slavicmyths/guardians/WaterEcho.java
++++ b/src/main/java/org/slavicmyths/guardians/WaterEcho.java
+@@ -12,5 +12,5 @@
+  public static AttributeSupplier.Builder attributes(){return createMobAttributes().add(Attributes.MAX_HEALTH,GuardianRules.ECHO_HP).add(Attributes.MOVEMENT_SPEED,.27).add(Attributes.ATTACK_DAMAGE,GuardianRules.ECHO_DAMAGE).add(Attributes.FOLLOW_RANGE,16);}
+  @Override protected void registerGoals(){goalSelector.addGoal(0,new FloatGoal(this));}
+  public void configure(SpringKeeper boss){keeper=boss.getUUID();}
+- @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w))return;var master=keeper==null?null:w.getEntity(keeper);if(!(master instanceof SpringKeeper b)||!b.fighting()||--life<=0||!b.arena().contains(position())){discard();return;}if(tickCount%10==0){var t=b.getTarget();if(t!=null&&b.candidate(t)){getLookControl().setLookAt(t);getNavigation().moveTo(t,1);if(distanceToSqr(t)<36&&hasLineOfSight(t)&&tickCount%40==0){w.sendParticles(net.minecraft.core.particles.ParticleTypes.SPLASH,t.getX(),t.getY()+1,t.getZ(),6,.2,.3,.2,.02);t.hurt(damageSources().mobAttack(this),GuardianRules.ECHO_DAMAGE);}}}}
++ @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w))return;var master=keeper==null?null:w.getEntity(keeper);if(!(master instanceof SpringKeeper b)||!b.fighting()||--life<=0||!b.arena().contains(position())){discard();return;}if(tickCount%10==0){var t=b.getTarget();if(t!=null&&b.candidate(t)&&org.slavicmyths.combat.CombatTargeting.canAttack(this,t,org.slavicmyths.combat.CombatTargeting.Context.AREA)){getLookControl().setLookAt(t);getNavigation().moveTo(t,1);if(distanceToSqr(t)<36&&hasLineOfSight(t)&&tickCount%40==0){w.sendParticles(net.minecraft.core.particles.ParticleTypes.SPLASH,t.getX(),t.getY()+1,t.getZ(),6,.2,.3,.2,.02);t.hurt(damageSources().mobAttack(this),GuardianRules.ECHO_DAMAGE);}}}}
+ }
+--- a/src/main/java/org/slavicmyths/industry/ChudPerson.java
++++ b/src/main/java/org/slavicmyths/industry/ChudPerson.java
+@@ -23,7 +23,23 @@
+     private static final EntityDataAccessor<Integer> ROLE=SynchedEntityData.defineId(ChudPerson.class,EntityDataSerializers.INT);
+     private static final EntityDataAccessor<Integer> ACT=SynchedEntityData.defineId(ChudPerson.class,EntityDataSerializers.INT);
+     private static final EntityDataAccessor<Long> ACT_START=SynchedEntityData.defineId(ChudPerson.class,EntityDataSerializers.LONG);
+-    private long guardHitAt;private LivingEntity guardVictim;
++    private long guardHitAt,guardChaseUntil,guardReturnUntil,guardZonesAt;private LivingEntity guardVictim;
++    private java.util.List<BlockPos> guardZones=java.util.List.of();
++    public boolean sameSettlement(ChudPerson other){String city=getPersistentData().getString("ChudCity");return !city.isEmpty()?city.equals(other.getPersistentData().getString("ChudCity")):distanceToSqr(other)<=24*24;}
++    public boolean recordedAggressor(LivingEntity e){return e instanceof Player p?alarm(p):getPersistentData().hasUUID("ChudThreat")&&e.getUUID().equals(getPersistentData().getUUID("ChudThreat"))&&getPersistentData().getLong("ChudThreatUntil")>level().getGameTime();}
++    private boolean threat(LivingEntity e){return e!=null&&!(e instanceof net.minecraft.world.entity.monster.warden.Warden)&&org.slavicmyths.combat.CombatTargeting.isThreatToSettlement(this,e);}
++
++    private boolean inDefenceRange(LivingEntity target){
++        if(home==null)return distanceToSqr(target)<=32*32;
++        if(target.distanceToSqr(home.getCenter())>48*48)return false;
++        long now=level().getGameTime();if(now>=guardZonesAt){guardZonesAt=now+40;var zones=new ArrayList<BlockPos>();zones.add(home);
++            for(var peer:level().getEntitiesOfClass(ChudPerson.class,new net.minecraft.world.phys.AABB(home).inflate(32),this::sameSettlement))if(peer.home!=null)zones.add(peer.home);
++            guardZones=java.util.List.copyOf(zones);
++        }
++        return guardZones.stream().anyMatch(p->target.distanceToSqr(p.getCenter())<=32*32);
++    }
++    private boolean guardTarget(LivingEntity e){return threat(e)&&inDefenceRange(e);}
++
+     public int activity(){return entityData.get(ACT);}public float activityAge(float p){return level().getGameTime()-entityData.get(ACT_START)+p;}
+     private void activity(int a){if(activity()!=a){entityData.set(ACT,a);entityData.set(ACT_START,level().getGameTime());}}
+     private boolean alarm(Player p){var n=getPersistentData();return n.getCompound("ChudAggressors").getLong(p.getUUID().toString())>level().getGameTime();}
+@@ -35,18 +51,18 @@
+     public int getMaxFallDistance(){return 2;}
+     public boolean isAlliedTo(Entity e){return e instanceof ChudPerson||super.isAlliedTo(e);}
+     private void guardEquipment(){if(role()!=3)return;if(getMainHandItem().isEmpty())setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(Items.IRON_AXE));setDropChance(EquipmentSlot.MAINHAND,0);}
+-    public void setup(int role,BlockPos home,boolean rare){entityData.set(ROLE,role);this.home=home.immutable();restrictTo(home,10);rareStock=rare;offers=null;guardEquipment();if(role==1||role==2){setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(role==2?Items.IRON_PICKAXE:Items.IRON_AXE));setDropChance(EquipmentSlot.MAINHAND,0);}}
++    public void setup(int role,BlockPos home,boolean rare){entityData.set(ROLE,role);this.home=home.immutable();restrictTo(home,role()==3?48:10);rareStock=rare;offers=null;guardEquipment();if(role==1||role==2){setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(role==2?Items.IRON_PICKAXE:Items.IRON_AXE));setDropChance(EquipmentSlot.MAINHAND,0);}}
+     public Component getDisplayName(){return hasCustomName()?super.getDisplayName():Component.translatable("industry.slavicmyths.role."+role());}
+     protected void registerGoals(){
+         goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new TradeWithPlayerGoal(this));goalSelector.addGoal(1,new LookAtTradingPlayerGoal(this));
+         goalSelector.addGoal(2,new MeleeAttackGoal(this,1.1,true){public boolean canUse(){return role()==3&&super.canUse();}protected void checkAndPerformAttack(LivingEntity t){if(canPerformAttack(t)&&guardVictim==null){resetAttackCooldown();guardVictim=t;guardHitAt=level().getGameTime()+7;activity(3);getNavigation().stop();}}});
+-        goalSelector.addGoal(2,new AvoidEntityGoal<>(this,Monster.class,8,.8,1.15){public boolean canUse(){return role()!=3&&super.canUse();}});
++        goalSelector.addGoal(2,new AvoidEntityGoal<>(this,LivingEntity.class,8,.8,1.15,this::threat){public boolean canUse(){return role()!=3&&super.canUse();}});
+         goalSelector.addGoal(2,new AvoidEntityGoal<Player>(this,Player.class,12,.9,1.15,t->t instanceof Player p&&alarm(p)){public boolean canUse(){return role()!=3&&super.canUse();}});
+         goalSelector.addGoal(3,new MoveTowardsRestrictionGoal(this,.8));
+         goalSelector.addGoal(3,new Goal(){ {setFlags(EnumSet.of(Flag.MOVE));}public boolean canUse(){return role()!=3&&home!=null&&!isTrading()&&(Math.floorMod(level().getDayTime(),24000)>=11000&&Math.floorMod(level().getDayTime(),24000)<23000||getLastHurtByMob()!=null)&&distanceToSqr(home.getCenter())>4;}public void start(){getNavigation().moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,.85);}public boolean canContinueToUse(){return canUse()&&!getNavigation().isDone();}});
+         goalSelector.addGoal(4,new Goal(){ {setFlags(EnumSet.of(Flag.MOVE));}private BlockPos destination;public boolean canUse(){if(home==null||isTrading()||level().getGameTime()%80!=0||activity()==1)return false;long time=Math.floorMod(level().getDayTime(),24000);if(role()!=3&&time>=11000&&time<23000)return false;for(int i=0;i<6;i++){BlockPos p=home.offset(getRandom().nextInt(13)-6,0,getRandom().nextInt(13)-6);boolean safe=true;for(int a=-1;a<=1;a++)for(int b=-1;b<=1;b++)if(!level().getBlockState(p.offset(a,-1,b)).isCollisionShapeFullBlock(level(),p.offset(a,-1,b)))safe=false;if(safe&&level().getBlockState(p).isAir()&&level().getBlockState(p.above()).isAir()){var path=getNavigation().createPath(p,0);if(path!=null&&path.canReach()){destination=p;return true;}}}return false;}public void start(){getNavigation().moveTo(destination.getX()+.5,destination.getY(),destination.getZ()+.5,.65);}public boolean canContinueToUse(){return !getNavigation().isDone()&&!isTrading()&&getTarget()==null;}});goalSelector.addGoal(5,new LookAtPlayerGoal(this,Player.class,6));goalSelector.addGoal(6,new RandomLookAroundGoal(this));
+-        targetSelector.addGoal(1,new HurtByTargetGoal(this){public boolean canUse(){return role()==3&&super.canUse();}});
+-        targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Monster.class,10,true,false,m->!(m instanceof net.minecraft.world.entity.monster.warden.Warden)&&hasLineOfSight(m)&&(home==null||m.distanceToSqr(home.getCenter())<=256)){public boolean canUse(){return role()==3&&super.canUse();}});
++        targetSelector.addGoal(1,new HurtByTargetGoal(this){protected double getFollowDistance(){return 24;}public boolean canUse(){return role()==3&&level().getGameTime()>=guardReturnUntil&&super.canUse()&&guardTarget(getLastHurtByMob());}public void start(){super.start();guardChaseUntil=level().getGameTime()+200;}});
++        targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,LivingEntity.class,10,true,false,this::guardTarget){protected double getFollowDistance(){return 24;}public boolean canUse(){return role()==3&&level().getGameTime()>=guardReturnUntil&&super.canUse();}public void start(){super.start();guardChaseUntil=level().getGameTime()+200;}public boolean canContinueToUse(){return super.canContinueToUse()&&guardTarget(getTarget())&&level().getGameTime()<guardChaseUntil;}public void stop(){super.stop();if(level().getGameTime()>=guardChaseUntil){guardReturnUntil=level().getGameTime()+100;guardVictim=null;if(home!=null)getNavigation().moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,.8);}}});
+     }
+     public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel l,net.minecraft.world.entity.AgeableMob other){return null;}
+     protected InteractionResult mobInteract(Player p,InteractionHand hand){
+@@ -80,10 +96,12 @@
+     }
+     private void offer(Item a,int n,Item b,int m,Item out,int count,int uses){offers.add(new MerchantOffer(new ItemCost(a,n),b==null?Optional.empty():Optional.of(new ItemCost(b,m)),new ItemStack(out,count),uses,1,0));}
+     public void aiStep(){super.aiStep();if(level().isClientSide)return;long now=level().getGameTime();
+-        if(role()==3&&guardVictim!=null&&now>=guardHitAt){if(org.slavicmyths.combat.CombatTargeting.canAttack(this,guardVictim)&&distanceToSqr(guardVictim)<6.25&&hasLineOfSight(guardVictim)){swing(InteractionHand.MAIN_HAND);doHurtTarget(guardVictim);}guardVictim=null;}
++        if(role()==3&&guardVictim!=null&&now>=guardHitAt){if(guardTarget(guardVictim)&&distanceToSqr(guardVictim)<6.25&&hasLineOfSight(guardVictim)){swing(InteractionHand.MAIN_HAND);doHurtTarget(guardVictim);}guardVictim=null;}
+         if(activity()==3&&activityAge(0)>=15)activity(0);
+         if(getTarget() instanceof Player player&&!alarm(player)&&distanceToSqr(player)>6.25)setTarget(null);
+-        if(getTarget()!=null&&home!=null&&getTarget().distanceToSqr(home.getCenter())>576)setTarget(null);
++        if(role()==3&&getTarget()!=null&&(!guardTarget(getTarget())||guardChaseUntil>0&&now>=guardChaseUntil)){
++            setTarget(null);guardVictim=null;guardReturnUntil=now+100;getNavigation().stop();if(home!=null)getNavigation().moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,.8);
++        }
+         if(role()!=3&&tickCount%20==0){boolean fear=getLastHurtByMob()!=null&&tickCount-getLastHurtByMobTimestamp()<200||getPersistentData().getLong("ChudAggressorUntil")>now;
+             if(fear){if(activity()!=2)playSound(org.slavicmyths.underground.UndergroundSounds.sound("chud","panic"),.35F,1);activity(2);}else if(role()>0&&home!=null&&!isTrading()&&distanceToSqr(home.getCenter())<9&&Math.floorMod(level().getDayTime(),24000)<11000&&now%600<100){activity(1);getNavigation().stop();if(now%20==0)playSound(org.slavicmyths.underground.UndergroundSounds.sound("chud","work"),.25F,1.1F);}else activity(0);}
+         if(tickCount%40!=0)return;
+@@ -92,9 +110,9 @@
+         long day=level().getDayTime()/24000;if(day>stockDay){stockDay=day;stockBits=0;}int period=IndustryRules.restockPeriod(level().getDayTime());
+         if(period!=0&&(stockBits&period)==0){getOffers().forEach(MerchantOffer::resetUses);stockBits|=period;}
+     }
+-    public boolean hurt(net.minecraft.world.damagesource.DamageSource source,float amount){boolean hit=super.hurt(source,amount);if(hit&&!level().isClientSide&&source.getEntity() instanceof LivingEntity enemy){for(var n:level().getEntitiesOfClass(ChudPerson.class,getBoundingBox().inflate(24))){if(enemy instanceof Player p){var aggression=n.getPersistentData().getCompound("ChudAggressors");long now=level().getGameTime();for(String key:new ArrayList<>(aggression.getAllKeys()))if(aggression.getLong(key)<=now)aggression.remove(key);aggression.putLong(p.getUUID().toString(),now+1200);n.getPersistentData().put("ChudAggressors",aggression);n.getPersistentData().putLong("ChudAggressorUntil",now+1200);}if(n.role()==3&&n.hasLineOfSight(enemy)&&!(enemy instanceof ChudPerson))n.setTarget(enemy);}}return hit;}
++    public boolean hurt(net.minecraft.world.damagesource.DamageSource source,float amount){boolean hit=super.hurt(source,amount);if(hit&&!level().isClientSide&&source.getEntity() instanceof LivingEntity enemy){for(var n:level().getEntitiesOfClass(ChudPerson.class,getBoundingBox().inflate(24))){if(!sameSettlement(n))continue;n.getPersistentData().putUUID("ChudThreat",enemy.getUUID());n.getPersistentData().putLong("ChudThreatUntil",level().getGameTime()+1200);if(enemy instanceof Player p){var aggression=n.getPersistentData().getCompound("ChudAggressors");long now=level().getGameTime();for(String key:new ArrayList<>(aggression.getAllKeys()))if(aggression.getLong(key)<=now)aggression.remove(key);aggression.putLong(p.getUUID().toString(),now+1200);n.getPersistentData().put("ChudAggressors",aggression);n.getPersistentData().putLong("ChudAggressorUntil",now+1200);}if(n.role()==3&&n.hasLineOfSight(enemy)&&n.guardTarget(enemy)){n.setTarget(enemy);n.guardChaseUntil=level().getGameTime()+200;}}}return hit;}
+     public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);n.putInt("ChudRole",role());n.putBoolean("RareStock",rareStock);n.putLong("StockDay",stockDay);n.putInt("StockBits",stockBits);if(home!=null)n.putLong("Home",home.asLong());}
+-    public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);if(n.contains("ChudRole"))entityData.set(ROLE,Math.clamp(n.getInt("ChudRole"),0,3));rareStock=n.getBoolean("RareStock");stockDay=n.getLong("StockDay");stockBits=n.getInt("StockBits");if(n.contains("Home")){home=BlockPos.of(n.getLong("Home"));restrictTo(home,10);}guardEquipment();}
++    public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);if(n.contains("ChudRole"))entityData.set(ROLE,Math.clamp(n.getInt("ChudRole"),0,3));rareStock=n.getBoolean("RareStock");stockDay=n.getLong("StockDay");stockBits=n.getInt("StockBits");if(n.contains("Home")){home=BlockPos.of(n.getLong("Home"));restrictTo(home,role()==3?48:10);}guardEquipment();}
+     public void remove(RemovalReason reason){if(!level().isClientSide&&getTradingPlayer()!=null){getTradingPlayer().closeContainer();setTradingPlayer(null);}super.remove(reason);}
+     public void die(net.minecraft.world.damagesource.DamageSource source){if(!level().isClientSide&&getTradingPlayer()!=null){getTradingPlayer().closeContainer();setTradingPlayer(null);}super.die(source);}
+ }
+--- a/src/main/java/org/slavicmyths/karachun/NightRaven.java
++++ b/src/main/java/org/slavicmyths/karachun/NightRaven.java
+@@ -21,7 +21,7 @@
+  public void configure(Karachun boss,int index){owner=boss.getUUID();session=boss.session;slot=index;getAttribute(Attributes.MAX_HEALTH).setBaseValue(NightConfig.value("ravenHealth"));setHealth((float)NightConfig.value("ravenHealth"));nextDive=level().getGameTime()+60+index*25;}
+  public void configure(ServerPlayer p,int index){owner=p.getUUID();slot=index;life=NightConfig.ticks("wingDuration");entityData.set(ALLY,true);nextDive=level().getGameTime()+20+index*30;}
+  public LivingEntity master(){if(!(level() instanceof ServerLevel w)||owner==null)return null;var e=w.getEntity(owner);return e instanceof LivingEntity l?l:null;}
+- public boolean allowed(LivingEntity t){var master=master();if(master==null||t==this||t==master||t instanceof NightRaven||!t.isAlive())return false;if(master instanceof Karachun b)return b.candidate(t);return FrostWorld.hostile(t,master)&&!(t instanceof org.slavicmyths.morozko.PlayerDouble)&&!(t instanceof org.slavicmyths.yaga.BabaYaga)&&!(t instanceof org.slavicmyths.bayun.BayunEntity);}
++ public boolean allowed(LivingEntity t){var master=master();if(master==null||t==null||!org.slavicmyths.combat.CombatTargeting.canAttack(master,t,org.slavicmyths.combat.CombatTargeting.Context.PROJECTILE)||t==this||t==master||t instanceof NightRaven||!t.isAlive())return false;if(master instanceof Karachun b)return b.candidate(t);if(t instanceof net.minecraft.world.entity.player.Player&&master.getLastHurtMob()!=t&&master.getLastHurtByMob()!=t)return false;return FrostWorld.hostile(t,master)&&!(t instanceof org.slavicmyths.morozko.PlayerDouble)&&!(t instanceof org.slavicmyths.yaga.BabaYaga)&&!(t instanceof org.slavicmyths.bayun.BayunEntity);}
+  private void state(int state){entityData.set(STATE,state);age=0;getNavigation().stop();}
+  @Override public void tick(){super.tick();if(level().isClientSide)return;var w=(ServerLevel)level();var master=master();if(master==null||!master.isAlive()||master instanceof ServerPlayer p&&(p.isSpectator()||p.hasDisconnected())||master instanceof Karachun b&&!b.fighting()&&b.phase()!=0||allied()&&--life<=0||distanceToSqr(master)>64*64){dispel();return;}age++;long now=w.getGameTime();if(tickCount%20==0){var t=getTarget();if(t==null||!allowed(t)||distanceToSqr(t)>1024){LivingEntity wanted=master.getLastHurtMob();if(!allowedNull(wanted))wanted=master.getLastHurtByMob();if(!allowedNull(wanted))wanted=w.getEntitiesOfClass(LivingEntity.class,master.getBoundingBox().inflate(28),this::allowed).stream().min(Comparator.comparingDouble(master::distanceToSqr)).orElse(null);setTarget(wanted);}}
+   var target=getTarget();if(state()==0){double angle=now*.025+slot*Math.PI/2;Vec3 at=master.position().add(Math.cos(angle)*5,4+Math.sin(angle*.6),Math.sin(angle)*5);move(at,.8);if(target!=null&&allowed(target)&&now>=nextDive&&hasLineOfSight(target)){divePoint=target.getBoundingBox().getCenter();state(1);NightContent.sound(this,"raven_dive");}if(tickCount%70==slot*3)NightContent.sound(this,"raven_flap");if(tickCount%220==slot*7)NightContent.sound(this,"raven_call");}
+--- a/src/main/java/org/slavicmyths/marinka/WitchBolt.java
++++ b/src/main/java/org/slavicmyths/marinka/WitchBolt.java
+@@ -10,13 +10,14 @@
+ /** Local segment collision, bounded flight and one reflection; not a homing invisible hit. */
+ public final class WitchBolt extends Projectile {
+  public UUID boss,arena,encounter;public int armingTicks=9;public float raw=17.5F;public boolean reflectable=true,reflected;private Vec3 launch=Vec3.ZERO;
++ private boolean permittedTarget(LivingEntity target){var caster=getOwner() instanceof LivingEntity owner?owner:activeBoss();return caster!=null&&org.slavicmyths.combat.CombatTargeting.canAttack(caster,target,org.slavicmyths.combat.CombatTargeting.Context.NATIVE_DAMAGE);}
+  public WitchBolt(EntityType<? extends WitchBolt> t,Level w){super(t,w);}
+  @Override protected void defineSynchedData(SynchedEntityData.Builder b){}
+  public MarinkaEntity activeBoss(){return level() instanceof ServerLevel w&&boss!=null&&w.getEntity(boss) instanceof MarinkaEntity m&&m.active?m:null;}
+  public void launch(Vec3 velocity){launch=velocity;setDeltaMovement(velocity);}
+  public boolean reflect(DobrynyaEntity h){var b=activeBoss();if(reflected||!reflectable||b==null)return false;reflected=true;setOwner(h);launch=b.position().add(0,1,0).subtract(position()).normalize().scale(.8);setDeltaMovement(launch);b.deflected(h);return true;}
+- @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w))return;var b=activeBoss();if(b==null||tickCount>80){discard();return;}if(tickCount<armingTicks&&!reflected)return;Vec3 from=position(),to=from.add(launch);if(!w.hasChunkAt(net.minecraft.core.BlockPos.containing(to))){discard();return;}var wall=w.clip(new net.minecraft.world.level.ClipContext(from,to,net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,this));double first=wall.getType()==HitResult.Type.MISS?2:from.distanceToSqr(wall.getLocation());LivingEntity hit=null;for(var e:w.getEntitiesOfClass(LivingEntity.class,getBoundingBox().expandTowards(launch).inflate(.25),e->e.isAlive()&&e!=getOwner()&&!(e instanceof HexAnchor)&&!(e instanceof TurMinion)&&(!(e instanceof MarinkaEntity)||reflected))){var contact=e.getBoundingBox().inflate(.15).clip(from,to);if(contact.isPresent()){double d=from.distanceToSqr(contact.get());if(d<first){first=d;hit=e;}}}
+-  if(hit!=null){if(reflected&&hit instanceof MarinkaEntity m){hit.hurt(hSource(),13);if(getOwner() instanceof DobrynyaEntity h)m.deflected(h);}else hit.hurt(MarinkaEntity.source(b,"fire"),raw);discard();return;}
++ @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w))return;var b=activeBoss();if(b==null||tickCount>80){discard();return;}if(tickCount<armingTicks&&!reflected)return;Vec3 from=position(),to=from.add(launch);if(!w.hasChunkAt(net.minecraft.core.BlockPos.containing(to))){discard();return;}var wall=w.clip(new net.minecraft.world.level.ClipContext(from,to,net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,this));double first=wall.getType()==HitResult.Type.MISS?2:from.distanceToSqr(wall.getLocation());LivingEntity hit=null;for(var e:w.getEntitiesOfClass(LivingEntity.class,getBoundingBox().expandTowards(launch).inflate(.25),e->e.isAlive()&&permittedTarget(e)&&e!=getOwner()&&!(e instanceof HexAnchor)&&!(e instanceof TurMinion)&&(!(e instanceof MarinkaEntity)||reflected))){var contact=e.getBoundingBox().inflate(.15).clip(from,to);if(contact.isPresent()){double d=from.distanceToSqr(contact.get());if(d<first){first=d;hit=e;}}}
++  if(hit!=null){if(reflected&&hit instanceof MarinkaEntity m){hit.hurt(hSource(),13);if(getOwner() instanceof DobrynyaEntity h)m.deflected(h);}else hit.hurt(reflected?hSource():MarinkaEntity.source(b,"fire"),raw);discard();return;}
+   if(wall.getType()!=HitResult.Type.MISS){if(!reflected){var rune=MarinkaContent.RUNE.get().create(w);rune.boss=boss;rune.arena=arena;rune.kind(2);rune.waitTicks=0;var pos=wall.getLocation();rune.moveTo(pos.x,pos.y+.02,pos.z);w.addFreshEntity(rune);}discard();return;}setPos(to);}
+  private net.minecraft.world.damagesource.DamageSource hSource(){return getOwner() instanceof LivingEntity h?h.damageSources().mobAttack(h):damageSources().magic();}
+  @Override protected void addAdditionalSaveData(CompoundTag n){if(boss!=null)n.putUUID("Boss",boss);if(arena!=null)n.putUUID("Arena",arena);}
+--- a/src/main/java/org/slavicmyths/marinka/WitchRune.java
++++ b/src/main/java/org/slavicmyths/marinka/WitchRune.java
+@@ -14,6 +14,6 @@
+  @Override protected void defineSynchedData(SynchedEntityData.Builder b){b.define(KIND,0);b.define(WAIT,35);}
+  public void kind(int k){entityData.set(KIND,k);}public int kind(){return entityData.get(KIND);}public int warning(){return entityData.get(WAIT);}
+  @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w))return;entityData.set(WAIT,waitTicks);var b=boss!=null&&w.getEntity(boss) instanceof MarinkaEntity m&&m.active?m:null;if(b==null||tickCount>waitTicks+(kind()==2?60:10)){discard();return;}boolean pulse=kind()==2?tickCount==20||tickCount==40||tickCount==60:tickCount==waitTicks;if(!pulse)return;if(kind()==1&&!b.burst())return;
+-  for(var target:w.getEntitiesOfClass(LivingEntity.class,new AABB(getX()-1.25,getY()-.3,getZ()-1.25,getX()+1.25,getY()+2.3,getZ()+1.25),e->e instanceof net.minecraft.world.entity.player.Player||e instanceof DobrynyaEntity)){if(!b.line(position().add(0,.4,0),target.position().add(0,.4,0)))continue;if(kind()!=2&&!hit.add(target.getUUID()))continue;if(kind()==2){var n=target.getPersistentData();if(n.getLong("WitchEmberLast")+20>w.getGameTime())continue;n.putLong("WitchEmberLast",w.getGameTime());target.hurt(target.damageSources().magic(),1);}else{target.hurt(MarinkaEntity.source(b,kind()==1?"rage":"trace"),kind()==1?17.5F:11.2F);if(kind()==0){target.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS,80));target.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN,40));}}}}
++  for(var target:w.getEntitiesOfClass(LivingEntity.class,new AABB(getX()-1.25,getY()-.3,getZ()-1.25,getX()+1.25,getY()+2.3,getZ()+1.25),e->e instanceof net.minecraft.world.entity.player.Player||e instanceof DobrynyaEntity)){if(!org.slavicmyths.combat.CombatTargeting.canAttack(b,target,org.slavicmyths.combat.CombatTargeting.Context.NATIVE_DAMAGE))continue;if(!b.line(position().add(0,.4,0),target.position().add(0,.4,0)))continue;if(kind()!=2&&!hit.add(target.getUUID()))continue;if(kind()==2){var n=target.getPersistentData();if(n.getLong("WitchEmberLast")+20>w.getGameTime())continue;n.putLong("WitchEmberLast",w.getGameTime());target.hurt(target.damageSources().magic(),1);}else{target.hurt(MarinkaEntity.source(b,kind()==1?"rage":"trace"),kind()==1?17.5F:11.2F);if(kind()==0){target.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS,80));target.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN,40));}}}}
+  @Override protected void addAdditionalSaveData(CompoundTag n){}@Override protected void readAdditionalSaveData(CompoundTag n){boss=null;}
+ }
+--- a/src/main/java/org/slavicmyths/military/GuardBehavior.java
++++ b/src/main/java/org/slavicmyths/military/GuardBehavior.java
+@@ -22,8 +22,8 @@
+  public static Item weapon(int kind){return switch(kind){case 0->ModItems.SPEAR.get();case 1->Items.IRON_SWORD;case 2->ModItems.BATTLE_AXE.get();case 3->Items.BOW;default->ModItems.RESTORED_SPEAR.get();};}
+  public static int archetype(UUID id){int roll=Math.floorMod(id.hashCode(),100);int total=0;for(int i=0;i<Military.ARCHETYPE_WEIGHTS.length;i++){total+=Military.ARCHETYPE_WEIGHTS[i];if(roll<total)return i;}return 4;}
+  public static boolean shield(int kind){return kind>=0&&kind<3;}
+- public static boolean hostile(Villager guard,LivingEntity e){if(e==guard||!e.isAlive()||e instanceof Villager||e instanceof net.minecraft.world.entity.animal.IronGolem||e instanceof WanderingTrader||e instanceof net.minecraft.world.entity.TamableAnimal||e instanceof net.minecraft.world.entity.monster.Creeper)return false;
+-  if(e instanceof Player p)return !p.isCreative()&&!p.isSpectator()&&(guard.getLastHurtByMob()==p||guard.getPlayerReputation(p)<=-100||guard.getPersistentData().getLong("GuardAggressorUntil")>guard.level().getGameTime()&&guard.getPersistentData().hasUUID("GuardAggressor")&&guard.getPersistentData().getUUID("GuardAggressor").equals(p.getUUID()));return e.getType().is(Military.HOSTILES)||e.getType().is(Military.BANDITS)||guard.getPersistentData().getLong("GuardAggressorUntil")>guard.level().getGameTime()&&guard.getPersistentData().hasUUID("GuardAggressor")&&guard.getPersistentData().getUUID("GuardAggressor").equals(e.getUUID());}
++ public static boolean hostile(Villager guard,LivingEntity e){if(!org.slavicmyths.combat.CombatTargeting.canAttack(guard,e)||e==guard||!e.isAlive()||e instanceof Villager||e instanceof net.minecraft.world.entity.animal.IronGolem||e instanceof WanderingTrader||e instanceof net.minecraft.world.entity.TamableAnimal||e instanceof net.minecraft.world.entity.monster.Creeper)return false;
++  if(e instanceof Player p)return !p.isCreative()&&!p.isSpectator()&&(guard.getLastHurtByMob()==p||guard.getPlayerReputation(p)<=-100||guard.getPersistentData().getLong("GuardAggressorUntil")>guard.level().getGameTime()&&guard.getPersistentData().hasUUID("GuardAggressor")&&guard.getPersistentData().getUUID("GuardAggressor").equals(p.getUUID()));return org.slavicmyths.combat.CombatTargeting.isThreatToSettlement(guard,e)||guard.getPersistentData().getLong("GuardAggressorUntil")>guard.level().getGameTime()&&guard.getPersistentData().hasUUID("GuardAggressor")&&guard.getPersistentData().getUUID("GuardAggressor").equals(e.getUUID());}
+  protected boolean checkExtraStartConditions(ServerLevel l,Villager v){return Military.guard(v);}
+  protected boolean canStillUse(ServerLevel l,Villager v,long t){return Military.guard(v);}
+  protected void start(ServerLevel l,Villager v,long t){v.getPersistentData().remove("GuardAllowDemotion");if(v.getData(Military.ARCHETYPE)<0)v.setData(Military.ARCHETYPE,archetype(v.getUUID()));var hp=v.getAttribute(Attributes.MAX_HEALTH);var id=VillageRoles.id("guard_health");if(hp!=null&&!hp.hasModifier(id)){hp.addPermanentModifier(new AttributeModifier(id,10,AttributeModifier.Operation.ADD_VALUE));v.setHealth(Math.min(v.getMaxHealth(),v.getHealth()+10));}var armor=v.getAttribute(Attributes.ARMOR);if(armor!=null&&!armor.hasModifier(VillageRoles.id("guard_armor")))armor.addPermanentModifier(new AttributeModifier(VillageRoles.id("guard_armor"),4,AttributeModifier.Operation.ADD_VALUE));}
+--- a/src/main/java/org/slavicmyths/mor/HigherMor.java
++++ b/src/main/java/org/slavicmyths/mor/HigherMor.java
+@@ -21,7 +21,7 @@
+  public HigherMor(LandSpiritEntity mob){this.mob=mob;}
+  public boolean phase(){return phase;}
+  public static boolean higher(LivingEntity e){return e instanceof LandSpiritEntity s&&s.mor.kind()>=5&&s.morState()==2;}
+- public static boolean enemy(LandSpiritEntity self,LivingEntity e){return e!=null&&e.isAlive()&&!self.isAlliedTo(e)&&(MorController.valid(e)||(e instanceof net.minecraft.world.entity.monster.Enemy||org.slavicmyths.bogatyr.HeroThreats.availableHero(e))&&!higher(e)&&!(e instanceof LandSpiritEntity s&&s.morState()!=0));}
++ public static boolean enemy(LandSpiritEntity self,LivingEntity e){return e!=null&&org.slavicmyths.combat.CombatTargeting.canAttack(self,e,org.slavicmyths.combat.CombatTargeting.Context.AREA)&&e.isAlive()&&!self.isAlliedTo(e)&&(MorController.valid(e)||(e instanceof net.minecraft.world.entity.monster.Enemy||org.slavicmyths.bogatyr.HeroThreats.availableHero(e))&&!higher(e)&&!(e instanceof LandSpiritEntity s&&s.morState()!=0));}
+  public void tick(){
+   if(mob.morState()!=2)return;
+   if(mob.tickCount%240==0)mob.playSound(mob.mor.kind()==5?SoundEvents.WITCH_AMBIENT:SoundEvents.RAVAGER_AMBIENT,.4F,.55F);
+--- a/src/main/java/org/slavicmyths/morozko/FrostWorld.java
++++ b/src/main/java/org/slavicmyths/morozko/FrostWorld.java
+@@ -6,7 +6,13 @@
+ public final class FrostWorld {
+  public static Vec3 safe(ServerLevel w,Vec3 origin,float width,float height,int radius){var base=BlockPos.containing(origin);for(int r=0;r<=radius;r++)for(int dx=-r;dx<=r;dx++)for(int dz=-r;dz<=r;dz++){if(Math.max(Math.abs(dx),Math.abs(dz))!=r)continue;for(int dy:new int[]{0,1,-1,2,-2}){var p=base.offset(dx,dy,dz);if(!w.hasChunkAt(p)||!w.hasChunkAt(p.above((int)Math.ceil(height)))||!w.getWorldBorder().isWithinBounds(p)||!w.getBlockState(p.below()).isFaceSturdy(w,p.below(),net.minecraft.core.Direction.UP)||w.getBlockEntity(p.below())!=null||!w.getFluidState(p).isEmpty())continue;var box=new AABB(p.getX()+.5-width/2,p.getY(),p.getZ()+.5-width/2,p.getX()+.5+width/2,p.getY()+height,p.getZ()+.5+width/2);if(w.noCollision(box)&&!w.containsAnyLiquid(box))return new Vec3(p.getX()+.5,p.getY(),p.getZ()+.5);}}return null;}
+  public static java.util.UUID owner(Entity e){return e instanceof net.minecraft.server.level.ServerPlayer p?p.getUUID():e instanceof PlayerDouble p?p.owner():org.slavicmyths.kalin.KalinParty.owner(e);}
+- public static boolean hostile(LivingEntity t,LivingEntity caster){if(!t.isAlive()||t==caster||t.isAlliedTo(caster)||java.util.Objects.equals(owner(t),owner(caster))&&owner(t)!=null)return false;if(t instanceof net.minecraft.world.entity.player.Player p)return caster instanceof net.minecraft.server.level.ServerPlayer a?a.canHarmPlayer(p):caster instanceof PlayerDouble d&&d.player()!=null&&d.player().canHarmPlayer(p);return t instanceof net.minecraft.world.entity.monster.Enemy||t instanceof Mob m&&m.getTarget()!=null&&(m.getTarget()==caster||java.util.Objects.equals(owner(m.getTarget()),owner(caster)));}
++ public static boolean hostile(LivingEntity t,LivingEntity caster){
++  if(t==null||caster==null)return false;
++  LivingEntity observer=caster instanceof PlayerDouble d&&d.player()!=null?d.player():caster;
++  if(t instanceof net.minecraft.world.entity.player.Player)return org.slavicmyths.combat.CombatTargeting.canAttack(observer,t,org.slavicmyths.combat.CombatTargeting.Context.NATIVE_DAMAGE);
++  return org.slavicmyths.combat.CombatTargeting.isEnemy(observer,t,org.slavicmyths.combat.CombatTargeting.Context.ACQUIRE);
++ }
++
+  public static double bboxDistance(Vec3 p,AABB b){double x=Math.clamp(p.x,b.minX,b.maxX),y=Math.clamp(p.y,b.minY,b.maxY),z=Math.clamp(p.z,b.minZ,b.maxZ);return p.distanceToSqr(new Vec3(x,y,z));}
+  public static boolean cone(LivingEntity from,LivingEntity to,double radius,double halfAngle){var v=to.getBoundingBox().getCenter().subtract(from.getEyePosition());return bboxDistance(from.getEyePosition(),to.getBoundingBox())<=radius*radius&&from.hasLineOfSight(to)&&from.getLookAngle().dot(v.normalize())>=Math.cos(Math.toRadians(halfAngle));}
+  private FrostWorld(){}
+--- a/src/main/java/org/slavicmyths/morozko/PlayerDouble.java
++++ b/src/main/java/org/slavicmyths/morozko/PlayerDouble.java
+@@ -21,7 +21,7 @@
+  public ServerPlayer player(){return level() instanceof ServerLevel w&&owner()!=null?w.getServer().getPlayerList().getPlayer(owner()):null;}
+  public void configure(ServerPlayer p){entityData.set(OWNER,Optional.of(p.getUUID()));entityData.set(OWNER_NAME,p.getName().getString());entityData.set(LEFT,p.getMainArm()==net.minecraft.world.entity.HumanoidArm.LEFT);for(var slot:EquipmentSlot.values()){var snapshot=p.getItemBySlot(slot).copy();boolean glint=snapshot.hasFoil();EnchantmentHelper.updateEnchantments(snapshot,m->m.removeIf(h->h.is(net.minecraft.world.item.enchantment.Enchantments.LOOTING)));if(glint&&!snapshot.hasFoil())snapshot.set(net.minecraft.core.component.DataComponents.ENCHANTMENT_GLINT_OVERRIDE,true);setItemSlot(slot,snapshot);}snapshotDamage=(float)p.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE);meleeInterval=Math.max(1,(int)Math.ceil(20/p.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_SPEED)));setHealth(FrostRules.MIRROR_HP);}
+  @Override public void tick(){super.tick();if(level().isClientSide)return;var p=player();if(restored||p==null||!p.isAlive()||p.level()!=level()||++life>FrostRules.MIRROR_LIFE){shatter();return;}if(life<13){if(life%3==0)FrostVisuals.burst((ServerLevel)level(),position().add(0,life/8.0,0),5);return;}setShiftKeyDown(p.isShiftKeyDown());setSprinting(p.isSprinting());if(tickCount%4==0){var side=new Vec3(Math.cos(Math.toRadians(p.getYRot()))*1.8,0,Math.sin(Math.toRadians(p.getYRot()))*1.8);var at=FrostWorld.safe((ServerLevel)level(),p.position().add(side),.6f,1.8f,1);if(at!=null)getNavigation().moveTo(at.x,at.y,at.z,p.isSprinting()?1.3:1);if(distanceToSqr(p)>32*32){var recovery=FrostWorld.safe((ServerLevel)level(),p.position().add(side),.6f,1.8f,3);if(recovery==null){shatter();return;}FrostVisuals.burst((ServerLevel)level(),position(),8);teleportTo(recovery.x,recovery.y,recovery.z);}if(p.getDeltaMovement().y>.2&&onGround())getJumpControl().jump();getLookControl().setLookAt(p.getEyePosition().add(p.getLookAngle().scale(5)).x,p.getEyePosition().add(p.getLookAngle().scale(5)).y,p.getEyePosition().add(p.getLookAngle().scale(5)).z,25,25);}if(p.isUsingItem()&&(getItemInHand(p.getUsedItemHand()).getItem() instanceof BowItem||getItemInHand(p.getUsedItemHand()).getItem() instanceof CrossbowItem||getItemInHand(p.getUsedItemHand()).getItem() instanceof ShieldItem))startUsingItem(p.getUsedItemHand());else stopUsingItem();}
+- public boolean allowedTarget(LivingEntity t){var p=player();if(p==null||t==p||t==this||!t.isAlive()||t.isAlliedTo(p)||java.util.Objects.equals(FrostWorld.owner(t),owner()))return false;return !(t instanceof net.minecraft.world.entity.player.Player target)||p.canHarmPlayer(target);}
++ public boolean allowedTarget(LivingEntity t){var p=player();if(p==null||t==null||!org.slavicmyths.combat.CombatTargeting.canAttack(p,t,org.slavicmyths.combat.CombatTargeting.Context.PROJECTILE)||t==p||t==this||!t.isAlive()||t.isAlliedTo(p)||java.util.Objects.equals(FrostWorld.owner(t),owner()))return false;return !(t instanceof net.minecraft.world.entity.player.Player target)||p.canHarmPlayer(target);}
+  public void mirrorHit(LivingEntity target,int attackSequence,boolean ranged){if(attackSequence<=sequence||life<13)return;sequence=attackSequence;var p=player();if(p==null||!target.isAlive()||target==p||!allowedTarget(target))return;getLookControl().setLookAt(target,180,180);setYRot((float)(Math.atan2(target.getZ()-getZ(),target.getX()-getX())*180/Math.PI)-90);swing(net.minecraft.world.InteractionHand.MAIN_HAND,true);if(!hasLineOfSight(target))return;long now=level().getGameTime();if(now-lastMelee<meleeInterval)return;lastMelee=now;if(ranged){if(FrostWorld.bboxDistance(getEyePosition(),target.getBoundingBox())>24*24)return;net.minecraft.world.entity.projectile.AbstractArrow arrow;if(getMainHandItem().getItem() instanceof org.slavicmyths.combat.ThrowingWeaponItem weapon){arrow=new org.slavicmyths.combat.WeaponProjectile(level(),this,getMainHandItem().copy(),weapon.knife,false);}else if(getMainHandItem().getItem() instanceof TridentItem){arrow=new net.minecraft.world.entity.projectile.ThrownTrident(level(),this,getMainHandItem().copy());}else if(getMainHandItem().getItem() instanceof BowItem||getMainHandItem().getItem() instanceof CrossbowItem){arrow=new net.minecraft.world.entity.projectile.Arrow(level(),this,new ItemStack(Items.ARROW),getMainHandItem());}else return;arrow.pickup=net.minecraft.world.entity.projectile.AbstractArrow.Pickup.DISALLOWED;arrow.setBaseDamage(rangedBase);arrow.setCritArrow(rangedCritical);var aim=target.getBoundingBox().getCenter().subtract(arrow.position());arrow.shoot(aim.x,aim.y+aim.horizontalDistance()*.04,aim.z,(float)rangedSpeed,0);level().addFreshEntity(arrow);arrows.add(arrow.getUUID());return;}if(FrostWorld.bboxDistance(getEyePosition(),target.getBoundingBox())>9)return;var source=org.slavicmyths.combat.MythDamageSources.caused("morozko_mirror",this);float scale=Math.clamp(p.getPersistentData().getFloat("FrostAttackScale"),0,1);float damage=EnchantmentHelper.modifyDamage((ServerLevel)level(),getMainHandItem(),target,source,snapshotDamage*(.2f+scale*scale*.8f));if(p.getPersistentData().getBoolean("FrostCritical")&&scale>.9f)damage*=1.5f;if(target.hurt(source,damage)){EnchantmentHelper.doPostAttackEffectsWithItemSource((ServerLevel)level(),target,source,getMainHandItem());FrostEvents.proc(this,target);}}
+  public void ranged(net.minecraft.world.entity.projectile.AbstractArrow original){rangedBase=original.getBaseDamage();rangedSpeed=Math.max(.1,original.getDeltaMovement().length());rangedCritical=original.isCritArrow();}
+  @Override public void remove(RemovalReason reason){if(level() instanceof ServerLevel w)for(var id:arrows){var arrow=w.getEntity(id);if(arrow!=null)arrow.discard();}super.remove(reason);}
+--- a/src/main/java/org/slavicmyths/nochnitsa/NochnitsaHorde.java
++++ b/src/main/java/org/slavicmyths/nochnitsa/NochnitsaHorde.java
+@@ -21,7 +21,7 @@
+     private record Alert(UUID target,long expires,long written){}
+     private static final Map<Mob,Alert> memories=new WeakHashMap<>();
+     public static boolean species(Mob m){return m instanceof Monster&&!(m instanceof NochnitsaEntity)&&!(m instanceof org.slavicmyths.underground.RoomBoss)&&!(m instanceof org.slavicmyths.industry.ChudPerson)&&!m.getType().is(OminousAura.IMMUNE)&&m.getMaxHealth()<=50&&(m instanceof Zombie||m instanceof AbstractSkeleton||m instanceof Spider||m instanceof Witch||m instanceof Creeper||m instanceof AbstractIllager||m.getType().is(RECRUITABLE));}
+-    public static boolean legal(Mob m,LivingEntity t){if(t==null||!t.isAlive()||m.level()!=t.level()||m.isAlliedTo(t)||!m.canAttack(t))return false;
++    public static boolean legal(Mob m,LivingEntity t){if(t==null||!org.slavicmyths.combat.CombatTargeting.canAttack(m,t,org.slavicmyths.combat.CombatTargeting.Context.NATIVE_HUNT)||!t.isAlive()||m.level()!=t.level()||m.isAlliedTo(t)||!m.canAttack(t))return false;
+         if(m instanceof NeutralMob n&&!n.isAngryAt(t))return false;
+         if(t instanceof Player p)return !p.isCreative()&&!p.isSpectator()&&!OminousAura.ignores(m,p);
+         return t instanceof Villager&&(m instanceof Zombie||m instanceof AbstractIllager||m.getType().is(VILLAGER_HUNTERS));
+--- a/src/main/java/org/slavicmyths/poloz/PolozMinions.java
++++ b/src/main/java/org/slavicmyths/poloz/PolozMinions.java
+@@ -1,6 +1,6 @@
+ package org.slavicmyths.poloz;
+ import net.minecraft.world.entity.*;
+ public final class PolozMinions {
+- public static boolean enemy(org.slavicmyths.entity.LandSpiritEntity minion,LivingEntity other){return minion.getPersistentData().hasUUID("summonedByPolozUUID")&&other instanceof Mob m&&m.getTarget()==minion&&!(other instanceof GreatPoloz)&&!(other instanceof org.slavicmyths.entity.LandSpiritEntity s&&s.morState()!=0)&&!other.getPersistentData().hasUUID("summonedByPolozUUID");}
++ public static boolean enemy(org.slavicmyths.entity.LandSpiritEntity minion,LivingEntity other){return org.slavicmyths.combat.CombatTargeting.canAttack(minion,other,org.slavicmyths.combat.CombatTargeting.Context.RETALIATION)&&minion.getPersistentData().hasUUID("summonedByPolozUUID")&&other instanceof Mob m&&m.getTarget()==minion&&!(other instanceof GreatPoloz)&&!(other instanceof org.slavicmyths.entity.LandSpiritEntity s&&s.morState()!=0)&&!other.getPersistentData().hasUUID("summonedByPolozUUID");}
+  private PolozMinions(){}
+ }
+--- a/src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java
++++ b/src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java
+@@ -48,7 +48,7 @@
+             case "banner_of_druzhina"->{t=target(p,10);a.target=t==null?null:t.getUUID();a.members.add(p.getUUID());for(var ally:p.level().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(10),v->v!=p&&v.isAlive()&&friendly(p,v)&&p.distanceToSqr(v)<=100&&p.hasLineOfSight(v)).stream().sorted(Comparator.comparingDouble(p::distanceToSqr)).limit(5).toList()){a.members.add(ally.getUUID());if(ally instanceof Mob mob&&!(ally instanceof Villager)&&t!=null&&CombatTargeting.canAttack(mob,t)){a.previous.put(mob.getUUID(),mob.getTarget()==null?new UUID(0,0):mob.getTarget().getUUID());mob.setTarget(t);}}}
+             case "sacred_circle"->{}
+             case "living_water"->{boolean changed=false;var allies=p.level().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(8),v->v.isAlive()&&friendly(p,v)&&p.distanceToSqr(v)<=64&&p.hasLineOfSight(v)).stream().sorted(Comparator.comparingDouble(p::distanceToSqr)).limit(5).toList();for(var ally:allies){float before=ally.getHealth();ally.heal(6);changed|=ally.getHealth()>before;for(var effect:List.copyOf(ally.getActiveEffects()))if(cleanseable(effect)){changed|=ally.removeEffect(effect.getEffect());break;}}if(!changed){feedback(p,"target");return false;}}
+-            case "plague_seal","blood_mark","vulnerable_point"->{t=target(p,u.range());if(t==null||u.skill().equals("blood_mark")&&(t.getType().is(net.minecraft.tags.EntityTypeTags.UNDEAD)||t.getType().is(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE,ClassState.id("class_bloodless"))))){feedback(p,"target");return false;}a.target=t.getUUID();if(u.skill().equals("vulnerable_point"))p.serverLevel().sendParticles(ParticleTypes.CRIT,t.getX(),t.getEyeY(),t.getZ(),12,.2,.2,.2,0);}
++            case "plague_seal","blood_mark","vulnerable_point"->{t=target(p,u.range());if(t==null||u.skill().equals("blood_mark")&&!org.slavicmyths.combat.CreatureProperties.canBleed(t)){feedback(p,"target");return false;}a.target=t.getUUID();if(u.skill().equals("vulnerable_point"))p.serverLevel().sendParticles(ParticleTypes.CRIT,t.getX(),t.getEyeY(),t.getZ(),12,.2,.2,.2,0);}
+             case "shadow_pact"->{t=target(p,12);if(t==null){feedback(p,"target");return false;}if(p.getHealth()<8){feedback(p,"health");return false;}a.target=t.getUUID();a.last=p.getEyePosition();a.direction=t.getBoundingBox().getCenter().subtract(a.last).normalize();a.until=a.start+20;
+                 // Resource expenditure, not a damage attack: exactly 4 HP, no death or armour bypass attack.
+                 p.setHealth(p.getHealth()-4);}
+@@ -72,7 +72,7 @@
+         if(a.skill.equals("shadow_pact")){Vec3 end=a.last.add(a.direction.scale(1.25));var block=p.level().clip(new net.minecraft.world.level.ClipContext(a.last,end,net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,p));var impact=block.getLocation();LivingEntity collision=null;double distance=a.last.distanceToSqr(impact);for(var t:enemies(p,a.last,3,16)){var clip=t.getBoundingBox().inflate(.2).clip(a.last,end);if(clip.isPresent()&&a.last.distanceToSqr(clip.get())<=distance){impact=clip.get();distance=a.last.distanceToSqr(impact);collision=t;}}p.serverLevel().sendParticles(ParticleTypes.SMOKE,end.x,end.y,end.z,3,.05,.05,.05,0);if(collision!=null||block.getType()!=HitResult.Type.MISS){for(var t:enemies(p,impact,2.5,4))hit(p,t,10,true);clear(p);return;}a.last=end;return;}
+         if(now%40==0&&(a.skill.equals("plague_seal")||a.skill.equals("blood_mark"))){var e=p.serverLevel().getEntity(a.target);if(!(e instanceof LivingEntity t)||!hostile(p,t)||p.distanceToSqr(t)>256){clear(p);return;}
+             if(a.skill.equals("plague_seal")){hit(p,t,1,true);for(var nearby:enemies(p,t.position(),3,4))nearby.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,45,0));}
+-            else if(a.charges>0&&a.pool>0){float amount=Math.min(2,a.pool);if(hit(p,t,ClassControl.resistant(t)?Math.min(1,amount):amount,true)){a.pool-=amount;a.bleedDealt+=amount;}}
++            else if(org.slavicmyths.combat.CreatureProperties.canBleed(t)&&a.charges>0&&a.pool>0){float amount=Math.min(2,a.pool);if(hit(p,t,ClassControl.resistant(t)?Math.min(1,amount):amount,true)){a.pool-=amount;a.bleedDealt+=amount;}}
+             visual(p,t.position(),a.skill);
+         }
+         if(now%20==0&&(a.skill.equals("sacred_circle")||a.skill.equals("living_wall")||a.skill.equals("banner_of_druzhina")||a.skill.equals("false_ambush")))visual(p,a.origin,a.skill);
+--- a/src/main/java/org/slavicmyths/underground/EncounterMob.java
++++ b/src/main/java/org/slavicmyths/underground/EncounterMob.java
+@@ -28,9 +28,10 @@
+  public void bind(BlockPos p,String key){home=p.immutable();encounterKey=key;restrictTo(home,leash());}
+  protected int leash(){return 22;}
+  protected boolean neutral(){return false;}
++ public boolean combatNeutral(){return neutral();}
+  public boolean isAlliedTo(Entity e){return e instanceof EncounterMob||super.isAlliedTo(e);}
+  protected void registerGoals(){goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new Goal(){ {setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}public boolean canUse(){return action()!=Action.IDLE||getTarget()!=null;}public void tick(){if(action()!=Action.IDLE){getNavigation().stop();return;}if(validTarget(getTarget())){getLookControl().setLookAt(getTarget(),25,25);getNavigation().moveTo(getTarget(),1);} }});goalSelector.addGoal(3,new MoveTowardsRestrictionGoal(this,.85));goalSelector.addGoal(5,new WaterAvoidingRandomStrollGoal(this,.6));goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,8));goalSelector.addGoal(7,new RandomLookAroundGoal(this));targetSelector.addGoal(1,new HurtByTargetGoal(this));if(!neutral()){targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Player.class,true));targetSelector.addGoal(3,new NearestAttackableTargetGoal<>(this,ChudPerson.class,true));}}
+- protected boolean validTarget(LivingEntity t){return t!=null&&t.isAlive()&&t.level()==level()&&!(t instanceof Player p&&(p.isCreative()||p.isSpectator()))&&(home==null||t.distanceToSqr(home.getCenter())<=leash()*leash());}
++ protected boolean validTarget(LivingEntity t){return t!=null&&org.slavicmyths.combat.CombatTargeting.canAttack(this,t,org.slavicmyths.combat.CombatTargeting.Context.NATIVE_HUNT)&&t.isAlive()&&t.level()==level()&&!(t instanceof Player p&&(p.isCreative()||p.isSpectator()))&&(home==null||t.distanceToSqr(home.getCenter())<=leash()*leash());}
+  protected boolean ready(Action a){return cooldowns.getOrDefault(a,0)<=0;}
+  protected void begin(Action a,int ticks){entityData.set(STATE,a.ordinal());entityData.set(START,level().getGameTime());elapsed=0;duration=ticks;var t=getTarget();aim=t==null?position().add(getLookAngle().scale(3)):t.position();getNavigation().stop();}
+  protected void finish(Action a,int cd,int recovery){cooldowns.put(a,cd);begin(Action.RECOVER,recovery);}
+--- a/src/main/java/org/slavicmyths/village/mixin/BossGolemTargetMixin.java
++++ b/src/main/java/org/slavicmyths/village/mixin/BossGolemTargetMixin.java
+@@ -15,7 +15,7 @@
+     @Inject(method="registerGoals",at=@At("TAIL"))
+     private void slavicBossThreat(CallbackInfo callback){
+         IronGolem golem=(IronGolem)(Object)this;
+-        golem.targetSelector.addGoal(3,new NearestAttackableTargetGoal<>(golem,WorldBoss.class,5,false,false,
+-            entity->entity instanceof WorldBoss boss&&boss.kind()==BossKind.TUGARIN));
++        golem.targetSelector.addGoal(3,new NearestAttackableTargetGoal<>(golem,net.minecraft.world.entity.LivingEntity.class,5,true,false,
++            entity->!(entity instanceof net.minecraft.world.entity.monster.Creeper)&&org.slavicmyths.combat.CombatTargeting.isThreatToSettlement(golem,entity)){public boolean canContinueToUse(){return super.canContinueToUse()&&org.slavicmyths.combat.CombatTargeting.isThreatToSettlement(golem,golem.getTarget());}});
+     }
+ }
+--- a/src/main/java/org/slavicmyths/wolf/WolfBleeding.java
++++ b/src/main/java/org/slavicmyths/wolf/WolfBleeding.java
+@@ -7,7 +7,7 @@
+ public final class WolfBleeding extends MobEffect {
+  public WolfBleeding(){super(MobEffectCategory.HARMFUL,0x981f2c);}
+  public static void apply(net.minecraft.world.entity.LivingEntity wolf,ServerPlayer target){
+-  if(target.isCreative()||target.isSpectator()||!target.isAlive()||target.getType().is(org.slavicmyths.combat.CutEffect.IMMUNE))return;
++  if(target.isCreative()||target.isSpectator()||!target.isAlive()||!org.slavicmyths.combat.CreatureProperties.canBleed(target))return;
+   var old=RareBleedEffect.current(target);var d=target.getPersistentData();long now=org.slavicmyths.combat.RareCombat.now(target);
+   if(old==null){for(String key:new String[]{"RareBleedNative","RareBleedRune","RareBleedNativeUntil","RareBleedRuneUntil","RareBleedWolfStacks","RareBleedWolfUntil"})d.remove(key);d.putLong("RareBleedPulse",now+40);}
+   int strong=d.getLong("RareBleedWolfUntil")>now?d.getInt("RareBleedWolfStacks"):0;strong=Math.min(3,strong+1);d.putInt("RareBleedWolfStacks",strong);d.putLong("RareBleedWolfUntil",now+160);d.putUUID("RareBleedWolfActor",wolf.getUUID());d.putBoolean("RareBleedSources",true);
+--- a/src/main/resources/META-INF/neoforge.mods.toml
++++ b/src/main/resources/META-INF/neoforge.mods.toml
+@@ -40,3 +40,6 @@
+ versionRange="[19,20)"
+ ordering="AFTER"
+ side="CLIENT"
++
++[[mixins]]
++config="slavicmyths.physiology.mixins.json"
+--- a/src/main/resources/data/minecraft/tags/damage_type/is_fire.json
++++ b/src/main/resources/data/minecraft/tags/damage_type/is_fire.json
+@@ -6,6 +6,7 @@
+     "slavicmyths:ovinnik_trail",
+     "slavicmyths:ember_projectile",
+     "slavicmyths:guardian_fire",
+-    "slavicmyths:gorynych_fire"
++    "slavicmyths:gorynych_fire",
++    "slavicmyths:marinka_fire"
+   ]
+ }
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/combat_proxy.json
+@@ -0,0 +1,10 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:guardian_water_prison",
++    "slavicmyths:kartaus_banner",
++    "slavicmyths:kartaus_curse_anchor",
++    "slavicmyths:marinka_hex_focus",
++    "slavicmyths:serpent_projection"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/nature_animal.json
+@@ -0,0 +1,26 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:bear_cub",
++    "slavicmyths:boar",
++    "slavicmyths:brown_bear",
++    "slavicmyths:carp",
++    "slavicmyths:crayfish",
++    "slavicmyths:doe",
++    "slavicmyths:forest_wolf",
++    "slavicmyths:kalin_war_horse",
++    "slavicmyths:pike",
++    "slavicmyths:sivka_burka",
++    "slavicmyths:stag",
++    "slavicmyths:karachun_raven",
++    "minecraft:wolf",
++    "minecraft:bat",
++    "minecraft:spider",
++    "minecraft:cave_spider",
++    "minecraft:ravager",
++    "minecraft:silverfish",
++    "minecraft:endermite",
++    "minecraft:guardian",
++    "minecraft:elder_guardian"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/nature_construct.json
+@@ -0,0 +1,11 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:earth_servant",
++    "slavicmyths:kartaus_banner",
++    "slavicmyths:kartaus_curse_anchor",
++    "slavicmyths:marinka_hex_focus",
++    "minecraft:iron_golem",
++    "minecraft:snow_golem"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/nature_elemental.json
+@@ -0,0 +1,14 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:extinguished_flame_guardian",
++    "slavicmyths:fire_serpent",
++    "slavicmyths:guardian_water_echo",
++    "slavicmyths:morozko_ice_double",
++    "slavicmyths:player_ice_double",
++    "slavicmyths:guardian_water_prison",
++    "minecraft:blaze",
++    "minecraft:breeze",
++    "minecraft:magma_cube"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/nature_humanoid.json
+@@ -0,0 +1,39 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:alyosha_popovich",
++    "slavicmyths:ataman",
++    "slavicmyths:baba_yaga",
++    "slavicmyths:bandit_archer",
++    "slavicmyths:bandit_fighter",
++    "slavicmyths:bandit_heavy",
++    "slavicmyths:bandit_senior",
++    "slavicmyths:dobrynya_nikitich",
++    "slavicmyths:finist",
++    "slavicmyths:ilya_muromets",
++    "slavicmyths:kalin_common_soldier",
++    "slavicmyths:kalin_elite_soldier",
++    "slavicmyths:kalin_tsar",
++    "slavicmyths:kartaus",
++    "slavicmyths:kladovik",
++    "slavicmyths:large_podzemnik",
++    "slavicmyths:marinka",
++    "slavicmyths:nightingale",
++    "slavicmyths:pesigolovets",
++    "slavicmyths:podzemnik",
++    "slavicmyths:chud_resident",
++    "slavicmyths:chud_artisan",
++    "slavicmyths:chud_guard",
++    "minecraft:player",
++    "minecraft:villager",
++    "minecraft:wandering_trader",
++    "minecraft:pillager",
++    "minecraft:vindicator",
++    "minecraft:evoker",
++    "minecraft:illusioner",
++    "minecraft:witch",
++    "minecraft:piglin",
++    "minecraft:piglin_brute",
++    "minecraft:enderman"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/nature_mythical_beast.json
+@@ -0,0 +1,17 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:cursed_volkolak",
++    "slavicmyths:firebird",
++    "slavicmyths:great_poloz",
++    "slavicmyths:grey_wolf",
++    "slavicmyths:idolishche_poganoe",
++    "slavicmyths:kot_bayun",
++    "slavicmyths:skim_beast",
++    "slavicmyths:tugarin_zmey",
++    "slavicmyths:volkolak",
++    "slavicmyths:zmey_gorynych",
++    "slavicmyths:grey_wolf_support",
++    "slavicmyths:marinka_tur_minion"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/nature_plant.json
+@@ -0,0 +1,4 @@
++{
++  "replace": false,
++  "values": []
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/nature_spirit.json
+@@ -0,0 +1,28 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:bannik",
++    "slavicmyths:bolotnik",
++    "slavicmyths:defiled_spring_keeper",
++    "slavicmyths:domovoy",
++    "slavicmyths:earth_spirit",
++    "slavicmyths:elder_vodyanoy",
++    "slavicmyths:igosha",
++    "slavicmyths:karachun",
++    "slavicmyths:kikimora",
++    "slavicmyths:kuzya",
++    "slavicmyths:leshy",
++    "slavicmyths:likho_one_eyed",
++    "slavicmyths:morozko",
++    "slavicmyths:nochnitsa",
++    "slavicmyths:ovinnik",
++    "slavicmyths:podvey",
++    "slavicmyths:polevik",
++    "slavicmyths:poludnitsa",
++    "slavicmyths:rusalka",
++    "slavicmyths:vodyanoy",
++    "minecraft:vex",
++    "minecraft:allay",
++    "minecraft:ghast"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/nature_undead.json
+@@ -0,0 +1,12 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:buried_volkhv",
++    "slavicmyths:kurgan_druzhinnik",
++    "slavicmyths:kurgan_voevoda",
++    "slavicmyths:nav",
++    "slavicmyths:unresting_prince",
++    "slavicmyths:upyr",
++    "#minecraft:undead"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/trait_bloodless.json
+@@ -0,0 +1,6 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:serpent_projection"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/trait_boss.json
+@@ -0,0 +1,18 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:morozko",
++    "slavicmyths:karachun",
++    "slavicmyths:extinguished_flame_guardian",
++    "slavicmyths:defiled_spring_keeper",
++    "slavicmyths:zmey_gorynych",
++    "slavicmyths:great_poloz",
++    "slavicmyths:cursed_volkolak",
++    "slavicmyths:idolishche_poganoe",
++    "slavicmyths:skim_beast",
++    "slavicmyths:marinka",
++    "slavicmyths:kartaus",
++    "slavicmyths:kalin_tsar",
++    "slavicmyths:tugarin_zmey"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/trait_control_resistant.json
+@@ -0,0 +1,6 @@
++{
++  "replace": false,
++  "values": [
++    "#slavicmyths:class_control_resistant"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/trait_earth_affinity.json
+@@ -0,0 +1,7 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:earth_spirit",
++    "slavicmyths:earth_servant"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/trait_fire_affinity.json
+@@ -0,0 +1,8 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:ovinnik",
++    "slavicmyths:fire_serpent",
++    "slavicmyths:firebird"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/trait_ice_affinity.json
+@@ -0,0 +1,9 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:morozko",
++    "slavicmyths:karachun",
++    "slavicmyths:morozko_ice_double",
++    "slavicmyths:player_ice_double"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/trait_projection.json
+@@ -0,0 +1,6 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:serpent_projection"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/trait_silver_vulnerable.json
+@@ -0,0 +1,6 @@
++{
++  "replace": false,
++  "values": [
++    "#slavicmyths:silver_vulnerable"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/trait_story_protected.json
+@@ -0,0 +1,13 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:grey_wolf",
++    "slavicmyths:grey_wolf_support",
++    "slavicmyths:firebird",
++    "slavicmyths:baba_yaga",
++    "slavicmyths:kot_bayun",
++    "slavicmyths:kuzya",
++    "slavicmyths:domovoy",
++    "slavicmyths:sivka_burka"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/trait_summoned.json
+@@ -0,0 +1,16 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:earth_servant",
++    "slavicmyths:guardian_water_echo",
++    "slavicmyths:morozko_ice_double",
++    "slavicmyths:player_ice_double",
++    "slavicmyths:marinka_tur_minion",
++    "slavicmyths:karachun_raven",
++    "slavicmyths:grey_wolf_support",
++    "slavicmyths:guardian_water_prison",
++    "slavicmyths:kartaus_banner",
++    "slavicmyths:kartaus_curse_anchor",
++    "slavicmyths:marinka_hex_focus"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/data/slavicmyths/tags/entity_type/trait_water_affinity.json
+@@ -0,0 +1,12 @@
++{
++  "replace": false,
++  "values": [
++    "slavicmyths:defiled_spring_keeper",
++    "slavicmyths:vodyanoy",
++    "slavicmyths:elder_vodyanoy",
++    "slavicmyths:rusalka",
++    "slavicmyths:bolotnik",
++    "slavicmyths:guardian_water_echo",
++    "slavicmyths:guardian_water_prison"
++  ]
++}
+--- /dev/null
++++ b/src/main/resources/slavicmyths.physiology.mixins.json
+@@ -0,0 +1,12 @@
++{
++  "required": true,
++  "minVersion": "0.8",
++  "package": "org.slavicmyths.combat.mixin",
++  "compatibilityLevel": "JAVA_21",
++  "mixins": [
++    "PoisonPhysiologyMixin"
++  ],
++  "injectors": {
++    "defaultRequire": 1
++  }
++}

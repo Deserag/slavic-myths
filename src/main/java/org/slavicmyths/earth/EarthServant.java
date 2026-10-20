@@ -13,6 +13,7 @@ import net.minecraft.world.phys.AABB;
 public final class EarthServant extends Monster {
     private static final EntityDataAccessor<Integer> STATE=SynchedEntityData.defineId(EarthServant.class,EntityDataSerializers.INT),VARIANT=SynchedEntityData.defineId(EarthServant.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Long> START=SynchedEntityData.defineId(EarthServant.class,EntityDataSerializers.LONG);
+    public UUID combatOwner(){return owner;}
     private UUID owner,arena;private BlockPos home;private int attackIn=32,collapseIn=-1,idleIn=260;
     public EarthServant(EntityType<? extends Monster> t,Level w){super(t,w);setPersistenceRequired();xpReward=0;getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(EarthRules.SERVANT_HEALTH);setHealth((float)EarthRules.SERVANT_HEALTH);}
     @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(STATE,0);b.define(VARIANT,0);b.define(START,0L);}

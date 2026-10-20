@@ -1,0 +1,10 @@
+{
+  "status": "PASS_SOURCE_ONLY",
+  "changed_production_files": 49,
+  "existing_before_bytes_match_baseline": true,
+  "no_deleted_production_files": true,
+  "hero_lifecycle_and_real_greywolf_unchanged": true,
+  "legacy_tags_unchanged": true,
+  "silver_and_control_formulas_unchanged": true,
+  "runtime": "NOT_RUN"
+}

@@ -7,7 +7,10 @@ SPECIES=('linden','rowan','willow','pine')
 KINDS=('log','wood','stripped_log','stripped_wood','planks','leaves','sapling','stairs','slab','fence','fence_gate','door','trapdoor','pressure_plate','button','sign','wall_sign')
 PALETTES=[((113,105,86),(217,187,125),(71,120,44)),((121,111,99),(178,133,99),(74,119,48)),((96,96,74),(174,166,114),(91,119,65)),((147,82,43),(174,126,64),(54,97,48))]
 def tint(c,n):return tuple(max(0,min(255,v+n)) for v in c)+(255,)
-def texture(name,fn,w=16,h=16,folder='block'):png(A/f'textures/{folder}/{name}.png',w,h,fn)
+def texture(name,fn,w=16,h=16,folder='block'):
+ from plants82_assets import write_owned
+ p=A/f'textures/{folder}/{name}.png'
+ if not write_owned(p):png(p,w,h,fn)
 def pixel_textures(s,i):
  bark,wood,leaf=PALETTES[i]
  # Authored repeatable motifs, no sampled vanilla images or hue shifted leaves.

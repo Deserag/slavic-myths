@@ -30,8 +30,7 @@ public final class SkimModel<T extends SkimActor> extends EntityModel<T> {
     case RETREAT->{x("body",14);x("right_shoulder",-50);x("left_shoulder",-25);}
     case DRINK,REST->{nodes.get("hips").y+=5;x("right_thigh",-60);x("right_shin",100);x("left_thigh",-25);x("left_shin",80);if(a==SkimAction.DRINK){x("right_shoulder",-120*(ramp(t,5,16)-ramp(t,30,46)));x("flask",45*(ramp(t,16,18)-ramp(t,30,46)));}}
     case HURT->{x("body",Mth.sin(t*.4F)*-8);}
-    case ARRIVE->{root.yScale=ramp(t,0,20);}
-    case RECALL->{root.yScale=1-ramp(t,0,18);}
+    case ARRIVE,RECALL->{}
     default->{}
    }
   }

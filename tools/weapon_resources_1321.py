@@ -66,7 +66,9 @@ def icon(kind,dark='#8f9294',light='#e2e3dc',pull=0):
   d.polygon([(7,14),(20,9),(26,13),(12,19)],fill=edge);line([(9,14),(20,11),(24,13),(12,17)],dark,3);line([(10,13),(20,10)],light)
  return im
 def asset(id,kind,dark,light):
- p=RES/f'assets/slavicmyths/textures/item/{id}.png';p.parent.mkdir(parents=True,exist_ok=True);icon(kind,dark,light).save(p)
+ p=RES/f'assets/slavicmyths/textures/item/{id}.png';p.parent.mkdir(parents=True,exist_ok=True);
+ from materials81_m1 import write_owned
+ if not write_owned(p): icon(kind,dark,light).save(p)
  model={'parent':'minecraft:item/handheld' if kind in TYPES else 'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/'+id}}
  if kind in TYPES:
   scale={'spear':1.3,'sulitsa':1.05,'flail':1,'throwing_knife':.7}[kind]

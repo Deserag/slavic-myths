@@ -15,7 +15,7 @@ public abstract class BossGolemTargetMixin {
     @Inject(method="registerGoals",at=@At("TAIL"))
     private void slavicBossThreat(CallbackInfo callback){
         IronGolem golem=(IronGolem)(Object)this;
-        golem.targetSelector.addGoal(3,new NearestAttackableTargetGoal<>(golem,WorldBoss.class,5,false,false,
-            entity->entity instanceof WorldBoss boss&&boss.kind()==BossKind.TUGARIN));
+        golem.targetSelector.addGoal(3,new NearestAttackableTargetGoal<>(golem,net.minecraft.world.entity.LivingEntity.class,5,true,false,
+            entity->!(entity instanceof net.minecraft.world.entity.monster.Creeper)&&org.slavicmyths.combat.CombatTargeting.isThreatToSettlement(golem,entity)){public boolean canContinueToUse(){return super.canContinueToUse()&&org.slavicmyths.combat.CombatTargeting.isThreatToSettlement(golem,golem.getTarget());}});
     }
 }

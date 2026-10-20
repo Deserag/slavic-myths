@@ -1,0 +1,37 @@
+{
+  "production": [
+    "gradle.properties",
+    "src/main/java/org/slavicmyths/bogatyr/BogatyrEvents.java",
+    "src/main/java/org/slavicmyths/bogatyr/BogatyrLedger.java",
+    "src/main/java/org/slavicmyths/bogatyr/HeroThreats.java",
+    "src/main/java/org/slavicmyths/bogatyr/IlyaEntity.java",
+    "src/main/java/org/slavicmyths/client/HeroHud.java",
+    "src/main/java/org/slavicmyths/client/SkimModel.java",
+    "src/main/java/org/slavicmyths/finist/FinistEntity.java",
+    "src/main/java/org/slavicmyths/finist/FinistEvents.java",
+    "src/main/java/org/slavicmyths/kalin/KalinParty.java",
+    "src/main/java/org/slavicmyths/marinka/DobrynyaEntity.java",
+    "src/main/java/org/slavicmyths/marinka/WitchYard.java",
+    "src/main/java/org/slavicmyths/skim/AlyoshaArrow.java",
+    "src/main/java/org/slavicmyths/skim/AlyoshaEntity.java",
+    "src/main/java/org/slavicmyths/skim/HeroCalls.java",
+    "src/main/java/org/slavicmyths/skim/SkimEvents.java",
+    "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "src/main/java/org/slavicmyths/skim/HeroLease.java",
+    "src/main/java/org/slavicmyths/skim/HeroLifecycleNetwork.java"
+  ],
+  "tools": [
+    "tools/bogatyr78-native.init.gradle",
+    "tools/bogatyr78-native/Bogatyr78Checks.java",
+    "tools/bogatyr78-native/SkimModelBefore78.java",
+    "tools/bogatyr78_previews.py",
+    "tools/bogatyr78_audio_audit.py",
+    "tools/verify_bogatyr78_jar.py"
+  ],
+  "documentation": [
+    "docs/ARCHITECTURE.md",
+    "docs/PROJECT_STATUS.md",
+    "docs/ROADMAP.md"
+  ]
+}

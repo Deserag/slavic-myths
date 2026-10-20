@@ -1,0 +1,41 @@
+--- a/tools/woodlands_0801.py
++++ b/tools/woodlands_0801.py
+@@ -7,7 +7,10 @@
+ KINDS=('log','wood','stripped_log','stripped_wood','planks','leaves','sapling','stairs','slab','fence','fence_gate','door','trapdoor','pressure_plate','button','sign','wall_sign')
+ PALETTES=[((113,105,86),(217,187,125),(71,120,44)),((121,111,99),(178,133,99),(74,119,48)),((96,96,74),(174,166,114),(91,119,65)),((147,82,43),(174,126,64),(54,97,48))]
+ def tint(c,n):return tuple(max(0,min(255,v+n)) for v in c)+(255,)
+-def texture(name,fn,w=16,h=16,folder='block'):png(A/f'textures/{folder}/{name}.png',w,h,fn)
++def texture(name,fn,w=16,h=16,folder='block'):
++ from plants82_assets import write_owned
++ p=A/f'textures/{folder}/{name}.png'
++ if not write_owned(p):png(p,w,h,fn)
+ def pixel_textures(s,i):
+  bark,wood,leaf=PALETTES[i]
+  # Authored repeatable motifs, no sampled vanilla images or hue shifted leaves.
+--- a/tools/gardens_resources.py
++++ b/tools/gardens_resources.py
+@@ -7,7 +7,10 @@
+ B=['raspberry','blueberry','blackcurrant','lingonberry','cranberry']
+ WOOD=['apple_log','stripped_apple_log','apple_wood','stripped_apple_wood','apple_planks','apple_stairs','apple_slab','apple_fence','apple_fence_gate','apple_door','apple_trapdoor','apple_pressure_plate','apple_button','apple_sign','apple_wall_sign','apple_hanging_sign','apple_wall_hanging_sign','apple_leaves','apple_sapling']
+ def js(p,obj):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+-def save(im,folder,name):p=A/f'textures/{folder}/{name}.png';p.parent.mkdir(parents=True,exist_ok=True);im.save(p)
++def save(im,folder,name):
++    p=A/f'textures/{folder}/{name}.png';p.parent.mkdir(parents=True,exist_ok=True)
++    from plants82_assets import write_owned
++    if not write_owned(p):im.save(p)
+ def blank():im=Image.new('RGBA',(32,32));return im,ImageDraw.Draw(im)
+ def leaf(d,x,y,kind,scale=1):
+     green=['#54853b','#456d40','#5b823a','#355c30','#547344'][kind]
+--- a/tools/farming_resources.py
++++ b/tools/farming_resources.py
+@@ -17,7 +17,9 @@
+ def image():
+     im=Image.new('RGBA',(32,32));return im,ImageDraw.Draw(im)
+ def save(im,kind,name):
+-    p=A/f'textures/{kind}/{name}.png';p.parent.mkdir(parents=True,exist_ok=True);im.save(p)
++    p=A/f'textures/{kind}/{name}.png';p.parent.mkdir(parents=True,exist_ok=True);
++    from plants82_assets import write_owned
++    if not write_owned(p):im.save(p)
+ def leaf(d,x,y,side=1,size=4,color=GREEN):
+     d.polygon([(x,y),(x+side*size,y-size//2-1),(x+side*(size-1),y-3),(x+side,y-2)],fill=color)
+     d.line([(x,y-1),(x+side*(size-1),y-2)],fill=LIGHT)

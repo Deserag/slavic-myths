@@ -23,7 +23,23 @@ public final class ChudPerson extends AbstractVillager {
     private static final EntityDataAccessor<Integer> ROLE=SynchedEntityData.defineId(ChudPerson.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> ACT=SynchedEntityData.defineId(ChudPerson.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Long> ACT_START=SynchedEntityData.defineId(ChudPerson.class,EntityDataSerializers.LONG);
-    private long guardHitAt;private LivingEntity guardVictim;
+    private long guardHitAt,guardChaseUntil,guardReturnUntil,guardZonesAt;private LivingEntity guardVictim;
+    private java.util.List<BlockPos> guardZones=java.util.List.of();
+    public boolean sameSettlement(ChudPerson other){String city=getPersistentData().getString("ChudCity");return !city.isEmpty()?city.equals(other.getPersistentData().getString("ChudCity")):distanceToSqr(other)<=24*24;}
+    public boolean recordedAggressor(LivingEntity e){return e instanceof Player p?alarm(p):getPersistentData().hasUUID("ChudThreat")&&e.getUUID().equals(getPersistentData().getUUID("ChudThreat"))&&getPersistentData().getLong("ChudThreatUntil")>level().getGameTime();}
+    private boolean threat(LivingEntity e){return e!=null&&!(e instanceof net.minecraft.world.entity.monster.warden.Warden)&&org.slavicmyths.combat.CombatTargeting.isThreatToSettlement(this,e);}
+
+    private boolean inDefenceRange(LivingEntity target){
+        if(home==null)return distanceToSqr(target)<=32*32;
+        if(target.distanceToSqr(home.getCenter())>48*48)return false;
+        long now=level().getGameTime();if(now>=guardZonesAt){guardZonesAt=now+40;var zones=new ArrayList<BlockPos>();zones.add(home);
+            for(var peer:level().getEntitiesOfClass(ChudPerson.class,new net.minecraft.world.phys.AABB(home).inflate(32),this::sameSettlement))if(peer.home!=null)zones.add(peer.home);
+            guardZones=java.util.List.copyOf(zones);
+        }
+        return guardZones.stream().anyMatch(p->target.distanceToSqr(p.getCenter())<=32*32);
+    }
+    private boolean guardTarget(LivingEntity e){return threat(e)&&inDefenceRange(e);}
+
     public int activity(){return entityData.get(ACT);}public float activityAge(float p){return level().getGameTime()-entityData.get(ACT_START)+p;}
     private void activity(int a){if(activity()!=a){entityData.set(ACT,a);entityData.set(ACT_START,level().getGameTime());}}
     private boolean alarm(Player p){var n=getPersistentData();return n.getCompound("ChudAggressors").getLong(p.getUUID().toString())>level().getGameTime();}
@@ -35,18 +51,18 @@ public final class ChudPerson extends AbstractVillager {
     public int getMaxFallDistance(){return 2;}
     public boolean isAlliedTo(Entity e){return e instanceof ChudPerson||super.isAlliedTo(e);}
     private void guardEquipment(){if(role()!=3)return;if(getMainHandItem().isEmpty())setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(Items.IRON_AXE));setDropChance(EquipmentSlot.MAINHAND,0);}
-    public void setup(int role,BlockPos home,boolean rare){entityData.set(ROLE,role);this.home=home.immutable();restrictTo(home,10);rareStock=rare;offers=null;guardEquipment();if(role==1||role==2){setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(role==2?Items.IRON_PICKAXE:Items.IRON_AXE));setDropChance(EquipmentSlot.MAINHAND,0);}}
+    public void setup(int role,BlockPos home,boolean rare){entityData.set(ROLE,role);this.home=home.immutable();restrictTo(home,role()==3?48:10);rareStock=rare;offers=null;guardEquipment();if(role==1||role==2){setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(role==2?Items.IRON_PICKAXE:Items.IRON_AXE));setDropChance(EquipmentSlot.MAINHAND,0);}}
     public Component getDisplayName(){return hasCustomName()?super.getDisplayName():Component.translatable("industry.slavicmyths.role."+role());}
     protected void registerGoals(){
         goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new TradeWithPlayerGoal(this));goalSelector.addGoal(1,new LookAtTradingPlayerGoal(this));
         goalSelector.addGoal(2,new MeleeAttackGoal(this,1.1,true){public boolean canUse(){return role()==3&&super.canUse();}protected void checkAndPerformAttack(LivingEntity t){if(canPerformAttack(t)&&guardVictim==null){resetAttackCooldown();guardVictim=t;guardHitAt=level().getGameTime()+7;activity(3);getNavigation().stop();}}});
-        goalSelector.addGoal(2,new AvoidEntityGoal<>(this,Monster.class,8,.8,1.15){public boolean canUse(){return role()!=3&&super.canUse();}});
+        goalSelector.addGoal(2,new AvoidEntityGoal<>(this,LivingEntity.class,8,.8,1.15,this::threat){public boolean canUse(){return role()!=3&&super.canUse();}});
         goalSelector.addGoal(2,new AvoidEntityGoal<Player>(this,Player.class,12,.9,1.15,t->t instanceof Player p&&alarm(p)){public boolean canUse(){return role()!=3&&super.canUse();}});
         goalSelector.addGoal(3,new MoveTowardsRestrictionGoal(this,.8));
         goalSelector.addGoal(3,new Goal(){ {setFlags(EnumSet.of(Flag.MOVE));}public boolean canUse(){return role()!=3&&home!=null&&!isTrading()&&(Math.floorMod(level().getDayTime(),24000)>=11000&&Math.floorMod(level().getDayTime(),24000)<23000||getLastHurtByMob()!=null)&&distanceToSqr(home.getCenter())>4;}public void start(){getNavigation().moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,.85);}public boolean canContinueToUse(){return canUse()&&!getNavigation().isDone();}});
         goalSelector.addGoal(4,new Goal(){ {setFlags(EnumSet.of(Flag.MOVE));}private BlockPos destination;public boolean canUse(){if(home==null||isTrading()||level().getGameTime()%80!=0||activity()==1)return false;long time=Math.floorMod(level().getDayTime(),24000);if(role()!=3&&time>=11000&&time<23000)return false;for(int i=0;i<6;i++){BlockPos p=home.offset(getRandom().nextInt(13)-6,0,getRandom().nextInt(13)-6);boolean safe=true;for(int a=-1;a<=1;a++)for(int b=-1;b<=1;b++)if(!level().getBlockState(p.offset(a,-1,b)).isCollisionShapeFullBlock(level(),p.offset(a,-1,b)))safe=false;if(safe&&level().getBlockState(p).isAir()&&level().getBlockState(p.above()).isAir()){var path=getNavigation().createPath(p,0);if(path!=null&&path.canReach()){destination=p;return true;}}}return false;}public void start(){getNavigation().moveTo(destination.getX()+.5,destination.getY(),destination.getZ()+.5,.65);}public boolean canContinueToUse(){return !getNavigation().isDone()&&!isTrading()&&getTarget()==null;}});goalSelector.addGoal(5,new LookAtPlayerGoal(this,Player.class,6));goalSelector.addGoal(6,new RandomLookAroundGoal(this));
-        targetSelector.addGoal(1,new HurtByTargetGoal(this){public boolean canUse(){return role()==3&&super.canUse();}});
-        targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Monster.class,10,true,false,m->!(m instanceof net.minecraft.world.entity.monster.warden.Warden)&&hasLineOfSight(m)&&(home==null||m.distanceToSqr(home.getCenter())<=256)){public boolean canUse(){return role()==3&&super.canUse();}});
+        targetSelector.addGoal(1,new HurtByTargetGoal(this){protected double getFollowDistance(){return 24;}public boolean canUse(){return role()==3&&level().getGameTime()>=guardReturnUntil&&super.canUse()&&guardTarget(getLastHurtByMob());}public void start(){super.start();guardChaseUntil=level().getGameTime()+200;}});
+        targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,LivingEntity.class,10,true,false,this::guardTarget){protected double getFollowDistance(){return 24;}public boolean canUse(){return role()==3&&level().getGameTime()>=guardReturnUntil&&super.canUse();}public void start(){super.start();guardChaseUntil=level().getGameTime()+200;}public boolean canContinueToUse(){return super.canContinueToUse()&&guardTarget(getTarget())&&level().getGameTime()<guardChaseUntil;}public void stop(){super.stop();if(level().getGameTime()>=guardChaseUntil){guardReturnUntil=level().getGameTime()+100;guardVictim=null;if(home!=null)getNavigation().moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,.8);}}});
     }
     public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel l,net.minecraft.world.entity.AgeableMob other){return null;}
     protected InteractionResult mobInteract(Player p,InteractionHand hand){
@@ -80,10 +96,12 @@ public final class ChudPerson extends AbstractVillager {
     }
     private void offer(Item a,int n,Item b,int m,Item out,int count,int uses){offers.add(new MerchantOffer(new ItemCost(a,n),b==null?Optional.empty():Optional.of(new ItemCost(b,m)),new ItemStack(out,count),uses,1,0));}
     public void aiStep(){super.aiStep();if(level().isClientSide)return;long now=level().getGameTime();
-        if(role()==3&&guardVictim!=null&&now>=guardHitAt){if(org.slavicmyths.combat.CombatTargeting.canAttack(this,guardVictim)&&distanceToSqr(guardVictim)<6.25&&hasLineOfSight(guardVictim)){swing(InteractionHand.MAIN_HAND);doHurtTarget(guardVictim);}guardVictim=null;}
+        if(role()==3&&guardVictim!=null&&now>=guardHitAt){if(guardTarget(guardVictim)&&distanceToSqr(guardVictim)<6.25&&hasLineOfSight(guardVictim)){swing(InteractionHand.MAIN_HAND);doHurtTarget(guardVictim);}guardVictim=null;}
         if(activity()==3&&activityAge(0)>=15)activity(0);
         if(getTarget() instanceof Player player&&!alarm(player)&&distanceToSqr(player)>6.25)setTarget(null);
-        if(getTarget()!=null&&home!=null&&getTarget().distanceToSqr(home.getCenter())>576)setTarget(null);
+        if(role()==3&&getTarget()!=null&&(!guardTarget(getTarget())||guardChaseUntil>0&&now>=guardChaseUntil)){
+            setTarget(null);guardVictim=null;guardReturnUntil=now+100;getNavigation().stop();if(home!=null)getNavigation().moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,.8);
+        }
         if(role()!=3&&tickCount%20==0){boolean fear=getLastHurtByMob()!=null&&tickCount-getLastHurtByMobTimestamp()<200||getPersistentData().getLong("ChudAggressorUntil")>now;
             if(fear){if(activity()!=2)playSound(org.slavicmyths.underground.UndergroundSounds.sound("chud","panic"),.35F,1);activity(2);}else if(role()>0&&home!=null&&!isTrading()&&distanceToSqr(home.getCenter())<9&&Math.floorMod(level().getDayTime(),24000)<11000&&now%600<100){activity(1);getNavigation().stop();if(now%20==0)playSound(org.slavicmyths.underground.UndergroundSounds.sound("chud","work"),.25F,1.1F);}else activity(0);}
         if(tickCount%40!=0)return;
@@ -92,9 +110,9 @@ public final class ChudPerson extends AbstractVillager {
         long day=level().getDayTime()/24000;if(day>stockDay){stockDay=day;stockBits=0;}int period=IndustryRules.restockPeriod(level().getDayTime());
         if(period!=0&&(stockBits&period)==0){getOffers().forEach(MerchantOffer::resetUses);stockBits|=period;}
     }
-    public boolean hurt(net.minecraft.world.damagesource.DamageSource source,float amount){boolean hit=super.hurt(source,amount);if(hit&&!level().isClientSide&&source.getEntity() instanceof LivingEntity enemy){for(var n:level().getEntitiesOfClass(ChudPerson.class,getBoundingBox().inflate(24))){if(enemy instanceof Player p){var aggression=n.getPersistentData().getCompound("ChudAggressors");long now=level().getGameTime();for(String key:new ArrayList<>(aggression.getAllKeys()))if(aggression.getLong(key)<=now)aggression.remove(key);aggression.putLong(p.getUUID().toString(),now+1200);n.getPersistentData().put("ChudAggressors",aggression);n.getPersistentData().putLong("ChudAggressorUntil",now+1200);}if(n.role()==3&&n.hasLineOfSight(enemy)&&!(enemy instanceof ChudPerson))n.setTarget(enemy);}}return hit;}
+    public boolean hurt(net.minecraft.world.damagesource.DamageSource source,float amount){boolean hit=super.hurt(source,amount);if(hit&&!level().isClientSide&&source.getEntity() instanceof LivingEntity enemy){for(var n:level().getEntitiesOfClass(ChudPerson.class,getBoundingBox().inflate(24))){if(!sameSettlement(n))continue;n.getPersistentData().putUUID("ChudThreat",enemy.getUUID());n.getPersistentData().putLong("ChudThreatUntil",level().getGameTime()+1200);if(enemy instanceof Player p){var aggression=n.getPersistentData().getCompound("ChudAggressors");long now=level().getGameTime();for(String key:new ArrayList<>(aggression.getAllKeys()))if(aggression.getLong(key)<=now)aggression.remove(key);aggression.putLong(p.getUUID().toString(),now+1200);n.getPersistentData().put("ChudAggressors",aggression);n.getPersistentData().putLong("ChudAggressorUntil",now+1200);}if(n.role()==3&&n.hasLineOfSight(enemy)&&n.guardTarget(enemy)){n.setTarget(enemy);n.guardChaseUntil=level().getGameTime()+200;}}}return hit;}
     public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);n.putInt("ChudRole",role());n.putBoolean("RareStock",rareStock);n.putLong("StockDay",stockDay);n.putInt("StockBits",stockBits);if(home!=null)n.putLong("Home",home.asLong());}
-    public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);if(n.contains("ChudRole"))entityData.set(ROLE,Math.clamp(n.getInt("ChudRole"),0,3));rareStock=n.getBoolean("RareStock");stockDay=n.getLong("StockDay");stockBits=n.getInt("StockBits");if(n.contains("Home")){home=BlockPos.of(n.getLong("Home"));restrictTo(home,10);}guardEquipment();}
+    public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);if(n.contains("ChudRole"))entityData.set(ROLE,Math.clamp(n.getInt("ChudRole"),0,3));rareStock=n.getBoolean("RareStock");stockDay=n.getLong("StockDay");stockBits=n.getInt("StockBits");if(n.contains("Home")){home=BlockPos.of(n.getLong("Home"));restrictTo(home,role()==3?48:10);}guardEquipment();}
     public void remove(RemovalReason reason){if(!level().isClientSide&&getTradingPlayer()!=null){getTradingPlayer().closeContainer();setTradingPlayer(null);}super.remove(reason);}
     public void die(net.minecraft.world.damagesource.DamageSource source){if(!level().isClientSide&&getTradingPlayer()!=null){getTradingPlayer().closeContainer();setTradingPlayer(null);}super.die(source);}
 }

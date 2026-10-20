@@ -5688,5 +5688,11 @@
   "brewing.slavicmyths.intoxication_stage_5": "Сильное опьянение, отравление",
   "hero_hud.slavicmyths.active": "Помогает",
   "hero_hud.slavicmyths.retreating": "Отступает",
-  "hero_hud.slavicmyths.cursed": "Проклят"
+  "hero_hud.slavicmyths.cursed": "Проклят",
+  "message.slavicmyths.hero.cooldown": "Следующий вызов этого богатыря через %s сек.",
+  "message.slavicmyths.hero.available": "Богатырь ещё доступен %s сек.",
+  "message.slavicmyths.hero.recovering": "Богатырь восстанавливается (%s/2).",
+  "message.slavicmyths.hero.returning": "Богатырь возвращается. Следующий вызов через %s сек.",
+  "message.slavicmyths.hero.remaining": "%s сек.; возвратов: %s",
+  "message.slavicmyths.hero.hud_returning": "Возвращается"
 }

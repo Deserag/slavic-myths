@@ -280,7 +280,10 @@ BOOK={
 
 def generate(root):
     res=root/'src/main/resources/assets/slavicmyths'
-    for name in sorted(REDRAW_ITEMS): (res/f'textures/item/{name}.png').write_bytes(encode(item(name)))
+    from materials81_m1 import write_owned
+    for name in sorted(REDRAW_ITEMS):
+        path=res/f'textures/item/{name}.png'
+        if not write_owned(path): path.write_bytes(encode(item(name)))
     for name in sorted(REDRAW_BLOCKS): (res/f'textures/block/{name}.png').write_bytes(encode(block(name)))
     # Plants have separate inventory bundles, so a held herb never looks like a weapon or a block icon.
     for name in ('flax','wormwood','st_johns_wort','nettle','fireweed','juniper_berries'):

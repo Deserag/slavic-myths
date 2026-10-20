@@ -1,0 +1,247 @@
+[
+  {
+    "path": "gradle.properties",
+    "before_sha256": "22df44a443662d0e47b26bf2092a6fd9da8acf5c3bccdadeb94711d53202a7d6",
+    "after_sha256": "4a8dccb226bfeedc1653a4c9dc3554a0cb813ca29d6b8f84085f809305bcf136"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/CombatTargeting.java",
+    "before_sha256": "e36d2a778f431e0e2e2cb451497a9ec9667fda8edebcfc6082eb3bed86b05bf5",
+    "after_sha256": "c58e423e8afbce375f47043fda25ad9367e2554452b1f0dd9024e6e66e8472fb"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/CreaturePhysiologyEvents.java",
+    "before_sha256": null,
+    "after_sha256": "53328438675361ecdb21670a070a469427aa17d6121f0fc015cfdafa53083216"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/CreatureProjectileSafety.java",
+    "before_sha256": null,
+    "after_sha256": "f02c6e420be990ff927cb051cf071354217f2febcfd8298a294d160773a9750a"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/CreatureProperties.java",
+    "before_sha256": null,
+    "after_sha256": "5f9f746260ff3367eeccd830b1ff681f531a5ff08328e7c894f60150d7d7edfb"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/CutEffect.java",
+    "before_sha256": "18384571d327f57e8deaff4fb21ee9c7303ef7938b41d8eba88e601fe4c2a4e2",
+    "after_sha256": "f84362a93615e58ad8f6cc2a9a66656b1d0de5b7c84bccb8b95c2748e3f62100"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/RareBleedEffect.java",
+    "before_sha256": "48c7408d3d0131cfc1528d67b2c313aef860dc44d4dc598c1b475811af17817f",
+    "after_sha256": "73c76e7ad8ad5db76cfca41624b812c69b2f7d47a74a0c67427e3b995a266ecd"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/SettlementTargetSafety.java",
+    "before_sha256": null,
+    "after_sha256": "f2a2f64d30907fb33eb94a4267f36c99efc29e8bd5b0f228757214b80e560b09"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/mixin/PoisonPhysiologyMixin.java",
+    "before_sha256": null,
+    "after_sha256": "285597bc0914ec60a62e2dc05ba65c70f55295f864bdd5b5123c38dc8052944f"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/earth/EarthServant.java",
+    "before_sha256": "34cc6485119fb255e260cef3932f9b5b273bcdf4c310719e7cf34d427e378679",
+    "after_sha256": "70326147741280dbe6b2ce850aa74c9291e99f3db0480b3d97d8682698f6a695"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/finist/GreyPackRing.java",
+    "before_sha256": "d6efd4ee9d01553dca92270f14e65fe6e0fd52a0ba89df1c6265885439460b9b",
+    "after_sha256": "45c6f43da9e98ae74ab065d1d2602a4aa895dd3e8f45181a81709f0c02703b8d"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/guardians/WaterEcho.java",
+    "before_sha256": "e528d260a236002c2dce4eabb4c9b299b2f4b47cec2143bb1dcf5985dee3ab58",
+    "after_sha256": "a1e4c2b39ea01921e03e17788631b9a44087f8f1cb5fff441af5d1f18c63706f"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/industry/ChudPerson.java",
+    "before_sha256": "2e5c6da3d077a84c332e2791ea8facd93e75e978a89684583b2e17d91849451d",
+    "after_sha256": "d33b3ccdef30bce239770fef84cc1bda61e5da2ce9d073695aa01040e5beb061"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/karachun/NightRaven.java",
+    "before_sha256": "cc30bc702b6910bab586327ee841df1a8f0c4c74719310c67bf32a0ad473902f",
+    "after_sha256": "66c7b91c21ea78d8b95107d76b4c1fd0ce4f5696c9558a860576eb6a375c6593"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/marinka/WitchBolt.java",
+    "before_sha256": "93378898cced243e518d5f592e9625606dd152ec10b08e6d2128afc356b10357",
+    "after_sha256": "670f538b455a96ba4915beb64a66cb36afc846547e790355ede83031f1408aff"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/marinka/WitchRune.java",
+    "before_sha256": "2309a16f20c0b99fc5fecda699243dbbe248d3e6fe78c81582f0be57f8ac6a68",
+    "after_sha256": "f467a4ebf89cfdecf2f65fd7f838c80d55f28842832478ca2d099896c59234a8"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/military/GuardBehavior.java",
+    "before_sha256": "170870c0e6cd04e4ee251620c845e5c46b0296140c67e3cd4caec2fa444d79b9",
+    "after_sha256": "a6b914f3cbdaaec5602eae9a316dedd7af1aa58c499a4a9cc4e165cfd5f2a019"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/mor/HigherMor.java",
+    "before_sha256": "ce9822c977495380ece5d84283d80f8fa53e33b1111ef68e78e227aa9c739c0d",
+    "after_sha256": "deeea2385c03e7cb183f3d12f153d037a78d240e5e4e1c5a20244f8d528c7552"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/morozko/FrostWorld.java",
+    "before_sha256": "89b4f2447f74f0f5ec0bd581d45dd658a5cb2c0bfb6dd8f47ee71d0f5d55db63",
+    "after_sha256": "6a537eaba28d9c02f8757324a093fbec1b9e25ec4428f87e7cac34bfa5973784"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/morozko/PlayerDouble.java",
+    "before_sha256": "bef3d889c8fed2fd65aad858ce2bf147279021d1646a57f1ee2982a9e1c7d223",
+    "after_sha256": "f762f5472fa0f68aa70c1b07c4b697c283bd8464bd6cec403586182cae342095"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/nochnitsa/NochnitsaHorde.java",
+    "before_sha256": "22122854df275110f37e89a0c69ecd3afc61aa8056595d1a5ce782b3213f9423",
+    "after_sha256": "6434f93950ae014462369cfc04718c77820847c65b5a8d96c96d46a58d981484"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/poloz/PolozMinions.java",
+    "before_sha256": "3d4a4b89142c215c9e185bf481838529a15412571a82ccc4f60daec57fe6b45c",
+    "after_sha256": "b39fea619eaadcf977b2d4c26928628b227d371d38035a583ffa0e8da0ec8f94"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rpg/classes/ClassUltimateRuntime.java",
+    "before_sha256": "7c47fe5b463f7e9f6d5fe57a6031af8acf03b496c71db11dd8ba35d68539fb9c",
+    "after_sha256": "13abcd3d0ec2b16e3506ce0833ec9f8983fd06fd1f955c8bc294926852dc9af1"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/underground/EncounterMob.java",
+    "before_sha256": "eeb897d90d8e3c8b8d003d7f69786bb71dcd0e485134165ebb2a63fb4dcb0653",
+    "after_sha256": "53c92735b194c5ff585978d4f6f7920549afd5d55b09e83ca4e9e40fea1a6521"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/village/mixin/BossGolemTargetMixin.java",
+    "before_sha256": "0ca3b93a16f3bed950948b69327ed1b0e358cd83c813108a0952cc9988f09799",
+    "after_sha256": "c48fcd96f2e590cdc47d2d7a2e04e6114b9a56fa791f07f4c4189c3da9fddba8"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/wolf/WolfBleeding.java",
+    "before_sha256": "31aa273c6581a3cdc594b85e255df7101ef56efc7b6202e5a6b96400a116a469",
+    "after_sha256": "4bda41bdb1ae32aef54dfd661a09709dbb62776730e94e552bd1421c778575e8"
+  },
+  {
+    "path": "src/main/resources/META-INF/neoforge.mods.toml",
+    "before_sha256": "f132b17c35e000284a956cd925da588f7390c4e09b414342074bac92cdd5a137",
+    "after_sha256": "5f9f119bccdb1dab8dd07731caf6aaa4e9e20e009c53e65000c697e55980bbe2"
+  },
+  {
+    "path": "src/main/resources/data/minecraft/tags/damage_type/is_fire.json",
+    "before_sha256": "9cb90df5af9503c4a7064a5361f593604f35c7bb1148a7e4512729e1b49e55e0",
+    "after_sha256": "edf960489186876ac36e59bad25b64c520d09cdb69e3e46c898449ae55eb2af6"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/combat_proxy.json",
+    "before_sha256": null,
+    "after_sha256": "cda9971b7600cd68fdd59d99e0e716edd9ccbf48db08306df4f153d8cc761790"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/nature_animal.json",
+    "before_sha256": null,
+    "after_sha256": "063bcc3e3435a3f408c68d7f6e6539a7cc1158dccaf61b6d1b8a7417beb2bce4"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/nature_construct.json",
+    "before_sha256": null,
+    "after_sha256": "4c719829132b8a5b805b2142e4e426ff6b17c94c2204c99c7162558064e715fd"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/nature_elemental.json",
+    "before_sha256": null,
+    "after_sha256": "d64982d1e76b058fbcd159cae4118c5bfc9517e2f792a02be5e09b69e081194f"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/nature_humanoid.json",
+    "before_sha256": null,
+    "after_sha256": "06ccdb205278d15cb67b762d9aca23e96a126be90bb047efddc746788a3ed9f8"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/nature_mythical_beast.json",
+    "before_sha256": null,
+    "after_sha256": "31cb484130d3250591a488569f25e5bf1582cd8addaf12416b92238079972368"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/nature_plant.json",
+    "before_sha256": null,
+    "after_sha256": "3927c159b0c308b0dc5d85d56c63838b682fa1854bb3f76c42e62cffa70c8749"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/nature_spirit.json",
+    "before_sha256": null,
+    "after_sha256": "2ec7974b1d1c71c286ec03226fef92bc47021cb60fd30e3948680d214d23ebae"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/nature_undead.json",
+    "before_sha256": null,
+    "after_sha256": "e92f1bf2c3c429074065bc116a4cc786334d898f6dc82168b245f8624d42a5f8"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/trait_bloodless.json",
+    "before_sha256": null,
+    "after_sha256": "0f8e59e980aee96b2a31bcb7126e7256e387b3f3da5a4cb7e9ed3faec0655c41"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/trait_boss.json",
+    "before_sha256": null,
+    "after_sha256": "19a0531cdbbdc58234a35c8f851df40e7903f56700210498761e8c5915f08537"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/trait_control_resistant.json",
+    "before_sha256": null,
+    "after_sha256": "ca706360f04e842681ae9344aa722773f48b434730da71ab5b9b200675608edf"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/trait_earth_affinity.json",
+    "before_sha256": null,
+    "after_sha256": "cace77b5b09208f927298b7f8440f0a038986e41ca907eef6f323339baec7ff6"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/trait_fire_affinity.json",
+    "before_sha256": null,
+    "after_sha256": "11b1f2d278d5d0984f1de60009081845906637dc49f31224d960e5b426530e97"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/trait_ice_affinity.json",
+    "before_sha256": null,
+    "after_sha256": "4ebbd65d46a4e4a86b7e24c2fe290eac0a5e5b86e20b7c24960ba8cf85bf694c"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/trait_projection.json",
+    "before_sha256": null,
+    "after_sha256": "0f8e59e980aee96b2a31bcb7126e7256e387b3f3da5a4cb7e9ed3faec0655c41"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/trait_silver_vulnerable.json",
+    "before_sha256": null,
+    "after_sha256": "c8fbfdf76296cb6e02792eb1c1990d87299634b2a4c477830cff9fe95369d1b6"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/trait_story_protected.json",
+    "before_sha256": null,
+    "after_sha256": "e8044cae4a995400d2a555cd171155ea0403e38b3c981b5a93faafb4c6becf6f"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/trait_summoned.json",
+    "before_sha256": null,
+    "after_sha256": "362a917316337e4dbaaa0de138ec44876f0b31ee0fb2d0b2e4249db9d0b78c9d"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/tags/entity_type/trait_water_affinity.json",
+    "before_sha256": null,
+    "after_sha256": "893c6aac3828783be728e4a5e23230bca5fabdff1e198c72497f360d876135f0"
+  },
+  {
+    "path": "src/main/resources/slavicmyths.physiology.mixins.json",
+    "before_sha256": null,
+    "after_sha256": "49069a3a474e89bb02d6eff8d3fa2ad2cdea869f1a004e04021183052755635e"
+  }
+]

@@ -17,7 +17,9 @@ def js(p,obj):
 def image():
     im=Image.new('RGBA',(32,32));return im,ImageDraw.Draw(im)
 def save(im,kind,name):
-    p=A/f'textures/{kind}/{name}.png';p.parent.mkdir(parents=True,exist_ok=True);im.save(p)
+    p=A/f'textures/{kind}/{name}.png';p.parent.mkdir(parents=True,exist_ok=True);
+    from plants82_assets import write_owned
+    if not write_owned(p):im.save(p)
 def leaf(d,x,y,side=1,size=4,color=GREEN):
     d.polygon([(x,y),(x+side*size,y-size//2-1),(x+side*(size-1),y-3),(x+side,y-2)],fill=color)
     d.line([(x,y-1),(x+side*(size-1),y-2)],fill=LIGHT)

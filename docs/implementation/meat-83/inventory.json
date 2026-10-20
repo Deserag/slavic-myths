@@ -1,0 +1,182 @@
+[
+  {
+    "id": "raw_goose",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/raw_goose.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/raw_goose.json",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "4b0d4a87610b2c074edfb78bd5c0809ba2f4e7d54f3b390c85e5fdd0359aade3",
+    "model_sha256": "bbab5d5ee0a1be426f564d5fbdc9c7d85e6b56242b93dde1700d57e5d6e81c77",
+    "status": "UNCHANGED",
+    "new_sha256": "4b0d4a87610b2c074edfb78bd5c0809ba2f4e7d54f3b390c85e5fdd0359aade3",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "OK: читаемый светлый кусок птицы; сохранён"
+  },
+  {
+    "id": "cooked_goose",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/cooked_goose.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/cooked_goose.json",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "f8e0929a11dffa659802df9566d2a26ae237d27b8366f8c06b397e5523937c8a",
+    "model_sha256": "637cb58478250c0d43148f6b22f09f755fcf024d0795073b76f9d06640ef7ecb",
+    "status": "UNCHANGED",
+    "new_sha256": "f8e0929a11dffa659802df9566d2a26ae237d27b8366f8c06b397e5523937c8a",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "OK: естественные коричневые жареные оттенки, соответствует паре; без замены"
+  },
+  {
+    "id": "raw_duck",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/raw_duck.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/raw_duck.json",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "67a88a0ac031f7cb5c3521d04e87d89dc926899a3addd4beade1e79d87329848",
+    "model_sha256": "11ac0ab97b4d392301f23884475783437093ddc01c0a8882f910a429abb2b693",
+    "status": "CHANGED",
+    "new_sha256": "ce7af051ac2b887e3f8b3f3791c95e3a0d797773347095a2adfd12fa3e318ce7",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "Слишком близка гусятине: грудка чуть уже, розово-красная темнее, тонкий жир"
+  },
+  {
+    "id": "cooked_duck",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/cooked_duck.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/cooked_duck.json",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "7fdf0458aedb5d003ed6d42e30befffb5b392c7dc794cd00537776704d8f259d",
+    "model_sha256": "37169e469cf3a60d2c21ae944612b97cdef8aeeb919c88d222f7f6fd0dbca9b8",
+    "status": "UNCHANGED",
+    "new_sha256": "7fdf0458aedb5d003ed6d42e30befffb5b392c7dc794cd00537776704d8f259d",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "OK: естественные коричневые жареные оттенки, соответствует паре; без замены"
+  },
+  {
+    "id": "raw_goat",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/raw_goat.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/raw_goat.json",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "dd863010c15b6f315967938248b725e87b8a1ca75eef037186b07f0413743efc",
+    "model_sha256": "876be942c148e1ca2a933c2b67d5555bd67743735b725c9f898cdbf4d13c659c",
+    "status": "CHANGED",
+    "new_sha256": "7651ec0ce99bea54130920bd1a2660d644678db313374b7a6f2c553f98501df2",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "Птичьи параллельные полосы: красный мышечный срез и жировая кромка снизу"
+  },
+  {
+    "id": "cooked_goat",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/cooked_goat.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/cooked_goat.json",
+    "size": [
+      32,
+      32
+    ],
+    "old_sha256": "13d04c98b7aa44cc04dcac45b416ae77454b8ec2ff12daa8dd24d8b092d7970d",
+    "model_sha256": "5eea0271c4adcdbdd4bd88633ffa86627955761a10b2e8b8f3dc93b291695e6c",
+    "status": "UNCHANGED",
+    "new_sha256": "13d04c98b7aa44cc04dcac45b416ae77454b8ec2ff12daa8dd24d8b092d7970d",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "OK: естественные коричневые жареные оттенки, соответствует паре; без замены"
+  },
+  {
+    "id": "raw_boar_meat",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/raw_boar_meat.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/raw_boar_meat.json",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "5be82cc83a7c0a25023bb4fff6711470ced40823f40e23b85e130c0151a5bd9c",
+    "model_sha256": "6f876e9d218a21c0a4bb9f427ae62873614b1eb9bca6be6baa327404944f76ae",
+    "status": "CHANGED",
+    "new_sha256": "e12a0dfe33cc68387ee2ac1529917ebf31db0f90a0ce5cfa657767c02f9be93e",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "Чёрное пятно: более ясная тёмно-красная мякоть и умеренная прослойка"
+  },
+  {
+    "id": "cooked_boar_meat",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/cooked_boar_meat.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/cooked_boar_meat.json",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "1c013b729ea66f218359cf486e4bb1d3065049f3cc52f4d8b87e8b6cf26eece5",
+    "model_sha256": "016f39000e8ea4cb070d03b551a18e38a26848c48400437abca97b5d3afc6864",
+    "status": "UNCHANGED",
+    "new_sha256": "1c013b729ea66f218359cf486e4bb1d3065049f3cc52f4d8b87e8b6cf26eece5",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "OK: естественные коричневые жареные оттенки, соответствует паре; без замены"
+  },
+  {
+    "id": "raw_venison",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/raw_venison.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/raw_venison.json",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "baad3f114e44b36d6f22cc5d7f4b56526a1d345820baa6b8c1741c0301dd2120",
+    "model_sha256": "af630a9dc2a8232c52fbebad46095fdabf2826fd8fa1f711690c464999e29ddd",
+    "status": "CHANGED",
+    "new_sha256": "8598c9a0e2e6d218c468dcc0dc670aa7cc067799c27eaf47d0e453e6f5f0917e",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "Чёрное пятно: постный красно-бордовый срез с минимумом жира"
+  },
+  {
+    "id": "cooked_venison",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/cooked_venison.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/cooked_venison.json",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "fb799f87c0f1df1739eb64d4f01b9762dad89121725f080b74a8c2432f613185",
+    "model_sha256": "0214e16971767875431d6360e48ee1da7f27aa326530affe7e11d3af15b19d39",
+    "status": "UNCHANGED",
+    "new_sha256": "fb799f87c0f1df1739eb64d4f01b9762dad89121725f080b74a8c2432f613185",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "OK: естественные коричневые жареные оттенки, соответствует паре; без замены"
+  },
+  {
+    "id": "raw_bear_meat",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/raw_bear_meat.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/raw_bear_meat.json",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "0e4dff7831b296d9efcf9037c0f7c66157e0b4d2cf0fb4efcd80d1a4efead6db",
+    "model_sha256": "966e3b30235c0a82e39a9dea3549d439b69c39d3a35f2c063314d39b7362fc1b",
+    "status": "CHANGED",
+    "new_sha256": "9679b15af1babec6c721bd704e22d6d4388c58c2ba48ffbc3f5524529abd2812",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "Чёрное пятно: глубокий бордовый объём, приглушённые мышечные участки"
+  },
+  {
+    "id": "cooked_bear_meat",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/cooked_bear_meat.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/cooked_bear_meat.json",
+    "size": [
+      16,
+      16
+    ],
+    "old_sha256": "3b2e1e02e72e4be0d511fda81b7fab69814597a111d890450a4747fb790624eb",
+    "model_sha256": "f993d3d2c13be410faac68e7ea0a1530ce734749a7a91498429b424975ac9db3",
+    "status": "UNCHANGED",
+    "new_sha256": "3b2e1e02e72e4be0d511fda81b7fab69814597a111d890450a4747fb790624eb",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "diagnosis": "OK: естественные коричневые жареные оттенки, соответствует паре; без замены"
+  }
+]

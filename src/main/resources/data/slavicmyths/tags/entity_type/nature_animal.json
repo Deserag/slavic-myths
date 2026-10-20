@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:bear_cub",
+    "slavicmyths:boar",
+    "slavicmyths:brown_bear",
+    "slavicmyths:carp",
+    "slavicmyths:crayfish",
+    "slavicmyths:doe",
+    "slavicmyths:forest_wolf",
+    "slavicmyths:kalin_war_horse",
+    "slavicmyths:pike",
+    "slavicmyths:sivka_burka",
+    "slavicmyths:stag",
+    "slavicmyths:karachun_raven",
+    "minecraft:wolf",
+    "minecraft:bat",
+    "minecraft:spider",
+    "minecraft:cave_spider",
+    "minecraft:ravager",
+    "minecraft:silverfish",
+    "minecraft:endermite",
+    "minecraft:guardian",
+    "minecraft:elder_guardian"
+  ]
+}

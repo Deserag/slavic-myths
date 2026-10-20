@@ -40,3 +40,6 @@ type="optional"
 versionRange="[19,20)"
 ordering="AFTER"
 side="CLIENT"
+
+[[mixins]]
+config="slavicmyths.physiology.mixins.json"

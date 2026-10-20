@@ -1,0 +1,15 @@
+{
+  "status": "PASS_OFFLINE_ONLY",
+  "version": "1.9.7.32",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.32.jar",
+  "jar_sha256": "4614b9ef67280fa7433c84b2ebedacb17341385939a67fd58bac7ce37ce98947",
+  "resources": 7431,
+  "png_verified": 1337,
+  "java21_classes": 1732,
+  "audio_files_in_jar": 1375,
+  "source_fingerprint": "ce7342586caf3007537f120c0be665909a9054220e90f807e03f3264cc892921",
+  "source_commit": "UNCOMMITTED #79 working tree on 7e6d64d4; no automatic commit",
+  "runtime_launches": 0,
+  "polymc": "1.9.7.30 preserved",
+  "issue79": "IN_PROGRESS / OWNER_PENDING"
+}

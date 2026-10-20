@@ -24,7 +24,7 @@ public final class CutEffect extends MobEffect {
     private static final String OWNER="SlavicCutOwner",OWNER_NAME="SlavicCutOwnerName",PULSE="SlavicCutPulse";
     public CutEffect(){super(MobEffectCategory.HARMFUL,0x691C24);}
     public static boolean permitted(Player attacker,LivingEntity target){
-        return target.isAlive()&&!target.getType().is(IMMUNE)&&target!=attacker&&
+        return target.isAlive()&&CreatureProperties.canBleed(target)&&target!=attacker&&
             (!(target instanceof Player other)||attacker.getServer()!=null&&attacker.getServer().isPvpAllowed()&&attacker.canHarmPlayer(other));
     }
     @SubscribeEvent public static void hit(LivingDamageEvent.Post e){
@@ -46,7 +46,7 @@ public final class CutEffect extends MobEffect {
     @Override public boolean shouldApplyEffectTickThisTick(int duration,int amplifier){return true;}
     @Override public boolean applyEffectTick(LivingEntity target,int amplifier){
         if(!(target.level() instanceof ServerLevel world))return true;
-        if(target.getType().is(IMMUNE))return false;
+        if(!CreatureProperties.canBleed(target))return false;
         var data=target.getPersistentData();
         Player owner=data.hasUUID(OWNER)?world.getServer().getPlayerList().getPlayer(data.getUUID(OWNER)):null;
         if(target instanceof Player player){
