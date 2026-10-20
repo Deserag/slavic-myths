@@ -10,7 +10,7 @@ public final class HeroThreats {
     public static boolean allowed(Mob hero, ServerPlayer owner, LivingEntity enemy) {
         if (owner == null || !owner.isAlive() || owner.isSpectator() || owner.level() != hero.level()
                 || enemy == null || !enemy.isAlive() || enemy == hero || hero.isAlliedTo(enemy)
-                || !(enemy instanceof Enemy) && !(enemy instanceof org.slavicmyths.karachun.NightRaven r&&!r.allied()) && !debugEnemy(enemy) && !blighted(enemy)
+                || !(enemy instanceof Enemy) && !(enemy instanceof org.slavicmyths.karachun.NightRaven r&&!r.allied()) && !debugEnemy(enemy) && !blighted(enemy) && !(enemy instanceof org.slavicmyths.hunt.WorldBoss worldBoss&&worldBoss.kind()==org.slavicmyths.hunt.BossKind.TUGARIN)
                 || enemy instanceof org.slavicmyths.karachun.NightRaven r&&r.allied()
                 || enemy instanceof org.slavicmyths.gorynych.Gorynych gorynych&&gorynych.state()>=org.slavicmyths.gorynych.GorynychRules.EXHAUSTED
                 || enemy instanceof org.slavicmyths.guardians.GuardianEntity guardian&&guardian.state()>=org.slavicmyths.guardians.GuardianRules.PURIFY
