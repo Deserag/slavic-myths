@@ -70,13 +70,13 @@ public final class WitchYard extends SavedData {
 
  public static DobrynyaEntity hero(ServerPlayer p){var id=get(p.serverLevel().getServer().overworld()).heroes.get(p.getUUID());return id!=null&&p.serverLevel().getEntity(id) instanceof DobrynyaEntity h?h:null;}
 
- public static boolean call(ServerPlayer p){if(!p.isAlive()||p.isSpectator()||!StoryPolicy.canSummon(p,"dobrynya_nikitich"))return false;var w=p.serverLevel();var d=get(w.getServer().overworld());if(d.heroes.containsKey(p.getUUID())){p.sendSystemMessage(Component.translatable("msg.slavicmyths.dobrynya_duplicate"));return false;}
+ public static boolean call(ServerPlayer p){if(!p.isAlive()||p.isSpectator()||!StoryPolicy.canSummon(p,"dobrynya_nikitich"))return false;var w=p.serverLevel();var d=get(w.getServer().overworld());if(d.heroes.containsKey(p.getUUID())){p.sendSystemMessage(Component.translatable("msg.slavicmyths.dobrynya_duplicate"));return false;}if(!org.slavicmyths.skim.HeroCalls.available(p,"dobrynya_nikitich"))return false;boolean poloz=org.slavicmyths.poloz.PolozEvent.active(w);if(org.slavicmyths.skim.HeroCalls.count(p)>=(poloz?3:2))return false;
 
   // Existing lore-book discovery is the prerequisite, not a new reward/quest framework.
 
   if(!org.slavicmyths.progression.Knowledge.knows(p,"first_book_entry")&&!p.getInventory().contains(new ItemStack(org.slavicmyths.registry.ModItems.LORE_BOOK.get()))&&!p.hasPermissions(2)){p.sendSystemMessage(Component.translatable("msg.slavicmyths.story_missing_dobrynya"));return false;}
 
-  var at=org.slavicmyths.bogatyr.BogatyrLedger.safe(w,p.position(),.8,2.2,6);if(at==null)return false;var h=MarinkaContent.DOBRYNYA.get().create(w);h.owner=p.getUUID();h.moveTo(at.x,at.y,at.z,p.getYRot(),0);if(!w.addFreshEntity(h))return false;d.heroes.put(p.getUUID(),h.getUUID());h.bark(1);d.setDirty();return true;}
+  var at=org.slavicmyths.bogatyr.BogatyrLedger.safe(w,p.position(),.8,2.2,6);if(at==null)return false;var h=MarinkaContent.DOBRYNYA.get().create(w);h.owner=p.getUUID();h.moveTo(at.x,at.y,at.z,p.getYRot(),0);if(!w.addFreshEntity(h))return false;d.heroes.put(p.getUUID(),h.getUUID());h.bark(1);d.setDirty();org.slavicmyths.skim.HeroCalls.summoned(p,"dobrynya_nikitich",h);return true;}
 
  private static boolean natural(ServerLevel w,BlockPos p){if(!w.getFluidState(p).isEmpty()||w.getBlockEntity(p)!=null)return false;var b=w.getBlockState(p);return b.isAir()||b.canBeReplaced()||b.is(net.minecraft.tags.BlockTags.BASE_STONE_OVERWORLD)||b.is(net.minecraft.tags.BlockTags.DIRT)||b.is(Blocks.GRAVEL)||b.is(Blocks.SAND)||b.is(Blocks.DEEPSLATE);}
 
