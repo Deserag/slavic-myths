@@ -250,6 +250,9 @@ GROUPS = {
 }
 def direction(issue):
     n = issue["number"]
+    explicit = CFG.get("directionOverrides", {}).get(str(n))
+    if explicit:
+        return explicit
     for name, nums in GROUPS.items():
         if n in nums:
             return name
