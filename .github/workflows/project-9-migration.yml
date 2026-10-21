@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'tools/project-migration/config.json'
+      - 'tools/project-migration/sync.py'
       - '.github/workflows/project-9-migration.yml'
   workflow_dispatch:
     inputs:
