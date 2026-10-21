@@ -25,7 +25,8 @@
       136,
       137,
       138,
-      139
+      139,
+      143
     ],
     "Анализ": [
       93,
@@ -154,7 +155,8 @@
     "136": 1005,
     "137": 1006,
     "138": 1007,
-    "139": 2000
+    "139": 2000,
+    "143": 1900
   },
   "releaseOverrides": {
     "93": "2.0",
@@ -168,7 +170,8 @@
     "137": "2.1",
     "138": "2.1",
     "139": "Будущее",
-    "142": "2.0"
+    "142": "2.0",
+    "143": "Будущее"
   },
   "fields": {
     "Status": {
@@ -250,5 +253,17 @@
       "layout": "TABLE_LAYOUT"
     }
   ],
-  "readme": "Единая доска разработки Minecraft-мода Slavic Myths. Все изменения обсуждаются и принимаются через Issues и игровой тест владельца.\n\n- [Правила статусов](https://github.com/Deserag/slavic-myths/blob/main/docs/PROJECT_WORKFLOW.md)\n- [Правила Codex](https://github.com/Deserag/slavic-myths/blob/main/docs/CODEX_PROJECT_PLAYBOOK.md)\n- [Конфигурация доски](https://github.com/Deserag/slavic-myths/blob/main/docs/GITHUB_PROJECT_SETUP.md)\n\nCodex не закрывает задачи и не ставит «Готово». Сначала руны и броня; следующие трофеи, оружие — последний крупный художественный пакет."
+  "readme": "Единая доска разработки Minecraft-мода Slavic Myths. Все изменения обсуждаются и принимаются через Issues и игровой тест владельца.\n\n- [Правила статусов](https://github.com/Deserag/slavic-myths/blob/main/docs/PROJECT_WORKFLOW.md)\n- [Правила Codex](https://github.com/Deserag/slavic-myths/blob/main/docs/CODEX_PROJECT_PLAYBOOK.md)\n- [Конфигурация доски](https://github.com/Deserag/slavic-myths/blob/main/docs/GITHUB_PROJECT_SETUP.md)\n\nCodex не закрывает задачи и не ставит «Готово». Сначала руны и броня; следующие трофеи, оружие — последний крупный художественный пакет.",
+  "projectConceptSyncIds": [
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    143
+  ]
 }
