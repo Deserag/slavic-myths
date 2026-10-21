@@ -110,6 +110,8 @@ if not CONCEPTS_ONLY and repository["id"] not in [x["id"] for x in project["repo
 def ensure_fields():
     fields = {x["name"]: x for x in project["fields"]["nodes"]}
     for name, settings in CFG["fields"].items():
+        if CONCEPTS_ONLY and name != "Релиз":
+            continue  # Only add the isolated Nether release option; do not touch Status or other fields.
         current = fields.get(name)
         if settings["type"] == "NUMBER":
             if not current:
@@ -153,8 +155,7 @@ def ensure_fields():
                      "projectV2Field{... on ProjectV2SingleSelectField{id}}",
                      {"fieldId": current["id"], "singleSelectOptions": options})
 
-if not CONCEPTS_ONLY:
-    ensure_fields()
+ensure_fields()  # Concept sync limits field maintenance to the Релиз select.
 if APPLY:
     project, repository = fetch_project()
 fields = {x["name"]: x for x in project["fields"]["nodes"]}
