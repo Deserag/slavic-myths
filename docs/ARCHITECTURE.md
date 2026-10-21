@@ -1,3 +1,7 @@
+## Тестовая установка 1.9.7.49 · 21.10.2026
+
+По прямому поручению владельца текущий source snapshot опубликован и установлен в PolyMC 1.21.1 Testing. Clean build / 7444 resource parity / backup / no duplicate JAR PASS. Runtime0, IN_PROGRESS / OWNER_PENDING; Issue OPEN. Это тестовая сборка незавершённой цепочки. [Точная установка, SHA256, source commit и проверки](implementation/delivery-19749/REPORT.md). Исторические POLYMC_NOT_INSTALLED ниже относятся к прежним пакетам.
+
 ## #106 + зависимые поверхности: воспроизводимость шести пород · 21.10.2026
 
 `decor_all_woods.py` — независимые короткие кластеры по каждой породе; принятые
