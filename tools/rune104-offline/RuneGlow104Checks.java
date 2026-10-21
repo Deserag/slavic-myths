@@ -33,8 +33,8 @@ public final class RuneGlow104Checks {
    a.addVertex(i,2,3).setColor(255,0,255,255).setUv(.25f,.75f).setUv1(1,2).setUv2(3,4).setNormal(0,1,0);
    b.addVertex(-i,4,5).setColor(0,0,0,0).setUv(.5f,.125f);
   }
-  require(one.r==0x55&&one.g==0xc9&&one.b==0x78&&one.a==36,"Emerald level1 color");
-  require(three.a==82&&one.a!=three.a,"Batched stack parameter isolation");
+  require(one.r==0x55&&one.g==0xc9&&one.b==0x78&&one.a==64,"Emerald level1 color");
+  require(three.a==140&&one.a!=three.a,"Batched stack parameter isolation");
   require(one.position==4&&one.uv==4&&one.x==3&&one.y==2&&one.z==3&&Math.abs(one.u-4.8f)<.00001f&&Math.abs(one.v-1.25f)<.00001f,"Geometry/UV changed");
   Capture world=new Capture(),gui=new Capture();
   new RuneGlowConsumer(world,RuneGlowStyle.of(2),new org.joml.Matrix4f()).addVertex(1,2,3).setColor(1,1,1,1).setUv(0,0);

@@ -14,6 +14,9 @@ ITEMS={
 SMALL={'pylayuschaya_cheshuya','uzel_podveya','vihrevaya_nit'}
 COLORS={'coal':['#171417','#282323','#3E3331','#50464A'],'fire':['#771D15','#B92716','#F34E13','#FFC33A'],'rope':['#7D7160','#AB9C82','#C5BBAA','#E4D9C6'],'blue':['#263448','#41536A','#658096','#9DAAB4'],'bone':['#897657','#B6A27F','#D8C7A7','#F0DEBA'],'leather':['#332319','#5E3B2A','#8B5E3F','#B07C50'],'iron':['#25272B','#45494D','#72777C','#A1A6AB'],'red':['#48171D','#821D20','#B13C38','#DA6950'],'wind':['#416174','#658096','#B8CFDB','#DCE4E7']}
 def art(name):
+ if name=='pylayuschaya_cheshuya':
+  from trophy110_art import write as write_trophy
+  write_trophy(name,A/'textures/item');return
  # Draw directly on a 256px authoring grid; complex pieces upscale only 2x, with nearest pixels.
  im=Image.new('RGBA',(256,256));d=ImageDraw.Draw(im);rng=random.Random(910+list(ITEMS).index(name))
  def line(points,color,width=2):d.line([(round(x*2),round(y*2)) for x,y in points],fill=color,width=max(1,round(width*2)))

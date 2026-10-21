@@ -1,0 +1,68 @@
+{
+  "iron-day": {
+    "first_sha256": "1a330d0c8ecee8290d2e6ef65768cf23ff2bd401ef625daec7d64b956fc9d90f",
+    "late_sha256": "7cbd1f958d58f943df86b5f3afa9271b374eaacaeb59e8d736b32f6684d1fefd",
+    "actor_roi_absolute_rgb_difference": 175245,
+    "scope": "actual game screenshots 20 client ticks apart; movement detected, not owner acceptance"
+  },
+  "poloz-day": {
+    "first_sha256": "ae36e6fe5124bcb14445ec7c891be3796fb27faabd25c6373ba3588dcf2ed6f3",
+    "late_sha256": "7404546966f657f5948a1a00f589bd657016dc68bfc6372a4ea7a06a053fdc7e",
+    "actor_roi_absolute_rgb_difference": 213498,
+    "scope": "actual game screenshots 20 client ticks apart; movement detected, not owner acceptance"
+  },
+  "perunite-day": {
+    "first_sha256": "ec0aeb9267fad3d2cccefb55c7643694fa98b369c948783612bdfd263ee96a6b",
+    "late_sha256": "b90f114938d1131f95f9ed40b1f4c92bbdaeb04fadaa715ec588c2eede9e0cdb",
+    "actor_roi_absolute_rgb_difference": 198588,
+    "scope": "actual game screenshots 20 client ticks apart; movement detected, not owner acceptance"
+  },
+  "dragon-day": {
+    "first_sha256": "1791037b7085bdfc9b8af9b724cec4d52a3d496bfbd7096dfb8dacc987d8d4b9",
+    "late_sha256": "02d393e45a38b7e4489b71d5c82cdb039e36fe46dc8b2bf10f21a6f91ba8e3e5",
+    "actor_roi_absolute_rgb_difference": 233688,
+    "scope": "actual game screenshots 20 client ticks apart; movement detected, not owner acceptance"
+  },
+  "linen-day": {
+    "first_sha256": "b1ee074e248c3b7a778863a991f2e9d532d0a34adbcfd363b1867878e6c17594",
+    "late_sha256": "f9276b0a07bb98eeef1be4643ec2d08d74acfc3199ba997f49ab4c36df47e479",
+    "actor_roi_absolute_rgb_difference": 99154,
+    "scope": "actual game screenshots 20 client ticks apart; movement detected, not owner acceptance"
+  },
+  "iron-night": {
+    "first_sha256": "f0a8b0e259211fa4981e1ea1055f44d1dc2fffb2b2772ab7afa251d2689421c8",
+    "late_sha256": "8b9ae1bc0c16a3e58762c784957da422fb87c7a46483a898eaf8875b51c2c294",
+    "actor_roi_absolute_rgb_difference": 174058,
+    "scope": "actual game screenshots 20 client ticks apart; movement detected, not owner acceptance"
+  },
+  "poloz-night": {
+    "first_sha256": "867d97d2da09ada8ad1ec617466ef4c6bc73d4c00b5a2fb9c6f2137533df7cd6",
+    "late_sha256": "cb1926ab04849779f20d125b60bc2712b94b4d3d5a66d8d4f811e9b34ea5513a",
+    "actor_roi_absolute_rgb_difference": 210874,
+    "scope": "actual game screenshots 20 client ticks apart; movement detected, not owner acceptance"
+  },
+  "vanilla-enchantment-reference": {
+    "first_sha256": "7f670515437d08d4bd8b9eb77355e11846a2c8f7b8e204bd225b35c03e08ba64",
+    "late_sha256": "d286c29592471525efe6e2f66199dfc66911f5fab183e33d0a9b0ae46ce9a8a8",
+    "actor_roi_absolute_rgb_difference": 288361,
+    "scope": "actual game screenshots 20 client ticks apart; movement detected, not owner acceptance"
+  },
+  "poloz-enchant-and-runes": {
+    "first_sha256": "7e11584710f979a0fd691bbabf066f4b82bf118d0d66a8ae1ff18597992f2b8c",
+    "late_sha256": "8bf79ec8a614590b69257921fc10df288234a4451754dd08ade664f6facce1dc",
+    "actor_roi_absolute_rgb_difference": 511347,
+    "scope": "actual game screenshots 20 client ticks apart; movement detected, not owner acceptance"
+  },
+  "poloz-back": {
+    "first_sha256": "0b81f57e2a38714dbcf8ab2fc3377025e0dc01fd3e5de9f1fd5fb2e84b8d4d02",
+    "late_sha256": "57c1ec2f321486ff94e72d3c38a8687190b8fea079474001c5fb084a78d8f37e",
+    "actor_roi_absolute_rgb_difference": 221894,
+    "scope": "actual game screenshots 20 client ticks apart; movement detected, not owner acceptance"
+  },
+  "poloz-side": {
+    "first_sha256": "c9f4ac6eeb26e4a97acb8956d17c6b842c01b2796769fc0b61698605e8aef2d2",
+    "late_sha256": "5028775ce8f0f61b55ec6143f4711d7fa30c87d518d1a15963da944de2d27ae4",
+    "actor_roi_absolute_rgb_difference": 153471,
+    "scope": "actual game screenshots 20 client ticks apart; movement detected, not owner acceptance"
+  }
+}

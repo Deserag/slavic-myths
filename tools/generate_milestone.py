@@ -117,7 +117,9 @@ def generate(root):
         assert len(rows)==16 and all(len(r)==16 for r in rows), name
         raw=b''.join(b'\0'+bytes(c for p in row for c in palette[p]) for row in rows)
         png=b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('!IIBBBBB',16,16,8,6,0,0,0))+chunk(b'IDAT',zlib.compress(raw))+chunk(b'IEND',b'')
-        folder='block' if name in blocks else 'item'; p=res/f'assets/slavicmyths/textures/{folder}/{name}.png'; p.write_bytes(png)
+        folder='block' if name in blocks else 'item'; p=res/f'assets/slavicmyths/textures/{folder}/{name}.png'
+        from trophy111_art import write_owned as write_trophy
+        if not write_trophy(p):p.write_bytes(png)
         js(f'assets/slavicmyths/models/item/{name}.json', {'parent':'slavicmyths:block/'+name} if name in blocks else {'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/'+name}})
     for name in blocks:
         model={'parent':'minecraft:block/cube_all','textures':{'all':'slavicmyths:block/'+name}}

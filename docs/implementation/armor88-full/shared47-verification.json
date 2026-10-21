@@ -1,0 +1,24 @@
+{
+  "status": "PASS_SHARED47_JAR_WITH_IDENTICAL_ARMOR_SCOPE",
+  "version": "1.9.7.47",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.47.jar",
+  "archived_jar": "D:\\slavic-myths\\.tools\\armor88-artifacts\\slavicmyths-1.9.7.47.jar",
+  "sha256": "a7bf65fc0260c185f0196d099938156662c93bcdb1b2b6f435c4625cfc7a5ce3",
+  "resources": 7442,
+  "java21_classes": 1742,
+  "armor_source_unchanged_since_verified46": true,
+  "parallel_only_changes": [
+    "src/main/resources/assets/slavicmyths/shaders/core/rune_glint.fsh",
+    "src/main/java/org/slavicmyths/client/runeglow/RuneGlowRenderTypes.java",
+    "src/main/java/org/slavicmyths/client/runeglow/RuneGlowStyle.java",
+    "gradle.properties"
+  ],
+  "build_log": "../rune-glow-visible-47/build.log",
+  "clean_build_by": "parallel effects agent; armor task independently ran clean46",
+  "source_base_commit": "69a2db12de4baac9cef7c43e6c4b0ae717d3b644",
+  "source_commit": "UNCOMMITTED",
+  "minecraft_launches": 0,
+  "runtime": "NOT_RUN",
+  "owner_acceptance": "PENDING",
+  "polymc": "47 NOT_INSTALLED by this task; observed active45"
+}

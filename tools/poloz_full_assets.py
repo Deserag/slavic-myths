@@ -102,7 +102,7 @@ def localize():
   data['block.slavicmyths.mor_growth']='Моровые наросты' if r else 'Blight Growths'
   data['block.slavicmyths.poloz_head']=names['poloz_head'];data['entity.slavicmyths.poloz_stone_spike']='Каменный шип Полоза' if r else 'Poloz Stone Spike'
   for name,kb,dr in [('helmet',10,4),('chestplate',20,8),('leggings',15,6),('boots',10,4)]:data['item.slavicmyths.poloz_'+name+'.desc']=f'+{kb}% сопротивление отбрасыванию; −{dr}% входящего урона. Улучшение: Shift + ПКМ по столу кузнеца с незеритовой частью в руке и 2 чешуями в инвентаре.' if r else f'+{kb}% knockback resistance; −{dr}% incoming damage. Sneak-use a smithing table with the netherite piece in hand and two scales in inventory.'
-  data['poloz.full_set']='Полный комплект: +2 HP и защита от заражённой земли.' if r else 'Full set: +2 HP and immunity to infected ground.'
+  data['poloz.full_set']='Полный комплект: +14 HP и защита от заражённой земли.' if r else 'Full set: +14 HP and immunity to infected ground.'
   data['poloz.upgrade_help']='Укрепление Полоза: Shift + ПКМ по столу кузнеца с этой частью в руке; 2 чешуи в инвентаре. Зачарования, руны и прочие свойства сохраняются.' if r else 'Poloz upgrade: sneak-use a smithing table with this piece in hand and two scales in inventory. All components are preserved.'
   data['poloz.upgrade_need']='Требуются 2 чешуи Великого Полоза.' if r else 'Two Great Poloz Scales required.'
   data['item.slavicmyths.poloz_whip.desc']='13 урона; дальность 6 блоков; широкий удар. ПКМ: 3 каменных шипа, перезарядка 18 с.' if r else '13 damage; 6-block reach; wide lash. Use: three stone spikes, 18 s cooldown.'

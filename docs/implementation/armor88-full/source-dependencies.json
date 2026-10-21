@@ -1,0 +1,11 @@
+{
+  "artifact": "C:\\Users\\pavel\\.gradle\\caches\\neoformruntime\\intermediate_results\\sourcesAndCompiledWithNeoForge_4b60f0fbd5dbdcd1d7940cf7da3e5cf6f56511d2_output.jar",
+  "artifact_sha256": "4ab1b93c7270c2647a641d97799c92a06db91b2410eb968498fd6ebd85dcb1e7",
+  "source_entries": {
+    "net/minecraft/client/model/HumanoidModel.java": "8b2aa6c98caf827c8b69ba35fc8d5133f3fadf9b8988cb1222cdf9162f7d144e",
+    "net/minecraft/client/model/PlayerModel.java": "19651503ddda0b931d4921e5aeec63e9dd403f466b4ac3d5509d50df8ce4b0e1",
+    "net/minecraft/client/renderer/entity/layers/HumanoidArmorLayer.java": "f28596339187d7bf2afdba6160c63bc6e5a894fcaf670c23804ee2410b0f8fc1",
+    "net/minecraft/client/renderer/entity/ArmorStandRenderer.java": "370769b1bae3afa4395761723c6c6551aa1ce069265f4923fbdd91290f730b5f",
+    "net/neoforged/neoforge/client/extensions/common/IClientItemExtensions.java": "6e76c463d4a5d35ef79636de7c1c80df01e9e5ef0b956feb6a617789530f255f"
+  }
+}

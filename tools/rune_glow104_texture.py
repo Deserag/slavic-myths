@@ -1,14 +1,15 @@
-"""Shared neutral modulation data, not item-specific art. Integer32px repeat texture."""
+"""Reproducible seamless low-contrast rune modulation; no item artwork."""
 from pathlib import Path
 from PIL import Image
+import math
 R=Path(__file__).resolve().parents[1]
 def image():
- im=Image.new('RGB',(32,32))
- for y in range(32):
-  for x in range(32):
-   q=(x+y*2)%32;distance=min(abs(q-8),32-abs(q-8));intensity=max(0,204-distance*34)
-   mint=max(0,255-abs(((x-y)%32)-16)*32);turquoise=max(0,255-abs(((x+3*y)%32)-12)*42)
-   im.putpixel((x,y),(intensity,mint,turquoise))
+ im=Image.new('RGB',(128,128))
+ for y in range(128):
+  for x in range(128):
+   u=x/128*math.tau;v=y/128*math.tau
+   q=.38+.12*math.sin(3*u+2*v+.8*math.sin(u-v))+.09*math.sin(5*v-2*u)+.06*math.sin(9*u+7*v)+.035*math.sin(17*u-11*v)
+   im.putpixel((x,y),(round(max(0,min(1,q))*255),round((.5+.5*math.sin(2*u-v))*255),round((.5+.5*math.cos(u+3*v))*255)))
  return im
 if __name__=='__main__':
- p=R/'src/main/resources/assets/slavicmyths/textures/misc/rune_glint.png';p.parent.mkdir(parents=True,exist_ok=True);image().save(p)
+ image().save(R/'src/main/resources/assets/slavicmyths/textures/misc/rune_glint.png')

@@ -9,12 +9,14 @@ in vec2 texCoord0;
 in float vertexDistance;
 out vec4 fragColor;
 void main() {
-    // One shared data texture: red=intensity, green=mint mask, blue=turquoise mask.
+    // Continuous low-contrast density; no threshold that hardens the pattern into straps.
     vec3 pattern = texture(Sampler0, texCoord0).rgb;
-    float alpha = pattern.r * vertexColor.a * ColorModulator.a * linear_fog_fade(vertexDistance, FogStart, FogEnd);
-    if (alpha < 0.004) discard;
-    vec3 tint = vertexColor.rgb;
-    if (vertexColor.a > 0.18) tint = mix(tint, vec3(0.6392,0.9020,0.7412), pattern.g * 0.72);
-    if (vertexColor.a > 0.28) tint = mix(tint, vec3(0.3451,0.8118,0.7765), pattern.b * 0.58);
+    float density = pattern.r;
+    float alpha = density * vertexColor.a * ColorModulator.a * linear_fog_fade(vertexDistance, FogStart, FogEnd);
+    if (alpha < 0.001) discard;
+    // Thresholds follow the three per-stack strengths (64/100/140), independent of density.
+    vec3 tint = vec3(0.36, 0.64, 0.46);
+    if (vertexColor.a > 0.32) tint = mix(tint, vec3(0.53,0.73,0.61), pattern.g * 0.36);
+    if (vertexColor.a > 0.47) tint = mix(tint, vec3(0.40,0.70,0.68), pattern.b * 0.32);
     fragColor = vec4(tint * ColorModulator.rgb, alpha);
 }

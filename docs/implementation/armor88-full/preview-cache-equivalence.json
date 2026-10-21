@@ -1,0 +1,22 @@
+[
+  {
+    "id": "linen_ports",
+    "pose": "idle",
+    "pixel_equal": true
+  },
+  {
+    "id": "linen_ports",
+    "pose": "walk_t10",
+    "pixel_equal": true
+  },
+  {
+    "id": "dragon_chestplate",
+    "pose": "idle",
+    "pixel_equal": true
+  },
+  {
+    "id": "dragon_chestplate",
+    "pose": "walk_t10",
+    "pixel_equal": true
+  }
+]

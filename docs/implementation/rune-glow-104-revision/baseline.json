@@ -1,0 +1,6 @@
+{
+  "src/main/resources/assets/slavicmyths/shaders/core/rune_glint.fsh": "d8b4bd968340b66e151e4a9bd1ef3771af66a0988eb9a05bb5a089759f93bd09",
+  "src/main/resources/assets/slavicmyths/shaders/core/rune_glint.vsh": "ffaa1f8c0c5f1ef951c84a47d79d5d90f7e2106f0bdb30d47291421331f39c16",
+  "src/main/resources/assets/slavicmyths/textures/misc/rune_glint.png": "d91e2762747edde1df96628c28e2593592efcafa6da27f9de22269d22a2fb1e3",
+  "src/main/java/org/slavicmyths/client/runeglow/RuneGlowStyle.java": "1600b5e94a3aecdf7c00862079d2c94bd9a0a353f1e1ad766e584b045abf7ab6"
+}

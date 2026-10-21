@@ -1,3 +1,178 @@
+## #106 + зависимые поверхности: воспроизводимость шести пород · 21.10.2026
+
+`decor_all_woods.py` — независимые короткие кластеры по каждой породе; принятые
+linden masters,12 торцов,кора pine/rowan сохраняются byte-exact. Пакет
+`decor_wood_templates.zip` фиксирует исходные joinery overlays/holes/hardware/UV;
+на поверхности дерева заменяется только grain,не alpha/рама/петли. Native размеры
+сохранены. Исторические woodlands/gardens/rc2/burial art writers имеют scoped
+guards/final overlay; полные legacy pipelines для теста не запускаются.
+Никаких Java/model/state/recipes/NBT изменений. Существующие furniture consumers
+наследуют материалы; generic/vanilla independent materials не переназначаются.
+Installed NeoForge Sheets(bytecode) подтверждает namespaced Material paths
+entity/signs/apple и entity/signs/hanging/apple. Для них добавлены2 отсутствовавшие
+PNG; прежние double-namespace файлы сохранены/обновлены как совместимые aliases.
+[Manifest/templates SHA,89 source renders и границы](implementation/decor106-all-woods/REPORT.md).
+
+## #106 — три scoped linden texture masters · 21.10.2026
+
+`decor106_linden.py` содержит три явных16px карты волокон с исходными палитрами.
+`woodlands_0801.texture` делегирует только эти block PNG до legacy fallback;
+остальные породы, foliage/saplings, door/trapdoor/sign atlases не перехватываются.
+Реальные block/item/state JSON unchanged; изменение источника автоматически
+видно существующим consumers, включая мебель с linden_planks.
+`decor106_preview.py` разрешает actual JSON/vanilla parents из1.21.1 client JAR,
+складывает точные source pixels в memory-only atlas с ремапом face UV и вызывает
+orthographic source renderer. Это offline imagery без Minecraft AO/runtime.
+[Scope и доказательства](implementation/decor106-linden/REPORT.md).
+
+## #111 — разрешённая смена типа pearl_fragment · 21.10.2026
+
+Новая адресная норма21.10: pearl_fragment теперь minecraft:item/generated,
+отдельный32px PNG с четырьмя группами плоскостей и локальным перламутровым акцентом.
+Устаревшие UV/GUI/hand overrides одиночного cuboid удалены только у этого ID;
+используются vanilla inherited generated-item transforms из установленной1.21.1.
+trophy111_art.write воспроизводит PNG и model; water_070 имеет scoped guard,
+vanilla_item_style final overlay также воспроизводит model. Остальные модели неизменны.
+trophy111_source_preview.py читает реальные до/после JSON/PNG и vanilla parent
+из client JAR: orthographic nearest source renderer, без запуска игры; не моделирует
+Minecraft AO/shaders/руки игрока. [Evidence/границы](implementation/trophy111-refinement/REPORT.md).
+Следующая запись историческая и описывает source до разрешённой конверсии.
+
+## #111 — scoped T2 masters · 21.10.2026
+
+`tools/trophy111_art.py` — восемь независимых master drawings секции B.
+Для ataman_sign/serpent_seal сохранён native32px через crisp2px clusters,
+для остальных native16px. Никаких изменений модельных JSON/display/UV.
+old_buckle сохраняет separate_transforms GUI/held цепочку; pearl_fragment
+сохраняет native3D cuboid до согласованного model/UV решения.
+Legacy art-entrypoints получают только scoped hooks; полный legacy pipeline
+не запускается для теста. `verify_trophy111.py` использует изолированные AST
+functions/guards и byte parity исходного дерева/JAR; runtime не подтверждает.
+[Evidence](implementation/trophy111/REPORT.md).
+
+## #110 — источник семи trophy sprites · 21.10.2026
+
+`tools/trophy110_art.py` хранит семь независимых16×16 RGBA pixel maps; import
+не пишет файлы. `vanilla_item_style.sprite` и art-функции `kurgan_086`,
+`hunt_090/091/092` направляют только семь ID в этот источник. Модели сохраняют
+`minecraft:item/generated`, layer0 и native16px; runtime/registry/data не меняются.
+Проверка legacy art выполняет только фактическую FunctionDef из AST в temp-root:
+top-level imports старых генераторов имеют побочные production writes.
+[Evidence, A/B, границы проверки](implementation/trophy110/REPORT.md).
+
+## Сияние и полные комплекты ХП · установленная1.9.7.48 · 21.10.2026
+
+IN_PROGRESS / OWNER_PENDING. Устранено чрезмерное ослабление glint45: линейная
+плотность, alpha64/100/140 и additive свет без широких ремней. Настоящие GAME кадры
+0–3 рун на железной/Перуните/Полозе/драконе/рубахе; день/ночь, спина/бок, vanilla
+reference/coexistence, надетый игрок в survival InventoryScreen. Это scripted QA,
+не ручная приёмка владельца. #104 OPEN, #105 NOT_STARTED.
+
+По явному решению владельца полные сеты: Перунит +5ХП, Полоз +14ХП, драконий +20ХП.
+Существующие equipment events, transient IDs, без нового tick polling/лечения;
+partial/mixed/clamp/no-stacking проверены на настоящем ServerPlayer.
+Java21 clean build1m5s + resources/JAR PASS;5 dev-client запусков,4входа в отдельную
+тестовую копию,0dedicated/GameTest; финальные сценарии PASS. MP/relog/death/dimension,
+Fabulous/полный контекстный QA и performance NOT_RUN. Пользовательские миры сохранены.
+[Полная матрица и runtime](implementation/armor-health-48/REPORT.md),
+[installed path/version/SHA256/source commit/backup45](implementation/armor-health-48/installed.json).
+Один активный JAR48,6прочих модов сохранены. Installed PolyMC runtime NOT_RUN.
+Нет commit/push/закрытия задач; прежние записи «48 не установлена» исторические.
+
+## Общая47 после параллельной работы · 20.10.2026
+
+Броня #88/#122–128 побайтово сохранена из проверенной46 в общей47 второго агента.
+[Source/JAR47 parity и архив](implementation/armor88-full/shared47-verification.json).
+Все29 ID имеют A/B/SHA и матрицы; #129 acceptance BLOCKED_ON_OWNER_A1_A7,
+игровые гейты NOT_RUN, никаких закрытий/owner-accepted. Clean46 выполнен здесь;
+clean47 выполнен вторым агентом и его артефакт проверен отдельно. PolyMC этой
+задачей не обновлялась; наблюдалась тестовая45 другого агента, не финальный релиз.
+
+## #88 / #122–129 — source 1.9.7.46, приёмка ожидается · 20.10.2026
+
+IN_PROGRESS / IN_GAME_OWNER_PENDING. Реализационные пакеты #122–#128 охватывают
+29 носимых ID: 7 предметов одежды, 2 базовых доспеха, 5 уникальных, 12 сетовых,
+3 трофейных. Для #129 собрана техническая пред-проверка; финальный acceptance
+заблокирован до ручной приёмки A1–A7. Все Issue остаются OPEN, чекбоксы не закрыты.
+[Все восемь матриц](implementation/armor88-full/REPORT.md),
+[29-ID аудит с actual source A/B и SHA](implementation/armor88-full/AUDIT.md).
+
+Java21 clean build 1m13s, native bake/UV29 ID, rune regression, 7442 ресурсов,
+1339 PNG и production JAR parity PASS. Runtime NOT_RUN, запусков0. В source
+устранены совпадающие внутренние фронтальные плоскости портов/лаптей/поножей/сапог;
+настоящие clipping/анимация/stand/trim/runes/enchants/relog/MP ждут проверки владельца.
+13 аксессуаров, #130 и gameplay не менялись работой88. Правки второго агента44/45
+сохранены; установленная им тестовая45 содержит основную переработку брони.
+46 дополнительно разводит на 0.06px пояс поножей неукротимости и НЕ установлена.
+Точные source/JAR SHA: [verification.json](implementation/armor88-full/verification.json).
+Нет автоматического commit/push/закрытия Issues. Следующие записи исторические.
+
+Клиентская архитектура88: TextileClothingLayer.mesh — общая фабрика семи вещей;
+подолы сарафана/передника и штанины принадлежат костям ног. Отдельный client-only
+ArmorStandClothingLayer использует эту фабрику, сохраняет vanilla head path для
+других предметов и RuneGlowBuffers.clothing из45. BasicArmorModels регистрирует
+три независимые клиентские конструкции (gambeson, plate_cuirass, seven_league_boots),
+кэширует normal/slim по предмету. Регистрация common/предметы/attributes не менялись.
+Unique/Reward/Perunite/Dragon/Poloz правятся только по своим ID/slot. Scoped
+armor88_art.py применяет актуальный атлас поверх legacy entrypoints; bulk генераторы
+не запускались. Новых ticks, world scans, сетевых пакетов, NBT или эффектов нет.
+
+
+## PolyMC: тестовая1.9.7.45 установлена · 20.10.2026
+
+По прямому запросу владельца установлен проверенный JAR45 с текущим мягким glint #104
+и существующей работой брони. Clean build Java21 1m1s, стабильность source/resources/JAR PASS.
+Backup44 вне mods, один Slavic JAR,6 прочих модов сохранены по SHA256.
+[Installed path/SHA256/source commit/backup](implementation/polymc-19745/installed.json),
+[матрица](implementation/polymc-19745/REPORT.md). Source69a2db12 + dirty tree; нет commit/push.
+IN_PROGRESS / OWNER_PENDING, игровых запусков0, runtime NOT_RUN. #104 OPEN; #105 не начата.
+Эта запись заменяет прежние сведения «45 не установлена» и текущую блокировку упаковки.
+
+
+## #104 — мягкий glint, повторная ревизия · 20.10.2026
+
+IN_PROGRESS / OWNER_PENDING. Только shared PNG/GLSL/strengths: мелкий мягкий узор,
+приглушённая палитра, alpha24/40/58 и медленнее UV; три OFFLINE source GPU кандидата.
+Броня этой задачей не менялась. GLSL/JVM PASS; clean build1m8s PASS на момент выполнения.
+Затем обнаружены параллельные изменения брони и исчезновение build/libs: текущая
+resource/JAR-проверка BLOCKED_CONCURRENT_WRITER, без подтверждённого артефакта.
+[Матрица, baseline и ограничения](implementation/rune-glow-104-revision/REPORT.md).
+Runtime NOT_RUN, запусков0, POLYMC_NOT_INSTALLED. Нет commit/push; #105 не начата.
+
+## PolyMC: установлена тестовая1.9.7.44 · 20.10.2026
+
+По прямому поручению владельца установлен проверенный44 с исправлением рунического
+слоя надетой брони, усилением сияния и enchantable tags. Backup42 вне mods;
+один активный Slavic JAR,6 соседних модов сохранены по SHA256.
+[Точные installed path/SHA/source base и backup](implementation/rune-glow-fix-44/installed.json).
+Source HEAD69a2db12 плюс незакоммиченные изменения; commit/push не выполнялись.
+Игровых запусков0; IN_PROGRESS / OWNER_PENDING, runtime NOT_RUN.
+Следующие записи «44 не установлена» исторические и заменены этой квитанцией.
+
+## Исправления сияния и зачарований · кандидат1.9.7.44 · 20.10.2026
+
+**IN_PROGRESS / OWNER_PENDING.** По скриншотам владельца исправлено несовпадение
+VIEW_OFFSET_Z_LAYERING у equipped armor overlay; отдельный armor RenderType,
+textile без armor offset. Alpha1/2/3рун112/156/200 вместо36/58/82, контрастные полосы.
+Добавлены отсутствовавшие vanilla enchantable slot tags для22 ArmorItem и категории
+пропущенного оружия/инструментов/crossbows. Предсуществующая работа #88 сохранена.
+[Причины, source GPU, регрессия глубины и матрица](implementation/rune-glow-fix-44/REPORT.md).
+Java21 clean build1m7s, JVM/batch/ABI, standalone GLSL/GPU, data graph и JAR PASS.
+Minecraft запусков0, игровая проверка/MP/relog/ручная приёмка NOT_RUN.
+**44 НЕ установлена в PolyMC**; установленная42 не изменена. Нет commit/push/закрытия.
+Следующие записи об43/42 относятся к своим пакетам и не означают установку44.
+
+## #88 — посадка льняного комплекта, source 1.9.7.43 · 20.10.2026
+
+IN_PROGRESS / OWNER_PENDING. Исправлены linen_shirt и linen_ports: одежда выведена
+поверх внешнего слоя скина, низ портов больше не погружён в базовую ногу.
+Нативные точки крепления Steve/Alex сохранены; 12 контрольных мешей остальных
+шести предметов неизменны. ID, текстуры, баланс и рунический слой сохранены.
+Java21 clean build, offline bake/UV и production JAR gates PASS; игровой runtime
+NOT_RUN, запусков0. [Матрица и source A/B](implementation/armor88-linen/REPORT.md).
+43 НЕ установлена в PolyMC; установленная42 сохранена. Коммит не создавался.
+#87 отложена до уточнений; #105 ждёт ручной визуальной приёмки #104.
+
 ## Установлена тестовая1.9.7.42; публикация по поручению владельца · 20.10.2026
 
 В PolyMC Testing1.21.1 установлен проверенный42: backup40 сохранён, один активный

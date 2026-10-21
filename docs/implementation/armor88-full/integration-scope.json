@@ -1,0 +1,37 @@
+{
+  "scope": "#88 armor only; other agent44 changes preserved",
+  "changed": [
+    "src/main/java/org/slavicmyths/client/DragonArmor.java",
+    "src/main/java/org/slavicmyths/client/PeruniteArmor.java",
+    "src/main/java/org/slavicmyths/client/PolozArmor.java",
+    "src/main/java/org/slavicmyths/client/RewardArmor.java",
+    "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+    "src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+    "src/main/resources/assets/slavicmyths/textures/armor/seven_league.png",
+    "src/main/resources/assets/slavicmyths/textures/armor/unique_bogatyr_layer_1.png",
+    "src/main/resources/assets/slavicmyths/textures/entity/clothing/bast_shoes.png",
+    "src/main/resources/assets/slavicmyths/textures/entity/clothing/folk_vest.png",
+    "src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_apron.png",
+    "src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_headscarf.png",
+    "src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_ports.png",
+    "src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_shirt.png",
+    "src/main/resources/assets/slavicmyths/textures/entity/clothing/sarafan.png",
+    "src/main/resources/assets/slavicmyths/textures/item/plate_cuirass.png",
+    "src/main/resources/assets/slavicmyths/textures/models/armor/dragon.png",
+    "src/main/resources/assets/slavicmyths/textures/models/armor/gambeson_layer_1.png",
+    "src/main/resources/assets/slavicmyths/textures/models/armor/perunite_layer_1.png",
+    "src/main/resources/assets/slavicmyths/textures/models/armor/perunite_layer_2.png",
+    "src/main/resources/assets/slavicmyths/textures/models/armor/plate_layer_1.png",
+    "src/main/resources/assets/slavicmyths/textures/models/armor/poloz.png",
+    "src/main/resources/assets/slavicmyths/textures/models/armor/trophy_idol_chest.png",
+    "src/main/resources/assets/slavicmyths/textures/models/armor/trophy_kartaus_mantle.png",
+    "src/main/resources/assets/slavicmyths/textures/models/armor/trophy_marinka_cloak.png"
+  ],
+  "added": [
+    "src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java",
+    "src/main/java/org/slavicmyths/client/BasicArmorModels.java"
+  ],
+  "shared_line_merge": "TextileClothingLayer RuneGlowBuffers.clothing retained from44",
+  "no_other_owned_path_changes": true,
+  "followup": "Native A/B revealed coplanar leg/boot inner faces; clipped inner edges, preserved outer extents; dragon boots no longer render leggings/torso."
+}

@@ -110,7 +110,8 @@ def icons():
   else:
    for x in [3,18]:d.rectangle((x+3,3,x+10,23),fill=metal,outline=dark);d.polygon([(x+3,21),(x+10,20),(x+12,26),(x+11,30),(x,30),(x,25)],fill=dark,outline=metal);d.line((x+6,5,x+6,21),fill=red,width=2)
   from boss_runes103 import write_owned
-  if not write_owned(A/f'textures/item/{name}.png'):im.save(A/f'textures/item/{name}.png')
+  from trophy111_art import write_owned as write_trophy
+  if not write_trophy(A/f'textures/item/{name}.png') and not write_owned(A/f'textures/item/{name}.png'):im.save(A/f'textures/item/{name}.png')
   write(A/f'models/item/{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':f'slavicmyths:item/{name}'}})
  write(A/'models/item/zmey_gorynych_spawn_egg.json',{'parent':'minecraft:item/template_spawn_egg'})
  im=Image.new('RGBA',(64,64));d=ImageDraw.Draw(im)

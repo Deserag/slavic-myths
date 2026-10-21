@@ -1,0 +1,307 @@
+{
+  "family": [
+    "linden_log",
+    "linden_stripped_log",
+    "linden_wood",
+    "linden_stripped_wood",
+    "linden_planks",
+    "linden_stairs",
+    "linden_slab",
+    "linden_fence",
+    "linden_fence_gate",
+    "linden_door",
+    "linden_trapdoor",
+    "linden_pressure_plate",
+    "linden_button",
+    "linden_sign",
+    "linden_leaves"
+  ],
+  "graphs": {
+    "linden_log": {
+      "item_model": "assets/slavicmyths/models/item/linden_log.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_log.json",
+      "models": [
+        "slavicmyths:block/linden_log",
+        "slavicmyths:block/linden_log_horizontal"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_stripped_log": {
+      "item_model": "assets/slavicmyths/models/item/linden_stripped_log.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_stripped_log.json",
+      "models": [
+        "slavicmyths:block/linden_stripped_log",
+        "slavicmyths:block/linden_stripped_log_horizontal"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_wood": {
+      "item_model": "assets/slavicmyths/models/item/linden_wood.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_wood.json",
+      "models": [
+        "slavicmyths:block/linden_wood"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_stripped_wood": {
+      "item_model": "assets/slavicmyths/models/item/linden_stripped_wood.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_stripped_wood.json",
+      "models": [
+        "slavicmyths:block/linden_stripped_wood"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_planks": {
+      "item_model": "assets/slavicmyths/models/item/linden_planks.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_planks.json",
+      "models": [
+        "slavicmyths:block/linden_planks"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_stairs": {
+      "item_model": "assets/slavicmyths/models/item/linden_stairs.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_stairs.json",
+      "models": [
+        "slavicmyths:block/linden_stairs",
+        "slavicmyths:block/linden_stairs_inner",
+        "slavicmyths:block/linden_stairs_outer"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_slab": {
+      "item_model": "assets/slavicmyths/models/item/linden_slab.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_slab.json",
+      "models": [
+        "slavicmyths:block/linden_planks",
+        "slavicmyths:block/linden_slab",
+        "slavicmyths:block/linden_slab_top"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_fence": {
+      "item_model": "assets/slavicmyths/models/item/linden_fence.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_fence.json",
+      "models": [
+        "slavicmyths:block/linden_fence_post",
+        "slavicmyths:block/linden_fence_side"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_fence_gate": {
+      "item_model": "assets/slavicmyths/models/item/linden_fence_gate.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_fence_gate.json",
+      "models": [
+        "slavicmyths:block/linden_fence_gate",
+        "slavicmyths:block/linden_fence_gate_open",
+        "slavicmyths:block/linden_fence_gate_wall",
+        "slavicmyths:block/linden_fence_gate_wall_open"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_door": {
+      "item_model": "assets/slavicmyths/models/item/linden_door.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_door.json",
+      "models": [
+        "slavicmyths:block/linden_door_bottom_left",
+        "slavicmyths:block/linden_door_bottom_left_open",
+        "slavicmyths:block/linden_door_bottom_right",
+        "slavicmyths:block/linden_door_bottom_right_open",
+        "slavicmyths:block/linden_door_top_left",
+        "slavicmyths:block/linden_door_top_left_open",
+        "slavicmyths:block/linden_door_top_right",
+        "slavicmyths:block/linden_door_top_right_open"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_trapdoor": {
+      "item_model": "assets/slavicmyths/models/item/linden_trapdoor.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_trapdoor.json",
+      "models": [
+        "slavicmyths:block/linden_trapdoor_bottom",
+        "slavicmyths:block/linden_trapdoor_open",
+        "slavicmyths:block/linden_trapdoor_top"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_pressure_plate": {
+      "item_model": "assets/slavicmyths/models/item/linden_pressure_plate.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_pressure_plate.json",
+      "models": [
+        "slavicmyths:block/linden_pressure_plate",
+        "slavicmyths:block/linden_pressure_plate_down"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_button": {
+      "item_model": "assets/slavicmyths/models/item/linden_button.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_button.json",
+      "models": [
+        "slavicmyths:block/linden_button",
+        "slavicmyths:block/linden_button_pressed"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    },
+    "linden_sign": {
+      "item_model": "assets/slavicmyths/models/item/linden_sign.json",
+      "blockstate": "assets/slavicmyths/blockstates/linden_sign.json",
+      "models": [
+        "slavicmyths:block/linden_sign"
+      ],
+      "geometry": "UNCHANGED",
+      "placement/redstone": "NOT_RUN"
+    }
+  },
+  "direct_texture_consumers": [
+    "src/main/resources/assets/slavicmyths/models/block/linden_bedside_cabinet.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_bench.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_button.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_button_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_button_pressed.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_chair.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_gate.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_gate_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_gate_wall.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_gate_wall_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_post.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_side.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_planks.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_pressure_plate.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_pressure_plate_down.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_shelf.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_slab.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_slab_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stairs.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stairs_inner.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stairs_outer.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stool.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stripped_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stripped_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stripped_wood.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_table.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_table_pair_east.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_table_pair_north.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_table_pair_south.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_table_pair_west.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_wall_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_wardrobe_lower.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_wardrobe_upper.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_weapon_rack.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_wood.json",
+    "src/main/resources/assets/slavicmyths/models/item/linden_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/linden_planks.json",
+    "src/main/resources/assets/slavicmyths/models/item/linden_stripped_log.json"
+  ],
+  "resolved_dependencies": [
+    "assets/minecraft/models/block/block.json",
+    "assets/minecraft/models/block/button.json",
+    "assets/minecraft/models/block/button_inventory.json",
+    "assets/minecraft/models/block/button_pressed.json",
+    "assets/minecraft/models/block/cube.json",
+    "assets/minecraft/models/block/cube_all.json",
+    "assets/minecraft/models/block/cube_column.json",
+    "assets/minecraft/models/block/cube_column_horizontal.json",
+    "assets/minecraft/models/block/door_bottom_left.json",
+    "assets/minecraft/models/block/door_bottom_left_open.json",
+    "assets/minecraft/models/block/door_bottom_right.json",
+    "assets/minecraft/models/block/door_bottom_right_open.json",
+    "assets/minecraft/models/block/door_top_left.json",
+    "assets/minecraft/models/block/door_top_left_open.json",
+    "assets/minecraft/models/block/door_top_right.json",
+    "assets/minecraft/models/block/door_top_right_open.json",
+    "assets/minecraft/models/block/fence_inventory.json",
+    "assets/minecraft/models/block/fence_post.json",
+    "assets/minecraft/models/block/fence_side.json",
+    "assets/minecraft/models/block/inner_stairs.json",
+    "assets/minecraft/models/block/outer_stairs.json",
+    "assets/minecraft/models/block/pressure_plate_down.json",
+    "assets/minecraft/models/block/pressure_plate_up.json",
+    "assets/minecraft/models/block/slab.json",
+    "assets/minecraft/models/block/slab_top.json",
+    "assets/minecraft/models/block/stairs.json",
+    "assets/minecraft/models/block/template_fence_gate.json",
+    "assets/minecraft/models/block/template_fence_gate_open.json",
+    "assets/minecraft/models/block/template_fence_gate_wall.json",
+    "assets/minecraft/models/block/template_fence_gate_wall_open.json",
+    "assets/minecraft/models/block/template_trapdoor_bottom.json",
+    "assets/minecraft/models/block/template_trapdoor_open.json",
+    "assets/minecraft/models/block/template_trapdoor_top.json",
+    "assets/minecraft/models/block/thin_block.json",
+    "assets/minecraft/models/item/generated.json",
+    "assets/slavicmyths/models/block/linden_button.json",
+    "assets/slavicmyths/models/block/linden_button_inventory.json",
+    "assets/slavicmyths/models/block/linden_button_pressed.json",
+    "assets/slavicmyths/models/block/linden_door_bottom_left.json",
+    "assets/slavicmyths/models/block/linden_door_bottom_left_open.json",
+    "assets/slavicmyths/models/block/linden_door_bottom_right.json",
+    "assets/slavicmyths/models/block/linden_door_bottom_right_open.json",
+    "assets/slavicmyths/models/block/linden_door_top_left.json",
+    "assets/slavicmyths/models/block/linden_door_top_left_open.json",
+    "assets/slavicmyths/models/block/linden_door_top_right.json",
+    "assets/slavicmyths/models/block/linden_door_top_right_open.json",
+    "assets/slavicmyths/models/block/linden_fence_gate.json",
+    "assets/slavicmyths/models/block/linden_fence_gate_open.json",
+    "assets/slavicmyths/models/block/linden_fence_gate_wall.json",
+    "assets/slavicmyths/models/block/linden_fence_gate_wall_open.json",
+    "assets/slavicmyths/models/block/linden_fence_inventory.json",
+    "assets/slavicmyths/models/block/linden_fence_post.json",
+    "assets/slavicmyths/models/block/linden_fence_side.json",
+    "assets/slavicmyths/models/block/linden_log.json",
+    "assets/slavicmyths/models/block/linden_log_horizontal.json",
+    "assets/slavicmyths/models/block/linden_planks.json",
+    "assets/slavicmyths/models/block/linden_pressure_plate.json",
+    "assets/slavicmyths/models/block/linden_pressure_plate_down.json",
+    "assets/slavicmyths/models/block/linden_sign.json",
+    "assets/slavicmyths/models/block/linden_slab.json",
+    "assets/slavicmyths/models/block/linden_slab_top.json",
+    "assets/slavicmyths/models/block/linden_stairs.json",
+    "assets/slavicmyths/models/block/linden_stairs_inner.json",
+    "assets/slavicmyths/models/block/linden_stairs_outer.json",
+    "assets/slavicmyths/models/block/linden_stripped_log.json",
+    "assets/slavicmyths/models/block/linden_stripped_log_horizontal.json",
+    "assets/slavicmyths/models/block/linden_stripped_wood.json",
+    "assets/slavicmyths/models/block/linden_trapdoor_bottom.json",
+    "assets/slavicmyths/models/block/linden_trapdoor_open.json",
+    "assets/slavicmyths/models/block/linden_trapdoor_top.json",
+    "assets/slavicmyths/models/block/linden_wood.json",
+    "assets/slavicmyths/models/item/linden_button.json",
+    "assets/slavicmyths/models/item/linden_door.json",
+    "assets/slavicmyths/models/item/linden_fence.json",
+    "assets/slavicmyths/models/item/linden_fence_gate.json",
+    "assets/slavicmyths/models/item/linden_log.json",
+    "assets/slavicmyths/models/item/linden_planks.json",
+    "assets/slavicmyths/models/item/linden_pressure_plate.json",
+    "assets/slavicmyths/models/item/linden_sign.json",
+    "assets/slavicmyths/models/item/linden_slab.json",
+    "assets/slavicmyths/models/item/linden_stairs.json",
+    "assets/slavicmyths/models/item/linden_stripped_log.json",
+    "assets/slavicmyths/models/item/linden_stripped_wood.json",
+    "assets/slavicmyths/models/item/linden_trapdoor.json",
+    "assets/slavicmyths/models/item/linden_wood.json",
+    "assets/slavicmyths/textures/block/linden_door_bottom.png",
+    "assets/slavicmyths/textures/block/linden_door_top.png",
+    "assets/slavicmyths/textures/block/linden_log.png",
+    "assets/slavicmyths/textures/block/linden_log_top.png",
+    "assets/slavicmyths/textures/block/linden_planks.png",
+    "assets/slavicmyths/textures/block/linden_stripped_log.png",
+    "assets/slavicmyths/textures/block/linden_stripped_log_top.png",
+    "assets/slavicmyths/textures/block/linden_trapdoor.png"
+  ]
+}

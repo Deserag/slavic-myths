@@ -1,0 +1,20 @@
+[
+  "src/main/resources/assets/slavicmyths/textures/item/ancient_coin.png",
+  "src/main/resources/assets/slavicmyths/textures/item/ataman_sign.png",
+  "src/main/resources/assets/slavicmyths/textures/item/bandit_token.png",
+  "src/main/resources/assets/slavicmyths/textures/item/old_buckle.png",
+  "src/main/resources/assets/slavicmyths/textures/item/princely_seal.png",
+  "src/main/resources/assets/slavicmyths/textures/item/serpent_seal.png",
+  "src/main/resources/assets/slavicmyths/textures/item/shield_boss_fragment.png",
+  "src/main/resources/assets/slavicmyths/textures/item/voevoda_insignia.png",
+  "tools/generate_045.py",
+  "tools/generate_046.py",
+  "tools/generate_milestone.py",
+  "tools/gorynych_assets.py",
+  "tools/kurgan_086.py",
+  "tools/rare_weapon_resources_1322.py",
+  "tools/vanilla_item_style.py",
+  "docs/PROJECT_STATUS.md",
+  "docs/ROADMAP.md",
+  "docs/ARCHITECTURE.md"
+]

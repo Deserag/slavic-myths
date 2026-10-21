@@ -1,0 +1,109 @@
+ M docs/ARCHITECTURE.md
+ M docs/PROJECT_STATUS.md
+ M docs/ROADMAP.md
+ M gradle.properties
+ M src/main/java/org/slavicmyths/client/DragonArmor.java
+ M src/main/java/org/slavicmyths/client/PeruniteArmor.java
+ M src/main/java/org/slavicmyths/client/PolozArmor.java
+ M src/main/java/org/slavicmyths/client/RewardArmor.java
+ M src/main/java/org/slavicmyths/client/TextileClothingLayer.java
+ M src/main/java/org/slavicmyths/client/UniqueArmorModels.java
+ M src/main/java/org/slavicmyths/client/runeglow/RuneGlowBuffers.java
+ M src/main/java/org/slavicmyths/client/runeglow/RuneGlowRenderTypes.java
+ M src/main/java/org/slavicmyths/client/runeglow/RuneGlowStyle.java
+ M src/main/java/org/slavicmyths/poloz/PolozRewardEvents.java
+ M src/main/resources/assets/slavicmyths/lang/en_us.json
+ M src/main/resources/assets/slavicmyths/lang/ru_ru.json
+ M src/main/resources/assets/slavicmyths/shaders/core/rune_glint.fsh
+ M src/main/resources/assets/slavicmyths/shaders/core/rune_glint.vsh
+ M src/main/resources/assets/slavicmyths/textures/armor/seven_league.png
+ M src/main/resources/assets/slavicmyths/textures/armor/unique_bogatyr_layer_1.png
+ M src/main/resources/assets/slavicmyths/textures/entity/clothing/bast_shoes.png
+ M src/main/resources/assets/slavicmyths/textures/entity/clothing/folk_vest.png
+ M src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_apron.png
+ M src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_headscarf.png
+ M src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_ports.png
+ M src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_shirt.png
+ M src/main/resources/assets/slavicmyths/textures/entity/clothing/sarafan.png
+ M src/main/resources/assets/slavicmyths/textures/item/iskra_ovinnika.png
+ M src/main/resources/assets/slavicmyths/textures/item/klyk_volkolaka.png
+ M src/main/resources/assets/slavicmyths/textures/item/nochnoy_kogot.png
+ M src/main/resources/assets/slavicmyths/textures/item/ovinnaya_zola.png
+ M src/main/resources/assets/slavicmyths/textures/item/plate_cuirass.png
+ M src/main/resources/assets/slavicmyths/textures/item/pylayuschaya_cheshuya.png
+ M src/main/resources/assets/slavicmyths/textures/item/tugarinova_kozha.png
+ M src/main/resources/assets/slavicmyths/textures/item/upyr_fang.png
+ M src/main/resources/assets/slavicmyths/textures/misc/rune_glint.png
+ M src/main/resources/assets/slavicmyths/textures/models/armor/dragon.png
+ M src/main/resources/assets/slavicmyths/textures/models/armor/gambeson_layer_1.png
+ M src/main/resources/assets/slavicmyths/textures/models/armor/perunite_layer_1.png
+ M src/main/resources/assets/slavicmyths/textures/models/armor/perunite_layer_2.png
+ M src/main/resources/assets/slavicmyths/textures/models/armor/plate_layer_1.png
+ M src/main/resources/assets/slavicmyths/textures/models/armor/poloz.png
+ M src/main/resources/assets/slavicmyths/textures/models/armor/trophy_idol_chest.png
+ M src/main/resources/assets/slavicmyths/textures/models/armor/trophy_kartaus_mantle.png
+ M src/main/resources/assets/slavicmyths/textures/models/armor/trophy_marinka_cloak.png
+ M src/main/resources/data/minecraft/tags/item/enchantable/durability.json
+ M src/main/resources/data/minecraft/tags/item/enchantable/mining.json
+ M src/main/resources/data/minecraft/tags/item/enchantable/mining_loot.json
+ M src/main/resources/data/minecraft/tags/item/enchantable/sharp_weapon.json
+ M src/main/resources/data/minecraft/tags/item/enchantable/sword.json
+ M src/main/resources/data/minecraft/tags/item/enchantable/weapon.json
+ M tools/armor_revision_assets.py
+ M tools/hunt_090.py
+ M tools/hunt_091.py
+ M tools/hunt_092.py
+ M tools/kurgan_086.py
+ M tools/poloz-runtime/PolozRewardTests.java
+ M tools/poloz_full_assets.py
+ M tools/rune104-offline/RuneGlow104Checks.java
+ M tools/rune_glow104_texture.py
+ M tools/textile_resources.py
+ M tools/vanilla_item_style.py
+?? docs/implementation/armor-health-48/
+?? docs/implementation/armor88-full/
+?? docs/implementation/armor88-linen/
+?? docs/implementation/polymc-19745/
+?? docs/implementation/rune-glow-104-revision/
+?? docs/implementation/rune-glow-fix-44/
+?? docs/implementation/rune-glow-visible-47/
+?? docs/implementation/trophy110/
+?? src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java
+?? src/main/java/org/slavicmyths/client/BasicArmorModels.java
+?? src/main/java/org/slavicmyths/item/ArmorSetHealth.java
+?? src/main/resources/data/minecraft/tags/item/enchantable/chest_armor.json
+?? src/main/resources/data/minecraft/tags/item/enchantable/crossbow.json
+?? src/main/resources/data/minecraft/tags/item/enchantable/foot_armor.json
+?? src/main/resources/data/minecraft/tags/item/enchantable/head_armor.json
+?? src/main/resources/data/minecraft/tags/item/enchantable/leg_armor.json
+?? tools/armor88-full-offline.gradle
+?? tools/armor88-full-offline/
+?? tools/armor88-offline.gradle
+?? tools/armor88-offline/
+?? tools/armor88_art.py
+?? tools/armor88_full_preview.py
+?? tools/armor88_overlap_check.py
+?? tools/armor88_preview.py
+?? tools/armor88_report.py
+?? tools/equipment_enchant44.py
+?? tools/install_health48.py
+?? tools/install_polymc19745.py
+?? tools/install_rune47.py
+?? tools/rune-health-client.init.gradle
+?? tools/rune-health-client/
+?? tools/rune104_revision_preview.py
+?? tools/rune104_revision_shader.py
+?? tools/rune44_make_preview.py
+?? tools/rune44_preview_gl.py
+?? tools/rune44_shader_check.py
+?? tools/rune47_preview.py
+?? tools/rune47_shader.py
+?? tools/trophy110_art.py
+?? tools/verify_armor88_full.py
+?? tools/verify_armor88_linen.py
+?? tools/verify_armor88_shared.py
+?? tools/verify_equipment44.py
+?? tools/verify_health48.py
+?? tools/verify_polymc19745.py
+?? tools/verify_rune47.py
+?? tools/verify_trophy110.py

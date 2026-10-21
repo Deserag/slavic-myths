@@ -9,8 +9,9 @@ PALETTES=[((113,105,86),(217,187,125),(71,120,44)),((121,111,99),(178,133,99),(7
 def tint(c,n):return tuple(max(0,min(255,v+n)) for v in c)+(255,)
 def texture(name,fn,w=16,h=16,folder='block'):
  from plants82_assets import write_owned
+ from decor_all_woods import write_owned as write_linden
  p=A/f'textures/{folder}/{name}.png'
- if not write_owned(p):png(p,w,h,fn)
+ if not write_linden(p) and not write_owned(p):png(p,w,h,fn)
 def pixel_textures(s,i):
  bark,wood,leaf=PALETTES[i]
  # Authored repeatable motifs, no sampled vanilla images or hue shifted leaves.

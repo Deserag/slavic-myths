@@ -1,0 +1,74 @@
+[
+  {
+    "source_case": "minecraft:iron_sword / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      148088,
+      211647,
+      273619
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "minecraft:iron_sword / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      163889,
+      250371,
+      327612
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "slavicmyths:perunite_sword / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      59900,
+      93205,
+      122041
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "slavicmyths:perunite_sword / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      96346,
+      144552,
+      188199
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "perunite_chestplate / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      222913,
+      332990,
+      436234
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "perunite_chestplate / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      391121,
+      599218,
+      794254
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "minecraft:iron_chestplate / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      222851,
+      274807,
+      334841
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "minecraft:iron_chestplate / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      207290,
+      336073,
+      449037
+    ],
+    "scope": "standalone source GPU only"
+  }
+]

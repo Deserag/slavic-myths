@@ -36,6 +36,9 @@ def generate():
   write(D/f'loot_tables/entities/{name}.json',{'type':'minecraft:entity','pools':[{'rolls':1,'entries':[{'type':'minecraft:item','name':'slavicmyths:'+item}]}]})
  for name,(ru,en) in names.items():
   if name.endswith('spawn_egg') or name in ('fishing_net','reed','water_grass','white_lily'):continue
+  if name=='pearl_fragment':
+   from trophy111_art import write as write_trophy
+   write_trophy(name,A/'textures/item');continue
   color=(135,111,57) if 'cooked' in name or 'smoked' in name else (83,101,56) if 'pike' in name else (163,119,56) if 'carp' in name else (90,77,54)
   if name=='cooked_crayfish':color=(168,74,42)
   if name=='pearl_fragment':color=(196,207,204)

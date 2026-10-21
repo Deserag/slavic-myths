@@ -1,0 +1,125 @@
+{
+  "status": "PASS_OFFLINE_NOT_RUNTIME",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.44.jar",
+  "sha256": "30a127f7e2bb0a897d9548ea9c13e753a60b3ad814bff30f70c90520113cd981",
+  "counts": {
+    "resources": 7442,
+    "png": 1339,
+    "classes": 1739
+  },
+  "armor_enchantment_cases": [
+    {
+      "item": "slavicmyths:clear_sight_helmet",
+      "slot": "head",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:dragon_helmet",
+      "slot": "head",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:perunite_helmet",
+      "slot": "head",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:poloz_helmet",
+      "slot": "head",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:bogatyr_chestplate",
+      "slot": "chest",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:dragon_chestplate",
+      "slot": "chest",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:gambeson",
+      "slot": "chest",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:perunite_chestplate",
+      "slot": "chest",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:plate_cuirass",
+      "slot": "chest",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:poloz_chestplate",
+      "slot": "chest",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:trophy_idol_chest",
+      "slot": "chest",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:trophy_kartaus_mantle",
+      "slot": "chest",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:trophy_marinka_cloak",
+      "slot": "chest",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:dragon_leggings",
+      "slot": "leg",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:indomitability_leggings",
+      "slot": "leg",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:perunite_leggings",
+      "slot": "leg",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:poloz_leggings",
+      "slot": "leg",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:dragon_boots",
+      "slot": "foot",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:perunite_boots",
+      "slot": "foot",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:poloz_boots",
+      "slot": "foot",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:seven_league_boots",
+      "slot": "foot",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    },
+    {
+      "item": "slavicmyths:wind_boots",
+      "slot": "foot",
+      "protection_unbreaking_mending": "PASS_DATA_GRAPH"
+    }
+  ],
+  "minecraft_launches": 0,
+  "runtime": "NOT_RUN",
+  "polymc": "NOT_INSTALLED_44"
+}

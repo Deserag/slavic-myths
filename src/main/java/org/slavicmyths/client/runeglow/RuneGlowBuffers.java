@@ -26,6 +26,8 @@ public final class RuneGlowBuffers implements MultiBufferSource {
     }
     public static MultiBufferSource item(ItemStack stack, MultiBufferSource source, PoseStack poses) { return wrap(stack,source,false,poses); }
     public static MultiBufferSource armor(ItemStack stack, MultiBufferSource source, PoseStack poses) { return wrap(stack,source,true,poses); }
+    // Textile meshes use entityCutoutNoCull, without the vanilla armor depth offset.
+    public static MultiBufferSource clothing(ItemStack stack, MultiBufferSource source, PoseStack poses) { return wrap(stack,source,false,poses); }
     private static MultiBufferSource wrap(ItemStack stack, MultiBufferSource source, boolean armor, PoseStack poses) {
         // Nested item renderers must use the child stack, not inherit the parent's rune count.
         while (source instanceof RuneGlowBuffers prior) source=prior.base;
@@ -36,7 +38,8 @@ public final class RuneGlowBuffers implements MultiBufferSource {
         // would end it mid-quad. Keep them unchanged instead of crashing or leaking native buffers.
         if (!(source instanceof RuneBufferAccess access)
                 || !access.slavicmyths$runeFixedBuffers().containsKey(RuneGlowRenderTypes.MAIN)
-                || !access.slavicmyths$runeFixedBuffers().containsKey(RuneGlowRenderTypes.TRANSLUCENT_ITEM)) return source;
+                || !access.slavicmyths$runeFixedBuffers().containsKey(RuneGlowRenderTypes.TRANSLUCENT_ITEM)
+                || !access.slavicmyths$runeFixedBuffers().containsKey(RuneGlowRenderTypes.ARMOR)) return source;
         return new RuneGlowBuffers(source,style,armor,poses);
     }
     @Override public VertexConsumer getBuffer(RenderType type) {
@@ -49,7 +52,7 @@ public final class RuneGlowBuffers implements MultiBufferSource {
         if (!Float.isFinite(inverse.determinant()) || Math.abs(inverse.determinant())<1.0E-12F) return normal;
         inverse.invert();
         emitted=true;
-        RenderType glow=Minecraft.useShaderTransparency() && type==Sheets.translucentItemSheet()
+        RenderType glow=firstMaterialOnly ? RuneGlowRenderTypes.ARMOR : Minecraft.useShaderTransparency() && type==Sheets.translucentItemSheet()
                 ? RuneGlowRenderTypes.TRANSLUCENT_ITEM : RuneGlowRenderTypes.MAIN;
         return VertexMultiConsumer.create(new RuneGlowConsumer(base.getBuffer(glow),style,inverse), normal);
     }

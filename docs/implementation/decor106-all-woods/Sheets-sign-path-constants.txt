@@ -1,0 +1,11 @@
+
+>   #592 = String             #593          // entity/signs/\u0001
+>   #593 = Utf8               entity/signs/\u0001
+>   #594 = String             #595          // entity/signs/hanging/\u0001
+>   #595 = Utf8               entity/signs/hanging/\u0001
+    #596 = MethodType         #91           //  (Ljava/lang/Object;)Ljava/lang/Object;
+>       #592 entity/signs/\u0001
+    1: #646 REF_invokeStatic java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+>       #594 entity/signs/hanging/\u0001
+    2: #652 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+

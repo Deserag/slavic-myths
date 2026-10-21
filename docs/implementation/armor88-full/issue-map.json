@@ -1,0 +1,74 @@
+{
+  "parent": "https://github.com/Deserag/slavic-myths/issues/88",
+  "parent_revision": "v4 20.10.2026; fetched this execution",
+  "children": [
+    {
+      "number": 122,
+      "url": "https://github.com/Deserag/slavic-myths/issues/122",
+      "state": "OPEN",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "number": 123,
+      "url": "https://github.com/Deserag/slavic-myths/issues/123",
+      "state": "OPEN",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "number": 124,
+      "url": "https://github.com/Deserag/slavic-myths/issues/124",
+      "state": "OPEN",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "number": 125,
+      "url": "https://github.com/Deserag/slavic-myths/issues/125",
+      "state": "OPEN",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "number": 126,
+      "url": "https://github.com/Deserag/slavic-myths/issues/126",
+      "state": "OPEN",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "number": 127,
+      "url": "https://github.com/Deserag/slavic-myths/issues/127",
+      "state": "OPEN",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "number": 128,
+      "url": "https://github.com/Deserag/slavic-myths/issues/128",
+      "state": "OPEN",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "number": 129,
+      "url": "https://github.com/Deserag/slavic-myths/issues/129",
+      "state": "OPEN",
+      "owner_acceptance": "PENDING"
+    }
+  ],
+  "count": 8,
+  "scope_count": 29,
+  "accessory_count": 13,
+  "deferred": [
+    130
+  ],
+  "implementation_order": [
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129
+  ],
+  "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING;129 acceptance blocked",
+  "parent_updated_at_last_read": "2026-10-20T18:00:55Z",
+  "rechecked_before_handoff": true,
+  "canonical_checkboxes": 8
+}

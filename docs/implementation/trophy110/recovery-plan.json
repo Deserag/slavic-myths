@@ -1,0 +1,28 @@
+{
+  "recover": [
+    "src/main/resources/data/slavicmyths/advancement/first_brew.json",
+    "src/main/resources/data/slavicmyths/advancement/too_much.json",
+    "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "src/main/resources/assets/slavicmyths/textures/armor/unique_wind_layer_1.png",
+    "src/main/resources/assets/slavicmyths/textures/armor/unique_wind_layer_2.png",
+    "src/main/resources/assets/slavicmyths/textures/item/bogatyr_chestplate.png",
+    "src/main/resources/assets/slavicmyths/textures/item/clear_sight_helmet.png",
+    "src/main/resources/assets/slavicmyths/textures/item/indomitability_leggings.png",
+    "src/main/resources/assets/slavicmyths/textures/item/wind_boots.png",
+    "src/main/resources/assets/slavicmyths/textures/models/armor/perunite_layer_1.png",
+    "src/main/resources/assets/slavicmyths/textures/models/armor/perunite_layer_2.png",
+    "src/main/resources/assets/slavicmyths/models/item/ataman_flail.json",
+    "src/main/resources/assets/slavicmyths/models/item/likho_staff.json",
+    "src/main/resources/assets/slavicmyths/models/item/victor_spear.json"
+  ],
+  "other": [
+    "src/main/resources/assets/slavicmyths/textures/item/iskra_ovinnika.png",
+    "src/main/resources/assets/slavicmyths/textures/item/klyk_volkolaka.png",
+    "src/main/resources/assets/slavicmyths/textures/item/nochnoy_kogot.png",
+    "src/main/resources/assets/slavicmyths/textures/item/ovinnaya_zola.png",
+    "src/main/resources/assets/slavicmyths/textures/item/pylayuschaya_cheshuya.png",
+    "src/main/resources/assets/slavicmyths/textures/item/tugarinova_kozha.png",
+    "src/main/resources/assets/slavicmyths/textures/item/upyr_fang.png"
+  ]
+}

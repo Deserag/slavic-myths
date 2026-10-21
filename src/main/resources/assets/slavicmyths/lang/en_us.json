@@ -4652,7 +4652,7 @@
   "item.slavicmyths.poloz_chestplate.desc": "+20% knockback resistance; −8% incoming damage. Sneak-use a smithing table with the netherite piece in hand and two scales in inventory.",
   "item.slavicmyths.poloz_leggings.desc": "+15% knockback resistance; −6% incoming damage. Sneak-use a smithing table with the netherite piece in hand and two scales in inventory.",
   "item.slavicmyths.poloz_boots.desc": "+10% knockback resistance; −4% incoming damage. Sneak-use a smithing table with the netherite piece in hand and two scales in inventory.",
-  "poloz.full_set": "Full set: +2 HP and immunity to infected ground.",
+  "poloz.full_set": "Full set: +14 HP and immunity to infected ground.",
   "poloz.upgrade_need": "Two Great Poloz Scales required.",
   "item.slavicmyths.poloz_whip.desc": "13 damage; 6-block reach; wide lash. Use: three stone spikes, 18 s cooldown.",
   "poloz.rune_earth_lord_iv": "Tier IV: every fourth successful hit causes a fissure (6 damage, up to four targets within 2 blocks); 20 s cooldown. Poloz drop chance: 5%.",
@@ -5694,5 +5694,7 @@
   "message.slavicmyths.hero.recovering": "Hero is recovering (%s/2).",
   "message.slavicmyths.hero.returning": "Hero is returning. Next summon in %s s.",
   "message.slavicmyths.hero.remaining": "%s s; recoveries: %s",
-  "message.slavicmyths.hero.hud_returning": "Returning"
+  "message.slavicmyths.hero.hud_returning": "Returning",
+  "armor_set_health.perunite": "Full set: +5 max health (2.5 hearts)",
+  "armor_set_health.dragon": "Full set: +20 max health (10 hearts)"
 }

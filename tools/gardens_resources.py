@@ -10,7 +10,8 @@ def js(p,obj):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps
 def save(im,folder,name):
     p=A/f'textures/{folder}/{name}.png';p.parent.mkdir(parents=True,exist_ok=True)
     from plants82_assets import write_owned
-    if not write_owned(p):im.save(p)
+    from decor_all_woods import write_owned as write_timber
+    if not write_timber(p) and not write_owned(p):im.save(p)
 def blank():im=Image.new('RGBA',(32,32));return im,ImageDraw.Draw(im)
 def leaf(d,x,y,kind,scale=1):
     green=['#54853b','#456d40','#5b823a','#355c30','#547344'][kind]

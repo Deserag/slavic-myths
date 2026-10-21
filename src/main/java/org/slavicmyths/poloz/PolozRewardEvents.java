@@ -24,10 +24,10 @@ import org.slavicmyths.rpg.Runes;
 @EventBusSubscriber(modid="slavicmyths")
 public final class PolozRewardEvents {
  @SubscribeEvent public static void attack(AttackEntityEvent e){if(e.getEntity() instanceof ServerPlayer p&&p.getMainHandItem().is(PolozRewards.WHIP.get())){p.getPersistentData().putLong("PolozPrimaryAt",p.server.overworld().getGameTime());p.getPersistentData().putBoolean("PolozPrimaryCharged",p.getAttackStrengthScale(.5f)>.85f);}}
- @SubscribeEvent public static void tooltip(ItemTooltipEvent e){if(PolozRewards.upgrade(e.getItemStack())!=null)e.getToolTip().add(Component.translatable("poloz.upgrade_help"));}
+ @SubscribeEvent public static void tooltip(ItemTooltipEvent e){String setKey=org.slavicmyths.item.ArmorSetHealth.tooltip(e.getItemStack());if(setKey!=null)e.getToolTip().add(Component.translatable(setKey));if(PolozRewards.upgrade(e.getItemStack())!=null)e.getToolTip().add(Component.translatable("poloz.upgrade_help"));}
  public static boolean secondary(ServerPlayer p){return EFFECT.contains(p.getUUID());}
  private static final Set<UUID> EFFECT=new HashSet<>();
- public static void refresh(LivingEntity e){if(e.level().isClientSide)return;apply(e,Attributes.MAX_HEALTH,"poloz_set_health",PolozRewards.full(e)?2:0);apply(e,Attributes.KNOCKBACK_RESISTANCE,"poloz_set_knockback",PolozRewards.knockback(e));if(e.getHealth()>e.getMaxHealth())e.setHealth(e.getMaxHealth());}
+ public static void refresh(LivingEntity e){if(e.level().isClientSide)return;org.slavicmyths.item.ArmorSetHealth.refresh(e);apply(e,Attributes.KNOCKBACK_RESISTANCE,"poloz_set_knockback",PolozRewards.knockback(e));if(e.getHealth()>e.getMaxHealth())e.setHealth(e.getMaxHealth());}
  private static void apply(LivingEntity e,net.minecraft.core.Holder<Attribute> attr,String name,double value){var a=e.getAttribute(attr);if(a==null)return;var id=PolozContent.id(name);a.removeModifier(id);if(value>0)a.addTransientModifier(new AttributeModifier(id,value,AttributeModifier.Operation.ADD_VALUE));}
  @SubscribeEvent public static void equip(LivingEquipmentChangeEvent e){refresh(e.getEntity());}
  @SubscribeEvent public static void join(EntityJoinLevelEvent e){if(e.getEntity() instanceof LivingEntity l)refresh(l);}

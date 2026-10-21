@@ -227,5 +227,7 @@ def generate(root):
 
     from polish_046 import finish
     finish(res)
+    from trophy111_art import write as write_trophy
+    write_trophy('ancient_coin',res/'textures/item')
 
 if __name__=='__main__': generate(Path(__file__).resolve().parents[1])

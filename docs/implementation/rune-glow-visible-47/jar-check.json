@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.47.jar",
+  "sha256": "a7bf65fc0260c185f0196d099938156662c93bcdb1b2b6f435c4625cfc7a5ce3",
+  "resources": 7442,
+  "png": 1339,
+  "java21_classes": 1742,
+  "source_stable": true,
+  "source_fingerprint": "c5881c34e134b5aab21a06aa5b59e7b8c644b01241a32ae84ae87c659b5e058a"
+}

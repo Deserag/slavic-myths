@@ -1,0 +1,15 @@
+{
+  "status": "READ_ONLY_VERIFICATION_OF_OTHER_AGENT_INSTALL",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.45.jar",
+  "installed_sha256": "c9c8cc0e26384a80c9fa6c2ae6ee029c03785e191d445370fbbfa54727e2a3b9",
+  "build_sha256": "c9c8cc0e26384a80c9fa6c2ae6ee029c03785e191d445370fbbfa54727e2a3b9",
+  "content_mismatches": [],
+  "receipt": "../polymc-19745/installed.json",
+  "installed_by_this_armor_task": false,
+  "observed_when_build_version": "1.9.7.45 before final waist fix",
+  "current_build_version": "1.9.7.46 NOT_INSTALLED",
+  "source_differences_since_installed45": [
+    "src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+    "gradle.properties"
+  ]
+}

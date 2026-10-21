@@ -15,5 +15,5 @@ void main() {
     vertexColor = Color;
     vertexDistance = fog_distance(Position, FogShape);
     // UV0 is computed in model units by the overlay consumer, independent of atlas and GUI scale.
-    texCoord0 = UV0 * 1.7 + vec2(GameTime * 48.0, GameTime * 24.0);
+    texCoord0 = UV0 * 2.6 + vec2(GameTime * 12.0, GameTime * 7.0);
 }

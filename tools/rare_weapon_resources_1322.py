@@ -16,6 +16,9 @@ def append(tag,ids):
  path=f'data/{tag}.json';p=RES/path;data=json.loads(p.read_text()) if p.exists() else {'replace':False,'values':[]}
  data['values']=list(dict.fromkeys(data['values']+['slavicmyths:'+i for i in ids]));write(path,data)
 def icon(id):
+ if id=='ataman_sign':
+  from trophy111_art import sprite as trophy_sprite
+  return trophy_sprite(id)
  im=Image.new('RGBA',(32,32));d=ImageDraw.Draw(im);edge='#201b22';metal='#514650';light='#bcb6bd';red='#a13230';gold='#d5ae52';wood='#503528'
  if id=='tugarin_sword':
   d.line([(7,26),(12,21)],fill=edge,width=5);d.line([(7,26),(12,21)],fill=wood,width=3)

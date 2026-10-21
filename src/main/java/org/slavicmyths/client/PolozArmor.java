@@ -33,8 +33,10 @@ public final class PolozArmor implements IClientItemExtensions {
   }
   for(String leg:new String[]{"left_leg","right_leg"}){
    var boxes=CubeListBuilder.create().texOffs(0,16);
-   if(slot==EquipmentSlot.LEGS)boxes.addBox(-2.4F,0,-2.4F,4.8F,6,4.8F).addBox(-2.5F,5,-3,5,2,1.5F);
-   if(slot==EquipmentSlot.FEET)boxes.addBox(-2.5F,8,-2.6F,5,4,5.2F).addBox(-2.5F,10.2F,-3.7F,5,2,1.7F);
+   if(slot==EquipmentSlot.LEGS)boxes.addBox(leg.equals("left_leg")?-1.8F:-2.4F,0,-2.4F,4.2F,6,4.8F).addBox(leg.equals("left_leg")?-1.8F:-2.5F,5,-3,4.3F,2,1.5F);
+   // Flexible joint underlay covers the skin gap above the boot without enlarging plates.
+   if(slot==EquipmentSlot.LEGS)boxes.texOffs(0,16).addBox(leg.equals("left_leg")?-1.8F:-2.4F,6,-2.3F,4.2F,2.2F,4.6F);
+   if(slot==EquipmentSlot.FEET)boxes.addBox(leg.equals("left_leg")?-1.8F:-2.5F,8,-2.6F,4.3F,4,5.2F).addBox(leg.equals("left_leg")?-1.8F:-2.5F,10.2F,-3.7F,4.3F,2,1.7F);
    root.addOrReplaceChild(leg,boxes,PartPose.offset(leg.equals("left_leg")?1.9F:-1.9F,12,0));
   }
   for(int side:new int[]{-1,1}) {
@@ -46,6 +48,9 @@ public final class PolozArmor implements IClientItemExtensions {
    }
   }
   if(slot==EquipmentSlot.CHEST)root.getChild("body").addOrReplaceChild("heart",CubeListBuilder.create().texOffs(48,48).addBox(-1.4F,3,-4,2.8F,3,1).addBox(-.55F,6,-4,1.1F,3,1),PartPose.ZERO);
+  if(slot==EquipmentSlot.CHEST){
+   var body=root.getChild("body");for(int side:new int[]{-1,1})for(int row=0;row<3;row++)body.addOrReplaceChild("overlap_scale_"+side+"_"+row,CubeListBuilder.create().texOffs(0,48).addBox(side<0?-3.6F:1.2F,1.3F+row*2,-3.65F-row*.04F,2.4F,2.2F,.4F),PartPose.ZERO);
+  }
   return new HumanoidModel<>(LayerDefinition.create(mesh,64,64).bakeRoot());
  }
  @Override public HumanoidModel<?> getHumanoidArmorModel(LivingEntity e,ItemStack s,EquipmentSlot slot,HumanoidModel<?> original){return models.getOrDefault(slot,original);}

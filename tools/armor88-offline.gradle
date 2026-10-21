@@ -1,0 +1,13 @@
+allprojects { p ->
+ p.plugins.withId('java') {
+  p.sourceSets.create('armor88Offline') { java.srcDir('tools/armor88-offline') }
+  p.sourceSets.armor88Offline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+  p.sourceSets.armor88Offline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+  p.tasks.register('exportArmor88', JavaExec) {
+   dependsOn p.tasks.named('armor88OfflineClasses')
+   classpath = p.sourceSets.armor88Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.client.Armor88LinenMeshes'
+   args = [p.file(p.findProperty('armor88Out') ?: 'docs/implementation/armor88-linen/after-native.json').absolutePath]
+  }
+ }
+}

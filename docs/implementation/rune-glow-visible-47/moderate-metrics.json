@@ -1,0 +1,92 @@
+[
+  {
+    "source_case": "minecraft:iron_sword / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      208763,
+      342079,
+      488411
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "minecraft:iron_sword / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      230853,
+      378462,
+      543237
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "slavicmyths:perunite_sword / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      102195,
+      167603,
+      240590
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "slavicmyths:perunite_sword / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      102273,
+      167737,
+      240828
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "minecraft:iron_chestplate / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      374707,
+      612760,
+      862976
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "minecraft:iron_chestplate / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      391411,
+      642273,
+      921700
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "poloz_chestplate / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      489977,
+      803268,
+      1148875
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "poloz_chestplate / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      490294,
+      804218,
+      1153964
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "linen_shirt / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      528837,
+      867902,
+      1226099
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "linen_shirt / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      528709,
+      867779,
+      1245643
+    ],
+    "scope": "standalone source GPU only"
+  }
+]

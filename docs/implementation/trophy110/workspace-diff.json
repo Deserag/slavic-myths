@@ -1,0 +1,17 @@
+[
+  "src/main/resources/assets/slavicmyths/textures/item/iskra_ovinnika.png",
+  "src/main/resources/assets/slavicmyths/textures/item/klyk_volkolaka.png",
+  "src/main/resources/assets/slavicmyths/textures/item/nochnoy_kogot.png",
+  "src/main/resources/assets/slavicmyths/textures/item/ovinnaya_zola.png",
+  "src/main/resources/assets/slavicmyths/textures/item/pylayuschaya_cheshuya.png",
+  "src/main/resources/assets/slavicmyths/textures/item/tugarinova_kozha.png",
+  "src/main/resources/assets/slavicmyths/textures/item/upyr_fang.png",
+  "tools/hunt_090.py",
+  "tools/hunt_091.py",
+  "tools/hunt_092.py",
+  "tools/kurgan_086.py",
+  "tools/vanilla_item_style.py",
+  "docs/ARCHITECTURE.md",
+  "docs/PROJECT_STATUS.md",
+  "docs/ROADMAP.md"
+]

@@ -1,0 +1,21 @@
+{
+  "version": "1.9.7.43",
+  "status": "PASS_SOURCE_AND_BUILD_ONLY",
+  "modified": [
+    "gradle.properties",
+    "src/main/java/org/slavicmyths/client/TextileClothingLayer.java"
+  ],
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.43.jar",
+  "sha256": "8ee59668d61737ddfda2c3cc8d5badb02aa8fb0754c2acac234a23c80581e95c",
+  "resources": 7437,
+  "png": 1339,
+  "java21_classes": 1739,
+  "unchanged_control_meshes": 12,
+  "source_view_pairs": 24,
+  "source_base_commit": "69a2db12de4baac9cef7c43e6c4b0ae717d3b644",
+  "source_commit": "UNCOMMITTED",
+  "minecraft_launches": 0,
+  "runtime": "NOT_RUN",
+  "owner_acceptance": "PENDING",
+  "polymc": "43 NOT_INSTALLED; installed42 unchanged"
+}

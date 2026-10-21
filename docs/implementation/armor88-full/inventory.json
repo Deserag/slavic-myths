@@ -1,0 +1,1046 @@
+[
+  {
+    "id": "linen_headscarf",
+    "issue": 122,
+    "slot": "HEAD",
+    "decision": "REDESIGN",
+    "reason": "Открытая лобная лента, волосы/лицо видны, отдельный задний узел.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+        "old_sha256": "7ff3475b2ce5f5a63ca8fe45865af3605065fd460a5ce6edcd4c027acf0853e9",
+        "new_sha256": "697a21dcb958d891b8a22a7cc3b0cd25ce8d787f77185b809996a2733386cf70",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_headscarf.png",
+        "old_sha256": "405fb2f6538eac84207f6aa08d973853b96b51177794a02aeadb0b6c382a8cb2",
+        "new_sha256": "3d2cd09d6305962da29d74852630b169014e1ce192d52fcfdf929e6e8ed401f5",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/linen_headscarf.png",
+        "old_sha256": "753929cace79038d1a859e4b24bd44fd69652e30120deedfaece48c393fdd86d",
+        "new_sha256": "753929cace79038d1a859e4b24bd44fd69652e30120deedfaece48c393fdd86d",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/linen_headscarf.json",
+        "old_sha256": "6c61485f6526cc8457a0516d706a999adcc99b3a7c069c61e04cedda06f19350",
+        "new_sha256": "6c61485f6526cc8457a0516d706a999adcc99b3a7c069c61e04cedda06f19350",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+    "preview": "linen_headscarf.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "linen_shirt",
+    "issue": 122,
+    "slot": "CHEST",
+    "decision": "SMALL_FIX",
+    "reason": "Вырез, отдельные рукава, задний шов; ткань поверх skin overlay.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+        "old_sha256": "7ff3475b2ce5f5a63ca8fe45865af3605065fd460a5ce6edcd4c027acf0853e9",
+        "new_sha256": "697a21dcb958d891b8a22a7cc3b0cd25ce8d787f77185b809996a2733386cf70",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_shirt.png",
+        "old_sha256": "9d4df0b4f030a017a231d35c4f8e7b8cac2f2d1ee20d1a5010a23ba25df707af",
+        "new_sha256": "52ee4df41094dec98a6bfa58cd057e0a099a2a982bbc2fa9bf63ad9569848fb7",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/linen_shirt.png",
+        "old_sha256": "fc423dd4023d6f93462a0ad5b516c6805b0050ce45eaad15ff1b9e0cf0d8a17d",
+        "new_sha256": "fc423dd4023d6f93462a0ad5b516c6805b0050ce45eaad15ff1b9e0cf0d8a17d",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/linen_shirt.json",
+        "old_sha256": "fea8dd568fbaabb8c33426ef2494b3a28bc93a43eefdceceaca5c03ba94d011e",
+        "new_sha256": "fea8dd568fbaabb8c33426ef2494b3a28bc93a43eefdceceaca5c03ba94d011e",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+    "preview": "linen_shirt.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "linen_ports",
+    "issue": 122,
+    "slot": "LEGS",
+    "decision": "SMALL_FIX",
+    "reason": "Независимые штанины и внутренние края, низ выше лаптей.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+        "old_sha256": "7ff3475b2ce5f5a63ca8fe45865af3605065fd460a5ce6edcd4c027acf0853e9",
+        "new_sha256": "697a21dcb958d891b8a22a7cc3b0cd25ce8d787f77185b809996a2733386cf70",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_ports.png",
+        "old_sha256": "dbb09560ff8ac3fafa01d29aec259ae07d61be97b7fd7b4f7c1f521a21baa85e",
+        "new_sha256": "8e1dcdd934a6ce66056cb62f6d3a5a527d2a04dbba31f220b62e1ad6b347d3b6",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/linen_ports.png",
+        "old_sha256": "e3589846bb6c5ca9ef6a03f8953476f8b4fa5e40b86c1d4225753c2eaafb88e5",
+        "new_sha256": "e3589846bb6c5ca9ef6a03f8953476f8b4fa5e40b86c1d4225753c2eaafb88e5",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/linen_ports.json",
+        "old_sha256": "bf230da9cfb5950a9396ddd9db6d676239c823828f4f7766397605c41a6d7fc0",
+        "new_sha256": "bf230da9cfb5950a9396ddd9db6d676239c823828f4f7766397605c41a6d7fc0",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+    "preview": "linen_ports.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "bast_shoes",
+    "issue": 122,
+    "slot": "FEET",
+    "decision": "SMALL_FIX",
+    "reason": "Низкий плетёный верх, отдельная подошва, внутренние грани разделены.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+        "old_sha256": "7ff3475b2ce5f5a63ca8fe45865af3605065fd460a5ce6edcd4c027acf0853e9",
+        "new_sha256": "697a21dcb958d891b8a22a7cc3b0cd25ce8d787f77185b809996a2733386cf70",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/entity/clothing/bast_shoes.png",
+        "old_sha256": "20a1674acf9acc1017376702345dde4a34d257e7eecea7eb3ece984e2610cbdb",
+        "new_sha256": "8dc82668837c1006e865215f2fd4793c9c29e4665115134bbf2aecb0ea89e2a6",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/bast_shoes.png",
+        "old_sha256": "fcda97facf90f9143a6fd2dacc02e52b8d696cc2a161f5d3f6df42583578f5f0",
+        "new_sha256": "fcda97facf90f9143a6fd2dacc02e52b8d696cc2a161f5d3f6df42583578f5f0",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/bast_shoes.json",
+        "old_sha256": "ae9c64474f5ef786c2eb91007f48492322d32ef7d334413795a696fa8b05c423",
+        "new_sha256": "ae9c64474f5ef786c2eb91007f48492322d32ef7d334413795a696fa8b05c423",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+    "preview": "bast_shoes.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "sarafan",
+    "issue": 122,
+    "slot": "CHEST",
+    "decision": "REDESIGN",
+    "reason": "Лямки и раздельные передние/задние панели подола на костях ног.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+        "old_sha256": "7ff3475b2ce5f5a63ca8fe45865af3605065fd460a5ce6edcd4c027acf0853e9",
+        "new_sha256": "697a21dcb958d891b8a22a7cc3b0cd25ce8d787f77185b809996a2733386cf70",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/entity/clothing/sarafan.png",
+        "old_sha256": "9e87df29c0b41d909f5acc1ada3b3bcade1ba56daf4094fdf6f2fcdbe929e223",
+        "new_sha256": "09e5f01294e4377278077458fa7ae84d26e86de1b1a8238d897945e5e5a6d441",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/sarafan.png",
+        "old_sha256": "313b903a616371d98b505e1bd5a5ac775f34f673025c54f51cfe9bcceaa20a6c",
+        "new_sha256": "313b903a616371d98b505e1bd5a5ac775f34f673025c54f51cfe9bcceaa20a6c",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/sarafan.json",
+        "old_sha256": "b9892b5c416d8b0e9f677687f9e4060729b9beca565bd9b2de06a0ba983e2050",
+        "new_sha256": "b9892b5c416d8b0e9f677687f9e4060729b9beca565bd9b2de06a0ba983e2050",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+    "preview": "sarafan.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "linen_apron",
+    "issue": 122,
+    "slot": "CHEST",
+    "decision": "SMALL_FIX",
+    "reason": "Передняя панель, независимый низ; сзади только пояс/завязки.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+        "old_sha256": "7ff3475b2ce5f5a63ca8fe45865af3605065fd460a5ce6edcd4c027acf0853e9",
+        "new_sha256": "697a21dcb958d891b8a22a7cc3b0cd25ce8d787f77185b809996a2733386cf70",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/entity/clothing/linen_apron.png",
+        "old_sha256": "b52226316691958a626c2ca9a7b277d080ce0aa2d4aeb0dc2ce22e403059ef2f",
+        "new_sha256": "15f609549a8a8fcaa2fca2e92c260501f9611809ba61077e3acae5ab9a5b28a6",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/linen_apron.png",
+        "old_sha256": "2025d6848231d6236f89175b150cdf5c7735126c7021712fd24eafb0061edda9",
+        "new_sha256": "2025d6848231d6236f89175b150cdf5c7735126c7021712fd24eafb0061edda9",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/linen_apron.json",
+        "old_sha256": "196d3e30bea1fb1b0593154ff7327334d2e7d24a164c0fad1b35b224eac60678",
+        "new_sha256": "196d3e30bea1fb1b0593154ff7327334d2e7d24a164c0fad1b35b224eac60678",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+    "preview": "linen_apron.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "folk_vest",
+    "issue": 122,
+    "slot": "CHEST",
+    "decision": "SMALL_FIX",
+    "reason": "Открытые передние полы, отдельные плечи и короткая цельная спинка.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+        "old_sha256": "7ff3475b2ce5f5a63ca8fe45865af3605065fd460a5ce6edcd4c027acf0853e9",
+        "new_sha256": "697a21dcb958d891b8a22a7cc3b0cd25ce8d787f77185b809996a2733386cf70",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/entity/clothing/folk_vest.png",
+        "old_sha256": "a2d8cb465daccf506effe2bdac271ec3f826d43888d2a148421c77909ca7fd4c",
+        "new_sha256": "aab5d8b5c8849a9a926d2ac62034c0cf477b35661bcdbb6280fde49a7c248250",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/folk_vest.png",
+        "old_sha256": "16cbb8dee587deb1745a1582e1b65744db1d7d9e1b92b924ed713b89115f6863",
+        "new_sha256": "16cbb8dee587deb1745a1582e1b65744db1d7d9e1b92b924ed713b89115f6863",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/folk_vest.json",
+        "old_sha256": "0d8bfeb043686809a0583496ecd8ff78ecd3c97465b83ab660df1f4d39063a24",
+        "new_sha256": "0d8bfeb043686809a0583496ecd8ff78ecd3c97465b83ab660df1f4d39063a24",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+    "preview": "folk_vest.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "gambeson",
+    "issue": 123,
+    "slot": "CHEST",
+    "decision": "REDESIGN",
+    "reason": "Мягкий верх, узкая талия, пояс, отдельные рукава, короткая диагональная стёжка.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/BasicArmorModels.java",
+        "old_sha256": null,
+        "new_sha256": "8b8a55fe74c646bbfe8dcf0519183862d5e9ac3c06a9957b423545316213b0be",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/gambeson_layer_1.png",
+        "old_sha256": "66e7f4b829b4cd4c8376cd81e547e4c4df4626b19930924f24395d0eb9598a13",
+        "new_sha256": "0240a194606a37b05e470359c2ac4a9b5c1a603d38b021d1aaa657677f695482",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/gambeson.png",
+        "old_sha256": "d4815abe1d5333a2d84ec795adbc8aa74ccc62d3ad2bd36cd6e687c94c1353e4",
+        "new_sha256": "d4815abe1d5333a2d84ec795adbc8aa74ccc62d3ad2bd36cd6e687c94c1353e4",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/gambeson.json",
+        "old_sha256": "3a7d1fab635364e649b661fcb0f6e2209025fe932f0be9c8513c9db1eec34bf8",
+        "new_sha256": "3a7d1fab635364e649b661fcb0f6e2209025fe932f0be9c8513c9db1eec34bf8",
+        "changed": false
+      }
+    ],
+    "before_source": "Pinned vanilla HumanoidModel.createMesh(deformation1); source-dependencies.json",
+    "preview": "gambeson.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "plate_cuirass",
+    "issue": 123,
+    "slot": "CHEST",
+    "decision": "REDESIGN",
+    "reason": "Выпуклая ступенчатая центральная пластина, отдельные спинка/плечи, ремни и заклёпки.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/BasicArmorModels.java",
+        "old_sha256": null,
+        "new_sha256": "8b8a55fe74c646bbfe8dcf0519183862d5e9ac3c06a9957b423545316213b0be",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/plate_layer_1.png",
+        "old_sha256": "95816af4ac02242708302c6f57c3b73f55e151ccd0ae9e9c7b4f8ca15b110517",
+        "new_sha256": "a368e00e68dc551382733f406c279bb9c9676b91f38d9dd46821409199386425",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/plate_cuirass.png",
+        "old_sha256": "4bd33fb869cafcd1d8ef83e5533dba1091538f0f0c2cb22881a7fa97988698e6",
+        "new_sha256": "5246fef414cc760b0b258da76b20c9d717ae9da3fbabd06103d2da27d93245a9",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/plate_cuirass.json",
+        "old_sha256": "e0bfcb57645d9e05a952eade6ec5f57dc956a103ffd64511eede48789c0af356",
+        "new_sha256": "e0bfcb57645d9e05a952eade6ec5f57dc956a103ffd64511eede48789c0af356",
+        "changed": false
+      }
+    ],
+    "before_source": "Pinned vanilla HumanoidModel.createMesh(deformation1); source-dependencies.json",
+    "preview": "plate_cuirass.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "bogatyr_chestplate",
+    "issue": 124,
+    "slot": "CHEST",
+    "decision": "REDESIGN",
+    "reason": "Раздельные крупные ламели на кожано-красной основе и солнечная застёжка; сплошные полосы убраны.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+        "old_sha256": "7747264de781d5453f4d56faaebba4c37727ac0b9d8cb9b23bef99a2dc8aa709",
+        "new_sha256": "8102fb8641e39a4e2e82e4f7b0ba1a55e48648ef43dddd58481ed6cbef10a788",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/armor/unique_bogatyr_layer_1.png",
+        "old_sha256": "fa64f93b76e3184ba3f211222f3341711f10426d17ff609f71e53fe5197e114a",
+        "new_sha256": "4c9f5535e6393570edc4bc605da04507b188064c096d1a836489ab17d3109008",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/bogatyr_chestplate.png",
+        "old_sha256": "70ec68f590ee4a9dc19ee527254919db7510fe5c1c3c0d5de8b6826f5549aaf6",
+        "new_sha256": "70ec68f590ee4a9dc19ee527254919db7510fe5c1c3c0d5de8b6826f5549aaf6",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/bogatyr_chestplate.json",
+        "old_sha256": "bcda7a23e46569f2c918d8fe18aebf462e28b281b294ba6f1bc6d6d8a615263d",
+        "new_sha256": "bcda7a23e46569f2c918d8fe18aebf462e28b281b294ba6f1bc6d6d8a615263d",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+    "preview": "bogatyr_chestplate.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "clear_sight_helmet",
+    "issue": 124,
+    "slot": "HEAD",
+    "decision": "KEEP",
+    "reason": "Меш/UV/PNG идентичны: лицо открыто, камень и боковины самостоятельны; runtime NOT_RUN.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+        "old_sha256": "7747264de781d5453f4d56faaebba4c37727ac0b9d8cb9b23bef99a2dc8aa709",
+        "new_sha256": "8102fb8641e39a4e2e82e4f7b0ba1a55e48648ef43dddd58481ed6cbef10a788",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/armor/unique_clear_sight_layer_1.png",
+        "old_sha256": "1ef46d2f768b6056b8bb486ab6b1b562b7d874ce90c5381dfac5d0d9510909ab",
+        "new_sha256": "1ef46d2f768b6056b8bb486ab6b1b562b7d874ce90c5381dfac5d0d9510909ab",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/clear_sight_helmet.png",
+        "old_sha256": "51a2278f656dfb31a69c413f4bfb3e5eb86cddba7d8dc4fed92b0eeb9aacfa2e",
+        "new_sha256": "51a2278f656dfb31a69c413f4bfb3e5eb86cddba7d8dc4fed92b0eeb9aacfa2e",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/clear_sight_helmet.json",
+        "old_sha256": "e0737d57b3af95442ac0f8f3494b677c1734d26431cc2c847c498266c637bf97",
+        "new_sha256": "e0737d57b3af95442ac0f8f3494b677c1734d26431cc2c847c498266c637bf97",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+    "preview": "clear_sight_helmet.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "indomitability_leggings",
+    "issue": 124,
+    "slot": "LEGS",
+    "decision": "SMALL_FIX",
+    "reason": "Сливовые бедренники и колени сохранены; внутреннее перекрытие двух ног устранено.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+        "old_sha256": "7747264de781d5453f4d56faaebba4c37727ac0b9d8cb9b23bef99a2dc8aa709",
+        "new_sha256": "8102fb8641e39a4e2e82e4f7b0ba1a55e48648ef43dddd58481ed6cbef10a788",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/armor/unique_indomitability_layer_2.png",
+        "old_sha256": "63efc34403ac68c9631824cacf7cb7e863123f006db3682e2a18cc18b6c0a460",
+        "new_sha256": "63efc34403ac68c9631824cacf7cb7e863123f006db3682e2a18cc18b6c0a460",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/indomitability_leggings.png",
+        "old_sha256": "c46ab492a91708a3b5bf52519e076dde540a4350679d63e5a90443d40a7b72b8",
+        "new_sha256": "c46ab492a91708a3b5bf52519e076dde540a4350679d63e5a90443d40a7b72b8",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/indomitability_leggings.json",
+        "old_sha256": "3df44c31a935db007b7484db02cf00a8f68a40fdccb8bbb3548bb53d9a5c8812",
+        "new_sha256": "3df44c31a935db007b7484db02cf00a8f68a40fdccb8bbb3548bb53d9a5c8812",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+    "preview": "indomitability_leggings.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "wind_boots",
+    "issue": 124,
+    "slot": "FEET",
+    "decision": "SMALL_FIX",
+    "reason": "Боковые ступенчатые перья, отдельная подошва; внутренние грани разведены.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+        "old_sha256": "7747264de781d5453f4d56faaebba4c37727ac0b9d8cb9b23bef99a2dc8aa709",
+        "new_sha256": "8102fb8641e39a4e2e82e4f7b0ba1a55e48648ef43dddd58481ed6cbef10a788",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/armor/unique_wind_layer_1.png",
+        "old_sha256": "37d8abae6ccbf4e240d61d6851a230bfc02ef43aae7361b5186ba3093ef6b2bd",
+        "new_sha256": "37d8abae6ccbf4e240d61d6851a230bfc02ef43aae7361b5186ba3093ef6b2bd",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/wind_boots.png",
+        "old_sha256": "da300a23aadefffa7ea49793c3c97efcd2c517a685a3037054e853effde87ade",
+        "new_sha256": "da300a23aadefffa7ea49793c3c97efcd2c517a685a3037054e853effde87ade",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/wind_boots.json",
+        "old_sha256": "1fc42ccb2c7fa06d2de94920c29745ffc7c467e7903f41554a0fd1758439c825",
+        "new_sha256": "1fc42ccb2c7fa06d2de94920c29745ffc7c467e7903f41554a0fd1758439c825",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+    "preview": "wind_boots.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "seven_league_boots",
+    "issue": 124,
+    "slot": "FEET",
+    "decision": "REDESIGN",
+    "reason": "Дорожные сапоги с красным отворотом и ремнями вместо целых ванильных штанин; без перьев.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/BasicArmorModels.java",
+        "old_sha256": null,
+        "new_sha256": "8b8a55fe74c646bbfe8dcf0519183862d5e9ac3c06a9957b423545316213b0be",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/armor/seven_league.png",
+        "old_sha256": "4437ec433b01eccf8b22996be9905bc9ff5691163ffeafd3983c48794a7322b2",
+        "new_sha256": "8d11f70c58c4fd0f1cbdca69d086c5dfd3fbf586183f7444a8774a70876d9cb8",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/seven_league_boots.png",
+        "old_sha256": "ba886981d68acde050a840a9ac9414490ea8e65a834a4c77a235f6b85036df6f",
+        "new_sha256": "ba886981d68acde050a840a9ac9414490ea8e65a834a4c77a235f6b85036df6f",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/seven_league_boots.json",
+        "old_sha256": "5d041dd5d3b45f803d06975bba2837da5bf13f89c740b968cbfeadcab3dfc300",
+        "new_sha256": "5d041dd5d3b45f803d06975bba2837da5bf13f89c740b968cbfeadcab3dfc300",
+        "changed": false
+      }
+    ],
+    "before_source": "Pinned vanilla HumanoidModel.createMesh(deformation1); source-dependencies.json",
+    "preview": "seven_league_boots.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "perunite_helmet",
+    "issue": 125,
+    "slot": "HEAD",
+    "decision": "SMALL_FIX",
+    "reason": "Рога/гребень и открытое лицо сохранены; локальные кромки/атлас.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/PeruniteArmor.java",
+        "old_sha256": "b1294a2b7f1b063418e14cacf822514b060bbd138149f896f81b17436bc390fe",
+        "new_sha256": "1caa8e24740b654c82bf97551f296a4eb33d3b71fcbf2fa7423cb4d188ff9cd5",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/perunite_layer_1.png",
+        "old_sha256": "718172a709b85acb865fa53f1da09f0f6370d02be64c97d788ee7c78f4b301d3",
+        "new_sha256": "06d2c5f67c8dedfca7ac345b7b9a75b69e19d8f79534f5f246da1642d47dc1a7",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/perunite_helmet.png",
+        "old_sha256": "5decf51daca66608c761525fa9ba70ec1f878eda29339153df610df369950a1e",
+        "new_sha256": "5decf51daca66608c761525fa9ba70ec1f878eda29339153df610df369950a1e",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/perunite_helmet.json",
+        "old_sha256": "501e22a5523d65d3a8ed0be2df00d85d07386bc99e5b9d25e66af29e886fecf7",
+        "new_sha256": "501e22a5523d65d3a8ed0be2df00d85d07386bc99e5b9d25e66af29e886fecf7",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/PeruniteArmor.java",
+    "preview": "perunite_helmet.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "perunite_chestplate",
+    "issue": 125,
+    "slot": "CHEST",
+    "decision": "SMALL_FIX",
+    "reason": "Основная геометрия сохранена; центральный знак/палитра уточнены. Одна центральная молния.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/PeruniteArmor.java",
+        "old_sha256": "b1294a2b7f1b063418e14cacf822514b060bbd138149f896f81b17436bc390fe",
+        "new_sha256": "1caa8e24740b654c82bf97551f296a4eb33d3b71fcbf2fa7423cb4d188ff9cd5",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/perunite_layer_1.png",
+        "old_sha256": "718172a709b85acb865fa53f1da09f0f6370d02be64c97d788ee7c78f4b301d3",
+        "new_sha256": "06d2c5f67c8dedfca7ac345b7b9a75b69e19d8f79534f5f246da1642d47dc1a7",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/perunite_chestplate.png",
+        "old_sha256": "b944f7606ca3ff82cdb5af9d3746acd869a180e9a7515065b905704969ddb55f",
+        "new_sha256": "b944f7606ca3ff82cdb5af9d3746acd869a180e9a7515065b905704969ddb55f",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/perunite_chestplate.json",
+        "old_sha256": "e1fc93982ffe9d2e38badb947da155ea9fd71d86a1b5f6cb5ee8a7006ee5ad7f",
+        "new_sha256": "e1fc93982ffe9d2e38badb947da155ea9fd71d86a1b5f6cb5ee8a7006ee5ad7f",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/PeruniteArmor.java",
+    "preview": "perunite_chestplate.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "perunite_leggings",
+    "issue": 125,
+    "slot": "LEGS",
+    "decision": "SMALL_FIX",
+    "reason": "Внешние габариты сохранены, внутренние грани разделены; стык с обувью.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/PeruniteArmor.java",
+        "old_sha256": "b1294a2b7f1b063418e14cacf822514b060bbd138149f896f81b17436bc390fe",
+        "new_sha256": "1caa8e24740b654c82bf97551f296a4eb33d3b71fcbf2fa7423cb4d188ff9cd5",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/perunite_layer_2.png",
+        "old_sha256": "718172a709b85acb865fa53f1da09f0f6370d02be64c97d788ee7c78f4b301d3",
+        "new_sha256": "e7d0c11c395eac0b0cdfa4a343d1e93e8cfc6adc3a05811324ad403e41867aa9",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/perunite_leggings.png",
+        "old_sha256": "8ceb39cc683abd8a4a5527c4e54764f9b18b8d1a1d41b9a75e1ae71c11009191",
+        "new_sha256": "8ceb39cc683abd8a4a5527c4e54764f9b18b8d1a1d41b9a75e1ae71c11009191",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/perunite_leggings.json",
+        "old_sha256": "84ee0960d6146b847903a514107ac298a4bf73a7074b99cf3d66d8f599079a74",
+        "new_sha256": "84ee0960d6146b847903a514107ac298a4bf73a7074b99cf3d66d8f599079a74",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/PeruniteArmor.java",
+    "preview": "perunite_leggings.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "perunite_boots",
+    "issue": 125,
+    "slot": "FEET",
+    "decision": "SMALL_FIX",
+    "reason": "Защитная ступня и наружные размеры сохранены, внутренние наложения разведены.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/PeruniteArmor.java",
+        "old_sha256": "b1294a2b7f1b063418e14cacf822514b060bbd138149f896f81b17436bc390fe",
+        "new_sha256": "1caa8e24740b654c82bf97551f296a4eb33d3b71fcbf2fa7423cb4d188ff9cd5",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/perunite_layer_1.png",
+        "old_sha256": "718172a709b85acb865fa53f1da09f0f6370d02be64c97d788ee7c78f4b301d3",
+        "new_sha256": "06d2c5f67c8dedfca7ac345b7b9a75b69e19d8f79534f5f246da1642d47dc1a7",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/perunite_boots.png",
+        "old_sha256": "7b69dd6ea5f145e70084403eab0360b3a65f2dfe837a5a54a61a0bf3c3f33af9",
+        "new_sha256": "7b69dd6ea5f145e70084403eab0360b3a65f2dfe837a5a54a61a0bf3c3f33af9",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/perunite_boots.json",
+        "old_sha256": "d1dbec676443beaf604b73125cfa5b3c08150ac6d19e5c12eae18f86d98f619d",
+        "new_sha256": "d1dbec676443beaf604b73125cfa5b3c08150ac6d19e5c12eae18f86d98f619d",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/PeruniteArmor.java",
+    "preview": "perunite_boots.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "dragon_helmet",
+    "issue": 126,
+    "slot": "HEAD",
+    "decision": "SMALL_FIX",
+    "reason": "Рога/гребень и открытое лицо сохранены; локальные кромки/атлас. Убрано наложение крышки и боков на 0.5 px, сами рога неизменны.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/DragonArmor.java",
+        "old_sha256": "14c78084111e8b47e76fc52f420a9d8b4ff92c65cafae641bb1805b81ca9360f",
+        "new_sha256": "7b2864cfd7c0a9375f34ecd493cf4a680ea27bc446f1f0cbe393df9f6eb50436",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/dragon.png",
+        "old_sha256": "d277a129a5387c462e7404a9675544de3e03823c1c3da27ff1d771040221fd30",
+        "new_sha256": "c1f58d074e6a2780c95428035368881b3f5ae9e3fe7fa53206cc8477d7a4fefe",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/dragon_helmet.png",
+        "old_sha256": "cbb60cb2024797f2369cc797195b2273cb17738d9ff12d5151548a9136e3bc6c",
+        "new_sha256": "cbb60cb2024797f2369cc797195b2273cb17738d9ff12d5151548a9136e3bc6c",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/dragon_helmet.json",
+        "old_sha256": "c7bab7c988b9b9f7c52eef0042d58b9f3540380e0ae5971d32807251c6c104ac",
+        "new_sha256": "c7bab7c988b9b9f7c52eef0042d58b9f3540380e0ae5971d32807251c6c104ac",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/DragonArmor.java",
+    "preview": "dragon_helmet.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "dragon_chestplate",
+    "issue": 126,
+    "slot": "CHEST",
+    "decision": "SMALL_FIX",
+    "reason": "Основная геометрия сохранена; центральный знак/палитра уточнены.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/DragonArmor.java",
+        "old_sha256": "14c78084111e8b47e76fc52f420a9d8b4ff92c65cafae641bb1805b81ca9360f",
+        "new_sha256": "7b2864cfd7c0a9375f34ecd493cf4a680ea27bc446f1f0cbe393df9f6eb50436",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/dragon.png",
+        "old_sha256": "d277a129a5387c462e7404a9675544de3e03823c1c3da27ff1d771040221fd30",
+        "new_sha256": "c1f58d074e6a2780c95428035368881b3f5ae9e3fe7fa53206cc8477d7a4fefe",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/dragon_chestplate.png",
+        "old_sha256": "3a1d42baeefb056b3918517997b4a3d92cf483bcf89f7ef1fb906909154283f8",
+        "new_sha256": "3a1d42baeefb056b3918517997b4a3d92cf483bcf89f7ef1fb906909154283f8",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/dragon_chestplate.json",
+        "old_sha256": "e6b532053c2d436796b294d6fc94fff722f04b77641f94116c267ed84f68aee4",
+        "new_sha256": "e6b532053c2d436796b294d6fc94fff722f04b77641f94116c267ed84f68aee4",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/DragonArmor.java",
+    "preview": "dragon_chestplate.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "dragon_leggings",
+    "issue": 126,
+    "slot": "LEGS",
+    "decision": "SMALL_FIX",
+    "reason": "Внешние габариты сохранены, внутренние грани разделены; стык с обувью. Поясная часть вместо лишнего полного торса.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/DragonArmor.java",
+        "old_sha256": "14c78084111e8b47e76fc52f420a9d8b4ff92c65cafae641bb1805b81ca9360f",
+        "new_sha256": "7b2864cfd7c0a9375f34ecd493cf4a680ea27bc446f1f0cbe393df9f6eb50436",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/dragon.png",
+        "old_sha256": "d277a129a5387c462e7404a9675544de3e03823c1c3da27ff1d771040221fd30",
+        "new_sha256": "c1f58d074e6a2780c95428035368881b3f5ae9e3fe7fa53206cc8477d7a4fefe",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/dragon_leggings.png",
+        "old_sha256": "250771efe4c050e747f5b2d0ee6c0e5a519459076bf917de8ef88c473123b8a8",
+        "new_sha256": "250771efe4c050e747f5b2d0ee6c0e5a519459076bf917de8ef88c473123b8a8",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/dragon_leggings.json",
+        "old_sha256": "d246df3d12dc3db45b77607463f92bbdf627cfa84aa0d07f7d129347dc495fce",
+        "new_sha256": "d246df3d12dc3db45b77607463f92bbdf627cfa84aa0d07f7d129347dc495fce",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/DragonArmor.java",
+    "preview": "dragon_leggings.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "dragon_boots",
+    "issue": 126,
+    "slot": "FEET",
+    "decision": "SMALL_FIX",
+    "reason": "Защитная ступня и наружные размеры сохранены, внутренние наложения разведены. Удалён лишний базовый меш целых штанин.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/DragonArmor.java",
+        "old_sha256": "14c78084111e8b47e76fc52f420a9d8b4ff92c65cafae641bb1805b81ca9360f",
+        "new_sha256": "7b2864cfd7c0a9375f34ecd493cf4a680ea27bc446f1f0cbe393df9f6eb50436",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/dragon.png",
+        "old_sha256": "d277a129a5387c462e7404a9675544de3e03823c1c3da27ff1d771040221fd30",
+        "new_sha256": "c1f58d074e6a2780c95428035368881b3f5ae9e3fe7fa53206cc8477d7a4fefe",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/dragon_boots.png",
+        "old_sha256": "7620339522cf7c1ea10e6b911329ad6c191c122436cad744f9411648b7242658",
+        "new_sha256": "7620339522cf7c1ea10e6b911329ad6c191c122436cad744f9411648b7242658",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/dragon_boots.json",
+        "old_sha256": "c2fca3bbdbe3dffc61d6d2ee735199bda5f579fe088f0157848f3b2067e075d4",
+        "new_sha256": "c2fca3bbdbe3dffc61d6d2ee735199bda5f579fe088f0157848f3b2067e075d4",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/DragonArmor.java",
+    "preview": "dragon_boots.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "poloz_helmet",
+    "issue": 127,
+    "slot": "HEAD",
+    "decision": "SMALL_FIX",
+    "reason": "Рога/гребень и открытое лицо сохранены; локальные кромки/атлас.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/PolozArmor.java",
+        "old_sha256": "ff141b29cc38d0ae24204b39a064a061273647f6ded5fb8510c89333c495e770",
+        "new_sha256": "f2c6b9e7f25cad6d661e099c85e68c2444243f93b0ed03fd355d5de5eb588a80",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/poloz.png",
+        "old_sha256": "2a331af31a5e1d31acbd77fe21fbe5944c1f65da1d04969672057d10136164cd",
+        "new_sha256": "29f78e2c5f97b4fbebc46cdec9e2d0bc19225617acea6705d8442405ed056008",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/poloz_helmet.png",
+        "old_sha256": "7589ac9f0b7d12f7f8993b80899f05f90749ecf00785a1a4d685900b5ced8866",
+        "new_sha256": "7589ac9f0b7d12f7f8993b80899f05f90749ecf00785a1a4d685900b5ced8866",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/poloz_helmet.json",
+        "old_sha256": "853539967ef3d9d9f2eb726ae57dc62977e0facd2287a14eebb64f39a28e3ae4",
+        "new_sha256": "853539967ef3d9d9f2eb726ae57dc62977e0facd2287a14eebb64f39a28e3ae4",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/PolozArmor.java",
+    "preview": "poloz_helmet.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "poloz_chestplate",
+    "issue": 127,
+    "slot": "CHEST",
+    "decision": "SMALL_FIX",
+    "reason": "Основная геометрия сохранена; центральный знак/палитра уточнены. Небольшие реальные накладные чешуйки вокруг сердца.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/PolozArmor.java",
+        "old_sha256": "ff141b29cc38d0ae24204b39a064a061273647f6ded5fb8510c89333c495e770",
+        "new_sha256": "f2c6b9e7f25cad6d661e099c85e68c2444243f93b0ed03fd355d5de5eb588a80",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/poloz.png",
+        "old_sha256": "2a331af31a5e1d31acbd77fe21fbe5944c1f65da1d04969672057d10136164cd",
+        "new_sha256": "29f78e2c5f97b4fbebc46cdec9e2d0bc19225617acea6705d8442405ed056008",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/poloz_chestplate.png",
+        "old_sha256": "de2bba7e835b12b2989f5c42c70eb2407045462f35c1009f41ef1849dfe7b8ea",
+        "new_sha256": "de2bba7e835b12b2989f5c42c70eb2407045462f35c1009f41ef1849dfe7b8ea",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/poloz_chestplate.json",
+        "old_sha256": "3a5e75cb0c6ed29c4b9ca0cf8ae2797a76173cf16bf0e44d519032deb93b72a2",
+        "new_sha256": "3a5e75cb0c6ed29c4b9ca0cf8ae2797a76173cf16bf0e44d519032deb93b72a2",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/PolozArmor.java",
+    "preview": "poloz_chestplate.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "poloz_leggings",
+    "issue": 127,
+    "slot": "LEGS",
+    "decision": "SMALL_FIX",
+    "reason": "Внешние габариты сохранены, внутренние грани разделены; стык с обувью.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/PolozArmor.java",
+        "old_sha256": "ff141b29cc38d0ae24204b39a064a061273647f6ded5fb8510c89333c495e770",
+        "new_sha256": "f2c6b9e7f25cad6d661e099c85e68c2444243f93b0ed03fd355d5de5eb588a80",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/poloz.png",
+        "old_sha256": "2a331af31a5e1d31acbd77fe21fbe5944c1f65da1d04969672057d10136164cd",
+        "new_sha256": "29f78e2c5f97b4fbebc46cdec9e2d0bc19225617acea6705d8442405ed056008",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/poloz_leggings.png",
+        "old_sha256": "e851d9edd1819294b13686285fab6914d313cebbed7253017c454f31a753ab64",
+        "new_sha256": "e851d9edd1819294b13686285fab6914d313cebbed7253017c454f31a753ab64",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/poloz_leggings.json",
+        "old_sha256": "68a461c7d25ed56d6d4df7c8acd4d080909242b346f9100203496ffeda58ada8",
+        "new_sha256": "68a461c7d25ed56d6d4df7c8acd4d080909242b346f9100203496ffeda58ada8",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/PolozArmor.java",
+    "preview": "poloz_leggings.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "poloz_boots",
+    "issue": 127,
+    "slot": "FEET",
+    "decision": "SMALL_FIX",
+    "reason": "Защитная ступня и наружные размеры сохранены, внутренние наложения разведены.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/PolozArmor.java",
+        "old_sha256": "ff141b29cc38d0ae24204b39a064a061273647f6ded5fb8510c89333c495e770",
+        "new_sha256": "f2c6b9e7f25cad6d661e099c85e68c2444243f93b0ed03fd355d5de5eb588a80",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/poloz.png",
+        "old_sha256": "2a331af31a5e1d31acbd77fe21fbe5944c1f65da1d04969672057d10136164cd",
+        "new_sha256": "29f78e2c5f97b4fbebc46cdec9e2d0bc19225617acea6705d8442405ed056008",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/poloz_boots.png",
+        "old_sha256": "fc588f2cbaef4ce561718217aacdd940fbb4e90dd6d094852752e9921b543cc2",
+        "new_sha256": "fc588f2cbaef4ce561718217aacdd940fbb4e90dd6d094852752e9921b543cc2",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/poloz_boots.json",
+        "old_sha256": "228d6e7704740ff3b755cd11fb8044150260fc2960883a4b5cfef079f3a6e656",
+        "new_sha256": "228d6e7704740ff3b755cd11fb8044150260fc2960883a4b5cfef079f3a6e656",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/PolozArmor.java",
+    "preview": "poloz_boots.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "trophy_idol_chest",
+    "issue": 128,
+    "slot": "CHEST",
+    "decision": "SMALL_FIX",
+    "reason": "Раздельные костяные рёбра с промежутками и посаженные на руки плечи, бронзовая основа.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/RewardArmor.java",
+        "old_sha256": "bf94ae0e7f962b871df876fdd60096c654570cb244dcf544857824d40e84e274",
+        "new_sha256": "a02b922c18cec2c426f4c4204aad80a3f01d68e4448be9729be890f9a0bebf68",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/trophy_idol_chest.png",
+        "old_sha256": "be6766d72700ec520388962499f09dbb6804196ae6b7d1872980849cf0441083",
+        "new_sha256": "7fa13926a5e28581c6de83f9ab6439fb95b4e9639b80444cb1534de6f27925e7",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/trophy_idol_chest.png",
+        "old_sha256": "a08ee4a7111956d35feff1563ce711651fab67e409fa7f57e6263d351b52a4f2",
+        "new_sha256": "a08ee4a7111956d35feff1563ce711651fab67e409fa7f57e6263d351b52a4f2",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/trophy_idol_chest.json",
+        "old_sha256": "21463a40a01b4b9fa946201a1a87046951206ddda354c89545f20f89c2b8df8f",
+        "new_sha256": "21463a40a01b4b9fa946201a1a87046951206ddda354c89545f20f89c2b8df8f",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/RewardArmor.java",
+    "preview": "trophy_idol_chest.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "trophy_marinka_cloak",
+    "issue": 128,
+    "slot": "CHEST",
+    "decision": "REDESIGN",
+    "reason": "Открытый ворот, два самостоятельных нижних хвоста и безопасный наклон от ног; зеркало сохранено.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/RewardArmor.java",
+        "old_sha256": "bf94ae0e7f962b871df876fdd60096c654570cb244dcf544857824d40e84e274",
+        "new_sha256": "a02b922c18cec2c426f4c4204aad80a3f01d68e4448be9729be890f9a0bebf68",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/trophy_marinka_cloak.png",
+        "old_sha256": "5beb74e623e84f7029b10edf73bc9f76ad3a661d42a8d09a0e39d2f898a4c0f0",
+        "new_sha256": "1881b8ac708f349cbda3559295ca595ccec7ef1e38213301f036810ada1c8038",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/trophy_marinka_cloak.png",
+        "old_sha256": "daa96371232908f88d08365abdc67049e3e2699b223ea435a2f9315763626120",
+        "new_sha256": "daa96371232908f88d08365abdc67049e3e2699b223ea435a2f9315763626120",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/trophy_marinka_cloak.json",
+        "old_sha256": "ab5a91c29c3bb2d6d4080851991d5e79f0d33135d522e3f83b2df8cc84b96b04",
+        "new_sha256": "ab5a91c29c3bb2d6d4080851991d5e79f0d33135d522e3f83b2df8cc84b96b04",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/RewardArmor.java",
+    "preview": "trophy_marinka_cloak.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  },
+  {
+    "id": "trophy_kartaus_mantle",
+    "issue": 128,
+    "slot": "CHEST",
+    "decision": "SMALL_FIX",
+    "reason": "Светлый открытый ворот, единый красный стяг движется с тяжёлой мантией; отличен от Маринки.",
+    "files": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/RewardArmor.java",
+        "old_sha256": "bf94ae0e7f962b871df876fdd60096c654570cb244dcf544857824d40e84e274",
+        "new_sha256": "a02b922c18cec2c426f4c4204aad80a3f01d68e4448be9729be890f9a0bebf68",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/models/armor/trophy_kartaus_mantle.png",
+        "old_sha256": "bcf5dfdc2553ddbc46162b04a639deb80e210b335c46f87d9b92d085c42b80d9",
+        "new_sha256": "45aab941bc6c16a13427986d48049a920b6e511922dd02c4c4a33a8f0704eb03",
+        "changed": true
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/trophy_kartaus_mantle.png",
+        "old_sha256": "721226eb077a3c3b8e3b99d6a78ba1d0a933834716aab7fb91a8178da1df7315",
+        "new_sha256": "721226eb077a3c3b8e3b99d6a78ba1d0a933834716aab7fb91a8178da1df7315",
+        "changed": false
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/trophy_kartaus_mantle.json",
+        "old_sha256": "0408fdc351c882ccde8066b37d1411a09109ade52305a2b72085a8352898dd79",
+        "new_sha256": "0408fdc351c882ccde8066b37d1411a09109ade52305a2b72085a8352898dd79",
+        "changed": false
+      }
+    ],
+    "before_source": "before/src/main/java/org/slavicmyths/client/RewardArmor.java",
+    "preview": "trophy_kartaus_mantle.png",
+    "status": "IN_PROGRESS / IN_GAME_OWNER_PENDING"
+  }
+]

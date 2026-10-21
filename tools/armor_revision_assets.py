@@ -262,6 +262,8 @@ def apply():
     for kind,name in [('idol','trophy_idol_chest'),('marinka','trophy_marinka_cloak'),('kartaus','trophy_kartaus_mantle')]:
         save(reward_atlas(kind),A/f'textures/models/armor/{name}.png')
     for family in ('poloz','dragon'):save(scale_atlas(family),A/f'textures/models/armor/{family}.png')
+    from armor88_art import apply_armor
+    apply_armor()
 
 if __name__=='__main__':
     apply()

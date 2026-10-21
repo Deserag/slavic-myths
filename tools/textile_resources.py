@@ -99,6 +99,8 @@ def textures():
         for y in range(24,64,3):d.line((0,y,63,y),fill=(180,145,91,255))
         save(A/f'textures/entity/carcass/{name}.png',im)
     im=Image.new('RGBA',(18,18));d=ImageDraw.Draw(im);d.rectangle((3,7,14,14),fill=(218,202,160,255));d.rectangle((4,8,13,12),fill=(247,233,197,255));d.line((6,3,11,3),fill=(138,39,37,255));d.point((9,2),fill=(138,39,37,255));save(A/'textures/mob_effect/well_rested.png',im)
+    from armor88_art import apply_clothing
+    apply_clothing()
 
 def element(a,b,tex):return {'from':a,'to':b,'faces':{f:{'texture':'#'+tex} for f in ['north','south','east','west','up','down']}}
 def model(name,elements):js(A/f'models/block/{name}.json',{'parent':'minecraft:block/block','textures':{'wood':'slavicmyths:block/textile_wood','fiber':'slavicmyths:block/textile_fiber','thread':'slavicmyths:block/textile_thread','cloth':'slavicmyths:block/textile_cloth','cover':'slavicmyths:block/linen_cover','particle':'slavicmyths:block/textile_wood'},'elements':elements})

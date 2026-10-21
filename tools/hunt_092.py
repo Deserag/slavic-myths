@@ -17,6 +17,9 @@ ITEMS={
 'poyas_tugarina':('Пояс Тугарина','Tugarin Belt','В слоте пояса: после 2 сек. непрерывного спринта Напор даёт +0.20 сопротивления отбрасыванию и +15% отбрасывания в ближнем бою. Спадает через 1 сек. после остановки.','Belt slot: after two seconds of continuous sprint, Momentum grants +0.20 knockback resistance and +15% melee knockback. Ends one second after stopping.')}
 SMALL={'nit_durnoy_doli','kost_likha','tugarinova_kozha','naboyka_tugarina'}
 def art(n):
+ if n=='tugarinova_kozha':
+  from trophy110_art import write as write_trophy
+  write_trophy(n,A/'textures/item');return
  im=Image.new('RGBA',(256,256));d=ImageDraw.Draw(im)
  def cord(pts,c='#632126',w=7):d.line(pts,fill='#171719',width=w+4);d.line(pts,fill=c,width=w);d.line([(x-1,y-1) for x,y in pts],fill='#81766A',width=1)
  def bead(x,y):d.polygon([(x-7,y-8),(x+6,y-8),(x+9,y),(x+5,y+9),(x-6,y+7),(x-8,y)],fill='#C2AF8B',outline='#88775B');d.rectangle((x-2,y-2,x+2,y+3),fill='#302622')

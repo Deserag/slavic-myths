@@ -33,6 +33,8 @@ def textures():
   c=(185,171,133)if y<64 else(111,87,70)if y<128 else(77,79,72)
   return pixel(c,x,y,y<64)
  png(A/'textures/entity/burial_coffin.png',256,coffin)
+ from decor_all_woods import apply as apply_current_timber
+ apply_current_timber()
 
 def wood():
  cache=Path.home()/'.gradle/caches/forge_gradle/minecraft_repo/versions/1.16.5/client-extra.jar'

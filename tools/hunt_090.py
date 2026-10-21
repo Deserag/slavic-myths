@@ -18,6 +18,9 @@ INGREDIENTS=list(ITEMS)[:4]
 COLORS={'bone':('#8A785B','#C8B58E','#E8DAB9'),'coal':('#171719','#302426','#4B4545'),'ash':('#302C29','#403B37','#6A625A'),'leather':('#4D3025','#704734','#916442'),'wood':('#39281D','#765039','#96704B'),'fur':('#343336','#5A5552','#817B76'),'iron':('#202225','#4B4E50','#828383'),'red':('#51141A','#8E2022','#B3352F'),'ember':('#B92616','#F04B13','#FFC23A'),'moss':('#354925','#4D6437','#6D7B43')}
 
 def art(name):
+ if name in ('ovinnaya_zola','iskra_ovinnika','klyk_volkolaka','nochnoy_kogot'):
+  from trophy110_art import write as write_trophy
+  write_trophy(name,A/'textures/item');return
  im=Image.new('RGBA',(128,128));d=ImageDraw.Draw(im);rng=random.Random(900+list(ITEMS).index(name))
  def material(points,key):
   palette=COLORS[key];mask=Image.new('L',im.size);md=ImageDraw.Draw(mask);md.polygon(points,fill=255);layer=Image.new('RGBA',im.size,palette[1]);ld=ImageDraw.Draw(layer)

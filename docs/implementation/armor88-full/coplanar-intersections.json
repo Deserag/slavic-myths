@@ -1,0 +1,887 @@
+{
+  "scope": "Actual native geometry/front planes at idle; source evidence, NOT runtime z-fighting test",
+  "rows": [
+    {
+      "id": "linen_ports",
+      "body": "Steve",
+      "before": [
+        {
+          "face_indices": [
+            1,
+            3
+          ],
+          "intersection_xy": [
+            -0.48000014,
+            11.62,
+            0.48000014,
+            20.380001
+          ],
+          "z": -2.38,
+          "area": 8.409603412800282
+        },
+        {
+          "face_indices": [
+            2,
+            4
+          ],
+          "intersection_xy": [
+            -0.41999996,
+            19.68,
+            0.41999996,
+            24.32
+          ],
+          "z": -2.32,
+          "area": 3.8975996288000005
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "linen_ports",
+      "body": "Alex",
+      "before": [
+        {
+          "face_indices": [
+            1,
+            3
+          ],
+          "intersection_xy": [
+            -0.48000014,
+            11.62,
+            0.48000014,
+            20.380001
+          ],
+          "z": -2.38,
+          "area": 8.409603412800282
+        },
+        {
+          "face_indices": [
+            2,
+            4
+          ],
+          "intersection_xy": [
+            -0.41999996,
+            19.68,
+            0.41999996,
+            24.32
+          ],
+          "z": -2.32,
+          "area": 3.8975996288000005
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "bast_shoes",
+      "body": "Steve",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            2
+          ],
+          "intersection_xy": [
+            -0.37,
+            20.880001,
+            0.37,
+            24.220001
+          ],
+          "z": -3.4199998,
+          "area": 2.4716
+        },
+        {
+          "face_indices": [
+            1,
+            3
+          ],
+          "intersection_xy": [
+            -0.19999993,
+            20.0,
+            0.19999993,
+            21.0
+          ],
+          "z": -2.1,
+          "area": 0.39999986
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "bast_shoes",
+      "body": "Alex",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            2
+          ],
+          "intersection_xy": [
+            -0.37,
+            20.880001,
+            0.37,
+            24.220001
+          ],
+          "z": -3.4199998,
+          "area": 2.4716
+        },
+        {
+          "face_indices": [
+            1,
+            3
+          ],
+          "intersection_xy": [
+            -0.19999993,
+            20.0,
+            0.19999993,
+            21.0
+          ],
+          "z": -2.1,
+          "area": 0.39999986
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "indomitability_leggings",
+      "body": "Steve",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            1
+          ],
+          "intersection_xy": [
+            -0.39999998,
+            11.7,
+            4.2,
+            12.0
+          ],
+          "z": -2.3,
+          "area": 1.3799999940000032
+        },
+        {
+          "face_indices": [
+            0,
+            6
+          ],
+          "intersection_xy": [
+            -4.2,
+            11.7,
+            0.39999998,
+            12.0
+          ],
+          "z": -2.3,
+          "area": 1.3799999940000032
+        },
+        {
+          "face_indices": [
+            2,
+            7
+          ],
+          "intersection_xy": [
+            -0.5000001,
+            16.8,
+            0.5000001,
+            19.6
+          ],
+          "z": -3.0,
+          "area": 2.8000005600000004
+        },
+        {
+          "face_indices": [
+            4,
+            9
+          ],
+          "intersection_xy": [
+            -0.39999998,
+            12.8,
+            0.39999998,
+            15.8
+          ],
+          "z": -2.8,
+          "area": 2.3999998799999998
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "indomitability_leggings",
+      "body": "Alex",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            1
+          ],
+          "intersection_xy": [
+            -0.39999998,
+            11.7,
+            4.2,
+            12.0
+          ],
+          "z": -2.3,
+          "area": 1.3799999940000032
+        },
+        {
+          "face_indices": [
+            0,
+            6
+          ],
+          "intersection_xy": [
+            -4.2,
+            11.7,
+            0.39999998,
+            12.0
+          ],
+          "z": -2.3,
+          "area": 1.3799999940000032
+        },
+        {
+          "face_indices": [
+            2,
+            7
+          ],
+          "intersection_xy": [
+            -0.5000001,
+            16.8,
+            0.5000001,
+            19.6
+          ],
+          "z": -3.0,
+          "area": 2.8000005600000004
+        },
+        {
+          "face_indices": [
+            4,
+            9
+          ],
+          "intersection_xy": [
+            -0.39999998,
+            12.8,
+            0.39999998,
+            15.8
+          ],
+          "z": -2.8,
+          "area": 2.3999998799999998
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "wind_boots",
+      "body": "Steve",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            3
+          ],
+          "intersection_xy": [
+            -0.5000001,
+            17.0,
+            0.5000001,
+            24.0
+          ],
+          "z": -2.5,
+          "area": 7.0000013999999995
+        },
+        {
+          "face_indices": [
+            1,
+            4
+          ],
+          "intersection_xy": [
+            -0.5000001,
+            22.0,
+            0.5000001,
+            24.0
+          ],
+          "z": -3.5,
+          "area": 2.0000004
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "wind_boots",
+      "body": "Alex",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            3
+          ],
+          "intersection_xy": [
+            -0.5000001,
+            17.0,
+            0.5000001,
+            24.0
+          ],
+          "z": -2.5,
+          "area": 7.0000013999999995
+        },
+        {
+          "face_indices": [
+            1,
+            4
+          ],
+          "intersection_xy": [
+            -0.5000001,
+            22.0,
+            0.5000001,
+            24.0
+          ],
+          "z": -3.5,
+          "area": 2.0000004
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "seven_league_boots",
+      "body": "Steve",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            1
+          ],
+          "intersection_xy": [
+            -1.1,
+            11.0,
+            1.1,
+            25.0
+          ],
+          "z": -3.0,
+          "area": 30.800000000000004
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "seven_league_boots",
+      "body": "Alex",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            1
+          ],
+          "intersection_xy": [
+            -1.1,
+            11.0,
+            1.1,
+            25.0
+          ],
+          "z": -3.0,
+          "area": 30.800000000000004
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "perunite_leggings",
+      "body": "Steve",
+      "before": [
+        {
+          "face_indices": [
+            1,
+            4
+          ],
+          "intersection_xy": [
+            -0.5000001,
+            12.0,
+            0.5000001,
+            18.0
+          ],
+          "z": -2.4,
+          "area": 6.0000012
+        },
+        {
+          "face_indices": [
+            2,
+            5
+          ],
+          "intersection_xy": [
+            -0.6,
+            17.0,
+            0.6,
+            19.0
+          ],
+          "z": -3.0,
+          "area": 2.4
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "perunite_leggings",
+      "body": "Alex",
+      "before": [
+        {
+          "face_indices": [
+            1,
+            4
+          ],
+          "intersection_xy": [
+            -0.5000001,
+            12.0,
+            0.5000001,
+            18.0
+          ],
+          "z": -2.4,
+          "area": 6.0000012
+        },
+        {
+          "face_indices": [
+            2,
+            5
+          ],
+          "intersection_xy": [
+            -0.6,
+            17.0,
+            0.6,
+            19.0
+          ],
+          "z": -3.0,
+          "area": 2.4
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "perunite_boots",
+      "body": "Steve",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            3
+          ],
+          "intersection_xy": [
+            -0.6,
+            20.0,
+            0.6,
+            24.0
+          ],
+          "z": -2.6,
+          "area": 4.8
+        },
+        {
+          "face_indices": [
+            1,
+            4
+          ],
+          "intersection_xy": [
+            -0.6,
+            22.2,
+            0.6,
+            24.2
+          ],
+          "z": -3.7,
+          "area": 2.4
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "perunite_boots",
+      "body": "Alex",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            3
+          ],
+          "intersection_xy": [
+            -0.6,
+            20.0,
+            0.6,
+            24.0
+          ],
+          "z": -2.6,
+          "area": 4.8
+        },
+        {
+          "face_indices": [
+            1,
+            4
+          ],
+          "intersection_xy": [
+            -0.6,
+            22.2,
+            0.6,
+            24.2
+          ],
+          "z": -3.7,
+          "area": 2.4
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "dragon_leggings",
+      "body": "Steve",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            1
+          ],
+          "intersection_xy": [
+            -0.65,
+            11.45,
+            4.45,
+            12.55
+          ],
+          "z": -2.55,
+          "area": 5.610000000000007
+        },
+        {
+          "face_indices": [
+            0,
+            7
+          ],
+          "intersection_xy": [
+            -4.45,
+            11.45,
+            0.65,
+            12.55
+          ],
+          "z": -2.55,
+          "area": 5.610000000000007
+        },
+        {
+          "face_indices": [
+            2,
+            8
+          ],
+          "intersection_xy": [
+            -0.8000001,
+            12.0,
+            0.8000001,
+            21.0
+          ],
+          "z": -2.7,
+          "area": 14.4000018
+        },
+        {
+          "face_indices": [
+            3,
+            9
+          ],
+          "intersection_xy": [
+            -0.9,
+            17.0,
+            0.9,
+            20.0
+          ],
+          "z": -3.2,
+          "area": 5.4
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "dragon_leggings",
+      "body": "Alex",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            1
+          ],
+          "intersection_xy": [
+            -0.65,
+            11.45,
+            4.45,
+            12.55
+          ],
+          "z": -2.55,
+          "area": 5.610000000000007
+        },
+        {
+          "face_indices": [
+            0,
+            7
+          ],
+          "intersection_xy": [
+            -4.45,
+            11.45,
+            0.65,
+            12.55
+          ],
+          "z": -2.55,
+          "area": 5.610000000000007
+        },
+        {
+          "face_indices": [
+            2,
+            8
+          ],
+          "intersection_xy": [
+            -0.8000001,
+            12.0,
+            0.8000001,
+            21.0
+          ],
+          "z": -2.7,
+          "area": 14.4000018
+        },
+        {
+          "face_indices": [
+            3,
+            9
+          ],
+          "intersection_xy": [
+            -0.9,
+            17.0,
+            0.9,
+            20.0
+          ],
+          "z": -3.2,
+          "area": 5.4
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "dragon_boots",
+      "body": "Steve",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            6
+          ],
+          "intersection_xy": [
+            -0.65,
+            11.45,
+            0.65,
+            24.55
+          ],
+          "z": -2.55,
+          "area": 17.03
+        },
+        {
+          "face_indices": [
+            1,
+            7
+          ],
+          "intersection_xy": [
+            -0.9,
+            19.0,
+            0.9,
+            24.0
+          ],
+          "z": -2.8,
+          "area": 9.0
+        },
+        {
+          "face_indices": [
+            2,
+            8
+          ],
+          "intersection_xy": [
+            -0.9,
+            22.0,
+            0.9,
+            24.0
+          ],
+          "z": -5.4,
+          "area": 3.6
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "dragon_boots",
+      "body": "Alex",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            6
+          ],
+          "intersection_xy": [
+            -0.65,
+            11.45,
+            0.65,
+            24.55
+          ],
+          "z": -2.55,
+          "area": 17.03
+        },
+        {
+          "face_indices": [
+            1,
+            7
+          ],
+          "intersection_xy": [
+            -0.9,
+            19.0,
+            0.9,
+            24.0
+          ],
+          "z": -2.8,
+          "area": 9.0
+        },
+        {
+          "face_indices": [
+            2,
+            8
+          ],
+          "intersection_xy": [
+            -0.9,
+            22.0,
+            0.9,
+            24.0
+          ],
+          "z": -5.4,
+          "area": 3.6
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "poloz_leggings",
+      "body": "Steve",
+      "before": [
+        {
+          "face_indices": [
+            1,
+            4
+          ],
+          "intersection_xy": [
+            -0.5000001,
+            12.0,
+            0.5000001,
+            18.0
+          ],
+          "z": -2.4,
+          "area": 6.0000012
+        },
+        {
+          "face_indices": [
+            2,
+            5
+          ],
+          "intersection_xy": [
+            -0.6,
+            17.0,
+            0.6,
+            19.0
+          ],
+          "z": -3.0,
+          "area": 2.4
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "poloz_leggings",
+      "body": "Alex",
+      "before": [
+        {
+          "face_indices": [
+            1,
+            4
+          ],
+          "intersection_xy": [
+            -0.5000001,
+            12.0,
+            0.5000001,
+            18.0
+          ],
+          "z": -2.4,
+          "area": 6.0000012
+        },
+        {
+          "face_indices": [
+            2,
+            5
+          ],
+          "intersection_xy": [
+            -0.6,
+            17.0,
+            0.6,
+            19.0
+          ],
+          "z": -3.0,
+          "area": 2.4
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "poloz_boots",
+      "body": "Steve",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            3
+          ],
+          "intersection_xy": [
+            -0.6,
+            20.0,
+            0.6,
+            24.0
+          ],
+          "z": -2.6,
+          "area": 4.8
+        },
+        {
+          "face_indices": [
+            1,
+            4
+          ],
+          "intersection_xy": [
+            -0.6,
+            22.2,
+            0.6,
+            24.2
+          ],
+          "z": -3.7,
+          "area": 2.4
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "poloz_boots",
+      "body": "Alex",
+      "before": [
+        {
+          "face_indices": [
+            0,
+            3
+          ],
+          "intersection_xy": [
+            -0.6,
+            20.0,
+            0.6,
+            24.0
+          ],
+          "z": -2.6,
+          "area": 4.8
+        },
+        {
+          "face_indices": [
+            1,
+            4
+          ],
+          "intersection_xy": [
+            -0.6,
+            22.2,
+            0.6,
+            24.2
+          ],
+          "z": -3.7,
+          "area": 2.4
+        }
+      ],
+      "after": []
+    }
+  ]
+}

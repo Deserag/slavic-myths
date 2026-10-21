@@ -1,0 +1,92 @@
+[
+  {
+    "source_case": "minecraft:iron_sword / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      20132,
+      35103,
+      51927
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "minecraft:iron_sword / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      18588,
+      34624,
+      52790
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "slavicmyths:perunite_sword / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      4662,
+      9274,
+      14317
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "slavicmyths:perunite_sword / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      9522,
+      17513,
+      26365
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "minecraft:iron_chestplate / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      49998,
+      77738,
+      108855
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "minecraft:iron_chestplate / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      12879,
+      29239,
+      47704
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "poloz_chestplate / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      23334,
+      42557,
+      66124
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "poloz_chestplate / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      41065,
+      76277,
+      115646
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "linen_shirt / source daylight",
+    "absolute_rgb_difference_1_2_3": [
+      66351,
+      104906,
+      148655
+    ],
+    "scope": "standalone source GPU only"
+  },
+  {
+    "source_case": "linen_shirt / source shade",
+    "absolute_rgb_difference_1_2_3": [
+      23636,
+      47401,
+      74814
+    ],
+    "scope": "standalone source GPU only"
+  }
+]

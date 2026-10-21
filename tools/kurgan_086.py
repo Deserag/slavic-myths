@@ -54,6 +54,12 @@ def atlas(name):
  png(A/f'textures/entity/{name}.png',256,pixel)
 
 def sprite(name):
+ if name in ('shield_boss_fragment','voevoda_insignia','princely_seal'):
+  from trophy111_art import write as write_trophy
+  write_trophy(name,A/'textures/item');return
+ if name=='upyr_fang':
+  from trophy110_art import write as write_trophy
+  write_trophy(name,A/'textures/item');return
  def pixel(x,y):
   u=x-15.5;v=y-15.5;r=math.hypot(u,v);color=None
   if name=='upyr_fang' and 5<y<28 and abs(x-(19-(y-6)*.19))<(28-y)*.18+1:color=(217,209,177)

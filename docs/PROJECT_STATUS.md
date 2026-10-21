@@ -1,3 +1,165 @@
+## Декор: все шесть семейств и производные поверхности · 21.10.2026
+
+По новому явному поручению владельца продолжены все породы без остановок
+после каждого пилота. Проверены85 catalog records;51 PNG change (49 FIX +2
+недостающих active apple sign paths),17 поверхностей KEEP. Согласованные3
+PNG липы и все торцы сохранены, кора сосны/рябины KEEP. Обновлены собственные
+дверные/люковые/sign текстуры;277 прямых model consumers и89 item renders
+проверены offline. Геометрия,Java,data,registry/recipes/NBT unchanged.
+Java21 clean build49s и7444 production resource/JAR parity PASS; запусков0.
+[Общий результат,матрица,сборка](implementation/decor106-all-woods/REPORT.md).
+IN_GAME_OWNER_PENDING / Issue OPEN; рекомендовано «Тестирование» для #106,
+Project write недоступен. POLYMC_NOT_INSTALLED. #109 V2 не менялся.
+Следующая запись — исторический пилот, его остановка перед ивой отменена
+последним прямым поручением владельца.
+
+## Декор #91 → #106: пилот липы · 21.10.2026
+
+По новому поручению начат первый пакет #106: исправлены только linden_planks,
+linden_log и linden_stripped_log; native16px и исходные палитры сохранены.
+Оба торца KEEP. Геометрия/UV/registry/gameplay не менялись. 14 timber item/state
+цепочек проверены offline, есть source A/B1×/3×/2×2/four views.
+Java21 clean build48s, ресурсы/JAR PASS; запусков0, POLYMC_NOT_INSTALLED.
+[Отчёт/точная сборка/ручные сценарии](implementation/decor106-linden/REPORT.md).
+#106 IN_PROGRESS / PILOT_OWNER_PENDING: по ТЗ после принятия липы идёт ива;
+остальные семейства, #107–109 не исполнялись. Project write доступа нет.
+
+## #111 — обновлённое решение реализовано · 21.10.2026
+
+9 FIX +1 KEEP в полном scope #111; IN_GAME_OWNER_PENDING, Issue OPEN.
+Блокер pearl_fragment снят новым явным решением владельца: адресно заменены
+3D cuboid/UV на generated item с самостоятельным32px плоским сколом.
+Уточнены широкая пластина атамана и змеиная печать; остальные удачные FIX/KEEP
+сохранены. [Актуальные A/B, source renderer и сборка](implementation/trophy111-refinement/REPORT.md).
+Java21 clean build56s и production resource/JAR parity PASS; запусков0,
+POLYMC_NOT_INSTALLED. Рекомендуется «Тестирование»; фактически Project остаётся
+«Ожидание» из-за read-only доступа. #112–114 production не начинались.
+Ниже — историческая запись частичного результата, её DESIGN_BLOCKED уже снят.
+
+## Трофеи #111 / T2 — частичный результат · 21.10.2026
+
+IN_PROGRESS / IN_GAME_OWNER_PENDING. Восемь PNG исправлены партиями T2-A/B/C,
+`old_button` оставлена KEEP. `pearl_fragment` — существующая native3D модель,
+для неё есть плоская схема B, но нет согласованного native3D/UV чертежа;
+BLOCKED_NEEDS_3D_UV_DESIGN, модель/текстура сохранены. Княжеская печать входит в FIX.
+После нового скриншота владельца пряжка и знак атамана также переведены в FIX.
+[Результат, матрица и вопросы дизайна](implementation/trophy111/REPORT.md).
+До решения по фрагменту не переводить #111 в «Тестирование». Issue OPEN;
+Project mutations недоступны. Minecraft запусков0; POLYMC_NOT_INSTALLED.
+
+## Трофеи #110 / этап T1 родителя #92 · 21.10.2026
+
+Семь production PNG16×16 переработаны партиями3/2/2: прямой клык/звериный зуб/
+тёмный крюк, низкая зола/вертикальный уголёк, ромбовидная чешуя/рваная кожа.
+Модели и gameplay сохранены; пять исторических art-entrypoints делегируют
+`tools/trophy110_art.py`. [A/B, матрица, точная сборка и ручные сценарии](implementation/trophy110/REPORT.md).
+Технические gates проверяются в отчёте; runtime0 / IN_GAME_OWNER_PENDING.
+Project доступен только для чтения: рекомендовано «Тестирование» после gates,
+фактический Status не изменён. Issue OPEN; #111–114 не начаты. POLYMC_NOT_INSTALLED.
+
+## Сияние и полные комплекты ХП · установленная1.9.7.48 · 21.10.2026
+
+IN_PROGRESS / OWNER_PENDING. Устранено чрезмерное ослабление glint45: линейная
+плотность, alpha64/100/140 и additive свет без широких ремней. Настоящие GAME кадры
+0–3 рун на железной/Перуните/Полозе/драконе/рубахе; день/ночь, спина/бок, vanilla
+reference/coexistence, надетый игрок в survival InventoryScreen. Это scripted QA,
+не ручная приёмка владельца. #104 OPEN, #105 NOT_STARTED.
+
+По явному решению владельца полные сеты: Перунит +5ХП, Полоз +14ХП, драконий +20ХП.
+Существующие equipment events, transient IDs, без нового tick polling/лечения;
+partial/mixed/clamp/no-stacking проверены на настоящем ServerPlayer.
+Java21 clean build1m5s + resources/JAR PASS;5 dev-client запусков,4входа в отдельную
+тестовую копию,0dedicated/GameTest; финальные сценарии PASS. MP/relog/death/dimension,
+Fabulous/полный контекстный QA и performance NOT_RUN. Пользовательские миры сохранены.
+[Полная матрица и runtime](implementation/armor-health-48/REPORT.md),
+[installed path/version/SHA256/source commit/backup45](implementation/armor-health-48/installed.json).
+Один активный JAR48,6прочих модов сохранены. Installed PolyMC runtime NOT_RUN.
+Нет commit/push/закрытия задач; прежние записи «48 не установлена» исторические.
+
+## Общая47 после параллельной работы · 20.10.2026
+
+Броня #88/#122–128 побайтово сохранена из проверенной46 в общей47 второго агента.
+[Source/JAR47 parity и архив](implementation/armor88-full/shared47-verification.json).
+Все29 ID имеют A/B/SHA и матрицы; #129 acceptance BLOCKED_ON_OWNER_A1_A7,
+игровые гейты NOT_RUN, никаких закрытий/owner-accepted. Clean46 выполнен здесь;
+clean47 выполнен вторым агентом и его артефакт проверен отдельно. PolyMC этой
+задачей не обновлялась; наблюдалась тестовая45 другого агента, не финальный релиз.
+
+## #88 / #122–129 — source 1.9.7.46, приёмка ожидается · 20.10.2026
+
+IN_PROGRESS / IN_GAME_OWNER_PENDING. Реализационные пакеты #122–#128 охватывают
+29 носимых ID: 7 предметов одежды, 2 базовых доспеха, 5 уникальных, 12 сетовых,
+3 трофейных. Для #129 собрана техническая пред-проверка; финальный acceptance
+заблокирован до ручной приёмки A1–A7. Все Issue остаются OPEN, чекбоксы не закрыты.
+[Все восемь матриц](implementation/armor88-full/REPORT.md),
+[29-ID аудит с actual source A/B и SHA](implementation/armor88-full/AUDIT.md).
+
+Java21 clean build 1m13s, native bake/UV29 ID, rune regression, 7442 ресурсов,
+1339 PNG и production JAR parity PASS. Runtime NOT_RUN, запусков0. В source
+устранены совпадающие внутренние фронтальные плоскости портов/лаптей/поножей/сапог;
+настоящие clipping/анимация/stand/trim/runes/enchants/relog/MP ждут проверки владельца.
+13 аксессуаров, #130 и gameplay не менялись работой88. Правки второго агента44/45
+сохранены; установленная им тестовая45 содержит основную переработку брони.
+46 дополнительно разводит на 0.06px пояс поножей неукротимости и НЕ установлена.
+Точные source/JAR SHA: [verification.json](implementation/armor88-full/verification.json).
+Нет автоматического commit/push/закрытия Issues. Следующие записи исторические.
+
+
+## PolyMC: тестовая1.9.7.45 установлена · 20.10.2026
+
+По прямому запросу владельца установлен проверенный JAR45 с текущим мягким glint #104
+и существующей работой брони. Clean build Java21 1m1s, стабильность source/resources/JAR PASS.
+Backup44 вне mods, один Slavic JAR,6 прочих модов сохранены по SHA256.
+[Installed path/SHA256/source commit/backup](implementation/polymc-19745/installed.json),
+[матрица](implementation/polymc-19745/REPORT.md). Source69a2db12 + dirty tree; нет commit/push.
+IN_PROGRESS / OWNER_PENDING, игровых запусков0, runtime NOT_RUN. #104 OPEN; #105 не начата.
+Эта запись заменяет прежние сведения «45 не установлена» и текущую блокировку упаковки.
+
+
+## #104 — мягкий glint, повторная ревизия · 20.10.2026
+
+IN_PROGRESS / OWNER_PENDING. Только shared PNG/GLSL/strengths: мелкий мягкий узор,
+приглушённая палитра, alpha24/40/58 и медленнее UV; три OFFLINE source GPU кандидата.
+Броня этой задачей не менялась. GLSL/JVM PASS; clean build1m8s PASS на момент выполнения.
+Затем обнаружены параллельные изменения брони и исчезновение build/libs: текущая
+resource/JAR-проверка BLOCKED_CONCURRENT_WRITER, без подтверждённого артефакта.
+[Матрица, baseline и ограничения](implementation/rune-glow-104-revision/REPORT.md).
+Runtime NOT_RUN, запусков0, POLYMC_NOT_INSTALLED. Нет commit/push; #105 не начата.
+
+## PolyMC: установлена тестовая1.9.7.44 · 20.10.2026
+
+По прямому поручению владельца установлен проверенный44 с исправлением рунического
+слоя надетой брони, усилением сияния и enchantable tags. Backup42 вне mods;
+один активный Slavic JAR,6 соседних модов сохранены по SHA256.
+[Точные installed path/SHA/source base и backup](implementation/rune-glow-fix-44/installed.json).
+Source HEAD69a2db12 плюс незакоммиченные изменения; commit/push не выполнялись.
+Игровых запусков0; IN_PROGRESS / OWNER_PENDING, runtime NOT_RUN.
+Следующие записи «44 не установлена» исторические и заменены этой квитанцией.
+
+## Исправления сияния и зачарований · кандидат1.9.7.44 · 20.10.2026
+
+**IN_PROGRESS / OWNER_PENDING.** По скриншотам владельца исправлено несовпадение
+VIEW_OFFSET_Z_LAYERING у equipped armor overlay; отдельный armor RenderType,
+textile без armor offset. Alpha1/2/3рун112/156/200 вместо36/58/82, контрастные полосы.
+Добавлены отсутствовавшие vanilla enchantable slot tags для22 ArmorItem и категории
+пропущенного оружия/инструментов/crossbows. Предсуществующая работа #88 сохранена.
+[Причины, source GPU, регрессия глубины и матрица](implementation/rune-glow-fix-44/REPORT.md).
+Java21 clean build1m7s, JVM/batch/ABI, standalone GLSL/GPU, data graph и JAR PASS.
+Minecraft запусков0, игровая проверка/MP/relog/ручная приёмка NOT_RUN.
+**44 НЕ установлена в PolyMC**; установленная42 не изменена. Нет commit/push/закрытия.
+Следующие записи об43/42 относятся к своим пакетам и не означают установку44.
+
+## #88 — посадка льняного комплекта, source 1.9.7.43 · 20.10.2026
+
+IN_PROGRESS / OWNER_PENDING. Исправлены linen_shirt и linen_ports: одежда выведена
+поверх внешнего слоя скина, низ портов больше не погружён в базовую ногу.
+Нативные точки крепления Steve/Alex сохранены; 12 контрольных мешей остальных
+шести предметов неизменны. ID, текстуры, баланс и рунический слой сохранены.
+Java21 clean build, offline bake/UV и production JAR gates PASS; игровой runtime
+NOT_RUN, запусков0. [Матрица и source A/B](implementation/armor88-linen/REPORT.md).
+43 НЕ установлена в PolyMC; установленная42 сохранена. Коммит не создавался.
+#87 отложена до уточнений; #105 ждёт ручной визуальной приёмки #104.
+
 ## Установлена тестовая1.9.7.42; публикация по поручению владельца · 20.10.2026
 
 В PolyMC Testing1.21.1 установлен проверенный42: backup40 сохранён, один активный

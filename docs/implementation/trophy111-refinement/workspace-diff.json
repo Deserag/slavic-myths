@@ -1,0 +1,12 @@
+[
+  "src/main/resources/assets/slavicmyths/textures/item/ataman_sign.png",
+  "src/main/resources/assets/slavicmyths/textures/item/pearl_fragment.png",
+  "src/main/resources/assets/slavicmyths/textures/item/serpent_seal.png",
+  "src/main/resources/assets/slavicmyths/models/item/pearl_fragment.json",
+  "tools/trophy111_art.py",
+  "tools/verify_trophy111.py",
+  "tools/water_070.py",
+  "docs/PROJECT_STATUS.md",
+  "docs/ROADMAP.md",
+  "docs/ARCHITECTURE.md"
+]

@@ -1,0 +1,1633 @@
+{
+  "catalog": {
+    "linden": [
+      "linden_log",
+      "linden_stripped_log",
+      "linden_wood",
+      "linden_stripped_wood",
+      "linden_planks",
+      "linden_stairs",
+      "linden_slab",
+      "linden_fence",
+      "linden_fence_gate",
+      "linden_door",
+      "linden_trapdoor",
+      "linden_pressure_plate",
+      "linden_button",
+      "linden_sign",
+      "linden_leaves"
+    ],
+    "willow": [
+      "willow_log",
+      "willow_stripped_log",
+      "willow_wood",
+      "willow_stripped_wood",
+      "willow_planks",
+      "willow_stairs",
+      "willow_slab",
+      "willow_fence",
+      "willow_fence_gate",
+      "willow_door",
+      "willow_trapdoor",
+      "willow_pressure_plate",
+      "willow_button",
+      "willow_sign",
+      "willow_leaves"
+    ],
+    "apple": [
+      "apple_log",
+      "stripped_apple_log",
+      "apple_wood",
+      "stripped_apple_wood",
+      "apple_planks",
+      "apple_stairs",
+      "apple_slab",
+      "apple_fence",
+      "apple_fence_gate",
+      "apple_door",
+      "apple_trapdoor",
+      "apple_pressure_plate",
+      "apple_button",
+      "apple_sign",
+      "apple_hanging_sign",
+      "apple_leaves"
+    ],
+    "pine": [
+      "pine_log",
+      "pine_stripped_log",
+      "pine_wood",
+      "pine_stripped_wood",
+      "pine_planks",
+      "pine_stairs",
+      "pine_slab",
+      "pine_fence",
+      "pine_fence_gate",
+      "pine_door",
+      "pine_trapdoor",
+      "pine_pressure_plate",
+      "pine_button",
+      "pine_sign",
+      "pine_leaves"
+    ],
+    "rowan": [
+      "rowan_log",
+      "rowan_stripped_log",
+      "rowan_wood",
+      "rowan_stripped_wood",
+      "rowan_planks",
+      "rowan_stairs",
+      "rowan_slab",
+      "rowan_fence",
+      "rowan_fence_gate",
+      "rowan_door",
+      "rowan_trapdoor",
+      "rowan_pressure_plate",
+      "rowan_button",
+      "rowan_sign",
+      "rowan_leaves"
+    ],
+    "darkened": [
+      "darkened_log",
+      "darkened_stripped_log",
+      "darkened_planks",
+      "darkened_stairs",
+      "darkened_slab",
+      "darkened_fence",
+      "darkened_fence_gate",
+      "darkened_door",
+      "darkened_trapdoor"
+    ]
+  },
+  "graphs": {
+    "linden_log": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_log",
+        "slavicmyths:block/linden_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_stripped_log": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_stripped_log",
+        "slavicmyths:block/linden_stripped_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_stripped_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_wood": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_wood"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_wood.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_stripped_wood": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_stripped_wood"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_stripped_wood.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_planks": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_planks"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_planks.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_stairs": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_stairs",
+        "slavicmyths:block/linden_stairs_inner",
+        "slavicmyths:block/linden_stairs_outer"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_stairs.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_slab": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_planks",
+        "slavicmyths:block/linden_slab",
+        "slavicmyths:block/linden_slab_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_slab.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_fence": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_fence_post",
+        "slavicmyths:block/linden_fence_side"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_fence.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_fence_gate": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_fence_gate",
+        "slavicmyths:block/linden_fence_gate_open",
+        "slavicmyths:block/linden_fence_gate_wall",
+        "slavicmyths:block/linden_fence_gate_wall_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_fence_gate.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_door": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_door_bottom_left",
+        "slavicmyths:block/linden_door_bottom_left_open",
+        "slavicmyths:block/linden_door_bottom_right",
+        "slavicmyths:block/linden_door_bottom_right_open",
+        "slavicmyths:block/linden_door_top_left",
+        "slavicmyths:block/linden_door_top_left_open",
+        "slavicmyths:block/linden_door_top_right",
+        "slavicmyths:block/linden_door_top_right_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_door.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_trapdoor": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_trapdoor_bottom",
+        "slavicmyths:block/linden_trapdoor_open",
+        "slavicmyths:block/linden_trapdoor_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_trapdoor.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_pressure_plate": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_pressure_plate",
+        "slavicmyths:block/linden_pressure_plate_down"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_pressure_plate.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_button": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_button",
+        "slavicmyths:block/linden_button_pressed"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_button.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_sign": {
+      "family": "linden",
+      "models": [
+        "slavicmyths:block/linden_sign"
+      ],
+      "item_model": "assets/slavicmyths/models/item/linden_sign.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "linden_leaves": {
+      "family": "linden",
+      "action": "KEEP_FOLIAGE",
+      "runtime": "NOT_RUN"
+    },
+    "willow_log": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_log",
+        "slavicmyths:block/willow_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_stripped_log": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_stripped_log",
+        "slavicmyths:block/willow_stripped_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_stripped_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_wood": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_wood"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_wood.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_stripped_wood": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_stripped_wood"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_stripped_wood.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_planks": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_planks"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_planks.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_stairs": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_stairs",
+        "slavicmyths:block/willow_stairs_inner",
+        "slavicmyths:block/willow_stairs_outer"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_stairs.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_slab": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_planks",
+        "slavicmyths:block/willow_slab",
+        "slavicmyths:block/willow_slab_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_slab.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_fence": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_fence_post",
+        "slavicmyths:block/willow_fence_side"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_fence.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_fence_gate": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_fence_gate",
+        "slavicmyths:block/willow_fence_gate_open",
+        "slavicmyths:block/willow_fence_gate_wall",
+        "slavicmyths:block/willow_fence_gate_wall_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_fence_gate.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_door": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_door_bottom_left",
+        "slavicmyths:block/willow_door_bottom_left_open",
+        "slavicmyths:block/willow_door_bottom_right",
+        "slavicmyths:block/willow_door_bottom_right_open",
+        "slavicmyths:block/willow_door_top_left",
+        "slavicmyths:block/willow_door_top_left_open",
+        "slavicmyths:block/willow_door_top_right",
+        "slavicmyths:block/willow_door_top_right_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_door.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_trapdoor": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_trapdoor_bottom",
+        "slavicmyths:block/willow_trapdoor_open",
+        "slavicmyths:block/willow_trapdoor_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_trapdoor.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_pressure_plate": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_pressure_plate",
+        "slavicmyths:block/willow_pressure_plate_down"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_pressure_plate.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_button": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_button",
+        "slavicmyths:block/willow_button_pressed"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_button.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_sign": {
+      "family": "willow",
+      "models": [
+        "slavicmyths:block/willow_sign"
+      ],
+      "item_model": "assets/slavicmyths/models/item/willow_sign.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "willow_leaves": {
+      "family": "willow",
+      "action": "KEEP_FOLIAGE",
+      "runtime": "NOT_RUN"
+    },
+    "apple_log": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_log",
+        "slavicmyths:block/apple_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "stripped_apple_log": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/stripped_apple_log",
+        "slavicmyths:block/stripped_apple_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/stripped_apple_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_wood": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_wood"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_wood.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "stripped_apple_wood": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/stripped_apple_wood"
+      ],
+      "item_model": "assets/slavicmyths/models/item/stripped_apple_wood.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_planks": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_planks"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_planks.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_stairs": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_stairs",
+        "slavicmyths:block/apple_stairs_inner",
+        "slavicmyths:block/apple_stairs_outer"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_stairs.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_slab": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_planks",
+        "slavicmyths:block/apple_slab",
+        "slavicmyths:block/apple_slab_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_slab.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_fence": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_fence_post",
+        "slavicmyths:block/apple_fence_side"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_fence.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_fence_gate": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_fence_gate",
+        "slavicmyths:block/apple_fence_gate_open",
+        "slavicmyths:block/apple_fence_gate_wall",
+        "slavicmyths:block/apple_fence_gate_wall_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_fence_gate.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_door": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_door_bottom_left",
+        "slavicmyths:block/apple_door_bottom_left_open",
+        "slavicmyths:block/apple_door_bottom_right",
+        "slavicmyths:block/apple_door_bottom_right_open",
+        "slavicmyths:block/apple_door_top_left",
+        "slavicmyths:block/apple_door_top_left_open",
+        "slavicmyths:block/apple_door_top_right",
+        "slavicmyths:block/apple_door_top_right_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_door.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_trapdoor": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_trapdoor_bottom",
+        "slavicmyths:block/apple_trapdoor_open",
+        "slavicmyths:block/apple_trapdoor_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_trapdoor.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_pressure_plate": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_pressure_plate",
+        "slavicmyths:block/apple_pressure_plate_down"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_pressure_plate.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_button": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_button",
+        "slavicmyths:block/apple_button_pressed"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_button.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_sign": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_sign"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_sign.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_hanging_sign": {
+      "family": "apple",
+      "models": [
+        "slavicmyths:block/apple_hanging_sign"
+      ],
+      "item_model": "assets/slavicmyths/models/item/apple_hanging_sign.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "apple_leaves": {
+      "family": "apple",
+      "action": "KEEP_FOLIAGE",
+      "runtime": "NOT_RUN"
+    },
+    "pine_log": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_log",
+        "slavicmyths:block/pine_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_stripped_log": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_stripped_log",
+        "slavicmyths:block/pine_stripped_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_stripped_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_wood": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_wood"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_wood.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_stripped_wood": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_stripped_wood"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_stripped_wood.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_planks": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_planks"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_planks.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_stairs": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_stairs",
+        "slavicmyths:block/pine_stairs_inner",
+        "slavicmyths:block/pine_stairs_outer"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_stairs.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_slab": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_planks",
+        "slavicmyths:block/pine_slab",
+        "slavicmyths:block/pine_slab_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_slab.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_fence": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_fence_post",
+        "slavicmyths:block/pine_fence_side"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_fence.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_fence_gate": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_fence_gate",
+        "slavicmyths:block/pine_fence_gate_open",
+        "slavicmyths:block/pine_fence_gate_wall",
+        "slavicmyths:block/pine_fence_gate_wall_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_fence_gate.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_door": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_door_bottom_left",
+        "slavicmyths:block/pine_door_bottom_left_open",
+        "slavicmyths:block/pine_door_bottom_right",
+        "slavicmyths:block/pine_door_bottom_right_open",
+        "slavicmyths:block/pine_door_top_left",
+        "slavicmyths:block/pine_door_top_left_open",
+        "slavicmyths:block/pine_door_top_right",
+        "slavicmyths:block/pine_door_top_right_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_door.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_trapdoor": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_trapdoor_bottom",
+        "slavicmyths:block/pine_trapdoor_open",
+        "slavicmyths:block/pine_trapdoor_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_trapdoor.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_pressure_plate": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_pressure_plate",
+        "slavicmyths:block/pine_pressure_plate_down"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_pressure_plate.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_button": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_button",
+        "slavicmyths:block/pine_button_pressed"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_button.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_sign": {
+      "family": "pine",
+      "models": [
+        "slavicmyths:block/pine_sign"
+      ],
+      "item_model": "assets/slavicmyths/models/item/pine_sign.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "pine_leaves": {
+      "family": "pine",
+      "action": "KEEP_FOLIAGE",
+      "runtime": "NOT_RUN"
+    },
+    "rowan_log": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_log",
+        "slavicmyths:block/rowan_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_stripped_log": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_stripped_log",
+        "slavicmyths:block/rowan_stripped_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_stripped_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_wood": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_wood"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_wood.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_stripped_wood": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_stripped_wood"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_stripped_wood.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_planks": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_planks"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_planks.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_stairs": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_stairs",
+        "slavicmyths:block/rowan_stairs_inner",
+        "slavicmyths:block/rowan_stairs_outer"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_stairs.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_slab": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_planks",
+        "slavicmyths:block/rowan_slab",
+        "slavicmyths:block/rowan_slab_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_slab.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_fence": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_fence_post",
+        "slavicmyths:block/rowan_fence_side"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_fence.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_fence_gate": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_fence_gate",
+        "slavicmyths:block/rowan_fence_gate_open",
+        "slavicmyths:block/rowan_fence_gate_wall",
+        "slavicmyths:block/rowan_fence_gate_wall_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_fence_gate.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_door": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_door_bottom_left",
+        "slavicmyths:block/rowan_door_bottom_left_open",
+        "slavicmyths:block/rowan_door_bottom_right",
+        "slavicmyths:block/rowan_door_bottom_right_open",
+        "slavicmyths:block/rowan_door_top_left",
+        "slavicmyths:block/rowan_door_top_left_open",
+        "slavicmyths:block/rowan_door_top_right",
+        "slavicmyths:block/rowan_door_top_right_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_door.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_trapdoor": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_trapdoor_bottom",
+        "slavicmyths:block/rowan_trapdoor_open",
+        "slavicmyths:block/rowan_trapdoor_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_trapdoor.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_pressure_plate": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_pressure_plate",
+        "slavicmyths:block/rowan_pressure_plate_down"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_pressure_plate.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_button": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_button",
+        "slavicmyths:block/rowan_button_pressed"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_button.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_sign": {
+      "family": "rowan",
+      "models": [
+        "slavicmyths:block/rowan_sign"
+      ],
+      "item_model": "assets/slavicmyths/models/item/rowan_sign.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "rowan_leaves": {
+      "family": "rowan",
+      "action": "KEEP_FOLIAGE",
+      "runtime": "NOT_RUN"
+    },
+    "darkened_log": {
+      "family": "darkened",
+      "models": [
+        "slavicmyths:block/darkened_log",
+        "slavicmyths:block/darkened_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/darkened_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "darkened_stripped_log": {
+      "family": "darkened",
+      "models": [
+        "slavicmyths:block/darkened_stripped_log",
+        "slavicmyths:block/darkened_stripped_log_horizontal"
+      ],
+      "item_model": "assets/slavicmyths/models/item/darkened_stripped_log.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "darkened_planks": {
+      "family": "darkened",
+      "models": [
+        "slavicmyths:block/darkened_planks"
+      ],
+      "item_model": "assets/slavicmyths/models/item/darkened_planks.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "darkened_stairs": {
+      "family": "darkened",
+      "models": [
+        "slavicmyths:block/darkened_stairs",
+        "slavicmyths:block/darkened_stairs_inner",
+        "slavicmyths:block/darkened_stairs_outer"
+      ],
+      "item_model": "assets/slavicmyths/models/item/darkened_stairs.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "darkened_slab": {
+      "family": "darkened",
+      "models": [
+        "slavicmyths:block/darkened_planks",
+        "slavicmyths:block/darkened_slab",
+        "slavicmyths:block/darkened_slab_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/darkened_slab.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "darkened_fence": {
+      "family": "darkened",
+      "models": [
+        "slavicmyths:block/darkened_fence_post",
+        "slavicmyths:block/darkened_fence_side"
+      ],
+      "item_model": "assets/slavicmyths/models/item/darkened_fence.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "darkened_fence_gate": {
+      "family": "darkened",
+      "models": [
+        "slavicmyths:block/darkened_fence_gate",
+        "slavicmyths:block/darkened_fence_gate_open",
+        "slavicmyths:block/darkened_fence_gate_wall",
+        "slavicmyths:block/darkened_fence_gate_wall_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/darkened_fence_gate.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "darkened_door": {
+      "family": "darkened",
+      "models": [
+        "slavicmyths:block/darkened_door_bottom_left",
+        "slavicmyths:block/darkened_door_bottom_left_open",
+        "slavicmyths:block/darkened_door_bottom_right",
+        "slavicmyths:block/darkened_door_bottom_right_open",
+        "slavicmyths:block/darkened_door_top_left",
+        "slavicmyths:block/darkened_door_top_left_open",
+        "slavicmyths:block/darkened_door_top_right",
+        "slavicmyths:block/darkened_door_top_right_open"
+      ],
+      "item_model": "assets/slavicmyths/models/item/darkened_door.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    },
+    "darkened_trapdoor": {
+      "family": "darkened",
+      "models": [
+        "slavicmyths:block/darkened_trapdoor_bottom",
+        "slavicmyths:block/darkened_trapdoor_open",
+        "slavicmyths:block/darkened_trapdoor_top"
+      ],
+      "item_model": "assets/slavicmyths/models/item/darkened_trapdoor.json",
+      "geometry": "UNCHANGED",
+      "redstone/placement": "NOT_RUN"
+    }
+  },
+  "direct_model_consumers": [
+    "src/main/resources/assets/slavicmyths/models/block/apple_button.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_button_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_button_pressed.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_door_bottom_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_door_bottom_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_door_bottom_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_door_bottom_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_door_top_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_door_top_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_door_top_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_door_top_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_fence_gate.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_fence_gate_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_fence_gate_wall.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_fence_gate_wall_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_fence_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_fence_post.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_fence_side.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_hanging_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_planks.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_pressure_plate.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_pressure_plate_down.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_slab.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_slab_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_stairs.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_stairs_inner.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_stairs_outer.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_trapdoor_bottom.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_trapdoor_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_trapdoor_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_wall_hanging_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_wall_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/apple_wood.json",
+    "src/main/resources/assets/slavicmyths/models/block/burial_log_coffin.json",
+    "src/main/resources/assets/slavicmyths/models/block/cloth_bag.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_door_bottom_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_door_bottom_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_door_bottom_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_door_bottom_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_door_top_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_door_top_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_door_top_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_door_top_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_fence_gate.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_fence_gate_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_fence_gate_wall.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_fence_gate_wall_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_fence_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_fence_post.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_fence_side.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_planks.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_slab.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_slab_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_stairs.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_stairs_inner.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_stairs_outer.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_stripped_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_stripped_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_trapdoor_bottom.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_trapdoor_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/darkened_trapdoor_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/firewood_bundle.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_bedside_cabinet.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_bench.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_button.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_button_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_button_pressed.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_chair.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_bottom_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_bottom_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_bottom_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_bottom_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_top_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_top_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_top_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_door_top_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_gate.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_gate_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_gate_wall.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_gate_wall_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_post.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_fence_side.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_planks.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_pressure_plate.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_pressure_plate_down.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_shelf.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_slab.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_slab_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stairs.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stairs_inner.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stairs_outer.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stool.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stripped_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stripped_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_stripped_wood.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_table.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_table_pair_east.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_table_pair_north.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_table_pair_south.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_table_pair_west.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_trapdoor_bottom.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_trapdoor_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_trapdoor_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_wall_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_wardrobe_lower.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_wardrobe_upper.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_weapon_rack.json",
+    "src/main/resources/assets/slavicmyths/models/block/linden_wood.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_bedside_cabinet.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_bench.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_button.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_button_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_button_pressed.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_chair.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_door_bottom_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_door_bottom_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_door_bottom_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_door_bottom_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_door_top_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_door_top_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_door_top_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_door_top_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_fence_gate.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_fence_gate_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_fence_gate_wall.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_fence_gate_wall_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_fence_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_fence_post.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_fence_side.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_planks.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_pressure_plate.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_pressure_plate_down.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_shelf.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_slab.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_slab_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_stairs.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_stairs_inner.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_stairs_outer.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_stool.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_stripped_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_stripped_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_stripped_wood.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_table.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_table_pair_east.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_table_pair_north.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_table_pair_south.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_table_pair_west.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_trapdoor_bottom.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_trapdoor_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_trapdoor_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_wall_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_wardrobe_lower.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_wardrobe_upper.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_weapon_rack.json",
+    "src/main/resources/assets/slavicmyths/models/block/pine_wood.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_button.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_button_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_button_pressed.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_door_bottom_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_door_bottom_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_door_bottom_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_door_bottom_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_door_top_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_door_top_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_door_top_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_door_top_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_fence_gate.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_fence_gate_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_fence_gate_wall.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_fence_gate_wall_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_fence_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_fence_post.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_fence_side.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_planks.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_pressure_plate.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_pressure_plate_down.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_slab.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_slab_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_stairs.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_stairs_inner.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_stairs_outer.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_stripped_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_stripped_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_stripped_wood.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_trapdoor_bottom.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_trapdoor_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_trapdoor_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_wall_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/rowan_wood.json",
+    "src/main/resources/assets/slavicmyths/models/block/signal_bell.json",
+    "src/main/resources/assets/slavicmyths/models/block/stripped_apple_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/stripped_apple_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/stripped_apple_wood.json",
+    "src/main/resources/assets/slavicmyths/models/block/training_dummy.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_button.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_button_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_button_pressed.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_door_bottom_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_door_bottom_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_door_bottom_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_door_bottom_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_door_top_left.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_door_top_left_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_door_top_right.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_door_top_right_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_fence_gate.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_fence_gate_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_fence_gate_wall.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_fence_gate_wall_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_fence_inventory.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_fence_post.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_fence_side.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_planks.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_pressure_plate.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_pressure_plate_down.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_slab.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_slab_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_stairs.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_stairs_inner.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_stairs_outer.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_stripped_log.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_stripped_log_horizontal.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_stripped_wood.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_trapdoor_bottom.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_trapdoor_open.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_trapdoor_top.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_wall_sign.json",
+    "src/main/resources/assets/slavicmyths/models/block/willow_wood.json",
+    "src/main/resources/assets/slavicmyths/models/block/wooden_crate.json",
+    "src/main/resources/assets/slavicmyths/models/item/apple_door.json",
+    "src/main/resources/assets/slavicmyths/models/item/apple_hanging_sign.json",
+    "src/main/resources/assets/slavicmyths/models/item/apple_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/apple_planks.json",
+    "src/main/resources/assets/slavicmyths/models/item/apple_sign.json",
+    "src/main/resources/assets/slavicmyths/models/item/darkened_door.json",
+    "src/main/resources/assets/slavicmyths/models/item/darkened_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/darkened_planks.json",
+    "src/main/resources/assets/slavicmyths/models/item/darkened_stripped_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/linden_door.json",
+    "src/main/resources/assets/slavicmyths/models/item/linden_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/linden_planks.json",
+    "src/main/resources/assets/slavicmyths/models/item/linden_sign.json",
+    "src/main/resources/assets/slavicmyths/models/item/linden_stripped_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/pine_door.json",
+    "src/main/resources/assets/slavicmyths/models/item/pine_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/pine_planks.json",
+    "src/main/resources/assets/slavicmyths/models/item/pine_sign.json",
+    "src/main/resources/assets/slavicmyths/models/item/pine_stripped_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/rowan_door.json",
+    "src/main/resources/assets/slavicmyths/models/item/rowan_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/rowan_planks.json",
+    "src/main/resources/assets/slavicmyths/models/item/rowan_sign.json",
+    "src/main/resources/assets/slavicmyths/models/item/rowan_stripped_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/stripped_apple_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/willow_door.json",
+    "src/main/resources/assets/slavicmyths/models/item/willow_log.json",
+    "src/main/resources/assets/slavicmyths/models/item/willow_planks.json",
+    "src/main/resources/assets/slavicmyths/models/item/willow_sign.json",
+    "src/main/resources/assets/slavicmyths/models/item/willow_stripped_log.json"
+  ],
+  "active_sign_materials": {
+    "linden": "entity/signs/linden.png",
+    "willow": "entity/signs/willow.png",
+    "apple": "entity/signs/apple.png",
+    "pine": "entity/signs/pine.png",
+    "rowan": "entity/signs/rowan.png",
+    "apple_hanging": "entity/signs/hanging/apple.png"
+  },
+  "resolved_model_dependencies": [
+    "assets/minecraft/models/block/block.json",
+    "assets/minecraft/models/block/button.json",
+    "assets/minecraft/models/block/button_inventory.json",
+    "assets/minecraft/models/block/button_pressed.json",
+    "assets/minecraft/models/block/cube.json",
+    "assets/minecraft/models/block/cube_all.json",
+    "assets/minecraft/models/block/cube_column.json",
+    "assets/minecraft/models/block/cube_column_horizontal.json",
+    "assets/minecraft/models/block/door_bottom_left.json",
+    "assets/minecraft/models/block/door_bottom_left_open.json",
+    "assets/minecraft/models/block/door_bottom_right.json",
+    "assets/minecraft/models/block/door_bottom_right_open.json",
+    "assets/minecraft/models/block/door_top_left.json",
+    "assets/minecraft/models/block/door_top_left_open.json",
+    "assets/minecraft/models/block/door_top_right.json",
+    "assets/minecraft/models/block/door_top_right_open.json",
+    "assets/minecraft/models/block/fence_inventory.json",
+    "assets/minecraft/models/block/fence_post.json",
+    "assets/minecraft/models/block/fence_side.json",
+    "assets/minecraft/models/block/inner_stairs.json",
+    "assets/minecraft/models/block/outer_stairs.json",
+    "assets/minecraft/models/block/pressure_plate_down.json",
+    "assets/minecraft/models/block/pressure_plate_up.json",
+    "assets/minecraft/models/block/slab.json",
+    "assets/minecraft/models/block/slab_top.json",
+    "assets/minecraft/models/block/stairs.json",
+    "assets/minecraft/models/block/template_fence_gate.json",
+    "assets/minecraft/models/block/template_fence_gate_open.json",
+    "assets/minecraft/models/block/template_fence_gate_wall.json",
+    "assets/minecraft/models/block/template_fence_gate_wall_open.json",
+    "assets/minecraft/models/block/template_trapdoor_bottom.json",
+    "assets/minecraft/models/block/template_trapdoor_open.json",
+    "assets/minecraft/models/block/template_trapdoor_top.json",
+    "assets/minecraft/models/block/thin_block.json",
+    "assets/minecraft/models/item/generated.json",
+    "assets/slavicmyths/models/block/apple_button.json",
+    "assets/slavicmyths/models/block/apple_button_inventory.json",
+    "assets/slavicmyths/models/block/apple_button_pressed.json",
+    "assets/slavicmyths/models/block/apple_door_bottom_left.json",
+    "assets/slavicmyths/models/block/apple_door_bottom_left_open.json",
+    "assets/slavicmyths/models/block/apple_door_bottom_right.json",
+    "assets/slavicmyths/models/block/apple_door_bottom_right_open.json",
+    "assets/slavicmyths/models/block/apple_door_top_left.json",
+    "assets/slavicmyths/models/block/apple_door_top_left_open.json",
+    "assets/slavicmyths/models/block/apple_door_top_right.json",
+    "assets/slavicmyths/models/block/apple_door_top_right_open.json",
+    "assets/slavicmyths/models/block/apple_fence_gate.json",
+    "assets/slavicmyths/models/block/apple_fence_gate_open.json",
+    "assets/slavicmyths/models/block/apple_fence_gate_wall.json",
+    "assets/slavicmyths/models/block/apple_fence_gate_wall_open.json",
+    "assets/slavicmyths/models/block/apple_fence_inventory.json",
+    "assets/slavicmyths/models/block/apple_fence_post.json",
+    "assets/slavicmyths/models/block/apple_fence_side.json",
+    "assets/slavicmyths/models/block/apple_hanging_sign.json",
+    "assets/slavicmyths/models/block/apple_log.json",
+    "assets/slavicmyths/models/block/apple_log_horizontal.json",
+    "assets/slavicmyths/models/block/apple_planks.json",
+    "assets/slavicmyths/models/block/apple_pressure_plate.json",
+    "assets/slavicmyths/models/block/apple_pressure_plate_down.json",
+    "assets/slavicmyths/models/block/apple_sign.json",
+    "assets/slavicmyths/models/block/apple_slab.json",
+    "assets/slavicmyths/models/block/apple_slab_top.json",
+    "assets/slavicmyths/models/block/apple_stairs.json",
+    "assets/slavicmyths/models/block/apple_stairs_inner.json",
+    "assets/slavicmyths/models/block/apple_stairs_outer.json",
+    "assets/slavicmyths/models/block/apple_trapdoor_bottom.json",
+    "assets/slavicmyths/models/block/apple_trapdoor_open.json",
+    "assets/slavicmyths/models/block/apple_trapdoor_top.json",
+    "assets/slavicmyths/models/block/apple_wood.json",
+    "assets/slavicmyths/models/block/darkened_door_bottom_left.json",
+    "assets/slavicmyths/models/block/darkened_door_bottom_left_open.json",
+    "assets/slavicmyths/models/block/darkened_door_bottom_right.json",
+    "assets/slavicmyths/models/block/darkened_door_bottom_right_open.json",
+    "assets/slavicmyths/models/block/darkened_door_top_left.json",
+    "assets/slavicmyths/models/block/darkened_door_top_left_open.json",
+    "assets/slavicmyths/models/block/darkened_door_top_right.json",
+    "assets/slavicmyths/models/block/darkened_door_top_right_open.json",
+    "assets/slavicmyths/models/block/darkened_fence_gate.json",
+    "assets/slavicmyths/models/block/darkened_fence_gate_open.json",
+    "assets/slavicmyths/models/block/darkened_fence_gate_wall.json",
+    "assets/slavicmyths/models/block/darkened_fence_gate_wall_open.json",
+    "assets/slavicmyths/models/block/darkened_fence_inventory.json",
+    "assets/slavicmyths/models/block/darkened_fence_post.json",
+    "assets/slavicmyths/models/block/darkened_fence_side.json",
+    "assets/slavicmyths/models/block/darkened_log.json",
+    "assets/slavicmyths/models/block/darkened_log_horizontal.json",
+    "assets/slavicmyths/models/block/darkened_planks.json",
+    "assets/slavicmyths/models/block/darkened_slab.json",
+    "assets/slavicmyths/models/block/darkened_slab_top.json",
+    "assets/slavicmyths/models/block/darkened_stairs.json",
+    "assets/slavicmyths/models/block/darkened_stairs_inner.json",
+    "assets/slavicmyths/models/block/darkened_stairs_outer.json",
+    "assets/slavicmyths/models/block/darkened_stripped_log.json",
+    "assets/slavicmyths/models/block/darkened_stripped_log_horizontal.json",
+    "assets/slavicmyths/models/block/darkened_trapdoor_bottom.json",
+    "assets/slavicmyths/models/block/darkened_trapdoor_open.json",
+    "assets/slavicmyths/models/block/darkened_trapdoor_top.json",
+    "assets/slavicmyths/models/block/linden_button.json",
+    "assets/slavicmyths/models/block/linden_button_inventory.json",
+    "assets/slavicmyths/models/block/linden_button_pressed.json",
+    "assets/slavicmyths/models/block/linden_door_bottom_left.json",
+    "assets/slavicmyths/models/block/linden_door_bottom_left_open.json",
+    "assets/slavicmyths/models/block/linden_door_bottom_right.json",
+    "assets/slavicmyths/models/block/linden_door_bottom_right_open.json",
+    "assets/slavicmyths/models/block/linden_door_top_left.json",
+    "assets/slavicmyths/models/block/linden_door_top_left_open.json",
+    "assets/slavicmyths/models/block/linden_door_top_right.json",
+    "assets/slavicmyths/models/block/linden_door_top_right_open.json",
+    "assets/slavicmyths/models/block/linden_fence_gate.json",
+    "assets/slavicmyths/models/block/linden_fence_gate_open.json",
+    "assets/slavicmyths/models/block/linden_fence_gate_wall.json",
+    "assets/slavicmyths/models/block/linden_fence_gate_wall_open.json",
+    "assets/slavicmyths/models/block/linden_fence_inventory.json",
+    "assets/slavicmyths/models/block/linden_fence_post.json",
+    "assets/slavicmyths/models/block/linden_fence_side.json",
+    "assets/slavicmyths/models/block/linden_log.json",
+    "assets/slavicmyths/models/block/linden_log_horizontal.json",
+    "assets/slavicmyths/models/block/linden_planks.json",
+    "assets/slavicmyths/models/block/linden_pressure_plate.json",
+    "assets/slavicmyths/models/block/linden_pressure_plate_down.json",
+    "assets/slavicmyths/models/block/linden_sign.json",
+    "assets/slavicmyths/models/block/linden_slab.json",
+    "assets/slavicmyths/models/block/linden_slab_top.json",
+    "assets/slavicmyths/models/block/linden_stairs.json",
+    "assets/slavicmyths/models/block/linden_stairs_inner.json",
+    "assets/slavicmyths/models/block/linden_stairs_outer.json",
+    "assets/slavicmyths/models/block/linden_stripped_log.json",
+    "assets/slavicmyths/models/block/linden_stripped_log_horizontal.json",
+    "assets/slavicmyths/models/block/linden_stripped_wood.json",
+    "assets/slavicmyths/models/block/linden_trapdoor_bottom.json",
+    "assets/slavicmyths/models/block/linden_trapdoor_open.json",
+    "assets/slavicmyths/models/block/linden_trapdoor_top.json",
+    "assets/slavicmyths/models/block/linden_wood.json",
+    "assets/slavicmyths/models/block/pine_button.json",
+    "assets/slavicmyths/models/block/pine_button_inventory.json",
+    "assets/slavicmyths/models/block/pine_button_pressed.json",
+    "assets/slavicmyths/models/block/pine_door_bottom_left.json",
+    "assets/slavicmyths/models/block/pine_door_bottom_left_open.json",
+    "assets/slavicmyths/models/block/pine_door_bottom_right.json",
+    "assets/slavicmyths/models/block/pine_door_bottom_right_open.json",
+    "assets/slavicmyths/models/block/pine_door_top_left.json",
+    "assets/slavicmyths/models/block/pine_door_top_left_open.json",
+    "assets/slavicmyths/models/block/pine_door_top_right.json",
+    "assets/slavicmyths/models/block/pine_door_top_right_open.json",
+    "assets/slavicmyths/models/block/pine_fence_gate.json",
+    "assets/slavicmyths/models/block/pine_fence_gate_open.json",
+    "assets/slavicmyths/models/block/pine_fence_gate_wall.json",
+    "assets/slavicmyths/models/block/pine_fence_gate_wall_open.json",
+    "assets/slavicmyths/models/block/pine_fence_inventory.json",
+    "assets/slavicmyths/models/block/pine_fence_post.json",
+    "assets/slavicmyths/models/block/pine_fence_side.json",
+    "assets/slavicmyths/models/block/pine_log.json",
+    "assets/slavicmyths/models/block/pine_log_horizontal.json",
+    "assets/slavicmyths/models/block/pine_planks.json",
+    "assets/slavicmyths/models/block/pine_pressure_plate.json",
+    "assets/slavicmyths/models/block/pine_pressure_plate_down.json",
+    "assets/slavicmyths/models/block/pine_sign.json",
+    "assets/slavicmyths/models/block/pine_slab.json",
+    "assets/slavicmyths/models/block/pine_slab_top.json",
+    "assets/slavicmyths/models/block/pine_stairs.json",
+    "assets/slavicmyths/models/block/pine_stairs_inner.json",
+    "assets/slavicmyths/models/block/pine_stairs_outer.json",
+    "assets/slavicmyths/models/block/pine_stripped_log.json",
+    "assets/slavicmyths/models/block/pine_stripped_log_horizontal.json",
+    "assets/slavicmyths/models/block/pine_stripped_wood.json",
+    "assets/slavicmyths/models/block/pine_trapdoor_bottom.json",
+    "assets/slavicmyths/models/block/pine_trapdoor_open.json",
+    "assets/slavicmyths/models/block/pine_trapdoor_top.json",
+    "assets/slavicmyths/models/block/pine_wood.json",
+    "assets/slavicmyths/models/block/rowan_button.json",
+    "assets/slavicmyths/models/block/rowan_button_inventory.json",
+    "assets/slavicmyths/models/block/rowan_button_pressed.json",
+    "assets/slavicmyths/models/block/rowan_door_bottom_left.json",
+    "assets/slavicmyths/models/block/rowan_door_bottom_left_open.json",
+    "assets/slavicmyths/models/block/rowan_door_bottom_right.json",
+    "assets/slavicmyths/models/block/rowan_door_bottom_right_open.json",
+    "assets/slavicmyths/models/block/rowan_door_top_left.json",
+    "assets/slavicmyths/models/block/rowan_door_top_left_open.json",
+    "assets/slavicmyths/models/block/rowan_door_top_right.json",
+    "assets/slavicmyths/models/block/rowan_door_top_right_open.json",
+    "assets/slavicmyths/models/block/rowan_fence_gate.json",
+    "assets/slavicmyths/models/block/rowan_fence_gate_open.json",
+    "assets/slavicmyths/models/block/rowan_fence_gate_wall.json",
+    "assets/slavicmyths/models/block/rowan_fence_gate_wall_open.json",
+    "assets/slavicmyths/models/block/rowan_fence_inventory.json",
+    "assets/slavicmyths/models/block/rowan_fence_post.json",
+    "assets/slavicmyths/models/block/rowan_fence_side.json",
+    "assets/slavicmyths/models/block/rowan_log.json",
+    "assets/slavicmyths/models/block/rowan_log_horizontal.json",
+    "assets/slavicmyths/models/block/rowan_planks.json",
+    "assets/slavicmyths/models/block/rowan_pressure_plate.json",
+    "assets/slavicmyths/models/block/rowan_pressure_plate_down.json",
+    "assets/slavicmyths/models/block/rowan_sign.json",
+    "assets/slavicmyths/models/block/rowan_slab.json",
+    "assets/slavicmyths/models/block/rowan_slab_top.json",
+    "assets/slavicmyths/models/block/rowan_stairs.json",
+    "assets/slavicmyths/models/block/rowan_stairs_inner.json",
+    "assets/slavicmyths/models/block/rowan_stairs_outer.json",
+    "assets/slavicmyths/models/block/rowan_stripped_log.json",
+    "assets/slavicmyths/models/block/rowan_stripped_log_horizontal.json",
+    "assets/slavicmyths/models/block/rowan_stripped_wood.json",
+    "assets/slavicmyths/models/block/rowan_trapdoor_bottom.json",
+    "assets/slavicmyths/models/block/rowan_trapdoor_open.json",
+    "assets/slavicmyths/models/block/rowan_trapdoor_top.json",
+    "assets/slavicmyths/models/block/rowan_wood.json",
+    "assets/slavicmyths/models/block/stripped_apple_log.json",
+    "assets/slavicmyths/models/block/stripped_apple_log_horizontal.json",
+    "assets/slavicmyths/models/block/stripped_apple_wood.json",
+    "assets/slavicmyths/models/block/willow_button.json",
+    "assets/slavicmyths/models/block/willow_button_inventory.json",
+    "assets/slavicmyths/models/block/willow_button_pressed.json",
+    "assets/slavicmyths/models/block/willow_door_bottom_left.json",
+    "assets/slavicmyths/models/block/willow_door_bottom_left_open.json",
+    "assets/slavicmyths/models/block/willow_door_bottom_right.json",
+    "assets/slavicmyths/models/block/willow_door_bottom_right_open.json",
+    "assets/slavicmyths/models/block/willow_door_top_left.json",
+    "assets/slavicmyths/models/block/willow_door_top_left_open.json",
+    "assets/slavicmyths/models/block/willow_door_top_right.json",
+    "assets/slavicmyths/models/block/willow_door_top_right_open.json",
+    "assets/slavicmyths/models/block/willow_fence_gate.json",
+    "assets/slavicmyths/models/block/willow_fence_gate_open.json",
+    "assets/slavicmyths/models/block/willow_fence_gate_wall.json",
+    "assets/slavicmyths/models/block/willow_fence_gate_wall_open.json",
+    "assets/slavicmyths/models/block/willow_fence_inventory.json",
+    "assets/slavicmyths/models/block/willow_fence_post.json",
+    "assets/slavicmyths/models/block/willow_fence_side.json",
+    "assets/slavicmyths/models/block/willow_log.json",
+    "assets/slavicmyths/models/block/willow_log_horizontal.json",
+    "assets/slavicmyths/models/block/willow_planks.json",
+    "assets/slavicmyths/models/block/willow_pressure_plate.json",
+    "assets/slavicmyths/models/block/willow_pressure_plate_down.json",
+    "assets/slavicmyths/models/block/willow_sign.json",
+    "assets/slavicmyths/models/block/willow_slab.json",
+    "assets/slavicmyths/models/block/willow_slab_top.json",
+    "assets/slavicmyths/models/block/willow_stairs.json",
+    "assets/slavicmyths/models/block/willow_stairs_inner.json",
+    "assets/slavicmyths/models/block/willow_stairs_outer.json",
+    "assets/slavicmyths/models/block/willow_stripped_log.json",
+    "assets/slavicmyths/models/block/willow_stripped_log_horizontal.json",
+    "assets/slavicmyths/models/block/willow_stripped_wood.json",
+    "assets/slavicmyths/models/block/willow_trapdoor_bottom.json",
+    "assets/slavicmyths/models/block/willow_trapdoor_open.json",
+    "assets/slavicmyths/models/block/willow_trapdoor_top.json",
+    "assets/slavicmyths/models/block/willow_wood.json",
+    "assets/slavicmyths/models/item/apple_button.json",
+    "assets/slavicmyths/models/item/apple_door.json",
+    "assets/slavicmyths/models/item/apple_fence.json",
+    "assets/slavicmyths/models/item/apple_fence_gate.json",
+    "assets/slavicmyths/models/item/apple_hanging_sign.json",
+    "assets/slavicmyths/models/item/apple_log.json",
+    "assets/slavicmyths/models/item/apple_planks.json",
+    "assets/slavicmyths/models/item/apple_pressure_plate.json",
+    "assets/slavicmyths/models/item/apple_sign.json",
+    "assets/slavicmyths/models/item/apple_slab.json",
+    "assets/slavicmyths/models/item/apple_stairs.json",
+    "assets/slavicmyths/models/item/apple_trapdoor.json",
+    "assets/slavicmyths/models/item/apple_wood.json",
+    "assets/slavicmyths/models/item/darkened_door.json",
+    "assets/slavicmyths/models/item/darkened_fence.json",
+    "assets/slavicmyths/models/item/darkened_fence_gate.json",
+    "assets/slavicmyths/models/item/darkened_log.json",
+    "assets/slavicmyths/models/item/darkened_planks.json",
+    "assets/slavicmyths/models/item/darkened_slab.json",
+    "assets/slavicmyths/models/item/darkened_stairs.json",
+    "assets/slavicmyths/models/item/darkened_stripped_log.json",
+    "assets/slavicmyths/models/item/darkened_trapdoor.json",
+    "assets/slavicmyths/models/item/linden_button.json",
+    "assets/slavicmyths/models/item/linden_door.json",
+    "assets/slavicmyths/models/item/linden_fence.json",
+    "assets/slavicmyths/models/item/linden_fence_gate.json",
+    "assets/slavicmyths/models/item/linden_log.json",
+    "assets/slavicmyths/models/item/linden_planks.json",
+    "assets/slavicmyths/models/item/linden_pressure_plate.json",
+    "assets/slavicmyths/models/item/linden_sign.json",
+    "assets/slavicmyths/models/item/linden_slab.json",
+    "assets/slavicmyths/models/item/linden_stairs.json",
+    "assets/slavicmyths/models/item/linden_stripped_log.json",
+    "assets/slavicmyths/models/item/linden_stripped_wood.json",
+    "assets/slavicmyths/models/item/linden_trapdoor.json",
+    "assets/slavicmyths/models/item/linden_wood.json",
+    "assets/slavicmyths/models/item/pine_button.json",
+    "assets/slavicmyths/models/item/pine_door.json",
+    "assets/slavicmyths/models/item/pine_fence.json",
+    "assets/slavicmyths/models/item/pine_fence_gate.json",
+    "assets/slavicmyths/models/item/pine_log.json",
+    "assets/slavicmyths/models/item/pine_planks.json",
+    "assets/slavicmyths/models/item/pine_pressure_plate.json",
+    "assets/slavicmyths/models/item/pine_sign.json",
+    "assets/slavicmyths/models/item/pine_slab.json",
+    "assets/slavicmyths/models/item/pine_stairs.json",
+    "assets/slavicmyths/models/item/pine_stripped_log.json",
+    "assets/slavicmyths/models/item/pine_stripped_wood.json",
+    "assets/slavicmyths/models/item/pine_trapdoor.json",
+    "assets/slavicmyths/models/item/pine_wood.json",
+    "assets/slavicmyths/models/item/rowan_button.json",
+    "assets/slavicmyths/models/item/rowan_door.json",
+    "assets/slavicmyths/models/item/rowan_fence.json",
+    "assets/slavicmyths/models/item/rowan_fence_gate.json",
+    "assets/slavicmyths/models/item/rowan_log.json",
+    "assets/slavicmyths/models/item/rowan_planks.json",
+    "assets/slavicmyths/models/item/rowan_pressure_plate.json",
+    "assets/slavicmyths/models/item/rowan_sign.json",
+    "assets/slavicmyths/models/item/rowan_slab.json",
+    "assets/slavicmyths/models/item/rowan_stairs.json",
+    "assets/slavicmyths/models/item/rowan_stripped_log.json",
+    "assets/slavicmyths/models/item/rowan_stripped_wood.json",
+    "assets/slavicmyths/models/item/rowan_trapdoor.json",
+    "assets/slavicmyths/models/item/rowan_wood.json",
+    "assets/slavicmyths/models/item/stripped_apple_log.json",
+    "assets/slavicmyths/models/item/stripped_apple_wood.json",
+    "assets/slavicmyths/models/item/willow_button.json",
+    "assets/slavicmyths/models/item/willow_door.json",
+    "assets/slavicmyths/models/item/willow_fence.json",
+    "assets/slavicmyths/models/item/willow_fence_gate.json",
+    "assets/slavicmyths/models/item/willow_log.json",
+    "assets/slavicmyths/models/item/willow_planks.json",
+    "assets/slavicmyths/models/item/willow_pressure_plate.json",
+    "assets/slavicmyths/models/item/willow_sign.json",
+    "assets/slavicmyths/models/item/willow_slab.json",
+    "assets/slavicmyths/models/item/willow_stairs.json",
+    "assets/slavicmyths/models/item/willow_stripped_log.json",
+    "assets/slavicmyths/models/item/willow_stripped_wood.json",
+    "assets/slavicmyths/models/item/willow_trapdoor.json",
+    "assets/slavicmyths/models/item/willow_wood.json",
+    "assets/slavicmyths/textures/block/apple_door_bottom.png",
+    "assets/slavicmyths/textures/block/apple_door_top.png",
+    "assets/slavicmyths/textures/block/apple_log.png",
+    "assets/slavicmyths/textures/block/apple_log_top.png",
+    "assets/slavicmyths/textures/block/apple_planks.png",
+    "assets/slavicmyths/textures/block/apple_trapdoor.png",
+    "assets/slavicmyths/textures/block/darkened_door_bottom.png",
+    "assets/slavicmyths/textures/block/darkened_door_top.png",
+    "assets/slavicmyths/textures/block/darkened_log.png",
+    "assets/slavicmyths/textures/block/darkened_log_top.png",
+    "assets/slavicmyths/textures/block/darkened_planks.png",
+    "assets/slavicmyths/textures/block/darkened_stripped_log.png",
+    "assets/slavicmyths/textures/block/darkened_stripped_log_top.png",
+    "assets/slavicmyths/textures/block/darkened_trapdoor.png",
+    "assets/slavicmyths/textures/block/linden_door_bottom.png",
+    "assets/slavicmyths/textures/block/linden_door_top.png",
+    "assets/slavicmyths/textures/block/linden_log.png",
+    "assets/slavicmyths/textures/block/linden_log_top.png",
+    "assets/slavicmyths/textures/block/linden_planks.png",
+    "assets/slavicmyths/textures/block/linden_stripped_log.png",
+    "assets/slavicmyths/textures/block/linden_stripped_log_top.png",
+    "assets/slavicmyths/textures/block/linden_trapdoor.png",
+    "assets/slavicmyths/textures/block/pine_door_bottom.png",
+    "assets/slavicmyths/textures/block/pine_door_top.png",
+    "assets/slavicmyths/textures/block/pine_log.png",
+    "assets/slavicmyths/textures/block/pine_log_top.png",
+    "assets/slavicmyths/textures/block/pine_planks.png",
+    "assets/slavicmyths/textures/block/pine_stripped_log.png",
+    "assets/slavicmyths/textures/block/pine_stripped_log_top.png",
+    "assets/slavicmyths/textures/block/pine_trapdoor.png",
+    "assets/slavicmyths/textures/block/rowan_door_bottom.png",
+    "assets/slavicmyths/textures/block/rowan_door_top.png",
+    "assets/slavicmyths/textures/block/rowan_log.png",
+    "assets/slavicmyths/textures/block/rowan_log_top.png",
+    "assets/slavicmyths/textures/block/rowan_planks.png",
+    "assets/slavicmyths/textures/block/rowan_stripped_log.png",
+    "assets/slavicmyths/textures/block/rowan_stripped_log_top.png",
+    "assets/slavicmyths/textures/block/rowan_trapdoor.png",
+    "assets/slavicmyths/textures/block/stripped_apple_log.png",
+    "assets/slavicmyths/textures/block/stripped_apple_log_top.png",
+    "assets/slavicmyths/textures/block/willow_door_bottom.png",
+    "assets/slavicmyths/textures/block/willow_door_top.png",
+    "assets/slavicmyths/textures/block/willow_log.png",
+    "assets/slavicmyths/textures/block/willow_log_top.png",
+    "assets/slavicmyths/textures/block/willow_planks.png",
+    "assets/slavicmyths/textures/block/willow_stripped_log.png",
+    "assets/slavicmyths/textures/block/willow_stripped_log_top.png",
+    "assets/slavicmyths/textures/block/willow_trapdoor.png"
+  ]
+}

@@ -16,16 +16,19 @@ import net.neoforged.neoforge.client.event.RegisterShadersEvent;
 public final class RuneGlowRenderTypes extends RenderType {
     private static ShaderInstance shader;
     private static final ResourceLocation TEXTURE=ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/misc/rune_glint.png");
-    public static final RenderType MAIN=createGlow(false);
-    public static final RenderType TRANSLUCENT_ITEM=createGlow(true);
+    public static final RenderType MAIN=createGlow(false,false);
+    public static final RenderType TRANSLUCENT_ITEM=createGlow(true,false);
+    public static final RenderType ARMOR=createGlow(false,true);
     private RuneGlowRenderTypes() { super("unused_rune_glow",DefaultVertexFormat.POSITION_TEX_COLOR,VertexFormat.Mode.QUADS,1536,false,false,()->{},()->{}); }
-    private static RenderType createGlow(boolean itemTarget) {
+    private static RenderType createGlow(boolean itemTarget, boolean armor) {
         var state=CompositeState.builder().setShaderState(new ShaderStateShard(()->shader))
                 .setTextureState(new TextureStateShard(TEXTURE,false,false))
                 .setWriteMaskState(COLOR_WRITE).setCullState(NO_CULL)
-                .setDepthTestState(EQUAL_DEPTH_TEST).setTransparencyState(TRANSLUCENT_TRANSPARENCY);
+                .setDepthTestState(EQUAL_DEPTH_TEST).setTransparencyState(LIGHTNING_TRANSPARENCY);
         if (itemTarget) state.setOutputState(ITEM_ENTITY_TARGET);
-        return create(itemTarget?"slavicmyths_rune_glow_item":"slavicmyths_rune_glow",
+        // Match armorCutoutNoCull's model-view depth exactly; EQUAL otherwise rejects the overlay.
+        if (armor) state.setLayeringState(VIEW_OFFSET_Z_LAYERING);
+        return create(armor?"slavicmyths_rune_glow_armor":itemTarget?"slavicmyths_rune_glow_item":"slavicmyths_rune_glow",
                 DefaultVertexFormat.POSITION_TEX_COLOR,VertexFormat.Mode.QUADS,1536,false,false,state.createCompositeState(false));
     }
     @SubscribeEvent public static void shaders(RegisterShadersEvent event) throws IOException {
@@ -33,6 +36,6 @@ public final class RuneGlowRenderTypes extends RenderType {
     }
     @SubscribeEvent public static void buffers(RegisterRenderBuffersEvent event) {
         // Fixed buffers prevent switching between normal and overlay consumers from ending a live builder.
-        event.registerRenderBuffer(MAIN); event.registerRenderBuffer(TRANSLUCENT_ITEM);
+        event.registerRenderBuffer(MAIN); event.registerRenderBuffer(TRANSLUCENT_ITEM); event.registerRenderBuffer(ARMOR);
     }
 }

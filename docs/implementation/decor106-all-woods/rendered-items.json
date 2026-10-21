@@ -1,0 +1,3356 @@
+{
+  "linden_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_log.json"
+    }
+  ],
+  "linden_stripped_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_stripped_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_stripped_log.json"
+    }
+  ],
+  "linden_wood": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_wood.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_wood.json"
+    }
+  ],
+  "linden_stripped_wood": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_stripped_wood.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_stripped_wood.json"
+    }
+  ],
+  "linden_planks": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_planks.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_planks.json"
+    }
+  ],
+  "linden_stairs": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_stairs.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_stairs.json"
+    }
+  ],
+  "linden_slab": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_slab.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_slab.json"
+    }
+  ],
+  "linden_fence": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_fence.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_fence.json"
+    }
+  ],
+  "linden_fence_gate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_fence_gate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_fence_gate.json"
+    }
+  ],
+  "linden_door": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/linden_door.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/linden_door.json"
+    }
+  ],
+  "linden_trapdoor": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_trapdoor.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_trapdoor.json"
+    }
+  ],
+  "linden_pressure_plate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_pressure_plate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_pressure_plate.json"
+    }
+  ],
+  "linden_button": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_button.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_button.json"
+    }
+  ],
+  "linden_sign": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/linden_sign.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/linden_sign.json"
+    }
+  ],
+  "willow_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_log.json"
+    }
+  ],
+  "willow_stripped_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_stripped_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_stripped_log.json"
+    }
+  ],
+  "willow_wood": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_wood.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_wood.json"
+    }
+  ],
+  "willow_stripped_wood": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_stripped_wood.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_stripped_wood.json"
+    }
+  ],
+  "willow_planks": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_planks.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_planks.json"
+    }
+  ],
+  "willow_stairs": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_stairs.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_stairs.json"
+    }
+  ],
+  "willow_slab": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_slab.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_slab.json"
+    }
+  ],
+  "willow_fence": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_fence.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_fence.json"
+    }
+  ],
+  "willow_fence_gate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_fence_gate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_fence_gate.json"
+    }
+  ],
+  "willow_door": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/willow_door.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/willow_door.json"
+    }
+  ],
+  "willow_trapdoor": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_trapdoor.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_trapdoor.json"
+    }
+  ],
+  "willow_pressure_plate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_pressure_plate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_pressure_plate.json"
+    }
+  ],
+  "willow_button": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_button.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/willow_button.json"
+    }
+  ],
+  "willow_sign": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/willow_sign.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/willow_sign.json"
+    }
+  ],
+  "apple_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_log.json"
+    }
+  ],
+  "stripped_apple_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/stripped_apple_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/stripped_apple_log.json"
+    }
+  ],
+  "apple_wood": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_wood.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_wood.json"
+    }
+  ],
+  "stripped_apple_wood": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/stripped_apple_wood.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/stripped_apple_wood.json"
+    }
+  ],
+  "apple_planks": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_planks.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_planks.json"
+    }
+  ],
+  "apple_stairs": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_stairs.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_stairs.json"
+    }
+  ],
+  "apple_slab": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_slab.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_slab.json"
+    }
+  ],
+  "apple_fence": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_fence.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_fence.json"
+    }
+  ],
+  "apple_fence_gate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_fence_gate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_fence_gate.json"
+    }
+  ],
+  "apple_door": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/apple_door.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/apple_door.json"
+    }
+  ],
+  "apple_trapdoor": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_trapdoor.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_trapdoor.json"
+    }
+  ],
+  "apple_pressure_plate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_pressure_plate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_pressure_plate.json"
+    }
+  ],
+  "apple_button": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_button.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/apple_button.json"
+    }
+  ],
+  "apple_sign": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/apple_sign.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/apple_sign.json"
+    }
+  ],
+  "apple_hanging_sign": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/apple_hanging_sign.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/apple_hanging_sign.json"
+    }
+  ],
+  "pine_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_log.json"
+    }
+  ],
+  "pine_stripped_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_stripped_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_stripped_log.json"
+    }
+  ],
+  "pine_wood": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_wood.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_wood.json"
+    }
+  ],
+  "pine_stripped_wood": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_stripped_wood.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_stripped_wood.json"
+    }
+  ],
+  "pine_planks": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_planks.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_planks.json"
+    }
+  ],
+  "pine_stairs": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_stairs.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_stairs.json"
+    }
+  ],
+  "pine_slab": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_slab.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_slab.json"
+    }
+  ],
+  "pine_fence": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_fence.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_fence.json"
+    }
+  ],
+  "pine_fence_gate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_fence_gate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_fence_gate.json"
+    }
+  ],
+  "pine_door": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/pine_door.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/pine_door.json"
+    }
+  ],
+  "pine_trapdoor": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_trapdoor.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_trapdoor.json"
+    }
+  ],
+  "pine_pressure_plate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_pressure_plate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_pressure_plate.json"
+    }
+  ],
+  "pine_button": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_button.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_button.json"
+    }
+  ],
+  "pine_sign": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/pine_sign.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/pine_sign.json"
+    }
+  ],
+  "rowan_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_log.json"
+    }
+  ],
+  "rowan_stripped_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_stripped_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_stripped_log.json"
+    }
+  ],
+  "rowan_wood": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_wood.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_wood.json"
+    }
+  ],
+  "rowan_stripped_wood": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_stripped_wood.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_stripped_wood.json"
+    }
+  ],
+  "rowan_planks": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_planks.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_planks.json"
+    }
+  ],
+  "rowan_stairs": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_stairs.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_stairs.json"
+    }
+  ],
+  "rowan_slab": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_slab.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_slab.json"
+    }
+  ],
+  "rowan_fence": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_fence.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_fence.json"
+    }
+  ],
+  "rowan_fence_gate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_fence_gate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_fence_gate.json"
+    }
+  ],
+  "rowan_door": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/rowan_door.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/rowan_door.json"
+    }
+  ],
+  "rowan_trapdoor": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_trapdoor.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_trapdoor.json"
+    }
+  ],
+  "rowan_pressure_plate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_pressure_plate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_pressure_plate.json"
+    }
+  ],
+  "rowan_button": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_button.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/rowan_button.json"
+    }
+  ],
+  "rowan_sign": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/rowan_sign.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/rowan_sign.json"
+    }
+  ],
+  "darkened_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_log.json"
+    }
+  ],
+  "darkened_stripped_log": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_stripped_log.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_stripped_log.json"
+    }
+  ],
+  "darkened_planks": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_planks.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_planks.json"
+    }
+  ],
+  "darkened_stairs": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_stairs.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_stairs.json"
+    }
+  ],
+  "darkened_slab": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_slab.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_slab.json"
+    }
+  ],
+  "darkened_fence": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_fence.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          135,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_fence.json"
+    }
+  ],
+  "darkened_fence_gate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_fence_gate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_fence_gate.json"
+    }
+  ],
+  "darkened_door": [
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/darkened_door.json"
+    },
+    {
+      "pose": {},
+      "source_model": "assets/slavicmyths/models/item/darkened_door.json"
+    }
+  ],
+  "darkened_trapdoor": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_trapdoor.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/darkened_trapdoor.json"
+    }
+  ],
+  "linden_table": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_table.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_table.json"
+    }
+  ],
+  "linden_chair": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_chair.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_chair.json"
+    }
+  ],
+  "linden_wardrobe": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_wardrobe.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/linden_wardrobe.json"
+    }
+  ],
+  "pine_table": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_table.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_table.json"
+    }
+  ],
+  "pine_chair": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_chair.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_chair.json"
+    }
+  ],
+  "pine_wardrobe": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_wardrobe.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/pine_wardrobe.json"
+    }
+  ],
+  "wooden_crate": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/wooden_crate.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/wooden_crate.json"
+    }
+  ],
+  "wooden_tub": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/wooden_tub.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.625,
+          0.625,
+          0.625
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/wooden_tub.json"
+    }
+  ],
+  "kitchen_table": [
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.45,
+          0.45,
+          0.45
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/kitchen_table.json"
+    },
+    {
+      "pose": {
+        "rotation": [
+          30,
+          225,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.45,
+          0.45,
+          0.45
+        ]
+      },
+      "source_model": "assets/slavicmyths/models/item/kitchen_table.json"
+    }
+  ]
+}

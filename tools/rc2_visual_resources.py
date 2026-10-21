@@ -150,3 +150,7 @@ for family,(bark,core,plank) in pal.items():
   sign=grain.resize((64,32),Image.Resampling.NEAREST);sign.save(A/'textures/entity/signs'/f'{family}.png')
   sign_icon=Image.new('RGBA',(16,16));sign_icon.paste(grain.resize((14,8),Image.Resampling.NEAREST),(1,2));d=ImageDraw.Draw(sign_icon);d.rectangle((7,10,8,15),fill=shade(plank,-20));sign_icon.save(A/'textures/item'/f'{family}_sign.png')
 print('RC2 native resources regenerated: 3 weapon models, shield transforms, 4 distinct wood families')
+
+# Preserve the authorised six-family timber art after historical overlays.
+from decor_all_woods import apply as apply_current_timber
+apply_current_timber()

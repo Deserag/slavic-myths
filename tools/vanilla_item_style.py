@@ -49,6 +49,10 @@ NAMES=tuple(name for family in FAMILIES.values() for name in family)
 DARK='#302D2D';STEEL='#A0AAA8';LIGHT='#DFE2D1';WOOD='#795536';GOLD='#B89953';RED='#923A32';BONE='#D7C9A0'
 
 def sprite(kind,name):
+ from trophy111_art import FIX as t2_ids, sprite as t2_sprite
+ if name in t2_ids:return t2_sprite(name)
+ from trophy110_art import IDS as trophy_ids, sprite as trophy_sprite
+ if name in trophy_ids:return trophy_sprite(name)
  im=Image.new('RGBA',(16,16));d=ImageDraw.Draw(im)
  if kind=='sword':
   d.line((3,13,12,4),fill=DARK,width=4);d.line((6,10,12,4),fill=STEEL,width=3);d.line((8,8,13,3),fill=LIGHT);d.line((3,9,7,13),fill=GOLD,width=2);d.line((2,14,5,11),fill=WOOD,width=2)
@@ -162,6 +166,8 @@ def apply():
    data=json.loads(model.read_text(encoding='utf8'))
    assert f'slavicmyths:item/{name}' in json.dumps(data), 'Not a GUI sprite: '+name
    sprite(kind,name).save(A/'textures/item'/f'{name}.png')
+ from trophy111_art import FIX as t2_ids, write as write_t2
+ for name in t2_ids:write_t2(name,A/'textures/item')
 
 if __name__=='__main__':
  apply();print('VANILLA_ITEM_STYLE_APPLIED count='+str(len(NAMES)))

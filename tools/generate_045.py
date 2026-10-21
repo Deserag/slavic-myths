@@ -380,6 +380,10 @@ def generate(root):
             data['advancements.slavicmyths.'+name+'.description']=(ru_desc,en_desc)[index]
         p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
+    # #111: preserve the current coin after all legacy art passes.
+    from trophy111_art import write as write_trophy
+    write_trophy('ancient_coin',res/'textures/item')
+
 if __name__=='__main__': generate(Path(__file__).resolve().parents[1])
 
 # Keep the current armor revision after legacy asset output.
