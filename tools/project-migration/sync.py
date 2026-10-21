@@ -17,6 +17,10 @@ TOKEN = os.environ.get("GH_PROJECTS_TOKEN", "")
 APPLY = os.environ.get("APPLY_MIGRATION") == "true"
 OVERWRITE = os.environ.get("OVERWRITE_PROJECT_STATUS") == "true"
 INCLUDE_CLOSED = os.environ.get("INCLUDE_CLOSED") != "false"
+CONCEPTS_ONLY = os.environ.get("PROJECT_CONCEPTS_ONLY") == "true"
+TARGET_ISSUES = set(CFG.get("projectConceptSyncIds", [])) if CONCEPTS_ONLY else set()
+if CONCEPTS_ONLY and not TARGET_ISSUES:
+    sys.exit("Concept-only sync requires explicit projectConceptSyncIds in config")
 STATS = {"issues": 0, "to_add": 0, "existing": 0, "fields_changed": 0, "preserved": 0}
 CHANGES = []
 LEGACY = {"Todo": "Ожидание", "To do": "Ожидание",
@@ -91,14 +95,14 @@ project, repository = fetch_project()
 pid = project["id"]
 print("Project:", project["title"], "| public:", project["public"], "| mode:", "APPLY" if APPLY else "DRY-RUN")
 
-if project["title"] != CFG["title"] or not project.get("readme"):
+if not CONCEPTS_ONLY and (project["title"] != CFG["title"] or not project.get("readme")):
     entry = {"projectId": pid, "title": CFG["title"], "shortDescription": CFG["description"]}
     if not project.get("readme"):
         entry["readme"] = CFG["readme"]
     mutation("project metadata", "updateProjectV2", "UpdateProjectV2Input",
              "projectV2{id}", entry)
 
-if repository["id"] not in [x["id"] for x in project["repositories"]["nodes"]]:
+if not CONCEPTS_ONLY and repository["id"] not in [x["id"] for x in project["repositories"]["nodes"]]:
     mutation("link repository", "linkProjectV2ToRepository",
              "LinkProjectV2ToRepositoryInput", "repository{id}",
              {"projectId": pid, "repositoryId": repository["id"]})
@@ -149,34 +153,36 @@ def ensure_fields():
                      "projectV2Field{... on ProjectV2SingleSelectField{id}}",
                      {"fieldId": current["id"], "singleSelectOptions": options})
 
-ensure_fields()
+if not CONCEPTS_ONLY:
+    ensure_fields()
 if APPLY:
     project, repository = fetch_project()
 fields = {x["name"]: x for x in project["fields"]["nodes"]}
 
-views = {x["name"]: x for x in project["views"]["nodes"]}
-for view in CFG["views"]:
-    if view["name"] in views:
-        continue
-    generic = next((v for v in views.values()
-                    if re.fullmatch(r"(View|Table) [0-9]+", v["name"], re.I)), None)
-    if view["name"] == "Работа" and generic:
-        mutation("rename default view", "updateProjectV2View",
-                 "UpdateProjectV2ViewInput", "projectV2View{id}",
-                 {"viewId": generic["id"], "name": "Работа", "layout": view["layout"]})
-        views.pop(generic["name"])
-        views["Работа"] = dict(generic, name="Работа")
-    else:
-        result = mutation("create view " + view["name"], "createProjectV2View",
-                          "CreateProjectV2ViewInput", "projectV2View{id name}",
-                          {"projectId": pid, "name": view["name"], "layout": view["layout"]})
-        if APPLY:
-            views[view["name"]] = result["projectV2View"]
-for view in CFG["views"]:
-    if view.get("filter") and view["name"] in views:
-        mutation("set view filter " + view["name"], "updateProjectV2View",
-                 "UpdateProjectV2ViewInput", "projectV2View{id}",
-                 {"viewId": views[view["name"]]["id"], "filter": view["filter"]})
+if not CONCEPTS_ONLY:
+    views = {x["name"]: x for x in project["views"]["nodes"]}
+    for view in CFG["views"]:
+        if view["name"] in views:
+            continue
+        generic = next((v for v in views.values()
+                        if re.fullmatch(r"(View|Table) [0-9]+", v["name"], re.I)), None)
+        if view["name"] == "Работа" and generic:
+            mutation("rename default view", "updateProjectV2View",
+                     "UpdateProjectV2ViewInput", "projectV2View{id}",
+                     {"viewId": generic["id"], "name": "Работа", "layout": view["layout"]})
+            views.pop(generic["name"])
+            views["Работа"] = dict(generic, name="Работа")
+        else:
+            result = mutation("create view " + view["name"], "createProjectV2View",
+                              "CreateProjectV2ViewInput", "projectV2View{id name}",
+                              {"projectId": pid, "name": view["name"], "layout": view["layout"]})
+            if APPLY:
+                views[view["name"]] = result["projectV2View"]
+    for view in CFG["views"]:
+        if view.get("filter") and view["name"] in views:
+            mutation("set view filter " + view["name"], "updateProjectV2View",
+                     "UpdateProjectV2ViewInput", "projectV2View{id}",
+                     {"viewId": views[view["name"]]["id"], "filter": view["filter"]})
 
 def all_issues():
     page = 1
@@ -296,7 +302,11 @@ while True:
         break
     cursor = batch["pageInfo"]["endCursor"]
 
-issues = sorted(list(all_issues()), key=lambda x: x["number"])
+issues = sorted([issue for issue in all_issues() if not TARGET_ISSUES or issue["number"] in TARGET_ISSUES], key=lambda x: x["number"])
+if CONCEPTS_ONLY and {issue["number"] for issue in issues} != TARGET_ISSUES:
+    raise RuntimeError("Concept sync issue list does not match actual repository Issues")
+if CONCEPTS_ONLY and any(overrides.get(n) != "Концепция" for n in TARGET_ISSUES):
+    raise RuntimeError("Concept sync includes Issue without approved Концепция override")
 STATS["issues"] = len(issues)
 desired = {}
 for issue in issues:
@@ -329,7 +339,7 @@ for issue in issues:
         if old_value == value:
             STATS["preserved"] += 1
             continue
-        if name == "Status" and not OVERWRITE and old_value is not None and old_value not in LEGACY:
+        if name == "Status" and not OVERWRITE and not CONCEPTS_ONLY and old_value is not None and old_value not in LEGACY:
             STATS["preserved"] += 1
             continue
         field = fields.get(name)
