@@ -20,17 +20,24 @@ public final class Heads140Offline {
    var b=placed.bounds();check(b[0]>=0&&b[2]>=0&&b[3]<=1&&b[5]<=1&&b[1]>=0&&b[4]<=kind.height,"head fits reserved cells "+kind);
    var server=kind.bounds();for(int i=0;i<6;i++)check(Math.abs(server[i]-b[i])<.00001F,"server collision matches actual rendered head "+kind);
    check(kind.height==1||b[4]>1,"no invisible unused upper cell "+kind);
-   if(kind==TrophyHeads.Kind.LIKHO||kind==TrophyHeads.Kind.MOR_LIKHO){
+   {
     var baseline=placed.vertices;
-    for(int t=0;t<260;t+=5){
+    boolean actualMotion=false;
+    for(int t=0;t<300;t+=3){
      h.pose(t);
      var animated=new TrophyHeadsClient.Capture();h.render(new PoseStack(),animated,0,0);
      check(animated.vertices.size()==baseline.size(),"animation cannot add head geometry "+kind);
+     for(int v=0;v<baseline.size();v++){
+      if(Math.abs(animated.vertices.get(v)[0]-baseline.get(v)[0])>.00001F||
+         Math.abs(animated.vertices.get(v)[1]-baseline.get(v)[1])>.00001F||
+         Math.abs(animated.vertices.get(v)[2]-baseline.get(v)[2])>.00001F)actualMotion=true;
+     }
      for(int v=0;v<baseline.size();v++)for(int uv=3;uv<=4;uv++)
       check(animated.vertices.get(v)[uv]==baseline.get(v)[uv],"animation must preserve native UV "+kind);
      var ab=animated.bounds();
      check(ab[0]>=0&&ab[2]>=0&&ab[3]<=1&&ab[5]<=1&&ab[1]>=0&&ab[4]<=kind.height,"animated head stays in 1/2 cells "+kind);
     }
+    check(actualMotion,"each head must animate its native part "+kind);
     h.resetPose();
     var neutral=new TrophyHeadsClient.Capture();h.render(new PoseStack(),neutral,0,0);
     check(Arrays.equals(neutral.bounds(),b),"head returns to native bounds after animation "+kind);
@@ -41,6 +48,10 @@ public final class Heads140Offline {
   check(TrophyHeadFxRules.morEyeScale(0)>1&&TrophyHeadFxRules.morEyeScale(10)>1,"Mor pulse stays visible");
   check(TrophyHeadFxRules.likhoGlow(70)&&!TrophyHeadFxRules.likhoGlow(25),"Likho glow timing");
   check(TrophyHeadFxRules.particleDue(100,Long.MIN_VALUE,52)&&!TrophyHeadFxRules.particleDue(101,100,52)&&TrophyHeadFxRules.particleDue(152,100,52),"bounded cosmetic particles");
+  check(TrophyHeadFxRules.tugarinJaw(0)>0&&Math.abs(TrophyHeadFxRules.tugarinWhisker(20))<.025,"Tugarin jaw and whisker limits");
+  check(TrophyHeadFxRules.skimJaw(0)>0&&Math.abs(TrophyHeadFxRules.skimMane(20))<.013,"Skim jaw and mane limits");
+  check(TrophyHeadFxRules.volkolakJaw(55)>.03&&TrophyHeadFxRules.volkolakJaw(0)==0&&TrophyHeadFxRules.volkolakEar(63)>.03,"Volkolak snarl and ear twitch");
+  check(TrophyHeadFxRules.podzemnikJaw(0)>0&&Math.abs(TrophyHeadFxRules.podzemnikBrow(20))<.015,"Podzemnik jaw and brow limits");
   String[] mobs={"tugarin_zmey","skim_beast","cursed_volkolak","likho_one_eyed","large_podzemnik"};
   for(String mob:mobs)check(TrophyHeadDrops.kind(mob,false,true)!=null,"guaranteed mapped drop "+mob);
   check(TrophyHeadDrops.kind("likho_one_eyed",true,false)==TrophyHeads.Kind.MOR_LIKHO,"mor form distinct trophy");

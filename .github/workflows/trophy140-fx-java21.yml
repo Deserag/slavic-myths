@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - feat/trophy140-likho-fx
+      - feat/trophy140-remaining-head-fx
   workflow_dispatch:
 permissions:
   contents: read
@@ -28,7 +29,7 @@ jobs:
           sha256sum build/libs/slavicmyths-*.jar
       - uses: actions/upload-artifact@v4
         with:
-          name: trophy140-likho-fx-1.9.7.55
+          name: trophy140-six-head-fx-1.9.7.56
           path: build/libs/slavicmyths-*.jar
           if-no-files-found: error
           retention-days: 7
