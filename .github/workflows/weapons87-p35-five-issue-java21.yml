@@ -1,0 +1,42 @@
+name: Weapons87 P35 Five Issue Audit
+on:
+  push:
+    branches:
+      - feat/weapons87-p35-five-issue-gates
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-and-java21:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Five-issue source regression
+        run: |
+          python3 tools/verify_weapons87_p35.py
+          python3 tools/verify_weapons87_crossbow_recoil.py
+          python3 tools/verify_weapons87_p33.py
+      - name: Java21 clean build
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --stacktrace --console=plain
+      - name: JAR audit
+        run: |
+          python3 tools/verify_weapons87_p35.py
+          python3 tools/weapons87_live_audit.py --jar
+          sha256sum build/libs/slavicmyths-*.jar
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weapons87-p35-source-audit
+          path: |
+            build/weapons87-p35/source-audit.json
+            build/libs/slavicmyths-*.jar
+          retention-days: 14
