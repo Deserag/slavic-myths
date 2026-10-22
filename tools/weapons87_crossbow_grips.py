@@ -1,7 +1,6 @@
 """#115 third-person stock-grip calibration, all12 states; no art/FP/gameplay edit."""
 from pathlib import Path
 import argparse,copy,hashlib,json,zipfile
-from PIL import Image,ImageDraw
 from weapons87_grips import centered
 R=Path(__file__).resolve().parents[1];A=R/'src/main/resources/assets/slavicmyths';O=R/'docs/implementation/weapons87';D=O/'blueprints/crossbow-grips';IDS=['serpent_crossbow','three_breath_crossbow'];SUFFIXES=['','_pulling_0','_pulling_1','_pulling_2','_arrow','_firework'];GRIP=[8,5.5,12.5]
 
@@ -19,6 +18,7 @@ def apply():return main(True)
 def main(apply=False):
  D.mkdir(parents=True,exist_ok=True);assets=proposal()
  if not apply:
+  from PIL import Image,ImageDraw
   archive=O/'before-crossbow-tp-grips.zip'
   if archive.exists():raise RuntimeError('Preserve before-production stock blueprint')
   paths=['src/main/resources/assets/slavicmyths/'+key for key in assets]+['src/main/java/org/slavicmyths/client/WeaponHands.java','src/main/java/org/slavicmyths/gorynych/SerpentCrossbow.java','src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java']
