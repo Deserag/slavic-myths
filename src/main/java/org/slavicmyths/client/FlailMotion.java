@@ -10,13 +10,14 @@ public final class FlailMotion {
     public record Pose(Point[] links, Point[] directions, Point ball) {}
     public static Pose sample(float age, float walk, float charge, float swing, boolean attacking, boolean heavy) {
         charge = Math.clamp(charge,0,1); swing = Math.clamp(swing,0,1);
-        double contact = attacking ? Math.pow(Math.cos(swing*Math.PI/2),2) : 0;
+        double contact = attacking ? Math.pow(Math.sin(swing*Math.PI),2) : 0;
         double inertia = Math.sin(age*.18)*Math.clamp(walk,0,1)*(heavy?5:8);
         Point anchor = new Point(8,17,8);
         Point[] links = new Point[LINKS], directions = new Point[LINKS];
         for (int i=0;i<LINKS;i++) {
             double lag=(i+1.0)/LINKS;
-            double pitch=Math.toRadians(Math.clamp(8+charge*(30-5*lag)+contact*(57-12*lag)+inertia*lag,-12,72));
+            double impact=(heavy?.8:1.0)*contact*(24+40*lag);
+            double pitch=Math.toRadians(Math.clamp(8+charge*(30-5*lag)+impact+inertia*lag,-12,72));
             double side=Math.toRadians(13+Math.sin(age*.075-lag)*2+inertia*lag*.5);
             Point direction=new Point(Math.sin(side),-Math.cos(pitch)*Math.cos(side),-Math.sin(pitch)*Math.cos(side));
             links[i]=anchor.add(direction,SPACING*.5);
