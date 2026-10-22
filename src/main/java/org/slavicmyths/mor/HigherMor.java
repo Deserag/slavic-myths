@@ -17,13 +17,15 @@ public final class HigherMor {
  private final LandSpiritEntity mob;
  private int clock,wait,beamWait,cloudWait,groundWait;
  private boolean phase;
+ private final MorPresence presence;
  private Vec3 heading=Vec3.ZERO;
- public HigherMor(LandSpiritEntity mob){this.mob=mob;}
+ public HigherMor(LandSpiritEntity mob){this.mob=mob;this.presence=new MorPresence(mob);}
  public boolean phase(){return phase;}
  public static boolean higher(LivingEntity e){return e instanceof LandSpiritEntity s&&s.mor.kind()>=5&&s.morState()==2;}
  public static boolean enemy(LandSpiritEntity self,LivingEntity e){return e!=null&&org.slavicmyths.combat.CombatTargeting.canAttack(self,e,org.slavicmyths.combat.CombatTargeting.Context.AREA)&&e.isAlive()&&!self.isAlliedTo(e)&&(MorController.valid(e)||(e instanceof net.minecraft.world.entity.monster.Enemy||org.slavicmyths.bogatyr.HeroThreats.availableHero(e))&&!higher(e)&&!(e instanceof LandSpiritEntity s&&s.morState()!=0));}
  public void tick(){
-  if(mob.morState()!=2)return;
+  if(mob.morState()!=2){presence.clear();return;}
+  presence.tick();
   if(mob.tickCount%240==0)mob.playSound(mob.mor.kind()==5?SoundEvents.WITCH_AMBIENT:SoundEvents.RAVAGER_AMBIENT,.4F,.55F);
   if(!phase&&HigherRules.phase2(mob.getHealth(),mob.getMaxHealth())&&(mob.mor.kind()!=5||mob.morSkill()==0)){phase=true;org.slavicmyths.hunt.LikhoCombatTrace.event(mob,"higher.phase");mob.morSync(2,0,15);clock=0;cloudWait=0;mob.playSound(mob.mor.kind()==5?SoundEvents.WITCH_CELEBRATE:SoundEvents.RAVAGER_ROAR,.7F,.55F);}
   if(groundWait>0)groundWait--;else {groundWait=HigherRules.groundPeriod(mob.mor.kind(),phase);zone(false);}

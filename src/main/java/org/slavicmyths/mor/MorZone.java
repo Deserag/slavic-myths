@@ -31,7 +31,7 @@ public final class MorZone extends Entity {
    if(sample.effects()){
     p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,30,0));
     if(style()==3)p.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,30,0));
-    if(sample.damage()>0){boolean hit=p.hurt(damageSources().mobAttack(s),sample.damage());org.slavicmyths.hunt.LikhoCombatTrace.event(s,"zone.damage cloud="+cloud()+" exposure="+time+" victim="+p.getUUID()+" accepted="+hit);}
+    if(sample.damage()>0){boolean hit=MorPresence.hurt(s,p,damageSources().mobAttack(s),sample.damage(),MorPresenceRules.SAMPLE_TICKS*2);org.slavicmyths.hunt.LikhoCombatTrace.event(s,"zone.damage cloud="+cloud()+" exposure="+time+" victim="+p.getUUID()+" accepted="+hit);}
    }
   }
   exposure.retain(present);
