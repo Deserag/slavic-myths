@@ -1,3 +1,7 @@
+## Результат сборки после публикации QA
+
+Java 21 GitHub Actions [run 39741599767](https://github.com/Deserag/slavic-myths/actions/runs/39741599767) завершён SUCCESS: pure-policy 61489 PASS, Gradle clean build PASS, JAR `slavicmyths-1.9.7.53.jar`, SHA256 `ba866e16acf2c305bafac400bdb8f16b7f33bfedbe13871dd9a2b16baea79d49`. JAR доступен в Actions artifact до 29.10.2026; не установлен и не проверен в игре.
+
 # #193 — единая проверка исходников и критерии ручной приёмки
 
 Дата: 22.10.2026. Ветка: `feat/likho-193-forest-spawn`. В этом пакете не изменяются HP, поведение боевых навыков, модели, ID, spawn-шансы или урон. Добавлены **только воспроизводимые проверки**.
