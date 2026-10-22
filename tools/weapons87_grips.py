@@ -13,7 +13,7 @@ SPECS=[
  ('spear','spear',6,.7,55,0),('silver_spear','silver_spear',6,.7,55,0),
  ('pool_spear','pool_spear',7,.85,55,0),('thunder_spear','thunder_spear',6,.7,55,0),
  ('victor_spear','victor_spear',10,.75,55,0),('berdysh','berdysh',6,.7,55,180),
- ('carved_staff','carved_staff',10,.75,55,0),('storm_staff','storm_staff',10,.75,55,0),
+ ('carved_staff','carved_staff',10,.68,55,0),('storm_staff','storm_staff',10,.75,55,0),
  ('veles_staff','veles_staff',8,.8,55,0),('likho_staff','likho_staff',11,.7,55,0),
  ('morozko_staff_held','morozko_staff',10,.74,55,0),
  ('karachun_scythe_held','karachun_scythe',12,.70,70,180),
