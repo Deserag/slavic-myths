@@ -11,13 +11,13 @@ import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import org.slavicmyths.SlavicMyths;
 import org.slavicmyths.registry.ModItems;
 
 /** Adds the thunder pulse to one accepted melee hit without a second invulnerability-blocked hurt. */
-@Mod.EventBusSubscriber(modid = SlavicMyths.MOD_ID)
+@EventBusSubscriber(modid = SlavicMyths.MOD_ID)
 public final class ThunderAxeItem extends AxeItem {
     private static final float THUNDER_CHANCE = 0.2F;
     private static final float BONUS_DAMAGE = 1.0F;
