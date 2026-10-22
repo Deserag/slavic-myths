@@ -2754,3 +2754,6 @@ P45: семь ножей получили 1P swing броска и семь су
 
 ### #87 P47 — third-person weapon motion, 22.10.2026
 В branch `work/weapons87-continuous-20261022` через draft PR #216 добавлен player-only 3P item-model animation для 48 ID (#162/#165/#163) на клиенте: ближнее/копья/посохи/метательное/арбалеты. Все исходные JSON/PNG, server damage/hit timing, registry и особые renderer (коса Карачуна, кистени, плеть) сохраняются. На момент source commit CI P47 PENDING; game runtime, Steve/Alex/MP, visual owner acceptance NOT_RUN, указанные Issues IN_PROGRESS. `main` без изменений. См. `docs/implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`.
+
+### #87 P47 — подтверждение CI после публикации
+Исходники `97bf25c3`, [GitHub Actions #39816854559](https://github.com/Deserag/slavic-myths/actions/runs/39816854559) **SUCCESS**: Java21 clean build, P42–P47 source checks и production JAR class/resource QA PASS. JAR `slavicmyths-1.9.7.56.jar`, SHA256 `acf4d4d5ce8cc30dc17eaf3a38c60b29d74484e463728429edf1c05b89187fa6`. Runtime Minecraft/PolyMC NOT_RUN; owner acceptance pending. Целые Issues #162/#163/#165 IN_PROGRESS, поля GitHub Project №9 через текущие доступные actions не изменены; комментарий не эквивалентен переходу «Тестирование».

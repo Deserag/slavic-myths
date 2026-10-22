@@ -2184,3 +2184,6 @@ P45: source для 14 knife/sulitsa IDs и Java21 clean build + JAR PASS #398138
 
 ### #87 P47 — динамика оружия в 3P, 22.10.2026
 Для 48 предметов добавлен специальный BakedModel-wrapper, включающий отдельные 3P held-позы по физической руке, атаке, ходьбе и зарядке. Изолировано от общих ригов/серверной логики, не является полной third-person skeletal-анимацией. После Java21 CI требуется настоящая приёмка Alex/Steve/MP/first-person vs third-person; #162/#165/#163 остаются IN_PROGRESS, не `Готово`, #190 не трогать. Источник — `implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md` и PR #216.
+
+### #87 P47 — подтверждение CI после публикации
+Исходники `97bf25c3`, [GitHub Actions #39816854559](https://github.com/Deserag/slavic-myths/actions/runs/39816854559) **SUCCESS**: Java21 clean build, P42–P47 source checks и production JAR class/resource QA PASS. JAR `slavicmyths-1.9.7.56.jar`, SHA256 `acf4d4d5ce8cc30dc17eaf3a38c60b29d74484e463728429edf1c05b89187fa6`. Runtime Minecraft/PolyMC NOT_RUN; owner acceptance pending. Целые Issues #162/#163/#165 IN_PROGRESS, поля GitHub Project №9 через текущие доступные actions не изменены; комментарий не эквивалентен переходу «Тестирование».

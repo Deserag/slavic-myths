@@ -173,3 +173,12 @@ P44/P45 добавили клиентские **first-person** фазы 32 melee
 | Фактические Steve/Alex 3P, 1P, MP и клиппинг | Игровой клиент владельца | NOT_RUN / OWNER_PENDING |
 
 **Issues #162/#165/#163 остаются OPEN, IN_PROGRESS** — это техническое улучшение 3P предметов, не full-scope player skeletal animation и не доказательство игрового результата. Для Project Status `Тестирование` необходимы все исполнительские gates отдельной задачи и фактический доступ к Project field: не подменять его ярлыками или комментариями.
+
+
+### P47 — CI receipt / исходники и собранный JAR
+
+- Исходный коммит [`97bf25c3408320ea43678332dda84d280d6f7932`](https://github.com/Deserag/slavic-myths/commit/97bf25c3408320ea43678332dda84d280d6f7932), только `work/weapons87-continuous-20261022`, существующий draft PR #216.
+- [GitHub Actions #39816854559](https://github.com/Deserag/slavic-myths/actions/runs/39816854559): **SUCCESS**, Temurin Java21 `./gradlew clean build` **BUILD SUCCESSFUL**, P42/P43/P44/P45/P47 source gates PASS и проверка упакованного P47 class в production JAR PASS. Это offline build, не клиентский запуск.
+- JAR `build/libs/slavicmyths-1.9.7.56.jar`, SHA256 **`acf4d4d5ce8cc30dc17eaf3a38c60b29d74484e463728429edf1c05b89187fa6`** (GitHub Actions job SHA строки).
+- Minecraft/PolyMC/server запуска: **0**, установка: **НЕ ВЫПОЛНЕНА**, скриншоты реальных 3P поз: NOT_RUN. Технический модуль подключен и компилируется, но реальный визуал Alex/Steve/offhand/MP не доказан.
+- `#162/#165/#163` как большие Issues **OPEN / PARTIAL IN_PROGRESS**, исполнительский scope включает не только предметный 3P transform, но и third-person player arms/pose сцены и игровую проверку. В `Тестирование` по `docs/PROJECT_WORKFLOW.md` переводить только когда не остаётся исполнительских FAIL/BLOCKED/NOT_RUN, а доступ к Project field подтверждён. Доступ через подключённый GitHub action к полю Status проекта №9 пока отсутствует; комментарий к Issue не является сменой поля на доске.
