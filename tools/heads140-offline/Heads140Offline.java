@@ -35,7 +35,7 @@ public final class Heads140Offline {
      for(int v=0;v<baseline.size();v++)for(int uv=3;uv<=4;uv++)
       check(animated.vertices.get(v)[uv]==baseline.get(v)[uv],"animation must preserve native UV "+kind);
      var ab=animated.bounds();
-     check(ab[0]>=0&&ab[2]>=0&&ab[3]<=1&&ab[5]<=1&&ab[1]>=0&&ab[4]<=kind.height,"animated head stays in 1/2 cells "+kind);
+     check(ab[0]>=0&&ab[2]>=0&&ab[3]<=1&&ab[5]<=1&&ab[1]>=0&&ab[4]<=kind.height,"animated head stays in 1/2 cells "+kind+" t="+t+" bounds="+Arrays.toString(ab)+" base="+Arrays.toString(b));
     }
     check(actualMotion,"each head must animate its native part "+kind);
     h.resetPose();

@@ -17,12 +17,12 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - name: Clean production build (NeoForge 1.21.1)
+      - name: Native source UV, animated bounds, trophy drop rules
         run: |
           chmod +x gradlew
-          ./gradlew --no-daemon clean build --stacktrace
-      - name: Native source UV, animated bounds, trophy drop rules
-        run: ./gradlew --no-daemon -I tools/heads140-offline.gradle verifyHeads140Offline
+          ./gradlew --no-daemon -I tools/heads140-offline.gradle verifyHeads140Offline
+      - name: Clean production build (NeoForge 1.21.1)
+        run: ./gradlew --no-daemon clean build --stacktrace
       - name: Production artifact
         run: |
           ls -lh build/libs/slavicmyths-*.jar
