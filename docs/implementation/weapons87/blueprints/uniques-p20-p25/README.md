@@ -1,0 +1,3 @@
+# #184/#185 — frozen production source baseline and proposed art
+
+22.10.2026. All files in this directory are prepared **before any production edits**. `before-*.json` reproduces real production metadata; `draft-*.json` contains the proposed addressable replacement. Two `*.svg` compare all cuboids at the identical source scale/palettes (front/profile/orthographic shear), not gameplay screenshots and not full UV texture-rendering; native/PIL UV/GUI source boards are required in CI after applying. See `proposal.json` for exact original blob SHAs, grip points, GUI metadata, approvals. No boss rig, combat, game client, world saves or registry ID changes.

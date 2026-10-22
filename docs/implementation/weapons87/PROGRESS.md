@@ -100,3 +100,6 @@ Owner explicitly approvedB; реализован speed.8 perunite_mace и storm 
 
 ### P14–19 принятие в Git, НЕ игровая приёмка — 22.10.2026
 PR #194 объединён в main `9910e5ca17e5bbf5fa14dff55fa371640fe93398`, Java21 clean build [CI 39757888300](https://github.com/Deserag/slavic-myths/actions/runs/39757888300) PASS. `slavicmyths-1.9.7.56.jar` SHA256 `73d0d04b5ef5890c8508f626022b68fc567fa30ac84a90e3d1fb208bd7d2cffc`, неизменяемый archive before + Python suite:12 models,48 TP old/new pivots,12 texture refs PASS. Реальный игровой запуск/PolyMC НЕ выполнялись. P15–19 KEEP только в source; их 5 Issues OPEN. #87/#115 OPEN. Дальше #184.
+
+### #87 пакеты20–25 — 22.10.2026 (branch pending CI)
+Пакеты20–25: #184 Kalin 6→34 элементов, отдельный 16px atlas и изгиб сабли FIX; #185 Victor 4→14 элементов и наградная втулка FIX; #186 лук Финиста с3 pull-моделями KEEP; #187 thunder_axe24 элементов KEEP; #188 thunder_spear30 элементов KEEP; #189 pool_spear сохранил14 деталей/текстуры/руки, только центрированный GUI FIX. Все before/draft для изменённого подготовлены отдельным предварительным коммитом; проверка CI в ветке, игровой запуск/PolyMC NOT_RUN. C/D/#190 не тронуты; #191 не начинали.

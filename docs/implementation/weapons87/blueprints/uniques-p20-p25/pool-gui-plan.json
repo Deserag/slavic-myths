@@ -1,0 +1,59 @@
+{
+  "issue": 189,
+  "stage": "BEFORE_PRODUCTION",
+  "id": "pool_spear",
+  "source_blob_sha": "2b65672f01d1c9ac5a0f28c6cbf841d432cff9af",
+  "decision": "KEEP14_ELEMENTS_UV_MATERIALS_FP_TP_FIX_GUI_ORIENTATION_AND_CENTER",
+  "source_bounds": [
+    3.769,
+    32,
+    2.4
+  ],
+  "before_gui": {
+    "rotation": [
+      20,
+      135,
+      0
+    ],
+    "scale": [
+      0.45,
+      0.45,
+      0.45
+    ]
+  },
+  "draft_gui": {
+    "rotation": [
+      15,
+      20,
+      -30
+    ],
+    "translation": [
+      -0.22082777,
+      -0.41396517,
+      -0.02771159
+    ],
+    "scale": [
+      0.47,
+      0.47,
+      0.47
+    ]
+  },
+  "old_source_sheet": "unique-source-review/pool_spear.png",
+  "spec": "A 32-unit spear must show full metal head, cyan pearl inserts and lower shaft at actual16px GUI; prior yaw135 and missing center hid most body",
+  "hand_grip": [
+    8,
+    7,
+    8
+  ],
+  "not_changed": [
+    "elements",
+    "textures",
+    "firstperson_left/right",
+    "thirdperson_left/right",
+    "ground",
+    "server",
+    "stats",
+    "effects"
+  ],
+  "game_not_run": true
+}

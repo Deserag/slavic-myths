@@ -58,11 +58,12 @@ def main():
   archived=zipmodule.ZipFile(O/'before-grip-source.zip')
   for f in gripfiles:
    plan=json.loads(f.read_text(encoding='utf-8'));path=plan['source_model'];allow.add(path);keys=[n for n in archived.namelist() if n==path or n.endswith('/'+path)];check(len(keys)==1,'unique archived before source '+path);old=json.loads(archived.read(keys[0]));new=json.loads((R/path).read_text(encoding='utf-8'));artpath=path.removeprefix('src/main/resources/assets/slavicmyths/')
-   if artpath in artassets:
+   if artpath in artassets or artpath in {'models/item/trophy_kalin_sabre.json','models/item/victor_spear.json','models/item/pool_spear.json'}:
     check({k:v for k,v in new['display'].items() if k!='gui'}=={k:v for k,v in plan['display'].items() if k!='gui'},'all hand/ground/fixed transforms preserved across later approved art '+path)
     check(new.get('gui_light')=='front','new flat art GUI lighting')
    else:
     check({k:v for k,v in old.items() if k!='display'}=={k:v for k,v in new.items() if k!='display'},'geometry UV textures preserved '+path);check(new['display']==plan['display'],'actual display matches prior technical blueprint '+path)
+  allow|={'src/main/resources/assets/slavicmyths/models/item/trophy_kalin_sabre.json','src/main/resources/assets/slavicmyths/models/item/victor_spear.json','src/main/resources/assets/slavicmyths/models/item/pool_spear.json','src/main/resources/assets/slavicmyths/textures/item/kalin_sabre_87.png'}
   allow|={'src/main/java/org/slavicmyths/client/WeaponHands.java','src/main/java/org/slavicmyths/client/NightClient.java','src/main/java/org/slavicmyths/client/TugarinPairClient.java'}
  changed=[p for p,h in baseline.items() if not (R/p).exists() or sha(R/p)!=h];unexpected=[p for p in changed if p not in allow];check(not unexpected,'preserve all pre-existing files outside exact weapon whitelist')
  before={x['id']:x for x in json.loads((O/'native-attributes.json').read_text())};after={x['id']:x for x in json.loads((O/'native-attributes-after.json').read_text())};expected={'nightingale_dagger':700,'ancient_carolingian_sword':90,'restored_carolingian_sword':450,'ancient_spear':90,'restored_spear':380,'ancient_chekan':90,'chekan':400,'pool_spear':420}
@@ -84,19 +85,22 @@ def main():
  report={'checks':checks,'baseline_changed':changed,'unexpected':unexpected,'game_launches':0,'runtime':'NOT_RUN / OWNER_PENDING','polymc':'NOT_MODIFIED'}
  if args.generators:
   work=R/'work';work.mkdir(exist_ok=True);sandbox=Path(tempfile.mkdtemp(prefix='weapons87-generators-',dir=work));check(sandbox.resolve().is_relative_to(work.resolve()),'sandbox inside workspace work directory');shutil.copytree(R/'src/main/resources',sandbox/'src/main/resources');(sandbox/'tools').mkdir()
-  scripts=['weapon_patch_assets.py','weapon_feedback_assets.py','weapon_visual_repair_assets.py','poloz_full_assets.py','weapons87_flails.py','weapons87_grips.py','weapons87_flail_motion.py','weapons87_spears.py','weapons87_silver_mace.py','weapons87_storm_staff.py','weapons87_tugarin_icon.py','weapons87_whip.py','weapons87_balance_b.py','weapons87_likho_gui.py']
+  scripts=['weapon_patch_assets.py','weapon_feedback_assets.py','weapon_visual_repair_assets.py','poloz_full_assets.py','weapons87_flails.py','weapons87_grips.py','weapons87_flail_motion.py','weapons87_spears.py','weapons87_silver_mace.py','weapons87_storm_staff.py','weapons87_tugarin_icon.py','weapons87_whip.py','weapons87_balance_b.py','weapons87_likho_gui.py','weapons87_unique_art.py']
   for name in scripts:shutil.copy2(R/'tools'/name,sandbox/'tools'/name)
+  shutil.copytree(O/'blueprints/uniques-p20-p25',sandbox/'docs/implementation/weapons87/blueprints/uniques-p20-p25')
   shutil.copytree(R/'tools/weapon-art-original',sandbox/'tools/weapon-art-original');src=sandbox/'src/main/resources';initial={p.relative_to(src).as_posix():sha(p) for p in src.rglob('*') if p.is_file()};runs=[]
   for name in ['weapons87_flails.py','weapon_visual_repair_assets.py','weapon_feedback_assets.py','weapon_patch_assets.py','poloz_full_assets.py','weapons87_flails.py']:
    flags=['--apply'] if name=='weapons87_flails.py' else ['--weapon-only'] if name=='poloz_full_assets.py' else []
    command=[sys.executable,str(sandbox/'tools'/name)]+flags;result=subprocess.run(command,cwd=sandbox,capture_output=True,text=True,timeout=120);check(result.returncode==0,'sandbox generator '+name+' '+str(flags))
    generated={p:sha(sandbox/'src/main/resources/assets/slavicmyths'/p) for p in manifest};check(generated==manifest,'canonical asset reproduction after '+name);runs.append({'generator':name,'exit':result.returncode,'owned_match':generated==manifest,'stdout':result.stdout[-1000:],'stderr':result.stderr[-1000:]})
+  for unique_file in ['models/item/trophy_kalin_sabre.json','models/item/victor_spear.json','models/item/pool_spear.json','textures/item/kalin_sabre_87.png']:check(sha(sandbox/'src/main/resources/assets/slavicmyths'/unique_file)==sha(A/unique_file),'canonical generated unique art '+unique_file)
   outside=[p for p,h in initial.items() if sha(src/p)!=h and ('src/main/resources/'+p) not in allow];report['generators']={'sandbox':str(sandbox),'runs':runs,'nonowned_changes':outside};check(not outside,'historical generators do not roll back other production resources');(O/'generator-checks.json').write_text(json.dumps(report['generators'],indent=2)+'\n')
  elif (O/'generator-checks.json').exists():report['generators']=json.loads((O/'generator-checks.json').read_text())
  if args.jar:
   jars=list((R/'build/libs').glob('*.jar'));check(len(jars)==1,'one production JAR');jar=jars[0]
   with zipfile.ZipFile(jar) as z:
    for p,h in manifest.items():check(hashlib.sha256(z.read('assets/slavicmyths/'+p)).hexdigest()==h,'packaged actual asset '+p)
+   for unique_file in ['models/item/trophy_kalin_sabre.json','models/item/victor_spear.json','models/item/pool_spear.json','textures/item/kalin_sabre_87.png']:check(hashlib.sha256(z.read('assets/slavicmyths/'+unique_file)).hexdigest()==sha(A/unique_file),'packed unique art '+unique_file)
    for plan_file in gripfiles:
     path=json.loads(plan_file.read_text(encoding='utf-8'))['source_model'];key=path.removeprefix('src/main/resources/');check(hashlib.sha256(z.read(key)).hexdigest()==sha(R/path),'packaged actual grip JSON '+key)
    for name in ['combat/WeaponDefaults','client/ScytheGrip','client/WeaponHands','client/NightClient','client/TugarinPairClient','client/FlailClient','client/FlailMotion','client/WeaponProjectileRenderer','client/BowDrawClient','item/StormStaffItem']:

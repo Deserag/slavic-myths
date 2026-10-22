@@ -1,0 +1,76 @@
+{
+  "base_ref": "ad9897b0eb4c5bb63462484d63a31e6593e05e4b",
+  "state": "BEFORE_PRODUCTION",
+  "source": "actual models and source material documented",
+  "saber": {
+    "id": "trophy_kalin_sabre",
+    "old_blob_sha": "8eb7320b547c6ba3851c9e3bb3b92650617974c5",
+    "element_count_before": 6,
+    "element_count_proposed": 34,
+    "grip": [
+      8,
+      2,
+      8
+    ],
+    "texture": "slavicmyths:item/kalin_sabre_87",
+    "colors": [
+      "#1b232c",
+      "#52616b",
+      "#cf9e44",
+      "#e8c274",
+      "#941d22",
+      "#49392d",
+      "#71818a"
+    ],
+    "nonGui": "KEEP",
+    "newGui": {
+      "rotation": [
+        0,
+        0,
+        -30
+      ],
+      "translation": [
+        -1.4903332,
+        -1.5413328,
+        0
+      ],
+      "scale": [
+        0.52,
+        0.52,
+        0.52
+      ]
+    }
+  },
+  "victor": {
+    "id": "victor_spear",
+    "old_blob_sha": "64cede0da5dafce90424d215692afb19a417d7dc",
+    "element_count_before": 4,
+    "element_count_proposed": 14,
+    "grip": [
+      8,
+      10,
+      8
+    ],
+    "texture": "slavicmyths:item/weapon_scythe_surface",
+    "nonGui": "KEEP",
+    "newGui": {
+      "rotation": [
+        0,
+        0,
+        -30
+      ],
+      "translation": [
+        -1.035,
+        -1.7926726,
+        0
+      ],
+      "scale": [
+        0.46,
+        0.46,
+        0.46
+      ]
+    }
+  },
+  "rejected": "No change to registry IDs / balance / gameplay / C-D / #190 / animation / others",
+  "owner_acceptance": "NOT_RUN"
+}
