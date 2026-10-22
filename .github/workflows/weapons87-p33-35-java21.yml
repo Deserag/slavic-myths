@@ -1,0 +1,44 @@
+name: Weapons87 P33-35 melee spear VFX Java21
+on:
+  push:
+    branches:
+      - feat/weapons87-p33-35-melee-polearms-vfx
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compile-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Owned melee and VFX source checks
+        run: |
+          python3 tools/verify_weapons87_pose_vfx.py
+          python3 tools/verify_weapons87_crossbow_recoil.py
+          python3 tools/weapons87_owner_qa.py
+      - name: Java21 clean NeoForge build
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --stacktrace --console=plain
+      - name: Packed classes and 68 weapon resources
+        run: |
+          python3 tools/verify_weapons87_pose_vfx.py --jar
+          python3 tools/weapons87_live_audit.py --jar
+          sha256sum build/libs/slavicmyths-*.jar
+      - name: Four-stage projections from actual source models
+        run: |
+          python3 -m pip install --quiet pillow numpy
+          python3 tools/weapons87_pose_storyboard.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weapons87-p33-p35-source-and-jar
+          path: |
+            docs/implementation/weapons87/blueprints/p33-p35/ci-source-views/*.png
+            docs/implementation/weapons87/blueprints/p33-p35/ci-source-views/*.json
+            build/libs/slavicmyths-*.jar
+          retention-days: 14
