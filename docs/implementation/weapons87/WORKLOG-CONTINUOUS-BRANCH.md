@@ -205,3 +205,11 @@ P44/P45 добавили клиентские **first-person** фазы 32 melee
 
 - Первый Java21 workflow для `ab7bd400` остановился на **source gate**, ещё до Gradle: `verify_weapons87_p47.py` правильно обнаружил, что прежний список специальных исключений всё ещё содержал `finist_bow` после его осознанного включения в `Shape.BOW`. Это **тестовый контракт, не ошибка упаковки модели**, но компиляция тогда не выполнялась.
 - Исправлено только `verify_weapons87_p47.py`: из прежних excluded IDs исключён `finist_bow`, остаются все реальные independent renderer `karachun_scythe/poloz_whip/stone_flail/morozko_staff/likho_staff`. Требование **51 уникальный ID** и обязательная тройка луков сохранены. Второй CI запуск проверит и source, и JAR.
+
+
+### P48 — успешный финальный CI после актуализации regression gate
+
+- Основная реализация [`ab7bd400887f8930abbb6b31add384d188424caf`](https://github.com/Deserag/slavic-myths/commit/ab7bd400887f8930abbb6b31add384d188424caf), test fix [`4fd2c6658a5a157e00dae5716cb92e217893ee9e`](https://github.com/Deserag/slavic-myths/commit/4fd2c6658a5a157e00dae5716cb92e217893ee9e), одна постоянная ветка PR #216.
+- [GitHub Actions #39818424258](https://github.com/Deserag/slavic-myths/actions/runs/39818424258): **SUCCESS**. P42–P45/P47/P48 source gates PASS (51 ID, три 3P bow, 12 model states), `./gradlew --no-daemon clean build` на Java21 **BUILD SUCCESSFUL**, production JAR tests P47/P48 **PASS**.
+- JAR `build/libs/slavicmyths-1.9.7.56.jar`, SHA256 **`15ba5e2185f6f14e7865278dafc324b0a62546cfe6d557e580531b70d34336d5`**. Это SHA нового jar из CI после P48, а не старого P47/архива workflow.
+- Minecraft/PolyMC/MP/runtime: **NOT_RUN**; `#163` остаётся OPEN/IN_PROGRESS, никакой owner acceptance и не Project Status `Готово`. Third-person held rotation ≠ полная skeletal-анимация. Состояние `Тестирование` выставлять лишь по подтверждённому полному scope и при реальном доступе к Project field.
