@@ -237,3 +237,12 @@ P44/P45 добавили клиентские **first-person** фазы 32 melee
 - Continuous Java21 source/JAR workflow расширен P49. Техническое подтверждение P49 **PENDING CI** до внешнего запуска.
 - **Minecraft/PolyMC/MP: NOT_RUN**. Эти отклонённые владельцем Issues **НЕ приняты**, не закрывать и не выставлять «Готово» до его повторного игрового тестирования. Поле Project Status №9 недоступно имеющемуся GitHub connector; комментарии не являются сменой поля.
 - Вся реализация в `work/weapons87-continuous-20261022` / draft PR #216. `main` не затронут.
+
+
+### P49 — Java21 CI (source commit) и устаревшие исторические snapshots
+
+- [GitHub Actions #39823430427](https://github.com/Deserag/slavic-myths/actions/runs/39823430427), commit `8c1f4cf3b9a989389dce8c702aaeda3b38d24b5f`: **SUCCESS** на Java21 clean build и P42–P49 strict source/JAR class+resource checks; JAR `build/libs/slavicmyths-1.9.7.56.jar`, **SHA256 `ba6ac79353692b88902f168257850d1901bb87519c3afcce0f3814424cf0785a`**.
+- Дополнительные **старые** Java21 workflows P33/P35/P38/Storm/P39 на том же commit выдали FAIL на строгих regression guard literals **до Gradle**: ждали откаты `60/54`, хотя владелец прямо попросил `54/48`, и старое ограничение угла/длины шарика кистеня `72°/2.4px`, хотя визуальный шар owner отверг. Это не повод возвращать отвергнутое поведение и не свидетельство runtime-pass.
+- `tools/verify_weapons87_storm_range.py` и `tools/verify_weapons87_p33.py` сохраняют остальные server/range/damage/VFX asserts и проверяют теперь owner-approved `54/48`.
+- `tools/verify_weapons87_p39.py` сохраняет 7 links/owner binding/idle spacing и проверяет контактное удлинение (2.4+5.0px/link), угол 88°, impulse (52+33*lag), требование distinct heavy attack. Это **строгая проверка новой requested baseline**, а не удаление теста.
+- Повторный CI на исправленных QA файлаx **PENDING**. Никаких игровых скриншотов или реальных запусков Minecraft не выполнено.

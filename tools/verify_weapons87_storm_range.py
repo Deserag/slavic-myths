@@ -1,4 +1,4 @@
-"""Regression guard: Storm Staff seven-block reach, VFX, and current approved stats."""
+"""Regression guard: Storm Staff seven-block reach, VFX, and owner-adjusted -0.3-second cooldowns."""
 from pathlib import Path
 p=Path(__file__).resolve().parents[1]/"src/main/java/org/slavicmyths/item/StormStaffItem.java"
 s=p.read_text(encoding="utf-8")
@@ -12,8 +12,8 @@ checks=[
     'ParticleTypes.ENCHANT',
     'if(e.hurt(',
     'BASE_PULSE_DAMAGE=6.0F',
-    'PULSE_COOLDOWN=60',
-    'RUNE_COOLDOWN=54',
+    'PULSE_COOLDOWN=54',
+    'RUNE_COOLDOWN=48',
 ]
 for token in checks: assert token in s, token
 assert s.index('e.distanceToSqr(player) <= 49.0') < s.index('targets.stream().min(')
