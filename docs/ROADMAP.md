@@ -1,3 +1,12 @@
+## 22.10.2026 — #87 пакеты26–27 merged and Java21 PASS
+
+### Проверенный итог и merge в main — 22.10.2026
+- PR [#198](https://github.com/Deserag/slavic-myths/pull/198) merged `4fad4fa2bd231aa07d2bb0cb5c4d68fb2e395686`, gated source HEAD `4f5a3b3c880d94261f12c0a0c246903848cd5425`.
+- [CI 39764351561](https://github.com/Deserag/slavic-myths/actions/runs/39764351561) **PASS**, Java21 clean NeoForge build 1m29s, 68 weapon ids source PASS, 294 source-assets byte-verified inside JAR PASS, Thunder Axe source guards PASS.
+- Production output `build/libs/slavicmyths-1.9.7.56.jar` SHA256 `406a1027e06f0d6bc30c382e471bb814b7f3624ddd5320fef96cf3b00802d7b9`; downloadable **only as CI artifact**, not installed in PolyMC, client/server NOT_RUN.
+- History: `audit-68.json` **109** stale SHA entries, `blueprints/flails/applied-manifest.json` **51** stale SHA entries, no missing historical paths, old full #87 manifest verifier remains **FAIL**; reports record drift rather than changing resources. Numbers reflect source lineage, not a claim of 160 combat bugs.
+- Issue #87/#157/#160/#192 **OPEN**, OWNER_PENDING. Approved A/B stats preserved; C/D/#190 blocked, #191 not started.
+
 ## 22.10.2026 — #87 P26–27 (неполная, source-only реализация)
 #157 live audit 68 ID и #160 ThunderAxe корректное место бонуса — в ветке после JDK21 gate. Source QA до игры; #87/#157/#160/#192 IN_PROGRESS, не закрыты, C/D/#190 не согласованы, #191 last.
 
