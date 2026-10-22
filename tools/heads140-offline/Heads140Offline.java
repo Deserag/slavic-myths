@@ -11,6 +11,7 @@ public final class Heads140Offline {
  private static void check(boolean ok,String message){checks++;if(!ok)throw new AssertionError(message);}
  public static void main(String[] args)throws Exception {
   var entries=new ArrayList<Map<String,Object>>();
+  var boundsIssues=new ArrayList<String>();
   for(var kind:TrophyHeads.Kind.values()){
    var h=TrophyHeadsClient.create(kind);var raw=new TrophyHeadsClient.Capture();h.part.render(new PoseStack(),raw,0,0);
    var placed=new TrophyHeadsClient.Capture();h.render(new PoseStack(),placed,0,0);
@@ -22,7 +23,7 @@ public final class Heads140Offline {
    check(kind.height==1||b[4]>1,"no invisible unused upper cell "+kind);
    {
     var baseline=placed.vertices;
-    boolean actualMotion=false;
+    boolean actualMotion=false,boundsViolation=false;
     for(int t=0;t<300;t+=3){
      h.pose(t);
      var animated=new TrophyHeadsClient.Capture();h.render(new PoseStack(),animated,0,0);
@@ -35,7 +36,9 @@ public final class Heads140Offline {
      for(int v=0;v<baseline.size();v++)for(int uv=3;uv<=4;uv++)
       check(animated.vertices.get(v)[uv]==baseline.get(v)[uv],"animation must preserve native UV "+kind);
      var ab=animated.bounds();
-     check(ab[0]>=0&&ab[2]>=0&&ab[3]<=1&&ab[5]<=1&&ab[1]>=0&&ab[4]<=kind.height,"animated head stays in 1/2 cells "+kind+" t="+t+" bounds="+Arrays.toString(ab)+" base="+Arrays.toString(b));
+     if(!(ab[0]>=0&&ab[2]>=0&&ab[3]<=1&&ab[5]<=1&&ab[1]>=0&&ab[4]<=kind.height)&&!boundsViolation){
+      boundsViolation=true;boundsIssues.add(kind+" t="+t+" bounds="+Arrays.toString(ab)+" base="+Arrays.toString(b));
+     }
     }
     check(actualMotion,"each head must animate its native part "+kind);
     h.resetPose();
@@ -44,6 +47,7 @@ public final class Heads140Offline {
    }
    entries.add(Map.of("id",kind.id,"height",kind.height,"texture",h.texture.toString(),"native_bounds",h.bounds,"placed_bounds",b,"uniform_scale",h.scale,"before_native_vertices",raw.vertices,"after_placed_vertices",placed.vertices));
   }
+  check(boundsIssues.isEmpty(),"animated bounds regressions: "+String.join(" | ",boundsIssues));
   check(TrophyHeadFxRules.lidOffset(0)==0&&TrophyHeadFxRules.lidOffset(66)>.6F&&TrophyHeadFxRules.lidOffset(72)==0,"normal Likho deterministic eyelid");
   check(TrophyHeadFxRules.morEyeScale(0)>1&&TrophyHeadFxRules.morEyeScale(10)>1,"Mor pulse stays visible");
   check(TrophyHeadFxRules.likhoGlow(70)&&!TrophyHeadFxRules.likhoGlow(25),"Likho glow timing");

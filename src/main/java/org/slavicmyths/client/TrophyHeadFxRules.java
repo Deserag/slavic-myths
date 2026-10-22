@@ -8,7 +8,7 @@ public final class TrophyHeadFxRules {
  }
  public static float morEyeScale(double time){return (float)(1.025+.025*Math.sin(time*.10));}
  public static boolean likhoGlow(double time){double phase=((time%116)+116)%116;return phase>=65&&phase<88;}
- public static float tugarinJaw(double time){return (float)(.045+.045*Math.sin(time*.065));}
+ public static float tugarinJaw(double time){return (float)(.018+.016*Math.sin(time*.065));}
  public static float tugarinWhisker(double time){return (float)(.02*Math.sin(time*.07));}
  public static float skimJaw(double time){return (float)(.018+.018*Math.sin(time*.045));}
  public static float skimMane(double time){return (float)(.011*Math.sin(time*.065));}
