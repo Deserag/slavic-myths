@@ -36,7 +36,7 @@ public final class StormStaffItem extends Item {
             Vec3 start = player.getEyePosition(1.0F); Vec3 look = player.getLookAngle();
             AABB area = player.getBoundingBox().expandTowards(look.scale(7)).inflate(1.0);
             List<LivingEntity> targets = world.getEntitiesOfClass(LivingEntity.class, area,
-                    e -> org.slavicmyths.rpg.Abilities.canHit(player,e) && world.clip(new ClipContext(start, e.getEyePosition(1.0F),
+                    e -> e.distanceToSqr(player) <= 49.0 && org.slavicmyths.rpg.Abilities.canHit(player,e) && world.clip(new ClipContext(start, e.getEyePosition(1.0F),
                             ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player)).getType() == HitResult.Type.MISS &&
                             e.position().subtract(start).normalize().dot(look) > 0.93);
             targets.stream().min(Comparator.comparingDouble(e -> e.distanceToSqr(player))).ifPresent(
