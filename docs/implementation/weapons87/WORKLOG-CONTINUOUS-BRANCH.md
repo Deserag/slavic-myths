@@ -90,3 +90,12 @@
 **Не изменено:** registry IDs, damage, attack speed, hit range, server hit timing, hitboxes, recipes, drops, item NBT formats, bosses, flails, #190, sound assets, particles outside this specific crossbow event, другая ветка, `main`.
 
 **Продолжение:** Issues остаются OPEN; P44 есть частичный production-срез пяти больших задач. После CI отдельно проверить правильную установку визуальных фаз в реальном Minecraft: обе руки, модели Alex/Steve, idle/walk/sprint/attack, длительность заряда, fan/burst, три режима, выделенный сервер и fps. Технический gate не равен игровой приёмке владельца.
+
+
+### P44 — подтверждение CI после source/JAR публикации
+
+- Исходный коммит: [`bbb3a353a9d393c3ce2e0222f29701cba0c02774`](https://github.com/Deserag/slavic-myths/commit/bbb3a353a9d393c3ce2e0222f29701cba0c02774).
+- [GitHub Actions #39812159700](https://github.com/Deserag/slavic-myths/actions/runs/39812159700): **SUCCESS**, Java 21 `./gradlew clean build` **BUILD SUCCESSFUL**, прежние P42/P43 + P44 source gates PASS, P44 JAR-class checks PASS, full module tests в clean build PASS.
+- Production JAR `build/libs/slavicmyths-1.9.7.56.jar`; **SHA256 `ed564259729eda1027a7e5c3331797a75593981eb28635a0787677163b148eee`** (строка опубликована в job logs, не SHA ZIP-артефакта).
+- Реальных запусков Minecraft: **0**. PolyMC: **NOT_INSTALLED**. Результат — техническая сборка и исходный код, не visual/MP/interactive proof.
+- Все #162/#165/#163/#160/#161 сохраняют статус **IN_PROGRESS, OPEN**, а не `Готово`: 3P, игровой storyboard и ручная проверка ещё не пройдены.

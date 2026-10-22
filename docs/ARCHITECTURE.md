@@ -3060,3 +3060,8 @@ StormStaffItem.pulseDamage/cooldownTicks — actual production helpers с approv
 ### #87 продолжение — пакет13,22.10.2026
 
 weapons87_likho_gui.py — exact canonical overlay одного root JSON: gui_light front и только display.gui, остальные geometry/UV/material/non-GUI byte semantics unchanged. Native source checker доказывает clipping geometry вне16px до и внутри после, existing eye-color pixel visibility0→1;20 FP/TP source cases с прежними матрицами. Босс и способности не затрагиваются.
+
+
+### #87 P44 — клиентская композиция поз и ограниченный эффект залпа
+
+`client/WeaponMotionClient.java` регистрирует официальные `RegisterClientExtensionsEvent` + `IClientItemExtensions.applyForgeHandTransform` для 32 ID с отдельными BLADE/HEAVY/SPEAR/POLEAXE/SICKLE/STAFF easing phases. Только клиентский PoseStack; не меняет `HumanoidModel`, серверный tick/attack/hit timing, registry или особые renderer косы, кистеней, арбалетов. В `WeaponHands.crossbowWrist` добавлен X/Z tilt на реальном progress charge. `SerpentCrossbow.fireRound` в server code создаёт по одному (lane==0) cue: 6 mode-specific vanilla particles и один звук на volley. `CrossbowDamage.hit` не выполняет повторный mode-proc для уже обработанного projectile UUID. Production Java21/JAR проверяется `tools/verify_weapons87_p44.py` и continuous CI #39812159700; Minecraft runtime/3P не тестировались, Issue ещё OPEN. Этот эффект не является синхронизированной с сервером skeletal-анимацией игрока, а только визуальным client transform/shot cue.

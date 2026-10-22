@@ -2740,3 +2740,8 @@ Java21 clean build, quarantine, shared-policy/native offline tests, scoped sourc
 ### #87 продолжение — пакет13,22.10.2026
 
 #178: принятую5-cube геометрию/UV/shared PNG/хват посоха Лихо сохранили, GUI центрирован и развёрнут существующим глазом; верх перестал выходить за16px canvas,eye-colored pixels0→1.20 native source cases,idle head candidates0,Java21 clean build/resources/JAR/generators7779 PASS. См. implementation/weapons87/PACKAGE-13.md. Owner runtime pending, Issue OPEN,87 IN_PROGRESS,PolyMC не установлен. C/D/190 по-прежнему ожидаются.
+
+
+### #87 P44 — непрерывная ветка, 22.10.2026
+
+В draft PR #216 (ветка `work/weapons87-continuous-20261022`, не переносить в main) частично реализованы #162/#165/#163/#160/#161: 32 обычных melee/polearm ID получили клиентские 1P фазовые позы, special crossbow получил дополнительную charge pose и единственный mode-cue на залп; повторный debuff proc одной стрелы прекращается. CI Java21 + JAR PASS для коммита `bbb3a353`, [run #39812159700](https://github.com/Deserag/slavic-myths/actions/runs/39812159700); `slavicmyths-1.9.7.56.jar` SHA256 `ed564259729eda1027a7e5c3331797a75593981eb28635a0787677163b148eee`. Все затронутые Issues IN_PROGRESS, Minecraft/PolyMC NOT_RUN, владелец ещё не принимал. Никаких изменений C/D баланса, hit timing плети #190 или main. См. `implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`.
