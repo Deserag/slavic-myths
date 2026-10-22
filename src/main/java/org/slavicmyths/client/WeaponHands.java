@@ -6,6 +6,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.InteractionHand;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -15,6 +19,11 @@ import org.slavicmyths.gorynych.*;
 
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class WeaponHands {
+ private static LocalPlayer motionPlayer;
+ private static Level motionLevel;
+ private static final ItemStack[] observedCrossbows=new ItemStack[2];
+ private static final boolean[] observedCharged=new boolean[2];
+ private static final double[] lastShotClock={Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY};
  @SubscribeEvent public static void click(InputEvent.InteractionKeyMappingTriggered e){
   var p=Minecraft.getInstance().player;if(p==null||!e.isAttack()||!p.isShiftKeyDown())return;
   if(p.getMainHandItem().getItem() instanceof SerpentCrossbow bow&&bow.special){e.setCanceled(true);e.setSwingHand(false);net.neoforged.neoforge.network.PacketDistributor.sendToServer(new CrossbowVolley.Toggle());}
@@ -24,10 +33,33 @@ public final class WeaponHands {
   e.setCanceled(true);var pose=e.getPoseStack();boolean left=(e.getHand()==InteractionHand.MAIN_HAND)==(p.getMainArm()==HumanoidArm.LEFT);int sign=left?-1:1;
   pose.pushPose();float swing=net.minecraft.util.Mth.sin((float)Math.sqrt(e.getSwingProgress())*(float)Math.PI);
   float pull=p.isUsingItem()&&p.getUseItem()==e.getItemStack()?Math.clamp((e.getItemStack().getUseDuration(p)-p.getUseItemRemainingTicks()+e.getPartialTick())/(net.minecraft.world.item.CrossbowItem.getChargeDuration(e.getItemStack(),p)+10f),0,1):0;
-  crossbowWrist(pose,sign,swing,pull);renderGrip(e,sign);
+  float kick=crossbowKick(p,mc.level,e.getItemStack(),e.getHand(),e.getPartialTick());
+  crossbowWrist(pose,sign,swing,pull);
+  if(kick>0){pose.translate(0,-.035* kick,.13*kick);pose.mulPose(Axis.XP.rotationDegrees(-9*kick));}
+  renderGrip(e,sign);
   pose.pushPose();crossbowModel(pose);
   drawGeometry(e,mc.getItemRenderer().getModel(e.getItemStack(),mc.level,p,0),left);
   pose.popPose();pose.popPose();
+ }
+ /** Detect charged -> fired only for the same real stack in a visible hand; never changes charge, ammo or damage. */
+ static float crossbowKick(LocalPlayer player,Level level,ItemStack stack,InteractionHand hand,float partial){
+  if(level==null)return 0;
+  if(player!=motionPlayer||level!=motionLevel){
+   motionPlayer=player;motionLevel=level;
+   for(int i=0;i<2;i++){observedCrossbows[i]=null;observedCharged[i]=false;lastShotClock[i]=Double.NEGATIVE_INFINITY;}
+  }
+  int index=hand==InteractionHand.MAIN_HAND?0:1;
+  boolean charged=CrossbowItem.isCharged(stack);
+  double now=level.getGameTime()+partial;
+  if(observedCrossbows[index]!=stack){
+   observedCrossbows[index]=stack;observedCharged[index]=charged;lastShotClock[index]=Double.NEGATIVE_INFINITY;return 0;
+  }
+  if(observedCharged[index]&&!charged&&!player.isUsingItem())lastShotClock[index]=now;
+  observedCharged[index]=charged;
+  double elapsed=now-lastShotClock[index];
+  if(elapsed<0||elapsed>=7)return 0;
+  double phase=elapsed/7.0;
+  return (float)(Math.sin(Math.PI*phase)*(1.0-.25*phase));
  }
  static void renderScythe(RenderHandEvent e,float motion,float horizontal,float direction){
   var mc=Minecraft.getInstance();var p=mc.player;if(p==null)return;boolean left=(e.getHand()==InteractionHand.MAIN_HAND)==(p.getMainArm()==HumanoidArm.LEFT);int sign=left?-1:1;
