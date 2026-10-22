@@ -24,7 +24,7 @@ for item in all_ids:
     assert model.exists(),item
     loaded=json.loads(model.read_text(encoding="utf-8"))
     assert any(key in loaded for key in ("elements","parent","loader")),item
-assert {"karachun_scythe","poloz_whip","stone_flail","finist_bow","morozko_staff","likho_staff"}.isdisjoint(all_ids)
+assert {"karachun_scythe","poloz_whip","stone_flail","morozko_staff","likho_staff"}.isdisjoint(all_ids)
 for token in (
     "ModelEvent.ModifyBakingResult","ModelResourceLocation.inventory",
     "new MotionModel(source,null,null,entry.getValue())",

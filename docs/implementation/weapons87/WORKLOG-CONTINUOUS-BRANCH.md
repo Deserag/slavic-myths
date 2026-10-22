@@ -200,3 +200,8 @@ P44/P45 добавили клиентские **first-person** фазы 32 melee
 | Finist 3P 30 ticks without quiver change | FinistBow + Shape.BOW + P48 QA | SOURCE IMPLEMENTED / CI PENDING |
 | 12 native draw models/JSON/JAR unchanged | P48 source/JAR checks | PENDING |
 | Real 3P Steve/Alex, MP, both hands | Minecraft owner testing | NOT_RUN / OWNER_PENDING |
+
+### P48 — устранение первого CI false-negative
+
+- Первый Java21 workflow для `ab7bd400` остановился на **source gate**, ещё до Gradle: `verify_weapons87_p47.py` правильно обнаружил, что прежний список специальных исключений всё ещё содержал `finist_bow` после его осознанного включения в `Shape.BOW`. Это **тестовый контракт, не ошибка упаковки модели**, но компиляция тогда не выполнялась.
+- Исправлено только `verify_weapons87_p47.py`: из прежних excluded IDs исключён `finist_bow`, остаются все реальные independent renderer `karachun_scythe/poloz_whip/stone_flail/morozko_staff/likho_staff`. Требование **51 уникальный ID** и обязательная тройка луков сохранены. Второй CI запуск проверит и source, и JAR.
