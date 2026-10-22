@@ -2190,3 +2190,6 @@ P45: source для 14 knife/sulitsa IDs и Java21 clean build + JAR PASS #398138
 
 ### #87 P48 — bows held third-person poses, 22.10.2026
 Новая 3P draw-поза у трёх bow-ID с корректными прежними 12/30/30 charge durations; все 4 state native predicates без art/shot changes. Готовность проверяется CI и затем владельцем в Minecraft, #163 IN_PROGRESS. `main` до отдельного разрешения не меняется, PR #216 остаётся draft.
+
+### #87 P49 — исправление непринятого контента, 22.10.2026
+Приоритет реальным замечаниям: #115 grip двух каролингских мечей, #180 restore native Poloz design, #164 forward flail ball impact, #185 duplicate «Второй выпад готов» и lifetime, #160 storm CD и безопасный lightning visual spear, #188 z-fighting tip, Finist homing state, охотничий рог, #140 головы (jaw/ears/eye look/particles/break). Выполнен source patch, но для каждого требуются повторная Java21+JAR проверка и **новая игровая приёмка**; #193 AI Лиха отдельно. Остальные принятые владельцем items не трогать, арбалеты не повторять, #190 whip combat не менять. Детали в `implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`.

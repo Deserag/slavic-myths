@@ -27,16 +27,16 @@ public final class TrophyHeadsClient {
   public final ModelPart part;public final ResourceLocation texture;public final TrophyHeads.Kind kind;
   public final float[] bounds;public final float scale;
   private final ModelPart lid,morEye,glow,detail,accent;
-  private final float lidBaseY,morEyeScaleX,morEyeScaleY,detailBaseXRot,accentBaseXRot,accentBaseZRot;
+  private final float lidBaseY,morEyeScaleX,morEyeScaleY,detailBaseXRot,accentBaseXRot,accentBaseZRot,accentBaseY,glowBaseX,glowBaseY;
   Head(TrophyHeads.Kind kind,ModelPart part,String texture){this(kind,part,texture,null,null,null);}
   Head(TrophyHeads.Kind kind,ModelPart part,String texture,ModelPart lid,ModelPart morEye,ModelPart glow){this(kind,part,texture,lid,morEye,glow,null,null);}
   Head(TrophyHeads.Kind kind,ModelPart part,String texture,ModelPart lid,ModelPart morEye,ModelPart glow,ModelPart detail,ModelPart accent){
    this.kind=kind;this.part=part;this.texture=ResourceLocation.fromNamespaceAndPath("slavicmyths",texture);
    this.lid=lid;this.morEye=morEye;this.glow=glow;this.detail=detail;this.accent=accent;
-   lidBaseY=lid==null?0:lid.y;
+   lidBaseY=lid==null?0:lid.y;glowBaseX=glow==null?0:glow.x;glowBaseY=glow==null?0:glow.y;
    morEyeScaleX=morEye==null?1:morEye.xScale;morEyeScaleY=morEye==null?1:morEye.yScale;
    detailBaseXRot=detail==null?0:detail.xRot;
-   accentBaseXRot=accent==null?0:accent.xRot;accentBaseZRot=accent==null?0:accent.zRot;
+   accentBaseXRot=accent==null?0:accent.xRot;accentBaseZRot=accent==null?0:accent.zRot;accentBaseY=accent==null?0:accent.y;
    part.setPos(0,0,0);part.xRot=part.yRot=part.zRot=0;
    var capture=new Capture();part.render(new PoseStack(),capture,0,0);bounds=capture.bounds();
    scale=Math.min(.94F/(bounds[3]-bounds[0]),Math.min(.94F/(bounds[5]-bounds[2]),(kind.height-.1F)/(bounds[4]-bounds[1])));
@@ -46,8 +46,14 @@ public final class TrophyHeadsClient {
    pose.translate(-(bounds[0]+bounds[3])/2,-bounds[4],-(bounds[2]+bounds[5])/2);
    part.render(pose,out,light,overlay);pose.popPose();
   }
-  public void pose(float time){
-   if(lid!=null)lid.y=lidBaseY+TrophyHeadFxRules.lidOffset(time);
+  public void pose(float time){pose(time,0,0);}
+  public void pose(float time,float lookX,float lookY){
+   float blink=TrophyHeadFxRules.lidOffset(time);
+   if(lid!=null)lid.y=lidBaseY+blink;
+   if(glow!=null&&(kind==TrophyHeads.Kind.LIKHO||kind==TrophyHeads.Kind.MOR_LIKHO)){
+    glow.x=glowBaseX+net.minecraft.util.Mth.clamp(lookX,-.5F,.5F);
+    glow.y=glowBaseY+net.minecraft.util.Mth.clamp(lookY,-.35F,.35F);
+   }
    if(morEye!=null){float pulse=TrophyHeadFxRules.morEyeScale(time);morEye.xScale=morEyeScaleX*pulse;morEye.yScale=morEyeScaleY*pulse;}
    if(detail!=null)detail.xRot=detailBaseXRot+switch(kind){
     case TUGARIN->TrophyHeadFxRules.tugarinJaw(time);
@@ -57,6 +63,7 @@ public final class TrophyHeadsClient {
     default->0F;
    };
    if(accent!=null){
+    if(kind==TrophyHeads.Kind.LIKHO)accent.y=accentBaseY-.32F*blink;
     if(kind==TrophyHeads.Kind.PODZEMNIK)accent.xRot=accentBaseXRot+TrophyHeadFxRules.podzemnikBrow(time);
     else accent.zRot=accentBaseZRot+switch(kind){
      case TUGARIN->TrophyHeadFxRules.tugarinWhisker(time);
@@ -68,9 +75,10 @@ public final class TrophyHeadsClient {
   }
   public void resetPose(){
    if(lid!=null)lid.y=lidBaseY;
+   if(glow!=null){glow.x=glowBaseX;glow.y=glowBaseY;}
    if(morEye!=null){morEye.xScale=morEyeScaleX;morEye.yScale=morEyeScaleY;}
    if(detail!=null)detail.xRot=detailBaseXRot;
-   if(accent!=null){accent.xRot=accentBaseXRot;accent.zRot=accentBaseZRot;}
+   if(accent!=null){accent.xRot=accentBaseXRot;accent.zRot=accentBaseZRot;accent.y=accentBaseY;}
   }
   public void renderGlow(PoseStack pose,VertexConsumer out,int overlay){
    if(glow==null)return;
@@ -84,7 +92,7 @@ public final class TrophyHeadsClient {
   case TUGARIN->{var model=new WorldBossModel(false,true);yield new Head(kind,model.trophyHead(),"textures/entity/tugarin_phase2.png",null,null,null,model.trophyHeadPart("jaw"),model.trophyHeadPart("moustacheL"));}
   case SKIM->{var neck=SkimMesh.create().getChild("body").getChild("neck");yield new Head(kind,neck,"textures/entity/skim_beast.png",null,null,null,neck.getChild("head").getChild("jaw"),neck.getChild("mane_0"));}
   case VOLKOLAK->{var model=new CursedVolkolakModel();var part=model.trophyHead();part.zScale=CursedVolkolakRenderer.DEPTH_SCALE;yield new Head(kind,part,"textures/entity/cursed_volkolak.png",null,null,null,model.trophyHeadPart("jaw"),model.trophyHeadPart("earL"));}
-  case LIKHO->{var model=new WorldBossModel(true);yield new Head(kind,model.trophyHead(),"textures/entity/likho_one_eyed.png",model.trophyHeadPart("upperLid"),null,model.trophyHeadPart("irisRing"));}
+  case LIKHO->{var model=new WorldBossModel(true);yield new Head(kind,model.trophyHead(),"textures/entity/likho_one_eyed.png",model.trophyHeadPart("upperLid"),null,model.trophyHeadPart("irisRing"),null,model.trophyHeadPart("lowerLid"));}
   case MOR_LIKHO->{var model=new WorldBossModel(true,false,true);yield new Head(kind,model.trophyHead(),"textures/entity/mor/likho.png",null,model.trophyHeadPart("morEye"),model.trophyHeadPart("morEye"));}
   case PODZEMNIK->{var head=UndergroundClient.Model.mesh(3).getChild("body").getChild("head");yield new Head(kind,head,"textures/entity/underground/large_podzemnik.png",null,null,null,head.getChild("jaw"),head.getChild("brows"));}
  };}
@@ -111,7 +119,21 @@ public final class TrophyHeadsClient {
     pose.translate(.5,0,.5);
     pose.mulPose(Axis.YP.rotationDegrees(-tile.getBlockState().getValue(TrophyHeadBlock.FACING).toYRot()));
     pose.translate(-.5,0,-.5);
-    if(animated)h.pose(time);
+    if(animated){
+     float gazeX=0,gazeY=0;
+     var player=Minecraft.getInstance().player;
+     if(player!=null&&(block.kind==TrophyHeads.Kind.LIKHO||block.kind==TrophyHeads.Kind.MOR_LIKHO)){
+      var f=tile.getBlockState().getValue(TrophyHeadBlock.FACING);
+      double dx=player.getX()-(tile.getBlockPos().getX()+.5),dz=player.getZ()-(tile.getBlockPos().getZ()+.5);
+      double forward=dx*f.getStepX()+dz*f.getStepZ();
+      if(forward>0&&dx*dx+dz*dz<24*24){
+       double side=-dx*f.getStepZ()+dz*f.getStepX();
+       gazeX=(float)net.minecraft.util.Mth.clamp(side/Math.max(3,forward)*.4,-.5,.5);
+       gazeY=(float)net.minecraft.util.Mth.clamp((player.getEyeY()-(tile.getBlockPos().getY()+1.15))*-.16,-.35,.35);
+      }
+     }
+     h.pose(time,gazeX,gazeY);
+    }
     h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);
     if(animated&&(block.kind==TrophyHeads.Kind.MOR_LIKHO||TrophyHeadFxRules.likhoGlow(time)))
      h.renderGlow(pose,buffer.getBuffer(RenderType.eyes(h.texture)),overlay);
@@ -127,15 +149,15 @@ public final class TrophyHeadsClient {
    if(Minecraft.getInstance().player.distanceToSqr(pos.getX()+.5,pos.getY()+1.2,pos.getZ()+.5)>24*24)return;
    long now=world.getGameTime();
    int period=switch(kind){
-    case TUGARIN->72;case SKIM->86;case VOLKOLAK->78;case PODZEMNIK->92;
-    case LIKHO->52;case MOR_LIKHO->32;
+    case TUGARIN->15;case SKIM->18;case VOLKOLAK->16;case PODZEMNIK->20;
+    case LIKHO->12;case MOR_LIKHO->9;
    };
    if(!TrophyHeadFxRules.particleDue(now,tile.clientLastFxTick,period))return;
    tile.clientLastFxTick=now;
    Direction facing=tile.getBlockState().getValue(TrophyHeadBlock.FACING);
    double dx=(world.getRandom().nextDouble()-.5)*.17,dz=(world.getRandom().nextDouble()-.5)*.17;
    double height=switch(kind){
-    case TUGARIN->.34;case SKIM->.63;case VOLKOLAK->.7;case PODZEMNIK->.77;
+    case TUGARIN->.37;case SKIM->.66;case VOLKOLAK->.77;case PODZEMNIK->.95;
     case LIKHO,MOR_LIKHO->1.25;
    };
    var particle=switch(kind){
@@ -146,9 +168,9 @@ public final class TrophyHeadsClient {
     case LIKHO->ParticleTypes.SOUL;
     case MOR_LIKHO->ParticleTypes.CRIMSON_SPORE;
    };
-   world.addParticle(particle,pos.getX()+.5+facing.getStepX()*.28+dx,
-    pos.getY()+height+world.getRandom().nextDouble()*.12,
-    pos.getZ()+.5+facing.getStepZ()*.28+dz,0,.006,0);
+   for(int i=0;i<3;i++)world.addParticle(particle,pos.getX()+.5+facing.getStepX()*.28+dx+(world.getRandom().nextDouble()-.5)*.14,
+    pos.getY()+height+world.getRandom().nextDouble()*.25,
+    pos.getZ()+.5+facing.getStepZ()*.28+dz+(world.getRandom().nextDouble()-.5)*.14,0,.018,0);
   }
  }
  public static final class ItemRenderer extends BlockEntityWithoutLevelRenderer {

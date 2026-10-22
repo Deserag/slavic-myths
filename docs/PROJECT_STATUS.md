@@ -2763,3 +2763,6 @@ P45: семь ножей получили 1P swing броска и семь су
 
 ### #87 P48 — Java21 gate подтверждён
 [CI #39818424258](https://github.com/Deserag/slavic-myths/actions/runs/39818424258): SOURCE PASS / Java21 BUILD SUCCESSFUL / JAR PASS, 51 third-person models including three bow with 12/30/30 charge timings. Artifact `slavicmyths-1.9.7.56.jar` SHA256 `15ba5e2185f6f14e7865278dafc324b0a62546cfe6d557e580531b70d34336d5`. Runtime 0, PolyMC not installed, owner game acceptance pending. Issue #163 OPEN/IN_PROGRESS, actual Project Status не изменён.
+
+### #87 P49 — первая техническая реакция на повторную игровую приёмку владельца, 22.10.2026
+Владелец **принял** арбалеты, косу/посох Морозко и неперечисленные в замечаниях предметы; отверг игру с копьём победителя, хват двух каролингских мечей и плети Полоза, шар кистеня, прицел Финиста, мерцающее острие громового копья, рог, откат грозового посоха и анимации шести trophy heads. P49 меняет конкретные Java-классы / 3D модели / восстановленный native Poloz model, см. `implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`. Java21/JAR проверки будут отмечены после CI, runtime/PolyMC/MP NOT_RUN, не закрывать отклонённые Issues до повторного подтверждения. PR #216 draft, не merge `main`. GitHub Project №9 Status field через подключённые actions недоступен.

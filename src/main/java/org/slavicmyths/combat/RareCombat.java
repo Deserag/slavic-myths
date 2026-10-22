@@ -27,8 +27,8 @@ public final class RareCombat {
         if(d.getLong("RareSecondUntil")>now(p)&&d.hasUUID("RareSecondTarget")&&d.getUUID("RareSecondTarget").equals(target.getUUID())
             &&d.getString("RareSecondDimension").equals(p.level().dimension().location().toString())
             &&p.canInteractWithEntity(target,0)&&p.hasLineOfSight(target)&&Abilities.canHit(p,target)){
-            d.remove("RareSecondUntil");d.putBoolean("RareSecondAttack",true);
-            PathData.data(p).putLong("CD_rare_second",now(p)+SECOND_COOLDOWN);
+            d.remove("RareSecondUntil");d.remove("RareSecondTarget");d.remove("RareSecondDimension");d.putBoolean("RareSecondAttack",true);
+            p.displayClientMessage(net.minecraft.network.chat.Component.empty(),true);
             // Native Player.attack still owns damage, enchantments, exhaustion and durability.
             p.attackStrengthTicker=1000;target.invulnerableTime=0;
         }else d.remove("RareSecondAttack");
@@ -69,8 +69,17 @@ public final class RareCombat {
             if(d.getFloat("RareAttackCharge")>=.9F&&target.getBoundingBox().distanceToSqr(p.getEyePosition())>9&&p.canInteractWithEntity(target,0)&&p.hasLineOfSight(target)
                 &&PathData.data(p).getLong("CD_rare_second")<=now(p)){
                 d.putUUID("RareSecondTarget",target.getUUID());d.putString("RareSecondDimension",p.level().dimension().location().toString());d.putLong("RareSecondUntil",now(p)+SECOND_WINDOW);
+                PathData.data(p).putLong("CD_rare_second",now(p)+SECOND_COOLDOWN);
                 p.displayClientMessage(net.minecraft.network.chat.Component.translatable("rare.slavicmyths.second"),true);p.playSound(net.minecraft.sounds.SoundEvents.IRON_GOLEM_REPAIR,.35F,1.5F);
             }
+        }
+    }
+    @SubscribeEvent public static void expire(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post e){
+        if(!(e.getEntity() instanceof ServerPlayer p))return;
+        var d=p.getPersistentData();long until=d.getLong("RareSecondUntil");
+        if(until>0&&until<=now(p)){
+            d.remove("RareSecondUntil");d.remove("RareSecondTarget");d.remove("RareSecondDimension");
+            p.displayClientMessage(net.minecraft.network.chat.Component.empty(),true);
         }
     }
     @SubscribeEvent public static void target(LivingChangeTargetEvent e){

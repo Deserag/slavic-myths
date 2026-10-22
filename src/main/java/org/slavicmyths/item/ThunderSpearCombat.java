@@ -24,6 +24,10 @@ public final class ThunderSpearCombat {
         event.setAmount(event.getAmount() + 2.0F);
         player.getCooldowns().addCooldown(ModItems.THUNDER_SPEAR.get(), 120);
         ServerLevel world = (ServerLevel) player.level();
+        if (world.random.nextInt(4) == 0) {
+            var bolt=net.minecraft.world.entity.EntityType.LIGHTNING_BOLT.create(world);
+            if(bolt!=null){bolt.setVisualOnly(true);bolt.setPos(event.getEntity().getX(),event.getEntity().getY(),event.getEntity().getZ());world.addFreshEntity(bolt);}
+        }
         world.sendParticles(ParticleTypes.ENCHANT, event.getEntity().getX(),
                 event.getEntity().getY() + 0.8, event.getEntity().getZ(), 10, 0.2, 0.3, 0.2, 0.02);
         world.playSound(null, event.getEntity().blockPosition(), SoundEvents.TRIDENT_THUNDER.value(),
