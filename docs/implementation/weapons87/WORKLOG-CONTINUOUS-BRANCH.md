@@ -99,3 +99,23 @@
 - Production JAR `build/libs/slavicmyths-1.9.7.56.jar`; **SHA256 `ed564259729eda1027a7e5c3331797a75593981eb28635a0787677163b148eee`** (строка опубликована в job logs, не SHA ZIP-артефакта).
 - Реальных запусков Minecraft: **0**. PolyMC: **NOT_INSTALLED**. Результат — техническая сборка и исходный код, не visual/MP/interactive proof.
 - Все #162/#165/#163/#160/#161 сохраняют статус **IN_PROGRESS, OPEN**, а не `Готово`: 3P, игровой storyboard и ручная проверка ещё не пройдены.
+
+
+## P45 — продолжение анимационной ветки: 7 ножей и 7 сулиц · #162 / #165
+
+**Реальный baseline** `ThrowingWeaponItem.java`: все 14 ID из `creative_catalog.tsv` используют `UseAnim.SPEAR`, но у мгновенно выбрасываемых ножей `use()` вообще не вызывал `player.swing`; у сулиц есть `startUsingItem` и release после 6 тиков. `WeaponProjectileRenderer` уже использует правильную полётную ориентацию из P6/#173 — её НЕ менять.
+
+- `client/ThrowingMotionClient.java` регистрирует отдельные first-person transforms для 7 `*_throwing_knife` (действительная короткая дуга throwing swing) и 7 `*_sulitsa` (плавная подготовка/вынос перед throw по фактически удерживаемым тикам, завершение через swing). Учитывает реальную руку, main/offhand; без глобальных клиентских тиков.
+- `combat/ThrowingWeaponItem.java` вызывает `player.swing(hand)` **только на клиенте** при валидном вызове броска ножа; для сулицы только после разрешённого удержания `held>=6`. Серверные `throwOne`, создание `WeaponProjectile`, нанесение урона, материальные статы, `KNIFE_LOSS_CHANCE`, скорость, расход и cooldown остаются прежними.
+- **Ограничение:** при расходе последнего ножа его item stack исчезает; свинг руки может продолжаться, но предмет уже не рисуется. Реальные FP/TP/сетевая приёмка отсутствует. 3P сулицы продолжает штатный vanilla `UseAnim.SPEAR`; индивидуальное управление локтями только 1P.
+- `tools/verify_weapons87_p45.py` проверяет 14 фактических ID, client-only вызов, сохранение server projectile и JAR class packaging. Continuous Java21 workflow расширен P45 source/JAR guards.
+
+| REQUIREMENT | EVIDENCE | STATUS |
+|---|---|---|
+| 7 knife throwing animation | `ThrowingMotionClient`, client `swing(hand)` | SOURCE IMPLEMENTED, GAME NOT_RUN |
+| 7 sulitsa charge/release animation | `ThrowingMotionClient`, `releaseUsing` | SOURCE IMPLEMENTED, GAME NOT_RUN |
+| Сохранять server damage/range/velocity/cooldown | Exact `ThrowingWeaponItem.throwOne` и source guard | SOURCE PASS, GAME NOT_RUN |
+| Source/JAR / Java21 clean build | P45 workflow | CI PENDING |
+| Multiplayer/Steve/Alex, обе руки и actual 3P view | Minecraft/PolyMC | NOT_RUN / OWNER_PENDING |
+
+**Запреты сохранены:** #190 не изменялась, баланса и серверного hit timing нет, существующие 14 flight models/PNG, texture генераторы и #173 не переписаны; Issues OPEN.

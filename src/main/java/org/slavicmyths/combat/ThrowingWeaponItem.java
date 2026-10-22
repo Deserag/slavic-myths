@@ -27,13 +27,14 @@ public final class ThrowingWeaponItem extends TieredItem {
     @Override public InteractionResultHolder<ItemStack> use(Level level,Player player,InteractionHand hand) {
         ItemStack stack=player.getItemInHand(hand);
         if(player.getCooldowns().isOnCooldown(this)||stack.getDamageValue()>=stack.getMaxDamage()-1)return InteractionResultHolder.fail(stack);
-        if(knife)throwOne(level,player,hand,stack,1.65F);else player.startUsingItem(hand);
+        if(knife){if(level.isClientSide)player.swing(hand);throwOne(level,player,hand,stack,1.65F);}else player.startUsingItem(hand);
         return InteractionResultHolder.consume(stack);
     }
     @Override public void releaseUsing(ItemStack stack,Level level,LivingEntity user,int remaining) {
         if(knife||!(user instanceof Player player))return;
         int held=getUseDuration(stack,user)-remaining;
         if(held<6||player.getCooldowns().isOnCooldown(this)||stack.getDamageValue()>=stack.getMaxDamage()-1)return;
+        if(level.isClientSide)player.swing(player.getUsedItemHand());
         throwOne(level,player,player.getUsedItemHand(),stack,1.3F+Math.min(held,20)/20F*1.2F);
     }
     private void throwOne(Level level,Player player,InteractionHand hand,ItemStack stack,float velocity) {
