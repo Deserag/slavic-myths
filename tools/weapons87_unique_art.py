@@ -4,7 +4,7 @@ import argparse,base64,hashlib,json,struct,zipfile
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'src/main/resources/assets/slavicmyths'
 DOCS=ROOT/'docs/implementation/weapons87/blueprints/uniques-p20-p25'
-IDS=('trophy_kalin_sabre','victor_spear')
+IDS=('trophy_kalin_sabre','victor_spear','pool_spear')
 TEXTURE='textures/item/kalin_sabre_87.png'
 PNG=base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANklEQVR4nGOQVtb5H5SY/f/8PJf/Lw6V/J8iq/Tf01L3f2Fj138GIgATMYpGDRg1YNSAoWAAAIifD205yZqpAAAAAElFTkSuQmCC')
 ASSET_PATHS=[f'models/item/{id}.json' for id in IDS]+[TEXTURE]
@@ -26,7 +26,7 @@ def check(jar=False):
         before=load(id,'before');after=load(id,'draft')
         production=json.loads((ASSETS/'models/item'/f'{id}.json').read_text(encoding='utf-8'))
         assert production==after,id+' production changed from frozen technical draft'
-        assert before['elements']!=after['elements']
+        assert (before['elements']==after['elements']) if id=='pool_spear' else (before['elements']!=after['elements'])
         assert {k:v for k,v in before.items() if k not in ('elements','textures','gui_light','display')}=={k:v for k,v in after.items() if k not in ('elements','textures','gui_light','display')}
         assert {k:v for k,v in before['display'].items() if k!='gui'}=={k:v for k,v in after['display'].items() if k!='gui'}
         assert after.get('gui_light')=='front'
@@ -38,9 +38,13 @@ def check(jar=False):
             assert len(before['elements'])==6 and len(after['elements'])==34
             assert after['textures']['surface']=='slavicmyths:item/kalin_sabre_87'
             assert max(e['to'][0] for e in after['elements'])>=12.7
-        else:
+        elif id=='victor_spear':
             assert len(before['elements'])==4 and len(after['elements'])==14
             assert before['textures']==after['textures']
+        else:
+            assert len(before['elements'])==len(after['elements'])==14
+            assert before['textures']==after['textures']
+            assert before['display']['gui']!=after['display']['gui']
     if jar:
         jars=list((ROOT/'build/libs').glob('slavicmyths-*.jar'))
         assert len(jars)==1
