@@ -40,7 +40,13 @@ public final class StormStaffItem extends Item {
                             ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player)).getType() == HitResult.Type.MISS &&
                             e.position().subtract(start).normalize().dot(look) > 0.93);
             targets.stream().min(Comparator.comparingDouble(e -> e.distanceToSqr(player))).ifPresent(
-                    e -> {e.hurt(player.damageSources().indirectMagic(player,player),pulseDamage(org.slavicmyths.rpg.PathData.has(player,"staff_power"),org.slavicmyths.rpg.Runes.has(stack,"thunder")));org.slavicmyths.rpg.RuneEffects.staff(player,stack,e);});
+                    e -> {
+                        boolean hit=e.hurt(player.damageSources().indirectMagic(player,player),pulseDamage(
+                                org.slavicmyths.rpg.PathData.has(player,"staff_power"),org.slavicmyths.rpg.Runes.has(stack,"thunder")));
+                        if(hit && world instanceof ServerLevel level)level.sendParticles(ParticleTypes.ELECTRIC_SPARK,
+                                e.getX(),e.getY()+e.getBbHeight()*.55,e.getZ(),8,.24,.28,.24,.018);
+                        org.slavicmyths.rpg.RuneEffects.staff(player,stack,e);
+                    });
             ServerLevel server = (ServerLevel) world;
             for (int i = 1; i <= 7; i++) {
                 Vec3 point = start.add(look.scale(i));
