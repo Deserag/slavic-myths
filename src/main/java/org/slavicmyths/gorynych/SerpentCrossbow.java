@@ -58,7 +58,12 @@ public final class SerpentCrossbow extends CrossbowItem {
   shot.getPersistentData().putInt("GorynychSpecial",mode+1);
   shot.getPersistentData().putInt("GorynychImpactMode",mode+1);
   w.addFreshEntity(shot);weapon.hurtAndBreak(getDurabilityUse(ammo),owner,LivingEntity.getSlotForHand(hand));
-  GorynychContent.sound(w,owner.blockPosition(),mode==0?"crossbow_special_mor":mode==1?"crossbow_special_fire":"crossbow_special_storm");
+  // One muzzle flash and sound per volley, never three overlapping cues for its three arrows.
+  if(lane==0){
+   var cue=mode==0?net.minecraft.core.particles.ParticleTypes.SOUL:mode==1?net.minecraft.core.particles.ParticleTypes.FLAME:net.minecraft.core.particles.ParticleTypes.ELECTRIC_SPARK;
+   w.sendParticles(cue,muzzle.x,muzzle.y,muzzle.z,6,.08,.08,.08,.012);
+   GorynychContent.sound(w,owner.blockPosition(),mode==0?"crossbow_special_mor":mode==1?"crossbow_special_fire":"crossbow_special_storm");
+  }
  }
  @Override protected void shootProjectile(LivingEntity owner,Projectile shot,int index,float velocity,float inaccuracy,float angle,LivingEntity target){super.shootProjectile(owner,shot,index,velocity,inaccuracy,angle,target);if(!owner.level().isClientSide){if(regularVolley!=null)shot.getPersistentData().putUUID(CrossbowDamage.VOLLEY,regularVolley);if(shot instanceof AbstractArrow arrow)arrow.setBaseDamage(arrow.getBaseDamage()*1.18);}}
  @Override public void appendHoverText(ItemStack s,TooltipContext c,List<net.minecraft.network.chat.Component> lines,TooltipFlag flag){super.appendHoverText(s,c,lines,flag);lines.add(net.minecraft.network.chat.Component.translatable(getDescriptionId()+".desc"));if(special){var n=state(s);lines.add(GorynychContent.text("mode_"+Math.floorMod(n.getInt("Mode"),3),0));lines.add(GorynychContent.text(n.getBoolean("Burst")?"volley_burst":"volley_fan"));if(Math.floorMod(n.getInt("Mode"),3)==2)lines.add(GorynychContent.text("storm_stats",StormCrossbow.DAMAGE,StormCrossbow.RADIUS,StormCrossbow.CONTROL_TICKS/20,StormCrossbow.MAX_TARGETS,StormCrossbow.TARGET_COOLDOWN/20.0));}}

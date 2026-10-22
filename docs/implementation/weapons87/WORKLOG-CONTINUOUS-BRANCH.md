@@ -58,3 +58,35 @@
 ### Продолжение работы следующему чату
 
 Постоянная ветка `work/weapons87-continuous-20261022`, draft PR #216. Никаких merge/reset/force push в `main` до явной команды владельца. Сначала прочитать этот файл, `AGENTS.md`, `docs/PROJECT_WORKFLOW.md`, проверить актуальные GitHub SHA и последний CI. Затем брать **следующие 4–5 новых, ранее не отработанных** оружейных задач #87, вносить реальные scoped изменения с source evidence; не объявлять отдельные исходники полной игровой приёмкой; дополнять этот же журнал, не создавать новую ветку/PR. Известный нерешённый дизайн-гейт #190 — без owner-approved contact-frame/timing не менять server hit.
+
+
+## P44 — функциональные клиентские фазы и арбалет · #162 / #165 / #163 / #160 / #161
+
+**Baseline:** после P43 `bf077302b28250d28044d9b66daa0b8a42ab0eca`. До изменений 32 перечисленных обычных item ID использовали базовую vanilla 1P-анимацию; у `WeaponHands.crossbowWrist` при зарядке был лишь слабый сдвиг (без изменения pitch/roll); `SerpentCrossbow.fireRound` проигрывал `crossbow_special_*` **трижды** за трёхснарядный fan/burst; `CrossbowDamage.hit` записывал UUID, но не отказывал в повторном debuff-proc того же снаряда. Динамику восьми кистеней #164, луки P10/#163, TP косы Карачуна, статические модели P42/P43 не переписывать.
+
+### Реальная реализация (НЕ полный scope этих больших Issues)
+
+- **#162 — ближний бой:** `src/main/java/org/slavicmyths/client/WeaponMotionClient.java`, первый клиентский phase-aware renderer через штатное `IClientItemExtensions.applyForgeHandTransform` для **15 обычных ID**: 6 клинков, 9 булав/чеканов/дубин/топор. Плавные `idle → windup → impact → recovery`, различие резкого разреза и тяжёлого удара, мягкая реакция на ходьбу, offhand и зеркальная рука. Vanilla TP attacks оставлены штатными, **полный специализированный 3P-анимационный пакет и внутриигровая сцена НЕ исполнены**.
+- **#165 — древковое:** тот же локальный клиентский класс содержит отдельные `SPEAR` (12 ID, выдвижение вперёд), `POLEAXE` (бердыш), `SICKLE` (полуденный серп), `STAFF` (резной/Велеса/бури; у storm_staff — короткая видимая отдача от уже существующего cooldown). Всего **17 ID**, без per-tick world scans. Не трогать существующие режиссуру Карачуна, модели и boss rigs; TP и специализированные cast-позы ещё OWNER_PENDING/IN_PROGRESS.
+- **#163 — арбалеты:** в `WeaponHands.crossbowWrist` зарядка наклоняет кисть и ложе в X/Z пропорционально progress; штатные динамические model predicates и уже реализованный charge→shot kick сохранены. Без изменений charge-duration, burst scheduling, урона/патронов и состояния mode. Игра/мультиплеер не проверялись.
+- **#160 — защита server proc:** `CrossbowDamage.hit` теперь прекращает повторное наложение слабости/горения, если UUID одной и той же стрелы уже был обработан для target+volley. Три **разные** стрелы, существующие лимиты и damage window намеренно не перебалансированы. Другие способности 68 ID остаются вне этого точечного исправления.
+- **#161 — привязанный к боевому событию VFX:** `SerpentCrossbow.fireRound` отправляет **ровно один** короткий muzzle cue (6 vanilla particles: SOUL/FLAME/ELECTRIC_SPARK) в зависимости от mode при lane==0, вместе с **одним** `crossbow_special_*` sound на volley. Сохраняются три боевых projectile, burst/fan и индивидуальные impact effects; массовый performance/runtime тест не выполнялся.
+
+### Матрица gate до игры
+
+| REQUIREMENT | EVIDENCE | RESULT |
+|---|---|---|
+| 32 обычных ID без вмешательства в special renderers | `WeaponMotionClient.java`; `creative_catalog.tsv` | SOURCE IMPLEMENTED / Minecraft NOT_RUN |
+| Цикл windup/contact/recover и mirror main/offhand | `WeaponMotionClient.java`, `tools/verify_weapons87_p44.py` | SOURCE / AUTOMATED GUARD; 3P owner test NOT_RUN |
+| Crossbow charge pose и модель P42/P43 KEEP | `WeaponHands.java`; P42/P43 guards | SOURCE / TEST PENDING |
+| Один cue на volley и mode-specific muzzle | `SerpentCrossbow.java`, `tools/verify_weapons87_p44.py` | SOURCE / TEST PENDING |
+| Только однократный proc на projectile UUID | `CrossbowDamage.java` | SOURCE / TEST PENDING |
+| Java21 clean build, production JAR SHA | `.github/workflows/weapons87-continuous-java21.yml` + Actions | CI PENDING |
+| 1P/3P/Alex/Steve/PvP/MP/fps/screenshots | Real Minecraft client/server | OWNER_PENDING / NOT_RUN |
+| #190 гибкая плеть и timing | Без правок | NOT_RUN / OWNER APPROVAL REQUIRED |
+
+**Code evidence:** original Git blobs `WeaponHands:39567b95`, `SerpentCrossbow:16492964`, `CrossbowDamage:81538c7a`; after blob `3cdd382b`, `2ff1e0a0`, `a661e980` соответственно; новый `WeaponMotionClient` `3b9fa6a9`. `tools/verify_weapons87_p44.py` выполняет source guards до clean build и class-package guards внутри JAR после него; Java21 checked exclusively through CI, not a claim of game acceptance.
+
+**Не изменено:** registry IDs, damage, attack speed, hit range, server hit timing, hitboxes, recipes, drops, item NBT formats, bosses, flails, #190, sound assets, particles outside this specific crossbow event, другая ветка, `main`.
+
+**Продолжение:** Issues остаются OPEN; P44 есть частичный production-срез пяти больших задач. После CI отдельно проверить правильную установку визуальных фаз в реальном Minecraft: обе руки, модели Alex/Steve, idle/walk/sprint/attack, длительность заряда, fan/burst, три режима, выделенный сервер и fps. Технический gate не равен игровой приёмке владельца.

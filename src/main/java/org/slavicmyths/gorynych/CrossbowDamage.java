@@ -58,7 +58,8 @@ public final class CrossbowDamage {
         var map=HITS.computeIfAbsent(event.getEntity(),unused->new HashMap<>());
         if(map.size()>=8&&!map.containsKey(key))map.clear();
         var r=map.computeIfAbsent(key,unused->new Receipt());
-        r.tick=event.getEntity().level().getGameTime(); r.arrows.add(arrow.getUUID());
+        r.tick=event.getEntity().level().getGameTime();
+        if(!r.arrows.add(arrow.getUUID()))return; // A repeated event for one arrow is not a second proc.
         var weapon=arrow.getWeaponItem();
         if(weapon!=null&&weapon.getItem() instanceof SerpentCrossbow crossbow&&crossbow.special){
             int mode=arrow.getPersistentData().getInt("GorynychImpactMode")-1;
