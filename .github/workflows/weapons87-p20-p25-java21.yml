@@ -19,7 +19,7 @@ jobs:
       - name: Install source-render dependencies
         run: python3 -m pip install --quiet pillow numpy
       - name: Verify production and render actual sources
-        run: python3 tools/weapons87_unique_art.py --check --render
+        run: python3 tools/weapons87_unique_art.py --check
       - name: Java21 clean NeoForge build
         run: |
           chmod +x gradlew
@@ -27,6 +27,7 @@ jobs:
       - name: Verify existing weapon gates, historical generators and production JAR
         run: |
           python3 tools/weapons87_unique_art.py --check --jar
+          python3 tools/weapons87_unique_art.py --render
           python3 tools/verify_weapons87.py --generators --jar
           sha256sum build/libs/slavicmyths-*.jar
       - name: Publish JAR and source projections
