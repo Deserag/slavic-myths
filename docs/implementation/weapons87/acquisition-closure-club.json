@@ -1,0 +1,48 @@
+{
+  "minecraft:oak_log": {
+    "recipes": [],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "minecraft:stick": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/blocks/apple_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/linden_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/pine_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/rowan_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/willow_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bathhouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_residential.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_remnants.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_supplies.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/fletcher_house.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/toolsmith_forge.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:club": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/club.json",
+        "type": "minecraft:crafting_shaped",
+        "ingredients": {
+          "L": {
+            "item": "minecraft:oak_log"
+          },
+          "S": {
+            "item": "minecraft:stick"
+          }
+        },
+        "pattern": [
+          "L",
+          "L",
+          "S"
+        ],
+        "count": 1
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

@@ -1,0 +1,12 @@
+allprojects { p ->
+ p.plugins.withId('java') {
+  p.sourceSets.create('heads140Offline') { java.srcDir('tools/heads140-offline') }
+  p.sourceSets.heads140Offline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+  p.sourceSets.heads140Offline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+  p.tasks.register('verifyHeads140Offline', JavaExec) {
+   dependsOn p.tasks.named('heads140OfflineClasses')
+   classpath = p.sourceSets.heads140Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.client.Heads140Offline'
+  }
+ }
+}

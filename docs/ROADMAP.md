@@ -1,3 +1,21 @@
+## #93: боевые механики Лиха · 21.10.2026
+
+По прямому поручению владельца после технической сдачи #140/#141 реализован candidate1.9.7.52: только Likho LivingEntity victims/защита целей, приоритет существующих навыков при окружении, phase/focus commitment, заражённые зоны Лиха и opt-in bounded trace. HP350/обычная, mor_health×2 (700 без иных модификаторов), атрибуты, NBT, dimensions, все модели/UV/PNG/эффекты/звуки/registry сохранены. Ветка зон Овинника оставлена дословно, Тугарин сохраняет прежний scheduler. Production policy/exposure145 checks и native HP/NBT1545 checks PASS; боевые runtime-сценарии NOT_RUN / OWNER_PENDING, запусков0. [Причины, файлы, матрица, проверки и сценарии](implementation/likho93/REPORT.md). Сборка/JAR/source manifest: [verification.json](implementation/likho93/verification.json); установку следует считать состоявшейся только при наличии [installed.json](implementation/likho93/installed.json). Issue OPEN, рекомендуемый Status Тестирование, поле Projects технически не изменено; owner-accepted не добавлялся. #142 не начата и требует отдельной приёмки #93/поручения. Source не commit/push.
+
+Тестовая **1.9.7.52 установлена** в PolyMC 1.21.1 Testing: SHA256 `1577b7abb0916323a8f0507d1a2d44a70a72108dcf732e0c9987a7b0b8a4bf38`; предыдущая1.9.7.51 в backup, дублей0, прочие моды неизменны. Точные пути/source: [installed.json](implementation/likho93/installed.json). Установка не означает runtime-приёмку.
+
+## #140/#141: тестовая 1.9.7.51 установлена · 21.10.2026
+
+Владелец подтвердил игровую приёмку декора #108. Реализованы шесть трофейных голов из настоящих ModelPart/UV и единое дерево `/slavicmyths dev generate <строение> [параметры]`; прежние обработчики и алиасы сохранены. Clean build, native-head offline, Brigadier offline, canonical resources и 7487 resource/JAR parity PASS. Тестовая 1.9.7.51 установлена в PolyMC 1.21.1 Testing, предыдущая 1.9.7.50 в backup, дублей нет; runtime Codex 0 / OWNER_PENDING. [Отчёт и матрицы](implementation/heads140-generation141/REPORT.md), [точная установка](implementation/heads140-generation141/installed.json), [команды](GENERATION_COMMANDS.md). Source base32d17334 + незакоммиченный snapshot, commit/push не выполнялись. Issues #140/#141 OPEN; рекомендуется Тестирование, поле Project технически не изменено. Следующее прямое поручение владельца — #93; #142 только после отдельной приёмки #93.
+
+## Установлена тестовая1.9.7.50 · 21.10.2026
+
+По прямому поручению владельца candidate #108 установлен в PolyMC Slavic-Myths-1.21.1-Testing;1.9.7.49 сохранена в backup, дубликатов нет, остальные моды неизменны. Source/SHA256/backup: [installed.json](implementation/decor108/installed.json). Запусков0 / IN_GAME_OWNER_PENDING, #108 OPEN. Эта запись заменяет прежний NOT_INSTALLED для1.9.7.50; новые изменения source не commit/push.
+
+## #108: исправления по игровой проверке · 21.10.2026
+
+Владелец принял древесину #106/#107 и разрешил закрытие; #107 закрыта; #106 закрытие откатила GitHub Actions (нужна owner-accepted от владельца). Замечание pine_log перенесено в #108. Исполняется обновлённая #108: двухблочный манекен, ящик27 слотов с постоянной BE, coplanar/UV fixes, адресный бытовой pixel art и аудит131 недревесных записей decor. Candidate1.9.7.50; runtime0 / OWNER_PENDING, #91/#108 OPEN. [Scope, реальные source A/B, матрица и сценарии](implementation/decor108/REPORT.md). В PolyMC остаётся предыдущая1.9.7.49; новый candidate не установлен. Новые source изменения не закоммичены.
+
 ## Тестовая установка 1.9.7.49 · 21.10.2026
 
 По прямому поручению владельца текущий source snapshot опубликован и установлен в PolyMC 1.21.1 Testing. Clean build / 7444 resource parity / backup / no duplicate JAR PASS. Runtime0, IN_PROGRESS / OWNER_PENDING; Issue OPEN. Это тестовая сборка незавершённой цепочки. [Точная установка, SHA256, source commit и проверки](implementation/delivery-19749/REPORT.md). Исторические POLYMC_NOT_INSTALLED ниже относятся к прежним пакетам.
@@ -2042,3 +2060,67 @@ Completed current request: correct Russian entity name and owned strings, faster
 Текущий утверждённый пакет реализован и установлен для ручной приёмки: автономный постоянный Баюн, честная личная прогрессия книги, все current registry entries/recipes, server advancement graph; прежние Яга/Кузя сохранены. Следующие milestones (богатыри, совместные quests/rewards и новые измерения) не реализовывались. Clean build/native/resource/audio/dedicated15tests + actual disk restart PASS.
 
 Оставшаяся приёмка по TEST_MATRIX: реальные русский GUI1366×768 scale2/3/4, анимации/прослушивание/контроллер, ordinary-world natural seed, relog/death/chest/keepInventory, два клиента, существующее поручение Яги и измеренный MSPT/FPS. Эти пункты НЕ приняты по static audit. Пользователь отказался от автоматического клиента; 19 servers/0clients. [Границы проверки](verification/bayun-book-final/TEST_RESULTS.md).
+
+
+## Аксессуары #148 / #149–156 — исполнительская сдача 21.10.2026
+
+Выполнены исходниковый аудит38 предметов, новая вкладка40 функциональных аксессуаров, пять согласованных изменений баланса,12 отдельных плоских GUI-редизайнов и6 новых украшений (pool_ring, bath_ward, harvest_ring, podvey_belt, leshy_necklace, spark_ring) с рецептами/слотами/серверными эффектами/сохранением CD. Новый общий модуль accessories использует events/Curios callbacks и существующий Persisted PathData; без глобального tick polling и новых слотов. GUI отделён от исходных held моделей; минимальные client body/head fit и visibility guards, исходная геометрия/UV сохранены. Матрица33 wearer IDs и source-backed A/B Steve/Alex/armor/source poses готовы.
+
+Java21 clean build, quarantine, shared-policy/native offline tests, scoped source/resource/JAR gates PASS. Установлен точный1.9.7.53 в PolyMC1.21.1-Testing с backup1.9.7.52, без дублей; остальные6 модов сохранены. Реальный UI/бой/движение/relog/MP — NOT_RUN / OWNER_PENDING, запусков0. Issues OPEN; recommended «Тестирование», поле Project не менялось, owner-accepted не добавлен, commit/push не делались. Подробная матрица, артефакты и installed path/SHA/source manifest: [отчёт](implementation/accessories-148/REPORT.md). Задачи Ада и исходники других механик не затронуты.
+
+## Исполнение оружия #87 — 21.10.2026
+
+Разрешена вся цепочка #115–121/#157–192: аудит → индивидуальные чертежи → детали/геометрия/хват → анимации → отдельные effects/VFX → генераторы → QA. Спорный баланс требует отдельного согласования; сохранять независимый прогресс. Статус IN_PROGRESS; приёмка только владельцем. См. implementation/weapons87/PROGRESS.md.
+
+### #87 пакет 1 — 21.10.2026
+
+Статические кистени и компоненты (#166/#167/#116/#181) реализованы, source A/B и native Steve/Alex projections подготовлены; Java21 clean build/resource/JAR/generator sandbox PASS. Пакет A прочности8 IDs согласован владельцем и реализован через штатное ModifyDefaultComponentsEvent. Остальные числа не изменены. Общая цепочка IN_PROGRESS, динамика отдельной #164; локальный промежуточный JAR не установлен. См. implementation/weapons87/PACKAGE-1.md и package1-receipt.json.
+
+### #87 адресные хваты и первые лица — 21.10.2026
+
+28 display-моделей откалиброваны по actual native ItemTransform/ModelPart, без изменения геометрии/UV/PNG; все68 IDs включены в source A/B. Player-only ScytheGrip согласует обычный и custom render, не меняя босс-риг и серверный бой. Исправлены отсутствующие кисти у парных клинков Тугарина и camera-space orbit косы70→35°. Java21 clean build/native gates PASS, финальная упаковка текущего промежуточного пакета проверяется; вся #87 IN_PROGRESS, PolyMC не менялся. Следом #164 и остальные независимые дети. См. implementation/weapons87/PROGRESS.md и PACKAGE-2.md.
+
+
+### #87 продолжение — пакет4,21.10.2026
+
+В рамках разрешённой #87 динамика кистеней #164 технически проверена; приёмка владельца остаётся. #168 source audit KEEP, финальная согласованность ждёт #171/#173. Продолжаются остальные43 подзадачи по зависимостям, не DONE.
+
+
+### #87 продолжение — пакет5,21.10.2026
+
+#171 технический art scope:5 FIX/4 KEEP, без изменения урона/reach. Приёмка владельца остаётся; следующие независимые оружейные #173/#169/#170/#172 ещё выполняются. #168 финальная согласованность не объявлена завершённой.
+
+
+### #87 продолжение — пакет6,21.10.2026
+
+#173 техническая flying orientation исправлена отдельно от урона/физики. #169/#172 art KEEP ждут owner; #170 ещё IN_PROGRESS из-за silver_mace. Timing #162/#163 и другие дети87 не объявляются выполненными.
+
+
+### #87 продолжение — пакет7,21.10.2026
+
+#170 art scope технически проверен:8 KEEP+silver_mace FIX без изменения боевых чисел. #168 source audit деталей покрывает29 реальных компонентов вместе с #166/#167; приёмка владельца ожидается. Дальнейшая оружейная программа87 продолжается, не DONE.
+
+
+### #87 продолжение — пакет8,21.10.2026
+
+#174 ordinary polearm art технически реализован4 KEEP+storm FIX. ЧислаB и получениеVelesD не согласованы и не применены. Приёмки владельца нет; uniques175–189 и остальные обязательные дети87 ещё выполняются.
+
+### #87 продолжение — пакет9,22.10.2026
+
+#182 GUI пары Тугарина исправлена без изменения принятого PNG и held. Pre-production blueprint и actual source/build/JAR/generator gates PASS; OWNER_PENDING. #163 продолжается отдельным пакетом синхронизации FP натяжения луков. Программа87 не завершена, числовые B/C/D не применены.
+
+### #87 продолжение — пакет10,22.10.2026
+
+Bow timing subset163 технически исправлен отдельно от art/balance. Полная ranged Issue163 не сдана: остаётся crossbow timing/feedback аудит и owner-only runtime. Следующая независимая работа — статическая плеть180 и затем отдельная динамика190.
+
+### #87 продолжение — пакет11,22.10.2026
+
+Статическая180 технически реализована и ожидает owner runtime;190 не подменяется пятью статичными формами. Согласован только новый балансB, дальностьC/получениеD остаются без изменений до ответа. Программа87 IN_PROGRESS.
+
+### #87 продолжение — пакет12,22.10.2026
+
+Согласованный владельцемB применён и технически проверен. Не подменяет полный баланс68 или всю158/159. C/D и серверный windup190 без ответа не меняются; независимые арт-задачи продолжаются. #87 IN_PROGRESS.
+
+### #87 продолжение — пакет13,22.10.2026
+
+#178 GUI source-дефект исправлен без переделки принятой формы/Лиха93. Остальные uniques проходят адресный KEEP-аудит с source-планами; динамика/эффекты и полный balance scope не подменяются art-пакетами. #87 IN_PROGRESS, owner runtime pending.

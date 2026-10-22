@@ -1,0 +1,25 @@
+{
+  "issue": 173,
+  "state": "BEFORE_PRODUCTION",
+  "ids": [
+    "stone_throwing_knife",
+    "gold_throwing_knife",
+    "iron_throwing_knife",
+    "silver_throwing_knife",
+    "diamond_throwing_knife",
+    "perunite_throwing_knife",
+    "netherite_throwing_knife",
+    "stone_sulitsa",
+    "gold_sulitsa",
+    "iron_sulitsa",
+    "silver_sulitsa",
+    "diamond_sulitsa",
+    "perunite_sulitsa",
+    "netherite_sulitsa"
+  ],
+  "art": "KEEP source sprite/held forms pending per-ID source review; two archetypes: broad short knife vs long wood-shafted light javelin",
+  "defect": "FIXED inherits generated Y180; existing flight Z(pitch-45) assumes unflipped upper-right tip vector. Native direction becomes perpendicular to flight.",
+  "proposal": "Use NONE only for flying ItemRenderer; preserve GUI/hand/item-frame transforms. Keep scale0.65 knife/1.25 sulitsa. Extract exact flightPose function and verify native fixed/NONE axis before/after for all14 and several yaw/pitch.",
+  "server": "WeaponProjectile and ThrowingWeaponItem bytes preserved; no change hitboxes, loss chance, cooldown, damage, loyalty, save data",
+  "evidence": "Per-material actual sprite/UV archetype blueprint before source change, then native flight matrices plus source before/after; runtime OWNER_PENDING"
+}

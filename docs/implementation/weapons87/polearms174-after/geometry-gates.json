@@ -1,0 +1,25 @@
+{
+  "old_storm_carved_same_shape": true,
+  "new_storm_distinct_shape": true,
+  "new_connected_components": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  ],
+  "hand_displays_unchanged": true,
+  "after_idle_head_candidates": 0,
+  "runtime": "NOT_RUN / OWNER_PENDING"
+}

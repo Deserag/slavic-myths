@@ -1,0 +1,206 @@
+[
+  {
+    "id": "stone_flail",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\stone_flail.json",
+    "after_model_sha256": "4328fabac17d4a171db785f08e6a0f86bb98a9a68776e28d491dd7305c7baf22",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\stone_flail-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gold_flail.json",
+    "after_model_sha256": "d6a6a3d6b1f54554311b2a234936f526120b4fa2e86a3034f341697fc69dced9",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\gold_flail-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\flail.json",
+    "after_model_sha256": "e9ef36a467128c34b668eb832df933911f238c7f24d15a8ea84228a684ee156e",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\flail-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_flail.json",
+    "after_model_sha256": "1f3a71f200d23b173834f5e6779715bcb984ee827e1acf917a6386b3be05c1ef",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\silver_flail-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\diamond_flail.json",
+    "after_model_sha256": "be24e8aa4d03865a4b1d057e0eaf1b75612715738201899c17a8f7553c9de35c",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\diamond_flail-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_flail.json",
+    "after_model_sha256": "0b96429d9cc20053726b14c642def2b022603dafe0fec57e4d4eaa1b48e2916b",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\perunite_flail-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\netherite_flail.json",
+    "after_model_sha256": "b09f85a081c775223f008748deae9904493382cdeccc272e0fdf0ee642f631ed",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\netherite_flail-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ataman_flail.json",
+    "after_model_sha256": "473c388c56ec0dff8c37b0c5a71821718073983e29643f5a3f3c959f5882bce3",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\ataman_flail-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail_ball",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\stone_flail_ball.json",
+    "after_model_sha256": "2db69ea7c3c3105f928109903f6c5cb67b9fb9ddbc59ae4106dc06a94ec6664e",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\stone_flail_ball-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail_ball",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gold_flail_ball.json",
+    "after_model_sha256": "9b95ab03e3e0809d42c1ed2fe478fec315131d3219e95c344ca239eeff4b99a7",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\gold_flail_ball-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_flail_ball",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\iron_flail_ball.json",
+    "after_model_sha256": "419419c5efdc49c43713b3c5df12486133a06adbfe217aa82e4e34a7992aad77",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\iron_flail_ball-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail_ball",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_flail_ball.json",
+    "after_model_sha256": "77302677a8d2a631d1dab9554cf30e5aaafe18574a0dd522d9c0951c0fc5155b",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\silver_flail_ball-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail_ball",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\diamond_flail_ball.json",
+    "after_model_sha256": "bebd02bf5315d1c0d534b001098fdcf541ed6c9806044c8fcaa85df5f334d97a",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\diamond_flail_ball-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail_ball",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_flail_ball.json",
+    "after_model_sha256": "c4460888302a6fd8470d2f78e0a921a006703148b87d8e673f2943877fb198a8",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\perunite_flail_ball-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail_ball",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\netherite_flail_ball.json",
+    "after_model_sha256": "cd28ec08cbb1d436f0b164f993bb630f96c9577173adafe3976770c350a042a2",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\netherite_flail_ball-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail_handle",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\flail_handle.json",
+    "after_model_sha256": "db2a4fbecfae333717b64ebe06c394f17d87c18ff7309c16176ad80c29441611",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\flail_handle-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail_chain",
+    "before_archives": [
+      "before-source.zip",
+      "before-flail-parts.zip"
+    ],
+    "after_model": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\flail_chain.json",
+    "after_model_sha256": "ea58c103b1fad594e24de5e53a25110159a91bb403d98f587b11b903fc1d18ae",
+    "comparison": "docs\\implementation\\weapons87\\flails-after\\flail_chain-before-after.png",
+    "camera": "orthographic span40; fixed 280px; GUI16px; no auto-fit",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  }
+]

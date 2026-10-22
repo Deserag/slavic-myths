@@ -1,0 +1,113 @@
+{
+  "id": "wooden_mace",
+  "grip": [
+    8,
+    4,
+    8
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        20,
+        135,
+        -15
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        0,
+        -8
+      ],
+      "translation": [
+        0.50102316,
+        3.56496505,
+        0.0
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        0,
+        8
+      ],
+      "translation": [
+        -0.50102316,
+        3.56496505,
+        0.0
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  "reason": "KEEP existing angle and scale; FIX grip offset only",
+  "source_model": "src/main/resources/assets/slavicmyths/models/item/wooden_mace.json",
+  "before_sha256": "bcdef9d3d81038b77461228828659857b60e5aa97c706aafe31d7b76d83d2daf",
+  "design_state": "PROPOSAL_BEFORE_PRODUCTION, not owner runtime accepted"
+}

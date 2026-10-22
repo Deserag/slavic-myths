@@ -1,0 +1,50 @@
+[
+  {
+    "id": "iron_rings",
+    "source_context": "actual GUI",
+    "role": "comparison only; no extra parts/IDs",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "bone_arrow",
+    "source_context": "actual GUI",
+    "role": "comparison only; no extra parts/IDs",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_spearhead",
+    "source_context": "actual GUI",
+    "role": "comparison only; no extra parts/IDs",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_light_spearhead",
+    "source_context": "actual GUI",
+    "role": "comparison only; no extra parts/IDs",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_spear",
+    "source_context": "actual GUI",
+    "role": "comparison only; no extra parts/IDs",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_sulitsa",
+    "source_context": "actual GUI",
+    "role": "comparison only; no extra parts/IDs",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "source_context": "actual GUI",
+    "role": "comparison only; no extra parts/IDs",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail_chain",
+    "source_context": "actual GUI",
+    "role": "comparison only; no extra parts/IDs",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "gold_spear",
+    "decision": "FIX_HELD_KEEP_GUI",
+    "grip": [
+      8,
+      6,
+      8
+    ],
+    "shaft_length": 40,
+    "player_height": 32,
+    "tp_scale": 0.7,
+    "source_model": "src/main/resources/assets/slavicmyths/models/item/gold_spear.json",
+    "proposed_held_sha256": "0441036ffdbd316d713ea60b74c916080a97bcec8c47bd6af9c0b3f41060055e",
+    "reason": "Replace short flat material spear with consistent40-unit socketed 3D spear; retain GUI and tier."
+  },
+  {
+    "id": "iron_spear",
+    "decision": "FIX_HELD_KEEP_GUI",
+    "grip": [
+      8,
+      6,
+      8
+    ],
+    "shaft_length": 40,
+    "player_height": 32,
+    "tp_scale": 0.7,
+    "source_model": "src/main/resources/assets/slavicmyths/models/item/iron_spear.json",
+    "proposed_held_sha256": "1f2675f46913195277e9ab908f68aa411a5016cc653e0db2a373912fb26f12ee",
+    "reason": "Replace short flat material spear with consistent40-unit socketed 3D spear; retain GUI and tier."
+  },
+  {
+    "id": "diamond_spear",
+    "decision": "FIX_HELD_KEEP_GUI",
+    "grip": [
+      8,
+      6,
+      8
+    ],
+    "shaft_length": 40,
+    "player_height": 32,
+    "tp_scale": 0.7,
+    "source_model": "src/main/resources/assets/slavicmyths/models/item/diamond_spear.json",
+    "proposed_held_sha256": "05a65e7ec02916599959b22ec6ade4d38456952676ee68296f7d100fa4509da5",
+    "reason": "Replace short flat material spear with consistent40-unit socketed 3D spear; retain GUI and tier."
+  },
+  {
+    "id": "perunite_spear",
+    "decision": "FIX_HELD_KEEP_GUI",
+    "grip": [
+      8,
+      6,
+      8
+    ],
+    "shaft_length": 40,
+    "player_height": 32,
+    "tp_scale": 0.7,
+    "source_model": "src/main/resources/assets/slavicmyths/models/item/perunite_spear.json",
+    "proposed_held_sha256": "7eb11ed7791e9d3ce45ef82de55ede5a058ddaed2423e65523dd1d2bc38fb2d0",
+    "reason": "Replace short flat material spear with consistent40-unit socketed 3D spear; retain GUI and tier."
+  },
+  {
+    "id": "netherite_spear",
+    "decision": "FIX_HELD_KEEP_GUI",
+    "grip": [
+      8,
+      6,
+      8
+    ],
+    "shaft_length": 40,
+    "player_height": 32,
+    "tp_scale": 0.7,
+    "source_model": "src/main/resources/assets/slavicmyths/models/item/netherite_spear.json",
+    "proposed_held_sha256": "4da18eb3f5b841efa025a0390a698ffd2df9f7fa83d246c8a37a49c50a9c009e",
+    "reason": "Replace short flat material spear with consistent40-unit socketed 3D spear; retain GUI and tier."
+  }
+]

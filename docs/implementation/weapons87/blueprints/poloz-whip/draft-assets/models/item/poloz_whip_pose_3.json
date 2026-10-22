@@ -1,0 +1,21 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "gui_light": "front",
+  "textures": {
+    "particle": "slavicmyths:item/poloz_whip_segments"
+  },
+  "base": {
+    "parent": "slavicmyths:item/poloz_whip_held87_3"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/poloz_whip_icon87"
+    },
+    "ground": {
+      "parent": "slavicmyths:item/poloz_whip_held87_0"
+    },
+    "fixed": {
+      "parent": "slavicmyths:item/poloz_whip_held87_0"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "id": "likho_staff",
+  "grip": [
+    8,
+    11,
+    8
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        -30
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "fixed": {
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        7,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        1.11469333,
+        -2.93102273,
+        -1.75403935
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        55,
+        0,
+        0
+      ],
+      "translation": [
+        0.0,
+        -1.20451052,
+        -1.72021929
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        1.11469333,
+        -2.93102273,
+        -2.24596065
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        55,
+        180,
+        0
+      ],
+      "translation": [
+        -0.0,
+        -1.20451052,
+        -1.72021929
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  "reason": "center authored shaft/grip, constrain player proportions, keep existing geometry/UV",
+  "source_model": "src/main/resources/assets/slavicmyths/models/item/likho_staff.json",
+  "before_sha256": "f963975594ce14cf0a256eabdb56983a653bce4e8c63e74e8c3cf22b568dd6c4",
+  "design_state": "PROPOSAL_BEFORE_PRODUCTION, not owner runtime accepted"
+}

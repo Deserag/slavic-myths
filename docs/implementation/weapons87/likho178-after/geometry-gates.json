@@ -1,0 +1,14 @@
+{
+  "shape_uv_textures_keep": true,
+  "non_gui_transforms_keep": true,
+  "gui_clipping_before_after": [
+    true,
+    false
+  ],
+  "eye_pixels_before_after": [
+    0,
+    1
+  ],
+  "after_idle_head_candidates": 0,
+  "runtime": "NOT_RUN / OWNER_PENDING"
+}

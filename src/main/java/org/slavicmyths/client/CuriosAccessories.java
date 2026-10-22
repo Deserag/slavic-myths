@@ -21,6 +21,8 @@ public final class CuriosAccessories implements ICurioRenderer {
     @SubscribeEvent public static void setup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             CuriosRendererRegistry.register(org.slavicmyths.finist.FinistItems.QUIVER.get(), FinistQuiverRenderer::new);
+            CuriosRendererRegistry.register(org.slavicmyths.accessories.Accessories.ITEMS.get("podvey_belt").get(), () -> new NewAccessoryRenderer(true));
+            CuriosRendererRegistry.register(org.slavicmyths.accessories.Accessories.ITEMS.get("leshy_necklace").get(), () -> new NewAccessoryRenderer(false));
             CuriosRendererRegistry.register(ModItems.POYAS_TUGARINA.get(), CuriosAccessories::new);
             CuriosRendererRegistry.register(ModItems.ODNOGLAZYY_OBEREG.get(), CuriosAccessories::new);
             CuriosRendererRegistry.register(ModItems.OBEREG_PADAYUSCHEY_ZVEZDY.get(), CuriosAccessories::new);
@@ -31,6 +33,7 @@ public final class CuriosAccessories implements ICurioRenderer {
     @Override public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack stack, SlotContext context,
             PoseStack pose, RenderLayerParent<T,M> parent, MultiBufferSource buffer, int light,
             float limbSwing, float limbAmount, float partial, float age, float yaw, float pitch) {
+        if (context.entity().isInvisible()) return;
         if (stack.is(ModItems.POYAS_TUGARINA.get()) || stack.is(ModItems.ODNOGLAZYY_OBEREG.get()))
             BossAccessoryRenderer.render(stack, context.entity(), pose, buffer, light);
         else HuntAccessoryRenderer.render(stack, context.entity(), pose, buffer, light);

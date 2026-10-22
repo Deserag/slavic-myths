@@ -110,3 +110,7 @@ def main():
  from unique_armor_resources import apply as unique_equipment_assets
  unique_equipment_assets()
 if __name__=='__main__':main()
+
+# Preserve owner-reported decor fixes after this historical pipeline.
+from decor108_assets import apply as apply_decor108
+apply_decor108()

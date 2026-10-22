@@ -1,0 +1,12 @@
+allprojects { p ->
+ p.plugins.withId('java') {
+  p.sourceSets.create('accessories148Offline') { java.srcDirs('tools/accessories148-offline','tools/armor88-full-offline') }
+  p.sourceSets.accessories148Offline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+  p.sourceSets.accessories148Offline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+  p.tasks.register('verifyAccessories148Offline', JavaExec) {
+   dependsOn p.tasks.named('accessories148OfflineClasses')
+   classpath = p.sourceSets.accessories148Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.client.Accessories148Offline'
+  }
+ }
+}

@@ -1,0 +1,234 @@
+[
+  {
+    "id": "stone_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.2,
+      22.6,
+      3.6000000000000005
+    ],
+    "draft_sha256": "96d6e2c480a03f9907ebf24e0ef9f999fe9b4e5744d9877dfe82618e071b1652",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted"
+  },
+  {
+    "id": "gold_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.3,
+      22.7,
+      3.0
+    ],
+    "draft_sha256": "a1726b3a7bfec4d1e68e42f2f9da3b1e88871e96ce481e9d619d894bf599cd0d",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted"
+  },
+  {
+    "id": "flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.45,
+      22.4,
+      4.5
+    ],
+    "draft_sha256": "364a63a6274d50d825052b6d88c3833d685ac5937b9312478877691049d64528",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted"
+  },
+  {
+    "id": "silver_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.7,
+      22.8,
+      5.0
+    ],
+    "draft_sha256": "571eaa9047e97999d9a0056235e4eb3285b1af9b97ef1d43a93e1aeab24ca7dc",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted"
+  },
+  {
+    "id": "diamond_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.500000000000001,
+      22.8,
+      4.6000000000000005
+    ],
+    "draft_sha256": "5f153d0eb8d3ac6a5d6630e3126824ac4e49037f9c52cde9f2cba2f61dfad4fc",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted"
+  },
+  {
+    "id": "perunite_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      8.0,
+      23.0,
+      5.6000000000000005
+    ],
+    "draft_sha256": "a60649cca886addcf787a058bd860dce70db4b4077c14751d0f129fd01d6599c",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted"
+  },
+  {
+    "id": "netherite_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.8,
+      23.1,
+      5.199999999999999
+    ],
+    "draft_sha256": "5b8d9a52f7b1dd60236f2f31cd8616a025e61be341d8ef7c38f6f05cf65d27e7",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted"
+  },
+  {
+    "id": "ataman_flail",
+    "issue": 181,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      8.399999999999999,
+      23.3,
+      6.3999999999999995
+    ],
+    "draft_sha256": "92ddaf928e95a8a8c89b6c0bfdd5c577f11ab88f5b24920b3998638c764d2a01",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted"
+  }
+]

@@ -1,0 +1,133 @@
+{
+  "id": "thunder_axe",
+  "grip": [
+    8,
+    4.5,
+    8
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        0.0,
+        2.975,
+        0.0
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "translation": [
+        -0.0,
+        2.975,
+        0.0
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        -15,
+        -40
+      ],
+      "translation": [
+        -2.967692307692308,
+        -3.535384615384616,
+        0
+      ],
+      "scale": [
+        0.7692307692307693,
+        0.7692307692307693,
+        0.7692307692307693
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        90
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        0,
+        -40
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.576923076923077,
+        0.576923076923077,
+        0.576923076923077
+      ]
+    }
+  },
+  "reason": "KEEP existing angle and scale; FIX grip offset only",
+  "source_model": "src/main/resources/assets/slavicmyths/models/item/thunder_axe.json",
+  "before_sha256": "eaac9a55aedcd8cf30bb4c98516a156f3f277141ccfcc04f662c2d42503466f9",
+  "design_state": "PROPOSAL_BEFORE_PRODUCTION, not owner runtime accepted"
+}

@@ -1,3 +1,21 @@
+## #93: боевые механики Лиха · 21.10.2026
+
+По прямому поручению владельца после технической сдачи #140/#141 реализован candidate1.9.7.52: только Likho LivingEntity victims/защита целей, приоритет существующих навыков при окружении, phase/focus commitment, заражённые зоны Лиха и opt-in bounded trace. HP350/обычная, mor_health×2 (700 без иных модификаторов), атрибуты, NBT, dimensions, все модели/UV/PNG/эффекты/звуки/registry сохранены. Ветка зон Овинника оставлена дословно, Тугарин сохраняет прежний scheduler. Production policy/exposure145 checks и native HP/NBT1545 checks PASS; боевые runtime-сценарии NOT_RUN / OWNER_PENDING, запусков0. [Причины, файлы, матрица, проверки и сценарии](implementation/likho93/REPORT.md). Сборка/JAR/source manifest: [verification.json](implementation/likho93/verification.json); установку следует считать состоявшейся только при наличии [installed.json](implementation/likho93/installed.json). Issue OPEN, рекомендуемый Status Тестирование, поле Projects технически не изменено; owner-accepted не добавлялся. #142 не начата и требует отдельной приёмки #93/поручения. Source не commit/push.
+
+Тестовая **1.9.7.52 установлена** в PolyMC 1.21.1 Testing: SHA256 `1577b7abb0916323a8f0507d1a2d44a70a72108dcf732e0c9987a7b0b8a4bf38`; предыдущая1.9.7.51 в backup, дублей0, прочие моды неизменны. Точные пути/source: [installed.json](implementation/likho93/installed.json). Установка не означает runtime-приёмку.
+
+## #140/#141: тестовая 1.9.7.51 установлена · 21.10.2026
+
+Владелец подтвердил игровую приёмку декора #108. Реализованы шесть трофейных голов из настоящих ModelPart/UV и единое дерево `/slavicmyths dev generate <строение> [параметры]`; прежние обработчики и алиасы сохранены. Clean build, native-head offline, Brigadier offline, canonical resources и 7487 resource/JAR parity PASS. Тестовая 1.9.7.51 установлена в PolyMC 1.21.1 Testing, предыдущая 1.9.7.50 в backup, дублей нет; runtime Codex 0 / OWNER_PENDING. [Отчёт и матрицы](implementation/heads140-generation141/REPORT.md), [точная установка](implementation/heads140-generation141/installed.json), [команды](GENERATION_COMMANDS.md). Source base32d17334 + незакоммиченный snapshot, commit/push не выполнялись. Issues #140/#141 OPEN; рекомендуется Тестирование, поле Project технически не изменено. Следующее прямое поручение владельца — #93; #142 только после отдельной приёмки #93.
+
+## Установлена тестовая1.9.7.50 · 21.10.2026
+
+По прямому поручению владельца candidate #108 установлен в PolyMC Slavic-Myths-1.21.1-Testing;1.9.7.49 сохранена в backup, дубликатов нет, остальные моды неизменны. Source/SHA256/backup: [installed.json](implementation/decor108/installed.json). Запусков0 / IN_GAME_OWNER_PENDING, #108 OPEN. Эта запись заменяет прежний NOT_INSTALLED для1.9.7.50; новые изменения source не commit/push.
+
+## #108: исправления по игровой проверке · 21.10.2026
+
+Владелец принял древесину #106/#107 и разрешил закрытие; #107 закрыта; #106 закрытие откатила GitHub Actions (нужна owner-accepted от владельца). Замечание pine_log перенесено в #108. Исполняется обновлённая #108: двухблочный манекен, ящик27 слотов с постоянной BE, coplanar/UV fixes, адресный бытовой pixel art и аудит131 недревесных записей decor. Candidate1.9.7.50; runtime0 / OWNER_PENDING, #91/#108 OPEN. [Scope, реальные source A/B, матрица и сценарии](implementation/decor108/REPORT.md). В PolyMC остаётся предыдущая1.9.7.49; новый candidate не установлен. Новые source изменения не закоммичены.
+
 ## Тестовая установка 1.9.7.49 · 21.10.2026
 
 По прямому поручению владельца текущий source snapshot опубликован и установлен в PolyMC 1.21.1 Testing. Clean build / 7444 resource parity / backup / no duplicate JAR PASS. Runtime0, IN_PROGRESS / OWNER_PENDING; Issue OPEN. Это тестовая сборка незавершённой цепочки. [Точная установка, SHA256, source commit и проверки](implementation/delivery-19749/REPORT.md). Исторические POLYMC_NOT_INSTALLED ниже относятся к прежним пакетам.
@@ -2616,3 +2634,67 @@ Validation: Java21 clean build PASS (1m17s), final resource rebuild PASS (1m18s)
 Final validation: Java21 clean build PASS1m18s; voice gates6988 PASS, existing audio gates7733 PASS. JAR SHA256 6a1432c6ca7da5166a9142bec111299143f7860837df3866e8f8eefbbf1bdafa. Runtime0; NO_COMMIT; PolyMC unchanged.
 
 Batch validation: Java21 clean build PASS1m49s; scoped batch248 checks PASS, voice/resource/JAR7019 PASS, existing audio7733 PASS. JAR SHA256 1dd5273b80cc7a9ee6956a4bcf225f4d7923010915afd5ab2d046355ff13f121. 17 new recorded files /18 changed events; no runtime/PolyMC installation/commit.
+
+
+## Аксессуары #148 / #149–156 — исполнительская сдача 21.10.2026
+
+Выполнены исходниковый аудит38 предметов, новая вкладка40 функциональных аксессуаров, пять согласованных изменений баланса,12 отдельных плоских GUI-редизайнов и6 новых украшений (pool_ring, bath_ward, harvest_ring, podvey_belt, leshy_necklace, spark_ring) с рецептами/слотами/серверными эффектами/сохранением CD. Новый общий модуль accessories использует events/Curios callbacks и существующий Persisted PathData; без глобального tick polling и новых слотов. GUI отделён от исходных held моделей; минимальные client body/head fit и visibility guards, исходная геометрия/UV сохранены. Матрица33 wearer IDs и source-backed A/B Steve/Alex/armor/source poses готовы.
+
+Java21 clean build, quarantine, shared-policy/native offline tests, scoped source/resource/JAR gates PASS. Установлен точный1.9.7.53 в PolyMC1.21.1-Testing с backup1.9.7.52, без дублей; остальные6 модов сохранены. Реальный UI/бой/движение/relog/MP — NOT_RUN / OWNER_PENDING, запусков0. Issues OPEN; recommended «Тестирование», поле Project не менялось, owner-accepted не добавлен, commit/push не делались. Подробная матрица, артефакты и installed path/SHA/source manifest: [отчёт](implementation/accessories-148/REPORT.md). Задачи Ада и исходники других механик не затронуты.
+
+## Оружейная программа #87 — начало 21.10.2026
+
+По прямому поручению владельца начат #157 (68 IDs), далее #192 и зависимые пакеты. Текущее состояние IN_PROGRESS, документация: implementation/weapons87/PROGRESS.md. Baseline clean build Java21 и offline attributes PASS, source previews не являются runtime. Оружейных production-изменений на этапе аудита нет; PolyMC не меняется.
+
+### #87 пакет 1 — 21.10.2026
+
+Статические кистени и компоненты (#166/#167/#116/#181) реализованы, source A/B и native Steve/Alex projections подготовлены; Java21 clean build/resource/JAR/generator sandbox PASS. Пакет A прочности8 IDs согласован владельцем и реализован через штатное ModifyDefaultComponentsEvent. Остальные числа не изменены. Общая цепочка IN_PROGRESS, динамика отдельной #164; локальный промежуточный JAR не установлен. См. implementation/weapons87/PACKAGE-1.md и package1-receipt.json.
+
+### #87 адресные хваты и первые лица — 21.10.2026
+
+28 display-моделей откалиброваны по actual native ItemTransform/ModelPart, без изменения геометрии/UV/PNG; все68 IDs включены в source A/B. Player-only ScytheGrip согласует обычный и custom render, не меняя босс-риг и серверный бой. Исправлены отсутствующие кисти у парных клинков Тугарина и camera-space orbit косы70→35°. Java21 clean build/native gates PASS, финальная упаковка текущего промежуточного пакета проверяется; вся #87 IN_PROGRESS, PolyMC не менялся. Следом #164 и остальные независимые дети. См. implementation/weapons87/PROGRESS.md и PACKAGE-2.md.
+
+
+### #87 продолжение — пакет4,21.10.2026
+
+Оружейная #87: пакет4 #164 (динамика8 кистеней) реализован технически; clean build/resource/JAR/generators PASS,15120 offline численных поз и24 actual source sheets. Runtime OWNER_PENDING; PolyMC не менялся. Следом #171. См. implementation/weapons87/PACKAGE-4.md.
+
+
+### #87 продолжение — пакет5,21.10.2026
+
+Оружейный пакет5 #171:5 объёмных материальных копий приведены к40-unit семейству,4 ранее удачных модели и все PNG сохранены. Java21 clean build/native/resource/JAR/generator gates PASS, gameplay OWNER_PENDING. #87 IN_PROGRESS; см. implementation/weapons87/PACKAGE-5.md.
+
+
+### #87 продолжение — пакет6,21.10.2026
+
+Оружейный пакет6 #173:14 ножей/сулиц больше не получают frame Y180 в flying renderer; actual native direction/source/JAR gates PASS, runtime OWNER_PENDING. Семейный source review обнаружил silver_mace material/head FIX; остальные17 обычных art сохранены KEEP с обоснованиями. #87 IN_PROGRESS, см. implementation/weapons87/PACKAGE-6.md.
+
+
+### #87 продолжение — пакет7,21.10.2026
+
+Оружейный пакет7 #170: серебряная булава получила связную гранёную металлическую головку и читаемый front GUI, прежние TP/FP сохранены. Исполнительские source/build/resource/JAR gates PASS; owner runtime NOT_RUN. #168 audit source-consistency завершена технически. #87 IN_PROGRESS, следующий #174. См. implementation/weapons87/PACKAGE-7.md.
+
+
+### #87 продолжение — пакет8,21.10.2026
+
+Оружейный пакет8 #174: грозовой посох теперь отличается металлической оправой/синим фокусом от деревянного резного. Остальные4 предмета и общие PNG сохранены. Source/native/build/resource/JAR gates PASS, owner runtime NOT_RUN; см. implementation/weapons87/PACKAGE-8.md. #87 продолжается на uniques.
+
+### #87 продолжение — пакет9,22.10.2026
+
+#182: исправлена сжатая парная GUI-модель Тугарина; PNG32px/held/рендерер/бой сохранены. Индивидуальный source-чертёж до production, actual A/B,18 native FP samples; Java21 clean build/resources/JAR/generator replay PASS. См. implementation/weapons87/PACKAGE-9.md. Runtime NOT_RUN / OWNER_PENDING, PolyMC не установлен. #87 IN_PROGRESS, далее отдельный ranged animation пакет #163.
+
+### #87 продолжение — пакет10,22.10.2026
+
+Добавлен BowDrawClient: vanilla FP BOW pose использует существующие сроки12/30 вместо20 только для short/heavy/Finist при активном use соответствующей физической рукой. Server/art/ammo неизменны.606 actual item power comparisons,120 независимых vanilla matrices,240 native transforms и72 source views; Java21 clean build/resource/JAR/generators PASS. См. implementation/weapons87/PACKAGE-10.md. Вся #163 остаётся IN_PROGRESS: crossbow charge/shot/reload/burst/fan/modes ещё требуют работы; owner runtime NOT_RUN. #87 не завершена, PolyMC не установлен.
+
+### #87 продолжение — пакет11,22.10.2026
+
+#180 статическая плеть:12 JSON, непрерывная сужающаяся тёмная рабочая часть, стабильный16px GUI, отдельный outward left grip.0 PNG/server/predicate code edits.40 native transforms/20 pivots,100 source cases,default idle head candidates0; Java21 clean build/resource/JAR/scoped generators PASS. См. implementation/weapons87/PACKAGE-11.md. Issue OPEN, owner runtime NOT_RUN; динамика190 отдельно. ПакетB баланса согласован владельцем, реализация следующим отдельным пакетом. C/D/190 decision ожидаются.
+
+### #87 продолжение — пакет12,22.10.2026
+
+Явно согласованныйB реализован отдельно: perunite_mace speed.8 при damage9.5;storm_staff magic6/CD60-54 с прежними multipliers/targeting. Exact4 production files,4 RU/EN tooltip values,68 native fields scoped gate,actual damage/CD helpers,Java21 clean build/resource/JAR/generator replay7739 PASS. См. implementation/weapons87/PACKAGE-12.md. Whole158/159/87 IN_PROGRESS, owner runtime NOT_RUN, PolyMC не установлен. C/D/190 decision ещё ожидаются.
+
+### #87 продолжение — пакет13,22.10.2026
+
+#178: принятую5-cube геометрию/UV/shared PNG/хват посоха Лихо сохранили, GUI центрирован и развёрнут существующим глазом; верх перестал выходить за16px canvas,eye-colored pixels0→1.20 native source cases,idle head candidates0,Java21 clean build/resources/JAR/generators7779 PASS. См. implementation/weapons87/PACKAGE-13.md. Owner runtime pending, Issue OPEN,87 IN_PROGRESS,PolyMC не установлен. C/D/190 по-прежнему ожидаются.

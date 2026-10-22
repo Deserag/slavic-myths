@@ -1,0 +1,22 @@
+{
+  "checks_passed": 5364,
+  "scope_changed": [
+    "src/main/resources/assets/slavicmyths/creative_catalog.tsv",
+    "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java",
+    "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java",
+    "src/main/java/org/slavicmyths/registry/CreativeCatalog.java",
+    "src/main/java/org/slavicmyths/registry/ModItemGroup.java",
+    "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+    "tools/create_resources.py",
+    "tools/creative_tab_names.py"
+  ],
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.52.jar",
+  "jar_sha256": "eaf4b2d51d5a676fd4c54164c30825f2d8b9a29c8d8095949f8f58f6c2add989",
+  "source_commit": "32d1733457e7e90360ce16c23860304ece664c64",
+  "working_tree": "uncommitted; baseline.json + current-sources.json",
+  "runtime_launches": 0,
+  "runtime": "NOT_RUN / OWNER_PENDING",
+  "polymc": "POLYMC_NOT_INSTALLED"
+}

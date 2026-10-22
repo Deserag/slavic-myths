@@ -96,3 +96,18 @@ world_boss_models_092_generate()
 
 # Scoped 0.9.3 assets run after historical layers.
 import yaga_093
+
+# Preserve owner-reported decor fixes after this historical pipeline.
+from decor108_assets import apply as apply_decor108
+apply_decor108()
+
+# Six actual mob-head trophies, after all historical resource overlays.
+from trophy140_resources import apply as apply_trophy140
+apply_trophy140()
+
+# Approved accessory presentation and balance tooltips after historical overlays.
+from accessories148_resources import apply as apply_accessories148
+apply_accessories148()
+
+from accessories148_art import apply as apply_accessories148_art
+apply_accessories148_art()

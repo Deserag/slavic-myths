@@ -1,0 +1,157 @@
+{
+  "magic_charms": [
+    "amber_charm",
+    "forest_charm",
+    "hunter_charm",
+    "traveler_charm",
+    "perun_charm",
+    "warding_charm",
+    "retribution_charm",
+    "obereg_ohotnika",
+    "zolny_obereg",
+    "obereg_padayuschey_zvezdy",
+    "grave_ward",
+    "lunula",
+    "grivna",
+    "perun_ring",
+    "resin_ring",
+    "veles_amulet",
+    "volkhv_amulet",
+    "prospectors_ring",
+    "stone_path_amulet",
+    "depth_amulet",
+    "ring_of_grey_pack",
+    "gift_dobrynya_ring",
+    "gift_finist_amulet",
+    "trophy_skim_necklace",
+    "fading_flame_charm",
+    "odnoglazyy_obereg",
+    "black_wing_amulet",
+    "frost_mirror",
+    "mor_ward",
+    "amulet_two_winters"
+  ],
+  "curios": {
+    "invisibility_cap": [
+      "head"
+    ],
+    "miners_goggles": [
+      "head"
+    ],
+    "veles_amulet": [
+      "necklace"
+    ],
+    "depth_amulet": [
+      "necklace"
+    ],
+    "lunula": [
+      "necklace"
+    ],
+    "grivna": [
+      "necklace"
+    ],
+    "zolny_obereg": [
+      "necklace"
+    ],
+    "obereg_padayuschey_zvezdy": [
+      "necklace"
+    ],
+    "odnoglazyy_obereg": [
+      "necklace"
+    ],
+    "stone_path_amulet": [
+      "necklace"
+    ],
+    "gift_finist_amulet": [
+      "necklace"
+    ],
+    "trophy_skim_necklace": [
+      "necklace"
+    ],
+    "frost_mirror": [
+      "necklace"
+    ],
+    "black_wing_amulet": [
+      "necklace"
+    ],
+    "perun_ring": [
+      "ring"
+    ],
+    "resin_ring": [
+      "ring"
+    ],
+    "ring_of_grey_pack": [
+      "ring"
+    ],
+    "prospectors_ring": [
+      "ring"
+    ],
+    "gift_dobrynya_ring": [
+      "ring"
+    ],
+    "hunter_belt": [
+      "belt"
+    ],
+    "volchiy_poyas": [
+      "belt"
+    ],
+    "poyas_tugarina": [
+      "belt"
+    ],
+    "finist_quiver": [
+      "belt"
+    ],
+    "underground_guard_belt": [
+      "belt"
+    ],
+    "gift_alyosha_belt": [
+      "belt"
+    ],
+    "retribution_charm": [
+      "charm"
+    ],
+    "grave_ward": [
+      "charm"
+    ]
+  },
+  "ids": [
+    "amber_charm",
+    "amulet_two_winters",
+    "black_wing_amulet",
+    "depth_amulet",
+    "fading_flame_charm",
+    "finist_quiver",
+    "forest_charm",
+    "frost_mirror",
+    "gift_alyosha_belt",
+    "gift_dobrynya_ring",
+    "gift_finist_amulet",
+    "grave_ward",
+    "grivna",
+    "hunter_belt",
+    "hunter_charm",
+    "invisibility_cap",
+    "lunula",
+    "miners_goggles",
+    "mor_ward",
+    "obereg_ohotnika",
+    "obereg_padayuschey_zvezdy",
+    "odnoglazyy_obereg",
+    "perun_charm",
+    "perun_ring",
+    "poyas_tugarina",
+    "prospectors_ring",
+    "resin_ring",
+    "retribution_charm",
+    "ring_of_grey_pack",
+    "stone_path_amulet",
+    "traveler_charm",
+    "trophy_skim_necklace",
+    "underground_guard_belt",
+    "veles_amulet",
+    "volchiy_poyas",
+    "volkhv_amulet",
+    "warding_charm",
+    "zolny_obereg"
+  ]
+}

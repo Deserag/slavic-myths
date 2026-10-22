@@ -1,6 +1,17 @@
 {
-  "parent": "minecraft:item/generated",
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/odnoglazyy_obereg_held148"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/odnoglazyy_obereg"
+      }
+    }
+  },
   "textures": {
-    "layer0": "slavicmyths:item/odnoglazyy_obereg"
+    "particle": "slavicmyths:item/odnoglazyy_obereg"
   }
 }

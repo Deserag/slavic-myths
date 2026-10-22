@@ -36,14 +36,20 @@ def template(rel):return Image.open(BytesIO(raw(rel))).convert('RGBA')
 def name(wood,kind):return ('stripped_apple_log'+('_top' if kind.endswith('top') else '')) if wood=='apple' and kind.startswith('stripped_log') else wood+'_'+kind
 def shade(c,delta):return tuple(max(0,min(255,v+delta)) for v in c)+(255,)
 
-def keep_base(wood,kind):return wood=='linden' or kind.endswith('top') or kind=='log' and wood in ('pine','rowan')
+def keep_base(wood,kind):return wood=='linden' or kind.endswith('top') or kind=='log' and wood=='rowan'
 
 def base(wood,kind):
  rel='block/'+name(wood,kind)+'.png'
  if keep_base(wood,kind):return template(rel)
  c=PALETTE[wood][kind];im=Image.new('RGBA',(32,32),c+(255,));d=ImageDraw.Draw(im)
  if kind=='log':
-  if wood=='willow':
+  if wood=='pine':
+   # Owner correction: irregular elongated bark scales, no rectangular masonry grid.
+   scales=[[(0,0),(4,0),(5,5),(3,10),(0,9)],[(8,2),(12,0),(14,5),(12,12),(9,10)],[(18,0),(22,0),(23,7),(20,10),(17,6)],[(27,1),(31,0),(31,12),(28,14),(26,8)],[(2,14),(6,12),(8,19),(6,25),(2,24),(0,20)],[(11,16),(15,13),(18,19),(16,27),(12,25)],[(22,14),(25,17),(25,24),(22,29),(20,23)],[(28,20),(31,17),(31,31),(27,31),(26,26)],[(0,28),(5,27),(8,31),(0,31)],[(10,30),(15,28),(18,31),(10,31)]]
+   for i,points in enumerate(scales):
+    d.polygon(points,fill=shade(c,8 if i%3==0 else -4 if i%3==1 else 2));d.line(points[1:4],fill=shade(c,-17));d.line([(x-1,y) for x,y in points[1:3]],fill=shade(c,13))
+   for x,y in [(3,3),(11,6),(20,3),(4,18),(14,20),(29,24)]:d.line([(x,y),(x+1,y+3),(x,y+5)],fill=shade(c,-10))
+  elif wood=='willow':
    paths=[[(2,1),(2,5),(3,6),(3,10)],[(8,0),(8,4),(7,6)],[(12,3),(12,9),(13,11)],[(18,0),(18,6),(17,8)],[(24,2),(23,5),(23,10)],[(29,0),(29,4)],[(1,16),(2,19),(2,23)],[(7,13),(6,17),(7,20)],[(13,17),(13,23),(12,26)],[(19,12),(18,16),(19,19)],[(25,17),(24,22),(25,25)],[(29,23),(28,27),(28,31)],[(5,26),(5,31)],[(17,27),(17,31)]]
    for path in paths:d.line(path,fill=shade(c,-21));d.line([(x+1,y) for x,y in path[:-1]],fill=shade(c,9))
    d.polygon([(21,12),(23,14),(23,17),(21,19),(20,16),(20,14)],outline=shade(c,-21));d.line((21,14,21,17),fill=shade(c,-12))

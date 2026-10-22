@@ -1,0 +1,13 @@
+{
+  "slavicmyths:ancient_chekan": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/chests/burial_weapons.json",
+      "src/main/resources/data/slavicmyths/loot_table/kurgan/burial.json",
+      "src/main/resources/data/slavicmyths/loot_table/kurgan/great_special.json",
+      "src/main/resources/data/slavicmyths/loot_table/kurgan/secret.json",
+      "src/main/resources/data/slavicmyths/loot_table/kurgan/warrior.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

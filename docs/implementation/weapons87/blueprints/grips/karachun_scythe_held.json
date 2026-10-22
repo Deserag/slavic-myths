@@ -1,0 +1,83 @@
+{
+  "id": "karachun_scythe",
+  "grip": [
+    8,
+    12,
+    8
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        70,
+        180,
+        0
+      ],
+      "translation": [
+        0.0,
+        -1.02606043,
+        -2.81907786
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        70,
+        0,
+        0
+      ],
+      "translation": [
+        -0.0,
+        -1.02606043,
+        -2.81907786
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        170,
+        0
+      ],
+      "translation": [
+        0.0,
+        -2.92,
+        -5.76
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -10,
+        0
+      ],
+      "translation": [
+        -0.0,
+        -2.92,
+        -5.76
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  "reason": "center authored shaft/grip, constrain player proportions, keep existing geometry/UV",
+  "source_model": "src/main/resources/assets/slavicmyths/models/item/karachun_scythe_held.json",
+  "before_sha256": "cdd7b0e7542181546095f1b52ec16aa5cfc20606937629dfd736f3a72b35aec8",
+  "design_state": "PROPOSAL_BEFORE_PRODUCTION, not owner runtime accepted",
+  "fp_revision_evidence": "../firstperson/scythe-offhand-115.json"
+}

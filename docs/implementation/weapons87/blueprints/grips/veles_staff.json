@@ -1,0 +1,133 @@
+{
+  "id": "veles_staff",
+  "grip": [
+    8,
+    8,
+    8
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        30,
+        135,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.43,
+        0.43,
+        0.43
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        55,
+        0,
+        0
+      ],
+      "translation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        55,
+        180,
+        0
+      ],
+      "translation": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        1.0,
+        -1.0,
+        -2.0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        1.0,
+        -1.0,
+        -2.0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  "reason": "center authored shaft/grip, constrain player proportions, keep existing geometry/UV",
+  "source_model": "src/main/resources/assets/slavicmyths/models/item/veles_staff.json",
+  "before_sha256": "06809603b87a4cb11f34544896e030462d2dc23fa8769ff680da4b95d08cb493",
+  "design_state": "PROPOSAL_BEFORE_PRODUCTION, not owner runtime accepted"
+}

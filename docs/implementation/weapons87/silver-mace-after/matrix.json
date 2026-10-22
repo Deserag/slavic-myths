@@ -1,0 +1,154 @@
+[
+  {
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 6305
+  },
+  {
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 4207
+  },
+  {
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 6244
+  },
+  {
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 4207
+  },
+  {
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": null
+  },
+  {
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": null
+  },
+  {
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": null
+  },
+  {
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": null
+  },
+  {
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": null
+  },
+  {
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": null
+  },
+  {
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": null
+  },
+  {
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": null
+  }
+]

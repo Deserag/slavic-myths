@@ -264,3 +264,7 @@ if __name__=='__main__':
 # Preserve the latest integration assets and definitive recipes.
 from integration_polish_resources import main as polish_118
 polish_118()
+
+# Preserve owner-reported decor fixes after this historical pipeline.
+from decor108_assets import apply as apply_decor108
+apply_decor108()

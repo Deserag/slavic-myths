@@ -1,6 +1,11 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "slavicmyths:item/silver_flail_ball"
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/silver_flail_ball_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/silver_flail_ball_icon"
+    }
   }
 }

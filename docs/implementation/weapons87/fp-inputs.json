@@ -1,0 +1,5381 @@
+[
+  {
+    "id": "bone_knife",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "bone_knife",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "silver_dagger",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "silver_dagger",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "nightingale_dagger",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -12
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        0.82354872,
+        1.97080421,
+        -2.378401
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  {
+    "id": "nightingale_dagger",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        12
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        0.82354872,
+        1.97080421,
+        -1.621599
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        0.61768889,
+        5.43674245,
+        -2.81986882
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        0.61768889,
+        5.43674245,
+        -1.18013118
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        0.61768889,
+        5.43674245,
+        -2.81986882
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        0.61768889,
+        5.43674245,
+        -1.18013118
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "silver_sword",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "silver_sword",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "perunite_sword",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "perunite_sword",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "tugarin_sword",
+    "left": false,
+    "custom": "pair",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "tugarin_sword",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "slot": "offhand_without_primary_custom_path"
+  },
+  {
+    "id": "tugarin_sword",
+    "left": true,
+    "custom": "pair",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "tugarin_sword",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "slot": "offhand_without_primary_custom_path"
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -75,
+        15
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        0.77061333,
+        2.86204547,
+        -2.49192129
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        75,
+        -15
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        0.77061333,
+        2.86204547,
+        -1.50807871
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "club",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "club",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "wooden_mace",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "wooden_mace",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "stone_mace",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "stone_mace",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "mace",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "mace",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "silver_mace",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "silver_mace",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "perunite_mace",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "perunite_mace",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -5
+      ],
+      "translation": [
+        1,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "ancient_chekan",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  },
+  {
+    "id": "ancient_chekan",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  },
+  {
+    "id": "chekan",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  },
+  {
+    "id": "chekan",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  },
+  {
+    "id": "battle_axe",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "battle_axe",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "thunder_axe",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "thunder_axe",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "stone_flail",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "stone_flail",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        70,
+        -8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -110,
+        8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "gold_flail",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "gold_flail",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        70,
+        -8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -110,
+        8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "flail",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "flail",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        70,
+        -8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -110,
+        8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "silver_flail",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "silver_flail",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        70,
+        -8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -110,
+        8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "diamond_flail",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "diamond_flail",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        70,
+        -8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -110,
+        8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "perunite_flail",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "perunite_flail",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        70,
+        -8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -110,
+        8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "netherite_flail",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "netherite_flail",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        70,
+        -8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -110,
+        8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "ataman_flail",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -70,
+        8
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "ataman_flail",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        70,
+        -8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -110,
+        8
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "ancient_spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        0.80884444,
+        2.21837122,
+        -2.40993441
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "ancient_spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        0.80884444,
+        2.21837122,
+        -1.59006559
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "restored_spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        0.80884444,
+        2.21837122,
+        -2.40993441
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "restored_spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        0.80884444,
+        2.21837122,
+        -1.59006559
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        0.92353778,
+        0.28734849,
+        -2.16397376
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        0.92353778,
+        0.28734849,
+        -1.83602624
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "gold_spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    }
+  },
+  {
+    "id": "gold_spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    }
+  },
+  {
+    "id": "iron_spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    }
+  },
+  {
+    "id": "iron_spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    }
+  },
+  {
+    "id": "silver_spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        0.92353778,
+        0.28734849,
+        -2.16397376
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "silver_spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        0.92353778,
+        0.28734849,
+        -1.83602624
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "diamond_spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    }
+  },
+  {
+    "id": "diamond_spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    }
+  },
+  {
+    "id": "perunite_spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    }
+  },
+  {
+    "id": "perunite_spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    }
+  },
+  {
+    "id": "netherite_spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    }
+  },
+  {
+    "id": "netherite_spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.9099999999999999,
+        0.9099999999999999,
+        0.9099999999999999
+      ]
+    }
+  },
+  {
+    "id": "pool_spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        0,
+        -8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        0.96176889,
+        -0.35632576,
+        -2.08198688
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "pool_spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        225,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        0.96176889,
+        -0.35632576,
+        -1.91801312
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "thunder_spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        0.92353778,
+        0.28734849,
+        -2.16397376
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "thunder_spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        0.92353778,
+        0.28734849,
+        -1.83602624
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "victor_spear",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -75,
+        15
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        1.07646222,
+        -2.28734849,
+        -1.83602624
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "victor_spear",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        75,
+        -15
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        1.07646222,
+        -2.28734849,
+        -2.16397376
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "berdysh",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        115,
+        8
+      ],
+      "translation": [
+        1.07646222,
+        0.28734849,
+        -1.83602624
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "berdysh",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        0,
+        -2
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -295,
+        -8
+      ],
+      "translation": [
+        1.07646222,
+        0.28734849,
+        -2.16397376
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "noon_sickle",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "noon_sickle",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "karachun_scythe",
+    "left": false,
+    "custom": "scythe",
+    "before": {
+      "rotation": [
+        0,
+        -10,
+        0
+      ],
+      "translation": [
+        0,
+        1,
+        -2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        170,
+        0
+      ],
+      "translation": [
+        0.0,
+        -2.92,
+        -5.76
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "karachun_scythe",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -10,
+        0
+      ],
+      "translation": [
+        0,
+        1,
+        -2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        170,
+        0
+      ],
+      "translation": [
+        0.0,
+        -2.92,
+        -5.76
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "slot": "offhand_without_primary_custom_path"
+  },
+  {
+    "id": "karachun_scythe",
+    "left": true,
+    "custom": "scythe",
+    "before": {
+      "rotation": [
+        0,
+        10,
+        0
+      ],
+      "translation": [
+        0,
+        1,
+        -2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -10,
+        0
+      ],
+      "translation": [
+        -0.0,
+        -2.92,
+        -5.76
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "karachun_scythe",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        10,
+        0
+      ],
+      "translation": [
+        0,
+        1,
+        -2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -10,
+        0
+      ],
+      "translation": [
+        -0.0,
+        -2.92,
+        -5.76
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "slot": "offhand_without_primary_custom_path"
+  },
+  {
+    "id": "poloz_whip",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "poloz_whip",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "stone_throwing_knife",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "stone_throwing_knife",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "gold_throwing_knife",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "gold_throwing_knife",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "iron_throwing_knife",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "iron_throwing_knife",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "silver_throwing_knife",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "silver_throwing_knife",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.48999999999999994,
+        0.48999999999999994,
+        0.48999999999999994
+      ]
+    }
+  },
+  {
+    "id": "stone_sulitsa",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "stone_sulitsa",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "gold_sulitsa",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "gold_sulitsa",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "iron_sulitsa",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "iron_sulitsa",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "silver_sulitsa",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "silver_sulitsa",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "diamond_sulitsa",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "diamond_sulitsa",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "perunite_sulitsa",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "perunite_sulitsa",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "netherite_sulitsa",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "netherite_sulitsa",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.735,
+        0.735,
+        0.735
+      ]
+    }
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "bone_arrow",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "bone_arrow",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": "serpent_crossbow",
+    "left": false,
+    "custom": "crossbow",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        0,
+        -1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        0,
+        -1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    }
+  },
+  {
+    "id": "serpent_crossbow",
+    "left": true,
+    "custom": "crossbow",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        -1,
+        0,
+        -1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        -1,
+        0,
+        -1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    }
+  },
+  {
+    "id": "three_breath_crossbow",
+    "left": false,
+    "custom": "crossbow",
+    "before": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        0,
+        -1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        0,
+        -1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    }
+  },
+  {
+    "id": "three_breath_crossbow",
+    "left": true,
+    "custom": "crossbow",
+    "before": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        -1,
+        0,
+        -1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        -1,
+        0,
+        -1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    }
+  },
+  {
+    "id": "carved_staff",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        10,
+        -8
+      ],
+      "translation": [
+        0,
+        3,
+        1
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        1.07646222,
+        -2.28734849,
+        -1.83602624
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "carved_staff",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -10,
+        8
+      ],
+      "translation": [
+        0,
+        3,
+        1
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        1.07646222,
+        -2.28734849,
+        -2.16397376
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "storm_staff",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        10,
+        -8
+      ],
+      "translation": [
+        0,
+        3,
+        1
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        1.07646222,
+        -2.28734849,
+        -1.83602624
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "storm_staff",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -10,
+        8
+      ],
+      "translation": [
+        0,
+        3,
+        1
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        1.07646222,
+        -2.28734849,
+        -2.16397376
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "veles_staff",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        0,
+        -8
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        1.0,
+        -1.0,
+        -2.0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "veles_staff",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        225,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        1.0,
+        -1.0,
+        -2.0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "likho_staff",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -75,
+        15
+      ],
+      "translation": [
+        1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        1.11469333,
+        -2.93102273,
+        -1.75403935
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "likho_staff",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        75,
+        -15
+      ],
+      "translation": [
+        -1,
+        -1,
+        -2
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        1.11469333,
+        -2.93102273,
+        -2.24596065
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "morozko_staff",
+    "left": false,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -20,
+        0
+      ],
+      "translation": [
+        1,
+        1,
+        -2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        1.07646222,
+        -2.28734849,
+        -1.83602624
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "morozko_staff",
+    "left": true,
+    "custom": "standard",
+    "before": {
+      "rotation": [
+        0,
+        -20,
+        0
+      ],
+      "translation": [
+        1,
+        1,
+        -2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "after": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        1.07646222,
+        -2.28734849,
+        -2.16397376
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  }
+]

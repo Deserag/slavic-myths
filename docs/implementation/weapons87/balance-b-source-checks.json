@@ -1,0 +1,36 @@
+{
+  "approval": {
+    "package": "B",
+    "owner_exact_answer": "Согласовать пакет B",
+    "date": "2026-10-22",
+    "source": "explicit user answer in this chat; no owner-accepted label added"
+  },
+  "production_delta": [
+    "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "src/main/java/org/slavicmyths/item/StormStaffItem.java",
+    "src/main/java/org/slavicmyths/registry/ModItems.java"
+  ],
+  "language_changes": [
+    {
+      "path": "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+      "changed_keys": [
+        "tooltip.slavicmyths.weapon.perunite_mace",
+        "tooltip.slavicmyths.weapon.storm_staff"
+      ],
+      "all_other_keys_unchanged": true
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/lang/en_us.json",
+      "changed_keys": [
+        "tooltip.slavicmyths.weapon.perunite_mace",
+        "tooltip.slavicmyths.weapon.storm_staff"
+      ],
+      "all_other_keys_unchanged": true
+    }
+  ],
+  "registration_delta": "perunite_mace speed.6→.8 only; damage9.5/pressure.4/reach/durability unchanged",
+  "staff_delta": "base magic3→6,CD80/72→60/54 only, same multipliers/target filters/range/FX/durability",
+  "remaining_C_D_190": "AWAITING_OWNER_NO_CHANGES",
+  "runtime": "NOT_RUN / OWNER_PENDING"
+}

@@ -1,0 +1,927 @@
+[
+  {
+    "n": 87,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [
+          {
+            "url": "https://github.com/Deserag/slavic-myths/issues/87#issuecomment-6285197191",
+            "body": "**Решение владельца 20.10.2026:** задача выводится из активной очереди; единственный текущий фокус — [#76 Проклятый оборотень](https://github.com/Deserag/slavic-myths/issues/76). Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто **как отложенное `not_planned`**, НЕ как выполненное/проверенное в игре или `owner-accepted`. Codex не выполнять без нового запроса.",
+            "user": {
+              "login": "Deserag",
+              "name": "Deserag",
+              "email": null,
+              "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+              "id": 98634457
+            },
+            "id": 6285197191,
+            "pull_request_review_id": null,
+            "in_reply_to_id": null,
+            "created_at": null,
+            "updated_at": null,
+            "review": null,
+            "side": null,
+            "line": null,
+            "start_line": null,
+            "path": null,
+            "body_html": "<p dir=\"auto\"><strong>Решение владельца 20.10.2026:</strong> задача выводится из активной очереди; единственный текущий фокус — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76 Проклятый оборотень</a>. Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто <strong>как отложенное <code class=\"notranslate\">not_planned</code></strong>, НЕ как выполненное/проверенное в игре или <code class=\"notranslate\">owner-accepted</code>. Codex не выполнять без нового запроса.</p>"
+          },
+          {
+            "url": "https://github.com/Deserag/slavic-myths/issues/87#issuecomment-6285531699",
+            "body": "**Уточнение владельца от 20.10.2026:** задача повторно открыта и возвращена в очередь **на переработку**. Предыдущее массовое закрытие как `not_planned` отменено; ТЗ, история и материалы сохранены. Статус `open` **не означает**, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на #76.",
+            "user": {
+              "login": "Deserag",
+              "name": "Deserag",
+              "email": null,
+              "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+              "id": 98634457
+            },
+            "id": 6285531699,
+            "pull_request_review_id": null,
+            "in_reply_to_id": null,
+            "created_at": null,
+            "updated_at": null,
+            "review": null,
+            "side": null,
+            "line": null,
+            "start_line": null,
+            "path": null,
+            "body_html": "<p dir=\"auto\"><strong>Уточнение владельца от 20.10.2026:</strong> задача повторно открыта и возвращена в очередь <strong>на переработку</strong>. Предыдущее массовое закрытие как <code class=\"notranslate\">not_planned</code> отменено; ТЗ, история и материалы сохранены. Статус <code class=\"notranslate\">open</code> <strong>не означает</strong>, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a>.</p>"
+          },
+          {
+            "url": "https://github.com/Deserag/slavic-myths/issues/87#issuecomment-6297587319",
+            "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+            "user": {
+              "login": "github-actions[bot]",
+              "name": "github-actions[bot]",
+              "email": null,
+              "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+              "id": 41898282
+            },
+            "id": 6297587319,
+            "pull_request_review_id": null,
+            "in_reply_to_id": null,
+            "created_at": null,
+            "updated_at": null,
+            "review": null,
+            "side": null,
+            "line": null,
+            "start_line": null,
+            "path": null,
+            "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+          },
+          {
+            "url": "https://github.com/Deserag/slavic-myths/issues/87#issuecomment-6297622033",
+            "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+            "user": {
+              "login": "github-actions[bot]",
+              "name": "github-actions[bot]",
+              "email": null,
+              "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+              "id": 41898282
+            },
+            "id": 6297622033,
+            "pull_request_review_id": null,
+            "in_reply_to_id": null,
+            "created_at": null,
+            "updated_at": null,
+            "review": null,
+            "side": null,
+            "line": null,
+            "start_line": null,
+            "path": null,
+            "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+          }
+        ],
+        "url": "https://github.com/Deserag/slavic-myths/issues/87",
+        "title": "Deserag/slavic-myths Issue #87 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/87",
+        "display_title": "Deserag/slavic-myths Issue #87 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 115,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/115",
+        "title": "Deserag/slavic-myths Issue #115 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/115",
+        "display_title": "Deserag/slavic-myths Issue #115 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 116,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/116",
+        "title": "Deserag/slavic-myths Issue #116 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/116",
+        "display_title": "Deserag/slavic-myths Issue #116 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 117,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/117",
+        "title": "Deserag/slavic-myths Issue #117 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/117",
+        "display_title": "Deserag/slavic-myths Issue #117 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 118,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/118",
+        "title": "Deserag/slavic-myths Issue #118 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/118",
+        "display_title": "Deserag/slavic-myths Issue #118 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 119,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/119",
+        "title": "Deserag/slavic-myths Issue #119 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/119",
+        "display_title": "Deserag/slavic-myths Issue #119 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 120,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/120",
+        "title": "Deserag/slavic-myths Issue #120 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/120",
+        "display_title": "Deserag/slavic-myths Issue #120 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 121,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/121",
+        "title": "Deserag/slavic-myths Issue #121 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/121",
+        "display_title": "Deserag/slavic-myths Issue #121 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 157,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/157",
+        "title": "Deserag/slavic-myths Issue #157 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/157",
+        "display_title": "Deserag/slavic-myths Issue #157 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 158,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/158",
+        "title": "Deserag/slavic-myths Issue #158 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/158",
+        "display_title": "Deserag/slavic-myths Issue #158 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 159,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/159",
+        "title": "Deserag/slavic-myths Issue #159 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/159",
+        "display_title": "Deserag/slavic-myths Issue #159 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 160,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/160",
+        "title": "Deserag/slavic-myths Issue #160 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/160",
+        "display_title": "Deserag/slavic-myths Issue #160 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 161,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/161",
+        "title": "Deserag/slavic-myths Issue #161 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/161",
+        "display_title": "Deserag/slavic-myths Issue #161 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 162,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/162",
+        "title": "Deserag/slavic-myths Issue #162 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/162",
+        "display_title": "Deserag/slavic-myths Issue #162 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 163,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/163",
+        "title": "Deserag/slavic-myths Issue #163 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/163",
+        "display_title": "Deserag/slavic-myths Issue #163 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 164,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/164",
+        "title": "Deserag/slavic-myths Issue #164 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/164",
+        "display_title": "Deserag/slavic-myths Issue #164 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 165,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/165",
+        "title": "Deserag/slavic-myths Issue #165 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/165",
+        "display_title": "Deserag/slavic-myths Issue #165 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 166,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/166",
+        "title": "Deserag/slavic-myths Issue #166 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/166",
+        "display_title": "Deserag/slavic-myths Issue #166 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 167,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/167",
+        "title": "Deserag/slavic-myths Issue #167 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/167",
+        "display_title": "Deserag/slavic-myths Issue #167 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 168,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/168",
+        "title": "Deserag/slavic-myths Issue #168 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/168",
+        "display_title": "Deserag/slavic-myths Issue #168 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 169,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/169",
+        "title": "Deserag/slavic-myths Issue #169 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/169",
+        "display_title": "Deserag/slavic-myths Issue #169 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 170,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/170",
+        "title": "Deserag/slavic-myths Issue #170 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/170",
+        "display_title": "Deserag/slavic-myths Issue #170 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 171,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/171",
+        "title": "Deserag/slavic-myths Issue #171 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/171",
+        "display_title": "Deserag/slavic-myths Issue #171 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 172,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/172",
+        "title": "Deserag/slavic-myths Issue #172 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/172",
+        "display_title": "Deserag/slavic-myths Issue #172 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 173,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/173",
+        "title": "Deserag/slavic-myths Issue #173 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/173",
+        "display_title": "Deserag/slavic-myths Issue #173 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 174,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/174",
+        "title": "Deserag/slavic-myths Issue #174 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/174",
+        "display_title": "Deserag/slavic-myths Issue #174 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 175,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/175",
+        "title": "Deserag/slavic-myths Issue #175 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/175",
+        "display_title": "Deserag/slavic-myths Issue #175 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 176,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/176",
+        "title": "Deserag/slavic-myths Issue #176 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/176",
+        "display_title": "Deserag/slavic-myths Issue #176 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 177,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/177",
+        "title": "Deserag/slavic-myths Issue #177 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/177",
+        "display_title": "Deserag/slavic-myths Issue #177 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 178,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/178",
+        "title": "Deserag/slavic-myths Issue #178 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/178",
+        "display_title": "Deserag/slavic-myths Issue #178 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 179,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/179",
+        "title": "Deserag/slavic-myths Issue #179 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/179",
+        "display_title": "Deserag/slavic-myths Issue #179 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 180,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/180",
+        "title": "Deserag/slavic-myths Issue #180 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/180",
+        "display_title": "Deserag/slavic-myths Issue #180 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 181,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/181",
+        "title": "Deserag/slavic-myths Issue #181 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/181",
+        "display_title": "Deserag/slavic-myths Issue #181 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 182,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/182",
+        "title": "Deserag/slavic-myths Issue #182 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/182",
+        "display_title": "Deserag/slavic-myths Issue #182 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 183,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/183",
+        "title": "Deserag/slavic-myths Issue #183 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/183",
+        "display_title": "Deserag/slavic-myths Issue #183 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 184,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/184",
+        "title": "Deserag/slavic-myths Issue #184 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/184",
+        "display_title": "Deserag/slavic-myths Issue #184 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 185,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/185",
+        "title": "Deserag/slavic-myths Issue #185 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/185",
+        "display_title": "Deserag/slavic-myths Issue #185 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 186,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/186",
+        "title": "Deserag/slavic-myths Issue #186 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/186",
+        "display_title": "Deserag/slavic-myths Issue #186 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 187,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/187",
+        "title": "Deserag/slavic-myths Issue #187 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/187",
+        "display_title": "Deserag/slavic-myths Issue #187 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 188,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/188",
+        "title": "Deserag/slavic-myths Issue #188 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/188",
+        "display_title": "Deserag/slavic-myths Issue #188 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 189,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/189",
+        "title": "Deserag/slavic-myths Issue #189 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/189",
+        "display_title": "Deserag/slavic-myths Issue #189 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 190,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/190",
+        "title": "Deserag/slavic-myths Issue #190 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/190",
+        "display_title": "Deserag/slavic-myths Issue #190 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 191,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/191",
+        "title": "Deserag/slavic-myths Issue #191 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/191",
+        "display_title": "Deserag/slavic-myths Issue #191 comments"
+      },
+      "isError": false
+    }
+  },
+  {
+    "n": 192,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [],
+        "url": "https://github.com/Deserag/slavic-myths/issues/192",
+        "title": "Deserag/slavic-myths Issue #192 comments",
+        "display_url": "https://github.com/Deserag/slavic-myths/issues/192",
+        "display_title": "Deserag/slavic-myths Issue #192 comments"
+      },
+      "isError": false
+    }
+  }
+]

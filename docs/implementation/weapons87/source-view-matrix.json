@@ -1,0 +1,1688 @@
+[
+  {
+    "id": "bone_knife",
+    "source_bounds": [
+      [
+        7.0,
+        4.0,
+        7.15
+      ],
+      [
+        9.2,
+        14.5,
+        8.85
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        -15,
+        -40
+      ],
+      "translation": [
+        -0.723375,
+        -0.86175,
+        0
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_dagger",
+    "source_bounds": [
+      [
+        6.8,
+        3.5,
+        7.175
+      ],
+      [
+        9.2,
+        15.5,
+        8.825
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        -15,
+        -40
+      ],
+      "translation": [
+        -0.8680500000000001,
+        -1.0341,
+        0
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "nightingale_dagger",
+    "source_bounds": [
+      [
+        5.5,
+        -1.8,
+        7.0
+      ],
+      [
+        10.5,
+        17.5,
+        9.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:block/block",
+    "gui_transform": {
+      "rotation": [
+        15,
+        135,
+        -12
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "source_bounds": [
+      [
+        3.5,
+        -8.0,
+        6.5
+      ],
+      [
+        12.5,
+        24.0,
+        9.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/generated",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "source_bounds": [
+      [
+        3.5,
+        -8.0,
+        6.5
+      ],
+      [
+        12.5,
+        24.0,
+        9.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/generated",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_sword",
+    "source_bounds": [
+      [
+        4.0,
+        2.0,
+        7.0
+      ],
+      [
+        12.0,
+        24.0,
+        9.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        -15,
+        -40
+      ],
+      "translation": [
+        -2.8935,
+        -3.447,
+        0
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_sword",
+    "source_bounds": [
+      [
+        4.0,
+        1.0,
+        6.85
+      ],
+      [
+        12.0,
+        24.0,
+        9.15
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        -15,
+        -40
+      ],
+      "translation": [
+        -2.516086956521739,
+        -2.997391304347826,
+        0
+      ],
+      "scale": [
+        0.8695652173913043,
+        0.8695652173913043,
+        0.8695652173913043
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "tugarin_sword",
+    "source_bounds": [
+      [
+        -1.7950458227102217,
+        -0.7304282733681084,
+        7.97
+      ],
+      [
+        17.79504582271022,
+        16.73042827336811,
+        8.03
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:block/block",
+    "gui_transform": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "source_bounds": [
+      [
+        5.0,
+        0.0,
+        6.5
+      ],
+      [
+        11.0,
+        24.0,
+        9.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        0,
+        -30
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "club",
+    "source_bounds": [
+      [
+        5.1,
+        0.0,
+        5.1
+      ],
+      [
+        10.9,
+        16.0,
+        10.6
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        10,
+        -25,
+        -40
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "wooden_mace",
+    "source_bounds": [
+      [
+        4.6,
+        0.0,
+        5.4
+      ],
+      [
+        11.4,
+        18.0,
+        10.6
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        20,
+        135,
+        -15
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_mace",
+    "source_bounds": [
+      [
+        4.2,
+        0.0,
+        4.8
+      ],
+      [
+        11.8,
+        17.2,
+        11.2
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        20,
+        135,
+        -15
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "mace",
+    "source_bounds": [
+      [
+        4.5,
+        0.0,
+        5.17157287525381
+      ],
+      [
+        11.5,
+        19.0,
+        10.82842712474619
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        20,
+        135,
+        -15
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_mace",
+    "source_bounds": [
+      [
+        4.464466094067262,
+        0.0,
+        4.35
+      ],
+      [
+        11.535533905932738,
+        18.5,
+        11.535533905932738
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        20,
+        135,
+        -15
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_mace",
+    "source_bounds": [
+      [
+        5.2,
+        1.0,
+        5.2
+      ],
+      [
+        10.700000000000001,
+        25.0,
+        10.700000000000001
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        -15,
+        -40
+      ],
+      "translation": [
+        -2.679166666666667,
+        -3.191666666666667,
+        0
+      ],
+      "scale": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ancient_chekan",
+    "source_bounds": [
+      [
+        0.5,
+        -8.0,
+        6.7
+      ],
+      [
+        12.5,
+        17.0,
+        9.3
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/generated",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "chekan",
+    "source_bounds": [
+      [
+        0.5,
+        -8.0,
+        6.7
+      ],
+      [
+        12.5,
+        17.0,
+        9.3
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/generated",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "battle_axe",
+    "source_bounds": [
+      [
+        2.0,
+        0.0,
+        6.6
+      ],
+      [
+        9.3,
+        16.0,
+        9.4
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        10,
+        -25,
+        -40
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "thunder_axe",
+    "source_bounds": [
+      [
+        -1.0,
+        1.0,
+        6.6
+      ],
+      [
+        12.5,
+        27.0,
+        9.3
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        -15,
+        -40
+      ],
+      "translation": [
+        -2.967692307692308,
+        -3.535384615384616,
+        0
+      ],
+      "scale": [
+        0.7692307692307693,
+        0.7692307692307693,
+        0.7692307692307693
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "source_bounds": [
+      [
+        4.5,
+        0.0,
+        6.0
+      ],
+      [
+        14.7,
+        16.1,
+        10.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        20,
+        135,
+        -15
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "source_bounds": [
+      [
+        6.5,
+        0.0,
+        6.0
+      ],
+      [
+        14.5,
+        24.0,
+        11.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        0,
+        -30
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ancient_spear",
+    "source_bounds": [
+      [
+        6.5,
+        -15.0,
+        7.0
+      ],
+      [
+        9.5,
+        31.0,
+        9.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/generated",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "restored_spear",
+    "source_bounds": [
+      [
+        6.5,
+        -15.0,
+        7.0
+      ],
+      [
+        9.5,
+        31.0,
+        9.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/generated",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "spear",
+    "source_bounds": [
+      [
+        6.5,
+        -10.0,
+        7.1
+      ],
+      [
+        9.5,
+        30.0,
+        8.9
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        -15,
+        -40
+      ],
+      "translation": [
+        -0.643,
+        -0.766,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_spear",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_spear",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_spear",
+    "source_bounds": [
+      [
+        6.85,
+        -10.0,
+        7.0
+      ],
+      [
+        9.15,
+        30.0,
+        9.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        -15,
+        -40
+      ],
+      "translation": [
+        -0.643,
+        -0.766,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_spear",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_spear",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_spear",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "pool_spear",
+    "source_bounds": [
+      [
+        5.693437035123623,
+        -7.0,
+        6.6
+      ],
+      [
+        9.461939766255643,
+        25.0,
+        9.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:block/block",
+    "gui_transform": {
+      "rotation": [
+        20,
+        135,
+        0
+      ],
+      "scale": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "thunder_spear",
+    "source_bounds": [
+      [
+        6.0,
+        -10.0,
+        6.85
+      ],
+      [
+        10.0,
+        30.0,
+        9.15
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        -15,
+        -40
+      ],
+      "translation": [
+        -0.643,
+        -0.766,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "victor_spear",
+    "source_bounds": [
+      [
+        6.5,
+        -5.0,
+        6.5
+      ],
+      [
+        9.0,
+        28.0,
+        9.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        0,
+        -30
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "berdysh",
+    "source_bounds": [
+      [
+        1.5,
+        -10.0,
+        7.05
+      ],
+      [
+        8.95,
+        29.0,
+        8.95
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        -15,
+        -40
+      ],
+      "translation": [
+        -0.49461538461538457,
+        -0.5892307692307692,
+        0
+      ],
+      "scale": [
+        0.5128205128205128,
+        0.5128205128205128,
+        0.5128205128205128
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "noon_sickle",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "karachun_scythe",
+    "source_bounds": [
+      [
+        -9.137500000000003,
+        -3.5,
+        6.5375
+      ],
+      [
+        9.3125,
+        31.375,
+        9.3125
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/generated",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "poloz_whip",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/generated",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_throwing_knife",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_throwing_knife",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_throwing_knife",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_sulitsa",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_sulitsa",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_sulitsa",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_sulitsa",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_sulitsa",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_sulitsa",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_sulitsa",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/handheld",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "short_bow",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/bow",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "heavy_bow",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/bow",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "finist_bow",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/bow",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "bone_arrow",
+    "source_bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "item/generated",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "serpent_crossbow",
+    "source_bounds": [
+      [
+        -2.0,
+        5.0,
+        1.0
+      ],
+      [
+        18.0,
+        9.0,
+        16.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        28,
+        45,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "source_bounds": [
+      [
+        -2.0,
+        5.0,
+        -3.0
+      ],
+      [
+        18.0,
+        15.0,
+        16.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        25,
+        40,
+        0
+      ],
+      "translation": [
+        0,
+        -1,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "carved_staff",
+    "source_bounds": [
+      [
+        3.0,
+        0.0,
+        6.0
+      ],
+      [
+        13.0,
+        30.0,
+        13.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        0,
+        -25
+      ],
+      "translation": [
+        0,
+        -3,
+        0
+      ],
+      "scale": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "storm_staff",
+    "source_bounds": [
+      [
+        3.0,
+        0.0,
+        6.0
+      ],
+      [
+        13.0,
+        30.0,
+        13.0
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        0,
+        -25
+      ],
+      "translation": [
+        0,
+        -3,
+        0
+      ],
+      "scale": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "veles_staff",
+    "source_bounds": [
+      [
+        4.397336440933085,
+        -6.0,
+        6.8
+      ],
+      [
+        14.035204220199569,
+        23.92596062743281,
+        9.2
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:block/block",
+    "gui_transform": {
+      "rotation": [
+        30,
+        135,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.43,
+        0.43,
+        0.43
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "likho_staff",
+    "source_bounds": [
+      [
+        6.0,
+        -3.0,
+        6.0
+      ],
+      [
+        11.0,
+        26.0,
+        9.5
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": null,
+    "gui_transform": {
+      "rotation": [
+        0,
+        0,
+        -30
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "morozko_staff",
+    "source_bounds": [
+      [
+        3.25,
+        -4.0,
+        6.5
+      ],
+      [
+        12.75,
+        27.0,
+        9.25
+      ]
+    ],
+    "span40_source_views": "model coordinates, no player poses",
+    "gui_model": "minecraft:item/generated",
+    "gui_transform": {},
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  }
+]

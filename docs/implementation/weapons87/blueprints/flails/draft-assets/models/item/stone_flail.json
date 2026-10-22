@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/stone_flail_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/stone_flail_icon"
+    }
+  }
+}

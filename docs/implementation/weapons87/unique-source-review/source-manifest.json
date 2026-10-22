@@ -1,0 +1,775 @@
+[
+  {
+    "issue": 175,
+    "id": "three_breath_crossbow",
+    "bounds": [
+      [
+        -2.0,
+        5.0,
+        -3.0
+      ],
+      [
+        18.0,
+        15.0,
+        16.0
+      ]
+    ],
+    "dimensions": [
+      20.0,
+      10.0,
+      19.0
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      0.0,
+      -2.0,
+      1.5
+    ],
+    "textures": [
+      "slavicmyths:item/three_breath_crossbow"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_firework.json",
+        "sha256": "99f5897b083140c664d4720c74d04528f37d4ce4d8006002537996f5acf98961"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_arrow.json",
+        "sha256": "99f5897b083140c664d4720c74d04528f37d4ce4d8006002537996f5acf98961"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_2.json",
+        "sha256": "32c073e78c4316355c4a55e39f2985c9de885c68cf73369b3827d9421747d7ab"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_1.json",
+        "sha256": "d314ebdbdfe4f8c1672c1c99cf10db306f1ea5af96656205e1323fbd2de9e2ad"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_0.json",
+        "sha256": "086249a539f49709bd1907cb71291c8af7538bc7d9754d38698634a33b360547"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow.json",
+        "sha256": "f652c513397d1164a8fde9d50969bb7c956e7212d2d1f3cf65c15237d679917e"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/three_breath_crossbow.png",
+        "sha256": "ed565a55efde8796b58341ceb3e952554b059f99aaa8a4c457c7657d48f76d28"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 176,
+    "id": "serpent_crossbow",
+    "bounds": [
+      [
+        -2.0,
+        5.0,
+        1.0
+      ],
+      [
+        18.0,
+        9.0,
+        16.0
+      ]
+    ],
+    "dimensions": [
+      20.0,
+      4.0,
+      15.0
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      0.0,
+      1.0,
+      -0.5
+    ],
+    "textures": [
+      "slavicmyths:item/serpent_crossbow"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_firework.json",
+        "sha256": "6130d791c3da33d7b4d3ce75f2a4f0f30e738306c60126b11a256546e18b813a"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_arrow.json",
+        "sha256": "6130d791c3da33d7b4d3ce75f2a4f0f30e738306c60126b11a256546e18b813a"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_2.json",
+        "sha256": "3994be91d2ce677162813eebb9eaa379f15afaf5270a0c6291e729ebfd9e1c5b"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_1.json",
+        "sha256": "95ea0d6d794829eb3e57180bd41ff98d4c2367b7e89112ae683d909b5ff6ce9f"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_0.json",
+        "sha256": "e0b612fba2b8eaffd1f002805d68f49b33b0407a3545608a8f7e5dbc78817eb2"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow.json",
+        "sha256": "6ed862272070e471a2702b4899ecd6440b377296e9af0b72fd0091be367d7096"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/serpent_crossbow.png",
+        "sha256": "ed565a55efde8796b58341ceb3e952554b059f99aaa8a4c457c7657d48f76d28"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 177,
+    "id": "karachun_scythe",
+    "bounds": [
+      [
+        -9.137500000000003,
+        -3.5,
+        6.5375
+      ],
+      [
+        9.3125,
+        31.375,
+        9.3125
+      ]
+    ],
+    "dimensions": [
+      18.450000000000003,
+      34.875,
+      2.7750000000000004
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      7.912500000000001,
+      -5.9375,
+      0.07500000000000018
+    ],
+    "textures": [
+      "slavicmyths:entity/karachun"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/karachun_scythe_icon.json",
+        "sha256": "414ad6c3feb7ab2133ac23e299207c8840e01e2ccd7f7dc6e676ba4b000c5c2f"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/karachun_scythe_held.json",
+        "sha256": "69095dad8ba59e6518c92c818a5dc690e66f754c1bce1a9a23b5e4afbc310d80"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/karachun_scythe.json",
+        "sha256": "d0aca6d299e65623fc628aa278262107cca6eb0efdea2a3630e0b51210f78720"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/karachun_scythe.png",
+        "sha256": "2c032981b65b611ccea87879fe5ce3b26d2578ade5bc8d2a92238aff71a99db6"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/entity/karachun.png",
+        "sha256": "fd378a3dcbdfc7b1bb717e31efc0c8646fc3f6aa7a12b1bef998e0f6415e2298"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 178,
+    "id": "likho_staff",
+    "bounds": [
+      [
+        6.0,
+        -3.0,
+        6.0
+      ],
+      [
+        11.0,
+        26.0,
+        9.5
+      ]
+    ],
+    "dimensions": [
+      5.0,
+      29.0,
+      3.5
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      -0.5,
+      -3.5,
+      0.25
+    ],
+    "textures": [
+      "slavicmyths:item/weapon_scythe_surface"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/likho_staff.json",
+        "sha256": "46783146634a94d03bac430c84ee1b0b8b742392089ce493a5977e0f0a2c41e2"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/weapon_scythe_surface.png",
+        "sha256": "ac996b8199508c6c35546746541c7ac66846d3414f3cc6505a162ed8e78b22c3"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 179,
+    "id": "morozko_staff",
+    "bounds": [
+      [
+        3.25,
+        -4.0,
+        6.5
+      ],
+      [
+        12.75,
+        27.0,
+        9.25
+      ]
+    ],
+    "dimensions": [
+      9.5,
+      31.0,
+      2.75
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      0.0,
+      -3.5,
+      0.125
+    ],
+    "textures": [
+      "slavicmyths:entity/morozko"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/morozko_staff_icon.json",
+        "sha256": "8d14172a7628237cc480f7bcbb5a9853368f38309e8a2283fe69f607deefa8a1"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/morozko_staff_held.json",
+        "sha256": "8a44fbb051f38975c40298f5fb005c9bbd6935a1793c1f2e6a92062bb1f5737d"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/morozko_staff.json",
+        "sha256": "d0aca6d299e65623fc628aa278262107cca6eb0efdea2a3630e0b51210f78720"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/morozko_staff.png",
+        "sha256": "d465673dcf0198603df6de8c7a4941eebfcb85de3ba409d1357c333d4d49fc66"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/entity/morozko.png",
+        "sha256": "6b875570f434b5393aab0155730ecdb75f6a7f3266c3470824c40e2e0a3e56a4"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 180,
+    "id": "poloz_whip",
+    "bounds": [
+      [
+        5.250441676175259,
+        -4.0,
+        6.5
+      ],
+      [
+        17.064620284687606,
+        24.526787076386654,
+        9.5
+      ]
+    ],
+    "dimensions": [
+      11.814178608512346,
+      28.526787076386654,
+      3.0
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      -3.1575309804314333,
+      -2.263393538193327,
+      0.0
+    ],
+    "textures": [
+      "slavicmyths:item/poloz_whip_segments"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip.json",
+        "sha256": "c36a04de7ff4837697bf1f131bba1cdf58596ba0baeafafa56f34e93dec570c4"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_4.json",
+        "sha256": "150434721aedd8c86b0a8f75097067338cf5c504830d0945e820f1fa3caf273e"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_3.json",
+        "sha256": "39c4a614b7330404192b46aaba887130dfce918f20941c22a697c2b6c6dbe2a2"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_2.json",
+        "sha256": "6da962ad4b31af2dd5263cb726910c5254eaadcea1a6afde77ef40dc2058ad62"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_1.json",
+        "sha256": "57430db949d0e5f2c28d8d3d5bc0627299da3d2d2fa570a9b0102b34518a8940"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_0.json",
+        "sha256": "ec9701debd2c8026d875ca91f2a597c69c039c5891f2c5c475516e0b49c9e263"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/poloz_whip.png",
+        "sha256": "09f2ea8b2788a3818278819f886a7bc142ea71ee6bec19c67829d6173b079d9f"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/poloz_whip_segments.png",
+        "sha256": "6048b2e3513b220f38a24ed5fe85a57f6bc4bef587c6ae8f01408ff842937fe0"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 181,
+    "id": "ataman_flail",
+    "bounds": [
+      [
+        6.8,
+        -4.8,
+        4.8
+      ],
+      [
+        15.2,
+        18.5,
+        11.2
+      ]
+    ],
+    "dimensions": [
+      8.399999999999999,
+      23.3,
+      6.3999999999999995
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      -3.0,
+      1.1500000000000004,
+      0.0
+    ],
+    "textures": [
+      "slavicmyths:item/weapons87_materials"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/ataman_flail.json",
+        "sha256": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/weapon_scythe_surface.png",
+        "sha256": "ac996b8199508c6c35546746541c7ac66846d3414f3cc6505a162ed8e78b22c3"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 182,
+    "id": "tugarin_sword",
+    "bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "textures": [
+      "slavicmyths:item/tugarin_sword"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/tugarin_sword_held.json",
+        "sha256": "265a3117a4f8b3941dc3f57cbc8c4bf74b6351dfa754df2226928df48101da8b"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/tugarin_sword.json",
+        "sha256": "2592c8b49ff828733d2d90e79df8d4674dde979b5c600eb5a42519ecfe4d92bc"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/tugarin_sword.png",
+        "sha256": "759e68105e266b9426f5b1214ba2c31a3951c177cd3c37bed0cc896011a2ab40"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 183,
+    "id": "nightingale_dagger",
+    "bounds": [
+      [
+        5.5,
+        -1.8,
+        7.0
+      ],
+      [
+        10.5,
+        17.5,
+        9.0
+      ]
+    ],
+    "dimensions": [
+      5.0,
+      19.3,
+      2.0
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      0.0,
+      0.15000000000000036,
+      0.0
+    ],
+    "textures": [
+      "slavicmyths:item/nightingale_dark",
+      "slavicmyths:item/nightingale_edge",
+      "slavicmyths:item/nightingale_leather",
+      "slavicmyths:item/nightingale_steel"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/nightingale_dagger.json",
+        "sha256": "0c452c9d5b1847d8090d7b0b674e57994d25c66ec91a2127c0d31df226f3dc6e"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/nightingale_steel.png",
+        "sha256": "ae2ec699e5da17d98ca1454275bee5681f645b979f7e636a94b14babe910c686"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/nightingale_edge.png",
+        "sha256": "980e1e4771e19b37274d23f4a54d7102a4b9202c1f433ace95cfef94300a32b5"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/nightingale_leather.png",
+        "sha256": "fc0178eebe8d0cf032c602b00db029baeec06d36e3ff66916a1d4676ee068994"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/nightingale_hair.png",
+        "sha256": "b91a381ae008544e6912cf1e463b0bffea5de99daeb962c560a6e50ac3c1ef6b"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/nightingale_silver.png",
+        "sha256": "600731c1bcb1f94266f5a41c2d60c319f5fba070134f6f716a091c5878777846"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/nightingale_bone.png",
+        "sha256": "f7eae7f80c8d40805c0cbcb901a9ae19b332bbd41ea140aaf7dccf6f1d10307f"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/nightingale_dark.png",
+        "sha256": "ecd4d0a6ce3e3be16bd665f05136eb4729c58ceb9119978f4f89c6d4f7848b74"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 184,
+    "id": "trophy_kalin_sabre",
+    "bounds": [
+      [
+        5.0,
+        0.0,
+        6.5
+      ],
+      [
+        11.0,
+        24.0,
+        9.5
+      ]
+    ],
+    "dimensions": [
+      6.0,
+      24.0,
+      3.0
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      0.0,
+      -4.0,
+      0.0
+    ],
+    "textures": [
+      "slavicmyths:item/weapon_scythe_surface"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/trophy_kalin_sabre.json",
+        "sha256": "033e9783c1494e1322dd614316d47f9ad3a5f64b3514eec5e27d066f7f01c48d"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/weapon_scythe_surface.png",
+        "sha256": "ac996b8199508c6c35546746541c7ac66846d3414f3cc6505a162ed8e78b22c3"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 185,
+    "id": "victor_spear",
+    "bounds": [
+      [
+        6.5,
+        -5.0,
+        6.5
+      ],
+      [
+        9.0,
+        28.0,
+        9.0
+      ]
+    ],
+    "dimensions": [
+      2.5,
+      33.0,
+      2.5
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      0.25,
+      -3.5,
+      0.25
+    ],
+    "textures": [
+      "slavicmyths:item/weapon_scythe_surface"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/victor_spear.json",
+        "sha256": "fe8727f96efe95daf6af33594255d683828a3e40bdb6b75e9ce83791fe42fbba"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/weapon_scythe_surface.png",
+        "sha256": "ac996b8199508c6c35546746541c7ac66846d3414f3cc6505a162ed8e78b22c3"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 186,
+    "id": "finist_bow",
+    "bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "textures": [
+      "slavicmyths:item/finist_bow"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/finist_bow_pulling_2.json",
+        "sha256": "9722448f30f7f948a9a1f7e4050db9d9f9f198969ecd69c64b49540b51e1be8e"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/finist_bow_pulling_1.json",
+        "sha256": "129100494165e5ff129fca58036e2eda5dd84ab3a6c2677ee6e6588b7d94851b"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/finist_bow_pulling_0.json",
+        "sha256": "166fe6dcca4e3529b2401cfaed6fbf60c14e19a3204c4a908ad266e505996fa5"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/finist_bow.json",
+        "sha256": "2427786b00843baea67c0909dbc11e927199ba36c7cbea0b73586cc46c3e11d0"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/finist_bow_pulling_2.png",
+        "sha256": "3a096501b7a29dd2b47cee674e02864356132b10a5a1794a9200dc69740231f9"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/finist_bow_pulling_1.png",
+        "sha256": "b7c841fab855884550401075d32ccc6fa426495fd911ca85ee6fc46a7c5ed610"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/finist_bow_pulling_0.png",
+        "sha256": "68ad109f2c13ede2cace1ba6ccd3b6f0e6f473d722a2401e5adc6dd3f927b8b0"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/finist_bow.png",
+        "sha256": "0caec4659bedec4d648cf75368eef6b3ae5158d667f79b36690e5b7c3159260e"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 187,
+    "id": "thunder_axe",
+    "bounds": [
+      [
+        -1.0,
+        1.0,
+        6.6
+      ],
+      [
+        12.5,
+        27.0,
+        9.3
+      ]
+    ],
+    "dimensions": [
+      13.5,
+      26.0,
+      2.700000000000001
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      2.25,
+      -6.0,
+      0.04999999999999982
+    ],
+    "textures": [
+      "slavicmyths:item/thunder_axe"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/thunder_axe.json",
+        "sha256": "7688f214a1046b593062642f2d286786e6fcbc610ff4f9ae3d430efaf42eece9"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/thunder_axe.png",
+        "sha256": "a429197e6ad85bb1815817d7215cf803b1bcf0ac9d84d90abe0ea2500379220c"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 188,
+    "id": "thunder_spear",
+    "bounds": [
+      [
+        6.0,
+        -10.0,
+        6.85
+      ],
+      [
+        10.0,
+        30.0,
+        9.15
+      ]
+    ],
+    "dimensions": [
+      4.0,
+      40.0,
+      2.3000000000000007
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      0.0,
+      -2.0,
+      0.0
+    ],
+    "textures": [
+      "slavicmyths:item/thunder_spear"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/thunder_spear.json",
+        "sha256": "cf146e9ede765db5cb351cef96ee8a5000116c29a5fedeb1f038a8b5526b2afe"
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/item/thunder_spear.png",
+        "sha256": "d089c29c2445cea40e6fc9ad569dd2be4c8b52df82f66683fc620b1329089955"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "issue": 189,
+    "id": "pool_spear",
+    "bounds": [
+      [
+        5.693437035123623,
+        -7.0,
+        6.6
+      ],
+      [
+        9.461939766255643,
+        25.0,
+        9.0
+      ]
+    ],
+    "dimensions": [
+      3.7685027311320196,
+      32.0,
+      2.4000000000000004
+    ],
+    "source_camera_span": 48,
+    "source_center_translation": [
+      0.4223115993103672,
+      -1.0,
+      0.20000000000000018
+    ],
+    "textures": [
+      "minecraft:block/brown_terracotta",
+      "minecraft:block/cyan_terracotta",
+      "minecraft:block/dark_oak_log",
+      "minecraft:block/gray_concrete",
+      "minecraft:block/iron_block"
+    ],
+    "files": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/models/item/pool_spear.json",
+        "sha256": "b8991c5aed839be52e0ad006510637404fb1ec3041395f7aee7ea3bcd7757c60"
+      }
+    ],
+    "decision": "PENDING_VISUAL_REVIEW",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  }
+]

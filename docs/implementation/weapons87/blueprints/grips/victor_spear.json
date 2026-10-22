@@ -1,0 +1,125 @@
+{
+  "id": "victor_spear",
+  "grip": [
+    8,
+    10,
+    8
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        -30
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "fixed": {
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        7,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        1.07646222,
+        -2.28734849,
+        -1.83602624
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        55,
+        0,
+        0
+      ],
+      "translation": [
+        0.0,
+        -0.86036465,
+        -1.22872807
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        1.07646222,
+        -2.28734849,
+        -2.16397376
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        55,
+        180,
+        0
+      ],
+      "translation": [
+        -0.0,
+        -0.86036465,
+        -1.22872807
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  "reason": "center authored shaft/grip, constrain player proportions, keep existing geometry/UV",
+  "source_model": "src/main/resources/assets/slavicmyths/models/item/victor_spear.json",
+  "before_sha256": "fa0e98544ca9d1c784dc8185cee923d4e9c2fe999dec71724b463a3360357476",
+  "design_state": "PROPOSAL_BEFORE_PRODUCTION, not owner runtime accepted"
+}

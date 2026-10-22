@@ -1,0 +1,58 @@
+allprojects { p ->
+ p.plugins.withId('java') {
+  p.sourceSets.create('weapons87Offline') { java.srcDirs('tools/weapons87-offline') }
+  p.sourceSets.weapons87Offline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+  p.sourceSets.weapons87Offline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+  p.tasks.register('weapons87Native', JavaExec) {
+   dependsOn p.tasks.named('weapons87OfflineClasses')
+   classpath = p.sourceSets.weapons87Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.verify.Weapons87Native'
+   if (p.hasProperty('weapons87After')) args '--after'
+  }
+  p.tasks.register('weapons87Player', JavaExec) {
+   dependsOn p.tasks.named('weapons87OfflineClasses')
+   classpath = p.sourceSets.weapons87Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.verify.Weapons87Player'
+  }
+  p.tasks.register('weapons87Grips', JavaExec) {
+   dependsOn p.tasks.named('weapons87OfflineClasses')
+   classpath = p.sourceSets.weapons87Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.verify.Weapons87GripChecks'
+  }
+  p.tasks.register('weapons87FirstPerson', JavaExec) {
+   dependsOn p.tasks.named('weapons87OfflineClasses')
+   classpath = p.sourceSets.weapons87Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.client.Weapons87FirstPerson'
+  }
+  p.tasks.register('weapons87FlailMotion', JavaExec) {
+   dependsOn p.tasks.named('weapons87OfflineClasses')
+   classpath = p.sourceSets.weapons87Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.verify.Weapons87FlailMotion'
+  }
+  p.tasks.register('weapons87Spears', JavaExec) {
+   dependsOn p.tasks.named('weapons87OfflineClasses')
+   classpath = p.sourceSets.weapons87Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.verify.Weapons87Spears'
+  }
+  p.tasks.register('weapons87Thrown', JavaExec) {
+   dependsOn p.tasks.named('weapons87OfflineClasses')
+   classpath = p.sourceSets.weapons87Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.verify.Weapons87Thrown'
+  }
+  p.tasks.register('weapons87Bows', JavaExec) {
+   dependsOn p.tasks.named('weapons87OfflineClasses')
+   classpath = p.sourceSets.weapons87Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.verify.Weapons87Bows'
+  }
+  p.tasks.register('weapons87Whip', JavaExec) {
+   dependsOn p.tasks.named('weapons87OfflineClasses')
+   classpath = p.sourceSets.weapons87Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.verify.Weapons87Whip'
+  }
+  p.tasks.register('weapons87Balance', JavaExec) {
+   dependsOn p.tasks.named('weapons87OfflineClasses')
+   classpath = p.sourceSets.weapons87Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.verify.Weapons87Balance'
+  }
+ }
+}

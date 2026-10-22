@@ -1,3 +1,21 @@
+## #93: боевые механики Лиха · 21.10.2026
+
+По прямому поручению владельца после технической сдачи #140/#141 реализован candidate1.9.7.52: только Likho LivingEntity victims/защита целей, приоритет существующих навыков при окружении, phase/focus commitment, заражённые зоны Лиха и opt-in bounded trace. HP350/обычная, mor_health×2 (700 без иных модификаторов), атрибуты, NBT, dimensions, все модели/UV/PNG/эффекты/звуки/registry сохранены. Ветка зон Овинника оставлена дословно, Тугарин сохраняет прежний scheduler. Production policy/exposure145 checks и native HP/NBT1545 checks PASS; боевые runtime-сценарии NOT_RUN / OWNER_PENDING, запусков0. [Причины, файлы, матрица, проверки и сценарии](implementation/likho93/REPORT.md). Сборка/JAR/source manifest: [verification.json](implementation/likho93/verification.json); установку следует считать состоявшейся только при наличии [installed.json](implementation/likho93/installed.json). Issue OPEN, рекомендуемый Status Тестирование, поле Projects технически не изменено; owner-accepted не добавлялся. #142 не начата и требует отдельной приёмки #93/поручения. Source не commit/push.
+
+Тестовая **1.9.7.52 установлена** в PolyMC 1.21.1 Testing: SHA256 `1577b7abb0916323a8f0507d1a2d44a70a72108dcf732e0c9987a7b0b8a4bf38`; предыдущая1.9.7.51 в backup, дублей0, прочие моды неизменны. Точные пути/source: [installed.json](implementation/likho93/installed.json). Установка не означает runtime-приёмку.
+
+## #140/#141: тестовая 1.9.7.51 установлена · 21.10.2026
+
+Владелец подтвердил игровую приёмку декора #108. Реализованы шесть трофейных голов из настоящих ModelPart/UV и единое дерево `/slavicmyths dev generate <строение> [параметры]`; прежние обработчики и алиасы сохранены. Clean build, native-head offline, Brigadier offline, canonical resources и 7487 resource/JAR parity PASS. Тестовая 1.9.7.51 установлена в PolyMC 1.21.1 Testing, предыдущая 1.9.7.50 в backup, дублей нет; runtime Codex 0 / OWNER_PENDING. [Отчёт и матрицы](implementation/heads140-generation141/REPORT.md), [точная установка](implementation/heads140-generation141/installed.json), [команды](GENERATION_COMMANDS.md). Source base32d17334 + незакоммиченный snapshot, commit/push не выполнялись. Issues #140/#141 OPEN; рекомендуется Тестирование, поле Project технически не изменено. Следующее прямое поручение владельца — #93; #142 только после отдельной приёмки #93.
+
+## Установлена тестовая1.9.7.50 · 21.10.2026
+
+По прямому поручению владельца candidate #108 установлен в PolyMC Slavic-Myths-1.21.1-Testing;1.9.7.49 сохранена в backup, дубликатов нет, остальные моды неизменны. Source/SHA256/backup: [installed.json](implementation/decor108/installed.json). Запусков0 / IN_GAME_OWNER_PENDING, #108 OPEN. Эта запись заменяет прежний NOT_INSTALLED для1.9.7.50; новые изменения source не commit/push.
+
+## #108: исправления по игровой проверке · 21.10.2026
+
+Владелец принял древесину #106/#107 и разрешил закрытие; #107 закрыта; #106 закрытие откатила GitHub Actions (нужна owner-accepted от владельца). Замечание pine_log перенесено в #108. Исполняется обновлённая #108: двухблочный манекен, ящик27 слотов с постоянной BE, coplanar/UV fixes, адресный бытовой pixel art и аудит131 недревесных записей decor. Candidate1.9.7.50; runtime0 / OWNER_PENDING, #91/#108 OPEN. [Scope, реальные source A/B, матрица и сценарии](implementation/decor108/REPORT.md). В PolyMC остаётся предыдущая1.9.7.49; новый candidate не установлен. Новые source изменения не закоммичены.
+
 ## Тестовая установка 1.9.7.49 · 21.10.2026
 
 По прямому поручению владельца текущий source snapshot опубликован и установлен в PolyMC 1.21.1 Testing. Clean build / 7444 resource parity / backup / no duplicate JAR PASS. Runtime0, IN_PROGRESS / OWNER_PENDING; Issue OPEN. Это тестовая сборка незавершённой цепочки. [Точная установка, SHA256, source commit и проверки](implementation/delivery-19749/REPORT.md). Исторические POLYMC_NOT_INSTALLED ниже относятся к прежним пакетам.
@@ -2932,3 +2950,67 @@ Schema2 persists clip/age, queue≤16, route≤8, waypoint, movement deadline re
 Snapshot содержит real registered metadata, 487 Recipe.CODEC JSON, actual graph/player flags, privacy-filtered hints. RecipeManager weak cache/reload invalidate; open cooldown10, read4, nonce sequence/TTL/range/choice10; compact delta на discovery/award, full graph reset при revoke. Wire229697 bytes native codec PASS. Discovery: interactions/craft/pickup/smelt/containerclose/death LOWEST; local LivingEntity12b sample1Hz≤64; moved-position actual structure references≤32 через getChunkNow, без locate/loading. Exact home/private target/Anchor не отправляются: смещение25–80/radius250, stale/dimension/source/direction/band.
 
 Dist.CLIENT: TaleScreen native font/перенос/scissor, 8icons32px, трехуровневое оглавление/search/back-forward/history/scroll, cached real entity portrait, actual recipe viewer, readonly Yaga journal, schematic map, real pan/zoom advancement graph. Все старые registry/162 criteria/rewards/vanilla IDs сохранены, тестовые harness namespaces не входят в production. Только test restart fixture имеет forced chunk для native entity activation; он изолирован и исключён из JAR. Clean build/15native server cases/actual disk restart PASS; 19servers/0clients; реальные GUI/audio/MP/MSPT/FPS не приняты. [Evidence](verification/bayun-book-final/REPORT.md).
+
+
+## Аксессуары #148 / #149–156 — исполнительская сдача 21.10.2026
+
+Выполнены исходниковый аудит38 предметов, новая вкладка40 функциональных аксессуаров, пять согласованных изменений баланса,12 отдельных плоских GUI-редизайнов и6 новых украшений (pool_ring, bath_ward, harvest_ring, podvey_belt, leshy_necklace, spark_ring) с рецептами/слотами/серверными эффектами/сохранением CD. Новый общий модуль accessories использует events/Curios callbacks и существующий Persisted PathData; без глобального tick polling и новых слотов. GUI отделён от исходных held моделей; минимальные client body/head fit и visibility guards, исходная геометрия/UV сохранены. Матрица33 wearer IDs и source-backed A/B Steve/Alex/armor/source poses готовы.
+
+Java21 clean build, quarantine, shared-policy/native offline tests, scoped source/resource/JAR gates PASS. Установлен точный1.9.7.53 в PolyMC1.21.1-Testing с backup1.9.7.52, без дублей; остальные6 модов сохранены. Реальный UI/бой/движение/relog/MP — NOT_RUN / OWNER_PENDING, запусков0. Issues OPEN; recommended «Тестирование», поле Project не менялось, owner-accepted не добавлен, commit/push не делались. Подробная матрица, артефакты и installed path/SHA/source manifest: [отчёт](implementation/accessories-148/REPORT.md). Задачи Ада и исходники других механик не затронуты.
+
+## Оружейный аудит #157 — 21.10.2026
+
+`tools/weapons87_audit.py` разрешает реальные model/texture и standalone held/charge dependencies, собирает recipe/loot/code provenance для 68 IDs. `weapons87_native.py` генерирует offline factories по существующим регистрациям; `weapons87-offline.gradle` изолирует их sourceSet от production JAR. `weapons87_geometry.py` строит source JSON/UV projections без игрового запуска. Gameplay и registry IDs на этапе аудита не меняются.
+
+### #87 пакет 1 — 21.10.2026
+
+Статические кистени и компоненты (#166/#167/#116/#181) реализованы, source A/B и native Steve/Alex projections подготовлены; Java21 clean build/resource/JAR/generator sandbox PASS. Пакет A прочности8 IDs согласован владельцем и реализован через штатное ModifyDefaultComponentsEvent. Остальные числа не изменены. Общая цепочка IN_PROGRESS, динамика отдельной #164; локальный промежуточный JAR не установлен. См. implementation/weapons87/PACKAGE-1.md и package1-receipt.json.
+
+### #87 адресные хваты и первые лица — 21.10.2026
+
+28 display-моделей откалиброваны по actual native ItemTransform/ModelPart, без изменения геометрии/UV/PNG; все68 IDs включены в source A/B. Player-only ScytheGrip согласует обычный и custom render, не меняя босс-риг и серверный бой. Исправлены отсутствующие кисти у парных клинков Тугарина и camera-space orbit косы70→35°. Java21 clean build/native gates PASS, финальная упаковка текущего промежуточного пакета проверяется; вся #87 IN_PROGRESS, PolyMC не менялся. Следом #164 и остальные независимые дети. См. implementation/weapons87/PROGRESS.md и PACKAGE-2.md.
+
+
+### #87 продолжение — пакет4,21.10.2026
+
+#164: FlailClient сохраняет actual LivingEntity через immutable ItemOverrides-bound BakedModel; одноразовый ThreadLocal consume для BEWLR, GUI/drop static. FlailMotion — stateless bounded7-link render-only kinematics, существующие server hit/CD не меняются. Отдельные модели рукояти/звена/груза воспроизводит weapons87_flail_motion.py поверх канонического static generator; offline pose exporter исключён из production JAR.
+
+
+### #87 продолжение — пакет5,21.10.2026
+
+#171 ordinary spear generator создаёт separate_transforms root со старой16px GUI perspective и40-unit объёмной _held geometry. Точка хвата(8,6,8) центрируется native ItemTransform,TPscale0.7; каменные/серебряные и исторические модели не переписываются. Генератор weapons87_spears вызывается после static/flail-motion слоёв, ownership15 models явно проверяется. Ни серверная дальность, ни registry, ни рецепты не меняются.
+
+
+### #87 продолжение — пакет6,21.10.2026
+
+WeaponProjectileRenderer использует stateless flightPose с прежними yaw/pitch/scale и contextNONE вместоFIXED: native generated fixed Y180 был ошибочным для снаряда. Server WeaponProjectile/ThrowingWeaponItem/14 models иPNG не меняются; независимо проверяется dot оси клинка и physical velocity по420 native cases. Это source-only тест без world/entity создания.
+
+
+### #87 продолжение — пакет7,21.10.2026
+
+weapons87_silver_mace.py — узкий канонический overlay для одной модели; geometry/material/GUI меняются по точному prior draft, остальные display contexts сохраняются. Geometry connectivity source-gate отличает3 старых раздельных компонента от1 новой связной модели. Общий verifier допускает только явный art-owned root поверх исторического grip-only baseline; остальные27 geometry/UV сохраняются.
+
+
+### #87 продолжение — пакет8,21.10.2026
+
+weapons87_storm_staff.py воспроизводит единственный storm_staff root по exact prior draft; общий atlas и существующие shared staff textures неизменны. Artifact source gate подтверждает старую duplicate fork geometry, новую distinct connected focus geometry и сохранённые hand matrices. Верификатор явных art roots допускает SilverMace/Storm в рамках их отдельных manifests, остальные26 исторических grip geometry/UV сохраняет.
+
+### #87 продолжение — пакет9,22.10.2026
+
+weapons87_tugarin_icon.py — последний canonical overlay: две native-aspect sprite surfaces плюс exposed pixel edges,126 elements, разнесённая глубина без coplanar faces. PNG32x32 и held model неизменны; существующий TugarinPairClient по-прежнему выбирает отдельный held для hand contexts. В ресурсный verifier добавлен exact draft manifest этого root и sandbox replay нового overlay. Изменение не касается серверной парной механики.
+
+### #87 продолжение — пакет10,22.10.2026
+
+BowDrawClient через официальный client item extension заменяет только активную FP BOW ветку для3 IDs. Idle/swing/equip при отсутствии active use делегированы vanilla; физическая рука определяется usedItemHand+mainArm. Pure drawPose/visualPower экспортируются в Weapons87Bows native fixture; реальные FieldBowItem/FinistBow factories проверяют сохранение серверной power. Нет сетевого/мирового polling и common→client dependency. Все ranged art и существующие handlers сохранены по before-ranged-timing.zip.
+
+### #87 продолжение — пакет11,22.10.2026
+
+weapons87_whip.py воспроизводит12 JSON:5 held static shapes с20 joined/tapered sections,5 separate_transforms wrappers,root и dedicated GUI pixel profile из существующего atlas. GUI/ground/fixed не зависят от pose overrides. Левая плоскость отдельно ориентирована наружу и grip центрирован native ItemTransform. PolozClient/Whip/boss/PNG неизменны. Legacy poloz_full_assets --weapon-only выходит до full audio и импортных overlays; scoped sandbox доказывает nonowned changes0. Полный старый аудио-генератор запрещён и не запускался.
+
+### #87 продолжение — пакет12,22.10.2026
+
+StormStaffItem.pulseDamage/cooldownTicks — actual production helpers с approved base6/CD60-54 и прежними multipliers. Native fixture вызывает их напрямую; цель/видимость/радиус/FX/body use сохранены exact source gate. ModItems меняет только один registration token perunite_mace speed.6→.8. weapons87_balance_b.py воспроизводит только2 RU/EN tooltip keys последним overlay. Verifier допускает ровно этот native speed modifier, все другие68 поля сохраняет кромеA; language JSON читает явноUTF8. Source manifest11 показывает только4 production-file delta.
+
+### #87 продолжение — пакет13,22.10.2026
+
+weapons87_likho_gui.py — exact canonical overlay одного root JSON: gui_light front и только display.gui, остальные geometry/UV/material/non-GUI byte semantics unchanged. Native source checker доказывает clipping geometry вне16px до и внутри после, existing eye-color pixel visibility0→1;20 FP/TP source cases с прежними матрицами. Босс и способности не затрагиваются.

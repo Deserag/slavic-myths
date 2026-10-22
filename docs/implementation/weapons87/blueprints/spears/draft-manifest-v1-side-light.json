@@ -1,0 +1,17 @@
+{
+  "models/item/gold_spear.json": "c40ec2352955e3f46210abe24c20abe9961e3bb09fcf55f06441ccfceb8f5e8d",
+  "models/item/gold_spear_held.json": "680c33c4db7cbf27fe161d50998951f0b5a0150809e784e5b58ca8073c81b491",
+  "models/item/gold_spear_icon.json": "136c7f1b5951dff6b2358823595710881e1df2f6fe62efd8ec1b6f9bd4b880e4",
+  "models/item/iron_spear.json": "f5d7fa1454010e9bdf59206306ca7217ba23b6471cce73cd39ff8d65cd1b1536",
+  "models/item/iron_spear_held.json": "4190a243b00e01ed2f86096834d11961b7f9127b0b385f3c0643e9fc2abef1e5",
+  "models/item/iron_spear_icon.json": "94d23ae6f236f0c678371a0ea59eac100afbec9ab53355d178c0e3d676c68efd",
+  "models/item/diamond_spear.json": "1b62fa24e1efa039e4b362d138bf4bd2e92139e27df6ab9f762fca7791adfaa3",
+  "models/item/diamond_spear_held.json": "d39f0aec82731ae916e04c4729b1d8cbb7d5e1aa9fed0255b7505d435a8eb1ff",
+  "models/item/diamond_spear_icon.json": "00ee274c5af535505bf949700ea6de9b4ae1b3aa1ee5acecb54aa57cf40fe932",
+  "models/item/perunite_spear.json": "212cb0b948fe510da7d3ac6f418a35b8486f812e1d40b89220bc017748b5693d",
+  "models/item/perunite_spear_held.json": "b54eb23ab48869200ac298256854785526daac70e0ad38763941a8e227a85611",
+  "models/item/perunite_spear_icon.json": "a946715c65a3a4f679f8540a560a99e5b7c8a3a7bf6778a4584dc0be1e04c05c",
+  "models/item/netherite_spear.json": "e097a39ffbeddd875399ac6888d92d60a76a0d441ff9568a632121a35c6fac49",
+  "models/item/netherite_spear_held.json": "197beb620784fc5ae00624d27a26523f2953b0ec86191a54090a8cd2061d6f1d",
+  "models/item/netherite_spear_icon.json": "7311f8a6182aeb983ae849187502d907d449d4130d14b70a44dd8c20beebc3b6"
+}

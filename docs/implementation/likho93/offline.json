@@ -1,0 +1,42 @@
+{
+  "entity_policy_adapter": "source-audited separately; no entity/world instantiated",
+  "exposure": [
+    {
+      "cloud": false,
+      "life": 180,
+      "full_life_hits": 7,
+      "first_damage_tick": 60,
+      "full_life_damage": 7
+    },
+    {
+      "cloud": true,
+      "life": 120,
+      "full_life_hits": 6,
+      "first_damage_tick": 20,
+      "full_life_damage": 12
+    }
+  ],
+  "combat_runtime": "NOT_RUN / OWNER_PENDING",
+  "checks": 145,
+  "production_policy_scenarios": [
+    {
+      "normal_surrounded": "SWEEP",
+      "runtime": "NOT_RUN / OWNER_PENDING",
+      "type": "Zombie",
+      "normal_candidate": true
+    },
+    {
+      "normal_surrounded": "SWEEP",
+      "runtime": "NOT_RUN / OWNER_PENDING",
+      "type": "Skeleton",
+      "normal_candidate": true
+    },
+    {
+      "normal_surrounded": "SWEEP",
+      "runtime": "NOT_RUN / OWNER_PENDING",
+      "type": "Spider",
+      "normal_candidate": true
+    }
+  ],
+  "runtime_launches": 0
+}

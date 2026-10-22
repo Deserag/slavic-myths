@@ -1,0 +1,39 @@
+{
+  "version": "1.9.7.52",
+  "other_mods": [
+    {
+      "Path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\curios-neoforge-9.5.1+1.21.1.jar",
+      "Hash": "A45DF2125C26219974ABA7507FFC9AFE7B83ACC941A386AF3FAACB1CC0056FDE"
+    },
+    {
+      "Path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\FallingTree-1.21.1-1.21.1.11.jar",
+      "Hash": "70EE147602D2239E7A093E166FDF0C0ABCEF959D5D457C0F8F3669EF9B483DC4"
+    },
+    {
+      "Path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\Jade-1.21.1-NeoForge-15.10.6.jar",
+      "Hash": "276F1F65A20D04F536989C4F311949D770B52C440C23C2B904A08860F3C93810"
+    },
+    {
+      "Path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\jei-1.21.1-neoforge-19.51.0.418.jar",
+      "Hash": "8BC3936D869E4040A5649C58B7E8BE1C78C82A245C0DC07BDD68AB49121A222C"
+    },
+    {
+      "Path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\xaerominimap-neoforge-1.21.1-26.5.0.jar",
+      "Hash": "667105D8FDCA64B27B29D8E0B88E67E7342038D3FB4EDC4129BF452B601C6D20"
+    },
+    {
+      "Path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\xaeroworldmap-neoforge-1.21.1-1.45.0.jar",
+      "Hash": "D60899112E84616BA52A993C1722FD891872ACC4779BFAC34D9B170001451C6F"
+    }
+  ],
+  "source": "uncommitted working tree: source-manifest.json",
+  "backup_sha256": "92ff26aa2ae4bb4f8d4723ae0e8cec11cb57c1cdef8ee6aabad49392ccc39242",
+  "status": "INSTALLED_TEST_CANDIDATE_OWNER_PENDING",
+  "duplicates": 0,
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\codex-backups\\before-1.9.7.52-20261021-132209\\slavicmyths-1.9.7.51.jar",
+  "base_commit": "32d1733457e7e90360ce16c23860304ece664c64",
+  "source_manifest_sha256": "ae78076bb84494e55ccca2a327d7b7e75375b9f3b207abf0eada00ea66ace740",
+  "installed_path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.52.jar",
+  "sha256": "1577b7abb0916323a8f0507d1a2d44a70a72108dcf732e0c9987a7b0b8a4bf38",
+  "runtime_launches": 0
+}

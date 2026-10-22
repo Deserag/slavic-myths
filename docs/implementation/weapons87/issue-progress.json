@@ -1,0 +1,512 @@
+[
+  {
+    "issue": 87,
+    "title": "[2.0][P0][WEAPONS-MASTER] Полный реворк 68 видов оружия: баланс, эффекты, анимации, модели и детали",
+    "execution": "IN_PROGRESS",
+    "evidence": [
+      "PROGRESS.md",
+      "PACKAGE-1.md",
+      "PACKAGE-2.md",
+      "PACKAGE-3.md",
+      "PACKAGE-4.md",
+      "PACKAGE-5.md",
+      "PACKAGE-6.md",
+      "PACKAGE-7.md",
+      "PACKAGE-8.md",
+      "PACKAGE-9.md",
+      "PACKAGE-10.md",
+      "PACKAGE-11.md",
+      "PACKAGE-12.md",
+      "PACKAGE-13.md"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 115,
+    "title": "[2.0][#87][P0][GRIP] Оружие должно находиться в ладони игрока, а не лежать на руке",
+    "execution": "IN_PROGRESS",
+    "evidence": [
+      "PROGRESS.md",
+      "PACKAGE-1.md",
+      "PACKAGE-2.md"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 116,
+    "title": "[2.0][#87][P0][FLAIL-GEOMETRY] Кистени: реальная 3D-форма и крепление шара (анимация отдельно)",
+    "execution": "TECHNICAL_STATIC_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "PACKAGE-1.md",
+      "package1-receipt.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 117,
+    "title": "[2.0][#87][P1][LONG-WEAPONS] Коса, посохи, древковое оружие: стойка без головы и клиппинга",
+    "execution": "IN_PROGRESS",
+    "evidence": [
+      "PROGRESS.md",
+      "PACKAGE-1.md",
+      "PACKAGE-2.md"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 118,
+    "title": "[2.0][#87][P1][BOSS-WEAPON-ART-MASTER] Уникальное оружие: дизайн-координация отдельных 15 ID",
+    "execution": "IN_PROGRESS",
+    "evidence": [
+      "PACKAGE-9.md",
+      "PACKAGE-11.md",
+      "PACKAGE-13.md"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 119,
+    "title": "[2.0][#87][P1][WEAPON-FAMILY-ART-MASTER] Обычное оружие: координация шести семейств",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 120,
+    "title": "[2.0][#87][P1][WEAPON-PARTS] Составляющие оружия: форма рукоятей, цепи, грузов и наконечников",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 121,
+    "title": "[2.0][#87][P1][WEAPON-GENERATOR-QA] Генераторы оружия и регрессии: исправления не должны откатываться",
+    "execution": "IN_PROGRESS",
+    "evidence": [
+      "PROGRESS.md",
+      "PACKAGE-1.md",
+      "PACKAGE-2.md"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 157,
+    "title": "[2.0][#87][P0][W1-AUDIT] 68 видов оружия: полный каталог боевого баланса, получения и прогрессии",
+    "execution": "IN_PROGRESS",
+    "evidence": [
+      "PROGRESS.md",
+      "PACKAGE-1.md",
+      "PACKAGE-2.md"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 158,
+    "title": "[2.0][#87][P0][W2-BALANCE-EARLY] Раннее и среднее оружие: урон, скорость, стоимость, актуальность",
+    "execution": "IN_PROGRESS",
+    "evidence": [
+      "PROGRESS.md",
+      "PACKAGE-1.md",
+      "PACKAGE-2.md",
+      "PACKAGE-12.md"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 159,
+    "title": "[2.0][#87][P0][W3-BALANCE-BOSS] Поздние и боссовые оружия: значимые награды без power creep",
+    "execution": "IN_PROGRESS",
+    "evidence": [
+      "PROGRESS.md",
+      "PACKAGE-1.md",
+      "PACKAGE-2.md",
+      "PACKAGE-12.md"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 160,
+    "title": "[2.0][#87][P0][W4-ABILITIES] Боевые эффекты оружия: способности, состояния и кулдауны",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 161,
+    "title": "[2.0][#87][P1][W5-VFX] Частицы, следы, отдача и визуальная обратная связь уникального оружия",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 162,
+    "title": "[2.0][#87][P0][W6-ANIM-MELEE] Анимации обычного оружия: подготовка, удар, восстановление",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 163,
+    "title": "[2.0][#87][P1][W7-ANIM-RANGED] Луки и арбалеты: натяжение, зарядка, залп и визуальная отдача",
+    "execution": "IN_PROGRESS",
+    "evidence": [
+      "PACKAGE-10.md"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 164,
+    "title": "[2.0][#87][P0][W8-ANIM-FLAIL] Кистени: независимая анимация цепи и шара без новой физики",
+    "execution": "TECHNICAL_ANIMATION_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "PACKAGE-4.md",
+      "package4-receipt.json",
+      "flail-motion-source/matrix.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 165,
+    "title": "[2.0][#87][P1][W9-ANIM-POLEARMS] Древковое, косы и посохи: отдельные позы и анимации игрока",
+    "execution": "IN_PROGRESS_SCYTHE_CAMERA_SUBSET",
+    "evidence": [
+      "PACKAGE-3.md",
+      "package3-receipt.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 166,
+    "title": "[2.0][#87][W10-PARTS-BALL] Шары и грузы кистеней: отдельные объёмные формы и текстуры",
+    "execution": "TECHNICAL_STATIC_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "PACKAGE-1.md",
+      "package1-receipt.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 167,
+    "title": "[2.0][#87][W11-PARTS-CHAIN] Цепи, рукояти и крепления кистеней: конструкция и масштаб",
+    "execution": "TECHNICAL_STATIC_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "PACKAGE-1.md",
+      "package1-receipt.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 168,
+    "title": "[2.0][#87][W12-PARTS-OTHER] Гарды, древки, рукояти и наконечники: соответствие готовому оружию",
+    "execution": "TECHNICAL_COMPONENT_AUDIT_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "COMPONENTS-168.md",
+      "components-168/audit.json",
+      "components-168/context-comparison.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 169,
+    "title": "[2.0][#87][W13-ART-SWORDS] Обычные мечи и кинжалы: разные формы, ванильный pixel-art",
+    "execution": "TECHNICAL_ART_KEEP_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "FAMILY-169.md",
+      "family-art-review/review.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 170,
+    "title": "[2.0][#87][W14-ART-MACES] Обычные булавы, дубины, чеканы и топоры: формы и головы оружия",
+    "execution": "TECHNICAL_ART_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "PACKAGE-7.md",
+      "package7-receipt.json",
+      "silver-mace-after/geometry-gates.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 171,
+    "title": "[2.0][#87][W15-ART-SPEARS] Обычные копья: читаемая длина, остриё и тип наконечника",
+    "execution": "TECHNICAL_ART_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "PACKAGE-5.md",
+      "package5-receipt.json",
+      "spears-after/matrix.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 172,
+    "title": "[2.0][#87][W16-ART-RANGED] Базовые луки, снаряды и визуал арбалетов: семейство без легендарного арта",
+    "execution": "TECHNICAL_ART_KEEP_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "FAMILY-172.md",
+      "family-art-review/review.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 173,
+    "title": "[2.0][#87][W17-ART-THROWN] Метательные ножи и сулицы: две действительно разные линейки",
+    "execution": "TECHNICAL_ORIENTATION_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "PACKAGE-6.md",
+      "package6-receipt.json",
+      "thrown-after/matrix.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 174,
+    "title": "[2.0][#87][W18-ART-POLEARMS] Бердыш, серп и обычные посохи: отдельные читаемые силуэты",
+    "execution": "TECHNICAL_ART_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "PACKAGE-8.md",
+      "package8-receipt.json",
+      "polearms174-after/geometry-gates.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 175,
+    "title": "[2.0][#87][W19-ART-THREE-BREATH] Арбалет трёх дыханий: индивидуальный позднеигровой дизайн",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 176,
+    "title": "[2.0][#87][W20-ART-SERPENT-CROSSBOW] Змеиный арбалет: отдельный узнаваемый арбалет до улучшения",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 177,
+    "title": "[2.0][#87][W21-ART-KARACHUN] Коса Карачуна: сохранить выразительный клинок и поправить предметный масштаб",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 178,
+    "title": "[2.0][#87][W22-ART-LIKHO] Посох Лихо: отдельный мрачный силуэт и читаемая рукоять",
+    "execution": "TECHNICAL_SCOPE_PASS_OWNER_PENDING",
+    "evidence": [
+      "PACKAGE-13.md",
+      "package13-receipt.json",
+      "blueprints/likho-staff",
+      "likho178-after"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 179,
+    "title": "[2.0][#87][W23-ART-MOROZKO] Посох Морозко: сохранить канон, предметная модель отдельно от босса",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 180,
+    "title": "[2.0][#87][W24-ART-POLOZ] Плеть Полоза: читаемый силуэт, рукоять и гибкая рабочая часть",
+    "execution": "TECHNICAL_SCOPE_PASS_OWNER_PENDING",
+    "evidence": [
+      "PACKAGE-11.md",
+      "package11-receipt.json",
+      "blueprints/poloz-whip",
+      "whip180-after"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 181,
+    "title": "[2.0][#87][W25-ART-ATAMAN-FLAIL] Кистень атамана: индивидуальная тяжёлая головка и узнаваемое оружие",
+    "execution": "TECHNICAL_STATIC_SCOPE_REVIEW_PENDING",
+    "evidence": [
+      "PACKAGE-1.md",
+      "package1-receipt.json"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 182,
+    "title": "[2.0][#87][W26-ART-TUGARIN] Меч Тугарина: характерная геометрия и пропорции боссовой награды",
+    "execution": "TECHNICAL_SCOPE_PASS_OWNER_PENDING",
+    "evidence": [
+      "PACKAGE-9.md",
+      "package9-receipt.json",
+      "blueprints/tugarin-icon",
+      "tugarin182-after"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 183,
+    "title": "[2.0][#87][W27-ART-NIGHTINGALE] Кинжал Соловья-разбойника: оружие особой формы",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 184,
+    "title": "[2.0][#87][W28-ART-KALIN] Сабля Калина: отчётливый изгиб и тяжёлая командирская отделка",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 185,
+    "title": "[2.0][#87][W29-ART-VICTOR] Копьё победителя: правильная цельная геометрия и наградной силуэт",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 186,
+    "title": "[2.0][#87][W30-ART-FINIST] Лук Финиста: индивидуальный силуэт и гармония с колчаном",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 187,
+    "title": "[2.0][#87][W31-ART-THUNDER-AXE] Громовой топор: тяжёлая рабочая часть и славянский мотив",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 188,
+    "title": "[2.0][#87][W32-ART-THUNDER-SPEAR] Громовое копьё: остриё, длина и индивидуальная отделка",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 189,
+    "title": "[2.0][#87][W33-ART-POOL-SPEAR] Копьё омута: водная символика без потери функции копья",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 190,
+    "title": "[2.0][#87][W34-ANIM-WHIP] Плеть Полоза: отдельная динамика гибкого оружия",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 191,
+    "title": "[2.0][#87][W35-FINAL-QA] Оружие 2.0: финальная проверка 68 видов, баланса, арта и анимаций",
+    "execution": "NOT_STARTED_DEPENDENCY",
+    "evidence": [],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  },
+  {
+    "issue": 192,
+    "title": "[2.0][#87][W36-DESIGN-GATE] Персональные чертежи, материалы и инструкции до редизайна оружия",
+    "execution": "IN_PROGRESS",
+    "evidence": [
+      "PROGRESS.md",
+      "PACKAGE-1.md",
+      "PACKAGE-2.md",
+      "PACKAGE-9.md",
+      "PACKAGE-11.md",
+      "PACKAGE-13.md"
+    ],
+    "actual_project_status": "NOT_CHANGED_BY_CODEX",
+    "owner_accepted": false,
+    "issue_closed_by_codex": false
+  }
+]

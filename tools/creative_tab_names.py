@@ -13,6 +13,7 @@ TAB_NAMES = {
     'decor': ('Строительство и декор', 'Building & Decoration'),
     'magic': ('Магия и ритуалы', 'Magic & Rituals'),
     'mobs': ('Существа', 'Creatures'),
+    'accessories': ('Украшения и аксессуары', 'Jewelry & Accessories'),
 }
 
 def apply_tab_names(data, lang):

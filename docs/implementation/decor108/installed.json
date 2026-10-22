@@ -1,0 +1,23 @@
+{
+  "version": "1.9.7.50",
+  "status": "INSTALLED_TEST_BUILD_OWNER_PENDING",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.50.jar",
+  "sha256": "f08e22e5e78e2623cd733359086f7db31d1054572ff65f10a8ac6443419d689b",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\codex-backups\\before-1.9.7.50-20261021-104045\\slavicmyths-1.9.7.49.jar",
+  "backup_sha256": "4c3d07526110edc8a7b52f020418b1336f1d7b4bc538b6c10d60173f8a6ef70a",
+  "source_base_commit": "32d1733457e7e90360ce16c23860304ece664c64",
+  "source_state": "base commit plus uncommitted decor108 changes",
+  "source_manifest_sha256": "fae931c115c3d8dd4bc3de8706da8c6982146990b1693f9f3a12b131e45cee5d",
+  "source_manifest": "D:\\slavic-myths\\docs\\implementation\\decor108\\source-manifest.json",
+  "other_mods_preserved": {
+    "curios-neoforge-9.5.1+1.21.1.jar": "a45df2125c26219974aba7507ffc9afe7b83acc941a386af3faacb1cc0056fde",
+    "FallingTree-1.21.1-1.21.1.11.jar": "70ee147602d2239e7a093e166fdf0c0abcef959d5d457c0f8f3669ef9b483dc4",
+    "Jade-1.21.1-NeoForge-15.10.6.jar": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810",
+    "jei-1.21.1-neoforge-19.51.0.418.jar": "8bc3936d869e4040a5649c58b7e8be1c78c82a245c0dc07bdd68ab49121a222c",
+    "xaerominimap-neoforge-1.21.1-26.5.0.jar": "667105d8fdca64b27b29d8e0b88e67e7342038d3fb4edc4129bf452b601c6d20",
+    "xaeroworldmap-neoforge-1.21.1-1.45.0.jar": "d60899112e84616ba52a993c1722fd891872acc4779bfac34d9b170001451c6f"
+  },
+  "duplicate_jars": false,
+  "runtime_launches": 0,
+  "final_release": false
+}

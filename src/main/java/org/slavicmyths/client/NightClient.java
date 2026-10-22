@@ -42,7 +42,7 @@ public final class NightClient {
  @Override protected void renderArmWithItem(LivingEntity entity,ItemStack stack,ItemDisplayContext context,HumanoidArm arm,PoseStack pose,MultiBufferSource buffers,int light){
   var sw=SWINGS.get(entity.getId());if(!stack.is(NightContent.SCYTHE.get())||sw==null){super.renderArmWithItem(entity,stack,context,arm,pose,buffers,light);return;}
   float horizontal=NightSwingPose.horizontal(entity.level().getGameTime()-sw.at+Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(false),sw.mode,sw.combo,sw.duration);
-  pose.pushPose();getParentModel().translateToHand(arm,pose);pose.translate(0,.65,0);pose.mulPose(Axis.XP.rotationDegrees(180*(1-horizontal)));pose.scale(.75f,.75f,.75f);
+  pose.pushPose();getParentModel().translateToHand(arm,pose);ScytheGrip.thirdPerson(pose,arm,horizontal);
   var mc=Minecraft.getInstance();var held=mc.getModelManager().getModel(net.minecraft.client.resources.model.ModelResourceLocation.standalone(NightContent.id("item/karachun_scythe_held")));
   mc.getItemRenderer().render(stack,ItemDisplayContext.NONE,arm==HumanoidArm.LEFT,pose,buffers,light,net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY,held);pose.popPose();
  }

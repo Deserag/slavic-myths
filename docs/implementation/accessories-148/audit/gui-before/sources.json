@@ -1,0 +1,100 @@
+[
+  {
+    "id": "perun_ring",
+    "file": "perun_ring.png",
+    "textures": [
+      "slavicmyths:item/folk_materials"
+    ],
+    "limitations": "orthographic source projection; no engine AO/shaders; x4 is NEAREST of x1; not runtime"
+  },
+  {
+    "id": "resin_ring",
+    "file": "resin_ring.png",
+    "textures": [
+      "slavicmyths:item/folk_materials"
+    ],
+    "limitations": "orthographic source projection; no engine AO/shaders; x4 is NEAREST of x1; not runtime"
+  },
+  {
+    "id": "veles_amulet",
+    "file": "veles_amulet.png",
+    "textures": [
+      "slavicmyths:item/folk_materials"
+    ],
+    "limitations": "orthographic source projection; no engine AO/shaders; x4 is NEAREST of x1; not runtime"
+  },
+  {
+    "id": "depth_amulet",
+    "file": "depth_amulet.png",
+    "textures": [
+      "minecraft:block/brown_terracotta",
+      "minecraft:block/cyan_terracotta",
+      "minecraft:block/dark_oak_log",
+      "minecraft:block/gray_concrete",
+      "minecraft:block/iron_block",
+      "minecraft:block/light_gray_terracotta",
+      "minecraft:block/mossy_cobblestone"
+    ],
+    "limitations": "orthographic source projection; no engine AO/shaders; x4 is NEAREST of x1; not runtime"
+  },
+  {
+    "id": "retribution_charm",
+    "file": "retribution_charm.png",
+    "textures": [
+      "minecraft:block/bone_block_side",
+      "minecraft:block/dark_oak_planks",
+      "minecraft:block/iron_block",
+      "minecraft:block/mossy_cobblestone",
+      "minecraft:block/oak_log",
+      "minecraft:block/oak_log_top",
+      "minecraft:block/orange_terracotta",
+      "minecraft:block/red_terracotta",
+      "minecraft:block/sandstone_top",
+      "minecraft:block/spruce_planks",
+      "minecraft:block/stripped_spruce_log",
+      "minecraft:block/terracotta",
+      "minecraft:block/white_wool"
+    ],
+    "limitations": "orthographic source projection; no engine AO/shaders; x4 is NEAREST of x1; not runtime"
+  },
+  {
+    "id": "hunter_belt",
+    "file": "hunter_belt.png",
+    "textures": [
+      "slavicmyths:item/folk_materials"
+    ],
+    "limitations": "orthographic source projection; no engine AO/shaders; x4 is NEAREST of x1; not runtime"
+  },
+  {
+    "id": "invisibility_cap",
+    "file": "invisibility_cap.png",
+    "textures": [
+      "slavicmyths:item/folk_materials"
+    ],
+    "limitations": "orthographic source projection; no engine AO/shaders; x4 is NEAREST of x1; not runtime"
+  },
+  {
+    "id": "lunula",
+    "file": "lunula.png",
+    "textures": [
+      "slavicmyths:item/lunula"
+    ],
+    "limitations": "orthographic source projection; no engine AO/shaders; x4 is NEAREST of x1; not runtime"
+  },
+  {
+    "id": "grivna",
+    "file": "grivna.png",
+    "textures": [
+      "slavicmyths:item/grivna"
+    ],
+    "limitations": "orthographic source projection; no engine AO/shaders; x4 is NEAREST of x1; not runtime"
+  },
+  {
+    "id": "grave_ward",
+    "file": "grave_ward.png",
+    "textures": [
+      "slavicmyths:item/grave_ward"
+    ],
+    "limitations": "orthographic source projection; no engine AO/shaders; x4 is NEAREST of x1; not runtime"
+  }
+]

@@ -1,0 +1,12 @@
+allprojects { p ->
+ p.plugins.withId('java') {
+  p.sourceSets.create('likho93Offline') { java.srcDir('tools/likho93-offline') }
+  p.sourceSets.likho93Offline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+  p.sourceSets.likho93Offline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+  p.tasks.register('verifyLikho93Offline', JavaExec) {
+   dependsOn p.tasks.named('likho93OfflineClasses')
+   classpath = p.sourceSets.likho93Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.verify.Likho93Offline'
+  }
+ }
+}

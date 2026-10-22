@@ -1,0 +1,18 @@
+[
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/poloz_whip.png",
+    "sha256": "09f2ea8b2788a3818278819f886a7bc142ea71ee6bec19c67829d6173b079d9f"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/poloz_whip_segments.png",
+    "sha256": "6048b2e3513b220f38a24ed5fe85a57f6bc4bef587c6ae8f01408ff842937fe0"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/PolozClient.java",
+    "sha256": "c8477684aec11abbdb9536f09317a1b15e502e608467306e9af2ad9e18786936"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/poloz/PolozWhip.java",
+    "sha256": "1c4b664c84615adf9548737700b18d6c51cda232be96e8e9c1473cd9de024326"
+  }
+]

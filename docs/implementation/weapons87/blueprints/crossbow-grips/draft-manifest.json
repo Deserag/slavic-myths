@@ -1,0 +1,14 @@
+{
+  "models/item/serpent_crossbow.json": "4d449322a2d20a6a80641a44019b39adcf467bcb20985fff3fcc8882b8faa923",
+  "models/item/serpent_crossbow_pulling_0.json": "f8204fbf872cfae004e3e337e6d26ae43f4a21f50b25344eedaaa1da3c16e64e",
+  "models/item/serpent_crossbow_pulling_1.json": "3716568229cc4583df4bb60701223ffc88f9dfb81e148f111a558c490ddca4c2",
+  "models/item/serpent_crossbow_pulling_2.json": "3b2084c6335af982558ca6b4046b34652b5912f4916d39f960cec71687df4360",
+  "models/item/serpent_crossbow_arrow.json": "0d4e2edefed8bc5bb697929ecf9c34dab615fd73b0e9e4f5f10209eedeb22248",
+  "models/item/serpent_crossbow_firework.json": "0d4e2edefed8bc5bb697929ecf9c34dab615fd73b0e9e4f5f10209eedeb22248",
+  "models/item/three_breath_crossbow.json": "15a2f110dbb92067a4058a98ce9440d3d0e8fbb79438251b847c6a6f7c26b867",
+  "models/item/three_breath_crossbow_pulling_0.json": "97710bc18700b541688596bf639111873ff99d95a0687b1d65035f2e1c32240f",
+  "models/item/three_breath_crossbow_pulling_1.json": "c3b1a8399cf70cba3d12e332fca8d4c8063daa23df6752d4cb9177c02f943f8b",
+  "models/item/three_breath_crossbow_pulling_2.json": "7e67cbd818d74646a7be9fe5d8e762a76b78c27becab5cca63946a16ef621db4",
+  "models/item/three_breath_crossbow_arrow.json": "191cff3c7742d39ee70f1ecd4b26867e87d7ee4dccf6b30dc002d0af6d098726",
+  "models/item/three_breath_crossbow_firework.json": "191cff3c7742d39ee70f1ecd4b26867e87d7ee4dccf6b30dc002d0af6d098726"
+}

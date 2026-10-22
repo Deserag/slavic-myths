@@ -1,0 +1,1132 @@
+[
+  {
+    "id": "straw_block",
+    "family": "natural",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "haystack",
+    "family": "natural",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "hanging_willow_leaves",
+    "family": "natural",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pale_blue_kurgan_stone",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pale_blue_kurgan_stone_stairs",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pale_blue_kurgan_stone_slab",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pale_blue_kurgan_stone_wall",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP_VANILLA_WALL_JOIN",
+    "coplanar_pairs": 1,
+    "examples": [
+      [
+        1,
+        0,
+        "down",
+        0
+      ]
+    ],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pale_blue_kurgan_cobblestone",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pale_blue_kurgan_cobblestone_stairs",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pale_blue_kurgan_cobblestone_slab",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pale_blue_kurgan_cobblestone_wall",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP_VANILLA_WALL_JOIN",
+    "coplanar_pairs": 1,
+    "examples": [
+      [
+        1,
+        0,
+        "down",
+        0
+      ]
+    ],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mossy_pale_blue_kurgan_cobblestone",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mossy_pale_blue_kurgan_cobblestone_stairs",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mossy_pale_blue_kurgan_cobblestone_slab",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mossy_pale_blue_kurgan_cobblestone_wall",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP_VANILLA_WALL_JOIN",
+    "coplanar_pairs": 1,
+    "examples": [
+      [
+        1,
+        0,
+        "down",
+        0
+      ]
+    ],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "cracked_pale_blue_kurgan_cobblestone",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "cracked_pale_blue_kurgan_cobblestone_stairs",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "cracked_pale_blue_kurgan_cobblestone_slab",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "cracked_pale_blue_kurgan_cobblestone_wall",
+    "family": "stone_pale_blue_kurgan",
+    "decision": "KEEP_VANILLA_WALL_JOIN",
+    "coplanar_pairs": 1,
+    "examples": [
+      [
+        1,
+        0,
+        "down",
+        0
+      ]
+    ],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "bog_green_kurgan_stone",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "bog_green_kurgan_stone_stairs",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "bog_green_kurgan_stone_slab",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "bog_green_kurgan_stone_wall",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP_VANILLA_WALL_JOIN",
+    "coplanar_pairs": 1,
+    "examples": [
+      [
+        1,
+        0,
+        "down",
+        0
+      ]
+    ],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "bog_green_kurgan_cobblestone",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "bog_green_kurgan_cobblestone_stairs",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "bog_green_kurgan_cobblestone_slab",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "bog_green_kurgan_cobblestone_wall",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP_VANILLA_WALL_JOIN",
+    "coplanar_pairs": 1,
+    "examples": [
+      [
+        1,
+        0,
+        "down",
+        0
+      ]
+    ],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mossy_bog_green_kurgan_cobblestone",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mossy_bog_green_kurgan_cobblestone_stairs",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mossy_bog_green_kurgan_cobblestone_slab",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mossy_bog_green_kurgan_cobblestone_wall",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP_VANILLA_WALL_JOIN",
+    "coplanar_pairs": 1,
+    "examples": [
+      [
+        1,
+        0,
+        "down",
+        0
+      ]
+    ],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "cracked_bog_green_kurgan_cobblestone",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "cracked_bog_green_kurgan_cobblestone_stairs",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "cracked_bog_green_kurgan_cobblestone_slab",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "cracked_bog_green_kurgan_cobblestone_wall",
+    "family": "stone_bog_green_kurgan",
+    "decision": "KEEP_VANILLA_WALL_JOIN",
+    "coplanar_pairs": 1,
+    "examples": [
+      [
+        1,
+        0,
+        "down",
+        0
+      ]
+    ],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "linden_stool",
+    "family": "furniture_linden",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "linden_chair",
+    "family": "furniture_linden",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "linden_bench",
+    "family": "furniture_linden",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "linden_table",
+    "family": "furniture_linden",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "linden_bedside_cabinet",
+    "family": "furniture_linden",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "linden_shelf",
+    "family": "furniture_linden",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "linden_wardrobe",
+    "family": "furniture_linden",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "linden_weapon_rack",
+    "family": "furniture_linden",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pine_stool",
+    "family": "furniture_pine",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pine_chair",
+    "family": "furniture_pine",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pine_bench",
+    "family": "furniture_pine",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pine_table",
+    "family": "furniture_pine",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pine_bedside_cabinet",
+    "family": "furniture_pine",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pine_shelf",
+    "family": "furniture_pine",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pine_wardrobe",
+    "family": "furniture_pine",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "pine_weapon_rack",
+    "family": "furniture_pine",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "hearth",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "kitchen_table",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "millstone",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "drying_rack",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "armorer_table",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "druzhinnik_table",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "training_dummy",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "flax_breaker",
+    "family": "machines",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "spinning_wheel",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "loom_table",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "fruit_press",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "fermentation_vat",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "small_keg",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "chud_bloomery",
+    "family": "machines",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "refining_hearth",
+    "family": "machines",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "bath_stove",
+    "family": "machines",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "carved_oak_block",
+    "family": "carved_wood",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "carved_oak_pillar",
+    "family": "carved_wood",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "carved_birch_planks",
+    "family": "carved_wood",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "wall_carving",
+    "family": "carved_wood",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "basket",
+    "family": "household",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "large_basket",
+    "family": "household",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "wooden_crate",
+    "family": "household",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "produce_crate",
+    "family": "household",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "wooden_barrel",
+    "family": "household",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "wooden_tub",
+    "family": "household",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "storage_sack",
+    "family": "household",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "cloth_bag",
+    "family": "household",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "household_chest",
+    "family": "household",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "settlement_chest",
+    "family": "household",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "storage_shelf",
+    "family": "household",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "wall_shelf",
+    "family": "household",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "linen_bed",
+    "family": "household",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "tallow_candle",
+    "family": "household",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "firewood_bundle",
+    "family": "household",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "straw_nest",
+    "family": "household",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "feeder",
+    "family": "household",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "signal_bell",
+    "family": "household",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "kurgan_rubble",
+    "family": "burial",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "burial_stone_slab",
+    "family": "burial",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "carved_burial_stone",
+    "family": "burial",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "carved_burial_stone_slab",
+    "family": "burial",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "kurgan_column_fragment",
+    "family": "burial",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "kurgan_pottery",
+    "family": "burial",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "kurgan_ritual_bowl",
+    "family": "burial",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "kurgan_stone_altar",
+    "family": "burial",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "kurgan_wall_torch_holder",
+    "family": "burial",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "kurgan_hanging_brazier",
+    "family": "burial",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "sealed_kurgan_masonry",
+    "family": "burial",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "burial_log_coffin",
+    "family": "burial",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "cursed_skull_cache",
+    "family": "burial",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "serpent_masonry",
+    "family": "serpent",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "cracked_serpent_masonry",
+    "family": "serpent",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "ruined_serpent_masonry",
+    "family": "serpent",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "serpent_bas_relief",
+    "family": "serpent",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "serpent_torch",
+    "family": "serpent",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "carved_fire_pillar",
+    "family": "sanctuary",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "carved_spring_pillar",
+    "family": "sanctuary",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "fire_idol_sun",
+    "family": "sanctuary",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "fire_idol_tree",
+    "family": "sanctuary",
+    "decision": "FIX",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "fire_idol_circle",
+    "family": "sanctuary",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "ancient_hanging_lamp",
+    "family": "sanctuary",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "seal_fire_door",
+    "family": "sanctuary",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "seal_spring_door",
+    "family": "sanctuary",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "spring_valve",
+    "family": "sanctuary",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_dirt",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_grass_block",
+    "family": "mor",
+    "decision": "KEEP_INTENTIONAL_ALPHA_OVERLAY",
+    "coplanar_pairs": 4,
+    "examples": [
+      [
+        1,
+        0,
+        "west",
+        0
+      ],
+      [
+        1,
+        0,
+        "east",
+        16
+      ],
+      [
+        1,
+        0,
+        "north",
+        0
+      ],
+      [
+        1,
+        0,
+        "south",
+        16
+      ]
+    ],
+    "runtime": "NOT_RUN",
+    "note": "Separate grass overlay on base faces is intentional; not an opaque competing solid."
+  },
+  {
+    "id": "mor_sand",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_gravel",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_moss_block",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_stone",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_cobblestone",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_sandstone",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_stone_bricks",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_obsidian",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_oak_log",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_oak_planks",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_oak_leaves",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_birch_log",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  },
+  {
+    "id": "mor_growth",
+    "family": "mor",
+    "decision": "KEEP",
+    "coplanar_pairs": 0,
+    "examples": [],
+    "runtime": "NOT_RUN"
+  }
+]

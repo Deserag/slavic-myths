@@ -1,0 +1,1694 @@
+[
+  {
+    "id": "ancient_spear",
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 3371
+  },
+  {
+    "id": "ancient_spear",
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 3371
+  },
+  {
+    "id": "ancient_spear",
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 3583
+  },
+  {
+    "id": "ancient_spear",
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 3583
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "ancient_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 3371
+  },
+  {
+    "id": "restored_spear",
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 3371
+  },
+  {
+    "id": "restored_spear",
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 3583
+  },
+  {
+    "id": "restored_spear",
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 3583
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "restored_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 3000
+  },
+  {
+    "id": "spear",
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 3000
+  },
+  {
+    "id": "spear",
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 3180
+  },
+  {
+    "id": "spear",
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 3180
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 6276
+  },
+  {
+    "id": "gold_spear",
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 2941
+  },
+  {
+    "id": "gold_spear",
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 6276
+  },
+  {
+    "id": "gold_spear",
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 3277
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "gold_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 6276
+  },
+  {
+    "id": "iron_spear",
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 2975
+  },
+  {
+    "id": "iron_spear",
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 6276
+  },
+  {
+    "id": "iron_spear",
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 3293
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "iron_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 2914
+  },
+  {
+    "id": "silver_spear",
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 2914
+  },
+  {
+    "id": "silver_spear",
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 3236
+  },
+  {
+    "id": "silver_spear",
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 3236
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "silver_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 6276
+  },
+  {
+    "id": "diamond_spear",
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 2992
+  },
+  {
+    "id": "diamond_spear",
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 6276
+  },
+  {
+    "id": "diamond_spear",
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 3300
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "diamond_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 6276
+  },
+  {
+    "id": "perunite_spear",
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 3025
+  },
+  {
+    "id": "perunite_spear",
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 6276
+  },
+  {
+    "id": "perunite_spear",
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 3318
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "perunite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 6276
+  },
+  {
+    "id": "netherite_spear",
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 3047
+  },
+  {
+    "id": "netherite_spear",
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 6276
+  },
+  {
+    "id": "netherite_spear",
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 3329
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "idle",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": 0,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": false,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": false,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  },
+  {
+    "id": "netherite_spear",
+    "context": "TP",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "left": true,
+    "after": true,
+    "native_idle_head_triangle_candidates": null,
+    "limits": "Actual fixed native poses; triangles ignore alpha, not game clipping measurement"
+  }
+]

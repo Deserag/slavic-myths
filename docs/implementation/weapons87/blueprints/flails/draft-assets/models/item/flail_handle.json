@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/flail_handle_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/flail_handle_icon"
+    }
+  }
+}

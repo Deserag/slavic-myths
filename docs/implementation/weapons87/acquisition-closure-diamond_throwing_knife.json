@@ -1,0 +1,56 @@
+{
+  "minecraft:diamond": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_living.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_mine.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_treasury.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bandit_medium.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bandit_small.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/barracks_supply.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_workshop.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_cache.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/earth_spirit.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/kladovik.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/large_podzemnik.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "minecraft:stick": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/blocks/apple_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/linden_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/pine_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/rowan_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/willow_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bathhouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_residential.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_remnants.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_supplies.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/fletcher_house.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/toolsmith_forge.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:diamond_throwing_knife": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/weapon_diamond_throwing_knife_assembly.json",
+        "type": "slavicmyths:armorer_shapeless",
+        "ingredients": [
+          {
+            "item": "minecraft:diamond"
+          },
+          {
+            "item": "minecraft:stick"
+          }
+        ],
+        "pattern": null,
+        "count": 1
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

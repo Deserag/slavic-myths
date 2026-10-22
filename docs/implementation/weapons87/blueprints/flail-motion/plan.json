@@ -1,0 +1,42 @@
+{
+  "issue": 164,
+  "state": "PROPOSAL_BEFORE_PRODUCTION",
+  "ids": [
+    "stone_flail",
+    "gold_flail",
+    "flail",
+    "silver_flail",
+    "diamond_flail",
+    "perunite_flail",
+    "netherite_flail",
+    "ataman_flail"
+  ],
+  "geometry": "Reuse actual handle/ball/atlas from #166/167; seven alternating closed links, spacing 2.4; no PNG edits",
+  "timing": "FlailItem: charge18t, release server hit at tick0, existing swing recovery; Ataman Mace LMB has no charge. No new damage/contact delay.",
+  "owner": "Actual LivingEntity passed to ItemOverrides.resolve; immutable per-render binding, never local player for remote entities",
+  "phases": [
+    {
+      "phase": "idle",
+      "motion": "Head below grip; slight bounded sway"
+    },
+    {
+      "phase": "walk",
+      "motion": "Up to 8 degrees of lag from existing walkAnimation, no new tick listener"
+    },
+    {
+      "phase": "charge",
+      "motion": "18 tick normalized existing use duration; head below grip, upper links lead lower links"
+    },
+    {
+      "phase": "contact",
+      "motion": "Release/swing progress0; head extends forward, following existing instant hit. No server contact timer added"
+    },
+    {
+      "phase": "trailing/return",
+      "motion": "Existing interpolated swing drives bounded curve returning continuously to idle at progress1"
+    }
+  ],
+  "contexts": "GUI/ground/fixed retain static icon/held. FP skips vanilla spear charge rotation; TP charging uses one-arm ITEM pose, preserves other arm.",
+  "checks": "Actual Java exported link points/tangents, both handedness, seven fixed distances, continuous end states; actual piece JSON source frames; game NOT_RUN / OWNER_PENDING",
+  "fp_source_defect": "Source trial old wrist (+/-0.56,-0.52,-0.72) hides ball below camera; saved trial image. New fixed wrist (+/-0.42,-0.20,-1.15), equip offset and small existing-swing recovery; same item display, no server change."
+}

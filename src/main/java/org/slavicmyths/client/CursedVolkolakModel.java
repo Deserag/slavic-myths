@@ -8,6 +8,7 @@ import org.slavicmyths.volkolak.CursedVolkolak;
 
 /** One articulated rig, two physical stances; rotations never alter the approved old Volkolak. */
 public final class CursedVolkolakModel extends EntityModel<CursedVolkolak> {
+ public ModelPart trophyHead(){return parts.get("head");}
  private final FolkModelGeometry geometry=new FolkModelGeometry();
  private final Map<String,ModelPart> parts=new LinkedHashMap<>();private final Map<String,float[]> rest=new LinkedHashMap<>();
  private static final class Blend{int key;float started;Map<String,float[]> previous,from;}

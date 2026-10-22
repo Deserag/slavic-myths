@@ -1,0 +1,12 @@
+{
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.53.jar",
+  "bytes": 23629676,
+  "sha256": "5cc58c93b828617d607e06d860d40ae03bc15615360e3bf202b6c8b95ac86fc5",
+  "baseline_entries": 9563,
+  "baseline_changed": [],
+  "offline_classes_in_production": [],
+  "native_ids": 68,
+  "game_launches": 0,
+  "polymc": "NOT_MODIFIED",
+  "build": "PASS clean build Java21; see audit-build.log"
+}

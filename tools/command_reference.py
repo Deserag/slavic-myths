@@ -6,7 +6,22 @@ from pathlib import Path
 import hashlib,json,re,sys
 R=Path(__file__).resolve().parents[1];O=R/'docs/implementation/commands-74'
 
+GENERATION_ORIGINS = {
+    'bayun':'bayun generate','yaga':'yaga generate','city':'city generate',
+    'abandoned':'abandoned generate','depths':'depths generate','kurgan':'kurgan generate',
+    'fire_sanctuary':'generate_fire_sanctuary','pure_spring':'generate_pure_spring',
+    'serpent_hill':'generate_serpent_hill','witch_yard':'witch_yard place',
+    'skim_valley':'skim_valley place','barracks':'place barracks','village':'place village',
+    'village_showcase':'test village_showcase',
+    'gorodishche_showcase':'test gorodishche_showcase','courtyard':'encounter courtyard',
+    'courtyard_debug':'bogatyr courtyard'}
+
 def describe(path):
+    prefix='slavicmyths dev generate '
+    if path.startswith(prefix):
+        rest=path[len(prefix):];kind=rest.split(' ',1)[0]
+        if kind in GENERATION_ORIGINS:
+            return describe('slavicmyths dev '+GENERATION_ORIGINS[kind]+rest[len(kind):])
     p=path.removeprefix('slavicmyths ');t=p.split();dev=t[0]=='dev'
     if dev:t=t[1:]
     group=t[0];tail=' '.join(t[1:]);action=t[1] if len(t)>1 else ''

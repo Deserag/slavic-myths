@@ -114,3 +114,7 @@ def sounds():
    s[name]={'subtitle':'subtitles.slavicmyths.'+name,'sounds':[{'name':'slavicmyths:land/'+name,'volume':.65}]}
  js(A/'sounds.json',s)
 if __name__=='__main__':items();blocks();resources();sounds()
+
+# Preserve owner-reported decor fixes after this historical pipeline.
+from decor108_assets import apply as apply_decor108
+apply_decor108()

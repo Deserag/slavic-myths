@@ -131,8 +131,18 @@ def sounds():
  write(A/'sounds.json',events)
 
 def generate():textures();wood();models();data();sounds()
+_legacy_generate_decor108 = generate
+def generate():
+ _legacy_generate_decor108()
+ from decor108_assets import apply
+ apply()
+
 if __name__=='__main__':generate()
 
 if __name__ == "__main__":
  from feedback_resource_policy import apply as apply_feedback_policy
  apply_feedback_policy()
+
+# Preserve owner-reported decor fixes after this historical pipeline.
+from decor108_assets import apply as apply_decor108
+apply_decor108()

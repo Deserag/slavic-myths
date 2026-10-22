@@ -26,6 +26,7 @@ public final class SickleItem extends Item {
         if (level instanceof ServerLevel server) {
             var drops = Block.getDrops(state, server, pos, null, player, context.getItemInHand());
             if(crop instanceof org.slavicmyths.brewing.HopsCrop hops){if(!hops.growTo(server,pos,1))return InteractionResult.FAIL;}else if (!server.setBlock(pos, crop.getStateForAge(1), 3)) return InteractionResult.FAIL;
+            if(player instanceof net.minecraft.server.level.ServerPlayer owner){var extra=org.slavicmyths.accessories.AccessoryEvents.harvest(owner,state,context.getItemInHand(),drops);if(!extra.isEmpty())drops.add(extra);}
             for(var stack:drops)Block.popResource(server,pos,stack);
             context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
             server.playSound(null, pos, SoundEvents.GRASS_BREAK, SoundSource.BLOCKS, .7F, 1.1F);

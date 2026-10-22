@@ -35,6 +35,8 @@ public final class SlavicMyths {
         org.slavicmyths.kitchen.KitchenRecipe.SERIALIZER.getId();
         org.slavicmyths.wood.Woodlands.init();
         org.slavicmyths.furniture.Furniture.init();
+        org.slavicmyths.trophy.TrophyHeads.init();
+        org.slavicmyths.accessories.Accessories.init();
         org.slavicmyths.kurgan.DarkenedWood.init();
         org.slavicmyths.kurgan.KurganBlocks.init();
         org.slavicmyths.hunt.BossEffects.init();

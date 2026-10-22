@@ -1,0 +1,71 @@
+{
+  "minecraft:feather": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/entities/duck.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/goose.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/gorodishche/knowledge.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/cartographer_house.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/chronicler_terem.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/fletcher_house.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/hunter_house.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "minecraft:stick": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/blocks/apple_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/linden_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/pine_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/rowan_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/willow_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bathhouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_residential.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_remnants.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_supplies.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/fletcher_house.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/toolsmith_forge.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:bone_arrow": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/bone_arrow.json",
+        "type": "minecraft:crafting_shaped",
+        "ingredients": {
+          "F": {
+            "item": "slavicmyths:large_animal_bone"
+          },
+          "S": {
+            "item": "minecraft:stick"
+          },
+          "T": {
+            "item": "minecraft:feather"
+          }
+        },
+        "pattern": [
+          " F ",
+          " S ",
+          " T "
+        ],
+        "count": 1
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:large_animal_bone": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/entities/bear.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/boar.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/doe.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/mother_bear.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/stag.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/wolf.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

@@ -31,8 +31,7 @@ public final class TugarinPairClient {
     @SubscribeEvent public static void beforePlayer(RenderPlayerEvent.Pre e){var p=e.getEntity();if(!TugarinPair.held(p))return;var hand=slash(p,e.getPartialTick());var state=SWINGS.get(p);state.original=p.swingingArm;p.swingingArm=hand;}
     @SubscribeEvent public static void afterPlayer(RenderPlayerEvent.Post e){var p=e.getEntity();var state=SWINGS.get(p);if(state!=null&&state.original!=null){p.swingingArm=state.original;state.original=null;}}
     @SubscribeEvent public static void hand(RenderHandEvent e){var mc=Minecraft.getInstance();var p=mc.player;if(p==null||!TugarinPair.held(p))return;e.setCanceled(true);boolean main=e.getHand()==InteractionHand.MAIN_HAND;boolean left=main?p.getMainArm()==HumanoidArm.LEFT:p.getMainArm()==HumanoidArm.RIGHT;var pose=e.getPoseStack();pose.pushPose();
-        float sign=left?-1:1;pose.translate(sign*.56,-.52,-.72);pose.mulPose(Axis.YP.rotationDegrees(sign*35));pose.mulPose(Axis.ZP.rotationDegrees(sign*-12));
-        float swing=slash(p,e.getPartialTick())==e.getHand()?p.getAttackAnim(e.getPartialTick()):0;pose.mulPose(Axis.XP.rotationDegrees((float)(-60*Math.sin(Math.sqrt(swing)*Math.PI))));
+        float swing=slash(p,e.getPartialTick())==e.getHand()?p.getAttackAnim(e.getPartialTick()):0;firstPersonWrist(pose,left,swing);WeaponHands.renderGrip(e,left?-1:1);
         mc.getEntityRenderDispatcher().getItemInHandRenderer().renderItem(p,p.getMainHandItem(),left?ItemDisplayContext.FIRST_PERSON_LEFT_HAND:ItemDisplayContext.FIRST_PERSON_RIGHT_HAND,left,pose,e.getMultiBufferSource(),e.getPackedLight());pose.popPose();
     }
     public static void layers(EntityRenderersEvent.AddLayers e){for(var skin:e.getSkins()){PlayerRenderer renderer=e.getSkin(skin);if(renderer!=null)renderer.addLayer(new SecondBladeLayer(renderer));}}
@@ -40,5 +39,6 @@ public final class TugarinPairClient {
         SecondBladeLayer(PlayerRenderer parent){super(parent,Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer());}
         @Override public void render(PoseStack pose,MultiBufferSource buffer,int light,AbstractClientPlayer player,float swing,float amount,float partial,float age,float yaw,float pitch){if(!TugarinPair.held(player))return;var arm=player.getMainArm().getOpposite();renderArmWithItem(player,player.getMainHandItem(),arm==HumanoidArm.LEFT?ItemDisplayContext.THIRD_PERSON_LEFT_HAND:ItemDisplayContext.THIRD_PERSON_RIGHT_HAND,arm,pose,buffer,light);}
     }
+    static void firstPersonWrist(PoseStack pose,boolean left,float swing){float sign=left?-1:1;pose.translate(sign*.56,-.52,-.72);pose.mulPose(Axis.YP.rotationDegrees(sign*35));pose.mulPose(Axis.ZP.rotationDegrees(sign*-12));pose.mulPose(Axis.XP.rotationDegrees((float)(-60*Math.sin(Math.sqrt(swing)*Math.PI))));}
     private TugarinPairClient(){}
 }

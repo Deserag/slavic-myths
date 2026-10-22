@@ -39,14 +39,16 @@ public final class FolkEquipmentLayer extends RenderLayer<AbstractClientPlayer,P
   show(org.slavicmyths.rewards.RewardContent.item("gift_alyosha_belt"),p,pose,buffer,light,0,.6,-.18,.55F,false);
   show(org.slavicmyths.rewards.RewardContent.item("gift_finist_amulet"),p,pose,buffer,light,0,.25,-.19,.25F,false);
   show(org.slavicmyths.rewards.RewardContent.item("trophy_skim_necklace"),p,pose,buffer,light,0,.23,-.19,.36F,false);
-  show(ModItems.INVISIBILITY_CAP.get(),p,pose,buffer,light,0,-.62,0,.65F,true);
+  show(ModItems.INVISIBILITY_CAP.get(),p,pose,buffer,light,0,-.55,0,.82F,true);
   show(ModItems.VELES_AMULET.get(),p,pose,buffer,light,0,.3,-.165,.38F,false);
-  show(ModItems.HUNTER_BELT.get(),p,pose,buffer,light,0,.65,0,.62F,false);
+  show(ModItems.HUNTER_BELT.get(),p,pose,buffer,light,0,.65,.0372,.62F,false);
  }
  private void show(Item item,AbstractClientPlayer p,PoseStack pose,MultiBufferSource buffer,int light,double x,double y,double z,float scale,boolean head){
   ItemStack stack=FolkAccessoryItem.equipped(p,item);if(stack.isEmpty())return;
   pose.pushPose();if(head)getParentModel().head.translateAndRotate(pose);else getParentModel().body.translateAndRotate(pose);
+  if(head)AccessoryBodyFit.applyHead(pose,AccessoryBodyFit.headArmored(p));else AccessoryBodyFit.apply(pose,AccessoryBodyFit.armored(p));
   pose.translate(x,y,z);pose.mulPose(com.mojang.math.Axis.ZP.rotationDegrees(180));pose.scale(scale,scale,scale);
+  if(item==ModItems.HUNTER_BELT.get())pose.scale(1.05F,1,1.6F);
   Minecraft.getInstance().getItemRenderer().renderStatic(stack,ItemDisplayContext.NONE,light,net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY,pose,buffer,p.level(),0);pose.popPose();
  }
 }

@@ -1,0 +1,16 @@
+[
+  "src/main/resources/assets/slavicmyths/creative_catalog.tsv",
+  "src/main/resources/assets/slavicmyths/lang/en_us.json",
+  "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+  "src/main/java/org/slavicmyths/SlavicMyths.java",
+  "src/main/java/org/slavicmyths/client/CursedVolkolakModel.java",
+  "src/main/java/org/slavicmyths/client/WorldBossModel.java",
+  "src/main/java/org/slavicmyths/commands/CommandTree.java",
+  "tools/command_reference.py",
+  "tools/create_resources.py",
+  "tools/command-tests/org/slavicmyths/verify/CommandCatalogOffline.java",
+  "gradle.properties",
+  "docs/PROJECT_STATUS.md",
+  "docs/ROADMAP.md",
+  "docs/ARCHITECTURE.md"
+]

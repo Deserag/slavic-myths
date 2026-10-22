@@ -1,0 +1,81 @@
+{
+  "minecraft:iron_nugget": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_living.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/ancient_shrine.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_salvage.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_supplies.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/kurgan_druzhinnik.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/pesigolovets.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/podzemnik.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/podzemnik_miner.json",
+      "src/main/resources/data/slavicmyths/loot_table/kurgan/burial.json",
+      "src/main/resources/data/slavicmyths/loot_table/kurgan/common_cache.json",
+      "src/main/resources/data/slavicmyths/loot_table/kurgan/ritual.json",
+      "src/main/resources/data/slavicmyths/loot_table/kurgan/warrior.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/gorodishche/smith.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/armorer_forge.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/druzhinnik_barracks.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/toolsmith_forge.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/weaponsmith_forge.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "minecraft:stick": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/blocks/apple_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/linden_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/pine_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/rowan_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/willow_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bathhouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_residential.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_remnants.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_supplies.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/fletcher_house.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/toolsmith_forge.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:iron_blank": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/weapon_part_iron_blank.json",
+        "type": "minecraft:crafting_shaped",
+        "ingredients": {
+          "N": {
+            "item": "minecraft:iron_nugget"
+          }
+        },
+        "pattern": [
+          "NNN"
+        ],
+        "count": 1
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:iron_throwing_knife": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/weapon_iron_throwing_knife_assembly.json",
+        "type": "slavicmyths:armorer_shapeless",
+        "ingredients": [
+          {
+            "item": "slavicmyths:iron_blank"
+          },
+          {
+            "item": "minecraft:stick"
+          }
+        ],
+        "pattern": null,
+        "count": 1
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

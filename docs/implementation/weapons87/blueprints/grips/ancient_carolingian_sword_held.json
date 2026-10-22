@@ -1,0 +1,101 @@
+{
+  "id": "ancient_carolingian_sword",
+  "grip": [
+    8,
+    -2,
+    8
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        15,
+        135,
+        -10
+      ],
+      "scale": [
+        0.46,
+        0.46,
+        0.46
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -65,
+        8
+      ],
+      "translation": [
+        0.61768889,
+        5.43674245,
+        -2.81986882
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        0,
+        0
+      ],
+      "translation": [
+        0.0,
+        1.68232379,
+        6.27851787
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        75,
+        180,
+        0
+      ],
+      "translation": [
+        -0.0,
+        1.68232379,
+        6.27851787
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -115,
+        -8
+      ],
+      "translation": [
+        0.61768889,
+        5.43674245,
+        -1.18013118
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  "reason": "center authored shaft/grip, constrain player proportions, keep existing geometry/UV",
+  "source_model": "src/main/resources/assets/slavicmyths/models/item/ancient_carolingian_sword_held.json",
+  "before_sha256": "82ccdd1bf7f1f411c246f0c3e18fd83159a7537d5313d8decbb0bcadbd9b69a4",
+  "design_state": "PROPOSAL_BEFORE_PRODUCTION, not owner runtime accepted"
+}

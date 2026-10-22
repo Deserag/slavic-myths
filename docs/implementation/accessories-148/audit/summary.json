@@ -1,0 +1,57 @@
+{
+  "recipe_json": 537,
+  "loot_json": 450,
+  "entity_loot_json": 61,
+  "java_files": 1069,
+  "population": 38,
+  "curios_ids": 27,
+  "magic_charms": 30,
+  "transfer_ids": [
+    "amber_charm",
+    "amulet_two_winters",
+    "black_wing_amulet",
+    "depth_amulet",
+    "finist_quiver",
+    "forest_charm",
+    "frost_mirror",
+    "gift_alyosha_belt",
+    "gift_dobrynya_ring",
+    "gift_finist_amulet",
+    "grave_ward",
+    "grivna",
+    "hunter_belt",
+    "hunter_charm",
+    "invisibility_cap",
+    "lunula",
+    "miners_goggles",
+    "obereg_ohotnika",
+    "obereg_padayuschey_zvezdy",
+    "odnoglazyy_obereg",
+    "perun_charm",
+    "perun_ring",
+    "poyas_tugarina",
+    "prospectors_ring",
+    "resin_ring",
+    "retribution_charm",
+    "ring_of_grey_pack",
+    "stone_path_amulet",
+    "traveler_charm",
+    "trophy_skim_necklace",
+    "underground_guard_belt",
+    "veles_amulet",
+    "volchiy_poyas",
+    "zolny_obereg"
+  ],
+  "excluded": [
+    "fading_flame_charm",
+    "mor_ward",
+    "volkhv_amulet",
+    "warding_charm"
+  ],
+  "direct_entity_drops": {
+    "volkhv_amulet": [
+      "src/main/resources/data/slavicmyths/loot_table/entities/buried_volkhv.json"
+    ]
+  },
+  "runtime_launches": 0
+}

@@ -1,0 +1,28 @@
+{
+  "issue": 182,
+  "id": "tugarin_sword",
+  "state": "BEFORE_PRODUCTION",
+  "decision": "FIX_GUI_ASPECT_PAIR_KEEP_HELD_PNG",
+  "selected_variant": "parallel native-aspect pair",
+  "grip": "unchanged generated handheld and TugarinPairClient native wrist; see package3 FP source",
+  "player_height_model_units": 32,
+  "native_sprite_canvas": [
+    16,
+    16
+  ],
+  "pair_offset_x": [
+    -2,
+    2
+  ],
+  "pair_offset_z": [
+    -0.6,
+    0.6
+  ],
+  "png_edits": 0,
+  "preserved": [
+    "src/main/resources/assets/slavicmyths/models/item/tugarin_sword_held.json",
+    "src/main/resources/assets/slavicmyths/textures/item/tugarin_sword.png",
+    "src/main/java/org/slavicmyths/client/TugarinPairClient.java",
+    "src/main/java/org/slavicmyths/combat/TugarinPair.java"
+  ]
+}

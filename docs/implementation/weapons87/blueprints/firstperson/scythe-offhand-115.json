@@ -1,0 +1,80 @@
+{
+  "issue": 115,
+  "id": "karachun_scythe",
+  "source_model": "D:/slavic-myths/src/main/resources/assets/slavicmyths/models/item/karachun_scythe_held.json",
+  "before_sha256": "0141a953173082284d34446524e8f7fec9ef60ce47c07e3d712b3c542d0a1484",
+  "before_firstperson": {
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -10,
+        0
+      ],
+      "translation": [
+        0,
+        1,
+        -2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        10,
+        0
+      ],
+      "translation": [
+        0,
+        1,
+        -2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  },
+  "proposed_firstperson": {
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        170,
+        0
+      ],
+      "translation": [
+        0.0,
+        -2.92,
+        -5.76
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -10,
+        0
+      ],
+      "translation": [
+        -0.0,
+        -2.92,
+        -5.76
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  "purpose": "Offhand ordinary item renderer must match custom mainhand idle: same physical side, pivot, scale and outward blade. Native matrix comparison required.",
+  "state": "TECHNICAL_PROPOSAL_BEFORE_PRODUCTION"
+}

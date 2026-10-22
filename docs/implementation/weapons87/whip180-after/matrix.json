@@ -1,0 +1,862 @@
+[
+  {
+    "pose": 0,
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 4864
+  },
+  {
+    "pose": 0,
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 2484
+  },
+  {
+    "pose": 0,
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 6174
+  },
+  {
+    "pose": 0,
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 2374
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 0,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 3903
+  },
+  {
+    "pose": 1,
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 1912
+  },
+  {
+    "pose": 1,
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 0
+  },
+  {
+    "pose": 1,
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 1922
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 1,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 4929
+  },
+  {
+    "pose": 2,
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 1901
+  },
+  {
+    "pose": 2,
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 1437
+  },
+  {
+    "pose": 2,
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 2209
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 2,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 6649
+  },
+  {
+    "pose": 3,
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 1842
+  },
+  {
+    "pose": 3,
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 8644
+  },
+  {
+    "pose": 3,
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 2110
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 3,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "FP",
+    "left": false,
+    "after": false,
+    "pixels": 4241
+  },
+  {
+    "pose": 4,
+    "context": "FP",
+    "left": false,
+    "after": true,
+    "pixels": 2484
+  },
+  {
+    "pose": 4,
+    "context": "FP",
+    "left": true,
+    "after": false,
+    "pixels": 5058
+  },
+  {
+    "pose": 4,
+    "context": "FP",
+    "left": true,
+    "after": true,
+    "pixels": 2386
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "idle",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Steve",
+    "frame": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": false,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": false,
+    "after": true,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": true,
+    "after": false,
+    "head_triangle_candidates": 0
+  },
+  {
+    "pose": 4,
+    "context": "TP",
+    "body": "Alex",
+    "frame": "walk_t10",
+    "left": true,
+    "after": true,
+    "head_triangle_candidates": 0
+  }
+]

@@ -1,0 +1,175 @@
+Compiled from "CuriosLayer.java"
+public class top.theillusivec4.curios.client.render.CuriosLayer<T extends net.minecraft.world.entity.LivingEntity, M extends net.minecraft.client.model.EntityModel<T>> extends net.minecraft.client.renderer.entity.layers.RenderLayer<T, M> {
+  private final net.minecraft.client.renderer.entity.RenderLayerParent<T, M> renderLayerParent;
+
+  public top.theillusivec4.curios.client.render.CuriosLayer(net.minecraft.client.renderer.entity.RenderLayerParent<T, M>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #1                  // Method net/minecraft/client/renderer/entity/layers/RenderLayer."<init>":(Lnet/minecraft/client/renderer/entity/RenderLayerParent;)V
+       5: aload_0
+       6: aload_1
+       7: putfield      #7                  // Field renderLayerParent:Lnet/minecraft/client/renderer/entity/RenderLayerParent;
+      10: return
+
+  public void render(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, int, T, float, float, float, float, float, float);
+    Code:
+       0: aload_1
+       1: invokevirtual #13                 // Method com/mojang/blaze3d/vertex/PoseStack.pushPose:()V
+       4: aload         4
+       6: invokestatic  #19                 // Method top/theillusivec4/curios/api/CuriosApi.getCuriosInventory:(Lnet/minecraft/world/entity/LivingEntity;)Ljava/util/Optional;
+       9: aload_0
+      10: aload         4
+      12: aload_1
+      13: aload_2
+      14: iload_3
+      15: fload         5
+      17: fload         6
+      19: fload         7
+      21: fload         8
+      23: fload         9
+      25: fload         10
+      27: invokedynamic #25,  0             // InvokeDynamic #0:accept:(Ltop/theillusivec4/curios/client/render/CuriosLayer;Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;IFFFFFF)Ljava/util/function/Consumer;
+      32: invokevirtual #29                 // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      35: aload_1
+      36: invokevirtual #35                 // Method com/mojang/blaze3d/vertex/PoseStack.popPose:()V
+      39: return
+
+  public void render(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, int, net.minecraft.world.entity.Entity, float, float, float, float, float, float);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: iload_3
+       4: aload         4
+       6: checkcast     #38                 // class net/minecraft/world/entity/LivingEntity
+       9: fload         5
+      11: fload         6
+      13: fload         7
+      15: fload         8
+      17: fload         9
+      19: fload         10
+      21: invokevirtual #40                 // Method render:(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/LivingEntity;FFFFFF)V
+      24: return
+
+  private void lambda$render$2(net.minecraft.world.entity.LivingEntity, com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, int, float, float, float, float, float, float, top.theillusivec4.curios.api.type.capability.ICuriosItemHandler);
+    Code:
+       0: aload         11
+       2: invokeinterface #44,  1           // InterfaceMethod top/theillusivec4/curios/api/type/capability/ICuriosItemHandler.getCurios:()Ljava/util/Map;
+       7: aload_0
+       8: aload_1
+       9: aload_2
+      10: aload_3
+      11: iload         4
+      13: fload         5
+      15: fload         6
+      17: fload         7
+      19: fload         8
+      21: fload         9
+      23: fload         10
+      25: invokedynamic #50,  0             // InvokeDynamic #1:accept:(Ltop/theillusivec4/curios/client/render/CuriosLayer;Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;IFFFFFF)Ljava/util/function/BiConsumer;
+      30: invokeinterface #53,  2           // InterfaceMethod java/util/Map.forEach:(Ljava/util/function/BiConsumer;)V
+      35: return
+
+  private void lambda$render$1(net.minecraft.world.entity.LivingEntity, com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, int, float, float, float, float, float, float, java.lang.String, top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler);
+    Code:
+       0: aload         12
+       2: invokeinterface #59,  1           // InterfaceMethod top/theillusivec4/curios/api/type/inventory/ICurioStacksHandler.getStacks:()Ltop/theillusivec4/curios/api/type/inventory/IDynamicStackHandler;
+       7: astore        13
+       9: aload         12
+      11: invokeinterface #65,  1           // InterfaceMethod top/theillusivec4/curios/api/type/inventory/ICurioStacksHandler.getCosmeticStacks:()Ltop/theillusivec4/curios/api/type/inventory/IDynamicStackHandler;
+      16: astore        14
+      18: iconst_0
+      19: istore        15
+      21: iload         15
+      23: aload         13
+      25: invokeinterface #68,  1           // InterfaceMethod top/theillusivec4/curios/api/type/inventory/IDynamicStackHandler.getSlots:()I
+      30: if_icmpge     189
+      33: aload         14
+      35: iload         15
+      37: invokeinterface #74,  2           // InterfaceMethod top/theillusivec4/curios/api/type/inventory/IDynamicStackHandler.getStackInSlot:(I)Lnet/minecraft/world/item/ItemStack;
+      42: astore        16
+      44: iconst_1
+      45: istore        17
+      47: aload         12
+      49: invokeinterface #78,  1           // InterfaceMethod top/theillusivec4/curios/api/type/inventory/ICurioStacksHandler.getRenders:()Lnet/minecraft/core/NonNullList;
+      54: astore        18
+      56: aload         18
+      58: invokevirtual #82                 // Method net/minecraft/core/NonNullList.size:()I
+      61: iload         15
+      63: if_icmple     86
+      66: aload         18
+      68: iload         15
+      70: invokevirtual #87                 // Method net/minecraft/core/NonNullList.get:(I)Ljava/lang/Object;
+      73: checkcast     #91                 // class java/lang/Boolean
+      76: invokevirtual #93                 // Method java/lang/Boolean.booleanValue:()Z
+      79: ifeq          86
+      82: iconst_1
+      83: goto          87
+      86: iconst_0
+      87: istore        19
+      89: aload         16
+      91: invokevirtual #97                 // Method net/minecraft/world/item/ItemStack.isEmpty:()Z
+      94: ifeq          116
+      97: iload         19
+      99: ifeq          116
+     102: aload         13
+     104: iload         15
+     106: invokeinterface #74,  2           // InterfaceMethod top/theillusivec4/curios/api/type/inventory/IDynamicStackHandler.getStackInSlot:(I)Lnet/minecraft/world/item/ItemStack;
+     111: astore        16
+     113: iconst_0
+     114: istore        17
+     116: aload         16
+     118: invokevirtual #97                 // Method net/minecraft/world/item/ItemStack.isEmpty:()Z
+     121: ifne          183
+     124: new           #102                // class top/theillusivec4/curios/api/SlotContext
+     127: dup
+     128: aload         11
+     130: aload_1
+     131: iload         15
+     133: iload         17
+     135: iload         19
+     137: invokespecial #104                // Method top/theillusivec4/curios/api/SlotContext."<init>":(Ljava/lang/String;Lnet/minecraft/world/entity/LivingEntity;IZZ)V
+     140: astore        20
+     142: aload         16
+     144: astore        21
+     146: aload         16
+     148: invokevirtual #107                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+     151: invokestatic  #111                // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.getRenderer:(Lnet/minecraft/world/item/Item;)Ljava/util/Optional;
+     154: aload_0
+     155: aload         21
+     157: aload         20
+     159: aload_2
+     160: aload_3
+     161: iload         4
+     163: fload         5
+     165: fload         6
+     167: fload         7
+     169: fload         8
+     171: fload         9
+     173: fload         10
+     175: invokedynamic #117,  0            // InvokeDynamic #2:accept:(Ltop/theillusivec4/curios/client/render/CuriosLayer;Lnet/minecraft/world/item/ItemStack;Ltop/theillusivec4/curios/api/SlotContext;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;IFFFFFF)Ljava/util/function/Consumer;
+     180: invokevirtual #29                 // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+     183: iinc          15, 1
+     186: goto          21
+     189: return
+
+  private void lambda$render$0(net.minecraft.world.item.ItemStack, top.theillusivec4.curios.api.SlotContext, com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, int, float, float, float, float, float, float, top.theillusivec4.curios.api.client.ICurioRenderer);
+    Code:
+       0: aload         12
+       2: aload_1
+       3: aload_2
+       4: aload_3
+       5: aload_0
+       6: getfield      #7                  // Field renderLayerParent:Lnet/minecraft/client/renderer/entity/RenderLayerParent;
+       9: aload         4
+      11: iload         5
+      13: fload         6
+      15: fload         7
+      17: fload         8
+      19: fload         9
+      21: fload         10
+      23: fload         11
+      25: invokeinterface #120,  13         // InterfaceMethod top/theillusivec4/curios/api/client/ICurioRenderer.render:(Lnet/minecraft/world/item/ItemStack;Ltop/theillusivec4/curios/api/SlotContext;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/entity/RenderLayerParent;Lnet/minecraft/client/renderer/MultiBufferSource;IFFFFFF)V
+      30: return
+}

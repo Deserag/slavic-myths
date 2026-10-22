@@ -1,0 +1,1683 @@
+[
+  {
+    "issue": 45,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/45#issuecomment-6248313243",
+        "body": "Работа продолжается в main после merge #44 (58b76448). Владелец разрешил оставить 10 исходных удалений future/** нетронутыми и вне коммитов. Реализация переносит прежнее состояние Fermentation в чан; legacy registry/NBT сохраняются. Игровые процессы не запускаются. Итоговые gates и коммит будут указаны после проверки.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6248313243,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Работа продолжается в main после merge <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5907652554\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/44\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/44/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/44\">#44</a> (<a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/Deserag/slavic-myths/commit/58b76448b1513259cbcf3e5205f58d1b9227f357/hovercard\" href=\"https://github.com/Deserag/slavic-myths/commit/58b76448b1513259cbcf3e5205f58d1b9227f357\"><tt>58b7644</tt></a>). Владелец разрешил оставить 10 исходных удалений future/** нетронутыми и вне коммитов. Реализация переносит прежнее состояние Fermentation в чан; legacy registry/NBT сохраняются. Игровые процессы не запускаются. Итоговые gates и коммит будут указаны после проверки.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/45#issuecomment-6248371555",
+        "body": "Реализовано и отправлено прямо в main: commit 91249d65. Выдержка старого Fermentation перенесена в fermentation_vat (8 порций, прежние 2400/8400/12000 ticks); 15 производственных рецептов и small_keg сохранены. Новая бочка убрана из крафта/Creative/JEI и 364 authored NBT templates (382 palette entries); registry/item/BE/NBT старых бочек сохранены, старую выдержку можно закончить, остатки выпадают при разрушении. Генераторы обновлены.\n\nJava21 clean build PASS (compileJava FROM-CACHE), 7455 plain-JVM проверок настоящих load/save/quality/pour и opaque inventory NBT payload; 23723 resource/model/typed-structure/JAR checks PASS. Production SHA256: 5f298a3b66cc99b01a34d7d59fb9768db104c070d4d34d8bd3ebf2d4cf355bc8. Начальные JVM bootstrap failures исправлены без запуска игры. Client/server/GameTest/PolyMC = 0 запусков; gameplay/GUI/relog/MP NOT_RUN. Проверка Items payload не выдаётся за загрузку BlockEntity/реальный перезаход. PolyMC ждёт утверждения #46 и доставки #47.\n\nКраткая проверка: https://github.com/Deserag/slavic-myths/blob/main/docs/implementation/barrel-retirement/README.md . Десять пользовательских удалений future/** оставлены нетронутыми и не включены в commit.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6248371555,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Реализовано и отправлено прямо в main: commit <a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/Deserag/slavic-myths/commit/91249d657829a14bdb0c125c6b003109bb849de7/hovercard\" href=\"https://github.com/Deserag/slavic-myths/commit/91249d657829a14bdb0c125c6b003109bb849de7\"><tt>91249d6</tt></a>. Выдержка старого Fermentation перенесена в fermentation_vat (8 порций, прежние 2400/8400/12000 ticks); 15 производственных рецептов и small_keg сохранены. Новая бочка убрана из крафта/Creative/JEI и 364 authored NBT templates (382 palette entries); registry/item/BE/NBT старых бочек сохранены, старую выдержку можно закончить, остатки выпадают при разрушении. Генераторы обновлены.</p>\n<p dir=\"auto\">Java21 clean build PASS (compileJava FROM-CACHE), 7455 plain-JVM проверок настоящих load/save/quality/pour и opaque inventory NBT payload; 23723 resource/model/typed-structure/JAR checks PASS. Production SHA256: 5f298a3b66cc99b01a34d7d59fb9768db104c070d4d34d8bd3ebf2d4cf355bc8. Начальные JVM bootstrap failures исправлены без запуска игры. Client/server/GameTest/PolyMC = 0 запусков; gameplay/GUI/relog/MP NOT_RUN. Проверка Items payload не выдаётся за загрузку BlockEntity/реальный перезаход. PolyMC ждёт утверждения <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5907869960\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/46\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/46/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/46\">#46</a> и доставки <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5907878230\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/47\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/47/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/47\">#47</a>.</p>\n<p dir=\"auto\">Краткая проверка: <a href=\"https://github.com/Deserag/slavic-myths/blob/main/docs/implementation/barrel-retirement/README.md\">https://github.com/Deserag/slavic-myths/blob/main/docs/implementation/barrel-retirement/README.md</a> . Десять пользовательских удалений future/** оставлены нетронутыми и не включены в commit.</p>"
+      }
+    ]
+  },
+  {
+    "issue": 73,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/73#issuecomment-6285164048",
+        "body": "**Решение владельца от 20.10.2026:** текущую итерацию этой задачи считаем завершённой для планирования и **выводим её из активной очереди**. Сейчас единственная активная доработка — [#76, полная модель Проклятого оборотня](https://github.com/Deserag/slavic-myths/issues/76). Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. **Закрыто как `not_planned` / отложено, а НЕ как выполнено, протестировано в игре или `owner-accepted`.** Codex не начинать этот трек без нового поручения.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285164048,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца от 20.10.2026:</strong> текущую итерацию этой задачи считаем завершённой для планирования и <strong>выводим её из активной очереди</strong>. Сейчас единственная активная доработка — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76, полная модель Проклятого оборотня</a>. Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. <strong>Закрыто как <code class=\"notranslate\">not_planned</code> / отложено, а НЕ как выполнено, протестировано в игре или <code class=\"notranslate\">owner-accepted</code>.</strong> Codex не начинать этот трек без нового поручения.</p>"
+      }
+    ]
+  },
+  {
+    "issue": 74,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/74#issuecomment-6285165688",
+        "body": "**Решение владельца от 20.10.2026:** текущую итерацию этой задачи считаем завершённой для планирования и **выводим её из активной очереди**. Сейчас единственная активная доработка — [#76, полная модель Проклятого оборотня](https://github.com/Deserag/slavic-myths/issues/76). Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. **Закрыто как `not_planned` / отложено, а НЕ как выполнено, протестировано в игре или `owner-accepted`.** Codex не начинать этот трек без нового поручения.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285165688,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца от 20.10.2026:</strong> текущую итерацию этой задачи считаем завершённой для планирования и <strong>выводим её из активной очереди</strong>. Сейчас единственная активная доработка — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76, полная модель Проклятого оборотня</a>. Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. <strong>Закрыто как <code class=\"notranslate\">not_planned</code> / отложено, а НЕ как выполнено, протестировано в игре или <code class=\"notranslate\">owner-accepted</code>.</strong> Codex не начинать этот трек без нового поручения.</p>"
+      }
+    ]
+  },
+  {
+    "issue": 76,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/76#issuecomment-6285241523",
+        "body": "**Дополнение к основному ТЗ #76 (20.10.2026): три source-grounded чертежа и дополнительный инженерный список защиты от регрессий.** Описание задачи было параллельно дополнено техническим паспортом `ISSUE_76_VOLKOLAK_IMPLEMENTATION.md`; **не заменять и не игнорировать этот паспорт** — материалы ниже дополняют его.\n\n1. [A — действующая геометрия из JSON, 4 ракурса × 2 стойки](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_A_SOURCE_POSE_ATLAS.svg). Геометрическая проекция реально зарегистрированных частей; **НЕ Minecraft-screen**.\n2. [B — проект целевой формы, 4 ракурса + вертикальная стойка](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_B_TARGET_ANATOMY_VIEWS.svg). Художественный чертёж направления; размеры/кривые уточнить реальной rig-моделью.\n3. [C — настоящий rig/UV/actions, две стойки и глазной layer](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_C_RIG_ANIMATION_UV.svg).\n4. [Техническое приложение: части, размеры, генератор, UV, 19 состояний и приёмка](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_CURSED_VOLKOLAK_TECHNICAL_SPEC.md).\n\n**КРИТИЧЕСКОЕ ИНЖЕНЕРНОЕ ДОПОЛНЕНИЕ:** `CursedVolkolakGeometry.java` **сгенерирован** из `tools/volkolak_143_resources.py`. Авторский скрипт также может записывать другие textures/assets/quests; даже `--model-only` до выхода записывает не только geometry. Исправлять **authoring source** и получать атомарно Java+JSON+основной/глазной atlas, но *не затрагивать* соседние объекты и сюжет. Прежде чем считать работу сделанной, показать **source-produced** до/после 8 старых + 8 новых одинаковых проекций (4 вида × quad/upright), RISE/DROP, CLAW, BITE, POUNCE, GRAB, ESCAPE и глаза; Java21/JAR проверки и `OWNER_IN_GAME_PENDING`.\n\n**Нельзя принимать только conceptual SVG, замену PNG, красивую одну стойку или зелёный build при сломанной второй стойке.**",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285241523,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Дополнение к основному ТЗ <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a> (20.10.2026): три source-grounded чертежа и дополнительный инженерный список защиты от регрессий.</strong> Описание задачи было параллельно дополнено техническим паспортом <code class=\"notranslate\">ISSUE_76_VOLKOLAK_IMPLEMENTATION.md</code>; <strong>не заменять и не игнорировать этот паспорт</strong> — материалы ниже дополняют его.</p>\n<ol dir=\"auto\">\n<li><a href=\"https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_A_SOURCE_POSE_ATLAS.svg\">A — действующая геометрия из JSON, 4 ракурса × 2 стойки</a>. Геометрическая проекция реально зарегистрированных частей; <strong>НЕ Minecraft-screen</strong>.</li>\n<li><a href=\"https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_B_TARGET_ANATOMY_VIEWS.svg\">B — проект целевой формы, 4 ракурса + вертикальная стойка</a>. Художественный чертёж направления; размеры/кривые уточнить реальной rig-моделью.</li>\n<li><a href=\"https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_C_RIG_ANIMATION_UV.svg\">C — настоящий rig/UV/actions, две стойки и глазной layer</a>.</li>\n<li><a href=\"https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_CURSED_VOLKOLAK_TECHNICAL_SPEC.md\">Техническое приложение: части, размеры, генератор, UV, 19 состояний и приёмка</a>.</li>\n</ol>\n<p dir=\"auto\"><strong>КРИТИЧЕСКОЕ ИНЖЕНЕРНОЕ ДОПОЛНЕНИЕ:</strong> <code class=\"notranslate\">CursedVolkolakGeometry.java</code> <strong>сгенерирован</strong> из <code class=\"notranslate\">tools/volkolak_143_resources.py</code>. Авторский скрипт также может записывать другие textures/assets/quests; даже <code class=\"notranslate\">--model-only</code> до выхода записывает не только geometry. Исправлять <strong>authoring source</strong> и получать атомарно Java+JSON+основной/глазной atlas, но <em>не затрагивать</em> соседние объекты и сюжет. Прежде чем считать работу сделанной, показать <strong>source-produced</strong> до/после 8 старых + 8 новых одинаковых проекций (4 вида × quad/upright), RISE/DROP, CLAW, BITE, POUNCE, GRAB, ESCAPE и глаза; Java21/JAR проверки и <code class=\"notranslate\">OWNER_IN_GAME_PENDING</code>.</p>\n<p dir=\"auto\"><strong>Нельзя принимать только conceptual SVG, замену PNG, красивую одну стойку или зелёный build при сломанной второй стойке.</strong></p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/76#issuecomment-6285925716",
+        "body": "**Решение владельца, 20.10.2026:** «76 задачу закрываем, мне всё нравится». Владелец подтвердил приёмку результата переработки проклятого волколака и поручил закрыть #76.\n\n**Пакет, представленный Codex к приёмке:** локальная сборка `1.9.7.29`, Java 21 clean build, JAR-check и 38 офлайн-контрактов PASS; сравнение до/после (16 видов), отчёт `docs/implementation/volkolak-76/REPORT.md`.\n\n**Важно для передачи следующей задачи:** по отчёту Codex PolyMC не менялся, игровая сессия, multiplayer и FPS-тесты не зафиксированы, коммита не создано (AGENTS.md). Закрытие #76 — **явное решение владельца по принятому визуальному результату**, а не заявление о прохождении непроведённых тестов или о наличии изменений в `main`. Перед работой по #77 исполнитель обязан сохранить и зафиксировать в контролируемой форме локальный пакет #76 (проверить git status/diff, не потерять файлы и не смешать их с #77); не создавать коммит вопреки AGENTS.md без разрешения.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285925716,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца, 20.10.2026:</strong> «76 задачу закрываем, мне всё нравится». Владелец подтвердил приёмку результата переработки проклятого волколака и поручил закрыть <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a>.</p>\n<p dir=\"auto\"><strong>Пакет, представленный Codex к приёмке:</strong> локальная сборка <code class=\"notranslate\">1.9.7.29</code>, Java 21 clean build, JAR-check и 38 офлайн-контрактов PASS; сравнение до/после (16 видов), отчёт <code class=\"notranslate\">docs/implementation/volkolak-76/REPORT.md</code>.</p>\n<p dir=\"auto\"><strong>Важно для передачи следующей задачи:</strong> по отчёту Codex PolyMC не менялся, игровая сессия, multiplayer и FPS-тесты не зафиксированы, коммита не создано (AGENTS.md). Закрытие <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a> — <strong>явное решение владельца по принятому визуальному результату</strong>, а не заявление о прохождении непроведённых тестов или о наличии изменений в <code class=\"notranslate\">main</code>. Перед работой по <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880671\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/77\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/77/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/77\">#77</a> исполнитель обязан сохранить и зафиксировать в контролируемой форме локальный пакет <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a> (проверить git status/diff, не потерять файлы и не смешать их с <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880671\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/77\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/77/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/77\">#77</a>); не создавать коммит вопреки AGENTS.md без разрешения.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/76#issuecomment-6285928689",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6285928689,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/76#issuecomment-6297620494",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297620494,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 77,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/77#issuecomment-6285167277",
+        "body": "**Решение владельца от 20.10.2026:** текущую итерацию этой задачи считаем завершённой для планирования и **выводим её из активной очереди**. Сейчас единственная активная доработка — [#76, полная модель Проклятого оборотня](https://github.com/Deserag/slavic-myths/issues/76). Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. **Закрыто как `not_planned` / отложено, а НЕ как выполнено, протестировано в игре или `owner-accepted`.** Codex не начинать этот трек без нового поручения.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285167277,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца от 20.10.2026:</strong> текущую итерацию этой задачи считаем завершённой для планирования и <strong>выводим её из активной очереди</strong>. Сейчас единственная активная доработка — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76, полная модель Проклятого оборотня</a>. Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. <strong>Закрыто как <code class=\"notranslate\">not_planned</code> / отложено, а НЕ как выполнено, протестировано в игре или <code class=\"notranslate\">owner-accepted</code>.</strong> Codex не начинать этот трек без нового поручения.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/77#issuecomment-6285527327",
+        "body": "**Уточнение владельца от 20.10.2026:** задача повторно открыта и возвращена в очередь **на переработку**. Предыдущее массовое закрытие как `not_planned` отменено; ТЗ, история и материалы сохранены. Статус `open` **не означает**, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на #76.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285527327,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Уточнение владельца от 20.10.2026:</strong> задача повторно открыта и возвращена в очередь <strong>на переработку</strong>. Предыдущее массовое закрытие как <code class=\"notranslate\">not_planned</code> отменено; ТЗ, история и материалы сохранены. Статус <code class=\"notranslate\">open</code> <strong>не означает</strong>, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a>.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/77#issuecomment-6291069664",
+        "body": "Владелец подтвердил приёмку в текущем чате Codex 20.10.2026 после установки PolyMC 1.9.7.32: «предыдущие закрывай задачи все окей». Закрытие выполняется по этому прямому поручению владельца. Автоматические игровые тесты Codex не запускались; прежние NOT_RUN не переименовываются в инструментальный PASS.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6291069664,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Владелец подтвердил приёмку в текущем чате Codex 20.10.2026 после установки PolyMC 1.9.7.32: «предыдущие закрывай задачи все окей». Закрытие выполняется по этому прямому поручению владельца. Автоматические игровые тесты Codex не запускались; прежние NOT_RUN не переименовываются в инструментальный PASS.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/77#issuecomment-6291072789",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6291072789,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/77#issuecomment-6297621084",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297621084,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 78,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/78#issuecomment-6285168029",
+        "body": "**Решение владельца от 20.10.2026:** текущую итерацию этой задачи считаем завершённой для планирования и **выводим её из активной очереди**. Сейчас единственная активная доработка — [#76, полная модель Проклятого оборотня](https://github.com/Deserag/slavic-myths/issues/76). Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. **Закрыто как `not_planned` / отложено, а НЕ как выполнено, протестировано в игре или `owner-accepted`.** Codex не начинать этот трек без нового поручения.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285168029,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца от 20.10.2026:</strong> текущую итерацию этой задачи считаем завершённой для планирования и <strong>выводим её из активной очереди</strong>. Сейчас единственная активная доработка — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76, полная модель Проклятого оборотня</a>. Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. <strong>Закрыто как <code class=\"notranslate\">not_planned</code> / отложено, а НЕ как выполнено, протестировано в игре или <code class=\"notranslate\">owner-accepted</code>.</strong> Codex не начинать этот трек без нового поручения.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/78#issuecomment-6285527775",
+        "body": "**Уточнение владельца от 20.10.2026:** задача повторно открыта и возвращена в очередь **на переработку**. Предыдущее массовое закрытие как `not_planned` отменено; ТЗ, история и материалы сохранены. Статус `open` **не означает**, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на #76.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285527775,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Уточнение владельца от 20.10.2026:</strong> задача повторно открыта и возвращена в очередь <strong>на переработку</strong>. Предыдущее массовое закрытие как <code class=\"notranslate\">not_planned</code> отменено; ТЗ, история и материалы сохранены. Статус <code class=\"notranslate\">open</code> <strong>не означает</strong>, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a>.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/78#issuecomment-6291070395",
+        "body": "Владелец подтвердил приёмку в текущем чате Codex 20.10.2026 после установки PolyMC 1.9.7.32: «предыдущие закрывай задачи все окей». Закрытие выполняется по этому прямому поручению владельца. Автоматические игровые тесты Codex не запускались; прежние NOT_RUN не переименовываются в инструментальный PASS.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6291070395,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Владелец подтвердил приёмку в текущем чате Codex 20.10.2026 после установки PolyMC 1.9.7.32: «предыдущие закрывай задачи все окей». Закрытие выполняется по этому прямому поручению владельца. Автоматические игровые тесты Codex не запускались; прежние NOT_RUN не переименовываются в инструментальный PASS.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/78#issuecomment-6291073472",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6291073472,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/78#issuecomment-6297584979",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297584979,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/78#issuecomment-6297621758",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297621758,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 79,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/79#issuecomment-6285168808",
+        "body": "**Решение владельца от 20.10.2026:** текущую итерацию этой задачи считаем завершённой для планирования и **выводим её из активной очереди**. Сейчас единственная активная доработка — [#76, полная модель Проклятого оборотня](https://github.com/Deserag/slavic-myths/issues/76). Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. **Закрыто как `not_planned` / отложено, а НЕ как выполнено, протестировано в игре или `owner-accepted`.** Codex не начинать этот трек без нового поручения.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285168808,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца от 20.10.2026:</strong> текущую итерацию этой задачи считаем завершённой для планирования и <strong>выводим её из активной очереди</strong>. Сейчас единственная активная доработка — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76, полная модель Проклятого оборотня</a>. Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. <strong>Закрыто как <code class=\"notranslate\">not_planned</code> / отложено, а НЕ как выполнено, протестировано в игре или <code class=\"notranslate\">owner-accepted</code>.</strong> Codex не начинать этот трек без нового поручения.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/79#issuecomment-6285528251",
+        "body": "**Уточнение владельца от 20.10.2026:** задача повторно открыта и возвращена в очередь **на переработку**. Предыдущее массовое закрытие как `not_planned` отменено; ТЗ, история и материалы сохранены. Статус `open` **не означает**, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на #76.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285528251,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Уточнение владельца от 20.10.2026:</strong> задача повторно открыта и возвращена в очередь <strong>на переработку</strong>. Предыдущее массовое закрытие как <code class=\"notranslate\">not_planned</code> отменено; ТЗ, история и материалы сохранены. Статус <code class=\"notranslate\">open</code> <strong>не означает</strong>, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a>.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/79#issuecomment-6291071241",
+        "body": "Владелец подтвердил приёмку в текущем чате Codex 20.10.2026 после установки PolyMC 1.9.7.32: «предыдущие закрывай задачи все окей». Закрытие выполняется по этому прямому поручению владельца. Автоматические игровые тесты Codex не запускались; прежние NOT_RUN не переименовываются в инструментальный PASS.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6291071241,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Владелец подтвердил приёмку в текущем чате Codex 20.10.2026 после установки PolyMC 1.9.7.32: «предыдущие закрывай задачи все окей». Закрытие выполняется по этому прямому поручению владельца. Автоматические игровые тесты Codex не запускались; прежние NOT_RUN не переименовываются в инструментальный PASS.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/79#issuecomment-6291074142",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6291074142,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/79#issuecomment-6297584850",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297584850,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/79#issuecomment-6297621529",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297621529,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 81,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/81#issuecomment-6285175388",
+        "body": "**Решение владельца от 20.10.2026:** текущую итерацию этой задачи считаем завершённой для планирования и **выводим её из активной очереди**. Сейчас единственная активная доработка — [#76, полная модель Проклятого оборотня](https://github.com/Deserag/slavic-myths/issues/76). Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. **Закрыто как `not_planned` / отложено, а НЕ как выполнено, протестировано в игре или `owner-accepted`.** Codex не начинать этот трек без нового поручения.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285175388,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца от 20.10.2026:</strong> текущую итерацию этой задачи считаем завершённой для планирования и <strong>выводим её из активной очереди</strong>. Сейчас единственная активная доработка — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76, полная модель Проклятого оборотня</a>. Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. <strong>Закрыто как <code class=\"notranslate\">not_planned</code> / отложено, а НЕ как выполнено, протестировано в игре или <code class=\"notranslate\">owner-accepted</code>.</strong> Codex не начинать этот трек без нового поручения.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/81#issuecomment-6285185521",
+        "body": "**Решение владельца 20.10.2026:** задача выводится из активной очереди; единственный текущий фокус — [#76 Проклятый оборотень](https://github.com/Deserag/slavic-myths/issues/76). Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто **как отложенное `not_planned`**, НЕ как выполненное/проверенное в игре или `owner-accepted`. Codex не выполнять без нового запроса.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285185521,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца 20.10.2026:</strong> задача выводится из активной очереди; единственный текущий фокус — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76 Проклятый оборотень</a>. Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто <strong>как отложенное <code class=\"notranslate\">not_planned</code></strong>, НЕ как выполненное/проверенное в игре или <code class=\"notranslate\">owner-accepted</code>. Codex не выполнять без нового запроса.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/81#issuecomment-6285529259",
+        "body": "**Уточнение владельца от 20.10.2026:** задача повторно открыта и возвращена в очередь **на переработку**. Предыдущее массовое закрытие как `not_planned` отменено; ТЗ, история и материалы сохранены. Статус `open` **не означает**, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на #76.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285529259,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Уточнение владельца от 20.10.2026:</strong> задача повторно открыта и возвращена в очередь <strong>на переработку</strong>. Предыдущее массовое закрытие как <code class=\"notranslate\">not_planned</code> отменено; ТЗ, история и материалы сохранены. Статус <code class=\"notranslate\">open</code> <strong>не означает</strong>, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a>.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/81#issuecomment-6297584999",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297584999,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/81#issuecomment-6297621846",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297621846,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 82,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/82#issuecomment-6285176094",
+        "body": "**Решение владельца от 20.10.2026:** текущую итерацию этой задачи считаем завершённой для планирования и **выводим её из активной очереди**. Сейчас единственная активная доработка — [#76, полная модель Проклятого оборотня](https://github.com/Deserag/slavic-myths/issues/76). Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. **Закрыто как `not_planned` / отложено, а НЕ как выполнено, протестировано в игре или `owner-accepted`.** Codex не начинать этот трек без нового поручения.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285176094,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца от 20.10.2026:</strong> текущую итерацию этой задачи считаем завершённой для планирования и <strong>выводим её из активной очереди</strong>. Сейчас единственная активная доработка — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76, полная модель Проклятого оборотня</a>. Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. <strong>Закрыто как <code class=\"notranslate\">not_planned</code> / отложено, а НЕ как выполнено, протестировано в игре или <code class=\"notranslate\">owner-accepted</code>.</strong> Codex не начинать этот трек без нового поручения.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/82#issuecomment-6285186341",
+        "body": "**Решение владельца 20.10.2026:** задача выводится из активной очереди; единственный текущий фокус — [#76 Проклятый оборотень](https://github.com/Deserag/slavic-myths/issues/76). Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто **как отложенное `not_planned`**, НЕ как выполненное/проверенное в игре или `owner-accepted`. Codex не выполнять без нового запроса.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285186341,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца 20.10.2026:</strong> задача выводится из активной очереди; единственный текущий фокус — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76 Проклятый оборотень</a>. Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто <strong>как отложенное <code class=\"notranslate\">not_planned</code></strong>, НЕ как выполненное/проверенное в игре или <code class=\"notranslate\">owner-accepted</code>. Codex не выполнять без нового запроса.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/82#issuecomment-6285529753",
+        "body": "**Уточнение владельца от 20.10.2026:** задача повторно открыта и возвращена в очередь **на переработку**. Предыдущее массовое закрытие как `not_planned` отменено; ТЗ, история и материалы сохранены. Статус `open` **не означает**, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на #76.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285529753,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Уточнение владельца от 20.10.2026:</strong> задача повторно открыта и возвращена в очередь <strong>на переработку</strong>. Предыдущее массовое закрытие как <code class=\"notranslate\">not_planned</code> отменено; ТЗ, история и материалы сохранены. Статус <code class=\"notranslate\">open</code> <strong>не означает</strong>, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a>.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/82#issuecomment-6297585546",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297585546,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/82#issuecomment-6297621619",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297621619,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 83,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/83#issuecomment-6285176869",
+        "body": "**Решение владельца от 20.10.2026:** текущую итерацию этой задачи считаем завершённой для планирования и **выводим её из активной очереди**. Сейчас единственная активная доработка — [#76, полная модель Проклятого оборотня](https://github.com/Deserag/slavic-myths/issues/76). Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. **Закрыто как `not_planned` / отложено, а НЕ как выполнено, протестировано в игре или `owner-accepted`.** Codex не начинать этот трек без нового поручения.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285176869,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца от 20.10.2026:</strong> текущую итерацию этой задачи считаем завершённой для планирования и <strong>выводим её из активной очереди</strong>. Сейчас единственная активная доработка — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76, полная модель Проклятого оборотня</a>. Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. <strong>Закрыто как <code class=\"notranslate\">not_planned</code> / отложено, а НЕ как выполнено, протестировано в игре или <code class=\"notranslate\">owner-accepted</code>.</strong> Codex не начинать этот трек без нового поручения.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/83#issuecomment-6285187126",
+        "body": "**Решение владельца 20.10.2026:** задача выводится из активной очереди; единственный текущий фокус — [#76 Проклятый оборотень](https://github.com/Deserag/slavic-myths/issues/76). Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто **как отложенное `not_planned`**, НЕ как выполненное/проверенное в игре или `owner-accepted`. Codex не выполнять без нового запроса.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285187126,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца 20.10.2026:</strong> задача выводится из активной очереди; единственный текущий фокус — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76 Проклятый оборотень</a>. Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто <strong>как отложенное <code class=\"notranslate\">not_planned</code></strong>, НЕ как выполненное/проверенное в игре или <code class=\"notranslate\">owner-accepted</code>. Codex не выполнять без нового запроса.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/83#issuecomment-6285530318",
+        "body": "**Уточнение владельца от 20.10.2026:** задача повторно открыта и возвращена в очередь **на переработку**. Предыдущее массовое закрытие как `not_planned` отменено; ТЗ, история и материалы сохранены. Статус `open` **не означает**, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на #76.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285530318,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Уточнение владельца от 20.10.2026:</strong> задача повторно открыта и возвращена в очередь <strong>на переработку</strong>. Предыдущее массовое закрытие как <code class=\"notranslate\">not_planned</code> отменено; ТЗ, история и материалы сохранены. Статус <code class=\"notranslate\">open</code> <strong>не означает</strong>, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a>.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/83#issuecomment-6291931955",
+        "body": "Реализован source-микропатч 1.9.7.35: изменены только raw_duck, raw_goat, raw_boar_meat, raw_venison, raw_bear_meat; raw_goose и все6 cooked пары UNCHANGED. У диких видов сохранён исходный alpha-силуэт. Java21 clean build52s, resource/JAR parity PASS. По прямому поручению владельца исходники опубликованы в main (source eb113d4c67b7ab046cacb413c0022fefb244f970), проверенный JAR35 установлен в PolyMC с backup32 и одним active JAR. Отчёт/честный offline A/B: https://github.com/Deserag/slavic-myths/blob/main/docs/implementation/meat-83/REPORT.md ; точные installed path/SHA/source/backup: https://github.com/Deserag/slavic-myths/blob/main/docs/implementation/polymc-19735/REPORT.md . Minecraft/PolyMC/GameTest/сервер не запускались (0), runtime и ручная визуальная приёмка OWNER_PENDING. Issue остаётся OPEN; метка owner-accepted не выставлялась. В GitHub опубликованы source/evidence/метаданные, отдельный binary Release не создавался.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6291931955,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Реализован source-микропатч 1.9.7.35: изменены только raw_duck, raw_goat, raw_boar_meat, raw_venison, raw_bear_meat; raw_goose и все6 cooked пары UNCHANGED. У диких видов сохранён исходный alpha-силуэт. Java21 clean build52s, resource/JAR parity PASS. По прямому поручению владельца исходники опубликованы в main (source <a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/Deserag/slavic-myths/commit/eb113d4c67b7ab046cacb413c0022fefb244f970/hovercard\" href=\"https://github.com/Deserag/slavic-myths/commit/eb113d4c67b7ab046cacb413c0022fefb244f970\"><tt>eb113d4</tt></a>), проверенный JAR35 установлен в PolyMC с backup32 и одним active JAR. Отчёт/честный offline A/B: <a href=\"https://github.com/Deserag/slavic-myths/blob/main/docs/implementation/meat-83/REPORT.md\">https://github.com/Deserag/slavic-myths/blob/main/docs/implementation/meat-83/REPORT.md</a> ; точные installed path/SHA/source/backup: <a href=\"https://github.com/Deserag/slavic-myths/blob/main/docs/implementation/polymc-19735/REPORT.md\">https://github.com/Deserag/slavic-myths/blob/main/docs/implementation/polymc-19735/REPORT.md</a> . Minecraft/PolyMC/GameTest/сервер не запускались (0), runtime и ручная визуальная приёмка OWNER_PENDING. Issue остаётся OPEN; метка owner-accepted не выставлялась. В GitHub опубликованы source/evidence/метаданные, отдельный binary Release не создавался.</p>"
+      }
+    ]
+  },
+  {
+    "issue": 86,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/86#issuecomment-6285178387",
+        "body": "**Решение владельца от 20.10.2026:** текущую итерацию этой задачи считаем завершённой для планирования и **выводим её из активной очереди**. Сейчас единственная активная доработка — [#76, полная модель Проклятого оборотня](https://github.com/Deserag/slavic-myths/issues/76). Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. **Закрыто как `not_planned` / отложено, а НЕ как выполнено, протестировано в игре или `owner-accepted`.** Codex не начинать этот трек без нового поручения.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285178387,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца от 20.10.2026:</strong> текущую итерацию этой задачи считаем завершённой для планирования и <strong>выводим её из активной очереди</strong>. Сейчас единственная активная доработка — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76, полная модель Проклятого оборотня</a>. Здесь сохраняются прежнее ТЗ, история, чертежи и коммиты; возможные новые подтверждённые дефекты разбираются позднее отдельным конкретным запросом. <strong>Закрыто как <code class=\"notranslate\">not_planned</code> / отложено, а НЕ как выполнено, протестировано в игре или <code class=\"notranslate\">owner-accepted</code>.</strong> Codex не начинать этот трек без нового поручения.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/86#issuecomment-6285188857",
+        "body": "**Решение владельца 20.10.2026:** задача выводится из активной очереди; единственный текущий фокус — [#76 Проклятый оборотень](https://github.com/Deserag/slavic-myths/issues/76). Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто **как отложенное `not_planned`**, НЕ как выполненное/проверенное в игре или `owner-accepted`. Codex не выполнять без нового запроса.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285188857,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца 20.10.2026:</strong> задача выводится из активной очереди; единственный текущий фокус — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76 Проклятый оборотень</a>. Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто <strong>как отложенное <code class=\"notranslate\">not_planned</code></strong>, НЕ как выполненное/проверенное в игре или <code class=\"notranslate\">owner-accepted</code>. Codex не выполнять без нового запроса.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/86#issuecomment-6285531234",
+        "body": "**Уточнение владельца от 20.10.2026:** задача повторно открыта и возвращена в очередь **на переработку**. Предыдущее массовое закрытие как `not_planned` отменено; ТЗ, история и материалы сохранены. Статус `open` **не означает**, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на #76.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285531234,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Уточнение владельца от 20.10.2026:</strong> задача повторно открыта и возвращена в очередь <strong>на переработку</strong>. Предыдущее массовое закрытие как <code class=\"notranslate\">not_planned</code> отменено; ТЗ, история и материалы сохранены. Статус <code class=\"notranslate\">open</code> <strong>не означает</strong>, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a>.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/86#issuecomment-6297585505",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297585505,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/86#issuecomment-6297622462",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297622462,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 88,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/88#issuecomment-6285197990",
+        "body": "**Решение владельца 20.10.2026:** задача выводится из активной очереди; единственный текущий фокус — [#76 Проклятый оборотень](https://github.com/Deserag/slavic-myths/issues/76). Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто **как отложенное `not_planned`**, НЕ как выполненное/проверенное в игре или `owner-accepted`. Codex не выполнять без нового запроса.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285197990,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца 20.10.2026:</strong> задача выводится из активной очереди; единственный текущий фокус — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76 Проклятый оборотень</a>. Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто <strong>как отложенное <code class=\"notranslate\">not_planned</code></strong>, НЕ как выполненное/проверенное в игре или <code class=\"notranslate\">owner-accepted</code>. Codex не выполнять без нового запроса.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/88#issuecomment-6285532217",
+        "body": "**Уточнение владельца от 20.10.2026:** задача повторно открыта и возвращена в очередь **на переработку**. Предыдущее массовое закрытие как `not_planned` отменено; ТЗ, история и материалы сохранены. Статус `open` **не означает**, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на #76.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285532217,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Уточнение владельца от 20.10.2026:</strong> задача повторно открыта и возвращена в очередь <strong>на переработку</strong>. Предыдущее массовое закрытие как <code class=\"notranslate\">not_planned</code> отменено; ТЗ, история и материалы сохранены. Статус <code class=\"notranslate\">open</code> <strong>не означает</strong>, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a>.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/88#issuecomment-6297586067",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297586067,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/88#issuecomment-6297622512",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297622512,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 90,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/90#issuecomment-6285199599",
+        "body": "**Решение владельца 20.10.2026:** задача выводится из активной очереди; единственный текущий фокус — [#76 Проклятый оборотень](https://github.com/Deserag/slavic-myths/issues/76). Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто **как отложенное `not_planned`**, НЕ как выполненное/проверенное в игре или `owner-accepted`. Codex не выполнять без нового запроса.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285199599,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Решение владельца 20.10.2026:</strong> задача выводится из активной очереди; единственный текущий фокус — <a href=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\">#76 Проклятый оборотень</a>. Старое ТЗ/референсы остаются как история и могут быть использованы для будущей адресной доработки. Закрыто <strong>как отложенное <code class=\"notranslate\">not_planned</code></strong>, НЕ как выполненное/проверенное в игре или <code class=\"notranslate\">owner-accepted</code>. Codex не выполнять без нового запроса.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/90#issuecomment-6285533345",
+        "body": "**Уточнение владельца от 20.10.2026:** задача повторно открыта и возвращена в очередь **на переработку**. Предыдущее массовое закрытие как `not_planned` отменено; ТЗ, история и материалы сохранены. Статус `open` **не означает**, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на #76.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6285533345,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><strong>Уточнение владельца от 20.10.2026:</strong> задача повторно открыта и возвращена в очередь <strong>на переработку</strong>. Предыдущее массовое закрытие как <code class=\"notranslate\">not_planned</code> отменено; ТЗ, история и материалы сохранены. Статус <code class=\"notranslate\">open</code> <strong>не означает</strong>, что работа выполнена, принята или что Codex должен начать её немедленно. Исполнение — по отдельному поручению и после согласования переработки. Текущий фокус может оставаться на <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5928880141\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/76/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/76\">#76</a>.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/90#issuecomment-6297586672",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297586672,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/90#issuecomment-6297623758",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297623758,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 96,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/96#issuecomment-6297587767",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297587767,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/96#issuecomment-6297623066",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297623066,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 97,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/97#issuecomment-6297587909",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297587909,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/97#issuecomment-6297623274",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297623274,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 102,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/102#issuecomment-6292685785",
+        "body": "Уточнение после просмотра чертежей, подтверждено владельцем в чате 20.10.2026: «да ты прав учти это пожалуйста». Для farmer_iii→farmer_iv главным знаком сохраняется мотыга; росток/колосья вторичны. Для lumberjack_iii→lumberjack_iv главным остаётся топор; дерево/лес его не заменяют. Текущие IV концепты этих пар требуют доработки, не считаются принятыми. Будущий первый исполнительный пилот — эти четыре иконки: одинаковый фон, III/IV рядом, 1× и3× nearest, затем личная приёмка владельца. Production PNG сейчас не менялись; это фиксация замечаний, не разрешение массового внедрения и не owner-accepted всего набора.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6292685785,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Уточнение после просмотра чертежей, подтверждено владельцем в чате 20.10.2026: «да ты прав учти это пожалуйста». Для farmer_iii→farmer_iv главным знаком сохраняется мотыга; росток/колосья вторичны. Для lumberjack_iii→lumberjack_iv главным остаётся топор; дерево/лес его не заменяют. Текущие IV концепты этих пар требуют доработки, не считаются принятыми. Будущий первый исполнительный пилот — эти четыре иконки: одинаковый фон, III/IV рядом, 1× и3× nearest, затем личная приёмка владельца. Production PNG сейчас не менялись; это фиксация замечаний, не разрешение массового внедрения и не owner-accepted всего набора.</p>"
+      }
+    ]
+  },
+  {
+    "issue": 103,
+    "comments": []
+  },
+  {
+    "issue": 104,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/104#issuecomment-6297589186",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297589186,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 105,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/105#issuecomment-6297589033",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6297589033,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 106,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/106#issuecomment-6309904085",
+        "body": "#106 / первый пилот wood_linden начат по прямому поручению владельца21.10. IN_PROGRESS / PILOT_OWNER_PENDING, Issue OPEN; вся #106 не передаётся в «Тестирование».\n\nИзменены только3 production PNG: linden_planks, linden_log, linden_stripped_log. Прерваны механические волокна; точные исходные палитры и16px сохранены. Строительные швы досок сохранены. linden_log_top и linden_stripped_log_top=KEEP byte-exact, кольца читаются. Геометрия/models/UV/state/registry/Java/gameplay/loot/recipes/NBT/creative/foliage не менялись. Чужие правки и результаты #110/#111 сохранены.\n\nПо approved direction сделана умеренная коррекция, не смена характера породы; SVG schematic не копировался1:1. Создан scoped мастер decor106_linden.py и hook только для3 block PNG в woodlands_0801.texture. Полный legacy generate не запускался, проверена actual FunctionDef в temp-root.\n\nТехнический gate пилота PASS: Java21 clean build48s;7442 production resources/JAR parity, JSON/PNG validation.14 timber item/state цепочек проверены offline,42 прямых model consumers источников зафиксированы. Door/trapdoor/sign используют независимые PNG и сохранены; это не исполнение #107. Actual source-model/UV item1×/3×, surfaces2×2, four camera views и SHA old/new: локально D:/slavic-myths/docs/implementation/decor106-linden/REPORT.md. Эти изображения OFFLINE, не Minecraft screenshots и не проверка размещения/редстоуна в мире.\n\nJAR build/libs/slavicmyths-1.9.7.48.jar,23506006 bytes,SHA256 fb69dc502b6f162ecbc6fadc1155bc45c0fea9b213fcb9613f6802b5641ddcaf. Копия build/decor106-linden/slavicmyths-1.9.7.48-decor106-linden-pilot.jar. Source HEAD69a2db12de4baac9cef7c43e6c4b0ae717d3b644 +dirty tree, без commit/push. Версия48 существующая, не новый опубликованный релиз.\n\nЗапусков Minecraft/dev/GameTest/server/PolyMC=0. POLYMC_NOT_INSTALLED. Требуется ручная оценка пилота липы, затем игровой проход на тестовой копии:14 предметов, поверхности/кольца/стыки, стены2×2, оси log x/y/z, повороты stairs/slab/fence/gate, independent door/trapdoor/button/plate/sign functionality.\n\nТочный порядок ТЗ: «После принятия пилотного семейства повторить для следующего, только если нужна доработка». Поэтому ива/диагностика остальных4 семейств и #107–109 сейчас не исполнялись; V2 не перерисовывался. Нужна оценка конкретного пилота, не повторное разрешение начать всю задачу. Рекомендуемый Project Status всей #106: «В работе». Изменить поле недоступно: connector без Projects mutations, доступная браузерная сессия read-only; фактическое изменение статуса не заявляется. owner-accepted/закрытия не было.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6309904085,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944823414\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/106\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/106/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/106\">#106</a> / первый пилот wood_linden начат по прямому поручению владельца21.10. IN_PROGRESS / PILOT_OWNER_PENDING, Issue OPEN; вся <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944823414\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/106\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/106/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/106\">#106</a> не передаётся в «Тестирование».</p>\n<p dir=\"auto\">Изменены только3 production PNG: linden_planks, linden_log, linden_stripped_log. Прерваны механические волокна; точные исходные палитры и16px сохранены. Строительные швы досок сохранены. linden_log_top и linden_stripped_log_top=KEEP byte-exact, кольца читаются. Геометрия/models/UV/state/registry/Java/gameplay/loot/recipes/NBT/creative/foliage не менялись. Чужие правки и результаты <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945392499\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/110\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/110/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/110\">#110</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945392999\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/111\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/111/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/111\">#111</a> сохранены.</p>\n<p dir=\"auto\">По approved direction сделана умеренная коррекция, не смена характера породы; SVG schematic не копировался1:1. Создан scoped мастер decor106_linden.py и hook только для3 block PNG в woodlands_0801.texture. Полный legacy generate не запускался, проверена actual FunctionDef в temp-root.</p>\n<p dir=\"auto\">Технический gate пилота PASS: Java21 clean build48s;7442 production resources/JAR parity, JSON/PNG validation.14 timber item/state цепочек проверены offline,42 прямых model consumers источников зафиксированы. Door/trapdoor/sign используют независимые PNG и сохранены; это не исполнение <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824096\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/107\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/107/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/107\">#107</a>. Actual source-model/UV item1×/3×, surfaces2×2, four camera views и SHA old/new: локально D:/slavic-myths/docs/implementation/decor106-linden/REPORT.md. Эти изображения OFFLINE, не Minecraft screenshots и не проверка размещения/редстоуна в мире.</p>\n<p dir=\"auto\">JAR build/libs/slavicmyths-1.9.7.48.jar,23506006 bytes,SHA256 fb69dc502b6f162ecbc6fadc1155bc45c0fea9b213fcb9613f6802b5641ddcaf. Копия build/decor106-linden/slavicmyths-1.9.7.48-decor106-linden-pilot.jar. Source HEAD69a2db12de4baac9cef7c43e6c4b0ae717d3b644 +dirty tree, без commit/push. Версия48 существующая, не новый опубликованный релиз.</p>\n<p dir=\"auto\">Запусков Minecraft/dev/GameTest/server/PolyMC=0. POLYMC_NOT_INSTALLED. Требуется ручная оценка пилота липы, затем игровой проход на тестовой копии:14 предметов, поверхности/кольца/стыки, стены2×2, оси log x/y/z, повороты stairs/slab/fence/gate, independent door/trapdoor/button/plate/sign functionality.</p>\n<p dir=\"auto\">Точный порядок ТЗ: «После принятия пилотного семейства повторить для следующего, только если нужна доработка». Поэтому ива/диагностика остальных4 семейств и <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824096\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/107\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/107/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/107\">#107</a>–109 сейчас не исполнялись; V2 не перерисовывался. Нужна оценка конкретного пилота, не повторное разрешение начать всю задачу. Рекомендуемый Project Status всей <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944823414\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/106\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/106/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/106\">#106</a>: «В работе». Изменить поле недоступно: connector без Projects mutations, доступная браузерная сессия read-only; фактическое изменение статуса не заявляется. owner-accepted/закрытия не было.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/106#issuecomment-6310137653",
+        "body": "#106: общий source пакет всех6 древесных семейств и производных поверхностей реализован по новому прямому поручению владельца21.10 («всеми деревьями… потом результат», с обновлением блоков из этой древесины). Прежняя остановка после липы отменена этим поручением. Issue OPEN / IN_GAME_OWNER_PENDING, не owner acceptance.\n\nПроверены85 catalog records (80 timber +5 foliage KEEP).68 контролируемых PNG:17 KEEP /49 FIX /2 ADD_MISSING_ACTIVE_PATH;51 фактическое изменение.13 новых base corrections +38 зависимых texture/path changes. Липовый пилот3 PNG,все12 торцов,характерная кора сосны/рябины byte-exact сохранены. Для остальных дефектных поверхностей — независимые короткие кластеры/ритм/сучки по породе, не перекраска одного шаблона. Native resolutions сохранены.\n\nСинхронизированы отдельные door/trapdoor/item/sign atlases при точном сохранении alpha holes,рам,ручек/металла/UV.277 прямых model consumers используют обновлённые материалы,включая мебель липы/сосны и ящик.89 actual source item renders,все семейства before/after1×/3×,native/2×2 surfaces,four log camera views. Generic материалы без привязки к новой породе и vanilla dark oak kitchen table сохранены; новые6 gameplay variants не создавались. Никаких Java/model/blockstate/loot/recipe/lang/registry/NBT/creative/worldgen изменений; чужие правки и #110/#111 сохранены.\n\nСтатически исправлена ошибка active apple signs: установленный NeoForge Sheets требует slavicmyths:entity/signs/apple и entity/signs/hanging/apple, а раньше были лишь файлы с лишним /slavicmyths/. Добавлены2 правильных PNG,старые aliases сохранены и синхронизированы. Installed bytecode/path constants сохранены как evidence; runtime text/placement NOT_RUN.\n\nJava21 clean build PASS49s,7444 production resources/JAR parity,3947 JSON/1341 PNG,canonical and isolated real legacy hooks PASS. Full legacy generators не запускались. Report +85-ID ledger +68-PNG SHA matrix: локально D:/slavic-myths/docs/implementation/decor106-all-woods/REPORT.md (CATALOG.md,ASSETS.md,verification.json,source panels рядом). Все изображения OFFLINE,не Minecraft screenshots.\n\nJAR build/libs/slavicmyths-1.9.7.48.jar,23491178 bytes,SHA256 60254dd95066daee7c56808ecd9f3269ffef0de88e29ff127a0b14aae68660f6. Копия build/decor-all-woods/slavicmyths-1.9.7.48-all-woods-review.jar. Existing metadata48,не опубликованный новый релиз. Source HEAD69a2db12de4baac9cef7c43e6c4b0ae717d3b644 +dirty tree,без commit/push.\n\nMinecraft/dev/GameTest/server/PolyMC launches=0;POLYMC_NOT_INSTALLED. Ручная приёмка:Creative all families;world2×2,log axes/rotations,lighting;doors/hinges/halves/open;trapdoor/button/plate/redstone;sign+hanging apple text/wax/placement;furniture/storage/existing save/relog. Точный чеклист в отчёте.\n\nРекомендуемый Project Status: «Тестирование»; фактическое поле изменить недоступно (connector без Projects mutation/read-only browser), требуется действие владельца. owner-accepted/закрытия не было. #108 geometry не переделывалась,курганныйV2/#109 не менялся.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6310137653,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944823414\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/106\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/106/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/106\">#106</a>: общий source пакет всех6 древесных семейств и производных поверхностей реализован по новому прямому поручению владельца21.10 («всеми деревьями… потом результат», с обновлением блоков из этой древесины). Прежняя остановка после липы отменена этим поручением. Issue OPEN / IN_GAME_OWNER_PENDING, не owner acceptance.</p>\n<p dir=\"auto\">Проверены85 catalog records (80 timber +5 foliage KEEP).68 контролируемых PNG:17 KEEP /49 FIX /2 ADD_MISSING_ACTIVE_PATH;51 фактическое изменение.13 новых base corrections +38 зависимых texture/path changes. Липовый пилот3 PNG,все12 торцов,характерная кора сосны/рябины byte-exact сохранены. Для остальных дефектных поверхностей — независимые короткие кластеры/ритм/сучки по породе, не перекраска одного шаблона. Native resolutions сохранены.</p>\n<p dir=\"auto\">Синхронизированы отдельные door/trapdoor/item/sign atlases при точном сохранении alpha holes,рам,ручек/металла/UV.277 прямых model consumers используют обновлённые материалы,включая мебель липы/сосны и ящик.89 actual source item renders,все семейства before/after1×/3×,native/2×2 surfaces,four log camera views. Generic материалы без привязки к новой породе и vanilla dark oak kitchen table сохранены; новые6 gameplay variants не создавались. Никаких Java/model/blockstate/loot/recipe/lang/registry/NBT/creative/worldgen изменений; чужие правки и <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945392499\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/110\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/110/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/110\">#110</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945392999\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/111\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/111/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/111\">#111</a> сохранены.</p>\n<p dir=\"auto\">Статически исправлена ошибка active apple signs: установленный NeoForge Sheets требует slavicmyths:entity/signs/apple и entity/signs/hanging/apple, а раньше были лишь файлы с лишним /slavicmyths/. Добавлены2 правильных PNG,старые aliases сохранены и синхронизированы. Installed bytecode/path constants сохранены как evidence; runtime text/placement NOT_RUN.</p>\n<p dir=\"auto\">Java21 clean build PASS49s,7444 production resources/JAR parity,3947 JSON/1341 PNG,canonical and isolated real legacy hooks PASS. Full legacy generators не запускались. Report +85-ID ledger +68-PNG SHA matrix: локально D:/slavic-myths/docs/implementation/decor106-all-woods/REPORT.md (CATALOG.md,ASSETS.md,verification.json,source panels рядом). Все изображения OFFLINE,не Minecraft screenshots.</p>\n<p dir=\"auto\">JAR build/libs/slavicmyths-1.9.7.48.jar,23491178 bytes,SHA256 60254dd95066daee7c56808ecd9f3269ffef0de88e29ff127a0b14aae68660f6. Копия build/decor-all-woods/slavicmyths-1.9.7.48-all-woods-review.jar. Existing metadata48,не опубликованный новый релиз. Source HEAD69a2db12de4baac9cef7c43e6c4b0ae717d3b644 +dirty tree,без commit/push.</p>\n<p dir=\"auto\">Minecraft/dev/GameTest/server/PolyMC launches=0;POLYMC_NOT_INSTALLED. Ручная приёмка:Creative all families;world2×2,log axes/rotations,lighting;doors/hinges/halves/open;trapdoor/button/plate/redstone;sign+hanging apple text/wax/placement;furniture/storage/existing save/relog. Точный чеклист в отчёте.</p>\n<p dir=\"auto\">Рекомендуемый Project Status: «Тестирование»; фактическое поле изменить недоступно (connector без Projects mutation/read-only browser), требуется действие владельца. owner-accepted/закрытия не было. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824933\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/108\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/108/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/108\">#108</a> geometry не переделывалась,курганныйV2/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944825747\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/109\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/109/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/109\">#109</a> не менялся.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/106#issuecomment-6310420737",
+        "body": "Владелец после проверки установленной 1.9.7.49 явно принял результат всех древесных семейств и производных: «всё … сделал хорошо … красиво … нравится», разрешил завершение древесной задачи. Единственное замечание — слишком одинаковые прямоугольники коры сосны — перенесено в новый исполнительный пакет #108 по прямому поручению. Принятые прочие PNG сохраняются. Это фиксация реального решения владельца, а не самостоятельная приёмка Codex. Рекомендуемый Status: Готово по решению владельца; Project write недоступен.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6310420737,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Владелец после проверки установленной 1.9.7.49 явно принял результат всех древесных семейств и производных: «всё … сделал хорошо … красиво … нравится», разрешил завершение древесной задачи. Единственное замечание — слишком одинаковые прямоугольники коры сосны — перенесено в новый исполнительный пакет <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824933\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/108\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/108/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/108\">#108</a> по прямому поручению. Принятые прочие PNG сохраняются. Это фиксация реального решения владельца, а не самостоятельная приёмка Codex. Рекомендуемый Status: Готово по решению владельца; Project write недоступен.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/106#issuecomment-6310428043",
+        "body": "⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, #59/#60).",
+        "user": {
+          "login": "github-actions[bot]",
+          "name": "github-actions[bot]",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "id": 41898282
+        },
+        "id": 6310428043,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">⛔ Автоматически переоткрыто: нет метки owner-accepted от владельца. Частичный результат, успешная сборка, коммит или отчёт Codex не являются приёмкой. Покажите все обязательные доказательства выполнения и дождитесь явного решения владельца (AGENTS.md, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910104413\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/59\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/59/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/59\">#59</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5910111680\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/60/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/60\">#60</a>).</p>"
+      }
+    ]
+  },
+  {
+    "issue": 107,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/107#issuecomment-6310138007",
+        "body": "Связанное обновление source #107 выполнено в общем пакете #106 по новому прямому поручению владельца21.10: все6 древесных семейств плюс производные поверхности. Подробный handoff и точный JAR: https://github.com/Deserag/slavic-myths/issues/106#issuecomment-6310137653 (основной отчёт локально D:/slavic-myths/docs/implementation/decor106-all-woods/REPORT.md).\n\nПроверены80 timber item/state chains; источник planks автоматически обновляет stairs/slab/fence/gate/buttons/plates. Независимые door/trapdoor/sign PNG/atlases синхронизированы без смены геометрии/display/hitbox/redstone/alpha holes/UV/текста. Исправлены2 missing active apple sign material paths по установленному Sheets bytecode; старые aliases сохранены. Все модели/Java/data byte-exact сохранены. Generic самостоятельные материалы не стали выдуманными family variants.\n\nJava21 build49s и7444 production resource/JAR parity PASS;1×/3× source panels и native2×2 есть. Это OFFLINE,не приёмка реального placement/redstone/text. Minecraft/PolyMC запусков0,NOT_INSTALLED. Issue OPEN / OWNER_IN_GAME_PENDING; личная игровая проверка владельца обязательна. Никаких owner-accepted/закрытий,Project field write недоступен. Геометрия мебели #108 и V2/#109 не переделывались.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6310138007,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Связанное обновление source <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824096\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/107\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/107/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/107\">#107</a> выполнено в общем пакете <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944823414\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/106\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/106/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/106\">#106</a> по новому прямому поручению владельца21.10: все6 древесных семейств плюс производные поверхности. Подробный handoff и точный JAR: <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944823414\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/106\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/106/hovercard?comment_id=6310137653&amp;comment_type=issue_comment\" href=\"https://github.com/Deserag/slavic-myths/issues/106#issuecomment-6310137653\">#106 (comment)</a> (основной отчёт локально D:/slavic-myths/docs/implementation/decor106-all-woods/REPORT.md).</p>\n<p dir=\"auto\">Проверены80 timber item/state chains; источник planks автоматически обновляет stairs/slab/fence/gate/buttons/plates. Независимые door/trapdoor/sign PNG/atlases синхронизированы без смены геометрии/display/hitbox/redstone/alpha holes/UV/текста. Исправлены2 missing active apple sign material paths по установленному Sheets bytecode; старые aliases сохранены. Все модели/Java/data byte-exact сохранены. Generic самостоятельные материалы не стали выдуманными family variants.</p>\n<p dir=\"auto\">Java21 build49s и7444 production resource/JAR parity PASS;1×/3× source panels и native2×2 есть. Это OFFLINE,не приёмка реального placement/redstone/text. Minecraft/PolyMC запусков0,NOT_INSTALLED. Issue OPEN / OWNER_IN_GAME_PENDING; личная игровая проверка владельца обязательна. Никаких owner-accepted/закрытий,Project field write недоступен. Геометрия мебели <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824933\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/108\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/108/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/108\">#108</a> и V2/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944825747\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/109\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/109/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/109\">#109</a> не переделывались.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/107#issuecomment-6310426278",
+        "body": "Владелец после игровой проверки 1.9.7.49 принял древесину и производные блоки и прямо разрешил закрыть древесные задачи. Новых замечаний к кнопкам/плитам/дверям/люкам/табличкам не заявил. #106 закрыта по его решению; замечание к коре сосны отдельно включено в исполнительный пакет #108. Закрытие #107 выполняется по прямому решению владельца, не по одному build PASS; owner-accepted label не добавляется.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6310426278,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Владелец после игровой проверки 1.9.7.49 принял древесину и производные блоки и прямо разрешил закрыть древесные задачи. Новых замечаний к кнопкам/плитам/дверям/люкам/табличкам не заявил. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944823414\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/106\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/106/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/106\">#106</a> закрыта по его решению; замечание к коре сосны отдельно включено в исполнительный пакет <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824933\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/108\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/108/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/108\">#108</a>. Закрытие <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824096\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/107\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/107/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/107\">#107</a> выполняется по прямому решению владельца, не по одному build PASS; owner-accepted label не добавляется.</p>"
+      }
+    ]
+  },
+  {
+    "issue": 108,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/108#issuecomment-6310420409",
+        "body": "Новое прямое поручение владельца после игровой проверки 1.9.7.49 (21.10.2026), до начала правок. В работе: аудит всех оставшихся декоративных блоков раздела «Строительство и декор» с решением KEEP/FIX по каждому ID. Подтверждённые замечания: training_dummy сделать высотой 2 блока с корректным размещением/разрушением; устранить изменение цветов/мерцание при движении у firewood_bundle и signal_bell (проверить coplanar faces/z-fighting), проверить похожие модели. wooden_crate должен открываться как хранилище, серверное взаимодействие и сохранение содержимого; это новое явное разрешение владельца на изменение storage/BlockEntity вопреки прежнему запрету в тексте #108. Адресно улучшить basket/large_basket, wooden_tub, красильный чан (точный ID установить), погребальную керамику (сдержанная единая глиняная палитра). Проверить показанные древнюю деревянную фигуру, жернов, домовой очаг, малый бочонок: слабые материалы, UV, мерцание. У pine_log убрать одинаковые прямоугольники искусственной кладки, остальные принятые древесные текстуры сохранить. Пять игровых скриншотов владельца сохраняются в source evidence. Порядок: baseline и точные ID → диагностика → исправления/реальные source A/B → Java21 clean build и PNG/JSON/JAR parity → отчёт REQUIREMENT|EVIDENCE|PASS/FAIL/BLOCKED/NOT_RUN. Игру не запускать; игровой тест мерцания/контейнера остаётся владельцу. Это поручение разрешает исполнение и указанный расширенный scope #108; не является итоговой приёмкой будущих изменений. #91 остаётся родителем, #109 ранее уже принят владельцем; не перерисовывать его комплект. Вопросы при необходимости собирать единым списком. Рекомендуемый Status Project: В работе (прямого доступа к полю Project у коннектора нет).",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6310420409,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Новое прямое поручение владельца после игровой проверки 1.9.7.49 (21.10.2026), до начала правок. В работе: аудит всех оставшихся декоративных блоков раздела «Строительство и декор» с решением KEEP/FIX по каждому ID. Подтверждённые замечания: training_dummy сделать высотой 2 блока с корректным размещением/разрушением; устранить изменение цветов/мерцание при движении у firewood_bundle и signal_bell (проверить coplanar faces/z-fighting), проверить похожие модели. wooden_crate должен открываться как хранилище, серверное взаимодействие и сохранение содержимого; это новое явное разрешение владельца на изменение storage/BlockEntity вопреки прежнему запрету в тексте <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824933\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/108\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/108/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/108\">#108</a>. Адресно улучшить basket/large_basket, wooden_tub, красильный чан (точный ID установить), погребальную керамику (сдержанная единая глиняная палитра). Проверить показанные древнюю деревянную фигуру, жернов, домовой очаг, малый бочонок: слабые материалы, UV, мерцание. У pine_log убрать одинаковые прямоугольники искусственной кладки, остальные принятые древесные текстуры сохранить. Пять игровых скриншотов владельца сохраняются в source evidence. Порядок: baseline и точные ID → диагностика → исправления/реальные source A/B → Java21 clean build и PNG/JSON/JAR parity → отчёт REQUIREMENT|EVIDENCE|PASS/FAIL/BLOCKED/NOT_RUN. Игру не запускать; игровой тест мерцания/контейнера остаётся владельцу. Это поручение разрешает исполнение и указанный расширенный scope <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824933\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/108\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/108/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/108\">#108</a>; не является итоговой приёмкой будущих изменений. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5929043857\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/91\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/91/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/91\">#91</a> остаётся родителем, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944825747\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/109\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/109/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/109\">#109</a> ранее уже принят владельцем; не перерисовывать его комплект. Вопросы при необходимости собирать единым списком. Рекомендуемый Status Project: В работе (прямого доступа к полю Project у коннектора нет).</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/108#issuecomment-6310708415",
+        "body": "Source пакет реализован локально, #108 OPEN / IN_GAME_OWNER_PENDING. Аудит131 недревесных записей;73 canonical JSON outputs. Training_dummy2 блока/парные части/одно выпадение; crate27 слотов через постоянную BE, серверное меню, Items serialization/drop. У дров, колокола и подтверждённых старых solid-моделей устранены конкурирующие coplanar faces; UV за пределами своего атласа разделены по tile boundaries. Материалы корзин/кадки/чана/бочонка/керамики/жернова/очага/фигуры и pine_log адресно уточнены. Рецепты/другие хранилища/прочая принятая древесина сохранены. Локальные actual source A/B и полный каталог: D:/slavic-myths/docs/implementation/decor108/REPORT.md, comparison1–3, catalog1–4, baseline/manifest/матрица. Все render OFFLINE;5 owner screenshots сохранены отдельно.\n\nCandidate1.9.7.50: Java21 clean build1m PASS;7451 ресурсов/3949 JSON/1346 PNG,canonical regeneration,analytical geometry fixture areas,12 isolated final generator hooks,JAR parity PASS. build/decor108/slavicmyths-1.9.7.50-decor108-review.jar,23549649 bytes,SHA256 f08e22e5e78e2623cd733359086f7db31d1054572ff65f10a8ac6443419d689b. База32d1733457e7e90360ce16c23860304ece664c64 +незакоммиченный source snapshot с точными hashes. Эта итерация не commit/push и не установленная версия; в PolyMC остаётся1.9.7.49.\n\nЗапусков Codex0, runtime NOT_RUN: нужен owner test движения,GUI/shift-click/сохранения/перезахода/дропа,выставления и разрушения манекена в survival+creative. Старые одноблочные манекены необходимо снять и поставить заново; мир автоматически не мигрируется. Ящик открывает GUI,анимация поднимающейся крышки не добавлялась. Рекомендуемый Project Status: Тестирование; поле недоступно, изменение статуса не заявляется. #107 closed по прямому решению владельца; #106 была закрыта по тому же решению, но защита переоткрыла без owner-accepted. Метку от владельца Codex не добавляет. #91/#108 остаются OPEN.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6310708415,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Source пакет реализован локально, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824933\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/108\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/108/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/108\">#108</a> OPEN / IN_GAME_OWNER_PENDING. Аудит131 недревесных записей;73 canonical JSON outputs. Training_dummy2 блока/парные части/одно выпадение; crate27 слотов через постоянную BE, серверное меню, Items serialization/drop. У дров, колокола и подтверждённых старых solid-моделей устранены конкурирующие coplanar faces; UV за пределами своего атласа разделены по tile boundaries. Материалы корзин/кадки/чана/бочонка/керамики/жернова/очага/фигуры и pine_log адресно уточнены. Рецепты/другие хранилища/прочая принятая древесина сохранены. Локальные actual source A/B и полный каталог: D:/slavic-myths/docs/implementation/decor108/REPORT.md, comparison1–3, catalog1–4, baseline/manifest/матрица. Все render OFFLINE;5 owner screenshots сохранены отдельно.</p>\n<p dir=\"auto\">Candidate1.9.7.50: Java21 clean build1m PASS;7451 ресурсов/3949 JSON/1346 PNG,canonical regeneration,analytical geometry fixture areas,12 isolated final generator hooks,JAR parity PASS. build/decor108/slavicmyths-1.9.7.50-decor108-review.jar,23549649 bytes,SHA256 f08e22e5e78e2623cd733359086f7db31d1054572ff65f10a8ac6443419d689b. База32d1733457e7e90360ce16c23860304ece664c64 +незакоммиченный source snapshot с точными hashes. Эта итерация не commit/push и не установленная версия; в PolyMC остаётся1.9.7.49.</p>\n<p dir=\"auto\">Запусков Codex0, runtime NOT_RUN: нужен owner test движения,GUI/shift-click/сохранения/перезахода/дропа,выставления и разрушения манекена в survival+creative. Старые одноблочные манекены необходимо снять и поставить заново; мир автоматически не мигрируется. Ящик открывает GUI,анимация поднимающейся крышки не добавлялась. Рекомендуемый Project Status: Тестирование; поле недоступно, изменение статуса не заявляется. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824096\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/107\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/107/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/107\">#107</a> closed по прямому решению владельца; <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944823414\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/106\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/106/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/106\">#106</a> была закрыта по тому же решению, но защита переоткрыла без owner-accepted. Метку от владельца Codex не добавляет. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5929043857\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/91\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/91/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/91\">#91</a>/<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824933\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/108\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/108/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/108\">#108</a> остаются OPEN.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/108#issuecomment-6310802754",
+        "body": "Владелец после игровой проверки установленной1.9.7.50 прямо подтвердил: «задача уже прошла тестирование … всё окей … она готова», разрешил закрыть. Фиксирую реальную ручную приёмку владельца текущего полного пакета #108. Закрытие по его прямому решению; owner-accepted за владельца не добавляется. Если GitHub Actions переоткроет без этой метки, защита не обходится.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6310802754,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\">Владелец после игровой проверки установленной1.9.7.50 прямо подтвердил: «задача уже прошла тестирование … всё окей … она готова», разрешил закрыть. Фиксирую реальную ручную приёмку владельца текущего полного пакета <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5944824933\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/108\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/108/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/108\">#108</a>. Закрытие по его прямому решению; owner-accepted за владельца не добавляется. Если GitHub Actions переоткроет без этой метки, защита не обходится.</p>"
+      }
+    ]
+  },
+  {
+    "issue": 110,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/110#issuecomment-6308913151",
+        "body": "#110 / T1: технический результат подготовлен локально, Issue остаётся OPEN / IN_GAME_OWNER_PENDING.\n\nПереработаны все 7 production PNG16×16 партиями3/2/2: прямой клык, массивный звериный зуб, тёмный крюк; низкая серая зола и вертикальный уголёк; ромбовидная чешуйка и широкий рваный кожаный лоскут. Сохранены модели/layer0/anchors, registry ID, recipes/loot, характеристики, локализации и gameplay. Пять scoped generator hooks воспроизводят новые PNG. #111–114 не начинались.\n\nJava21 `gradlew.bat clean build`: PASS (финальный52s). JSON/PNG и7442 production resources/JAR parity: PASS. Реальные A/B1×/3×, отдельные семейства, binary masks, SHA old/new, матрица и игровые сценарии находятся локально в `D:/slavic-myths/docs/implementation/trophy110/REPORT.md` (рядом before-after.png, T1-A/B/C.png, verification.json). Это offline previews, не игровые скриншоты.\n\nJAR: `D:/slavic-myths/build/libs/slavicmyths-1.9.7.48.jar`, 23506233 bytes; SHA256 `d22d40b68d31ebdf97efa2d7f3c3cf8f8ec093fe375616a645d90314a8455b50`. Копия: `build/trophy110/slavicmyths-1.9.7.48-trophy110.jar`. Source baseline HEAD `69a2db12de4baac9cef7c43e6c4b0ae717d3b644` + dirty local working tree; commit/push не выполнялись, исходные чужие изменения сохранены. Это локальный кандидат поверх версии48, не опубликованный релиз. При первичной проверке импорт legacy-generator вызвал побочные записи; все15 файлов вне scope восстановлены с точным совпадением исходных SHA, byte audit и clean build повторены; подробности в отчёте.\n\nMinecraft/dev client/GameTest/server/PolyMC launches=0. POLYMC_NOT_INSTALLED. Требуется ручная проверка распознаваемости без подписей в инвентаре, контраста,1P/3P/dropped items и сохранности существующих stacks/loot/рецептов на тестовой копии.\n\nРекомендуемый статус Project: «Тестирование» / требуется изменение владельцем. Изменить «Ожидание»→«В работе» и затем «Тестирование» не удалось: Projects mutations отсутствуют у коннектора, доступная браузерная сессия GitHub без авторизации, доска read-only. Фактический Status не изменён; labels/owner-accepted не добавлялись, Issue не закрывалась.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6308913151,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945392499\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/110\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/110/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/110\">#110</a> / T1: технический результат подготовлен локально, Issue остаётся OPEN / IN_GAME_OWNER_PENDING.</p>\n<p dir=\"auto\">Переработаны все 7 production PNG16×16 партиями3/2/2: прямой клык, массивный звериный зуб, тёмный крюк; низкая серая зола и вертикальный уголёк; ромбовидная чешуйка и широкий рваный кожаный лоскут. Сохранены модели/layer0/anchors, registry ID, recipes/loot, характеристики, локализации и gameplay. Пять scoped generator hooks воспроизводят новые PNG. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945392999\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/111\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/111/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/111\">#111</a>–114 не начинались.</p>\n<p dir=\"auto\">Java21 <code class=\"notranslate\">gradlew.bat clean build</code>: PASS (финальный52s). JSON/PNG и7442 production resources/JAR parity: PASS. Реальные A/B1×/3×, отдельные семейства, binary masks, SHA old/new, матрица и игровые сценарии находятся локально в <code class=\"notranslate\">D:/slavic-myths/docs/implementation/trophy110/REPORT.md</code> (рядом before-after.png, T1-A/B/C.png, verification.json). Это offline previews, не игровые скриншоты.</p>\n<p dir=\"auto\">JAR: <code class=\"notranslate\">D:/slavic-myths/build/libs/slavicmyths-1.9.7.48.jar</code>, 23506233 bytes; SHA256 <code class=\"notranslate\">d22d40b68d31ebdf97efa2d7f3c3cf8f8ec093fe375616a645d90314a8455b50</code>. Копия: <code class=\"notranslate\">build/trophy110/slavicmyths-1.9.7.48-trophy110.jar</code>. Source baseline HEAD <code class=\"notranslate\">69a2db12de4baac9cef7c43e6c4b0ae717d3b644</code> + dirty local working tree; commit/push не выполнялись, исходные чужие изменения сохранены. Это локальный кандидат поверх версии48, не опубликованный релиз. При первичной проверке импорт legacy-generator вызвал побочные записи; все15 файлов вне scope восстановлены с точным совпадением исходных SHA, byte audit и clean build повторены; подробности в отчёте.</p>\n<p dir=\"auto\">Minecraft/dev client/GameTest/server/PolyMC launches=0. POLYMC_NOT_INSTALLED. Требуется ручная проверка распознаваемости без подписей в инвентаре, контраста,1P/3P/dropped items и сохранности существующих stacks/loot/рецептов на тестовой копии.</p>\n<p dir=\"auto\">Рекомендуемый статус Project: «Тестирование» / требуется изменение владельцем. Изменить «Ожидание»→«В работе» и затем «Тестирование» не удалось: Projects mutations отсутствуют у коннектора, доступная браузерная сессия GitHub без авторизации, доска read-only. Фактический Status не изменён; labels/owner-accepted не добавлялись, Issue не закрывалась.</p>"
+      }
+    ]
+  },
+  {
+    "issue": 111,
+    "comments": [
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/111#issuecomment-6309040656",
+        "body": "#111 / T2 — IN_PROGRESS, частичный результат по прямому поручению владельца21.10; Issue OPEN. Не переводить в «Тестирование»: остаётся design blocker pearl_fragment.\n\nВыполнено8 FIX: ancient_coin, shield_boss_fragment, old_buckle, bandit_token, ataman_sign, voevoda_insignia, princely_seal, serpent_seal. old_button=KEEP (4 отверстия/обод уже читаются). Княжеская печать из кургана подтверждена владельцем; вместо круглой плашки сделан квадратный штамп с кантом. После нового screenshot владельца пряжка и знак атамана также переработаны по существующим схемам B. Модели, native resolutions, GUI/held anchors и gameplay не менялись; чужие правки и #110 сохранены.\n\npearl_fragment: плоский эскиз B существует, но actual source — native3D cuboid с32px texture. Отдельный чертёж новой native3D/UV геометрии либо решение по отдельному GUI sprite отсутствует. По инструкции владельца при отсутствии нужного дизайна этот пункт оставлен ему; production byte-exact сохранён. Это не утверждение, что вообще нет2D референса.\n\nТехнические gates выполненной части PASS: Java21 clean build45s;7442 production resources/JAR parity, JSON/PNG validation, isolated real generator hooks. Полные legacy pipelines не запускались. Отчёт и1×/3×A/B локально: D:/slavic-myths/docs/implementation/trophy111/REPORT.md; DESIGN_GAPS.md; before-after.png; T2-A/B/C.png. Offline previews не являются Minecraft screenshots.\n\nJAR build/libs/slavicmyths-1.9.7.48.jar,23506287 bytes, SHA256 6c406ea3edd971e74165642022e1ae055ded97dd391b1252122570a5429ab12a. Сохранён partial candidate build/trophy111/slavicmyths-1.9.7.48-trophy111-partial.jar. Source HEAD69a2db12de4baac9cef7c43e6c4b0ae717d3b644 + dirty tree, без commit/push. Minecraft/dev/GameTest/server/PolyMC launches=0. POLYMC_NOT_INSTALLED.\n\nProject рекомендован «В работе»; фактический Status изменить не удалось (Projects mutation tool отсутствует, последняя браузерная проверка без login/read-only). Статусные labels не создавались. owner-accepted не добавлялся, Issue не закрыта.\n\n#112–114 production не начинались. В новом screenshot видимая группа firebird_down/firebird_feather/smoldering_feather/mat_bone_plates/mat_mirror_shards/mat_skim_fang относится к QA #114; индивидуальных новых референсов по точным ID в docs/design нет, массово не перерисована. По неназванным наградам/украшениям нужны точные имена; это отдельный scope.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6309040656,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945392999\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/111\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/111/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/111\">#111</a> / T2 — IN_PROGRESS, частичный результат по прямому поручению владельца21.10; Issue OPEN. Не переводить в «Тестирование»: остаётся design blocker pearl_fragment.</p>\n<p dir=\"auto\">Выполнено8 FIX: ancient_coin, shield_boss_fragment, old_buckle, bandit_token, ataman_sign, voevoda_insignia, princely_seal, serpent_seal. old_button=KEEP (4 отверстия/обод уже читаются). Княжеская печать из кургана подтверждена владельцем; вместо круглой плашки сделан квадратный штамп с кантом. После нового screenshot владельца пряжка и знак атамана также переработаны по существующим схемам B. Модели, native resolutions, GUI/held anchors и gameplay не менялись; чужие правки и <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945392499\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/110\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/110/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/110\">#110</a> сохранены.</p>\n<p dir=\"auto\">pearl_fragment: плоский эскиз B существует, но actual source — native3D cuboid с32px texture. Отдельный чертёж новой native3D/UV геометрии либо решение по отдельному GUI sprite отсутствует. По инструкции владельца при отсутствии нужного дизайна этот пункт оставлен ему; production byte-exact сохранён. Это не утверждение, что вообще нет2D референса.</p>\n<p dir=\"auto\">Технические gates выполненной части PASS: Java21 clean build45s;7442 production resources/JAR parity, JSON/PNG validation, isolated real generator hooks. Полные legacy pipelines не запускались. Отчёт и1×/3×A/B локально: D:/slavic-myths/docs/implementation/trophy111/REPORT.md; DESIGN_GAPS.md; before-after.png; T2-A/B/C.png. Offline previews не являются Minecraft screenshots.</p>\n<p dir=\"auto\">JAR build/libs/slavicmyths-1.9.7.48.jar,23506287 bytes, SHA256 6c406ea3edd971e74165642022e1ae055ded97dd391b1252122570a5429ab12a. Сохранён partial candidate build/trophy111/slavicmyths-1.9.7.48-trophy111-partial.jar. Source HEAD69a2db12de4baac9cef7c43e6c4b0ae717d3b644 + dirty tree, без commit/push. Minecraft/dev/GameTest/server/PolyMC launches=0. POLYMC_NOT_INSTALLED.</p>\n<p dir=\"auto\">Project рекомендован «В работе»; фактический Status изменить не удалось (Projects mutation tool отсутствует, последняя браузерная проверка без login/read-only). Статусные labels не создавались. owner-accepted не добавлялся, Issue не закрыта.</p>\n<p dir=\"auto\"><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945393478\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/112\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/112/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/112\">#112</a>–114 production не начинались. В новом screenshot видимая группа firebird_down/firebird_feather/smoldering_feather/mat_bone_plates/mat_mirror_shards/mat_skim_fang относится к QA <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945394744\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/114\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/114/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/114\">#114</a>; индивидуальных новых референсов по точным ID в docs/design нет, массово не перерисована. По неназванным наградам/украшениям нужны точные имена; это отдельный scope.</p>"
+      },
+      {
+        "url": "https://github.com/Deserag/slavic-myths/issues/111#issuecomment-6309732708",
+        "body": "#111: продолжение по обновлённому решению владельца21.10. Полный исполнительский scope реализован и технически проверен:9 FIX +1 KEEP(old_button). Issue OPEN / IN_GAME_OWNER_PENDING; это не owner acceptance и не завершение #92.\n\nDESIGN_BLOCKED pearl_fragment СНЯТ согласно новому явному исключению: старый одиночный cuboid заменён minecraft:item/generated с самостоятельным32px плоским асимметричным сколом направленияA. Старые UV/display не переносились; inherited generated transforms прочитаны из установленного vanilla1.21.1 client JAR. water_070 scoped guard и canonical final overlay воспроизводят PNG и model, не возвращая cuboid.\n\nС новым A/Б листом сверены все10 ID. Удачные прежние FIX сохранены. В этой ревизии изменены только3 PNG: pearl_fragment, ataman_sign (широкая железная пластина с тёплой инкрустацией, направлениеБ) и serpent_seal (голова/глаз/свёрнутый хвост вместо буквоподобной S, направлениеА). princely_seal остаётся квадратным металлическим штампомА. Персональный выбор вариантов владельцем не приписывается. Чужие изменения, #110, registry/gameplay/recipes/loot/NBT/Creative/локализации сохранены. Остальные model JSON unchanged.\n\nJava21 clean build PASS56s.7442 production resources/JAR parity, JSON/PNG, legacy/canonical guards PASS. Реальные A/B1×/3×, девять иконок без подписей, actual source JSON/UV/PNG renderer pearl before/after в одинаковой рамке и isolated item transforms сохранены локально: D:/slavic-myths/docs/implementation/trophy111-refinement/REPORT.md. Рядом original-before-after.png, nine-unlabelled.png, pearl-model-before-after.png, verification.json. Это OFFLINE evidence, не game captures; renderer не моделирует руки/игрока/Minecraft AO/shaders.\n\nProduction JAR build/libs/slavicmyths-1.9.7.48.jar,23505661 bytes, SHA256 b8ad54a55845455b6936d2c92daa86da64cedc8207c61d2bfc80a0418be730b1. Копия build/trophy111/slavicmyths-1.9.7.48-trophy111-review.jar. Версия48 существующая, не новый опубликованный релиз. Source HEAD69a2db12de4baac9cef7c43e6c4b0ae717d3b644 +dirty tree; commit/push не выполнялись.\n\nMinecraft/dev/GameTest/server/PolyMC запусков0. POLYMC_NOT_INSTALLED. Ручные сценарии: распознавание10 ID без hover/count overlays/GUI scales; pearl1P/3P/вторая рука/dropped item; сохранённая old_buckle held3D цепочка; прежние stacks/loot/recipe consumers/перезаход на копии мира.\n\nРекомендуемый Project Status: «Тестирование». Фактически21.10 #111 всё ещё в «Ожидании»: повторная браузерная проверка без авторизации/read-only, connector Projects mutations отсутствуют. Требуется изменение владельцем, статус не подменялся labels. owner-accepted не добавлялся, Issue не закрыта. #112–114 production не исполнялись.",
+        "user": {
+          "login": "Deserag",
+          "name": "Deserag",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+          "id": 98634457
+        },
+        "id": 6309732708,
+        "pull_request_review_id": null,
+        "in_reply_to_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "review": null,
+        "side": null,
+        "line": null,
+        "start_line": null,
+        "path": null,
+        "body_html": "<p dir=\"auto\"><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945392999\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/111\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/111/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/111\">#111</a>: продолжение по обновлённому решению владельца21.10. Полный исполнительский scope реализован и технически проверен:9 FIX +1 KEEP(old_button). Issue OPEN / IN_GAME_OWNER_PENDING; это не owner acceptance и не завершение <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5937733943\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/92\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/92/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/92\">#92</a>.</p>\n<p dir=\"auto\">DESIGN_BLOCKED pearl_fragment СНЯТ согласно новому явному исключению: старый одиночный cuboid заменён minecraft:item/generated с самостоятельным32px плоским асимметричным сколом направленияA. Старые UV/display не переносились; inherited generated transforms прочитаны из установленного vanilla1.21.1 client JAR. water_070 scoped guard и canonical final overlay воспроизводят PNG и model, не возвращая cuboid.</p>\n<p dir=\"auto\">С новым A/Б листом сверены все10 ID. Удачные прежние FIX сохранены. В этой ревизии изменены только3 PNG: pearl_fragment, ataman_sign (широкая железная пластина с тёплой инкрустацией, направлениеБ) и serpent_seal (голова/глаз/свёрнутый хвост вместо буквоподобной S, направлениеА). princely_seal остаётся квадратным металлическим штампомА. Персональный выбор вариантов владельцем не приписывается. Чужие изменения, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945392499\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/110\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/110/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/110\">#110</a>, registry/gameplay/recipes/loot/NBT/Creative/локализации сохранены. Остальные model JSON unchanged.</p>\n<p dir=\"auto\">Java21 clean build PASS56s.7442 production resources/JAR parity, JSON/PNG, legacy/canonical guards PASS. Реальные A/B1×/3×, девять иконок без подписей, actual source JSON/UV/PNG renderer pearl before/after в одинаковой рамке и isolated item transforms сохранены локально: D:/slavic-myths/docs/implementation/trophy111-refinement/REPORT.md. Рядом original-before-after.png, nine-unlabelled.png, pearl-model-before-after.png, verification.json. Это OFFLINE evidence, не game captures; renderer не моделирует руки/игрока/Minecraft AO/shaders.</p>\n<p dir=\"auto\">Production JAR build/libs/slavicmyths-1.9.7.48.jar,23505661 bytes, SHA256 b8ad54a55845455b6936d2c92daa86da64cedc8207c61d2bfc80a0418be730b1. Копия build/trophy111/slavicmyths-1.9.7.48-trophy111-review.jar. Версия48 существующая, не новый опубликованный релиз. Source HEAD69a2db12de4baac9cef7c43e6c4b0ae717d3b644 +dirty tree; commit/push не выполнялись.</p>\n<p dir=\"auto\">Minecraft/dev/GameTest/server/PolyMC запусков0. POLYMC_NOT_INSTALLED. Ручные сценарии: распознавание10 ID без hover/count overlays/GUI scales; pearl1P/3P/вторая рука/dropped item; сохранённая old_buckle held3D цепочка; прежние stacks/loot/recipe consumers/перезаход на копии мира.</p>\n<p dir=\"auto\">Рекомендуемый Project Status: «Тестирование». Фактически21.10 <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945392999\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/111\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/111/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/111\">#111</a> всё ещё в «Ожидании»: повторная браузерная проверка без авторизации/read-only, connector Projects mutations отсутствуют. Требуется изменение владельцем, статус не подменялся labels. owner-accepted не добавлялся, Issue не закрыта. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5945393478\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/112\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/112/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/112\">#112</a>–114 production не исполнялись.</p>"
+      }
+    ]
+  }
+]

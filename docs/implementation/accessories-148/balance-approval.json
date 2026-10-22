@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-21",
+  "owner_reply": "Согласовать эти пять изменений",
+  "approved": {
+    "lunula": {
+      "protection_percent": [
+        5,
+        8
+      ]
+    },
+    "grivna": {
+      "protection_percent": [
+        4,
+        6
+      ]
+    },
+    "grave_ward": {
+      "protection_percent": [
+        9,
+        12
+      ]
+    },
+    "trophy_skim_necklace": {
+      "damage_bonus_percent": [
+        10,
+        15
+      ],
+      "strict_below_health_percent": [
+        30,
+        35
+      ]
+    },
+    "hunter_belt": {
+      "wildlife_projectile_bonus_percent": [
+        10,
+        15
+      ]
+    }
+  },
+  "other_effects": "unchanged"
+}

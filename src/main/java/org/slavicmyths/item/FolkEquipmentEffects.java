@@ -44,7 +44,7 @@ public final class FolkEquipmentEffects {
     long now=attacker.level().getGameTime();CompoundTag d=attacker.getPersistentData();
     if(now>=d.getLong("SlavicPerunReady")){event.setAmount(event.getAmount()+2);d.putLong("SlavicPerunReady",now+60);((ServerLevel)victim.level()).sendParticles(ParticleTypes.CRIT,victim.getX(),victim.getY()+1,victim.getZ(),6,.2,.3,.2,.1);}
    }
-   if(event.getSource().is(net.minecraft.tags.DamageTypeTags.IS_PROJECTILE)&&victim instanceof org.slavicmyths.entity.WildlifeEntity&&wears(attacker,ModItems.HUNTER_BELT.get()))event.setAmount(event.getAmount()*1.1F);
+   if(event.getSource().is(net.minecraft.tags.DamageTypeTags.IS_PROJECTILE)&&victim instanceof org.slavicmyths.entity.WildlifeEntity&&wears(attacker,ModItems.HUNTER_BELT.get()))event.setAmount(event.getAmount()*1.15F);
    attacker.getPersistentData().putLong("SlavicCapBroken",attacker.level().getGameTime()+100);
   }
   victim.getPersistentData().putLong("SlavicCapBroken",victim.level().getGameTime()+100);

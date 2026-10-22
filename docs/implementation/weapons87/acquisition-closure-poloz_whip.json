@@ -1,0 +1,7 @@
+{
+  "slavicmyths:poloz_whip": {
+    "recipes": [],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

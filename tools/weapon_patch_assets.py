@@ -54,4 +54,6 @@ def main():
         m['night192.scythe_passives'] = ('Каждый третий удар по цели: Иссушение I на 4 с. Лечение до 2 HP раз в 5 с; нежить: +25% урона, +3 HP за убийство.' if lang=='ru_ru' else 'Every third hit on a target: Wither I for 4s. Heal up to 2 HP every 5s; undead: +25% damage, +3 HP per kill.')
         write(p,m)
 
+    from weapons87_flails import main as flails87
+    flails87(True)
 if __name__=='__main__':main()

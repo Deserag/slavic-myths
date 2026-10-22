@@ -1,0 +1,320 @@
+{
+  "minecraft:diamond": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_living.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_mine.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_treasury.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bandit_medium.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bandit_small.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/barracks_supply.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_workshop.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_cache.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/earth_spirit.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/kladovik.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/large_podzemnik.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "minecraft:leather": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_living.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bandit_medium.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bandit_small.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/barracks_supply.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_residential.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_storehouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_warehouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/bandit_archer.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/bandit_fighter.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/bandit_heavy.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/bandit_senior.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/mother_bear.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/pesigolovets.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/gorodishche/guard.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/gorodishche/smith.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/armorer_forge.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/druzhinnik_barracks.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/hlev.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/stable.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/tanner_house.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "minecraft:stick": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/blocks/apple_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/linden_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/pine_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/rowan_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/willow_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bathhouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_residential.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_remnants.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_supplies.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/fletcher_house.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/toolsmith_forge.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "minecraft:string": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/reed_string.json",
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+          {
+            "item": "slavicmyths:reed"
+          },
+          {
+            "item": "slavicmyths:reed"
+          },
+          {
+            "item": "slavicmyths:reed"
+          }
+        ],
+        "pattern": null,
+        "count": 1
+      }
+    ],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_living.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/ancient_shrine.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_residential.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/fire_guaranteed.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/fire_regular.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/fishing_supplies.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_warehouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_fisher.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_fishing.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_home.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_remnants.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_salvage.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/gorodishche/weaver.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/fisher_house.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/fletcher_house.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/klet.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/shepherd_house.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/weaver_house.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:diamond_spear": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/weapon_diamond_spear_assembly.json",
+        "type": "slavicmyths:armorer_shapeless",
+        "ingredients": [
+          {
+            "item": "slavicmyths:spear_shaft"
+          },
+          {
+            "item": "slavicmyths:diamond_spearhead"
+          }
+        ],
+        "pattern": null,
+        "count": 1
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:diamond_spearhead": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/weapon_part_diamond_spearhead.json",
+        "type": "minecraft:crafting_shaped",
+        "ingredients": {
+          "X": {
+            "item": "minecraft:diamond"
+          }
+        },
+        "pattern": [
+          " X",
+          "X "
+        ],
+        "count": 1
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:druzhinnik_blade_fragment": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/entities/kurgan_druzhinnik.json",
+      "src/main/resources/data/slavicmyths/loot_table/kurgan/great_special.json",
+      "src/main/resources/data/slavicmyths/loot_table/kurgan/warrior.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:princely_seal": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/entities/unresting_prince.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:reed": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/blocks/reed.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_fisher.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_ritual.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:silver_fitting": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/silver_fitting.json",
+        "type": "minecraft:crafting_shaped",
+        "ingredients": {
+          "N": {
+            "item": "slavicmyths:silver_nugget"
+          }
+        },
+        "pattern": [
+          " N ",
+          "N N",
+          " N "
+        ],
+        "count": 1
+      }
+    ],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_forge.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:silver_ingot": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/silver_ingot.json",
+        "type": "minecraft:crafting_shaped",
+        "ingredients": {
+          "N": {
+            "item": "slavicmyths:silver_nugget"
+          }
+        },
+        "pattern": [
+          "NNN",
+          "NNN",
+          "NNN"
+        ],
+        "count": 1
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/silver_ingot_from_ore.json",
+        "type": "minecraft:smelting",
+        "ingredients": {},
+        "pattern": null,
+        "count": 1
+      }
+    ],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_treasury.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/ancient_shrine.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_storehouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_workshop.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_cache.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_nightingale.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_hidden.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_ruins.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_shrine.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:silver_nugget": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/silver_nugget.json",
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+          {
+            "item": "slavicmyths:silver_ingot"
+          }
+        ],
+        "pattern": null,
+        "count": 9
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:spear_shaft": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/weapon_part_spear_shaft.json",
+        "type": "minecraft:crafting_shaped",
+        "ingredients": {
+          "S": {
+            "item": "minecraft:stick"
+          }
+        },
+        "pattern": [
+          "S",
+          "S",
+          "S"
+        ],
+        "count": 1
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:victor_spear": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/rare_victor_spear.json",
+        "type": "slavicmyths:armorer_shapeless",
+        "ingredients": [
+          {
+            "item": "slavicmyths:diamond_spear"
+          },
+          {
+            "item": "slavicmyths:princely_seal"
+          },
+          {
+            "item": "slavicmyths:druzhinnik_blade_fragment"
+          },
+          {
+            "item": "slavicmyths:silver_fitting"
+          },
+          {
+            "item": "slavicmyths:weapon_wrap"
+          }
+        ],
+        "pattern": null,
+        "count": 1
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:weapon_wrap": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/weapon_wrap.json",
+        "type": "minecraft:crafting_shaped",
+        "ingredients": {
+          "L": {
+            "item": "minecraft:leather"
+          },
+          "S": {
+            "item": "minecraft:string"
+          }
+        },
+        "pattern": [
+          "L L",
+          " S "
+        ],
+        "count": 2
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

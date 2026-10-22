@@ -1,0 +1,48 @@
+{
+  "sandbox": "D:\\slavic-myths\\work\\weapons87-generators-vbxypur_",
+  "runs": [
+    {
+      "generator": "weapons87_flails.py",
+      "exit": 0,
+      "owned_match": true,
+      "stdout": "APPLIED 15 models; zero PNG/gameplay edits\nAPPLIED silver_mace11 connected boxes; no PNG/gameplay/hand-display changes\nAPPLIED storm focus14 connected boxes, zero shared PNG/gameplay/hand-display edits\nAPPLIED 126 native sprite cells, two unsquashed blades, no PNG/held/gameplay changes\nAPPLIED 12 static whip models; tapered connected lash; no PNG/server/predicate code edits\nAPPLIED approvedB two exact tooltips RU/EN; other translations retained\nAPPLIED likho GUI centered,existing eye face; geometry/UV/PNG/non-GUI transforms KEEP\nAPPLIED 69 assets; 8 per-ID sheets; no gameplay changes\n",
+      "stderr": ""
+    },
+    {
+      "generator": "weapon_visual_repair_assets.py",
+      "exit": 0,
+      "owned_match": true,
+      "stdout": "APPLIED 15 models; zero PNG/gameplay edits\nAPPLIED silver_mace11 connected boxes; no PNG/gameplay/hand-display changes\nAPPLIED storm focus14 connected boxes, zero shared PNG/gameplay/hand-display edits\nAPPLIED 126 native sprite cells, two unsquashed blades, no PNG/held/gameplay changes\nAPPLIED 12 static whip models; tapered connected lash; no PNG/server/predicate code edits\nAPPLIED approvedB two exact tooltips RU/EN; other translations retained\nAPPLIED likho GUI centered,existing eye face; geometry/UV/PNG/non-GUI transforms KEEP\nAPPLIED 69 assets; 8 per-ID sheets; no gameplay changes\n",
+      "stderr": ""
+    },
+    {
+      "generator": "weapon_feedback_assets.py",
+      "exit": 0,
+      "owned_match": true,
+      "stdout": "/hand-display edits\nAPPLIED 126 native sprite cells, two unsquashed blades, no PNG/held/gameplay changes\nAPPLIED 12 static whip models; tapered connected lash; no PNG/server/predicate code edits\nAPPLIED approvedB two exact tooltips RU/EN; other translations retained\nAPPLIED likho GUI centered,existing eye face; geometry/UV/PNG/non-GUI transforms KEEP\nAPPLIED 69 assets; 8 per-ID sheets; no gameplay changes\nAPPLIED 15 models; zero PNG/gameplay edits\nAPPLIED silver_mace11 connected boxes; no PNG/gameplay/hand-display changes\nAPPLIED storm focus14 connected boxes, zero shared PNG/gameplay/hand-display edits\nAPPLIED 126 native sprite cells, two unsquashed blades, no PNG/held/gameplay changes\nAPPLIED 12 static whip models; tapered connected lash; no PNG/server/predicate code edits\nAPPLIED approvedB two exact tooltips RU/EN; other translations retained\nAPPLIED likho GUI centered,existing eye face; geometry/UV/PNG/non-GUI transforms KEEP\nAPPLIED 69 assets; 8 per-ID sheets; no gameplay changes\n",
+      "stderr": ""
+    },
+    {
+      "generator": "weapon_patch_assets.py",
+      "exit": 0,
+      "owned_match": true,
+      "stdout": "/hand-display edits\nAPPLIED 126 native sprite cells, two unsquashed blades, no PNG/held/gameplay changes\nAPPLIED 12 static whip models; tapered connected lash; no PNG/server/predicate code edits\nAPPLIED approvedB two exact tooltips RU/EN; other translations retained\nAPPLIED likho GUI centered,existing eye face; geometry/UV/PNG/non-GUI transforms KEEP\nAPPLIED 69 assets; 8 per-ID sheets; no gameplay changes\nAPPLIED 15 models; zero PNG/gameplay edits\nAPPLIED silver_mace11 connected boxes; no PNG/gameplay/hand-display changes\nAPPLIED storm focus14 connected boxes, zero shared PNG/gameplay/hand-display edits\nAPPLIED 126 native sprite cells, two unsquashed blades, no PNG/held/gameplay changes\nAPPLIED 12 static whip models; tapered connected lash; no PNG/server/predicate code edits\nAPPLIED approvedB two exact tooltips RU/EN; other translations retained\nAPPLIED likho GUI centered,existing eye face; geometry/UV/PNG/non-GUI transforms KEEP\nAPPLIED 69 assets; 8 per-ID sheets; no gameplay changes\n",
+      "stderr": ""
+    },
+    {
+      "generator": "poloz_full_assets.py",
+      "exit": 0,
+      "owned_match": true,
+      "stdout": "APPLIED 12 static whip models; tapered connected lash; no PNG/server/predicate code edits\n",
+      "stderr": ""
+    },
+    {
+      "generator": "weapons87_flails.py",
+      "exit": 0,
+      "owned_match": true,
+      "stdout": "APPLIED 15 models; zero PNG/gameplay edits\nAPPLIED silver_mace11 connected boxes; no PNG/gameplay/hand-display changes\nAPPLIED storm focus14 connected boxes, zero shared PNG/gameplay/hand-display edits\nAPPLIED 126 native sprite cells, two unsquashed blades, no PNG/held/gameplay changes\nAPPLIED 12 static whip models; tapered connected lash; no PNG/server/predicate code edits\nAPPLIED approvedB two exact tooltips RU/EN; other translations retained\nAPPLIED likho GUI centered,existing eye face; geometry/UV/PNG/non-GUI transforms KEEP\nAPPLIED 69 assets; 8 per-ID sheets; no gameplay changes\n",
+      "stderr": ""
+    }
+  ],
+  "nonowned_changes": []
+}

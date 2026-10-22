@@ -23,7 +23,7 @@ def apply():
   write(p,d)
  for lang in ['ru_ru','en_us']:
   p=A/f'lang/{lang}.json';d=json.loads(p.read_text(encoding='utf-8'));ru=lang=='ru_ru'
-  d['item.slavicmyths.three_breath_crossbow.desc']=('Всегда три стрелы. Shift+ПКМ: Мор / Пламя / Буря, без бутылочек. Shift+ЛКМ: веер / очередь по направлению взгляда.' if ru else 'Always three arrows. Sneak-use: Mor / Flame / Storm, no bottles. Sneak-attack: fan / burst along your aim.')
+  d['item.slavicmyths.three_breath_crossbow.desc'] = ('Всегда три стрелы: каждая наносит минимум 14 урона до брони. Shift+ПКМ: Мор (облако и слабость), Пламя (горение 2 с), Буря (+3 урона, отбрасывание и Замедление II на 2 с). Shift+ЛКМ: веер / очередь. Без бутылочек.' if ru else 'Always three arrows: each deals at least 14 damage before armor. Shift+right-click: Mor (cloud and weakness), Flame (2 s burning), Storm (+3 damage, knockback and Slowness II for 2 s). Shift+left-click: fan / burst. No bottles.')
   for bottle,ru_name,en_name in [('mor','Мора','Mor'),('flame','пламени','flame'),('storm','бури','storm')]:
    d[f'item.slavicmyths.gorynych_{bottle}_breath_bottle.desc']=(f'Собранное дыхание {ru_name}. Компонент улучшения арбалета; для стрельбы не требуется.' if ru else f'Collected {en_name} breath. Crossbow upgrade ingredient; not required for shooting.')
   for i,n in enumerate(['Мор','Пламя','Буря'] if ru else ['Mor','Flame','Storm']):d[f'gorynych196.mode_{i}']=n
@@ -34,4 +34,6 @@ def apply():
     d[k]=('Полоз получает урон по любой части тела с первой фазы. Сражение проходит в три фазы; руины и порча остаются после победы. Ядро и чешуя — трофеи. Образ вдохновлён уральскими сказами; порча и бой — игровая интерпретация.' if ru else 'Poloz takes damage on every body part from phase one. The fight has three phases; ruins and corruption remain after victory. The core and scales are trophies. Inspired by Ural tales; corruption and combat are game interpretations.')
   d['poloz.armor']='Полоз уязвим по всему телу.' if ru else 'Poloz is vulnerable across his whole body.'
   write(p,d)
+ from weapons87_flails import main as flails87
+ flails87(True)
 if __name__=='__main__':apply()

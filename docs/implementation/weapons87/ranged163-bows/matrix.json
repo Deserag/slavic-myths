@@ -1,0 +1,650 @@
+[
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": false,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 8642
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": true,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 8642
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": false,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 8642
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": true,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 8642
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": false,
+    "ticks": 6,
+    "camera_power": 0.23000002,
+    "texture_power": 0.41666666,
+    "pixels": 9725
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": true,
+    "ticks": 6,
+    "camera_power": 0.41666666,
+    "texture_power": 0.41666666,
+    "pixels": 10164
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": false,
+    "ticks": 6,
+    "camera_power": 0.23000002,
+    "texture_power": 0.41666666,
+    "pixels": 9725
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": true,
+    "ticks": 6,
+    "camera_power": 0.41666666,
+    "texture_power": 0.41666666,
+    "pixels": 10164
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": false,
+    "ticks": 12,
+    "camera_power": 0.52000004,
+    "texture_power": 1.0,
+    "pixels": 11252
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": true,
+    "ticks": 12,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10620
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": false,
+    "ticks": 12,
+    "camera_power": 0.52000004,
+    "texture_power": 1.0,
+    "pixels": 11252
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": true,
+    "ticks": 12,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10620
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": false,
+    "ticks": 20,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10665
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": true,
+    "ticks": 20,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10665
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": false,
+    "ticks": 20,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10665
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": true,
+    "ticks": 20,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10665
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": false,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10689
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": true,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10689
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": false,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10689
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": true,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10689
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": false,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10685
+  },
+  {
+    "id": "short_bow",
+    "left": false,
+    "after": true,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10685
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": false,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10685
+  },
+  {
+    "id": "short_bow",
+    "left": true,
+    "after": true,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10685
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": false,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 10880
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": true,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 10880
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": false,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 10880
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": true,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 10880
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": false,
+    "ticks": 6,
+    "camera_power": 0.23000002,
+    "texture_power": 0.14666666,
+    "pixels": 12067
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": true,
+    "ticks": 6,
+    "camera_power": 0.14666666,
+    "texture_power": 0.14666666,
+    "pixels": 11800
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": false,
+    "ticks": 6,
+    "camera_power": 0.23000002,
+    "texture_power": 0.14666666,
+    "pixels": 12067
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": true,
+    "ticks": 6,
+    "camera_power": 0.14666666,
+    "texture_power": 0.14666666,
+    "pixels": 11800
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": false,
+    "ticks": 12,
+    "camera_power": 0.52000004,
+    "texture_power": 0.32000002,
+    "pixels": 12216
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": true,
+    "ticks": 12,
+    "camera_power": 0.32000002,
+    "texture_power": 0.32000002,
+    "pixels": 12255
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": false,
+    "ticks": 12,
+    "camera_power": 0.52000004,
+    "texture_power": 0.32000002,
+    "pixels": 12216
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": true,
+    "ticks": 12,
+    "camera_power": 0.32000002,
+    "texture_power": 0.32000002,
+    "pixels": 12255
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": false,
+    "ticks": 20,
+    "camera_power": 1.0,
+    "texture_power": 0.59259266,
+    "pixels": 10739
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": true,
+    "ticks": 20,
+    "camera_power": 0.59259266,
+    "texture_power": 0.59259266,
+    "pixels": 12169
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": false,
+    "ticks": 20,
+    "camera_power": 1.0,
+    "texture_power": 0.59259266,
+    "pixels": 10739
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": true,
+    "ticks": 20,
+    "camera_power": 0.59259266,
+    "texture_power": 0.59259266,
+    "pixels": 12169
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": false,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 9557
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": true,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 9557
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": false,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 9557
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": true,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 9557
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": false,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 9556
+  },
+  {
+    "id": "heavy_bow",
+    "left": false,
+    "after": true,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 9556
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": false,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 9556
+  },
+  {
+    "id": "heavy_bow",
+    "left": true,
+    "after": true,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 9556
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": false,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 6592
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": true,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 6592
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": false,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 6592
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": true,
+    "ticks": 0,
+    "camera_power": 0.0,
+    "texture_power": 0.0,
+    "pixels": 6592
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": false,
+    "ticks": 6,
+    "camera_power": 0.23000002,
+    "texture_power": 0.14666666,
+    "pixels": 7409
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": true,
+    "ticks": 6,
+    "camera_power": 0.14666666,
+    "texture_power": 0.14666666,
+    "pixels": 7110
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": false,
+    "ticks": 6,
+    "camera_power": 0.23000002,
+    "texture_power": 0.14666666,
+    "pixels": 7409
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": true,
+    "ticks": 6,
+    "camera_power": 0.14666666,
+    "texture_power": 0.14666666,
+    "pixels": 7110
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": false,
+    "ticks": 12,
+    "camera_power": 0.52000004,
+    "texture_power": 0.32000002,
+    "pixels": 8521
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": true,
+    "ticks": 12,
+    "camera_power": 0.32000002,
+    "texture_power": 0.32000002,
+    "pixels": 7744
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": false,
+    "ticks": 12,
+    "camera_power": 0.52000004,
+    "texture_power": 0.32000002,
+    "pixels": 8521
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": true,
+    "ticks": 12,
+    "camera_power": 0.32000002,
+    "texture_power": 0.32000002,
+    "pixels": 7744
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": false,
+    "ticks": 20,
+    "camera_power": 1.0,
+    "texture_power": 0.59259266,
+    "pixels": 10621
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": true,
+    "ticks": 20,
+    "camera_power": 0.59259266,
+    "texture_power": 0.59259266,
+    "pixels": 8822
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": false,
+    "ticks": 20,
+    "camera_power": 1.0,
+    "texture_power": 0.59259266,
+    "pixels": 10621
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": true,
+    "ticks": 20,
+    "camera_power": 0.59259266,
+    "texture_power": 0.59259266,
+    "pixels": 8822
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": false,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10701
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": true,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10701
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": false,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10701
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": true,
+    "ticks": 30,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10701
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": false,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10700
+  },
+  {
+    "id": "finist_bow",
+    "left": false,
+    "after": true,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10700
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": false,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10700
+  },
+  {
+    "id": "finist_bow",
+    "left": true,
+    "after": true,
+    "ticks": 45,
+    "camera_power": 1.0,
+    "texture_power": 1.0,
+    "pixels": 10700
+  }
+]

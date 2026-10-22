@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "BHB",
+    " A "
+  ],
+  "key": {
+    "B": {
+      "item": "slavicmyths:birch_bark"
+    },
+    "H": {
+      "item": "slavicmyths:leshy_heart"
+    },
+    "A": {
+      "item": "slavicmyths:amber"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:leshy_necklace",
+    "count": 1
+  }
+}

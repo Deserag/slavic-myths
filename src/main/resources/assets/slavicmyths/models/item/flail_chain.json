@@ -1,6 +1,11 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "slavicmyths:item/flail_chain"
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/flail_chain_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/flail_chain_icon"
+    }
   }
 }

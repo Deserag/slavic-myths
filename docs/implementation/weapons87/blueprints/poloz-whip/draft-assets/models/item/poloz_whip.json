@@ -1,0 +1,53 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "gui_light": "front",
+  "textures": {
+    "particle": "slavicmyths:item/poloz_whip_segments"
+  },
+  "base": {
+    "parent": "slavicmyths:item/poloz_whip_held87_0"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/poloz_whip_icon87"
+    },
+    "ground": {
+      "parent": "slavicmyths:item/poloz_whip_held87_0"
+    },
+    "fixed": {
+      "parent": "slavicmyths:item/poloz_whip_held87_0"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "slavicmyths:whip_pose": 0.1
+      },
+      "model": "slavicmyths:item/poloz_whip_pose_0"
+    },
+    {
+      "predicate": {
+        "slavicmyths:whip_pose": 0.35
+      },
+      "model": "slavicmyths:item/poloz_whip_pose_1"
+    },
+    {
+      "predicate": {
+        "slavicmyths:whip_pose": 0.5
+      },
+      "model": "slavicmyths:item/poloz_whip_pose_2"
+    },
+    {
+      "predicate": {
+        "slavicmyths:whip_pose": 0.7
+      },
+      "model": "slavicmyths:item/poloz_whip_pose_3"
+    },
+    {
+      "predicate": {
+        "slavicmyths:whip_pose": 1
+      },
+      "model": "slavicmyths:item/poloz_whip_pose_4"
+    }
+  ]
+}

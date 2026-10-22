@@ -359,3 +359,7 @@ def main():
  O.mkdir(parents=True,exist_ok=True);spec=R/'docs/specs/1.9.3';rows=[re.match(r'([a-f0-9]{64})  (.+)',s) for s in (spec/'00_START_HERE/04_SHA256_MANIFEST.txt').read_text(encoding='utf-8').splitlines()];rows=[m for m in rows if m];assert rows and all(hashlib.sha256((spec/m[2]).read_bytes()).hexdigest()==m[1] for m in rows)
  layouts=[fire().save(),spring().save()];icons();block_assets();loot();recipes();worldgen();audio();language();print('SANCTUARY_ASSETS_PASS',len(rows),'spec files;',sum(len(l['tiles']) for l in layouts),'native tiles;',sum(l['blocks'] for l in layouts),'authored blocks')
 if __name__=='__main__':main()
+
+# Preserve owner-reported decor fixes after this historical pipeline.
+from decor108_assets import apply as apply_decor108
+apply_decor108()

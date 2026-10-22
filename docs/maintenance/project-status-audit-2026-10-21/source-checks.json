@@ -1,0 +1,46 @@
+[
+  {
+    "group": "armor122-128",
+    "files": 86,
+    "matching": 86,
+    "different": []
+  },
+  {
+    "group": "runes102",
+    "files": 28,
+    "matching": 28,
+    "different": []
+  },
+  {
+    "group": "runes103",
+    "files": 13,
+    "matching": 13,
+    "different": []
+  },
+  {
+    "group": "trophy110",
+    "files": 7,
+    "matching": 7,
+    "different": []
+  },
+  {
+    "group": "trophy111",
+    "files": 10,
+    "matching": 10,
+    "different": []
+  },
+  {
+    "group": "decor106",
+    "files": 68,
+    "matching": 67,
+    "different": [
+      "src/main/resources/assets/slavicmyths/textures/block/pine_log.png"
+    ]
+  },
+  {
+    "group": "current52-source",
+    "files": 9509,
+    "matching": 9509,
+    "different": []
+  }
+]

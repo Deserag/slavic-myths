@@ -1,0 +1,859 @@
+[
+  {
+    "path": "slavicmyths dev generate bayun",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "bayun"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.bayun.BayunCommands"
+  },
+  {
+    "path": "slavicmyths dev generate courtyard_debug",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "courtyard_debug"
+    ],
+    "console_permissions": [],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": true,
+    "handler_class": "org.slavicmyths.bogatyr.BogatyrCommands"
+  },
+  {
+    "path": "slavicmyths dev generate courtyard",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "courtyard"
+    ],
+    "console_permissions": [],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": true,
+    "handler_class": "org.slavicmyths.bogatyr.BogatyrCommands"
+  },
+  {
+    "path": "slavicmyths dev generate city",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "city"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.chud.ChudGenerateCommands"
+  },
+  {
+    "path": "slavicmyths dev generate city attached",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "attached"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.chud.ChudGenerateCommands"
+  },
+  {
+    "path": "slavicmyths dev generate abandoned",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "abandoned"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.chud.ChudGenerateCommands"
+  },
+  {
+    "path": "slavicmyths dev generate abandoned medium",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "medium"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.chud.ChudGenerateCommands"
+  },
+  {
+    "path": "slavicmyths dev generate abandoned great",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "great"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.chud.ChudGenerateCommands"
+  },
+  {
+    "path": "slavicmyths dev generate depths",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "depths"
+    ],
+    "console_permissions": [],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": true,
+    "handler_class": "org.slavicmyths.depths.DepthsCommands"
+  },
+  {
+    "path": "slavicmyths dev generate gorodishche_showcase",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "gorodishche_showcase"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.gorodishche.CityCommands"
+  },
+  {
+    "path": "slavicmyths dev generate gorodishche_showcase temperate",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "temperate"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.gorodishche.CityCommands"
+  },
+  {
+    "path": "slavicmyths dev generate gorodishche_showcase cold",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "cold"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.gorodishche.CityCommands"
+  },
+  {
+    "path": "slavicmyths dev generate gorodishche_showcase warm",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "warm"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.gorodishche.CityCommands"
+  },
+  {
+    "path": "slavicmyths dev generate kurgan small",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "small"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.kurgan.KurganCommands"
+  },
+  {
+    "path": "slavicmyths dev generate kurgan small <seed>",
+    "executable": true,
+    "argument": true,
+    "examples": [
+      "0",
+      "123",
+      "-123"
+    ],
+    "argument_type": "LongArgumentType",
+    "suggestions": false,
+    "min": -9223372036854775808,
+    "max": 9223372036854775807,
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.kurgan.KurganCommands"
+  },
+  {
+    "path": "slavicmyths dev generate kurgan warrior",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "warrior"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.kurgan.KurganCommands"
+  },
+  {
+    "path": "slavicmyths dev generate kurgan warrior <seed>",
+    "executable": true,
+    "argument": true,
+    "examples": [
+      "0",
+      "123",
+      "-123"
+    ],
+    "argument_type": "LongArgumentType",
+    "suggestions": false,
+    "min": -9223372036854775808,
+    "max": 9223372036854775807,
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.kurgan.KurganCommands"
+  },
+  {
+    "path": "slavicmyths dev generate kurgan great",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "great"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.kurgan.KurganCommands"
+  },
+  {
+    "path": "slavicmyths dev generate kurgan great <seed>",
+    "executable": true,
+    "argument": true,
+    "examples": [
+      "0",
+      "123",
+      "-123"
+    ],
+    "argument_type": "LongArgumentType",
+    "suggestions": false,
+    "min": -9223372036854775808,
+    "max": 9223372036854775807,
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.kurgan.KurganCommands"
+  },
+  {
+    "path": "slavicmyths dev generate witch_yard",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "witch_yard"
+    ],
+    "console_permissions": [],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": true,
+    "handler_class": "org.slavicmyths.marinka.MarinkaCommands"
+  },
+  {
+    "path": "slavicmyths dev generate barracks",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "barracks"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.military.MilitaryCommands"
+  },
+  {
+    "path": "slavicmyths dev generate fire_sanctuary",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "fire_sanctuary"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.sanctuary.SanctuaryCommands"
+  },
+  {
+    "path": "slavicmyths dev generate fire_sanctuary <pos>",
+    "executable": true,
+    "argument": true,
+    "examples": [
+      "0 0 0",
+      "~ ~ ~",
+      "^ ^ ^",
+      "^1 ^ ^-5",
+      "~0.5 ~1 ~-5"
+    ],
+    "argument_type": "BlockPosArgument",
+    "suggestions": false,
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.sanctuary.SanctuaryCommands"
+  },
+  {
+    "path": "slavicmyths dev generate pure_spring",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "pure_spring"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.sanctuary.SanctuaryCommands"
+  },
+  {
+    "path": "slavicmyths dev generate pure_spring <pos>",
+    "executable": true,
+    "argument": true,
+    "examples": [
+      "0 0 0",
+      "~ ~ ~",
+      "^ ^ ^",
+      "^1 ^ ^-5",
+      "~0.5 ~1 ~-5"
+    ],
+    "argument_type": "BlockPosArgument",
+    "suggestions": false,
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.sanctuary.SanctuaryCommands"
+  },
+  {
+    "path": "slavicmyths dev generate serpent_hill",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "serpent_hill"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.serpenthill.HillCommands"
+  },
+  {
+    "path": "slavicmyths dev generate serpent_hill <pos>",
+    "executable": true,
+    "argument": true,
+    "examples": [
+      "0 0 0",
+      "~ ~ ~",
+      "^ ^ ^",
+      "^1 ^ ^-5",
+      "~0.5 ~1 ~-5"
+    ],
+    "argument_type": "BlockPosArgument",
+    "suggestions": false,
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.serpenthill.HillCommands"
+  },
+  {
+    "path": "slavicmyths dev generate serpent_hill <pos> <rotation>",
+    "executable": true,
+    "argument": true,
+    "examples": [
+      "word",
+      "words_with_underscores"
+    ],
+    "argument_type": "StringArgumentType",
+    "suggestions": true,
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.serpenthill.HillCommands"
+  },
+  {
+    "path": "slavicmyths dev generate skim_valley",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "skim_valley"
+    ],
+    "console_permissions": [],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": true,
+    "handler_class": "org.slavicmyths.skim.SkimEvents"
+  },
+  {
+    "path": "slavicmyths dev generate village_showcase",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "village_showcase"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.village.VillageShowcase"
+  },
+  {
+    "path": "slavicmyths dev generate village_showcase temperate",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "temperate"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.village.VillageShowcase"
+  },
+  {
+    "path": "slavicmyths dev generate village_showcase cold",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "cold"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.village.VillageShowcase"
+  },
+  {
+    "path": "slavicmyths dev generate village_showcase warm",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "warm"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.village.VillageShowcase"
+  },
+  {
+    "path": "slavicmyths dev generate village <template>",
+    "executable": true,
+    "argument": true,
+    "examples": [
+      "foo",
+      "foo:bar",
+      "012"
+    ],
+    "argument_type": "ResourceLocationArgument",
+    "suggestions": true,
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.village.VillageShowcase"
+  },
+  {
+    "path": "slavicmyths dev generate bandit_camp small",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "small"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.worldgen.ManualStructureCommands"
+  },
+  {
+    "path": "slavicmyths dev generate bandit_camp small <seed>",
+    "executable": true,
+    "argument": true,
+    "examples": [
+      "0",
+      "123",
+      "-123"
+    ],
+    "argument_type": "LongArgumentType",
+    "suggestions": false,
+    "min": -9223372036854775808,
+    "max": 9223372036854775807,
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.worldgen.ManualStructureCommands"
+  },
+  {
+    "path": "slavicmyths dev generate bandit_camp fortified",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "fortified"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.worldgen.ManualStructureCommands"
+  },
+  {
+    "path": "slavicmyths dev generate bandit_camp fortified <seed>",
+    "executable": true,
+    "argument": true,
+    "examples": [
+      "0",
+      "123",
+      "-123"
+    ],
+    "argument_type": "LongArgumentType",
+    "suggestions": false,
+    "min": -9223372036854775808,
+    "max": 9223372036854775807,
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.worldgen.ManualStructureCommands"
+  },
+  {
+    "path": "slavicmyths dev generate bandit_camp large",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "large"
+    ],
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.worldgen.ManualStructureCommands"
+  },
+  {
+    "path": "slavicmyths dev generate bandit_camp large <seed>",
+    "executable": true,
+    "argument": true,
+    "examples": [
+      "0",
+      "123",
+      "-123"
+    ],
+    "argument_type": "LongArgumentType",
+    "suggestions": false,
+    "min": -9223372036854775808,
+    "max": 9223372036854775807,
+    "console_permissions": [
+      2,
+      3,
+      4
+    ],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": false,
+    "handler_class": "org.slavicmyths.worldgen.ManualStructureCommands"
+  },
+  {
+    "path": "slavicmyths dev generate yaga",
+    "executable": true,
+    "argument": false,
+    "examples": [
+      "yaga"
+    ],
+    "console_permissions": [],
+    "player_permissions": [
+      2,
+      3,
+      4
+    ],
+    "requires_player_for_execution": true,
+    "handler_class": "org.slavicmyths.yaga.YagaCommands"
+  }
+]

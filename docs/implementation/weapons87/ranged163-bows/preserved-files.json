@@ -1,0 +1,186 @@
+[
+  {
+    "path": "src/main/java/org/slavicmyths/client/FieldBowClient.java",
+    "sha256": "ef341b527bc9bb9daf65b453e9757fd1b4f108972f03e3135f75c730ea2cbd8c"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/FinistClient.java",
+    "sha256": "84954816d9cbf384661f6ea3672a8aa66489e3b18b45d368b1d78cdf5fa604d7"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/GorynychClient.java",
+    "sha256": "c079666e395ade12fc7d7a5b0cb37695433094a9fbbedfa9944cb2e59ddfc0da"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/WeaponHands.java",
+    "sha256": "651f8422b8ad4cf9efae75ea1051da3164bb4b672fa2576019d698f454b1da00"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/FieldBowItem.java",
+    "sha256": "64c108c43b79fd00c279c6a0e50bcf37dc493ea8cad06ccb9b59307de3acc8cb"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/finist/FinistBow.java",
+    "sha256": "89d386c2bbf33978032d8818a7fdef1e3cbfdfac506f99abf347845804248091"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java",
+    "sha256": "1a787607738cb1849ff52438d975a058bb1b73a45547974eeafe146cbd001381"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/gorynych/SerpentCrossbow.java",
+    "sha256": "24c729ea4d496a720490784f08927a3e40fc65f027933d25fb43ff2f75e1ef83"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/finist_bow.json",
+    "sha256": "2427786b00843baea67c0909dbc11e927199ba36c7cbea0b73586cc46c3e11d0"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/finist_bow_pulling_0.json",
+    "sha256": "166fe6dcca4e3529b2401cfaed6fbf60c14e19a3204c4a908ad266e505996fa5"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/finist_bow_pulling_1.json",
+    "sha256": "129100494165e5ff129fca58036e2eda5dd84ab3a6c2677ee6e6588b7d94851b"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/finist_bow_pulling_2.json",
+    "sha256": "9722448f30f7f948a9a1f7e4050db9d9f9f198969ecd69c64b49540b51e1be8e"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/heavy_bow.json",
+    "sha256": "316698c14772a16708f1782560cc258bf693380c12cbfb5d2584b5387dc4fa71"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/heavy_bow_pulling_0.json",
+    "sha256": "1918a7b31e15b321a38d09cb6d6880b60ba63db1451fee67b15602772e8fa84a"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/heavy_bow_pulling_1.json",
+    "sha256": "403ae1a574e156e6e67687db64878bd38fa2d9b38c9249c88b79b1e46944d1fd"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/heavy_bow_pulling_2.json",
+    "sha256": "2ca72a9852f251dd79900c5ebe53140d26b15335725acd2a69f69a2cf88e48ce"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow.json",
+    "sha256": "6ed862272070e471a2702b4899ecd6440b377296e9af0b72fd0091be367d7096"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_arrow.json",
+    "sha256": "6130d791c3da33d7b4d3ce75f2a4f0f30e738306c60126b11a256546e18b813a"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_firework.json",
+    "sha256": "6130d791c3da33d7b4d3ce75f2a4f0f30e738306c60126b11a256546e18b813a"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_0.json",
+    "sha256": "e0b612fba2b8eaffd1f002805d68f49b33b0407a3545608a8f7e5dbc78817eb2"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_1.json",
+    "sha256": "95ea0d6d794829eb3e57180bd41ff98d4c2367b7e89112ae683d909b5ff6ce9f"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_2.json",
+    "sha256": "3994be91d2ce677162813eebb9eaa379f15afaf5270a0c6291e729ebfd9e1c5b"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/short_bow.json",
+    "sha256": "fd832a7d988fa6a1e82f064b93678af9f1fb08ecc50a983ff3d5c33c9a398bab"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/short_bow_pulling_0.json",
+    "sha256": "b9698e4250e0f01ccc5c9a61889adb90bfb082affdf646e23a2064a93dd20bd5"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/short_bow_pulling_1.json",
+    "sha256": "345a1d2374f7f873071e63a6497fbafa775c698f16d970190c99b52079423919"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/short_bow_pulling_2.json",
+    "sha256": "404e36530a7b21db2db87c50fa1ddd77cc6d46f99e9a9d70954e0a7035099c44"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow.json",
+    "sha256": "f652c513397d1164a8fde9d50969bb7c956e7212d2d1f3cf65c15237d679917e"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_arrow.json",
+    "sha256": "99f5897b083140c664d4720c74d04528f37d4ce4d8006002537996f5acf98961"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_firework.json",
+    "sha256": "99f5897b083140c664d4720c74d04528f37d4ce4d8006002537996f5acf98961"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_0.json",
+    "sha256": "086249a539f49709bd1907cb71291c8af7538bc7d9754d38698634a33b360547"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_1.json",
+    "sha256": "d314ebdbdfe4f8c1672c1c99cf10db306f1ea5af96656205e1323fbd2de9e2ad"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_2.json",
+    "sha256": "32c073e78c4316355c4a55e39f2985c9de885c68cf73369b3827d9421747d7ab"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/finist_bow.png",
+    "sha256": "0caec4659bedec4d648cf75368eef6b3ae5158d667f79b36690e5b7c3159260e"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/finist_bow_pulling_0.png",
+    "sha256": "68ad109f2c13ede2cace1ba6ccd3b6f0e6f473d722a2401e5adc6dd3f927b8b0"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/finist_bow_pulling_1.png",
+    "sha256": "b7c841fab855884550401075d32ccc6fa426495fd911ca85ee6fc46a7c5ed610"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/finist_bow_pulling_2.png",
+    "sha256": "3a096501b7a29dd2b47cee674e02864356132b10a5a1794a9200dc69740231f9"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/heavy_bow.png",
+    "sha256": "5fd3b584abf31af1c225c50c16fb76a3ba3e19fbc055e1667023add7e8bef411"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/heavy_bow_pulling_0.png",
+    "sha256": "1de7df2c038694836751c253bafee61d2e0387152a4e7889c8e82b4ad8becef7"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/heavy_bow_pulling_1.png",
+    "sha256": "5e39ce67bc4dfb1e1e10d4d9e4da7dd61c00d77b46e16ca29ce752e602a0ef77"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/heavy_bow_pulling_2.png",
+    "sha256": "6d79446bc6f281e15f68664b3e0b5ec06bcdebbf1255fda9ea1b0aa288e0e58a"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/serpent_crossbow.png",
+    "sha256": "ed565a55efde8796b58341ceb3e952554b059f99aaa8a4c457c7657d48f76d28"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/short_bow.png",
+    "sha256": "115b2a996511f6e109dcdbd09dbf22eb3b08581c8ad5a4433471d6bb179add27"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/short_bow_pulling_0.png",
+    "sha256": "6436569a0de24293206be76e4dfa28308a8b231ffc0b5feba008c4caf823e739"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/short_bow_pulling_1.png",
+    "sha256": "b7bd49562cb13520a218707dbb9fc47515bdc5928239f50efb58bf2a6047a20a"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/short_bow_pulling_2.png",
+    "sha256": "9e6b876e74b9560a528223ca0045ca4062c34f62c3a7bc7b6089c90246e1cf63"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/three_breath_crossbow.png",
+    "sha256": "ed565a55efde8796b58341ceb3e952554b059f99aaa8a4c457c7657d48f76d28"
+  }
+]

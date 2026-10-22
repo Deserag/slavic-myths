@@ -65,10 +65,10 @@ public final class RewardEvents {
    var n=state(p);float multiplier=1;
    if(wears(p,"gift_dobrynya_ring")&&now(p)<n.getLong("CounterUntil")&&ready(p,"CounterReady")){multiplier*=COUNTER;n.remove("CounterUntil");cooldown(p,"CounterReady",240);fx(p,"gift_dobrynya_counter");}
    if(!RewardRunes.active(p,"pursuit")){n.remove("PursuitTarget");n.remove("PursuitCount");}if(RewardRunes.active(p,"pursuit")){boolean same=n.hasUUID("PursuitTarget")&&n.getUUID("PursuitTarget").equals(target.getUUID())&&now(p)-n.getLong("PursuitAt")<=80;int hits=same?n.getInt("PursuitCount")+1:1;n.putUUID("PursuitTarget",target.getUUID());n.putLong("PursuitAt",now(p));if(hits==3){multiplier*=1.15F;hits=0;fx(p,"rune_pursuit_proc");}n.putInt("PursuitCount",hits);}
-   if(wears(p,"trophy_skim_necklace")&&target.getHealth()<target.getMaxHealth()*.3F){multiplier*=1.1F;fx(p,"trophy_skim_execute");}
+   if(wears(p,"trophy_skim_necklace")&&target.getHealth()<target.getMaxHealth()*.35F){multiplier*=1.15F;fx(p,"trophy_skim_execute");}
    e.setNewDamage(e.getNewDamage()*multiplier);
   }
-  if(source.getEntity() instanceof ServerPlayer archer&&source.is(DamageTypeTags.IS_PROJECTILE)&&source.getDirectEntity()!=null&&hostile(target,archer)&&wears(archer,"trophy_skim_necklace")&&target.getHealth()<target.getMaxHealth()*.3F){e.setNewDamage(e.getNewDamage()*1.1F);fx(archer,"trophy_skim_execute");}
+  if(source.getEntity() instanceof ServerPlayer archer&&source.is(DamageTypeTags.IS_PROJECTILE)&&source.getDirectEntity()!=null&&hostile(target,archer)&&wears(archer,"trophy_skim_necklace")&&target.getHealth()<target.getMaxHealth()*.35F){e.setNewDamage(e.getNewDamage()*1.15F);fx(archer,"trophy_skim_execute");}
   if(target instanceof ServerPlayer p&&source.getEntity() instanceof LivingEntity attacker&&hostile(attacker,p)&&source.getDirectEntity()!=null){
    boolean physical=!source.is(DamageTypeTags.BYPASSES_ARMOR)&&!source.is(DamageTypeTags.IS_FIRE)&&!source.is(DamageTypeTags.IS_EXPLOSION);
    if(physical&&e.getNewDamage()>=6){if(wears(p,"trophy_idol_chest")){e.setNewDamage(e.getNewDamage()*.9F);fx(p,"trophy_idol_heavy_guard");}if(RewardRunes.active(p,"battle_line")&&ready(p,"LineReady")&&allies(p)>=2){e.setNewDamage(e.getNewDamage()*.85F);cooldown(p,"LineReady",600);fx(p,"rune_battle_line_proc");}}

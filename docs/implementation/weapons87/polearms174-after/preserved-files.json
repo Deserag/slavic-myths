@@ -1,0 +1,13 @@
+[
+  "src/main/resources/assets/slavicmyths/models/item/berdysh.json",
+  "src/main/resources/assets/slavicmyths/textures/item/berdysh.png",
+  "src/main/resources/assets/slavicmyths/models/item/noon_sickle.json",
+  "src/main/resources/assets/slavicmyths/textures/item/noon_sickle.png",
+  "src/main/resources/assets/slavicmyths/models/item/carved_staff.json",
+  "src/main/resources/assets/slavicmyths/textures/item/carved_staff.png",
+  "src/main/resources/assets/slavicmyths/textures/item/storm_staff.png",
+  "src/main/resources/assets/slavicmyths/models/item/veles_staff.json",
+  "src/main/resources/assets/slavicmyths/textures/item/staff_wood.png",
+  "src/main/resources/assets/slavicmyths/textures/item/staff_binding.png",
+  "src/main/resources/assets/slavicmyths/textures/item/staff_crystal.png"
+]

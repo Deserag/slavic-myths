@@ -1,0 +1,1820 @@
+{
+  "amber": {
+    "loot_tables": [
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/chests/ancient_shrine.json",
+        "sha256": "a21435d2f0bcf13da316f14ccd93a24aa4c69dd86bc3fd0569b7522190fa5539",
+        "table": {
+          "type": "minecraft:chest",
+          "pools": [
+            {
+              "rolls": {
+                "min": 3,
+                "max": 5
+              },
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:bread",
+                  "weight": 10,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:coal",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:iron_nugget",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 2,
+                        "max": 6
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:bone",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:string",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:wormwood",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 2
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:flax",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 2
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:birch_bark",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:birch_bark_scroll",
+                  "weight": 4,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ancient_coin",
+                  "weight": 3,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 2
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:idol_fragment",
+                  "weight": 3,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:thunder_stone",
+                  "weight": 1,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:silver_ingot",
+                  "weight": 3
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:st_johns_wort",
+                  "weight": 5
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:nettle",
+                  "weight": 4
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:juniper_berries",
+                  "weight": 4
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ritual_bowl",
+                  "weight": 1
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:amber",
+                  "weight": 2
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_nightingale.json",
+        "sha256": "7ec8075ed7c9ca27097fe3957fd64cd4df64b511d25b94fbbe4816240d9f6849",
+        "table": {
+          "type": "minecraft:chest",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:bandit_horn",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:mysterious_black_feather",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:silver_ingot",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 3,
+                        "max": 8
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.85
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ancient_coin",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 6,
+                        "max": 18
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.85
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:cooked_beef",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 3,
+                        "max": 8
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:arrow",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 8,
+                        "max": 24
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.8
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:amber",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.35
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:rune_wind",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.18
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:resin_ring",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.1
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/chests/swamp_ruins.json",
+        "sha256": "6b72d6aeafbcc152af29813cddb15aae8816df02831ded3d33f79e7c2f32be17",
+        "table": {
+          "type": "minecraft:chest",
+          "pools": [
+            {
+              "rolls": {
+                "min": 2,
+                "max": 4
+              },
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ancient_coin",
+                  "weight": 9,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:silver_ingot",
+                  "weight": 5,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 2
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:fishing_rod",
+                  "weight": 4,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:amber",
+                  "weight": 2,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ancient_water_sign",
+                  "weight": 1,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:empty",
+                  "weight": 49
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:warding_charm",
+                  "weight": 1
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/chests/swamp_shrine.json",
+        "sha256": "04222c36bab1bc3bb9838ffac9cc5cbffb14ae45328c0f2691bf169e436a7c77",
+        "table": {
+          "type": "minecraft:chest",
+          "pools": [
+            {
+              "rolls": {
+                "min": 2,
+                "max": 4
+              },
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ancient_coin",
+                  "weight": 10,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:silver_ingot",
+                  "weight": 6,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:wormwood",
+                  "weight": 10,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:amber",
+                  "weight": 4,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ancient_water_sign",
+                  "weight": 2,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:empty",
+                  "weight": 49
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:warding_charm",
+                  "weight": 1
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/LoreScreen.java",
+        "line": 15,
+        "text": "private static final String[] IDS={\"intro\",\"domovoy\",\"leshy\",\"shrine\",\"altar\",\"ritual\",\"paths\",\"silver\",\"amber\",\"thunder_axe\",\"storm_staff\",\"charms\",\"herbs\",\"ritual_tools\",\"runes\",\"reforging\",\"water_fish\",\"fishing_net\",\"vodyanoy\",\"rusalka\",\"elder_vodyanoy\",\"deep_pool\",\"pool_pearl\",\"pool_spear\",\"depth_amulet\",\"swamp_hut\",\"abandoned_settlement\",\"bog_causeway\",\"flooded_shrine\",\"fishing_camp\",\"underwater_ruins\",\"bandit_gangs\",\"bandit_small\",\"bandit_medium\",\"ataman\",\"arms_craft\",\"woodlands\",\"forest_whistle\",\"nightingale\",\"industry\",\"earth_heart\"};"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/client/NewAccessoryRenderer.java",
+        "line": 33,
+        "text": "body.addOrReplaceChild(\"amber\",CubeListBuilder.create().texOffs(0,16).addBox(-.7F,4.5F,-3.3F,1.4F,1.5F,.4F),PartPose.ZERO);"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 111,
+        "text": "public static final DeferredHolder<Item, Item> AMBER = ITEMS.register(\"amber\", () -> new Item(properties().rarity(Rarity.UNCOMMON)));"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/ritual/Rituals.java",
+        "line": 65,
+        "text": "case 1: return ModItems.AMBER.get();"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "bath_stone": {
+    "loot_tables": [
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/entities/bannik.json",
+        "sha256": "426972822375d21e08405f8e6cbc717b96305d7641e47ca02bc53f2cdb046656",
+        "table": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:bath_stone"
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                },
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.65
+                }
+              ],
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:bath_stone"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/entity/HotStoneEntity.java",
+        "line": 15,
+        "text": "@Override protected Item getDefaultItem(){return ModItems.BATH_STONE.get();}"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 142,
+        "text": "public static final DeferredHolder<Item, Item> BATH_STONE = ITEMS.register(\"bath_stone\", () -> new Item(properties()));"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "birch_bark": {
+    "loot_tables": [
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/chests/ancient_shrine.json",
+        "sha256": "a21435d2f0bcf13da316f14ccd93a24aa4c69dd86bc3fd0569b7522190fa5539",
+        "table": {
+          "type": "minecraft:chest",
+          "pools": [
+            {
+              "rolls": {
+                "min": 3,
+                "max": 5
+              },
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:bread",
+                  "weight": 10,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:coal",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:iron_nugget",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 2,
+                        "max": 6
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:bone",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:string",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:wormwood",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 2
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:flax",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 2
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:birch_bark",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:birch_bark_scroll",
+                  "weight": 4,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ancient_coin",
+                  "weight": 3,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 2
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:idol_fragment",
+                  "weight": 3,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:thunder_stone",
+                  "weight": 1,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:silver_ingot",
+                  "weight": 3
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:st_johns_wort",
+                  "weight": 5
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:nettle",
+                  "weight": 4
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:juniper_berries",
+                  "weight": 4
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ritual_bowl",
+                  "weight": 1
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:amber",
+                  "weight": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 52,
+        "text": "public static final DeferredHolder<Item, Item> BIRCH_BARK = ITEMS.register(\"birch_bark\", () -> new Item(properties()));"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "field_bundle": {
+    "loot_tables": [
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/entities/polevik.json",
+        "sha256": "10bc782695f844e8b879862ef0f0eafaa699e10a3627bc140fcdb7acb26ad501",
+        "table": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:field_bundle"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/entities/poludnitsa.json",
+        "sha256": "c343e258ae09b0f9e36647c68527456e9ec71c948b8128ae8e76def7ea73cff2",
+        "table": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:field_bundle"
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                },
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.45
+                }
+              ],
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:noon_ear"
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                },
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.08
+                }
+              ],
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:noon_sickle"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/entity/PolevikEntity.java",
+        "line": 54,
+        "text": "if(score>=3){p.addEffect(new MobEffectInstance(MobEffects.LUCK,1200));if(random.nextInt(12)==0)spawnAtLocation(ModItems.FIELD_BUNDLE.get());}"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 140,
+        "text": "public static final DeferredHolder<Item, Item> FIELD_BUNDLE = ITEMS.register(\"field_bundle\", () -> new Item(properties()));"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "leshy_heart": {
+    "loot_tables": [
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/entities/leshy.json",
+        "sha256": "54b387f614cfb97cdc0659e6699328bc89d81a030bbd64829ba13de331459a4a",
+        "table": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:forest_mix"
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                },
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.35
+                }
+              ],
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:leshy_heart"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/progression/Knowledge.java",
+        "line": 28,
+        "text": "if (knows(player, \"leshy_heart\")) award(player, \"meet_leshy\");"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 59,
+        "text": "public static final DeferredHolder<Item, Item> LESHY_HEART = ITEMS.register(\"leshy_heart\", () -> new Item(properties().rarity(Rarity.RARE)));"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/ritual/Rituals.java",
+        "line": 19,
+        "text": "{ModItems.LESHY_HEART.get(),ModItems.WORMWOOD.get(),ModItems.ANCIENT_SIGN.get()},"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "noon_ear": {
+    "loot_tables": [
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/entities/poludnitsa.json",
+        "sha256": "c343e258ae09b0f9e36647c68527456e9ec71c948b8128ae8e76def7ea73cff2",
+        "table": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:field_bundle"
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                },
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.45
+                }
+              ],
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:noon_ear"
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                },
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.08
+                }
+              ],
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:noon_sickle"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 139,
+        "text": "public static final DeferredHolder<Item, Item> NOON_EAR = ITEMS.register(\"noon_ear\", () -> new Item(properties()));"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/ritual/Rituals.java",
+        "line": 20,
+        "text": "{ModItems.NOON_EAR.get(),ModItems.SILVER_INGOT.get(),ModItems.ANCIENT_SIGN.get()},"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "ognennoe_pero": {
+    "loot_tables": [
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/entities/fire_serpent.json",
+        "sha256": "1ae6424598d4c4b94de0b6663ddc82e0dcb639baf95f19bcb4f14aa6010f55c6",
+        "table": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:pylayuschaya_cheshuya",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 3,
+                        "max": 6
+                      }
+                    },
+                    {
+                      "function": "minecraft:enchanted_count_increase",
+                      "count": {
+                        "min": 0,
+                        "max": 1
+                      },
+                      "limit": 9,
+                      "enchantment": "minecraft:looting"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ognennoe_pero",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.35
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:pustoy_ritualny_sosud",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.1
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 294,
+        "text": "public static final DeferredHolder<Item, Item> OGNENNOE_PERO=ITEMS.register(\"ognennoe_pero\",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(16).rarity(Rarity.UNCOMMON),org.slavicmyths.hunt.HuntItems.Role.SPARK));"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/yaga/YagaServices.java",
+        "line": 24,
+        "text": "new Entry(\"cleansing\",2,\"otvar_ochishcheniya\",1,n(\"nit_durnoy_doli\",3)),new Entry(\"salve\",2,\"letuchaya_maz\",1,n(\"ognennoe_pero\",1)),"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "pearl_fragment": {
+    "loot_tables": [
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/chests/fishing_supplies.json",
+        "sha256": "a1d85e93b49890111fe90a901871f4ac9f34ad8a74f13991a79a8d542c0980d6",
+        "table": {
+          "type": "minecraft:chest",
+          "pools": [
+            {
+              "rolls": {
+                "min": 2,
+                "max": 4
+              },
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:string",
+                  "weight": 5
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:fishing_rod",
+                  "weight": 1
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:bread",
+                  "weight": 4
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:old_hook",
+                  "weight": 2
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:smoked_carp",
+                  "weight": 2
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:pearl_fragment",
+                  "weight": 1
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/chests/swamp_great_shrine.json",
+        "sha256": "fe4795786acefc17daf93804c56c54dd55c78e282e825b307c06f6efdc52c2b4",
+        "table": {
+          "type": "minecraft:chest",
+          "pools": [
+            {
+              "rolls": {
+                "type": "minecraft:uniform",
+                "min": 3,
+                "max": 6
+              },
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:pearl_fragment",
+                  "weight": 5,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "min": 2,
+                        "max": 5
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ancient_water_sign",
+                  "weight": 2,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:emerald",
+                  "weight": 4,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "min": 2,
+                        "max": 5
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:gold_ingot",
+                  "weight": 4,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "min": 2,
+                        "max": 4
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/chests/swamp_ritual.json",
+        "sha256": "9a9b6e49349397f2fe163fc661f99374cc70e130c33886875077ee6cdb524cff",
+        "table": {
+          "type": "minecraft:chest",
+          "pools": [
+            {
+              "rolls": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 4
+              },
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:pearl_fragment",
+                  "weight": 4,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:bone",
+                  "weight": 8,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "min": 2,
+                        "max": 6
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:reed",
+                  "weight": 6,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "min": 3,
+                        "max": 7
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ancient_water_sign",
+                  "weight": 1,
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/entities/bolotnik.json",
+        "sha256": "5d99530ae33822e6077dca1c1f643f67777ae2eb2f898b49acc53c59164a59ef",
+        "table": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:moss_block",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.3
+                }
+              ],
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:pearl_fragment"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/entities/rusalka.json",
+        "sha256": "bdf1181cf0df0ca8169709809f44f04075114410b281151453f64c2f0fe68521",
+        "table": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:pearl_fragment"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 218,
+        "text": "public static final DeferredHolder<Item, Item> PEARL_FRAGMENT=ITEMS.register(\"pearl_fragment\",()->new Item(properties().rarity(Rarity.UNCOMMON)));"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/water/VodyanoyEntity.java",
+        "line": 24,
+        "text": "protected InteractionResult mobInteract(Player p,InteractionHand h){if(level().isClientSide)return InteractionResult.SUCCESS;Knowledge.award(p,\"meet_vodyanoy\");ItemStack s=p.getItemInHand(h);Item i=s.getItem();if(i!=Items.BREAD&&i!=ModItems.KARAVAI.get()&&i!=ModItems.PEARL_FRAGMENT.get())return InteractionResult.PASS;String key=p.getStringUUID();if(!relations.contains(key)&&relations.getAllKeys().size()>=64)return InteractionResult.FAIL;CompoundTag n=relations.getCompound(key);long now=level().getGameTime();if(now<n.getLong(\"GiftReady\"))return InteractionResult.FAIL;n.putInt(\"Rep\",Math.min(100,n.getInt(\"Rep\")+10));n.putLong(\"GiftReady\",now+1200);relations.put(key,n);if(!p.isCreative())s.shrink(1);friend=p.getUUID();friendUntil=now+1200;if(getTarget()==p)setTarget(null);state(0);if(n.getInt(\"Rep\")>=40&&!n.getBoolean(\"DepthClue\")){n.putBoolean(\"DepthClue\",true);relations.put(key,n);spawnAtLocation(ModItems.ANCIENT_WATER_SIGN.get());Knowledge.award(p,\"depth_clue\");}if(n.getInt(\"Rep\")>=20){p.addEffect(new MobEffectInstance(MobEffects.LUCK,1800,0));if(random.nextInt(4)==0)spawnAtLocation(ModItems.PEARL_FRAGMENT.get());}voice(\"ambient\",.5F);return InteractionResult.CONSUME;}"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/water/WaterFishing.java",
+        "line": 22,
+        "text": "if(!w.getBiome(pos).is(Tags.Biomes.IS_OCEAN)&&r.nextInt(80)==0)e.getDrops().add(new ItemStack(r.nextBoolean()?ModItems.PEARL_FRAGMENT.get():ModItems.OLD_HOOK.get()));"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "pylayuschaya_cheshuya": {
+    "loot_tables": [
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/entities/fire_serpent.json",
+        "sha256": "1ae6424598d4c4b94de0b6663ddc82e0dcb639baf95f19bcb4f14aa6010f55c6",
+        "table": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:pylayuschaya_cheshuya",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 3,
+                        "max": 6
+                      }
+                    },
+                    {
+                      "function": "minecraft:enchanted_count_increase",
+                      "count": {
+                        "min": 0,
+                        "max": 1
+                      },
+                      "limit": 9,
+                      "enchantment": "minecraft:looting"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:ognennoe_pero",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.35
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:pustoy_ritualny_sosud",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.1
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 293,
+        "text": "public static final DeferredHolder<Item, Item> PYLAYUSCHAYA_CHESHUYA=ITEMS.register(\"pylayuschaya_cheshuya\",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(32),org.slavicmyths.hunt.HuntItems.Role.ASH));"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/yaga/YagaServices.java",
+        "line": 15,
+        "text": "new Entry(\"not_empty_handed\",0,\"svyazka_trav_yagi\",2,n(\"ovinnaya_zola\",2),n(\"klyk_volkolaka\",1),n(\"pylayuschaya_cheshuya\",1),n(\"uzel_podveya\",1)),"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/yaga/YagaServices.java",
+        "line": 20,
+        "text": "new Entry(\"contract_serpent\",1,\"svyazka_trav_yagi\",3,n(\"pylayuschaya_cheshuya\",2)),new Entry(\"contract_podvey\",1,\"svyazka_trav_yagi\",3,n(\"vihrevaya_nit\",2)),"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "vetrovoy_uzel": {
+    "loot_tables": [],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 298,
+        "text": "public static final DeferredHolder<Item, Item> VETROVOY_UZEL=ITEMS.register(\"vetrovoy_uzel\",()->new org.slavicmyths.hunt.WindKnotItem(properties().stacksTo(1).rarity(Rarity.RARE)));"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "vihrevaya_nit": {
+    "loot_tables": [
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/entities/podvey.json",
+        "sha256": "9333ca1246b13a97bb7655527cc0021b55ac153e36b46de06bad399457acb356",
+        "table": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:uzel_podveya",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 2
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:vihrevaya_nit",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.35
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:pustoy_ritualny_sosud",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 1
+                      }
+                    }
+                  ]
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.1
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 297,
+        "text": "public static final DeferredHolder<Item, Item> VIHREVAYA_NIT=ITEMS.register(\"vihrevaya_nit\",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(32),org.slavicmyths.hunt.HuntItems.Role.CLAW));"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/yaga/YagaServices.java",
+        "line": 20,
+        "text": "new Entry(\"contract_serpent\",1,\"svyazka_trav_yagi\",3,n(\"pylayuschaya_cheshuya\",2)),new Entry(\"contract_podvey\",1,\"svyazka_trav_yagi\",3,n(\"vihrevaya_nit\",2)),"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "water_grass": {
+    "loot_tables": [
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/blocks/water_grass.json",
+        "sha256": "ca650b186af1eaeb8911f11930e5c93eb66cad079c274389b51c545c1867c3fc",
+        "table": {
+          "type": "minecraft:block",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:water_grass"
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:survives_explosion"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/loot_table/entities/vodyanoy.json",
+        "sha256": "ba8892dbaaf45d594ce91d732c4ab2c660ff95bab89fa54404fb4f58aacfc0fd",
+        "table": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "slavicmyths:water_grass"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "source_references": [
+      {
+        "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+        "line": 37,
+        "text": "ItemBlockRenderTypes.setRenderLayer(ModBlocks.WATER_GRASS.get(),RenderType.cutout());"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/depth/DeepPoolFeature.java",
+        "line": 19,
+        "text": "for(int i=0;i<8;i++){BlockPos p=base.offset(r.nextInt(9)-4,1,r.nextInt(9)-4);if(w.getFluidState(p).is(net.minecraft.tags.FluidTags.WATER))w.setBlock(p,ModBlocks.WATER_GRASS.get().defaultBlockState(),2);}"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModBlocks.java",
+        "line": 82,
+        "text": "public static final DeferredHolder<Block, Block> WATER_GRASS=BLOCKS.register(\"water_grass\",()->new net.minecraft.world.level.block.SeagrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WATER).noCollission().instabreak().sound(SoundType.WET_GRASS)));"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+        "line": 222,
+        "text": "public static final DeferredHolder<Item, Item> WATER_GRASS=ITEMS.register(\"water_grass\",()->new BlockItem(ModBlocks.WATER_GRASS.get(),properties()));"
+      },
+      {
+        "path": "src/main/java/org/slavicmyths/water/WaterFeature.java",
+        "line": 22,
+        "text": "if(w.getFluidState(floor).is(FluidTags.WATER)&&ModBlocks.WATER_GRASS.get().defaultBlockState().canSurvive(w,floor)){w.setBlock(floor,ModBlocks.WATER_GRASS.get().defaultBlockState(),2);placed=true;}"
+      }
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  }
+}

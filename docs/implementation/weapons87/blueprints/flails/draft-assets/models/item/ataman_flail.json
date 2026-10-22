@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/ataman_flail_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/ataman_flail_icon"
+    }
+  }
+}

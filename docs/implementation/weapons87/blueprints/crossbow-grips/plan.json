@@ -1,0 +1,45 @@
+{
+  "issue": 115,
+  "ids": [
+    "serpent_crossbow",
+    "three_breath_crossbow"
+  ],
+  "state": "BEFORE_PRODUCTION",
+  "decision": "KEEP_ART_FP_FIX_TP_STOCK_PALM_ALL12_STATES",
+  "grip": [
+    8,
+    5.5,
+    12.5
+  ],
+  "source_grip_box": [
+    [
+      7,
+      5,
+      10
+    ],
+    [
+      9,
+      6,
+      15
+    ]
+  ],
+  "before_offset_units": [
+    0,
+    4.475,
+    1.375
+  ],
+  "new_rotation": [
+    -90,
+    0,
+    0
+  ],
+  "new_scale": 0.55,
+  "new_translation": [
+    0,
+    -2.475,
+    -1.375
+  ],
+  "source_fp_proof": "WeaponHands.crossbowModel scales.85,translates0,2.5,-4.5/16; authored grip maps exactly to native wrist",
+  "png_changes": 0,
+  "gameplay_changes": 0
+}

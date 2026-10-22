@@ -54,4 +54,7 @@ def apply():
      for center in [3.25,8,12.75]:d['elements'].append(box([center-.2,9,-5],[center+.2,9.5,8],'ivory'))
     d['display']['gui']={'rotation':[25,40,0],'translation':[0,-1,0],'scale':[.65]*3}
    write(p,d)
+ # The #87 canonical component/flail owner runs last; legacy models must not resurrect.
+ from weapons87_flails import main as flails87
+ flails87(True)
 if __name__=='__main__':apply()

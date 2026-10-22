@@ -1,0 +1,10 @@
+[
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/weapon_scythe_surface.png",
+    "sha256": "ac996b8199508c6c35546746541c7ac66846d3414f3cc6505a162ed8e78b22c3"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/LikhoStaffItem.java",
+    "sha256": "cef82b917f7bcb4bea447418ffbb83c00102aa69c3fcaa2d943502afe9aab3f6"
+  }
+]

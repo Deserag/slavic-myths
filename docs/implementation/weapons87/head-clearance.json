@@ -1,0 +1,4898 @@
+[
+  {
+    "id": "bone_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_dagger",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_dagger",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_dagger",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_dagger",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "nightingale_dagger",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "nightingale_dagger",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "nightingale_dagger",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "nightingale_dagger",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sword",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sword",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sword",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sword",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sword",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sword",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sword",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sword",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "tugarin_sword",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "TugarinPairClient chooses _held + second blade; sheet shows one physical item per hand"
+  },
+  {
+    "id": "tugarin_sword",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "TugarinPairClient chooses _held + second blade; sheet shows one physical item per hand"
+  },
+  {
+    "id": "tugarin_sword",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "TugarinPairClient chooses _held + second blade; sheet shows one physical item per hand"
+  },
+  {
+    "id": "tugarin_sword",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "TugarinPairClient chooses _held + second blade; sheet shows one physical item per hand"
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 20,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "club",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "club",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "club",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "club",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "wooden_mace",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "wooden_mace",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "wooden_mace",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "wooden_mace",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_mace",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_mace",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_mace",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_mace",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "mace",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "mace",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "mace",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "mace",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_mace",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_mace",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_mace",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_mace",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_mace",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_mace",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_mace",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_mace",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_chekan",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_chekan",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_chekan",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_chekan",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "chekan",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "chekan",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "chekan",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "chekan",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "battle_axe",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "battle_axe",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "battle_axe",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "battle_axe",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_axe",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_axe",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_axe",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_axe",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "pool_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "pool_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "pool_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "pool_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "victor_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "victor_spear",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "victor_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "victor_spear",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "berdysh",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "berdysh",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "berdysh",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "berdysh",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "noon_sickle",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "noon_sickle",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "noon_sickle",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "noon_sickle",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "karachun_scythe",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 251,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "NightClient player poses/layer + WeaponHands 1P; this fixed source pose is not that runtime path"
+  },
+  {
+    "id": "karachun_scythe",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "NightClient player poses/layer + WeaponHands 1P; this fixed source pose is not that runtime path"
+  },
+  {
+    "id": "karachun_scythe",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "NightClient player poses/layer + WeaponHands 1P; this fixed source pose is not that runtime path"
+  },
+  {
+    "id": "karachun_scythe",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "NightClient player poses/layer + WeaponHands 1P; this fixed source pose is not that runtime path"
+  },
+  {
+    "id": "poloz_whip",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "poloz_whip",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "poloz_whip",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "poloz_whip",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_sulitsa",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_sulitsa",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "short_bow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "short_bow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "short_bow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "short_bow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "heavy_bow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "heavy_bow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "heavy_bow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "heavy_bow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "finist_bow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "finist_bow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "finist_bow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "finist_bow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_arrow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_arrow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_arrow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_arrow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "serpent_crossbow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "serpent_crossbow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "serpent_crossbow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "serpent_crossbow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "carved_staff",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "carved_staff",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "carved_staff",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "carved_staff",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "storm_staff",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "storm_staff",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "storm_staff",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "storm_staff",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "veles_staff",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "veles_staff",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "veles_staff",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "veles_staff",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "likho_staff",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "likho_staff",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "likho_staff",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 7,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "likho_staff",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "morozko_staff",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "morozko_staff",
+    "body": "Steve",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "morozko_staff",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "morozko_staff",
+    "body": "Steve",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_dagger",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_dagger",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_dagger",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_dagger",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "nightingale_dagger",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "nightingale_dagger",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "nightingale_dagger",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "nightingale_dagger",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 14,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 14,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 14,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 14,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sword",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sword",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sword",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sword",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sword",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sword",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sword",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sword",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "tugarin_sword",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "TugarinPairClient chooses _held + second blade; sheet shows one physical item per hand"
+  },
+  {
+    "id": "tugarin_sword",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "TugarinPairClient chooses _held + second blade; sheet shows one physical item per hand"
+  },
+  {
+    "id": "tugarin_sword",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "TugarinPairClient chooses _held + second blade; sheet shows one physical item per hand"
+  },
+  {
+    "id": "tugarin_sword",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "TugarinPairClient chooses _held + second blade; sheet shows one physical item per hand"
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 20,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "club",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "club",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "club",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "club",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "wooden_mace",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "wooden_mace",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "wooden_mace",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "wooden_mace",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_mace",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_mace",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_mace",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_mace",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "mace",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "mace",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "mace",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "mace",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_mace",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_mace",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_mace",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_mace",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_mace",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_mace",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_mace",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_mace",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_chekan",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_chekan",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_chekan",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_chekan",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "chekan",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "chekan",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "chekan",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "chekan",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 22,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "battle_axe",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "battle_axe",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "battle_axe",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "battle_axe",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_axe",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_axe",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_axe",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_axe",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 7,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 7,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "ancient_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 7,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 7,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "restored_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "pool_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "pool_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "pool_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "pool_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "thunder_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "victor_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "victor_spear",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "victor_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "victor_spear",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "berdysh",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "berdysh",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "berdysh",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "berdysh",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "noon_sickle",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "noon_sickle",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "noon_sickle",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "noon_sickle",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "karachun_scythe",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 260,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "NightClient player poses/layer + WeaponHands 1P; this fixed source pose is not that runtime path"
+  },
+  {
+    "id": "karachun_scythe",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "NightClient player poses/layer + WeaponHands 1P; this fixed source pose is not that runtime path"
+  },
+  {
+    "id": "karachun_scythe",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "NightClient player poses/layer + WeaponHands 1P; this fixed source pose is not that runtime path"
+  },
+  {
+    "id": "karachun_scythe",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "NightClient player poses/layer + WeaponHands 1P; this fixed source pose is not that runtime path"
+  },
+  {
+    "id": "poloz_whip",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "poloz_whip",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "poloz_whip",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "poloz_whip",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "stone_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "gold_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "iron_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "silver_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "diamond_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "perunite_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_sulitsa",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "netherite_sulitsa",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "short_bow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "short_bow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "short_bow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "short_bow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "heavy_bow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "heavy_bow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "heavy_bow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "heavy_bow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "finist_bow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "finist_bow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "finist_bow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "finist_bow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_arrow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_arrow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_arrow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "bone_arrow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "serpent_crossbow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "serpent_crossbow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "serpent_crossbow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "serpent_crossbow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": "WeaponHands custom1P; ordinary third-person item layer"
+  },
+  {
+    "id": "carved_staff",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "carved_staff",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "carved_staff",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "carved_staff",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "storm_staff",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "storm_staff",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "storm_staff",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "storm_staff",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "veles_staff",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "veles_staff",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "veles_staff",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "veles_staff",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "likho_staff",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "likho_staff",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "likho_staff",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 7,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "likho_staff",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "morozko_staff",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "morozko_staff",
+    "body": "Alex",
+    "hand": "RIGHT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "morozko_staff",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "before",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  },
+  {
+    "id": "morozko_staff",
+    "body": "Alex",
+    "hand": "LEFT",
+    "stage": "after",
+    "head_triangle_candidates": 0,
+    "limits": "Exact triangle vs native idle head box; transparent texels not masked; fixed source pose, not runtime clipping validation",
+    "custom_path": null
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "issue": 165,
+  "id": "karachun_scythe",
+  "before_source": "before-grip-source.zip / WeaponHands.java",
+  "evidence": "firstperson-source/karachun_scythe-a0.png",
+  "before_shoulder_yaw_degrees": 70,
+  "proposed_shoulder_yaw_degrees": 35,
+  "unchanged": [
+    "NightSwingPose timing",
+    "NightCombat hit ticks",
+    "grip pivot",
+    "scale",
+    "mesh",
+    "UV",
+    "textures",
+    "damage",
+    "cooldowns"
+  ],
+  "reason": "At maximal windup the existing shoulder orbit places the wrist near/outside the camera near plane. Reduce only camera-space wrist orbit; motion=0 contact stays exactly unchanged.",
+  "state": "TECHNICAL_PROPOSAL_BEFORE_PRODUCTION"
+}

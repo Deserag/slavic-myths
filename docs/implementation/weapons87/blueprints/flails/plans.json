@@ -1,0 +1,242 @@
+[
+  {
+    "id": "stone_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.2,
+      22.6,
+      3.6000000000000005
+    ],
+    "draft_sha256": "6a783d4b51919b4149eec1cde29f6093333455a41870feb1a36510903b455b8f",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted",
+    "grip_revision": "#115 physical-left orientation; package1 plan retained in plans-package1.json"
+  },
+  {
+    "id": "gold_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.3,
+      22.7,
+      3.0
+    ],
+    "draft_sha256": "67a1250f2df07f77b115c0c85f415b8b5d143475ee4bd01a915281eda98adbfd",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted",
+    "grip_revision": "#115 physical-left orientation; package1 plan retained in plans-package1.json"
+  },
+  {
+    "id": "flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.45,
+      22.4,
+      4.5
+    ],
+    "draft_sha256": "0681a1c9c3e09f870a5a84db918327568053c02aacd9d3d7d5739b507c1d0be5",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted",
+    "grip_revision": "#115 physical-left orientation; package1 plan retained in plans-package1.json"
+  },
+  {
+    "id": "silver_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.7,
+      22.8,
+      5.0
+    ],
+    "draft_sha256": "e01b49e103f5c92235589869cd551f5e8a512fd992ca1fd996e99794b7547292",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted",
+    "grip_revision": "#115 physical-left orientation; package1 plan retained in plans-package1.json"
+  },
+  {
+    "id": "diamond_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.500000000000001,
+      22.8,
+      4.6000000000000005
+    ],
+    "draft_sha256": "1479a676801a79aa7c550ce68d4dfd6073c708ce4d5fd3866fc168bd3408a868",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted",
+    "grip_revision": "#115 physical-left orientation; package1 plan retained in plans-package1.json"
+  },
+  {
+    "id": "perunite_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      8.0,
+      23.0,
+      5.6000000000000005
+    ],
+    "draft_sha256": "ce127556983c02834b599f688953b5b83e6968f06b2916e0c2f3bbf3634286ca",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted",
+    "grip_revision": "#115 physical-left orientation; package1 plan retained in plans-package1.json"
+  },
+  {
+    "id": "netherite_flail",
+    "issue": 116,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      7.8,
+      23.1,
+      5.199999999999999
+    ],
+    "draft_sha256": "fb96dc8cc417a32f3085b147fd05c776b5b83359990c090236f79fa2255f6193",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted",
+    "grip_revision": "#115 physical-left orientation; package1 plan retained in plans-package1.json"
+  },
+  {
+    "id": "ataman_flail",
+    "issue": 181,
+    "ball_issue": 166,
+    "chain_issue": 167,
+    "grip": [
+      8,
+      8,
+      8
+    ],
+    "eyelet": [
+      8,
+      17,
+      8
+    ],
+    "ball_center": [
+      12,
+      -2,
+      8
+    ],
+    "dimensions": [
+      8.399999999999999,
+      23.3,
+      6.3999999999999995
+    ],
+    "draft_sha256": "6a98836dc58ed06a83d219bcec5c09fcb83daab269ad1b3cc88f22767e24e0aa",
+    "decision": "FIX: volumetric closed links and head below grip; existing flat/material silhouettes insufficient",
+    "state": "TECHNICAL_DESIGN, not owner runtime accepted",
+    "grip_revision": "#115 physical-left orientation; package1 plan retained in plans-package1.json"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "slavicmyths:noon_sickle": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/entities/poludnitsa.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

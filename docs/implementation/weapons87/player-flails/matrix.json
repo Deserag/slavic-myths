@@ -1,0 +1,4098 @@
+[
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.6,
+      14.047685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      3.400000156,
+      18.52104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.599999844,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      3.400000156,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.1,
+      14.547685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      2.900000156,
+      19.02104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.099999844,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      2.900000156,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.6,
+      14.047685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      3.400000156,
+      18.52104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.599999844,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      3.400000156,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.1,
+      14.547685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      2.900000156,
+      19.02104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.099999844,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      2.900000156,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.6,
+      14.047685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      3.400000156,
+      18.52104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.599999844,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      3.400000156,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.1,
+      14.547685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      2.900000156,
+      19.02104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.099999844,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      2.900000156,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.6,
+      14.047685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      3.400000156,
+      18.52104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.599999844,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      3.400000156,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.1,
+      14.547685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      2.900000156,
+      19.02104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.099999844,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      2.900000156,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.6,
+      14.047685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      3.400000156,
+      18.52104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.599999844,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      3.400000156,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.1,
+      14.547685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      2.900000156,
+      19.02104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.099999844,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      2.900000156,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.6,
+      14.047685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      3.400000156,
+      18.52104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.599999844,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      3.400000156,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.1,
+      14.547685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      2.900000156,
+      19.02104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.099999844,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      2.900000156,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.6,
+      14.047685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      3.400000156,
+      18.52104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.599999844,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      3.400000156,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.1,
+      14.547685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      2.900000156,
+      19.02104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.099999844,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      2.900000156,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      10.8925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      17.07439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      8.83152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.6,
+      14.047685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      12.0214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      3.400000156,
+      18.52104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.599999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      3.4000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.599999844,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Steve",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      6.0,
+      3.75949904,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      3.400000156,
+      6.114824090000001,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "idle",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      11.3925296,
+      -4.9922824
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      17.57439594,
+      -7.000892705
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      9.33152384,
+      -7.5716768
+    ],
+    "ball_center_native": [
+      -8.1,
+      14.547685439999999,
+      -11.4500344
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "walk_t10",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      12.5214448,
+      -1.88961008
+    ],
+    "ball_center_native": [
+      2.900000156,
+      19.02104921,
+      -1.8179357369999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      -8.099999740000001,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "sneak",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      15.33464912,
+      -1.13528224
+    ],
+    "ball_center_native": [
+      2.9000002599999997,
+      21.810715209999998,
+      -0.5780025299999996
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": false,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "RIGHT",
+    "after": true,
+    "grip_native": [
+      -5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      -8.099999844,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": false,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": null,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "ataman_flail",
+    "body": "Alex",
+    "pose": "swing_sample",
+    "arm": "LEFT",
+    "after": true,
+    "grip_native": [
+      5.5,
+      4.2594992,
+      -10.0451056
+    ],
+    "ball_center_native": [
+      2.900000156,
+      6.61482425,
+      -16.10335975
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  }
+]

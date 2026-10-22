@@ -29,6 +29,6 @@ public final class MiningGogglesRenderer implements ICurioRenderer {
     }
     @SubscribeEvent public static void setup(FMLClientSetupEvent e){e.enqueueWork(()->CuriosRendererRegistry.register(IndustryAccessories.GOGGLES.get(),MiningGogglesRenderer::new));}
     public <T extends LivingEntity,M extends EntityModel<T>> void render(ItemStack s,SlotContext c,PoseStack p,RenderLayerParent<T,M> parent,MultiBufferSource buffer,int light,float swing,float amount,float partial,float age,float yaw,float pitch){
-        if(c.entity().isInvisible()||!(parent.getModel() instanceof HeadedModel head))return;p.pushPose();head.getHead().translateAndRotate(p);model.render(p,buffer.getBuffer(RenderType.entityCutout(Industry.id("textures/models/miners_goggles.png"))),light,OverlayTexture.NO_OVERLAY);p.popPose();
+        if(c.entity().isInvisible()||!(parent.getModel() instanceof HeadedModel head))return;p.pushPose();head.getHead().translateAndRotate(p);AccessoryBodyFit.applyHead(p,AccessoryBodyFit.headArmored(c.entity()));model.render(p,buffer.getBuffer(RenderType.entityCutout(Industry.id("textures/models/miners_goggles.png"))),light,OverlayTexture.NO_OVERLAY);p.popPose();
     }
 }

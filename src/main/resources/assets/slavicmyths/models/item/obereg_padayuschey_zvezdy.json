@@ -1,6 +1,17 @@
 {
-  "parent": "minecraft:item/generated",
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/obereg_padayuschey_zvezdy_held148"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/obereg_padayuschey_zvezdy"
+      }
+    }
+  },
   "textures": {
-    "layer0": "slavicmyths:item/obereg_padayuschey_zvezdy"
+    "particle": "slavicmyths:item/obereg_padayuschey_zvezdy"
   }
 }

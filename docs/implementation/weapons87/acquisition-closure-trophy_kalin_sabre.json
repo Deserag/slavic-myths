@@ -1,0 +1,54 @@
+{
+  "minecraft:diamond_sword": {
+    "recipes": [],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "minecraft:gold_ingot": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_living.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_mine.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_treasury.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_residential.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_storehouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_ataman.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_cache.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_great_shrine.json",
+      "src/main/resources/data/slavicmyths/loot_table/entities/kladovik.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:mat_royal_iron": {
+    "recipes": [],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:trophy_kalin_sabre": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/trophy_kalin_sabre.json",
+        "type": "minecraft:crafting_shaped",
+        "ingredients": {
+          "K": {
+            "item": "slavicmyths:mat_royal_iron"
+          },
+          "D": {
+            "item": "minecraft:diamond_sword"
+          },
+          "G": {
+            "item": "minecraft:gold_ingot"
+          }
+        },
+        "pattern": [
+          "KK ",
+          " DK",
+          "GKK"
+        ],
+        "count": 1
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "src/main/resources/assets/slavicmyths/models/item/stone_flail_ball.json": "ab9dbc8698d692056f63e46076fbff0c421493b3dced7e8e733908d3749fbc26",
+  "src/main/resources/assets/slavicmyths/textures/item/stone_flail_ball.png": "8b71ad1fce4acb5cec49535202d30404f066862e0c74c83b00255367600b5e81",
+  "src/main/resources/assets/slavicmyths/models/item/gold_flail_ball.json": "3a717519fdd7e104c75562f23d4c007d156cb506bbce15ffb7b13b01b005b42d",
+  "src/main/resources/assets/slavicmyths/textures/item/gold_flail_ball.png": "c9ee364ff8ea0ffbbcb06689e30286511b46cbf38aebbd4fbbba086c9a85e922",
+  "src/main/resources/assets/slavicmyths/models/item/iron_flail_ball.json": "c94b9b153a17611fe4e9fa882e34901e4a24b17b2c522ab194f372d4c356f0f7",
+  "src/main/resources/assets/slavicmyths/textures/item/iron_flail_ball.png": "209e56f28f557d1aaaf93402b68dcd3985c8436de8feafe635a8fbeffde5287d",
+  "src/main/resources/assets/slavicmyths/models/item/silver_flail_ball.json": "dab8dfba8c7b224446463619dfdaf7d54df930ae975bb08ccc0f69cd4bf13c87",
+  "src/main/resources/assets/slavicmyths/textures/item/silver_flail_ball.png": "78df54333466e3ca2b6e2cbeaa626beff73624d27198d8916534d934151d2246",
+  "src/main/resources/assets/slavicmyths/models/item/diamond_flail_ball.json": "542ae1ea1c182b77deeaf05d898817a8df3326ac6bfb0f29c7c07b7a9c2ffc2c",
+  "src/main/resources/assets/slavicmyths/textures/item/diamond_flail_ball.png": "613ad5b755e16ec0705641569bafc699d9f1e5bf443cffb8a67d92e21e6bc099",
+  "src/main/resources/assets/slavicmyths/models/item/perunite_flail_ball.json": "1d818355bb65e077da2a27742bc4505f24e6007b2fc8d38caa4ab916c3723770",
+  "src/main/resources/assets/slavicmyths/textures/item/perunite_flail_ball.png": "2c1050e3c75b31c4f828cc033cc9c7835c56edc88b32c61101639e05f70b4ad6",
+  "src/main/resources/assets/slavicmyths/models/item/netherite_flail_ball.json": "24b664871787963c60e3a84b031780761385b0d2202fa327523c1754f5a2dfd8",
+  "src/main/resources/assets/slavicmyths/textures/item/netherite_flail_ball.png": "ecbdb8cec1028dc7cfa841ed8b9b7905d6264a9a6daac8f2349ca4fb7b4db62b",
+  "src/main/resources/assets/slavicmyths/models/item/flail_handle.json": "c651283ae60a93f10350f9640a210c5a118d587ac8916037c1645b94f9d9bc58",
+  "src/main/resources/assets/slavicmyths/textures/item/flail_handle.png": "14d38eb13823a08f5f3db4b1fdaa9ce0d9d114b392c5d1931453736f48a27d4e",
+  "src/main/resources/assets/slavicmyths/models/item/flail_chain.json": "b002c1d02e46e20bb178640f4b748a272dff361b23cc8fdf239e4e128abf2ab1",
+  "src/main/resources/assets/slavicmyths/textures/item/flail_chain.png": "45bd1184491856302d93fd8bfefaa437c2d4b5e0254d4c4a2b09ffc28698860d"
+}

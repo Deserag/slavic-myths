@@ -1,0 +1,9 @@
+{
+  "slavicmyths:serpent_crossbow": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/chests/serpent_fortress.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "slavicmyths:nightingale_dagger": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/entities/nightingale.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

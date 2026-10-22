@@ -1,0 +1,2978 @@
+[
+  {
+    "id": "stone_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1746,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1000,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1722,
+    "ball_center": [
+      0.6308162686853083,
+      -0.6076138905991953,
+      -1.0874160105101787
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 980,
+    "ball_center": [
+      -0.4702736238250924,
+      -0.6568140706588401,
+      -1.3649313336464588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1705,
+    "ball_center": [
+      0.8166753294453789,
+      -0.555348513806717,
+      -1.1476759725849792
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1129,
+    "ball_center": [
+      -0.660967975340128,
+      -0.6084867466340869,
+      -1.3179561506003052
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1637,
+    "ball_center": [
+      0.9561762817672173,
+      -0.47415799741766274,
+      -1.2105930445027588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1181,
+    "ball_center": [
+      -0.8082742417894005,
+      -0.5272962176314284,
+      -1.2764839468662694
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1441,
+    "ball_center": [
+      1.1092765969642784,
+      -0.25026305552654726,
+      -1.3373914172599004
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1185,
+    "ball_center": [
+      -0.9814134729793185,
+      -0.30340124335683505,
+      -1.2665451707374196
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1307,
+    "ball_center": [
+      0.9850764112849313,
+      -0.3197699287460881,
+      -1.3644772254944502
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1038,
+    "ball_center": [
+      -0.8472637136748433,
+      -0.372908132655183,
+      -1.3480763623394383
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1543,
+    "ball_center": [
+      0.7411739816700872,
+      -0.5448339880596822,
+      -1.1814837397755655
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1026,
+    "ball_center": [
+      -0.5841176897531482,
+      -0.5979722230669708,
+      -1.3786264217407889
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1746,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "stone_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "stone_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1000,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1642,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 935,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1626,
+    "ball_center": [
+      0.6308162686853083,
+      -0.6076138905991953,
+      -1.0874160105101787
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 911,
+    "ball_center": [
+      -0.4702736238250924,
+      -0.6568140706588401,
+      -1.3649313336464588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1605,
+    "ball_center": [
+      0.8166753294453789,
+      -0.555348513806717,
+      -1.1476759725849792
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1051,
+    "ball_center": [
+      -0.660967975340128,
+      -0.6084867466340869,
+      -1.3179561506003052
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1539,
+    "ball_center": [
+      0.9561762817672173,
+      -0.47415799741766274,
+      -1.2105930445027588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1092,
+    "ball_center": [
+      -0.8082742417894005,
+      -0.5272962176314284,
+      -1.2764839468662694
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1354,
+    "ball_center": [
+      1.1092765969642784,
+      -0.25026305552654726,
+      -1.3373914172599004
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1096,
+    "ball_center": [
+      -0.9814134729793185,
+      -0.30340124335683505,
+      -1.2665451707374196
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1233,
+    "ball_center": [
+      0.9850764112849313,
+      -0.3197699287460881,
+      -1.3644772254944502
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 960,
+    "ball_center": [
+      -0.8472637136748433,
+      -0.372908132655183,
+      -1.3480763623394383
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1457,
+    "ball_center": [
+      0.7411739816700872,
+      -0.5448339880596822,
+      -1.1814837397755655
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 959,
+    "ball_center": [
+      -0.5841176897531482,
+      -0.5979722230669708,
+      -1.3786264217407889
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1642,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "gold_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "gold_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 935,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1774,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1051,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1750,
+    "ball_center": [
+      0.6308162686853083,
+      -0.6076138905991953,
+      -1.0874160105101787
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1034,
+    "ball_center": [
+      -0.4702736238250924,
+      -0.6568140706588401,
+      -1.3649313336464588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1743,
+    "ball_center": [
+      0.8166753294453789,
+      -0.555348513806717,
+      -1.1476759725849792
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1190,
+    "ball_center": [
+      -0.660967975340128,
+      -0.6084867466340869,
+      -1.3179561506003052
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1678,
+    "ball_center": [
+      0.9561762817672173,
+      -0.47415799741766274,
+      -1.2105930445027588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1248,
+    "ball_center": [
+      -0.8082742417894005,
+      -0.5272962176314284,
+      -1.2764839468662694
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1474,
+    "ball_center": [
+      1.1092765969642784,
+      -0.25026305552654726,
+      -1.3373914172599004
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1259,
+    "ball_center": [
+      -0.9814134729793185,
+      -0.30340124335683505,
+      -1.2665451707374196
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1338,
+    "ball_center": [
+      0.9850764112849313,
+      -0.3197699287460881,
+      -1.3644772254944502
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1084,
+    "ball_center": [
+      -0.8472637136748433,
+      -0.372908132655183,
+      -1.3480763623394383
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1579,
+    "ball_center": [
+      0.7411739816700872,
+      -0.5448339880596822,
+      -1.1814837397755655
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1075,
+    "ball_center": [
+      -0.5841176897531482,
+      -0.5979722230669708,
+      -1.3786264217407889
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1774,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1051,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1648,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1024,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1621,
+    "ball_center": [
+      0.6308162686853083,
+      -0.6076138905991953,
+      -1.0874160105101787
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1010,
+    "ball_center": [
+      -0.4702736238250924,
+      -0.6568140706588401,
+      -1.3649313336464588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1606,
+    "ball_center": [
+      0.8166753294453789,
+      -0.555348513806717,
+      -1.1476759725849792
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1160,
+    "ball_center": [
+      -0.660967975340128,
+      -0.6084867466340869,
+      -1.3179561506003052
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1549,
+    "ball_center": [
+      0.9561762817672173,
+      -0.47415799741766274,
+      -1.2105930445027588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1214,
+    "ball_center": [
+      -0.8082742417894005,
+      -0.5272962176314284,
+      -1.2764839468662694
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1375,
+    "ball_center": [
+      1.1092765969642784,
+      -0.25026305552654726,
+      -1.3373914172599004
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1217,
+    "ball_center": [
+      -0.9814134729793185,
+      -0.30340124335683505,
+      -1.2665451707374196
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1244,
+    "ball_center": [
+      0.9850764112849313,
+      -0.3197699287460881,
+      -1.3644772254944502
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1060,
+    "ball_center": [
+      -0.8472637136748433,
+      -0.372908132655183,
+      -1.3480763623394383
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1460,
+    "ball_center": [
+      0.7411739816700872,
+      -0.5448339880596822,
+      -1.1814837397755655
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1054,
+    "ball_center": [
+      -0.5841176897531482,
+      -0.5979722230669708,
+      -1.3786264217407889
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1648,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "silver_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "silver_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1024,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1766,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1046,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1739,
+    "ball_center": [
+      0.6308162686853083,
+      -0.6076138905991953,
+      -1.0874160105101787
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1025,
+    "ball_center": [
+      -0.4702736238250924,
+      -0.6568140706588401,
+      -1.3649313336464588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1722,
+    "ball_center": [
+      0.8166753294453789,
+      -0.555348513806717,
+      -1.1476759725849792
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1182,
+    "ball_center": [
+      -0.660967975340128,
+      -0.6084867466340869,
+      -1.3179561506003052
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1648,
+    "ball_center": [
+      0.9561762817672173,
+      -0.47415799741766274,
+      -1.2105930445027588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1240,
+    "ball_center": [
+      -0.8082742417894005,
+      -0.5272962176314284,
+      -1.2764839468662694
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1432,
+    "ball_center": [
+      1.1092765969642784,
+      -0.25026305552654726,
+      -1.3373914172599004
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1247,
+    "ball_center": [
+      -0.9814134729793185,
+      -0.30340124335683505,
+      -1.2665451707374196
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1311,
+    "ball_center": [
+      0.9850764112849313,
+      -0.3197699287460881,
+      -1.3644772254944502
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1082,
+    "ball_center": [
+      -0.8472637136748433,
+      -0.372908132655183,
+      -1.3480763623394383
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1560,
+    "ball_center": [
+      0.7411739816700872,
+      -0.5448339880596822,
+      -1.1814837397755655
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1070,
+    "ball_center": [
+      -0.5841176897531482,
+      -0.5979722230669708,
+      -1.3786264217407889
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1766,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "diamond_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1046,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1712,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1044,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1689,
+    "ball_center": [
+      0.6308162686853083,
+      -0.6076138905991953,
+      -1.0874160105101787
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1021,
+    "ball_center": [
+      -0.4702736238250924,
+      -0.6568140706588401,
+      -1.3649313336464588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1684,
+    "ball_center": [
+      0.8166753294453789,
+      -0.555348513806717,
+      -1.1476759725849792
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1179,
+    "ball_center": [
+      -0.660967975340128,
+      -0.6084867466340869,
+      -1.3179561506003052
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1620,
+    "ball_center": [
+      0.9561762817672173,
+      -0.47415799741766274,
+      -1.2105930445027588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1234,
+    "ball_center": [
+      -0.8082742417894005,
+      -0.5272962176314284,
+      -1.2764839468662694
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1428,
+    "ball_center": [
+      1.1092765969642784,
+      -0.25026305552654726,
+      -1.3373914172599004
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1245,
+    "ball_center": [
+      -0.9814134729793185,
+      -0.30340124335683505,
+      -1.2665451707374196
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1297,
+    "ball_center": [
+      0.9850764112849313,
+      -0.3197699287460881,
+      -1.3644772254944502
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1073,
+    "ball_center": [
+      -0.8472637136748433,
+      -0.372908132655183,
+      -1.3480763623394383
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1520,
+    "ball_center": [
+      0.7411739816700872,
+      -0.5448339880596822,
+      -1.1814837397755655
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1070,
+    "ball_center": [
+      -0.5841176897531482,
+      -0.5979722230669708,
+      -1.3786264217407889
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1712,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "perunite_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1044,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 2150,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1211,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 2111,
+    "ball_center": [
+      0.6308162686853083,
+      -0.6076138905991953,
+      -1.0874160105101787
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1192,
+    "ball_center": [
+      -0.4702736238250924,
+      -0.6568140706588401,
+      -1.3649313336464588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 2070,
+    "ball_center": [
+      0.8166753294453789,
+      -0.555348513806717,
+      -1.1476759725849792
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "charge9",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1369,
+    "ball_center": [
+      -0.660967975340128,
+      -0.6084867466340869,
+      -1.3179561506003052
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1961,
+    "ball_center": [
+      0.9561762817672173,
+      -0.47415799741766274,
+      -1.2105930445027588
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "charge18",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1446,
+    "ball_center": [
+      -0.8082742417894005,
+      -0.5272962176314284,
+      -1.2764839468662694
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1689,
+    "ball_center": [
+      1.1092765969642784,
+      -0.25026305552654726,
+      -1.3373914172599004
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1460,
+    "ball_center": [
+      -0.9814134729793185,
+      -0.30340124335683505,
+      -1.2665451707374196
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1542,
+    "ball_center": [
+      0.9850764112849313,
+      -0.3197699287460881,
+      -1.3644772254944502
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1257,
+    "ball_center": [
+      -0.8472637136748433,
+      -0.372908132655183,
+      -1.3480763623394383
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1876,
+    "ball_center": [
+      0.7411739816700872,
+      -0.5448339880596822,
+      -1.1814837397755655
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1231,
+    "ball_center": [
+      -0.5841176897531482,
+      -0.5979722230669708,
+      -1.3786264217407889
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 2150,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "netherite_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1211,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 2256,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "idle",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1297,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 2228,
+    "ball_center": [
+      0.6423234714538755,
+      -0.604582289627108,
+      -1.0863461793369988
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "walk",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1286,
+    "ball_center": [
+      -0.4820011630432437,
+      -0.6552618344612591,
+      -1.366606530060581
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1773,
+    "ball_center": [
+      1.1092765969642784,
+      -0.25026305552654726,
+      -1.3373914172599004
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "contact",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1591,
+    "ball_center": [
+      -0.9814134729793185,
+      -0.30340124335683505,
+      -1.2665451707374196
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1617,
+    "ball_center": [
+      0.9850764112849313,
+      -0.3197699287460881,
+      -1.3644772254944502
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "trailing",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1361,
+    "ball_center": [
+      -0.8472637136748433,
+      -0.372908132655183,
+      -1.3480763623394383
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 1976,
+    "ball_center": [
+      0.7411739816700872,
+      -0.5448339880596822,
+      -1.1814837397755655
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "return",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1331,
+    "ball_center": [
+      -0.5841176897531482,
+      -0.5979722230669708,
+      -1.3786264217407889
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": false,
+    "pixels": 1687,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": false,
+    "after": true,
+    "pixels": 2256,
+    "ball_center": [
+      0.6613223194187822,
+      -0.5990303739351867,
+      -1.0845990347302474
+    ],
+    "ball_center_inside_fixed_camera": true
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": false,
+    "pixels": 988,
+    "ball_center": null,
+    "ball_center_inside_fixed_camera": null
+  },
+  {
+    "id": "ataman_flail",
+    "phase": "rest",
+    "context": "fixed-native-FP-wrist",
+    "left": true,
+    "after": true,
+    "pixels": 1297,
+    "ball_center": [
+      -0.5014155661435318,
+      -0.6521686135488874,
+      -1.3694953961179253
+    ],
+    "ball_center_inside_fixed_camera": true
+  }
+]

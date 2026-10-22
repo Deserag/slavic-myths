@@ -1,0 +1,43 @@
+{
+  "paths": [
+    {
+      "pose": 0,
+      "arclength": 22.999999999999993,
+      "sections": 20,
+      "joint_boxes_at_every_endpoint": true,
+      "taper_positive_monotone": true
+    },
+    {
+      "pose": 1,
+      "arclength": 22.999999999999993,
+      "sections": 20,
+      "joint_boxes_at_every_endpoint": true,
+      "taper_positive_monotone": true
+    },
+    {
+      "pose": 2,
+      "arclength": 22.999999999999986,
+      "sections": 20,
+      "joint_boxes_at_every_endpoint": true,
+      "taper_positive_monotone": true
+    },
+    {
+      "pose": 3,
+      "arclength": 22.999999999999986,
+      "sections": 20,
+      "joint_boxes_at_every_endpoint": true,
+      "taper_positive_monotone": true
+    },
+    {
+      "pose": 4,
+      "arclength": 22.999999999999993,
+      "sections": 20,
+      "joint_boxes_at_every_endpoint": true,
+      "taper_positive_monotone": true
+    }
+  ],
+  "gui_identical_all_overrides": true,
+  "predicate_thresholds_unchanged": true,
+  "idle_head_candidates": 0,
+  "runtime": "NOT_RUN / OWNER_PENDING"
+}

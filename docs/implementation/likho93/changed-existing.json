@@ -1,0 +1,6 @@
+[
+  "src/main/java/org/slavicmyths/hunt/WorldBoss.java",
+  "src/main/java/org/slavicmyths/mor/HigherMor.java",
+  "src/main/java/org/slavicmyths/mor/MorZone.java",
+  "gradle.properties"
+]

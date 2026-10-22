@@ -14,7 +14,7 @@ import org.slavicmyths.rpg.RuneFoundation;
 public final class ModItemGroup {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, "slavicmyths");
     public static final String[] IDS = CreativeCatalog.TABS.toArray(String[]::new);
-    private static final int[] DISPLAY_ORDER = {0, 1, 2, 3, 9, 4, 5, 6, 7, 8};
+    private static final int[] DISPLAY_ORDER = {0, 1, 2, 3, 9, 4, 5, 6, 7, 10, 8};
     public static final List<DeferredHolder<CreativeModeTab, CreativeModeTab>> THEMATIC = new ArrayList<>();
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB;
     private static final Set<String> REPORTED_FALLBACKS = ConcurrentHashMap.newKeySet();
@@ -25,7 +25,7 @@ public final class ModItemGroup {
             while (DISPLAY_ORDER[position] != category) position++;
             int slot = position;
             THEMATIC.add(TABS.register(IDS[category], () -> {
-                var builder = CreativeModeTab.builder(slot < 5 ? CreativeModeTab.Row.TOP : CreativeModeTab.Row.BOTTOM, slot % 5)
+                var builder = CreativeModeTab.builder()
                         .title(Component.translatable("itemGroup.slavicmyths." + IDS[category]))
                         .icon(() -> new ItemStack(icon(category)))
                         .displayItems((parameters, output) -> stacks(category).forEach(output::accept));
@@ -51,6 +51,7 @@ public final class ModItemGroup {
             case 7 -> ModItems.THUNDER_STONE.get();
             case 8 -> ModItems.DOMOVOY_SPAWN_EGG.get();
             case 9 -> ModItems.PERUNITE_SWORD.get();
+            case 10 -> ModItems.LUNULA.get();
             default -> throw new IllegalArgumentException("Unknown creative category " + category);
         };
     }

@@ -1,0 +1,18 @@
+[
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/tugarin_sword_held.json",
+    "sha256": "265a3117a4f8b3941dc3f57cbc8c4bf74b6351dfa754df2226928df48101da8b"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/tugarin_sword.png",
+    "sha256": "759e68105e266b9426f5b1214ba2c31a3951c177cd3c37bed0cc896011a2ab40"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/TugarinPairClient.java",
+    "sha256": "ebbad31b33ac4f6153dde1cd672c95086b4280a0f9d75ab11a5a12d9629e6bcf"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/combat/TugarinPair.java",
+    "sha256": "7e5afe19cb9b118fcb44c32f75d4c2ccf4b78859d62a42e7eba4fc42eae750e6"
+  }
+]

@@ -1,0 +1,1278 @@
+[
+  {
+    "number": 3,
+    "title": "[Combat] Арбалеты Горыныча: корректный урон всех стрел тройного залпа",
+    "url": "https://github.com/Deserag/slavic-myths/issues/3",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 4,
+    "title": "[Gorynych] Огонь: сохранить пламя 1,5–2 секунды и исправить визуальную обратную связь",
+    "url": "https://github.com/Deserag/slavic-myths/issues/4",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 5,
+    "title": "[Gorynych] Режим Бури: понятная и полезная особая атака",
+    "url": "https://github.com/Deserag/slavic-myths/issues/5",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 6,
+    "title": "[Morozko] Посох: устранить непредвиденное прекращение ледяного потока",
+    "url": "https://github.com/Deserag/slavic-myths/issues/6",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 7,
+    "title": "[Morozko] Ребаланс урона посоха и четырёх его атак",
+    "url": "https://github.com/Deserag/slavic-myths/issues/7",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 8,
+    "title": "[Controls] Ледяное зеркало на M: конфликт с картой и понятные условия активации",
+    "url": "https://github.com/Deserag/slavic-myths/issues/8",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 9,
+    "title": "[Balance] Аудит всего легендарного/наградного оружия по текущему коду",
+    "url": "https://github.com/Deserag/slavic-myths/issues/9",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 10,
+    "title": "[Tracking] Финальный патч наградного оружия: координация, тесты и сборка",
+    "url": "https://github.com/Deserag/slavic-myths/issues/10",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 15,
+    "title": "[Classes 3.0][A] Подключить Class XP в Survival и защитить от фарма",
+    "url": "https://github.com/Deserag/slavic-myths/issues/15",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 16,
+    "title": "[Classes 3.0][B] Второй пассивный слот III уровня и шесть новых пассивок",
+    "url": "https://github.com/Deserag/slavic-myths/issues/16",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 17,
+    "title": "[Classes 3.0][C] Реализовать 12 высших классов IV и 12 уникальных умений",
+    "url": "https://github.com/Deserag/slavic-myths/issues/17",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 18,
+    "title": "[Classes 3.0][D] 12 классовых испытаний на IV и интерфейс прогрессии",
+    "url": "https://github.com/Deserag/slavic-myths/issues/18",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 19,
+    "title": "[Classes 3.0][E] Интеграционная приёмка, баланс и релизные ограничения",
+    "url": "https://github.com/Deserag/slavic-myths/issues/19",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 20,
+    "title": "[Classes 3.0] Трекер внедрения: XP → пассивки → IV → испытания → QA",
+    "url": "https://github.com/Deserag/slavic-myths/issues/20",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 22,
+    "title": "[Micro-patch] Достижения: проверить дерево, условия открытия, локализации и связь с Книгой сказаний",
+    "url": "https://github.com/Deserag/slavic-myths/issues/22",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 26,
+    "title": "[Implementation][Balance] Зафиксировать урон наградного оружия по этапам боссов I–V",
+    "url": "https://github.com/Deserag/slavic-myths/issues/26",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 28,
+    "title": "[Performance][Audit] Профилирование Slavic Myths: FPS, MSPT, worldgen, AI, сеть и Git hygiene",
+    "url": "https://github.com/Deserag/slavic-myths/issues/28",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 29,
+    "title": "[Release 2.0][Visual QA] Аудит всех моделей предметов, исправление дефектов и реальные визуальные тесты",
+    "url": "https://github.com/Deserag/slavic-myths/issues/29",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 30,
+    "title": "[Advancements 2.0] Полный редизайн: 129 узлов → 45–60 важных вех, охват новых боссов и совместимость миров",
+    "url": "https://github.com/Deserag/slavic-myths/issues/30",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 33,
+    "title": "[Performance][P1] GuardianClient.cube: zero-allocation 24-vertex renderer + before/after визуальные тесты",
+    "url": "https://github.com/Deserag/slavic-myths/issues/33",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 34,
+    "title": "[Performance][P1][Investigation] Полоз: установить причину переполнения sound pool и ~9800 частиц без упрощения визуала",
+    "url": "https://github.com/Deserag/slavic-myths/issues/34",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 35,
+    "title": "[Release 2.0][Repository] Готовность к выпуску, cleanup main, ветка mods и публичное скачивание",
+    "url": "https://github.com/Deserag/slavic-myths/issues/35",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 42,
+    "title": "[P0][Quality] Звук, анимации, модели и пиксель-арт: реальные блокеры качества Slavic Myths 2.0",
+    "url": "https://github.com/Deserag/slavic-myths/issues/42",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 43,
+    "title": "[P0][Codex] Восстановить единый main и подготовить безопасную очистку всех локальных worktree (БЕЗ Minecraft)",
+    "url": "https://github.com/Deserag/slavic-myths/issues/43",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 45,
+    "title": "[P1][2.0] Убрать лишнюю wooden_barrel: выдержку перенести в fermentation_vat, сохранить старые миры (main)",
+    "url": "https://github.com/Deserag/slavic-myths/issues/45",
+    "issue_state": "closed",
+    "state_reason": "completed",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "## Цель — не оставлять худший аналог ванильной бочки\n\nВ Minecraft 1.21.1 `minecraft:barrel` имеет 27 слотов. Добавленная `slavicmyths:wooden_barrel` имеет 9 слотов, ограничивает содержимое (`barrel_items`) и как простое хранилище дублирует vanilla без практического смысла. **Решение владельца: убрать эту бочку из нового доступного контента, а полезную выдержку напитков встроить в уже существующую brewing-систему.** Не переименовывать бочку и не создавать варианты разных пород дерева ради формального разнообразия.\n\n**База:** сначала прочитай #43 и статус PR #44, затем свежий `main`, `AGENTS.md` и фактические исходники. На 18.10.2026 `main=fb2994e958911169317523e1066b8a1ca7a155af`, `mod_version=1.9.7.5` — перепроверь перед стартом.\n\n## Граница с параллельной очисткой #43 / PR #44\n\n- **Новые ветки, PR и worktrees НЕ СОЗДАВАТЬ.** После завершения текущей очистки и интеграции PR #44 работать **на актуальном `main`**. При занятом/грязном main или параллельном Codex-писателе: `BLOCKED`, не ст"
+  },
+  {
+    "number": 46,
+    "title": "[P0][2.0][V2] Курганные блоки: вернуть уникальные рисунки и исправить creative — повторная реализация",
+    "url": "https://github.com/Deserag/slavic-myths/issues/46",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 47,
+    "title": "[2.0][Delivery] После исправлений: обновить PolyMC, создать офлайн-витрину изменённых блоков и напитков",
+    "url": "https://github.com/Deserag/slavic-myths/issues/47",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 48,
+    "title": "[HOLD][2.0] Creature & Animation Rework — ждёт выбранных владельцем референсов",
+    "url": "https://github.com/Deserag/slavic-myths/issues/48",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 49,
+    "title": "[P0][2.0][Approved] Русалка: новая модель, характерные анимации, очарование, подводный захват и оригинальные звуки",
+    "url": "https://github.com/Deserag/slavic-myths/issues/49",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 50,
+    "title": "[P0][2.0] Водяной — утверждённая новая модель, анимации даров/захвата, водный рывок и уникальные звуки (main)",
+    "url": "https://github.com/Deserag/slavic-myths/issues/50",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 51,
+    "title": "[P0][2.0] Леший — утверждённая древесная модель, анимации корней/исчезновения/удара и оригинальные звуки (main)",
+    "url": "https://github.com/Deserag/slavic-myths/issues/51",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 52,
+    "title": "[EXECUTION][2.0] Codex: реализовать #49 → #50 → #51 по готовым референсам; затем #47, только main",
+    "url": "https://github.com/Deserag/slavic-myths/issues/52",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 53,
+    "title": "[P0][2.0][Broken Model] Полевик: деформация позы среди посевов; при необходимости проверить Полудницу",
+    "url": "https://github.com/Deserag/slavic-myths/issues/53",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 54,
+    "title": "[P0][2.0][Visual] Серый Волк — убрать комичные пропорции, переделать походку/прыжок/вой и сцены квеста",
+    "url": "https://github.com/Deserag/slavic-myths/issues/54",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 55,
+    "title": "[P0][2.0][Visual] Проклятый Волколак — две естественные стойки, удары/захват и сюжетная сцена ложной смерти",
+    "url": "https://github.com/Deserag/slavic-myths/issues/55",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 56,
+    "title": "[P0][2.0][Animation] Тугарин: вместо T-pose вращения — полноценная кинематографичная сцена с тремя ударами",
+    "url": "https://github.com/Deserag/slavic-myths/issues/56",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 57,
+    "title": "[P1][2.0][Visual] Соловей-разбойник: исправить карикатурную вторую форму, клинки и свистовые атаки",
+    "url": "https://github.com/Deserag/slavic-myths/issues/57",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 58,
+    "title": "[P1][2.0][Grip] Карачун и Морозко: реальный захват косы/посоха, локти и атаки вместо сквозного оружия",
+    "url": "https://github.com/Deserag/slavic-myths/issues/58",
+    "issue_state": "closed",
+    "state_reason": "completed",
+    "labels": [
+      {
+        "name": "owner-accepted",
+        "color": "ededed",
+        "description": null
+      }
+    ],
+    "body_reviewed": true,
+    "body_excerpt": "## OWNER QUALITY GATE — ПРИОРИТЕТ НАД ИСХОДНЫМ ТЕКСТОМ\n\n> **НОВЫЙ ОБЯЗАТЕЛЬНЫЙ OWNER QUALITY GATE (18.10.2026).** Все старые фразы «можно сдать частично / пропустить audio/игровую проверку / коммит = готово» больше недействительны. Codex не закрывает Issue, не добавляет себе `owner-accepted`, не заявляет `DONE` до **полного результата и явной приёмки владельцем**. Статус при любом недостающем пункте: `IN_PROGRESS` или `BLOCKED`, задача открыта. Отчёт по каждому требованию `PASS|FAIL|BLOCKED|NOT_RUN` с реальным файлом/ракурсом/звукозаписью, JAR/hash/install evidence. См. AGENTS.md, #59/#60. **Заглушенные 82 отвергнутых синтетических событий НЕ считаются исправленной озвучкой**.\n>\n> Реальный Minecraft/PolyMC запускает и принимает только владелец. Codex не имитирует игровые скриншоты source-previews. Перед сдачей проверяется actual main + правдивая установка JAR, иначе «не установлено». Прогон build/tests без ручной аудио/визуальной приёмки не закрывает Issue.\n\n### Карачун + Морозко: оба "
+  },
+  {
+    "number": 59,
+    "title": "[P0][REJECTED] Русалка: нет настоящей песни, однотипное мычание, резкая агрессия и неактуальный PolyMC",
+    "url": "https://github.com/Deserag/slavic-myths/issues/59",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 60,
+    "title": "[P0][AUDIO] Однотипные «мычания» и reused roar/sweep у мобов: реальная замена звуков в игре",
+    "url": "https://github.com/Deserag/slavic-myths/issues/60",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 61,
+    "title": "[AUDIO][EPIC] Полная переработка звуков существ: аудит всех мобов, индивидуальные наборы, согласование до внедрения",
+    "url": "https://github.com/Deserag/slavic-myths/issues/61",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 62,
+    "title": "[AUDIO][01/AUDIT] Полная ревизия звуков по EntityType: файлы, вызовы, акустические повторы и очередь согласования",
+    "url": "https://github.com/Deserag/slavic-myths/issues/62",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 63,
+    "title": "[AUDIO][02/ATMOSPHERE] Домовые, лесные, полевые, водные духи: уникальные голоса и звуковые состояния",
+    "url": "https://github.com/Deserag/slavic-myths/issues/63",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 64,
+    "title": "[AUDIO][03/BOSSES] Боссы, мифические хищники и уникальное оружие: разные звуковые подписи фаз и атак",
+    "url": "https://github.com/Deserag/slavic-myths/issues/64",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 65,
+    "title": "[AUDIO][04/WORLD] Фауна, разбойники, стража, курганы и подземные существа: понятные и разные звуки",
+    "url": "https://github.com/Deserag/slavic-myths/issues/65",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 66,
+    "title": "[AUDIO][05/INTEGRATION-QA] Подключение только утверждённых аудиопакетов, проверка JAR и ручная звуковая приёмка",
+    "url": "https://github.com/Deserag/slavic-myths/issues/66",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 67,
+    "title": "[2.0][ANIMATION][EPIC] Живые существа: единый стандарт анимации и 4 пилотных персонажа",
+    "url": "https://github.com/Deserag/slavic-myths/issues/67",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 68,
+    "title": "[2.0][ANIM][01/P0] Тугарин: полноценная боевая хореография человека и Змея, без T-pose",
+    "url": "https://github.com/Deserag/slavic-myths/issues/68",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 69,
+    "title": "[2.0][ANIM][02/P0] Серый Волк: живая походка, опоры лап, броски и реакция на бой",
+    "url": "https://github.com/Deserag/slavic-myths/issues/69",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 70,
+    "title": "[2.0][ANIM][03/P0] Проклятый Волколак: две естественные стойки и сцена ложной смерти",
+    "url": "https://github.com/Deserag/slavic-myths/issues/70",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 71,
+    "title": "[2.0][ANIM][04/P1] Соловей-разбойник: обе формы, клинки, вдох-свист и воздушный бой",
+    "url": "https://github.com/Deserag/slavic-myths/issues/71",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 72,
+    "title": "[2.0][BASELINE] Единый актуальный main, проверенная тестовая сборка и точка старта новых работ",
+    "url": "https://github.com/Deserag/slavic-myths/issues/72",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 73,
+    "title": "[2.0][P0][LOCALIZATION] QA готовых исправлений UTF-8 и точечные оставшиеся ошибки RU/EN",
+    "url": "https://github.com/Deserag/slavic-myths/issues/73",
+    "issue_state": "closed",
+    "state_reason": "not_planned",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# ИНДИВИДУАЛЬНОЕ ТЗ v3 • 20.10.2026\n\n## Актуальная реальность\nВ `main` уже появился коммит `09d1d844...` **«Repair corrupted command messages and RPG glyphs with UTF-8 localization gate (#73)»**. **Не начинать массовую локализацию заново.** Этот Issue сейчас нужен как **точная проверка оставшихся текстовых регрессий**, без изобретения «всё испорчено» по старому списку.\n\n## Технический референс (3 состояния)\n**[Панель #73: до / нормальное сообщение / запрет ошибки](https://github.com/Deserag/slavic-myths/blob/main/docs/design/COMMAND_LOCALE_EYES_BLUEPRINTS.svg)**. Вид игрока: `command success` — краткое сообщение о результате; `command failure` — конкретная причина и следующий шаг; `tooltip` — компактный разборчивый текст. Отрисовать реальные RU/EN строки, не подставлять невыполнимые макеты.\n\n## Обязательное действие\n1. В актуальном `src/main/java` и `assets/slavicmyths/lang` проверить Character UTF-8, двойные `РќР...`, `СЃ`, `�`, JSON escapes и количество placeholders. Обозначить точно"
+  },
+  {
+    "number": 74,
+    "title": "[2.0][P0][COMMANDS] QA единой системы команд: все пути/права/алиасы и справочник, без повторного рефакторинга",
+    "url": "https://github.com/Deserag/slavic-myths/issues/74",
+    "issue_state": "closed",
+    "state_reason": "not_planned",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# ИНДИВИДУАЛЬНОЕ ТЗ v3 • 20.10.2026\n\n## Актуальный код уже изменён\nВ `main` есть коммит `44714da1...` **«Unify Slavic Myths commands with verified reference…»**. `docs/COMMANDS.md` (**150+ KB**) и `docs/COMMAND_MIGRATION.md` (**70+ KB**) уже созданы. **НЕ ПИСАТЬ ИХ С НУЛЯ**, не создавать ещё одну конкурирующую схему root и не переименовывать команды снова «для единообразия».\n\n## Чертёж / сценарии\n**[Дерево команд по правам #74](https://github.com/Deserag/slavic-myths/blob/main/docs/design/COMMAND_LOCALE_EYES_BLUEPRINTS.svg)** — схема проверки, а **истинные пути** должны быть взяты из текущего Brigadier dispatcher и из актуальных существующих справочников.\n\n## Что остаётся проверить\n1. Сопоставить **полный runtime/детерминированный dispatcher tree** (`RegisterCommandsEvent`, root/redirects/aliases) с `docs/COMMANDS.md` и `docs/COMMAND_MIGRATION.md`: нет пропущенных исполняемых листьев, разных действий для одного пути, двойного выполнения; отдельные legacy routes `/smclass`, `/sm`, сторо"
+  },
+  {
+    "number": 75,
+    "title": "[2.0][P0][CLASSES][REJECTED] Дерево навыков на весь canvas + компактные слоты и переназначение клавиш",
+    "url": "https://github.com/Deserag/slavic-myths/issues/75",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 76,
+    "title": "[2.0][P0][VOLKOLAK] Полная переработка проклятого оборотня: две стойки, UV, rig, анимации — строгое ТЗ",
+    "url": "https://github.com/Deserag/slavic-myths/issues/76",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# ОСНОВНОЕ ТЗ • Проклятый оборотень • 20.10.2026\n\n**[ПОЛНЫЙ ТЕХНИЧЕСКИЙ ПАСПОРТ — две стойки, четыре ракурса, pivots/UV, все actions, защита регрессий](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_VOLKOLAK_IMPLEMENTATION.md)**\n\n**НОВЫЕ SOURCE-GROUNDED ЧЕРТЕЖИ ПО 20.10.2026:**\n\n- **[A — исходные 92 части, QUAD / UPRIGHT × 4 вида](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_A_SOURCE_POSE_ATLAS.svg)** — настоящие исходные координаты, не игровой скриншот.\n- **[B — целевая волчья анатомия, четыре ракурса + upright](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_B_TARGET_ANATOMY_VIEWS.svg)** — художественная цель.\n- **[C — скелет, тайминги, UV и переходы](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76_C_RIG_ANIMATION_UV.svg)** — контроль существующего rig.\n- **[Инженерное приложение: исходный генератор и матрица регрессий](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_76"
+  },
+  {
+    "number": 77,
+    "title": "[2.0][P0][SKIM] Полная переработка 3D-модели Ским-зверя по эталону 1.7.3; анимации сохранить",
+    "url": "https://github.com/Deserag/slavic-myths/issues/77",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# ИНДИВИДУАЛЬНОЕ ТЗ v4 • 20.10.2026\n## Цель и граница задачи\nПересобрать **анатомию и отображаемую модель Ским-зверя**, чтобы вместо двух крупных прямоугольных объёмов получился убедительный массивный четырёхногий мифический хищник. **Не изобретать нового персонажа и не менять существующие боевые механики.**\n\n**Решение владельца от 20.10.2026:** существующий четырёхракурсный SVG сохраняется **только как инженерный чертёж анатомии**, а **финальный художественный облик брать с предоставленного владельцем плаката «Ским-зверь — Дизайн / Версия 1.7.3»**. Более поздние произвольные иллюстрации другого хищника, включая худощавого зверя с перьями/несколькими хвостами, **не являются референсами**.\n\n## Критичное уточнение: полная замена игровой модели (скриншот владельца от 20.10.2026)\n**Это НЕ задача «подправить анатомию» при сохранении текущего внешнего вида.** Владелец показал фактический игровой скриншот текущего Ским-зверя 20.10.2026: у персонажа огромный плоский почти чёрный прямоугольный "
+  },
+  {
+    "number": 78,
+    "title": "[2.0][P0][BOGATYRS] 10 минут помощи, 2 восстановления, КД 30 минут, нормальный спавн и QA звуков",
+    "url": "https://github.com/Deserag/slavic-myths/issues/78",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# ИНДИВИДУАЛЬНОЕ ТЗ v4 • 20.10.2026\n\n## УТВЕРЖДЕНО ВЛАДЕЛЬЦЕМ • 20.10.2026 — дополнение к #78\n\n**Это одна задача #78; выполнять только после отдельного поручения.** Никаких попутных работ по другим issue. Все пункты исходного ТЗ ниже сохраняются, если не противоречат утверждённым уточнениям.\n\n### А. Жёсткие ограничения жизненного цикла (утверждены)\n- **Максимум 10 минут активного серверного игрового времени на один призыв каждого богатыря** (ориентир 12 000 тиков при 20 TPS). **Отступление, лечение и восстановление входят в эти же 10 минут**, не продлевают таймер и не начинают новый срок. Не увеличивать до 20 минут.\n- **Не более 2 полноценных восстановлений/возвращений после поражения на один призыв**. Обычное лечение/питьё зелья до поражения не расходует эту квоту. **Третье поражение — окончательный выход из помощи**, без очередного бесконечного цикла `recovering → fresh → recovering`.\n- **Отдельный cooldown 30 минут на КАЖДОГО из четырёх богатырей** после ухода по лимиту, гибели, исч"
+  },
+  {
+    "number": 79,
+    "title": "[2.0][P0][CREATURE_TYPES] Классы всех существ, отношения, иммунитеты и стихийный урон",
+    "url": "https://github.com/Deserag/slavic-myths/issues/79",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# ИНДИВИДУАЛЬНОЕ ТЗ v4 • 20.10.2026 — КЛАССЫ СУЩЕСТВ, УГРОЗЫ И ЭФФЕКТЫ\n**Решение владельца:** согласована архитектура из **8 природных классов + независимые поведение, дополнительные свойства и отношения**. В №79 входит весь мод, не только Чудь. **Серый Волк не должен самопроизвольно атаковать высшее Мор-Лихо**: прежнее требование про эту пару как об обязательной вражде **отменено**. Эту сущность оставить сюжетной, вмешательство не включать без отдельного сценария. Богатырей в рамках №79 не перерабатывать (ведутся в другом чате), но обеспечить совместимость.\n\n## 0. Исходная база и границы\n- Главный исходник инвентаря: [аудит существ 1.9.8.1](https://github.com/Deserag/slavic-myths/blob/main/docs/audit/creatures-1.9.8.1/CREATURES.csv), [отчёт](https://github.com/Deserag/slavic-myths/blob/main/docs/audit/creatures-1.9.8.1/REPORT.md), [реестр деклараций](https://github.com/Deserag/slavic-myths/blob/main/docs/audit/creatures-1.9.8.1/REGISTRY.md), [формы и NBT](https://github.com/Deserag/sl"
+  },
+  {
+    "number": 80,
+    "title": "[2.0][P1][EYES] Найти точно существо без глаз и исправить UV/renderer без изменения внешности других",
+    "url": "https://github.com/Deserag/slavic-myths/issues/80",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 81,
+    "title": "[2.0][P1][ART-MATERIALS] Материалы и руды — 6 пакетов переработки (#96–#101), без трофеев и оружия",
+    "url": "https://github.com/Deserag/slavic-myths/issues/81",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Исполнительный план v4 • 20.10.2026 • решение владельца\n\n**№81 — РОДИТЕЛЬСКАЯ задача по адресной переработке существующих материалов Slavic Myths 2.0.**\n**Статус:** ТЗ подготовлено и разложено на отдельные исполнительные задачи. **Не означает, что хоть одна текстура уже внедрена или принята.** Не выполнять одновременно с работой Codex над #77 и другими незавершёнными задачами над `main`; брать пакет по освобождении основного writer и отдельной исполнительной очереди.\n\n## Подтверждённые исходные материалы и художественное решение\n\n- **Живые игровые изображения:** #95; те же [4 оригинальных скриншота в папке `скриншоты для показа` на `main`](https://github.com/Deserag/slavic-myths/tree/main/%D1%81%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0). Скрин №1 — природные материалы/металлы/часть наконечников; №2 — продолжение наконечников и трофеи; №3 — трофеи **вне scope**; №4 — инструменты **вне scope**.\n- **Фактический перечень "
+  },
+  {
+    "number": 82,
+    "title": "[2.0][P1][ART-PLANTS] Модовые саженцы деревьев/кустов и квадратнее капуста — адресный pixel-art",
+    "url": "https://github.com/Deserag/slavic-myths/issues/82",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# ИНДИВИДУАЛЬНОЕ ТЗ v4 — пересогласовано с владельцем 20.10.2026\n\n> **Фокус изменён.** Вкладка «Растения и земледелие» в целом приемлема. **Не делать реворк всех 48 позиций**, не пересоздавать посадки/стадии. Нужны более чёткие, компактные, чуть более «квадратные» иконки **собственных саженцев мода** и **более квадратный, менее круглый кочан капусты**. Ягодные саженцы уже в целом устроили владельца: минимальный polish только при видимом дефекте. **Ванильные растения/саженцы никогда не изменять в этой задаче.**\n\n## Обязательные вложенные референсы, чертёж и подробная инструкция\n\n![Концепт-чертёж: 10 реальных саженцев + капуста](../blob/main/docs/design/ISSUE_82_SAPLINGS_CABBAGE_V4.svg)\n\n- **[Пиксельный чертёж и референсы 16×16: пять модовых деревьев, пять ягодных саженцев и капуста](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_82_SAPLINGS_CABBAGE_V4.svg)** — конкретные предложения силуэтов с русскими подписями и точными ID. Это **новый концепт**, не реальные PNG и"
+  },
+  {
+    "number": 83,
+    "title": "[2.0][P2][ART-FOOD] Микропатч мяса: мягко различить виды и добавить естественные оттенки",
+    "url": "https://github.com/Deserag/slavic-myths/issues/83",
+    "issue_state": "closed",
+    "state_reason": "completed",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# ИНДИВИДУАЛЬНОЕ ТЗ v4 • 20.10.2026 — по игровым скриншотам и решению владельца\n\n> **Смена масштаба задачи:** исходные 94 предмета вкладки «Еда и напитки» в целом выглядят нормально. **ПОЛНОЙ ПЕРЕРАБОТКИ ЕДЫ НЕ ТРЕБУЕТСЯ.** Главная просьба — небольшой микропатч **похожих друг на друга текстур сырого мяса существ**: естественные различия формы, цвета, жировой кромки и читаемости, ориентир по пиксельной плотности — *ванильное Minecraft-мясо*. Часть видов по природе похожа: не надо любой ценой превращать их в принципиально разные предметы. Уже качественные текстуры не трогать.\n\n## Визуальные референсы, чертёж и обязательная инструкция\n\n![Схематический чертёж вариантов шести модовых мясных PNG](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_83_MEAT_MICROPATCH_BLUEPRINT.svg)\n\n1. **[Новый микрочертёж 16×16: шесть модовых кандидатов, оттенки и силуэты](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_83_MEAT_MICROPATCH_BLUEPRINT.svg)** — *дизайн-направл"
+  },
+  {
+    "number": 84,
+    "title": "[2.0][P0][BEER+INTOX] Один пакет: цельная кружка, 8 цветов сверху, опьянение с 4-й",
+    "url": "https://github.com/Deserag/slavic-myths/issues/84",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 85,
+    "title": "[2.0][P0][11/INTOXICATION] Опьянение: нормальный порог 4 кружки, накопление и восстановление",
+    "url": "https://github.com/Deserag/slavic-myths/issues/85",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 86,
+    "title": "[2.0][P1][RUNE-ART] Восстановить пропавшие иконки и единый рисунок рун без изменения их функций",
+    "url": "https://github.com/Deserag/slavic-myths/issues/86",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# ИНДИВИДУАЛЬНОЕ ТЗ v3 • 20.10.2026\n\n## Игровая проблема\nНа скриншоте Creative «Магия и ритуалы» руны визуально разнородны; часть плохо читается/отображается без иконок. **Проверить факт отсутствия**, не считать все 179 записей всей вкладки рунными.\n\n## Схема и существующие источники\n**[Только панель «Руны» с логикой семейство×ступень](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ITEM_ICON_BLUEPRINTS.svg)**: тот же масштаб основы, контур рамки, одинаковая толщина пиксельного штриха для семейства, **уникальный центральный знак** каждого эффекта и ступени (слить руны в одно клише нельзя). Истинные ID из `rpg/Runes.java`, `rpg/AdvancedRunes.java`, `rpg/RareRunes.java`, `RuneFoundation.java`, реальные `models/item` и `textures/item`.\n\n## Пакет\n1. Выгрузить **фактические только rune IDs** и отслеживаемые model references/`CustomModelData`; проверить какие PNG/model `missing`, у каких путь неверен, а какие просто похожи. Таблица **`ID | family/tier | old PNG | status | new P"
+  },
+  {
+    "number": 87,
+    "title": "[2.0][P0][WEAPONS-OVERHAUL] Оружие: хват, кистени, коса/посохи, модели, уникальный арт и компоненты",
+    "url": "https://github.com/Deserag/slavic-myths/issues/87",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 88,
+    "title": "[2.0][P1][ARMOR-ART] Броня и одежда: 8 связанных этапов #122–#129, 29 носимых ID",
+    "url": "https://github.com/Deserag/slavic-myths/issues/88",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Slavic Myths 2.0 · #88 Броня и одежда · главная исполнительная задача v4 · 20.10.2026\n\n**STATUS: DESIGN_PREPARED / 8 CHILD-TRACKED ISSUES OPEN / IMPLEMENTATION_NOT_STARTED / IN_GAME_OWNER_PENDING.**\n\n**САМОЕ ВАЖНОЕ ДЛЯ CODEX:** нижеследующая **каноническая ведомость обязательных связанных задач** является **полным перечнем работ независимо от номеров issue**. Даже если исполняется #87 и новая подзадача получит №150+, она НЕ может быть пропущена. **Не ограничиваться следующей по номеру Issue.** При каждом handoff/продолжении читать **эту #88 сначала**, затем последовательно открыть и сверить КАЖДУЮ отмеченную ниже дочернюю Issue и её матрицу. Завершение одной части не разрешает объявлять #88 выполненной.\n\n## Текущий scope: 29 носимых предметов из 42 позиций Creative tab `armor`\nКаталог: `src/main/resources/assets/slavicmyths/creative_catalog.tsv`. Ровно **29** предметов входят в дизайн: 7 предметов народной одежды, 2 базовых доспеха, 12 сетовых (Перунит/Горыныч/Полоз), 5 уникальных пр"
+  },
+  {
+    "number": 89,
+    "title": "[2.0][P1][ADVANCEMENTS] Убрать лишние микровехи строго без потери прогресса и наград",
+    "url": "https://github.com/Deserag/slavic-myths/issues/89",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 90,
+    "title": "[2.0][P1][HERO-HUD] HUD: отображать 1–2 спутников и законного 3-го при событии Полоза",
+    "url": "https://github.com/Deserag/slavic-myths/issues/90",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# ИНДИВИДУАЛЬНОЕ ТЗ v3 • 20.10.2026\n\n## Установлено по исходникам\n`skim/HeroCalls.java`: `count(p)>=(polozParty?3:2)` — **обычно максимум 2**, **в событии Полоза максимум 3**. `client/HeroHud.java`: `Math.min(2, heroes.size())` — скрывает законного третьего. СТАРОЕ требование показывать 4 одновременно — **отменено как неверное**: нельзя создавать четвертый слот ради неверного ТЗ.\n\n## Новый точный макет\n**[Индивидуальный технический лист #90: состояния 1/2/3](https://github.com/Deserag/slavic-myths/blob/main/docs/design/ISSUE_90_HERO_HUD_REAL_LIMITS.svg)**: компактная колонка, здоровье/корректное состояние, при 3-х — три строки, не обрезается третий. Показать GUI scales 2/3/4 и пересечения миникарты/чат/хотбар, без huge panels.\n\n## Выполнить\n1. Сохранить нынешнее поведение в нормальном мире с одним и двумя героями. Изменить **только** ограничитель рендера законного третьего, условия `owner UUID`/сортировку/позицию и максимальную высоту HUD на малом GUI.\n2. Не рисовать «пустой 3-й слот» "
+  },
+  {
+    "number": 91,
+    "title": "[2.0][DECOR][P1/P2] Декор: древесина #106 → мелкий/бытовой #107–108; курган V2 #109 QA",
+    "url": "https://github.com/Deserag/slavic-myths/issues/91",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Текущее решение владельца · 21.10.2026\n\nПосле игровой проверки установленной 1.9.7.49 владелец прямо принял древесину и её производные и разрешил закрытие #106/#107. #107 закрыта. #106 была закрыта по его решению, но GitHub Actions переоткрыла её из-за отсутствия owner-accepted от владельца; Codex метку не добавлял. Замечание к регулярной коре сосны перенесено в исполнительную #108.\n\n#108 сейчас исполняется по новому явному поручению: визуальные баги декора, манекен 2 блока, открываемый ящик и адресные материалы. [Актуальное ТЗ #108](https://github.com/Deserag/slavic-myths/issues/108). #109 уже ранее принят владельцем; его принятые PNG сохраняются, отдельно указанная погребальная керамика исправляется в #108. Родитель #91 остаётся OPEN до приёмки #108. Исторические «не начинать» ниже отменены новым прямым поручением в указанном scope.\n\n---\n\n# Slavic Myths 2.0 · #91 Декор — единая очередь #106–#109 (актуализировано 21.10.2026)\n\n**Статус GitHub Project: ОЖИДАНИЕ для согласованного перв"
+  },
+  {
+    "number": 92,
+    "title": "[2.0][P1][ART-TROPHIES] Трофеи: отдельная точечная переработка пиксель-арта",
+    "url": "https://github.com/Deserag/slavic-myths/issues/92",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Slavic Myths 2.0 — исполнительный художественный план трофеев v5 · 20.10.2026\n\n## Решение по художественному стилю — 21.10.2026\n\n**Новое художественное решение владельца, 21.10.2026 (приоритет над устаревшими пунктами о стиле):** ванильный Minecraft pixel-art без эффекта «нарисовано в Paint»; осмысленные кластеры оттенков, читаемые 1× силуэты и детали. Для обычных украшений/мелких трофеев предпочтителен качественный 2D item sprite, 3D только если оправдана самим предметом (например, блок). Прежде чем менять, проверить действующую модель, PNG/UV и визуальное качество. См. [стандарт ванильных 2D-предметов](https://github.com/Deserag/slavic-myths/blob/main/docs/design/TROPHIES_VANILLA_2D_ART_STANDARD.md); ориентиры для #111 — [новый лист 9 предметов A/Б](https://github.com/Deserag/slavic-myths/blob/main/docs/design/TROPHIES_111_APPROVED_REFINEMENT.svg). Общее художественное направление A/Б одобрено, **конкретный вариант для каждого ID и игровая приёмка не назначены**.\n\n**Изменение режим"
+  },
+  {
+    "number": 93,
+    "title": "[2.0][LIKHO][READY] Лихо и Моровое Лихо: исправить AI, навыки, заражение без изменения внешности и HP",
+    "url": "https://github.com/Deserag/slavic-myths/issues/93",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "## Исполнительское ТЗ согласовано владельцем 21.10.2026 — READY FOR CODEX / ОЖИДАНИЕ\n\n**Текущий Project Status: «Ожидание» (отражено в `tools/project-migration/config.json`; непосредственное поле Projects №9 требует синхронизации).** Владелец подтвердил source-аудит и поручил подготовить промпт на переработку навыков. **Кодекс не начинает автоматически без получения промпта/прямого поручения.** Это уточнение имеет приоритет над прежними словами «Анализ» ниже.\n\n### Жёстко замороженные области\n\n**Не менять ни одну модель, текстуру, палитру, геометрию, визуальный дизайн, анимационные keyframe/pose-арты, иконки, звуки, эффекты частиц, registry IDs, размеры/хитбоксы, HP, MaxHealth, Armour/скорость/глобальные боевые коэффициенты, баланс чужих мобов.** Визуал обеих форм Лиха принят владельцем. Допускается исключительно **минимальная техническая коррекция синхронизации существующих анимационных состояний**, если подтверждена причина ложного сброса, без художественного редизайна. Не менять `Wor"
+  },
+  {
+    "number": 95,
+    "title": "Переработка материалов и руд",
+    "url": "https://github.com/Deserag/slavic-myths/issues/95",
+    "issue_state": "closed",
+    "state_reason": "completed",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "<img width=\"2559\" height=\"1440\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/3013f7b7-ee96-4e25-b6e2-6c1b1b2e90b1\" />\n\n<img width=\"2559\" height=\"1440\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/6ee977ac-8b97-4dd0-8b12-de7245913e9a\" />\n\n<img width=\"2559\" height=\"1440\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/52826ba5-7228-4df8-a078-5dd8f6808646\" />\n\n<img width=\"2559\" height=\"1440\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/7596d2d0-802a-4c78-84e0-c24f3ca833d6\" />"
+  },
+  {
+    "number": 96,
+    "title": "[2.0][#81][P1][ART-METALS-1] Серебро, перунит и железная заготовка — 4 иконки",
+    "url": "https://github.com/Deserag/slavic-myths/issues/96",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Подзадача #81 • пакет M1 — основные металлы\n**Цель:** исправить четыре наиболее слабые иконки на первом игровом скриншоте; не менять посторонние материалы.\n## Конкретные ID и утверждённый художественный принцип\n| ID | Что сейчас не так | Требуемый результат |\n|---|---|---|\n| `silver_nugget` | бледное почти бесформенное крошечное пятно | маленький, но читаемый неровный **серебряный самородок**, серебристо-белый, прохладные серые тени, чёткий контур |\n| `silver_ingot` | тонкая плоская полоска, почти не отличается от железа | **благородное серебро**: более светлый бело-серебряный оттенок, особая аккуратная/скошенная геометрия слитка, **тонкие изящные голубовато-белые прожилки** (не толстые железные «трещины»); отличим от очищенного железа по силуэту и контрасту |\n| `perunite` | тёмная невыразительная прямоугольная заготовка | редкий сине-стальной металл, глубокий индиго/синий, бирюзовые/ярко-голубые жилы; отчётливые грани и масса, не просто перекрашенное серебро |\n| `iron_blank` | узкая"
+  },
+  {
+    "number": 97,
+    "title": "[2.0][#81][P1][ART-METALS-2] Очищенные металлы, закалённое железо и янтарный блок",
+    "url": "https://github.com/Deserag/slavic-myths/issues/97",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Подзадача #81 • пакет M2 — обработанные материалы\n**Зависит от:** пакета M1 (#81, серебро/перунит/заготовка) для сопоставления силуэтов и палитры; не выполнять одновременно над общими генераторами.\n## Конкретные ID\n| ID | Исправление |\n|---|---|\n| `hardened_iron` | плотный **закалённый** металл: тяжёлый тёмно-стальной, графитово-сине-серый, прочный силуэт, сдержанные блики; без голубой «очищающей» сети как у очищенного |\n| `purified_iron_ingot` | светлый серо-стальной слиток с **отчётливыми голубыми/циановыми жилами** очищения: более утилитарный, широкий и тяжёлый, чем благородное серебро |\n| `purified_copper_ingot` | тёплая насыщенная медно-оранжевая основа + ясно видимые голубые/бирюзовые прожилки, различим и от ванильной меди, и от очищенного железа |\n| `amber_block` | **именно блок янтаря**: золотисто-медовые и тёмно-янтарные полупрозрачные слои и включения, цельный настоящий материал, а не абстрактный нарисованный жёлтый куб |\n## Технические акценты\n- Для 3 слитков меняются конк"
+  },
+  {
+    "number": 98,
+    "title": "[2.0][#81][P1][ART-NATURAL] Береста, жир, козья шкура и крупная кость",
+    "url": "https://github.com/Deserag/slavic-myths/issues/98",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Подзадача #81 • пакет N — 4 природных материала\n**Только 4 подтверждённых пользователем предмета** со скриншота №1. Не захватывать пищу, броню или трофеи.\n| ID | Требуемая доработка |\n|---|---|\n| `birch_bark` | читаемый кусок **бересты**, узнаваемая светлая поверхность с редкими тёмными полосками коры, заметные загнутые/расслоённые края; не бумажный лист и не лицо |\n| `animal_fat` | объёмный органический кусочек **жира**, тёплый сливочно-бежевый, заметный контур/тень, не почти белое пятно; не выглядит как еда из #83 |\n| `goat_hide` | естественная асимметричная **козья шкура** тёплого серо-коричневого/песочного цвета с ясно отличимым краем; не ровный щит или одинаковый мешок |\n| `large_animal_bone` | крупная кость с чёткой анатомичной формой и суставными концами, светлая кость + тёплые тени; не слиток, палочка или трофей из #92 |\n## Ограничение эстетики\nЭто простые природные ресурсы, не магические. **Не добавлять им синие жилы**, яркую анимацию, glowing highlights и орнаменты ради уни"
+  },
+  {
+    "number": 99,
+    "title": "[2.0][#81][P1][ART-TIPS-1] Каменные, золотые, железные и серебряные наконечники",
+    "url": "https://github.com/Deserag/slavic-myths/issues/99",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Подзадача #81 • пакет T1 — наконечники, серия I\n**Это ТОЛЬКО crafting-компоненты** из раздела ресурсов. Готовые копья, свойства и трансформации оружия относятся к #87 и здесь не меняются.\n## Точные 8 ID\n- Камень: `stone_spearhead`, `stone_light_spearhead`.\n- Золото: `gold_spearhead`, `gold_light_spearhead`.\n- Железо: `iron_spearhead`, `iron_light_spearhead`.\n- Серебро: `silver_spearhead`, `silver_light_spearhead`.\n## Художественное ТЗ\n- Внутри каждого металла **обычный** наконечник шире/массивнее, **лёгкий** длиннее/уже/острее. Пары различимы **по силуэту**, не только цветом и 1 пикселем.\n- Камень — сколотые неровные грани; золото — тёплый блестящий, но не «плоская жёлтая стрелка»; железо — строгий ковкий серый металл; серебро — светлый благородный с отдельной палитрой. Палитра серебра согласуется с материалом из пакета M1, **без обязательного идентичного орнамента**.\n- 4 исходных семейства × 2 фактически зарегистрированных типа. Не изменять силуэты на одинаковый шаблон с hue-shift.\n"
+  },
+  {
+    "number": 100,
+    "title": "[2.0][#81][P1][ART-TIPS-2] Алмазные, перунитовые и незеритовые наконечники",
+    "url": "https://github.com/Deserag/slavic-myths/issues/100",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Подзадача #81 • пакет T2 — наконечники, серия II\n**Зависимость:** после T1 (согласованные пары «обычный/лёгкий») и металла `perunite` из пакета M1. Не делать параллельный массовый генератор.\n## Точные 6 ID\n- Алмаз: `diamond_spearhead`, `diamond_light_spearhead`.\n- Перунит: `perunite_spearhead`, `perunite_light_spearhead`.\n- Незерит: `netherite_spearhead`, `netherite_light_spearhead`.\n## Дизайн\n- Каждый обычный наконечник широкий и тяжёлый, лёгкий — реально тоньше/острее по форме.\n- Алмаз — светлый бирюзово-голубой кристаллический излом, не сплошная плоская заливка.\n- Перунит — глубокий тёмно-синий металлик с локальными ярко-голубыми/циановыми прожилками, согласованными с одноимённым материалом, не новое зачарование.\n- Незерит — тёмно-графитовый плотный металл с неброскими холодными/коричневато-серыми гранями; должен отличаться от перунита **не только яркостью**.\n## Порядок\n- T2-A: diamond/perunite — 4 ID.\n- T2-B: netherite — 2 ID и общее A/B сравнение 14 наконечников T1+T2.\n- Не меня"
+  },
+  {
+    "number": 101,
+    "title": "[2.0][#81][P2][ART-MATERIALS-QA] Оставшиеся ресурсы: адресная диагностика и исправление только доказанных дефектов",
+    "url": "https://github.com/Deserag/slavic-myths/issues/101",
+    "issue_state": "closed",
+    "state_reason": "completed",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Подзадача #81 • пакет Q — только после основных художественных пакетов\n**Это диагностический резерв, НЕ приказ массово перекрашивать материалы.** Владелец разрешил самостоятельно проверить другие ресурсы. Список — кандидаты, а не доказанные дефекты и не обязательство изменить все PNG.\n## Проверить конкретные ID\n- `flax_stalk` — контраст и различимость стебля.\n- `flax_fiber` — волокно vs колос/ветка.\n- `linen_thread` — клубок нити vs ткань.\n- `linen_cloth` — сложенный кусок полотна vs общий прямоугольник.\n- `purification_flux` — светлый мешочек/материал: читаемость контура.\n- `bog_iron_lump` — кусок болотного железа vs другие металлы.\n- В рамках оценки руд проверить **только на конкретный дефект**: `bog_iron_ore`, `silver_ore`, `perunite_ore` и `amber` (если реально есть визуальная ошибка по #95). Обратиться к block textures/models для ore/amber, не искать item PNG там, где предмет наследует block model.\n## Строгий gate\n1. Составить таблицу `ID | actual path | наблюдаемый дефект (скри"
+  },
+  {
+    "number": 102,
+    "title": "[2.0][RUNE-ART][01/SPEC] Единый стиль крафтовых рун I–V и индивидуальные чертежи",
+    "url": "https://github.com/Deserag/slavic-myths/issues/102",
+    "issue_state": "closed",
+    "state_reason": "completed",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "## Опубликованные материалы — 20.10.2026\n\n- ✅ [Постоянный стандарт I–V](https://github.com/Deserag/slavic-myths/blob/main/docs/design/CRAFT_RUNE_ART_STANDARD.md) — теперь это опорный документ для новых рун.\n- ✅ [Каталог 24 крафтовых рун и 4 заготовок](https://github.com/Deserag/slavic-myths/blob/main/docs/design/craft-runes/INDEX.md) с отдельными ссылками на **28 SVG-чертежей** и исходные рецепты.\n- ✅ [Пиксельный эталон развития I→V](https://github.com/Deserag/slavic-myths/blob/main/docs/design/craft-runes/TIER_PROGRESS_I_V.svg): форма/глиф стабильны, растёт качество отделки. V только резерв.\n- ✅ Исключены старые, покупные, редкие, сюжетные и боссовые руны без подтверждённого крафта.\n- ⏳ **OWNER_REVIEW_PENDING**: проверка художественного направления владельцем. **PRODUCTION ART NOT CHANGED** — SVG не заменяют игровые PNG, игровой запуск/приёмка не проводились.\n\n\n# Подзадача 1 к #86 — единые требования к крафтящимся рунам (арт/спецификация)\n**Решение владельца, 20.10.2026:** перейти к к"
+  },
+  {
+    "number": 103,
+    "title": "[2.0][RUNE-ART][02/BOSS] Боссовые и наградные руны: уникальные силуэты, единый пиксельный стиль",
+    "url": "https://github.com/Deserag/slavic-myths/issues/103",
+    "issue_state": "closed",
+    "state_reason": "completed",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Подзадача к #86 — переработка визуального стиля боссовых и наградных рун\n\n**Согласовано владельцем 20.10.2026:** направление концепт-референса «Уникальные руны — боссы и награды» нравится. Боссовые руны **не делать квадратными по образцу крафтовых**: они должны ощущаться трофеями/артефактами, сохраняя общие стандарты качества пиксель-арта.\n\n**Это отдельная задача по визуалу наградных рун, не по VFX на экипировке.** Эффекты на оружии/броне/инструментах будут обсуждаться позже, **не включать в этот issue**.\n\n## А. Точный перечень для художественной переработки\n\nПеред правкой сверить фактический ID, источник награды, текущий PNG и item model на актуальном `main`. Подтверждённые наградные группы:\n\n| Босс/источник | Item ID | Направление рисунка |\n|---|---|---|\n| Идолище Поганое | `rune_stomp` | Тяжёлая сколотая каменная печать: удар, волна по земле, янтарные трещины |\n| Маринка | `rune_dispelling` | Расколотая печать рассеивания, лиловые осколки разрушенной магии |\n| Ским-зверь | `rune_p"
+  },
+  {
+    "number": 104,
+    "title": "[2.0][P0][RUNE-VFX][FIX] #104 — убрать яркие полосы: мягкое руническое сияние как vanilla glint",
+    "url": "https://github.com/Deserag/slavic-myths/issues/104",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][RUNE-VFX][P0] #104 — исправить существующее руническое сияние: мягкий vanilla-like glint вместо ярких лент\n\n**20.10.2026 · АКТУАЛЬНОЕ ОБЯЗАТЕЛЬНОЕ ТЗ v4 ПО РЕАЛЬНОМУ ИГРОВОМУ ФИДБЕКУ ВЛАДЕЛЬЦА.**\n**Статус:** `IMPLEMENTED_IN_1.9.7.42 / OWNER_RUNTIME_REJECTED_VISUAL / REVISION_REQUIRED / OPEN`.\n**Зависимая, ещё не реализованная анимация:** [#105](https://github.com/Deserag/slavic-myths/issues/105) — только ПОСЛЕ исправления и принятия #104.\n\n## 0. Что именно увидел владелец и что считать браком\n\nВ установленной тестовой сборке **1.9.7.42** на реальных скриншотах игрока в 3-м лице, спереди и сзади, видно:\n1. Слишком **яркие, контрастные, широкие и насыщенные зелёно-бирюзовые диагональные полосы**, которые перекрывают текстуру одежды/брони. Предмет перестаёт быть главным.\n2. Одинаковые ленты выглядят **как физическая обмотка/ремни/неоновые повязки поверх игрока**, а не как волшебный отражённый свет.\n3. Направление и повтор полос на отдельных частях тела не дают естественного общего"
+  },
+  {
+    "number": 105,
+    "title": "[2.0][P1][RUNE-VFX][WAVE] #105 — одноразовая волна сверху вниз по броне (после принятия #104)",
+    "url": "https://github.com/Deserag/slavic-myths/issues/105",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][RUNE-VFX][P1] #105 — одноразовая естественная световая волна сверху вниз по рунической броне (+ пилот на мече)\n\n**20.10.2026 · АКТУАЛИЗИРОВАННОЕ ТЗ v3.**\n**Статус:** `PLANNED / NOT_IMPLEMENTED_IN_1.9.7.42 / BLOCKED_BY_#104_OWNER_ACCEPTANCE / OPEN`.\n**Зависимость:** [#104 — переделка постоянного рунического сияния](https://github.com/Deserag/slavic-myths/issues/104).\n\n## 0. ВАЖНО: не путать текущий дефект и эту задачу\n\nВладелец прислал реальные снимки игрока, покрытого **яркими диагональными зелёно-бирюзовыми лентами**, и сообщил, что «волна» выглядит неестественно. **По актуальному main это уже существующий постоянный эффект `rune_glint` от #104. В версии 1.9.7.42 событийная волна #105 не реализована.**\n\nИсправление этих лент — строго #104. **Не выдавать ослабленные полосы или более быструю прокрутку текстуры за реализацию #105.** Эту issue выполнять только ПОСЛЕ того, как пользователь проверит и примет новое мягкое #104 в игре. Даже если оба issue получил один Codex, остановит"
+  },
+  {
+    "number": 106,
+    "title": "[2.0][#91][DECOR-WOOD][P1] Древесина: убрать механические полосы, адресно улучшить 6 семейств",
+    "url": "https://github.com/Deserag/slavic-myths/issues/106",
+    "issue_state": "open",
+    "state_reason": "reopened",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# #91 / #106 · Древесные семейства — исправление механических полос (21.10.2026)\n\n**Статус GitHub Project: ОЖИДАНИЕ / DESIGN SPEC APPROVED / EXECUTION NOT STARTED (решение владельца 21.10.2026).** **P1 (первый этап декора).** Обновление ТЗ согласовано владельцем в обсуждении 21.10: ему понравилось направление визуального референса липы/ивы; принцип распространяется на проблемные породы мода. Это **согласование художественного направления**, но не автоматическая приёмка каждого нового PNG и не команда Codex начинать работу немедленно.\n\n## ОБЯЗАТЕЛЬНЫЙ визуальный референс — читать ДО правок\n![Согласованное направление: 6 семейств, доски / кора / торец](https://github.com/Deserag/slavic-myths/blob/main/docs/design/DECOR_91_WOOD_APPROVED_DIRECTION.svg)\n- **[Открыть полный чертёж #106 — 6 семейств, 16×16 схемы досок/коры/торца](https://github.com/Deserag/slavic-myths/blob/main/docs/design/DECOR_91_WOOD_APPROVED_DIRECTION.svg)**. Это ориентир стиля, фактуры и различимости, **не готовые игров"
+  },
+  {
+    "number": 107,
+    "title": "[2.0][#91][DECOR-SMALL] Мелкие деревянные элементы после #106: только подтверждённые дефекты",
+    "url": "https://github.com/Deserag/slavic-myths/issues/107",
+    "issue_state": "closed",
+    "state_reason": "completed",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# #91 / #107 · Мелкие деревянные элементы: иконки и локальная контрастность\n\n**Статус GitHub Project: АНАЛИЗ / DEPENDS ON #106 / NO IMPLEMENTATION YET.** После #106 обсудить, остались ли фактические дефекты; до этого в очередь Codex не переводить. P1/P2 **только для подтверждённых дефектов**. Выполнять после результата [#106](https://github.com/Deserag/slavic-myths/issues/106) и отдельного поручения владельца.\n\n## Визуальный референс — обязателен\n![Чертёж различимости кнопок, плит, люков, табличек](https://github.com/Deserag/slavic-myths/blob/main/docs/design/DECOR_91_SMALL_WOOD_ITEMS_CONCEPT.svg)\n- [Чертёж #107: кнопка/плита/люк/табличка в 1× слоте](https://github.com/Deserag/slavic-myths/blob/main/docs/design/DECOR_91_SMALL_WOOD_ITEMS_CONCEPT.svg) — сохранить текущую ванильную геометрию, улучшать лишь доказанную нечитаемую кромку/тень/прорези.\n- [Принятое направление по фактуре всех 6 пород #106](https://github.com/Deserag/slavic-myths/blob/main/docs/design/DECOR_91_WOOD_APPROVED_DIR"
+  },
+  {
+    "number": 108,
+    "title": "[2.0][#91][DECOR-HOUSEHOLD] Исправления по игровой проверке: мерцание, манекен 2 блока, ящик и бытовой декор",
+    "url": "https://github.com/Deserag/slavic-myths/issues/108",
+    "issue_state": "closed",
+    "state_reason": "completed",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Активное исполнение по поручению владельца · 21.10.2026\n\nТекущее ТЗ: [полный список замечаний и разрешённых изменений](https://github.com/Deserag/slavic-myths/issues/108#issuecomment-6310420409). Владелец прямо поручил начать после фиксации задачи. Это решение заменяет ниже исторические «не начинать», лимит 1–3 ID и запрет storage/shape для явно названных манекена/ящика. Принятые #106/#107 закрыты по прямому решению владельца, новая правка pine_log входит сюда; #109 ранее принят, его комплект сохраняется за исключением отдельно заявленной погребальной керамики.\n\nИсполнительный scope: аудит 131 недревесной записи decor; исправить подтверждённые пересечения моделей; training_dummy 2 блока, wooden_crate постоянное серверное хранилище, корзины/кадка/бродильный чан/малый бочонок/жернов/очаг/древесная фигура/погребальная керамика — адресные материалы и UV. Рецепты, registry IDs, баланс станков/колокола/хранилищ, другие принятые древесные PNG сохранять. Новое хранилище ящика: стандартные 27"
+  },
+  {
+    "number": 109,
+    "title": "[2.0][#91][DECOR-STONE-QA] Курган V2 и камень: QA без повторной перерисовки",
+    "url": "https://github.com/Deserag/slavic-myths/issues/109",
+    "issue_state": "closed",
+    "state_reason": "completed",
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "## Решение владельца — 21.10.2026\n\n**Статус GitHub Project: ГОТОВО.** Владелец прямо подтвердил, что **Курган V2 давно реализован и считается завершённым**, и распорядился убрать задачу из незавершённой очереди. Производственные ресурсы уже находятся в `main` (commit `068d784a`). Не запускать повторное QA или массовую перерисовку по этой Issue. Отдельные будущие дефекты змеиного/ритуального камня либо конкретных блоков оформлять новыми задачами, только если владелец их обнаружит.\n\nВажно для истории: первоначальный QA-план включал проверки в игре, для которых нет отдельного подтверждающего протокола; решение о завершении основано на явной приёмке владельца, а не на выдуманном PASS всех старых тестов. Более ранние пункты «OWNER_PENDING/OPEN» ниже являются историей и не действуют как запрет на закрытие.\n\n---\n\n# #91 / #109 · Курганный V2, змеиный и ритуальный камень — только QA\n\n**Статус:** SPEC CONFIRMED 21.10.2026 / QA ONLY / OWNER IN-GAME PENDING. P2. **НЕ перерисовывать установленный V"
+  },
+  {
+    "number": 110,
+    "title": "[2.0][#92][P1][TROPHY-T1] Устранить 3 группы идентичных трофеев — 7 ID",
+    "url": "https://github.com/Deserag/slavic-myths/issues/110",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#92][P1][TROPHY-T1] Устранить 3 группы идентичных трофеев — 7 ID\n\n## Актуальная художественная планка — 21.10.2026\n\n**Новое художественное решение владельца, 21.10.2026 (приоритет над устаревшими пунктами о стиле):** ванильный Minecraft pixel-art без эффекта «нарисовано в Paint»; осмысленные кластеры оттенков, читаемые 1× силуэты и детали. Для обычных украшений/мелких трофеев предпочтителен качественный 2D item sprite, 3D только если оправдана самим предметом (например, блок). Прежде чем менять, проверить действующую модель, PNG/UV и визуальное качество. См. [стандарт ванильных 2D-предметов](https://github.com/Deserag/slavic-myths/blob/main/docs/design/TROPHIES_VANILLA_2D_ART_STANDARD.md); ориентиры для #111 — [новый лист 9 предметов A/Б](https://github.com/Deserag/slavic-myths/blob/main/docs/design/TROPHIES_111_APPROVED_REFINEMENT.svg). Общее художественное направление A/Б одобрено, **конкретный вариант для каждого ID и игровая приёмка не назначены**.\n\nДля семи дублирующихся т"
+  },
+  {
+    "number": 111,
+    "title": "[2.0][#92][P1][TROPHY-T2] Убрать мутный псевдообъём у знаков и жетонов — 10 ID",
+    "url": "https://github.com/Deserag/slavic-myths/issues/111",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#92][P1][TROPHY-T2] Убрать мутный псевдообъём у знаков и жетонов — 10 ID\n\n## АКТУАЛЬНОЕ РЕШЕНИЕ — художественное направление одобрено владельцем 21.10.2026\n\n**Статус работы:** `DESIGN_DIRECTION_APPROVED / PARTIAL_IMPLEMENTATION_IN_PROGRESS / OWNER_IN_GAME_PENDING`. Этот блок **заменяет противоречащие ему старые указания** в задаче, не отменяя технические QA-gates и защиту чужих правок.\n\n**Новое художественное решение владельца, 21.10.2026 (приоритет над устаревшими пунктами о стиле):** ванильный Minecraft pixel-art без эффекта «нарисовано в Paint»; осмысленные кластеры оттенков, читаемые 1× силуэты и детали. Для обычных украшений/мелких трофеев предпочтителен качественный 2D item sprite, 3D только если оправдана самим предметом (например, блок). Прежде чем менять, проверить действующую модель, PNG/UV и визуальное качество. См. [стандарт ванильных 2D-предметов](https://github.com/Deserag/slavic-myths/blob/main/docs/design/TROPHIES_VANILLA_2D_ART_STANDARD.md); ориентиры для #111 "
+  },
+  {
+    "number": 112,
+    "title": "[2.0][#92][P1][TROPHY-T3] Ткань, метки и трофеи Соловья: силуэт и 3D — 7 ID",
+    "url": "https://github.com/Deserag/slavic-myths/issues/112",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#92][P1][TROPHY-T3] Ткань, метки и трофеи Соловья: силуэт и 3D — 7 ID\n\n## Обновление визуального стандарта — 21.10.2026\n\n**Новое художественное решение владельца, 21.10.2026 (приоритет над устаревшими пунктами о стиле):** ванильный Minecraft pixel-art без эффекта «нарисовано в Paint»; осмысленные кластеры оттенков, читаемые 1× силуэты и детали. Для обычных украшений/мелких трофеев предпочтителен качественный 2D item sprite, 3D только если оправдана самим предметом (например, блок). Прежде чем менять, проверить действующую модель, PNG/UV и визуальное качество. См. [стандарт ванильных 2D-предметов](https://github.com/Deserag/slavic-myths/blob/main/docs/design/TROPHIES_VANILLA_2D_ART_STANDARD.md); ориентиры для #111 — [новый лист 9 предметов A/Б](https://github.com/Deserag/slavic-myths/blob/main/docs/design/TROPHIES_111_APPROVED_REFINEMENT.svg). Общее художественное направление A/Б одобрено, **конкретный вариант для каждого ID и игровая приёмка не назначены**.\n\nДля `nightingale_lo"
+  },
+  {
+    "number": 113,
+    "title": "[2.0][#92][P1][TROPHY-T4] Мора, Полоз, холод и череп: сюжетные трофеи — 9 ID",
+    "url": "https://github.com/Deserag/slavic-myths/issues/113",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#92][P1][TROPHY-T4] Мора, Полоз, холод и череп: сюжетные трофеи — 9 ID\n\n## Обновление визуального стандарта — 21.10.2026\n\n**Новое художественное решение владельца, 21.10.2026 (приоритет над устаревшими пунктами о стиле):** ванильный Minecraft pixel-art без эффекта «нарисовано в Paint»; осмысленные кластеры оттенков, читаемые 1× силуэты и детали. Для обычных украшений/мелких трофеев предпочтителен качественный 2D item sprite, 3D только если оправдана самим предметом (например, блок). Прежде чем менять, проверить действующую модель, PNG/UV и визуальное качество. См. [стандарт ванильных 2D-предметов](https://github.com/Deserag/slavic-myths/blob/main/docs/design/TROPHIES_VANILLA_2D_ART_STANDARD.md); ориентиры для #111 — [новый лист 9 предметов A/Б](https://github.com/Deserag/slavic-myths/blob/main/docs/design/TROPHIES_111_APPROVED_REFINEMENT.svg). Общее художественное направление A/Б одобрено, **конкретный вариант для каждого ID и игровая приёмка не назначены**.\n\nПредпочтение 2D ка"
+  },
+  {
+    "number": 114,
+    "title": "[2.0][#92][P2][TROPHY-T5] 31 оставшийся трофей: QA-only и сводный 64-ID контроль",
+    "url": "https://github.com/Deserag/slavic-myths/issues/114",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#92][P2][TROPHY-T5] 31 оставшийся трофей: QA-only и сводный 64-ID контроль\n\n## Уточнение QA художественного качества — 21.10.2026\n\n**Новое художественное решение владельца, 21.10.2026 (приоритет над устаревшими пунктами о стиле):** ванильный Minecraft pixel-art без эффекта «нарисовано в Paint»; осмысленные кластеры оттенков, читаемые 1× силуэты и детали. Для обычных украшений/мелких трофеев предпочтителен качественный 2D item sprite, 3D только если оправдана самим предметом (например, блок). Прежде чем менять, проверить действующую модель, PNG/UV и визуальное качество. См. [стандарт ванильных 2D-предметов](https://github.com/Deserag/slavic-myths/blob/main/docs/design/TROPHIES_VANILLA_2D_ART_STANDARD.md); ориентиры для #111 — [новый лист 9 предметов A/Б](https://github.com/Deserag/slavic-myths/blob/main/docs/design/TROPHIES_111_APPROVED_REFINEMENT.svg). Общее художественное направление A/Б одобрено, **конкретный вариант для каждого ID и игровая приёмка не назначены**.\n\n**QA-only"
+  },
+  {
+    "number": 115,
+    "title": "[2.0][#87][P0][GRIP] Оружие должно находиться в ладони игрока, а не лежать на руке",
+    "url": "https://github.com/Deserag/slavic-myths/issues/115",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 116,
+    "title": "[2.0][#87][P0][FLAIL] Кистени: 3D в руке, свисающий груз и анимация удара",
+    "url": "https://github.com/Deserag/slavic-myths/issues/116",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 117,
+    "title": "[2.0][#87][P1][LONG-WEAPONS] Коса, посохи, древковое оружие: стойка без головы и клиппинга",
+    "url": "https://github.com/Deserag/slavic-myths/issues/117",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 118,
+    "title": "[2.0][#87][P1][BOSS-WEAPON-ART] Уникальное и боссовое оружие: отдельный узнаваемый дизайн",
+    "url": "https://github.com/Deserag/slavic-myths/issues/118",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 119,
+    "title": "[2.0][#87][P1][WEAPON-FAMILY-ART] Мечи, кинжалы, топоры, копья, луки и метательное оружие: визуальная переработка",
+    "url": "https://github.com/Deserag/slavic-myths/issues/119",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 120,
+    "title": "[2.0][#87][P1][WEAPON-PARTS] Составляющие оружия: форма рукоятей, цепи, грузов и наконечников",
+    "url": "https://github.com/Deserag/slavic-myths/issues/120",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 121,
+    "title": "[2.0][#87][P1][WEAPON-GENERATOR-QA] Генераторы оружия и регрессии: исправления не должны откатываться",
+    "url": "https://github.com/Deserag/slavic-myths/issues/121",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 122,
+    "title": "[2.0][#88][P1][ARMOR-A1] Народная одежда: зазоры, задняя сторона, устранение наложений — 7 ID",
+    "url": "https://github.com/Deserag/slavic-myths/issues/122",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#88][P1][ARMOR-A1] Народная одежда: зазоры, задняя сторона, устранение наложений — 7 ID\n\n**Parent:** [#88 — броня и одежда](https://github.com/Deserag/slavic-myths/issues/88) · **Фаза:** DESIGN_READY / IMPLEMENTATION_NOT_STARTED / OWNER_IN_GAME_PENDING.\n**Реальные ID (7)**: `linen_headscarf`, `linen_shirt`, `linen_ports`, `bast_shoes`, `sarafan`, `linen_apron`, `folk_vest`.\n\n## Подтверждённый дефект\nВладелец продемонстрировал комплект (платок, рубаха, порты, лапти) спереди и указал, что со спины отдельные вещи схлопываются в единый мешок: нет ясной пустой зоны и есть накладки. Это не дефект одного цвета: потребуется **проверка прозрачных областей, пересечений геометрии и независимого движения деталей**. Скриншот показывает цельный нательный ансамбль; истинную точку z-fighting выявить через Mesh/UV, не называть её установленной без source-based A/B.\n\n## Индивидуальная карта\n| ID / слот | Что должно получиться | Критический тест |\n|---|---|---|\n| `linen_headscarf` HEAD | тонкая п"
+  },
+  {
+    "number": 123,
+    "title": "[2.0][#88][P1][ARMOR-A2] Стёганка и пластинчатая кираса — полный новый крой и пропорции",
+    "url": "https://github.com/Deserag/slavic-myths/issues/123",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#88][P1][ARMOR-A2] Стёганка и пластинчатая кираса — полный новый крой и пропорции\n\n**Parent:** [#88 — броня и одежда](https://github.com/Deserag/slavic-myths/issues/88) · **Фаза:** DESIGN_READY / IMPLEMENTATION_NOT_STARTED / OWNER_IN_GAME_PENDING.\n**Реальные ID (2)**: `gambeson`, `plate_cuirass`.\n\n## Приоритетный визуальный брак, прямо показанный владельцем\nОба на персонаже сейчас похожи на надутую квадратную куртку с горизонтальными полосами; неудачные пропорции, нет внятной логики доспеха. **Требуется заменить форму, не только цвет или швы.** Иконка может остаться похожей по смыслу, но worn-вид не должен воспроизводить старую «коробку».\n\n## Чертёж каждой детали\n**`gambeson` (CHEST, мягкая стёганая броня)**: силуэт относительно плеч узкий у талии; разделённые рукава, мягкий ворот с разрезом, пояс на уровне талии, вертикальная/диагональная стёжка маленькими отдельными стежками. Материал: светлый лён, песочный и тёмно-бежевый; небольшие кожаные крепления. Вид сбоку должен показа"
+  },
+  {
+    "number": 124,
+    "title": "[2.0][#88][P1][ARMOR-A3] Уникальная броня: убрать «тюремную робу», развести роли — 5 ID",
+    "url": "https://github.com/Deserag/slavic-myths/issues/124",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#88][P1][ARMOR-A3] Уникальная броня: убрать «тюремную робу», развести роли — 5 ID\n\n**Parent:** [#88 — броня и одежда](https://github.com/Deserag/slavic-myths/issues/88) · **Фаза:** DESIGN_READY / IMPLEMENTATION_NOT_STARTED / OWNER_IN_GAME_PENDING.\n**Реальные ID (5)**: `bogatyr_chestplate`, `clear_sight_helmet`, `indomitability_leggings`, `wind_boots`, `seven_league_boots`.\n\n## Реальная проблема\nНа скриншоте богатырский нагрудник воспринимается как тюремная полосатая роба: одинаковые горизонтальные полосы идут по торсу и рукавам. Предмет выглядит как ткань, а не защитный богатырский доспех. Остальные четыре вещи оставить в своей теме: улучшать только проверенные слабые детали.\n\n| ID | Геометрия/материалы нового решения | Не делать |\n|---|---|---|\n| `bogatyr_chestplate` | платная **ламеллярная броня на кожаной основе**: несколько укрупнённых нагрудных щитков, плечевые накладки, красная тканевая подкладка, солнечная застёжка посередине | сплошные 6 горизонтальных линий через всю г"
+  },
+  {
+    "number": 125,
+    "title": "[2.0][#88][P2][ARMOR-A4] Перунит: точечная деталировка уже хорошего комплекта — 4 ID",
+    "url": "https://github.com/Deserag/slavic-myths/issues/125",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#88][P2][ARMOR-A4] Перунит: точечная деталировка уже хорошего комплекта — 4 ID\n\n**Parent:** [#88 — броня и одежда](https://github.com/Deserag/slavic-myths/issues/88) · **Фаза:** DESIGN_READY / IMPLEMENTATION_NOT_STARTED / OWNER_IN_GAME_PENDING.\n**Реальные ID (4)**: `perunite_helmet`, `perunite_chestplate`, `perunite_leggings`, `perunite_boots`.\n\n## Решение владельца\n**Комплект в целом выглядит нормально; крупный редизайн НЕ нужен.** В текущих игровых скриншотах выдержана холодно-синяя палитра, единая молния и раздельные элементы. Ошибки исправлять адресно, не разрушая удачное впечатление.\n\n| ID | ONLY polish |\n|---|---|\n| `perunite_helmet` | подчистить верхнюю кромку, симметрию боковин и небольшой золотой гребень; открытое лицо |\n| `perunite_chestplate` | ровно читаемая одиночная центральная молния, не потерять плечевые щитки; дозировать горизонтальные полосы |\n| `perunite_leggings` | боковые щитки, границы наколенников, стыки ног и обуви; 1× различимость |\n| `perunite_boots` |"
+  },
+  {
+    "number": 126,
+    "title": "[2.0][#88][P2][ARMOR-A5] Горыныч: довести сильный драконий комплект — 4 ID",
+    "url": "https://github.com/Deserag/slavic-myths/issues/126",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#88][P2][ARMOR-A5] Горыныч: довести сильный драконий комплект — 4 ID\n\n**Parent:** [#88 — броня и одежда](https://github.com/Deserag/slavic-myths/issues/88) · **Фаза:** DESIGN_READY / IMPLEMENTATION_NOT_STARTED / OWNER_IN_GAME_PENDING.\n**Реальные ID (4)**: `dragon_helmet`, `dragon_chestplate`, `dragon_leggings`, `dragon_boots`.\n\n## Решение владельца: уже солидно — не переделывать с нуля\nИгровые скриншоты подтверждают удачный тяжёлый силуэт, рога и крупные наплечники. Ранее предположенное полное переосмысление отменяется: **улучшаем существующее**. Приоритет фактической хорошей игровой версии над устаревшей яркой концепцией.\n\n| ID | Адресная цель |\n|---|---|\n| `dragon_helmet` | оставить рога и лицевой проём; очистить кромки, повысить контраст резных/костяных деталей |\n| `dragon_chestplate` | укрепить иерархию: центр огненного ромба, тяжёлый нагрудник, отдельные шипованные плечи; убрать случайные серые пятна |\n| `dragon_leggings` | привести коленные и бедренные пластины к единому "
+  },
+  {
+    "number": 127,
+    "title": "[2.0][#88][P2][ARMOR-A6] Полоз: щитки-чешуя, сердце и рога — 4 ID",
+    "url": "https://github.com/Deserag/slavic-myths/issues/127",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#88][P2][ARMOR-A6] Полоз: щитки-чешуя, сердце и рога — 4 ID\n\n**Parent:** [#88 — броня и одежда](https://github.com/Deserag/slavic-myths/issues/88) · **Фаза:** DESIGN_READY / IMPLEMENTATION_NOT_STARTED / OWNER_IN_GAME_PENDING.\n**Реальные ID (4)**: `poloz_helmet`, `poloz_chestplate`, `poloz_leggings`, `poloz_boots`.\n\n## Решение владельца: узнаваем и хорош; шлифуем, НЕ ломаем основу\nНа игровом кадре выдержан самостоятельный чёрно-золотой образ Полоза. Коррекция: читаемые отдельные накладные чешуи и неровности, собранный грудной знак и лёгкая дифференциация от перунитовой геометрии, **без масштабного пересоздания уже удачного комплекта**.\n\n| ID | Что улучшить | Что сохранить |\n|---|---|---|\n| `poloz_helmet` | основание двух рогов, лобный чешуйчатый кант | открытое лицо, размеры рогов и узнаваемость |\n| `poloz_chestplate` | локальные чешуйки перекрывают друг друга, центральная сердцевина имеет ясную форму | широкие плечи, характерная золотисто-костяная чешуя |\n| `poloz_leggings` | л"
+  },
+  {
+    "number": 128,
+    "title": "[2.0][#88][P2][ARMOR-A7] Носимые трофейные награды: три особых силуэта",
+    "url": "https://github.com/Deserag/slavic-myths/issues/128",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#88][P2][ARMOR-A7] Носимые трофейные награды: три особых силуэта\n\n**Parent:** [#88 — броня и одежда](https://github.com/Deserag/slavic-myths/issues/88) · **Фаза:** DESIGN_READY / IMPLEMENTATION_NOT_STARTED / OWNER_IN_GAME_PENDING.\n**Реальные ID (3)**: `trophy_idol_chest`, `trophy_marinka_cloak`, `trophy_kartaus_mantle`.\n\n## Три отдельные физические конструкции, не одна «броня» под разной палитрой\nЭти три предмета есть в `armor/unique` каталоге и слотах носимой брони — **входят в #88**, хотя #92 занимается трофеями-ресурсами. Не менять их игровые эффекты.\n\n| ID | Требуемая конструкция / материал | Главный вид |\n|---|---|---|\n| `trophy_idol_chest` | бронзовая основа, отдельные крупные костяные плечи и рёберные элементы с реальными промежутками; архитектура с несущей грудной частью | фронт и боку: НЕ сплошной костяной ящик |\n| `trophy_marinka_cloak` | приталенный фиолетово-сиреневый колдовской плащ, небольшой зеркальный замок, два выраженных раздельных нижних хвоста | **спина**: о"
+  },
+  {
+    "number": 129,
+    "title": "[2.0][#88][P1][ARMOR-QA] Глобальный acceptance-gate: 29 носимых вещей, 13 аксессуаров неизменны",
+    "url": "https://github.com/Deserag/slavic-myths/issues/129",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# [2.0][#88][P1][ARMOR-QA] Глобальный acceptance-gate: 29 носимых вещей, 13 аксессуаров неизменны\n\n**Parent:** [#88 — броня и одежда](https://github.com/Deserag/slavic-myths/issues/88) · **Фаза:** DESIGN_READY / IMPLEMENTATION_NOT_STARTED / OWNER_IN_GAME_PENDING.\n**Реальные ID (0)**: полный аудит 29 ID в разделе ниже.\n\n## Только завершающий этап — НЕ стартовать до результатов A1–A7\nНезависимый финальный визуальный и ресурсный аудит после всех **семи** обязательных художественных пакетов. Эта Issue является последней и сама без закрытых (или доказательно owner-accepted) предыдущих задач не считается завершённой. Нельзя пропускать очередную Issue потому, что её номер оказался больше номера #87/#88.\n\n**Ожидаемые 29 ID (не включая 13 аксессуаров):**\n- 7 народных вещей: `linen_headscarf`, `linen_shirt`, `linen_ports`, `bast_shoes`, `sarafan`, `linen_apron`, `folk_vest`\n- 2 базовых доспеха: `gambeson`, `plate_cuirass`\n- 4 перунит: `perunite_helmet`, `perunite_chestplate`, `perunite_leggings`"
+  },
+  {
+    "number": 130,
+    "title": "[2.0][BUG][DEFERRED][SHIELD] Щит дружинника: сломанный рендер горизонтальными полосами",
+    "url": "https://github.com/Deserag/slavic-myths/issues/130",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 131,
+    "title": "[2.0][АД][ЭПИК][КОНЦЕПЦИЯ] Адское измерение — полная программа обновления",
+    "url": "https://github.com/Deserag/slavic-myths/issues/131",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 132,
+    "title": "[2.0.1-01][АД][ГЕНЕРАЦИЯ][КОНЦЕПЦИЯ] Высота Незера — прототип 224 блока, своды и бедрок",
+    "url": "https://github.com/Deserag/slavic-myths/issues/132",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 133,
+    "title": "[2.0.1-02][АД][ГЕНЕРАЦИЯ][КОНЦЕПЦИЯ] Рельеф — просторные пещеры, долины и естественные площадки",
+    "url": "https://github.com/Deserag/slavic-myths/issues/133",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 134,
+    "title": "[2.0.1-04][АД][ГЕНЕРАЦИЯ][КОНЦЕПЦИЯ] Ванильные структуры — совместимость адских крепостей и бастионов",
+    "url": "https://github.com/Deserag/slavic-myths/issues/134",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 135,
+    "title": "[2.0.x-01][АД][БИОМЫ] Разработка новых биомов Незера",
+    "url": "https://github.com/Deserag/slavic-myths/issues/135",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 136,
+    "title": "[2.0.x-02][АД][ПОСТРОЙКИ] Новые крепости, руины и места исследования",
+    "url": "https://github.com/Deserag/slavic-myths/issues/136",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 137,
+    "title": "[2.0.x-03][АД][МОБЫ] Новые обычные мобы — больше видов и более высокая опасность",
+    "url": "https://github.com/Deserag/slavic-myths/issues/137",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 138,
+    "title": "[2.0.x-05][АД][ПРОГРЕССИЯ] Новые возможности исследования и намёки на Навь",
+    "url": "https://github.com/Deserag/slavic-myths/issues/138",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 139,
+    "title": "[HOLD][FUTURE][WORLDGEN] Концепция измерений: Навь, мир богов и роль Энда",
+    "url": "https://github.com/Deserag/slavic-myths/issues/139",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 140,
+    "title": "[2.0][TROPHY-HEADS] Шесть голов боссов: гарантированный дроп и установка по реальным моделям",
+    "url": "https://github.com/Deserag/slavic-myths/issues/140",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "Добавить6 гарантированных трофейных голов по утверждённому владельцем ТЗ из обсуждения «Идея трофейных голов» (21.10), отдельно от #92 ресурсы. В работу по прямому поручению в этом чате.\n\nСписок: Тугарин в змеиной форме; Ским-зверь; Проклятый волколак; Лихо Одноглазое; Моровое Лихо; Крупный Подземник. Полоз уже есть — сохранить; Горыныч и Серый Волк исключены. 1 голова за настоящее убийство соответствующей формы,100%,без RNG/Looting. Не выдавать за человеческую фазу Тугарина/ложную смерть волколака/удаление сущности.\n\nПредметы Creative,RU/EN, узнаваемый inventory render и устанавливаемые модели. Головы адаптировать из фактических ModelPart/UV/Texture, не выдумывать внешность. Тугарин и волколак1 блок; Ским,оба Лиха,Крупный Подземник2 блока (можно технически скорректировать масштаб без потери узнаваемости). Корректные halves/orientation/placement/break/loot,no dupes,старые сейвы/ID сохранять. Механика: существующая голова Полоза как пример.\n\nРеференсы: docs/verification/boss-rework-2026"
+  },
+  {
+    "number": 141,
+    "title": "[2.0][COMMANDS] Единый путь генерации: /slavicmyths dev generate <строение> [размер]",
+    "url": "https://github.com/Deserag/slavic-myths/issues/141",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "Прямое новое поручение владельца21.10: единый синтаксис генерации всех существующих строений. Существующий #74 — QA прежней общей системы,это адресное расширение по новому решению,без повторного переписывания37 registrars.\n\nКаноническая форма /slavicmyths dev generate <structure> [size/variant] [native args]. Сначала общее начало,затем строение,затем размер если существует; не изобретать размеры. Сохранить существующие пути как guarded compatibility aliases, исходные executor/world/pos/seed,OP2 иconfig gates, native generation safety. Не переписывать worldgen/loot/баланс. Аудит всех регистраторов и старого дерева; точная old→new матрица. Игрок/консоль/commandblock help,suggestions,invalid args,permissions; one handler/one action без redirect-циклов. Использовать существующий CommandTree.canonical,docs/COMMANDS.md,COMMAND_MIGRATION.md и tools command offline fixtures; обновить существующий справочник,не конкурирующие roots. Предоставить краткий список новых команд для owner test,включая"
+  },
+  {
+    "number": 142,
+    "title": "[2.0][PROJECT-AUDIT][P1] Полная ревизия Issues, Project №9, выполненных и забытых задач — после Лиха",
+    "url": "https://github.com/Deserag/slavic-myths/issues/142",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Slavic Myths 2.0 — полная ревизия GitHub Issues и Project №9\n\n**Желаемый статус Project: ОЖИДАНИЕ.** ТЗ согласовано владельцем 21.10.2026. **Исполнение только после отдельного завершения работы по [#93 Лихо](https://github.com/Deserag/slavic-myths/issues/93) и прямого поручения владельца Codex.** Не начинать параллельно с Лихом и не переключать текущие художественные пакеты. **P1, служебная задача на наведение порядка, без изменения игрового функционала.**\n\n## Проблема\n\nНа доске [Slavic Myths Project №9](https://github.com/users/Deserag/projects/9/views/1) мало карточек «Готово», хотя часть работ принята владельцем. Множество Issue «open/closed» не отражает реальную готовность: есть закрытые не реализованные идеи, принятые работы, переоткрытые проверками GitHub Actions, родительские Issue с частично исполненными дочерними, закрытые как `not_planned` и работы только с офлайн-отчётами. Необходимо восстановить **проверяемое** состояние, а не массово объявить всё готовым.\n\n## Объём — все"
+  },
+  {
+    "number": 143,
+    "title": "[ПЛАН][2.0–3.0] Сначала проектируем версию целиком, затем реализуем патчи",
+    "url": "https://github.com/Deserag/slavic-myths/issues/143",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 144,
+    "title": "[2.0.1-03][АД][ГЕНЕРАЦИЯ][КОНЦЕПЦИЯ] Лавовые моря — простор над лавой при сохранении её уровня",
+    "url": "https://github.com/Deserag/slavic-myths/issues/144",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 145,
+    "title": "[2.0.x-04][АД][ЭФФЕКТ] Угасание души — переработка адской ауры и защита оберегом",
+    "url": "https://github.com/Deserag/slavic-myths/issues/145",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 146,
+    "title": "[2.0][АД][ИСТОРИЯ КОНЦЕПЦИИ] Ранняя карта 2.0.0 — заменена выпуском 2.0.1 (#147)",
+    "url": "https://github.com/Deserag/slavic-myths/issues/146",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 147,
+    "title": "[2.0.1][АД][WORLDGEN][EPIC] Переработка генерации Незера — первая версия",
+    "url": "https://github.com/Deserag/slavic-myths/issues/147",
+    "issue_state": "NOT_FETCHED",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": false,
+    "body_excerpt": null
+  },
+  {
+    "number": 148,
+    "title": "[PRE-2.0][P1][ACCESSORIES][AUDIT] Украшения: прогрессия, эффекты, 2D-дизайн и отображение на игроке",
+    "url": "https://github.com/Deserag/slavic-myths/issues/148",
+    "issue_state": "open",
+    "state_reason": null,
+    "labels": null,
+    "body_reviewed": true,
+    "body_excerpt": "# Украшения Slavic Myths — аудит до переработки\n\n**Режим:** ANALYSIS_ONLY / SOURCE_REVIEW_IN_PROGRESS / SCREENSHOTS_PENDING / IMPLEMENTATION_NOT_AUTHORIZED.\n**Рекомендуемый GitHub Project №9 Status:** **Анализ** (изменение поля отдельно проверить, не подменять его labels).\n**Актуальная проверенная основа:** `main`, `creative_catalog.tsv`, `docs/ROADMAP.md` (тестовая линия 1.9.7.49 от 21.10.2026). Не путать с отдельной программой Ада 2.0.1 и серией задач начиная с №200 — их не затрагивать.\n\n## Цель\nОпределить, какие украшения уже существуют и действительно работают, когда игрок получает каждое, насколько полезен бонус именно на этом этапе прохождения, чего не хватает по игровым ролям, как предмет выглядит в инвентаре и что фактически отображается на персонаже. **Сейчас только анализ, не реализация.** После скриншотов владельца подготовить адресный перечень KEEP / REDESIGN / REBALANCE / INVESTIGATE с доказательствами. Не придумывать новый предмет до оценки существующих.\n\n## Установленные"
+  }
+]

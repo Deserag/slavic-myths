@@ -1,0 +1,22 @@
+{
+  "status": "PASS_READ_ONLY_AUDIT",
+  "applied_status_changes": 0,
+  "issue_state_changes": 0,
+  "label_changes": 0,
+  "production_files_changed": [],
+  "source_manifest_files_matching": 9509,
+  "new_builds": 0,
+  "game_launches": 0,
+  "polymc_changes": 0,
+  "artifact_sha256": {
+    "issue-metadata.json": "592aef4b960bc9b72736ce952040e8eaefa2fc44ac6736b18df7889182cdb06e",
+    "project-snapshot.json": "88c21537afeb8cd7d4228da3b736465d2aeeb4b4cbb84be01dfe8dbc990df2b7",
+    "remote-main-comparison.json": "6a9dd5001891b5868122c1c14692ae8700e9fc426f691c11fd24876b34d49689",
+    "REPORT.md": "8ac61924d4056096506ddadfe732ce63d7fc1bc733bc5d29bf2fdf04263e13a7",
+    "reviewed-comments.json": "79d73a974d570bce04e152637313256f04525c925b2fe6c5ae94789f673423eb",
+    "rune-path-check.json": "ea3b7c4a378ddecdc3a5a26c6d8cfa796aa658a64fabbf09707d43166893b594",
+    "source-checks.json": "ed6593a5ee85587faa738dc3da9c2284cad1790c4383d2f27534fcc83bee8025",
+    "transfer-plan.json": "86e445b4c29d884a3a6a71a0da4d53719865797807a8005e614065d7087901d6",
+    "TRANSFERS.csv": "2d9484a034d6c5f9bc9ff775f8ea863a42f8b31779de4a09ea93572eb8a33e9c"
+  }
+}

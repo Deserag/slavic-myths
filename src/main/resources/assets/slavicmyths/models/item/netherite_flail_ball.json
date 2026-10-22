@@ -1,6 +1,11 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "slavicmyths:item/netherite_flail_ball"
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/netherite_flail_ball_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/netherite_flail_ball_icon"
+    }
   }
 }

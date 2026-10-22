@@ -58,6 +58,31 @@ public final class CommandTree {
             .replace("slavicmyths dev abandoned inspect","slavicmyths dev abandoned info")
             .replace("slavicmyths dev abandoned debug","slavicmyths dev abandoned validate");
         if(p.startsWith("slavicmyths dev growtree ")&&p.endsWith(" random"))p=p.substring(0,p.length()-7);
+        return generationPath(p);
+    }
+
+    private static final Map<String,String> GENERATION=Map.ofEntries(
+        Map.entry("bayun generate","bayun"),Map.entry("yaga generate","yaga"),
+        Map.entry("city generate","city"),Map.entry("abandoned generate","abandoned"),
+        Map.entry("depths generate","depths"),Map.entry("kurgan generate","kurgan"),
+        Map.entry("generate_fire_sanctuary","fire_sanctuary"),Map.entry("generate_pure_spring","pure_spring"),
+        Map.entry("generate_serpent_hill","serpent_hill"),Map.entry("witch_yard place","witch_yard"),
+        Map.entry("skim_valley place","skim_valley"),Map.entry("place barracks","barracks"),
+        Map.entry("place village","village"),
+        Map.entry("test village_showcase","village_showcase"),Map.entry("test gorodishche_showcase","gorodishche_showcase"),
+        Map.entry("encounter courtyard","courtyard"),Map.entry("bogatyr courtyard","courtyard_debug"));
+    private static String generationPath(String p) {
+        String root="slavicmyths dev ";if(!p.startsWith(root))return p;
+        String rest=p.substring(root.length());
+        for(var e:GENERATION.entrySet())if(rest.equals(e.getKey())||rest.startsWith(e.getKey()+" "))
+            return root+"generate "+e.getValue()+rest.substring(e.getKey().length());
+        return p;
+    }
+    private static String generationOrigin(String p) {
+        String root="slavicmyths dev generate ";if(!p.startsWith(root))return p;
+        String rest=p.substring(root.length());
+        for(var e:GENERATION.entrySet())if(rest.equals(e.getValue())||rest.startsWith(e.getValue()+" "))
+            return "slavicmyths dev "+e.getKey()+rest.substring(e.getValue().length());
         return p;
     }
 
@@ -71,6 +96,7 @@ public final class CommandTree {
 
     /** Context gates only reject sources that the original handlers could not serve. */
     public static boolean playerOnly(String p) {
+        p=generationOrigin(p);
         return p.startsWith("slavicmyths hero")||p.startsWith("slavicmyths wolf ")
             ||p.startsWith("slavicmyths kalin")||p.startsWith("slavicmyths kartaus")
             ||p.equals("slavicmyths navigation")

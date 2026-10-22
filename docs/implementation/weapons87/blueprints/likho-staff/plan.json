@@ -1,0 +1,36 @@
+{
+  "issue": 178,
+  "id": "likho_staff",
+  "state": "BEFORE_PRODUCTION",
+  "decision": "KEEP_SHAPE_UV_PNG_HANDS_FIX_GUI_CROP_EYE",
+  "grip": [
+    8,
+    11,
+    8
+  ],
+  "bounds": [
+    5,
+    29,
+    3.5
+  ],
+  "gui": {
+    "rotation": [
+      0,
+      180,
+      30
+    ],
+    "translation": [
+      -0.65849365,
+      -1.64054446,
+      -0.0
+    ],
+    "scale": [
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "geometry_changes": 0,
+  "png_changes": 0,
+  "source_palette": "weapon_scythe_surface.png shared, unchanged"
+}

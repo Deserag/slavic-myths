@@ -99,6 +99,11 @@ public final class CommandCatalogOffline {
   check(d.execute("slavicmyths help dev city",source(2,true))>0,"Actual admin category help");
   check(d.execute("slavicmyths help dev city",source(0,true))==0,"Inaccessible help category denied");
   // No gameplay execution. All callback replacements are confined to this disposable tree.
+  var structureNames=d.getCompletionSuggestions(d.parse("slavicmyths dev generate ",src)).join().getList().stream().map(x->x.getText()).toList();
+  check(structureNames.containsAll(List.of("kurgan","bandit_camp","fire_sanctuary","pure_spring","serpent_hill","city","abandoned","yaga","bayun","skim_valley","witch_yard","village","barracks","depths","courtyard")),"Unified generation structure completion");
+  check(!structureNames.contains("swamp"),"Biome teleport is not mislabeled as generation");
+  check(d.getCompletionSuggestions(d.parse("slavicmyths dev generate bandit_camp ",src)).join().getList().stream().map(x->x.getText()).toList().containsAll(List.of("small","fortified","large")),"Real camp size completion");
+  check(d.parse("slavicmyths dev generate bandit_camp gigantic",src).getReader().canRead(),"Invented camp size rejected");
   var hits=new AtomicInteger();var spies=new IdentityHashMap<Command<CommandSourceStack>,Command<CommandSourceStack>>();
   var commandField=CommandNode.class.getDeclaredField("command");commandField.setAccessible(true);
   for(var node:tree.nodes().values())if(node.getCommand()!=null)commandField.set(node,spies.computeIfAbsent(node.getCommand(),key->c->{hits.incrementAndGet();return 1;}));
@@ -109,6 +114,9 @@ public final class CommandCatalogOffline {
    int before=hits.get();check(d.execute(call,src)==1&&hits.get()==before+1,"One parsed action: "+call);
   }
   var originalNodes=new HashMap<String,CommandNode<CommandSourceStack>>();for(var old:originals)originalNodes.put(old.path(),old.node());
+  for(String call:List.of("slavicmyths dev generate kurgan warrior 42","slavicmyths dev generate bandit_camp fortified 42","slavicmyths dev generate fire_sanctuary ~ ~ ~","slavicmyths dev generate serpent_hill ~ ~ ~","slavicmyths dev generate abandoned great","slavicmyths dev generate city attached","slavicmyths dev generate yaga","slavicmyths dev generate skim_valley","slavicmyths dev generate witch_yard","slavicmyths dev generate courtyard")){
+   int before=hits.get();check(d.execute(call,src)==1&&hits.get()==before+1,"New generation syntax executes one callback: "+call);
+  }
   for(var old:originals)if(old.node().getCommand()!=null) {
    var call=new StringBuilder();String prefix="";
    for(String part:old.path().split(" ")) {

@@ -1,0 +1,396 @@
+[
+  {
+    "id": "iron_blank",
+    "decision": "KEEP",
+    "reason": "Forged tapered metal blank; short broad body distinct from the wooden rods and socket tips.",
+    "scope": "OWNED_WEAPON_COMPONENT",
+    "source": "src/main/resources/assets/slavicmyths/models/item/iron_blank.json",
+    "model_sha256": "68ccd9286b1ad529d0a8b23f1357baa3f65e976bebbc0354aab221c5fd2d6a86",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_iron_throwing_knife_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_iron_blank.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "spear_shaft",
+    "decision": "KEEP",
+    "reason": "Long thin wooden shaft, visibly longer than short_shaft.",
+    "scope": "OWNED_WEAPON_COMPONENT",
+    "source": "src/main/resources/assets/slavicmyths/models/item/spear_shaft.json",
+    "model_sha256": "f18bd23ee3e81b202720737524bc56b578075dadbd619c73f30d008b4be9eadd",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/rare_likho_staff.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_diamond_spear_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_gold_spear_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_iron_spear_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_netherite_spear_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_spear_shaft.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_perunite_spear_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_silver_spear_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_spear_assembly.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "short_shaft",
+    "decision": "KEEP",
+    "reason": "Short wooden handle; same stock family as spear_shaft, shorter purpose-specific length.",
+    "scope": "OWNED_WEAPON_COMPONENT",
+    "source": "src/main/resources/assets/slavicmyths/models/item/short_shaft.json",
+    "model_sha256": "48ac4989f9309348eb9dfcdca0fe7eec7c50c02c76ad6516987ad467d65d006b",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_diamond_sulitsa_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_gold_sulitsa_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_iron_sulitsa_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_netherite_sulitsa_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_short_shaft.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_perunite_sulitsa_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_silver_sulitsa_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_stone_sulitsa_assembly.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "weapon_wrap",
+    "decision": "KEEP",
+    "reason": "Open brown leather binding loop; source UV atlas is not the GUI icon.",
+    "scope": "OWNED_WEAPON_COMPONENT",
+    "source": "src/main/resources/assets/slavicmyths/models/item/weapon_wrap.json",
+    "model_sha256": "fdf2be36b98364a5904d5af98b53b909f3a6faead5a1168bc811333e28bd8181",
+    "dimensions": [
+      10.0,
+      10.0,
+      2.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/berdysh.json",
+      "src/main/resources/data/slavicmyths/recipe/claw_knife.json",
+      "src/main/resources/data/slavicmyths/recipe/rare_ataman_flail.json",
+      "src/main/resources/data/slavicmyths/recipe/rare_tugarin_sword.json",
+      "src/main/resources/data/slavicmyths/recipe/rare_victor_spear.json",
+      "src/main/resources/data/slavicmyths/recipe/silver_spear.json",
+      "src/main/resources/data/slavicmyths/recipe/spear.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_heavy_bow.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_wrap.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_fitting",
+    "decision": "KEEP",
+    "reason": "Open angular silver socket/collar with real depth; separate from leather binding.",
+    "scope": "OWNED_WEAPON_COMPONENT",
+    "source": "src/main/resources/assets/slavicmyths/models/item/silver_fitting.json",
+    "model_sha256": "e3de02fe7843e77e93bd79798b16a1f1086dd4a4dbc5e76886d8c80f51ea5359",
+    "dimensions": [
+      8.0,
+      8.0,
+      4.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/field_sign.json",
+      "src/main/resources/data/slavicmyths/recipe/noon_stone.json",
+      "src/main/resources/data/slavicmyths/recipe/rare_victor_spear.json",
+      "src/main/resources/data/slavicmyths/recipe/silver_fitting.json",
+      "src/main/resources/data/slavicmyths/recipe/silver_spear.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_rings",
+    "decision": "KEEP",
+    "reason": "Small linked iron loops for mail; QA only, armor component is outside weapon art ownership.",
+    "scope": "QA_ONLY_ARMOR",
+    "source": "src/main/resources/assets/slavicmyths/models/item/iron_rings.json",
+    "model_sha256": "3dcc036db6f929636cba3dd409caebad612cf57d2e1fe7c2df6e17edc2f5bfec",
+    "dimensions": [
+      9.772792206135785,
+      4.8,
+      2.5455844122715705
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/armorer_chainmail_boots.json",
+      "src/main/resources/data/slavicmyths/recipe/armorer_chainmail_chestplate.json",
+      "src/main/resources/data/slavicmyths/recipe/armorer_chainmail_helmet.json",
+      "src/main/resources/data/slavicmyths/recipe/armorer_chainmail_leggings.json",
+      "src/main/resources/data/slavicmyths/recipe/flail.json",
+      "src/main/resources/data/slavicmyths/recipe/iron_rings.json",
+      "src/main/resources/data/slavicmyths/recipe/mace.json",
+      "src/main/resources/data/slavicmyths/recipe/plate_cuirass.json",
+      "src/main/resources/data/slavicmyths/recipe/rune_chisel.json",
+      "src/main/resources/data/slavicmyths/recipe/silver_mace.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_heavy_bow.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 broad socketed spear point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/stone_spearhead.json",
+    "model_sha256": "706f29861c0f48f826f40257c114505bdfe1e794cc26a7dfa51547f24552af1d",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_stone_spearhead.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_spear_assembly.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 broad socketed spear point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/gold_spearhead.json",
+    "model_sha256": "479e0307f0e96be1621d0e893bdacf289b86b0d7aafdda952e7b3f0bd99ab973",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_gold_spear_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_gold_spearhead.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 broad socketed spear point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/iron_spearhead.json",
+    "model_sha256": "f9ce6adde22dc03888ae4310252efe7a06a6e634f5a0b4f80439e3cef63135a3",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_iron_spear_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_iron_spearhead.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 broad socketed spear point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/silver_spearhead.json",
+    "model_sha256": "95779ead816b03d4ea0fd8419a2cde4b380e5f1efbe45b96dd2f3a5c79197e54",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_silver_spearhead.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_silver_spear_assembly.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 broad socketed spear point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/diamond_spearhead.json",
+    "model_sha256": "df71091c1c9695b945814bb7af083efec1c77babdaf69970588a8a140ca7e418",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_diamond_spear_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_netherite_spearhead_upgrade.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_diamond_spearhead.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 broad socketed spear point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/perunite_spearhead.json",
+    "model_sha256": "549c268212bf513099958ea491942ca1023642041b937d417e54af62acf72768",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_perunite_spearhead.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_perunite_spear_assembly.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 broad socketed spear point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/netherite_spearhead.json",
+    "model_sha256": "b5c53af0cea2f5e0623e13a0ea4a0e8fd4844b5eb5171db19c35c1c5f357364f",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_netherite_spearhead_upgrade.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_netherite_spear_assembly.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "stone_light_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 light narrow sulitsa point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/stone_light_spearhead.json",
+    "model_sha256": "744cb414e18a2e3f6caed991de45c9234fce13897bb8c731b011574a643f494f",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_stone_light_spearhead.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_stone_sulitsa_assembly.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "gold_light_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 light narrow sulitsa point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/gold_light_spearhead.json",
+    "model_sha256": "c28b6126171ab20ffe611d5a868ae6318a5581ebfa3f3b74e4adc85bfceaf3e8",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_gold_sulitsa_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_gold_light_spearhead.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "iron_light_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 light narrow sulitsa point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/iron_light_spearhead.json",
+    "model_sha256": "e706a1b6d2bc5b503d95969f6adb4f3a645c0ffac9edf52c1d6acfd9c9390b22",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_iron_sulitsa_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_iron_light_spearhead.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "silver_light_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 light narrow sulitsa point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/silver_light_spearhead.json",
+    "model_sha256": "0f4d924ea1779b67c5e9f1212ade8afcbc30bab4dd1c10271b7d9d0f7cbe6bf8",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_silver_light_spearhead.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_silver_sulitsa_assembly.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "diamond_light_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 light narrow sulitsa point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/diamond_light_spearhead.json",
+    "model_sha256": "d16dc0a9f3578cb572c4edac8d915272ad59a6741708ab66df8f306b8d79721b",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_diamond_sulitsa_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_netherite_light_spearhead_upgrade.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_diamond_light_spearhead.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "perunite_light_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 light narrow sulitsa point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/perunite_light_spearhead.json",
+    "model_sha256": "0bdd98f649b4832b3dc5a895189af9a5451083b71d83cfb5fbfbb0704d9b1fb5",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_part_perunite_light_spearhead.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_perunite_sulitsa_assembly.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "netherite_light_spearhead",
+    "decision": "KEEP",
+    "reason": "Existing accepted #99/#100 light narrow sulitsa point; same-material recolor is intentional, heavy/light silhouettes differ. QA only; do not redraw.",
+    "scope": "QA_ONLY_EXTERNAL_99_100",
+    "source": "src/main/resources/assets/slavicmyths/models/item/netherite_light_spearhead.json",
+    "model_sha256": "51b848982b937f71eb64b515937d1f0ad432f8f8c0f1b5db1ecd653b7d03d3e5",
+    "dimensions": [
+      16.0,
+      16.0,
+      1.0
+    ],
+    "recipe_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_netherite_light_spearhead_upgrade.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_netherite_sulitsa_assembly.json"
+    ],
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  }
+]

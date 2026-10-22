@@ -1,0 +1,491 @@
+[
+  {
+    "id": "invisibility_cap",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\invisibility_cap.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/invisibility_cap.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "1650ea1511f2713bb3642c4d16738299413ba50f2a031764e861250a17a28daf",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "86598f618e7d17b0363bca016d7dbf98e51a5e4c8c626b95b5467dcf8f7900f4"
+  },
+  {
+    "id": "miners_goggles",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\miners_goggles.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/miners_goggles.png",
+    "size": [
+      32,
+      32
+    ],
+    "sha256": "72d47a9577b4d8bce8221e5ee32c63a83a6ac400008b103c26ed5af27f449973",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "91354fe7f9fe8aee6aafbc913a243e07761c2617c5389724f77f3c8f54ab0dfd"
+  },
+  {
+    "id": "veles_amulet",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\veles_amulet.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/veles_amulet.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "0bd4c720c92256d75fe9dde71a1568fc9a77617f097c831597140aaf2339f1aa",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "bcc4dfa5683f2eb0f84123efbb9333985ccacbff8df5f4695a90fefb87009df7"
+  },
+  {
+    "id": "depth_amulet",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\depth_amulet.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/depth_amulet.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "039f267ee79232c7c46c926b76a7eeabc94a4e86f3b4e56b94202b36c37998dc",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "18cda6a06c6a954cd98c159e63c6742f9ca9fc9935b9aa5449313c0b8f3537e4"
+  },
+  {
+    "id": "lunula",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\lunula.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/lunula.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "6b20e313507327a750254acca1ecde5529225d6728b290794310f877a784c7fa",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "6e4ebe9a675077b0409bfafc45700c3b4ca79dc74b59d926b4fa5f2853c05e85"
+  },
+  {
+    "id": "grivna",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\grivna.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/grivna.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "f84a05a462a77aa969e99268d1745968468a033131f7e4c01c8a71bfd49db983",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "0cdc029f75a0857a7c4dac6af55a7f74cb87b21fa810c4dbbbd436812cb7fffc"
+  },
+  {
+    "id": "zolny_obereg",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\zolny_obereg.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/zolny_obereg.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "61a8460d8321f6cd5be14c12d235209d2da4adb45bc0506b9740fbad7f0291ff",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "d781a592fa88b895a55e67c96e07451121dde311650efe86aa5df7ad5ced2a60"
+  },
+  {
+    "id": "obereg_padayuschey_zvezdy",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\obereg_padayuschey_zvezdy.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/obereg_padayuschey_zvezdy.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "2e9dd04c21ec6506ee6081f28c30a165ee6af98885f4645c7df14f0b71ca5d81",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "9938925e55c27911467f9ee5358f67572c0a1012df8569be60c1df311ef7382c"
+  },
+  {
+    "id": "odnoglazyy_obereg",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\odnoglazyy_obereg.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/odnoglazyy_obereg.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "5d78d5e8f1b1183a4d6a68caee6df06270db6b192ea7855195955daa10297687",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "f53dec20c6dd9bb7127d5b5c81ec65ba4d3a3cd28c16bd23f6c564f40e6a6428"
+  },
+  {
+    "id": "stone_path_amulet",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\stone_path_amulet.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/stone_path_amulet.png",
+    "size": [
+      32,
+      32
+    ],
+    "sha256": "30ac5e6920240a952b98d8a34777a3c25c7ae6dd5024d953a4ed76dcc91d3d4b",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "56fc3976af0d58d1889e4df9d59bbb95d4b87b07316493dd2915c654529471d5"
+  },
+  {
+    "id": "gift_finist_amulet",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gift_finist_amulet.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/gift_finist_amulet.png",
+    "size": [
+      64,
+      64
+    ],
+    "sha256": "6512bf53716dfc005bd81d833e77789a3d3020d8adbe0d859753987a10c0351d",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "977f7d8000857a2f604265e1f15a3be1b8397a9ff9324231da73a80264bf976a"
+  },
+  {
+    "id": "trophy_skim_necklace",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\trophy_skim_necklace.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/trophy_skim_necklace.png",
+    "size": [
+      64,
+      64
+    ],
+    "sha256": "11a2c1f0c3cbb5005f2e60734e06c93ce1fa7bc78a9af587132901296e533f3b",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "5354db136b7fa09cb89df05a11cda67981cf5718bfce276dd0904b8043fc141c"
+  },
+  {
+    "id": "frost_mirror",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\frost_mirror.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/frost_mirror.png",
+    "size": [
+      32,
+      32
+    ],
+    "sha256": "fbbd172d698b3e8ebc3a2d2cbcb3240d76df7da83bfca9fc0c2666723d666ed3",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "413be400f73b75971593378064ded10d5522d80da5cad84f46c25ee5d2beecaa"
+  },
+  {
+    "id": "black_wing_amulet",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\black_wing_amulet.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/black_wing_amulet.png",
+    "size": [
+      32,
+      32
+    ],
+    "sha256": "ad99d14b0699060333933b775128fc99ed15d4e78a5c2056cf2b21f109de17dd",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "80fb88df80250bf8caacc85c18d60696fe350db0345de0cd6cb1cab8fa2ee92a"
+  },
+  {
+    "id": "perun_ring",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perun_ring.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/perun_ring.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "85b4865d21501be7a6fe899fc7b1d83689c9cff051c9cab62717bf7faf07b0ef",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "c4bc5987f93df3abc762299eee65a66e6c88bb13ac65b28fb99d8069ec73491c"
+  },
+  {
+    "id": "resin_ring",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\resin_ring.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/resin_ring.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "097d06ac73878552488f92d40121d00c70665f66c8f292612e10b37f1c18b230",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "1d8a2e30c0b7a46ba641e7fabd6813808e1d836d9864bb5597175cca99370ff9"
+  },
+  {
+    "id": "ring_of_grey_pack",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ring_of_grey_pack.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/ring_of_grey_pack.png",
+    "size": [
+      32,
+      32
+    ],
+    "sha256": "e2bc942d2388681f2d4ce65ab57a5bd0a9b0aa0247b4587caac9c831d59eb9e2",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "d340695d18a3e9a6418657d5bd64ffdb1280398add00d635b9cd8df860fabead"
+  },
+  {
+    "id": "prospectors_ring",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\prospectors_ring.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/prospectors_ring.png",
+    "size": [
+      32,
+      32
+    ],
+    "sha256": "748bc9928a035ffb7fd6aa9c5b403fbcfdabeead41850b71dc2e13081be04efe",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "0d2589f41e381895b6b5910650461c72db9a6e9553400b1ffa5ca2ddecd0cf92"
+  },
+  {
+    "id": "gift_dobrynya_ring",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gift_dobrynya_ring.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/gift_dobrynya_ring.png",
+    "size": [
+      64,
+      64
+    ],
+    "sha256": "9e9f235197482a45e80d45c8a2b7b924ea88d0d04e2fc5b9d2610f145ef5c0c1",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "978fd377ace6e70298c3db191e7b10c7fcc5b88eb080a37584bbd7e2d660d662"
+  },
+  {
+    "id": "hunter_belt",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\hunter_belt.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/hunter_belt.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "15aab62fa70502fd32d259b4a75d62d5142078ddc4259d529cc9d38ae3077919",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "597764cabde1694ef8f3601b628d4bf1b93eb59ae7f9e3cbfbfbec3484919791"
+  },
+  {
+    "id": "volchiy_poyas",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\volchiy_poyas.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/volchiy_poyas.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "b7a327a758ad1c18a78e41a2dd5562b7d9d7ab24efc255ac35c765c83b064208",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "ef78cb7bd3d0d51c001a2677828d4ac8a2c975b02bbf6930ead43b7f2f393beb"
+  },
+  {
+    "id": "poyas_tugarina",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\poyas_tugarina.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/poyas_tugarina.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "1fb475bdcdf5f941113b99d6931e676b07bce791421e434d424f2c6bae5faf26",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "ef78cb7bd3d0d51c001a2677828d4ac8a2c975b02bbf6930ead43b7f2f393beb"
+  },
+  {
+    "id": "finist_quiver",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\finist_quiver.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/finist_quiver.png",
+    "size": [
+      32,
+      32
+    ],
+    "sha256": "c97009a0478273853d4f9aedfb47ec55e4282664ba6b505fdbe8ce1c45a86fc2",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "af75d6c336cd68f2ea36fbfbc635c15b20111aa96f6476087a6061fd9544c80b"
+  },
+  {
+    "id": "underground_guard_belt",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\underground_guard_belt.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/underground_guard_belt.png",
+    "size": [
+      32,
+      32
+    ],
+    "sha256": "8be750fe860f9829e55643d7b368d0b269502a0a434645154630e56f6d8b7900",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "8bdc8a9eb8178297d6d227f7101779740f8028c018513ae59bf37b67f8130f17"
+  },
+  {
+    "id": "gift_alyosha_belt",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gift_alyosha_belt.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/gift_alyosha_belt.png",
+    "size": [
+      64,
+      64
+    ],
+    "sha256": "53a8c7f4aea23e32d8e362b09f26ff5389dd796364f07e2db4a9e9f2b8eb1566",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "b0c3905b19d3945a9c0317f25f2260e2040aa8e03e06ab39f637b9c26c906224"
+  },
+  {
+    "id": "retribution_charm",
+    "decision": "FIX: distinct flat sprite; held geometry preserved",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\retribution_charm.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/retribution_charm.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "e6cd96dfe3732de0f5274cb3b2bc0065ec2562af2f0590ce9f0ac1676fb7f55f",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "254e8673d68b7704d3efd3681bed6dfa3f9e735b010460671bda69f62940617b"
+  },
+  {
+    "id": "grave_ward",
+    "decision": "KEEP: authored flat source, no changes",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\grave_ward.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/grave_ward.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "6fa0130909dfaa03f0d341a81e4bb9ff289919f3ae7b8798088df2db94361bc6",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "before_preview_sha256": "a1c40c7d3d0d552aa326625cd81201f2c0e5158b1caf7902ab6fda8c29de65d5"
+  },
+  {
+    "id": "pool_ring",
+    "decision": "NEW",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\pool_ring.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/pool_ring.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "bd6c4c9b2330c21ecd4f4688d038531bc912d27bc1b6ebfbc7c3e5751305ce1a",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "bath_ward",
+    "decision": "NEW",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\bath_ward.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/bath_ward.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "79f344a4a479ef4307ccd098481eafb739e8a021a4761f369f7733202570a339",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "harvest_ring",
+    "decision": "NEW",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\harvest_ring.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/harvest_ring.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "7efd80dfb7d1fd501db73ed58a293ee69c0150050ec33ef083080b0a3697b356",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "podvey_belt",
+    "decision": "NEW",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\podvey_belt.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/podvey_belt.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "621a6f22e1849d3feb1abe97e405a5ae0a5cc4851e6f7f39a881f68996755945",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "leshy_necklace",
+    "decision": "NEW",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\leshy_necklace.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/leshy_necklace.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "d2237d528865ef41bfd30a85e0e20d0b9f09cdf88973b319544189085c2c306d",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  {
+    "id": "spark_ring",
+    "decision": "NEW",
+    "gui_chain": [
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\spark_ring.json"
+    ],
+    "png": "src/main/resources/assets/slavicmyths/textures/item/spark_ring.png",
+    "size": [
+      16,
+      16
+    ],
+    "sha256": "bc86f0e51ed6329fc903d01fc0482b50ad2bfeecc41c9449f5ebbac37d34e6ad",
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  }
+]

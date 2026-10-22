@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " M ",
+    "MPM",
+    " W "
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:iron_ingot"
+    },
+    "P": {
+      "item": "slavicmyths:pearl_fragment"
+    },
+    "W": {
+      "item": "slavicmyths:water_grass"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:pool_ring",
+    "count": 1
+  }
+}

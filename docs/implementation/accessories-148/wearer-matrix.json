@@ -1,0 +1,521 @@
+[
+  {
+    "id": "black_wing_amulet",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "depth_amulet",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "finist_quiver",
+    "slot": "belt",
+    "slot_indices": "0",
+    "renderer": "CuriosAccessories -> FinistQuiverRenderer",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\finist_quiver.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": "actual native ModelPart body/head; see native-worn.json vertices/anchors",
+    "attachment_after": "same factory/UV, attachment fit only; see native-worn.json"
+  },
+  {
+    "id": "frost_mirror",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "gift_alyosha_belt",
+    "slot": "belt",
+    "slot_indices": "0",
+    "renderer": "FolkEquipmentLayer body",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\gift_alyosha_belt.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": {
+      "translation_blocks": [
+        0.0,
+        0.6,
+        -0.18
+      ],
+      "uniform_scale": 0.55
+    },
+    "attachment_after": {
+      "translation_blocks": [
+        0.0,
+        0.6,
+        -0.18
+      ],
+      "uniform_scale": 0.55,
+      "armor_fit": "AccessoryBodyFit; hunter belt extra x1.05/z1.6"
+    }
+  },
+  {
+    "id": "gift_dobrynya_ring",
+    "slot": "ring",
+    "slot_indices": "0,1",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "gift_finist_amulet",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "FolkEquipmentLayer body",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\gift_finist_amulet.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": {
+      "translation_blocks": [
+        0.0,
+        0.25,
+        -0.19
+      ],
+      "uniform_scale": 0.25
+    },
+    "attachment_after": {
+      "translation_blocks": [
+        0.0,
+        0.25,
+        -0.19
+      ],
+      "uniform_scale": 0.25,
+      "armor_fit": "AccessoryBodyFit; hunter belt extra x1.05/z1.6"
+    }
+  },
+  {
+    "id": "grave_ward",
+    "slot": "charm",
+    "slot_indices": "0",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "grivna",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "hunter_belt",
+    "slot": "belt",
+    "slot_indices": "0",
+    "renderer": "FolkEquipmentLayer body",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\hunter_belt.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": {
+      "translation_blocks": [
+        0.0,
+        0.65,
+        0.0
+      ],
+      "uniform_scale": 0.62
+    },
+    "attachment_after": {
+      "translation_blocks": [
+        0.0,
+        0.65,
+        0.0372
+      ],
+      "uniform_scale": 0.62,
+      "armor_fit": "AccessoryBodyFit; hunter belt extra x1.05/z1.6"
+    }
+  },
+  {
+    "id": "invisibility_cap",
+    "slot": "head",
+    "slot_indices": "0",
+    "renderer": "FolkEquipmentLayer head + invisibility override",
+    "anchor": "head",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\invisibility_cap.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": {
+      "translation_blocks": [
+        0.0,
+        -0.62,
+        0.0
+      ],
+      "uniform_scale": 0.65
+    },
+    "attachment_after": {
+      "translation_blocks": [
+        0.0,
+        -0.55,
+        0.0
+      ],
+      "uniform_scale": 0.82,
+      "armor_fit": "AccessoryBodyFit; hunter belt extra x1.05/z1.6"
+    }
+  },
+  {
+    "id": "lunula",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "miners_goggles",
+    "slot": "head",
+    "slot_indices": "0",
+    "renderer": "MiningGogglesRenderer",
+    "anchor": "head",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\miners_goggles.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": "actual native ModelPart body/head; see native-worn.json vertices/anchors",
+    "attachment_after": "same factory/UV, attachment fit only; see native-worn.json"
+  },
+  {
+    "id": "obereg_padayuschey_zvezdy",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "CuriosAccessories -> HuntAccessoryRenderer STAR",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\obereg_padayuschey_zvezdy.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": "actual native ModelPart body/head; see native-worn.json vertices/anchors",
+    "attachment_after": "same factory/UV, attachment fit only; see native-worn.json"
+  },
+  {
+    "id": "odnoglazyy_obereg",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "CuriosAccessories -> BossAccessoryRenderer EYE",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\odnoglazyy_obereg.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": "actual native ModelPart body/head; see native-worn.json vertices/anchors",
+    "attachment_after": "same factory/UV, attachment fit only; see native-worn.json"
+  },
+  {
+    "id": "perun_ring",
+    "slot": "ring",
+    "slot_indices": "0,1",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "poyas_tugarina",
+    "slot": "belt",
+    "slot_indices": "0",
+    "renderer": "CuriosAccessories -> BossAccessoryRenderer BELT",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\poyas_tugarina.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": "actual native ModelPart body/head; see native-worn.json vertices/anchors",
+    "attachment_after": "same factory/UV, attachment fit only; see native-worn.json"
+  },
+  {
+    "id": "prospectors_ring",
+    "slot": "ring",
+    "slot_indices": "0,1",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "resin_ring",
+    "slot": "ring",
+    "slot_indices": "0,1",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "retribution_charm",
+    "slot": "charm",
+    "slot_indices": "0",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "ring_of_grey_pack",
+    "slot": "ring",
+    "slot_indices": "0,1",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "stone_path_amulet",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "trophy_skim_necklace",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "FolkEquipmentLayer body",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\trophy_skim_necklace.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": {
+      "translation_blocks": [
+        0.0,
+        0.23,
+        -0.19
+      ],
+      "uniform_scale": 0.36
+    },
+    "attachment_after": {
+      "translation_blocks": [
+        0.0,
+        0.23,
+        -0.19
+      ],
+      "uniform_scale": 0.36,
+      "armor_fit": "AccessoryBodyFit; hunter belt extra x1.05/z1.6"
+    }
+  },
+  {
+    "id": "underground_guard_belt",
+    "slot": "belt",
+    "slot_indices": "0",
+    "renderer": "NONE: no dedicated registration/layer found",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "veles_amulet",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "FolkEquipmentLayer body",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\veles_amulet.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": {
+      "translation_blocks": [
+        0.0,
+        0.3,
+        -0.165
+      ],
+      "uniform_scale": 0.38
+    },
+    "attachment_after": {
+      "translation_blocks": [
+        0.0,
+        0.3,
+        -0.165
+      ],
+      "uniform_scale": 0.38,
+      "armor_fit": "AccessoryBodyFit; hunter belt extra x1.05/z1.6"
+    }
+  },
+  {
+    "id": "volchiy_poyas",
+    "slot": "belt",
+    "slot_indices": "0",
+    "renderer": "CuriosAccessories -> HuntAccessoryRenderer BELT",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\volchiy_poyas.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": "actual native ModelPart body/head; see native-worn.json vertices/anchors",
+    "attachment_after": "same factory/UV, attachment fit only; see native-worn.json"
+  },
+  {
+    "id": "zolny_obereg",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "CuriosAccessories -> HuntAccessoryRenderer CHARM",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\zolny_obereg.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": "actual native ModelPart body/head; see native-worn.json vertices/anchors",
+    "attachment_after": "same factory/UV, attachment fit only; see native-worn.json"
+  },
+  {
+    "id": "pool_ring",
+    "slot": "ring",
+    "slot_indices": "0,1",
+    "renderer": "NONE: icon-only",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "bath_ward",
+    "slot": "charm",
+    "slot_indices": "0",
+    "renderer": "NONE: icon-only",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "harvest_ring",
+    "slot": "ring",
+    "slot_indices": "0,1",
+    "renderer": "NONE: icon-only",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  },
+  {
+    "id": "podvey_belt",
+    "slot": "belt",
+    "slot_indices": "0",
+    "renderer": "NewAccessoryRenderer",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\podvey_belt.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": "actual native ModelPart body/head; see native-worn.json vertices/anchors",
+    "attachment_after": "same factory/UV, attachment fit only; see native-worn.json"
+  },
+  {
+    "id": "leshy_necklace",
+    "slot": "necklace",
+    "slot_indices": "0",
+    "renderer": "NewAccessoryRenderer",
+    "anchor": "body",
+    "visible_expected": true,
+    "source_proof": "docs\\implementation\\accessories-148\\wearer\\leshy_necklace.png",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "hidden: FolkEquipmentLayer or Curios renderer guard",
+    "attachment_before": "actual native ModelPart body/head; see native-worn.json vertices/anchors",
+    "attachment_after": "same factory/UV, attachment fit only; see native-worn.json"
+  },
+  {
+    "id": "spark_ring",
+    "slot": "ring",
+    "slot_indices": "0,1",
+    "renderer": "NONE: icon-only",
+    "anchor": "NONE",
+    "visible_expected": false,
+    "source_proof": "No renderer registered, no invented ring geometry",
+    "runtime": "NOT_RUN / OWNER_PENDING",
+    "invisibility": "NONE",
+    "attachment_before": "NONE: icon-only; ring indices0/1 do not add finger geometry",
+    "attachment_after": "NONE: icon-only; ring indices0/1 do not add finger geometry"
+  }
+]

@@ -1,0 +1,342 @@
+[
+  {
+    "id": "bone_knife",
+    "origin": "ModItems.java",
+    "factory": "new SwordItem(ModGear.BONE, new Item.Properties().attributes(SwordItem.createAttributes(ModGear.BONE, 2, -1.5F)))"
+  },
+  {
+    "id": "silver_dagger",
+    "origin": "ModItems.java",
+    "factory": "new SwordItem(ModGear.SILVER, new Item.Properties().attributes(SwordItem.createAttributes(ModGear.SILVER, 1, -1.5F)))"
+  },
+  {
+    "id": "nightingale_dagger",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.bandit.NightingaleDagger(new Item.Properties().rarity(Rarity.RARE))"
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.kurgan.BurialWeapon(false,true,new Item.Properties())"
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.kurgan.BurialWeapon(false,false,new Item.Properties())"
+  },
+  {
+    "id": "silver_sword",
+    "origin": "ModItems.java",
+    "factory": "new SwordItem(ModGear.SILVER, new Item.Properties().attributes(SwordItem.createAttributes(ModGear.SILVER, 3, -2.4F)))"
+  },
+  {
+    "id": "perunite_sword",
+    "origin": "ModItems.java",
+    "factory": "new SwordItem(ModGear.PERUNITE, new Item.Properties().attributes(SwordItem.createAttributes(ModGear.PERUNITE, 3, -2.4F)))"
+  },
+  {
+    "id": "tugarin_sword",
+    "origin": "RareWeapons.java",
+    "factory": "new SwordItem(Tiers.DIAMOND,\n        new Item.Properties().rarity(Rarity.RARE).attributes(SwordItem.createAttributes(Tiers.DIAMOND, 6, -2.2F)))"
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "origin": "dedicated registration/WeaponCatalog.java",
+    "factory": "new SwordItem(Tiers.DIAMOND,new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND,5,-2.7F)).rarity(Rarity.RARE))"
+  },
+  {
+    "id": "club",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.item.ClubItem(new Item.Properties())"
+  },
+  {
+    "id": "wooden_mace",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.combat.MaceItem(Tiers.WOOD,5,1.05F,.2F,.3F,new Item.Properties())"
+  },
+  {
+    "id": "stone_mace",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.combat.MaceItem(Tiers.STONE,7,.85F,.3F,.4F,new Item.Properties())"
+  },
+  {
+    "id": "mace",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.combat.MaceItem(Tiers.IRON, 8, .9F, .35F, .45F, new Item.Properties())"
+  },
+  {
+    "id": "silver_mace",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.combat.MaceItem(ModGear.SILVER,7,1F,.3F,.4F,new Item.Properties())"
+  },
+  {
+    "id": "perunite_mace",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.combat.MaceItem(ModGear.PERUNITE, 9.5F, .8F, .4F, .4F, new Item.Properties().rarity(Rarity.RARE))"
+  },
+  {
+    "id": "ancient_chekan",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.combat.MaceItem(Tiers.STONE,5,1.2F,.22F,.12F,new Item.Properties().durability(90))"
+  },
+  {
+    "id": "chekan",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.combat.MaceItem(Tiers.IRON,6,1.3F,.3F,.15F,new Item.Properties().durability(400))"
+  },
+  {
+    "id": "battle_axe",
+    "origin": "ModItems.java",
+    "factory": "new AxeItem(Tiers.IRON, new Item.Properties().attributes(AxeItem.createAttributes(Tiers.IRON, 7.0F, -3.3F)))"
+  },
+  {
+    "id": "thunder_axe",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.item.ThunderAxeItem(ModGear.PERUNITE, new Item.Properties().rarity(Rarity.RARE))"
+  },
+  {
+    "id": "stone_flail",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.FlailItem(Tiers.STONE,new Item.Properties())"
+  },
+  {
+    "id": "gold_flail",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.FlailItem(Tiers.GOLD,new Item.Properties())"
+  },
+  {
+    "id": "flail",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.combat.FlailItem(new Item.Properties())"
+  },
+  {
+    "id": "silver_flail",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.FlailItem(ModGear.SILVER,new Item.Properties())"
+  },
+  {
+    "id": "diamond_flail",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.FlailItem(Tiers.DIAMOND,new Item.Properties())"
+  },
+  {
+    "id": "perunite_flail",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.FlailItem(ModGear.PERUNITE,new Item.Properties())"
+  },
+  {
+    "id": "netherite_flail",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.FlailItem(Tiers.NETHERITE,new Item.Properties())"
+  },
+  {
+    "id": "ataman_flail",
+    "origin": "RareWeapons.java",
+    "factory": "new org.slavicmyths.combat.MaceItem(Tiers.DIAMOND, 12, .7F, .22F, .65F, new Item.Properties().rarity(Rarity.RARE))"
+  },
+  {
+    "id": "ancient_spear",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.kurgan.BurialWeapon(true,true,new Item.Properties())"
+  },
+  {
+    "id": "restored_spear",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.kurgan.BurialWeapon(true,false,new Item.Properties())"
+  },
+  {
+    "id": "spear",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.item.SpearItem(Tiers.STONE, new Item.Properties())"
+  },
+  {
+    "id": "gold_spear",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.item.SpearItem(Tiers.GOLD,new Item.Properties())"
+  },
+  {
+    "id": "iron_spear",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.item.SpearItem(Tiers.IRON,new Item.Properties())"
+  },
+  {
+    "id": "silver_spear",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.item.SpearItem(ModGear.SILVER, new Item.Properties())"
+  },
+  {
+    "id": "diamond_spear",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.item.SpearItem(Tiers.DIAMOND,new Item.Properties())"
+  },
+  {
+    "id": "perunite_spear",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.item.SpearItem(ModGear.PERUNITE,new Item.Properties())"
+  },
+  {
+    "id": "netherite_spear",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.item.SpearItem(Tiers.NETHERITE,new Item.Properties())"
+  },
+  {
+    "id": "pool_spear",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.depth.PoolSpear(new Item.Properties().rarity(Rarity.RARE))"
+  },
+  {
+    "id": "thunder_spear",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.item.HeavyWeaponItem(ModGear.PERUNITE, 4, -2.9F, 0.18, new Item.Properties().rarity(Rarity.RARE))"
+  },
+  {
+    "id": "victor_spear",
+    "origin": "RareWeapons.java",
+    "factory": "new org.slavicmyths.item.SpearItem(Tiers.DIAMOND, 12, new Item.Properties().rarity(Rarity.RARE))"
+  },
+  {
+    "id": "berdysh",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.item.HeavyWeaponItem(Tiers.IRON, 6, -3.3F, 0, new Item.Properties())"
+  },
+  {
+    "id": "noon_sickle",
+    "origin": "ModItems.java",
+    "factory": "new SwordItem(ModGear.SILVER, new Item.Properties().rarity(Rarity.UNCOMMON).attributes(SwordItem.createAttributes(ModGear.SILVER, 3, -2.5F)))"
+  },
+  {
+    "id": "karachun_scythe",
+    "origin": "dedicated registration/WeaponCatalog.java",
+    "factory": "new org.slavicmyths.karachun.NightScythe()"
+  },
+  {
+    "id": "poloz_whip",
+    "origin": "dedicated registration/WeaponCatalog.java",
+    "factory": "new org.slavicmyths.poloz.PolozWhip()"
+  },
+  {
+    "id": "stone_throwing_knife",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(Tiers.STONE,true,new Item.Properties())"
+  },
+  {
+    "id": "gold_throwing_knife",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(Tiers.GOLD,true,new Item.Properties())"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(Tiers.IRON,true,new Item.Properties())"
+  },
+  {
+    "id": "silver_throwing_knife",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(ModGear.SILVER,true,new Item.Properties())"
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(Tiers.DIAMOND,true,new Item.Properties())"
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(ModGear.PERUNITE,true,new Item.Properties())"
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(Tiers.NETHERITE,true,new Item.Properties())"
+  },
+  {
+    "id": "stone_sulitsa",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(Tiers.STONE,false,new Item.Properties())"
+  },
+  {
+    "id": "gold_sulitsa",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(Tiers.GOLD,false,new Item.Properties())"
+  },
+  {
+    "id": "iron_sulitsa",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(Tiers.IRON,false,new Item.Properties())"
+  },
+  {
+    "id": "silver_sulitsa",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(ModGear.SILVER,false,new Item.Properties())"
+  },
+  {
+    "id": "diamond_sulitsa",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(Tiers.DIAMOND,false,new Item.Properties())"
+  },
+  {
+    "id": "perunite_sulitsa",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(ModGear.PERUNITE,false,new Item.Properties())"
+  },
+  {
+    "id": "netherite_sulitsa",
+    "origin": "WeaponCatalog.java material loop",
+    "factory": "new org.slavicmyths.combat.ThrowingWeaponItem(Tiers.NETHERITE,false,new Item.Properties())"
+  },
+  {
+    "id": "short_bow",
+    "origin": "dedicated registration/WeaponCatalog.java",
+    "factory": "new org.slavicmyths.combat.FieldBowItem(false,new Item.Properties().durability(300))"
+  },
+  {
+    "id": "heavy_bow",
+    "origin": "dedicated registration/WeaponCatalog.java",
+    "factory": "new org.slavicmyths.combat.FieldBowItem(true,new Item.Properties().durability(500))"
+  },
+  {
+    "id": "finist_bow",
+    "origin": "dedicated registration/WeaponCatalog.java",
+    "factory": "new org.slavicmyths.finist.FinistBow(new Item.Properties().durability(640).rarity(Rarity.RARE))"
+  },
+  {
+    "id": "bone_arrow",
+    "origin": "ModItems.java",
+    "factory": "new ArrowItem(new Item.Properties())"
+  },
+  {
+    "id": "serpent_crossbow",
+    "origin": "dedicated registration/WeaponCatalog.java",
+    "factory": "new org.slavicmyths.gorynych.SerpentCrossbow(false)"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "origin": "dedicated registration/WeaponCatalog.java",
+    "factory": "new org.slavicmyths.gorynych.SerpentCrossbow(true)"
+  },
+  {
+    "id": "carved_staff",
+    "origin": "ModItems.java",
+    "factory": "new SwordItem(Tiers.WOOD, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.WOOD, 2, -2.8F)))"
+  },
+  {
+    "id": "storm_staff",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.item.StormStaffItem(new Item.Properties().stacksTo(1).durability(240).rarity(Rarity.RARE))"
+  },
+  {
+    "id": "veles_staff",
+    "origin": "ModItems.java",
+    "factory": "new org.slavicmyths.artifact.VelesStaffItem(new Item.Properties().rarity(Rarity.EPIC))"
+  },
+  {
+    "id": "likho_staff",
+    "origin": "dedicated registration/WeaponCatalog.java",
+    "factory": "new org.slavicmyths.combat.LikhoStaffItem()"
+  },
+  {
+    "id": "morozko_staff",
+    "origin": "dedicated registration/WeaponCatalog.java",
+    "factory": "new org.slavicmyths.morozko.FrostStaff()"
+  }
+]

@@ -1,0 +1,93 @@
+# #87 — журнал исполнения
+
+Поручение владельца: 21.10.2026, вся программа #87/#115–121/#157–192. Один writer текущего main. Коммитов, push, изменения установленного PolyMC и запусков игры нет.
+
+Исходное состояние: HEAD `32d1733457e7e90360ce16c23860304ece664c64`, удалённый main `20cca4ec20f824862ed63b34d97a4aebcc2f6084`. Разница — 18 коммитов документации/workflow/project migration; production source одинаков. Чужие рабочие доработки включены в начальный baseline (9563 файла), не сбрасывались.
+
+## Порядок пакетов
+
+1. #157: все 68 IDs, атрибуты, получение, эффекты, ресурсы и источники. Аудит выявляет дефекты, а не автоматически меняет баланс.
+2. #192: индивидуальные технические листы для подтверждённых FIX, доказательные KEEP; отдельные листы семейств и деталей.
+3. #166/#167/#168 → #116/#181: детали и статическая сборка кистеней. Затем #115/#117 корректный хват, #164 динамика кистеней. Числа Ataman MaceItem не переносить из FlailItem.
+4. #169–174 и #175–189 адресно: KEEP исправные, FIX с исходными доказательствами. Не трогать наконечники #99/#100.
+5. #162/#163/#165/#190: независимые анимационные пакеты после соответствующей геометрии. #160 механики и #161 VFX — отдельно от урона и художественных правок.
+6. #158/#159: конкретные предложения по числам на согласование владельцу; независимые художественные задачи продолжаются.
+7. #121: воспроизводимость и ownership генераторов, #191 интеграционный gate; #118/#119/#120 — координаторы своих детей.
+
+## Текущее состояние
+
+- #157 IN_PROGRESS: `audit-68.json/csv`, `native-attributes.json`, `catalogue-provenance.json`, `SOURCE-68-BEFORE.png`. У каждого ID реальные пути/хеши моделей и текстур, JSON-рецепты/лут и ссылки из исходников. Отдельно отмечены получение посоха Велеса, прочность, касты и непроверенный runtime.
+- Java21 clean build + offline экспорт 68 production constructors: PASS (`audit-build.log`). Производственный JAR идентичен исходной сборке 1.9.7.53: SHA256 `5cc58c93b828617d607e06d860d40ae03bc15615360e3bf202b6c8b95ac86fc5`. Это baseline build, не новая оружейная сборка.
+- `audit-gates.json`: 9563 исходных src/tools/gradle-файла не изменены, offline классов в production JAR нет. `before-source.zip` и `before-manifest.json` — исходные реальные ресурсы до правок.
+- Project Status не изменён: доступного инструмента записи поля нет. В #157 опубликован комментарий о начале; рекомендуемый статус «В работе». Все Issues остаются OPEN, приёмки не заявлены.
+
+## Доказательства и ограничения
+
+Проекции из фактического JSON/UV/PNG являются offline source previews, не скриншотами Minecraft. Измеренные ItemAttributeModifiers не являются измеренным боевым DPS. Полный expected DPS зависит от попаданий, armor/toughness, immunity, hit cooldown, фаз босса, зарядки и специальных условий. Неясности в аудите сохраняются явно.
+
+Для каждого пакета: `REQUIREMENT | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN`. Только owner runtime NOT_RUN допускается при технической сдаче. Исполнительские пробелы удерживают соответствующую Issue «В работе».
+
+## Пакет 1 — технические gates пройдены
+
+Согласованный пакет A прочности реализован через WeaponDefaults. Статические #166/#167/#116/#181: production69 assets, индивидуальные source blueprints и реальные A/B, Steve/Alex/обе руки. Java21 clean build и resource/JAR PASS; generator sandbox PASS без отката чужих ресурсов. Точный промежуточный JAR/source SHA — package1-receipt.json, отчёт PACKAGE-1.md. В GitHub опубликованы результаты и рекомендуемое «Тестирование» статических детей; реальное поле не менялось. Parent87 и остальные дети IN_PROGRESS. Следующий независимый пакет — #164 динамика цепей, затем общий хват/остальные индивидуальные задачи. PolyMC не менялся, game launches0.
+
+## Пакет 2 — хваты
+
+28 display-моделей и player-only ScytheGrip реализованы, геометрия/UV/PNG сохранены. Все68 IDs просмотрены в native source body/hand matrices;22 A/B листа. Clean build Java21, native ItemTransform/custom scythe pivots/contact direction, resource/JAR и sandbox generators PASS. Точные данные PACKAGE-2.md/package2-receipt.json. #115 остаётся IN_PROGRESS: продолжить полную source-проверку первых лиц и custom paths, затем #164/#165 по зависимостям. B/C/D баланс не согласован и не применён. Кандидаты fixed-pose head intersection только у двух старых принятых чеканов, оставлены KEEP и явно обозначены для owner review.
+
+## Продолжение первых лиц #115
+
+В TugarinPairClient обнаружен реальный пропуск отрисовки кистей после cancel RenderHandEvent: добавлен существующий WeaponHands.renderGrip для фактической руки/рукава игрока. WeaponHands wrist/model/arm transforms и TugarinPairClient wrist выделены в статeless client-only методы без изменения старой математики; они непосредственно вызываются offline source exporter. fp-native.json:592 actual native transform/arm mesh samples для68 IDs,4 custom paths, Steve/Alex и изолированных offhand путей косы/меча Тугарина. fp-native-check.log PASS; perspective source sheets ещё генерируются tools/weapons87_fp_review.py. После этого нужны source review и clean build/resource/JAR по новым клиентским изменениям. Полный #115 ещё не сдан, динамика #164 не начиналась.
+
+## Пакет 3 — первые лица и техническая часть #165
+
+Scythe wrist orbit70→35° исправляет выход кисти/оружия из source camera при windup, frame contact/rest не меняется. Для обычного offhand косы JSON FP matrix теперь равна actual custom mainhand idle для физической стороны. Предложения до production и старые source images сохранены в blueprints/firstperson/. Видимые кисти Тугарина добавлены в собственный отменённый RenderHandEvent path. Java21 clean build и actual native attributes/grips/FP exporters PASS (package3-build.log). 592 actual pose/hand source samples,68 IDs,4 custom renderers. Последние perspective sheets с отдельным item_pixels ещё генерируются; parallel isolated generator/JAR gates выполняются. Новые jobs: FP render session26725, verify75939 (при потере сессий читать выходные файлы/логи, не запускать тест повторно без причины).
+
+### Пакет 3 gates
+
+Последние generator/JAR gates PASS;19 perspective source sheets/592 samples/68 IDs, включая изолированный offhand, сохранены в package3-fp-source-evidence.zip. Коса AFTER имеет882–2483 opaque weapon pixels во всех sampled phases, отдельно от руки. PACKAGE-3.md/package3-receipt.json фиксируют точный промежуточный JAR bdcf7869debdcd3b99c825642f2b4a952d15ffd47945423017b17c621fba9bf9. Установленный PolyMC прежний. Следующий доступный пакет #164; не останавливаться после этого отчёта.
+
+
+### #87 продолжение — пакет4,21.10.2026
+
+Пакет4 #164 технически реализован:8 dynamic flails,17 split part models,actual owner binding, сохранённый server combat.15120 численных production поз,24 source A/B sheets/248 FP records;124/124 AFTER ball centers в fixed camera. Java21 clean build, resource/JAR/generator sandbox PASS. PACKAGE-4.md/package4-receipt.json содержат точный JAR/source. Owner runtime NOT_RUN, PolyMC не установлен/не менялся. #16820 KEEP source audit ждёт готовых #171/#173. Пять индивидуальных #171 draft sheets подготовлены до production; продолжается цепочка.
+
+
+### #87 продолжение — пакет5,21.10.2026
+
+Пакет5 #171 технически реализован:5 FIX held копий,4 KEEP,15 models/0 PNG edits. До production5 чертежей;72 native transform cases и180 source cases/9 A/B листов, все PNG/4 KEEP сохранены, AFTER fixed-idle head candidates0. Java21 clean build/resource/JAR/generators PASS. PACKAGE-5.md и package5-receipt.json фиксируют точный промежуточный JAR/source. #164 owner binding очищается также при reload/non-custom resource-pack replacement. Вся #87 IN_PROGRESS; далее #173 и семейные адресные KEEP/FIX. PolyMC не менялся.
+
+
+### #87 продолжение — пакет6,21.10.2026
+
+Пакет6 #173 технически проверен:14 art KEEP, flying context FIXED→NONE устраняет унаследованный Y180.420 actual native direction cases,14 A/B source sheets/84 frame cases,28 model/PNG+2 server files byte-identical. Java21 clean build/resource/JAR/generator PASS; PACKAGE-6.md. #1696 KEEP, #1723 inventory/art KEEP (bone_arrow по-прежнему vanilla Arrow в полёте), #1708 KEEP и1 подтверждённый FIX silver_mace (terracotta вместо серебра/отделённые полосы). #170 IN_PROGRESS, готовится отдельный source blueprint. #87 не завершена, PolyMC не менялся.
+
+
+### #87 продолжение — пакет7,21.10.2026
+
+Пакет7 #170: silver_mace FIX реализован по pre-production чертежу;3 старых связных компонента→1, серебристый atlas и4 рёбра вместо terracotta/плавающих полос, front-lit GUI. Все hand/ground/fixed matrices прежние;20 source native cases и0 AFTER idle head candidates.8 остальных art KEEP/чеканы сохранены. Java21 clean build/native/resource/JAR/applicable generator gates PASS; PACKAGE-7.md. #168 final source role contrast после #171/#173 теперь PASS, owner runtime остаётся. #87 продолжается, next #174 (carved/storm имеют одинаковую fork geometry; нужен storm FIX).
+
+
+### #87 продолжение — пакет8,21.10.2026
+
+Пакет8 #174 технически проверен:4 KEEP, storm_staff отдельная connected14-box perunite/crystal оправа вместо duplicate11-box woodenfork. Same hand/ground/fixed,0 shared PNG edits,30 length/gripY10.5 source A/B sheets/100 native cases,head candidates0; Java21 clean build/resource/JAR/historical generator replay PASS. PACKAGE-8.md/receipt8. Далее uniques175–189; все15 fresh descriptions сверены с исходным прочитанным snapshot — изменений0. #87 IN_PROGRESS, PolyMC не менялся.
+
+### Пакет9,22.10.2026
+
+#182 исправлена GUI-пара Тугарина: native-aspect canvas16x16 каждого существующего32px спрайта и боковые exposed edges вместо сжатых7x16 наклонённых плоскостей.1 root JSON,0 PNG edits; original held/PNG/renderer/server pair unchanged. Чертёж/варианты до production, actual A/B GUI/ground/fixed,18 retained native FP source matrices. Java21 clean build + fixtures PASS; resource/JAR/generator replay5617 PASS. PACKAGE-9.md/receipt9 и frozen source evidence. SHA3be53c3613900d75e6e6076a7944370af706cc2dd52196a0b79099e657bf6b8d,23694549 bytes,version53,NOT_INSTALLED. Runtime OWNER_PENDING. Номера uniques сверены:182 Tugarin,183 Nightingale. Начат отдельный пакет10 #163 bow camera timing; crossbow/MP часть163 ещё продолжается. #87 IN_PROGRESS.
+
+### Пакет10,22.10.2026
+
+BowDrawClient исправил FP divisor20→actual12/30 без server/art/ammo edits.606 actual factory power comparisons,120 independent vanilla pose checks,240 native samples и72 source views. Clean build/native/resource/JAR/generators PASS; PACKAGE-10.md. JAR SHA24a49c19a9ba33584c1bd27e482d42d21c35a5271e8514db0b1ae068d02b3d66,23697592 bytes,version53,NOT_INSTALLED. Issue163 IN_PROGRESS с crossbow исполнительским остатком, не Testing. Issue87 IN_PROGRESS, далее180 static art и190 отдельная animation.
+
+### Пакет11,22.10.2026
+
+#180 static art реализован,12 JSON/0PNG. Чертежи до обеих ревизий/старые пробы сохранены. Связная taper23-unit lash, стабильный GUI,наружная левая плоскость.40 native matrices/20 pivots/100 source cases,head idle0. Java21 clean build/resources/JAR/canonical+3 historical+Poloz weapon-only PASS,7730 checks. JAR SHA98858d897f076c29484571832183828b80354410f8a1d4174b674651b6443f3a,23704385 bytes,version53,NOT_INSTALLED. #190 ещё не реализована. #87 IN_PROGRESS; владелец22.10 явно согласовал пакетB, далее применить отдельно. C/D/190 awaiting answers; не считать истечение времени согласием.
+
+### Пакет12,22.10.2026
+
+Owner explicitly approvedB; реализован speed.8 perunite_mace и storm magic6/CD60-54,прежниеmultipliers/targeting/FX. Только4 production files и4 tooltip values; exact source/68 native scopes/native helpers PASS. Java21 clean build/generators/resources/JAR7739 PASS. JAR SHA3ac946aac1d13312902ced82cdc0a0dee562e51a6604197cc96de1b74852385b,23704623 bytes,version53,NOT_INSTALLED. Все158/159/87 IN_PROGRESS, runtime pending. C/D/190 unanswered. Следующий178: GUI кривого посоха Лихо обрезает верх/скрывает глаз; геометрию и хват сохранить, центрировать GUI и показать существующий eye face.
+
+### Пакет13,22.10.2026
+
+#178 GUI crop/eye-facing FIX,форма5cubes/UV/PNG/все nonGUI transforms KEEP. Персональный чертёж до production,20 native source cases,clipTrue→False,eye0→1. Java21 clean build/native/resource/JAR/generators7779 PASS. SHA40398a2db4de52fe7d499a606fb9a14611ab4ec082e557813d4956a9423fa20a,23704670 bytes,version53,NOT_INSTALLED. Далее11 KEEP unique IDs175176177179183184185186187188189: нужны персональные source assessments,actual states/SHA/JAR/body/FP evidence,не новые art edits ради галочки.180/181/182/178 FIX already covered. Full87 continues; C/D/190 pending.

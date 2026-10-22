@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " M ",
+    "MNM",
+    " F "
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:copper_ingot"
+    },
+    "N": {
+      "item": "slavicmyths:noon_ear"
+    },
+    "F": {
+      "item": "slavicmyths:field_bundle"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:harvest_ring",
+    "count": 1
+  }
+}

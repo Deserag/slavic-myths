@@ -1,0 +1,9 @@
+{
+  "ids": 68,
+  "samples": 592,
+  "scythe_after_weapon_pixels_min": 882,
+  "scythe_after_weapon_pixels_max": 2483,
+  "tugarin_real_hand_mesh_present_after": true,
+  "runtime": "NOT_RUN / OWNER_PENDING",
+  "camera": "fixed source FOV70 16:9; not measured live FOV/FPS"
+}

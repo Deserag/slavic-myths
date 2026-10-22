@@ -1,0 +1,94 @@
+{
+  "minecraft:stick": {
+    "recipes": [],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/blocks/apple_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/linden_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/pine_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/rowan_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/blocks/willow_leaves.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/bathhouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_residential.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_remnants.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_supplies.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/fletcher_house.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/village/toolsmith_forge.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:silver_ingot": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/silver_ingot.json",
+        "type": "minecraft:crafting_shaped",
+        "ingredients": {
+          "N": {
+            "item": "slavicmyths:silver_nugget"
+          }
+        },
+        "pattern": [
+          "NNN",
+          "NNN",
+          "NNN"
+        ],
+        "count": 1
+      },
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/silver_ingot_from_ore.json",
+        "type": "minecraft:smelting",
+        "ingredients": {},
+        "pattern": null,
+        "count": 1
+      }
+    ],
+    "loot_tables": [
+      "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_treasury.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/ancient_shrine.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_storehouse.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/chud_workshop.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_cache.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_nightingale.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_hidden.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_ruins.json",
+      "src/main/resources/data/slavicmyths/loot_table/chests/swamp_shrine.json"
+    ],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:silver_nugget": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/silver_nugget.json",
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+          {
+            "item": "slavicmyths:silver_ingot"
+          }
+        ],
+        "pattern": null,
+        "count": 9
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  },
+  "slavicmyths:silver_throwing_knife": {
+    "recipes": [
+      {
+        "path": "src/main/resources/data/slavicmyths/recipe/weapon_silver_throwing_knife_assembly.json",
+        "type": "slavicmyths:armorer_shapeless",
+        "ingredients": [
+          {
+            "item": "slavicmyths:silver_ingot"
+          },
+          {
+            "item": "minecraft:stick"
+          }
+        ],
+        "pattern": null,
+        "count": 1
+      }
+    ],
+    "loot_tables": [],
+    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "src/main/java/org/slavicmyths/client/WeaponHands.java": "d7b269cd397e7de1468645c2e98a90aacae5c57f1a5ee17efd286714ff862c5f",
+  "src/main/java/org/slavicmyths/client/TugarinPairClient.java": "842eec05af599c2bf2f6433478f7ab96dd29cae90e87cc346caa46c677c77b5f",
+  "src/main/java/org/slavicmyths/client/ScytheGrip.java": "4d3d30257f2aa90919c8df08a171ff9938c3dbb1acc5f70c237812572beb001c",
+  "src/main/resources/assets/slavicmyths/models/item/tugarin_sword_held.json": "265a3117a4f8b3941dc3f57cbc8c4bf74b6351dfa754df2226928df48101da8b"
+}

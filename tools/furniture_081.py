@@ -88,8 +88,18 @@ def generate():
   write(A/f'lang/{lang}.json',data)
  write(D/'advancements/black_feather.json',{'parent':'slavicmyths:bad_people','display':{'icon':{'item':'slavicmyths:mysterious_black_feather'},'title':{'translate':'advancement.slavicmyths.black_feather.title'},'description':{'translate':'advancement.slavicmyths.black_feather.description'},'frame':'task','hidden':True,'show_toast':True,'announce_to_chat':False},'criteria':{'found':{'trigger':'minecraft:inventory_changed','conditions':{'items':[{'item':'slavicmyths:mysterious_black_feather'}]}}}})
  write(ROOT/'docs/verification/furniture-0.8.1.json',{'blocks':[n for n,k,w in ids],'items':[n for n,k,w in ids]+['mysterious_black_feather']})
+_legacy_generate_decor108 = generate
+def generate():
+ _legacy_generate_decor108()
+ from decor108_assets import apply
+ apply()
+
 if __name__=='__main__':generate()
 
 # Preserve Kitchen II connections/display after legacy furniture generation.
 import runpy
 runpy.run_path(str(__import__("pathlib").Path(__file__).with_name("kitchen_resources.py")), run_name="__main__")
+
+# Preserve owner-reported decor fixes after this historical pipeline.
+from decor108_assets import apply as apply_decor108
+apply_decor108()

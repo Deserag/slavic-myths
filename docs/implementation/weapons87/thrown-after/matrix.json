@@ -1,0 +1,758 @@
+[
+  {
+    "id": "stone_throwing_knife",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 9.726196e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "stone_throwing_knife",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "stone_throwing_knife",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": -1.4901161e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "stone_throwing_knife",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "stone_throwing_knife",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "stone_throwing_knife",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_throwing_knife",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 9.726196e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_throwing_knife",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_throwing_knife",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": -1.4901161e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_throwing_knife",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_throwing_knife",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_throwing_knife",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 9.726196e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": -1.4901161e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_throwing_knife",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 9.726196e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_throwing_knife",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_throwing_knife",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": -1.4901161e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_throwing_knife",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_throwing_knife",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_throwing_knife",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 9.726196e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": -1.4901161e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 9.726196e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": -1.4901161e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 9.726196e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": -1.4901161e-08,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 1.0,
+    "scale": 0.65,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "stone_sulitsa",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0115244e-07,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "stone_sulitsa",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "stone_sulitsa",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.4901161e-08,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "stone_sulitsa",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "stone_sulitsa",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "stone_sulitsa",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.99999994,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_sulitsa",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0115244e-07,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_sulitsa",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_sulitsa",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.4901161e-08,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_sulitsa",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_sulitsa",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "gold_sulitsa",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.99999994,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_sulitsa",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0115244e-07,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_sulitsa",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_sulitsa",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.4901161e-08,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_sulitsa",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_sulitsa",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "iron_sulitsa",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.99999994,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_sulitsa",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0115244e-07,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_sulitsa",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_sulitsa",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.4901161e-08,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_sulitsa",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_sulitsa",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "silver_sulitsa",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.99999994,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_sulitsa",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0115244e-07,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_sulitsa",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_sulitsa",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.4901161e-08,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_sulitsa",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_sulitsa",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "diamond_sulitsa",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.99999994,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_sulitsa",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0115244e-07,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_sulitsa",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_sulitsa",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.4901161e-08,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_sulitsa",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_sulitsa",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "perunite_sulitsa",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.99999994,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_sulitsa",
+    "after": false,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0115244e-07,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_sulitsa",
+    "after": true,
+    "yaw": 90,
+    "pitch": 0,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_sulitsa",
+    "after": false,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.4901161e-08,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_sulitsa",
+    "after": true,
+    "yaw": 45,
+    "pitch": 35,
+    "direction_dot": 1.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_sulitsa",
+    "after": false,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.0,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  },
+  {
+    "id": "netherite_sulitsa",
+    "after": true,
+    "yaw": 180,
+    "pitch": -45,
+    "direction_dot": 0.99999994,
+    "scale": 1.25,
+    "frame": "fixed span32/camera15,30/source only"
+  }
+]

@@ -154,3 +154,7 @@ print('RC2 native resources regenerated: 3 weapon models, shield transforms, 4 d
 # Preserve the authorised six-family timber art after historical overlays.
 from decor_all_woods import apply as apply_current_timber
 apply_current_timber()
+
+# Preserve owner-reported decor fixes after this historical pipeline.
+from decor108_assets import apply as apply_decor108
+apply_decor108()

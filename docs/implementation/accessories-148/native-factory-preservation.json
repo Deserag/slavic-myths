@@ -1,0 +1,22 @@
+{
+  "BossAccessoryRenderer": {
+    "native_factory_prefix_unchanged": true,
+    "sha256": "faae9ce691ba30c736a9368dda497b4b8b6fdbc98d2a2c97a0c3e0a09d4e27c8",
+    "change": "render attachment/visibility only"
+  },
+  "HuntAccessoryRenderer": {
+    "native_factory_prefix_unchanged": true,
+    "sha256": "d0ba9336b57ea10faba10081b7663ff2563334bf75f9605894950e2427c237ae",
+    "change": "render attachment/visibility only"
+  },
+  "FinistQuiverRenderer": {
+    "native_factory_prefix_unchanged": true,
+    "sha256": "d75385290c5cd73279286d12776bbce090f34bbe1d987c268fd599a2c72b26bf",
+    "change": "render attachment/visibility only"
+  },
+  "MiningGogglesRenderer": {
+    "native_factory_prefix_unchanged": true,
+    "sha256": "6baeb03a08fd8d9eac5b9c436db9cc7361279e838a537bd042f9f11c4f321272",
+    "change": "render attachment/visibility only"
+  }
+}

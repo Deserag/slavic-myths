@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " M ",
+    "MSM",
+    " F "
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:copper_ingot"
+    },
+    "S": {
+      "item": "slavicmyths:pylayuschaya_cheshuya"
+    },
+    "F": {
+      "item": "slavicmyths:ognennoe_pero"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:spark_ring",
+    "count": 1
+  }
+}
