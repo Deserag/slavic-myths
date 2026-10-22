@@ -395,6 +395,134 @@
           "texture": "#dark"
         }
       }
+    },
+    {
+      "from": [
+        5.25,
+        4,
+        7.35
+      ],
+      "to": [
+        6.35,
+        5.55,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "texture": "#bone"
+        },
+        "south": {
+          "texture": "#bone"
+        },
+        "east": {
+          "texture": "#bone"
+        },
+        "west": {
+          "texture": "#bone"
+        },
+        "up": {
+          "texture": "#bone"
+        },
+        "down": {
+          "texture": "#bone"
+        }
+      }
+    },
+    {
+      "from": [
+        9.65,
+        4,
+        7.35
+      ],
+      "to": [
+        10.75,
+        5.55,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "texture": "#bone"
+        },
+        "south": {
+          "texture": "#bone"
+        },
+        "east": {
+          "texture": "#bone"
+        },
+        "west": {
+          "texture": "#bone"
+        },
+        "up": {
+          "texture": "#bone"
+        },
+        "down": {
+          "texture": "#bone"
+        }
+      }
+    },
+    {
+      "from": [
+        7.4,
+        5.2,
+        8.45
+      ],
+      "to": [
+        8.15,
+        8.3,
+        8.68
+      ],
+      "faces": {
+        "north": {
+          "texture": "#silver"
+        },
+        "south": {
+          "texture": "#silver"
+        },
+        "east": {
+          "texture": "#silver"
+        },
+        "west": {
+          "texture": "#silver"
+        },
+        "up": {
+          "texture": "#silver"
+        },
+        "down": {
+          "texture": "#silver"
+        }
+      }
+    },
+    {
+      "from": [
+        7.4,
+        5.2,
+        7.32
+      ],
+      "to": [
+        8.15,
+        8.3,
+        7.55
+      ],
+      "faces": {
+        "north": {
+          "texture": "#silver"
+        },
+        "south": {
+          "texture": "#silver"
+        },
+        "east": {
+          "texture": "#silver"
+        },
+        "west": {
+          "texture": "#silver"
+        },
+        "up": {
+          "texture": "#silver"
+        },
+        "down": {
+          "texture": "#silver"
+        }
+      }
     }
   ],
   "display": {
@@ -448,7 +576,7 @@
         0
       ],
       "translation": [
-        0.0,
+        0,
         1.02606043,
         2.81907786
       ],
@@ -465,7 +593,7 @@
         0
       ],
       "translation": [
-        -0.0,
+        0,
         1.02606043,
         2.81907786
       ],

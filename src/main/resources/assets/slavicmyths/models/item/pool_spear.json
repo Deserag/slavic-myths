@@ -479,6 +479,134 @@
           "texture": "#pearl"
         }
       }
+    },
+    {
+      "from": [
+        6.7,
+        17.7,
+        7.3
+      ],
+      "to": [
+        7.2,
+        20.4,
+        8.7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#edge"
+        },
+        "south": {
+          "texture": "#edge"
+        },
+        "east": {
+          "texture": "#edge"
+        },
+        "west": {
+          "texture": "#edge"
+        },
+        "up": {
+          "texture": "#edge"
+        },
+        "down": {
+          "texture": "#edge"
+        }
+      }
+    },
+    {
+      "from": [
+        8.8,
+        17.7,
+        7.3
+      ],
+      "to": [
+        9.3,
+        20.4,
+        8.7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#edge"
+        },
+        "south": {
+          "texture": "#edge"
+        },
+        "east": {
+          "texture": "#edge"
+        },
+        "west": {
+          "texture": "#edge"
+        },
+        "up": {
+          "texture": "#edge"
+        },
+        "down": {
+          "texture": "#edge"
+        }
+      }
+    },
+    {
+      "from": [
+        7.77,
+        19,
+        8.43
+      ],
+      "to": [
+        8.23,
+        21.4,
+        8.62
+      ],
+      "faces": {
+        "north": {
+          "texture": "#pearl"
+        },
+        "south": {
+          "texture": "#pearl"
+        },
+        "east": {
+          "texture": "#pearl"
+        },
+        "west": {
+          "texture": "#pearl"
+        },
+        "up": {
+          "texture": "#pearl"
+        },
+        "down": {
+          "texture": "#pearl"
+        }
+      }
+    },
+    {
+      "from": [
+        7.77,
+        19,
+        7.38
+      ],
+      "to": [
+        8.23,
+        21.4,
+        7.57
+      ],
+      "faces": {
+        "north": {
+          "texture": "#pearl"
+        },
+        "south": {
+          "texture": "#pearl"
+        },
+        "east": {
+          "texture": "#pearl"
+        },
+        "west": {
+          "texture": "#pearl"
+        },
+        "up": {
+          "texture": "#pearl"
+        },
+        "down": {
+          "texture": "#pearl"
+        }
+      }
     }
   ],
   "display": {
