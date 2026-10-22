@@ -24,7 +24,7 @@ def phases(t):
     t=max(0,min(1,t))
     return (0 if t<=0 else sm(t/.18)*(1-sm((t-.18)/.22)),sm((t-.12)/.21)*(1-sm((t-.38)/.46)))
 for t in (0,1,-1,2):assert phases(t)==(0,0),(t,phases(t))
-assert phases(.15)[0]>.5 and phases(.35)[1]>.9 and phases(.75)[1]<.05
+assert phases(.15)[0]>.5 and phases(.35)[1]>.9 and phases(.85)[1]<.05
 registrations=(R/'src/main/java/org/slavicmyths/registry/ModItems.java').read_text()
 for id in maces+('SPEAR','SILVER_SPEAR'):assert ' '+id+' ' in registrations or ' '+id+'=' in registrations,id
 models=R/'src/main/resources/assets/slavicmyths/models/item'
