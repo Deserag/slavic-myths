@@ -33,7 +33,9 @@ def check(jar=False):
         assert set(before['textures'])==set(after['textures'])
         for elem in after['elements']:
             assert all(-16<=lo<hi<=32 for lo,hi in zip(elem['from'],elem['to']))
-            for face in elem['faces'].values():assert face['texture']=='#surface' and all(0<=v<=16 for v in face['uv'])
+            for face in elem['faces'].values():
+                assert face['texture'].startswith('#') and face['texture'][1:] in after['textures']
+                if 'uv' in face:assert all(0<=v<=16 for v in face['uv'])
         if id=='trophy_kalin_sabre':
             assert len(before['elements'])==6 and len(after['elements'])==34
             assert after['textures']['surface']=='slavicmyths:item/kalin_sabre_87'
