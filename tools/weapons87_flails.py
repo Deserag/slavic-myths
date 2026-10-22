@@ -141,6 +141,8 @@ def main(apply=None):
   crossbow87()
   from weapons87_p42_models import apply as p42_models
   p42_models()
+  from weapons87_p43_overlay import apply as p43_models
+  p43_models()
  if not args.apply:write(D/'plans.json',plans)
  print(('APPLIED' if args.apply else 'DRAFT ONLY'),len(owned),'assets; 8 per-ID sheets; no gameplay changes')
 if __name__=='__main__':main()
