@@ -137,6 +137,8 @@ def main(apply=None):
   likho_gui87()
   from weapons87_unique_art import apply as unique_art87
   unique_art87()
+  from weapons87_crossbow_grips import apply as crossbow87
+  crossbow87()
  if not args.apply:write(D/'plans.json',plans)
  print(('APPLIED' if args.apply else 'DRAFT ONLY'),len(owned),'assets; 8 per-ID sheets; no gameplay changes')
 if __name__=='__main__':main()
